@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "DataChartTypeRangeSeries", 
+    "sharedFiles": ["DataChartSharedComponent.tsx", "DataChartSharedStyles.css", "SampleRangeData.tsx"]
+}
+        

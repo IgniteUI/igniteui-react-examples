@@ -1,0 +1,8 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-maps",
+    "igniteui-react-charts"],       
+    "sampleName": "MapSynchronization", 
+    "sharedFiles": ["GeoMapSharedStyles.css", "MapUtils.ts"]
+}
+        

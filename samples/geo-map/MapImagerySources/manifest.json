@@ -1,0 +1,8 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-maps",
+    "igniteui-react-charts"],       
+    "sampleName": "MapImagerySources", 
+    "sharedFiles": ["EsriUtility.ts", "GeoMapSharedStyles.css", "MapUtils.ts"]
+}
+        

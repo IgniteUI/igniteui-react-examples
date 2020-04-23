@@ -1,0 +1,33 @@
+.LegendItem {
+    /* height: 12px; */
+    /* width: 10px; */
+    /* background: rgb(5, 91, 219); */
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 0px;
+    /* border-radius: 3px; */
+    text-decoration: none;
+}
+
+.LegendItemMap {
+    height: 12px;
+    width: 12px;
+    background: rgb(35, 36, 36);
+    background: rgb(5, 91, 219);
+    display: inline-block;
+    /* margin-left: 2px; */
+    /* margin-top: 2px; */
+    margin-top: 1px;
+    border-radius: 3px;
+}
+
+.LegendItemLabel {
+    /* background: rgb(97, 241, 186); */
+    /* width: 115px; */
+    display: inline-block;
+    /* vertical-align: text-top; */
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 10px;
+}

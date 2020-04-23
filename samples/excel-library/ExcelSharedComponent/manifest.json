@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": undefined,       
+    "sampleName": "ExcelSharedComponent", 
+    "sharedFiles": ["ExcelSharedComponent.tsx"]
+}
+        

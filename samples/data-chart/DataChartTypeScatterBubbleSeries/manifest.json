@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "DataChartTypeScatterBubbleSeries", 
+    "sharedFiles": ["DataChartSharedStyles.css", "SampleScatterStats.tsx"]
+}
+        

@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "FinancialChartTitles", 
+    "sharedFiles": ["DataUtils.ts", "FinancialChartSharedComponent.tsx", "FinancialChartSharedStyles.css", "StocksHistory.tsx"]
+}
+        

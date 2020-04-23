@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-gauges"],       
+    "sampleName": "RadialGaugeScale", 
+    "sharedFiles": ["RadialGaugeSharedComponent.tsx", "RadialGaugeSharedStyles.css"]
+}
+        

@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-gauges"],       
+    "sampleName": "BulletGraphTypeVertical", 
+    "sharedFiles": ["BulletGraphSharedStyles.css"]
+}
+        

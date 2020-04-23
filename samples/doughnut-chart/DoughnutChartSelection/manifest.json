@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "DoughnutChartSelection", 
+    "sharedFiles": ["DoughnutChartSharedComponent.tsx", "DoughnutChartSharedStyles.css"]
+}
+        

@@ -1,0 +1,8 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-maps",
+    "igniteui-react-charts"],       
+    "sampleName": "MapCustomTooltips", 
+    "sharedFiles": ["GeoMapSharedStyles.css", "WorldUtils.ts"]
+}
+        

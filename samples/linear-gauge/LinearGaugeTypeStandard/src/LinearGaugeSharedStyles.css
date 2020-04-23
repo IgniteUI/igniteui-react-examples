@@ -1,0 +1,117 @@
+/* styles shared between all LinearGauge samples */
+
+.sampleFlexRows {
+    background: white;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
+    margin: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.sampleFlexColumns {
+    background: white;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
+    margin: 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 5px;
+    height: 25px;
+    /* font: "11px 'Titillium Web', sans-serif" */
+}
+
+.options {
+    /* background: red; */
+    margin: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width:100%;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: aktiv-grotesk,sans-serif;
+    color: #585858;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    display: block;
+}
+
+.box {
+    height: 25px;
+    width: 25px;
+    background: #cf0000;
+    background: #10b401;
+    background: #45ec03;
+    background: #97f397;
+
+    background: #008000;
+    background: #10b401;
+    background: #45ec03;
+    background: #97f397;
+
+    background: #cf0000;
+    background: #ff0000;
+    background: #fd3939;
+    background: #f88989;
+
+    background: #e29b03;
+    background: #fdb417;
+    background: #fdc957;
+    background: #f7d58b;
+
+    background: #008000;
+    background: #10b401;
+    background: #45ec03;
+    background: #2efa2e;
+
+    background: #0373e2;
+    background: #1e90ff;
+    background: #3696f7;
+    background: #57a9fa;
+
+    background: dodgerblue;
+    background: #494949;
+    background: #cacaca;
+
+    background: #f77b7b;
+    background: #fa5757;
+    background: #ff0000;
+    background: #c70101;
+    background: #ff9900;
+    background: #48ff00;
+
+    background: #ff0000;
+    background: #ffbb00;
+    background: #ffe600;
+    background: #fac227;
+    background: #00ff80;
+    background: #00ffff;
+    background: #00aeff;
+    background: #0084ff;
+    background: #0004ff;
+    background: #a200ff;
+    background: #f700ff;
+    background: #ff0000;
+    background: #ff0000;
+    background: #ff0000;
+
+    /* font: "11px 'Titillium Web', sans-serif" */
+}

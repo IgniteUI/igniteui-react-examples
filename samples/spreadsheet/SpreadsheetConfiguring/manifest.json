@@ -1,0 +1,8 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-spreadsheet",
+    "igniteui-react-excel"],       
+    "sampleName": "SpreadsheetConfiguring", 
+    "sharedFiles": ["DataUtils.ts", "ExcelUtility.tsx", "SpreadsheetSharedStyles.css"]
+}
+        

@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "DataChartTypeStacked100SplineAreaSeries", 
+    "sharedFiles": ["DataChartSharedComponent.tsx", "DataChartSharedStyles.css"]
+}
+        

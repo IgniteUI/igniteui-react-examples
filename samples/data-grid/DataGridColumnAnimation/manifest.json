@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-grids"],       
+    "sampleName": "DataGridColumnAnimation", 
+    "sharedFiles": ["DataGridSharedData.tsx", "DataGridSharedStyles.css", "DataUtils.ts"]
+}
+        

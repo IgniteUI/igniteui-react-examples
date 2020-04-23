@@ -1,0 +1,243 @@
+/* these styles are shared between CC samples */
+
+.igFlex {
+    background: #aad3df;
+}
+
+.sampleRoot {
+    /* background: rgb(202, 202, 202);  */
+    background-color: #aad3df;
+    height: calc(100% - 0px);
+    width: calc(100% - 0px);
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+
+.sampleColumns {
+    background: white;
+    height: calc(100% - 0px);
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    display: grid;
+    grid-gap: 2px;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.map {
+    /* background: rgb(202, 202, 202); */
+    position: relative;
+    height: calc(100% - 0px);
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    overflow-y: hidden;
+}
+
+.options {
+    /* background: rgba(194, 194, 194, 0.603);
+    background: rgb(32, 146, 252);
+    background: rgb(2, 102, 196);
+    background: rgb(14, 194, 14);
+    background: rgb(252, 32, 32);
+    background: rgb(252, 120, 32);
+    background: rgb(252, 248, 32);
+    background: rgb(112, 112, 111);  */
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: aktiv-grotesk,sans-serif;
+    display: inline-block;
+    color: #585858;
+}
+
+.optionItem {
+    margin-left: 10px;
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    display: inline-block;
+    vertical-align: center;
+}
+
+.optionLabel {
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    /* font-size: 11pt; */
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    /* vertical-align: top; */
+    vertical-align: center;
+    padding: 0px;
+    display: inline-block;
+    /* background: orange; */
+}
+
+.optionValue {
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    /* font-size: 11pt; */
+    display: inline-block;
+    /* vertical-align: top; */
+    width: 40px;
+    padding: 0px;
+    /* background-color: lime; */
+}
+
+.slider {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 20px;
+    vertical-align: bottom;
+    padding-top: 0px;
+    width: 60px;
+    display: inline-block;
+}
+
+.button {
+    vertical-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+select {
+    font-size: 11pt;
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    vertical-align: center;
+    padding: 4px;
+    display: inline-block;
+    /* background: green; */
+}
+
+.legend {
+    width: 100%;
+    font-size: 11pt;
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.legendCenter {
+    width: auto;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding: 0px;
+    display: inline-block;
+    vertical-align: center;
+}
+
+.legendInline {
+    width: auto;
+    /* font-size: 11pt; */
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    margin-top: 8px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding: 0px;
+    display: inline-block;
+    vertical-align: top;
+    /* vertical-align: center; */
+    /* background: red; */
+}
+
+.legendTitle {
+    margin-top: 13px;
+    margin-left: 20px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding: 0px;
+    /* font-size: 11pt; */
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    /* vertical-align: top; */
+    vertical-align: center;
+    display: inline-block;
+    /* background: orange; */
+}
+
+/* tooltip styles */
+
+.tooltipBox {
+    font-size: 10pt;
+    font-weight: normal;
+    color: "Black";
+}
+
+.tooltipTitle {
+    display: block;
+    color: "Black";
+    font-weight: bold;
+    font-size: 10pt;
+    margin-left: 0px;
+}
+
+.tooltipTable {
+    display: table;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    border-spacing: 5px;
+    font-size: 10pt;
+}
+
+.tooltipRow {
+    display: table-row;
+}
+
+.tooltipVal {
+    display: table-cell;
+    text-align: "right";
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.tooltipLbl {
+    display: table-cell;
+    text-align: "left";
+}
+
+.tooltipFlagImage {
+    display: inline-block;
+    object-fit: fill;
+    height: 50px;
+    width: 70px;
+}
+
+.tooltipFlagBoarder {
+    display: inline-block;
+    padding: 0px;
+    border-width: 0.5;
+    border-color: rgb(177, 177, 177);
+    border-style: solid;
+    height: 50px;
+    width: 70px;
+}

@@ -1,0 +1,8 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-maps",
+    "igniteui-react-charts"],       
+    "sampleName": "MapTypeScatterBubbleSeries", 
+    "sharedFiles": ["GeoMapSharedStyles.css", "WorldLocations.ts", "WorldUtils.ts"]
+}
+        

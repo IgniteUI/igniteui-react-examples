@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-grids"],       
+    "sampleName": "DataGridTypePeriodicTable", 
+    "sharedFiles": ["DataGridSharedStyles.css"]
+}
+        

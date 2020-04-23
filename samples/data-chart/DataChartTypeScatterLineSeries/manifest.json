@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "DataChartTypeScatterLineSeries", 
+    "sharedFiles": ["DataChartSharedStyles.css", "SampleScatterStats.tsx"]
+}
+        

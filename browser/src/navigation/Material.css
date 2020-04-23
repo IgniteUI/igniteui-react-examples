@@ -1,0 +1,21 @@
+.MuiButton-containedPrimary {
+    color: #fff;
+    background-color: dodgerblue;
+}
+
+.MuiPaper-root, MuiPaper-elevation8, MuiPopover-paper, MuiPaper-rounded {
+    /* MuiPaper-elevation8 MuiPopover-paper MuiPaper-rounded { */
+    background-color: green;
+}
+
+.MuiInputBase-input {
+
+    padding: 0px;
+    color: white;
+}
+
+/*
+border-color: red;
+border-style: solid;
+border-radius: 10px;
+padding: 0px; */

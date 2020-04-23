@@ -1,0 +1,8 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-maps",
+    "igniteui-react-charts"],       
+    "sampleName": "MapNavigation", 
+    "sharedFiles": ["EsriUtility.ts", "GeoMapPanel.css", "GeoMapSharedStyles.css", "MapUtils.ts"]
+}
+        

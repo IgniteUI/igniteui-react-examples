@@ -1,0 +1,8 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-maps",
+    "igniteui-react-charts"],       
+    "sampleName": "MapDisplayImageryHeatTiles", 
+    "sharedFiles": ["DataUtils.ts", "GeoMapSharedStyles.css", "heatworker.worker.ts"]
+}
+        

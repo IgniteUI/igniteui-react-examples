@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "TreeMapOverview", 
+    "sharedFiles": ["TreeMapSharedStyles.css", "WorldPopData.tsx"]
+}
+        

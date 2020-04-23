@@ -1,0 +1,91 @@
+/* styles shared between all RadialGauge samples */
+/* #root,html,body,main {
+    height: 100%;
+    width: 100%;
+} */
+
+.sampleFlexRows {
+    background: white;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
+    margin: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.sampleFlexColumns {
+    background: white;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
+    margin: 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sampleOverlays {
+    background: white;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
+    margin: 0px;
+    overflow: hidden;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    position: relative
+}
+
+.sampleOverlayItem {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+
+.button {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 5px;
+    height: 25px;
+    /* font: "11px 'Titillium Web', sans-serif" */
+}
+
+.options {
+    /* background: red; */
+    margin: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width:100%;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: aktiv-grotesk,sans-serif;
+    color: #585858;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centerTitle {
+    display: block;
+    position: absolute;
+    font-size: 3rem;
+    /* height: 100%; */
+    /* vertical-align: middle; */
+    /* display: block; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

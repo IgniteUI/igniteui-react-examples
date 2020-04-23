@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "CategoryChartMarkers", 
+    "sharedFiles": ["CategoryChartSharedComponent.tsx", "CategoryChartSharedStyles.css"]
+}
+        

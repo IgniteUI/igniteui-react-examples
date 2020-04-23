@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "DoughnutChartLegend", 
+    "sharedFiles": ["DoughnutChartSharedComponent.tsx", "DoughnutChartSharedStyles.css"]
+}
+        

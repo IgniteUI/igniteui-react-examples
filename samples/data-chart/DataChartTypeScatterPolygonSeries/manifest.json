@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "DataChartTypeScatterPolygonSeries", 
+    "sharedFiles": ["DataChartSharedStyles.css", "SampleShapeData.tsx"]
+}
+        

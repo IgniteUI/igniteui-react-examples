@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "DataChartSeriesTooltips", 
+    "sharedFiles": ["DataChartSharedComponent.tsx", "DataChartSharedStyles.css"]
+}
+        

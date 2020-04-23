@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-charts"],       
+    "sampleName": "DataChartAxisLocations", 
+    "sharedFiles": ["DataChartSharedStyles.css"]
+}
+        

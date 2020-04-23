@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-grids"],       
+    "sampleName": "DataGridSharedData", 
+    "sharedFiles": []
+}
+        

@@ -1,0 +1,38 @@
+
+.SourceLabel {
+    display: block;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 10px;
+    font-family: Lato, Helvetica, sans-serif;
+    color: #2c2c2c;
+    background: #f0f1f100;
+}
+
+.SourceStyle {
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 10px;
+    font-family: Lato, Helvetica, sans-serif;
+    color: #2c2c2c;
+    background: #f0f1f100;
+    pointer-events: auto;
+}
+
+.SourceStyle a {
+    color: #1362f5 !important;
+    background: #f0f1f100 !important;
+    pointer-events: auto;
+}
+
+.SourceStyle a:hover {
+    /* color: #134ff5; */
+    color: #2c2c2c !important;
+    background: #f0f1f100 !important;
+    pointer-events: auto;
+}

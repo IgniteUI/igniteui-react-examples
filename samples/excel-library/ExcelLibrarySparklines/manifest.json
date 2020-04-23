@@ -1,0 +1,7 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-grids"],       
+    "sampleName": "ExcelLibrarySparklines", 
+    "sharedFiles": ["ExcelSharedComponent.tsx", "ExcelSharedData.tsx", "ExcelSharedStyles.css", "ExcelUtility.tsx"]
+}
+        

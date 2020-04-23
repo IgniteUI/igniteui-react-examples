@@ -1,0 +1,164 @@
+/* these styles are shared between CC samples */
+
+.sample {
+    /* background: rgb(202, 202, 202);  */
+    height: calc(100% - 5px);
+    width: calc(100% - 5px);
+    margin: 0px;
+    padding: 0px;
+}
+
+.chart {
+    /* background: rgb(202, 202, 202); */
+    /* height: 100%; */
+    height: calc(100% - 15px);
+    width: calc(100% - 25px);
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.options {
+    /* background: red; */
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 100%;
+    font-size: 0.75rem;
+    font-weight: 300;
+    font-family: aktiv-grotesk,sans-serif;
+    display: inline-block;
+    color: #585858;
+}
+
+.optionItem {
+    margin-left: 10px;
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    display: inline-block;
+    vertical-align: center;
+}
+
+.optionLabel {
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    /* font-size: 11pt; */
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    /* vertical-align: top; */
+    vertical-align: center;
+    padding: 0px;
+    display: inline-block;
+    /* background: orange; */
+}
+
+.optionValue {
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    /* font-size: 11pt; */
+    display: inline-block;
+    /* vertical-align: top; */
+    width: 40px;
+    padding: 0px;
+    /* background-color: lime; */
+}
+
+.slider {
+    /* margin-top: 10px; */
+    /* margin-bottom: -10px; */
+    margin-left: 5px;
+    margin-right: 20px;
+    vertical-align: bottom;
+    padding-top: 0px;
+    width: 120px;
+    display: inline-block;
+}
+
+.button {
+    vertical-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+select {
+    font-size: 0.75rem;
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    vertical-align: center;
+    padding: 4px;
+    display: inline-block;
+    /* background: green; */
+}
+
+.legend {
+    --legend-item-overflow: hidden;
+    width: 100%;
+    font-size: 11pt;
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.legendCenter {
+    --legend-item-overflow: hidden;
+    width: auto;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding: 0px;
+    display: inline-block;
+    vertical-align: center;
+}
+
+.legendInline {
+    --legend-item-overflow: hidden;
+
+    width: auto;
+    /* font-size: 11pt; */
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    /* margin-top: 8px; */
+    /* margin-bottom: 5px; */
+    margin-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding: 0px;
+    display: inline-block;
+    vertical-align: middle;
+    /* vertical-align: center; */
+    /* background: red; */
+}
+
+.legendTitle {
+    /* margin-top: 13px;
+    margin-left: 20px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px; */
+    padding: 0px;
+    margin: 0px;
+    margin-top: 3px;
+    margin-left: 10px;
+    /* font-size: 11pt; */
+    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
+    /* vertical-align: top; */
+    vertical-align: middle;
+    display: inline-block;
+    /* background: orange; */
+}

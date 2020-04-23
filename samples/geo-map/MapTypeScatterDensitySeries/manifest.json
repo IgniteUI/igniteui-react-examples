@@ -1,0 +1,8 @@
+
+{     
+    "additionalDependencies": ["igniteui-react-maps",
+    "igniteui-react-charts"],       
+    "sampleName": "MapTypeScatterDensitySeries", 
+    "sharedFiles": ["DataUtils.ts", "GeoMapSharedStyles.css", "WorldUtils.ts"]
+}
+        
