@@ -90,7 +90,7 @@ function pack() {
 }
 exports.pack = pack;
 
-// * Cross sample statis specific Copy Template Files
+// * Cross sample static specific Copy Template Files
 function getTemplates() {
     return gulp.src(templates + './**/*')
         .pipe(es.map(function(file, cb) {
@@ -317,13 +317,13 @@ function scripts(cb) {
         let packageString = `"igniteui-react-core":` + packageVersion + `,
         `;
 
-        let allPackges;
+        let allPackages;
         // Add Additional Dependencies
         dependencies = dependencies.replace("@@AdditionalDependencies", "");
         for (let i = 0; i< packageNames.length; i++) {
             packageString += `${packageNames[i]}` + dependencies + `:` + packageVersion +`,
             `;
-            allPackges = `[` + `${dependencyNames[i]}`  + dependencies + `]`;
+            allPackages = `[` + `${dependencyNames[i]}`  + dependencies + `]`;
 
         }
         // Parse template files. Update build flags
@@ -340,7 +340,7 @@ function scripts(cb) {
 
         // Update manifest
         let currTemplate = m;
-        let updateManifest = currTemplate.replace("\"@@AdditionalDependencies\"", allPackges)
+        let updateManifest = currTemplate.replace("\"@@AdditionalDependencies\"", allPackages)
                                          .replace("\"@@SharedFiles\"", sharedFiles);
         fs.writeFileSync(file.dirname + "/" + "manifest.json", updateManifest);
         cb2();

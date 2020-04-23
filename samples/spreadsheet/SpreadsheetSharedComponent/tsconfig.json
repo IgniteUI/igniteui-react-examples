@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    // for json files:
+
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    // for json files:
+
     "baseUrl": ".",
     "outDir": "build/dist",
     "module": "esnext",

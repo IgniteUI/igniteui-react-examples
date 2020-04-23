@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
-    // for json files:
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    // for json files:
     "baseUrl": ".",
     "outDir": "build/dist",
     "module": "esnext",
@@ -33,6 +31,7 @@
     "src/setupTests.ts",
     "**/odatajs-4.0.0.js",
     "config-overrides.js",
+    "./gulpfile*.js",
     "./samples/*",
     "./templates-sample-browser/*",
     "./templates-samples/*",
