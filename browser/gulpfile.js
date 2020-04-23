@@ -9,7 +9,7 @@ const es = require('event-stream');
 const shell = require('gulp-shell');
 let replace = require('gulp-replace');
 let contains = require('gulp-contains');
- 
+
 // package version
 let packageVersion = '"^16.11.7"';
 //additional dependencies
@@ -22,7 +22,7 @@ let templatesSampleBrowser = './templates-sample-browser/';
 let templateFiles = [];
 let templateSharedFiles = [];
 
-// **delete root** 
+// **delete root**
 function clean(cb) {
     del.sync("./github/**/*.*", {force:true});
     del.sync("./github");
@@ -53,16 +53,16 @@ function pack() {
         path.dirname += "/" + path.basename;
     }))
     .pipe(gulp.dest('./github/'))
-    
+
     // CreateManifest file
     .pipe(es.map(function(file, cb) {
         let manifest = `
-{     
-    "additionalDependencies": "@@AdditionalDependencies",       
-    "sampleName": "${file.basename.replace('.tsx', '')}", 
+{
+    "additionalDependencies": "@@AdditionalDependencies",
+    "sampleName": "${file.basename.replace('.tsx', '')}",
     "sharedFiles": "@@SharedFiles"
 }
-        `;       
+        `;
         fs.writeFileSync(file.dirname + "/manifest.json", manifest);
         cb(null, file);
     }))
@@ -71,19 +71,19 @@ function pack() {
         let getResources = path.join(file.dirname, "../");
         let original = path.basename(getResources);
         let config = `
-# View on CodeSandbox 
-[Run this sample in CodeSandbox](https://codesandbox.io/embed/github/IgniteUI/testStackblitz/tree/master/github/${original + "/" + file.basename.replace('.tsx','')}?fontsize=14&hidenavigation=1&theme=dark&view=preview)                        
-        
-# View on CodeSandbox with Editor
-            
+# View on CodeSandbox
+[Run this sample in CodeSandbox](https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/${original + "/" + file.basename.replace('.tsx','')}?fontsize=14&hidenavigation=1&theme=dark&view=preview)
+
+# Edit on CodeSandbox
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-    <body>           
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/testStackblitz/tree/master/github/${original + "/" + file.basename.replace('.tsx','')}?fontsize=14&hidenavigation=1&theme=dark&view=preview">
-            <img alt="Edit fbusv" src="https://codesandbox.io/static/img/play-codesandbox.svg"/>
+    <body>
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/${original + "/" + file.basename.replace('.tsx','')}?fontsize=14&hidenavigation=1&theme=dark&view=preview">
+            <img alt="Edit Sample" src="https://codesandbox.io/static/img/play-codesandbox.svg"/>
         </a>
     </body>
 </html>
-        `;       
+        `;
         fs.writeFileSync(file.dirname + "/README.md", config);
         cb(null, file);
     }))
@@ -93,13 +93,13 @@ exports.pack = pack;
 // * Cross sample statis specific Copy Template Files
 function getTemplates() {
     return gulp.src(templates + './**/*')
-        .pipe(es.map(function(file, cb) {           
+        .pipe(es.map(function(file, cb) {
             let t = path.relative(templates, file.path);
             let stat = fs.lstatSync(file.path);
                 if(!stat.isDirectory()) {
                     let f = fs.readFileSync(file.path);
                     templateFiles.push({name: t, content: f.toString()});
-                } 
+                }
             cb();
     }));
 }
@@ -108,13 +108,13 @@ exports.getTemplates = getTemplates;
 //Get SharedTemplate Files
 function getSharedFiles() {
     return gulp.src(templatesShared + './*')
-        .pipe(es.map(function(file, cb) {                       
+        .pipe(es.map(function(file, cb) {
             let t = path.relative(templatesShared, file.path);
-            let stat = fs.lstatSync(file.path);            
+            let stat = fs.lstatSync(file.path);
             if(!stat.isDirectory()) {
-                let f = fs.readFileSync(file.path);               
+                let f = fs.readFileSync(file.path);
                 templateSharedFiles.push({name: t, content: f.toString()});
-            } 
+            }
             cb();
     }));
 }
@@ -137,7 +137,7 @@ let packageMap = [
     { name: "FinancialChart", package: `"igniteui-react-charts"`},
     // Check if Chart is used
     { name: "Map", package: `"igniteui-react-maps"`+ `:` + packageVersion + `,
-    ` + `"igniteui-react-charts"`},   
+    ` + `"igniteui-react-charts"`},
     { name: "LinearGauge", package: `"igniteui-react-gauges"`},
     { name: "PieChart", package: `"igniteui-react-charts"`},
     { name: "RadialGauge", package: `"igniteui-react-gauges"`},
@@ -145,7 +145,7 @@ let packageMap = [
     { name: "SparklineGrid", package: `"igniteui-react-grids"`},
     // Check if Excel, Chart Adapter is used
     { name: "Spreadsheet", package: `"igniteui-react-spreadsheet"` + `:` + packageVersion + `,
-    ` + `"igniteui-react-excel"`},   
+    ` + `"igniteui-react-excel"`},
     { name: "SpreadsheetAdapter", package: `"igniteui-react-spreadsheet-chart-adapter"`},
     { name: "TreeMap", package: `"igniteui-react-charts"`},
     { name: "ZoomSlider", package: `"igniteui-react-charts"`},
@@ -166,7 +166,7 @@ let dependencyMap = [
     { name: "FinancialChart", package: `"igniteui-react-charts"`},
     // Check if Chart is used
     { name: "Map", package: `"igniteui-react-maps"` + `,
-    ` + `"igniteui-react-charts"`},   
+    ` + `"igniteui-react-charts"`},
     { name: "LinearGauge", package: `"igniteui-react-gauges"`},
     { name: "PieChart", package: `"igniteui-react-charts"`},
     { name: "RadialGauge", package: `"igniteui-react-gauges"`},
@@ -174,9 +174,9 @@ let dependencyMap = [
     { name: "SparklineGrid", package: `igniteui-react-grids`},
     // Check if Excel, Chart Adapter is used
     { name: "Spreadsheet", package: `"igniteui-react-spreadsheet"` + `,
-    ` + `"igniteui-react-excel"`},   
+    ` + `"igniteui-react-excel"`},
     { name: "SpreadsheetAdapter", package: `"igniteui-react-spreadsheet-chart-adapter"`+ `,
-    ` + `"igniteui-react-excel"`},   
+    ` + `"igniteui-react-excel"`},
     { name: "TreeMap", package: `"igniteui-react-charts"`},
     { name: "ZoomSlider", package: `"igniteui-react-charts"`},
 ]
@@ -235,17 +235,17 @@ function getSharedComponent(additionalComponent, fileName) {
     return css;
 }
 
-// * Parse sample folders with templates. 
-// Read manifest file and update files respectfully. 
+// * Parse sample folders with templates.
+// Read manifest file and update files respectfully.
 // Move sample file into src folder
 function scripts(cb) {
-    gulp.src(scriptsPath + "**/manifest.json")  
+    gulp.src(scriptsPath + "**/manifest.json")
     .pipe(es.map(function(file, cb2) {
         let manifestContent = fs.readFileSync(file.path);
         let m = manifestContent.toString();
         let manifest = JSON.parse(manifestContent.toString());
         let sampleName = manifest.sampleName;
-        let dependencies = manifest.additionalDependencies;        
+        let dependencies = manifest.additionalDependencies;
         let sharedFiles = manifest.sharedFiles;
 
         // Move Sample file to src folder
@@ -255,28 +255,28 @@ function scripts(cb) {
 
         //Discover imports / iterate templates shared files
         if(fs.existsSync(sampleFile)) {
-            
+
             let f = fs.readFileSync(sampleFile);
 
             let readFile = f.toString();
-            sharedFiles = `[`;  
-            
+            sharedFiles = `[`;
+
             let isFirst = true;
             //console.log(templateSharedFiles);
             for(let i = 0; i < templateSharedFiles.length; i++)
-            { 
+            {
                 let fileName = path.parse(templateSharedFiles[i].name).name;
-               
+
                 if(readFile.includes(fileName))
-                {        
+                {
                     if(isFirst === true) {
-                        sharedFiles += `"${templateSharedFiles[i].name}"`;    
-                    }                            
-                    else {
-                        sharedFiles += `, "${templateSharedFiles[i].name}"`;   
+                        sharedFiles += `"${templateSharedFiles[i].name}"`;
                     }
-                    isFirst = false;   
-                    
+                    else {
+                        sharedFiles += `, "${templateSharedFiles[i].name}"`;
+                    }
+                    isFirst = false;
+
                     //gulp copy
                     gulp.src("./templates-shared/" + templateSharedFiles[i].name)
                     .pipe(gulp.dest(file.dirname + "/src"));
@@ -291,10 +291,10 @@ function scripts(cb) {
             if(isStylesCssContent === true) {
                 gulp.src("./src/samples/styles.css")
                 .pipe(gulp.dest(file.dirname))
-            }            
-        
+            }
+
             // move and delete sample
-            gulp.src(sampleFile)            
+            gulp.src(sampleFile)
             .pipe(replace("./pager/", "./"))
             .pipe(replace("../tree-map/", "./"))
             .pipe(replace("../data-chart/", "./"))
@@ -305,18 +305,18 @@ function scripts(cb) {
             .pipe(replace('../../', './'))
             .pipe(gulp.dest(sampleDest))
             .on('end', function() {
-                del(sampleFile);            
+                del(sampleFile);
             });
         }
-        
-        
+
+
 
         // Add Common Dependency
         let packageNames = getPackageNames(dependencies, sampleName);
         let dependencyNames = getDependencyNames(dependencies, sampleName);
         let packageString = `"igniteui-react-core":` + packageVersion + `,
         `;
-  
+
         let allPackges;
         // Add Additional Dependencies
         dependencies = dependencies.replace("@@AdditionalDependencies", "");
@@ -324,11 +324,11 @@ function scripts(cb) {
             packageString += `${packageNames[i]}` + dependencies + `:` + packageVersion +`,
             `;
             allPackges = `[` + `${dependencyNames[i]}`  + dependencies + `]`;
-           
-        }       
+
+        }
         // Parse template files. Update build flags
         for (let i = 0; i < templateFiles.length; i++) {
-            
+
             let currTemplate = templateFiles[i];
             let newContent = currTemplate.content.replace(/@@SampleName/gm, sampleName);
             newContent = newContent.replace(/@@Dependencies/gm, packageString);
@@ -339,9 +339,9 @@ function scripts(cb) {
         }
 
         // Update manifest
-        let currTemplate = m;         
+        let currTemplate = m;
         let updateManifest = currTemplate.replace("\"@@AdditionalDependencies\"", allPackges)
-                                         .replace("\"@@SharedFiles\"", sharedFiles);         
+                                         .replace("\"@@SharedFiles\"", sharedFiles);
         fs.writeFileSync(file.dirname + "/" + "manifest.json", updateManifest);
         cb2();
     }));
@@ -357,6 +357,6 @@ function scriptSharedComponent(cb){}
 exports.scripts = gulp.series(getTemplates, scripts);
 exports.default = gulp.series(pack, scripts);
 exports.all = gulp.series(pack,
-     getTemplates,   
-     getSharedFiles,  
+     getTemplates,
+     getSharedFiles,
      scripts);
