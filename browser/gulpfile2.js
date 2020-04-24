@@ -18,6 +18,8 @@ var addDependencies = [];
 var scriptsPath = './github-react-samples/';
 var templates = './templates-samples-browser/';
 var templateFiles = [];
+// components path
+let componentsPath = '../samples/';
 
 //**delete root** 
 function clean(cb) {
@@ -74,14 +76,54 @@ exports.getConfigTemplates = getConfigTemplates;
 //TODO
 //Create the TOC
 ///read file structure 
+
+//gulp recipe 
+
+
+//Task #1
+function getSamplesStructure(dir) {
+
+    let componentsArray = [];
+    let samplesArray = [];
+    let srcFiles = [];
+    let publicFiles = [];
+
+    return fs.readdirSync(dir).map(componentName => {
+        var componentPath = path.join(dir, componentName);
+        componentsArray = componentsPath;
+        return fs.readdirSync(componentPath).map(sampleName => {
+            var samplePath = path.join(componentPath, sampleName);
+            samplesArray = samplePath;
+            //read src folder
+            fs.readdirSync(samplePath + "\\src").map(sampleFile => {
+                var srcPath = path.join(samplePath, samplePath + "\\src\\" + sampleFile);
+                srcFiles = srcPath;               
+                return srcPath;
+              }) 
+
+            //read public folder
+            fs.readdirSync(samplePath + "\\public").map(sampleFile => {
+                var publicPath = path.join(samplePath, samplePath + "\\public\\" + sampleFile);
+                publicFiles = publicPath;
+                return publicPath;
+              }) 
+          }) 
+      })
+}
+
+// function getSampleFolders(componentFolder){
+//     gulp.src(componentFolder + "/*")
+// }
 function getComponentFolders() {
-    return gulp.src(templates + './github/*')  
+    return gulp.src(componentsPath)
+        .pipe(es.map(function(file, cb) {
+            getSamplesStructure(componentsPath);
+    }));
 }
 
-function getSampleFolders(componentFolder){
-    gulp.src(componentFolder + "/*")
-}
+exports.getComponentFolders = getComponentFolders;
 
+// Task #2
 function createTOC() {
     let components = getComponentFolders()
     let toc = ``;
@@ -113,6 +155,7 @@ function createTOC() {
     gulp.src.pipe(gulp.dest('./navigation/toc2.js/'))
 }
 
-exports.all = gulp.series(unpack, moveup,
+//TODO - add getSampleFolders
+exports.all = gulp.series(unpack, moveup, 
      getConfigTemplates
      );
