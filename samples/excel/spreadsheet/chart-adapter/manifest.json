@@ -1,0 +1,7 @@
+
+{
+    "additionalDependencies": ["igniteui-react-spreadsheet-chart-adapter",
+    "igniteui-react-excel"],
+    "sampleName": "SpreadsheetAdapter",
+    "sharedFiles": ["DataUtils.ts", "ExcelUtility.ts"]
+}

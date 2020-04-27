@@ -1,0 +1,6 @@
+
+{
+    "additionalDependencies": ["igniteui-react-excel"],
+    "sampleName": "ExcelLibraryWorksheets",
+    "sharedFiles": ["ExcelSharedComponent.tsx", "ExcelSharedData.tsx", "ExcelSharedStyles.css", "ExcelUtility.ts"]
+}

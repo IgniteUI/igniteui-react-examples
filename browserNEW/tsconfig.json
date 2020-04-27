@@ -1,0 +1,81 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "es5",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
+    "lib": [ "dom", "dom.iterable", "esnext"],/* Specify library files to be included in the compilation. */
+    "allowJs": true,                          /* Allow javascript files to be compiled. */
+    // "checkJs": true,                       /* Report errors in .js files. */
+    // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
+    "skipLibCheck": true,
+
+    /* Module Resolution Options */
+    "module": "esnext",                       /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+    "moduleResolution": "node",               /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    "resolveJsonModule": true,
+    "isolatedModules": true,                  /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
+    "allowSyntheticDefaultImports": true,     /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+
+    /* Source Map Options */
+    "sourceMap": true,                        /* Generates corresponding '.map' file. */
+    // "sourceRoot": "./",                    /* Specify the location where debugger should locate TypeScript files instead of source locations. */
+    // "mapRoot": "./",                       /* Specify the location where debugger should locate map files instead of generated locations. */
+    // "inlineSourceMap": true,               /* Emit a single file with source maps instead of having a separate file. */
+    // "inlineSources": true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
+
+    /* Strict Type-Checking Options */
+    "strict": true,                           /* Enable all strict type-checking options. */
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,                           /* Do not emit outputs. */
+    "jsx": "react",                           /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
+
+    /* Ported from React SB: */
+    "baseUrl": ".",                           /* Base directory to resolve non-absolute module names. */
+    "outDir": "build/dist",                   /* Redirect output structure to the directory. */
+    "rootDir": "src",                         /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "noImplicitReturns": true,                /* Report error when not all code paths in function return a value. */
+    "noImplicitThis": true,                   /* Raise error on 'this' expressions with an implied 'any' type. */
+    "noImplicitAny": true,                    /* Raise error on expressions and declarations with an implied 'any' type. */
+    "noUnusedLocals": false,                  /* Report errors on unused locals. */
+    // "noUnusedParameters": true,            /* Report errors on unused parameters. */
+    // "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
+    // "strictNullChecks": true,              /* Enable strict null checks. */
+    // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
+    // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
+    // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
+    "importHelpers": true,                    /* Import emit helpers from 'tslib'. */
+    "suppressImplicitAnyIndexErrors": true,
+
+    /* Experimental Options */
+    "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
+    // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
+
+    /* other options: */
+    // "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
+
+  },
+  "include": [
+    "src", "tasks"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts",
+    "**/odatajs-4.0.0.js",
+    "config-overrides.js",
+    "./iisConfig/*",
+    "./gulp*.js",
+    "./gulp*.ts",
+    "./samples/*",
+    "./templates-sample-browser",
+    "./templates-samples",
+    "./templates-shared",
+    "./tests",
+    "./tasks",
+    "./tmp",
+  ]
+}

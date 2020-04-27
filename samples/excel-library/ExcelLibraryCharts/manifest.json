@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-charts", "igniteui-react-grids"],       
-    "sampleName": "ExcelLibraryCharts", 
-    "sharedFiles": ["ExcelSharedComponent.tsx", "ExcelSharedStyles.css", "ExcelUtility.tsx"]
-}
-        

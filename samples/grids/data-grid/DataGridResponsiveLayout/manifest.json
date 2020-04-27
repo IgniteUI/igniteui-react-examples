@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-grids"],       
-    "sampleName": "DataGridResponsiveLayout", 
-    "sharedFiles": ["DataGridSharedData.tsx", "DataGridSharedStyles.css"]
-}
-        
