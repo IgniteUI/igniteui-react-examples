@@ -1,3 +1,0 @@
-https://simplemaps.com/data/us-cities
-
-this file is same as UsaCitiesRecords.csv but with fewer data columns
