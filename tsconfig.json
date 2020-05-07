@@ -41,7 +41,7 @@
     // "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
     // "strictNullChecks": true,              /* Enable strict null checks. */
     // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
-    // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
+    "strictPropertyInitialization": false,  /* Enable strict checking of property initialization in classes. */
     // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
     "importHelpers": true,                    /* Import emit helpers from 'tslib'. */
     "suppressImplicitAnyIndexErrors": true,
@@ -67,15 +67,19 @@
     "src/setupTests.ts",
     "**/odatajs-4.0.0.js",
     "config-overrides.js",
+    "./browserOLD",
+    "./samples",
     "./iisConfig/*",
     "./gulp*.js",
     "./gulp*.ts",
     "./samples/*",
-    "./templates-sample-browser",
-    "./templates-samples",
-    "./templates-shared",
+    "./sample-template-files-browser",
+    "./sample-template-files",
+    "./sample-shared-files",
+    "./sample-test-files",
     "./tests",
-    "./tasks",
+    "./tasks/*.js",
+    "./tasks/*.ts",
     "./tmp",
   ]
 }

@@ -6,8 +6,7 @@
       "node_modules/**/*.ts",
       "coverage/lcov-report/*.js",
       "**/odatajs-4.0.0.js",
-      "src/samples/data-grid/DataGridPerformance.tsx",
-      "src/samples/excel-library/ExcelLibraryWorkbooks.tsx",
+      "src/samples/*.*",
       "src/images/*.*",
       "src/navigation/*.tsx",
       "src/navigation/*.ts",
@@ -15,6 +14,8 @@
       "src/utilities/*.ts",
       "src/components/*.ts",
       "src/components/*.tsx",
+      "browserOLD",
+      "samples",
       "tasks",
       "gulp*.ts",
       "gulp*.js"

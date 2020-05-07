@@ -20,7 +20,7 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
     public dataPeople: any[];
     public dataRelations: any[];
 
-    public VericalHeader: IgrTemplateHeader;
+    public VerticalHeader: IgrTemplateHeader;
     public HorizontalRightHeader: IgrTemplateHeader;
     public HorizontalLeftHeader: IgrTemplateHeader;
     public cellSize: number = 50;
@@ -35,8 +35,8 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
 
         this.createData();
 
-        this.VericalHeader = new IgrTemplateHeader({});
-        this.VericalHeader.cellUpdating = (s, e) => this.onVerticalHeaderUpdating(s, e);
+        this.VerticalHeader = new IgrTemplateHeader({});
+        this.VerticalHeader.cellUpdating = (s, e) => this.onVerticalHeaderUpdating(s, e);
 
         this.HorizontalRightHeader = new IgrTemplateHeader({});
         this.HorizontalRightHeader.cellUpdating = (s, e) => this.onHorizontalHeaderUpdating(s, e, "right");
@@ -98,7 +98,7 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
         propertyPath={columnPath} headerText={columnName}
         width={this.cellSize.toString()}
         paddingBottom="0" paddingLeft="0" paddingRight="0" paddingTop="0"
-        header={this.VericalHeader}
+        header={this.VerticalHeader}
         cellUpdating={this.onCellUpdating}
         horizontalAlignment="center"
         verticalAlignment="bottom"

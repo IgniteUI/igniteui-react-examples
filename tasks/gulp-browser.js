@@ -32,65 +32,84 @@ function log(msg) {
 }
 log('loaded');
 
-let browserPath = "./tmp";
-let samplesPath = "../samples";
+let browserRootPath = "./tmp";
+let samplesRootPath = "../samples";
 // let repoRootPath = "C:/REPOS/GitInternalDocs/igniteui-react-examples"
-let repoRootName = "igniteui-react-examples"
+let repositoryName = "igniteui-react-examples"
 let repoRootPath = "C:\\REPOS\\GitInternalDocs\\igniteui-react-examples"
 
 function getRelative(filePath) {
-    return filePath.split(repoRootName);
+    return filePath.split(repositoryName);
 }
 
 var transformerFile = null;
 var transformer = null;
 
-function initTransformer() {
-    if (transformerFile == null) {
-        transformerFile = require('../src/tasks/Transformer');
-        transformer = new transformerFile.Transformer();
-        transformer.test("some file");
+// function initTransformer() {
+//     if (transformerFile == null) {
+//         transformerFile = require('../src/tasks/Transformer');
+//         transformer = new transformerFile.Transformer();
+//         transformer.test("some file");
 
-        // docs = require("./browserConfig.json");
-    }
-} exports.initTransformer = initTransformer;
+//         // docs = require("./browserConfig.json");
+//     }
+// } exports.initTransformer = initTransformer;
 
 function clean(cb) {
-    del.sync(browserPath + "/**/*.*", {force:true});
+    del.sync(browserRootPath + "/**/*.*", {force:true});
     // del.sync(browserTargetPath);
     // cb();
 } exports.clean = clean;
 
 function dirSamples(cb) {
     // clean();
-    initTransformer();
-    log('dirSamples()');
-    return gulp.src([
-        samplesPath + '/excel-library/**',
-        // samplesPath + '/maps/**',
+    // initTransformer();
+    log('dirSamples start');
+    gulp.src([
+        // samplesRootPath + '/excel-library/**',
+        // samplesRootPath + '/**/**/**/**/Excel*.tsx',
+        samplesRootPath + '/**/readme.md',
+        // samplesRootPath + '/maps/**',
         // samplesSourcePath + '/maps/**/*.tsx',
     ])
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, cb2) {
-        let item = '..' + file.dirname.replace(repoRootPath, '');
-        item += '/' + file.basename;
-        log(' ' + item);
-        // log(' ' + file.basename);
-        return item;
+        // let item = '..' + file.dirname.replace(repoRootPath, '');
+        // item += '/' + file.basename;
+        // log(' ' + item);
+        log(' ' + file.basename);
+        // return item;
         // cb2();
-    }));
+        cb2(null, file);
+    }))
+    .on("end", function() {
+        cb();
+    })
+    .on("error", (err) => {
+        console.log("error in dirSamples");
+        cb(err);
+    });
 
-    // cb();
 } exports.dirSamples = dirSamples;
+
+function task1(cb) {
+    log('task1  ');
+    cb();
+} exports.task1 = task1;
+
+function task2(cb) {
+    log('task2  ');
+    cb();
+} exports.task2 = task2;
 
 function copySamples(cb) {
     clean();
     log('copySamples()');
     return gulp.src([
-        samplesPath + '/maps/**',
+        samplesRootPath + '/maps/**',
         // samplesSourcePath + '/maps/**/*.tsx',
     ])
-    // .pipe(gulp.dest(browserPath))
+    // .pipe(gulp.dest(browserRootPath))
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, cb2) {
         log(' ' + file.basename);

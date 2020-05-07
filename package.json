@@ -1,8 +1,8 @@
 {
-  "name": "app-name",
-  "description": "Samples for IgniteUI for React components",
+  "name": "sample-browser",
+  "description": "Browser application with examples of IgniteUI for React components",
   "author": "Infragistics",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -16,6 +16,11 @@
     "@testing-library/user-event": "^7.2.1",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "igniteui-react-charts": "^16.11.8",
+    "igniteui-react-core": "^16.11.8",
+    "igniteui-react-gauges": "^16.11.8",
+    "igniteui-react-grids": "^16.11.8",
+    "igniteui-react-maps": "^16.11.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
@@ -44,9 +49,6 @@
     "ts-node": "^8.9.0",
     "typescript": "^3.8.3"
   },
-  // "eslintConfig": {
-  //   "extends": "react-app"
-  // },
   "browserslist": {
     "production": [
       ">0.2%",
