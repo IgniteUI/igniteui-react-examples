@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
@@ -9,7 +9,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapOverview extends React.Component<any,any> {
+export default class MapOverview extends React.Component<any, any> {
 
     public geoMap: IgrGeographicMap;
 
@@ -21,8 +21,8 @@ export default class MapOverview extends React.Component<any,any> {
 
     public render() {
         return (
-            <div className="igFlex">
-                <div className="igControl" >
+            <div className="igContainer">
+                <div className="igComponent" >
                     <IgrGeographicMap
                         ref={this.onMapReferenced}
                         width="100%"

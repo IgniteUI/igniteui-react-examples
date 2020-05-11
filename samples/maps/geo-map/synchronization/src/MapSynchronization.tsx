@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 import { MapUtils, MapRegion } from "./MapUtils";
 
@@ -12,7 +12,7 @@ import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapSynchronization extends React.Component<any,any> {
+export default class MapSynchronization extends React.Component<any, any> {
 
     public GeoMap1: IgrGeographicMap;
     public GeoMap2: IgrGeographicMap;
@@ -30,7 +30,7 @@ export default class MapSynchronization extends React.Component<any,any> {
 
     public render() {
         return (
-            <div className="sampleColumns" style={{gridTemplateColumns: "1fr 1fr"}}>
+            <div className="igContainer-horizontal">
                 <IgrGeographicMap subtitle="Geo1"
                     ref={this.onReferenceMap1}
                     actualWindowRectChanged={this.onWindowRectChangedMap1}

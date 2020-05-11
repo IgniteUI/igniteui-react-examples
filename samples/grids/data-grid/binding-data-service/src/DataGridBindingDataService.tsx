@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 import { FinancialData } from './FinancialData';
 
@@ -25,7 +25,7 @@ export default class DataGridBindingDataService extends React.Component<any, any
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrLiveGrid
                 height="100%"
                 width="100%"

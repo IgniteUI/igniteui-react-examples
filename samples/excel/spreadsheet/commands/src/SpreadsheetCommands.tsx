@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles.css";
+
 import "./SpreadsheetSharedStyles.css";
 import DataUtils from "./DataUtils";
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
@@ -32,10 +32,10 @@ export default class SpreadsheetCommands extends SpreadsheetSharedComponent {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <input className="optionItem" id="zoomIn" value="Zoom In" onClick={this.onCommandClick} type="button" />
-                    <input className="optionItem" id="zoomOut" value="Zoom Out" onClick={this.onCommandClick} type="button" />
+            <div className="igContainer">
+                <div className="igOptions">
+                    <input className="igOptions-item" id="zoomIn" value="Zoom In" onClick={this.onCommandClick} type="igOptions-button" />
+                    <input className="igOptions-item" id="zoomOut" value="Zoom Out" onClick={this.onCommandClick} type="igOptions-button" />
                 </div>
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 25px)" width="100%" />
             </div>

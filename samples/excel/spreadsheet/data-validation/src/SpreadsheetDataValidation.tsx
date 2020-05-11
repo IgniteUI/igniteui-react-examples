@@ -38,7 +38,7 @@ export default class SpreadsheetDataValidation extends SpreadsheetSharedComponen
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="100%" width="100%" />
             </div>
         );
@@ -64,7 +64,7 @@ export default class SpreadsheetDataValidation extends SpreadsheetSharedComponen
             valRule2.setLowerConstraint(1);
             valRule2.setUpperConstraint(4);
             valRule2.inputMessageTitle = "Adults";
-            valRule2.inputMessageDescription = "Adults cound must be min, 1 and max. 4.";
+            valRule2.inputMessageDescription = "Adults count must be min, 1 and max. 4.";
             valRule2.errorMessageTitle = "Adult requirement not met";
             valRule2.errorMessageDescription = "There must be between 1 and 4 adults per room.";
             valRule2.errorStyle = DataValidationErrorStyle.Information;
@@ -100,12 +100,12 @@ export default class SpreadsheetDataValidation extends SpreadsheetSharedComponen
             // this validation rule has a single constraint validation set
             const valRule5 = new OneConstraintDataValidationRule();
             valRule5.inputMessageTitle = "Check In Date";
-            const checkinDate = new Date();
-            valRule5.inputMessageDescription = "The hotel operates from" + checkinDate;
+            const checkInDate = new Date();
+            valRule5.inputMessageDescription = "The hotel operates from " + checkInDate;
             valRule5.validationOperator = OneConstraintDataValidationOperator.GreaterThanOrEqualTo;
-            valRule5.setConstraint(checkinDate);
+            valRule5.setConstraint(checkInDate);
             this.spreadsheet.workbook.worksheets(0).rows(6).cells(1).dataValidationRule = valRule5;
-            this.spreadsheet.workbook.worksheets(0).rows(6).cells(1).value = checkinDate.toLocaleDateString();
+            this.spreadsheet.workbook.worksheets(0).rows(6).cells(1).value = checkInDate.toLocaleDateString();
             this.spreadsheet.workbook.worksheets(0).rows(6).cells(0).value = "Check In Date";
 
             // this validation rule has a single constraint validation set

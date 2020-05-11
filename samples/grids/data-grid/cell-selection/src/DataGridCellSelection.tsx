@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 import { SharedData } from "./DataGridSharedData";
 import "./DataUtils";
@@ -34,10 +34,10 @@ export default class DataGridCellSelection extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <span className="optionItem">Selection Mode: </span>
-                    <select className="optionItem" value={this.state.selectionMode}
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-item">Selection Mode: </span>
+                    <select className="igOptions-item" value={this.state.selectionMode}
                         onChange={this.onSelectionModeChange}>
                         <option>None</option>
                         <option>SingleCell</option>

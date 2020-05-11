@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 
 
@@ -200,7 +200,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
     }
 
     public onChartStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
-        args.styleKey = "chart";
+        args.styleKey = "igComponent";
     }
 
 
@@ -271,7 +271,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrLiveGrid
                 width="100%"
                 height="100%"

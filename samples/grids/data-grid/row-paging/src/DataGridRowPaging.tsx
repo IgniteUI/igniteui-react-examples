@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 import { DataGridSharedComponent, IComponentState } from "./DataGridSharedComponent";
 import { SharedData } from "./DataGridSharedData";
@@ -57,7 +57,7 @@ export default class DataGridRowPaging extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrLiveGrid
                     ref={this.onGridRef}
                     width="100%"

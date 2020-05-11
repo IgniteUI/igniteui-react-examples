@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 import { MapUtils, MapRegion } from "./MapUtils";
 
@@ -15,7 +15,7 @@ import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapDisplayImageryBingTiles extends React.Component<any,any> {
+export default class MapDisplayImageryBingTiles extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
@@ -23,7 +23,7 @@ export default class MapDisplayImageryBingTiles extends React.Component<any,any>
 
     public render() {
         return (
-            <div className="sampleColumns" style={{gridTemplateColumns: "1fr 1fr 1fr"}}>
+            <div className="igContainer-horizontal" >
                 <IgrGeographicMap
                     ref={this.onBingMapsLabels}
                     width="100%" height="100%" zoomable="true"/>

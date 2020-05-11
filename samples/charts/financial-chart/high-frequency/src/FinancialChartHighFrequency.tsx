@@ -1,7 +1,7 @@
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./FinancialChartSharedStyles.css";
 import { FinancialChartSharedComponent } from "./FinancialChartSharedComponent";
 import { StocksUtility } from "./StocksUtility";
@@ -44,21 +44,21 @@ export default class FinancialChartHighFrequency extends FinancialChartSharedCom
 
     public render() {
         return (
-            <div className="sample" >
-                <div className="options">
-                    <label className="optionLabel">Data Points: </label>
-                    <label className="optionValue" >
+            <div className="igContainer" >
+                <div className="igOptions">
+                    <label className="igOptions-label">Data Points: </label>
+                    <label className="igOptions-value" >
                         {this.state.dataInfo}
                     </label>
-                    <input className="slider" type="range" min="10000" max="100000" step="1000"
+                    <input className="igOptions-slider" type="range" min="10000" max="100000" step="1000"
                         value={this.state.dataPoints}
                         onChange={this.onDataPointsChanged}/>
                     <button onClick={this.onDataGenerateClick}>Generate Data</button>
-                    <label className="optionItem"><input type="checkbox"
+                    <label className="igOptions-item"><input type="checkbox"
                         onChange={this.onScalingRatioChanged}/> Optimize Scaling </label>
-                    <span ref={this.onFpsRef} className="optionLabel" />
+                    <span ref={this.onFpsRef} className="igOptions-label" />
                 </div>
-                <div className="chart" style={{height: "calc(100% - 75px)"}}>
+                <div className="igComponent" style={{height: "calc(100% - 75px)"}}>
                 <IgrFinancialChart
                         ref={this.onChartRef}
                         width="100%"

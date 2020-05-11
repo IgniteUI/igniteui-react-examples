@@ -12,7 +12,7 @@ import { IgrDataChartShapeModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { SampleShapeData } from "./SampleShapeData";
@@ -38,17 +38,17 @@ export default class DataChartTypeShapeSeries extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
+            <div className="igContainer">
 
-            <div className="options">
-                    <span className="optionLabel">Shape Series: </span>
+            <div className="igOptions">
+                    <span className="igOptions-label">Shape Series: </span>
                     <select value={this.state.seriesType}
                         onChange={this.onSeriesTypeChanged}>
                         <option>Polygon</option>
                         <option>Polyline</option>
                     </select>
                 </div>
-                <div className="chart" style={{height: "calc(100% - 35px)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart ref={this.onChartRef}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}

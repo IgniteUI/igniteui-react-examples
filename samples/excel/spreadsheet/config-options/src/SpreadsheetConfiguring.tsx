@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles.css";
+
 import "./SpreadsheetSharedStyles.css";
 import { ExcelUtility } from "./ExcelUtility";
 import DataUtils from "./DataUtils";
@@ -52,16 +52,16 @@ export default class SpreadsheetConfiguring extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <span className="optionItem">Selection Mode: </span>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-item">Selection Mode: </span>
                     <select onChange={this.onSelectionModeChanged} defaultValue="Normal">
                         <option>AddToSelection</option>
                         <option>ExtendSelection</option>
                         <option>Normal</option>
                     </select>
 
-                    <span className="optionItem">Enter Key Navigation Direction: </span>
+                    <span className="igOptions-item">Enter Key Navigation Direction: </span>
                     <select onChange={this.onEnterKeyNavDirectionChanged} defaultValue="Down">
                         <option>Down</option>
                         <option>Left</option>
@@ -70,17 +70,17 @@ export default class SpreadsheetConfiguring extends React.Component<any, any> {
                     </select>
 
                 </div>
-                <div className="options">
-                    <label className="optionItem" style={{width: "145px"}}><input type="checkbox" checked={this.state.areHeadersVisible} onChange={this.onHeadersVisibleChanged}/> Enable Headers</label>
-                    <label className="optionItem" style={{width: "175px"}}><input type="checkbox" checked={this.state.isFormulaBarVisible} onChange={this.onFormulaBarVisibleChanged} /> Enable Formula Bar</label>
-                    <label className="optionItem" style={{width: "225px"}}><input type="checkbox" checked={this.state.isEnterKeyNavEnabled} onChange={this.onEnterKeyNavEnabledChanged} />Enable Enter Key Navigation</label>
-                    <label className="optionItem">Zoom Level: {this.state.spreadsheetZoomLevel}%</label>
+                <div className="igOptions">
+                    <label className="igOptions-item" style={{width: "145px"}}><input type="checkbox" checked={this.state.areHeadersVisible} onChange={this.onHeadersVisibleChanged}/> Enable Headers</label>
+                    <label className="igOptions-item" style={{width: "175px"}}><input type="checkbox" checked={this.state.isFormulaBarVisible} onChange={this.onFormulaBarVisibleChanged} /> Enable Formula Bar</label>
+                    <label className="igOptions-item" style={{width: "225px"}}><input type="checkbox" checked={this.state.isEnterKeyNavEnabled} onChange={this.onEnterKeyNavEnabledChanged} />Enable Enter Key Navigation</label>
+                    <label className="igOptions-item">Zoom Level: {this.state.spreadsheetZoomLevel}%</label>
                 </div>
-                <div className="options">
-                    <label className="optionItem" style={{width: "145px"}}><input type="checkbox" checked={this.state.areGridlinesVisible} onChange={this.onGridlinesVisibleChanged} /> Enable Gridlines</label>
-                    <label className="optionItem" style={{width: "175px"}}><input type="checkbox" checked={this.state.isTabBarAreaVisible} onChange={this.onTabAreaVisibleChanged} /> Enable Tab Bar Area</label>
-                    <label className="optionItem" style={{width: "225px"}}><input type="checkbox" checked={this.state.isProtected} onChange={this.onProtectedChanged} /> Enable Protected Mode</label>
-                    <input type="range" min={50} max={150} step={5} value={this.state.spreadsheetZoomLevel} onChange={this.onZoomLevelChanged} />
+                <div className="igOptions">
+                    <label className="igOptions-item" style={{width: "145px"}}><input type="checkbox" checked={this.state.areGridlinesVisible} onChange={this.onGridlinesVisibleChanged} /> Enable Gridlines</label>
+                    <label className="igOptions-item" style={{width: "175px"}}><input type="checkbox" checked={this.state.isTabBarAreaVisible} onChange={this.onTabAreaVisibleChanged} /> Enable Tab Bar Area</label>
+                    <label className="igOptions-item" style={{width: "225px"}}><input type="checkbox" checked={this.state.isProtected} onChange={this.onProtectedChanged} /> Enable Protected Mode</label>
+                    <input className="igOptions-slider" type="range" min={50} max={150} step={5} value={this.state.spreadsheetZoomLevel} onChange={this.onZoomLevelChanged} />
                 </div>
 
                 <IgrSpreadsheet ref={this.onSpreadsheetRef}

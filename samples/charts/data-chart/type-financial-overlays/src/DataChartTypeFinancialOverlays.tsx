@@ -12,14 +12,14 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { SampleFinancialData } from "./SampleFinancialData";
 
 IgrDataChartCoreModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class DataChartTypeFinancialLineIndicators extends React.Component<any,any> {
+export default class DataChartTypeFinancialLineIndicators extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
 
@@ -85,9 +85,9 @@ export default class DataChartTypeFinancialLineIndicators extends React.Componen
 
     public render() {
         return (
-            <div className="sample">
-                <div className="options">
-                    <span className="optionLabel"> Overlay Display Type: </span>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-label"> Overlay Display Type: </span>
                     <select defaultValue={this.state.displayOverlay}
                         onChange={this.onOverlayChanged}>
                         <option>None</option>
@@ -95,7 +95,7 @@ export default class DataChartTypeFinancialLineIndicators extends React.Componen
                         <option>PriceChannel</option>
                     </select>
                 </div>
-                <div className="chart" style={{ height: "calc(100% - 35px)" }} >
+                <div className="igComponent" style={{ height: "calc(100% - 35px)" }} >
                     <IgrDataChart
                         width="100%"
                         height="100%"

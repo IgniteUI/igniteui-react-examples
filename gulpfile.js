@@ -13,16 +13,17 @@ var samples = require('./tasks/gulp-samples.js')
 //     .transpile(require('fs')
 //     .readFileSync("./tasks/gulp-browser.ts").toString()));
 
-//     getSampleFolders(cb);
+//     getSampleFolderNames(cb);
 //     // cb();
 // } exports.updateSamples = updateSamples;
 
-// exports.updateSamples = updateSamples = gulp.series(getSampleFolders, task2);
+// exports.updateSamples = updateSamples = gulp.series(getSampleFolderNames, task2);
 // exports.updateSamples = updateSamples = gulp.series(browser.task1, browser.dirSamples, browser.task2);
 exports.updateSamples = updateSamples = gulp.series(
     samples.getSamples,
     samples.updateReadme,
     samples.updatePackages,
+    samples.updateSharedFiles,
     // samples.task2
     );
 
@@ -54,7 +55,7 @@ exports.default = updateSamples
 
 
 // function updateSamples(cb) {
-//     // del.sync(browserRootPath + "/**/*.*", {force:true});
+//     // del.sync(BrowserRootPath + "/**/*.*", {force:true});
 //     // del.sync(browserTargetPath);
 //     log('updateSamples');
 //     gulp-samples.updateReadme();

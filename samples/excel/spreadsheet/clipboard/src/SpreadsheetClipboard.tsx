@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles.css";
+
 import "./SpreadsheetSharedStyles.css";
 import DataUtils from "./DataUtils";
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
@@ -34,11 +34,11 @@ export default class SpreadsheetClipboard extends SpreadsheetSharedComponent {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <input type="button" className="optionItem" id="cut" value="Cut" onClick={this.cut}/>
-                    <input type="button" className="optionItem" id="copy" value="Copy" onClick={this.copy}/>
-                    <input type="button" className="optionItem" id="paste" value="Paste" onClick={this.paste}/>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <input type="igOptions-button" className="igOptions-item" id="cut" value="Cut" onClick={this.cut}/>
+                    <input type="igOptions-button" className="igOptions-item" id="copy" value="Copy" onClick={this.copy}/>
+                    <input type="igOptions-button" className="igOptions-item" id="paste" value="Paste" onClick={this.paste}/>
                 </div>
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 25px)" width="100%" />
             </div>

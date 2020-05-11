@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 import { SharedData } from "./DataGridSharedData";
 import "./DataUtils";
@@ -29,10 +29,10 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <span className="optionItem">Header Click Action: </span>
-                    <select className="optionItem" value={this.state.sortType}
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-item">Header Click Action: </span>
+                    <select className="igOptions-item" value={this.state.sortType}
                         onChange={this.onChartTypeChanged}>
                         <option>SortByMultipleColumns</option>
                         <option>SortByMultipleColumnsTriState</option>

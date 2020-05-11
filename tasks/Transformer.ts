@@ -10,61 +10,43 @@ var igConfig = require('./gulp-config.js')
 // }
 // log('loaded');
 
-class PackageJson {
-    public name?: string;
-    public description?: string;
-    public author?: string;
-    public homepage?: string;
-    public version?: string;
-    public private?: boolean;
-    public scripts: any;
-    public dependencies: any;
-    public devDependencies: any;
-    public browserslist?: string[];
-}
-
-class PackageDependency {
-    public name: string;
-    public version: string;
-
-    public samples?: SampleInfo[];
-
-    constructor() {
-        this.samples = [];
-    }
-
-    public toString() : string {
-        return '"' + this.name + `": "` + this.version + '"';
-    }
-}
 
 // this class provides information about a sample that is implemented in /samples folder
 class SampleInfo {
-    public componentGroup: string;     // maps
-    public componentFolder: string;    // geo-map
-    public componentName: string;      // Geo Map
-    public sampleDirOnDisk: string;    // C:\repo\igniteui-react-examples\samples\maps\geo-map\binding-csv-points\
-    public sampleDirRelative: string;  // /samples/maps/geo-map/binding-csv-points/
-    public sampleRoute: string;        // /maps/geo-map/binding-csv-points/
-    public sampleFolder: string;       // binding-csv-points
-    public sampleDisplayName: string;  // Binding Data CSV
-    public sampleFileName: string;     // MapBindingDataCSV.tsx
-    public sampleFilePath: string;     // /samples/maps/geo-map/binding-csv-points//src/MapBindingDataCSV.tsx
-    public sampleSourcePath: string;   // /src/MapBindingDataCSV.tsx
-    public sampleSourceCode: string;   // source code from /src/MapBindingDataCSV.tsx file
-    public sampleReadMe: string;       // content of ReadMe.md file generated for /samples/maps/geo-map/binding-csv-points/
-    public sampleFiles: string[];      // relative path to all file in sample folder: /samples/maps/geo-map/binding-csv-points/
-    public docsUrl: string             // https://infragistics.com/Reactsite/components/geo-map.html
-    public sandboxUrlView: string;     // https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points
-    public sandboxUrlEdit: string;     //     https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points
+    public ComponentGroup: string;     // maps
+    public ComponentFolder: string;    // geo-map
+    public ComponentName: string;      // Geo Map
 
-    public packageFileContent: PackageJson;
-    public packageDependencies: PackageDependency[];
+    // public SampleDirOnDisk: string;    // C:\repo\igniteui-react-examples\samples\maps\geo-map\binding-csv-points\
+    public SampleFolderPath: string;     // /samples/maps/geo-map/binding-csv-points/
+    public SampleFilePath: string;       // /samples/maps/geo-map/binding-csv-points/src/MapBindingDataCSV.tsx
+    public SampleRoute: string;          //         /maps/geo-map/binding-csv-points/
+    public SampleFolderName: string;     //                       binding-csv-points
+    public SampleFileName: string;     // MapBindingDataCSV.tsx
+    public SampleDisplayName: string;  // Map Binding Data CSV
+    public SampleFileSourcePath: string;     // /src/MapBindingDataCSV.tsx
+    public SampleFileSourceCode: string;   // source code from /src/MapBindingDataCSV.tsx file
+    public SampleReadMe: string;       // content of ReadMe.md file generated for /samples/maps/geo-map/binding-csv-points/
+    public SampleFilePaths: string[];  // relative paths to files in sample folder: /samples/maps/geo-map/binding-csv-points/
+    public SampleFileNames: string[];  // names of files in sample folder: /samples/maps/geo-map/binding-csv-points/
+
+    public DocsUrl: string             // https://infragistics.com/Reactsite/components/geo-map.html
+
+    public SandboxUrlView: string;     // https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points
+    public SandboxUrlEdit: string;     //     https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points
+
+    public PackageFileContent: PackageJson;
+    public PackageDependencies: PackageDependency[];
 
     constructor() {
-        this.sampleSourceCode = 'let str = "TODO";';
-        this.sampleFiles = [];
-        this.packageDependencies = [];
+        this.SampleFileSourceCode = 'let str = "TODO";';
+        this.SampleFilePaths = [];
+        this.SampleFileNames = [];
+        this.PackageDependencies = [];
+    }
+
+    public isUsingFileName(name: string): boolean {
+        return this.SampleFileNames.includes(name);
     }
 }
 
@@ -72,7 +54,7 @@ class Transformer {
 
     public static getDependencies(sampleInfo: SampleInfo): PackageDependency[] {
         let dependencies: PackageDependency[] = [];
-        let packageJson = sampleInfo.packageFileContent;
+        let packageJson = sampleInfo.PackageFileContent;
         if (packageJson && packageJson.dependencies) {
             dependencies = [];
 
@@ -92,22 +74,22 @@ class Transformer {
     }
 
     public static sort(samples: SampleInfo[]): void {
-        samples.sort((a, b) => { return a.sampleDirOnDisk > b.sampleDirOnDisk ? 1 : -1});
+        samples.sort((a, b) => { return a.SampleFolderPath > b.SampleFolderPath ? 1 : -1});
     }
 
     public static printNames(samples: SampleInfo[]): void {
         for (const info of samples) {
-            console.log(info.sampleDirRelative + " => " + info.sampleDisplayName);
+            console.log(info.SampleFolderPath + " => " + info.SampleDisplayName);
         }
     }
     public static printRoutes(samples: SampleInfo[]): void {
         for (const info of samples) {
-            console.log(info.sampleDirRelative + " => " + info.sampleRoute);
+            console.log(info.SampleFolderPath + " => " + info.SampleRoute);
         }
     }
     public static printUrls(samples: SampleInfo[]): void {
         for (const info of samples) {
-            console.log(info.sampleDirRelative + " => " + info.sandboxUrlEdit);
+            console.log(info.SampleFolderPath + " => " + info.SandboxUrlEdit);
         }
     }
 
@@ -115,61 +97,60 @@ class Transformer {
     public static process(samples: SampleInfo[]): void {
 
         for (const info of samples) {
-            let sampleDirectory = info.sampleDirOnDisk;
+            // let SampleDirectory = info.SampleDirOnDisk;
 
-            // info.packageDependencies = this.getDependencies(info);
+            // info.PackageDependencies = this.getDependencies(info);
 
             // ../samples/maps/geo-map/binding-csv-points
-            let relativePath = this.getRelative(sampleDirectory);
+            // let relativePath = this.getRelative(SampleDirectory);
             // .., samples, maps, geo-map, binding-csv-points
-            let folders = relativePath.split('/');
+            let folders = info.SampleFolderPath.split('/');
 
-            if (folders.length > 2) info.componentGroup = folders[2];
-            if (folders.length > 3) info.componentFolder = folders[3];
-            if (folders.length > 4) info.sampleFolder = folders[4];
+            if (folders.length > 2) info.ComponentGroup = folders[2];
+            if (folders.length > 3) info.ComponentFolder = folders[3];
+            if (folders.length > 4) info.SampleFolderName = folders[4];
 
-            info.componentName = StringUtils.toTitleCase(info.componentFolder, '-');
+            info.ComponentName = Strings.toTitleCase(info.ComponentFolder, '-');
 
-            info.sampleFiles = info.sampleFiles;
-            // info.sampleDirOnDisk = sampleDirectory;
-            info.sampleDirRelative = relativePath;
-            // info.sampleRoute = "/" +  info.componentGroup + "/" + info.componentFolder + "/" + info.sampleFolder;
+            // info.SampleFolderPath = relativePath;
+            // info.SampleRoute = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "/" + info.SampleFolderName;
 
-            let sampleFileNames = [];
-            for (const filePath of info.sampleFiles) {
-                if (StringUtils.includes(filePath, igConfig.samplesFileExtension) &&
-                    StringUtils.excludes(filePath, igConfig.samplesFileExclusions)) {
-                    sampleFileNames.push(filePath);
+            // console.log(info.SampleFolderPath + " " + info.SampleFilePaths.length);
+
+            let fileNames = [];
+            for (const filePath of info.SampleFilePaths) {
+                // console.log(filePath);
+                if (Strings.includes(filePath, igConfig.SamplesFileExtension) &&
+                    Strings.excludes(filePath, igConfig.SamplesFileExclusions)) {
+                        fileNames.push(filePath);
                     // console.log(filePath);
                     // && !filePath.includes("index.tsx")
-                    // info.sampleFilePath = filePath;
-                    // info.sampleFileName = this.getFileName(filePath);;
+                    // info.SampleFileName = this.getFileName(filePath);;
                 }
             }
 
-            if (sampleFileNames.length === 0) {
-                console.log("ERROR Transformer cannot find any " + igConfig.samplesFileExtension + " files for sample name");
-            } else if (sampleFileNames.length > 1) {
-                console.log("ERROR Transformer cannot decide which " + igConfig.samplesFileExtension + " file to use for sample name: ");
-                console.log(" - " + sampleFileNames.join("\n - "));
-            } else {
-                info.sampleFilePath = sampleFileNames[0];
-                info.sampleFileName = this.getFileName(info.sampleFilePath);
-                info.sampleSourcePath = "./src" + info.sampleFileName;
-                info.sampleSourceCode = transFS.readFileSync(info.sampleFilePath, "utf8");
+            if (fileNames.length === 0) {
+                console.log("ERROR Transformer cannot find any " + igConfig.SamplesFileExtension + " files in " + info.SampleFolderPath);
+            } else if (fileNames.length > 1) {
+                console.log("ERROR Transformer cannot decide which " + igConfig.SamplesFileExtension + " file to use for sample name: ");
+                console.log(" - " + fileNames.join("\n - "));
+            } else { // only one .tsx file per sample
+                info.SampleFilePath = fileNames[0];
+                info.SampleFileName = this.getFileName(info.SampleFilePath);
+                info.SampleFileSourcePath = "./src/" + info.SampleFileName;
+                info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
 
-                info.sampleDisplayName = StringUtils.splitCamel(info.sampleFileName)
-                info.sampleDisplayName = StringUtils.replace(info.sampleDisplayName, igConfig.samplesFileExtension, "");
+                info.SampleDisplayName = Strings.splitCamel(info.SampleFileName)
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SamplesFileExtension, "");
 
-                info.sandboxUrlView = this.getSandboxUrl(info, igConfig.sandboxUrlView);
-                info.sandboxUrlEdit = this.getSandboxUrl(info, igConfig.sandboxUrlEdit);
+                info.SandboxUrlView = this.getSandboxUrl(info, igConfig.SandboxUrlView);
+                info.SandboxUrlEdit = this.getSandboxUrl(info, igConfig.SandboxUrlEdit);
 
-                info.docsUrl = this.getDocsUrl(info);
-                // console.log("SAMPLE " + info.sampleFilePath);
-                console.log("SAMPLE " + info.sampleFilePath + " => " + info.sampleDisplayName);
+                info.DocsUrl = this.getDocsUrl(info);
+                console.log("SAMPLE " + info.SampleFilePath + " => " + info.SampleDisplayName);
             }
 
-            // console.log(info.sampleDirRelative + " => " + info.sampleRoute + " => " + info.sampleDisplayName);
+            // console.log(info.SampleFolderPath + " => " + info.SampleRoute + " => " + info.SampleDisplayName);
 
         }
     }
@@ -178,23 +159,23 @@ class Transformer {
     public static getSandboxUrl(sampleInfo: SampleInfo, sandboxUrlFormat: string): string {
         let url = sandboxUrlFormat + "";
 
-        url = StringUtils.replace(url, "{sandboxUrlOptions}", igConfig.sandboxUrlOptions);
-        url = StringUtils.replace(url, "{repositoryPath}", igConfig.repositoryPath);
-        url = StringUtils.replace(url, "{repositoryOrg}", igConfig.repositoryOrg);
-        url = StringUtils.replace(url, "{repositoryName}", igConfig.repositoryName);
-        url = StringUtils.replace(url, "{componentGroup}", sampleInfo.componentGroup);
-        url = StringUtils.replace(url, "{componentFolder}", sampleInfo.componentFolder);
-        url = StringUtils.replace(url, "{sampleFolder}", sampleInfo.sampleFolder);
-        url = StringUtils.replace(url, "{sampleFile}", sampleInfo.sampleFileName);
+        url = Strings.replace(url, "{SandboxUrlOptions}", igConfig.SandboxUrlOptions);
+        url = Strings.replace(url, "{RepositoryPath}", igConfig.RepositoryPath);
+        url = Strings.replace(url, "{RepositoryOrg}", igConfig.RepositoryOrg);
+        url = Strings.replace(url, "{RepositoryName}", igConfig.RepositoryName);
+        url = Strings.replace(url, "{ComponentGroup}", sampleInfo.ComponentGroup);
+        url = Strings.replace(url, "{ComponentFolder}", sampleInfo.ComponentFolder);
+        url = Strings.replace(url, "{SampleFolderName}", sampleInfo.SampleFolderName);
+        url = Strings.replace(url, "{sampleFile}", sampleInfo.SampleFileName);
 
         return url;
     }
 
     public static getDocsUrl(sampleInfo: SampleInfo): string {
-        let url = igConfig.docsUrl + "";
+        let url = igConfig.DocsUrl + "";
 
-        url = StringUtils.replace(url, "{platformName}", igConfig.platformName);
-        url = StringUtils.replace(url, "{componentFolder}", sampleInfo.componentFolder);
+        url = Strings.replace(url, "{PlatformName}", igConfig.PlatformName);
+        url = Strings.replace(url, "{ComponentFolder}", sampleInfo.ComponentFolder);
 
         return url;
     }
@@ -239,7 +220,7 @@ class Transformer {
 
     // gets updated package.json file for a sample using a template
     public static getPackage(sample: SampleInfo, temptePackage: PackageJson): string {
-        let samplePackage = sample.packageFileContent;
+        let samplePackage = sample.PackageFileContent;
 
         // samplePackage.name = temptePackage.name;
         // samplePackage.description = temptePackage.description;
@@ -278,24 +259,27 @@ class Transformer {
         return JSON.stringify(samplePackage, null, '  ');
     }
 
-    public static getSampleInfo(samplePackageFile: any, sampleFiles?: string[]): SampleInfo {
+    public static getSampleInfo(samplePackageFile: any, sampleFilePaths?: string[]): SampleInfo {
 
         let info = new SampleInfo();
 
-        // info.sampleFiles = sampleFiles;
-        info.sampleDirOnDisk = samplePackageFile.dirname; // sampleDirectory;
-        info.packageFileContent = JSON.parse(samplePackageFile.contents.toString());
+        info.SampleFolderPath = this.getRelative(samplePackageFile.dirname);
+        info.PackageFileContent = JSON.parse(samplePackageFile.contents.toString());
+        info.SampleFilePaths = sampleFilePaths;
 
-        // info.packageFileContent = JSON.parse(fs.readFileSync(samplePackageFile));
-
+        for (const filePath of info.SampleFilePaths) {
+            var parts = filePath.split('/');
+            info.SampleFileNames.push(parts[parts.length - 1]);
+        }
+        // info.PackageFileContent = JSON.parse(fs.readFileSync(samplePackageFile));
 
         return info;
     }
 
     public static getRelative(path: string): string {
         // let path = filePath;
-        if (path.indexOf(igConfig.repositoryName) > -1) {
-            path = path.split(igConfig.repositoryName)[1];
+        if (path.indexOf(igConfig.RepositoryName) > -1) {
+            path = path.split(igConfig.RepositoryName)[1];
             path = path.split("\\").join("/");
             return "." + path;
         }
@@ -337,42 +321,55 @@ class Transformer {
         console.log("Transformer.ts test ");
     }
 
+    public static updateIndex(sample: SampleInfo, template: string): string {
 
+        let content = template + "";
+
+        content = Strings.replace(content, "SampleFileName", sample.SampleFileName);
+        content = Strings.replace(content, ".tsx", "");
+        return content;
+    }
+
+    // generates content of readme file for a given sample based on provided template of readme file
     public static getReadme(sample: SampleInfo, template: string): string {
 
-        // let componentGroup = "maps";
-        // let componentFolder = "geo-map";
-        // let sampleFolder = "binding-csv-points";
+        // let ComponentGroup = "maps";
+        // let ComponentFolder = "geo-map";
+        // let SampleFolderName = "binding-csv-points";
         // let sampleFile = "MapBindingDataCSV.tsx";
 
         let readMe = template + "";
-
         // replacing variables with values that were generated while processing each sample:
-        // readMe = StringUtils.replace(readMe, "{sandboxUrlView}", igConfig.sandboxUrlView);
-        // readMe = StringUtils.replace(readMe, "{sandboxUrlEdit}", igConfig.sandboxUrlEdit);
-        // readMe = StringUtils.replace(readMe, "{sandboxUrlOptions}", igConfig.sandboxUrlOptions);
-        readMe = StringUtils.replace(readMe, "{sandboxUrlView}", sample.sandboxUrlView);
-        readMe = StringUtils.replace(readMe, "{sandboxUrlEdit}", sample.sandboxUrlEdit);
-        readMe = StringUtils.replace(readMe, "{componentFolder}", sample.componentFolder);
-        readMe = StringUtils.replace(readMe, "{componentGroup}", sample.componentGroup);
-        readMe = StringUtils.replace(readMe, "{componentName}", sample.componentName);
-        readMe = StringUtils.replace(readMe, "{sampleFilePath}", sample.sampleFilePath);
-        readMe = StringUtils.replace(readMe, "{sampleFileName}", sample.sampleFileName);
-        readMe = StringUtils.replace(readMe, "{sampleDisplayName}", sample.sampleDisplayName);
-        readMe = StringUtils.replace(readMe, "{sampleDirRelative}", sample.sampleDirRelative);
-        readMe = StringUtils.replace(readMe, "{sampleFolder}", sample.sampleFolder);
-        readMe = StringUtils.replace(readMe, "{sampleSourceCode}", sample.sampleSourceCode);
-        readMe = StringUtils.replace(readMe, "{docsUrl}", sample.docsUrl);
+        readMe = Strings.replace(readMe, "{SandboxUrlView}", sample.SandboxUrlView);
+        readMe = Strings.replace(readMe, "{SandboxUrlEdit}", sample.SandboxUrlEdit);
 
-        readMe = StringUtils.replace(readMe, "{repositoryUrl}", igConfig.repositoryUrl);
-        readMe = StringUtils.replace(readMe, "{repositoryPath}", igConfig.repositoryPath);
-        readMe = StringUtils.replace(readMe, "{repositoryOrg}", igConfig.repositoryOrg);
-        readMe = StringUtils.replace(readMe, "{repositoryName}", igConfig.repositoryName);
-        readMe = StringUtils.replace(readMe, "{platformCode}", igConfig.platformCode);
-        readMe = StringUtils.replace(readMe, "{platformName}", igConfig.platformName);
+        readMe = Strings.replace(readMe, "{ComponentFolder}", sample.ComponentFolder);
+        readMe = Strings.replace(readMe, "{ComponentGroup}", sample.ComponentGroup);
+        readMe = Strings.replace(readMe, "{ComponentName}", sample.ComponentName);
 
-        readMe = StringUtils.replace(readMe, "{browserHostUrl}", igConfig.browserHostUrl);
-        readMe = StringUtils.replace(readMe, "{browserRootPath}", igConfig.browserRootPath);
+        // readMe = Strings.replace(readMe, "{SampleFolderPath}", sample.SampleFolderPath);
+        readMe = Strings.replace(readMe, "{SampleFolderPath}", sample.SampleFolderPath);
+        readMe = Strings.replace(readMe, "{SampleFolderName}", sample.SampleFolderName);
+        readMe = Strings.replace(readMe, "{SampleRoute}", sample.SampleRoute);
+        readMe = Strings.replace(readMe, "{SampleDisplayName}", sample.SampleDisplayName);
+        readMe = Strings.replace(readMe, "{SampleFileName}", sample.SampleFileName);
+        readMe = Strings.replace(readMe, "{SampleFilePath}", sample.SampleFilePath);
+        readMe = Strings.replace(readMe, "{SampleFileSourcePath}", sample.SampleFileSourcePath);
+        readMe = Strings.replace(readMe, "{SampleFileSourceCode}", sample.SampleFileSourceCode);
+
+        readMe = Strings.replace(readMe, "{DocsUrl}", sample.DocsUrl);
+
+        readMe = Strings.replace(readMe, "{RepositoryWarning}", igConfig.RepositoryWarning);
+        readMe = Strings.replace(readMe, "{RepositoryUrl}", igConfig.RepositoryUrl);
+        readMe = Strings.replace(readMe, "{RepositoryPath}", igConfig.RepositoryPath);
+        readMe = Strings.replace(readMe, "{RepositoryOrg}", igConfig.RepositoryOrg);
+        readMe = Strings.replace(readMe, "{RepositoryName}", igConfig.RepositoryName);
+
+        readMe = Strings.replace(readMe, "{PlatformCode}", igConfig.PlatformCode);
+        readMe = Strings.replace(readMe, "{PlatformName}", igConfig.PlatformName);
+
+        readMe = Strings.replace(readMe, "{BrowserHostUrl}", igConfig.BrowserHostUrl);
+        readMe = Strings.replace(readMe, "{BrowserRootPath}", igConfig.BrowserRootPath);
 
         // console.log("====== ReadMe.md File =======================");
         // console.log(readMe);
@@ -381,7 +378,7 @@ class Transformer {
     }
 }
 
-class StringUtils {
+class Strings {
 
     public static excludes(str: string, exclusions: string[]): boolean {
         for (const exclusion of exclusions) {
@@ -411,4 +408,32 @@ class StringUtils {
 
     // .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
     //   .split(/(?=[A-Z])/) v
+}
+
+class PackageJson {
+    public name?: string;
+    public description?: string;
+    public author?: string;
+    public homepage?: string;
+    public version?: string;
+    public private?: boolean;
+    public scripts: any;
+    public dependencies: any;
+    public devDependencies: any;
+    public browserslist?: string[];
+}
+
+class PackageDependency {
+    public name: string;
+    public version: string;
+
+    public samples?: SampleInfo[];
+
+    constructor() {
+        this.samples = [];
+    }
+
+    public toString() : string {
+        return '"' + this.name + `": "` + this.version + '"';
+    }
 }

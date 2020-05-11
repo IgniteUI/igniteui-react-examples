@@ -12,7 +12,7 @@ import { IgrCategoryToolTipLayer } from 'igniteui-react-charts';
 import { IgrItemToolTipLayer } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 
@@ -44,9 +44,9 @@ export default class DataChartSeriesTooltips extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="options">
-                    <span className="optionLabel">Tooltip Type: </span>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-label">Tooltip Type: </span>
                     <select value={this.state.toolTipType}
                         onChange={this.onToolTipTypeChanged}>
                         <option>Default</option>
@@ -54,7 +54,7 @@ export default class DataChartSeriesTooltips extends DataChartSharedComponent {
                         <option>Category</option>
                     </select>
                 </div>
-                <div className="chart" style={{height: "calc(100% - 35px)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart dataSource={this.data}
                         ref={this.onChartRef}
                         width="100%"

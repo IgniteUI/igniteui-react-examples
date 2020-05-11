@@ -1,7 +1,7 @@
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./CategoryChartSharedStyles.css";
 import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
 
@@ -28,14 +28,14 @@ export default class CategoryChartTooltipTemplate extends CategoryChartSharedCom
                 <p>TODO implement render() in {this.constructor.name}.tsx file</p>
 
                 {/* <div>
-                    <label className="optionLabel">Enable Highlighting: </label>
-                    <label className="optionItem"><input type="checkbox"
+                    <label className="igOptions-label">Enable Highlighting: </label>
+                    <label className="igOptions-item"><input type="checkbox"
                     checked={this.state.isSeriesHighlighting}
                     onChange={this.onSeriesHighlightingChanged}/> Series </label>
-                    <label className="optionItem"><input type="checkbox"
+                    <label className="igOptions-item"><input type="checkbox"
                     checked={this.state.isItemHighlighting}
                     onChange={this.onItemHighlightingChanged}/>Item </label>
-                    <label className="optionItem"><input type="checkbox"
+                    <label className="igOptions-item"><input type="checkbox"
                     checked={this.state.isCategoryHighlighting}
                     onChange={this.onCategoryHighlightingChanged}/>Category </label>
                 </div>

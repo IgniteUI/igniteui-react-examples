@@ -20,7 +20,7 @@ import { SampleFinancialData } from "./SampleFinancialData";
 import { SampleScatterData } from "./SampleScatterData";
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { IgrBarSeries } from 'igniteui-react-charts';
@@ -76,10 +76,10 @@ export default class DataChartAxisTypes extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="chart">
-                    <div className="options">
-                        <span className="optionItem">Series Type:</span>
+            <div className="igContainer">
+                <div className="igComponent">
+                    <div className="igOptions">
+                        <span className="igOptions-item">Series Type:</span>
                         <select onChange={this.onAxisTypeChange}>
                             <option>Column (CategoryXAxis)</option>
                             <option>Bar (CategoryYAxis)</option>
@@ -89,8 +89,8 @@ export default class DataChartAxisTypes extends DataChartSharedComponent {
                     </div>
                     <IgrDataChart
                         ref={this.onChartRef}
-                        width="100%"                        
-                        height="calc(100% - 35px)" 
+                        width="100%"
+                        height="calc(100% - 35px)"
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true} />
                 </div>

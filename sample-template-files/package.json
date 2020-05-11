@@ -30,7 +30,11 @@
     "igniteui-react-core":"^16.11.7",
     "igniteui-react-maps":"^16.11.7",
     "igniteui-react-charts":"^16.11.7",
-
+    "igniteui-react-excel":"^16.11.7",
+    "igniteui-react-grids":"^16.11.7",
+    "igniteui-react-gauges":"^16.11.7",
+    "igniteui-react-spreadsheet":"^16.11.7",
+    "igniteui-react-spreadsheet-chart-adapter":"^16.11.7",
     "jquery": "^1.11.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.5",

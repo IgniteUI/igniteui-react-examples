@@ -3,7 +3,7 @@ import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrSparklineCoreModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./SparklineSharedStyles.css";
 
 IgrSparklineCoreModule.register();
@@ -22,27 +22,27 @@ export default class SparklineDisplayTypes extends React.Component {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <label className="optionLabel">Area Sparkline</label>
-                <div className="chart25">
+            <div className="igContainer">
+                <label className="igOptions-label">Area Sparkline</label>
+                <div className="igComponent">
                     <IgrSparkline height="100%" width="100%" displayType="Area"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Value"/>
                 </div>
-                <label className="optionLabel">Line Sparkline</label>
-                <div className="chart25">
+                <label className="igOptions-label">Line Sparkline</label>
+                <div className="igComponent">
                     <IgrSparkline height="100%" width="100%" displayType="Line"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Value" />
                 </div>
-                <label className="optionLabel">Column Sparkline</label>
-                <div className="chart25">
+                <label className="igOptions-label">Column Sparkline</label>
+                <div className="igComponent">
                     <IgrSparkline height="100%" width="100%" displayType="Column"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Value"/>
                 </div>
-                <label className="optionLabel">WinLoss Sparkline</label>
-                <div className="chart25">
+                <label className="igOptions-label">WinLoss Sparkline</label>
+                <div className="igComponent">
                     <IgrSparkline height="100%" width="100%" displayType="WinLoss"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Value" />

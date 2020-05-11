@@ -38,14 +38,14 @@
     vertical-align: center;
 }
 
-.optionLabel {
+.igOptions-label {
     margin-top: 10px;
     margin-left: 15px;
     margin-right: 5px;
     /* font-size: 10pt */
 }
 
-.optionValue {
+.igOptions-value {
     margin-top: 0px;
     margin-left: 10px;
     margin-bottom: 5px;

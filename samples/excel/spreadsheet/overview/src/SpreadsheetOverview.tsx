@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles.css";
+
 import "./SpreadsheetSharedStyles.css";
 
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
@@ -32,8 +32,8 @@ export default class SpreadsheetOverview extends SpreadsheetSharedComponent {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
+            <div className="igContainer">
+                <div className="igOptions">
                     <input type="file" onChange={(e) => this.openFile(e.target.files as FileList)} accept=".xls, .xlt, .xlsx, .xlsm, .xltm, .xltx"/>
                 </div>
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 30px)" width="100%" />

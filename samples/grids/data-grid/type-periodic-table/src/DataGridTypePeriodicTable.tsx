@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 
 // grid modules:
@@ -62,7 +62,7 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
     public render() {
 
         return (
-            <div className="sampleContainer" style={{overflow: "hidden"}}>
+            <div className="igContainer" style={{overflow: "hidden"}}>
                 <label>Selected Element: {this.state.selectedElement }</label>
 
                 <IgrLiveGrid

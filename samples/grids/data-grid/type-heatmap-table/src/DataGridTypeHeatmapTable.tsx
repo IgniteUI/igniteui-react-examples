@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 
 // grid modules:
@@ -18,7 +18,7 @@ IgrLiveGridModule.register();
 export default class DataGridTypeHeatmapTable extends React.Component<any, any> {
 
     public data: any[];
-    public VericalHeader: IgrTemplateHeader;
+    public VerticalHeader: IgrTemplateHeader;
     public HorizontalRightHeader: IgrTemplateHeader;
     public HorizontalLeftHeader: IgrTemplateHeader;
     public HeatScale: HeatScale;
@@ -42,8 +42,8 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
         this.HeatScale.isInverted = true;
         this.HeatScale.colors = ['#009f00', '#3eb342', '#62c768', '#86db83', '#b2ef8e', '#fcd741', '#ffae4b', '#ff824d', '#f95048', '#e9002c'];
 
-        this.VericalHeader = new IgrTemplateHeader({});
-        this.VericalHeader.cellUpdating = (s, e) => this.onVerticalHeaderUpdating(s, e);
+        this.VerticalHeader = new IgrTemplateHeader({});
+        this.VerticalHeader.cellUpdating = (s, e) => this.onVerticalHeaderUpdating(s, e);
 
         this.HorizontalRightHeader = new IgrTemplateHeader({});
         this.HorizontalRightHeader.cellUpdating = (s, e) => this.onHorizontalHeaderUpdating(s, e, "right");
@@ -54,7 +54,7 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrLiveGrid
                     height="100%"
                     width="100%"
@@ -101,7 +101,7 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
         key={columnPath}
         propertyPath={columnPath}
         headerText={columnName}
-        header={this.VericalHeader}
+        header={this.VerticalHeader}
         width={this.cellSize.toString()}
         paddingBottom="0" paddingLeft="0"
         paddingRight="0" paddingTop="0"

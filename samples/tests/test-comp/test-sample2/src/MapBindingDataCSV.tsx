@@ -1,9 +1,8 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 import DataUtils from "./DataUtils"
 import WorldUtils from "./WorldUtils"
-import "./sandbox.config.json";
 
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
@@ -26,8 +25,8 @@ export default class MapBindingDataCSV extends React.Component {
 
     public render() {
         return (
-            <div className="igFlex">
-                <div className="igControl" >
+            <div className="igContainer">
+                <div className="igComponent" >
                     <IgrGeographicMap
                         ref={this.onMapReferenced}
                         width="100%"

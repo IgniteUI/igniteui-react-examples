@@ -9,7 +9,7 @@ import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { SharedData } from "./DataChartSharedData";
@@ -54,21 +54,21 @@ export default class DataChartPerformance extends DataChartSharedComponent {
 
     public render() {
         return (
-        <div className="sample">
-            <div className="options">
-                <label className="optionLabel">Data Points: </label>
-                <label className="optionValue" >
+        <div className="igContainer">
+            <div className="igOptions">
+                <label className="igOptions-label">Data Points: </label>
+                <label className="igOptions-value" >
                     {this.state.dataInfo}
                 </label>
-                <input className="slider" type="range" min="10000" max="1000000" step="1000"
+                <input className="igOptions-slider" type="range" min="10000" max="1000000" step="1000"
                     value={this.state.dataPoints}
                     onChange={this.onDataPointsChanged}/>
                 <button onClick={this.onDataGenerateClick}>Generate Data</button>
-                <label className="optionItem"><input type="checkbox"
+                <label className="igOptions-item"><input type="checkbox"
                     onChange={this.onScalingRatioChanged}/> Optimize Scaling </label>
-                <span ref={this.onFpsRef} className="optionLabel" />
+                <span ref={this.onFpsRef} className="igOptions-label" />
             </div>
-            <div className="chart" style={{height: "calc(100% - 35px)"}} >
+            <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                 <IgrDataChart
                     ref={this.onChartRef}
                     width="100%"
@@ -76,7 +76,7 @@ export default class DataChartPerformance extends DataChartSharedComponent {
                     dataSource={this.data}
                     isHorizontalZoomEnabled={true}
                     isVerticalZoomEnabled={true} >
-                                        
+
                     <IgrCategoryXAxis name="xAxis" label="Label"/>
                     <IgrNumericYAxis name="yAxis" />
 

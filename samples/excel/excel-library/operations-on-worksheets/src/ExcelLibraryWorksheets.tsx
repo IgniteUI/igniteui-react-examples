@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./ExcelSharedStyles.css";
 import { ExcelSharedComponent } from "./ExcelSharedComponent";
 import { SharedData } from "./ExcelSharedData";
@@ -115,14 +115,14 @@ export default class ExcelLibraryWorksheets extends ExcelSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-            <button className="optionItem" onClick={this.exportData}>Save Workbook</button>
-            <label className="optionItem"><input id="isSorted" defaultChecked={this.isSorted} onChange={this.onChange} type="checkbox" />Apply Sort</label>
-            <label className="optionItem"><input id="isFiltered" defaultChecked={this.isFiltered} onChange={this.onChange} type="checkbox" />Apply Filter</label>
-            <label className="optionItem"><input id="isProtected" defaultChecked={this.isProtected} onChange={this.onChange} type="checkbox" />Protect Worksheet</label>
-            <label className="optionItem"><input id="showGridlines" defaultChecked={this.showGridlines} onChange={this.onChange} type="checkbox" />Show Gridlines</label>
-            <label className="optionItem"><input id="showHeaders" defaultChecked={this.showHeaders} onChange={this.onChange} type="checkbox" />Show Row and Column Headers</label>
-            <label className="optionItem"><input id="applyFormat" defaultChecked={this.applyConditionalFormatting} onChange={this.onChange} type="checkbox" />Apply Conditional Formatting</label>
+            <div className="igContainer">
+            <button className="igOptions-item" onClick={this.exportData}>Save Workbook</button>
+            <label className="igOptions-item"><input id="isSorted" defaultChecked={this.isSorted} onChange={this.onChange} type="checkbox" />Apply Sort</label>
+            <label className="igOptions-item"><input id="isFiltered" defaultChecked={this.isFiltered} onChange={this.onChange} type="checkbox" />Apply Filter</label>
+            <label className="igOptions-item"><input id="isProtected" defaultChecked={this.isProtected} onChange={this.onChange} type="checkbox" />Protect Worksheet</label>
+            <label className="igOptions-item"><input id="showGridlines" defaultChecked={this.showGridlines} onChange={this.onChange} type="checkbox" />Show Gridlines</label>
+            <label className="igOptions-item"><input id="showHeaders" defaultChecked={this.showHeaders} onChange={this.onChange} type="checkbox" />Show Row and Column Headers</label>
+            <label className="igOptions-item"><input id="applyFormat" defaultChecked={this.applyConditionalFormatting} onChange={this.onChange} type="checkbox" />Apply Conditional Formatting</label>
             </div>
         );
     }

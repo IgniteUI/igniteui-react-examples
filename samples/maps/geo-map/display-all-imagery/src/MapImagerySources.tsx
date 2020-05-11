@@ -1,9 +1,9 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 
-import { IgrBingMapsMapImagery } from 'igniteui-react-maps';
 import { BingMapsImageryStyle } from 'igniteui-react-maps';
+import { IgrBingMapsMapImagery } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
@@ -15,7 +15,7 @@ import { MapUtils } from "./MapUtils";
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MaptileSources extends React.Component<any,any> {
+export default class MapImagerySources extends React.Component<any, any> {
 
     public geoMap: IgrGeographicMap;
     public tileSource: IgrBingMapsMapImagery;
@@ -56,18 +56,18 @@ export default class MaptileSources extends React.Component<any,any> {
 
     public render() {
         return (
-            <div className="sampleRoot" style={{background: "white"}}>
+            <div className="igContainer" style={{background: "white"}}>
 {/* height: "calc(100% - 60px)",  */}
-                <div className="map" style={{background: "white"}}>
+                <div className="igComponent" style={{background: "white"}}>
                     <IgrGeographicMap
                         ref={this.onMapReferenced}
                         width="100%"
                         height="100%"
                         zoomable="true"/>
-                    <div className="options">
-                        <span className="optionLabel">Imagery Source: </span>
+                    <div className="igOptions">
+                        <span className="igOptions-label">Imagery Source: </span>
                         <select value={this.state.tileSource}
-                                onChange={this.ontileSourceChanged}>
+                                onChange={this.onTileSourceChanged}>
                                 {this.ImageryOptions}
                         </select>
                     </div>
@@ -82,7 +82,7 @@ export default class MaptileSources extends React.Component<any,any> {
         this.geoMap.zoomToGeographic({ left: -120, top: 30, width: 45, height: 20});
     }
 
-    public ontileSourceChanged = (e: any) =>{
+    public onTileSourceChanged = (e: any) =>{
         if (this.geoMap === undefined) return;
 
         const mode = e.target.value.toString().replace(" ", "");

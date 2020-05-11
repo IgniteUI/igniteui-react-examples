@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 import { MapUtils, MapRegion } from "./MapUtils";
 
@@ -12,7 +12,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapDisplayImageryEsriTiles extends React.Component<any,any> {
+export default class MapDisplayImageryEsriTiles extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
@@ -25,19 +25,23 @@ export default class MapDisplayImageryEsriTiles extends React.Component<any,any>
 
     public render() {
         return (
-            <div className="sampleColumns" style={{gridTemplateRows: "1fr 1fr"}}>
-                <IgrGeographicMap
-                    ref={this.onEsriMapStreet}
-                    width="100%" height="100%" zoomable="true"/>
-                <IgrGeographicMap
-                    ref={this.onEsriMapTopographic}
-                    width="100%" height="100%" zoomable="true"/>
-                <IgrGeographicMap
-                    ref={this.onEsriMapOceans}
-                    width="100%" height="100%" zoomable="true"/>
-                <IgrGeographicMap
-                    ref={this.onEsriMapNational}
-                    width="100%" height="100%" zoomable="true"/>
+            <div className="igContainer" >
+                <div className="igContainer-horizontal">
+                    <IgrGeographicMap
+                        ref={this.onEsriMapStreet}
+                        width="100%" height="100%" zoomable="true"/>
+                    <IgrGeographicMap
+                        ref={this.onEsriMapTopographic}
+                        width="100%" height="100%" zoomable="true"/>
+                </div>
+                <div className="igContainer-horizontal">
+                    <IgrGeographicMap
+                        ref={this.onEsriMapOceans}
+                        width="100%" height="100%" zoomable="true"/>
+                    <IgrGeographicMap
+                        ref={this.onEsriMapNational}
+                        width="100%" height="100%" zoomable="true"/>
+                </div>
 
                 <div className="igOverlay-bottom-right">Imagery Tiles: @ESRI/ArcGIS</div>
             </div>

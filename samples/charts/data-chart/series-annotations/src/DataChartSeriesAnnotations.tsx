@@ -21,7 +21,7 @@ import { IgrValueOverlayModule } from 'igniteui-react-charts';
 import { FinalValueSelectionMode } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 
@@ -92,20 +92,20 @@ export default class DataChartSeriesAnnotations extends DataChartSharedComponent
 
     public render() {
         return (
-            <div className="sample">
-                <div className="options">
-                    <span className="optionItem">Annotations: </span>
-                    <label className="optionItem"><input type="checkbox" checked={this.state.calloutsVisible}
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-item">Annotations: </span>
+                    <label className="igOptions-item"><input type="checkbox" checked={this.state.calloutsVisible}
                         onChange={this.onCalloutChange} />Callouts </label>
-                    <label className="optionItem"><input type="checkbox" checked={this.state.finalValuesVisible}
+                    <label className="igOptions-item"><input type="checkbox" checked={this.state.finalValuesVisible}
                         onChange={this.onFinalValueChange} />Final Value</label>
-                    <label className="optionItem"><input type="checkbox" checked={this.state.crosshairsVisible}
+                    <label className="igOptions-item"><input type="checkbox" checked={this.state.crosshairsVisible}
                         onChange={this.onCrosshairChange} />Crosshairs</label>
-                    {/*<label className="optionItem"><input type="checkbox" checked={this.state.valueOverlayVisible}
+                    {/*<label className="igOptions-item"><input type="checkbox" checked={this.state.valueOverlayVisible}
                         onChange={this.onValueOverlayChange} />Value Overlay </label>*/}
                 </div>
 
-                <div className="chart" style={{height: "calc(100% - 35px)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart dataSource={this.data}
                         ref={this.onChartRef}
                         width="100%"

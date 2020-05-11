@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 import DataUtils from "./DataUtils"
 import WorldUtils from "./WorldUtils"
@@ -18,7 +18,7 @@ import { IgrShapeDataSource } from 'igniteui-react-core';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapBindingMultipleShapes extends React.Component<any,any> {
+export default class MapBindingMultipleShapes extends React.Component<any, any> {
 
     public geoMap: IgrGeographicMap;
 
@@ -37,8 +37,8 @@ export default class MapBindingMultipleShapes extends React.Component<any,any> {
         const mapStyle = { background: "rgb(212, 212, 212)" } as React.CSSProperties;
 
         return (
-            <div className="sampleRoot">
-                <div className="map" style={mapStyle} >
+            <div className="igContainer">
+                <div className="igComponent" style={mapStyle} >
                     <IgrGeographicMap
                         ref={this.onMapReferenced}
                         width="100%"

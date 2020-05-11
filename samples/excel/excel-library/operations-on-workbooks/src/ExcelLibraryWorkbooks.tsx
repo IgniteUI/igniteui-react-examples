@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./ExcelSharedStyles.css";
 import { ExcelSharedComponent } from "./ExcelSharedComponent";
 import { IgrLiveGridModule } from 'igniteui-react-grids';
@@ -27,8 +27,8 @@ export default class ExcelLibraryWorkbooks extends ExcelSharedComponent {
     public employeeColumns: string[];
 
     constructor(props: any) {
-        super(props);    
-        
+        super(props);
+
         this.onGridRef = this.onGridRef.bind(this);
         this.createWorkbook = this.createWorkbook.bind(this);
         this.saveWorkbook = this.saveWorkbook.bind(this);
@@ -51,10 +51,10 @@ export default class ExcelLibraryWorkbooks extends ExcelSharedComponent {
     public render() {
         return (
             <div>
-                <div className="options">
-                    <button className="optionItem" onClick={this.createWorkbook}>Create Workbook</button>
-                    <button className="optionItem" onClick={this.saveWorkbook}>Save Workbook</button>
-                    <span className="optionItem">Select Table to Export: </span>
+                <div className="igOptions">
+                    <button className="igOptions-item" onClick={this.createWorkbook}>Create Workbook</button>
+                    <button className="igOptions-item" onClick={this.saveWorkbook}>Save Workbook</button>
+                    <span className="igOptions-item">Select Table to Export: </span>
                     <select onChange={this.onTableChange} value={(this.state as any).selected}>
                         <option>Employees - Table1</option>
                         <option>Expenses - Table2</option>
@@ -63,7 +63,7 @@ export default class ExcelLibraryWorkbooks extends ExcelSharedComponent {
                 </div>
                 <div className="previewGrid">
                     <IgrLiveGrid
-                        ref = {this.onGridRef}                        
+                        ref = {this.onGridRef}
                         height="300px"
                         width="100%"
                         dataSource={this.employeeData} />
@@ -72,14 +72,14 @@ export default class ExcelLibraryWorkbooks extends ExcelSharedComponent {
         );
     }
 
-    
+
     public initData() {
         this.expenseData = [];
         this.employeeData = [];
         this.incomeData = [];
 
         const startYear = 2011;
-    
+
         for (let i = 1; i < 20; i++) {
 
             const year = startYear + i;
@@ -92,7 +92,7 @@ export default class ExcelLibraryWorkbooks extends ExcelSharedComponent {
             const country: string = this.getItem(this.countries);
             const salary: string = this.getAmount(60000, 80000);
 
-            // Expense Data            
+            // Expense Data
             const computerExpense: string = this.getAmount(50000, 60000);
             const researchExpense: string = this.getAmount(120000, 160000);
             const travelExpense: string = this.getAmount(15000, 25000);
@@ -123,7 +123,7 @@ export default class ExcelLibraryWorkbooks extends ExcelSharedComponent {
                 "Salary": salaryExpense,
                 "Software": softwareExpense
             });
-            
+
             this.incomeData.push({
                 "Year": year,
                 "Phones": phoneIncome,
@@ -161,7 +161,7 @@ export default class ExcelLibraryWorkbooks extends ExcelSharedComponent {
     }
 
     public createWorkbook() {
-        this.initData();        
+        this.initData();
         this.switchDataSource((this.state as any).selected);
     }
 
@@ -171,7 +171,7 @@ export default class ExcelLibraryWorkbooks extends ExcelSharedComponent {
 
         const wb = new Workbook(WorkbookFormat.Excel2007);
         const ws = wb.worksheets().add("Sheet1");
-        
+
         for(let i=0; i<headers.length; i++){
             ws.rows(0).cells(i).value = headers[i];
         }
@@ -183,7 +183,7 @@ export default class ExcelLibraryWorkbooks extends ExcelSharedComponent {
                 xlRow.setCellValue(j, dataRow[headers[j]]);
             }
         }
-        
+
         ExcelUtility.save(wb, "WorkbookSample");
     }
 

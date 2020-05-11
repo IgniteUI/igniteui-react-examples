@@ -22,7 +22,7 @@ export default class LinearGaugeTypeCurve extends React.Component {
 
     public render() {
         return (
-            <div className="sampleFlexRows">
+            <div className="igContainer">
                 <IgrLinearGauge
                     ref={this.onGaugeCreated}
                     height="120px"

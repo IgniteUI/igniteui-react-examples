@@ -13,7 +13,7 @@ import { IgrDataChartScatterModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { SampleScatterData } from "./SampleScatterData";
@@ -58,25 +58,25 @@ export default class DataChartTypeScatterContourSeries extends DataChartSharedCo
 
     public render() {
         return (
-        <div className="sample">
-            {/* <div className="options">
-                <label className="optionLabel">Thickness: </label>
-                <label className="optionValue" >
+        <div className="igContainer">
+            {/* <div className="igOptions">
+                <label className="igOptions-label">Thickness: </label>
+                <label className="igOptions-value" >
                     {this.state.seriesThickness}
                 </label>
-                <input className="slider" type="range" min="1" max="10" step="1"
+                <input className="igOptions-slider" type="range" min="1" max="10" step="1"
                     value={this.state.seriesThickness}
                     onChange={this.onSeriesThicknessChanged}/>
 
-                <label className="optionLabel">Contours: </label>
-                <label className="optionValue" >
+                <label className="igOptions-label">Contours: </label>
+                <label className="igOptions-value" >
                     {this.state.seriesContours}
                 </label>
-                <input className="slider" type="range" min="1" max="15" step="1"
+                <input className="igOptions-slider" type="range" min="1" max="15" step="1"
                     value={this.state.seriesContours}
                     onChange={this.onSeriesContoursChanged}/>
             </div> */}
-            <div className="chart" style={{height: "calc(100% - 35px)"}} >
+            <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                 <IgrDataChart
                     ref={this.onChartRef}
                     isHorizontalZoomEnabled={true}

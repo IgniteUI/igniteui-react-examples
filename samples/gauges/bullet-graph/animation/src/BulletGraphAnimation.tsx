@@ -2,7 +2,7 @@ import { IgrBulletGraph } from 'igniteui-react-gauges';
 import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import * as React from "react";
-import "../styles.css";
+
 import "./BulletGraphSharedStyles.css";
 
 IgrBulletGraphModule.register();
@@ -26,12 +26,12 @@ export default class BulletGraphAnimation extends React.Component {
 
     public render() {
         return (
-            <div className="sampleFlexRows" >
+            <div className="igContainer" >
 
-                <div className="options">
-                    <button onClick={this.onAnimateToGauge1} className="button">Gauge Animation #1</button>
-                    <button onClick={this.onAnimateToGauge2} className="button">Gauge Animation #2</button>
-                    <button onClick={this.onAnimateToGauge3} className="button">Gauge Animation #3</button>
+                <div className="igOptions">
+                    <button onClick={this.onAnimateToGauge1} className="igOptions-button">Gauge Animation #1</button>
+                    <button onClick={this.onAnimateToGauge2} className="igOptions-button">Gauge Animation #2</button>
+                    <button onClick={this.onAnimateToGauge3} className="igOptions-button">Gauge Animation #3</button>
                 </div>
 
                 <IgrBulletGraph

@@ -2,7 +2,7 @@ import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./CategoryChartSharedStyles.css";
 import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
 import { CategoryChartSharedData } from "./CategoryChartSharedData";
@@ -47,28 +47,28 @@ export default class CategoryChartHighFrequency extends CategoryChartSharedCompo
 
     public render() {
         return (
-        <div className="sampleContainer">
-            <div className="options">
-                <label className="optionLabel">Refresh Interval: </label>
-                <label className="optionValue" >
+        <div className="igContainer">
+            <div className="igOptions">
+                <label className="igOptions-label">Refresh Interval: </label>
+                <label className="igOptions-value" >
                     {this.state.refreshInfo}
                 </label>
-                <input className="slider" type="range" min="10" max="500"
+                <input className="igOptions-slider" type="range" min="10" max="500"
                     value={this.state.refreshInterval}
                     onChange={this.onRefreshFrequencyChanged}/>
-                <label className="optionLabel">Data Points: </label>
-                <label className="optionValue" >
+                <label className="igOptions-label">Data Points: </label>
+                <label className="igOptions-value" >
                     {this.state.dataInfo}
                 </label>
-                <input className="slider" type="range" min="10000" max="1000000" step="1000"
+                <input className="igOptions-slider" type="range" min="10000" max="1000000" step="1000"
                     value={this.state.dataPoints}
                     onChange={this.onDataPointsChanged}/>
                 <button onClick={this.onDataGenerateClick}>Generate Data</button>
-                <label className="optionItem"><input type="checkbox"
+                <label className="igOptions-item"><input type="checkbox"
                     onChange={this.onScalingRatioChanged}/> Optimize Scaling </label>
-                <span ref={this.onFpsRef} className="optionLabel" />
+                <span ref={this.onFpsRef} className="igOptions-label" />
             </div>
-            <div className="chart" style={{height: "calc(100% - 45px)"}} >
+            <div className="igComponent" style={{height: "calc(100% - 45px)"}} >
                 <IgrCategoryChart ref={this.onChartRef}
                     width="100%"
                     height="100%"

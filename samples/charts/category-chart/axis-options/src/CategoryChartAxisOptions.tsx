@@ -1,7 +1,7 @@
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./CategoryChartSharedStyles.css";
 import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
 
@@ -17,8 +17,8 @@ export default class CategoryChartAxisTypes extends CategoryChartSharedComponent
 
     public render() {
         return (
-        <div className="sampleContainer" >
-            <div className="chart">
+        <div className="igContainer" >
+            <div className="igComponent">
                 <IgrCategoryChart
                     width="100%"
                     height="100%"

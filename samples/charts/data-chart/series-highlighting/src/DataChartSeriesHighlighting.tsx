@@ -12,7 +12,7 @@ import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 
@@ -46,21 +46,21 @@ export default class DataChartSeriesHighlighting extends DataChartSharedComponen
 
     public render() {
         return (
-            <div className="sample">
-                <div className="options">
-                    <label className="optionLabel">Enable Highlighting: </label>
-                    <label className="optionItem"><input type="checkbox"
+            <div className="igContainer">
+                <div className="igOptions">
+                    <label className="igOptions-label">Enable Highlighting: </label>
+                    <label className="igOptions-item"><input type="checkbox"
                         checked={this.state.isSeriesHighlighting}
                         onChange={this.onSeriesHighlightingChanged} /> Series </label>
-                    <label className="optionItem"><input type="checkbox"
+                    <label className="igOptions-item"><input type="checkbox"
                         checked={this.state.isItemHighlighting}
                         onChange={this.onItemHighlightingChanged} />Item </label>
-                    <label className="optionItem"><input type="checkbox"
+                    <label className="igOptions-item"><input type="checkbox"
                         checked={this.state.isCategoryHighlighting}
                         onChange={this.onCategoryHighlightingChanged} />Category </label>
                 </div>
 
-                <div className="chart" style={{height: "calc(100% - 35px)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart dataSource={this.data}
                         ref={this.onChartRef}
                         width="100%"

@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles.css";
+
 import "./SpreadsheetSharedStyles.css";
 import DataUtils from "./DataUtils";
 import { ExcelUtility } from "./ExcelUtility";
@@ -38,12 +38,12 @@ export default class SpreadsheetActivation extends SpreadsheetSharedComponent {
     public render() {
 
         return (
-                <div className="sample">
-                <div className="options">
+                <div className="igContainer">
+                <div className="igOptions">
                 <input className="optionText" type="text" name="filterText" value={this.state.filterText} onChange={this.onFilterTextChanged} />
 
-                <button onClick={this.onClick} className="button">Active Cell</button>
-                <label className="optionItem"> Current Active Cell: {this.state.activeCell } </label>
+                <button onClick={this.onClick} className="igOptions-button">Active Cell</button>
+                <label className="igOptions-item"> Current Active Cell: {this.state.activeCell } </label>
                 </div>
                      <IgrSpreadsheet activeCellChanged={this.onActiveCellChanged}  ref={this.onSpreadsheetRef} height="800px" width="100%" />
                 </div>

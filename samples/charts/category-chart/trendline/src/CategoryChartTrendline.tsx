@@ -3,7 +3,7 @@ import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./CategoryChartSharedStyles.css";
 import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
 import { CategoryChartSharedData } from "./CategoryChartSharedData";
@@ -28,9 +28,9 @@ export default class CategoryChartTrendline extends CategoryChartSharedComponent
 
     public render() {
         return (
-            <div className="sampleContainer" >
-                <div className="options">
-                    <span className="optionLabel">Trend Line Type: </span>
+            <div className="igContainer" >
+                <div className="igOptions">
+                    <span className="igOptions-label">Trend Line Type: </span>
                     <select
                         value={this.state.trendLineType}
                         onChange={this.onTrendlineTypeChanged}>
@@ -51,7 +51,7 @@ export default class CategoryChartTrendline extends CategoryChartSharedComponent
                     </select>
                 </div>
 
-            <div className="chart" style={{height: "calc(100% - 50px)"}} >
+            <div className="igComponent" style={{height: "calc(100% - 50px)"}} >
                 <IgrCategoryChart
                     ref={this.onChartRef}
                     width="100%"
@@ -67,7 +67,7 @@ export default class CategoryChartTrendline extends CategoryChartSharedComponent
                     yAxisTitle="Temperature (C)"
                     xAxisTitle="Years"/>
             </div>
-            <div className="legend">
+            <div className="igLegend">
                 <IgrLegend ref={this.onLegendRef} orientation="Horizontal"  />
             </div>
 

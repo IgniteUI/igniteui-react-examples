@@ -1,7 +1,7 @@
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./FinancialChartSharedStyles.css";
 import { FinancialChartSharedComponent } from "./FinancialChartSharedComponent";
 import { StocksUtility } from "./StocksUtility";
@@ -21,9 +21,9 @@ export default class FinancialChartVolumeTypes extends FinancialChartSharedCompo
 
     public render() {
         return (
-        <div className="sample" >
-            <div className="options">
-                <label className="optionLabel">Volume Type:</label>
+        <div className="igContainer" >
+            <div className="igOptions">
+                <label className="igOptions-label">Volume Type:</label>
                 <select value={this.state.volumeType}
                     onChange={this.onVolumeTypeChanged}>
                     <option>Column</option>
@@ -32,7 +32,7 @@ export default class FinancialChartVolumeTypes extends FinancialChartSharedCompo
                     <option>None</option>
                 </select>
             </div>
-            <div className="chart" style={{height: "calc(100% - 65px)"}}>
+            <div className="igComponent" style={{height: "calc(100% - 65px)"}}>
                 <IgrFinancialChart
                     width="100%"
                     height="100%"

@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 import "./DataUtils";
 import { SharedData } from "./DataGridSharedData";
@@ -38,20 +38,20 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <span className="optionItem" style={{ width: "160px" }}>Column Moving Mode:</span>
-                    <select className="optionItem" style={{ width: "135px" }} defaultValue="Deferred" onChange={this.onColumnMovingModeChange}>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-item" style={{ width: "160px" }}>Column Moving Mode:</span>
+                    <select className="igOptions-item" style={{ width: "135px" }} defaultValue="Deferred" onChange={this.onColumnMovingModeChange}>
                         <option>Deferred</option>
                         <option>None</option>
                     </select>
-                    <span className="optionItem">Separator Width: </span>
-                    <input type="range" min={1} max={5} step="1" defaultValue={this.state.columnSeparatorWidth}
+                    <span className="igOptions-item">Separator Width: </span>
+                    <input className="igOptions-slider" type="range" min={1} max={5} step="1" defaultValue={this.state.columnSeparatorWidth}
                     onChange={this.onSeparatorWidthChanged}/>
                 </div>
-                <div className="options">
-                    <span className="optionItem"style={{ width: "160px" }}>Column Moving Animation:</span>
-                    <select className="optionItem" style={{ width: "135px" }} defaultValue="SlideOver" onChange={this.onColumnMovingAnimationModeChange} >
+                <div className="igOptions">
+                    <span className="igOptions-item"style={{ width: "160px" }}>Column Moving Animation:</span>
+                    <select className="igOptions-item" style={{ width: "135px" }} defaultValue="SlideOver" onChange={this.onColumnMovingAnimationModeChange} >
                         <option>Auto</option>
                         <option>SlideOver</option>
                         <option>None</option>

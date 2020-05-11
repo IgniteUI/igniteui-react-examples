@@ -1,6 +1,6 @@
 /* styles shared between all BulletGraph samples */
 
-.sampleFlexRows {
+.igContainer {
     background: white;
     height: calc(100% - 1rem);
     width: calc(100% - 1rem);

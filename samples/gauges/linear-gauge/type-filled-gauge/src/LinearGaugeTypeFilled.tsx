@@ -30,7 +30,7 @@ export default class LinearGaugeTypeFilled extends React.Component {
 
     public render() {
         return (
-            <div className="sampleFlexRows">
+            <div className="igContainer">
                 <IgrLinearGauge
                     ref={this.onCreateGaugeGreen}
                     height="120px" width="100%" />

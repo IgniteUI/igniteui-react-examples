@@ -11,7 +11,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 
@@ -35,18 +35,18 @@ export default class DataChartSynchronization extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="chart" style={{height: "100%"}}>
+            <div className="igContainer">
+                <div className="igComponent" style={{height: "100%"}}>
                     <IgrDataChart ref={this.onChartRef}
                         width="100%"
                         height="50%"
                         dataSource={this.data}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}>
-                                                 
+
                         <IgrCategoryXAxis name="xAxis" label="Year" />
                         <IgrNumericYAxis name="yAxis" />
-                        
+
                         <IgrLineSeries name="series1" title="USA"
                             valueMemberPath="USA"
                             xAxisName="xAxis"
@@ -84,7 +84,7 @@ export default class DataChartSynchronization extends DataChartSharedComponent {
                             xAxisName="xAxis"
                             yAxisName="yAxis" />
                     </IgrDataChart>
-                </div>              
+                </div>
             </div>
         );
     }

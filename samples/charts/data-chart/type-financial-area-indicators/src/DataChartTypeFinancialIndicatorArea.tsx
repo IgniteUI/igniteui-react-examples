@@ -1,6 +1,6 @@
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { SampleFinancialData } from "./SampleFinancialData";
 
@@ -55,7 +55,7 @@ IgrDataChartCoreModule.register();
 IgrDataChartCategoryTrendLineModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class DataChartTypeFinancialIndicatorArea extends React.Component<any,any> {
+export default class DataChartTypeFinancialIndicatorArea extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
 
@@ -225,8 +225,8 @@ export default class DataChartTypeFinancialIndicatorArea extends React.Component
 
     public render() {
         return (
-            <div className="sample">
-                <div className="chart" style={{ height: "calc(50% - 20px)" }} >
+            <div className="igContainer">
+                <div className="igComponent" style={{ height: "calc(50% - 20px)" }} >
                     <IgrDataChart
                         width="100%"
                         height="100%"
@@ -250,8 +250,8 @@ export default class DataChartTypeFinancialIndicatorArea extends React.Component
                             showDefaultTooltip="true"/>
                     </IgrDataChart>
                 </div>
-                <div className="options">
-                    <span className="optionLabel"> Indicator Display Type: </span>
+                <div className="igOptions">
+                    <span className="igOptions-label"> Indicator Display Type: </span>
                     <select value={this.state.indicatorType}
                         onChange={this.onIndicatorChanged}>
                         <option>AbsoluteVolumeOscillator</option>
@@ -287,7 +287,7 @@ export default class DataChartTypeFinancialIndicatorArea extends React.Component
                     </select>
                 </div>
 
-                <div className="chart" style={{ height: "calc(50% - 20px)" }}>
+                <div className="igComponent" style={{ height: "calc(50% - 20px)" }}>
                     <IgrDataChart
                         width="100%"
                         height="100%"

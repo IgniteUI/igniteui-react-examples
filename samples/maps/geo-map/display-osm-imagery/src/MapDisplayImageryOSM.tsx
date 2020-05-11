@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 
 // for handling of maps events
@@ -13,7 +13,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapDisplayImageryOSM extends React.Component<any,any> {
+export default class MapDisplayImageryOSM extends React.Component<any, any> {
 
     public geoMap: IgrGeographicMap;
 
@@ -25,8 +25,8 @@ export default class MapDisplayImageryOSM extends React.Component<any,any> {
 
     public render() {
         return (
-            <div className="igFlex">
-                <div className="igControl" >
+            <div className="igContainer">
+                <div className="igComponent" >
                     <IgrGeographicMap
                         ref={this.onMapReferenced}
                         // actualWindowRectChanged={this.onMapWindowRectChanged}

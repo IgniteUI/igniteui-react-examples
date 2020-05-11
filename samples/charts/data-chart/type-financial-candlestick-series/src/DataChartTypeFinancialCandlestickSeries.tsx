@@ -10,7 +10,7 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { SampleFinancialData } from "./SampleFinancialData";
@@ -36,8 +36,8 @@ export default class DataChartTypeFinancialCandlestickSeries extends DataChartSh
 
     public render() {
         return (
-        <div className="sample">
-            <div className="chart" style={{height: "calc(100% - 5px)"}} >
+        <div className="igContainer">
+            <div className="igComponent" style={{height: "calc(100% - 5px)"}} >
                 <IgrDataChart
                     width="100%"
                     height="100%"

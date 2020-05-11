@@ -12,7 +12,7 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { SampleFinancialData } from "./SampleFinancialData";
@@ -45,15 +45,15 @@ export default class DataChartTypeFinancialSeries extends DataChartSharedCompone
 
     public render() {
         return (
-        <div className="sample">
-            <div className="options">
-                <span className="optionLabel"> Series Display Type: </span>
+        <div className="igContainer">
+            <div className="igOptions">
+                <span className="igOptions-label"> Series Display Type: </span>
                 <select value={this.state.markersType}
                     onChange={this.onDisplayTypeSeriesChanged}>
                     <option>Candlestick</option>
                     <option>OHLC</option>
                 </select>
-                <span className="optionLabel"> Indicator Display Type: </span>
+                <span className="igOptions-label"> Indicator Display Type: </span>
                 <select value={this.state.markersType}
                     onChange={this.onDisplayTypeIndicatorChanged}>
                     <option>Line</option>
@@ -61,7 +61,7 @@ export default class DataChartTypeFinancialSeries extends DataChartSharedCompone
                     <option>Column</option>
                 </select>
             </div>
-            <div className="chart" style={{height: "calc(100% - 35px)"}} >
+            <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                 <IgrDataChart
                     width="100%"
                     height="100%"

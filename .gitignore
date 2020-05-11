@@ -2,8 +2,9 @@
 
 # dependencies
 /node_modules
+/samples/*/node_modules
 /browser/node_modules
-
+/sample-test-files
 
 # IDEs and editors
 /.idea

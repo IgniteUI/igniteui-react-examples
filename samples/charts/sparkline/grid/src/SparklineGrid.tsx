@@ -1,6 +1,6 @@
 import * as React from "react";
-import "../styles.css";
-import "./SparklineSharedStyles.css";
+
+import "./SparklineGrid.css";
 import { SparklineSharedComponent } from "./SparklineSharedComponent";
 import { Products } from './Products';
 
@@ -31,7 +31,7 @@ export default class SparklineGrid extends SparklineSharedComponent {
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrLiveGrid
                     height="100%"
                     width="100%"

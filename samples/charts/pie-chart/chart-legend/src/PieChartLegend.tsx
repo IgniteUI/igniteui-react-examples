@@ -4,7 +4,7 @@ import { IgrPieChart } from 'igniteui-react-charts';
 import { IgrPieChartModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./PieChartSharedStyles.css";
 import { PieChartSharedComponent } from "./PieChartSharedComponent";
 
@@ -43,13 +43,13 @@ export default class PieChartLegend extends PieChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
+            <div className="igContainer">
 
-                <div className="legend">
+                <div className="igLegend">
                     <IgrItemLegend ref={this.onLegendRef} />
                 </div>
 
-                <div className="chart">
+                <div className="igComponent">
                     <IgrPieChart ref={this.onChartRef}
                                  dataSource={this.state.data}
                                  labelMemberPath="MarketShare"

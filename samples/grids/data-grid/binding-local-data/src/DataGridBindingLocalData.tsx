@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 import DataUtils from "./DataUtils";
 
@@ -36,7 +36,7 @@ export default class DataGridBindingLocalData extends React.Component<any, any> 
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrLiveGrid
                 ref={this.onGridRef}
                 height="100%"

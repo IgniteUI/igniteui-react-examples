@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./ExcelSharedStyles.css";
 import { ExcelSharedComponent } from "./ExcelSharedComponent";
 import { SharedData } from "./ExcelSharedData";
@@ -11,7 +11,7 @@ import { ExcelUtility } from './ExcelUtility';
 
 IgrExcelModule.register();
 
-export default class ExcelLibarayOverview extends ExcelSharedComponent {
+export default class ExcelLibraryOverview extends ExcelSharedComponent {
     public canSave = false;
     public wb: Workbook;
     public ws: Worksheet;
@@ -153,10 +153,10 @@ export default class ExcelLibarayOverview extends ExcelSharedComponent {
     public onClick = () => {
         this.workbookSave();
     }
-    
+
     public render() {
         return (
-            <div className="sample">
+            <div className="igContainer">
             <button onClick={this.onClick}>Save Workbook</button>
             </div>
         );

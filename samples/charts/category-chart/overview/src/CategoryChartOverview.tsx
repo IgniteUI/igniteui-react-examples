@@ -3,7 +3,7 @@ import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./CategoryChartSharedStyles.css";
 import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
 
@@ -27,9 +27,9 @@ export default class CategoryChartOverview extends CategoryChartSharedComponent 
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <span className="optionLabel">Chart Type: </span>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-label">Chart Type: </span>
                     <select value={this.state.chartType}
                         onChange={this.onChartTypeChanged}>
                         <option>Auto</option>
@@ -44,7 +44,7 @@ export default class CategoryChartOverview extends CategoryChartSharedComponent 
                         <option>Waterfall</option>
                     </select>
                 </div>
-                <div className="chart" style={{height: "calc(100% - 1.25rem)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 1.25rem)"}} >
                     <IgrCategoryChart
                         ref={this.onChartRef}
                         width="100%"

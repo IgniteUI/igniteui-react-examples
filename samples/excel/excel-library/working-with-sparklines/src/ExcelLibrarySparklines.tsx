@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./ExcelSharedStyles.css";
 import { ExcelSharedComponent } from "./ExcelSharedComponent";
 import { SharedData } from "./ExcelSharedData";
@@ -57,9 +57,9 @@ export default class ExcelLibrarySparklines extends ExcelSharedComponent {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <button className="optionItem" onClick={this.exportGrid}>Export</button>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <button className="igOptions-item" onClick={this.exportGrid}>Export</button>
                 </div>
                 <IgrLiveGrid autoGenerateColumns={false} dataSource={this.data} height="calc(100% - 30px)" width="100%">
                     <IgrTemplateColumn propertyPath="Orders" template={this.templateColTestMethod} />

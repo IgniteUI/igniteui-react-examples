@@ -1,7 +1,7 @@
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./FinancialChartSharedStyles.css";
 import { FinancialChartSharedComponent } from "./FinancialChartSharedComponent";
 import { StocksUtility } from "./StocksUtility";
@@ -21,22 +21,22 @@ export default class FinancialChartAxisTypes extends FinancialChartSharedCompone
 
     public render() {
         return (
-        <div className="sample" >
-            <div className="options">
-                <label className="optionLabel">X-Axis Mode:</label>
+        <div className="igContainer" >
+            <div className="igOptions">
+                <label className="igOptions-label">X-Axis Mode:</label>
                 <select value={this.state.xAxisMode}
                     onChange={this.onXAxisModeChanged}>
                     <option>Ordinal</option>
                     <option>Time</option>
                 </select>
-                <label className="optionLabel">Y-Axis Mode:</label>
+                <label className="igOptions-label">Y-Axis Mode:</label>
                 <select value={this.state.yAxisMode}
                     onChange={this.onYAxisModeChanged}>
                     <option>PercentChange</option>
                     <option>Numeric</option>
                 </select>
             </div>
-            <div className="chart" style={{height: "calc(100% - 65px)"}}>
+            <div className="igComponent" style={{height: "calc(100% - 65px)"}}>
                 <IgrFinancialChart
                     width="100%"
                     height="100%"

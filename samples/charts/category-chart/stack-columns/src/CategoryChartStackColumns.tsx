@@ -3,7 +3,7 @@ import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./CategoryChartSharedStyles.css";
 import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
 
@@ -28,7 +28,7 @@ export default class CategoryChartStackColumns extends CategoryChartSharedCompon
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
 
                 <IgrCategoryChart
                     ref={this.onChartRef}
@@ -69,7 +69,7 @@ export default class CategoryChartStackColumns extends CategoryChartSharedCompon
                     xAxisGap={0.45}
                     xAxisOverlap={1}/>
 
-                <div className="legend">
+                <div className="igLegend">
                     <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                 </div>
             </div>

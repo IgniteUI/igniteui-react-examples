@@ -13,7 +13,7 @@ import { IgrDataChartScatterModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { SampleScatterData } from "./SampleScatterData";
@@ -64,33 +64,33 @@ export default class DataChartTypeScatterAreaSeries extends DataChartSharedCompo
 
     public render() {
         return (
-        <div className="sample">
-            {/* <div className="options">
-                <span className="optionLabel">Scale Mode: </span>
+        <div className="igContainer">
+            {/* <div className="igOptions">
+                <span className="igOptions-label">Scale Mode: </span>
                 <select value={this.state.seriesScaleMode}
                     onChange={this.seriesScaleModeChanged}>
                     <option>Select</option>
                     <option>InterpolateRGB</option>
                     <option>InterpolateHSV</option>
                 </select>
-                <label className="optionLabel">Minimum: </label>
-                <label className="optionValue" >
+                <label className="igOptions-label">Minimum: </label>
+                <label className="igOptions-value" >
                     {this.state.seriesScaleMin}
                 </label>
-                <input className="slider" type="range" min="-5" max="0" step="1"
+                <input className="igOptions-slider" type="range" min="-5" max="0" step="1"
                     value={this.state.seriesScaleMin}
                     onChange={this.seriesScaleMinChanged}/>
 
-                <label className="optionLabel">Maximum: </label>
-                <label className="optionValue" >
+                <label className="igOptions-label">Maximum: </label>
+                <label className="igOptions-value" >
                     {this.state.seriesScaleMax}
                 </label>
-                <input className="slider" type="range" min="0" max="5" step="1"
+                <input className="igOptions-slider" type="range" min="0" max="5" step="1"
                     value={this.state.seriesScaleMax}
                     onChange={this.seriesScaleMaxChanged}/>
 
             </div> */}
-            <div className="chart" style={{height: "calc(100% - 35px)"}} >
+            <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                 <IgrDataChart
                     ref={this.onChartRef}
                     isHorizontalZoomEnabled={true}

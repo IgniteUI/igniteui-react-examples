@@ -3,7 +3,7 @@ import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./FinancialChartSharedStyles.css";
 import StocksHistory from "./StocksHistory";
 import "./DataUtils";
@@ -28,12 +28,12 @@ export default class FinancialChartOverview extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sample" >
-                <div className="legend">
+            <div className="igContainer" >
+                <div className="igLegend">
                     <IgrLegend ref={this.onLegendRef}
                             orientation="Horizontal" />
                 </div>
-                <div className="chart" style={{height: "calc(100% - 25px)"}}>
+                <div className="igComponent" style={{height: "calc(100% - 25px)"}}>
                     <IgrFinancialChart
                         width="100%"
                         height="100%"

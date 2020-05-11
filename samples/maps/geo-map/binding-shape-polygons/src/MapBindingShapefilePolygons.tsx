@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 import DataUtils from "./DataUtils"
 import WorldUtils from "./WorldUtils"
@@ -14,7 +14,7 @@ import { IgrShapeDataSource } from 'igniteui-react-core';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapBindingShapefilePolygons extends React.Component<any,any> {
+export default class MapBindingShapefilePolygons extends React.Component<any, any> {
 
     public geoMap: IgrGeographicMap;
 
@@ -27,8 +27,8 @@ export default class MapBindingShapefilePolygons extends React.Component<any,any
 
     public render() {
         return (
-            <div className="igFlex">
-                <div className="igControl" >
+            <div className="igContainer">
+                <div className="igComponent" >
                     <IgrGeographicMap
                         ref={this.onMapReferenced}
                         width="100%"
@@ -78,7 +78,7 @@ export default class MapBindingShapefilePolygons extends React.Component<any,any
         geoSeries.outline = "Black";
         geoSeries.tooltipTemplate = this.createTooltip;
         geoSeries.thickness = 1;
-        
+
 
         this.geoMap.series.add(geoSeries);
     }

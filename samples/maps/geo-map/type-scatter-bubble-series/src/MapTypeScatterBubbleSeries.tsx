@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 import WorldLocations from "./WorldLocations";
 import WorldUtils from "./WorldUtils"
@@ -32,8 +32,8 @@ export default class MapTypeScatterBubbleSeries extends React.Component {
 
     public render() {
         return (
-            <div className="sampleRoot" >
-                <div className="map" >
+            <div className="igContainer" >
+                <div className="igComponent" >
                     <IgrGeographicMap
                         ref={this.onMapReferenced}
                         width="100%"

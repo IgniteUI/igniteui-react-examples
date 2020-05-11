@@ -13,7 +13,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { SampleDensityData } from "./SampleDensityData";
@@ -79,28 +79,28 @@ export default class DataChartTypeScatterDensitySeries extends DataChartSharedCo
 
     public render() {
         return (
-        <div className="sample">
-            {/* <div className="options">
-                <span className="optionLabel">Minimum Value: {this.state.seriesHeatMin}</span>
-                <input className="slider" type="range" min="0" max="30" step="1"
+        <div className="igContainer">
+            {/* <div className="igOptions">
+                <span className="igOptions-label">Minimum Value: {this.state.seriesHeatMin}</span>
+                <input className="igOptions-slider" type="range" min="0" max="30" step="1"
                     value={this.state.seriesHeatMin}
                     onChange={this.seriesMinChanged}/>
-                <span className="optionLabel">Maximum Value: {this.state.seriesHeatMax}</span>
-                <input className="slider" type="range" min="0" max="30" step="1"
+                <span className="igOptions-label">Maximum Value: {this.state.seriesHeatMax}</span>
+                <input className="igOptions-slider" type="range" min="0" max="30" step="1"
                     value={this.state.seriesHeatMax}
                     onChange={this.seriesMaxChanged}/>
-                <span className="optionLabel">Series Resolution: {this.state.seriesResolution}</span>
-                <input className="slider" type="range" min="0" max="10" step="1"
+                <span className="igOptions-label">Series Resolution: {this.state.seriesResolution}</span>
+                <input className="igOptions-slider" type="range" min="0" max="10" step="1"
                     value={this.state.seriesResolution}
                     onChange={this.seriesResolutionChanged}/>
-                <span className="optionLabel">Point Extent: {this.state.seriesPointExtent}</span>
-                <input className="slider" type="range" min="1" max="5" step="1"
+                <span className="igOptions-label">Point Extent: {this.state.seriesPointExtent}</span>
+                <input className="igOptions-slider" type="range" min="1" max="5" step="1"
                     value={this.state.seriesPointExtent}
                     onChange={this.seriesExtentChanged}/>
-                <span className="optionLabel">Use Brute Force</span>
+                <span className="igOptions-label">Use Brute Force</span>
                 <input className="checkbox" type="checkbox" checked={this.state.hdUseBruteForce} onChange={this.useBruteForceChanged} />
             </div> */}
-            <div className="chart">
+            <div className="igComponent">
                 <IgrDataChart
                     ref={this.onChartRef}
                     isHorizontalZoomEnabled={true}

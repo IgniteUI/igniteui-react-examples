@@ -1,7 +1,7 @@
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./FinancialChartSharedStyles.css";
 import StocksHistory from "./StocksHistory";
 import "./DataUtils";
@@ -21,9 +21,9 @@ export default class FinancialChartTrendlines extends React.Component<any, any> 
 
     public render() {
         return (
-        <div className="sample">
-            <div className="options">
-                <label className="optionLabel">Trendline Type:</label>
+        <div className="igContainer">
+            <div className="igOptions">
+                <label className="igOptions-label">Trendline Type:</label>
                 <select value={this.state.trendLineType}
                     onChange={this.onTrendlineChanged}>
                     <option>CubicFit</option>
@@ -42,7 +42,7 @@ export default class FinancialChartTrendlines extends React.Component<any, any> 
                 </select>
             </div>
 
-            <div className="chart" style={{height: "calc(100% - 65px)"}}>
+            <div className="igComponent" style={{height: "calc(100% - 65px)"}}>
                 <IgrFinancialChart
                     width="100%"
                     height="100%"

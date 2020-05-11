@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DoughnutChartSharedStyles.css";
 import { DoughnutChartSharedComponent } from "./DoughnutChartSharedComponent";
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';
@@ -45,11 +45,11 @@ export default class DoughnutChartLegend extends DoughnutChartSharedComponent {
 
     public render() {
         return (
-            <div className="sampleRow">
-                <div className="legend">
+            <div className="igContainer">
+                <div className="igLegend">
                     <IgrItemLegend ref={this.onLegendRef} />
                 </div>
-                <div className="chart">
+                <div className="igComponent">
                     <IgrDoughnutChart ref={this.onChartRef}
                                      width="100%"
                                      height="100%">

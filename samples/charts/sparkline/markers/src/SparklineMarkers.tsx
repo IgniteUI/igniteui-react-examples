@@ -4,7 +4,7 @@ import { IgrSparklineCoreModule } from 'igniteui-react-charts';
 import { Visibility } from 'igniteui-react-core';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./SparklineSharedStyles.css";
 import { SparklineSharedComponent } from "./SparklineSharedComponent";
 import { SharedData } from "./SparklineSharedData";
@@ -28,16 +28,16 @@ export default class SparklineMarkers extends SparklineSharedComponent {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <label className="optionItem"><input id="High" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />High Markers</label>
-                    <label className="optionItem"><input id="Low" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Low Markers</label>
-                    <label className="optionItem"><input id="First" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />First Markers</label>
-                    <label className="optionItem"><input id="Last" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Last Markers</label>
-                    <label className="optionItem"><input id="Negative" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Negative Markers</label>
-                    <label className="optionItem"><input id="All" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />All Markers</label>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <label className="igOptions-item"><input id="High" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />High Markers</label>
+                    <label className="igOptions-item"><input id="Low" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Low Markers</label>
+                    <label className="igOptions-item"><input id="First" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />First Markers</label>
+                    <label className="igOptions-item"><input id="Last" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Last Markers</label>
+                    <label className="igOptions-item"><input id="Negative" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Negative Markers</label>
+                    <label className="igOptions-item"><input id="All" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />All Markers</label>
                 </div>
-                <div className="chart">
+                <div className="igComponent">
                     <IgrSparkline height="100%" width="100%"
                         ref={this.onSparklineRef}
                         dataSource={this.data}

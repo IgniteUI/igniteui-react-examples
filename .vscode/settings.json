@@ -1,0 +1,11 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#540B4D",
+        "titleBar.activeBackground": "#76106C",
+        "titleBar.activeForeground": "#FEFBFE"
+    },
+    "cSpell.words": [
+        "geolocation",
+        "tempte"
+    ]
+}

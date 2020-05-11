@@ -15,7 +15,7 @@ import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
 import { MarkerType } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { SampleScatterStats } from "./SampleScatterStats";
 
@@ -39,8 +39,8 @@ export default class DataChartTypeScatterLineSeries extends React.Component {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="chart"   >
+            <div className="igContainer">
+                <div className="igComponent"   >
                     <IgrDataChart
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}

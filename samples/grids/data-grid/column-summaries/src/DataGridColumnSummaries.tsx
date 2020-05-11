@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 import { SharedData } from "./DataGridSharedData";
 import "./DataUtils";
@@ -29,23 +29,23 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <span className="optionItem" style={{ width: "100px" }}>Summary Scope:</span>
-                    <select className="optionItem" style={{ width: "100px" }} defaultValue="Root" onChange={this.onSummaryScopeChanging}>
-                    <option>Root</option>  
-                        <option>Sections</option>   
-                        <option>Both</option>   
-                        <option>None</option>                   
-                    </select>                       
-                    <span className="optionItem" style={{ width: "100" }}>Group Summary Display Mode:</span>
-                    <select className="optionItem" style={{ width: "110px" }} defaultValue="RowBottom" onChange={this.onGroupSummaryDisplayModeChanging}>
-                        <option>List</option>  
-                        <option>Cells</option>  
-                        <option>RowTop</option>  
-                        <option>RowBottom</option>   
-                        <option>None</option>                     
-                    </select>                     
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-item" style={{ width: "100px" }}>Summary Scope:</span>
+                    <select className="igOptions-item" style={{ width: "100px" }} defaultValue="Root" onChange={this.onSummaryScopeChanging}>
+                    <option>Root</option>
+                        <option>Sections</option>
+                        <option>Both</option>
+                        <option>None</option>
+                    </select>
+                    <span className="igOptions-item" style={{ width: "100" }}>Group Summary Display Mode:</span>
+                    <select className="igOptions-item" style={{ width: "110px" }} defaultValue="RowBottom" onChange={this.onGroupSummaryDisplayModeChanging}>
+                        <option>List</option>
+                        <option>Cells</option>
+                        <option>RowTop</option>
+                        <option>RowBottom</option>
+                        <option>None</option>
+                    </select>
                 </div>
 
                 <IgrLiveGrid
@@ -56,20 +56,20 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
                     width="100%"
                     autoGenerateColumns="false"
                     isGroupCollapsable={this.state.isGroupCollapsable}
-                    groupHeaderDisplayMode = "combined" 
-                    dataSource={this.data}>                     
+                    groupHeaderDisplayMode = "combined"
+                    dataSource={this.data}>
                         <IgrNumericColumn propertyPath="ProductID" headerText="ID" horizontalAlignment="center" />
                         <IgrTextColumn propertyPath="ProductName" headerText="Product"/>
                         <IgrNumericColumn positivePrefix="$" propertyPath="BundlePrice" showGroupingSeparator="true" headerText="Price" />
                         <IgrNumericColumn propertyPath="OrderItems" headerText="Order Items"/>
-                        <IgrNumericColumn propertyPath="OrderValue" showGroupingSeparator="true" headerText="Order Totals" 
-                        positivePrefix="$"  />       
+                        <IgrNumericColumn propertyPath="OrderValue" showGroupingSeparator="true" headerText="Order Totals"
+                        positivePrefix="$"  />
                         <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date"
-                        horizontalAlignment="right"  />                
-                        <IgrNumericColumn propertyPath="Profit" showGroupingSeparator="true" headerText="Profit" 
+                        horizontalAlignment="right"  />
+                        <IgrNumericColumn propertyPath="Profit" showGroupingSeparator="true" headerText="Profit"
                         positivePrefix="$"  />
                         <IgrTextColumn propertyPath="Countries" headerText="Ship Country"/>
-                </IgrLiveGrid>              
+                </IgrLiveGrid>
             </div>
         );
     }
@@ -91,7 +91,7 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
         window.addEventListener('load', this.onLoad);
     }
 
-    public onLoad() {       
+    public onLoad() {
         const productGroup = new IgrColumnGroupDescription();
         productGroup.propertyPath = "ProductName";
         productGroup.displayName = "ProductName";
@@ -104,57 +104,57 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
 
         const priceMin = new IgrColumnSummaryDescription();
         priceMin.propertyPath = "BundlePrice";
-        priceMin.operand = SummaryOperand.Min;  
-        priceMin.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }); 
+        priceMin.operand = SummaryOperand.Min;
+        priceMin.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMin);
 
         const priceMax = new IgrColumnSummaryDescription();
         priceMax.propertyPath = "BundlePrice";
-        priceMax.operand = SummaryOperand.Max;  
-        priceMax.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }); 
+        priceMax.operand = SummaryOperand.Max;
+        priceMax.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMax);
 
         const orderSum = new IgrColumnSummaryDescription();
         orderSum.propertyPath = "OrderItems";
-        orderSum.operand = SummaryOperand.Sum;        
+        orderSum.operand = SummaryOperand.Sum;
         this.grid.summaryDescriptions.add(orderSum);
 
         const orderValueSum = new IgrColumnSummaryDescription();
         orderValueSum.propertyPath = "OrderValue";
-        orderValueSum.operand = SummaryOperand.Sum;    
-        orderValueSum.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0});    
+        orderValueSum.operand = SummaryOperand.Sum;
+        orderValueSum.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0});
         this.grid.summaryDescriptions.add(orderValueSum);
 
         const orderValueAvg = new IgrColumnSummaryDescription();
         orderValueAvg.propertyPath = "OrderValue";
-        orderValueAvg.operand = SummaryOperand.Average;  
-        orderValueAvg.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });       
+        orderValueAvg.operand = SummaryOperand.Average;
+        orderValueAvg.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(orderValueAvg);
 
         const orderDateMin = new IgrColumnSummaryDescription();
         orderDateMin.propertyPath = "OrderDate";
         orderDateMin.operand = SummaryOperand.Min;
-        orderDateMin.calculatorDisplayName = "First"  
+        orderDateMin.calculatorDisplayName = "First"
         orderDateMin.formatOverride = new Intl.DateTimeFormat('en-EN');
         this.grid.summaryDescriptions.add(orderDateMin);
 
         const orderDateMax = new IgrColumnSummaryDescription();
         orderDateMax.propertyPath = "OrderDate";
-        orderDateMax.operand = SummaryOperand.Max; 
-        orderDateMax.calculatorDisplayName = "Last" 
+        orderDateMax.operand = SummaryOperand.Max;
+        orderDateMax.calculatorDisplayName = "Last"
         orderDateMax.formatOverride = new Intl.DateTimeFormat('en-EN');
         this.grid.summaryDescriptions.add(orderDateMax);
 
         const sum1 = new IgrColumnSummaryDescription();
         sum1.propertyPath = "Profit";
-        sum1.operand = SummaryOperand.Sum;       
-        sum1.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });     
+        sum1.operand = SummaryOperand.Sum;
+        sum1.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(sum1);
 
         const avg2 = new IgrColumnSummaryDescription();
         avg2.propertyPath = "Profit";
         avg2.operand = SummaryOperand.Average;
-        avg2.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });       
+        avg2.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(avg2);
 
         const countries = new IgrColumnSummaryDescription();
@@ -175,7 +175,7 @@ class CustomDomestic extends SummaryCalculator
 
     public beginCalculation(a: IDataSource, b: string): void {
         super.beginCalculation(a,b);
-        this.usCountries = 0;       
+        this.usCountries = 0;
     }
     public endCalculation(): ISummaryResult {
        return new DefaultSummaryResult(this.propertyName, SummaryOperand.Custom, this.usCountries)

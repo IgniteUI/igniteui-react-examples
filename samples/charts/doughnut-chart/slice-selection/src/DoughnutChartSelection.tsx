@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DoughnutChartSharedStyles.css";
 import { DoughnutChartSharedComponent } from "./DoughnutChartSharedComponent";
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';

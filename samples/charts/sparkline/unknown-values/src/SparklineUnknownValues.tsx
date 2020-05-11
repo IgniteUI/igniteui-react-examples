@@ -4,7 +4,7 @@ import { IgrSparklineCoreModule } from 'igniteui-react-charts';
 import { UnknownValuePlotting } from 'igniteui-react-core';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./SparklineSharedStyles.css";
 import { SparklineSharedComponent } from "./SparklineSharedComponent";
 import { SharedData } from "./SparklineSharedData";
@@ -28,14 +28,14 @@ export default class SparklineUnknownValues extends SparklineSharedComponent {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <label className="optionItem">
+            <div className="igContainer">
+                <div className="igOptions">
+                    <label className="igOptions-item">
                     <input defaultChecked={false}
                     type="checkbox"
                     onChange={this.onRangeVisibilityChanged}/>Plot Unknown Values</label>
                 </div>
-                <div className="chart">
+                <div className="igComponent">
                     <IgrSparkline height="100%" width="100%"
                         ref={this.onSparklineRef}
                         dataSource={this.data}

@@ -35,7 +35,7 @@
     vertical-align: center;
 }
 
-.optionLabel {
+.igOptions-label {
     margin-top: 0px;
     margin-left: 10px;
     margin-right: 5px;
@@ -47,7 +47,7 @@
     display: inline-block;
 }
 
-.optionValue {
+.igOptions-value {
     margin-top: 0px;
     margin-left: 10px;
     margin-bottom: 5px;

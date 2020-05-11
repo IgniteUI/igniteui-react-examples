@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./ExcelSharedStyles.css";
 import { ExcelSharedComponent } from "./ExcelSharedComponent";
 import { Workbook } from 'igniteui-react-excel';
@@ -45,9 +45,9 @@ export default class ExcelLibraryCharts extends ExcelSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="options">
-                    <button className="optionItem" onClick={this.exportData}>Export</button>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <button className="igOptions-item" onClick={this.exportData}>Export</button>
                 </div>
                 <div style={{height: "calc(100% - 25px)"}}>
                     <IgrCategoryChart

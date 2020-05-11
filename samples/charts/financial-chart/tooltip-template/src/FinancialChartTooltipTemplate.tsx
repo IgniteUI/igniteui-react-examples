@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./FinancialChartSharedStyles.css";
 import { FinancialChartSharedComponent } from "./FinancialChartSharedComponent";
 
@@ -16,7 +16,7 @@ export default class FinancialChartTooltipTemplate extends FinancialChartSharedC
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
             <p>TODO implement render() in {this.constructor.name}.tsx file</p>
             </div>
         );

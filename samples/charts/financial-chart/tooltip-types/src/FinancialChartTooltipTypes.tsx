@@ -1,7 +1,7 @@
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./FinancialChartSharedStyles.css";
 import StocksHistory from "./StocksHistory";
 import "./DataUtils";
@@ -20,9 +20,9 @@ export default class FinancialChartTooltipTypes extends React.Component<any, any
 
     public render() {
         return (
-        <div className="sample">
-            <div className="options">
-                <span className="optionLabel">Tooltip Type: </span>
+        <div className="igContainer">
+            <div className="igOptions">
+                <span className="igOptions-label">Tooltip Type: </span>
                 <select value={this.state.toolTipType}
                     onChange={this.onToolTipTypeChanged}>
                     <option>Default</option>
@@ -31,7 +31,7 @@ export default class FinancialChartTooltipTypes extends React.Component<any, any
                     <option>None</option>
                 </select>
             </div>
-            <div className="chart" style={{height: "calc(100% - 65px)"}}>
+            <div className="igComponent" style={{height: "calc(100% - 65px)"}}>
                 <IgrFinancialChart
                     width="100%"
                     height="100%"

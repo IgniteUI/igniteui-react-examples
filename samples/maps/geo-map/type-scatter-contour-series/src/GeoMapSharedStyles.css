@@ -1,10 +1,10 @@
 /* these styles are shared between CC samples */
 
-.igFlex {
+.igContainer {
     background: #aad3df;
 }
 
-.sampleRoot {
+.igContainer {
     /* background: rgb(202, 202, 202);  */
     background-color: #aad3df;
     height: calc(100% - 0px);
@@ -73,7 +73,7 @@
     vertical-align: center;
 }
 
-.optionLabel {
+.igOptions-label {
     margin-top: 0px;
     margin-left: 10px;
     margin-right: 5px;
@@ -87,7 +87,7 @@
     /* background: orange; */
 }
 
-.optionValue {
+.igOptions-value {
     margin-top: 0px;
     margin-left: 10px;
     margin-bottom: 5px;

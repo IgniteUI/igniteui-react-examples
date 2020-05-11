@@ -3,7 +3,7 @@ import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrSparklineCoreModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./SparklineSharedStyles.css";
 
 IgrSparklineCoreModule.register();
@@ -19,25 +19,25 @@ export default class SparklineDisplayLines extends React.Component {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="chart33">
+            <div className="igContainer">
+                <div className="igComponent">
                     <IgrSparkline height="100%" width="100%" displayType="Line"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Revenue"/>
                 </div>
-                <label className="optionLabel">Revenue Sparkline</label>
-                <div className="chart33">
+                <label className="igOptions-label">Revenue Sparkline</label>
+                <div className="igComponent">
                     <IgrSparkline height="100%" width="100%" displayType="Line"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Income"/>
                 </div>
-                <label className="optionLabel">Income Sparkline</label>
-                <div className="chart33">
+                <label className="igOptions-label">Income Sparkline</label>
+                <div className="igComponent">
                     <IgrSparkline height="100%" width="100%" displayType="Line"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Expanse" />
                 </div>
-                <label className="optionLabel">Expanse Sparkline</label>
+                <label className="igOptions-label">Expanse Sparkline</label>
             </div >
         );
     }

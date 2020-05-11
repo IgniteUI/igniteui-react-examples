@@ -13,7 +13,7 @@ export default class LinearGaugeScale extends React.Component {
 
     public render() {
         return (
-            <div className="sampleFlexRows">
+            <div className="igContainer">
             <IgrLinearGauge
                 height="80px"
                 width="100%"

@@ -27,7 +27,7 @@ export default class RadialGaugeTypeHalf extends React.Component {
 
     public render() {
         return (
-            <div className="sampleFlexRows">
+            <div className="igContainer">
 
                 <IgrRadialGauge
                     ref={this.onGaugeRef}

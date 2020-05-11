@@ -30,7 +30,7 @@ export default class SpreadsheetAdapter extends React.Component {
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 25px)" width="100%" />
             </div>
         );

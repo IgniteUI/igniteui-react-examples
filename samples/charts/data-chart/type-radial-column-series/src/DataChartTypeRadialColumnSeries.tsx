@@ -14,7 +14,7 @@ import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { SampleRadialData } from "./SampleRadialData";
@@ -42,14 +42,14 @@ export default class DataChartTypeRadialColumnSeries extends DataChartSharedComp
 
     public render() {
         return (
-            <div className="sample">
-                <div className="options">
-                    <span className="legendTitle">Legend: </span>
-                    <div className="legendInline">
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igLegend-title">Legend: </span>
+                    <div className="igLegend">
                         <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                     </div>
                 </div>
-                <div className="chart" style={{ height: "calc(100% - 35px)" }} >
+                <div className="igComponent" style={{ height: "calc(100% - 35px)" }} >
                     <IgrDataChart ref={this.onChartRef}
                         chartTitle="Company Finances by Department"
                         width="100%"

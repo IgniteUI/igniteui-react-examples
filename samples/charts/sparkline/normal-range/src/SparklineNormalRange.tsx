@@ -4,7 +4,7 @@ import { IgrSparklineCoreModule } from 'igniteui-react-charts';
 import { Visibility } from 'igniteui-react-core';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./SparklineSharedStyles.css";
 import { SparklineSharedComponent } from "./SparklineSharedComponent";
 import { SharedData } from "./SparklineSharedData";
@@ -12,7 +12,7 @@ import { SharedData } from "./SparklineSharedData";
 IgrSparklineCoreModule.register();
 IgrSparklineModule.register();
 
-export default class SparklineNormalRange extends React.Component<any,any> {
+export default class SparklineNormalRange extends React.Component<any, any> {
     public sparkline : IgrSparkline;
 
     constructor(props: any) {
@@ -32,19 +32,19 @@ export default class SparklineNormalRange extends React.Component<any,any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <label className="optionItem"><input defaultChecked={true} type="checkbox" onChange={this.onRangeVisibilityChanged}/>Range Visibility</label>
-                    <label className="optionItem"><input type="range"
+            <div className="igContainer">
+                <div className="igOptions">
+                    <label className="igOptions-item"><input defaultChecked={true} type="checkbox" onChange={this.onRangeVisibilityChanged}/>Range Visibility</label>
+                    <label className="igOptions-item"><input type="range"
                     min={-2} max={7} step="0.5"
                     value={this.state.normalRangeMinimum}
                     onChange={this.onMinSliderChanged}/>Min Range {this.state.normalRangeMinimum} </label>
-                    <label className="optionItem"><input type="range"
+                    <label className="igOptions-item"><input type="range"
                     min={-2} max={7} step="0.5"
                     value={this.state.normalRangeMaximum}
                     onChange={this.onMaxSliderChanged}/>Max Range {this.state.normalRangeMaximum} </label>
                 </div>
-                <div className="chart">
+                <div className="igComponent">
                     <IgrSparkline height="calc(100% - 30px)" width="100%"
                         ref={this.onSparklineRef}
                         dataSource={this.state.data}

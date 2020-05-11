@@ -2,7 +2,7 @@ import { IgrBulletGraph } from 'igniteui-react-gauges';
 import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 import * as React from "react";
-import "../styles.css";
+
 import "./BulletGraphSharedStyles.css";
 
 IgrBulletGraphModule.register();
@@ -15,7 +15,7 @@ export default class BulletGraphRanges extends React.Component {
 
     public render() {
         return (
-            <div className="sampleFlexRows" >
+            <div className="igContainer" >
                 <IgrBulletGraph
                     height="80px"
                     width="100%"

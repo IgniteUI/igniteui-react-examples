@@ -32,14 +32,14 @@ function log(msg) {
 }
 log('loaded');
 
-let browserRootPath = "./tmp";
-let samplesRootPath = "../samples";
+let BrowserRootPath = "./tmp";
+let SamplesRootPath = "../samples";
 // let repoRootPath = "C:/REPOS/GitInternalDocs/igniteui-react-examples"
-let repositoryName = "igniteui-react-examples"
+let RepositoryName = "igniteui-react-examples"
 let repoRootPath = "C:\\REPOS\\GitInternalDocs\\igniteui-react-examples"
 
 function getRelative(filePath) {
-    return filePath.split(repositoryName);
+    return filePath.split(RepositoryName);
 }
 
 var transformerFile = null;
@@ -56,7 +56,7 @@ var transformer = null;
 // } exports.initTransformer = initTransformer;
 
 function clean(cb) {
-    del.sync(browserRootPath + "/**/*.*", {force:true});
+    del.sync(BrowserRootPath + "/**/*.*", {force:true});
     // del.sync(browserTargetPath);
     // cb();
 } exports.clean = clean;
@@ -66,10 +66,10 @@ function dirSamples(cb) {
     // initTransformer();
     log('dirSamples start');
     gulp.src([
-        // samplesRootPath + '/excel-library/**',
-        // samplesRootPath + '/**/**/**/**/Excel*.tsx',
-        samplesRootPath + '/**/readme.md',
-        // samplesRootPath + '/maps/**',
+        // SamplesRootPath + '/excel-library/**',
+        // SamplesRootPath + '/**/**/**/**/Excel*.tsx',
+        SamplesRootPath + '/**/readme.md',
+        // SamplesRootPath + '/maps/**',
         // samplesSourcePath + '/maps/**/*.tsx',
     ])
     .pipe(flatten({ "includeParents": -1 }))
@@ -106,10 +106,10 @@ function copySamples(cb) {
     clean();
     log('copySamples()');
     return gulp.src([
-        samplesRootPath + '/maps/**',
+        SamplesRootPath + '/maps/**',
         // samplesSourcePath + '/maps/**/*.tsx',
     ])
-    // .pipe(gulp.dest(browserRootPath))
+    // .pipe(gulp.dest(BrowserRootPath))
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, cb2) {
         log(' ' + file.basename);

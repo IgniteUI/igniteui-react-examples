@@ -1,7 +1,7 @@
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./FinancialChartSharedStyles.css";
 import { FinancialChartSharedComponent } from "./FinancialChartSharedComponent";
 import { StocksUtility } from "./StocksUtility";
@@ -19,8 +19,8 @@ export default class FinancialChartIndicatorTypes extends FinancialChartSharedCo
 
     public render() {
         return (
-            <div className="sample" >
-                <div className="chart">
+            <div className="igContainer" >
+                <div className="igComponent">
                 <IgrFinancialChart
                     width="100%"
                     height="400px"

@@ -3,7 +3,7 @@ import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrSparklineCoreModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./SparklineSharedStyles.css";
 import { SparklineSharedComponent } from "./SparklineSharedComponent";
 import { SharedData } from "./SparklineSharedData";
@@ -27,9 +27,9 @@ export default class SparklineTrendlines extends SparklineSharedComponent {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <span className="optionItem">Trendline Type: </span>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-item">Trendline Type: </span>
                     <select
                     onChange={this.onTrendlineChanged}
                     defaultValue="ExponentialFit">
@@ -49,7 +49,7 @@ export default class SparklineTrendlines extends SparklineSharedComponent {
                         <option>WeightedAverage</option>
                     </select>
                 </div>
-                <div className="chart">
+                <div className="igComponent">
                     <IgrSparkline height="calc(100% - 30px)" width="100%"
                         ref={this.onSparklineRef}
                         dataSource={this.data}

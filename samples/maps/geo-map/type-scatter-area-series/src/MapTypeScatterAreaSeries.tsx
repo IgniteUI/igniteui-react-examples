@@ -32,7 +32,7 @@ export default class MapTypeScatterAreaSeries extends React.Component<any, any> 
 
     public render() {
         return (
-            <div className="sampleRoot" >
+            <div className="igContainer" >
                 <IgrGeographicMap
                     ref={this.onMapReferenced}
                     width="100%"

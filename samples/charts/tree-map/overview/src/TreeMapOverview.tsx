@@ -23,7 +23,7 @@ export default class TreeMapOverview extends React.Component {
          this.onClickStripVer = this.onClickStripVer.bind(this);
          this.onClickStripHor = this.onClickStripHor.bind(this);
 
-         this.onClickSquared = this.onClickSquared.bind(this);         
+         this.onClickSquared = this.onClickSquared.bind(this);
     }
     public onTreeMapRef(element: IgrTreemap) {
         this.treeMap = element;
@@ -39,37 +39,37 @@ export default class TreeMapOverview extends React.Component {
 
     public render() {
         return (
-          <div className="sampleFlexRows" >
+          <div className="igContainer" >
 
-          <div className="options">
-              <button style={{ width: "140px"}} onClick={this.onClickSliceVer} className="button">Slice Vertically</button>
-              <button style={{ width: "140px"}} onClick={this.onClickStripVer} className="button">Stripped Vertically</button>
-              <button style={{ width: "140px"}} onClick={this.onClickSquared} className="button">Squarified</button>
-          </div>
-          <div className="options" style={{ marginBottom: "10px"}}>
-              <button style={{ width: "140px"}} onClick={this.onClickSliceHor} className="button">Slice Horizontally</button>
-              <button style={{ width: "140px"}} onClick={this.onClickStripHor} className="button">Stripped Horizontally</button>              
-          </div>
+            <div className="igOptions">
+                <button style={{ width: "140px"}} onClick={this.onClickSliceVer} className="igOptions-button">Slice Vertically</button>
+                <button style={{ width: "140px"}} onClick={this.onClickStripVer} className="igOptions-button">Stripped Vertically</button>
+                <button style={{ width: "140px"}} onClick={this.onClickSquared} className="igOptions-button">Squarified</button>
+            </div>
+            <div className="igOptions" style={{ marginBottom: "10px"}}>
+                <button style={{ width: "140px"}} onClick={this.onClickSliceHor} className="igOptions-button">Slice Horizontally</button>
+                <button style={{ width: "140px"}} onClick={this.onClickStripHor} className="igOptions-button">Stripped Horizontally</button>
+            </div>
 
-          <div style={{ width: "100%", height: "calc(100% - 75px)"}}>
-              <IgrTreemap
-                    ref={this.onTreeMapRef}
-                    height="100%"
-                    width="100%"
-                    parentIdMemberPath="parent"
-                    idMemberPath="id"
-                    labelMemberPath="name"
-                    valueMemberPath="pop"
-                    transitionDuration="500"
-                    rootTitle="Countries" >
-               {/* <IgrTreemapNodeStyleMapping
-                name="fill1"
-                mappingMode="value"
-                minimumValue={3000}
-                maximumValue={3000000}
-                fill="red" /> */}
-            </IgrTreemap>
-          </div>
+            <div style={{ width: "100%", height: "calc(100% - 75px)"}}>
+                <IgrTreemap
+                        ref={this.onTreeMapRef}
+                        height="100%"
+                        width="100%"
+                        parentIdMemberPath="parent"
+                        idMemberPath="id"
+                        labelMemberPath="name"
+                        valueMemberPath="pop"
+                        transitionDuration="500"
+                        rootTitle="Countries" >
+                {/* <IgrTreemapNodeStyleMapping
+                    name="fill1"
+                    mappingMode="value"
+                    minimumValue={3000}
+                    maximumValue={3000000}
+                    fill="red" /> */}
+                </IgrTreemap>
+            </div>
           </div>
         );
     }

@@ -9,7 +9,7 @@ import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 
@@ -29,9 +29,9 @@ export default class DataChartSeriesMarkers extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="options">
-                    <span className="optionLabel"> Marker Type: </span>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-label"> Marker Type: </span>
                     <select value={this.state.markersType}
                         onChange={this.onMarkerTypeChanged}>
                         <option>Automatic</option>
@@ -48,14 +48,14 @@ export default class DataChartSeriesMarkers extends DataChartSharedComponent {
                         <option>None</option>
                     </select>
                 </div>
-                <div className="chart" style={{height: "calc(100% - 35px)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart
                         width="100%"
                         height="100%"
                         dataSource={this.data}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true} >
-                        
+
                         <IgrCategoryXAxis name="xAxis" label="Year"/>
                         <IgrNumericYAxis name="yAxis" minimumValue={0} />
 

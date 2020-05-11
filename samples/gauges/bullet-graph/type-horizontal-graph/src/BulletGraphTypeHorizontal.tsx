@@ -30,7 +30,7 @@ export default class BulletGraphTypeHorizontal extends React.Component {
 
     public render() {
         return (
-            <div className="sampleFlexRows"  >
+            <div className="igContainer"  >
                 <IgrBulletGraph
                     ref={this.onCreateGaugeGreen}
                     height="120px"

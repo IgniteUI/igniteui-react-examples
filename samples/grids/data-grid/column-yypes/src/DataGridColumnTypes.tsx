@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 import { SharedData } from "./DataGridSharedData";
 import "./DataUtils";
@@ -183,7 +183,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrLiveGrid
                     height="100%"
                     width="100%"

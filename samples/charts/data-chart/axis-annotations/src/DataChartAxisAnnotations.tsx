@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 
 import { IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
@@ -69,17 +69,17 @@ export default class DataChartAxisAnnotations extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="options">
-                    <span className="optionItem">Annotations: </span>
-                    <label className="optionItem"><input type="checkbox" checked={this.state.finalValuesVisible}
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-item">Annotations: </span>
+                    <label className="igOptions-item"><input type="checkbox" checked={this.state.finalValuesVisible}
                         onChange={this.onFinalValueChange} />Final Value</label>
-                    <label className="optionItem"><input type="checkbox" checked={this.state.crosshairsVisible}
+                    <label className="igOptions-item"><input type="checkbox" checked={this.state.crosshairsVisible}
                         onChange={this.onCrosshairChange} />Crosshairs</label>
-                    {/*<label className="optionItem"><input type="checkbox" checked={this.state.valueOverlayVisible}
+                    {/*<label className="igOptions-item"><input type="checkbox" checked={this.state.valueOverlayVisible}
                         onChange={this.onValueOverlayChange} />Value Overlay </label>*/}
                 </div>
-                <div className="chart" style={{ height: "calc(100% - 35px)" }} >
+                <div className="igComponent" style={{ height: "calc(100% - 35px)" }} >
                     <IgrDataChart ref={this.onChartRef} dataSource={this.data} width="100%" height="100%" isHorizontalZoomEnabled={true} isVerticalZoomEnabled={true}>
                         <IgrCategoryXAxis name="xAxis" interval={1} formatLabel={this.formatDateLabel} />
                         <IgrNumericYAxis name="yAxis" interval={20} minimumValue={70} maximumValue={110}

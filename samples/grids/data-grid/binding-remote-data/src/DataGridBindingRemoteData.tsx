@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import './odatajs-4.0.0';
 import "./DataGridSharedStyles.css";
 
@@ -26,7 +26,7 @@ export default class DataGridBindingRemoteData extends React.Component<any, any>
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrLiveGrid
                    width="100%"
                    height="100%"

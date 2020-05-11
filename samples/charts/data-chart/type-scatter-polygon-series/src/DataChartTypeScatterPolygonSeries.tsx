@@ -11,7 +11,7 @@ import { IgrDataChartShapeModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { SampleShapeData } from "./SampleShapeData";
 
@@ -33,8 +33,8 @@ export default class DataChartTypeScatterPolygonSeries extends React.Component {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="chart"  >
+            <div className="igContainer">
+                <div className="igComponent"  >
                     <IgrDataChart ref={this.onChartRef}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}

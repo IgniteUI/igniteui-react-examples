@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles.css";
+
 import "./SpreadsheetSharedStyles.css";
 import { ExcelUtility } from "./ExcelUtility";
 import DataUtils from "./DataUtils";
@@ -25,7 +25,7 @@ export default class SpreadsheetHyperlinks extends React.Component {
 
     public render() {
         return (
-            <div className="sample">
+            <div className="igContainer">
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="800px" width="100%" />
             </div>
         );

@@ -11,7 +11,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 
@@ -36,12 +36,12 @@ export default class DataChartHighlighting extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="legend">
+            <div className="igContainer">
+                <div className="igLegend">
                     <IgrLegend ref={this.onLegendRef}
                             orientation="Horizontal" />
                 </div>
-                <div className="chart">
+                <div className="igComponent">
                      <label>TODO add DataChart here</label>
                 </div>
             </div>

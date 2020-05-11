@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 
 import { IgrLiveGridModule } from 'igniteui-react-grids';
@@ -35,11 +35,11 @@ export default class DataGridColumnPinning extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <button className="optionItem" disabled={this.state.leftbuttonDisabled} onClick={this.onPinLeft} style={{ width: "100px" }}>Pin Left</button>
-                    <button className="optionItem" disabled={this.state.rightbuttonDisabled} onClick={this.onPinRight} style={{ width: "100px" }}>Pin Right</button>
-                    <button className="optionItem" onClick={this.onUnPin} style={{ width: "105px" }}>Unpin Columns</button>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <button className="igOptions-item" disabled={this.state.leftbuttonDisabled} onClick={this.onPinLeft} style={{ width: "100px" }}>Pin Left</button>
+                    <button className="igOptions-item" disabled={this.state.rightbuttonDisabled} onClick={this.onPinRight} style={{ width: "100px" }}>Pin Right</button>
+                    <button className="igOptions-item" onClick={this.onUnPin} style={{ width: "105px" }}>Unpin Columns</button>
                 </div>
                 <IgrLiveGrid
                 ref={this.onGridRef}
@@ -95,7 +95,7 @@ export default class DataGridColumnPinning extends React.Component<any, any> {
 
     public onUnPin = (e: any) => {
         this.setState({ leftbuttonDisabled: false, rightbuttonDisabled: false });
- 
+
         let idColumn = this.grid.actualColumns.item(0);
         let firstNameColumn = this.grid.actualColumns.item(1);
         let lastNameColumn = this.grid.actualColumns.item(2);

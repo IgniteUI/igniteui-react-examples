@@ -12,7 +12,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
 // legend's modules:
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 
@@ -38,10 +38,10 @@ export default class DataChartSeriesTrendlines extends DataChartSharedComponent 
 
     public render() {
         return (
-            <div className="sample">
+            <div className="igContainer">
 
-                <div className="options">
-                    <span className="optionItem">Trendline Type:</span>
+                <div className="igOptions">
+                    <span className="igOptions-item">Trendline Type:</span>
                     <select value={this.state.trendLineType} onChange={this.onTrendlineChange}>
                         <option>None</option>
                         <option>CubicFit</option>
@@ -59,7 +59,7 @@ export default class DataChartSeriesTrendlines extends DataChartSharedComponent 
                         <option>WeightedAverage</option>
                     </select>
                 </div>
-                <div className="chart" style={{height: "calc(100% - 35px)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart
                         ref={this.onChartRef}
                         dataSource={this.data}

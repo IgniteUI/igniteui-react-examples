@@ -31,7 +31,7 @@ export default class MapTypeScatterContourSeries extends React.Component<any, an
 
     public render() {
         return (
-            <div className="sampleRoot" >
+            <div className="igContainer" >
                 <IgrGeographicMap
                     ref={this.onMapReferenced}
                     width="100%"

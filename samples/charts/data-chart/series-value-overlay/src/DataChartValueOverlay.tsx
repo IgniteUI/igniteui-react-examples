@@ -12,7 +12,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 
@@ -37,8 +37,8 @@ export default class DataChartValueOverlay extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="chart" style={{height: "calc(100% - 35px)"}}>
+            <div className="igContainer">
+                <div className="igComponent" style={{height: "calc(100% - 35px)"}}>
                     <IgrDataChart width="100%"
                         height="100%"
                         dataSource={this.data}

@@ -12,7 +12,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { SampleRangeData } from "./SampleRangeData";
@@ -39,16 +39,16 @@ export default class DataChartTypeRangeSeries extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="options">
-                    <span className="optionLabel">Type of Range Series: </span>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-label">Type of Range Series: </span>
                     <select value={this.state.seriesType}
                         onChange={this.onSeriesTypeChanged}>
                         <option>Column</option>
                         <option>Area</option>
                     </select>
                 </div>
-                <div className="chart" style={{height: "calc(100% - 35px)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart ref={this.onChartRef}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}

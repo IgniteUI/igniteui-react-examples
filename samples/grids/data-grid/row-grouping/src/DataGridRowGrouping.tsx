@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 import { SharedData } from "./DataGridSharedData";
 import "./DataUtils";
@@ -29,17 +29,17 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <span className="optionItem" style={{ width: "175px" }}>Section Header Display Mode:</span>
-                    <select className="optionItem" style={{ width: "100px" }} defaultValue="Deferred" onChange={this.onSectionHeaderDisplayModeChanging}>
-                        <option>Combined</option>  
-                        <option>Split</option>                    
-                    </select>    
-                    <label className="optionLabel" > Group Header Collapsable: </label>
-                   
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-item" style={{ width: "175px" }}>Section Header Display Mode:</span>
+                    <select className="igOptions-item" style={{ width: "100px" }} defaultValue="Deferred" onChange={this.onSectionHeaderDisplayModeChanging}>
+                        <option>Combined</option>
+                        <option>Split</option>
+                    </select>
+                    <label className="igOptions-label" > Group Header Collapsable: </label>
+
                     <input type="checkbox" checked={this.state.isGroupCollapsable} onChange={this.onGroupHeaderCollapsable}/>
-                   
+
                 </div>
 
                 <IgrLiveGrid
@@ -65,7 +65,7 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
     }
 
     public onGroupHeaderCollapsable = (e: any) =>{
-        const isCollapsable = e.target.checked;        
+        const isCollapsable = e.target.checked;
 
         if (isCollapsable) {
             this.setState( {isGroupCollapsable: true} );
@@ -84,7 +84,7 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
         this.grid.actualDataSource.isSectionExpandedDefault = true;
     }
 
-    
+
     public componentDidMount() {
         window.addEventListener('load', this.onLoad);
     }

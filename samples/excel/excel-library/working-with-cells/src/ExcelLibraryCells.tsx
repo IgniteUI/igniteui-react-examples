@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./ExcelSharedStyles.css";
 import { ExcelSharedComponent } from "./ExcelSharedComponent";
 import { SharedData } from "./ExcelSharedData";
@@ -214,20 +214,20 @@ export default class ExcelLibraryCells extends ExcelSharedComponent {
     public onClick = () => {
         this.workbookSave();
     }
-    
+
     public render() {
         return (
-            <div className="sample">
+            <div className="igContainer">
                 <div className="workbookOperations">
                     <button onClick={this.onClick}>Save Workbook</button>
                 </div>
                 <div className="cellFeatures">
-                    <label className="label">Add a Comment to cell A1: </label> 
+                    <label className="label">Add a Comment to cell A1: </label>
                     <input type="checkbox" id="addComment" onChange={this.onCommentChanged}/> <br/>
-                    <label className="label">Add a Formula for cells F2 to F20: </label> 
+                    <label className="label">Add a Formula for cells F2 to F20: </label>
                     <input type="checkbox" id="addFormula" onChange={this.onFormulaChanged}/>  <br/>
                     <label className="label">Merge Cells: </label>
-                    <input type="checkbox" id="mergeCells" onChange={this.onMergeChanged}/> 
+                    <input type="checkbox" id="mergeCells" onChange={this.onMergeChanged}/>
                 </div>
             </div>
         );

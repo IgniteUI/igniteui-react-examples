@@ -135,7 +135,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
 
                 <div className="toolArea">
                     <div className="toolAreaRow1">
@@ -174,7 +174,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                                 min={100}
                                 max={1000}
                                 step={100}
-                                className="slider"
+                                className="igOptions-slider"
                                 value={this.state.frequency}
                                 onChange={this.onPriceFrequencyChanged}/>
                         </div>
@@ -185,7 +185,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                                 min={100}
                                 max={10000}
                                 step={100}
-                                className="slider"
+                                className="igOptions-slider"
                                 value={this.state.volume}
                                 onChange={this.onPriceVolumeChanged}/>
                         </div>
@@ -875,7 +875,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
     }
 
     public onChartStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
-        args.styleKey = "chart";
+        args.styleKey = "igComponent";
     }
 
     public onChartCellUpdating(grid: IgrTemplateColumn, args: IgrTemplateCellUpdatingEventArgs) {

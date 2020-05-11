@@ -4,7 +4,7 @@
     width: 100%;
 } */
 
-.sampleFlexRows {
+.igContainer {
     background: white;
     height: calc(100% - 1rem);
     width: calc(100% - 1rem);

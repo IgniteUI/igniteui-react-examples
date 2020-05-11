@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 import { SharedData } from "./DataGridSharedData";
 import "./DataUtils";
@@ -38,22 +38,22 @@ export default class GridColumnResizing extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <span className="optionItem" style={{ width: "120px" }}>Resizing Mode:</span>
-                    <select className="optionItem" style={{ width: "135px" }} defaultValue="Deferred" onChange={this.onColumnResizingModeChange}>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-item" style={{ width: "120px" }}>Resizing Mode:</span>
+                    <select className="igOptions-item" style={{ width: "135px" }} defaultValue="Deferred" onChange={this.onColumnResizingModeChange}>
                         <option>Deferred</option>
                         <option>Immediate</option>
                         <option>None</option>
                     </select>
 
                     {/* commented out the slider for now.
-                    <span className="optionItem">Separator Width: </span>
-                    <input type="range" min={1} max={5} step="1" style={{ width: "90px"}} value={this.state.columnSeparatorWidth} onChange={this.onSeparatorWidthChanged} />
+                    <span className="igOptions-item">Separator Width: </span>
+                    <input className="igOptions-slider" type="range" min={1} max={5} step="1" style={{ width: "90px"}} value={this.state.columnSeparatorWidth} onChange={this.onSeparatorWidthChanged} />
                 </div>
-                <div className="options"> */}
-                    <span className="optionItem" style={{ width: "120px" }}>Resizing Animation:</span>
-                    <select className="optionItem" style={{ width: "135px" }} defaultValue="Auto" onChange={this.onColumnResizingAnimationModeChange}>
+                <div className="igOptions"> */}
+                    <span className="igOptions-item" style={{ width: "120px" }}>Resizing Animation:</span>
+                    <select className="igOptions-item" style={{ width: "135px" }} defaultValue="Auto" onChange={this.onColumnResizingAnimationModeChange}>
                         <option>Auto</option>
                         <option>Interpolate</option>
                         <option>None</option>

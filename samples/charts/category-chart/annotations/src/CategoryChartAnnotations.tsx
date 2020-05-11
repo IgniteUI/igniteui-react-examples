@@ -1,7 +1,7 @@
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./CategoryChartSharedStyles.css";
 import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
 
@@ -26,24 +26,24 @@ export default class CategoryChartAnnotations extends CategoryChartSharedCompone
 
     public render() {
         return (
-            <div className="sampleContainer" >
-                <div className="options">
-                    <label className="optionLabel">Annotations: </label>
-                    <label className="optionItem"><input type="checkbox"
+            <div className="igContainer" >
+                <div className="igOptions">
+                    <label className="igOptions-label">Annotations: </label>
+                    <label className="igOptions-item"><input type="checkbox"
                     checked={this.state.crosshairsVisible}
                     onChange={this.onCrosshairsVisible}/> Crosshair </label>
-                    <label className="optionItem"><input type="checkbox"
+                    <label className="igOptions-item"><input type="checkbox"
                     checked={this.state.calloutsVisible}
                     onChange={this.onCalloutsVisible}/> Callouts </label>
-                    <label className="optionItem"><input type="checkbox"
+                    <label className="igOptions-item"><input type="checkbox"
                     checked={this.state.finalValuesVisible}
                     onChange={this.onFinalValuesVisible}/> Final Values </label>
-                    <label className="optionItem"><input type="checkbox"
+                    <label className="igOptions-item"><input type="checkbox"
                     checked={this.state.markersVisible}
                     onChange={this.onMarkersVisible}/> Markers </label>
                 </div>
 
-                <div className="chart" style={{height: "calc(100% - 40px)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 40px)"}} >
                     <IgrCategoryChart
                         width="100%"
                         height="100%"

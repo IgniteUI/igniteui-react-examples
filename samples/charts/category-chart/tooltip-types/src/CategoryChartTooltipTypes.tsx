@@ -3,7 +3,7 @@ import { IgrDomainChart } from 'igniteui-react-charts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./CategoryChartSharedStyles.css";
 import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
 
@@ -20,9 +20,9 @@ export default class CategoryChartTooltipTypes extends CategoryChartSharedCompon
 
     public render() {
         return (
-        <div className="sampleContainer" >
-            <div className="options">
-                <span className="optionLabel">Tooltip Type: </span>
+        <div className="igContainer" >
+            <div className="igOptions">
+                <span className="igOptions-label">Tooltip Type: </span>
                 <select value={this.state.toolTipType}
                     onChange={this.onToolTipTypeChanged}>
                     <option>Default</option>
@@ -31,7 +31,7 @@ export default class CategoryChartTooltipTypes extends CategoryChartSharedCompon
                     {/* <option>None</option> */}
                 </select>
             </div>
-            <div className="chart" style={{height: "calc(100% - 50px)"}} >
+            <div className="igComponent" style={{height: "calc(100% - 50px)"}} >
                 <IgrCategoryChart
                     width="100%"
                     height="100%"

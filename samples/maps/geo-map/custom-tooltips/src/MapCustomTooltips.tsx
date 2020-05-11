@@ -1,6 +1,6 @@
 
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 import WorldUtils from "./WorldUtils"
 
@@ -28,8 +28,8 @@ export default class MapCustomTooltips extends React.Component {
     public render() {
 
         return (
-            <div className="igFlex">
-                <div className="igControl" >
+            <div className="igContainer">
+                <div className="igComponent" >
                     <IgrGeographicMap
                         ref={this.onMapReferenced}
                         width="100%"

@@ -21,7 +21,7 @@ import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { SamplePolarData } from "./SamplePolarData";
@@ -50,9 +50,9 @@ export default class DataChartTypePolarSeries extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="options">
-                    <span className="optionLabel">Type of Polar Series: </span>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-label">Type of Polar Series: </span>
                     <select value={this.state.seriesType}
                         onChange={this.onSeriesTypeChanged}>
                         <option>Area</option>
@@ -61,12 +61,12 @@ export default class DataChartTypePolarSeries extends DataChartSharedComponent {
                         <option>Line</option>
                         <option>Scatter</option>
                     </select>
-                    <span className="legendTitle">Legend: </span>
-                    <div className="legendInline">
+                    <span className="igLegend-title">Legend: </span>
+                    <div className="igLegend">
                         <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                     </div>
                 </div>
-                <div className="chart" style={{height: "calc(100% - 35px)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart ref={this.onChartRef}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}

@@ -11,7 +11,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 
@@ -36,12 +36,12 @@ export default class DataChartTitles extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="legend">
+            <div className="igContainer">
+                <div className="igLegend">
                     <IgrLegend ref={this.onLegendRef}
                         orientation="Horizontal" />
                 </div>
-                <div className="chart" style={{height: "calc(100% - 35px)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart
                         dataSource={this.data} ref={this.onChartRef}
                         width="100%" height="100%"
@@ -49,7 +49,7 @@ export default class DataChartTitles extends DataChartSharedComponent {
                         subtitle="Results over a two year period"
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true} >
-                        
+
                         <IgrCategoryXAxis name="xAxis" label="Country" />
                         <IgrNumericYAxis name="yAxis" minimumValue={0} />
 

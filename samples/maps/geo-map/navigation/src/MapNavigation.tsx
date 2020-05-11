@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 import "./GeoMapPanel.css";
 import { MapUtils, MapRegion } from "./MapUtils";
@@ -16,7 +16,7 @@ import { EsriUtility, EsriStyle } from "./EsriUtility";
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapNavigation extends React.Component<any,any> {
+export default class MapNavigation extends React.Component<any, any> {
 
     public geoMap: IgrGeographicMap;
 
@@ -58,9 +58,9 @@ export default class MapNavigation extends React.Component<any,any> {
 
     public render() {
         return (
-            <div className="igFlex"    >
+            <div className="igContainer"    >
 
-                <div className="igControl" id="map" >
+                <div className="igComponent" id="map" >
                     <IgrGeographicMap
                         ref={this.onMapReferenced}
                         actualWindowRectChanged={this.onMapWindowRectChanged}
@@ -223,7 +223,7 @@ export default class MapNavigation extends React.Component<any,any> {
             y: (e.clientY - bounds.top) / bounds.height
         };
 
-        // converting mouse Ppixel coordinate to geographic coordinate:
+        // converting mouse pixel coordinate to geographic coordinate:
         const geoCoordinate: any = this.geoMap.getGeographicPoint(relativeCoordinate);
 
         this.setState({

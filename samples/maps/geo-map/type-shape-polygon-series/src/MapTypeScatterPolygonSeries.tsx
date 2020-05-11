@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./GeoMapSharedStyles.css";
 import DataUtils from "./DataUtils"
 import WorldUtils from "./WorldUtils"
@@ -29,8 +29,8 @@ export default class MapTypeScatterPolygonSeries extends React.Component {
 
     public render() {
         return (
-            <div className="sampleRoot">
-                <div className="map" >
+            <div className="igContainer">
+                <div className="igComponent" >
                     <IgrGeographicMap
                         ref={this.onMapReferenced}
                         width="100%"

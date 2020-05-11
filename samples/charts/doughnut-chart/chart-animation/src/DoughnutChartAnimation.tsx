@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DoughnutChartSharedStyles.css";
 import { DoughnutChartSharedComponent } from "./DoughnutChartSharedComponent";
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';
@@ -9,7 +9,7 @@ import { IgrRingSeries } from 'igniteui-react-charts';
 IgrDoughnutChartModule.register();
 IgrRingSeriesModule.register();
 
-export default class DoughnutChartAniation extends DoughnutChartSharedComponent {
+export default class DoughnutChartAnimation extends DoughnutChartSharedComponent {
 
     public data: any[];
     public chart: IgrDoughnutChart;
@@ -28,7 +28,7 @@ export default class DoughnutChartAniation extends DoughnutChartSharedComponent 
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <div>
                     <button onClick={this.onClick}><label>{this.state.animateChartLabel}</label></button>
                 </div>

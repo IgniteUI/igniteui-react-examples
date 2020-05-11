@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DoughnutChartSharedStyles.css";
 import { DoughnutChartSharedComponent } from "./DoughnutChartSharedComponent";
 
@@ -28,7 +28,7 @@ export default class DoughnutChartRings extends DoughnutChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
+            <div className="igContainer">
                 <IgrDoughnutChart
                     ref={this.onChartRef}
                     height="100%"

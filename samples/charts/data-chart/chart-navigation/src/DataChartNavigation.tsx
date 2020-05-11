@@ -14,7 +14,7 @@ import { IgrSizeScale } from 'igniteui-react-charts';
 import { IgrValueBrushScale } from 'igniteui-react-charts';
 
 import * as React from "react";
-import "../styles.css";
+
 import "./DataChartSharedStyles.css";
 import { DataChartSharedComponent } from "./DataChartSharedComponent";
 import { SampleScatterStats } from "./SampleScatterStats";
@@ -58,12 +58,12 @@ export default class DataChartNavigation extends DataChartSharedComponent {
 
     public render() {
         return (
-            <div className="sample">
-                <div className="options">
-                    <button className="optionItem" style={{width: "80px"}} onClick={this.onPanUpClick}>Pan Up</button>
-                    <button className="optionItem" style={{width: "80px"}} onClick={this.onPanLeftClick}>Pan Left</button>
-                    <button className="optionItem" style={{width: "80px"}} onClick={this.onZoomInClick}>Zoom In</button>
-                    <span className="optionItem" style={{width: "85px"}}>Pan Modifier:</span>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanUpClick}>Pan Up</button>
+                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanLeftClick}>Pan Left</button>
+                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onZoomInClick}>Zoom In</button>
+                    <span className="igOptions-item" style={{width: "85px"}}>Pan Modifier:</span>
                     <select value={this.state.panModifier} style={{width: "85px"}} onChange={this.onPanModifierChange}>
                         <option>Alt</option>
                         <option>Control</option>
@@ -72,18 +72,18 @@ export default class DataChartNavigation extends DataChartSharedComponent {
                         <option>Apple</option>
                         <option>None</option>
                     </select>
-                    <span className="optionItem">Default Drag Option:</span>
+                    <span className="igOptions-item">Default Drag Option:</span>
                     <select value={this.state.defaultInteraction} onChange={this.onDefaultInteractionChange}>
                         <option>DragZoom</option>
                         <option>DragPan</option>
                         <option>None</option>
                     </select>
                 </div>
-                <div className="options" style={{marginBottom: "15px"}}>
-                    <button className="optionItem" style={{width: "80px"}} onClick={this.onPanDownClick}>Pan Down</button>
-                    <button className="optionItem" style={{width: "80px"}} onClick={this.onPanRightClick}>Pan Right</button>
-                    <button className="optionItem" style={{width: "80px"}} onClick={this.onZoomOutClick}>Zoom Out</button>
-                    <span className="optionItem" style={{width: "85px"}}>Zoom Modifier:</span>
+                <div className="igOptions" style={{marginBottom: "15px"}}>
+                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanDownClick}>Pan Down</button>
+                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanRightClick}>Pan Right</button>
+                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onZoomOutClick}>Zoom Out</button>
+                    <span className="igOptions-item" style={{width: "85px"}}>Zoom Modifier:</span>
                     <select value={this.state.dragModifier} style={{width: "85px"}} onChange={this.onDragModifierChange}>
                         <option>Alt</option>
                         <option>Control</option>
@@ -92,11 +92,11 @@ export default class DataChartNavigation extends DataChartSharedComponent {
                         <option>Apple</option>
                         <option>None</option>
                     </select>
-                    <label className="optionItem"><input type="checkbox"
+                    <label className="igOptions-item"><input type="checkbox"
                         checked={this.state.isZoomEnabled}
                         onChange={this.onZoomEnabledChange} /> Enable Zooming</label>
                 </div>
-                <div className="chart" style={{height: "calc(100% - 75px)"}} >
+                <div className="igComponent" style={{height: "calc(100% - 75px)"}} >
                     <IgrDataChart
                         ref={this.onChartRef}
                         defaultInteraction={this.state.defaultInteraction}

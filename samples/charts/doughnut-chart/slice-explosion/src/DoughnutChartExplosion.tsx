@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DoughnutChartSharedStyles.css";
 import { DoughnutChartSharedComponent } from "./DoughnutChartSharedComponent";
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';
@@ -29,7 +29,7 @@ export default class DoughnutChartOverview extends DoughnutChartSharedComponent 
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrDoughnutChart
                      ref={this.onChartRef}
                      height="100%"

@@ -9,7 +9,7 @@ import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheetChartAdapterModule } from 'igniteui-react-spreadsheet-chart-adapter';
 import { SpreadsheetChartAdapter } from 'igniteui-react-spreadsheet-chart-adapter';
 
-import { AxisGroup, AxisPosition, AxisType, CellReferenceMode, ChartType, ChartTitle, FormattedString, Legend, 
+import { AxisGroup, AxisPosition, AxisType, CellReferenceMode, ChartType, ChartTitle, FormattedString, Legend,
     LegendPosition, Workbook, WorksheetTableColumnArea, WorkbookFormat, XValues } from "igniteui-react-excel";
 
 IgrExcelCoreModule.register();
@@ -28,7 +28,7 @@ export default class SpreadsheetAdapterCombo extends React.Component {
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 25px)" width="100%" />
             </div>
         );

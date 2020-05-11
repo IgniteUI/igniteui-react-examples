@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles.css";
+
 import "./SpreadsheetSharedStyles.css";
 import { ExcelUtility } from "./ExcelUtility";
 import DataUtils from "./DataUtils";
@@ -26,7 +26,7 @@ export default class SpreadsheetConditionalFormatting extends React.Component {
 
     public render() {
         return (
-            <div className="sampleContainer">
+            <div className="igContainer">
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="100%" width="100%" />
             </div>
         );

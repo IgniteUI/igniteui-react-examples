@@ -33,12 +33,12 @@ export default class RadialGaugeAnimation extends React.Component {
 
     public render() {
         return (
-            <div className="sampleFlexRows">
-                <div className="options">
-                    <button onClick={this.onAnimateToGauge1} className="button">Gauge Animation #1</button>
-                    <button onClick={this.onAnimateToGauge2} className="button">Gauge Animation #2</button>
-                    <button onClick={this.onAnimateToGauge3} className="button">Gauge Animation #3</button>
-                    <button onClick={this.onAnimateToGauge4} className="button">Gauge Animation #4</button>
+            <div className="igContainer">
+                <div className="igOptions">
+                    <button onClick={this.onAnimateToGauge1} className="igOptions-button">Gauge Animation #1</button>
+                    <button onClick={this.onAnimateToGauge2} className="igOptions-button">Gauge Animation #2</button>
+                    <button onClick={this.onAnimateToGauge3} className="igOptions-button">Gauge Animation #3</button>
+                    <button onClick={this.onAnimateToGauge4} className="igOptions-button">Gauge Animation #4</button>
                 </div>
 
                 <IgrRadialGauge

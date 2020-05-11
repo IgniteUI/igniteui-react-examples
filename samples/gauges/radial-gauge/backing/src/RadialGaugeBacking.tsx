@@ -1,7 +1,7 @@
 import { IgrRadialGauge } from 'igniteui-react-gauges';
 import { IgrRadialGaugeModule } from 'igniteui-react-gauges';
 import * as React from "react";
-import "../styles.css";
+
 import "./RadialGaugeSharedStyles.css";
 import { RadialGaugeSharedComponent } from "./RadialGaugeSharedComponent";
 
@@ -17,7 +17,7 @@ export default class RadialGaugeBacking extends RadialGaugeSharedComponent {
 
     public render() {
         return (
-            <div className="sampleFlexRows">
+            <div className="igContainer">
                 <IgrRadialGauge
                     backingShape="Fitted"
                     backingBrush="#fcfcfc"

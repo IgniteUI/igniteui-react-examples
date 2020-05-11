@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles.css";
+
 import "./DataGridSharedStyles.css";
 import { SharedData } from "./DataGridSharedData";
 import "./DataUtils";
@@ -88,23 +88,23 @@ export default class DataGridRowFiltering extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="sampleContainer">
-                <div className="options">
-                    <span className="optionItem">  Column: </span>
-                    <select className="optionItem" value={this.state.filterColumn}
+            <div className="igContainer">
+                <div className="igOptions">
+                    <span className="igOptions-item">  Column: </span>
+                    <select className="igOptions-item" value={this.state.filterColumn}
                         onChange={this.onFilterColumnChanged}>
                         <option>Name</option>
                         <option>Street</option>
                         <option>City</option>
                         <option>Country</option>
                     </select>
-                    <select className="optionItem" value={this.state.filterMode}
+                    <select className="igOptions-item" value={this.state.filterMode}
                         onChange={this.onFilterModeChanged}>
                         <option>Contains</option>
                         <option>StartsWith</option>
                         <option>EndsWith</option>
                     </select>
-                    <label className="optionItem"> Expression: </label>
+                    <label className="igOptions-item"> Expression: </label>
                     <input className="optionText" type="text" name="title" value={this.state.filterText}
                        onChange={this.onFilterTextChanged} />
                 </div>

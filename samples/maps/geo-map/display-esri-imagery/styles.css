@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-.sampleRoot {
+.igContainer {
     /* background: red; */
     /* background-color: red; */
     width: 100%;
@@ -15,7 +15,7 @@
     padding: 0px 0px 0px 0px;
 }
 
-.sampleContainer {
+.igContainer {
     /* background: blue; */
     /* background-color: blue; */
     display: flex;
@@ -28,7 +28,7 @@
 }
 
 /* Used by gauges */
-.centerContainer {
+.sampleCenter {
     background: purple;
     background-color: purple;
     position: absolute;
@@ -44,7 +44,7 @@
 }
 
 
-.igFlex {
+.igContainer {
     display: flex;
     flex-direction: column; /* row | row-reverse | column | column-reverse*/
     flex-wrap: nowrap; /* nowrap | wrap | wrap-reverse; */
@@ -59,7 +59,7 @@
     overflow-y: hidden;
 }
 
-.igControl {
+.igComponent {
     height: calc(100% - 0px);
     width: calc(100% - 0px);
 }
