@@ -24,8 +24,8 @@
   "rules": {
     "no-console": false,
     "no-string-literal": false,
-    "no-unused-vars": false,
-    // "no-unused-vars": [ "error", { "varsIgnorePattern": "React"} ],
+    // "no-unused-vars": false,
+    "no-unused-vars": [ "error", { "varsIgnorePattern": "React"} ],
     "jsx-no-lambda": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,

@@ -5,6 +5,8 @@
 /samples/*/node_modules
 /browser/node_modules
 /sample-test-files
+/src/samples
+/src/sample-tests
 
 # IDEs and editors
 /.idea

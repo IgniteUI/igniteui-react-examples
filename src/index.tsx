@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
+
 import './index.css';
-import App from './App';
+// import App from './App';
+// import { SamplesRouter } from './navigation/SamplesRouter';
+import { SamplesBrowser }from "./navigation/SamplesBrowser";
 import * as serviceWorker from './serviceWorker';
 
+import './index.css'; // styles shared between all samples
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  //   <SamplesRouter />
+  // </React.StrictMode>,
+   <BrowserRouter >
+      <SamplesBrowser />
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
