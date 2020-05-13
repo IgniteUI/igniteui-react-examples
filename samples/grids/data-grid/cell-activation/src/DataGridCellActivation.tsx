@@ -1,7 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-
-import { SharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 
 import { IgrLiveGrid } from 'igniteui-react-grids';
 import { IgrLiveGridModule } from 'igniteui-react-grids';
@@ -17,7 +16,7 @@ export default class DataGridCellActivation extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
-        this.data = SharedData.getEmployees();
+        this.data = DataGridSharedData.getEmployees();
     }
 
     public render() {

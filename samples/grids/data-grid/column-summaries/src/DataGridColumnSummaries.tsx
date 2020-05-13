@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
 
-import { SharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 
 import { IgrLiveGridModule } from 'igniteui-react-grids';
 import { IgrLiveGrid } from 'igniteui-react-grids';
@@ -23,8 +23,8 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
         super(props);
         this.onGridRef = this.onGridRef.bind(this);
         this.onLoad = this.onLoad.bind(this);
-        this.state = { componentVisible: true, isGroupCollapsable: true, summaryScope: "Root", groupSummaryDisplayMode: "RowBottom" }
-        this.data = SharedData.getSales(50);
+        this.state = { componentVisible: true, isGroupCollapsible: true, summaryScope: "Root", groupSummaryDisplayMode: "RowBottom" }
+        this.data = DataGridSharedData.getSales(50);
     }
 
     public render() {
@@ -55,7 +55,7 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
                     height="calc(100% - 40px)"
                     width="100%"
                     autoGenerateColumns="false"
-                    isGroupCollapsable={this.state.isGroupCollapsable}
+                    isGroupCollapsable={this.state.isGroupCollapsible}
                     groupHeaderDisplayMode = "combined"
                     dataSource={this.data}>
                         <IgrNumericColumn propertyPath="ProductID" headerText="ID" horizontalAlignment="center" />

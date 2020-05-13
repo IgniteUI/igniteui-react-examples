@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SampleTreeMapData } from "./WorldPopData";
+import { SampleTreeMapData } from './WorldPopData';
 import { IgrTreemapModule } from 'igniteui-react-charts';
 import { IgrTreemap } from 'igniteui-react-charts';
 import { IgrTreemapNodeStyleMapping } from 'igniteui-react-charts';

@@ -3,7 +3,7 @@ import { IgrItemLegendModule } from 'igniteui-react-charts';
 import { IgrPieChart } from 'igniteui-react-charts';
 import { IgrPieChartModule } from 'igniteui-react-charts';
 
-import * as React from "react";
+import * as React from 'react';
 
 
 

@@ -19,7 +19,7 @@ import { IgrChartCursorEventArgs } from 'igniteui-react-charts';
 import { IgrZoomSliderResolvingAxisValueEventArgs } from 'igniteui-react-charts'
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 
-import { SampleScatterStats } from "./SampleScatterStats";
+import { SampleScatterStats } from './SampleScatterStats';
 
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();

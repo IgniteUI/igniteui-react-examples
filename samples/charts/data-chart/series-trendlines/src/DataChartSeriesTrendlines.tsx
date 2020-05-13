@@ -6,12 +6,12 @@ import { IgrColumnSeries } from 'igniteui-react-charts';
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
-import { SampleFinancialData } from "./SampleFinancialData";
+import { SampleFinancialData } from './SampleFinancialData';
 import { IgrFinancialPriceSeries } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
 // legend's modules:
-import * as React from "react";
+import * as React from 'react';
 
 
 

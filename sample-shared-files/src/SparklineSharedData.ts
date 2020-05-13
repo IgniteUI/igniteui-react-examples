@@ -1,7 +1,7 @@
-export class SharedData{
+export class SparklineSharedData {
 
     public static getSharedData(){
-        const data: any[] = [            
+        const data: any[] = [
             { "Label": 4, "Value": 4 },
             { "Label": 5, "Value": 5 },
             { "Label": 2, "Value": 2 },

@@ -1,8 +1,8 @@
 
-import * as React from "react";
+import * as React from 'react';
 
 
-import { SampleFinancialData } from "./SampleFinancialData";
+import { SampleFinancialData } from './SampleFinancialData';
 
 // axis' modules:
 import { IgrNumericYAxis } from 'igniteui-react-charts';

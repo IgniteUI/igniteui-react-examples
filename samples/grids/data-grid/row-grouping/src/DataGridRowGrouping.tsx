@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
 
-import { SharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 
 import { IgrLiveGridModule } from 'igniteui-react-grids';
 import { IgrLiveGrid } from 'igniteui-react-grids';
@@ -23,8 +23,8 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
         this.onGridRef = this.onGridRef.bind(this);
         this.onLoad = this.onLoad.bind(this);
 
-        this.state = { componentVisible: true, isGroupCollapsable: true }
-        this.data = SharedData.getEmployees(50);
+        this.state = { componentVisible: true, isGroupCollapsible: true }
+        this.data = DataGridSharedData.getEmployees(50);
     }
 
     public render() {
@@ -36,9 +36,9 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
                         <option>Combined</option>
                         <option>Split</option>
                     </select>
-                    <label className="igOptions-label" > Group Header Collapsable: </label>
+                    <label className="igOptions-label" > Group Header Collapsible: </label>
 
-                    <input type="checkbox" checked={this.state.isGroupCollapsable} onChange={this.onGroupHeaderCollapsable}/>
+                    <input type="checkbox" checked={this.state.isGroupCollapsible} onChange={this.onGroupHeaderCollapsible}/>
 
                 </div>
 
@@ -47,7 +47,7 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
                     height="calc(100% - 39px)"
                     width="100%"
                     autoGenerateColumns="false"
-                    isGroupCollapsable={this.state.isGroupCollapsable}
+                    isGroupCollapsable={this.state.isGroupCollapsible}
                     groupHeaderDisplayMode = "combined"
                     dataSource={this.data}>
                         <IgrTextColumn propertyPath="Name" headerText="Name" />
@@ -64,14 +64,14 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
         );
     }
 
-    public onGroupHeaderCollapsable = (e: any) =>{
-        const isCollapsable = e.target.checked;
+    public onGroupHeaderCollapsible = (e: any) =>{
+        const isCollapsible = e.target.checked;
 
-        if (isCollapsable) {
-            this.setState( {isGroupCollapsable: true} );
+        if (isCollapsible) {
+            this.setState( {isGroupCollapsible: true} );
         }
         else {
-            this.setState( {isGroupCollapsable: false} );
+            this.setState( {isGroupCollapsible: false} );
         }
     }
 

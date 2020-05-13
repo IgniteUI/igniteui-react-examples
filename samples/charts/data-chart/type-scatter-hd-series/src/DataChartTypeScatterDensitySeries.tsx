@@ -12,11 +12,11 @@ import { IgrHighDensityScatterSeriesModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
 
-import * as React from "react";
+import * as React from 'react';
 
 
 
-import { SampleDensityData } from "./SampleDensityData";
+import { SampleDensityData } from './SampleDensityData';
 
 IgrDataChartCoreModule.register();
 IgrDataChartScatterCoreModule.register();

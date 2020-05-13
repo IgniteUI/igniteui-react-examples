@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
 
-import { SharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 
 import { IgrLiveGridModule } from 'igniteui-react-grids';
 import { IgrLiveGrid } from 'igniteui-react-grids';
@@ -24,7 +24,7 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
 
         this.state = { sortType: "SortByMultipleColumnsTriState" }
         this.onGridRef = this.onGridRef.bind(this);
-        this.data = SharedData.getHouses();
+        this.data = DataGridSharedData.getHouses();
     }
 
     public render() {

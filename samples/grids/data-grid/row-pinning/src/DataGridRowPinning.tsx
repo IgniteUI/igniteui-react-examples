@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
 
-import { SharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 
 // grid modules:
 import { IgrLiveGridModule } from 'igniteui-react-grids';
@@ -23,7 +23,7 @@ export default class DataGridRowPinning extends React.Component<any, any> {
 
         this.state = { componentVisible: true };
         this.onGridRef = this.onGridRef.bind(this);
-        this.data = SharedData.getEmployees();
+        this.data = DataGridSharedData.getEmployees();
     }
 
     public render() {

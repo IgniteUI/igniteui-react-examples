@@ -1,8 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
 
-import { DataGridSharedComponent, IComponentState } from "./DataGridSharedComponent";
-import { SharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 
 import { IgrLiveGrid } from 'igniteui-react-grids';
 import { IgrLiveGridModule } from 'igniteui-react-grids';
@@ -27,7 +26,7 @@ export default class DataGridRowPaging extends React.Component<any, any> {
 
         this.onGridRef = this.onGridRef.bind(this);
         this.onPagerRef = this.onPagerRef.bind(this);
-        this.data = SharedData.getEmployees();
+        this.data = DataGridSharedData.getEmployees();
     }
 
     public onGridRef(grid: IgrLiveGrid) {

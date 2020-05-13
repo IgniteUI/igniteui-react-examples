@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-import { SharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 import { IgrLiveGrid } from 'igniteui-react-grids';
 import { IgrLiveGridModule } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
@@ -28,7 +28,7 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
             columnMovingMode: "Deferred",
             columnMovingAnimation: "SlideOver"
         };
-        this.data = SharedData.getEmployees();
+        this.data = DataGridSharedData.getEmployees();
     }
 
     public onGridRef(grid: IgrLiveGrid) {

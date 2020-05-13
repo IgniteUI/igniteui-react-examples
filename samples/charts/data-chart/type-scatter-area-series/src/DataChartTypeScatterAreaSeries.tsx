@@ -12,11 +12,11 @@ import { IgrDataChartScatterCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartScatterModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
-import * as React from "react";
+import * as React from 'react';
 
 
 
-import { SampleScatterData } from "./SampleScatterData";
+import { SampleScatterData } from './SampleScatterData';
 
 IgrDataChartCoreModule.register();
 IgrDataChartScatterCoreModule.register();

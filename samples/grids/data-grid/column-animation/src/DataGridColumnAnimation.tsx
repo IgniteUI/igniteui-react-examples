@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
 
-import { SharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 
 import { IgrLiveGrid } from 'igniteui-react-grids';
 import { IgrLiveGridModule } from 'igniteui-react-grids';
@@ -38,7 +38,7 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
             columnPropertyUpdatingAnimationMode: "Interpolate"
         }
 
-        this.data = SharedData.getEmployees();
+        this.data = DataGridSharedData.getEmployees();
     }
 
     public onGridRef(grid: IgrLiveGrid) {
@@ -157,7 +157,7 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
 
         // this.grid.dataSource = this.data;
 
-        const newData = SharedData.getEmployees();
+        const newData = DataGridSharedData.getEmployees();
         for (let i = 0; i < this.data.length; i++) {
             const oldItem = this.data[i];
             this.data[i].Salary = newData[i].Salary;

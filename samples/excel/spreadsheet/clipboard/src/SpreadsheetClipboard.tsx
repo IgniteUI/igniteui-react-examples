@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 
 
@@ -10,7 +10,7 @@ import { IgrExcelModule } from 'igniteui-react-excel';
 import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 
-import { ExcelUtility } from "./ExcelUtility";
+import { ExcelUtility } from '/ExcelUtility';
 import { SpreadsheetAction } from 'igniteui-react-spreadsheet';
 
 

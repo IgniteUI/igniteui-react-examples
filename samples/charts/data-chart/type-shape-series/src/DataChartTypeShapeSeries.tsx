@@ -11,11 +11,11 @@ import { IgrDataChartShapeCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartShapeModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
-import * as React from "react";
+import * as React from 'react';
 
 
 
-import { SampleShapeData } from "./SampleShapeData";
+import { SampleShapeData } from './SampleShapeData';
 
 IgrDataChartCoreModule.register();
 IgrDataChartShapeCoreModule.register();

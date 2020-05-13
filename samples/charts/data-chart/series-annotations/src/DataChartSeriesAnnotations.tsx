@@ -20,7 +20,7 @@ import { IgrValueOverlay } from 'igniteui-react-charts';
 import { IgrValueOverlayModule } from 'igniteui-react-charts';
 import { FinalValueSelectionMode } from 'igniteui-react-charts';
 
-import * as React from "react";
+import * as React from 'react';
 
 
 

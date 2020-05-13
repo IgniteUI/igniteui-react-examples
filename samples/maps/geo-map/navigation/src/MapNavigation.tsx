@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
 
-import { MapUtils, MapRegion } from "./MapUtils";
+import { MapUtils, MapRegion } from './MapUtils';
 
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
@@ -9,7 +9,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrArcGISOnlineMapImagery } from 'igniteui-react-maps';
-import { EsriUtility, EsriStyle } from "./EsriUtility";
+import { EsriUtility, EsriStyle } from './EsriUtility';
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();

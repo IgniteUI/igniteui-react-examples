@@ -11,10 +11,10 @@ import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
-import * as React from "react";
+import * as React from 'react';
 
 
-import { SampleFinancialData } from "./SampleFinancialData";
+import { SampleFinancialData } from './SampleFinancialData';
 
 IgrDataChartCoreModule.register();
 IgrDataChartInteractivityModule.register();

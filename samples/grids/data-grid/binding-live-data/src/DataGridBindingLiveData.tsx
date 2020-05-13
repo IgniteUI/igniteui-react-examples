@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './DataGridBindingLiveData.css';
 
-import { LiveFinancialData } from "./LiveFinancialData";
-import { TaskUtil } from "./TaskUtil";
+import { LiveFinancialData } from './LiveFinancialData';
+import { TaskUtil } from './TaskUtil';
 // IgrLiveGrid modules
 import { IgrLiveGrid } from 'igniteui-react-grids';
 import { IgrLiveGridModule } from 'igniteui-react-grids';

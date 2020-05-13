@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
 
-import { SharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 
 // grid modules:
 import { IgrLiveGridModule } from 'igniteui-react-grids';
@@ -26,7 +26,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         this.onAddressCellUpdating = this.onAddressCellUpdating.bind(this);
         this.onSalesCellUpdating = this.onSalesCellUpdating.bind(this);
         this.onEmailCellUpdating = this.onEmailCellUpdating.bind(this);
-        this.data = SharedData.getEmployees();
+        this.data = DataGridSharedData.getEmployees();
     }
 
     public onAddressCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {

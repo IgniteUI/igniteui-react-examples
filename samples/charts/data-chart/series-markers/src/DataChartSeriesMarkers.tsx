@@ -8,7 +8,7 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
-import * as React from "react";
+import * as React from 'react';
 
 
 

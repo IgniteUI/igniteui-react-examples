@@ -3,7 +3,7 @@ import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 import { LinearScaleOrientation } from 'igniteui-react-gauges';
 
-import * as React from "react";
+import * as React from 'react';
 
 
 IgrBulletGraphModule.register();

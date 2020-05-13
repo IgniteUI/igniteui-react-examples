@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 
 
@@ -9,8 +9,8 @@ import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrOpenStreetMapImagery } from 'igniteui-react-maps';
 import { IgrArcGISOnlineMapImagery } from 'igniteui-react-maps';
-import { EsriUtility, EsriStyle } from "./EsriUtility";
-import { MapUtils } from "./MapUtils";
+import { EsriUtility, EsriStyle } from './EsriUtility';
+import { MapUtils } from './MapUtils';
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();

@@ -15,11 +15,11 @@ import { IgrDataChartScatterModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrTimeXAxisModule } from 'igniteui-react-charts';
 
-import { SampleCategoryData } from "./SampleCategoryData";
-import { SampleFinancialData } from "./SampleFinancialData";
-import { SampleScatterData } from "./SampleScatterData";
+import { SampleCategoryData } from './SampleCategoryData';
+import { SampleFinancialData } from './SampleFinancialData';
+import { SampleScatterData } from './SampleScatterData';
 
-import * as React from "react";
+import * as React from 'react';
 
 
 

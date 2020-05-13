@@ -2,10 +2,10 @@ import { IgrFinancialEventArgs } from 'igniteui-react-charts';
 import { IgrFinancialChartCustomIndicatorArgs } from 'igniteui-react-charts';
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
-import * as React from "react";
+import * as React from 'react';
 
 
-import { StocksUtility } from "./StocksUtility";
+import { StocksUtility } from '/StocksUtility';
 
 IgrFinancialChartModule.register();
 

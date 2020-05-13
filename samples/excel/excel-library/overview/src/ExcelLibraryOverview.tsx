@@ -1,8 +1,8 @@
-import * as React from "react";
+import * as React from 'react';
 
 
 
-import { SharedData } from "./ExcelSharedData";
+import { SharedData } from './ExcelSharedData';
 import { IgrExcelModule } from 'igniteui-react-excel';
 import { Workbook } from 'igniteui-react-excel';
 import { Worksheet } from 'igniteui-react-excel';

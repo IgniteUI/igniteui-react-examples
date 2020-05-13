@@ -1,5 +1,5 @@
-import React from "react";
-import { ExcelUtility } from "./ExcelUtility";
+import React from 'react';
+import { ExcelUtility } from '/ExcelUtility';
 
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';

@@ -3,11 +3,9 @@ import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrSparklineCoreModule } from 'igniteui-react-charts';
 import { UnknownValuePlotting } from 'igniteui-react-core';
 
-import * as React from "react";
+import * as React from 'react';
 
-
-
-import { SharedData } from "./SparklineSharedData";
+import { SparklineSharedData } from './SparklineSharedData';
 
 IgrSparklineCoreModule.register();
 IgrSparklineModule.register();
@@ -23,7 +21,7 @@ export default class SparklineUnknownValues extends React.Component<any, any> {
         this.onSparklineRef = this.onSparklineRef.bind(this);
         this.onRangeVisibilityChanged = this.onRangeVisibilityChanged.bind(this);
 
-        this.data = SharedData.getSharedDataWithNullValues();
+        this.data = SparklineSharedData.getSharedDataWithNullValues();
     }
 
     public render() {

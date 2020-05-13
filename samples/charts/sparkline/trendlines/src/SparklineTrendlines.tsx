@@ -2,11 +2,9 @@ import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrSparklineCoreModule } from 'igniteui-react-charts';
 
-import * as React from "react";
+import * as React from 'react';
 
-
-
-import { SharedData } from "./SparklineSharedData";
+import { SparklineSharedData } from './SparklineSharedData';
 
 IgrSparklineCoreModule.register();
 IgrSparklineModule.register();
@@ -22,7 +20,7 @@ export default class SparklineTrendlines extends React.Component<any, any> {
         this.onSparklineRef = this.onSparklineRef.bind(this);
         this.onTrendlineChanged = this.onTrendlineChanged.bind(this);
 
-        this.data = SharedData.getSharedData();
+        this.data = SparklineSharedData.getSharedData();
     }
 
     public render() {

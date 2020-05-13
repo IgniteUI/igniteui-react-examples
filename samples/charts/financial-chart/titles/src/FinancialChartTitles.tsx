@@ -1,11 +1,8 @@
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
-import * as React from "react";
+import * as React from 'react';
 
-
-import "./FinancialChartSharedComponent";
-import StocksHistory from "./StocksHistory";
-
+import StocksHistory from '/StocksHistory';
 
 IgrFinancialChartModule.register();
 

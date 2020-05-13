@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
 
-import { DataGridSharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 
 import { IgrLiveGridModule } from 'igniteui-react-grids';
 import { IgrLiveGrid } from 'igniteui-react-grids';

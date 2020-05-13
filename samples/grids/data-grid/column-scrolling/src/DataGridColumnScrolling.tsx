@@ -1,8 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-
-import { DataGridSharedComponent } from "./DataGridSharedComponent";
-import { SharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 
 import { IgrLiveGridModule } from 'igniteui-react-grids';
 import { IgrLiveGrid } from 'igniteui-react-grids';
@@ -12,6 +10,7 @@ import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
 
 IgrLiveGridModule.register();
+
 export default class DataGridColumnScrolling extends React.Component<any, any> {
 
     public data: any[];
@@ -20,7 +19,7 @@ export default class DataGridColumnScrolling extends React.Component<any, any> {
         super(props);
 
         this.state = { componentVisible: true }
-        this.data = SharedData.getEmployees();
+        this.data = DataGridSharedData.getEmployees();
     }
 
     public render() {

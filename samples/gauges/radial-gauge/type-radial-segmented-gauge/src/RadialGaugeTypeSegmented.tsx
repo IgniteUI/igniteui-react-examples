@@ -8,7 +8,7 @@ import { RadialGaugeNeedleShape } from 'igniteui-react-gauges';
 import { RadialGaugePivotShape } from 'igniteui-react-gauges';
 import { RadialGaugeScaleOversweepShape } from 'igniteui-react-gauges';
 
-import * as React from "react";
+import * as React from 'react';
 
 
 IgrRadialGaugeModule.register();

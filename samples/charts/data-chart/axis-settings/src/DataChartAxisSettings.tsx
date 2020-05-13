@@ -12,11 +12,9 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 
-import * as React from "react";
+import * as React from 'react';
 
-
-
-import { SharedData } from "./DataChartSharedData";
+import { DataChartSharedData } from './DataChartSharedData';
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
@@ -35,7 +33,7 @@ export default class DataChartAxisSettings extends React.Component<any, any> {
         this.onChartRef = this.onChartRef.bind(this);
         this.onLegendRef = this.onLegendRef.bind(this);
 
-        this.data = SharedData.getEnergyProduction();
+        this.data = DataChartSharedData.getEnergyProduction();
     }
 
     public render() {

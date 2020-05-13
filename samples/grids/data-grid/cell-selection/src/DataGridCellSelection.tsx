@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
 
-import { SharedData } from "./DataGridSharedData";
+import { DataGridSharedData } from './DataGridSharedData';
 
 import { IgrLiveGrid } from 'igniteui-react-grids';
 import { IgrLiveGridModule } from 'igniteui-react-grids';
@@ -25,7 +25,7 @@ export default class DataGridCellSelection extends React.Component<any, any> {
         this.onSelectionModeChange = this.onSelectionModeChange.bind(this);
 
         this.state = { selectionMode: "MultipleRow" }
-        this.data = SharedData.getEmployees();
+        this.data = DataGridSharedData.getEmployees();
     }
 
     public onGridRef(grid: IgrLiveGrid) {

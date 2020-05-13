@@ -1,13 +1,13 @@
 import { IgrRadialGauge } from 'igniteui-react-gauges';
 import { IgrRadialGaugeModule } from 'igniteui-react-gauges';
-import * as React from "react";
+import * as React from 'react';
 
 
-import { RadialGaugeSharedComponent } from "./RadialGaugeSharedComponent";
+
 
 IgrRadialGaugeModule.register();
 
-export default class RadialGaugeNeedle extends RadialGaugeSharedComponent {
+export default class RadialGaugeNeedle extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);

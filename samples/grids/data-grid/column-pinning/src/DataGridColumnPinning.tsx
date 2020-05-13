@@ -1,6 +1,4 @@
-import * as React from "react";
-
-
+import * as React from 'react';
 
 import { IgrLiveGridModule } from 'igniteui-react-grids';
 import { IgrLiveGrid } from 'igniteui-react-grids';
@@ -25,8 +23,12 @@ export default class DataGridColumnPinning extends React.Component<any, any> {
         this.onPinLeft = this.onPinLeft.bind(this);
         this.onPinRight = this.onPinRight.bind(this);
         this.onUnPin = this.onUnPin.bind(this);
-        this.state = { componentVisible: true, leftbuttonDisabled: true, rightbuttonDisabled: true }
-        this.data = SharedData.getEmployees();
+        this.state = {
+            componentVisible: true,
+            isPinningToLeftDisabled: true,
+            isPinningToRightDisabled: true
+        }
+        this.data = DataGridSharedData.getEmployees();
     }
 
     public onGridRef(grid: IgrLiveGrid) {
@@ -37,8 +39,8 @@ export default class DataGridColumnPinning extends React.Component<any, any> {
         return (
             <div className="igContainer">
                 <div className="igOptions">
-                    <button className="igOptions-item" disabled={this.state.leftbuttonDisabled} onClick={this.onPinLeft} style={{ width: "100px" }}>Pin Left</button>
-                    <button className="igOptions-item" disabled={this.state.rightbuttonDisabled} onClick={this.onPinRight} style={{ width: "100px" }}>Pin Right</button>
+                    <button className="igOptions-item" disabled={this.state.isPinningToLeftDisabled} onClick={this.onPinLeft} style={{ width: "100px" }}>Pin Left</button>
+                    <button className="igOptions-item" disabled={this.state.isPinningToRightDisabled} onClick={this.onPinRight} style={{ width: "100px" }}>Pin Right</button>
                     <button className="igOptions-item" onClick={this.onUnPin} style={{ width: "105px" }}>Unpin Columns</button>
                 </div>
                 <IgrLiveGrid
@@ -72,7 +74,7 @@ export default class DataGridColumnPinning extends React.Component<any, any> {
     }
 
     public onPinLeft = (e: any) => {
-        this.setState({ leftbuttonDisabled: true, rightbuttonDisabled: true });
+        this.setState({ isPinningToLeftDisabled: true, isPinningToRightDisabled: true });
 
         let idColumn = this.grid.actualColumns.item(0);
         let firstNameColumn = this.grid.actualColumns.item(1);
@@ -83,7 +85,7 @@ export default class DataGridColumnPinning extends React.Component<any, any> {
     }
 
     public onPinRight = (e: any) => {
-        this.setState({ leftbuttonDisabled: true, rightbuttonDisabled: true});
+        this.setState({ isPinningToLeftDisabled: true, isPinningToRightDisabled: true});
 
         let streetColumn = this.grid.actualColumns.item(6);
         let cityColumn = this.grid.actualColumns.item(7);
@@ -94,7 +96,7 @@ export default class DataGridColumnPinning extends React.Component<any, any> {
     }
 
     public onUnPin = (e: any) => {
-        this.setState({ leftbuttonDisabled: false, rightbuttonDisabled: false });
+        this.setState({ isPinningToLeftDisabled: false, isPinningToRightDisabled: false });
 
         let idColumn = this.grid.actualColumns.item(0);
         let firstNameColumn = this.grid.actualColumns.item(1);

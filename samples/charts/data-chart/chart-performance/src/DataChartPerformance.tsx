@@ -8,11 +8,9 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
-import * as React from "react";
+import * as React from 'react';
 
-
-
-import { SharedData } from "./DataChartSharedData";
+import { DataChartSharedData } from './DataChartSharedData';
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
@@ -41,11 +39,11 @@ export default class DataChartPerformance extends React.Component<any, any> {
         this.onDataGenerateClick = this.onDataGenerateClick.bind(this);
         this.onDataPointsChanged = this.onDataPointsChanged.bind(this);
 
-        this.data = SharedData.getItems(100, this.dataPoints, false);
+        this.data = DataChartSharedData.getItems(100, this.dataPoints, false);
         this.dataIndex = this.data.length;
 
         this.state = {
-            dataInfo: SharedData.toShortString(this.dataPoints),
+            dataInfo: DataChartSharedData.toShortString(this.dataPoints),
             dataPoints: this.dataPoints,
             dataSource: this.data,
             scalingRatio: window.devicePixelRatio,
@@ -121,7 +119,7 @@ export default class DataChartPerformance extends React.Component<any, any> {
     }
 
     public onDataGenerateClick() {
-        this.data = SharedData.getItems(100, this.dataPoints, false);
+        this.data = DataChartSharedData.getItems(100, this.dataPoints, false);
         this.dataIndex = this.data.length;
 
         this.setState({ dataSource: this.data });
@@ -139,7 +137,7 @@ export default class DataChartPerformance extends React.Component<any, any> {
         if (num > 1000000) {
             num = 1000000;
         }
-        const info = SharedData.toShortString(num);
+        const info = DataChartSharedData.toShortString(num);
         this.dataPoints = num;
         this.setState({ dataPoints: num, dataInfo: info });
     }
@@ -180,7 +178,7 @@ export default class DataChartPerformance extends React.Component<any, any> {
     public tick(): void {
         this.dataIndex++;
         const oldItem = this.data[0];
-        const newItem = SharedData.getNewItem(this.data, this.dataIndex);
+        const newItem = DataChartSharedData.getNewItem(this.data, this.dataIndex);
 
         // updating data source and notifying category chart
         this.data.push(newItem);
