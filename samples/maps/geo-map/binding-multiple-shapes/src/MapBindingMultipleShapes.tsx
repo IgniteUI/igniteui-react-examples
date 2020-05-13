@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import "./GeoMapSharedStyles.css";
-import DataUtils from "./DataUtils"
+
 import WorldUtils from "./WorldUtils"
 import { IgrGeographicMapImagery } from 'igniteui-react-maps';
 
@@ -86,25 +86,25 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
         this.geoMap.actualSeries[1].tooltipTemplate = this.getPolylinesTooltip;
         this.geoMap.actualSeries[2].tooltipTemplate = this.getPointTooltip;
 
-        const url = DataUtils.getPublicURL();
+
         // loading a shapefile with geographic polygons
         const sdsPolygons = new IgrShapeDataSource();
         sdsPolygons.importCompleted = this.onPolygonsLoaded;
-        sdsPolygons.shapefileSource = url + "/shapes/WorldCountries.shp";
-        sdsPolygons.databaseSource  = url + "/shapes/WorldCountries.dbf";
+        sdsPolygons.shapefileSource = "https://static.infragistics.com/xplatform/shapes/WorldCountries.shp";
+        sdsPolygons.databaseSource  = "https://static.infragistics.com/xplatform/shapes/WorldCountries.dbf";
         sdsPolygons.dataBind();
 
         const sdsPolylines = new IgrShapeDataSource();
         sdsPolylines.importCompleted = this.onPolylinesLoaded;
-        sdsPolylines.shapefileSource = url + "/shapes/WorldCableRoutes.shp";
-        sdsPolylines.databaseSource  = url + "/shapes/WorldCableRoutes.dbf";
+        sdsPolylines.shapefileSource = "https://static.infragistics.com/xplatform/shapes/WorldCableRoutes.shp";
+        sdsPolylines.databaseSource  = "https://static.infragistics.com/xplatform/shapes/WorldCableRoutes.dbf";
         sdsPolylines.dataBind();
 
         // loading a shapefile with geographic points
         const sdsPoints = new IgrShapeDataSource();
         sdsPoints.importCompleted = this.onPointsLoaded;
-        sdsPoints.shapefileSource = url + "/Shapes/WorldCities.shp";
-        sdsPoints.databaseSource  = url + "/Shapes/WorldCities.dbf";
+        sdsPoints.shapefileSource = "https://static.infragistics.com/xplatform/shapes/WorldCities.shp";
+        sdsPoints.databaseSource  = "https://static.infragistics.com/xplatform/shapes/WorldCities.dbf";
         sdsPoints.dataBind();
     }
 

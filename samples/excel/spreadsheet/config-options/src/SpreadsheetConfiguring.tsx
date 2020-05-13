@@ -3,7 +3,7 @@ import React from "react";
 
 import "./SpreadsheetSharedStyles.css";
 import { ExcelUtility } from "./ExcelUtility";
-import DataUtils from "./DataUtils";
+
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
@@ -185,9 +185,9 @@ export default class SpreadsheetConfiguring extends React.Component<any, any> {
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
         this.spreadsheet = spreadsheet;
-        const url = DataUtils.getPublicURL();
-        const path = url + "/excel/SalesData.xlsx";
-        ExcelUtility.loadFromUrl(path).then((w) => {
+
+        const url = "https://static.infragistics.com/xplatform/excel/SalesData.xlsx";
+        ExcelUtility.loadFromUrl(url).then((w) => {
             this.spreadsheet.workbook = w;
         });
     }

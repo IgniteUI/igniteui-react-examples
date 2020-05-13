@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import "./GeoMapSharedStyles.css";
-import DataUtils from "./DataUtils"
+
 import WorldUtils from "./WorldUtils"
 import LegendOverlay from "./LegendOverlay"
 
@@ -46,8 +46,8 @@ export default class MapTypeScatterDensitySeries extends React.Component {
 
     public componentDidMount() {
         // fetching geographic locations from public JSON folder
-        const url = DataUtils.getPublicURL();
-        fetch(url + "/data/AusPlaces.csv")
+
+        fetch("https://static.infragistics.com/xplatform/data/AusPlaces.csv")
             .then((response) => response.text())
             .then(data => this.onDataLoaded(data));
     }

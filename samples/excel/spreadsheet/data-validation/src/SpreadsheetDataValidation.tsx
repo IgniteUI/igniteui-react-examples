@@ -54,7 +54,7 @@ export default class SpreadsheetDataValidation extends SpreadsheetSharedComponen
             // this validation rule has only input message set
             const valRule1 = new AnyValueDataValidationRule();
             valRule1.inputMessageTitle = "Hotel room booking form";
-            valRule1.inputMessageDescription = "Please us the form below to choose your accomodation type";
+            valRule1.inputMessageDescription = "Please us the form below to choose your accommodation type";
             this.spreadsheet.workbook.worksheets(0).rows(1).cells(0).dataValidationRule = valRule1;
             this.spreadsheet.workbook.worksheets(0).rows(1).cells(0).value = "Hotel room booking form";
 

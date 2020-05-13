@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import "./GeoMapSharedStyles.css";
-import DataUtils from "./DataUtils"
 import WorldUtils from "./WorldUtils"
 
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
@@ -46,8 +45,8 @@ export default class MapBindingDataJsonPoints extends React.Component {
 
     public componentDidMount() {
         // fetching JSON data with geographic locations from public folder
-        const url = DataUtils.getPublicURL();
-        fetch(url + "/data/WorldCities.json")
+
+        fetch("https://static.infragistics.com/xplatform/data/WorldCities.json")
             .then((response) => response.json())
             .then(data => this.onDataLoaded(data));
     }

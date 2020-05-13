@@ -13,7 +13,7 @@ import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 import { ExcelUtility } from "./ExcelUtility";
 
 import { SpreadsheetSharedComponent } from "./SpreadsheetSharedComponent";
-import DataUtils from "./DataUtils";
+
 
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
@@ -53,9 +53,9 @@ export default class SpreadsheetOverview extends SpreadsheetSharedComponent {
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
         this.spreadsheet = spreadsheet;
-        const url = DataUtils.getPublicURL();
-        const excelFile = url + "/excel/SalesData.xlsx"
-        ExcelUtility.loadFromUrl(excelFile).then((w) => {
+
+        const url = "https://static.infragistics.com/xplatform/excel/SalesData.xlsx"
+        ExcelUtility.loadFromUrl(url).then((w) => {
             this.spreadsheet.workbook = w;
         });
     }

@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./GeoMapSharedStyles.css";
-import DataUtils from "./DataUtils"
+
 import WorldUtils from "./WorldUtils"
 import LegendOverlay from "./LegendOverlay"
 
@@ -49,12 +49,12 @@ export default class MapTypeScatterAreaSeries extends React.Component<any, any> 
         this.geoMap = map;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
 
-        const url = DataUtils.getPublicURL();
+
         // loading a shapefile with geographic shapes
         const sds = new IgrShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
-        sds.shapefileSource = url + "/Shapes/WorldTemperatures.shp";
-        sds.databaseSource  = url + "/Shapes/WorldTemperatures.dbf";
+        sds.shapefileSource = "https://static.infragistics.com/xplatform/shapes/WorldTemperatures.shp";
+        sds.databaseSource  = "https://static.infragistics.com/xplatform/shapes/WorldTemperatures.dbf";
         sds.dataBind();
     }
 

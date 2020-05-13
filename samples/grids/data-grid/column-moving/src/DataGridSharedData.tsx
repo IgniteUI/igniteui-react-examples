@@ -246,19 +246,19 @@ export class DataGridSharedData {
     }
 
     private static getPhotoMale(id: number): string {
-        return require('./assets/GUY' + this.pad(id, 2) + '.png');
+        return 'http://static.infragistics.com/xplatform/images/people//GUY' + this.pad(id, 2) + '.png';
     }
 
     private static getPhotoFemale(id: number): string {
-        return require('./assets/GIRL' + this.pad(id, 2) + '.png');
+        return 'http://static.infragistics.com/xplatform/images/people/GIRL' + this.pad(id, 2) + '.png';
     }
 
     private static getGenderPhoto(gender: string): string {
-        return require('./genders/' + gender + '.png');
+        return 'http://static.infragistics.com/xplatform/images/genders/' + gender + '.png';
     }
 
     private static getCountryFlag(country: string): string {
-        return require('./flags/' + country + '.png');
+        return 'http://static.infragistics.com/xplatform/images/flags/' + country + '.png';
     }
 
     private static pad(num: number, size: number) {

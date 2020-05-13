@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import "./GeoMapSharedStyles.css";
-import DataUtils from "./DataUtils"
 import LegendItem from "./LegendItem"
 import LegendOverlay from "./LegendOverlay"
 
@@ -50,11 +49,11 @@ export default class MapTypeScatterPolylineSeries extends React.Component {
         this.geoMap = map;
         this.geoMap.windowRect = { left: 0.195, top: 0.325, width: 0.2, height: 0.1 };
 
-        const url = DataUtils.getPublicURL();
+
         const sds = new IgrShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
-        sds.shapefileSource = url + "/Shapes/AmericanRoads.shp";
-        sds.databaseSource  = url + "/Shapes/AmericanRoads.dbf";
+        sds.shapefileSource = "https://static.infragistics.com/xplatform/shapes/AmericanRoads.shp";
+        sds.databaseSource  = "https://static.infragistics.com/xplatform/shapes/AmericanRoads.dbf";
         sds.dataBind();
     }
 

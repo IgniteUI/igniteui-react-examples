@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./GeoMapSharedStyles.css";
-import DataUtils from "./DataUtils"
+
 import LegendOverlay from "./LegendOverlay"
 
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
@@ -50,11 +50,11 @@ export default class MapTypeScatterContourSeries extends React.Component<any, an
         this.geoMap = map;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
 
-        const url = DataUtils.getPublicURL();
+
         const sds = new IgrShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
-        sds.shapefileSource = url + "/Shapes/WorldTemperatures.shp";
-        sds.databaseSource  = url + "/Shapes/WorldTemperatures.dbf";
+        sds.shapefileSource = "https://static.infragistics.com/xplatform/shapes/WorldTemperatures.shp";
+        sds.databaseSource  = "https://static.infragistics.com/xplatform/shapes/WorldTemperatures.dbf";
         sds.dataBind();
     }
 

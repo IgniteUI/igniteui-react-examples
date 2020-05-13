@@ -1,6 +1,6 @@
 import React from "react";
 import { ExcelUtility } from "./ExcelUtility";
-import DataUtils from "./DataUtils";
+
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
@@ -39,9 +39,8 @@ export default class SpreadsheetAdapter extends React.Component {
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
         this.spreadsheet = spreadsheet;
         this.spreadsheet.chartAdapter = new SpreadsheetChartAdapter();
-        const url = DataUtils.getPublicURL();
-        const path = url + "/excel/ChartData.xlsx";
-        ExcelUtility.loadFromUrl(path).then((w) => {
+        const url = "https://static.infragistics.com/xplatform/excel/ChartData.xlsx";
+        ExcelUtility.loadFromUrl(url).then((w) => {
             this.spreadsheet.workbook = w;
 
             const sheet: Worksheet = this.spreadsheet.workbook.worksheets(0);

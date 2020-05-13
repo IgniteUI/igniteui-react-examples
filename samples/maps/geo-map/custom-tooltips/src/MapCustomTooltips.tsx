@@ -88,8 +88,8 @@ export default class MapCustomTooltips extends React.Component {
         const iso = dataItem.isoCode.toUpperCase();
         const lat = WorldUtils.toStringLat(dataItem.lat);
         const lon = WorldUtils.toStringLon(dataItem.lon);
-        const scr = process.env.PUBLIC_URL + '/images/' + dataItem.isoCode.toLowerCase() + '.svg';
-        // const scr = require('./images/' + dataItem.isoCode.toLowerCase() + '.svg')
+        const svg = dataItem.isoCode.toLowerCase() + '.svg';
+        const scr = 'https://static.infragistics.com/xplatform/images/flags/' + svg;
 
         const seriesStyle = { color: dataContext.series.markerOutline } as React.CSSProperties;
         const contentStyle = { display: "inline-block", marginLeft: 5 } as React.CSSProperties;

@@ -1,4 +1,4 @@
-import DataUtils from "./DataUtils";
+
 
 export default class StocksHistory {
   /** gets stock OHLC prices for multiple stocks */
@@ -19,8 +19,7 @@ export default class StocksHistory {
 
   /** gets Amazon stock OHLC prices from a .JSON file */
   public static async getAmazonStock(): Promise<StockItem[]> {
-    let url =
-      DataUtils.getPublicURL() + "/data/stocks/stockAmazon.json";
+    let url = "https://static.infragistics.com/xplatform/data/stocks/stockAmazon.json";
     let response = await fetch(url);
     let jsonData = await response.json();
     let stockData = this.convertData(jsonData);
@@ -37,7 +36,7 @@ export default class StocksHistory {
 
   /** gets Tesla stock OHLC prices from a .JSON file */
   public static async getTeslaStock(): Promise<StockItem[]> {
-    let url = DataUtils.getPublicURL() + "/data/stocks/stockTesla.json";
+    let url = "https://static.infragistics.com/xplatform/data/stocks/stockTesla.json";
     let response = await fetch(url);
     let jsonData = await response.json();
     let stockData = this.convertData(jsonData);
@@ -52,8 +51,7 @@ export default class StocksHistory {
 
   /** gets Microsoft stock OHLC prices from a .JSON file */
   public static async getMicrosoftStock(): Promise<StockItem[]> {
-    let url =
-      DataUtils.getPublicURL() + "/data/stocks/stockMicrosoft.json";
+    let url = "https://static.infragistics.com/xplatform/data/stocks/stockMicrosoft.json";
     let response = await fetch(url);
     let jsonData = await response.json();
     let stockData = this.convertData(jsonData);
@@ -68,8 +66,7 @@ export default class StocksHistory {
 
   /** gets Google stock OHLC prices from a .JSON file */
   public static async getGoogleStock(): Promise<StockItem[]> {
-    let url =
-      DataUtils.getPublicURL() + "/data/stocks/stockGoogle.json";
+    let url = "https://static.infragistics.com/xplatform/data/stocks/stockGoogle.json";
     let response = await fetch(url);
     let jsonData = await response.json();
     let stockData = this.convertData(jsonData);

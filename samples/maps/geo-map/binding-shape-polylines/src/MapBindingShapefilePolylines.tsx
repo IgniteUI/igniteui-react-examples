@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import "./GeoMapSharedStyles.css";
-import DataUtils from "./DataUtils"
+
 
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
@@ -43,12 +43,12 @@ export default class MapBindingShapefilePolylines extends React.Component<any, a
         this.geoMap = map;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
 
-        const url = DataUtils.getPublicURL();
+
         // loading a shapefile with geographic polygons
         const sds = new IgrShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
-        sds.shapefileSource = url + "/shapes/WorldCableRoutes.shp";
-        sds.databaseSource  = url + "/shapes/WorldCableRoutes.dbf";
+        sds.shapefileSource = "https://static.infragistics.com/xplatform/shapes/WorldCableRoutes.shp";
+        sds.databaseSource  = "https://static.infragistics.com/xplatform/shapes/WorldCableRoutes.dbf";
         sds.dataBind();
     }
 

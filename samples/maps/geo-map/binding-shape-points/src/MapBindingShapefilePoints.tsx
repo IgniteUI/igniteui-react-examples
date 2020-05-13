@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import "./GeoMapSharedStyles.css";
-import DataUtils from "./DataUtils"
+
 import WorldUtils from "./WorldUtils"
 
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
@@ -45,12 +45,12 @@ export default class MapBindingShapefilePoints extends React.Component {
         this.geoMap = map;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
 
-        const url = DataUtils.getPublicURL();
+
         // loading a shapefile with geographic points
         const sds = new IgrShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
-        sds.shapefileSource = url + "/Shapes/WorldCities.shp";
-        sds.databaseSource  = url + "/Shapes/WorldCities.dbf";
+        sds.shapefileSource = "https://static.infragistics.com/xplatform/shapes/WorldCities.shp";
+        sds.databaseSource  = "https://static.infragistics.com/xplatform/shapes/WorldCities.dbf";
         sds.dataBind();
     }
 

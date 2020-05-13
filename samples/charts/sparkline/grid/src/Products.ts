@@ -55,7 +55,7 @@ export class Products {
                 Status: this.getRandomItem(this.status),
             });
         }
-        console.log("DataUtils items=" + items.length)
+        console.log("Products:" + items.length)
         return items;
     }
 
