@@ -2,7 +2,7 @@ import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
 
-import StocksHistory from '/StocksHistory';
+import StocksHistory from './StocksHistory';
 
 IgrFinancialChartModule.register();
 
@@ -11,7 +11,7 @@ export default class FinancialChartTitles extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
-        this.state = { data:[] }
+        this.state = { data: [] }
         this.initData();
     }
 
@@ -36,9 +36,9 @@ export default class FinancialChartTitles extends React.Component<any, any> {
     }
 
     public initData() {
-        StocksHistory.getAmazonStock().then(stock => {
-            console.log("getMultipleStocks " + stock.length);
-            this.setState({ data: stock });
+        StocksHistory.getAmazonStock().then((stocks: any[]) => {
+            console.log("getMultipleStocks " + stocks.length);
+            this.setState({ data: stocks });
         });
     }
 }
