@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import "./DataGridSharedStyles.css";
+
 import { DataGridSharedComponent } from "./DataGridSharedComponent";
 import { SharedData } from "./DataGridSharedData";
-import "./DataUtils";
+
 import { IgrLiveGridModule } from 'igniteui-react-grids';
 import { IgrLiveGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';

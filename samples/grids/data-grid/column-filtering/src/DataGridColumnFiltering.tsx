@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import "./DataGridSharedStyles.css";
-import { SharedData } from "./DataGridSharedData";
-import "./DataUtils";
+
+import { DataGridSharedData } from "./DataGridSharedData";
+
 import { IgrLiveGridModule } from 'igniteui-react-grids';
 import { IgrLiveGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
@@ -32,7 +32,7 @@ export default class DataGridRowFiltering extends React.Component<any, any> {
         this.onFilterModeChanged = this.onFilterModeChanged.bind(this);
 
         this.state = { filterText: this.filterText, filterMode: this.filterMode, filterColumn: this.filterColumn }
-        this.data = SharedData.getEmployees(4000);
+        this.data = DataGridSharedData.getEmployees(4000);
     }
 
     public onGridRef(grid: IgrLiveGrid) {
@@ -105,7 +105,7 @@ export default class DataGridRowFiltering extends React.Component<any, any> {
                         <option>EndsWith</option>
                     </select>
                     <label className="igOptions-item"> Expression: </label>
-                    <input className="optionText" type="text" name="title" value={this.state.filterText}
+                    <input className="igOptions-input-text" type="text" name="title" value={this.state.filterText}
                        onChange={this.onFilterTextChanged} />
                 </div>
 

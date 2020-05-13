@@ -22,8 +22,8 @@ import { IgrLegendModule } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 import { SamplePolarData } from "./SamplePolarData";
 
 IgrDataChartCoreModule.register();
@@ -32,7 +32,7 @@ IgrDataChartPolarModule.register();
 IgrDataChartInteractivityModule.register();
 IgrLegendModule.register();
 
-export default class DataChartTypePolarSeries extends DataChartSharedComponent {
+export default class DataChartTypePolarSeries extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
     public legend: IgrLegend;

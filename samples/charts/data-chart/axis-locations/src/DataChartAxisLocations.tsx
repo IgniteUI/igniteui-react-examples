@@ -15,7 +15,7 @@ import { IgrLegendModule } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
+
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();

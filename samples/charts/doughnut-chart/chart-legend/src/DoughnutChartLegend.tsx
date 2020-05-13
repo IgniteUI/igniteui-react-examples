@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import "./DoughnutChartSharedStyles.css";
-import { DoughnutChartSharedComponent } from "./DoughnutChartSharedComponent";
+
+
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrDoughnutChart } from 'igniteui-react-charts';
 import { IgrItemLegend } from 'igniteui-react-charts';
@@ -13,7 +13,7 @@ IgrDoughnutChartModule.register();
 IgrRingSeriesModule.register();
 IgrItemLegendModule.register();
 
-export default class DoughnutChartLegend extends DoughnutChartSharedComponent {
+export default class DoughnutChartLegend extends React.Component<any, any> {
 
     public data: any[];
     public chart: IgrDoughnutChart;

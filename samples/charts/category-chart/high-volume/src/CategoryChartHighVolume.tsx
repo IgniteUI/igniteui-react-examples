@@ -2,13 +2,13 @@ import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import * as React from "react";
 
-import "./CategoryChartSharedStyles.css";
-import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
+
+
 import { CategoryChartSharedData } from "./CategoryChartSharedData";
 
 IgrCategoryChartModule.register();
 
-export default class CategoryChartHighVolume extends CategoryChartSharedComponent {
+export default class CategoryChartHighVolume extends React.Component<any, any> {
     public dataPoints: number = 500000;
     public dataSource: any;
 

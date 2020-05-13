@@ -2,13 +2,13 @@ import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from "react";
 
-import "./FinancialChartSharedStyles.css";
-import { FinancialChartSharedComponent } from "./FinancialChartSharedComponent";
+
+
 import { StocksUtility } from "./StocksUtility";
 
 IgrFinancialChartModule.register();
 
-export default class FinancialChartIndicatorTypes extends FinancialChartSharedComponent {
+export default class FinancialChartIndicatorTypes extends React.Component<any, any> {
 
     public data: any[];
 

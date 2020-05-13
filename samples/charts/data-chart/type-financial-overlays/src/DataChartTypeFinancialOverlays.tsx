@@ -13,7 +13,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
+
 import { SampleFinancialData } from "./SampleFinancialData";
 
 IgrDataChartCoreModule.register();

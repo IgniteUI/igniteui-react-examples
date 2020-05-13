@@ -14,15 +14,15 @@ import { IgrLegendModule } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
 IgrLegendModule.register();
 
-export default class DataChartTypeCategoryWaterfallSeries extends DataChartSharedComponent {
+export default class DataChartTypeCategoryWaterfallSeries extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
     public legend: IgrLegend;

@@ -21,8 +21,8 @@ import { SampleScatterData } from "./SampleScatterData";
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 import { IgrBarSeries } from 'igniteui-react-charts';
 import { IgrFinancialPriceSeries } from 'igniteui-react-charts';
 
@@ -33,7 +33,7 @@ IgrDataChartScatterModule.register();
 IgrTimeXAxisModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class DataChartAxisTypes extends DataChartSharedComponent {
+export default class DataChartAxisTypes extends React.Component<any, any> {
     public categoryData: any[];
     public financialData: any[];
     public scatterData: any[];

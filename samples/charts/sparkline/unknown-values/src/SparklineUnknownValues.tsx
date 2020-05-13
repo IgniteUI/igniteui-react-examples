@@ -5,14 +5,14 @@ import { UnknownValuePlotting } from 'igniteui-react-core';
 
 import * as React from "react";
 
-import "./SparklineSharedStyles.css";
-import { SparklineSharedComponent } from "./SparklineSharedComponent";
+
+
 import { SharedData } from "./SparklineSharedData";
 
 IgrSparklineCoreModule.register();
 IgrSparklineModule.register();
 
-export default class SparklineUnknownValues extends SparklineSharedComponent {
+export default class SparklineUnknownValues extends React.Component<any, any> {
     public data: any[];
 
     public sparkline : IgrSparkline;

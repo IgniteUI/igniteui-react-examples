@@ -5,14 +5,14 @@ import { Visibility } from 'igniteui-react-core';
 
 import * as React from "react";
 
-import "./SparklineSharedStyles.css";
-import { SparklineSharedComponent } from "./SparklineSharedComponent";
+
+
 import { SharedData } from "./SparklineSharedData";
 
 IgrSparklineCoreModule.register();
 IgrSparklineModule.register();
 
-export default class SparklineMarkers extends SparklineSharedComponent {
+export default class SparklineMarkers extends React.Component<any, any> {
     public data: any[];
 
     public sparkline: IgrSparkline;

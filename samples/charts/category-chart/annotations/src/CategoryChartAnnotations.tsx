@@ -2,12 +2,12 @@ import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import * as React from "react";
 
-import "./CategoryChartSharedStyles.css";
-import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
+
+
 
 IgrCategoryChartModule.register();
 
-export default class CategoryChartAnnotations extends CategoryChartSharedComponent {
+export default class CategoryChartAnnotations extends React.Component<any, any> {
     public categoryData: any[];
     public categoryProperties: string[] = ["month", "temperature"];
 

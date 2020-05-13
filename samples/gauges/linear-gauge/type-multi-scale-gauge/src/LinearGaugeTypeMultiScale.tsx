@@ -4,7 +4,7 @@ import { IgrLinearGaugeModule } from 'igniteui-react-gauges';
 import { IgrFormatLinearGraphLabelEventArgs } from 'igniteui-react-gauges';
 
 import * as React from "react";
-import "./LinearGaugeSharedStyles.css";
+
 
 IgrLinearGaugeModule.register();
 

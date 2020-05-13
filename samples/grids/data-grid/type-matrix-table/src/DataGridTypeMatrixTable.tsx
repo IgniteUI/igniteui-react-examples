@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "./DataGridSharedStyles.css";
+
 
 // grid modules:
 import { IgrLiveGridModule } from 'igniteui-react-grids';

@@ -4,7 +4,7 @@ import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 import { LinearScaleOrientation } from 'igniteui-react-gauges';
 
 import * as React from "react";
-import "./BulletGraphSharedStyles.css";
+
 
 IgrBulletGraphModule.register();
 
@@ -30,7 +30,7 @@ export default class BulletGraphTypeVertical extends React.Component {
 
     public render() {
         return (
-            <div className="sampleFlexColumns"  >
+            <div className="igContainer-center"  >
                 <IgrBulletGraph
                     ref={this.onCreateGaugeGreen}
                     height="100%"

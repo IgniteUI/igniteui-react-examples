@@ -4,7 +4,7 @@ import { IgrSparklineCoreModule } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./SparklineSharedStyles.css";
+
 
 IgrSparklineCoreModule.register();
 IgrSparklineModule.register();

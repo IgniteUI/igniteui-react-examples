@@ -2,13 +2,13 @@ import { IgrPieChart } from 'igniteui-react-charts';
 import { IgrPieChartModule } from 'igniteui-react-charts';
 import * as React from "react";
 
-import "./PieChartSharedStyles.css";
-import { PieChartSharedComponent } from "./PieChartSharedComponent";
+
+
 
 
 IgrPieChartModule.register();
 
-export default class PieChartOverview extends PieChartSharedComponent {
+export default class PieChartOverview extends React.Component<any, any> {
 
     public data: any[];
 

@@ -4,13 +4,13 @@ import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
 
-import "./CategoryChartSharedStyles.css";
-import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
+
+
 
 IgrCategoryChartModule.register();
 IgrLegendModule.register();
 
-export default class CategoryChartStackColumns extends CategoryChartSharedComponent {
+export default class CategoryChartStackColumns extends React.Component<any, any> {
     public data: any[];
     public chart: IgrCategoryChart;
     public legend: IgrLegend;

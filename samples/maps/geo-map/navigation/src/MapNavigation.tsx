@@ -1,12 +1,10 @@
 import * as React from "react";
 
-import "./GeoMapSharedStyles.css";
-import "./GeoMapPanel.css";
+
 import { MapUtils, MapRegion } from "./MapUtils";
 
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
-
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
@@ -71,82 +69,82 @@ export default class MapNavigation extends React.Component<any, any> {
                 </div>
 
                 <div className="igOverlay-top-left" style={{color: "black", padding: "10px"}} >
-                    <label className="mapPanelItem">Select Map Region</label>
+                    <label className="igOverlay-label">Select Map Region</label>
                     <select value={this.state.selectedRegion}
                             onChange={this.onSelectionChanged}>
                             {this.NavigationOptions}
                     </select>
-                    <label className="mapPanelItem">Map Geographic Rect</label>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Top:</label>
-                        <label className="mapPanelValue">{MapUtils.toLat(this.state.mapRegion.top)}</label>
+                    <label className="igOverlay-label">Map Geographic Rect</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Top:</label>
+                        <label className="igOverlay-value">{MapUtils.toLat(this.state.mapRegion.top)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Left:</label>
-                        <label className="mapPanelValue">{MapUtils.toLng(this.state.mapRegion.left)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Left:</label>
+                        <label className="igOverlay-value">{MapUtils.toLng(this.state.mapRegion.left)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Height:</label>
-                        <label className="mapPanelValue">{MapUtils.toLat(this.state.mapRegion.height)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Height:</label>
+                        <label className="igOverlay-value">{MapUtils.toLat(this.state.mapRegion.height)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Width:</label>
-                        <label className="mapPanelValue">{MapUtils.toLng(this.state.mapRegion.width)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Width:</label>
+                        <label className="igOverlay-value">{MapUtils.toLng(this.state.mapRegion.width)}</label>
                     </div>
-                    <label className="mapPanelItem">Map Window Rect</label>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Top:</label>
-                        <label className="mapPanelValue">{this.state.windowRect.top.toFixed(4)}</label>
+                    <label className="igOverlay-label">Map Window Rect</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Top:</label>
+                        <label className="igOverlay-value">{this.state.windowRect.top.toFixed(4)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Left:</label>
-                        <label className="mapPanelValue">{this.state.windowRect.left.toFixed(4)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Left:</label>
+                        <label className="igOverlay-value">{this.state.windowRect.left.toFixed(4)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Height:</label>
-                        <label className="mapPanelValue">{this.state.windowRect.height.toFixed(4)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Height:</label>
+                        <label className="igOverlay-value">{this.state.windowRect.height.toFixed(4)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Width:</label>
-                        <label className="mapPanelValue">{this.state.windowRect.width.toFixed(4)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Width:</label>
+                        <label className="igOverlay-value">{this.state.windowRect.width.toFixed(4)}</label>
                     </div>
-                    <label className="mapPanelItem">Map Window Position</label>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Horizontal:</label>
-                        <label className="mapPanelValue">{this.state.windowPositionHorizontal.toFixed(4)}</label>
+                    <label className="igOverlay-label">Map Window Position</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Horizontal:</label>
+                        <label className="igOverlay-value">{this.state.windowPositionHorizontal.toFixed(4)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Vertical:</label>
-                        <label className="mapPanelValue">{this.state.windowPositionVertical.toFixed(4)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Vertical:</label>
+                        <label className="igOverlay-value">{this.state.windowPositionVertical.toFixed(4)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Scale:</label>
-                        <label className="mapPanelValue">{this.state.windowScale.toFixed(4)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Scale:</label>
+                        <label className="igOverlay-value">{this.state.windowScale.toFixed(4)}</label>
                     </div>
-                    <label className="mapPanelItem">Map Hover Coordinates</label>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Longitude:</label>
-                        <label className="mapPanelValue">{MapUtils.toLng(this.state.mapHoverGeographicCoordinate.x)}</label>
+                    <label className="igOverlay-label">Map Hover Coordinates</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Longitude:</label>
+                        <label className="igOverlay-value">{MapUtils.toLng(this.state.mapHoverGeographicCoordinate.x)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Latitude:</label>
-                        <label className="mapPanelValue">{MapUtils.toLat(this.state.mapHoverGeographicCoordinate.y)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Latitude:</label>
+                        <label className="igOverlay-value">{MapUtils.toLat(this.state.mapHoverGeographicCoordinate.y)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Window X:</label>
-                        <label className="mapPanelValue">{this.state.mapHoverWindowCoordinate.x.toFixed(4)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Window X:</label>
+                        <label className="igOverlay-value">{this.state.mapHoverWindowCoordinate.x.toFixed(4)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Window Y:</label>
-                        <label className="mapPanelValue">{this.state.mapHoverWindowCoordinate.y.toFixed(4)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Window Y:</label>
+                        <label className="igOverlay-value">{this.state.mapHoverWindowCoordinate.y.toFixed(4)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Pixel X:</label>
-                        <label className="mapPanelValue">{MapUtils.toPixel(this.state.mapHoverRelativeCoordinate.x)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Pixel X:</label>
+                        <label className="igOverlay-value">{MapUtils.toPixel(this.state.mapHoverRelativeCoordinate.x)}</label>
                     </div>
-                    <div className="mapPanelLine">
-                        <label className="mapPanelField">Pixel Y:</label>
-                        <label className="mapPanelValue">{MapUtils.toPixel(this.state.mapHoverRelativeCoordinate.y)}</label>
+                    <div className="igOverlay-row">
+                        <label className="igOverlay-field">Pixel Y:</label>
+                        <label className="igOverlay-value">{MapUtils.toPixel(this.state.mapHoverRelativeCoordinate.y)}</label>
                     </div>
                 </div>
 

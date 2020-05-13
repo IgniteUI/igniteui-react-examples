@@ -5,8 +5,8 @@ import { Visibility } from 'igniteui-react-core';
 
 import * as React from "react";
 
-import "./SparklineSharedStyles.css";
-import { SparklineSharedComponent } from "./SparklineSharedComponent";
+
+
 import { SharedData } from "./SparklineSharedData";
 
 IgrSparklineCoreModule.register();

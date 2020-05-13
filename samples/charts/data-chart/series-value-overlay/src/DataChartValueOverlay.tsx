@@ -13,15 +13,15 @@ import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
 IgrLegendModule.register();
 
-export default class DataChartValueOverlay extends DataChartSharedComponent {
+export default class DataChartValueOverlay extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
     public legend: IgrLegend;

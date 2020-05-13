@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* .igContainer {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    min-width: 300px;
+} */
+
+.flex {
+    flex: 1;
+}
+
+.toolArea {
+  height: 120px;
+}
+
+.toolAreaRow1 {
+  height: 55px;
+  line-height: 45px;
+}
+
+.toolAreaRow2 {
+  line-height: 55px;
+}
+
+.frequencySlider {
+  display: inline-block;
+  width: 120px;
+  padding-right: 20px;
+}
+
+.volumeSlider {
+  display: inline-block;
+  width: 120px;
+  padding-right: 20px;
+}
+
+.hiddenIcon {
+  font-family: Material Icons;
+  font-size: 20px;
+  font-feature-settings: "liga";
+  padding-right: 5px;
+
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.chartDialog div {
+  overflow: visible !important;
+  padding: 0px;
+  max-width: 100%;
+}
+
+.searchField {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 175px;
+  vertical-align: bottom;
+}
+
+.hiddenDrop {
+  vertical-align: bottom;
+  width: 190px;
+  margin-bottom: 6px;
+  margin-right: 10px;
+  margin-left: 10px;
+}

@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import "./DoughnutChartSharedStyles.css";
-import { DoughnutChartSharedComponent } from "./DoughnutChartSharedComponent";
+
+
 
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrDoughnutChart } from 'igniteui-react-charts';
@@ -13,7 +13,7 @@ import { LabelsPosition } from 'igniteui-react-charts';
 IgrDoughnutChartModule.register();
 IgrRingSeriesModule.register();
 
-export default class DoughnutChartRings extends DoughnutChartSharedComponent {
+export default class DoughnutChartRings extends React.Component<any, any> {
 
     public Months: any[];
     public Seasons: any[];

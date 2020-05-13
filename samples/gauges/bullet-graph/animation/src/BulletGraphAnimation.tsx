@@ -3,7 +3,7 @@ import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import * as React from "react";
 
-import "./BulletGraphSharedStyles.css";
+
 
 IgrBulletGraphModule.register();
 

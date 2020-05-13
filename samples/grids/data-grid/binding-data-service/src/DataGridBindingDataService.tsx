@@ -1,11 +1,9 @@
 import * as React from "react";
 
-import "./DataGridSharedStyles.css";
-import { FinancialData } from './FinancialData';
+import { LiveFinancialData } from './LiveFinancialData';
 
 import { IgrLiveGridModule } from 'igniteui-react-grids';
 import { IgrLiveGrid } from 'igniteui-react-grids';
-import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
@@ -20,7 +18,7 @@ export default class DataGridBindingDataService extends React.Component<any, any
         super(props);
 
         this.state = { componentVisible: true };
-        this.data = FinancialData.generateData(200);
+        this.data = LiveFinancialData.generateData(200);
     }
 
     public render() {

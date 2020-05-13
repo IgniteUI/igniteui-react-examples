@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import WorldUtils from "./WorldUtils"
-import "./GeoMapSharedStyles.css";
+
 import "./sandbox.config.json";
 
 import { IgrGeographicMapModule } from 'igniteui-react-maps';

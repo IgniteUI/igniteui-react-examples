@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import "./ExcelSharedStyles.css";
-import { ExcelSharedComponent } from "./ExcelSharedComponent";
+
+
 import { IgrLiveGridModule } from 'igniteui-react-grids';
 import { IgrLiveGrid } from 'igniteui-react-grids';
 import { Workbook } from 'igniteui-react-excel';
@@ -11,7 +11,7 @@ import { ExcelUtility } from './ExcelUtility';
 
 IgrLiveGridModule.register();
 
-export default class ExcelLibraryWorkbooks extends ExcelSharedComponent {
+export default class ExcelLibraryWorkbooks extends React.Component<any, any> {
 
     public grid : IgrLiveGrid;
 

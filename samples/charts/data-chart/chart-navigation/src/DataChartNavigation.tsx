@@ -15,8 +15,8 @@ import { IgrValueBrushScale } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 import { SampleScatterStats } from "./SampleScatterStats";
 
 IgrDataChartCoreModule.register();
@@ -25,7 +25,7 @@ IgrDataChartScatterModule.register();
 IgrDataChartInteractivityModule.register();
 IgrNumberAbbreviatorModule.register();
 
-export default class DataChartNavigation extends DataChartSharedComponent {
+export default class DataChartNavigation extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
 

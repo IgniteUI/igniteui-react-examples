@@ -2,6 +2,7 @@
 /* {RepositoryUrl}/tree/master/sample-template-files/src/index.css  */
 
 /* Note these styles are shared between all samples */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 #root, html, body, main {
     height: 100%;
@@ -41,17 +42,41 @@
 
 /* Used by gauges */
 .igContainer-center {
-    background: purple;
-    position: absolute;
-    left: 0px;
-    /* right: 0px; */
-    /* width: 300px; */
+    background: white;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
+    margin: 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* used to overlay multiple components, e.g. RadialGaugeTypeDirection */
+.igContainer-relative {
+    background: white;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
+    margin: 0px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    position: relative
+}
+
+.igContainer-relative-overlay {
     height: 100%;
     width: 100%;
-    /* height: 100%; */
-    /* border: 3px solid #73AD21; */
-    padding: 20px 20px 20px 20px;
-    /* margin: 80px 20px 20px 20px; */
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.igTitle {
+    text-align: center;
+    display: block;
 }
 
 .igComponent {
@@ -110,6 +135,7 @@
     /* background-color: lime; */
 }
 
+.igOptions > slider,
 .igOptions-slider {
     margin-top: 0px;
     margin-bottom: 10px;
@@ -127,7 +153,16 @@
     margin-bottom: 0px;
 }
 
-select {
+.igOptions > text,
+.igOptions-input-text {
+    margin-left: 10px;
+    width: 150px;
+    display: inline-block;
+    vertical-align: center;
+}
+
+.igOptions > select,
+.igOptions-input-select {
     font-size: 11pt;
     /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
     margin-top: 0px;
@@ -183,7 +218,9 @@ select {
     overflow-y: hidden;
 }
 
+/* ==================================================================================== */
 /* igOverlay styles used to overlay elements in front of sample container */
+/* ==================================================================================== */
 
 .igOverlay-top-left,
 .igOverlay-top-right,
@@ -192,7 +229,10 @@ select {
 .igOverlay-bottom-left,
 .igOverlay-bottom-center,
 .igOverlay-bottom-right {
+    display: flex;
+    flex-direction: row;
     font-size: 0.8rem;
+    font-family: 'Titillium Web';
     border-radius: 0.5rem;
     padding: 0.5rem;
     color: gray;
@@ -225,6 +265,11 @@ select {
     transform: translate(-50%, -50%);
 }
 
+.igOverlay-center-label {
+    display: block;
+    font-size: 3rem;
+}
+
 .igOverlay-top-center {
     position: absolute;
     top: 0.25rem;
@@ -252,7 +297,44 @@ select {
 }
 
 
-/* tooltip styles */
+.igOverlay-row {
+    /* background: red; */
+    font-family: 'Titillium Web';
+    /* margin-left: 0px;
+    display: block;
+    white-space: pre; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.igOverlay-label {
+    display: block;
+    font-family: 'Titillium Web';
+    font-weight: 600;
+}
+
+.igOverlay-field {
+    /* display: inline-block; */
+    /* font-family: Lato, Helvetica, sans-serif; */
+    text-align: left;
+    width: 5rem;
+}
+
+.igOverlay-value {
+    /* background: yellowgreen; */
+    text-align: end;
+    /* display: inline-block; */
+    /* font-family: Lato, Helvetica, sans-serif; */
+    /* width: 75px; */
+    /* white-space: pre; */
+}
+
+
+/* ==================================================================================== */
+/* tooltip styles used in custom tooltips of charts and maps components */
+/* ==================================================================================== */
 
 .tooltipBox {
     font-size: 0.75rem;

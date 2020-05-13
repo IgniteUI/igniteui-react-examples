@@ -4,9 +4,9 @@ import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
 
-import "./FinancialChartSharedStyles.css";
+
 import StocksHistory from "./StocksHistory";
-import "./DataUtils";
+
 
 IgrFinancialChartModule.register();
 IgrLegendModule.register();

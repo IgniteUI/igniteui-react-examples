@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "./GeoMapSharedStyles.css";
+
 
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';

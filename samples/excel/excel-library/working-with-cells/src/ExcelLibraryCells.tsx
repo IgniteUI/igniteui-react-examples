@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import "./ExcelSharedStyles.css";
-import { ExcelSharedComponent } from "./ExcelSharedComponent";
+
+
 import { SharedData } from "./ExcelSharedData";
 import { IgrExcelModule } from 'igniteui-react-excel';
 import { Workbook } from 'igniteui-react-excel';
@@ -17,7 +17,7 @@ import { Formula } from 'igniteui-react-excel';
 
 IgrExcelModule.register();
 
-export default class ExcelLibraryCells extends ExcelSharedComponent {
+export default class ExcelLibraryCells extends React.Component<any, any> {
     public canSave = false;
     public wb: Workbook;
     public ws: Worksheet;

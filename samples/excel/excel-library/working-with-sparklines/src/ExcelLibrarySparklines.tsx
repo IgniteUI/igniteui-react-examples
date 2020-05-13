@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import "./ExcelSharedStyles.css";
-import { ExcelSharedComponent } from "./ExcelSharedComponent";
+
+
 import { SharedData } from "./ExcelSharedData";
 
 import { Workbook } from 'igniteui-react-excel';
@@ -43,7 +43,7 @@ IgrExcelXlsxModule.register();
 
 
 
-export default class ExcelLibrarySparklines extends ExcelSharedComponent {
+export default class ExcelLibrarySparklines extends React.Component<any, any> {
 
     public data: any[];
 

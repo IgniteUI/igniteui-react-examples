@@ -1,6 +1,6 @@
 import React from 'react';
 
-import "./DataChartSharedStyles.css";
+
 
 import { IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart } from 'igniteui-react-charts';
@@ -21,7 +21,7 @@ import { IgrSeries } from 'igniteui-react-charts';
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
 
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
@@ -33,7 +33,7 @@ IgrCrosshairLayerModule.register();
 IgrFinalValueLayerModule.register();
 IgrValueOverlayModule.register();
 
-export default class DataChartAxisAnnotations extends DataChartSharedComponent {
+export default class DataChartAxisAnnotations extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
     public targetSeries: IgrColumnSeries;

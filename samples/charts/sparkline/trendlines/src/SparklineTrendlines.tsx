@@ -4,14 +4,14 @@ import { IgrSparklineCoreModule } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./SparklineSharedStyles.css";
-import { SparklineSharedComponent } from "./SparklineSharedComponent";
+
+
 import { SharedData } from "./SparklineSharedData";
 
 IgrSparklineCoreModule.register();
 IgrSparklineModule.register();
 
-export default class SparklineTrendlines extends SparklineSharedComponent {
+export default class SparklineTrendlines extends React.Component<any, any> {
     public data: any[];
 
     public sparkline: IgrSparkline;

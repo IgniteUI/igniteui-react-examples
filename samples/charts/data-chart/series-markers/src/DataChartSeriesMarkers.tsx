@@ -10,14 +10,14 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class DataChartSeriesMarkers extends DataChartSharedComponent {
+export default class DataChartSeriesMarkers extends React.Component<any, any> {
     public data: any[];
 
     constructor(props: any) {

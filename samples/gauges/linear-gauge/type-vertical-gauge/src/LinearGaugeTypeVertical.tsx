@@ -5,7 +5,7 @@ import { LinearScaleOrientation } from 'igniteui-react-gauges';
 import { LinearGraphNeedleShape } from 'igniteui-react-gauges';
 
 import * as React from "react";
-import "./LinearGaugeSharedStyles.css";
+
 
 IgrLinearGaugeModule.register();
 
@@ -31,7 +31,7 @@ export default class LinearGaugeTypeVertical extends React.Component {
 
     public render() {
         return (
-            <div className="sampleFlexColumns"  >
+            <div className="igContainer-center"  >
                 <IgrLinearGauge
                     ref={this.onCreateGaugeGreen}
                     width="120px"

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "./GeoMapSharedStyles.css";
+
 
 import { BingMapsImageryStyle } from 'igniteui-react-maps';
 import { IgrBingMapsMapImagery } from 'igniteui-react-maps';

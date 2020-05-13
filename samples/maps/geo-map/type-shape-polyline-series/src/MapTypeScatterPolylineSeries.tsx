@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "./GeoMapSharedStyles.css";
+
 import LegendItem from "./LegendItem"
 import LegendOverlay from "./LegendOverlay"
 

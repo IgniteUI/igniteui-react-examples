@@ -4,7 +4,7 @@ import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 import { LinearScaleOrientation } from 'igniteui-react-gauges';
 
 import * as React from "react";
-import "./BulletGraphSharedStyles.css";
+
 
 IgrBulletGraphModule.register();
 
@@ -28,12 +28,12 @@ export default class BulletGraphTypeReversed extends React.Component {
     public render() {
         return (
             <div className="igContainer"  >
-                <label className="title">Company Expanse ($ Billions)</label>
+                <label className="igTitle">Company Expanse ($ Billions)</label>
                 <IgrBulletGraph
                     ref={this.onCreateGaugeRed} isScaleInverted={true}
                     height="120px"
                     width="100%" />
-                <label className="title">Company Revenu ($ Billions)</label>
+                <label className="igTitle">Company Revenue ($ Billions)</label>
                 <IgrBulletGraph
                     ref={this.onCreateGaugeGreen}
                     height="120px"

@@ -22,8 +22,8 @@ import { FinalValueSelectionMode } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
@@ -34,7 +34,7 @@ IgrCrosshairLayerModule.register();
 IgrFinalValueLayerModule.register();
 IgrValueOverlayModule.register();
 
-export default class DataChartSeriesAnnotations extends DataChartSharedComponent {
+export default class DataChartSeriesAnnotations extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
 

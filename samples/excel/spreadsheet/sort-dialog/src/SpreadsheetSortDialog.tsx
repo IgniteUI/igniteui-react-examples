@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import "./SpreadsheetSharedStyles.css";
+
 
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
@@ -12,7 +12,7 @@ import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 
 import { ExcelUtility } from "./ExcelUtility";
 
-import { SpreadsheetSharedComponent } from "./SpreadsheetSharedComponent";
+
 
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
@@ -20,7 +20,7 @@ IgrExcelXlsxModule.register();
 
 IgrSpreadsheetModule.register();
 
-export default class SpreadsheetSortDialog extends SpreadsheetSharedComponent {
+export default class SpreadsheetSortDialog extends React.Component<any, any> {
     public spreadsheet: IgrSpreadsheet;
 
     constructor(props: any) {

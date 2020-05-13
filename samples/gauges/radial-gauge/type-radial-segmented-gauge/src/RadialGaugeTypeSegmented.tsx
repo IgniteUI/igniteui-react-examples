@@ -9,7 +9,7 @@ import { RadialGaugePivotShape } from 'igniteui-react-gauges';
 import { RadialGaugeScaleOversweepShape } from 'igniteui-react-gauges';
 
 import * as React from "react";
-import "./RadialGaugeSharedStyles.css";
+
 
 IgrRadialGaugeModule.register();
 
@@ -27,14 +27,16 @@ export default class RadialGaugeTypeSegmented extends React.Component {
 
     public render() {
         return (
-            <div className="sampleOverlays">
-                <div className="sampleOverlayItem">
+            <div className="igContainer">
+                <div className="igComponent">
                     <IgrRadialGauge
                         ref={this.onCreateGauge}
                         height="100%"
                         width="100%"  />
                 </div>
-                <label className="centerTitle" style={{color: "#1e90ff"}}>80</label>
+                <div className="igOverlay-center">
+                    <label className="igOverlay-center-label" style={{color: "#1e90ff"}}>80</label>
+                </div>
             </div>
         );
     }

@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import "./ExcelSharedStyles.css";
-import { ExcelSharedComponent } from "./ExcelSharedComponent";
+
+
 import { Workbook } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
 import { WorksheetRegion } from 'igniteui-react-excel';
@@ -30,7 +30,7 @@ IgrExcelCoreModule.register();
 IgrExcelModule.register();
 IgrExcelXlsxModule.register();
 
-export default class ExcelLibraryCharts extends ExcelSharedComponent {
+export default class ExcelLibraryCharts extends React.Component<any, any> {
 
     public excelData: any[];
     public chartData: any[];

@@ -9,7 +9,7 @@ import { RadialGaugePivotShape } from 'igniteui-react-gauges';
 import { RadialGaugeScaleOversweepShape } from 'igniteui-react-gauges';
 
 import * as React from "react";
-import "./RadialGaugeSharedStyles.css";
+
 
 IgrRadialGaugeModule.register();
 

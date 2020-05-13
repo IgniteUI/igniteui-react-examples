@@ -13,8 +13,8 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 import { SampleShapeData } from "./SampleShapeData";
 
 IgrDataChartCoreModule.register();
@@ -22,7 +22,7 @@ IgrDataChartShapeCoreModule.register();
 IgrDataChartShapeModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class DataChartTypeShapeSeries extends DataChartSharedComponent {
+export default class DataChartTypeShapeSeries extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
 

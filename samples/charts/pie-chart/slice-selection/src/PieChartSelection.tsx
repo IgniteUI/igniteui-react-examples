@@ -5,12 +5,12 @@ import { IIgrPieChartBaseProps } from 'igniteui-react-charts';
 import { IgrSliceClickEventArgs } from 'igniteui-react-charts';
 import * as React from "react";
 
-import "./PieChartSharedStyles.css";
-import { PieChartSharedComponent } from "./PieChartSharedComponent";
+
+
 
 IgrPieChartModule.register();
 
-export default class PieChartSelection extends PieChartSharedComponent {
+export default class PieChartSelection extends React.Component<any, any> {
 
     public data: any[];
     public chart: IgrPieChart;

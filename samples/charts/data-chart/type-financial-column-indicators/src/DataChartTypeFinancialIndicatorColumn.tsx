@@ -1,7 +1,7 @@
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
+
 import { SampleFinancialData } from "./SampleFinancialData";
 
 // axis' modules:

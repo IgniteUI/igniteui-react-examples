@@ -1,7 +1,7 @@
 import React from "react";
 
 import "../styles.css";
-import "./SpreadsheetSharedStyles.css";
+
 
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
@@ -20,7 +20,7 @@ import { TwoConstraintDataValidationOperator } from 'igniteui-react-excel';
 import { TwoConstraintDataValidationRule } from 'igniteui-react-excel';
 import { WorksheetColumnWidthUnit } from 'igniteui-react-excel';
 
-import { SpreadsheetSharedComponent } from "./SpreadsheetSharedComponent";
+
 
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
@@ -28,7 +28,7 @@ IgrExcelXlsxModule.register();
 
 IgrSpreadsheetModule.register();
 
-export default class SpreadsheetDataValidation extends SpreadsheetSharedComponent {
+export default class SpreadsheetDataValidation extends React.Component<any, any> {
     public spreadsheet: IgrSpreadsheet;
 
     constructor(props: any) {

@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import "./SpreadsheetSharedStyles.css";
+
 
 import { ExcelUtility } from "./ExcelUtility";
 
@@ -14,14 +14,14 @@ import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 import { SpreadsheetCell } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheetActiveCellChangedEventArgs } from 'igniteui-react-spreadsheet';
 
-import { SpreadsheetSharedComponent } from "./SpreadsheetSharedComponent";
+
 
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
 IgrExcelXlsxModule.register();
 IgrSpreadsheetModule.register();
 
-export default class SpreadsheetActivation extends SpreadsheetSharedComponent {
+export default class SpreadsheetActivation extends React.Component<any, any> {
     public spreadsheet: IgrSpreadsheet;
     public filterText: string = "";
 
@@ -38,15 +38,14 @@ export default class SpreadsheetActivation extends SpreadsheetSharedComponent {
     public render() {
 
         return (
-                <div className="igContainer">
+            <div className="igContainer">
                 <div className="igOptions">
-                <input className="optionText" type="text" name="filterText" value={this.state.filterText} onChange={this.onFilterTextChanged} />
-
-                <button onClick={this.onClick} className="igOptions-button">Active Cell</button>
-                <label className="igOptions-item"> Current Active Cell: {this.state.activeCell } </label>
+                    <input className="igOptions-input-text" type="text" name="filterText" value={this.state.filterText} onChange={this.onFilterTextChanged} />
+                    <button className="igOptions-button" onClick={this.onClick} >Active Cell</button>
+                    <label className="igOptions-item"> Current Active Cell: {this.state.activeCell } </label>
                 </div>
-                     <IgrSpreadsheet activeCellChanged={this.onActiveCellChanged}  ref={this.onSpreadsheetRef} height="800px" width="100%" />
-                </div>
+                 <IgrSpreadsheet activeCellChanged={this.onActiveCellChanged}  ref={this.onSpreadsheetRef} height="800px" width="100%" />
+            </div>
         );
     }
      public onActiveCellChanged (s: IgrSpreadsheet, e: IgrSpreadsheetActiveCellChangedEventArgs)

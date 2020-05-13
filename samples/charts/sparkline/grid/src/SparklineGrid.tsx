@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import "./SparklineGrid.css";
-import { SparklineSharedComponent } from "./SparklineSharedComponent";
+
 import { Products } from './Products';
 
 // sparkline modules:
@@ -19,7 +19,7 @@ import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 IgrLiveGridModule.register();
 IgrSparklineModule.register();
 
-export default class SparklineGrid extends SparklineSharedComponent {
+export default class SparklineGrid extends React.Component<any, any> {
 
     public data: any[];
 

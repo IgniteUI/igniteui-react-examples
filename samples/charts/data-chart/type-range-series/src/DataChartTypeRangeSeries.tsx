@@ -13,8 +13,8 @@ import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 import { SampleRangeData } from "./SampleRangeData";
 
 IgrDataChartCoreModule.register();
@@ -22,7 +22,7 @@ IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
 IgrLegendModule.register();
 
-export default class DataChartTypeRangeSeries extends DataChartSharedComponent {
+export default class DataChartTypeRangeSeries extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
     public legend: IgrLegend;

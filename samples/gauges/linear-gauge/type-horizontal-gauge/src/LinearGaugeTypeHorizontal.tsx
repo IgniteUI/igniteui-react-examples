@@ -5,7 +5,7 @@ import { LinearScaleOrientation } from 'igniteui-react-gauges';
 import { LinearGraphNeedleShape } from 'igniteui-react-gauges';
 
 import * as React from "react";
-import "./LinearGaugeSharedStyles.css";
+
 
 IgrLinearGaugeModule.register();
 

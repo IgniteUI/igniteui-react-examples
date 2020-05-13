@@ -10,15 +10,15 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 import { SharedData } from "./DataChartSharedData";
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class DataChartPerformance extends DataChartSharedComponent {
+export default class DataChartPerformance extends React.Component<any, any> {
     public dataIndex: number = 0;
     public dataPoints: number = 100000;
     public data: any[];

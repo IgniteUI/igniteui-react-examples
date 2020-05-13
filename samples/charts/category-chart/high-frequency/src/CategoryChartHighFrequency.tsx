@@ -3,13 +3,13 @@ import { IgrCategoryChartModule } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./CategoryChartSharedStyles.css";
-import { CategoryChartSharedComponent } from "./CategoryChartSharedComponent";
+
+
 import { CategoryChartSharedData } from "./CategoryChartSharedData";
 
 IgrCategoryChartModule.register();
 
-export default class CategoryChartHighFrequency extends CategoryChartSharedComponent {
+export default class CategoryChartHighFrequency extends React.Component<any, any> {
     public dataIndex: number = 0;
     public dataPoints: number = 100000;
     public data: any[];

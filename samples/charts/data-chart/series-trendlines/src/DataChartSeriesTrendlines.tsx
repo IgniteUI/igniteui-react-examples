@@ -13,15 +13,15 @@ import { IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
 // legend's modules:
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
 IgrDataChartCategoryTrendLineModule.register();
 
-export default class DataChartSeriesTrendlines extends DataChartSharedComponent {
+export default class DataChartSeriesTrendlines extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
 

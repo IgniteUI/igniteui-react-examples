@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './DataGridSharedStyles.css';
-import { FinancialData } from "./FinancialData";
+import './DataGridBindingLiveData.css';
+
+import { LiveFinancialData } from "./LiveFinancialData";
 import { TaskUtil } from "./TaskUtil";
 // IgrLiveGrid modules
 import { IgrLiveGrid } from 'igniteui-react-grids';
@@ -12,14 +13,14 @@ import { IgrColumn } from 'igniteui-react-grids';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataChartAnnotationModule } from 'igniteui-react-charts';
 import { IgrItemToolTipLayer } from 'igniteui-react-charts';
-import { FilterFactory } from 'igniteui-react-core';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { IgrDataBindingEventArgs } from 'igniteui-react-grids';
-import { ListSortDirection } from 'igniteui-react-core';
-import { HeaderClickAction } from 'igniteui-react-grids';
 import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
+import { FilterFactory } from 'igniteui-react-core';
+import { ListSortDirection } from 'igniteui-react-core';
+import { HeaderClickAction } from 'igniteui-react-grids';
 // IgrDataChart modules
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
@@ -115,7 +116,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         TaskUtil.start("generateData");
         this.state = {
             name: 'React',
-            data: FinancialData.generateData(1000),
+            data: LiveFinancialData.generateData(1000),
             liveSomePricesDisabled: false,
             liveSomePricesText: "Live Prices",
             liveAllPricesDisabled: false,
@@ -495,10 +496,10 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                 if (sortingByPrice && !useClear) {
 
                 this.grid.notifyRemoveItem(i, item);
-                FinancialData.randomizeDataValues(item);
+                LiveFinancialData.randomizeDataValues(item);
                 this.grid.notifyInsertItem(i, item);
                 } else {
-                    FinancialData.randomizeDataValues(item);
+                    LiveFinancialData.randomizeDataValues(item);
                 }
 
                 if (item.Change > 0) {
@@ -1004,7 +1005,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
     public onPriceVolumeChanged(event: any, value: number) {
         this.setState({
             volume: value,
-            data: FinancialData.generateData(value)
+            data: LiveFinancialData.generateData(value)
         });
         this.grid.dataSource = this.state.data;
     }

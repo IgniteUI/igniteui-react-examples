@@ -11,14 +11,14 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
 import * as React from "react";
 
-import "./DataChartSharedStyles.css";
-import { DataChartSharedComponent } from "./DataChartSharedComponent";
+
+
 import { SampleFinancialData } from "./SampleFinancialData";
 
 IgrDataChartCoreModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class DataChartTypeFinancialOhlcSeries extends DataChartSharedComponent {
+export default class DataChartTypeFinancialOhlcSeries extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
 
