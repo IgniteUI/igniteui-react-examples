@@ -114,32 +114,15 @@ function getSamples(cb) {
 
 var sampleOutputFolder = './sample-test-files/';
 
-// updating package.json files for all sample using a template
-function updatePackages(cb) {
-
-    // getting content of package.json file from templates
-    let templatePackageFile = fs.readFileSync("./sample-template-files/package.json");
-    let templatePackageJson = JSON.parse(templatePackageFile.toString());
-
-    // getting content of package.json file from the browser
-    let browserPackageFile = fs.readFileSync("./package.json");
-    let browserPackageJson = JSON.parse(browserPackageFile.toString());
-
-    // Transformer.verifyPackage(browserPackageJson, templatePackageJson);
-
-    // let last = samples[samples.length - 1];
-    // let content = Transformer.getPackage(last, templatePackageJson);
-    // fs.writeFileSync(sampleOutputFolder + "package.json", content);
-
-    for (const sample of samples) {
-
-        let content = Transformer.getPackage(sample, templatePackageJson);
-        fs.writeFileSync(sampleOutputFolder + "package.json", content);
-        break;
+function makeDirectoryFor(filePath) {
+    var dirname = path.dirname(filePath);
+    if (fs.existsSync(dirname)) {
+      return true;
     }
-
-    cb();
-} exports.updatePackages = updatePackages;
+    makeDirectoryFor(dirname);
+    fs.mkdirSync(dirname);
+    // fs.mkdir(sampleOutputFolder + 'src', { recursive: true }, (err) => { if (err) throw err; });
+}
 
 function copyExclude(files) {
     return es.map(function(file, cb) {
@@ -169,6 +152,7 @@ function copyFiles(cb) {
         '!' + sample.SampleFolderPath + '/README.md',
         '!' + sample.SampleFolderPath + '/ReadMe.md',
         '!' + sample.SampleFolderPath + '/readme.md',
+        '!' + sample.SampleFolderPath + '/package.json',
         ])
         // .pipe(copyExclude(['ReadMe.md', 'index.tsx']))
         // .pipe(dirFile())
@@ -186,28 +170,59 @@ function updateReadme(cb) {
     var template = fs.readFileSync("./sample-template-files/ReadMe.md", "utf8");
     for (const sample of samples) {
 
-        let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
-        log(outputPath)
+        // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
+        let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/ReadMe.md";
+        makeDirectoryFor(outputPath);
+        log(outputPath);
         let readmeFile = Transformer.updateReadme(sample, template);
-        fs.writeFileSync(outputPath + "/ReadMe.md", readmeFile);
+        fs.writeFileSync(outputPath, readmeFile);
         // break;
     }
     // log('updateReadme  ');
     cb();
 } exports.updateReadme = updateReadme;
 
+// updating package.json files for all sample using a template
+function updatePackages(cb) {
+
+    // getting content of package.json file from templates
+    let templatePackageFile = fs.readFileSync("./sample-template-files/package.json");
+    let templatePackageJson = JSON.parse(templatePackageFile.toString());
+
+    // getting content of package.json file from the browser
+    let browserPackageFile = fs.readFileSync("./package.json");
+    let browserPackageJson = JSON.parse(browserPackageFile.toString());
+
+    // Transformer.verifyPackage(browserPackageJson, templatePackageJson);
+
+    // let last = samples[samples.length - 1];
+    // let content = Transformer.getPackage(last, templatePackageJson);
+    // fs.writeFileSync(sampleOutputFolder + "package.json", content);
+
+    for (const sample of samples) {
+
+        let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
+        makeDirectoryFor(outputPath);
+        let content = Transformer.getPackage(sample, templatePackageJson);
+        fs.writeFileSync(outputPath, content);
+        // break;
+    }
+
+    cb();
+} exports.updatePackages = updatePackages;
+
 function updateIndex(cb) {
 
     var template = fs.readFileSync("./sample-template-files/src/index.tsx", "utf8");
     for (const sample of samples) {
 
-        let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
+        let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/src/index.tsx";
+        makeDirectoryFor(outputPath);
         let indexFile = Transformer.updateIndex(sample, template);
-        fs.mkdir(sampleOutputFolder + 'src', { recursive: true }, (err) => { if (err) throw err; });
-        fs.writeFileSync(outputPath + "/src/index.tsx", indexFile);
+        // fs.mkdir(sampleOutputFolder + 'src', { recursive: true }, (err) => { if (err) throw err; });
+        fs.writeFileSync(outputPath, indexFile);
         // break;
     }
-    // log('updateReadme  ');
     cb();
 } exports.updateIndex = updateIndex;
 
@@ -223,22 +238,13 @@ var sharedDataFiles = [
 
 function updateSharedFiles(cb) {
 
-    var indexTemplate = fs.readFileSync("./sample-template-files/src/index.tsx", "utf8");
-
     for (const sample of samples) {
-
-        // let indexFile = Transformer.updateIndex(sample, indexTemplate);
-        // // fs.promises.mkdir(sampleOutputFolder + 'src', { recursive: true }).catch(console.error);
-        // fs.mkdir(sampleOutputFolder + 'src', { recursive: true }, (err) => {
-        //     if (err) throw err;
-        // });
-        // fs.writeFileSync(sampleOutputFolder + 'src/index.tsx', indexFile);
 
         let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
 
         // log('updating share setup files... ');
         gulp.src(sharedSetupFiles)
-        // .pipe(flatten({ "includeParents": -1 }))
+        .pipe(flatten({ "includeParents": -1 }))
         // .pipe(gSort( { asc: false } ))
         .pipe(es.map(function(file, fileCallback) {
             // let fileDir = Transformer.getRelative(file.dirname);
@@ -250,7 +256,7 @@ function updateSharedFiles(cb) {
 
         // log('updating share data files... ');
         gulp.src('./sample-shared-files/src/*.*')
-        // .pipe(flatten({ "includeParents": -1 }))
+        .pipe(flatten({ "includeParents": -1 }))
         // .pipe(gSort( { asc: false } ))
         // .pipe(gulpIgnore.exclude(condition))
         .pipe(es.map(function(sharedFile, sharedFileCallback) {
@@ -302,90 +308,18 @@ function dirPublicFiles(cb) {
     .on("end", function() { cb(); });
 } exports.dirPublicFiles = dirPublicFiles;
 
+function dirSourceFiles(cb) {
+    gulp.src([
+        './samples/**/src/*.ts',
+       '!./samples/**/src/index.*',
+    ])
+    .pipe(dirFile())
+    .on("end", function() { cb(); });
+} exports.dirSourceFiles = dirSourceFiles;
 
 
 
 
 
-// function updateReadme(cb) {
-
-//     log('getSampleFolderNames in ' + igConfig.SamplesRootPath);
-
-//     gulp.src([
-//         // SamplesRootPath + '/excel-library/**',
-//         // SamplesRootPath + '/**/**/**/**/Excel*.tsx',
-//         // igConfig.SamplesRootPath + '/**/readme.md',
-//         igConfig.SamplesRootPath + '/**/package.json',
-//         // SamplesRootPath + '/maps/**',
-//         // samplesSourcePath + '/maps/**/*.tsx',
-//     ])
-//     // .pipe(flatten({ "includeParents": -1 }))
-//     .pipe(es.map(function(file, cb2) {
-//         // let item = '..' + file.dirname.replace(repoRootPath, '');
-//         // item += '/' + file.basename;
-//         // log(' ' + item);
-//         // log(file.dirname);
-//         // log(file.dirname + '/' + file.basename);
-//         // return item;
-//         // cb2();
-//         let relPath = Transformer.getRelative(file.dirname);
-//         // log(relPath);
-
-//         SampleFolderNames.push(relPath);
-//         cb2(null, file);
-//     }))
-//     .on("end", function() {
-
-//         log('getSampleFolderNames found ' + SampleFolderNames.length + " folders with samples");
-//         cb();
-//     })
-
-// } exports.updateReadme = updateReadme;
 
 
-// function updateReadme(cb) {
-//     // del.sync(BrowserRootPath + "/**/*.*", {force:true});
-//     // del.sync(browserTargetPath);
-//     log('updateReadme');
-
-//     getSampleFolderNames();
-
-//     log('updateReadme end');
-//     // cb();
-// } exports.updateReadme = updateReadme;
-
-
-// function getSampleFolderNames(cb) {
-
-//     log('getSampleFolderNames in ' + igConfig.SamplesRootPath);
-
-//     gulp.src([
-//         // SamplesRootPath + '/excel-library/**',
-//         // SamplesRootPath + '/**/**/**/**/Excel*.tsx',
-//         // igConfig.SamplesRootPath + '/**/readme.md',
-//         igConfig.SamplesRootPath + '/**/package.json',
-//         // SamplesRootPath + '/maps/**',
-//         // samplesSourcePath + '/maps/**/*.tsx',
-//     ])
-//     // .pipe(flatten({ "includeParents": -1 }))
-//     .pipe(es.map(function(file, cb2) {
-//         // let item = '..' + file.dirname.replace(repoRootPath, '');
-//         // item += '/' + file.basename;
-//         // log(' ' + item);
-//         // log(file.dirname);
-//         // log(file.dirname + '/' + file.basename);
-//         // return item;
-//         // cb2();
-//         let relPath = Transformer.getRelative(file.dirname);
-//         log(relPath);
-
-//         SampleFolderNames.push(file.dirname);
-//         cb2(null, file);
-//     }))
-//     .on("end", function() {
-
-//         log('getSampleFolderNames found ' + SampleFolderNames.length + " folders with samples");
-//         cb();
-//     })
-
-// } exports.getSampleFolderNames = getSampleFolderNames;
