@@ -26,7 +26,7 @@ href="{SandboxUrlView}">
         </a>
         <!-- <a target="_blank"
 href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points?fontsize=14&hidenavigation=1&theme=dark&view=preview">
-            <img alt="View on CodeSandbox" src="http://static.infragistics.com/xplatform/images/sandbox/view.png"/>
+            <img alt="View on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/view.png"/>
         </a>
 https://codesandbox.io/embed/react-treemap-overview-rtb45
 https://codesandbox.io/static/img/play-codesandbox.svg

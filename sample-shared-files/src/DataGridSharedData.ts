@@ -246,19 +246,19 @@ export class DataGridSharedData {
     }
 
     private static getPhotoMale(id: number): string {
-        return 'http://static.infragistics.com/xplatform/images/people//GUY' + this.pad(id, 2) + '.png';
+        return 'https://static.infragistics.com/xplatform/images/people//GUY' + this.pad(id, 2) + '.png';
     }
 
     private static getPhotoFemale(id: number): string {
-        return 'http://static.infragistics.com/xplatform/images/people/GIRL' + this.pad(id, 2) + '.png';
+        return 'https://static.infragistics.com/xplatform/images/people/GIRL' + this.pad(id, 2) + '.png';
     }
 
     private static getGenderPhoto(gender: string): string {
-        return 'http://static.infragistics.com/xplatform/images/genders/' + gender + '.png';
+        return 'https://static.infragistics.com/xplatform/images/genders/' + gender + '.png';
     }
 
     private static getCountryFlag(country: string): string {
-        return 'http://static.infragistics.com/xplatform/images/flags/' + country + '.png';
+        return 'https://static.infragistics.com/xplatform/images/flags/' + country + '.png';
     }
 
     private static pad(num: number, size: number) {

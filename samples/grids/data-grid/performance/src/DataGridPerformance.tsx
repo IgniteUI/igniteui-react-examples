@@ -707,7 +707,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
     }
 
     private createUri(val: string): string {
-        return "http://static.infragistics.com/xplatform/images/people/" + val;
+        return "https://static.infragistics.com/xplatform/images/people/" + val;
     }
 
     title = 'app';
