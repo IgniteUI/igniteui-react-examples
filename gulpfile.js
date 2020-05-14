@@ -21,8 +21,10 @@ var samples = require('./tasks/gulp-samples.js')
 // exports.updateSamples = updateSamples = gulp.series(browser.task1, browser.dirSamples, browser.task2);
 exports.updateSamples = updateSamples = gulp.series(
     samples.getSamples,
+    samples.copyFiles,
     samples.updateReadme,
-    samples.updatePackages,
+    // samples.updatePackages,
+    samples.updateIndex,
     samples.updateSharedFiles,
     // samples.task2
     );
@@ -53,6 +55,7 @@ function updateSamples2(cb) {
 // }
 exports.default = updateSamples
 
+exports.dirPublicFiles = samples.dirPublicFiles
 
 // function updateSamples(cb) {
 //     // del.sync(BrowserRootPath + "/**/*.*", {force:true});

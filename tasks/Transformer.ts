@@ -43,6 +43,7 @@ class SampleInfo {
         this.SampleFilePaths = [];
         this.SampleFileNames = [];
         this.PackageDependencies = [];
+        // this.PackageDependencies.indexOf
     }
 
     public isUsingFileName(name: string): boolean {
@@ -330,8 +331,9 @@ class Transformer {
         return content;
     }
 
+
     // generates content of readme file for a given sample based on provided template of readme file
-    public static getReadme(sample: SampleInfo, template: string): string {
+    public static updateReadme(sample: SampleInfo, template: string): string {
 
         // let ComponentGroup = "maps";
         // let ComponentFolder = "geo-map";

@@ -1,3 +1,4 @@
+<!-- ORG FILE -->
 
 # View on CodeSandbox
 [Run this sample in CodeSandbox](https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/MapBindingDataCSV?fontsize=14&hidenavigation=1&theme=dark&view=preview)
