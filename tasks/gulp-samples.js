@@ -38,7 +38,7 @@ var samples = [];
 var sampleOutputFolder = '';
 // var sampleOutputFolder = './sample-test-files/';
 
-function deleteSamples(cb) {
+function deleteSamples() {
 
     del.sync("./samples-test-files/**/*.*", {force:true});
     del.sync("./samples-test-files/*.*", {force:true});
@@ -53,9 +53,14 @@ function deleteSamples(cb) {
 }
 
 
+function cleanSamples() {
+    del.sync("./samples/**/sandbox.config.json", {force:true});
+}
+
 function getSamples(cb) {
 
     // deleteSamples();
+    cleanSamples();
 
     samples = [];
     // del.sync("./sample-test-files/**/*.*", {force:true});
@@ -224,8 +229,11 @@ function updateIndex(cb) {
 
 
 var sharedSetupFiles = [
-    './sample-template-files/src/index.css',
-    './sample-template-files/src/sandbox.config.json',
+    // './sample-template-files/src/index.css',
+    // './sample-template-files/sandbox.config.json',
+];
+var sharedRootFiles = [
+    './sample-template-files/sandbox.config.json',
 ];
 var sharedDataFiles = [
     './sample-shared-files/*.*',
@@ -239,17 +247,21 @@ function updateSharedFiles(cb) {
         // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
         let outputPath = sampleOutputFolder + sample.SampleFolderPath;
 
-        // log('updating share setup files... ');
-        gulp.src(sharedSetupFiles)
+        gulp.src(sharedRootFiles)
         .pipe(flatten({ "includeParents": -1 }))
-        // .pipe(gSort( { asc: false } ))
-        .pipe(es.map(function(file, fileCallback) {
-            // let fileDir = Transformer.getRelative(file.dirname);
-            // log(fileDir + "/" + file.basename)
-            // SampleFiles.push(fileDir + "/" + file.basename);
-            fileCallback(null, file);
-        }))
-        .pipe(gulp.dest(outputPath + '/src'))
+        .pipe(gulp.dest(outputPath))
+
+        // log('updating share setup files... ');
+        // gulp.src(sharedSetupFiles)
+        // .pipe(flatten({ "includeParents": -1 }))
+        // // .pipe(gSort( { asc: false } ))
+        // .pipe(es.map(function(file, fileCallback) {
+        //     // let fileDir = Transformer.getRelative(file.dirname);
+        //     // log(fileDir + "/" + file.basename)
+        //     // SampleFiles.push(fileDir + "/" + file.basename);
+        //     fileCallback(null, file);
+        // }))
+        // .pipe(gulp.dest(outputPath + '/src'))
 
         // log('updating share data files... ');
         gulp.src('./sample-shared-files/src/*.*')
