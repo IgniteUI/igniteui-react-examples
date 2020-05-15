@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./SampleFileName.css"; // styles specific to only this sample
+import "./SampleFileName.css"; // styles specific only to this sample
 
 export default class SampleFileName extends React.Component<any, any> {
 
