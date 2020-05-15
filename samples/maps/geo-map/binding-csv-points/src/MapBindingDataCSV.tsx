@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import WorldUtils from "./WorldUtils"
 
-import "./sandbox.config.json";
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicHighDensityScatterSeries } from 'igniteui-react-maps';
