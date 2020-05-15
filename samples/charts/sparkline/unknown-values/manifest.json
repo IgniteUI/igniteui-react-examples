@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-charts"],       
-    "sampleName": "SparklineUnknownValues", 
-    "sharedFiles": ["SparklineSharedComponent.tsx", "SparklineSharedData.tsx", "SparklineSharedStyles.css"]
-}
-        

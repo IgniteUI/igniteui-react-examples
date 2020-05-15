@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-charts"],       
-    "sampleName": "CategoryChartOverview", 
-    "sharedFiles": ["CategoryChartSharedComponent.tsx", "CategoryChartSharedStyles.css"]
-}
-        

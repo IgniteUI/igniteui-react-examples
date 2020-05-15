@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-grids"],       
-    "sampleName": "DataGridColumnPinning", 
-    "sharedFiles": ["DataGridSharedData.tsx", "DataGridSharedStyles.css"]
-}
-        

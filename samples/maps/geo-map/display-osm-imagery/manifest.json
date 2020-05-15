@@ -1,8 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-maps",
-    "igniteui-react-charts"],       
-    "sampleName": "MapDisplayImageryOSM", 
-    "sharedFiles": ["GeoMapSharedStyles.css"]
-}
-        

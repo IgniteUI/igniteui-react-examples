@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-charts"],       
-    "sampleName": "DataChartTypeRadialColumnSeries", 
-    "sharedFiles": ["DataChartSharedComponent.tsx", "DataChartSharedStyles.css", "SampleRadialData.tsx"]
-}
-        

@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-grids"],       
-    "sampleName": "DataGridTypeHeatmapTable", 
-    "sharedFiles": ["DataGridSharedStyles.css"]
-}
-        

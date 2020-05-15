@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-charts"],       
-    "sampleName": "DataChartTypePolarAreaSeries", 
-    "sharedFiles": ["DataChartSharedComponent.tsx", "DataChartSharedStyles.css", "SamplePolarData.tsx"]
-}
-        

@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-grids", "igniteui-react-charts],       
-    "sampleName": "DataGridBindingLiveData", 
-    "sharedFiles": ["DataGridSharedStyles.css", "FinancialData.ts", "TaskUtil.ts"]
-}
-        

@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-gauges"],       
-    "sampleName": "RadialGaugeAnimation", 
-    "sharedFiles": ["RadialGaugeSharedStyles.css"]
-}
-        

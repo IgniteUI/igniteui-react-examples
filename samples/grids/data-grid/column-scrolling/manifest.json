@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-grids"],       
-    "sampleName": "DataGridColumnScrolling", 
-    "sharedFiles": ["DataGridSharedComponent.tsx", "DataGridSharedData.tsx", "DataGridSharedStyles.css", "DataUtils.ts"]
-}
-        

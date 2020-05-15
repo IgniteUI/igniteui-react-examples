@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-charts"],       
-    "sampleName": "SparklineNormalRange", 
-    "sharedFiles": ["SparklineSharedComponent.tsx", "SparklineSharedData.tsx", "SparklineSharedStyles.css"]
-}
-        

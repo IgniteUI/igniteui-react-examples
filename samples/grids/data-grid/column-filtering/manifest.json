@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-grids"],       
-    "sampleName": "DataGridColumnFiltering", 
-    "sharedFiles": ["DataGridSharedData.tsx", "DataGridSharedStyles.css", "DataUtils.ts"]
-}
-        

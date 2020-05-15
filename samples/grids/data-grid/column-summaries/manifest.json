@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-grids"],       
-    "sampleName": "DataGridColumnSummaries", 
-    "sharedFiles": ["DataGridSharedData.tsx", "DataGridSharedStyles.css", "DataUtils.ts"]
-}
-        

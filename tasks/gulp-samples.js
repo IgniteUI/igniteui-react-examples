@@ -55,6 +55,7 @@ function deleteSamples() {
 
 function cleanSamples() {
     del.sync("./samples/**/src/sandbox.config.json", {force:true});
+    del.sync("./samples/**/manifest.json", {force:true});
 }
 
 function getSamples(cb) {

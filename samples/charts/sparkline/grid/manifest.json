@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": [igniteui-react-grids],       
-    "sampleName": "SparklineGrid", 
-    "sharedFiles": ["Products.ts", "SparklineSharedComponent.tsx", "SparklineSharedStyles.css"]
-}
-        

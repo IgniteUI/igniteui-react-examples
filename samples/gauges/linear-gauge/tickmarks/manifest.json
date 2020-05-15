@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-gauges"],       
-    "sampleName": "LinearGaugeTickmarks", 
-    "sharedFiles": ["LinearGaugeSharedStyles.css"]
-}
-        

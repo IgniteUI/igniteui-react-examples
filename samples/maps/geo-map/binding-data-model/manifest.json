@@ -1,8 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-maps",
-    "igniteui-react-charts"],       
-    "sampleName": "MapBindingDataModel", 
-    "sharedFiles": ["GeoMapSharedStyles.css", "WorldUtils.ts"]
-}
-        

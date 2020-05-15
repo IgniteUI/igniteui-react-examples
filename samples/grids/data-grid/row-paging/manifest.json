@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-grids"],       
-    "sampleName": "DataGridRowPaging", 
-    "sharedFiles": ["DataGridSharedComponent.tsx", "DataGridSharedData.tsx", "DataGridSharedStyles.css", "DataUtils.ts", "Pager.css", "Pager.tsx"]
-}
-        

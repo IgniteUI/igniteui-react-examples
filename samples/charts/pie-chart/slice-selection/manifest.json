@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-charts"],       
-    "sampleName": "PieChartSelection", 
-    "sharedFiles": ["PieChartSharedComponent.tsx", "PieChartSharedStyles.css"]
-}
-        

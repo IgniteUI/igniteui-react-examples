@@ -1,8 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-maps",
-    "igniteui-react-charts"],       
-    "sampleName": "MapDisplayImageryBingTiles", 
-    "sharedFiles": ["GeoMapSharedStyles.css", "MapUtils.ts"]
-}
-        

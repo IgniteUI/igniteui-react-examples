@@ -1,7 +1,0 @@
-
-{     
-    "additionalDependencies": ["igniteui-react-grids"],       
-    "sampleName": "DataGridBindingLocalData", 
-    "sharedFiles": ["DataGridSharedStyles.css", "DataUtils.ts"]
-}
-        
