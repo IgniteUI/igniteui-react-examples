@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-pie-chart-animation",
+  "description": "This project provides example of Pie Chart Animation using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

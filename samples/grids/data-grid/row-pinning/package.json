@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-data-grid-row-pinning",
+  "description": "This project provides example of Data Grid Row Pinning using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-category-chart-stack-columns",
+  "description": "This project provides example of Category Chart Stack Columns using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

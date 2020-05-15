@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-linear-gauge-scale",
+  "description": "This project provides example of Linear Gauge Scale using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

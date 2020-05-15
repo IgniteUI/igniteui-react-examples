@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-category-chart-tooltip-types",
+  "description": "This project provides example of Category Chart Tooltip Types using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

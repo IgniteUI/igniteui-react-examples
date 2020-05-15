@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-data-grid-type-periodic-table",
+  "description": "This project provides example of Data Grid Type Periodic Table using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

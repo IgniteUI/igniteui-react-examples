@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-radial-gauge-type-segmented",
+  "description": "This project provides example of Radial Gauge Type Segmented using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

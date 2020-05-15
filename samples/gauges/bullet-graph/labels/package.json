@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-bullet-graph-labels",
+  "description": "This project provides example of Bullet Graph Labels using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

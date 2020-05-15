@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-data-chart-series-error-bars",
+  "description": "This project provides example of Data Chart Series Error Bars using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

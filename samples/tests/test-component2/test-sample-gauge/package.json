@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-linear-gauge-labels",
+  "description": "This project provides example of Linear Gauge Labels using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

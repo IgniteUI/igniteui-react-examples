@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-sparkline-display-win-loss",
+  "description": "This project provides example of Sparkline Display Win Loss using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-map-binding-shapefile-points",
+  "description": "This project provides example of Map Binding Shapefile Points using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

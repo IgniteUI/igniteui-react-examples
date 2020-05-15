@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-map-display-imagery-bing-tiles",
+  "description": "This project provides example of Map Display Imagery Bing Tiles using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

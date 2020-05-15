@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-data-chart-performance",
+  "description": "This project provides example of Data Chart Performance using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

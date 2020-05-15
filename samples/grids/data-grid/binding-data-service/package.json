@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-data-grid-binding-data-service",
+  "description": "This project provides example of Data Grid Binding Data Service using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

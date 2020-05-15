@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-linear-gauge-type-multi-range",
+  "description": "This project provides example of Linear Gauge Type Multi Range using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

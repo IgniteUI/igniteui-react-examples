@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-financial-chart-high-volume",
+  "description": "This project provides example of Financial Chart High Volume using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

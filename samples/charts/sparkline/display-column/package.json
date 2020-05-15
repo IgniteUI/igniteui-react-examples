@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-sparkline-display-column",
+  "description": "This project provides example of Sparkline Display Column using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

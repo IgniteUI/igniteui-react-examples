@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-data-chart-type-stacked100-spline-area-series",
+  "description": "This project provides example of Data Chart Type Stacked100 Spline Area Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

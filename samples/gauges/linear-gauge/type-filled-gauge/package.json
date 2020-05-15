@@ -1,6 +1,6 @@
 {
-  "name": "react-samples-browser",
-  "description": "Samples for Infragistics React Components",
+  "name": "react-linear-gauge-type-filled",
+  "description": "This project provides example of Linear Gauge Type Filled using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
