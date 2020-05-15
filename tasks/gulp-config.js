@@ -23,7 +23,7 @@ let config = {
         SamplesRootPath: "./samples",
         SamplesCopyFiles: [".tsx", ".ts", ".css", ".csv", ".html", ".png", ".svg" ],
         SamplesFileExtension: ".tsx",
-        SamplesFileExclusions: ["Component.ts", "State.ts", "Props.ts", "Base.ts", "Data.ts", "index.tsx"],
+        SamplesFileExclusions: ["Component.ts", "State.ts", "Props.ts", "Base.ts", "Data.ts", "index.tsx", "Pager.tsx"],
         // SamplesFileExclusions: ["Component.ts", "State.ts", "Props.ts", "Base.ts", "index.tsx"],
 
         DocsUrl: "https://infragistics.com/{PlatformName}site/components/{ComponentFolder}.html",

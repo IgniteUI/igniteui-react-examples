@@ -94,11 +94,6 @@ class Transformer {
         }
     }
 
-    public static dd() {
-        let sharedFiles = new Map<string, string>();
-        sharedFiles.set();
-    }
-
     public static process(samples: SampleInfo[]): void {
 
         for (const info of samples) {
@@ -123,10 +118,12 @@ class Transformer {
             // console.log(info.SampleFolderPath + " " + info.SampleFilePaths.length);
 
             let fileNames = [];
+            let fileFound = [];
             for (const filePath of info.SampleFilePaths) {
                 // console.log(filePath);
+                fileFound.push(filePath);
                 if (Strings.includes(filePath, igConfig.SamplesFileExtension) &&
-                    Strings.excludes(filePath, igConfig.SamplesFileExclusions)) {
+                    Strings.excludes(filePath, igConfig.SamplesFileExclusions, true)) {
                         fileNames.push(filePath);
                     // console.log(filePath);
                     // && !filePath.includes("index.tsx")
@@ -135,9 +132,12 @@ class Transformer {
             }
 
             if (fileNames.length === 0) {
-                console.log("ERROR Transformer cannot find any " + igConfig.SamplesFileExtension + " files in " + info.SampleFolderPath);
+                console.log("WARNING Transformer cannot match any " + igConfig.SamplesFileExtension + " files in " + info.SampleFolderPath + " sample:");
+                for (const name of fileFound) {
+                    console.log('- ' + name);
+                }
             } else if (fileNames.length > 1) {
-                console.log("ERROR Transformer cannot decide which " + igConfig.SamplesFileExtension + " file to use for sample name: ");
+                console.log("WARNING Transformer cannot decide which " + igConfig.SamplesFileExtension + " file to use for sample name: ");
                 console.log(" - " + fileNames.join("\n - "));
             } else { // only one .tsx file per sample
                 info.SampleFilePath = fileNames[0];
@@ -152,7 +152,7 @@ class Transformer {
                 info.SandboxUrlEdit = this.getSandboxUrl(info, igConfig.SandboxUrlEdit);
 
                 info.DocsUrl = this.getDocsUrl(info);
-                console.log("SAMPLE " + info.SampleFilePath + " => " + info.SampleDisplayName);
+                // console.log("SAMPLE " + info.SampleFilePath + " => " + info.SampleDisplayName);
             }
 
             // console.log(info.SampleFolderPath + " => " + info.SampleRoute + " => " + info.SampleDisplayName);
@@ -386,9 +386,13 @@ class Transformer {
 
 class Strings {
 
-    public static excludes(str: string, exclusions: string[]): boolean {
+    public static excludes(str: string, exclusions: string[], useEndsWith?: boolean): boolean {
         for (const exclusion of exclusions) {
-            if (str.includes(exclusion)) { return false; }
+            if (useEndsWith) {
+                if (str.endsWith(exclusion)) { return false; }
+            } else {
+                if (str.includes(exclusion)) { return false; }
+            }
         }
         return true;
     }

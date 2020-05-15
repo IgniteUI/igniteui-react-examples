@@ -27,10 +27,10 @@ function log(msg) {
 log('loaded');
 
 
-// var sampleSource = igConfig.SamplesRootPath + '/**/**/package.json';
+var sampleSource = igConfig.SamplesRootPath + '/**/**/package.json';
 // var sampleSource = igConfig.SamplesRootPath + '/excel/**/package.json';
 // var sampleSource = igConfig.SamplesRootPath + '/maps/**/package.json';
-var sampleSource = igConfig.SamplesRootPath + '/tests/**/package.json';
+// var sampleSource = igConfig.SamplesRootPath + '/tests/**/package.json';
 
 // this variable stores detailed information about all samples in ./samples/ folder
 var samples = [];
@@ -243,89 +243,92 @@ var sharedSourceFiles = [
 
 function updateSharedFiles(cb) {
 
-    let sharedFiles = [];
-    // let sharedFiles = new Map();
+    gulp.src(sharedRootFiles)
+    .pipe(flatten({ "includeParents": -1 }))
+    .pipe(es.map(function(file, fileCallback) {
+        for (const sample of samples) {
+            if (sample.isUsingFileName(file.basename)) {
+                let outputPath = sampleOutputFolder + sample.SampleFolderPath;
+                let fileContent = file.contents.toString();
+                fs.writeFileSync(outputPath + '/' + file.basename, fileContent);
+                // log('updated ' + file.basename + ' in ' + outputPath + '/' + file.basename);
+                // log('updated ' + outputPath + '/' + file.basename);
+            }
+        }
+        fileCallback(null, file);
+        // SampleFiles.push(fileDir + "/" + file.basename);
+    }))
 
     gulp.src(sharedSourceFiles)
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, fileCallback) {
-
-        // let relativePath = Transformer.getRelative(file.dirname) + '/' + file.basename;
-        // sharedFiles.push(relative);
-        // let fileContent = fs.readFileSync(relativePath, "utf8");
-        // sharedFiles.set(file.basename, fileContent);
-
-        // console.log(file.basename + ' ' + relative + '/' + file.basename);
-        // sharedFiles.push( {name: file.basename, content: fileContent});
-
         for (const sample of samples) {
-
             if (sample.isUsingFileName(file.basename)) {
-                let outputPath = sampleOutputFolder + sample.SampleFolderPath;
 
-                let fileContent = file.contents.toString();
-                log('+ share data ' + file.basename + ' ' + sample.SampleFilePath);
-                fs.writeFileSync(outputPath + '/src/' + file.basename, fileContent);
+                let targetPath = sampleOutputFolder + sample.SampleFolderPath + '/src/' + file.basename;
+                let targetContent = fs.readFileSync(targetPath, "utf8");
+                let sourceContent = file.contents.toString();
+                if (sourceContent !== targetContent) {
+                    fs.writeFileSync(targetPath, sourceContent);
+                    // log('updated ' + file.basename + ' in ' + sample.SampleFilePath)
+                    log('updated ' + targetPath);
+                }
             }
         }
-
         fileCallback(null, file);
-        // SampleFiles.push(fileDir + "/" + file.basename);
     }))
     .on("end", function() {
-        // for (const file of sharedFiles) {
-        //     console.log(file.name + ' \n' + file.content);
-        // }
+        cb();
     });
 
-    for (const sample of samples) {
+    // for (const sample of samples) {
 
-        // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
-        let outputPath = sampleOutputFolder + sample.SampleFolderPath;
+    //     // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
+    //     let outputPath = sampleOutputFolder + sample.SampleFolderPath;
 
-        // gulp.src(sharedRootFiles)
-        // .pipe(flatten({ "includeParents": -1 }))
-        // .pipe(gulp.dest(outputPath))
+    //     // gulp.src(sharedRootFiles)
+    //     // .pipe(flatten({ "includeParents": -1 }))
+    //     // .pipe(gulp.dest(outputPath))
 
-        // log('updating share setup files... ');
-        // gulp.src(sharedSetupFiles)
-        // .pipe(flatten({ "includeParents": -1 }))
-        // // .pipe(gSort( { asc: false } ))
-        // .pipe(es.map(function(file, fileCallback) {
-        //     // let fileDir = Transformer.getRelative(file.dirname);
-        //     // log(fileDir + "/" + file.basename)
-        //     // SampleFiles.push(fileDir + "/" + file.basename);
-        //     fileCallback(null, file);
-        // }))
-        // .pipe(gulp.dest(outputPath + '/src'))
+    //     // log('updating share setup files... ');
+    //     // gulp.src(sharedSetupFiles)
+    //     // .pipe(flatten({ "includeParents": -1 }))
+    //     // // .pipe(gSort( { asc: false } ))
+    //     // .pipe(es.map(function(file, fileCallback) {
+    //     //     // let fileDir = Transformer.getRelative(file.dirname);
+    //     //     // log(fileDir + "/" + file.basename)
+    //     //     // SampleFiles.push(fileDir + "/" + file.basename);
+    //     //     fileCallback(null, file);
+    //     // }))
+    //     // .pipe(gulp.dest(outputPath + '/src'))
 
-        // log('updating share data files... ');
-        // gulp.src(sharedSourceFiles)
-        // .pipe(flatten({ "includeParents": -1 }))
-        // // .pipe(gulpIgnore.exclude(condition))
-        // .pipe(es.map(function(sharedFile, sharedFileCallback) {
+    //     // log('updating share data files... ');
+    //     // gulp.src(sharedSourceFiles)
+    //     // .pipe(flatten({ "includeParents": -1 }))
+    //     // // .pipe(gulpIgnore.exclude(condition))
+    //     // .pipe(es.map(function(sharedFile, sharedFileCallback) {
 
-        //     if (sample.isUsingFileName(sharedFile.basename)) {
-        //         log('+ share data ' + sharedFile.basename + ' ' + sample.SampleFilePath);
-        //         // let content = sharedFile.toString();
-        //         let filePath = Transformer.getRelative(sharedFile.dirname) + '/' + sharedFile.basename;
-        //         let fileContent = fs.readFileSync(filePath, "utf8");
-        //         fs.writeFileSync(outputPath + '/src', fileContent);
+    //     //     if (sample.isUsingFileName(sharedFile.basename)) {
+    //     //         log('+ share data ' + sharedFile.basename + ' ' + sample.SampleFilePath);
+    //     //         // let content = sharedFile.toString();
+    //     //         let filePath = Transformer.getRelative(sharedFile.dirname) + '/' + sharedFile.basename;
+    //     //         let fileContent = fs.readFileSync(filePath, "utf8");
+    //     //         fs.writeFileSync(outputPath + '/src', fileContent);
 
-        //         // sharedFileCallback(null, sharedFile);
-        //     } else {
-        //         // log('- share data ' + sharedFile.basename + ' ' + sample.SampleFilePath);
-        //         // sharedFileCallback(null);
-        //     }
-        //     sharedFileCallback(null, sharedFile);
-        //     // SampleFiles.push(fileDir + "/" + file.basename);
-        // }))
-        // .pipe(gulp.dest(outputPath + '/src'));
+    //     //         // sharedFileCallback(null, sharedFile);
+    //     //     } else {
+    //     //         // log('- share data ' + sharedFile.basename + ' ' + sample.SampleFilePath);
+    //     //         // sharedFileCallback(null);
+    //     //     }
+    //     //     sharedFileCallback(null, sharedFile);
+    //     //     // SampleFiles.push(fileDir + "/" + file.basename);
+    //     // }))
+    //     // .pipe(gulp.dest(outputPath + '/src'));
 
-        // break;
-    }
+    //     // break;
+    // }
 
-    cb();
+
 } exports.updateSharedFiles = updateSharedFiles;
 
 function task1(cb) {
