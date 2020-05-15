@@ -155,7 +155,7 @@ function copyFiles(cb) {
         '!' + sample.SampleFolderPath + '/package.json',
         ])
         // .pipe(copyExclude(['ReadMe.md', 'index.tsx']))
-        // .pipe(dirFile())
+        // .pipe(logFile())
         .pipe(gulp.dest(outputPath))
 
         // break;
@@ -292,7 +292,7 @@ function task2(cb) {
 
 // testing
 
-function dirFile() {
+function logFile() {
     return es.map(function(file, cb) {
         let relative = Transformer.getRelative(file.dirname);
         console.log(relative + '/' + file.basename);
@@ -300,22 +300,46 @@ function dirFile() {
         cb(null, file);
     });
 }
-function dirPublicFiles(cb) {
+function logPublicFiles(cb) {
     gulp.src([
         './samples/**/public/*.*',
     ])
-    .pipe(dirFile())
+    .pipe(logFile())
     .on("end", function() { cb(); });
-} exports.dirPublicFiles = dirPublicFiles;
+} exports.logPublicFiles = logPublicFiles;
 
-function dirSourceFiles(cb) {
+function logSourceFiles(cb) {
     gulp.src([
         './samples/**/src/*.ts',
        '!./samples/**/src/index.*',
     ])
-    .pipe(dirFile())
+    .pipe(logFile())
     .on("end", function() { cb(); });
-} exports.dirSourceFiles = dirSourceFiles;
+} exports.logSourceFiles = logSourceFiles;
+
+
+function logUniqueFiles(cb) {
+
+    let fileNames = [];
+    gulp.src([
+        './samples/**/src/*.ts',
+       '!./samples/**/src/index.*',
+    ])
+    .pipe(es.map(function(file, cb) {
+        if (fileNames.indexOf(file.basename) === -1) {
+            fileNames.push(file.basename);
+        }
+        cb(null, file);
+    }))
+    .on("end", function() {
+        fileNames.sort();
+        for (const name of fileNames) {
+            console.log(name);
+        }
+        cb();
+    });
+
+} exports.logUniqueFiles = logUniqueFiles;
 
 
 

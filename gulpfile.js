@@ -29,7 +29,8 @@ exports.updateSamples = updateSamples = gulp.series(
     // samples.task2
 );
 
-exports.default = updateSamples
+exports.default = updateSamples;
 
-exports.dirPublicFiles = samples.dirPublicFiles
-exports.dirSourceFiles = samples.dirSourceFiles
+exports.logPublicFiles = samples.logPublicFiles;
+exports.logSourceFiles = samples.logSourceFiles;
+exports.logUniqueFiles = samples.logUniqueFiles;
