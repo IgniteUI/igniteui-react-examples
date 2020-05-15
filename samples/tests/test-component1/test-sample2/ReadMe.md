@@ -12,8 +12,7 @@ This folder contains implementation of React application with example of the Tes
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <a target="_blank"
-href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/tests/test-component1/test-sample2?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/MapBindingDataCSV.tsx">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/tests/test-component1/test-sample2?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/MapBindingDataCSV.tsx" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0.3rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/edit.png"/>
         </a>
         <!-- <a target="_blank"
