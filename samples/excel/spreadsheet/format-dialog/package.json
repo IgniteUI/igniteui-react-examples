@@ -32,7 +32,7 @@
     "igniteui-react-spreadsheet":"^16.11.7",
     "igniteui-react-excel":"^16.11.7",
 
-    "jquery": "^1.11.1",
+
     "prop-types": "^15.7.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
