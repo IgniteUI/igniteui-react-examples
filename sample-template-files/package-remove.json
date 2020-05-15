@@ -1,0 +1,8 @@
+[
+    "@babel/polyfill",
+    "@babel/runtime",
+    "react-app-rewired",
+    "react-event-listener",
+    "react-router-dom"
+]
+
