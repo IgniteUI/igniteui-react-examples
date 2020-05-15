@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import , from './,';
-ReactDOM.render(<, />, document.getElementById('root'));
+import DataGridBindingRemoteData from './DataGridBindingRemoteData';
+ReactDOM.render(<DataGridBindingRemoteData />, document.getElementById('root'));
 
 

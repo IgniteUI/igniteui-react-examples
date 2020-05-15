@@ -6,13 +6,13 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of ,.
+This folder contains implementation of React application with example of Financial Chart Multiple Data.
 <!-- in the Financial Chart component -->
-<!-- [Financial Chart](,) -->
+<!-- [Financial Chart](https://infragistics.com/Reactsite/components/financial-chart.html) -->
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <a target="_blank" href="," rel="noopener noreferrer">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/charts/financial-chart/multiple-data?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/FinancialChartMultipleData.tsx" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/code.png"/>
         </a>
         <!-- <a target="_blank"
@@ -20,7 +20,7 @@ href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/mast
             <img alt="Edit Sample" src="https://codesandbox.io/static/img/play-codesandbox.svg"/>
         </a> -->
         <!-- <a target="_blank" style="margin-left: 0.5rem"
-href=",">
+href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/charts/financial-chart/multiple-data?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/FinancialChartMultipleData.tsx">
             <img height="40px" style="border-radius: 5px" alt="View on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/view.png"/>
         </a> -->
         <!-- <a target="_blank"
@@ -36,7 +36,7 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 <!-- ## Sample Preview -->
 
 <!-- <iframe
-  src=","
+  src="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/charts/financial-chart/multiple-data?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/FinancialChartMultipleData.tsx"
   style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -45,10 +45,60 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 ## Source Code
 
 The following section provides source code from:
-`,` file:
+`./src/FinancialChartMultipleData.tsx` file:
 
 ```tsx
-let str = "TODO";
+import { IgrFinancialChart } from 'igniteui-react-charts';
+import { IgrFinancialChartModule } from 'igniteui-react-charts';
+import * as React from 'react';
+
+
+import StocksHistory from '/StocksHistory';
+
+
+IgrFinancialChartModule.register();
+
+export default class FinancialChartMultipleData extends React.Component<any, any> {
+    public data: any[];
+
+    constructor(props: any) {
+        super(props);
+        this.state = { data: [] };
+        this.initData();
+    }
+
+    public render() {
+        return (
+            <div className="igContainer" >
+                <div className="igComponent" style={{height: "calc(100% - 25px)"}}>
+                <IgrFinancialChart
+                    width="100%"
+                    height="100%"
+                    chartType="Line"
+                    zoomSliderType="None"
+                    chartTitle="Tesla vs Amazon vs Microsoft Changes"
+                    subtitle="Between 2013 and 2017"
+                    yAxisMode="PercentChange"
+                    yAxisTitle="Percent Changed Since 2013"
+                    yAxisInterval={100}
+                    yAxisMaximumValue={950}
+                    yAxisMinimumValue={-100}
+                    thickness={2}
+                    dataSource={this.state.data} />
+                </div>
+            </div>
+        );
+    }
+
+    public initData() {
+        StocksHistory.getMultipleStocks().then((stocks: any[]) => {
+            console.log("getMultipleStocks " + stocks.length);
+            this.setState({ data: stocks });
+        });
+    }
+}
+
+
 ```
 
 ## Instructions
