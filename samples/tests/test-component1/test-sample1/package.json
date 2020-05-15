@@ -1,12 +1,12 @@
 {
   "name": "test-sample-1",
   "description": "Samples for Infragistics React Components",
-  "author": "Infragistics222",
+  "author": "Infragistics",
   "homepage": ".",
-  "version": "2.0.0",
-  "private": false,
+  "version": "1.4.0",
+  "private": true,
   "scripts": {
-    "start": "set PORT=2200 && react-app-rewired --max_old_space_size=10240 start --scripts-version react-scripts-ts ",
+    "start": "set PORT=3200 && react-app-rewired --max_old_space_size=10240 start --scripts-version react-scripts-ts ",
     "build": "react-app-rewired --max_old_space_size=10240 build --scripts-version react-scripts-ts ",
     "test": "react-app-rewired test --env=jsdom --scripts-version react-scripts-ts",
     "eject": "react-app-rewired eject --scripts-version react-scripts-ts "
@@ -30,7 +30,6 @@
     "igniteui-react-core": "^16.11.7",
     "igniteui-react-maps": "^16.11.7",
     "igniteui-react-charts": "^16.11.7",
-
     "prop-types": "^15.7.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
