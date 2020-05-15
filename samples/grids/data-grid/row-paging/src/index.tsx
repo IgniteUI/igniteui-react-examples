@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DataGridRowPaging from './DataGridRowPaging';
-ReactDOM.render(<DataGridRowPaging />, document.getElementById('root'));
+
+import './sandbox.config.json'; // required for code sandbox
+import './index.css'; // styles shared between all samples
+
+import , from './,';
+ReactDOM.render(<, />, document.getElementById('root'));
 
 

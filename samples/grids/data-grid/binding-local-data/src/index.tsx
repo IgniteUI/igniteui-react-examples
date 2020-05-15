@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DataGridBindingLocalData from './DataGridBindingLocalData';
-ReactDOM.render(<DataGridBindingLocalData />, document.getElementById('root'));
+
+import './sandbox.config.json'; // required for code sandbox
+import './index.css'; // styles shared between all samples
+
+import , from './,';
+ReactDOM.render(<, />, document.getElementById('root'));
 
 
