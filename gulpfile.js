@@ -27,41 +27,9 @@ exports.updateSamples = updateSamples = gulp.series(
     samples.updateIndex,
     samples.updateSharedFiles,
     // samples.task2
-    );
+);
 
-function updateSamples2(cb) {
-
-    eval(require('typescript')
-        .transpile(require('fs')
-        .readFileSync("./tasks/gulp-browser.ts").toString()));
-
-    // eval(require('typescript')
-    //         .transpile(require('fs')
-    //         .readFileSync("./tasks/Transformer.ts").toString()));
-    // var trans = new Transformer2();
-    // trans.test();
-
-    // log('calling updateSamples')
-    // updateSamples(cb);
-    dirSamples();
-    cb();
- } exports.updateSamples2 = updateSamples2;
-
-// function defaultTask(cb) {
-//     log('default()');
-//     // igBrowser.initTransformer();
-//     // igBrowser.dirSamples(cb);
-//     cb();
-// }
 exports.default = updateSamples
 
 exports.dirPublicFiles = samples.dirPublicFiles
 exports.dirSourceFiles = samples.dirSourceFiles
-
-// function updateSamples(cb) {
-//     // del.sync(BrowserRootPath + "/**/*.*", {force:true});
-//     // del.sync(browserTargetPath);
-//     log('updateSamples');
-//     gulp-samples.updateReadme();
-//     cb();
-// } exports.updateSamples = updateSamples;
