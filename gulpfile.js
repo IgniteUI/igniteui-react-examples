@@ -26,7 +26,6 @@ exports.updateSamples = updateSamples = gulp.series(
     samples.updatePackages,
     samples.updateIndex,
     samples.updateSharedFiles,
-    // samples.task2
 );
 
 exports.default = updateSamples;

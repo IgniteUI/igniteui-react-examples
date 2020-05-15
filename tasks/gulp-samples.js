@@ -27,36 +27,35 @@ function log(msg) {
 log('loaded');
 
 
-// var sampleSource = igConfig.SamplesRootPath + '/**/**/package.json';
+var sampleSource = igConfig.SamplesRootPath + '/**/**/package.json';
 // var sampleSource = igConfig.SamplesRootPath + '/excel/**/package.json';
 // var sampleSource = igConfig.SamplesRootPath + '/maps/**/package.json';
-var sampleSource = igConfig.SamplesRootPath + '/tests/**/package.json';
+// var sampleSource = igConfig.SamplesRootPath + '/tests/**/package.json';
 
 // this variable stores detailed information about all samples in ./samples/ folder
 var samples = [];
 
-
-
-var sampleOutputFolder = './sample-test-files/';
+var sampleOutputFolder = '';
+// var sampleOutputFolder = './sample-test-files/';
 
 function deleteSamples(cb) {
 
-    del.sync(sampleOutputFolder + "**/*.*", {force:true});
-    del.sync(sampleOutputFolder + "*.*", {force:true});
-    del.sync(sampleOutputFolder + "*", {force:true});
+    del.sync("./samples-test-files/**/*.*", {force:true});
+    del.sync("./samples-test-files/*.*", {force:true});
+    del.sync("./samples-test-files/*", {force:true});
 
-    // del.sync(sampleOutputFolder + "public", {force:true});
-    // del.sync(sampleOutputFolder + "**/*.md", {force:true});
-    // del.sync(sampleOutputFolder + "**/*.ts", {force:true});
-    // del.sync(sampleOutputFolder + "**/*.css", {force:true});
-    // del.sync(sampleOutputFolder + "**/*.json", {force:true});
-    // del.sync(sampleOutputFolder + "*.json", {force:true});
+    // del.sync("./samples-test-files/public", {force:true});
+    // del.sync("./samples-test-files/**/*.md", {force:true});
+    // del.sync("./samples-test-files/**/*.ts", {force:true});
+    // del.sync("./samples-test-files/**/*.css", {force:true});
+    // del.sync("./samples-test-files/**/*.json", {force:true});
+    // del.sync("./samples-test-files/*.json", {force:true});
 }
 
 
 function getSamples(cb) {
 
-    deleteSamples();
+    // deleteSamples();
 
     samples = [];
     // del.sync("./sample-test-files/**/*.*", {force:true});
@@ -237,7 +236,8 @@ function updateSharedFiles(cb) {
 
     for (const sample of samples) {
 
-        let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
+        // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
+        let outputPath = sampleOutputFolder + sample.SampleFolderPath;
 
         // log('updating share setup files... ');
         gulp.src(sharedSetupFiles)
@@ -254,7 +254,6 @@ function updateSharedFiles(cb) {
         // log('updating share data files... ');
         gulp.src('./sample-shared-files/src/*.*')
         .pipe(flatten({ "includeParents": -1 }))
-        // .pipe(gSort( { asc: false } ))
         // .pipe(gulpIgnore.exclude(condition))
         .pipe(es.map(function(sharedFile, sharedFileCallback) {
 
@@ -268,7 +267,7 @@ function updateSharedFiles(cb) {
 
             // SampleFiles.push(fileDir + "/" + file.basename);
         }))
-        .pipe(gulp.dest(outputPath + '/src'));
+        // .pipe(gulp.dest(outputPath + '/src'));
 
         // break;
     }
