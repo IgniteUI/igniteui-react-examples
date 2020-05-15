@@ -220,40 +220,40 @@ class Transformer {
     }
 
     // gets updated package.json file for a sample using a template
-    public static getPackage(sample: SampleInfo, temptePackage: PackageJson): string {
+    public static getPackage(sample: SampleInfo, tempPackage: PackageJson): string {
         let samplePackage = sample.PackageFileContent;
 
-        // samplePackage.name = temptePackage.name;
-        // samplePackage.description = temptePackage.description;
-        samplePackage.author = temptePackage.author;
-        samplePackage.homepage = temptePackage.homepage;
-        samplePackage.version = temptePackage.version;
-        samplePackage.private = temptePackage.private;
-        samplePackage.browserslist = temptePackage.browserslist;
+        // samplePackage.name = tempPackage.name;
+        // samplePackage.description = tempPackage.description;
+        samplePackage.author = tempPackage.author;
+        samplePackage.homepage = tempPackage.homepage;
+        samplePackage.version = tempPackage.version;
+        samplePackage.private = tempPackage.private;
+        samplePackage.browserslist = tempPackage.browserslist;
 
-        samplePackage.scripts = temptePackage.scripts;
+        samplePackage.scripts = tempPackage.scripts;
 
         // updating scripts in a sample using scripts from the template
-        // for (var name in temptePackage.scripts) {
-        //     if (temptePackage.scripts.hasOwnProperty(name) &&
+        // for (var name in tempPackage.scripts) {
+        //     if (tempPackage.scripts.hasOwnProperty(name) &&
         //         samplePackage.scripts.hasOwnProperty(name)) {
-        //         samplePackage.scripts[name] = temptePackage.scripts[name]
+        //         samplePackage.scripts[name] = tempPackage.scripts[name]
         //     }
         // }
 
         // updating version of dependencies in a sample using dependencies from the template
-        for (var name in temptePackage.dependencies) {
-            if (temptePackage.dependencies.hasOwnProperty(name) &&
+        for (var name in tempPackage.dependencies) {
+            if (tempPackage.dependencies.hasOwnProperty(name) &&
                 samplePackage.dependencies.hasOwnProperty(name)) {
-                samplePackage.dependencies[name] = temptePackage.dependencies[name]
+                samplePackage.dependencies[name] = tempPackage.dependencies[name]
             }
         }
 
         // updating devDependencies in a sample using devDependencies from the template
-        for (var name in temptePackage.devDependencies) {
-            if (temptePackage.devDependencies.hasOwnProperty(name) &&
+        for (var name in tempPackage.devDependencies) {
+            if (tempPackage.devDependencies.hasOwnProperty(name) &&
                 samplePackage.devDependencies.hasOwnProperty(name)) {
-                samplePackage.devDependencies[name] = temptePackage.devDependencies[name]
+                samplePackage.devDependencies[name] = tempPackage.devDependencies[name]
             }
         }
 

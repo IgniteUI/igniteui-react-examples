@@ -35,32 +35,31 @@ var sampleSource = igConfig.SamplesRootPath + '/tests/**/package.json';
 // this variable stores detailed information about all samples in ./samples/ folder
 var samples = [];
 
-function cleanupSamples(cb) {
 
-    del.sync("./sample-test-files/styles.css", {force:true});
-    del.sync("./sample-test-files/src/styles.css", {force:true});
-    // CategoryChartSharedStyles.css
-    // GeoMapSharedStyles.css
-    // FinancialChartSharedStyles.css
-    // DoughnutChartSharedStyles.css DataChartSharedStyles.css
-    // PieChartSharedStyles.css SparklineSharedStyles.css
-    // TreeMapSharedStyles.css
+
+var sampleOutputFolder = './sample-test-files/';
+
+function deleteSamples(cb) {
+
+    del.sync(sampleOutputFolder + "**/*.*", {force:true});
+    del.sync(sampleOutputFolder + "*.*", {force:true});
+    del.sync(sampleOutputFolder + "*", {force:true});
+
+    // del.sync(sampleOutputFolder + "public", {force:true});
+    // del.sync(sampleOutputFolder + "**/*.md", {force:true});
+    // del.sync(sampleOutputFolder + "**/*.ts", {force:true});
+    // del.sync(sampleOutputFolder + "**/*.css", {force:true});
+    // del.sync(sampleOutputFolder + "**/*.json", {force:true});
+    // del.sync(sampleOutputFolder + "*.json", {force:true});
 }
-
-
 
 
 function getSamples(cb) {
 
-    samples = [];
+    deleteSamples();
 
-    del.sync("./sample-test-files/**/*.*", {force:true});
-    // del.sync("./sample-test-files/public", {force:true});
-    // del.sync("./sample-test-files/**/*.md", {force:true});
-    // del.sync("./sample-test-files/**/*.ts", {force:true});
-    // del.sync("./sample-test-files/**/*.css", {force:true});
-    // del.sync("./sample-test-files/**/*.json", {force:true});
-    // del.sync("./sample-test-files/*.json", {force:true});
+    samples = [];
+    // del.sync("./sample-test-files/**/*.*", {force:true});
 
     gulp.src([
         sampleSource,
@@ -112,7 +111,6 @@ function getSamples(cb) {
 } exports.getSamples = getSamples;
 
 
-var sampleOutputFolder = './sample-test-files/';
 
 function makeDirectoryFor(filePath) {
     var dirname = path.dirname(filePath);
@@ -166,19 +164,18 @@ function copyFiles(cb) {
 
 function updateReadme(cb) {
 
-    log('updating readme files... ');
+    // log('updating readme files... ');
     var template = fs.readFileSync("./sample-template-files/ReadMe.md", "utf8");
     for (const sample of samples) {
 
         // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
         let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/ReadMe.md";
         makeDirectoryFor(outputPath);
-        log(outputPath);
+        // log(outputPath);
         let readmeFile = Transformer.updateReadme(sample, template);
         fs.writeFileSync(outputPath, readmeFile);
         // break;
     }
-    // log('updateReadme  ');
     cb();
 } exports.updateReadme = updateReadme;
 
@@ -300,6 +297,7 @@ function logFile() {
         cb(null, file);
     });
 }
+
 function logPublicFiles(cb) {
     gulp.src([
         './samples/**/public/*.*',
@@ -317,6 +315,25 @@ function logSourceFiles(cb) {
     .on("end", function() { cb(); });
 } exports.logSourceFiles = logSourceFiles;
 
+function logRootFiles(cb) {
+    gulp.src([
+        './samples/**/*.*',
+       '!./samples/**/src/*.*',
+       '!./samples/**/*.tsx',
+       '!./samples/**/*.ts',
+       '!./samples/**/*.css',
+       '!./samples/**/index.*',
+       '!./samples/**/manifest.json',
+       '!./samples/**/package.json',
+       '!./samples/**/tsconfig.json',
+    ])
+    .pipe(es.map(function(file, cbFile) {
+        let relative = Transformer.getRelative(file.dirname);
+        console.log(file.basename + ' ' + relative + '/' + file.basename);
+        cbFile(null, file);
+    }))
+    .on("end", function() { cb(); });
+} exports.logRootFiles = logRootFiles;
 
 function logUniqueFiles(cb) {
 
@@ -325,11 +342,11 @@ function logUniqueFiles(cb) {
         './samples/**/src/*.ts',
        '!./samples/**/src/index.*',
     ])
-    .pipe(es.map(function(file, cb) {
+    .pipe(es.map(function(file, cbFile) {
         if (fileNames.indexOf(file.basename) === -1) {
             fileNames.push(file.basename);
         }
-        cb(null, file);
+        cbFile(null, file);
     }))
     .on("end", function() {
         fileNames.sort();

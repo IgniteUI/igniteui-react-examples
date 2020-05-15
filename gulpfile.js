@@ -34,3 +34,4 @@ exports.default = updateSamples;
 exports.logPublicFiles = samples.logPublicFiles;
 exports.logSourceFiles = samples.logSourceFiles;
 exports.logUniqueFiles = samples.logUniqueFiles;
+exports.logRootFiles   = samples.logRootFiles;
