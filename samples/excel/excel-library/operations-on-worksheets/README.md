@@ -12,9 +12,9 @@ This folder contains implementation of React application with example of Excel L
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <!-- <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/excel-library/operations-on-worksheets?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/ExcelLibraryWorksheets.tsx" rel="noopener noreferrer">
-            <img height="40px" style="border-radius: 0.5rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/edit.png"/>
-        </a> -->
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/excel-library/operations-on-worksheets?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/ExcelLibraryWorksheets.tsx" rel="noopener noreferrer">
+            <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/code.png"/>
+        </a>
         <!-- <a target="_blank"
 href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points?fontsize=14&hidenavigation=1&theme=dark&view=preview">
             <img alt="Edit Sample" src="https://codesandbox.io/static/img/play-codesandbox.svg"/>
@@ -35,12 +35,12 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 <!-- ## Sample Preview -->
 
-<iframe
+<!-- <iframe
   src="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/excel-library/operations-on-worksheets?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/ExcelLibraryWorksheets.tsx"
   style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+></iframe> -->
 
 ## Source Code
 
