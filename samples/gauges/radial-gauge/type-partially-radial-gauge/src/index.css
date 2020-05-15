@@ -13,7 +13,8 @@
 
 .igContainer,
 .igContainer-horizontal,
-.igContainer-vertical {
+.igContainer-vertical,
+.igContainer-full-size {
     /* background: blue; */
     /* background-color: blue; */
     display: flex;
@@ -25,7 +26,14 @@
     position: relative;
     overflow-y: hidden;
 
-    min-width: 300px;
+    min-width: 200px;
+    width: calc(100% - 1rem);
+    height: calc(100% - 1rem);
+    padding: 0.5rem;
+    margin: 0px;
+}
+
+.igContainer-full-size {
     width: 100%;
     height: 100%;
     padding: 0px;
@@ -80,8 +88,8 @@
 }
 
 .igComponent {
-    height: calc(100% - 0px);
-    width: calc(100% - 0px);
+    height: 100%;
+    width: 100%;
     margin: 0px;
     padding: 0px;
 }
@@ -91,14 +99,20 @@
     margin: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    /* padding-right: 0.5rem; */
+    /* padding-left: 0.5rem; */
+    /* width: calc(100% - 1rem); */
     width: 100%;
     font-size: 1rem;
     font-weight: 300;
     font-family: 'Titillium Web';
     display: inline-block;
     color: #585858;
+}
+
+.igOptions label,
+.igOptions div {
+    font-family: 'Titillium Web';
 }
 
 .igOptions-item {
