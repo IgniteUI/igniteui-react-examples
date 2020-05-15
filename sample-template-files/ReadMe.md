@@ -12,8 +12,9 @@ This folder contains implementation of {PlatformName} application with example o
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <a target="_blank"
-href="{SandboxUrlEdit}">
+    <!--
+    href="#" onclick='window.open("{SandboxUrlEdit}");return false;'-->
+        <a target="_blank" href="{SandboxUrlEdit}" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0.3rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/edit.png"/>
         </a>
         <!-- <a target="_blank"
