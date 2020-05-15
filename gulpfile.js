@@ -22,8 +22,8 @@ var samples = require('./tasks/gulp-samples.js')
 exports.updateSamples = updateSamples = gulp.series(
     samples.getSamples,
     // samples.copyFiles,
-    // samples.updateReadme,
-    // samples.updatePackages,
+    samples.updateReadme,
+    samples.updatePackages,
     samples.updateIndex,
     samples.updateSharedFiles,
 );
