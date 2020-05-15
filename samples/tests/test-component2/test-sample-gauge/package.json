@@ -31,7 +31,7 @@
     "igniteui-react-core":"^16.11.7",
     "igniteui-react-gauges":"^16.11.7",
 
-    "jquery": "^1.11.1",
+    "jquery": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
