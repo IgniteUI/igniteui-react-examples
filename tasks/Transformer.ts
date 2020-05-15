@@ -94,6 +94,10 @@ class Transformer {
         }
     }
 
+    public static dd() {
+        let sharedFiles = new Map<string, string>();
+        sharedFiles.set();
+    }
 
     public static process(samples: SampleInfo[]): void {
 
