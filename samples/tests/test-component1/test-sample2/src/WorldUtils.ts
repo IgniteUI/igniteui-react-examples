@@ -1,5 +1,3 @@
-// <!-- ORG FILE -->
-
 export default class WorldUtils {
 
     // calculate geo-paths between two locations using great circle formula

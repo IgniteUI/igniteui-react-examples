@@ -80,6 +80,7 @@
     "./tests",
     "./tasks/*.js",
     "./tasks/*.ts",
+    "./templates",
     "./tmp",
   ]
 }

@@ -17,6 +17,7 @@
       "browserOLD",
       "samples",
       "tasks",
+      "templates",
       "gulp*.ts",
       "gulp*.js"
     ]

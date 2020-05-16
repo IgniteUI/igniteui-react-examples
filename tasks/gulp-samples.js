@@ -171,7 +171,7 @@ function copyFiles(cb) {
 function updateReadme(cb) {
 
     // log('updating readme files... ');
-    var template = fs.readFileSync("./sample-template-files/ReadMe.md", "utf8");
+    var template = fs.readFileSync("./templates/sample/ReadMe.md", "utf8");
     for (const sample of samples) {
 
         // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
@@ -189,7 +189,7 @@ function updateReadme(cb) {
 function updatePackages(cb) {
 
     // getting content of package.json file from templates
-    let templatePackageFile = fs.readFileSync("./sample-template-files/package.json");
+    let templatePackageFile = fs.readFileSync("./templates/sample/package.json");
     let templatePackageJson = JSON.parse(templatePackageFile.toString());
 
     // getting content of package.json file from the browser
@@ -216,7 +216,7 @@ function updatePackages(cb) {
 
 function updateIndex(cb) {
 
-    var template = fs.readFileSync("./sample-template-files/src/index.tsx", "utf8");
+    var template = fs.readFileSync("./templates/sample/src/index.tsx", "utf8");
     for (const sample of samples) {
 
         let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/src/index.tsx";
@@ -231,15 +231,15 @@ function updateIndex(cb) {
 
 
 var sharedSetupFiles = [
-    // './sample-template-files/src/index.css',
-    // './sample-template-files/sandbox.config.json',
+    // './templates/sample/src/index.css',
+    // './templates/sample/sandbox.config.json',
 ];
 var sharedRootFiles = [
-    './sample-template-files/sandbox.config.json',
+    './templates/sample/sandbox.config.json',
 ];
 var sharedSourceFiles = [
-    // './sample-shared-files/src/*.*',
-    './sample-shared-files/src/World*.ts',
+    // './templates/shared/src/*.*',
+    './templates/shared/src/World*.ts',
 ];
 
 
