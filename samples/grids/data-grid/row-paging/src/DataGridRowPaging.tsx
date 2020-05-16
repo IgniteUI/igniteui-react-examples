@@ -11,7 +11,7 @@ import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { ListSortDirection } from 'igniteui-react-core';
 
-import { Pager } from './Pager';
+import { DataGridPager } from './DataGridPager';
 
 IgrLiveGridModule.register();
 
@@ -19,7 +19,7 @@ export default class DataGridRowPaging extends React.Component<any, any> {
 
     private data: any[];
     private grid: IgrLiveGrid;
-    private pager: Pager;
+    private pager: DataGridPager;
 
     constructor(props: any) {
         super(props);
@@ -38,7 +38,7 @@ export default class DataGridRowPaging extends React.Component<any, any> {
         desc.sortDirection = ListSortDirection.Descending;
         this.grid.groupDescriptions.add(desc);
     }
-    public onPagerRef(pager: Pager) {
+    public onPagerRef(pager: DataGridPager) {
         this.pager = pager;
 
         if (this.grid) {
@@ -75,7 +75,7 @@ export default class DataGridRowPaging extends React.Component<any, any> {
                     <IgrNumericColumn propertyPath="Age" headerText="Age" />
                 </IgrLiveGrid>
 
-                <Pager
+                <DataGridPager
                     ref={this.onPagerRef}
                     dataSource={this.data}
                     pageSize={20}

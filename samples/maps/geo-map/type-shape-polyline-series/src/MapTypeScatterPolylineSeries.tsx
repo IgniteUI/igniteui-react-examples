@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 
-import LegendItem from "./LegendItem"
-import LegendOverlay from "./LegendOverlay"
+
+import { LegendOverlay, LegendItem } from "./LegendOverlay"
 
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';

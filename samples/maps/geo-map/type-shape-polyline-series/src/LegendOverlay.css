@@ -1,0 +1,89 @@
+.LegendOverlay {
+    border-radius: 3px;
+    background: rgba(221, 221, 221, 0.671);
+    position: absolute;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-left: 2px;
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    pointer-events: none;
+    font-family: Lato, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #2c2c2c;
+}
+
+.LegendItem {
+    /* height: 12px; */
+    /* width: 10px; */
+    /* background: rgb(5, 91, 219); */
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 0px;
+    /* border-radius: 3px; */
+    text-decoration: none;
+}
+
+.LegendItemMap {
+    height: 12px;
+    width: 12px;
+    background: rgb(35, 36, 36);
+    background: rgb(5, 91, 219);
+    display: inline-block;
+    /* margin-left: 2px; */
+    /* margin-top: 2px; */
+    margin-top: 1px;
+    border-radius: 3px;
+}
+
+.LegendItemLabel {
+    /* background: rgb(97, 241, 186); */
+    /* width: 115px; */
+    display: inline-block;
+    /* vertical-align: text-top; */
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 10px;
+}
+
+.SourceLabel {
+    display: block;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 10px;
+    font-family: Lato, Helvetica, sans-serif;
+    color: #2c2c2c;
+    background: #f0f1f100;
+}
+
+.SourceStyle {
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 10px;
+    font-family: Lato, Helvetica, sans-serif;
+    color: #2c2c2c;
+    background: #f0f1f100;
+    pointer-events: auto;
+}
+
+.SourceStyle a {
+    color: #1362f5 !important;
+    background: #f0f1f100 !important;
+    pointer-events: auto;
+}
+
+.SourceStyle a:hover {
+    /* color: #134ff5; */
+    color: #2c2c2c !important;
+    background: #f0f1f100 !important;
+    pointer-events: auto;
+}

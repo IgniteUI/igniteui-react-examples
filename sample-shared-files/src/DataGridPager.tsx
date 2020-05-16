@@ -6,12 +6,12 @@ import { IgrColumnSortDescriptionCollection } from 'igniteui-react-grids';
 import { IgrColumnGroupDescriptionCollection } from 'igniteui-react-grids';
 import { IgrFilterExpressionCollection } from 'igniteui-react-core';
 
-import './Pager.css';
+import './DataGridPager.css';
 
 /**
  * Interface for the Pager component's properties.
  */
-export interface IPagerProps {
+export interface IDataGridPagerProps {
     /**
      * The data to page through.
      */
@@ -29,7 +29,7 @@ export interface IPagerProps {
 /**
  * Interface for the Pager component's state.
  */
-interface IPagerState {
+interface IDataGridPagerState {
     /**
      * The internal data source the pager will use. This lets it easily handle sorting,
      * grouping and filtering the data.
@@ -61,13 +61,13 @@ interface IPagerState {
  * This component is designed to be used in conjunction with the IgrLiveGrid component
  * to provide a small paged view of available data.
  */
-export class Pager extends React.Component<IPagerProps> {
+export class DataGridPager extends React.Component<IDataGridPagerProps> {
 
     /**
      * Defining a version of the component's state property with the
-     * IPagerState interface.
+     * IDataGridPagerState interface.
      */
-    public readonly state: IPagerState = {
+    public readonly state: IDataGridPagerState = {
         dataSource: new LocalDataSource(),
         pageCount: 0,
         pageNumber: 1,
@@ -80,10 +80,10 @@ export class Pager extends React.Component<IPagerProps> {
      * Constructs a new Pager component.
      * @param props The properties for the Pager.
      */
-    constructor(props: IPagerProps) {
+    constructor(props: IDataGridPagerProps) {
         super(props);
 
-        // Don't want to emit these in our internal datasource.
+        // Don't want to emit these in our internal data source.
         this.state.dataSource.shouldEmitSectionFooters = false;
         this.state.dataSource.shouldEmitSectionHeaders = false;
         this.state.dataSource.shouldEmitShiftedRows = false;
@@ -99,7 +99,7 @@ export class Pager extends React.Component<IPagerProps> {
         }
     }
 
-    public componentDidUpdate(previousProps: IPagerProps, previousState: IPagerState) {
+    public componentDidUpdate(previousProps: IDataGridPagerProps, previousState: IDataGridPagerState) {
         // property changes
         if (previousProps.dataSource !== this.props.dataSource) {
             this.state.dataSource.itemsSource = this.props.dataSource;
@@ -111,7 +111,7 @@ export class Pager extends React.Component<IPagerProps> {
 
         // if any of these state properties changed then we need to provide new data.
         if (previousState.pageNumber !== this.state.pageNumber ||
-            previousState.pageCount !== this.state.pageCount || 
+            previousState.pageCount !== this.state.pageCount ||
             previousState.sortCount !== this.state.sortCount ||
             previousState.groupCount !== this.state.groupCount ||
             previousState.filterCount !== this.state.filterCount) {
@@ -246,7 +246,7 @@ export class Pager extends React.Component<IPagerProps> {
                 data.push(item);
             }
         }
-        
+
         return data;
     }
     /**
@@ -256,11 +256,11 @@ export class Pager extends React.Component<IPagerProps> {
      */
     private update(flush?: boolean) {
         if (flush) {
-            // flushing the datasource is required when adding filter, sort and group objects to it
+            // flushing the data source is required when adding filter, sort and group objects to it
             // so they immediately get processed.  Otherwise we'll continue working with old data.
             this.state.dataSource.flushAutoRefresh();
         }
-        
+
         const count = Math.round(this.state.dataSource.actualCount / this.props.pageSize);
         const page = Math.max(Math.min(this.state.pageNumber, count), 1);
 
