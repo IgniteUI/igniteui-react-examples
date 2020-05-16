@@ -1,5 +1,5 @@
 <!-- {RepositoryWarning} -->
-<!-- {RepositoryUrl}/tree/master/sample-template-files/ReadMe.md -->
+<!-- {RepositoryUrl}/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
 <!-- - [Sample Preview](#Sample-Preview) -->
