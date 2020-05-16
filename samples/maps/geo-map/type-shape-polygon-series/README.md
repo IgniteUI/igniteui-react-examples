@@ -52,8 +52,7 @@ import * as React from 'react';
 
 
 import WorldUtils from "./WorldUtils"
-import LegendItem from "./LegendItem"
-import LegendOverlay from "./LegendOverlay"
+import { LegendOverlay, LegendItem } from "./LegendOverlay"
 
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
@@ -104,7 +103,6 @@ export default class MapTypeScatterPolygonSeries extends React.Component {
         this.geoMap.backgroundContent = undefined;
         // zooming map to region of North America
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
-
 
         // loading a shapefile with geographic shapes
         const sds = new IgrShapeDataSource();
