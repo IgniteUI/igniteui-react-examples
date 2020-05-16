@@ -227,8 +227,18 @@ class Transformer {
     public static getPackage(sample: SampleInfo, tempPackage: PackageJson): string {
         let samplePackage = sample.PackageFileContent;
 
-        // samplePackage.name = tempPackage.name;
-        // samplePackage.description = tempPackage.description;
+        let title = tempPackage.name;
+        title = Strings.replace(title, 'platform-name', igConfig.PlatformName);
+        title = Strings.replace(title, 'sample-display-name', sample.SampleDisplayName);
+        title = Strings.replace(title, ' ', '-');
+        title = title.toLowerCase();
+
+        let descr = tempPackage.description;
+        descr = Strings.replace(descr, 'platform-name', igConfig.PlatformName);
+        descr = Strings.replace(descr, 'sample-display-name', sample.SampleDisplayName);
+
+        samplePackage.name = title;
+        samplePackage.description = descr;
         samplePackage.author = tempPackage.author;
         samplePackage.homepage = tempPackage.homepage;
         samplePackage.version = tempPackage.version;
