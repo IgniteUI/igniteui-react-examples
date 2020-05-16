@@ -26,7 +26,6 @@ function log(msg) {
 }
 log('loaded');
 
-
 var sampleSource = igConfig.SamplesRootPath + '/**/**/package.json';
 // var sampleSource = igConfig.SamplesRootPath + '/excel/**/package.json';
 // var sampleSource = igConfig.SamplesRootPath + '/maps/**/package.json';
@@ -229,52 +228,73 @@ function updateIndex(cb) {
     cb();
 } exports.updateIndex = updateIndex;
 
-
-var sharedSetupFiles = [
-    // './templates/sample/src/index.css',
-    // './templates/sample/sandbox.config.json',
-];
-var sharedRootFiles = [
-    './templates/sample/sandbox.config.json',
-];
-var sharedSourceFiles = [
-    './templates/shared/src/*.*',
-    // './templates/shared/src/World*.ts',
-];
-
-
 function updateSharedFiles(cb) {
 
-    gulp.src(sharedRootFiles)
+    // always override these shared files
+    gulp.src([
+        './templates/sample/src/index.css',
+        './templates/sample/sandbox.config.json',
+    ])
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, fileCallback) {
+        let sourceContent = file.contents.toString();
+        let sourcePath = Transformer.getRelative(file.dirname);
+        sourcePath = sourcePath.replace('./templates/sample', '');
+        sourcePath = sourcePath.replace('./templates/shared', '');
+
         for (const sample of samples) {
-            if (sample.isUsingFileName(file.basename)) {
-                let outputPath = sampleOutputFolder + sample.SampleFolderPath;
-                let fileContent = file.contents.toString();
-                fs.writeFileSync(outputPath + '/' + file.basename, fileContent);
-                // log('updated ' + file.basename + ' in ' + outputPath + '/' + file.basename);
-                // log('updated ' + outputPath + '/' + file.basename);
-            }
+            // if (sample.isUsingFileName(file.basename)) {
+                let samplePath = sampleOutputFolder + sample.SampleFolderPath;
+                let targetPath = samplePath + sourcePath + '/' + file.basename;
+
+                if (fs.existsSync(targetPath)) {
+                    let targetContent = fs.readFileSync(targetPath, "utf8");
+                    if (sourceContent !== targetContent) {
+                        fs.writeFileSync(targetPath , sourceContent);
+                        log('updated ' + targetPath);
+                    }
+                } else {
+                    fs.writeFileSync(targetPath, sourceContent);
+                    log('added ' + targetPath);
+                }
         }
         fileCallback(null, file);
         // SampleFiles.push(fileDir + "/" + file.basename);
     }))
 
-    gulp.src(sharedSourceFiles)
+    // update these shared files if a sample is using them
+    gulp.src(['./templates/shared/src/*.*'])
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, fileCallback) {
+        let sourceContent = file.contents.toString();
+        let sourcePath = Transformer.getRelative(file.dirname);
+        sourcePath = sourcePath.replace('./templates/sample', '');
+        sourcePath = sourcePath.replace('./templates/shared', '');
+
         for (const sample of samples) {
             if (sample.isUsingFileName(file.basename)) {
 
-                let targetPath = sampleOutputFolder + sample.SampleFolderPath + '/src/' + file.basename;
-                let targetContent = fs.readFileSync(targetPath, "utf8");
-                let sourceContent = file.contents.toString();
-                if (sourceContent !== targetContent) {
+                let samplePath = sampleOutputFolder + sample.SampleFolderPath;
+                let targetPath = samplePath + sourcePath + '/' + file.basename;
+
+                if (fs.existsSync(targetPath)) {
+                    let targetContent = fs.readFileSync(targetPath, "utf8");
+                    if (sourceContent !== targetContent) {
+                        fs.writeFileSync(targetPath , sourceContent);
+                        log('updated ' + targetPath);
+                    }
+                } else {
                     fs.writeFileSync(targetPath, sourceContent);
-                    // log('updated ' + file.basename + ' in ' + sample.SampleFilePath)
-                    log('updated ' + targetPath);
+                    log('added ' + targetPath);
                 }
+
+                // let targetPath = sampleOutputFolder + sample.SampleFolderPath + '/src/' + file.basename;
+                // let targetContent = fs.readFileSync(targetPath, "utf8");
+                // if (sourceContent !== targetContent) {
+                //     fs.writeFileSync(targetPath, sourceContent);
+                //     // log('updated ' + file.basename + ' in ' + sample.SampleFilePath)
+                //     log('updated ' + targetPath);
+                // }
             }
         }
         fileCallback(null, file);
@@ -282,53 +302,6 @@ function updateSharedFiles(cb) {
     .on("end", function() {
         cb();
     });
-
-    // for (const sample of samples) {
-
-    //     // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
-    //     let outputPath = sampleOutputFolder + sample.SampleFolderPath;
-
-    //     // gulp.src(sharedRootFiles)
-    //     // .pipe(flatten({ "includeParents": -1 }))
-    //     // .pipe(gulp.dest(outputPath))
-
-    //     // log('updating share setup files... ');
-    //     // gulp.src(sharedSetupFiles)
-    //     // .pipe(flatten({ "includeParents": -1 }))
-    //     // // .pipe(gSort( { asc: false } ))
-    //     // .pipe(es.map(function(file, fileCallback) {
-    //     //     // let fileDir = Transformer.getRelative(file.dirname);
-    //     //     // log(fileDir + "/" + file.basename)
-    //     //     // SampleFiles.push(fileDir + "/" + file.basename);
-    //     //     fileCallback(null, file);
-    //     // }))
-    //     // .pipe(gulp.dest(outputPath + '/src'))
-
-    //     // log('updating share data files... ');
-    //     // gulp.src(sharedSourceFiles)
-    //     // .pipe(flatten({ "includeParents": -1 }))
-    //     // // .pipe(gulpIgnore.exclude(condition))
-    //     // .pipe(es.map(function(sharedFile, sharedFileCallback) {
-
-    //     //     if (sample.isUsingFileName(sharedFile.basename)) {
-    //     //         log('+ share data ' + sharedFile.basename + ' ' + sample.SampleFilePath);
-    //     //         // let content = sharedFile.toString();
-    //     //         let filePath = Transformer.getRelative(sharedFile.dirname) + '/' + sharedFile.basename;
-    //     //         let fileContent = fs.readFileSync(filePath, "utf8");
-    //     //         fs.writeFileSync(outputPath + '/src', fileContent);
-
-    //     //         // sharedFileCallback(null, sharedFile);
-    //     //     } else {
-    //     //         // log('- share data ' + sharedFile.basename + ' ' + sample.SampleFilePath);
-    //     //         // sharedFileCallback(null);
-    //     //     }
-    //     //     sharedFileCallback(null, sharedFile);
-    //     //     // SampleFiles.push(fileDir + "/" + file.basename);
-    //     // }))
-    //     // .pipe(gulp.dest(outputPath + '/src'));
-
-    //     // break;
-    // }
 
 
 } exports.updateSharedFiles = updateSharedFiles;
