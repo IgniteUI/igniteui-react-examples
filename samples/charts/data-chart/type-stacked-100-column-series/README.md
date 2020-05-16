@@ -1,5 +1,5 @@
 <!-- NOTE: do not change this file because it will be auto re-generated from template file: -->
-<!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/sample-template-files/ReadMe.md -->
+<!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
 <!-- - [Sample Preview](#Sample-Preview) -->

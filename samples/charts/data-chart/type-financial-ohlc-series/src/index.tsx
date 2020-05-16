@@ -1,5 +1,5 @@
 /* {RepositoryWarning}  */
-/* {RepositoryUrl}/tree/master/sample-template-files/src/index  */
+/* {RepositoryUrl}/tree/master/templates/sample/src/index  */
 
 import React from 'react';
 import ReactDOM from 'react-dom';
