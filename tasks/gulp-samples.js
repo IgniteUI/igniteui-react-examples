@@ -238,8 +238,8 @@ var sharedRootFiles = [
     './templates/sample/sandbox.config.json',
 ];
 var sharedSourceFiles = [
-    // './templates/shared/src/*.*',
-    './templates/shared/src/World*.ts',
+    './templates/shared/src/*.*',
+    // './templates/shared/src/World*.ts',
 ];
 
 

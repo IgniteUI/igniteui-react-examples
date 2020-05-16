@@ -85,7 +85,6 @@ export class Products {
 
     public static getCountryFlag(country: string): string {
         const flag = 'https://static.infragistics.com/xplatform/images/flags/' + country + '.png'
-        // console.log("getCountryFlag " + flag)
         return flag;
     }
 

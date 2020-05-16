@@ -1,4 +1,4 @@
-import { saveAs } from 'file-saver';
+import { saveAs } from "file-saver";
 import { Workbook } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
 import { WorkbookSaveOptions } from 'igniteui-react-excel';
@@ -12,6 +12,7 @@ IgrExcelModule.register();
 IgrExcelXlsxModule.register();
 
 export class ExcelUtility {
+
     public static getExtension(format: WorkbookFormat) {
         switch (format) {
             case WorkbookFormat.StrictOpenXml:
