@@ -21,10 +21,10 @@ var samples = require('./tasks/gulp-samples.js')
 // exports.updateSamples = updateSamples = gulp.series(browser.task1, browser.dirSamples, browser.task2);
 exports.updateSamples = updateSamples = gulp.series(
     samples.getSamples,
-    // samples.updateReadme,
-    // samples.updatePackages,
-    // samples.updateIndex,
-    // samples.updateSharedFiles,
+    samples.updateReadme,
+    samples.updatePackages,
+    samples.updateIndex,
+    samples.updateSharedFiles,
 );
 
 exports.updateBrowser = updateBrowser = gulp.series(

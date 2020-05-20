@@ -6,20 +6,22 @@ import './Scrollbars.css';
 import './SamplesBrowser.css';
 import { SamplesRouter } from './SamplesRouter';
 import { RoutingSample } from './SamplesData';
-// import { ChartsRouter }  from "../sample-tests/charts/ChartsRouter"
 
-import { tests1RoutingData } from "../samples2222/tests1/Tests1Routes";
-import { Tests2Routes } from "../samples2222/tests2/Tests2Routes";
+import { gaugesRoutingData } from "../samples2222/gauges/RoutingData";
+import { tests1RoutingData } from "../samples2222/tests1/RoutingData";
+import { tests2RoutingData } from "../samples2222/tests2/RoutingData";
 
 // http://localhost:3000/samples/charts
 // http://localhost:3000/charts
 
 export class SamplesBrowser extends React.Component<any, any>
 {
-    public test1Links: any[];
-    public test1Routes: any[];
-    public test2Links: any[];
-    public test2Routes: any[];
+    public navLinks: any[] = [];
+    public navRoutes: any[] = [];
+
+    // public test1Routes: any[];
+    // public test2Links: any[];
+    // public test2Routes: any[];
 
     constructor(props: any) {
         super(props);
@@ -27,15 +29,34 @@ export class SamplesBrowser extends React.Component<any, any>
         console.log("SB ()");
 
         this.onSampleOpen = this.onSampleOpen.bind(this);
-        // console.log(TestsRoutes.DataRoutes);
-        this.test1Links = SamplesRouter.getLinks(tests1RoutingData, this.onSampleOpen);
-        this.test1Routes = SamplesRouter.getRoutes(tests1RoutingData);
+        // console.log(TestsRoutes.DataRoutes)
 
-        this.test2Links = SamplesRouter.getLinks(Tests2Routes.DataRoutes, this.onSampleOpen);
-        this.test2Routes = SamplesRouter.getRoutes(Tests2Routes.DataRoutes);
+        this.populateLinks(SamplesRouter.getLinks(tests1RoutingData, this.onSampleOpen));
+        this.populateLinks(SamplesRouter.getLinks(tests2RoutingData, this.onSampleOpen));
+        this.populateLinks(SamplesRouter.getLinks(gaugesRoutingData, this.onSampleOpen));
 
+        this.populateRoutes(SamplesRouter.getRoutes(tests1RoutingData));
+        this.populateRoutes(SamplesRouter.getRoutes(tests2RoutingData));
+        this.populateRoutes(SamplesRouter.getRoutes(gaugesRoutingData));
+
+        // this.test2Links = SamplesRouter.getLinks(tests2RoutingData, this.onSampleOpen);
+        // this.test2Routes = SamplesRouter.getRoutes(tests2RoutingData);
+        // this.test2Links = SamplesRouter.getLinks(gaugesRoutingData, this.onSampleOpen);
+        // this.test2Routes = SamplesRouter.getRoutes(gaugesRoutingData);
         this.state = {
             SelectedSample: 'react samples browser',
+        }
+    }
+
+    public populateLinks(array: any[]) {
+        for (const item of array) {
+            this.navLinks.push(item);
+        }
+    }
+
+    public populateRoutes(array: any[]) {
+        for (const item of array) {
+            this.navRoutes.push(item);
         }
     }
 
@@ -67,8 +88,8 @@ export class SamplesBrowser extends React.Component<any, any>
                     <Link to={`/samples`}>Samples home</Link> */}
                     {/* <Link to={`/samples/charts`}>samples charts </Link> */}
                     {/* <Link to={`/charts`}>charts</Link> */}
-                    {this.test1Links}
-                    {this.test2Links}
+                    {this.navLinks}
+                    {/* {this.test2Links} */}
                     {/* {this.test1Links}
                     {this.test2Links} */}
                 </div>
@@ -87,8 +108,8 @@ export class SamplesBrowser extends React.Component<any, any>
                             <Route exact={true} path="/samples">
                                 <h3>Please select a component.</h3>
                             </Route>
-                            {this.test1Routes}
-                            {this.test2Routes}
+                            {this.navRoutes}
+                            {/* {this.test2Routes} */}
 
                             {/* <Route exact={true} >
                                 <h3>NoPageFound exact=true</h3>

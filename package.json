@@ -5,7 +5,9 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3200 && react-app-rewired --max_old_space_size=10240 && react-scripts start",
+    "start33": "set PORT=3200 && react-app-rewired --max_old_space_size=10240 start --scripts-version react-scripts-ts",
+    "start22": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -69,6 +71,7 @@
     "gulp-uglify": "^3.0.2",
     "gulpclass": "^0.2.0",
     "path": "^0.12.7",
+    "react-app-rewired": "^2.1.6",
     "remark": "^12.0.0",
     "remark-frontmatter": "^2.0.0",
     "run-sequence": "^2.2.1",

@@ -32,7 +32,11 @@ log('loaded');
 var sampleSource = [
     igConfig.SamplesCopyPath + '/tests1/**/package.json',
     igConfig.SamplesCopyPath + '/tests2/**/package.json',
-    // igConfig.SamplesCopyPath + '/maps/**/package.json'
+    igConfig.SamplesCopyPath + '/maps/**/package.json',
+    igConfig.SamplesCopyPath + '/gauges/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/**/package.json',
+    // igConfig.SamplesCopyPath + '/excel/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/**/package.json'
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder
@@ -41,19 +45,6 @@ var samples = [];
 var sampleOutputFolder = '';
 // var sampleOutputFolder = './sample-test-files/';
 
-function deleteSamples() {
-
-    del.sync("./samples-test-files/**/*.*", {force:true});
-    del.sync("./samples-test-files/*.*", {force:true});
-    del.sync("./samples-test-files/*", {force:true});
-
-    // del.sync("./samples-test-files/public", {force:true});
-    // del.sync("./samples-test-files/**/*.md", {force:true});
-    // del.sync("./samples-test-files/**/*.ts", {force:true});
-    // del.sync("./samples-test-files/**/*.css", {force:true});
-    // del.sync("./samples-test-files/**/*.json", {force:true});
-    // del.sync("./samples-test-files/*.json", {force:true});
-}
 
 
 function cleanSamples() {
@@ -144,8 +135,25 @@ function copyExclude(files) {
     });
 }
 
+function deleteSamples() {
+
+    log('deleting sample files... ');
+    del.sync("./src/samples/**/*.*", {force:true});
+    del.sync("./src/samples/*.*", {force:true});
+    del.sync("./src/samples/*", {force:true});
+
+    // del.sync("./samples-test-files/public", {force:true});
+    // del.sync("./samples-test-files/**/*.md", {force:true});
+    // del.sync("./samples-test-files/**/*.ts", {force:true});
+    // del.sync("./samples-test-files/**/*.css", {force:true});
+    // del.sync("./samples-test-files/**/*.json", {force:true});
+    // del.sync("./samples-test-files/*.json", {force:true});
+
+}
+
 function copySamples(cb) {
 
+    deleteSamples();
     log('copying sample files... ');
     for (const sample of samples) {
         // log(sample.SampleFolderPath);
@@ -153,7 +161,7 @@ function copySamples(cb) {
         // let outputPath = sample.SampleFolderPath;
         let outputPath = './src' + sample.SampleFolderPath.replace('.','');
         // let outputPath = './sample-test-files' + sample.SampleFolderPath.replace('.','');
-        console.log(outputPath);
+        // console.log(outputPath);
         // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
 
         gulp.src([
@@ -178,8 +186,8 @@ function copySamples(cb) {
     let routingGroups = Transformer.getRoutingGroups(samples);
 
     for (const group of routingGroups) {
-        let outputPath = "./src/samples/" + group.name + "/RoutingData.ts";
-        // makeDirectoryFor(outputPath);
+        let outputPath = "./src/samples/" + group.Name + "/RoutingData.ts";
+        makeDirectoryFor(outputPath);
 
         log(outputPath);
         let routingFile = Transformer.getRoutingFile(group);

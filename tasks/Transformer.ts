@@ -22,7 +22,9 @@ class SampleInfo {
     public SampleFilePath: string;       // /samples/maps/geo-map/binding-csv-points/src/MapBindingDataCSV.tsx
     public SampleRoute: string;          //         /maps/geo-map/binding-csv-points/
     public SampleFolderName: string;     //                       binding-csv-points
-    public SampleFileName: string;     // MapBindingDataCSV.tsx
+    public SampleFileName: string;       // MapBindingDataCSV.tsx
+    public SampleImportName: string;     // MapBindingDataCSV
+    public SampleImportPath: string;     // ./geo-map/binding-csv-points/MapBindingDataCSV
     public SampleDisplayName: string;  // Map Binding Data CSV
     public SampleFileSourcePath: string;     // /src/MapBindingDataCSV.tsx
     public SampleFileSourceCode: string;   // source code from /src/MapBindingDataCSV.tsx file
@@ -118,6 +120,7 @@ class Transformer {
             if (folders.length > 4) info.SampleFolderName = folders[4];
 
             info.ComponentName = Strings.toTitleCase(info.ComponentFolder, '-');
+            info.ComponentName = info.ComponentName.replace("Geo Map", "Geographic Map");
 
             // info.SampleFolderPath = relativePath;
             info.SampleRoute = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "-" + info.SampleFolderName;
@@ -152,8 +155,16 @@ class Transformer {
                 info.SampleFileSourcePath = "./src/" + info.SampleFileName;
                 info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
 
+                info.SampleImportName = info.SampleFileName.replace('.tsx','').replace('.ts','');
+                info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
+
                 info.SampleDisplayName = Strings.splitCamel(info.SampleFileName)
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SamplesFileExtension, "");
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Type ", "");
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Binding ", "Binding ");
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Display ", "Display ");
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Data Chart Type ", "");
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, info.ComponentName + " ", "");
 
                 info.SandboxUrlView = this.getSandboxUrl(info, igConfig.SandboxUrlView);
                 info.SandboxUrlEdit = this.getSandboxUrl(info, igConfig.SandboxUrlEdit);
@@ -402,12 +413,12 @@ class Transformer {
 
         for (const item of samples) {
             if (componentsMap.has(item.ComponentName)) {
-                componentsMap.get(item.ComponentName).samples.push(item);
+                componentsMap.get(item.ComponentName).Samples.push(item);
             } else {
                 let component = new SampleComponent();
-                component.name = item.ComponentName;
-                component.group = item.ComponentGroup;
-                component.samples.push(item);
+                component.Name = item.ComponentName;
+                component.Group = item.ComponentGroup;
+                component.Samples.push(item);
                 componentsMap.set(item.ComponentName, component);
             }
         }
@@ -417,26 +428,30 @@ class Transformer {
         for (let key of Array.from( componentsMap.keys()) ) {
             let component = componentsMap.get(key);
 
-            if (groupMap.has(component.group)) {
-                groupMap.get(component.group).components.push(component);
+            if (groupMap.has(component.Group)) {
+                groupMap.get(component.Group).Components.push(component);
             } else {
                 let group = new SampleGroup();
-                group.name = component.group;
-                group.components.push(component);
-                group.OutputPath = '/' + component.group;
-                groupMap.set(component.group, group);
+                group.Name = component.Group;
+                group.Components.push(component);
+                groupMap.set(component.Group, group);
             }
         }
 
         let groups: SampleGroup[] = [];
         for (let key of Array.from( groupMap.keys()) ) {
             let group = groupMap.get(key);
-            group.components = group.components.sort(this.sortSampleComponents);
+            group.Components = group.Components.sort(this.sortByComponentsName);
 
+            for (let i = 0; i < group.Components.length; i++) {
+                // const element = group.Components[i];
+                group.Components[i].Samples = group.Components[i].Samples.sort(this.sortBySamplesName);
+            }
             // console.log('group ' + key);
-            // for (const component of group.components) {
+            // for (const component of group.Components) {
             //     console.log('component ' + component.name);
 
+                // component.Samples = component.Samples.sort(this.sortBySamplesName);
             //     for (const sample of component.samples) {
             //         console.log('sample ' + sample.SampleFolderName);
             //     }
@@ -454,9 +469,15 @@ class Transformer {
         return groups;
     }
 
-    public static sortSampleComponents(a: SampleComponent, b: SampleComponent) {
-        if (a.name > b.name) { return 1; }
-        if (a.name < b.name) { return -1; }
+    public static sortByComponentsName(a: any, b: any) {
+        if (a.Name > b.Name) { return 1; }
+        if (a.Name < b.Name) { return -1; }
+        return 0;
+    }
+
+    public static sortBySamplesName(a: any, b: any) {
+        if (a.SampleDisplayName > b.SampleDisplayName) { return 1; }
+        if (a.SampleDisplayName < b.SampleDisplayName) { return -1; }
         return 0;
     }
 
@@ -464,28 +485,31 @@ class Transformer {
 
         let imports = '\n';
         imports += "import { RoutingGroup } from '../../navigation/SamplesData'; \n";
-        imports += "// importing " + group.name + " samples: \n";
 
-        let routes = "// creating routing group for " + group.name + " samples: \n";
-        routes += "export const " + group.name + "RoutingData: RoutingGroup = { \n";
-        routes += "    name: '" + group.name + "',\n";
+        let routes = "// creating routing data for " + group.Name + " samples: \n";
+        routes += "export const " + group.Name + "RoutingData: RoutingGroup = { \n";
+        routes += "    name: '" + group.Name + "',\n";
         routes += "    components: [\n";
 
-        for (const component of group.components) {
-            // console.log('component ' + component.name);
+        for (const component of group.Components) {
+            console.log('component ' + component.Name);
 
             // let componentPath = '/' + group.name + '/' + component.name;
             // routes += "    {     path: '" + componentPath +  "', name: '" + component.name + "', routes: [ \n";
-            routes += "    {     name: '" + component.name + "', routes: [ \n";
+            // let componentName = component.Name; // .replace("Geo Map", "Geographic Map");
+            routes += "    {     name: '" + component.Name + "', routes: [ \n";
 
-            for (const sample of component.samples) {
+            imports += "// importing " + component.Name + " samples: \n";
+
+            for (const info of component.Samples) {
+                console.log('- sample ' + info.SampleDisplayName);
+
                 // console.log('sample ' + sample.SampleFolderName);
-                let sampleClass = sample.SampleFileName.replace('.tsx','');
-                let samplePath = './' + sample.ComponentFolder + '/' + sample.SampleFolderName + '/' + sampleClass;
-                imports += "import " + sampleClass +  " from '" + samplePath + "'; \n";
+                // let sampleClass = info.SampleFileName.replace('.tsx','');
+                // let samplePath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleClassName;
+                imports += "import " + info.SampleImportName +  " from '" + info.SampleImportPath + "'; \n";
 
-                routes += "        { path: '" + sample.SampleRoute + "', name: '" + sample.SampleDisplayName + "', component: " + sampleClass + " }, \n";
-
+                routes += "        { path: '" + info.SampleRoute + "', name: '" + info.SampleDisplayName + "', component: " + info.SampleImportName + " }, \n";
             }
             routes += '    ]},\n';
         }
@@ -501,24 +525,22 @@ class Transformer {
 
 class SampleGroup {
 
-    public OutputPath: string;
-
-    public name: string;
-    public components: SampleComponent[];
+    public Name: string;
+    public Components: SampleComponent[];
 
     constructor() {
-        this.components = [];
+        this.Components = [];
     }
 }
 
 class SampleComponent {
 
-    public name: string;
-    public group: string;
-    public samples: SampleInfo[];
+    public Name: string;
+    public Group: string;
+    public Samples: SampleInfo[];
 
     constructor() {
-        this.samples = [];
+        this.Samples = [];
     }
 }
 
