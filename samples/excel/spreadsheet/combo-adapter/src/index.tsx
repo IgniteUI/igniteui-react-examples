@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import SpreadsheetAdapterCombo from './SpreadsheetAdapterCombo';
-ReactDOM.render(<SpreadsheetAdapterCombo />, document.getElementById('root'));
+import SpreadsheetComboAdapter from './SpreadsheetComboAdapter';
+ReactDOM.render(<SpreadsheetComboAdapter />, document.getElementById('root'));
 
 

@@ -21,7 +21,7 @@ import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
 
-import { ExcelUtility } from '/ExcelUtility';
+import { ExcelUtility } from './ExcelUtility';
 
 IgrLiveGridModule.register();
 IgrCategoryChartModule.register();
@@ -30,7 +30,7 @@ IgrExcelCoreModule.register();
 IgrExcelModule.register();
 IgrExcelXlsxModule.register();
 
-export default class ExcelLibraryCharts extends React.Component<any, any> {
+export default class ExcelLibraryWorkingWithCharts extends React.Component<any, any> {
 
     public excelData: any[];
     public chartData: any[];

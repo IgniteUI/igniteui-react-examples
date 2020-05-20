@@ -17,7 +17,7 @@ IgrExcelModule.register();
 IgrExcelXlsxModule.register();
 IgrSpreadsheetModule.register();
 
-export default class SpreadsheetConfiguring extends React.Component<any, any> {
+export default class SpreadsheetConfigOptions extends React.Component<any, any> {
     public spreadsheet: IgrSpreadsheet;
 
     constructor(props: any) {

@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import SpreadsheetConfiguring from './SpreadsheetConfiguring';
-ReactDOM.render(<SpreadsheetConfiguring />, document.getElementById('root'));
+import SpreadsheetConfigOptions from './SpreadsheetConfigOptions';
+ReactDOM.render(<SpreadsheetConfigOptions />, document.getElementById('root'));
 
 

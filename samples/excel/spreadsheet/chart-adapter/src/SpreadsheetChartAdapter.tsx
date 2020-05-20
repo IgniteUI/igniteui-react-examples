@@ -20,7 +20,7 @@ IgrExcelXlsxModule.register();
 IgrSpreadsheetModule.register();
 IgrSpreadsheetChartAdapterModule.register();
 
-export default class SpreadsheetAdapter extends React.Component {
+export default class SpreadsheetChartAdapter extends React.Component {
     public spreadsheet: IgrSpreadsheet;
 
     constructor(props: any) {

@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import ExcelLibrarySparklines from './ExcelLibrarySparklines';
-ReactDOM.render(<ExcelLibrarySparklines />, document.getElementById('root'));
+import ExcelLibraryWorkingWithSparklines from './ExcelLibraryWorkingWithSparklines';
+ReactDOM.render(<ExcelLibraryWorkingWithSparklines />, document.getElementById('root'));
 
 

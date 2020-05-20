@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-import { SharedData } from './ExcelSharedData';
+import { ExcelUtility } from './ExcelUtility';
+// import { ExcelSharedData } from './ExcelSharedData';
+
 import { IgrExcelModule } from 'igniteui-react-excel';
 import { Workbook } from 'igniteui-react-excel';
 import { Worksheet } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
-import { ExcelUtility } from './ExcelUtility';
 import { Color } from 'igniteui-react-core';
-
 import {
     CustomFilterCondition,
     ExcelComparisonOperator,
@@ -20,7 +20,7 @@ import {
 
 IgrExcelModule.register();
 
-export default class ExcelLibraryWorksheets extends React.Component<any, any> {
+export default class ExcelLibraryUsingWorksheets extends React.Component<any, any> {
     public data: any;
     public isSorted: boolean;
     public isFiltered: boolean;

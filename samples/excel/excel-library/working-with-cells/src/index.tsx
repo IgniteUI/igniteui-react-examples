@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import ExcelLibraryCells from './ExcelLibraryCells';
-ReactDOM.render(<ExcelLibraryCells />, document.getElementById('root'));
+import ExcelLibraryWorkingWithCells from './ExcelLibraryWorkingWithCells';
+ReactDOM.render(<ExcelLibraryWorkingWithCells />, document.getElementById('root'));
 
 

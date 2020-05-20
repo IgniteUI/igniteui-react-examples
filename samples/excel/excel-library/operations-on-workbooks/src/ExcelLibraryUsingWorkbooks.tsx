@@ -11,7 +11,7 @@ import { ExcelUtility } from './ExcelUtility';
 
 IgrLiveGridModule.register();
 
-export default class ExcelLibraryWorkbooks extends React.Component<any, any> {
+export default class ExcelLibraryUsingWorkbooks extends React.Component<any, any> {
 
     public grid : IgrLiveGrid;
 

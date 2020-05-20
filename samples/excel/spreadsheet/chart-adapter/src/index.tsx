@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import SpreadsheetAdapter from './SpreadsheetAdapter';
-ReactDOM.render(<SpreadsheetAdapter />, document.getElementById('root'));
+import SpreadsheetChartAdapter from './SpreadsheetChartAdapter';
+ReactDOM.render(<SpreadsheetChartAdapter />, document.getElementById('root'));
 
 

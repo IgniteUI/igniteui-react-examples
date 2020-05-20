@@ -1,8 +1,7 @@
 import * as React from 'react';
 
-
-
-import { SharedData } from './ExcelSharedData';
+import { ExcelUtility } from './ExcelUtility';
+// import { ExcelSharedData } from './ExcelSharedData';
 
 import { Workbook } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
@@ -28,7 +27,6 @@ import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
 
-import { ExcelUtility } from '/ExcelUtility';
 import { Visibility } from 'igniteui-react-core';
 import { WorkbookFontProxy, SparklineType } from 'igniteui-react-excel';
 
@@ -43,7 +41,7 @@ IgrExcelXlsxModule.register();
 
 
 
-export default class ExcelLibrarySparklines extends React.Component<any, any> {
+export default class ExcelLibraryWorkingWithSparklines extends React.Component<any, any> {
 
     public data: any[];
 

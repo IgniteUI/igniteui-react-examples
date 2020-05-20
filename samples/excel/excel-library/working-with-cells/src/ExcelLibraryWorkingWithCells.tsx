@@ -1,13 +1,12 @@
 import * as React from 'react';
 
+import { ExcelUtility } from './ExcelUtility';
+// import { ExcelSharedData } from './ExcelSharedData';
 
-
-import { SharedData } from './ExcelSharedData';
 import { IgrExcelModule } from 'igniteui-react-excel';
 import { Workbook } from 'igniteui-react-excel';
 import { Worksheet } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
-import { ExcelUtility } from '/ExcelUtility';
 
 import { CellReferenceMode } from 'igniteui-react-excel';
 import { WorksheetMergedCellsRegion } from 'igniteui-react-excel';
@@ -17,7 +16,7 @@ import { Formula } from 'igniteui-react-excel';
 
 IgrExcelModule.register();
 
-export default class ExcelLibraryCells extends React.Component<any, any> {
+export default class ExcelLibraryWorkingWithCells extends React.Component<any, any> {
     public canSave = false;
     public wb: Workbook;
     public ws: Worksheet;
