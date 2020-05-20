@@ -58,7 +58,7 @@ interface IDataGridPagerState {
 }
 
 /**
- * This component is designed to be used in conjunction with the IgrLiveGrid component
+ * This component is designed to be used in conjunction with the IgrDataGrid component
  * to provide a small paged view of available data.
  */
 export class DataGridPager extends React.Component<IDataGridPagerProps> {

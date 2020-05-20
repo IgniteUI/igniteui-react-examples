@@ -6,7 +6,7 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of {PlatformName} application with example of {SampleDisplayName}.
+This folder contains implementation of {PlatformName} application with example of {ComponentName} {SampleDisplayName}.
 <!-- in the {ComponentName} component -->
 <!-- [{ComponentName}]({DocsUrl}) -->
 

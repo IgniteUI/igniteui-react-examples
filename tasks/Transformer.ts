@@ -247,13 +247,15 @@ class Transformer {
 
         let title = tempPackage.name;
         title = Strings.replace(title, 'platform-name', igConfig.PlatformName);
-        title = Strings.replace(title, 'sample-display-name', sample.SampleDisplayName);
+        title = Strings.replace(title, 'component-name', sample.ComponentName);
+        title = Strings.replace(title, 'sample-name', sample.SampleDisplayName);
         title = Strings.replace(title, ' ', '-');
         title = title.toLowerCase();
 
         let descr = tempPackage.description;
         descr = Strings.replace(descr, 'platform-name', igConfig.PlatformName);
-        descr = Strings.replace(descr, 'sample-display-name', sample.SampleDisplayName);
+        descr = Strings.replace(descr, 'component-name', sample.ComponentName);
+        descr = Strings.replace(descr, 'sample-name', sample.SampleDisplayName);
 
         samplePackage.name = title;
         samplePackage.description = descr;
