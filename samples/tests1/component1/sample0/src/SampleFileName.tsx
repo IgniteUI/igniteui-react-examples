@@ -3,9 +3,9 @@ import "./SampleFileName.css"; // styles specific only to this sample
 
 export default class SampleFileName extends React.Component<any, any> {
 
-    constructor(props: any) {
-        super(props);
-    }
+    // constructor(props: any) {
+    //     super(props);
+    // }
 
     public render() {
         return (

@@ -4,9 +4,9 @@ import * as React from 'react';
 
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
-import { IgrGeographicHighDensityScatterSeries } from 'igniteui-react-maps';
+// import { IgrGeographicHighDensityScatterSeries } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrDataContext } from 'igniteui-react-core';
+// import { IgrDataContext } from 'igniteui-react-core';
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();

@@ -33,7 +33,7 @@ function log(msg) {
 log('loaded');
 
 let BrowserRootPath = "./tmp";
-let SamplesRootPath = "../samples";
+let SamplesCopyPath = "../samples";
 // let repoRootPath = "C:/REPOS/GitInternalDocs/igniteui-react-examples"
 let RepositoryName = "igniteui-react-examples"
 let repoRootPath = "C:\\REPOS\\GitInternalDocs\\igniteui-react-examples"
@@ -66,10 +66,10 @@ function dirSamples(cb) {
     // initTransformer();
     log('dirSamples start');
     gulp.src([
-        // SamplesRootPath + '/excel-library/**',
-        // SamplesRootPath + '/**/**/**/**/Excel*.tsx',
-        SamplesRootPath + '/**/readme.md',
-        // SamplesRootPath + '/maps/**',
+        // SamplesCopyPath + '/excel-library/**',
+        // SamplesCopyPath + '/**/**/**/**/Excel*.tsx',
+        SamplesCopyPath + '/**/readme.md',
+        // SamplesCopyPath + '/maps/**',
         // samplesSourcePath + '/maps/**/*.tsx',
     ])
     .pipe(flatten({ "includeParents": -1 }))
@@ -106,7 +106,7 @@ function copySamples(cb) {
     clean();
     log('copySamples()');
     return gulp.src([
-        SamplesRootPath + '/maps/**',
+        SamplesCopyPath + '/maps/**',
         // samplesSourcePath + '/maps/**/*.tsx',
     ])
     // .pipe(gulp.dest(BrowserRootPath))

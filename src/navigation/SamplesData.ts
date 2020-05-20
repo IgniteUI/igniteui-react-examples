@@ -1,10 +1,16 @@
-
-export class RouteComponent {
+export class RoutingGroup {
     public name: string;
-    public routes: RouteInfo[];
+    // public path: string;
+    public components: RoutingComponent[];
 }
 
-export class RouteInfo {
+export class RoutingComponent {
+    public name: string;
+    // public path: string;
+    public routes: RoutingSample[];
+}
+
+export class RoutingSample {
     public name: string;
     public path: string;
     public component: any;

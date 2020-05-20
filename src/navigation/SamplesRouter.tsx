@@ -3,7 +3,9 @@ import { Route, Link } from "react-router-dom"
 
 // import { SamplesEmbedded }from "./SamplesEmbedded";
 // import { SamplesBrowser } from "./SamplesBrowser";
-import { RouteComponent } from './SamplesData';
+import { RoutingComponent } from './SamplesData';
+import { RoutingGroup } from './SamplesData';
+import { RoutingSample } from './SamplesData';
 // import { RouteInfo } from './SamplesData'; extends React.Component
 
 export class SamplesRouter {
@@ -22,45 +24,87 @@ export class SamplesRouter {
         return false;
     }
 
-    public static getRoutes(routeComponents: RouteComponent[]): Route[] {
+    public static getRoutes(group: RoutingGroup): Route[] {
         let routes: any[] = [];
 
-        for (const component of routeComponents ) {
+        for (const component of group.components ) {
             for (const sample of component.routes ) {
                 let url = sample.path;
                 routes.push (
-                    <Route exact={false} path={url} key={url} component={sample.component}/>
+                    <Route exact={true} path={url} key={url} component={sample.component}/>
                     // <Route exact={false} path={`${process.env.PUBLIC_URL}/samples`} key="samples" component={AppBrowser}/>
                 );
                 routes.push (
-                    <Route exact={false} path={'/samples'+url} key={'/samples'+url} component={sample.component}/>
+                    <Route exact={true} path={'/samples'+url} key={'/samples'+url} component={sample.component}/>
                 );
             }
         }
         return routes;
     }
 
-    public static getLinks(routeComponents: RouteComponent[], routePrefix?: string): Route[] {
+    public static getLinks(group: RoutingGroup, onSampleOpen: (sample: RoutingSample) => void): any[] {
         let lists: any[] = [];
-        if (routePrefix === undefined) { routePrefix = ""; }
+        // if (routePrefix === undefined) { routePrefix = ""; }
 
-        for (const component of routeComponents ) {
+        lists.push(<div className='sbNavigation-group' key={'group-' + group.name}>{group.name}</div>);
+        for (const component of group.components ) {
             let links: any[] = [];
             for (const sample of component.routes ) {
-                let url = routePrefix + sample.path;
+
+                let id = 'sbNav-link-' + sample.path;
+                let url = '/samples' + sample.path;
                 links.push (
-                    <li key={url}>
-                        <Link to={url}>{sample.name}</Link>
-                    </li>
+                    // <a className='sbNavigation-link' key={url2} href={url2}>
+                    //     <div className='sbNavigation-link-symbol'>&#x2605;</div>
+                    //     <div>{sample.name}</div>
+                    // </a>
+                    <Link className='sbNavigation-link' key={url} id={id} to={url}
+                          onClick={(e) => this.onClickLink(sample, onSampleOpen)}>
+                        <div className='sbNavigation-link-symbol'>&#x2605;</div>
+                        <div>{sample.name}</div>
+                    </Link>
                 );
             }
-            lists.push(<h2 key={'header-' + component.name}>{component.name}</h2>);
-            lists.push(<ul key={'list-' + component.name}>{links}</ul>);
+            let navListID = 'sbNav-list-' + component.name
+            let navList = <div className='sbNavigation-list' key={navListID} id={navListID} style={{display: "none"}} >{links}</div>;
+
+            let navComponentID = 'sbNav-component-' + component.name
+            let navComponent = <div
+                className='sbNavigation-control'
+                key={navComponentID}
+                id={navComponentID}
+                onClick={(e) => this.onClickToggle(component)}>&#10148;  {component.name}</div>;
+
+            lists.push(navComponent);
+            lists.push(navList);
         }
         return lists;
     }
 
-    public NavRoutes: any[];
+    public static onClickLink(sample: RoutingSample, onSampleOpen: (sample: RoutingSample) => void) {
+        // console.log('onClickOpen ' + window.location.pathname );
+        let selectedLink = "sbNav-link-" + sample.path;
+        document.querySelectorAll(".sbNavigation-link").forEach(element => {
+            let navLink = element as HTMLElement;
+            if (navLink) {
+                navLink.setAttribute("style", navLink.id === selectedLink ? "color: #55a8fa;" : "color: #dbdbdb;");
+            }
+        });
+        onSampleOpen(sample);
+    }
+
+    public static onClickToggle(component: RoutingComponent) {
+        let navList = document.getElementById("sbNav-list-" + component.name);
+        if (navList) {
+            let style = navList.style as CSSStyleDeclaration;
+            let isVisible = style.display === "none";
+            // let state = navList.getAttribute("state") as string;
+            // let isVisible = state === "expanded";
+            // navList.setAttribute("state", isVisible ? "expanded" : "collapsed");
+            navList.setAttribute("style", isVisible ? "display: block;" : "display: none;");
+        }
+    }
+
 
     // constructor(props: any) {
     //     super(props);

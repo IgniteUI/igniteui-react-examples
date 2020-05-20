@@ -94,6 +94,13 @@ class Transformer {
         }
     }
 
+    public static getDataRoutes(samples: SampleInfo[]): void {
+        // { name: 'tests', routes: [
+        //     { path: '/tests/test-component1-test-sample0', name: 'SampleFileName', component: SampleFileName},
+        //     { path: '/tests/test-component1-test-sample1', name: 'MapBindingDataJSON', component: MapBindingDataJSON},
+        // ]},
+    }
+
     public static process(samples: SampleInfo[]): void {
 
         for (const info of samples) {
@@ -113,7 +120,7 @@ class Transformer {
             info.ComponentName = Strings.toTitleCase(info.ComponentFolder, '-');
 
             // info.SampleFolderPath = relativePath;
-            // info.SampleRoute = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "/" + info.SampleFolderName;
+            info.SampleRoute = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "-" + info.SampleFolderName;
 
             // console.log(info.SampleFolderPath + " " + info.SampleFilePaths.length);
 
@@ -297,6 +304,7 @@ class Transformer {
             path = path.split(igConfig.RepositoryName)[1];
             path = path.split("\\").join("/");
             return "." + path;
+            // return path;
         }
 
         console.log("failed on getRelative " + path);
@@ -331,10 +339,6 @@ class Transformer {
         return "";
     }
 
-
-    public test() {
-        console.log("Transformer.ts test ");
-    }
 
     public static updateIndex(sample: SampleInfo, template: string): string {
 
@@ -391,6 +395,130 @@ class Transformer {
         // console.log(readMe);
         // console.log("====== ReadMe.md File =======================");
         return readMe;
+    }
+
+    public static getRoutingGroups(samples: SampleInfo[]): SampleGroup[] {
+        let componentsMap = new Map<string, SampleComponent>();
+
+        for (const item of samples) {
+            if (componentsMap.has(item.ComponentName)) {
+                componentsMap.get(item.ComponentName).samples.push(item);
+            } else {
+                let component = new SampleComponent();
+                component.name = item.ComponentName;
+                component.group = item.ComponentGroup;
+                component.samples.push(item);
+                componentsMap.set(item.ComponentName, component);
+            }
+        }
+
+        let groupMap = new Map<string, SampleGroup>();
+
+        for (let key of Array.from( componentsMap.keys()) ) {
+            let component = componentsMap.get(key);
+
+            if (groupMap.has(component.group)) {
+                groupMap.get(component.group).components.push(component);
+            } else {
+                let group = new SampleGroup();
+                group.name = component.group;
+                group.components.push(component);
+                group.OutputPath = '/' + component.group;
+                groupMap.set(component.group, group);
+            }
+        }
+
+        let groups: SampleGroup[] = [];
+        for (let key of Array.from( groupMap.keys()) ) {
+            let group = groupMap.get(key);
+            group.components = group.components.sort(this.sortSampleComponents);
+
+            // console.log('group ' + key);
+            // for (const component of group.components) {
+            //     console.log('component ' + component.name);
+
+            //     for (const sample of component.samples) {
+            //         console.log('sample ' + sample.SampleFolderName);
+            //     }
+            // }
+            // let group = new SampleGroup();
+            // group.name = key;
+            // group.samples = map.get(key);
+
+            // for (let item of map.get(key) ) {
+            //     console.log(item.SampleRoute);
+            // }
+            // // groups.push(map.get(key));
+            groups.push(group);
+        }
+        return groups;
+    }
+
+    public static sortSampleComponents(a: SampleComponent, b: SampleComponent) {
+        if (a.name > b.name) { return 1; }
+        if (a.name < b.name) { return -1; }
+        return 0;
+    }
+
+    public static getRoutingFile(group: SampleGroup): string {
+
+        let imports = '\n';
+        imports += "import { RoutingGroup } from '../../navigation/SamplesData'; \n";
+        imports += "// importing " + group.name + " samples: \n";
+
+        let routes = "// creating routing group for " + group.name + " samples: \n";
+        routes += "export const " + group.name + "RoutingData: RoutingGroup = { \n";
+        routes += "    name: '" + group.name + "',\n";
+        routes += "    components: [\n";
+
+        for (const component of group.components) {
+            // console.log('component ' + component.name);
+
+            // let componentPath = '/' + group.name + '/' + component.name;
+            // routes += "    {     path: '" + componentPath +  "', name: '" + component.name + "', routes: [ \n";
+            routes += "    {     name: '" + component.name + "', routes: [ \n";
+
+            for (const sample of component.samples) {
+                // console.log('sample ' + sample.SampleFolderName);
+                let sampleClass = sample.SampleFileName.replace('.tsx','');
+                let samplePath = './' + sample.ComponentFolder + '/' + sample.SampleFolderName + '/' + sampleClass;
+                imports += "import " + sampleClass +  " from '" + samplePath + "'; \n";
+
+                routes += "        { path: '" + sample.SampleRoute + "', name: '" + sample.SampleDisplayName + "', component: " + sampleClass + " }, \n";
+
+            }
+            routes += '    ]},\n';
+        }
+
+        routes += '    ]\n';
+        routes += '};\n';
+
+        let content = imports + "\n" + routes;
+        // console.log(content);
+        return content;
+    }
+}
+
+class SampleGroup {
+
+    public OutputPath: string;
+
+    public name: string;
+    public components: SampleComponent[];
+
+    constructor() {
+        this.components = [];
+    }
+}
+
+class SampleComponent {
+
+    public name: string;
+    public group: string;
+    public samples: SampleInfo[];
+
+    constructor() {
+        this.samples = [];
     }
 }
 

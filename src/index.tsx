@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import './index.css';
 // import App from './App';
 // import { SamplesRouter } from './navigation/SamplesRouter';
-import { SamplesBrowser }from "./navigation/SamplesBrowser";
+import SamplesBrowser from "./navigation/SamplesBrowser";
 import * as serviceWorker from './serviceWorker';
 
 import './index.css'; // styles shared between all samples
