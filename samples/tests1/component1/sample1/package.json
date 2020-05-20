@@ -1,6 +1,6 @@
 {
-  "name": "react-map-binding-data-json",
-  "description": "This project provides example of Map Binding Data JSON using Infragistics React components",
+  "name": "react-component1-binding-data-json",
+  "description": "This project provides example of Component1 Binding Data JSON using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

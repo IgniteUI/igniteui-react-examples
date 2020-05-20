@@ -1,6 +1,6 @@
 {
-  "name": "react-map-imagery-sources",
-  "description": "This project provides example of Map Imagery Sources using Infragistics React components",
+  "name": "react-geographic-map-display-imagery-tiles",
+  "description": "This project provides example of Geographic Map Display Imagery Tiles using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

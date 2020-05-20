@@ -3,14 +3,14 @@ import * as React from 'react';
 import './odatajs-4.0.0';
 
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { ODataVirtualDataSource } from 'igniteui-react-datasources';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridBindingRemoteData extends React.Component<any, any> {
 
@@ -27,7 +27,7 @@ export default class DataGridBindingRemoteData extends React.Component<any, any>
     public render() {
         return (
             <div className="igContainer">
-                <IgrLiveGrid
+                <IgrDataGrid
                    width="100%"
                    height="100%"
                    autoGenerateColumns="false"
@@ -42,7 +42,7 @@ export default class DataGridBindingRemoteData extends React.Component<any, any>
                    <IgrTextColumn propertyPath="ShipAddress" headerText="Address" />
                    <IgrTextColumn propertyPath="ShipCity" headerText="City" width="130"/>
                    <IgrTextColumn propertyPath="ShipCountry" headerText="Country" width="110"/>
-                </IgrLiveGrid>
+                </IgrDataGrid>
             </div>
         );
     }

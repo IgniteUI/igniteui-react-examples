@@ -1,6 +1,6 @@
 {
-  "name": "react-map-custom-tooltips",
-  "description": "This project provides example of Map Custom Tooltips using Infragistics React components",
+  "name": "react-geographic-map-map-custom-tooltips",
+  "description": "This project provides example of Geographic Map Map Custom Tooltips using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

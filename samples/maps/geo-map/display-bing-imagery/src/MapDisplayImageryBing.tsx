@@ -15,7 +15,7 @@ import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapDisplayImageryBingTiles extends React.Component<any, any> {
+export default class MapDisplayImageryBing extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);

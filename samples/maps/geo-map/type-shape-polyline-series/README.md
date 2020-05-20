@@ -6,9 +6,9 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Map Type Scatter Polyline Series.
-<!-- in the Geo Map component -->
-<!-- [Geo Map](https://infragistics.com/Reactsite/components/geo-map.html) -->
+This folder contains implementation of React application with example of Geographic Map Scatter Polyline Series.
+<!-- in the Geographic Map component -->
+<!-- [Geographic Map](https://infragistics.com/Reactsite/components/geo-map.html) -->
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>

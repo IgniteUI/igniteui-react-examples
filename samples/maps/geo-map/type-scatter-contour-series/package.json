@@ -1,6 +1,6 @@
 {
-  "name": "react-map-type-scatter-contour-series",
-  "description": "This project provides example of Map Type Scatter Contour Series using Infragistics React components",
+  "name": "react-geographic-map-scatter-contour-series",
+  "description": "This project provides example of Geographic Map Scatter Contour Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

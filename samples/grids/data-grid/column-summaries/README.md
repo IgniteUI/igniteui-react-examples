@@ -53,8 +53,8 @@ import * as React from 'react';
 
 import { DataGridSharedData } from './DataGridSharedData';
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { IgrColumnSummaryDescription } from 'igniteui-react-grids'
 import { SummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult } from 'igniteui-react-core';
@@ -62,12 +62,12 @@ import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridColumnSummaries extends React.Component<any, any> {
 
     public data: any[];
-    public grid: IgrLiveGrid;
+    public grid: IgrDataGrid;
 
     constructor(props: any) {
         super(props);
@@ -98,7 +98,7 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
                     </select>
                 </div>
 
-                <IgrLiveGrid
+                <IgrDataGrid
                     ref={this.onGridRef}
                     summaryScope = {this.state.summaryScope}
                     groupSummaryDisplayMode = {this.state.groupSummaryDisplayMode}
@@ -119,7 +119,7 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
                         <IgrNumericColumn propertyPath="Profit" showGroupingSeparator="true" headerText="Profit"
                         positivePrefix="$"  />
                         <IgrTextColumn propertyPath="Countries" headerText="Ship Country"/>
-                </IgrLiveGrid>
+                </IgrDataGrid>
             </div>
         );
     }
@@ -132,7 +132,7 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
         this.grid.groupSummaryDisplayMode = e.target.value;
         this.setState( {groupSummaryDisplayMode: e.target.value} );
     }
-    public onGridRef(grid: IgrLiveGrid) {
+    public onGridRef(grid: IgrDataGrid) {
         this.grid = grid;
         this.grid.actualDataSource.isSectionExpandedDefault = true;
     }

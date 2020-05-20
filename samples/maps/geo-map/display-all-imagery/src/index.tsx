@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import MapImagerySources from './MapImagerySources';
-ReactDOM.render(<MapImagerySources />, document.getElementById('root'));
+import MapDisplayImageryTiles from './MapDisplayImageryTiles';
+ReactDOM.render(<MapDisplayImageryTiles />, document.getElementById('root'));
 
 

@@ -15,7 +15,7 @@ import { MapUtils } from './MapUtils';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapImagerySources extends React.Component<any, any> {
+export default class MapDisplayImageryTiles extends React.Component<any, any> {
 
     public geoMap: IgrGeographicMap;
     public tileSource: IgrBingMapsMapImagery;

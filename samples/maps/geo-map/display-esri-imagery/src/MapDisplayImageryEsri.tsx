@@ -12,7 +12,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapDisplayImageryEsriTiles extends React.Component<any, any> {
+export default class MapDisplayImageryEsri extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);

@@ -52,14 +52,14 @@ import * as React from 'react';
 
 import { DataGridSharedData } from './DataGridSharedData';
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridColumnScrolling extends React.Component<any, any> {
 
@@ -75,7 +75,7 @@ export default class DataGridColumnScrolling extends React.Component<any, any> {
     public render() {
         return (
             <div className="igContainer">
-                <IgrLiveGrid
+                <IgrDataGrid
                 height="100%"
                 width="100%"
                 autoGenerateColumns="false"
@@ -95,7 +95,7 @@ export default class DataGridColumnScrolling extends React.Component<any, any> {
 
                     <IgrNumericColumn propertyPath="Salary" headerText="Salary" positivePrefix="$" showGroupingSeparator="true"/>
                     <IgrNumericColumn propertyPath="Sales" headerText="Sales" positivePrefix="$" showGroupingSeparator="true"/>
-                </IgrLiveGrid>
+                </IgrDataGrid>
             </div>
         );
     }

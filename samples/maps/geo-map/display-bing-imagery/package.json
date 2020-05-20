@@ -1,6 +1,6 @@
 {
-  "name": "react-map-display-imagery-bing-tiles",
-  "description": "This project provides example of Map Display Imagery Bing Tiles using Infragistics React components",
+  "name": "react-geographic-map-display-imagery-bing",
+  "description": "This project provides example of Geographic Map Display Imagery Bing using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

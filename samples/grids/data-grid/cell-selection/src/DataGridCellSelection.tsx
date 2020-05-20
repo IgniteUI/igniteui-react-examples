@@ -3,19 +3,19 @@ import * as React from 'react';
 
 import { DataGridSharedData } from './DataGridSharedData';
 
-import { IgrLiveGrid } from 'igniteui-react-grids';
-import { IgrLiveGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridCellSelection extends React.Component<any, any> {
 
     public data: any[];
-    public grid: IgrLiveGrid;
+    public grid: IgrDataGrid;
 
     constructor(props: any) {
         super(props);
@@ -28,7 +28,7 @@ export default class DataGridCellSelection extends React.Component<any, any> {
         this.data = DataGridSharedData.getEmployees();
     }
 
-    public onGridRef(grid: IgrLiveGrid) {
+    public onGridRef(grid: IgrDataGrid) {
         this.grid = grid;
     }
 
@@ -49,7 +49,7 @@ export default class DataGridCellSelection extends React.Component<any, any> {
                     {/* <button onClick={this.onClick}>Click Me</button> */}
                 </div>
 
-                <IgrLiveGrid
+                <IgrDataGrid
                     ref={this.onGridRef}
                     height="calc(100% - 40px)"
                     width="100%"
@@ -67,7 +67,7 @@ export default class DataGridCellSelection extends React.Component<any, any> {
                     horizontalAlignment="center"  width="90"/>
                     <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" />
 
-                </IgrLiveGrid>
+                </IgrDataGrid>
             </div>
         );
     }

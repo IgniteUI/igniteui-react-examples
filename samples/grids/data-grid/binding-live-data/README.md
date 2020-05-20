@@ -312,7 +312,8 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                     <IgrTextColumn propertyPath="ID" width="90" isHidden="true"/>
                     <IgrTextColumn propertyPath="Category" width="100" />
                     <IgrTextColumn propertyPath="Type" width="90"    />
-                    <IgrTextColumn propertyPath="Contract" width="100" />
+                    <IgrTextColumn propertyPath="Risk" width="100" />
+                    <IgrTextColumn propertyPath="Contract" width="60" />
                     <IgrNumericColumn propertyPath="Open Price" width="100"/>
                     <IgrTemplateColumn propertyPath="Price" width="100"
                         horizontalAlignment="right"
@@ -348,81 +349,23 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                     <IgrTemplateColumn propertyPath="Grid" width="80"
                         cellStyleKeyRequested={this.onGridStyleKey}
                         cellUpdating={this.onGridCellUpdating} />
-                    <IgrTextColumn propertyPath="IndGrou" width="100" />
-                    <IgrTextColumn propertyPath="IndSect" width="120"/>
-                    <IgrTextColumn propertyPath="IndSubg" width="100" />
-                    <IgrTextColumn propertyPath="SecType" width="90" />
-                    <IgrTextColumn propertyPath="IssuerN" width="170"/>
-                    <IgrTextColumn propertyPath="Moodys" width="60" />
-                    <IgrTextColumn propertyPath="Fitch" width="60" />
-                    <IgrTextColumn propertyPath="DBRS" width="60" />
-                    <IgrTextColumn propertyPath="CollatT" width="90" />
-                    <IgrTextColumn propertyPath="Curncy" width="60" />
+                    <IgrTextColumn propertyPath="IndGroup" width="100" />
+                    <IgrTextColumn propertyPath="IndSector" width="120"/>
+                    <IgrTextColumn propertyPath="IndCategory" width="100" />
+                    <IgrTextColumn propertyPath="Sector" width="90" />
+                    <IgrTextColumn propertyPath="Issuer" width="170"/>
+                    <IgrTextColumn propertyPath="Rating" width="60" />
+                    <IgrTextColumn propertyPath="Currency" width="60" />
                     <IgrTextColumn propertyPath="Security" width="120" />
-                    <IgrTextColumn propertyPath="sector" width="80" />
-                    <IgrNumericColumn propertyPath="CUSIP" width="100" />
+                    <IgrNumericColumn propertyPath="Transactions" width="100" />
                     <IgrTextColumn propertyPath="Ticker" width="60" />
-                    <IgrNumericColumn propertyPath="Cpn" width="80" />
+                    <IgrNumericColumn propertyPath="CPN" width="80" />
                     <IgrTextColumn propertyPath="Maturity" width="120" />
+                    <IgrTextColumn propertyPath="Collateral" width="90" />
+                    <IgrTextColumn propertyPath="DBRS" width="60" />
                     <IgrNumericColumn propertyPath="KRD_3YR" width="110" />
-                    <IgrNumericColumn propertyPath="ZV_SPREAD" width="90" />
                     <IgrNumericColumn propertyPath="KRD_5YR" width="50" />
                     <IgrNumericColumn propertyPath="KRD_1YR" width="80" />
-                    <IgrTextColumn name="IndGrou2" propertyPath="IndGrou" width="100" />
-                    <IgrTextColumn name="IndSect2" propertyPath="IndSect" width="100"/>
-                    <IgrTextColumn name="IndSubg2" propertyPath="IndSubg" width="100" />
-                    <IgrTextColumn name="SecType2" propertyPath="SecType" width="90" />
-                    <IgrTextColumn name="IssuerN2" propertyPath="IssuerN" width="170" />
-                    <IgrTextColumn name="Moodys2" propertyPath="Moodys" width="60" />
-                    <IgrTextColumn name="Fitch2" propertyPath="Fitch" width="60" />
-                    <IgrTextColumn name="DBRS2" propertyPath="DBRS" width="60" />
-                    <IgrTextColumn name="CollatT2" propertyPath="CollatT" width="90" />
-                    <IgrTextColumn name="Curncy2" propertyPath="Curncy" width="60" />
-                    <IgrTextColumn name="Security2" propertyPath="Security" width="120" />
-                    <IgrTextColumn name="sector2" propertyPath="sector" width="80" />
-                    <IgrNumericColumn name="CUSIP2" propertyPath="CUSIP" width="100" />
-                    <IgrTextColumn name="Ticker2" propertyPath="Ticker" width="60" />
-                    <IgrNumericColumn name="Cpn2" propertyPath="Cpn" width="80" />
-                    <IgrTextColumn name="Maturity2" propertyPath="Maturity" width="120" />
-                    <IgrNumericColumn name="KRD_3YR2" propertyPath="KRD_3YR" width="110" />
-                    <IgrNumericColumn name="ZV_SPREAD2" propertyPath="ZV_SPREAD" width="90" />
-                    <IgrNumericColumn name="KRD_5YR2" propertyPath="KRD_5YR" width="50" />
-                    <IgrNumericColumn name="KRD_1YR2" propertyPath="KRD_1YR" width="80" />
-                    <IgrTextColumn name="IndGrou3" propertyPath="IndGrou" width="100" />
-                    <IgrTextColumn name="IndSect3" propertyPath="IndSect" width="100"/>
-                    <IgrTextColumn name="IndSubg3" propertyPath="IndSubg" width="100" />
-                    <IgrTextColumn name="SecType3" propertyPath="SecType" width="90" />
-                    <IgrTextColumn name="IssuerN3" propertyPath="IssuerN" width="170"/>
-                    <IgrTextColumn name="Moodys3" propertyPath="Moodys" width="60" />
-                    <IgrTextColumn name="Fitch3" propertyPath="Fitch" width="60" />
-                    <IgrTextColumn name="DBRS3" propertyPath="DBRS" width="60" />
-                    <IgrTextColumn name="CollatT3" propertyPath="CollatT" width="90" />
-                    <IgrTextColumn name="Curncy3" propertyPath="Curncy" width="60" />
-                    <IgrTextColumn name="Security3" propertyPath="Security" width="120" />
-                    <IgrTextColumn name="sector3" propertyPath="sector" width="80" />
-                    <IgrNumericColumn name="CUSIP3" propertyPath="CUSIP" width="100" />
-                    <IgrTextColumn name="Ticker3" propertyPath="Ticker" width="60" />
-                    <IgrTextColumn name="Cpn3" propertyPath="Cpn" width="80" />
-                    <IgrNumericColumn name="Maturity3" propertyPath="Maturity" width="120" />
-                    <IgrNumericColumn name="KRD_3YR3" propertyPath="KRD_3YR" width="110" />
-                    <IgrNumericColumn name="ZV_SPREAD3" propertyPath="ZV_SPREAD" width="90" />
-                    <IgrNumericColumn name="KRD_5YR3" propertyPath="KRD_5YR" width="50" />
-                    <IgrNumericColumn name="KRD_1YR3" propertyPath="KRD_1YR" width="80" />
-                    <IgrTextColumn name="IndGrou4" propertyPath="IndGrou" width="100" />
-                    <IgrTextColumn name="IndSect4" propertyPath="IndSect" width="100"/>
-                    <IgrTextColumn name="IndSubg4" propertyPath="IndSubg" width="100" />
-                    <IgrTextColumn name="SecType4" propertyPath="SecType" width="90" />
-                    <IgrTextColumn name="IssuerN4" propertyPath="IssuerN" width="170"/>
-                    <IgrTextColumn name="Moodys4" propertyPath="Moodys" width="60" />
-                    <IgrTextColumn name="Fitch4" propertyPath="Fitch" width="60" />
-                    <IgrNumericColumn name="DBRS4" propertyPath="DBRS" width="60" />
-                    <IgrTextColumn name="CollatT4" propertyPath="CollatT" width="90" />
-                    <IgrTextColumn name="Curncy4" propertyPath="Curncy" width="60" />
-                    <IgrTextColumn name="Security4" propertyPath="Security" width="120" />
-                    <IgrTextColumn name="sector4" propertyPath="sector" width="80" />
-                    <IgrNumericColumn name="CUSIP4" propertyPath="CUSIP" width="100" />
-                    <IgrTextColumn name="Ticker4" propertyPath="Ticker" width="60" />
-                    <IgrNumericColumn name="Cpn4" propertyPath="Cpn" width="80" />
                 </IgrLiveGrid>
 
                 <Dialog
@@ -588,7 +531,6 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         }
         // }
         // this.grid.invalidateVisibleRows();
-        // actualDataSource.queueAumaxRefresh();
 
         if (intervalElapsed && this.state.chartOpen) {
             this.updatePricesByCountry();
@@ -620,9 +562,11 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                 }
             }
             let currVal = pricesByCountry.get(country);
-            currVal += item.Price;
-            currVal = Math.round(currVal * 100.0) / 100.0;
-            pricesByCountry.set(country, currVal);
+            if (currVal) {
+                currVal += item.Price;
+                currVal = Math.round(currVal * 100.0) / 100.0;
+                pricesByCountry.set(country, currVal);
+            }
         }
 
         if (shouldPopulate) {
@@ -641,7 +585,8 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         }
     }
 
-    public onPriceStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
+    // cellStyleKeyRequested?: (s: IgrDefinitionBase, e: IgrCellStyleRequestedEventArgs) => void;
+    public onPriceStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         let row: any | null = null;
         if (this.grid) {
             row = this.grid.actualDataSource.getItemAtIndex(args.rowNumber);
@@ -655,7 +600,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         }
     }
 
-    public onPriceCellUpdating(grid: IgrTemplateColumn, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPriceCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let item = args.cellInfo.rowItem;
         let priceShiftUp = item.Change >= 0;
         let templ = args.cellInfo as IgrTemplateCellInfo;
@@ -713,8 +658,8 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         }
 
         let content = args.content as HTMLDivElement;
-        let sp: HTMLSpanElement = null;
-        let icon: HTMLSpanElement = null;
+        let sp: HTMLSpanElement;
+        let icon: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             sp = content.children[0] as HTMLSpanElement;
@@ -750,7 +695,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         }
     }
 
-    public onPricePercentStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
+    public onPricePercentStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = "pricePercentUp";
         } else {
@@ -758,7 +703,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         }
     }
 
-    public onPricePercentCellUpdating(grid: IgrTemplateColumn, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPricePercentCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
         let priceShiftUp = templ.value >= 0;
 
@@ -812,7 +757,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         }
 
         let content = args.content as HTMLDivElement;
-        let sp: HTMLSpanElement = null;
+        let sp: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             sp = content.children[0] as HTMLSpanElement;
@@ -840,7 +785,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         }
     }
 
-    public onPriceAmountStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
+    public onPriceAmountStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = "priceAmountUp";
         } else {
@@ -848,7 +793,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         }
     }
 
-    public onPriceAmountCellUpdating(grid: IgrTemplateColumn, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPriceAmountCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
         let priceShiftUp = templ.value >= 0;
 
@@ -896,7 +841,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         }
 
         let content = args.content as HTMLDivElement;
-        let sp: HTMLSpanElement = null;
+        let sp: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             sp = content.children[0] as HTMLSpanElement;
@@ -925,18 +870,18 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         }
     }
 
-    public onChartStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
+    public onChartStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         args.styleKey = "igComponent";
     }
 
-    public onChartCellUpdating(grid: IgrTemplateColumn, args: IgrTemplateCellUpdatingEventArgs) {
+    public onChartCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         if (args.isCanvasBased) {
             return;
         }
         let templ = args.cellInfo as IgrTemplateCellInfo;
 
         let content = args.content as HTMLDivElement;
-        let icon: HTMLSpanElement = null;
+        let icon: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             icon = content.children[0] as HTMLSpanElement;
@@ -957,17 +902,17 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
 
     }
 
-    public onGridStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
+    public onGridStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         args.styleKey = "grid";
     }
 
-    public onGridCellUpdating(grid: IgrTemplateColumn, args: IgrTemplateCellUpdatingEventArgs) {
+    public onGridCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         if (args.isCanvasBased) {
             return;
         }
 
         let content = args.content as HTMLDivElement;
-        let icon: HTMLSpanElement = null;
+        let icon: HTMLSpanElement;
 
         if (content.childElementCount > 0) {
             icon = content.children[0] as HTMLSpanElement;
@@ -1046,13 +991,19 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
             });
     }
 
-    public onPriceFrequencyChanged(event: any, value: number) {
+    // onChange?: (event: React.ChangeEvent<{}>, value: number | number[]) => void;
+    // public onPriceFrequencyChanged(event: any, value: number) {
+    // public onPriceFrequencyChanged(event: any, value: number | number[]) {
+        public onPriceFrequencyChanged(event: any, input: any) {
+    // public onPriceFrequencyChanged(event: React.ChangeEvent<{}>, value: number) {
+        let value = parseFloat(input.toString());
         this.setState({
-            frequency: value
+            frequency: value,
         });
     }
 
-    public onPriceVolumeChanged(event: any, value: number) {
+    public onPriceVolumeChanged(event: any, input: any) {
+        let value = parseFloat(input.toString());
         this.setState({
             volume: value,
             data: LiveFinancialData.generateData(value)

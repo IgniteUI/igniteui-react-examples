@@ -1,6 +1,6 @@
 {
-  "name": "react-map-binding-data-json-points",
-  "description": "This project provides example of Map Binding Data Json Points using Infragistics React components",
+  "name": "react-geographic-map-binding-data-json-points",
+  "description": "This project provides example of Geographic Map Binding Data Json Points using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

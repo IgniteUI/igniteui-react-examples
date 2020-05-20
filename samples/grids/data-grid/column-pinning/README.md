@@ -50,22 +50,22 @@ The following section provides source code from:
 ```tsx
 import * as React from 'react';
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
-import { SharedData } from './DataGridSharedData';
+import { DataGridSharedData } from './DataGridSharedData';
 import { PinnedPositions } from 'igniteui-react-grids';
 import { Button } from '@material-ui/core';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridColumnPinning extends React.Component<any, any> {
 
     public data: any[];
-    public grid: IgrLiveGrid;
+    public grid: IgrDataGrid;
 
     constructor(props: any) {
         super(props);
@@ -81,7 +81,7 @@ export default class DataGridColumnPinning extends React.Component<any, any> {
         this.data = DataGridSharedData.getEmployees();
     }
 
-    public onGridRef(grid: IgrLiveGrid) {
+    public onGridRef(grid: IgrDataGrid) {
         this.grid = grid;
     }
 
@@ -93,7 +93,7 @@ export default class DataGridColumnPinning extends React.Component<any, any> {
                     <button className="igOptions-item" disabled={this.state.isPinningToRightDisabled} onClick={this.onPinRight} style={{ width: "100px" }}>Pin Right</button>
                     <button className="igOptions-item" onClick={this.onUnPin} style={{ width: "105px" }}>Unpin Columns</button>
                 </div>
-                <IgrLiveGrid
+                <IgrDataGrid
                 ref={this.onGridRef}
                 height="calc(100% - 40px)"
                 width="100%"
@@ -118,7 +118,7 @@ export default class DataGridColumnPinning extends React.Component<any, any> {
 
                     <IgrNumericColumn propertyPath="Salary" headerText="Salary" positivePrefix="$" showGroupingSeparator="true"/>
                     <IgrNumericColumn propertyPath="Sales" headerText="Sales" positivePrefix="$" showGroupingSeparator="true"/>
-                </IgrLiveGrid>
+                </IgrDataGrid>
             </div>
         );
     }

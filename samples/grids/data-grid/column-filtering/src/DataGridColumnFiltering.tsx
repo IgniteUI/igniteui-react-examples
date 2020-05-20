@@ -3,8 +3,8 @@ import * as React from 'react';
 
 import { DataGridSharedData } from './DataGridSharedData';
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
@@ -13,12 +13,12 @@ import { FilterExpression } from 'igniteui-react-core';
 import { FilterFactory } from 'igniteui-react-core';
 
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridRowFiltering extends React.Component<any, any> {
 
     public data: any[];
-    public grid: IgrLiveGrid;
+    public grid: IgrDataGrid;
     public filterColumn: string = "Street";
     public filterMode: string = "Contains";
     public filterText: string = "Market";
@@ -35,7 +35,7 @@ export default class DataGridRowFiltering extends React.Component<any, any> {
         this.data = DataGridSharedData.getEmployees(4000);
     }
 
-    public onGridRef(grid: IgrLiveGrid) {
+    public onGridRef(grid: IgrDataGrid) {
         this.grid = grid;
         this.applyFilter();
     }
@@ -109,7 +109,7 @@ export default class DataGridRowFiltering extends React.Component<any, any> {
                        onChange={this.onFilterTextChanged} />
                 </div>
 
-                <IgrLiveGrid
+                <IgrDataGrid
                     ref={this.onGridRef}
                     height="calc(100% - 40px)"
                     width="100%"
@@ -125,7 +125,7 @@ export default class DataGridRowFiltering extends React.Component<any, any> {
                     <IgrNumericColumn propertyPath="Sales" positivePrefix="$" showGroupingSeparator="true" />
                     <IgrDateTimeColumn propertyPath="Birthday" headerText="Birthday" />
 
-                </IgrLiveGrid>
+                </IgrDataGrid>
             </div>
         );
     }

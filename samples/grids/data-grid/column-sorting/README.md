@@ -53,8 +53,8 @@ import * as React from 'react';
 
 import { DataGridSharedData } from './DataGridSharedData';
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
@@ -62,12 +62,12 @@ import { HeaderClickAction } from 'igniteui-react-grids';
 import { IgrColumnSortDescription } from 'igniteui-react-grids';
 import { ListSortDirection } from 'igniteui-react-core';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridColumnSorting extends React.Component<any, any> {
 
     public data: any[];
-    public grid: IgrLiveGrid;
+    public grid: IgrDataGrid;
 
     constructor(props: any) {
         super(props);
@@ -90,7 +90,7 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
                         <option>SortByOneColumnOnlyTriState</option>
                     </select>
                 </div>
-                <IgrLiveGrid
+                <IgrDataGrid
                 height="calc(100% - 40px)"
                 width="100%"
                 headerClickAction={HeaderClickAction.SortByMultipleColumnsTriState}
@@ -104,12 +104,12 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
                     <IgrTextColumn propertyPath="City" width="*>130"/>
                     <IgrNumericColumn propertyPath="Price" width="*>110" positivePrefix="$" showGroupingSeparator="true"/>
                     <IgrNumericColumn propertyPath="Rooms" width="80" />
-               </IgrLiveGrid>
+               </IgrDataGrid>
             </div>
         );
     }
 
-    public onGridRef(grid: IgrLiveGrid) {
+    public onGridRef(grid: IgrDataGrid) {
         this.grid = grid;
         let csd = new IgrColumnSortDescription();
         csd.propertyPath = "Property";

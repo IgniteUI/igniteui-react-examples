@@ -1,6 +1,6 @@
 {
-  "name": "react-map-binding-shapefile-polygons",
-  "description": "This project provides example of Map Binding Shapefile Polygons using Infragistics React components",
+  "name": "react-geographic-map-binding-shapefile-polygons",
+  "description": "This project provides example of Geographic Map Binding Shapefile Polygons using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

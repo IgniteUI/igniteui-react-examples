@@ -53,8 +53,8 @@ import * as React from 'react';
 
 import { DataGridSharedData } from './DataGridSharedData';
 
-import { IgrLiveGrid } from 'igniteui-react-grids';
-import { IgrLiveGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
@@ -63,12 +63,12 @@ import { ListSortDirection } from 'igniteui-react-core';
 
 import { DataGridPager } from './DataGridPager';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridRowPaging extends React.Component<any, any> {
 
     private data: any[];
-    private grid: IgrLiveGrid;
+    private grid: IgrDataGrid;
     private pager: DataGridPager;
 
     constructor(props: any) {
@@ -79,7 +79,7 @@ export default class DataGridRowPaging extends React.Component<any, any> {
         this.data = DataGridSharedData.getEmployees();
     }
 
-    public onGridRef(grid: IgrLiveGrid) {
+    public onGridRef(grid: IgrDataGrid) {
         this.grid = grid;
 
         const desc = new IgrColumnGroupDescription();
@@ -107,7 +107,7 @@ export default class DataGridRowPaging extends React.Component<any, any> {
     public render() {
         return (
             <div className="igContainer">
-                <IgrLiveGrid
+                <IgrDataGrid
                     ref={this.onGridRef}
                     width="100%"
                     height="calc(100% - 65px)"
@@ -123,7 +123,7 @@ export default class DataGridRowPaging extends React.Component<any, any> {
                     <IgrNumericColumn propertyPath="Sales" headerText="Sales" positivePrefix="$" showGroupingSeparator="true" />
                     <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" />
                     <IgrNumericColumn propertyPath="Age" headerText="Age" />
-                </IgrLiveGrid>
+                </IgrDataGrid>
 
                 <DataGridPager
                     ref={this.onPagerRef}

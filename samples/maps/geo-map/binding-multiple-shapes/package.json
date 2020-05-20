@@ -1,6 +1,6 @@
 {
-  "name": "react-map-binding-multiple-shapes",
-  "description": "This project provides example of Map Binding Multiple Shapes using Infragistics React components",
+  "name": "react-geographic-map-binding-multiple-shapes",
+  "description": "This project provides example of Geographic Map Binding Multiple Shapes using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

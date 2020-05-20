@@ -1,6 +1,6 @@
 {
-  "name": "react-map-navigation",
-  "description": "This project provides example of Map Navigation using Infragistics React components",
+  "name": "react-geographic-map-map-navigation",
+  "description": "This project provides example of Geographic Map Map Navigation using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

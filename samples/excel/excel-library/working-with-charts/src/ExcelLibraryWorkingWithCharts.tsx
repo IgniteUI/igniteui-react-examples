@@ -9,8 +9,8 @@ import { ChartType } from 'igniteui-react-excel';
 
 import { AxisType } from 'igniteui-react-excel';
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 
@@ -23,7 +23,7 @@ import { IgrExcelModule } from 'igniteui-react-excel';
 
 import { ExcelUtility } from './ExcelUtility';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 IgrCategoryChartModule.register();
 
 IgrExcelCoreModule.register();
@@ -59,7 +59,7 @@ export default class ExcelLibraryWorkingWithCharts extends React.Component<any, 
                         outlines="#4f81bd, #c0504d, #9bbb59, #8064a2"
                         thickness={0}
                         dataSource={this.chartData} />
-                    <IgrLiveGrid
+                    <IgrDataGrid
                         height="50%"
                         width="100%"
                         autoGenerateColumns="false"
@@ -77,7 +77,7 @@ export default class ExcelLibraryWorkingWithCharts extends React.Component<any, 
                         <IgrNumericColumn propertyPath="Oct" />
                         <IgrNumericColumn propertyPath="Nov" />
                         <IgrNumericColumn propertyPath="Dec" />
-                    </IgrLiveGrid>
+                    </IgrDataGrid>
                 </div>
             </div>
         );

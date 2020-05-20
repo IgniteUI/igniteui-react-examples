@@ -1,6 +1,6 @@
 {
-  "name": "react-map-binding-multiple-sources",
-  "description": "This project provides example of Map Binding Multiple Sources using Infragistics React components",
+  "name": "react-geographic-map-binding-multiple-sources",
+  "description": "This project provides example of Geographic Map Binding Multiple Sources using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

@@ -3,8 +3,8 @@ import * as React from 'react';
 
 
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrColumn } from 'igniteui-react-grids';
 import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-grids';
 import { IgrDataBindingEventArgs } from 'igniteui-react-grids';
@@ -19,7 +19,7 @@ import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridPerformance extends React.Component<any, any> {
 
@@ -47,7 +47,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
         }
     }
 
-    public onGridRef(grid: IgrLiveGrid) {
+    public onGridRef(grid: IgrDataGrid) {
         this.grid = grid;
     }
 
@@ -272,7 +272,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
     public render() {
         return (
             <div className="igContainer">
-                <IgrLiveGrid
+                <IgrDataGrid
                 width="100%"
                 height="100%"
                 autoGenerateColumns="false"
@@ -322,7 +322,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
                     })
                 }
 
-                </IgrLiveGrid>
+                </IgrDataGrid>
             </div>
         );
     }
@@ -722,7 +722,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
         value: "value-0"
     };
     finData: any[];
-    grid: IgrLiveGrid;
+    grid: IgrDataGrid;
 
 }
 

@@ -4,8 +4,8 @@ import * as React from 'react';
 import { DataGridSharedData } from './DataGridSharedData';
 
 // grid modules:
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
@@ -14,7 +14,7 @@ import { IgrTemplateColumn } from 'igniteui-react-grids';
 import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridColumnTypes extends React.Component<any, any> {
 
@@ -184,7 +184,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
     public render() {
         return (
             <div className="igContainer">
-                <IgrLiveGrid
+                <IgrDataGrid
                     height="100%"
                     width="100%"
                     rowHeight="70"
@@ -205,7 +205,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                     cellUpdating={this.onEmailCellUpdating} width="*>140" />
                     <IgrTemplateColumn propertyPath="Phone" horizontalAlignment="center"
                     cellUpdating={this.onPhoneCellUpdating} width="140" /> */}
-               </IgrLiveGrid>
+               </IgrDataGrid>
             </div>
         );
     }

@@ -1,6 +1,6 @@
 {
-  "name": "react-map-binding-shapefile-points",
-  "description": "This project provides example of Map Binding Shapefile Points using Infragistics React components",
+  "name": "react-geographic-map-binding-shapefile-points",
+  "description": "This project provides example of Geographic Map Binding Shapefile Points using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

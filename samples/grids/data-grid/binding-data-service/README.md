@@ -52,13 +52,13 @@ import * as React from 'react';
 
 import { LiveFinancialData } from './LiveFinancialData';
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridBindingDataService extends React.Component<any, any> {
 
@@ -74,7 +74,7 @@ export default class DataGridBindingDataService extends React.Component<any, any
     public render() {
         return (
             <div className="igContainer">
-                <IgrLiveGrid
+                <IgrDataGrid
                 height="100%"
                 width="100%"
                 rowHeight="60"
@@ -110,7 +110,7 @@ export default class DataGridBindingDataService extends React.Component<any, any
                     <IgrTextColumn width="110" propertyPath="Security" />
                     <IgrTextColumn width="150" propertyPath="Issuer" />
 
-                </IgrLiveGrid>
+                </IgrDataGrid>
             </div>
         );
     }

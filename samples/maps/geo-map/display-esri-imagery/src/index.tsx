@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import MapDisplayImageryEsriTiles from './MapDisplayImageryEsriTiles';
-ReactDOM.render(<MapDisplayImageryEsriTiles />, document.getElementById('root'));
+import MapDisplayImageryEsri from './MapDisplayImageryEsri';
+ReactDOM.render(<MapDisplayImageryEsri />, document.getElementById('root'));
 
 

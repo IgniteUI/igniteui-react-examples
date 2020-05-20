@@ -1,6 +1,6 @@
 {
-  "name": "react-map-display-imagery-osm",
-  "description": "This project provides example of Map Display Imagery OSM using Infragistics React components",
+  "name": "react-geographic-map-display-imagery-osm",
+  "description": "This project provides example of Geographic Map Display Imagery OSM using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

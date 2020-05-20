@@ -1,6 +1,6 @@
 {
-  "name": "react-map-binding-data-csv",
-  "description": "This project provides example of Map Binding Data CSV using Infragistics React components",
+  "name": "react-component1-binding-data-csv",
+  "description": "This project provides example of Component1 Binding Data CSV using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

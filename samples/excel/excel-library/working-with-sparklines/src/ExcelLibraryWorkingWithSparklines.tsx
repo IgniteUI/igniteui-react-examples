@@ -7,8 +7,8 @@ import { Workbook } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
 import { WorksheetRegion } from 'igniteui-react-excel';
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn, IIgrCellTemplateProps } from 'igniteui-react-grids';
 import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
@@ -30,7 +30,7 @@ import { IgrExcelModule } from 'igniteui-react-excel';
 import { Visibility } from 'igniteui-react-core';
 import { WorkbookFontProxy, SparklineType } from 'igniteui-react-excel';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
@@ -59,13 +59,13 @@ export default class ExcelLibraryWorkingWithSparklines extends React.Component<a
                 <div className="igOptions">
                     <button className="igOptions-item" onClick={this.exportGrid}>Export</button>
                 </div>
-                <IgrLiveGrid autoGenerateColumns={false} dataSource={this.data} height="calc(100% - 30px)" width="100%">
+                <IgrDataGrid autoGenerateColumns={false} dataSource={this.data} height="calc(100% - 30px)" width="100%">
                     <IgrTemplateColumn propertyPath="Orders" template={this.templateColTestMethod} />
                     <IgrTextColumn propertyPath="CompanyName" />
                     <IgrTextColumn propertyPath="ContactName" />
                     <IgrTextColumn propertyPath="ContactTitle" />
                     <IgrTextColumn propertyPath="Country" />
-                </IgrLiveGrid>
+                </IgrDataGrid>
             </div>
         );
     }

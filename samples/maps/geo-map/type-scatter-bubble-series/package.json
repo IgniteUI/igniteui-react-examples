@@ -1,6 +1,6 @@
 {
-  "name": "react-map-type-scatter-bubble-series",
-  "description": "This project provides example of Map Type Scatter Bubble Series using Infragistics React components",
+  "name": "react-geographic-map-scatter-bubble-series",
+  "description": "This project provides example of Geographic Map Scatter Bubble Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

@@ -3,8 +3,8 @@ import * as React from 'react';
 
 
 // grid modules:
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
@@ -14,7 +14,7 @@ import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateHeaderCellUpdatingEventArgs } from 'igniteui-react-grids';
 
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridTypeComparisonTable extends React.Component<any, any> {
 
@@ -51,7 +51,7 @@ export default class DataGridTypeComparisonTable extends React.Component<any, an
     public render() {
         return (
             <div className="igContainer">
-                <IgrLiveGrid
+                <IgrDataGrid
                     height="100%"
                     width="100%"
 
@@ -80,7 +80,7 @@ export default class DataGridTypeComparisonTable extends React.Component<any, an
                     horizontalAlignment="left"
                     width="*>110" />
 
-               </IgrLiveGrid>
+               </IgrDataGrid>
             </div>
         );
     }

@@ -53,8 +53,8 @@ import * as React from 'react';
 
 
 // grid modules:
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
@@ -69,7 +69,7 @@ import { IgrGridSelectedCellsChangedEventArgs } from 'igniteui-react-grids';
 import { IgrGridSelectedCellRangesChangedEventArgs } from 'igniteui-react-grids';
 import { IgrGridActiveCellChangedEventArgs } from 'igniteui-react-grids';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridTypePeriodicTable extends React.Component<any, any> {
 
@@ -115,7 +115,7 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
             <div className="igContainer" style={{overflow: "hidden"}}>
                 <label>Selected Element: {this.state.selectedElement }</label>
 
-                <IgrLiveGrid
+                <IgrDataGrid
                     // height="100%"
                     height="calc(100% - 20px)"
                     width="100%"
@@ -149,7 +149,7 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
                     header={this.HorizontalLeftHeader}
                     width="*>40" horizontalAlignment="left"    />
 
-               </IgrLiveGrid>
+               </IgrDataGrid>
             </div>
         );
     }
@@ -187,7 +187,7 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
         borderBottomWidth="0" />;
     }
 
-    public activeCellChanged (s: IgrLiveGrid, e: IgrGridActiveCellChangedEventArgs) {
+    public activeCellChanged (s: IgrDataGrid, e: IgrGridActiveCellChangedEventArgs) {
         console.log("activeCellChanged");
 
         const column = e.newActiveCell.columnUniqueKey.toString();
@@ -203,19 +203,19 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
         }
     }
 
-    public selectedCellRangesChanged (s: IgrLiveGrid, e: IgrGridSelectedCellRangesChangedEventArgs) {
+    public selectedCellRangesChanged (s: IgrDataGrid, e: IgrGridSelectedCellRangesChangedEventArgs) {
         console.log("selectedCellRangesChanged");
     }
 
-    public selectedItemsChanged (s: IgrLiveGrid, e: IgrGridSelectedItemsChangedEventArgs) {
+    public selectedItemsChanged (s: IgrDataGrid, e: IgrGridSelectedItemsChangedEventArgs) {
         console.log("selectedItemsChanged");
     }
 
-    public selectedKeysChanged (s: IgrLiveGrid, e: IgrGridSelectedKeysChangedEventArgs) {
+    public selectedKeysChanged (s: IgrDataGrid, e: IgrGridSelectedKeysChangedEventArgs) {
         console.log("selectedKeysChanged");
     }
 
-    public selectedCellsChanged (s: IgrLiveGrid, e: IgrGridSelectedCellsChangedEventArgs) {
+    public selectedCellsChanged (s: IgrDataGrid, e: IgrGridSelectedCellsChangedEventArgs) {
         console.log("selectedCellsChanged");
     }
 

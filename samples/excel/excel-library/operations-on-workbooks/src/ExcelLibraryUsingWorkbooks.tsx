@@ -2,18 +2,18 @@ import * as React from 'react';
 
 
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { Workbook } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
 import { WorksheetRegion } from 'igniteui-react-excel';
 import { ExcelUtility } from './ExcelUtility';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class ExcelLibraryUsingWorkbooks extends React.Component<any, any> {
 
-    public grid : IgrLiveGrid;
+    public grid : IgrDataGrid;
 
     public employeeData: any[];
     public expenseData: any[];
@@ -62,7 +62,7 @@ export default class ExcelLibraryUsingWorkbooks extends React.Component<any, any
                     </select>
                 </div>
                 <div className="previewGrid">
-                    <IgrLiveGrid
+                    <IgrDataGrid
                         ref = {this.onGridRef}
                         height="300px"
                         width="100%"
@@ -150,7 +150,7 @@ export default class ExcelLibraryUsingWorkbooks extends React.Component<any, any
         return "$" + s.replace(".00", "");
     }
 
-    public onGridRef(grid: IgrLiveGrid) {
+    public onGridRef(grid: IgrDataGrid) {
         this.grid = grid;
     }
 

@@ -53,20 +53,20 @@ import * as React from 'react';
 
 import { DataGridSharedData } from './DataGridSharedData';
 
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 
 export default class DataGridRowGrouping extends React.Component<any, any> {
 
     public data: any[];
-    public grid: IgrLiveGrid;
+    public grid: IgrDataGrid;
 
     constructor(props: any) {
         super(props);
@@ -92,7 +92,7 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
 
                 </div>
 
-                <IgrLiveGrid
+                <IgrDataGrid
                     ref={this.onGridRef}
                     height="calc(100% - 39px)"
                     width="100%"
@@ -109,7 +109,7 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
                         positivePrefix="$" showGroupingSeparator="true"  />
                         <IgrTextColumn propertyPath="City" headerText="City" width="120" horizontalAlignment="center"/>
                         <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="90" contentOpacity="1" horizontalAlignment="center"/>
-                </IgrLiveGrid>
+                </IgrDataGrid>
             </div>
         );
     }
@@ -129,7 +129,7 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
         this.grid.groupHeaderDisplayMode = e.target.value;
     }
 
-    public onGridRef(grid: IgrLiveGrid) {
+    public onGridRef(grid: IgrDataGrid) {
         this.grid = grid;
         this.grid.actualDataSource.isSectionExpandedDefault = true;
     }

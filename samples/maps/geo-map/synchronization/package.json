@@ -1,6 +1,6 @@
 {
-  "name": "react-map-synchronization",
-  "description": "This project provides example of Map Synchronization using Infragistics React components",
+  "name": "react-geographic-map-map-synchronization",
+  "description": "This project provides example of Geographic Map Map Synchronization using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

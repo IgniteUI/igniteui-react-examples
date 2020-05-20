@@ -58,15 +58,15 @@ import { Products } from './Products';
 import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
 // grid modules:
-import { IgrLiveGridModule } from 'igniteui-react-grids';
-import { IgrLiveGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn, IIgrCellTemplateProps } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 IgrSparklineModule.register();
 
 export default class SparklineGrid extends React.Component<any, any> {
@@ -82,7 +82,7 @@ export default class SparklineGrid extends React.Component<any, any> {
     public render() {
         return (
             <div className="igContainer">
-                <IgrLiveGrid
+                <IgrDataGrid
                     height="100%"
                     width="100%"
                     rowHeight="70"
@@ -114,7 +114,7 @@ export default class SparklineGrid extends React.Component<any, any> {
 
                     <IgrTextColumn propertyPath="Status" headerText="Status" width="110"
                     horizontalAlignment="center"   />
-               </IgrLiveGrid>
+               </IgrDataGrid>
             </div>
         );
     }

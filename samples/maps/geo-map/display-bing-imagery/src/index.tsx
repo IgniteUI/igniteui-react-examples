@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import MapDisplayImageryBingTiles from './MapDisplayImageryBingTiles';
-ReactDOM.render(<MapDisplayImageryBingTiles />, document.getElementById('root'));
+import MapDisplayImageryBing from './MapDisplayImageryBing';
+ReactDOM.render(<MapDisplayImageryBing />, document.getElementById('root'));
 
 
