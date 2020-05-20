@@ -8,17 +8,6 @@ function log(msg) {
 var samples = require('./tasks/gulp-samples.js')
 // var browser = require('./tasks/gulp-browser.js')
 
-// function updateSamples(cb) {
-//     eval(require('typescript')
-//     .transpile(require('fs')
-//     .readFileSync("./tasks/gulp-browser.ts").toString()));
-
-//     getSampleFolderNames(cb);
-//     // cb();
-// } exports.updateSamples = updateSamples;
-
-// exports.updateSamples = updateSamples = gulp.series(getSampleFolderNames, task2);
-// exports.updateSamples = updateSamples = gulp.series(browser.task1, browser.dirSamples, browser.task2);
 exports.updateSamples = updateSamples = gulp.series(
     samples.getSamples,
     samples.updateReadme,
@@ -36,7 +25,7 @@ exports.updateBrowser = updateBrowser = gulp.series(
     samples.copySamples,
 );
 
-exports.default = updateSamples;
+// exports.default = updateSamples;
 
 exports.logPublicFiles = samples.logPublicFiles;
 exports.logSourceFiles = samples.logSourceFiles;

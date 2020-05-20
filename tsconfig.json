@@ -41,7 +41,7 @@
     "noUnusedLocals": false,                  /* Report errors on unused locals. */
     // "noUnusedParameters": true,            /* Report errors on unused parameters. */
     // "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
-    // "strictNullChecks": true,              /* Enable strict null checks. */
+    "strictNullChecks": false,              /* Enable strict null checks. */
     // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
     "strictPropertyInitialization": false,  /* Enable strict checking of property initialization in classes. */
     // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
@@ -67,7 +67,6 @@
     "webpack",
     "jest",
     "src/setupTests.ts",
-    "src/samples/*",
     "**/odatajs-4.0.0.js",
     "config-overrides.js",
     "./browserOLD",
@@ -76,10 +75,6 @@
     "./gulp*.js",
     "./gulp*.ts",
     "./samples/*",
-    "./sample-template-files-browser",
-    "./sample-template-files",
-    "./sample-shared-files",
-    "./sample-test-files",
     "./tests",
     "./tasks/*.js",
     "./tasks/*.ts",

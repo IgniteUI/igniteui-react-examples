@@ -30,13 +30,13 @@ log('loaded');
 // var sampleSource = [igConfig.SamplesCopyPath + '/excel/**/package.json'];
 // var sampleSource = [igConfig.SamplesCopyPath + '/maps/**/package.json'];
 var sampleSource = [
-    igConfig.SamplesCopyPath + '/tests1/**/package.json',
-    igConfig.SamplesCopyPath + '/tests2/**/package.json',
-    igConfig.SamplesCopyPath + '/maps/**/package.json',
-    igConfig.SamplesCopyPath + '/gauges/**/package.json',
-    igConfig.SamplesCopyPath + '/grids/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/**/package.json',
     // igConfig.SamplesCopyPath + '/excel/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/**/package.json'
+    igConfig.SamplesCopyPath + '/gauges/**/package.json',
+    // igConfig.SamplesCopyPath + '/grids/**/package.json',
+    // igConfig.SamplesCopyPath + '/maps/**/package.json',
+    // igConfig.SamplesCopyPath + '/tests1/**/package.json',
+    // igConfig.SamplesCopyPath + '/tests2/**/package.json',
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder

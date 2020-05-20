@@ -5,9 +5,9 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "start": "set PORT=3200 && react-app-rewired --max_old_space_size=10240 && react-scripts start",
+    "start11": "set PORT=3200 && react-app-rewired --max_old_space_size=10240 && react-scripts start",
     "start33": "set PORT=3200 && react-app-rewired --max_old_space_size=10240 start --scripts-version react-scripts-ts",
-    "start22": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

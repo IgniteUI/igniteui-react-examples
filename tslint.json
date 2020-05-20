@@ -1,5 +1,6 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  // "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "extends": ["tslint-react"],
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
@@ -33,7 +34,9 @@
     "curly": [true, "ignore-same-line"],
     "max-classes-per-file": [true, 5],
     "prefer-const": false,
-    "prefer-for-of": false
+    "prefer-for-of": false,
+    "no-useless-constructor": false,
+    "@typescript-eslint/no-useless-constructor": false
   },
   "jsRules": {
     "no-console": false,
@@ -45,6 +48,8 @@
     "curly": [true, "ignore-same-line"],
     "max-classes-per-file": [true, 5],
     "prefer-const": false,
-    "prefer-for-of": false
+    "prefer-for-of": false,
+    "no-useless-constructor": false,
+    "@typescript-eslint/no-useless-constructor": false
   }
 }
