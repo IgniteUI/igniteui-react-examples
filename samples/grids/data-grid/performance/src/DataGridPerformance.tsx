@@ -56,7 +56,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
     private good_color = "#4EB862";
     private bad_color = "#FF134A";
 
-    public onPriceStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
+    public onPriceStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         let row: SalesPerson;
         if (this.grid) {
             row = this.grid.actualDataSource.getItemAtIndex(args.rowNumber);
@@ -70,7 +70,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
         }
     }
 
-    public onPriceCellUpdating(grid: IgrTemplateColumn, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPriceCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let row = args.cellInfo.rowItem;
         let priceShiftUp = row.Change >= 0;
         let templ = args.cellInfo as IgrTemplateCellInfo;
@@ -113,7 +113,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
         }
     }
 
-    public onPricePercentStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
+    public onPricePercentStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = "pricePercentUp";
         } else {
@@ -124,7 +124,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
     private _badBorder = "4px solid #FF134A";
     private _goodBorder = "4px solid #4EB862";
 
-    public onPricePercentCellUpdating(grid: IgrTemplateColumn, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPricePercentCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
         let priceShiftUp = templ.value >= 0;
 
@@ -157,7 +157,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
         }
     }
 
-    public onPriceAmountStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
+    public onPriceAmountStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         if (args.resolvedValue >= 0) {
             args.styleKey = "priceAmountUp";
         } else {
@@ -165,7 +165,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
         }
     }
 
-    public onPriceAmountCellUpdating(grid: IgrTemplateColumn, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPriceAmountCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
         let priceShiftUp = templ.value >= 0;
 
@@ -199,12 +199,12 @@ export default class DataGridPerformance extends React.Component<any, any> {
         }
     }
 
-    public onChartStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
+    public onChartStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         args.styleKey = "igComponent";
     }
 
 
-    public onChartCellUpdating(grid: IgrTemplateColumn, args: IgrTemplateCellUpdatingEventArgs) {
+    public onChartCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
 
         let content = args.content as HTMLDivElement;
@@ -227,12 +227,12 @@ export default class DataGridPerformance extends React.Component<any, any> {
         }
     }
 
-    public onGridStyleKey(grid: IgrColumn, args: IgrCellStyleRequestedEventArgs) {
+    public onGridStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         args.styleKey = "grid";
     }
 
 
-    public onGridCellUpdating(grid: IgrTemplateColumn, args: IgrTemplateCellUpdatingEventArgs) {
+    public onGridCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
 
         let content = args.content as HTMLDivElement;

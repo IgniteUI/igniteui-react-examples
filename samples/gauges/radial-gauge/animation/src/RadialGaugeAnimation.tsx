@@ -87,6 +87,8 @@ export default class RadialGaugeAnimation extends React.Component {
 
     // full radial gauge
     public onAnimateToGauge4 = (e: any) => {
+        if (!this.gauge) { return; }
+
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 50;
@@ -166,6 +168,8 @@ export default class RadialGaugeAnimation extends React.Component {
 
     // semi radial gauge
     public onAnimateToGauge3 = (e: any) => {
+        if (!this.gauge) { return; }
+
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 80;
@@ -220,6 +224,8 @@ export default class RadialGaugeAnimation extends React.Component {
 
     // half radial gauge
     public onAnimateToGauge2 = (e: any) => {
+        if (!this.gauge) { return; }
+
 
         this.gauge.minimumValue = 100;
         this.gauge.maximumValue = 200;
@@ -279,6 +285,8 @@ export default class RadialGaugeAnimation extends React.Component {
 
     // quatre radial gauge
     public onAnimateToGauge1 = (e: any) => {
+        if (!this.gauge) { return; }
+
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 10;

@@ -53,9 +53,9 @@ import './DataGridBindingLiveData.css';
 
 import { LiveFinancialData } from './LiveFinancialData';
 import { TaskUtil } from './TaskUtil';
-// IgrLiveGrid modules
-import { IgrLiveGrid } from 'igniteui-react-grids';
-import { IgrLiveGridModule } from 'igniteui-react-grids';
+// IgrDataGrid modules
+import { IgrDataGrid } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
@@ -95,7 +95,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import TextField from '@material-ui/core/TextField';
 
-IgrLiveGridModule.register();
+IgrDataGridModule.register();
 IgrDataChartAnnotationModule.register();
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
@@ -122,7 +122,7 @@ interface IAppState {
 export default class DataGridBindingLiveData extends Component<any, IAppState> {
 
     public chart: IgrDataChart;
-    public grid: IgrLiveGrid;
+    public grid: IgrDataGrid;
     public recordsUpdatedLastSecond: number[];
     public lastUpdateTime: Date = new Date();
     public isTimerTicking: boolean = false;
@@ -295,7 +295,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                     </div>
                 </div>
 
-                <IgrLiveGrid
+                <IgrDataGrid
                 ref={this.onGridRef}
                 width="100%"
                 height="calc(100% - 120px)"
@@ -366,7 +366,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                     <IgrNumericColumn propertyPath="KRD_3YR" width="110" />
                     <IgrNumericColumn propertyPath="KRD_5YR" width="50" />
                     <IgrNumericColumn propertyPath="KRD_1YR" width="80" />
-                </IgrLiveGrid>
+                </IgrDataGrid>
 
                 <Dialog
                     className="chartDialog"
@@ -399,7 +399,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         );
     }
 
-    public onGridRef(grid: IgrLiveGrid) {
+    public onGridRef(grid: IgrDataGrid) {
         let oldRef = this.grid;
         if (oldRef) {
             oldRef.flush();

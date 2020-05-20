@@ -57,10 +57,11 @@ import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { IgrColumnSummaryDescription } from 'igniteui-react-grids'
-import { SummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult } from 'igniteui-react-core';
+import { IgrProvideCalculatorEventArgs } from 'igniteui-react-core';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
+import { SummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult } from 'igniteui-react-core';
 
 IgrDataGridModule.register();
 
@@ -210,8 +211,13 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
         const countries = new IgrColumnSummaryDescription();
         countries.propertyPath = "Countries";
         countries.operand = SummaryOperand.Custom;
-        countries.calculator = new CustomDomestic();
+        countries.provideCalculator = this.onProvideCalculator;
+        // countries.calculator = new CustomDomestic();
         this.grid.summaryDescriptions.add(countries);
+    }
+
+    onProvideCalculator(s: IgrColumnSummaryDescription, e: IgrProvideCalculatorEventArgs) {
+        e.calculator = new CustomDomestic();
     }
 }
 
