@@ -77,7 +77,7 @@
     display: flex;
     flex-flow: column;
     flex-wrap: nowrap; /* nowrap | wrap | wrap-reverse; */
-    overflow-y: scroll;
+    overflow-y: auto;
 
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
