@@ -55,31 +55,7 @@ You can find source code for this example in :
 `./src/SampleFileName.tsx` file: -->
 
 <!-- ```tsx
-import * as React from "react";
-import "./SampleFileName.css"; // styles specific only to this sample
-
-export default class SampleFileName extends React.Component<any, any> {
-
-    // constructor(props: any) {
-    //     super(props);
-    // }
-
-    public render() {
-        return (
-            <div className="igContainer">
-                <div className="igComponent" >
-                    TODO add IG component here
-                </div>
-            </div>
-        );
-    }
-
-    public componentDidMount() {
-        //
-    }
-
-}
-
+{SampleFileSourceCode-REMOVED}
 ``` -->
 
 ## Instructions

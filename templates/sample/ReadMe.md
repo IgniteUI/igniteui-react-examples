@@ -55,7 +55,7 @@ You can find source code for this example in :
 `{SampleFileSourcePath}` file: -->
 
 <!-- ```{PlatformCode}
-{SampleFileSourceCode}
+{SampleFileSourceCode-REMOVED}
 ``` -->
 
 ## Instructions
