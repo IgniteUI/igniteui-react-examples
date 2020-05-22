@@ -1,6 +1,5 @@
 {
-  // "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-  "extends": ["tslint-react"],
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
@@ -40,8 +39,8 @@
   },
   "jsRules": {
     "no-console": false,
-    "no-unused-vars": false,
-    // "no-unused-vars": [ "error", { "args": "none", "varsIgnorePattern": "React"} ],
+    // "no-unused-vars": false,
+    "no-unused-vars": [ "error", { "varsIgnorePattern": "React"} ],
     "jsx-no-lambda": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,

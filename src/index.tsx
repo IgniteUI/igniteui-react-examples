@@ -6,7 +6,8 @@ import './index.css';
 // import App from './App';
 // import { SamplesRouter } from './navigation/SamplesRouter';
 import SamplesBrowser from "./navigation/SamplesBrowser";
-import * as serviceWorker from './serviceWorker';
+// import * as serviceWorker from './serviceWorker';
+import RegisterServiceWorker from './serviceWorker';
 
 import './index.css'; // styles shared between all samples
 
@@ -23,4 +24,5 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+RegisterServiceWorker();
+// serviceWorker.unregister();

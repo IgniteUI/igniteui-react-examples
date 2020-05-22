@@ -4,10 +4,7 @@
 /node_modules
 /samples/*/node_modules
 /browser/node_modules
-/sample-test-files
 /src/samples
-/src/sample-tests
-/src/samples2222
 
 # IDEs and editors
 /.idea

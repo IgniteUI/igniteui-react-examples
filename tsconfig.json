@@ -8,14 +8,14 @@
     "allowJs": true,                          /* Allow javascript files to be compiled. */
     // "checkJs": true,                       /* Report errors in .js files. */
     // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
-    "skipLibCheck": true,
+    "skipLibCheck": true,                     /* Skip type checking of all declaration files (*.d.ts). */
 
     /* Module Resolution Options */
     "module": "esnext",                       /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
     "moduleResolution": "node",               /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
     "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
     "resolveJsonModule": true,
-    "isolatedModules": true,                  /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
+    // "isolatedModules": true,                  /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
     "allowSyntheticDefaultImports": true,     /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
 
     /* Source Map Options */
@@ -26,9 +26,9 @@
     // "inlineSources": true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
 
     /* Strict Type-Checking Options */
-    "strict": true,                           /* Enable all strict type-checking options. */
+    // "strict": true,                           /* Enable all strict type-checking options. */
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,                           /* Do not emit outputs. */
+    // "noEmit": true,                           /* Do not emit outputs. */
     "jsx": "react",                           /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
 
     /* Ported from React SB: */
@@ -41,15 +41,15 @@
     "noUnusedLocals": false,                  /* Report errors on unused locals. */
     // "noUnusedParameters": true,            /* Report errors on unused parameters. */
     // "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
-    "strictNullChecks": false,              /* Enable strict null checks. */
+    "strictNullChecks": false,                /* Enable strict null checks. */
     // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
-    "strictPropertyInitialization": false,  /* Enable strict checking of property initialization in classes. */
+    // "strictPropertyInitialization": false,  /* Enable strict checking of property initialization in classes. */
     // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
     "importHelpers": true,                    /* Import emit helpers from 'tslib'. */
     "suppressImplicitAnyIndexErrors": true,
 
     /* Experimental Options */
-    "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
+    // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
 
     /* other options: */
