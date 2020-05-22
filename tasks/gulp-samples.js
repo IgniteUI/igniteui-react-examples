@@ -34,7 +34,7 @@ var sampleSource = [
     // igConfig.SamplesCopyPath + '/excel/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/**/package.json',
     // igConfig.SamplesCopyPath + '/grids/**/package.json',
-    // igConfig.SamplesCopyPath + '/maps/**/package.json',
+    igConfig.SamplesCopyPath + '/maps/**/package.json',
     // igConfig.SamplesCopyPath + '/tests1/**/package.json',
     // igConfig.SamplesCopyPath + '/tests2/**/package.json',
 ];
