@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project contains React application for browsing samples of Infragistics React components.
 
 ## Available Scripts
 
