@@ -2,13 +2,17 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of React application with example of Pie Chart Others.
 <!-- in the Pie Chart component -->
 <!-- [Pie Chart](https://infragistics.com/Reactsite/components/pie-chart.html) -->
+
+## Preview
+
+You can preview example of this React application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,10 +48,13 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/PieChartOthers.tsx` file:
+You can find source code for this example in :
+[./src/PieChartOthers.tsx](./src/PieChartOthers.tsx) file.
 
-```tsx
+<!-- The following section provides source code from:
+`./src/PieChartOthers.tsx` file: -->
+
+<!-- ```tsx
 import { IgrPieChart } from 'igniteui-react-charts';
 import { IgrPieChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
@@ -90,7 +97,7 @@ export default class PieChartOthers extends React.Component<any, any> {
     }
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

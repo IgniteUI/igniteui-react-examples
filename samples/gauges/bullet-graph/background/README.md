@@ -2,13 +2,17 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of React application with example of Bullet Graph Background.
 <!-- in the Bullet Graph component -->
 <!-- [Bullet Graph](https://infragistics.com/Reactsite/components/bullet-graph.html) -->
+
+## Preview
+
+You can preview example of this React application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,10 +48,13 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/BulletGraphBackground.tsx` file:
+You can find source code for this example in :
+[./src/BulletGraphBackground.tsx](./src/BulletGraphBackground.tsx) file.
 
-```tsx
+<!-- The following section provides source code from:
+`./src/BulletGraphBackground.tsx` file: -->
+
+<!-- ```tsx
 import { IgrBulletGraph } from 'igniteui-react-gauges';
 import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 import * as React from 'react';
@@ -78,7 +85,7 @@ export default class BulletGraphBackground extends React.Component {
     }
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

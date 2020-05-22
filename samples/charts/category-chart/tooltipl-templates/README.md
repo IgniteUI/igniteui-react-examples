@@ -2,13 +2,17 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of React application with example of Category Chart Tooltip Template.
 <!-- in the Category Chart component -->
 <!-- [Category Chart](https://infragistics.com/Reactsite/components/category-chart.html) -->
+
+## Preview
+
+You can preview example of this React application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,10 +48,13 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/CategoryChartTooltipTemplate.tsx` file:
+You can find source code for this example in :
+[./src/CategoryChartTooltipTemplate.tsx](./src/CategoryChartTooltipTemplate.tsx) file.
 
-```tsx
+<!-- The following section provides source code from:
+`./src/CategoryChartTooltipTemplate.tsx` file: -->
+
+<!-- ```tsx
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
@@ -139,7 +146,7 @@ export default class CategoryChartTooltipTemplate extends React.Component<any, a
     }
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

@@ -2,13 +2,17 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of React application with example of Excel Library Working With Sparklines.
 <!-- in the Excel Library component -->
 <!-- [Excel Library](https://infragistics.com/Reactsite/components/excel-library.html) -->
+
+## Preview
+
+You can preview example of this React application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,10 +48,13 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/ExcelLibraryWorkingWithSparklines.tsx` file:
+You can find source code for this example in :
+[./src/ExcelLibraryWorkingWithSparklines.tsx](./src/ExcelLibraryWorkingWithSparklines.tsx) file.
 
-```tsx
+<!-- The following section provides source code from:
+`./src/ExcelLibraryWorkingWithSparklines.tsx` file: -->
+
+<!-- ```tsx
 import * as React from 'react';
 import { ExcelUtility } from './ExcelUtility';
 // import { ExcelSharedData } from './ExcelSharedData';
@@ -252,7 +259,7 @@ export default class ExcelLibraryWorkingWithSparklines extends React.Component<a
 
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

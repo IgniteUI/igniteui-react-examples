@@ -2,13 +2,17 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of React application with example of Component1 Binding Data JSON.
 <!-- in the Component1 component -->
 <!-- [Component1](https://infragistics.com/Reactsite/components/component1.html) -->
+
+## Preview
+
+You can preview example of this React application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,14 +48,14 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/MapBindingDataJSON.tsx` file:
+You can find source code for this example in :
+[./src/MapBindingDataJSON.tsx](./src/MapBindingDataJSON.tsx) file.
 
-```tsx
+<!-- The following section provides source code from:
+`./src/MapBindingDataJSON.tsx` file: -->
+
+<!-- ```tsx
 import * as React from 'react';
-
-
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 // import { IgrGeographicHighDensityScatterSeries } from 'igniteui-react-maps';
@@ -95,11 +99,9 @@ export default class MapBindingDataJSON extends React.Component {
 
     }
 
-
-
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

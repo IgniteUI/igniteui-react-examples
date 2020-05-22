@@ -2,13 +2,17 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of React application with example of Zoom Slider Overview.
 <!-- in the Zoom Slider component -->
 <!-- [Zoom Slider](https://infragistics.com/Reactsite/components/zoom-slider.html) -->
+
+## Preview
+
+You can preview example of this React application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,10 +48,13 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/ZoomSliderOverview.tsx` file:
+You can find source code for this example in :
+[./src/ZoomSliderOverview.tsx](./src/ZoomSliderOverview.tsx) file.
 
-```tsx
+<!-- The following section provides source code from:
+`./src/ZoomSliderOverview.tsx` file: -->
+
+<!-- ```tsx
 import React from 'react';
 import { IgrBubbleSeries } from 'igniteui-react-charts';
 import { IgrAnnotationLayer } from 'igniteui-react-charts';
@@ -396,7 +403,7 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
     }
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

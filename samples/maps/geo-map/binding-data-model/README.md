@@ -2,13 +2,17 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of React application with example of Geographic Map Binding Data Model.
 <!-- in the Geographic Map component -->
 <!-- [Geographic Map](https://infragistics.com/Reactsite/components/geo-map.html) -->
+
+## Preview
+
+You can preview example of this React application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,10 +48,13 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/MapBindingDataModel.tsx` file:
+You can find source code for this example in :
+[./src/MapBindingDataModel.tsx](./src/MapBindingDataModel.tsx) file.
 
-```tsx
+<!-- The following section provides source code from:
+`./src/MapBindingDataModel.tsx` file: -->
+
+<!-- ```tsx
 import * as React from 'react';
 import WorldUtils from "./WorldUtils"
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
@@ -224,7 +231,7 @@ export default class MapBindingDataModel extends React.Component {
     }
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

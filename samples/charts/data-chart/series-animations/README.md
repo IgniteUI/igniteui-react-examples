@@ -2,13 +2,17 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of React application with example of Data Chart Series Animations.
 <!-- in the Data Chart component -->
 <!-- [Data Chart](https://infragistics.com/Reactsite/components/data-chart.html) -->
+
+## Preview
+
+You can preview example of this React application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,10 +48,13 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/DataChartSeriesAnimations.tsx` file:
+You can find source code for this example in :
+[./src/DataChartSeriesAnimations.tsx](./src/DataChartSeriesAnimations.tsx) file.
 
-```tsx
+<!-- The following section provides source code from:
+`./src/DataChartSeriesAnimations.tsx` file: -->
+
+<!-- ```tsx
 // data chart's elements for category series:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
@@ -114,7 +121,7 @@ export default class DataChartHighlighting extends React.Component<any, any> {
     }
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

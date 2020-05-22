@@ -2,13 +2,17 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of React application with example of Sparkline Display Types.
 <!-- in the Sparkline component -->
 <!-- [Sparkline](https://infragistics.com/Reactsite/components/sparkline.html) -->
+
+## Preview
+
+You can preview example of this React application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,10 +48,13 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/SparklineDisplayTypes.tsx` file:
+You can find source code for this example in :
+[./src/SparklineDisplayTypes.tsx](./src/SparklineDisplayTypes.tsx) file.
 
-```tsx
+<!-- The following section provides source code from:
+`./src/SparklineDisplayTypes.tsx` file: -->
+
+<!-- ```tsx
 import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrSparklineCoreModule } from 'igniteui-react-charts';
@@ -123,7 +130,7 @@ export default class SparklineDisplayTypes extends React.Component {
 
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

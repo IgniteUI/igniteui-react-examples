@@ -2,13 +2,17 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of React application with example of Data Grid Type Heatmap Table.
 <!-- in the Data Grid component -->
 <!-- [Data Grid](https://infragistics.com/Reactsite/components/data-grid.html) -->
+
+## Preview
+
+You can preview example of this React application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,10 +48,13 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/DataGridTypeHeatmapTable.tsx` file:
+You can find source code for this example in :
+[./src/DataGridTypeHeatmapTable.tsx](./src/DataGridTypeHeatmapTable.tsx) file.
 
-```tsx
+<!-- The following section provides source code from:
+`./src/DataGridTypeHeatmapTable.tsx` file: -->
+
+<!-- ```tsx
 import * as React from 'react';
 // grid modules:
 import { IgrDataGridModule } from 'igniteui-react-grids';
@@ -338,7 +345,7 @@ class HeatScale {
     }
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

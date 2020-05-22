@@ -2,13 +2,17 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of React application with example of Spreadsheet Overview.
 <!-- in the Spreadsheet component -->
 <!-- [Spreadsheet](https://infragistics.com/Reactsite/components/spreadsheet.html) -->
+
+## Preview
+
+You can preview example of this React application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,10 +48,13 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/SpreadsheetOverview.tsx` file:
+You can find source code for this example in :
+[./src/SpreadsheetOverview.tsx](./src/SpreadsheetOverview.tsx) file.
 
-```tsx
+<!-- The following section provides source code from:
+`./src/SpreadsheetOverview.tsx` file: -->
+
+<!-- ```tsx
 import React from 'react';
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
@@ -102,7 +109,7 @@ export default class SpreadsheetOverview extends React.Component<any, any> {
     }
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:
