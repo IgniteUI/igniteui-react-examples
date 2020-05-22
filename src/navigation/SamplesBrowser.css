@@ -87,7 +87,23 @@
         -o-user-select: none;
             user-select: none; /* Non-prefixed version, currently*/
 }
-
+.sbToolbarIcon {
+    display: inline-block;
+    font-size: 1rem;
+    vertical-align: middle;
+    height: 32px;
+}
+.sbToolbarLabel {
+    vertical-align: middle;
+    height: 32px;
+    line-height: 1.75;
+    /* padding-left: 1rem; */
+}
+.sbToolbarButton {
+    vertical-align: middle;
+    height: 32px;
+    line-height: 1.75;
+}
 .sbNavigation-group {
     padding-top: 1rem;
     padding-bottom: 0.5rem;
