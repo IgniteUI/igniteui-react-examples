@@ -49,16 +49,12 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
 import { MapUtils, MapRegion } from './MapUtils';
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrBingMapsMapImagery } from 'igniteui-react-maps';
 import { BingMapsImageryStyle } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 

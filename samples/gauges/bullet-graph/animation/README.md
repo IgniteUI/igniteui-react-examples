@@ -53,8 +53,6 @@ import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import * as React from 'react';
 
-
-
 IgrBulletGraphModule.register();
 
 export default class BulletGraphAnimation extends React.Component {
@@ -326,6 +324,7 @@ export default class BulletGraphAnimation extends React.Component {
     }
 
 }
+
 ```
 
 ## Instructions

@@ -54,7 +54,6 @@ import { LinearGraphNeedleShape } from 'igniteui-react-gauges';
 import { IgrLinearGaugeModule } from 'igniteui-react-gauges';
 import * as React from 'react';
 
-
 IgrLinearGaugeModule.register();
 
 export default class LinearGaugeAnimation extends React.Component {
@@ -334,6 +333,7 @@ export default class LinearGaugeAnimation extends React.Component {
           this.gauge.backingStrokeThickness = 0;
     }
 }
+
 ```
 
 ## Instructions

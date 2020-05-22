@@ -52,9 +52,6 @@ import { IgrRadialGauge } from 'igniteui-react-gauges';
 import { IgrRadialGaugeModule } from 'igniteui-react-gauges';
 import * as React from 'react';
 
-
-
-
 IgrRadialGaugeModule.register();
 
 export default class RadialGaugeTickmarks extends React.Component<any, any> {
@@ -87,6 +84,7 @@ export default class RadialGaugeTickmarks extends React.Component<any, any> {
         );
     }
 }
+
 ```
 
 ## Instructions

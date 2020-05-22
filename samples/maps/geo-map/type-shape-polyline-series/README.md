@@ -49,16 +49,11 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
-
 import { LegendOverlay, LegendItem } from "./LegendOverlay"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicPolylineSeries } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgrDataContext } from 'igniteui-react-core';
 import { IgrShapeDataSource } from 'igniteui-react-core';
 
@@ -98,7 +93,6 @@ export default class MapTypeScatterPolylineSeries extends React.Component {
     public onMapReferenced(map: IgrGeographicMap) {
         this.geoMap = map;
         this.geoMap.windowRect = { left: 0.195, top: 0.325, width: 0.2, height: 0.1 };
-
 
         const sds = new IgrShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
@@ -178,8 +172,6 @@ export default class MapTypeScatterPolylineSeries extends React.Component {
         </div>
     }
 }
-
-
 
 ```
 

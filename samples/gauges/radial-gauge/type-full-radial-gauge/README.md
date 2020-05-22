@@ -48,7 +48,6 @@ The following section provides source code from:
 `./src/RadialGaugeTypeFull.tsx` file:
 
 ```tsx
-
 import { SweepDirection } from 'igniteui-react-core';
 import { IgrRadialGauge } from 'igniteui-react-gauges';
 import { IgrRadialGaugeModule } from 'igniteui-react-gauges';
@@ -57,9 +56,7 @@ import { RadialGaugeBackingShape } from 'igniteui-react-gauges';
 import { RadialGaugeNeedleShape } from 'igniteui-react-gauges';
 import { RadialGaugePivotShape } from 'igniteui-react-gauges';
 import { RadialGaugeScaleOversweepShape } from 'igniteui-react-gauges';
-
 import * as React from 'react';
-
 
 IgrRadialGaugeModule.register();
 
@@ -168,6 +165,7 @@ export default class RadialGaugeTypeFull extends React.Component {
     }
 
 }
+
 ```
 
 ## Instructions

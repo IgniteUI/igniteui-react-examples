@@ -49,12 +49,8 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
-
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrOpenStreetMapImagery } from 'igniteui-react-maps';
@@ -106,8 +102,6 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
         console.log("geo \n left:" + geo.left +
         ", top:" + geo.top + ", width:"  + geo.width + ", height:"  + geo.height);
     }
-
-
 
 }
 

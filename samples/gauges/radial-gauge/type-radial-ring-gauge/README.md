@@ -48,7 +48,6 @@ The following section provides source code from:
 `./src/RadialGaugeTypeRing.tsx` file:
 
 ```tsx
-
 import { SweepDirection } from 'igniteui-react-core';
 import { IgrRadialGauge } from 'igniteui-react-gauges';
 import { IgrRadialGaugeModule } from 'igniteui-react-gauges';
@@ -57,9 +56,7 @@ import { RadialGaugeBackingShape } from 'igniteui-react-gauges';
 import { RadialGaugeNeedleShape } from 'igniteui-react-gauges';
 import { RadialGaugePivotShape } from 'igniteui-react-gauges';
 import { RadialGaugeScaleOversweepShape } from 'igniteui-react-gauges';
-
 import * as React from 'react';
-
 
 IgrRadialGaugeModule.register();
 
@@ -141,7 +138,6 @@ export default class RadialGaugeTypeRing extends React.Component {
         this.addRing(gauge, 80, gauge.scaleEndExtent - 0.1, "#fdb417");
         this.addRing(gauge, 60, gauge.scaleEndExtent - 0.2, "#ff0000");
 
-
     }
 
     public addRing(gauge: IgrRadialGauge, value: number, extent: number, color: string) {
@@ -169,6 +165,7 @@ export default class RadialGaugeTypeRing extends React.Component {
         gauge.ranges.add(rangeVal);
     }
 }
+
 ```
 
 ## Instructions

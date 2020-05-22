@@ -49,18 +49,13 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
-
 import WorldUtils from "./WorldUtils"
 import { IgrGeographicMapImagery } from 'igniteui-react-maps';
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicShapeSeries } from 'igniteui-react-maps';
 import { IgrGeographicPolylineSeries } from 'igniteui-react-maps';
 import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
-
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataContext } from 'igniteui-react-core';
 import { IgrShapeDataSource } from 'igniteui-react-core';
@@ -135,7 +130,6 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
         this.geoMap.actualSeries[0].tooltipTemplate = this.getPolygonsTooltip;
         this.geoMap.actualSeries[1].tooltipTemplate = this.getPolylinesTooltip;
         this.geoMap.actualSeries[2].tooltipTemplate = this.getPointTooltip;
-
 
         // loading a shapefile with geographic polygons
         const sdsPolygons = new IgrShapeDataSource();

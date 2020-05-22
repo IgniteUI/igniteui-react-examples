@@ -49,17 +49,12 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
-
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicTileSeries } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrHeatTileGenerator } from 'igniteui-react-core';
 import { IgrTileGeneratorMapImagery } from 'igniteui-react-maps';
-
 // background worker
 import Worker from "./heatworker.worker"
 
@@ -154,6 +149,7 @@ export default class MapDisplayImageryHeatTiles extends React.Component {
         this.map.series.add(series);
     }
 }
+
 ```
 
 ## Instructions

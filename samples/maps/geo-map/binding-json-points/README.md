@@ -49,10 +49,7 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
 import WorldUtils from "./WorldUtils"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
@@ -165,7 +162,6 @@ export default class MapBindingDataJsonPoints extends React.Component {
             </div>
         </div>
     }
-
 
 }
 

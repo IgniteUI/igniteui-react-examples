@@ -49,11 +49,7 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
-
 import WorldUtils from "./WorldUtils"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
@@ -94,7 +90,6 @@ export default class MapBindingShapefilePoints extends React.Component {
     public onMapReferenced(map: IgrGeographicMap) {
         this.geoMap = map;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
-
 
         // loading a shapefile with geographic points
         const sds = new IgrShapeDataSource();
@@ -168,7 +163,6 @@ export default class MapBindingShapefilePoints extends React.Component {
             </div>
         </div>
     }
-
 
 }
 

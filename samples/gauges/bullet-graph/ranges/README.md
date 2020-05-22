@@ -53,8 +53,6 @@ import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 import * as React from 'react';
 
-
-
 IgrBulletGraphModule.register();
 
 export default class BulletGraphRanges extends React.Component {
@@ -90,6 +88,7 @@ export default class BulletGraphRanges extends React.Component {
         );
     }
 }
+
 ```
 
 ## Instructions

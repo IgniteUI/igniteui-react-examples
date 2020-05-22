@@ -52,7 +52,6 @@ import { IgrLinearGauge } from 'igniteui-react-gauges';
 import { IgrLinearGaugeModule } from 'igniteui-react-gauges';
 import * as React from 'react';
 
-
 IgrLinearGaugeModule.register();
 
 export default class LinearGaugeScale extends React.Component {
@@ -81,6 +80,7 @@ export default class LinearGaugeScale extends React.Component {
         );
     }
 }
+
 ```
 
 ## Instructions

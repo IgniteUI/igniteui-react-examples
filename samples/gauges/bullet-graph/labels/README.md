@@ -52,8 +52,6 @@ import { IgrBulletGraph } from 'igniteui-react-gauges';
 import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 import * as React from 'react';
 
-
-
 IgrBulletGraphModule.register();
 
 export default class BulletGraphLabels extends React.Component {
@@ -80,6 +78,7 @@ export default class BulletGraphLabels extends React.Component {
         );
     }
 }
+
 ```
 
 ## Instructions

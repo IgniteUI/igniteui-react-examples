@@ -49,11 +49,8 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
 import WorldUtils from "./WorldUtils"
 import { LegendOverlay, LegendItem } from "./LegendOverlay"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicShapeSeries } from 'igniteui-react-maps';
@@ -187,7 +184,6 @@ export default class MapTypeScatterPolygonSeries extends React.Component {
             </div>
         </div>
     }
-
 
 }
 

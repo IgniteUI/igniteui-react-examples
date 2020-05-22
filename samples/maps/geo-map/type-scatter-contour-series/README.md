@@ -49,18 +49,13 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
 import { LegendOverlay, LegendItem } from "./LegendOverlay"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicContourLineSeries } from 'igniteui-react-maps';
-
 import { IgrValueBrushScale } from 'igniteui-react-charts';
 import { IgrCustomPaletteColorScale } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { MarkerType } from 'igniteui-react-charts';
 import { IgrShapeDataSource } from 'igniteui-react-core';
 import { IgrDataContext } from 'igniteui-react-core';
@@ -99,7 +94,6 @@ export default class MapTypeScatterContourSeries extends React.Component<any, an
     public onMapReferenced(map: IgrGeographicMap) {
         this.geoMap = map;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
-
 
         const sds = new IgrShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
@@ -175,7 +169,6 @@ export default class MapTypeScatterContourSeries extends React.Component<any, an
             </div>
         </div>
     }
-
 
 }
 
