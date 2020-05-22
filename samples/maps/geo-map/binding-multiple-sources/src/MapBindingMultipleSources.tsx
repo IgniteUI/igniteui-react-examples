@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-
 import WorldConnections from "./WorldConnections";
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
@@ -163,5 +160,3 @@ export default class MapBindingMultipleSources extends React.Component {
         </div>
     }
 }
-
-

@@ -7,7 +7,6 @@ import { IgrPolarLineSeries } from 'igniteui-react-charts';
 import { IgrPolarSplineSeries } from 'igniteui-react-charts';
 import { IgrPolarSplineAreaSeries } from 'igniteui-react-charts';
 import { IgrPolarScatterSeries } from 'igniteui-react-charts';
-
 // data chart's modules:
 import { MarkerType } from 'igniteui-react-charts';
 import { IgrDataChart } from 'igniteui-react-charts';
@@ -15,15 +14,10 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartPolarCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartPolarModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 // legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SamplePolarData } from './SamplePolarData';
 
 IgrDataChartCoreModule.register();

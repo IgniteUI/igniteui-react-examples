@@ -2,9 +2,7 @@ import { IgrLinearGauge } from 'igniteui-react-gauges';
 import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import { IgrLinearGaugeModule } from 'igniteui-react-gauges';
 import { LinearGraphNeedleShape } from 'igniteui-react-gauges';
-
 import * as React from 'react';
-
 
 IgrLinearGaugeModule.register();
 

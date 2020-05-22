@@ -1,13 +1,9 @@
 import * as React from 'react';
-
-
 import WorldLocations from "./WorldLocations";
 import WorldUtils from "./WorldUtils"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicProportionalSymbolSeries } from 'igniteui-react-maps';
-
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrValueBrushScale } from 'igniteui-react-charts';
 import { IgrCustomPaletteBrushScale } from 'igniteui-react-charts';
@@ -118,5 +114,3 @@ export default class MapTypeScatterBubbleSeries extends React.Component {
         </div>
     }
 }
-
-

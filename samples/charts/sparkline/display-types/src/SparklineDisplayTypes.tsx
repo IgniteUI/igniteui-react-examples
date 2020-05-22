@@ -1,10 +1,7 @@
 import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrSparklineCoreModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
 
 IgrSparklineCoreModule.register();
 IgrSparklineModule.register();
@@ -73,7 +70,5 @@ export default class SparklineDisplayTypes extends React.Component {
         console.log(max);
         return data;
     }
-
-
 
 }

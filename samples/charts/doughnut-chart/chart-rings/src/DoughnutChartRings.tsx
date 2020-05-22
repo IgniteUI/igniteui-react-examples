@@ -1,8 +1,4 @@
 import * as React from 'react';
-
-
-
-
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrDoughnutChart } from 'igniteui-react-charts';
 import { IgrRingSeriesModule } from 'igniteui-react-charts';
@@ -71,7 +67,6 @@ export default class DoughnutChartRings extends React.Component<any, any> {
         this.chart.series.add(ringSeries2);
         this.chart.allowSliceSelection = true;
     }
-
 
     public initData() {
 

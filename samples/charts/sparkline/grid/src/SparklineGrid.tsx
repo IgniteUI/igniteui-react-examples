@@ -1,9 +1,6 @@
 import * as React from 'react';
-
 import "./SparklineGrid.css";
-
 import { Products } from './Products';
-
 // sparkline modules:
 import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';

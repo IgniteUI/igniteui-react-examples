@@ -1,7 +1,4 @@
 import * as React from 'react';
-
-
-
 import { BingMapsImageryStyle } from 'igniteui-react-maps';
 import { IgrBingMapsMapImagery } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
@@ -119,8 +116,5 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         this.setState({ tileSource:  e.target.value});
 
     }
-
-
-
 
 }

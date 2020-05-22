@@ -1,7 +1,4 @@
 import * as React from 'react';
-
-
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
@@ -39,6 +36,5 @@ export default class MapOverview extends React.Component<any, any> {
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.7, height: 0.7 };
 
     }
-
 
 }

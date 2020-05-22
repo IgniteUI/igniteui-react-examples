@@ -1,9 +1,5 @@
-
 import * as React from 'react';
-
-
 import WorldUtils from "./WorldUtils"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
@@ -177,5 +173,3 @@ export default class MapBindingDataModel extends React.Component {
         </div>
     }
 }
-
-

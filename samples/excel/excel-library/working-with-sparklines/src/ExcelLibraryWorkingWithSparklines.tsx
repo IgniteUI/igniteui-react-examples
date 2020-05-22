@@ -1,19 +1,15 @@
 import * as React from 'react';
-
 import { ExcelUtility } from './ExcelUtility';
 // import { ExcelSharedData } from './ExcelSharedData';
-
 import { Workbook } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
 import { WorksheetRegion } from 'igniteui-react-excel';
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn, IIgrCellTemplateProps } from 'igniteui-react-grids';
 import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
-
 // data chart's elements for category series:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
@@ -22,11 +18,9 @@ import { IgrColumnSeries } from 'igniteui-react-charts';
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-
 import { Visibility } from 'igniteui-react-core';
 import { WorkbookFontProxy, SparklineType } from 'igniteui-react-excel';
 
@@ -38,8 +32,6 @@ IgrDataChartCategoryModule.register();
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
 IgrExcelXlsxModule.register();
-
-
 
 export default class ExcelLibraryWorkingWithSparklines extends React.Component<any, any> {
 

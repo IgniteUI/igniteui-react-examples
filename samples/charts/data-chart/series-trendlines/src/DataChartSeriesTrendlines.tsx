@@ -13,9 +13,6 @@ import { IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
 // legend's modules:
 import * as React from 'react';
 
-
-
-
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();

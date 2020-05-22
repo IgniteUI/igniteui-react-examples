@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
@@ -10,7 +7,6 @@ import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { ListSortDirection } from 'igniteui-react-core';
-
 import { DataGridPager } from './DataGridPager';
 
 IgrDataGridModule.register();

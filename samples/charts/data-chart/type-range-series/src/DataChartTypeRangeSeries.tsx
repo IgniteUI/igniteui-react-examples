@@ -12,9 +12,6 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
 import { SampleRangeData } from './SampleRangeData';
 
 IgrDataChartCoreModule.register();

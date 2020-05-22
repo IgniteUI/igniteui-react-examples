@@ -5,9 +5,6 @@ import { IIgrPieChartBaseProps } from 'igniteui-react-charts';
 import { IgrSliceClickEventArgs } from 'igniteui-react-charts';
 import * as React from 'react';
 
-
-
-
 IgrPieChartModule.register();
 
 export default class PieChartSelection extends React.Component<any, any> {

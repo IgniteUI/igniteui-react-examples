@@ -1,8 +1,4 @@
 import * as React from 'react';
-
-
-
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';

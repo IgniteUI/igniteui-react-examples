@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
@@ -83,7 +80,6 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
         this.grid = grid;
         this.grid.actualDataSource.isSectionExpandedDefault = true;
     }
-
 
     public componentDidMount() {
         window.addEventListener('load', this.onLoad);

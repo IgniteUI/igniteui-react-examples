@@ -1,7 +1,4 @@
 import * as React from 'react';
-
-
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 // import { IgrGeographicHighDensityScatterSeries } from 'igniteui-react-maps';
@@ -44,7 +41,5 @@ export default class MapBindingDataJSON extends React.Component {
         // fetching JSON data with geographic locations from public folder
 
     }
-
-
 
 }

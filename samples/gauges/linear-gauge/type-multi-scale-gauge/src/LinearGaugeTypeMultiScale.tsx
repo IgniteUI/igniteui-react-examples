@@ -2,7 +2,6 @@ import { IgrLinearGauge } from 'igniteui-react-gauges';
 import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import { IgrLinearGaugeModule } from 'igniteui-react-gauges';
 // import { IgrFormatLinearGraphLabelEventArgs } from 'igniteui-react-gauges';
-
 import * as React from 'react';
 
 IgrLinearGaugeModule.register();
@@ -116,7 +115,6 @@ export default class LinearGaugeTypeMultiScale extends React.Component {
         gauge.tickStrokeThickness = 1;
         gauge.tickBrush = "gray";
 
-
         const rangeExtentSpan = gauge.scaleOuterExtent - gauge.scaleInnerExtent;
         const rangeExtentInterval = rangeExtentSpan / 2;
 
@@ -145,6 +143,5 @@ export default class LinearGaugeTypeMultiScale extends React.Component {
         gauge.ranges.add(range2);
 
     }
-
 
 }

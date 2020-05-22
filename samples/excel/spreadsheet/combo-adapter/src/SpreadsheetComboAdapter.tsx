@@ -1,15 +1,13 @@
 import React from 'react';
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-
 import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheetChartAdapterModule } from 'igniteui-react-spreadsheet-chart-adapter';
 import { SpreadsheetChartAdapter } from 'igniteui-react-spreadsheet-chart-adapter';
-
 import { AxisGroup, AxisPosition, AxisType, CellReferenceMode,
+
     ChartType, ChartTitle, FormattedString, Legend,
     LegendPosition, Workbook,
     WorksheetTableColumnArea, WorkbookFormat, XValues } from 'igniteui-react-excel';

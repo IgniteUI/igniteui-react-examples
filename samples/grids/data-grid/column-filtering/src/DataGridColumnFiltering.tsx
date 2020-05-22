@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
@@ -11,7 +8,6 @@ import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { FilterExpression } from 'igniteui-react-core';
 import { FilterFactory } from 'igniteui-react-core';
-
 
 IgrDataGridModule.register();
 

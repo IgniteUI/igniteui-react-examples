@@ -5,16 +5,11 @@ import { IgrCategoryXAxis } from 'igniteui-react-charts';
 import { IgrFinancialPriceSeries } from 'igniteui-react-charts';
 import { IgrBollingerBandsOverlay } from 'igniteui-react-charts';
 import { IgrMedianPriceIndicator } from 'igniteui-react-charts';
-
 // data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SampleFinancialData } from './SampleFinancialData';
 
 IgrDataChartCoreModule.register();

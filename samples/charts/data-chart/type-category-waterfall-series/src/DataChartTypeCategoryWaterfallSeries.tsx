@@ -11,11 +11,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 // importing legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
@@ -80,7 +76,6 @@ export default class DataChartTypeCategoryWaterfallSeries extends React.Componen
             this.chart.legend = this.legend;
         }
     }
-
 
     public getData(): any[] {
         const data: any = [

@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-
 import { MapUtils, MapRegion } from './MapUtils';
-
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';

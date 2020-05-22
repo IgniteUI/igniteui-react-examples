@@ -1,7 +1,4 @@
 import * as React from 'react';
-
-
-
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrDoughnutChart } from 'igniteui-react-charts';
 import { IgrItemLegend } from 'igniteui-react-charts';

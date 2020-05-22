@@ -3,9 +3,7 @@ import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import { IgrLinearGaugeModule } from 'igniteui-react-gauges';
 import { LinearScaleOrientation } from 'igniteui-react-gauges';
 import { LinearGraphNeedleShape } from 'igniteui-react-gauges';
-
 import * as React from 'react';
-
 
 IgrLinearGaugeModule.register();
 
@@ -122,6 +120,5 @@ export default class LinearGaugeTypeVertical extends React.Component {
         gauge.scaleOutline = "#e0dfdf";
 
     }
-
 
 }

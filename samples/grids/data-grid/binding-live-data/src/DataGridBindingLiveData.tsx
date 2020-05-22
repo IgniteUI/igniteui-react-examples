@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './DataGridBindingLiveData.css';
-
 import { LiveFinancialData } from './LiveFinancialData';
 import { TaskUtil } from './TaskUtil';
 // IgrDataGrid modules
@@ -678,7 +677,6 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                     iconColor = this.valuesDecreasedColor;
                 }
 
-
                 // context.fillStyle = "blue";
                 // context.fillRect(0,0,args.cellInfo.width,args.cellInfo.height);
                 let txt = (+templ.value).toFixed(2) + "%";
@@ -686,8 +684,6 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                 let width = context.measureText(txt).width;
 
                 let totalWidth = width + 4;
-
-
 
                 context.font = "13px Verdana";
                 context.fillStyle = templ.textColor;
@@ -848,7 +844,6 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
             icon.style.verticalAlign = "center";
             icon.textContent = "insertchart_outlined";
         }
-
 
     }
 
@@ -1158,4 +1153,3 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
     }
 
 }
-

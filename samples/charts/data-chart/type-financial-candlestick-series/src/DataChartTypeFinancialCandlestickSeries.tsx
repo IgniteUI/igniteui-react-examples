@@ -3,16 +3,11 @@ import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
 // series' modules:
 import { IgrFinancialPriceSeries } from 'igniteui-react-charts';
-
 // data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SampleFinancialData } from './SampleFinancialData';
 
 IgrDataChartCoreModule.register();

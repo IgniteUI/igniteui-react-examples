@@ -1,9 +1,6 @@
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
 import { StocksUtility } from '/StocksUtility';
 
 IgrFinancialChartModule.register();
@@ -72,7 +69,6 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
             </div>
         );
     }
-
 
     public componentWillUnmount() {
         if (this.interval >= 0) {
@@ -182,4 +178,3 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
         }
     }
 }
-

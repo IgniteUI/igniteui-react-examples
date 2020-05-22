@@ -1,7 +1,5 @@
 import * as React from 'react';
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';

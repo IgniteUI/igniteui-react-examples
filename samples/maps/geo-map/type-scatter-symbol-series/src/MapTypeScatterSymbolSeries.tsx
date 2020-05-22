@@ -1,13 +1,9 @@
 import * as React from 'react';
-
-
 import WorldLocations from "./WorldLocations";
 import WorldUtils from "./WorldUtils"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
-
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataContext } from 'igniteui-react-core';
 import { MarkerType } from 'igniteui-react-charts';
@@ -96,5 +92,3 @@ export default class MapTypeScatterSymbolSeries extends React.Component {
         </div>
     }
 }
-
-

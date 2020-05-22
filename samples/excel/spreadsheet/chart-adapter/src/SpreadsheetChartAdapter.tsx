@@ -1,15 +1,12 @@
 import React from 'react';
 import { ExcelUtility } from '/ExcelUtility';
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-
 import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheetChartAdapterModule } from 'igniteui-react-spreadsheet-chart-adapter';
 import { SpreadsheetChartAdapter } from 'igniteui-react-spreadsheet-chart-adapter';
-
 import { Worksheet } from 'igniteui-react-excel';
 import { WorksheetCell } from 'igniteui-react-excel';
 import { ChartType, ChartTitle, FormattedString } from 'igniteui-react-excel';

@@ -1,8 +1,5 @@
 import * as React from 'react';
-
 import './odatajs-4.0.0';
-
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';

@@ -1,9 +1,6 @@
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
 import { CategoryChartSharedData } from './CategoryChartSharedData';
 
 IgrCategoryChartModule.register();
@@ -53,7 +50,6 @@ export default class CategoryChartHighVolume extends React.Component<any, any> {
         const info = CategoryChartSharedData.toShortString(this.dataPoints);
         this.setState({ dataPoints: this.dataPoints, dataInfo: info });
     }
-
 
     public onDataGenerateClick = (e: any) => {
         if (this.dataPoints === undefined){

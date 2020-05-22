@@ -1,8 +1,4 @@
 import * as React from 'react';
-
-
-
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrColumn } from 'igniteui-react-grids';
@@ -10,7 +6,6 @@ import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-grids';
 import { IgrDataBindingEventArgs } from 'igniteui-react-grids';
 import { HeaderClickAction } from 'igniteui-react-grids';
 import { GridSelectionMode } from 'igniteui-react-grids';
-
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
@@ -203,7 +198,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
         args.styleKey = "igComponent";
     }
 
-
     public onChartCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
 
@@ -230,7 +224,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
     public onGridStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         args.styleKey = "grid";
     }
-
 
     public onGridCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
@@ -267,7 +260,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
             </div>
         );
     }
-
 
     public render() {
         return (
@@ -386,7 +378,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
                             let bByte = Math.round((fromB + (toB - fromB) * p) * 255.0);
 
                             let colorString = "rgba(" + rByte + "," + gByte + "," + bByte + "," + aByte + ")";
-
 
                             args.cellInfo.background = colorString;
             }

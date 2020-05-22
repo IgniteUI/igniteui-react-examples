@@ -1,9 +1,6 @@
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
 import { StocksUtility } from '/StocksUtility';
 
 IgrFinancialChartModule.register();
@@ -51,4 +48,3 @@ export default class FinancialChartHighVolume extends React.Component<any, any> 
         this.subtitle =  StocksUtility.toShortString(this.data.length) + " data points";
     }
 }
-
