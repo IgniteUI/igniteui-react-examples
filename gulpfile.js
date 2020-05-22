@@ -5,29 +5,29 @@ function log(msg) {
     console.log('gulpfile.js ' + msg);
 }
 
-var samples = require('./tasks/gulp-samples.js')
+var sb = require('./tasks/gulp-samples.js')
 // var browser = require('./tasks/gulp-browser.js')
 
 exports.updateSamples = updateSamples = gulp.series(
-    samples.getSamples,
-    samples.updateReadme,
-    samples.updatePackages,
-    samples.updateIndex,
-    samples.updateSharedFiles,
+    sb.getSamples,
+    sb.updateReadme,
+    sb.updatePackages,
+    sb.updateIndex,
+    sb.updateSharedFiles,
 );
 
-exports.updateBrowser = updateBrowser = gulp.series(
-    samples.getSamples,
-    // samples.updateReadme,
-    // samples.updatePackages,
-    // samples.updateIndex,
-    // samples.updateSharedFiles,
-    samples.copySamples,
+exports.copySamples = copySamples = gulp.series(
+    sb.getSamples,
+    // sb.updateReadme,
+    // sb.updatePackages,
+    // sb.updateIndex,
+    // sb.updateSharedFiles,
+    sb.copySamples,
 );
 
-// exports.default = updateSamples;
+// exports.default = copySamples;
 
-exports.logPublicFiles = samples.logPublicFiles;
-exports.logSourceFiles = samples.logSourceFiles;
-exports.logUniqueFiles = samples.logUniqueFiles;
-exports.logRootFiles   = samples.logRootFiles;
+exports.logPublicFiles = sb.logPublicFiles;
+exports.logSourceFiles = sb.logSourceFiles;
+exports.logUniqueFiles = sb.logUniqueFiles;
+exports.logRootFiles   = sb.logRootFiles;
