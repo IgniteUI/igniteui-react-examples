@@ -1,3 +1,5 @@
+
+
 export class CategoryChartSharedData {
 
     public static generateItems(startValue: number, maxPoints: number, useShortLabels?: boolean): any[] {

@@ -1,3 +1,5 @@
+
+
 export class SampleRangeData {
 
     public static create(): any[] {

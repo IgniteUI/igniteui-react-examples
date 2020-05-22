@@ -1,3 +1,5 @@
+
+
 export default class WorldLocations {
 
     public static locations: any[] = [];
