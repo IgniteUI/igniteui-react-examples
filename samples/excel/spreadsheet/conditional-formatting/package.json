@@ -1,6 +1,6 @@
 {
-  "name": "react-spreadsheet-cond-formatting",
-  "description": "This project provides example of Spreadsheet Cond Formatting using Infragistics React components",
+  "name": "react-spreadsheet-conditional-formatting",
+  "description": "This project provides example of Spreadsheet Conditional Formatting using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

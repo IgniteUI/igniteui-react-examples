@@ -6,13 +6,13 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Spreadsheet Adapter Combo.
+This folder contains implementation of React application with example of Spreadsheet Combo Adapter.
 <!-- in the Spreadsheet component -->
 <!-- [Spreadsheet](https://infragistics.com/Reactsite/components/spreadsheet.html) -->
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/spreadsheet/combo-adapter?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetAdapterCombo.tsx" rel="noopener noreferrer">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/spreadsheet/combo-adapter?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetComboAdapter.tsx" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/code.png"/>
         </a>
         <!-- <a target="_blank"
@@ -20,7 +20,7 @@ href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/mast
             <img alt="Edit Sample" src="https://codesandbox.io/static/img/play-codesandbox.svg"/>
         </a> -->
         <!-- <a target="_blank" style="margin-left: 0.5rem"
-href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/spreadsheet/combo-adapter?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetAdapterCombo.tsx">
+href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/spreadsheet/combo-adapter?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetComboAdapter.tsx">
             <img height="40px" style="border-radius: 5px" alt="View on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/view.png"/>
         </a> -->
         <!-- <a target="_blank"
@@ -36,7 +36,7 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 <!-- ## Sample Preview -->
 
 <!-- <iframe
-  src="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/spreadsheet/combo-adapter?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetAdapterCombo.tsx"
+  src="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/spreadsheet/combo-adapter?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetComboAdapter.tsx"
   style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -45,21 +45,19 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 ## Source Code
 
 The following section provides source code from:
-`./src/SpreadsheetAdapterCombo.tsx` file:
+`./src/SpreadsheetComboAdapter.tsx` file:
 
 ```tsx
 import React from 'react';
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-
 import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheetChartAdapterModule } from 'igniteui-react-spreadsheet-chart-adapter';
 import { SpreadsheetChartAdapter } from 'igniteui-react-spreadsheet-chart-adapter';
-
 import { AxisGroup, AxisPosition, AxisType, CellReferenceMode,
+
     ChartType, ChartTitle, FormattedString, Legend,
     LegendPosition, Workbook,
     WorksheetTableColumnArea, WorkbookFormat, XValues } from 'igniteui-react-excel';
@@ -70,7 +68,7 @@ IgrExcelXlsxModule.register();
 IgrSpreadsheetModule.register();
 IgrSpreadsheetChartAdapterModule.register();
 
-export default class SpreadsheetAdapterCombo extends React.Component {
+export default class SpreadsheetComboAdapter extends React.Component {
     public spreadsheet: IgrSpreadsheet;
 
     constructor(props: any) {
@@ -138,6 +136,7 @@ export default class SpreadsheetAdapterCombo extends React.Component {
         });
     }
 }
+
 ```
 
 ## Instructions

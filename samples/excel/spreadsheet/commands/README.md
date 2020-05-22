@@ -49,20 +49,12 @@ The following section provides source code from:
 
 ```tsx
 import React from 'react';
-
-
-
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-
 import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
-
 import { ExcelUtility } from '/ExcelUtility';
-
-
 import { SpreadsheetAction } from 'igniteui-react-spreadsheet';
 
 IgrExcelCoreModule.register();
@@ -116,6 +108,7 @@ export default class SpreadsheetCommands extends React.Component<any, any> {
         });
     }
 }
+
 ```
 
 ## Instructions

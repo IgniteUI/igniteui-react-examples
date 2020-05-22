@@ -49,22 +49,14 @@ The following section provides source code from:
 
 ```tsx
 import React from 'react';
-
-
-
-
 import { ExcelUtility } from '/ExcelUtility';
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-
 import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 import { SpreadsheetCell } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheetActiveCellChangedEventArgs } from 'igniteui-react-spreadsheet';
-
-
 
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
@@ -108,7 +100,6 @@ export default class SpreadsheetActivation extends React.Component<any, any> {
         this.setState({filterText: e.target.value});
     }
 
-
     public onClick = (e: any) => {
        this.spreadsheet.activeCell = new SpreadsheetCell(this.filterText);
     }
@@ -121,6 +112,7 @@ export default class SpreadsheetActivation extends React.Component<any, any> {
         });
     }
 }
+
 ```
 
 ## Instructions

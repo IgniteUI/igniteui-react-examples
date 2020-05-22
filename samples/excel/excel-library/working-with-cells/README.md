@@ -6,13 +6,13 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Excel Library Cells.
+This folder contains implementation of React application with example of Excel Library Working With Cells.
 <!-- in the Excel Library component -->
 <!-- [Excel Library](https://infragistics.com/Reactsite/components/excel-library.html) -->
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/excel-library/working-with-cells?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/ExcelLibraryCells.tsx" rel="noopener noreferrer">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/excel-library/working-with-cells?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/ExcelLibraryWorkingWithCells.tsx" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/code.png"/>
         </a>
         <!-- <a target="_blank"
@@ -20,7 +20,7 @@ href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/mast
             <img alt="Edit Sample" src="https://codesandbox.io/static/img/play-codesandbox.svg"/>
         </a> -->
         <!-- <a target="_blank" style="margin-left: 0.5rem"
-href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/excel-library/working-with-cells?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/ExcelLibraryCells.tsx">
+href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/excel-library/working-with-cells?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/ExcelLibraryWorkingWithCells.tsx">
             <img height="40px" style="border-radius: 5px" alt="View on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/view.png"/>
         </a> -->
         <!-- <a target="_blank"
@@ -36,7 +36,7 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 <!-- ## Sample Preview -->
 
 <!-- <iframe
-  src="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/excel-library/working-with-cells?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/ExcelLibraryCells.tsx"
+  src="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/excel/excel-library/working-with-cells?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/ExcelLibraryWorkingWithCells.tsx"
   style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -45,20 +45,16 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 ## Source Code
 
 The following section provides source code from:
-`./src/ExcelLibraryCells.tsx` file:
+`./src/ExcelLibraryWorkingWithCells.tsx` file:
 
 ```tsx
 import * as React from 'react';
-
-
-
-import { SharedData } from './ExcelSharedData';
+import { ExcelUtility } from './ExcelUtility';
+// import { ExcelSharedData } from './ExcelSharedData';
 import { IgrExcelModule } from 'igniteui-react-excel';
 import { Workbook } from 'igniteui-react-excel';
 import { Worksheet } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
-import { ExcelUtility } from '/ExcelUtility';
-
 import { CellReferenceMode } from 'igniteui-react-excel';
 import { WorksheetMergedCellsRegion } from 'igniteui-react-excel';
 import { WorksheetCellComment } from 'igniteui-react-excel';
@@ -67,7 +63,7 @@ import { Formula } from 'igniteui-react-excel';
 
 IgrExcelModule.register();
 
-export default class ExcelLibraryCells extends React.Component<any, any> {
+export default class ExcelLibraryWorkingWithCells extends React.Component<any, any> {
     public canSave = false;
     public wb: Workbook;
     public ws: Worksheet;
@@ -287,6 +283,7 @@ export default class ExcelLibraryCells extends React.Component<any, any> {
         this.workbookCreate();
     }
 }
+
 ```
 
 ## Instructions

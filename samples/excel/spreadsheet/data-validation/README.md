@@ -49,17 +49,12 @@ The following section provides source code from:
 
 ```tsx
 import React from 'react';
-
 import "../styles.css";
-
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-
 import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
-
 import { AnyValueDataValidationRule } from 'igniteui-react-excel';
 import { CustomDataValidationRule } from 'igniteui-react-excel';
 import { DataValidationErrorStyle } from 'igniteui-react-excel';
@@ -69,8 +64,6 @@ import { OneConstraintDataValidationRule } from 'igniteui-react-excel';
 import { TwoConstraintDataValidationOperator } from 'igniteui-react-excel';
 import { TwoConstraintDataValidationRule } from 'igniteui-react-excel';
 import { WorksheetColumnWidthUnit } from 'igniteui-react-excel';
-
-
 
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
@@ -172,6 +165,7 @@ export default class SpreadsheetDataValidation extends React.Component<any, any>
         }
     }
 }
+
 ```
 
 ## Instructions

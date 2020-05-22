@@ -1,6 +1,6 @@
 {
-  "name": "react-excel-library-cells",
-  "description": "This project provides example of Excel Library Cells using Infragistics React components",
+  "name": "react-excel-library-working-with-cells",
+  "description": "This project provides example of Excel Library Working With Cells using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

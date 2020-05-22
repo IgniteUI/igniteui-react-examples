@@ -1,6 +1,6 @@
 {
-  "name": "react-spreadsheet-configuring",
-  "description": "This project provides example of Spreadsheet Configuring using Infragistics React components",
+  "name": "react-spreadsheet-config-options",
+  "description": "This project provides example of Spreadsheet Config Options using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

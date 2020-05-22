@@ -1,6 +1,6 @@
 {
-  "name": "react-spreadsheet-adapter-combo",
-  "description": "This project provides example of Spreadsheet Adapter Combo using Infragistics React components",
+  "name": "react-spreadsheet-combo-adapter",
+  "description": "This project provides example of Spreadsheet Combo Adapter using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

@@ -1,6 +1,6 @@
 {
-  "name": "react-excel-library-sparklines",
-  "description": "This project provides example of Excel Library Sparklines using Infragistics React components",
+  "name": "react-excel-library-working-with-sparklines",
+  "description": "This project provides example of Excel Library Working With Sparklines using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

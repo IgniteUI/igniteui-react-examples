@@ -49,11 +49,7 @@ The following section provides source code from:
 
 ```tsx
 import React from 'react';
-
-
-
 import { ExcelUtility } from '/ExcelUtility';
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
@@ -90,6 +86,7 @@ export default class SpreadsheetHyperlinks extends React.Component {
         });
     }
 }
+
 ```
 
 ## Instructions

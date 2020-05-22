@@ -1,6 +1,6 @@
 {
-  "name": "react-excel-library-charts",
-  "description": "This project provides example of Excel Library Charts using Infragistics React components",
+  "name": "react-excel-library-working-with-charts",
+  "description": "This project provides example of Excel Library Working With Charts using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
