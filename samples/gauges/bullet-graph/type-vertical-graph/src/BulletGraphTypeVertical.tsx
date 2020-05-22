@@ -49,6 +49,8 @@ export default class BulletGraphTypeVertical extends React.Component {
 
     public renderGauge(gauge: IgrBulletGraph, value: number, target: number, colors: string[]) {
 
+        if (!gauge) { return; }
+
         gauge.orientation = LinearScaleOrientation.Vertical;
         gauge.backingBrush = "transparent";
         gauge.backingOutline = "transparent";

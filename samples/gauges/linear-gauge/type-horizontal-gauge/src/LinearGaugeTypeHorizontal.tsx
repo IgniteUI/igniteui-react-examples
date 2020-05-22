@@ -50,6 +50,8 @@ export default class LinearGaugeTypeHorizontal extends React.Component {
 
     public renderGauge(gauge: IgrLinearGauge, value: number, colors: string[]) {
 
+        if (!gauge) { return; }
+
         gauge.orientation = LinearScaleOrientation.Horizontal;
         gauge.value = value;
 

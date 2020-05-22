@@ -1,10 +1,9 @@
 import { IgrLinearGauge } from 'igniteui-react-gauges';
 import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import { IgrLinearGaugeModule } from 'igniteui-react-gauges';
-import { IgrFormatLinearGraphLabelEventArgs } from 'igniteui-react-gauges';
+// import { IgrFormatLinearGraphLabelEventArgs } from 'igniteui-react-gauges';
 
 import * as React from 'react';
-
 
 IgrLinearGaugeModule.register();
 
@@ -46,6 +45,8 @@ export default class LinearGaugeTypeMultiScale extends React.Component {
 
     public renderCelsiusGauge(gauge: IgrLinearGauge) {
 
+        if (!gauge) { return; }
+
         this.setupGauge(gauge);
 
         gauge.formatLabel = (s: any, e : any) => {
@@ -54,6 +55,8 @@ export default class LinearGaugeTypeMultiScale extends React.Component {
     }
 
     public renderFahrenheitGauge(gauge: IgrLinearGauge) {
+
+        if (!gauge) { return; }
 
         this.setupGauge(gauge);
         gauge.ranges.clear();
