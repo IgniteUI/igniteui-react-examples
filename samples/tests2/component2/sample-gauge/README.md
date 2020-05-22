@@ -44,14 +44,17 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`./src/LinearGaugeLabels.tsx` file:
+<!-- The following section provides source code from:
+`./src/LinearGaugeLabels.tsx` file: -->
 
-```tsx
+The following section provides source code from:
+[./src/LinearGaugeLabels.tsx](./src/LinearGaugeLabels.tsx) file:
+
+
+<!-- ```tsx
 import { IgrLinearGauge } from 'igniteui-react-gauges';
 import { IgrLinearGaugeModule } from 'igniteui-react-gauges';
 import * as React from 'react';
-
 
 IgrLinearGaugeModule.register();
 
@@ -79,7 +82,8 @@ export default class LinearGaugeLabels extends React.Component {
         );
     }
 }
-```
+
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

@@ -44,17 +44,17 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
+<!-- The following section provides source code from:
+`./src/MapDisplayImageryOSM.tsx` file: -->
+
 The following section provides source code from:
-`./src/MapDisplayImageryOSM.tsx` file:
+[./src/MapDisplayImageryOSM.tsx](./src/MapDisplayImageryOSM.tsx) file:
 
-```tsx
+
+<!-- ```tsx
 import * as React from 'react';
-
-
-
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrOpenStreetMapImagery } from 'igniteui-react-maps';
@@ -107,11 +107,9 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
         ", top:" + geo.top + ", width:"  + geo.width + ", height:"  + geo.height);
     }
 
-
-
 }
 
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:
