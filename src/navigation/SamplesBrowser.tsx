@@ -10,7 +10,7 @@ import { RoutingGroup } from './SamplesData';
 
 // import { gridsRoutingData } from "../samples/grids/RoutingData";
 import { gaugesRoutingData } from "../samples/gauges/RoutingData";
-import { mapsRoutingData } from "../samples/maps/RoutingData";
+// import { mapsRoutingData } from "../samples/maps/RoutingData";
 // import { tests1RoutingData } from "../samples/tests1/RoutingData";
 // import { tests2RoutingData } from "../samples/tests2/RoutingData";
 
@@ -58,15 +58,15 @@ export class SamplesBrowser extends React.Component<any, any>
         // console.log(TestsRoutes.DataRoutes)
 
         this.populateLookup(gaugesRoutingData);
-        this.populateLookup(mapsRoutingData);
+        // this.populateLookup(mapsRoutingData);
 
-        this.populateLinks(SamplesRouter.getLinks(mapsRoutingData, this.onSampleOpen));
+        // this.populateLinks(SamplesRouter.getLinks(mapsRoutingData, this.onSampleOpen));
         this.populateLinks(SamplesRouter.getLinks(gaugesRoutingData, this.onSampleOpen));
         // this.populateLinks(SamplesRouter.getLinks(gridsRoutingData, this.onSampleOpen));
         // this.populateLinks(SamplesRouter.getLinks(tests1RoutingData, this.onSampleOpen));
         // this.populateLinks(SamplesRouter.getLinks(tests2RoutingData, this.onSampleOpen));
 
-        this.populateRoutes(SamplesRouter.getRoutes(mapsRoutingData));
+        // this.populateRoutes(SamplesRouter.getRoutes(mapsRoutingData));
         this.populateRoutes(SamplesRouter.getRoutes(gaugesRoutingData));
         // this.populateRoutes(SamplesRouter.getRoutes(gridsRoutingData));
         // this.populateRoutes(SamplesRouter.getRoutes(tests1RoutingData));

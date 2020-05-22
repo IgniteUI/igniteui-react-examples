@@ -494,7 +494,7 @@ class Transformer {
         routes += "    components: [\n";
 
         for (const component of group.Components) {
-            console.log('component ' + component.Name);
+            console.log('coping samples for ' + component.Name + ' component');
 
             // let componentPath = '/' + group.name + '/' + component.name;
             // routes += "    {     path: '" + componentPath +  "', name: '" + component.name + "', routes: [ \n";
@@ -504,7 +504,7 @@ class Transformer {
             imports += "// importing " + component.Name + " samples: \n";
 
             for (const info of component.Samples) {
-                console.log('- sample ' + info.SampleDisplayName);
+                console.log('- copied: ' + info.SampleDisplayName);
 
                 // console.log('sample ' + sample.SampleFolderName);
                 // let sampleClass = info.SampleFileName.replace('.tsx','');
