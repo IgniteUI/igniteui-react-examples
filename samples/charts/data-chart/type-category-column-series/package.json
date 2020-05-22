@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-category-column-series",
-  "description": "This project provides example of Data Chart Type Category Column Series using Infragistics React components",
+  "name": "react-data-chart-category-column-series",
+  "description": "This project provides example of Data Chart Category Column Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

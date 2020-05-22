@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-scatter-density-series",
-  "description": "This project provides example of Data Chart Type Scatter Density Series using Infragistics React components",
+  "name": "react-data-chart-scatter-density-series",
+  "description": "This project provides example of Data Chart Scatter Density Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

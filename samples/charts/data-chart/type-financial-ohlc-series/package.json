@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-financial-ohlc-series",
-  "description": "This project provides example of Data Chart Type Financial Ohlc Series using Infragistics React components",
+  "name": "react-data-chart-financial-ohlc-series",
+  "description": "This project provides example of Data Chart Financial Ohlc Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

@@ -6,7 +6,7 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Data Chart Type Scatter Density Series.
+This folder contains implementation of React application with example of Data Chart Scatter Density Series.
 <!-- in the Data Chart component -->
 <!-- [Data Chart](https://infragistics.com/Reactsite/components/data-chart.html) -->
 
@@ -61,11 +61,7 @@ import { IgrDataChartScatterModule } from 'igniteui-react-charts';
 import { IgrHighDensityScatterSeriesModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SampleDensityData } from './SampleDensityData';
 
 IgrDataChartCoreModule.register();
@@ -120,12 +116,10 @@ export default class DataChartTypeScatterDensitySeries extends React.Component<a
         this.setState({seriesPointExtent: extent});
     }
 
-
     public useBruteForceChanged = (e: any) => {
         const useBruteForce = e.target.checked;
         this.setState({hdUseBruteForce: useBruteForce});
     }
-
 
     public render() {
         return (

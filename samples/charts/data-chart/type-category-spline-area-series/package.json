@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-category-spline-area-series",
-  "description": "This project provides example of Data Chart Type Category Spline Area Series using Infragistics React components",
+  "name": "react-data-chart-category-spline-area-series",
+  "description": "This project provides example of Data Chart Category Spline Area Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

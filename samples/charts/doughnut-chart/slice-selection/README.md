@@ -49,9 +49,6 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
-
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrDoughnutChart } from 'igniteui-react-charts';
 import { IgrRingSeriesModule } from 'igniteui-react-charts';
@@ -139,6 +136,7 @@ export default class DoughnutChartSelection extends React.Component<any, any> {
         this.state = { data: this.data };
     }
 }
+
 ```
 
 ## Instructions

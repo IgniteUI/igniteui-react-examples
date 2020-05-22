@@ -51,9 +51,6 @@ The following section provides source code from:
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
 import { StocksUtility } from '/StocksUtility';
 
 IgrFinancialChartModule.register();
@@ -145,7 +142,6 @@ export default class FinancialChartAnnotations extends React.Component<any, any>
         this.setState( {markersTypes: markers, markersVisible: visible} );
     }
 
-
     public initData() {
         const today = new Date();
         const year = today.getFullYear();
@@ -205,7 +201,6 @@ export default class FinancialChartAnnotations extends React.Component<any, any>
         this.data = stockData;
     }
 }
-
 
 ```
 

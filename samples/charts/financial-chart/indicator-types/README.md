@@ -51,9 +51,6 @@ The following section provides source code from:
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
 import { StocksUtility } from '/StocksUtility';
 
 IgrFinancialChartModule.register();
@@ -96,6 +93,7 @@ export default class FinancialChartIndicatorTypes extends React.Component<any, a
         this.data = StocksUtility.GetStocksBetween(dateStart, dateEnd);
     }
 }
+
 ```
 
 ## Instructions

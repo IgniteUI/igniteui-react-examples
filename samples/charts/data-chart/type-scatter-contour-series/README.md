@@ -6,7 +6,7 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Data Chart Type Scatter Contour Series.
+This folder contains implementation of React application with example of Data Chart Scatter Contour Series.
 <!-- in the Data Chart component -->
 <!-- [Data Chart](https://infragistics.com/Reactsite/components/data-chart.html) -->
 
@@ -61,11 +61,7 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartScatterCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartScatterModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SampleScatterData } from './SampleScatterData';
 
 IgrDataChartCoreModule.register();

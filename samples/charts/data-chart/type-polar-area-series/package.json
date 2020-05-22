@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-polar-area-series",
-  "description": "This project provides example of Data Chart Type Polar Area Series using Infragistics React components",
+  "name": "react-data-chart-polar-area-series",
+  "description": "This project provides example of Data Chart Polar Area Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-radial-area-series",
-  "description": "This project provides example of Data Chart Type Radial Area Series using Infragistics React components",
+  "name": "react-data-chart-radial-area-series",
+  "description": "This project provides example of Data Chart Radial Area Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

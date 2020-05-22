@@ -6,7 +6,7 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Data Chart Type Scatter Bubble Series.
+This folder contains implementation of React application with example of Data Chart Scatter Bubble Series.
 <!-- in the Data Chart component -->
 <!-- [Data Chart](https://infragistics.com/Reactsite/components/data-chart.html) -->
 
@@ -51,7 +51,6 @@ The following section provides source code from:
 // types of axis:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrNumericXAxis } from 'igniteui-react-charts';
-
 // types of scatter series:
 import { IgrBubbleSeries } from 'igniteui-react-charts';
 // elements of scatter series:
@@ -71,10 +70,7 @@ import { MarkerType } from 'igniteui-react-charts';
 // legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
 import { SampleScatterStats } from './SampleScatterStats';
 
 IgrDataChartCoreModule.register();

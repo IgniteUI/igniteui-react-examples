@@ -6,7 +6,7 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Data Chart Type Financial Indicator Column.
+This folder contains implementation of React application with example of Data Chart Financial Indicator Column.
 <!-- in the Data Chart component -->
 <!-- [Data Chart](https://infragistics.com/Reactsite/components/data-chart.html) -->
 
@@ -48,24 +48,18 @@ The following section provides source code from:
 `./src/DataChartTypeFinancialIndicatorColumn.tsx` file:
 
 ```tsx
-
 import * as React from 'react';
-
-
 import { SampleFinancialData } from './SampleFinancialData';
-
 // axis' modules:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
 // series' modules:
 import { IgrFinancialPriceSeries } from 'igniteui-react-charts';
-
 // data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 // indicator's modules:
 import { IgrAbsoluteVolumeOscillatorIndicator } from 'igniteui-react-charts';
 import { IgrAccumulationDistributionIndicator } from 'igniteui-react-charts';
@@ -98,7 +92,6 @@ import { IgrStandardDeviationIndicator } from 'igniteui-react-charts';
 import { IgrStochRSIIndicator } from 'igniteui-react-charts';
 import { IgrTRIXIndicator } from 'igniteui-react-charts';
 import { IgrStrategyBasedIndicator } from 'igniteui-react-charts';
-
 import { IndicatorDisplayType } from 'igniteui-react-charts';
 
 IgrDataChartCoreModule.register();

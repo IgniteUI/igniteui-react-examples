@@ -57,14 +57,9 @@ import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgrCategoryToolTipLayer } from 'igniteui-react-charts';
 import { IgrItemToolTipLayer } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();

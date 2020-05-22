@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-category-waterfall-series",
-  "description": "This project provides example of Data Chart Type Category Waterfall Series using Infragistics React components",
+  "name": "react-data-chart-category-waterfall-series",
+  "description": "This project provides example of Data Chart Category Waterfall Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

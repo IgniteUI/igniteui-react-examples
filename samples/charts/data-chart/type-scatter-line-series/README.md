@@ -6,7 +6,7 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Data Chart Type Scatter Line Series.
+This folder contains implementation of React application with example of Data Chart Scatter Line Series.
 <!-- in the Data Chart component -->
 <!-- [Data Chart](https://infragistics.com/Reactsite/components/data-chart.html) -->
 
@@ -51,7 +51,6 @@ The following section provides source code from:
 // types of axis:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrNumericXAxis } from 'igniteui-react-charts';
-
 // types of scatter series:
 import { IgrScatterLineSeries } from 'igniteui-react-charts';
 // modules of data chart:
@@ -63,10 +62,7 @@ import { IgrDataChartScatterModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
 import { MarkerType } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
 import { SampleScatterStats } from './SampleScatterStats';
 
 IgrDataChartCoreModule.register();

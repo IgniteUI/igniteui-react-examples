@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-scatter-area-series",
-  "description": "This project provides example of Data Chart Type Scatter Area Series using Infragistics React components",
+  "name": "react-data-chart-scatter-area-series",
+  "description": "This project provides example of Data Chart Scatter Area Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

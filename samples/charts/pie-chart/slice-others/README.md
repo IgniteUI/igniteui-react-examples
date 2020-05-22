@@ -48,13 +48,9 @@ The following section provides source code from:
 `./src/PieChartOthers.tsx` file:
 
 ```tsx
-
 import { IgrPieChart } from 'igniteui-react-charts';
 import { IgrPieChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
 
 IgrPieChartModule.register();
 
@@ -93,6 +89,7 @@ export default class PieChartOthers extends React.Component<any, any> {
        ] }
     }
 }
+
 ```
 
 ## Instructions

@@ -51,7 +51,6 @@ The following section provides source code from:
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
 import StocksHistory from './StocksHistory';
 
 IgrFinancialChartModule.register();
@@ -92,7 +91,6 @@ export default class FinancialChartTitles extends React.Component<any, any> {
         });
     }
 }
-
 
 ```
 

@@ -54,9 +54,6 @@ import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
 
-
-
-
 IgrCategoryChartModule.register();
 
 export default class CategoryChartTooltipTypes extends React.Component<any, any> {

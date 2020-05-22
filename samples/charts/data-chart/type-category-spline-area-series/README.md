@@ -6,7 +6,7 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Data Chart Type Category Spline Area Series.
+This folder contains implementation of React application with example of Data Chart Category Spline Area Series.
 <!-- in the Data Chart component -->
 <!-- [Data Chart](https://infragistics.com/Reactsite/components/data-chart.html) -->
 
@@ -61,11 +61,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 // importing legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SampleCategoryData } from './SampleCategoryData';
 
 IgrDataChartCoreModule.register();

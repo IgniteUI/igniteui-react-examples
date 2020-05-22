@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-shape-series",
-  "description": "This project provides example of Data Chart Type Shape Series using Infragistics React components",
+  "name": "react-data-chart-shape-series",
+  "description": "This project provides example of Data Chart Shape Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

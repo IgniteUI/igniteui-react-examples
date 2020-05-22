@@ -62,11 +62,7 @@ import { IgrNumericXAxis } from 'igniteui-react-charts';
 import { IgrBubbleSeries } from 'igniteui-react-charts';
 import { IgrSizeScale } from 'igniteui-react-charts';
 import { IgrValueBrushScale } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SampleScatterStats } from './SampleScatterStats';
 
 IgrDataChartCoreModule.register();

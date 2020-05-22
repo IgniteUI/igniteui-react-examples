@@ -49,11 +49,8 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
 import "./SparklineGrid.css";
-
 import { Products } from './Products';
-
 // sparkline modules:
 import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
@@ -154,6 +151,7 @@ export default class SparklineGrid extends React.Component<any, any> {
         );
     }
 }
+
 ```
 
 ## Instructions

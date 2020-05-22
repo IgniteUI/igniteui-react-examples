@@ -50,9 +50,6 @@ The following section provides source code from:
 ```tsx
 import * as React from 'react';
 
-
-
-
 export default class FinancialChartTooltipTemplate extends React.Component<any, any> {
 
     public data: any[];
@@ -76,7 +73,6 @@ export default class FinancialChartTooltipTemplate extends React.Component<any, 
         // TODO
     }
 }
-
 
 ```
 

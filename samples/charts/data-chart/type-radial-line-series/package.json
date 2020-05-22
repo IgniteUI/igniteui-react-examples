@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-radial-line-series",
-  "description": "This project provides example of Data Chart Type Radial Line Series using Infragistics React components",
+  "name": "react-data-chart-radial-line-series",
+  "description": "This project provides example of Data Chart Radial Line Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

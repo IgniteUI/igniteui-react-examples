@@ -49,7 +49,6 @@ The following section provides source code from:
 
 ```tsx
 import React from 'react';
-
 import { SampleTreeData } from './SampleTreeData';
 import { IgrTreemapModule } from 'igniteui-react-charts';
 import { IgrTreemap } from 'igniteui-react-charts';

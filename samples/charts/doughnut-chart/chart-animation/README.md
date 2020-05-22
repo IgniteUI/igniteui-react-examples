@@ -49,13 +49,11 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
-
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrDoughnutChart } from 'igniteui-react-charts';
 import { IgrRingSeriesModule } from 'igniteui-react-charts';
 import { IgrRingSeries } from 'igniteui-react-charts';
+
 IgrDoughnutChartModule.register();
 IgrRingSeriesModule.register();
 
@@ -152,6 +150,7 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
         };
     }
 }
+
 ```
 
 ## Instructions

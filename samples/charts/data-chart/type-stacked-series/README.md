@@ -6,7 +6,7 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Data Chart Type Stacked Series.
+This folder contains implementation of React application with example of Data Chart Stacked Series.
 <!-- in the Data Chart component -->
 <!-- [Data Chart](https://infragistics.com/Reactsite/components/data-chart.html) -->
 
@@ -54,14 +54,11 @@ import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartStackedModule } from 'igniteui-react-charts';
 import { IgrColumnFragmentModule } from 'igniteui-react-charts'
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgrStackedFragmentSeries } from 'igniteui-react-charts';
-
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrNumericXAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
 import { IgrCategoryYAxis } from 'igniteui-react-charts';
-
 import { IgrStackedColumnSeries } from 'igniteui-react-charts';
 import { IgrStacked100ColumnSeries } from 'igniteui-react-charts';
 import { IgrStackedAreaSeries } from 'igniteui-react-charts';
@@ -76,9 +73,6 @@ import { IgrStacked100BarSeries } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();

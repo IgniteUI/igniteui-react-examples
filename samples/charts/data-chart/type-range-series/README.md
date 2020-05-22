@@ -6,7 +6,7 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Data Chart Type Range Series.
+This folder contains implementation of React application with example of Data Chart Range Series.
 <!-- in the Data Chart component -->
 <!-- [Data Chart](https://infragistics.com/Reactsite/components/data-chart.html) -->
 
@@ -62,9 +62,6 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
 import { SampleRangeData } from './SampleRangeData';
 
 IgrDataChartCoreModule.register();

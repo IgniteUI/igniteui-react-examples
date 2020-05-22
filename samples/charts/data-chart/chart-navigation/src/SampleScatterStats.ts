@@ -1,3 +1,5 @@
+
+
 export class SampleScatterStats {
 
     public static countries: Country[];

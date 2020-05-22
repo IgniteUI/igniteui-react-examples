@@ -1,3 +1,5 @@
+
+
 /* {RepositoryWarning}  */
 /* {RepositoryUrl}/tree/master/templates/sample/src/index  */
 
@@ -8,5 +10,3 @@ import './index.css'; // styles shared between all samples
 
 import DataChartTypeCategorySplineSeries from './DataChartTypeCategorySplineSeries';
 ReactDOM.render(<DataChartTypeCategorySplineSeries />, document.getElementById('root'));
-
-

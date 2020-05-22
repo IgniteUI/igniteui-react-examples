@@ -49,7 +49,6 @@ The following section provides source code from:
 
 ```tsx
 import React from 'react';
-
 import { IgrBubbleSeries } from 'igniteui-react-charts';
 import { IgrAnnotationLayer } from 'igniteui-react-charts';
 import { IgrDataChartAnnotationModule } from 'igniteui-react-charts';
@@ -68,7 +67,6 @@ import { IgrZoomSlider } from 'igniteui-react-charts';
 import { IgrChartCursorEventArgs } from 'igniteui-react-charts';
 import { IgrZoomSliderResolvingAxisValueEventArgs } from 'igniteui-react-charts'
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
-
 import { SampleScatterStats } from './SampleScatterStats';
 
 IgrDataChartCategoryModule.register();
@@ -397,6 +395,7 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
 
     }
 }
+
 ```
 
 ## Instructions

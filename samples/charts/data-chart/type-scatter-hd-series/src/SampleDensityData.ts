@@ -1,3 +1,5 @@
+
+
 export class SampleDensityData {
 
     public static create(): any[] {
@@ -5,7 +7,7 @@ export class SampleDensityData {
         let data: any[] = [];
         this.generate(data, amount / 2, -5000, -5000, 10000, 10000);
         this.generate(data, amount / 2,  5000,  5000, 10000, 10000);
-        
+
         return data;
     }
 

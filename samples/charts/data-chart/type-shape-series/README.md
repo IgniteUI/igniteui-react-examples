@@ -6,7 +6,7 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Data Chart Type Shape Series.
+This folder contains implementation of React application with example of Data Chart Shape Series.
 <!-- in the Data Chart component -->
 <!-- [Data Chart](https://infragistics.com/Reactsite/components/data-chart.html) -->
 
@@ -60,11 +60,7 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartShapeCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartShapeModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SampleShapeData } from './SampleShapeData';
 
 IgrDataChartCoreModule.register();

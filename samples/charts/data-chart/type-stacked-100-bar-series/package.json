@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-stacked100-bar-series",
-  "description": "This project provides example of Data Chart Type Stacked100 Bar Series using Infragistics React components",
+  "name": "react-data-chart-stacked100-bar-series",
+  "description": "This project provides example of Data Chart Stacked100 Bar Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

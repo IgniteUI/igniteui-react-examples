@@ -52,11 +52,7 @@ import { IgrItemLegend } from 'igniteui-react-charts';
 import { IgrItemLegendModule } from 'igniteui-react-charts';
 import { IgrPieChart } from 'igniteui-react-charts';
 import { IgrPieChartModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 
 IgrPieChartModule.register();
 IgrItemLegendModule.register();
@@ -124,6 +120,7 @@ export default class PieChartLegend extends React.Component<any, any> {
         ] };
     }
 }
+
 ```
 
 ## Instructions

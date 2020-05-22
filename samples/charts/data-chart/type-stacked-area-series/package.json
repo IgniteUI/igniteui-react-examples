@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-stacked-area-series",
-  "description": "This project provides example of Data Chart Type Stacked Area Series using Infragistics React components",
+  "name": "react-data-chart-stacked-area-series",
+  "description": "This project provides example of Data Chart Stacked Area Series using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

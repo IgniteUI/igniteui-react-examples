@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-type-financial-indicator-column",
-  "description": "This project provides example of Data Chart Type Financial Indicator Column using Infragistics React components",
+  "name": "react-data-chart-financial-indicator-column",
+  "description": "This project provides example of Data Chart Financial Indicator Column using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

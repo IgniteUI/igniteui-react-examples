@@ -56,7 +56,6 @@ import { IgrCalloutLayer } from 'igniteui-react-charts';
 import { IgrCrosshairLayer } from 'igniteui-react-charts';
 import { IgrFinalValueLayer } from 'igniteui-react-charts';
 import { IgrSeries } from 'igniteui-react-charts';
-
 // data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
@@ -69,11 +68,7 @@ import { IgrFinalValueLayerModule } from 'igniteui-react-charts';
 import { IgrValueOverlay } from 'igniteui-react-charts';
 import { IgrValueOverlayModule } from 'igniteui-react-charts';
 import { FinalValueSelectionMode } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
