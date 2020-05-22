@@ -30,13 +30,13 @@ log('loaded');
 // var sampleSource = [igConfig.SamplesCopyPath + '/excel/**/package.json'];
 // var sampleSource = [igConfig.SamplesCopyPath + '/maps/**/package.json'];
 var sampleSource = [
-    // igConfig.SamplesCopyPath + '/charts/**/package.json',
-    // igConfig.SamplesCopyPath + '/excel/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/**/package.json',
+    igConfig.SamplesCopyPath + '/excel/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/**/package.json',
-    // igConfig.SamplesCopyPath + '/grids/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/**/package.json',
     igConfig.SamplesCopyPath + '/maps/**/package.json',
-    // igConfig.SamplesCopyPath + '/tests1/**/package.json',
-    // igConfig.SamplesCopyPath + '/tests2/**/package.json',
+    igConfig.SamplesCopyPath + '/tests1/**/package.json',
+    igConfig.SamplesCopyPath + '/tests2/**/package.json',
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder
@@ -60,8 +60,9 @@ function lintSamples(cb) {
     gulp.src([
         // './samples/tests2/**/**/LinearGaugeLabels.tsx',
         // './samples/gauges/**/**/*.tsx',
-        './samples/**/**/**/*.tsx',
-        // './samples/tests2/**/**/*.tsx',
+        './templates/**/**/*.tsx',
+        // './templates/**/**/*.ts',
+        // './samples/**/**/**/*.tsx',
        '!./samples/**/**/**/index.tsx',
     ], {base: './'})
     // .pipe(gSort( { asc: false } ))
@@ -69,23 +70,24 @@ function lintSamples(cb) {
 
         let fileLocation = Transformer.getRelative(file.dirname) + '/' + file.basename;
         let fileContent = file.contents.toString();
-        console.log('linting ' + fileLocation);
-        //
-        // Transformer.lintSample(fileLocation, fileContent);
-        Transformer.lintSample(fileLocation, fileContent,
+        // log('linting ' + fileLocation);
+
+        let newContent = Transformer.lintSample(fileLocation, fileContent,
             (err, results) => {
               if (err) {
                 fileCallback(err, null);
               }
-              //console.log("HERE!!!");
-              file.contents = Buffer.from(results);
-
-            // console.log('linting ' + fileLocation + ' callback');
-              fileCallback(null, file);
+            //   file.contents = Buffer.from(results);
+            //   fileCallback(null, file);
             });
-
-        // fileCallback(null, file);
-
+        if (newContent !== fileContent) {
+            log('changed: ' + fileLocation);
+            file.contents = Buffer.from(newContent);
+            // fileCallback(null, file);
+        } else {
+            // fileCallback(null, null);
+        }
+        fileCallback(null, file);
     }))
     .pipe(gulp.dest('./'))
     .on("end", function() {
@@ -202,7 +204,7 @@ function copySamples(cb) {
         // let outputPath = sample.SampleFolderPath;
         let outputPath = './src' + sample.SampleFolderPath.replace('.','');
         // let outputPath = './sample-test-files' + sample.SampleFolderPath.replace('.','');
-        // console.log(outputPath);
+        // log(outputPath);
         // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
 
         gulp.src([
@@ -263,8 +265,8 @@ function updatePackages(cb) {
     let templatePackageJson = JSON.parse(templatePackageFile.toString());
 
     // getting content of package.json file from the browser
-    let browserPackageFile = fs.readFileSync("./package.json");
-    let browserPackageJson = JSON.parse(browserPackageFile.toString());
+    // let browserPackageFile = fs.readFileSync("./package.json");
+    // let browserPackageJson = JSON.parse(browserPackageFile.toString());
 
     // Transformer.verifyPackage(browserPackageJson, templatePackageJson);
 
@@ -275,9 +277,15 @@ function updatePackages(cb) {
     for (const sample of samples) {
 
         let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
+        let oldPackageFile = fs.readFileSync(outputPath).toString();
+
         makeDirectoryFor(outputPath);
-        let content = Transformer.getPackage(sample, templatePackageJson);
-        fs.writeFileSync(outputPath, content);
+
+        let newPackageFile = Transformer.getPackage(sample, templatePackageJson);
+        if (newPackageFile !== oldPackageFile) {
+            log('updated: ' + outputPath);
+            fs.writeFileSync(outputPath, newPackageFile);
+        }
         // break;
     }
 
@@ -290,10 +298,16 @@ function updateIndex(cb) {
     for (const sample of samples) {
 
         let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/src/index.tsx";
+        let oldIndexFile = fs.readFileSync(outputPath).toString();
+
         makeDirectoryFor(outputPath);
-        let indexFile = Transformer.updateIndex(sample, template);
+        let newIndexFile = Transformer.updateIndex(sample, template);
+        if (newIndexFile !== oldIndexFile) {
+            // log('updated: ' + outputPath);
+            fs.writeFileSync(outputPath, newIndexFile);
+        }
         // fs.mkdir(sampleOutputFolder + 'src', { recursive: true }, (err) => { if (err) throw err; });
-        fs.writeFileSync(outputPath, indexFile);
+        // fs.writeFileSync(outputPath, indexFile);
         // break;
     }
     cb();
@@ -393,8 +407,8 @@ function task2(cb) {
 function logFile() {
     return es.map(function(file, cb) {
         let relative = Transformer.getRelative(file.dirname);
-        console.log(relative + '/' + file.basename);
-        // console.log(path.relative(path.join(file.cwd, file.base), file.path))
+        log(relative + '/' + file.basename);
+        // log(path.relative(path.join(file.cwd, file.base), file.path))
         cb(null, file);
     });
 }
@@ -430,7 +444,7 @@ function logRootFiles(cb) {
     ])
     .pipe(es.map(function(file, cbFile) {
         let relative = Transformer.getRelative(file.dirname);
-        console.log(file.basename + ' ' + relative + '/' + file.basename);
+        log(file.basename + ' ' + relative + '/' + file.basename);
         cbFile(null, file);
     }))
     .on("end", function() { cb(); });
@@ -452,7 +466,7 @@ function logUniqueFiles(cb) {
     .on("end", function() {
         fileNames.sort();
         for (const name of fileNames) {
-            console.log(name);
+            log(name);
         }
         cb();
     });

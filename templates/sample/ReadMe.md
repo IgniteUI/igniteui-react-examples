@@ -2,13 +2,17 @@
 <!-- {RepositoryUrl}/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-<!-- - [Sample Preview](#Sample-Preview) -->
+- [Preview](#Preview)
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
 This folder contains implementation of {PlatformName} application with example of {ComponentName} {SampleDisplayName}.
 <!-- in the {ComponentName} component -->
 <!-- [{ComponentName}]({DocsUrl}) -->
+
+## Preview
+
+You can preview example of this {PlatformName} application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
@@ -44,12 +48,15 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 
 ## Source Code
 
-The following section provides source code from:
-`{SampleFileSourcePath}` file:
+You can find source code for this example in :
+[{SampleFileSourcePath}]({SampleFileSourcePath}) file.
 
-```{PlatformCode}
+<!-- The following section provides source code from:
+`{SampleFileSourcePath}` file: -->
+
+<!-- ```{PlatformCode}
 {SampleFileSourceCode}
-```
+``` -->
 
 ## Instructions
 To run this sample locally, execute these commands:

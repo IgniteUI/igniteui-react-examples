@@ -8,6 +8,7 @@ function log(msg) {
 var sb = require('./tasks/gulp-samples.js')
 
 exports.updateSamples = updateSamples = gulp.series(
+    sb.lintSamples,
     sb.getSamples,
     sb.updateReadme,
     sb.updatePackages,

@@ -527,7 +527,7 @@ class Transformer {
     public static lintSample(
         fileLocation: string,
         fileContent: string,
-        callback: (err: any, results: string | null) => void): void {
+        callback: (err: any, results: string | null) => void): string {
 
         let firstLine = true;
         let validLines: string[] = [];
@@ -566,7 +566,7 @@ class Transformer {
         }
 
         // importLines = importLines.sort();
-        fileContent = importLines.join('\n') + '\n\n' + sourceLines.join('\n') + '\n';
+        let lintedContent = importLines.join('\n') + '\n\n' + sourceLines.join('\n') + '\n';
 
         // console.log('======================================================');
         // console.log(importLines.join('\n') + '\n\n' + sourceLines.join('\n'));
@@ -574,7 +574,8 @@ class Transformer {
         // console.log('======================================================');
         // console.log('linting ' + fileLocation + ' done');
         // callback(null, vfile.toString());
-        callback(null, fileContent);
+        // callback(null, lintedContent);
+        return lintedContent;
     }
 }
 
