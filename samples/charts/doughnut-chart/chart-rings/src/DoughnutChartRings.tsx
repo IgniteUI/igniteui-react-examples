@@ -36,6 +36,8 @@ export default class DoughnutChartRings extends React.Component<any, any> {
     }
 
     public onChartRef(chart: IgrDoughnutChart) {
+        if (!chart) { return; }
+
 
         this.chart = chart;
 

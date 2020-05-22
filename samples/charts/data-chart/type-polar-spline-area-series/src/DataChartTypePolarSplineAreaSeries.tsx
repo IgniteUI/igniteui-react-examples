@@ -94,6 +94,8 @@ export default class DataChartTypePolarSplineAreaSeries extends React.Component<
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         if (this.legend) {
             this.chart.legend = this.legend;
@@ -101,6 +103,8 @@ export default class DataChartTypePolarSplineAreaSeries extends React.Component<
     }
 
     public onLegendRef(legend: IgrLegend) {
+        if (!legend) { return; }
+
         this.legend = legend;
         if (this.chart) {
             this.chart.legend = this.legend;

@@ -116,6 +116,8 @@ export default class DataChartSeriesTooltips extends React.Component<any, any> {
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
     }
 }

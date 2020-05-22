@@ -15,6 +15,8 @@ export default class LinearGaugeTypeCurve extends React.Component {
     }
 
     public onGaugeCreated(component: IgrLinearGauge) {
+        if (!component) { return; }
+
         this.renderGauge(component);
     }
 

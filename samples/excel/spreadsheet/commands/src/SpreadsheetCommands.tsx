@@ -50,6 +50,8 @@ export default class SpreadsheetCommands extends React.Component<any, any> {
     }
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
+        if (!spreadsheet) { return; }
+
         this.spreadsheet = spreadsheet;
 
         const url = "https://static.infragistics.com/xplatform/excel/SalesData.xlsx";

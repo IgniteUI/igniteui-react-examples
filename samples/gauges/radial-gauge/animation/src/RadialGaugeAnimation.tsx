@@ -24,6 +24,8 @@ export default class RadialGaugeAnimation extends React.Component {
     }
 
     public onGaugeRef(component: IgrRadialGauge) {
+        if (!component) { return; }
+
         this.gauge = component;
         this.onAnimateToGauge3(null);
     }

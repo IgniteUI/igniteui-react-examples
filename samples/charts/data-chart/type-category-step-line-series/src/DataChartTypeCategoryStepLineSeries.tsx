@@ -73,6 +73,8 @@ export default class DataChartTypeCategoryStepLineSeries extends React.Component
     }
 
     public onLegendRef(legend: IgrLegend) {
+        if (!legend) { return; }
+
         this.legend = legend;
         if (this.chart) {
             this.chart.legend = this.legend;

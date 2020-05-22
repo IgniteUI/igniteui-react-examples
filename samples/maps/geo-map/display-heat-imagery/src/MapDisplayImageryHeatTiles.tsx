@@ -20,7 +20,7 @@ export default class MapDisplayImageryHeatTiles extends React.Component {
         super(props);
 
         this.tileImagery = new IgrTileGeneratorMapImagery();
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
         this.onDataLoaded = this.onDataLoaded.bind(this);
     }
 
@@ -29,7 +29,7 @@ export default class MapDisplayImageryHeatTiles extends React.Component {
             <div className="igContainer">
                 <div className="igComponent" >
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true"/>
@@ -39,8 +39,10 @@ export default class MapDisplayImageryHeatTiles extends React.Component {
         );
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
-        this.map = map;
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
+        this.map = geoMap;
         this.map.zoomToGeographic({ left: -134.5, top: 16.0, width: 70.0, height: 37.0 });
     }
 

@@ -44,6 +44,8 @@ export default class PieChartSelection extends React.Component<any, any> {
     }
 
     public onPieRef(chart: IgrPieChart) {
+        if (!chart) { return; }
+
         this.chart  = chart;
     }
 

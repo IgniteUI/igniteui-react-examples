@@ -122,6 +122,8 @@ export default class DataChartTypeScatterAreaSeries extends React.Component<any,
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
 
         this.colorScale = new IgrCustomPaletteColorScale({});

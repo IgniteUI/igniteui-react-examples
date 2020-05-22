@@ -19,6 +19,8 @@ export default class RadialGaugeTypeSemi extends React.Component {
     }
 
     public onGaugeRef(component: IgrRadialGauge) {
+        if (!component) { return; }
+
         this.renderGauge(component);
     }
 

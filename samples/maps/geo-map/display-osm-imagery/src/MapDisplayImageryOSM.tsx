@@ -16,7 +16,7 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
     }
 
     public render() {
@@ -24,7 +24,7 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
             <div className="igContainer">
                 <div className="igComponent" >
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         // actualWindowRectChanged={this.onMapWindowRectChanged}
                         width="100%"
                         height="100%"
@@ -35,7 +35,9 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
         );
     }
 
-    public onMapReferenced(geoMap: IgrGeographicMap) {
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const mapImagery = new IgrOpenStreetMapImagery();
         geoMap.backgroundContent = mapImagery;
 

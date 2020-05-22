@@ -57,6 +57,8 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         this.grid = grid;
         let csd = new IgrColumnSortDescription();
         csd.propertyPath = "Property";

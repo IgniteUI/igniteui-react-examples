@@ -34,6 +34,8 @@ export default class SpreadsheetChartAdapter extends React.Component {
     }
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
+        if (!spreadsheet) { return; }
+
         this.spreadsheet = spreadsheet;
         this.spreadsheet.chartAdapter = new SpreadsheetChartAdapter();
         const url = "https://static.infragistics.com/xplatform/excel/ChartData.xlsx";

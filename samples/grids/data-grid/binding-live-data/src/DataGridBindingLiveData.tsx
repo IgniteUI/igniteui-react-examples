@@ -349,6 +349,8 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         let oldRef = this.grid;
         if (oldRef) {
             oldRef.flush();
@@ -1058,6 +1060,8 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         // console.log(this.chart);
 

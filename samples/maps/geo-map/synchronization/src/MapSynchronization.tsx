@@ -42,19 +42,23 @@ export default class MapSynchronization extends React.Component<any, any> {
         );
     }
 
-    public onReferenceMap1(map: IgrGeographicMap) {
+    public onReferenceMap1(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         MapUtils.navigateTo(map, MapRegion.European);
 
-        this.GeoMap1 = map;
+        this.GeoMap1 = geoMap;
     }
 
-    public onReferenceMap2(map: IgrGeographicMap) {
+    public onReferenceMap2(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         MapUtils.navigateTo(map, MapRegion.European);
 
-        this.GeoMap2 = map;
+        this.GeoMap2 = geoMap;
     }
 
-    public onWindowRectChangedMap1(map: IgrGeographicMap, e: IgrRectChangedEventArgs) {
+    public onWindowRectChangedMap1(geoMap: IgrGeographicMap, e: IgrRectChangedEventArgs) {
         if (this.GeoMapSynchronizing) { return; }
 
         this.GeoMapSynchronizing = true;
@@ -62,7 +66,7 @@ export default class MapSynchronization extends React.Component<any, any> {
         this.GeoMapSynchronizing = false;
     }
 
-    public onWindowRectChangedMap2(map: IgrGeographicMap, e: IgrRectChangedEventArgs) {
+    public onWindowRectChangedMap2(geoMap: IgrGeographicMap, e: IgrRectChangedEventArgs) {
         if (this.GeoMapSynchronizing) { return; }
 
         this.GeoMapSynchronizing = true;

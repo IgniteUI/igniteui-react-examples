@@ -44,6 +44,8 @@ export default class DoughnutChartOverview extends React.Component<any, any> {
     }
 
     public onChartRef(chart: IgrDoughnutChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
 
         if (this.chart.actualSeries &&

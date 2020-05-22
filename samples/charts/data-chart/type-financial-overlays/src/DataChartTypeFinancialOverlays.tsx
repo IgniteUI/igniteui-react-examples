@@ -75,6 +75,8 @@ export default class DataChartTypeFinancialLineIndicators extends React.Componen
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         this.chart.series.add(this.bollingerBands);
     }

@@ -28,6 +28,8 @@ export default class SpreadsheetHyperlinks extends React.Component {
     }
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
+        if (!spreadsheet) { return; }
+
         this.spreadsheet = spreadsheet;
 
         const url = "https://static.infragistics.com/xplatform/excel/Hyperlinks.xlsx";

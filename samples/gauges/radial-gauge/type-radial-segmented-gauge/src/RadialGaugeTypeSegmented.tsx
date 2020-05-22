@@ -19,6 +19,8 @@ export default class RadialGaugeTypeSegmented extends React.Component {
     }
 
     public onCreateGauge(component: IgrRadialGauge) {
+        if (!component) { return; }
+
         this.renderGauge(component);
     }
 

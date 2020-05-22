@@ -29,6 +29,8 @@ export default class GridColumnResizing extends React.Component<any, any> {
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         this.grid = grid;
         this.grid.columnResizingSeparatorBackground = "Black";
     }

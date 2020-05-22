@@ -44,6 +44,8 @@ export default class PieChartAnimation extends React.Component<any, any> {
     }
 
     public onPieRef(chart: IgrPieChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         this.setState({ animateChartLabel: "Start Animation" });
         this.setupInterval();

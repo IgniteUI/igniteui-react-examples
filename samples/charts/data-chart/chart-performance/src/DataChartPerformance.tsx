@@ -95,10 +95,14 @@ export default class DataChartPerformance extends React.Component<any, any> {
     }
 
     public onFpsRef(span: HTMLSpanElement) {
+        if (!span) { return; }
+
         this.fps = span;
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         this.onChartInit();
     }

@@ -19,6 +19,8 @@ export default class RadialGaugeTypeCurved extends React.Component {
     }
 
     public onGaugeRef(component: IgrRadialGauge) {
+        if (!component) { return; }
+
         this.renderGauge(component);
     }
 

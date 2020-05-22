@@ -70,6 +70,8 @@ export default class DataChartOverview extends React.Component<any, any> {
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         this.populateChart();
         if (this.legend) {
@@ -78,6 +80,8 @@ export default class DataChartOverview extends React.Component<any, any> {
     }
 
     public onLegendRef(legend: IgrLegend) {
+        if (!legend) { return; }
+
         this.legend = legend;
         if (this.chart) {
             this.chart.legend = this.legend;

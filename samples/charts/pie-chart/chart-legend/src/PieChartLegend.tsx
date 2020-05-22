@@ -24,6 +24,8 @@ export default class PieChartLegend extends React.Component<any, any> {
     }
 
     public onChartRef(chart: IgrPieChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         if (this.legend) {
             this.chart.legend = this.legend;
@@ -31,6 +33,8 @@ export default class PieChartLegend extends React.Component<any, any> {
     }
 
     public onLegendRef(legend: IgrItemLegend) {
+        if (!legend) { return; }
+
         this.legend = legend;
         if (this.chart) {
             this.chart.legend = this.legend;

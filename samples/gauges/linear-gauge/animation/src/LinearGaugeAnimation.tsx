@@ -19,6 +19,8 @@ export default class LinearGaugeAnimation extends React.Component {
     }
 
     public onGaugeRef(component: IgrLinearGauge) {
+        if (!component) { return; }
+
         this.gauge = component;
         this.onAnimateToGauge3(null);
     }

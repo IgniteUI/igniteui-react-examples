@@ -130,19 +130,23 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
     }
 
     private onMainChartRef(chart: IgrDataChart) {
-        if (chart) {
-            this.charts.push(chart);
-            this.mainChart = chart;
-            this.createSeries(this.mainChart);
-        }
+        if (!chart) { return; }
+
+        this.charts.push(chart);
+        this.mainChart = chart;
+        this.createSeries(this.mainChart);
     }
 
     private onZoomChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.zoomChart = chart;
         this.createSeries(this.zoomChart);
     }
 
     private onZoomSliderRef(slider: IgrZoomSlider) {
+        if (!slider) { return; }
+
         this.zoomSlider = slider;
     }
 
@@ -173,6 +177,8 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
     }
 
     private onContainerRef(div: HTMLDivElement) {
+        if (!div) { return; }
+
         this.container = div;
     }
 

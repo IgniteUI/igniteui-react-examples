@@ -141,6 +141,8 @@ export default class DataChartSeriesHighlighting extends React.Component<any, an
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
 
         this.toggleSeriesHighlighting(true);

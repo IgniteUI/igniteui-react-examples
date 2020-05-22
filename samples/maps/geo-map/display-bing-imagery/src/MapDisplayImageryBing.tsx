@@ -37,6 +37,8 @@ export default class MapDisplayImageryBing extends React.Component<any, any> {
     }
 
     public onBingMapsLabels(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const tileSource = new IgrBingMapsMapImagery();
         tileSource.apiKey = MapUtils.getBingKey();
         tileSource.imageryStyle = BingMapsImageryStyle.AerialWithLabels;
@@ -56,6 +58,8 @@ export default class MapDisplayImageryBing extends React.Component<any, any> {
     }
 
     public onBingMapsArial(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const tileSource = new IgrBingMapsMapImagery();
         tileSource.apiKey = MapUtils.getBingKey();
         tileSource.imageryStyle = BingMapsImageryStyle.Aerial;
@@ -75,6 +79,8 @@ export default class MapDisplayImageryBing extends React.Component<any, any> {
     }
 
     public onBingMapsRoad(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const tileSource = new IgrBingMapsMapImagery();
         tileSource.apiKey = MapUtils.getBingKey();
         tileSource.imageryStyle = BingMapsImageryStyle.Road;

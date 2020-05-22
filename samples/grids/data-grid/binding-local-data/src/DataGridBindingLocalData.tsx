@@ -23,6 +23,8 @@ export default class DataGridBindingLocalData extends React.Component<any, any> 
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         const state = new IgrColumnGroupDescription();
         state.propertyPath = "Status";
         state.displayName = "Status";

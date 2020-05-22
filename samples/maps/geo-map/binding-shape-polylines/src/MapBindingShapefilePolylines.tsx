@@ -16,7 +16,7 @@ export default class MapBindingShapefilePolylines extends React.Component<any, a
     constructor(props: any) {
         super(props);
 
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
         this.onDataLoaded = this.onDataLoaded.bind(this);
     }
 
@@ -25,7 +25,7 @@ export default class MapBindingShapefilePolylines extends React.Component<any, a
             <div className="igContainer">
                 <div className="igComponent" >
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true"/>
@@ -35,8 +35,10 @@ export default class MapBindingShapefilePolylines extends React.Component<any, a
         );
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
-        this.geoMap = map;
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
+        this.geoMap = geoMap;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
 
         // loading a shapefile with geographic polygons

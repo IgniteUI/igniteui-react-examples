@@ -81,6 +81,8 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
         this.setState( {groupSummaryDisplayMode: e.target.value} );
     }
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         this.grid = grid;
         this.grid.actualDataSource.isSectionExpandedDefault = true;
     }

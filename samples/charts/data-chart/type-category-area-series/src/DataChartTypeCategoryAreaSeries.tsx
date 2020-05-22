@@ -77,6 +77,8 @@ export default class DataChartTypeCategoryAreaSeries extends React.Component<any
     }
 
     public onLegendRef(legend: IgrLegend) {
+        if (!legend) { return; }
+
         this.legend = legend;
         if (this.chart) {
             this.chart.legend = this.legend;
@@ -84,6 +86,8 @@ export default class DataChartTypeCategoryAreaSeries extends React.Component<any
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         if (this.legend) {
             this.chart.legend = this.legend;

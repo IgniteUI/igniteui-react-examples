@@ -131,6 +131,8 @@ export default class DataChartTypeScatterDensitySeries extends React.Component<a
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
     }
 }

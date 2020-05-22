@@ -210,6 +210,8 @@ export default class DataChartTypeFinancialIndicatorLine extends React.Component
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         if (chart !== undefined){
             this.switchSeries(this.state.indicatorType);

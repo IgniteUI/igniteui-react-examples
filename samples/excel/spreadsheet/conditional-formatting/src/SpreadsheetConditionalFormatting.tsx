@@ -29,6 +29,8 @@ export default class SpreadsheetConditionalFormatting extends React.Component {
     }
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
+        if (!spreadsheet) { return; }
+
         this.spreadsheet = spreadsheet;
 
         const url = "https://static.infragistics.com/xplatform/excel/ConditionalData.xlsx";

@@ -61,6 +61,8 @@ export default class DataChartTypeRangeAreaSeries extends React.Component<any, a
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
     }
 }

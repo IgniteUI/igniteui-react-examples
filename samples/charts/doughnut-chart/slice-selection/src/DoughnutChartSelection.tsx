@@ -47,6 +47,8 @@ export default class DoughnutChartSelection extends React.Component<any, any> {
     }
 
     public onPieRef(chart: IgrDoughnutChart) {
+        if (!chart) { return; }
+
         this.chart  = chart;
     }
 

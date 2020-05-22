@@ -98,10 +98,11 @@ export default class DataChartSynchronization extends React.Component<any, any> 
     }
 
     public onChartRef(chart: IgrDataChart) {
-        if(chart != null){
-            chart.syncChannel = "ChannelA";
-            chart.synchronizeHorizontally = true;
-            chart.synchronizeVertically = true;
-        }
+        if (!chart) { return; }
+
+        chart.syncChannel = "ChannelA";
+        chart.synchronizeHorizontally = true;
+        chart.synchronizeVertically = true;
+
     }
 }

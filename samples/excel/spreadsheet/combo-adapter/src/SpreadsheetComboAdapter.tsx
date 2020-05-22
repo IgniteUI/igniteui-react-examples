@@ -35,6 +35,8 @@ export default class SpreadsheetComboAdapter extends React.Component {
     }
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
+        if (!spreadsheet) { return; }
+
         this.spreadsheet = spreadsheet;
         this.spreadsheet.chartAdapter = new SpreadsheetChartAdapter();
 

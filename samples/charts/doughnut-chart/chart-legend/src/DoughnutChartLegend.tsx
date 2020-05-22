@@ -27,6 +27,8 @@ export default class DoughnutChartLegend extends React.Component<any, any> {
     }
 
     public onChartRef(chart: IgrDoughnutChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         if (this.legend) {
             this.chart.actualSeries[0].legend = this.legend;
@@ -34,6 +36,8 @@ export default class DoughnutChartLegend extends React.Component<any, any> {
     }
 
     public onLegendRef(legend: IgrItemLegend) {
+        if (!legend) { return; }
+
         this.legend = legend;
         if (this.chart) {
             this.chart.actualSeries[0].legend = this.legend;

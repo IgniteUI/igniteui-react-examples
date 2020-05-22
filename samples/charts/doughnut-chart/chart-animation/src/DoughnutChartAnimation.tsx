@@ -49,6 +49,8 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
     }
 
     public onChartRef(chart: IgrDoughnutChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         this.series1 = this.chart.actualSeries[0] as IgrRingSeries;
         this.setState({ animateChartLabel: "Start Animation" });

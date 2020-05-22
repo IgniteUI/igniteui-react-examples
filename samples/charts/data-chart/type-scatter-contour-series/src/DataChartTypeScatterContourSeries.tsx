@@ -109,6 +109,8 @@ export default class DataChartTypeScatterContourSeries extends React.Component<a
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
 
         const brushScale = new IgrValueBrushScale({});

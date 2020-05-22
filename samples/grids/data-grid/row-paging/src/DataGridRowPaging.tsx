@@ -26,6 +26,8 @@ export default class DataGridRowPaging extends React.Component<any, any> {
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         this.grid = grid;
 
         const desc = new IgrColumnGroupDescription();
@@ -35,6 +37,8 @@ export default class DataGridRowPaging extends React.Component<any, any> {
         this.grid.groupDescriptions.add(desc);
     }
     public onPagerRef(pager: DataGridPager) {
+        if (!pager) { return; }
+
         this.pager = pager;
 
         if (this.grid) {

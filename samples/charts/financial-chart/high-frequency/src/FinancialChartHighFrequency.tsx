@@ -78,11 +78,15 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
     }
 
     public onChartRef(chart: IgrFinancialChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         this.onChartInit();
     }
 
     public onFpsRef(span: HTMLSpanElement) {
+        if (!span) { return; }
+
         this.fps = span;
     }
 

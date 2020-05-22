@@ -58,6 +58,8 @@ export default class DataChartTypeScatterPolylineSeries extends React.Component 
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
     }
 

@@ -38,6 +38,8 @@ export default class SpreadsheetDataValidation extends React.Component<any, any>
     }
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
+        if (!spreadsheet) { return; }
+
         if (spreadsheet != null) {
             this.spreadsheet = spreadsheet;
 
