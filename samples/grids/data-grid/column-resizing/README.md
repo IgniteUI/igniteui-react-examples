@@ -49,10 +49,7 @@ The following section provides source code from:
 
 ```tsx
 import React from 'react';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
@@ -145,6 +142,7 @@ export default class GridColumnResizing extends React.Component<any, any> {
         // this.setState({ columnSeparatorWidth: e.target.value });
     }
 }
+
 ```
 
 ## Instructions

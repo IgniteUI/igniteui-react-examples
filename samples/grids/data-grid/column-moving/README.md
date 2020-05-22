@@ -49,9 +49,6 @@ The following section provides source code from:
 
 ```tsx
 import React from 'react';
-
-
-
 import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
@@ -142,6 +139,7 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
         this.grid.columnMovingSeparatorWidth = e.target.value;
     }
 }
+
 ```
 
 ## Instructions

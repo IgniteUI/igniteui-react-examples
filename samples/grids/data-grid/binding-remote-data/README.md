@@ -49,10 +49,7 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
 import './odatajs-4.0.0';
-
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
@@ -104,6 +101,7 @@ export default class DataGridBindingRemoteData extends React.Component<any, any>
         this.virtualData = vds;
     }
 }
+
 ```
 
 ## Instructions

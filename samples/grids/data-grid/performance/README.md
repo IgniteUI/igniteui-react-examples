@@ -49,10 +49,6 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
-
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrColumn } from 'igniteui-react-grids';
@@ -60,7 +56,6 @@ import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-grids';
 import { IgrDataBindingEventArgs } from 'igniteui-react-grids';
 import { HeaderClickAction } from 'igniteui-react-grids';
 import { GridSelectionMode } from 'igniteui-react-grids';
-
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
@@ -76,8 +71,8 @@ export default class DataGridPerformance extends React.Component<any, any> {
     public constructor(props: any) {
         super(props);
 
-        this._data = this.generateSalesPeople(8000)
-        this.data = this._data;
+        this.data = this.generateSalesPeople(8000)
+        this.data = this.data;
         this.tick = this.tick.bind(this);
 
         this.onPriceStyleKey = this.onPriceStyleKey.bind(this);
@@ -92,8 +87,8 @@ export default class DataGridPerformance extends React.Component<any, any> {
         this.onPriceAmountStyleKey = this.onPriceAmountStyleKey.bind(this);
         this.onPriceAmountCellUpdating = this.onPriceAmountCellUpdating.bind(this);
 
-        for (var i = 0; i < 43; i++) {
-            this._kpiColumns.push("KPI_" + i);
+        for (let i = 0; i < 43; i++) {
+            this.kpiColumns.push("KPI_" + i);
         }
     }
 
@@ -101,17 +96,17 @@ export default class DataGridPerformance extends React.Component<any, any> {
         this.grid = grid;
     }
 
-    private _kpiColumns: string[] = [];
-    private _data: SalesPerson[];
-    private good_color = "#4EB862";
-    private bad_color = "#FF134A";
+    public kpiColumns: string[] = [];
+    public data: SalesPerson[];
+    public colorIncreasing = "#4EB862";
+    public colorDecreasing = "#FF134A";
 
     public onPriceStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         let row: SalesPerson;
         if (this.grid) {
             row = this.grid.actualDataSource.getItemAtIndex(args.rowNumber);
         } else {
-            row = this._data[args.rowNumber];
+            row = this.data[args.rowNumber];
         }
         if (row.Change >= 0) {
             args.styleKey = "priceShiftUp";
@@ -148,17 +143,17 @@ export default class DataGridPerformance extends React.Component<any, any> {
 
         sp.textContent = "$" + (+templ.value).toFixed(2);
 
-        if ((sp as any).__isUp == undefined ||
-            (sp as any).__isUp != priceShiftUp) {
+        if ((sp as any).__isUp === undefined ||
+            (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (priceShiftUp) {
-                //icon.textContent = "trending_up";
-                icon.style.color = this.good_color;
-                sp.style.color = this.good_color;
+                // icon.textContent = "trending_up";
+                icon.style.color = this.colorIncreasing;
+                sp.style.color = this.colorIncreasing;
             } else {
             // icon.textContent = "trending_down";
-                icon.style.color = this.bad_color;
-                sp.style.color = this.bad_color;
+                icon.style.color = this.colorDecreasing;
+                sp.style.color = this.colorDecreasing;
             }
         }
     }
@@ -171,8 +166,8 @@ export default class DataGridPerformance extends React.Component<any, any> {
         }
     }
 
-    private _badBorder = "4px solid #FF134A";
-    private _goodBorder = "4px solid #4EB862";
+    public borderDecreasing = "4px solid #FF134A";
+    public borderIncreasing = "4px solid #4EB862";
 
     public onPricePercentCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
@@ -192,17 +187,17 @@ export default class DataGridPerformance extends React.Component<any, any> {
         }
 
         sp.textContent = (+templ.value).toFixed(2) + "%";
-        if ((sp as any).__isUp == undefined ||
-            (sp as any).__isUp != priceShiftUp) {
+        if ((sp as any).__isUp === undefined ||
+            (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (priceShiftUp) {
             sp.style.paddingRight = "5px";
-            sp.style.borderRight = this._goodBorder;
-            //sp.style.color = this.good_color;
+            sp.style.borderRight = this.borderIncreasing;
+            // sp.style.color = this.colorIncreasing;
             } else {
             sp.style.paddingRight = "5px";
-            sp.style.borderRight = this._badBorder;
-            //sp.style.color = this.bad_color;
+            sp.style.borderRight = this.borderDecreasing;
+            // sp.style.color = this.colorDecreasing;
             }
         }
     }
@@ -234,17 +229,17 @@ export default class DataGridPerformance extends React.Component<any, any> {
 
         sp.textContent = (+templ.value).toFixed(2);
 
-        if ((sp as any).__isUp == undefined ||
-            (sp as any).__isUp != priceShiftUp) {
+        if ((sp as any).__isUp === undefined ||
+            (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
             if (priceShiftUp) {
             sp.style.paddingRight = "5px";
-            sp.style.borderRight = this._goodBorder;
-            //sp.style.color = this.good_color;
+            sp.style.borderRight = this.borderIncreasing;
+            // sp.style.color = this.colorIncreasing;
             } else {
             sp.style.paddingRight = "5px";
-            sp.style.borderRight = this._badBorder;
-            //sp.style.color = this.bad_color;
+            sp.style.borderRight = this.borderDecreasing;
+            // sp.style.color = this.colorDecreasing;
             }
         }
     }
@@ -252,7 +247,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
     public onChartStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         args.styleKey = "igComponent";
     }
-
 
     public onChartCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
@@ -281,7 +275,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
         args.styleKey = "grid";
     }
 
-
     public onGridCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
 
@@ -305,7 +298,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
         }
     }
 
-    TestTemplateContent(props: IIgrCellTemplateProps) {
+    public TestTemplateContent(props: IIgrCellTemplateProps) {
         let tmpl = props.dataContext as IgrTemplateCellInfo;
         let font = tmpl.font;
         return (
@@ -317,7 +310,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
             </div>
         );
     }
-
 
     public render() {
         return (
@@ -367,7 +359,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
                 </IgrDateTimeColumn>
 
                 {
-                    this._kpiColumns.map(function (i) {
+                    this.kpiColumns.map(function (i) {
                     return ( <IgrNumericColumn width="150" key={i} propertyPath={i} /> )
                     })
                 }
@@ -382,12 +374,12 @@ export default class DataGridPerformance extends React.Component<any, any> {
         g.propertyPath = "Territory";
         this.grid.groupDescriptions.add(g);
 
-        for (var i = 0; i < 43; i++) {
+        for (let i = 0; i < 43; i++) {
             (() => {
-                var currVal = i;
+                let currVal = i;
                 this.grid.forColumnsWithPropertyPath("KPI_" + currVal, (col: IgrColumn) => {
                     col.cellStyleKeyRequested = (sender: any, args: IgrCellStyleRequestedEventArgs) => {
-                    var value = args.resolvedValue;
+                    let value = args.resolvedValue;
                     if (value < 20.0) {
                         args.styleKey = "kpi_red";
                     } else if (value > 80.0) {
@@ -396,16 +388,16 @@ export default class DataGridPerformance extends React.Component<any, any> {
                     };
 
                     col.dataBound = (sender: any, args: IgrDataBindingEventArgs) => {
-                        var value = args.resolvedValue;
+                        let value = args.resolvedValue;
                         if (value < 20.0) {
-                            if (args.cellInfo.background != "red") {
-                                args.cellInfo.background = this.bad_color;
+                            if (args.cellInfo.background !== "red") {
+                                args.cellInfo.background = this.colorDecreasing;
                             }
                         }
 
                         if (value > 80.0) {
-                            if (args.cellInfo.background != "green") {
-                                args.cellInfo.background = this.good_color;
+                            if (args.cellInfo.background !== "green") {
+                                args.cellInfo.background = this.colorIncreasing;
                             }
                         }
                     };
@@ -415,55 +407,53 @@ export default class DataGridPerformance extends React.Component<any, any> {
 
     this.grid.forColumnsWithPropertyPath("AvgSale", (col: IgrColumn) => {
         col.dataBound = (sender: any, args: IgrDataBindingEventArgs) => {
-                    var item: any = args.cellInfo.rowItem;
-                    if (item != null)
+                    let item: any = args.cellInfo.rowItem;
+                    if (item !== null)
                     {
                         if (item.AvgSaleHeat > 0)
                         {
-                            var p = +item.AvgSaleHeat;
-                            var toA = 1.0;
-                            var fromA = 1.0;
-                            var toR = 0.0;
-                            var fromR = 1.0;
-                            var toG = 1.0;
-                            var fromG = 1.0;
-                            var toB = 0.0;
-                            var fromB = 1.0;
+                            let p = +item.AvgSaleHeat;
+                            let toA = 1.0;
+                            let fromA = 1.0;
+                            let toR = 0.0;
+                            let fromR = 1.0;
+                            let toG = 1.0;
+                            let fromG = 1.0;
+                            let toB = 0.0;
+                            let fromB = 1.0;
 
-                            var a = fromA + (toA - fromA) * p;
-                            var r = fromR + (toR - fromR) * p;
-                            var g = fromG + (toG - fromG) * p;
-                            var b = fromB + (toB - fromB) * p;
+                            let aByte = fromA + (toA - fromA) * p;
+                            let rByte = Math.round((fromR + (toR - fromR) * p) * 255.0);
+                            let gByte = Math.round((fromG + (toG - fromG) * p) * 255.0);
+                            let bByte = Math.round((fromB + (toB - fromB) * p) * 255.0);
 
-                            var colorString = "rgba(" + Math.round(r * 255.0) + "," + Math.round(g * 255.0) + "," + Math.round(b * 255.0) + "," + a + ")";
-
+                            let colorString = "rgba(" + rByte + "," + gByte + "," + bByte + "," + aByte + ")";
 
                             args.cellInfo.background = colorString;
             }
             else if (item.AvgSaleHeat < 0) {
-                var p = +item.AvgSaleHeat * -1.0;
-                            var toA = 1.0;
-                            var fromA = 1.0;
-                            var toR = 1.0;
-                            var fromR = 1.0;
-                            var toG = 0.0;
-                            var fromG = 1.0;
-                            var toB = 0.0;
-                            var fromB = 1.0;
+                let p = +item.AvgSaleHeat * -1.0;
+                            let toA = 1.0;
+                            let fromA = 1.0;
+                            let toR = 1.0;
+                            let fromR = 1.0;
+                            let toG = 0.0;
+                            let fromG = 1.0;
+                            let toB = 0.0;
+                            let fromB = 1.0;
 
-                            var a = fromA + (toA - fromA) * p;
-                            var r = fromR + (toR - fromR) * p;
-                            var g = fromG + (toG - fromG) * p;
-                            var b = fromB + (toB - fromB) * p;
+                            let aByte = fromA + (toA - fromA) * p;
+                            let rByte = Math.round((fromR + (toR - fromR) * p) * 255.0);
+                            let gByte = Math.round((fromG + (toG - fromG) * p) * 255.0);
+                            let bByte = Math.round((fromB + (toB - fromB) * p) * 255.0);
 
-                            var colorString = "rgba(" + Math.round(r * 255.0) + "," + Math.round(g * 255.0) + "," + Math.round(b * 255.0) + "," + a + ")";
-
+                            let colorString = "rgba(" + rByte + "," + gByte + "," + bByte + "," + aByte + ")";
 
                             args.cellInfo.background = colorString;
             }
                         else
                         {
-                            var colorString = "white";
+                            let colorString = "white";
                             args.cellInfo.background = colorString;
                         }
                     }
@@ -473,8 +463,8 @@ export default class DataGridPerformance extends React.Component<any, any> {
     window.setTimeout(this.tick, 16);
     }
 
-    private _lastDataUpdate: Date = new Date();
-    private _interval: number = 100;
+    public lastDataUpdate: Date = new Date();
+    public interval: number = 100;
 
     private randomizeItem(item: SalesPerson) {
         item.Change = Math.random() * 40.0 - 20.0;
@@ -486,22 +476,22 @@ export default class DataGridPerformance extends React.Component<any, any> {
 
     private tick()
     {
-        var sortedBySales = false;
-        // foreach (var item in grid.SortDescriptions)
+        let sortedBySales = false;
+        // foreach (let item in grid.SortDescriptions)
         // {
-        // 	if (item.PropertyName == "YearToDateSales")
+        // 	if (item.PropertyName === "YearToDateSales")
         // 	{
         // 		sortedBySales = true;
         // 	}
         // }
 
-        var toChange = 200;
-        var toChangeIndexes = {};
-        var stillAnimating = false;
-        for (var i = 0; i < this.data.length; i++)
+        let toChange = 200;
+        let toChangeIndexes = {};
+        let stillAnimating = false;
+        for (let i = 0; i < this.data.length; i++)
         {
-            var item = this.data[i];
-            if (item.PriceHeat != 0)
+            let item = this.data[i];
+            if (item.AvgSaleHeat !== 0)
             {
                 stillAnimating = true;
             }
@@ -509,27 +499,27 @@ export default class DataGridPerformance extends React.Component<any, any> {
 
         let now = new Date();
         let intervalElapsed = false;
-        if ((+now - +this._lastDataUpdate) > this._interval) {
+        if ((+now - +this.lastDataUpdate) > this.interval) {
             intervalElapsed = true;
         }
 
         let useClear = false;
         let sortingByAvgSale = false;
         for (let i = 0; i < this.grid.sortDescriptions.count; i++) {
-            if (this.grid.sortDescriptions.item(i).propertyPath == "AvgSale" ||
+            if (this.grid.sortDescriptions.item(i).propertyPath === "AvgSale" ||
                 this.grid.sortDescriptions.item(i).propertyPath.indexOf("Change") >= 0) {
                 sortingByAvgSale = true;
             }
         }
 
-        var changing = false;
+        let changing = false;
         if (intervalElapsed)
         {
-            this._lastDataUpdate = new Date();
-            for (var i = 0; i < toChange; i++)
+            this.lastDataUpdate = new Date();
+            for (let i = 0; i < toChange; i++)
             {
-                var index = Math.round(Math.random() * this.data.length - 1);
-                while (toChangeIndexes[index.toString()] != undefined)
+                let index = Math.round(Math.random() * this.data.length - 1);
+                while (toChangeIndexes[index.toString()] !== undefined)
                 {
                     index = Math.round(Math.random() * this.data.length - 1);
                 }
@@ -538,10 +528,10 @@ export default class DataGridPerformance extends React.Component<any, any> {
             }
         }
 
-        for (var i = 0; i < this.data.length; i++)
+        for (let i = 0; i < this.data.length; i++)
         {
-            var item = this.data[i];
-            if (toChangeIndexes[i.toString()] != undefined)
+            let item = this.data[i];
+            if (toChangeIndexes[i.toString()] !== undefined)
             {
                 if (sortingByAvgSale && !useClear) {
 
@@ -553,7 +543,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
                 }
 
                 if (item.Change > 0) {
-                    //item.YearToDateSales += Math.round(Math.random() * 4.0);
+                    // item.YearToDateSales += Math.round(Math.random() * 4.0);
                     item.AvgSaleHeat = 1;
                 } else {
                     item.AvgSaleHeat = -1;
@@ -582,22 +572,22 @@ export default class DataGridPerformance extends React.Component<any, any> {
             this.grid.actualDataSource.queueAutoRefresh();
         }
 
-        //if (!sortingByPrice) {
-            //if (!useClear) {
+        // if (!sortingByPrice) {
+            // if (!useClear) {
         if (!sortingByAvgSale || !intervalElapsed) {
             this.grid.invalidateVisibleRows();
         }
-            //}
-        //}
-        //this.grid.invalidateVisibleRows();
-        //actualDataSource.queueAutoRefresh();
+            // }
+        // }
+        // this.grid.invalidateVisibleRows();
+        // actualDataSource.queueAutoRefresh();
 
         window.setTimeout(() => this.tick(), 16);
 
     }
 
     private generateSalesPeople(num: number) {
-        var firstNames = [
+        let firstNames = [
             "Kyle",
             "Gina",
             "Irene",
@@ -625,7 +615,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
             "Zeke"
         ];
 
-        var lastNames = [
+        let lastNames = [
             "Adams",
         "Crowley",
         "Ellis",
@@ -661,7 +651,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
         "Jobs"
         ];
 
-        var genders = [
+        let genders = [
             "GUY",
             "GIRL",
             "GIRL",
@@ -689,7 +679,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
             "GUY"
         ];
 
-        var territories = [
+        let territories = [
             "Australia",
             "Canada",
             "Egypt",
@@ -716,27 +706,27 @@ export default class DataGridPerformance extends React.Component<any, any> {
             "Zimbabwe"
         ];
 
-        // var min = 10;
-        // var max = 35;
+        // let min = 10;
+        // let max = 35;
 
-        var items = [];
-        for (var i = 0; i < num; i++)
+        let items = [];
+        for (let i = 0; i < num; i++)
         {
-            var item = new SalesPerson();
-            var firstIndex = Math.round(Math.random() * (firstNames.length - 1));
+            let item = new SalesPerson();
+            let firstIndex = Math.round(Math.random() * (firstNames.length - 1));
             item.Index = i;
             item.FirstName = firstNames[firstIndex];
             item.LastName = lastNames[Math.round(Math.random() * (lastNames.length - 1))];
             item.Name = item.FirstName + item.LastName;
 
-            var randomIndex = Math.round(Math.random() * (firstNames.length - 1));
-            if (randomIndex == 0)
+            let randomIndex = Math.round(Math.random() * (firstNames.length - 1));
+            if (randomIndex === 0)
                 randomIndex = 1;
 
-            var number = randomIndex.toString();
+            let value = randomIndex.toString();
             if (randomIndex < 10)
-                number = "0" + number;
-            item.ImageName = this.createUri(genders[firstIndex] + number + ".png");
+                value = "0" + value;
+            item.ImageName = this.createUri(genders[firstIndex] + value + ".png");
             item.Territory = territories[Math.round(Math.random() * (territories.length - 1))];
             item.AvgSale = Math.round(Math.random() * 800) + 200.0;
             item.Change = Math.random() * 40.0 - 20.0;
@@ -746,7 +736,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
             item.DateValue = new Date();
             item.DateValue.setDate(item.DateValue.getDate() + Math.round(Math.random() * 500))
 
-            for (var j = 0; j < 43; j++) {
+            for (let j = 0; j < 43; j++) {
                 item["KPI_" + j] = Math.round(Math.random() * 100.0);
             }
 
@@ -760,35 +750,35 @@ export default class DataGridPerformance extends React.Component<any, any> {
         return "https://static.infragistics.com/xplatform/images/people/" + val;
     }
 
-    title = 'app';
-    //@ViewChild(IgxDataChartComponent)
-    //chart: IgxDataChartComponent;
-    bigData: any[];
-    data: any[];
+    // private title = 'app';
+    // @ViewChild(IgxDataChartComponent)
+    // chart: IgxDataChartComponent;
+    // private bigData: any[];
+    // private data: any[];
 
-    financialData: any[];
-    context = {
-        name: "name",
-        value: "value-0"
-    };
-    finData: any[];
-    grid: IgrDataGrid;
+    // private financialData: any[];
+    // private context = {
+    //     name: "name",
+    //     value: "value-0"
+    // };
+    // private finData: any[];
+    private grid: IgrDataGrid;
 
 }
 
 export class SalesPerson {
-    FirstName: string;
-    LastName: string;
-    Name: string;
-    ImageName: string;
-    Territory: string;
-    Index: number;
-    AvgSale: number;
-    AvgSaleHeat: number;
-    Change: number;
-    PercentChange: number;
-    YearToDateSales: number;
-    DateValue: Date;
+    public FirstName: string;
+    public LastName: string;
+    public Name: string;
+    public ImageName: string;
+    public Territory: string;
+    public Index: number;
+    public AvgSale: number;
+    public AvgSaleHeat: number;
+    public Change: number;
+    public PercentChange: number;
+    public YearToDateSales: number;
+    public DateValue: Date;
 }
 
 ```

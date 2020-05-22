@@ -49,9 +49,6 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
-
 // grid modules:
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
@@ -59,10 +56,8 @@ import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 import { IgrTemplateHeader } from 'igniteui-react-grids';
-
 import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateHeaderCellUpdatingEventArgs } from 'igniteui-react-grids';
-
 import { IgrGridSelectedItemsChangedEventArgs } from 'igniteui-react-grids';
 import { IgrGridSelectedKeysChangedEventArgs } from 'igniteui-react-grids';
 import { IgrGridSelectedCellsChangedEventArgs } from 'igniteui-react-grids';
@@ -429,7 +424,6 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
 
     }
 
-
     public getElements(): any[] {
         return [
             {"atomic":1,"symbol":"H","name":"Hydrogen","mass":"1.00794(4)","cpkHexColor":"FFFFFF","electronicConfiguration":"1s1","gativity":2.2,"atomicRadius":37,"ionRadius":"","vanDelWaalsRadius":120,"ionizationEnergy":1312,"electronAffinity":-73,"oxidationStates":"-1, 1","standardState":"gas","bondingType":"diatomic","meltingPoint":14,"boilingPoint":20,"density":0.0000899,"groupBlock":"nonmetal","yearDiscovered":1766},
@@ -598,6 +592,7 @@ class HeatScale {
         } ;
     }
 }
+
 ```
 
 ## Instructions

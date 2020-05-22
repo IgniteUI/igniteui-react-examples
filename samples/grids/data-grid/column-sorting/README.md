@@ -49,10 +49,7 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
@@ -122,6 +119,7 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
         this.grid.headerClickAction = e.target.value;
     }
 }
+
 ```
 
 ## Instructions

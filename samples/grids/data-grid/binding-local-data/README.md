@@ -49,10 +49,6 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
-
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
@@ -183,6 +179,7 @@ export default class DataGridBindingLocalData extends React.Component<any, any> 
         this.data = sales;
     }
 }
+
 ```
 
 ## Instructions

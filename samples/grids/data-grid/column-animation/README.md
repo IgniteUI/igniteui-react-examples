@@ -49,10 +49,7 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
@@ -259,6 +256,7 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
         return Math.round(min + Math.random() * (max - min));
     }
 }
+
 ```
 
 ## Instructions

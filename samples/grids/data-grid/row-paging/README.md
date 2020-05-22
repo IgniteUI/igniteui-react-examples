@@ -49,10 +49,7 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
@@ -60,7 +57,6 @@ import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { ListSortDirection } from 'igniteui-react-core';
-
 import { DataGridPager } from './DataGridPager';
 
 IgrDataGridModule.register();
@@ -155,6 +151,7 @@ export default class DataGridRowPaging extends React.Component<any, any> {
         this.grid.scrollToRowByIndex(0);
     };
 }
+
 ```
 
 ## Instructions

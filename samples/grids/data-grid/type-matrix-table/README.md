@@ -49,9 +49,6 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
-
 // grid modules:
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
@@ -59,7 +56,6 @@ import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 import { IgrTemplateHeader } from 'igniteui-react-grids';
-
 import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateHeaderCellUpdatingEventArgs } from 'igniteui-react-grids';
 
@@ -158,8 +154,6 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
         borderBottomWidth="0"
         />;
     }
-
-
 
     public onVerticalHeaderUpdating(s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs) {
         const content = e.content as HTMLDivElement;
@@ -308,9 +302,7 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
             this.dataRelations.push(relation);
         }
 
-
     }
-
 
     public getRandomNumber(min: number, max: number): number {
         return Math.round(min + Math.random() * (max - min));
@@ -321,6 +313,7 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
         return array[index];
     }
 }
+
 ```
 
 ## Instructions

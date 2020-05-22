@@ -49,10 +49,7 @@ The following section provides source code from:
 
 ```tsx
 import * as React from 'react';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 // grid modules:
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
@@ -109,6 +106,7 @@ export default class DataGridRowPinning extends React.Component<any, any> {
     }
 
 }
+
 ```
 
 ## Instructions
