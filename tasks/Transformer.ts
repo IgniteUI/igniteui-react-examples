@@ -1,9 +1,9 @@
 let transFS = require('fs.extra');
 
-// var platform = "React";
-// var igConfig = require('./gulp-config.js')[platform];
+// let platform = "React";
+// let igConfig = require('./gulp-config.js')[platform];
 
-var igConfig = require('./gulp-config.js')
+let igConfig = require('./gulp-config.js')
 
 // function log(msg) {
 //     console.log('Transformer.ts ' + msg);
@@ -63,7 +63,7 @@ class Transformer {
 
             let packages = packageJson.dependencies;
 
-            for (var name in packages) {
+            for (let name in packages) {
                 if (packages.hasOwnProperty(name)) {
                     let dependency = new PackageDependency();
                     dependency.name = name;
@@ -77,7 +77,7 @@ class Transformer {
     }
 
     public static sort(samples: SampleInfo[]): void {
-        samples.sort((a, b) => { return a.SampleFolderPath > b.SampleFolderPath ? 1 : -1});
+        samples.sort((a, b) => a.SampleFolderPath > b.SampleFolderPath ? 1 : -1);
     }
 
     public static printNames(samples: SampleInfo[]): void {
@@ -211,7 +211,7 @@ class Transformer {
         // errors.push("author", "does not match author in browser's package.json");
 
         // checking if the template has same dependencies as the browser
-        for (var name in browsersPackage.dependencies) {
+        for (let name in browsersPackage.dependencies) {
             if (templatePackage.dependencies.hasOwnProperty(name) &&
                 browsersPackage.dependencies.hasOwnProperty(name)) {
                 let browsersDep = browsersPackage.dependencies[name];
@@ -223,7 +223,7 @@ class Transformer {
         }
 
         // checking if the browser has same dependencies as the template
-        // for (var name in templatePackage.dependencies) {
+        // for (let name in templatePackage.dependencies) {
         //     if (templatePackage.dependencies.hasOwnProperty(name) &&
         //         browsersPackage.dependencies.hasOwnProperty(name)) {
         //         let browsersDep = browsersPackage.dependencies[name];
@@ -268,7 +268,7 @@ class Transformer {
         samplePackage.scripts = tempPackage.scripts;
 
         // updating scripts in a sample using scripts from the template
-        // for (var name in tempPackage.scripts) {
+        // for (let name in tempPackage.scripts) {
         //     if (tempPackage.scripts.hasOwnProperty(name) &&
         //         samplePackage.scripts.hasOwnProperty(name)) {
         //         samplePackage.scripts[name] = tempPackage.scripts[name]
@@ -276,7 +276,7 @@ class Transformer {
         // }
 
         // updating version of dependencies in a sample using dependencies from the template
-        for (var name in tempPackage.dependencies) {
+        for (let name in tempPackage.dependencies) {
             if (tempPackage.dependencies.hasOwnProperty(name) &&
                 samplePackage.dependencies.hasOwnProperty(name)) {
                 samplePackage.dependencies[name] = tempPackage.dependencies[name]
@@ -284,7 +284,7 @@ class Transformer {
         }
 
         // updating devDependencies in a sample using devDependencies from the template
-        for (var name in tempPackage.devDependencies) {
+        for (let name in tempPackage.devDependencies) {
             if (tempPackage.devDependencies.hasOwnProperty(name) &&
                 samplePackage.devDependencies.hasOwnProperty(name)) {
                 samplePackage.devDependencies[name] = tempPackage.devDependencies[name]
@@ -303,7 +303,7 @@ class Transformer {
         info.SampleFilePaths = sampleFilePaths;
 
         for (const filePath of info.SampleFilePaths) {
-            var parts = filePath.split('/');
+            let parts = filePath.split('/');
             info.SampleFileNames.push(parts[parts.length - 1]);
         }
         // info.PackageFileContent = JSON.parse(fs.readFileSync(samplePackageFile));
@@ -523,6 +523,59 @@ class Transformer {
         // console.log(content);
         return content;
     }
+
+    public static lintSample(
+        fileLocation: string,
+        fileContent: string,
+        callback: (err: any, results: string | null) => void): void {
+
+        let firstLine = true;
+        let validLines: string[] = [];
+        let fileLines = fileContent.split("\n");
+        for (let i = 0; i < fileLines.length; i++) {
+            const currentLine = fileLines[i].trimRight();
+            const nextLine = i === fileLines.length - 1 ? '' : fileLines[i + 1].trimRight();
+
+            // if (currentLine !== '' && nextLine !== '') {
+            //     validLines.push(currentLine);
+            // }
+            if (currentLine === '' && firstLine) { continue; }
+            if (currentLine === '' && nextLine === '') { continue; }
+
+            firstLine = false;
+            validLines.push(currentLine);
+
+            // if (i === fileLines.length - 1)
+            //     validLines.push(nextLine);
+        }
+
+        let importingLines = true;
+        let importLines: string[] = [];
+        let sourceLines: string[] = [];
+        for (const line of validLines) {
+
+            if (line.indexOf('import') !== 0 && line.indexOf('//') !== 0 && line !== '')
+                importingLines = false;
+
+            if (importingLines) {
+                if (line !== '') importLines.push(line);
+            }
+            else
+                sourceLines.push(line);
+
+        }
+
+        // importLines = importLines.sort();
+        fileContent = importLines.join('\n') + '\n\n' + sourceLines.join('\n') + '\n';
+
+        // console.log('======================================================');
+        // console.log(importLines.join('\n') + '\n\n' + sourceLines.join('\n'));
+        // console.log(validLines.join('\n'));
+        // console.log('======================================================');
+        // console.log('linting ' + fileLocation + ' done');
+        // callback(null, vfile.toString());
+        callback(null, fileContent);
+    }
 }
 
 class SampleGroup {
@@ -580,6 +633,7 @@ class Strings {
 
     // .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
     //   .split(/(?=[A-Z])/) v
+
 }
 
 class PackageJson {

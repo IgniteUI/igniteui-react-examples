@@ -53,6 +53,47 @@ function cleanSamples() {
     del.sync("./samples/**/manifest.json", {force:true});
 }
 
+function lintSamples(cb) {
+
+    // del.sync("./sample-test-files/**/*.*", {force:true}); LinearGaugeLabels.tsx
+
+    gulp.src([
+        // './samples/tests2/**/**/LinearGaugeLabels.tsx',
+        // './samples/gauges/**/**/*.tsx',
+        './samples/**/**/**/*.tsx',
+        // './samples/tests2/**/**/*.tsx',
+       '!./samples/**/**/**/index.tsx',
+    ], {base: './'})
+    // .pipe(gSort( { asc: false } ))
+    .pipe(es.map(function(file, fileCallback) {
+
+        let fileLocation = Transformer.getRelative(file.dirname) + '/' + file.basename;
+        let fileContent = file.contents.toString();
+        console.log('linting ' + fileLocation);
+        //
+        // Transformer.lintSample(fileLocation, fileContent);
+        Transformer.lintSample(fileLocation, fileContent,
+            (err, results) => {
+              if (err) {
+                fileCallback(err, null);
+              }
+              //console.log("HERE!!!");
+              file.contents = Buffer.from(results);
+
+            // console.log('linting ' + fileLocation + ' callback');
+              fileCallback(null, file);
+            });
+
+        // fileCallback(null, file);
+
+    }))
+    .pipe(gulp.dest('./'))
+    .on("end", function() {
+        cb();
+    });
+} exports.lintSamples = lintSamples;
+
+
 function getSamples(cb) {
 
     // deleteSamples();

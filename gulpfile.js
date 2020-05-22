@@ -6,7 +6,6 @@ function log(msg) {
 }
 
 var sb = require('./tasks/gulp-samples.js')
-// var browser = require('./tasks/gulp-browser.js')
 
 exports.updateSamples = updateSamples = gulp.series(
     sb.getSamples,
@@ -31,3 +30,4 @@ exports.logPublicFiles = sb.logPublicFiles;
 exports.logSourceFiles = sb.logSourceFiles;
 exports.logUniqueFiles = sb.logUniqueFiles;
 exports.logRootFiles   = sb.logRootFiles;
+exports.lintSamples    = sb.lintSamples;
