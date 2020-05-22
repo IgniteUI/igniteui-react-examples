@@ -1,24 +1,24 @@
 export default class WorldLocations {
 
-    private static locations: any[] = [];
-    private static capitals: any[] = [];
-    private static cities: any[] = [];
+    public static locations: any[] = [];
+    public static capitals: any[] = [];
+    public static cities: any[] = [];
 
     // get location of cities and capitals
     public static getAll(): any[] {
-        if (this.locations.length == 0) this.init();
+        if (this.locations.length === 0) this.init();
         return this.locations;
     }
 
     // get location of cities
     public static getCities(): any[] {
-        if (this.cities.length == 0) this.init();
+        if (this.cities.length === 0) this.init();
         return this.cities;
     }
 
     // get location of capitals
     public static getCapitals(): any[] {
-        if (this.capitals.length == 0) this.init();
+        if (this.capitals.length === 0) this.init();
         return this.capitals;
     }
 

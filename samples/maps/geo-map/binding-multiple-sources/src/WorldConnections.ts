@@ -3,19 +3,19 @@ import WorldUtils from "./WorldUtils"
 
 export default class WorldConnections {
 
-    private static airports: any[] = [];
-    private static airportsLookup = new Map<string, any>();
+    public static airports: any[] = [];
+    public static airportsLookup = new Map<string, any>();
 
-    private static flights: any[] = [];
-    private static flightsLookup: string[] = [];
+    public static flights: any[] = [];
+    public static flightsLookup: string[] = [];
 
     public static getFlights(): any[] {
-        if (this.flights.length == 0) this.init();
+        if (this.flights.length === 0) this.init();
         return this.flights;
     }
 
     public static getAirports(): any[] {
-        if (this.airports.length == 0) this.init();
+        if (this.airports.length === 0) this.init();
         return this.airports;
     }
 
@@ -47,10 +47,10 @@ export default class WorldConnections {
             for (let ii = 0; ii < count; ii++)
             {
                 let dest = cities[ii];
-                if (origin.name != dest.name)
+                if (origin.name !== dest.name)
                 {
                     let route = [origin.name, dest.name].sort().join('-');
-                    let routeIsValid = this.flightsLookup.indexOf(route) == -1;
+                    let routeIsValid = this.flightsLookup.indexOf(route) === -1;
                     let distance = Math.round(WorldUtils.calcDistance(origin, dest));
                     let distanceIsValid = distance > minDistance && distance < maxDistance;
                     let pass = Math.round((Math.random() * 200)) + 150;
@@ -85,7 +85,7 @@ export default class WorldConnections {
         this.airports = Array.from(this.airportsLookup.values());
     }
 
-    private static addAirport(city: any) {
+    public static addAirport(city: any) {
         if (this.airportsLookup.has(city.name)) {
             this.airportsLookup.get(city.name).flights += 1;
         } else {

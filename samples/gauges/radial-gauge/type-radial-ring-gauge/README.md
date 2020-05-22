@@ -95,6 +95,8 @@ export default class RadialGaugeTypeRing extends React.Component {
 
     public renderGauge(gauge: IgrRadialGauge) {
 
+        if (!gauge) { return; }
+
         gauge.minimumValue = 0;
         gauge.maximumValue = 120;
         gauge.interval = 10;

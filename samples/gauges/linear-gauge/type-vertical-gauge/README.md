@@ -100,6 +100,8 @@ export default class LinearGaugeTypeVertical extends React.Component {
 
     public renderGauge(gauge: IgrLinearGauge, value: number, colors: string[]) {
 
+        if (!gauge) { return; }
+
         gauge.orientation = LinearScaleOrientation.Vertical;
         gauge.value = value;
 

@@ -99,6 +99,8 @@ export default class BulletGraphTypeHorizontal extends React.Component {
 
     public renderGauge(gauge: IgrBulletGraph, value: number, target: number, colors: string[]) {
 
+        if (!gauge) { return; }
+
         gauge.orientation = LinearScaleOrientation.Horizontal;
         gauge.backingBrush = "transparent";
         gauge.backingOutline = "transparent";

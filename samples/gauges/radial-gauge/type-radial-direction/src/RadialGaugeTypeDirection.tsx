@@ -36,6 +36,9 @@ export default class RadialGaugeTypeDirection extends React.Component<any, any> 
     }
 
     public onCreateDegreesGauge(gauge: IgrRadialGauge) {
+
+        if (!gauge) { return; }
+
         this.renderGauge(gauge);
 
         gauge.interval      = 15;
@@ -55,6 +58,8 @@ export default class RadialGaugeTypeDirection extends React.Component<any, any> 
     }
 
     public onCreateDirectionGauge(gauge: IgrRadialGauge) {
+        if (!gauge) { return; }
+
         this.renderGauge(gauge);
 
         gauge.interval      = 45;

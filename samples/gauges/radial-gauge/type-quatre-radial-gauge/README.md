@@ -89,6 +89,8 @@ export default class RadialGaugeTypeQuatre extends React.Component {
 
     public renderGauge(gauge: IgrRadialGauge) {
 
+        if (!gauge) { return; }
+
         gauge.transitionDuration = 500;
 
         gauge.minimumValue = 0;

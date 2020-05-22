@@ -110,6 +110,8 @@ export default class BulletGraphAnimation extends React.Component {
 
     public onAnimateToGauge3 = (e: any) => {
 
+        if (!this.gauge) { return; }
+
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 120;
         this.gauge.value = 70;
@@ -179,6 +181,8 @@ export default class BulletGraphAnimation extends React.Component {
     }
 
     public onAnimateToGauge2 = (e: any) => {
+
+        if (!this.gauge) { return; }
 
         this.gauge.minimumValue = 100;
         this.gauge.maximumValue = 200;
@@ -253,6 +257,8 @@ export default class BulletGraphAnimation extends React.Component {
     }
 
     public onAnimateToGauge1 = (e: any) => {
+
+        if (!this.gauge) { return; }
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 80;

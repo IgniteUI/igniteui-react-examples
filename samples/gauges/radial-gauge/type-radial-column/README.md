@@ -93,6 +93,8 @@ export default class RadialGaugeTypeColumn extends React.Component {
 
     public renderGauge(gauge: IgrRadialGauge) {
 
+        if (!gauge) { return; }
+
         gauge.minimumValue = 0;
         gauge.maximumValue = 360;
         gauge.value = 270;

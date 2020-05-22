@@ -4,23 +4,26 @@ import "./LegendOverlay.css";
 
 export class LegendOverlay extends React.Component<any, any> {
 
-    render() {
+    public render() {
 
         let bg: string = this.props.background;
-        if (bg === undefined)
-            bg = "rgba(221, 221, 221, 0.65)";
+        if (bg === undefined) { bg = "rgba(221, 221, 221, 0.65)"; }
 
         let style = { background: bg, bottom: 3, left: 3 } as React.CSSProperties;
 
         const dock: string = this.props.dock;
-        if (dock === "TopRight")
+        if (dock === "TopRight") {
             style = { background: bg, top: 3, right: 3 } as React.CSSProperties;
-        else if (dock === "TopLeft")
+        }
+        else if (dock === "TopLeft") {
             style = { background: bg, top: 3, left: 3 } as React.CSSProperties;
-        else if (dock === "BottomRight")
+        }
+        else if (dock === "BottomRight") {
             style = { background: bg, bottom: 3, right: 3 } as React.CSSProperties;
-        else // if (dock === "BottomLeft")
+        }
+        else  { // if (dock === "BottomLeft")
             style = { background: bg, bottom: 3, left: 3 } as React.CSSProperties;
+        }
 
         // let title: JSX.Element;
 
@@ -49,13 +52,13 @@ export class LegendOverlay extends React.Component<any, any> {
 
 export class LegendItem extends React.Component<any, any> {
 
-    render() {
+    public render() {
         const bg = this.props.background;
         const bgStyle = { background: bg } as React.CSSProperties;
 
         return (
             <div  className="LegendItem">
-                <div   className="LegendItemMap" style={bgStyle}></div>
+                <div   className="LegendItemMap" style={bgStyle}/>
                 <label className="LegendItemLabel">{this.props.text}</label>
             </div>
         );
@@ -64,7 +67,7 @@ export class LegendItem extends React.Component<any, any> {
 
 export class LegendLink extends React.Component<any, any> {
 
-    render() {
+    public render() {
         const hasLink = this.props.href !== undefined;
 
         return hasLink ?

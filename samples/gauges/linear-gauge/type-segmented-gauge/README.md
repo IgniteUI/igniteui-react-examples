@@ -98,6 +98,8 @@ export default class LinearGaugeTypeSegmented extends React.Component {
 
     public renderGauge(gauge: IgrLinearGauge, value: number, color: string) {
 
+        if (!gauge) { return; }
+
         gauge.value = value;
         gauge.minimumValue = 0;
         gauge.maximumValue = 100;

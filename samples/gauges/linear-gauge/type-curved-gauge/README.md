@@ -82,6 +82,9 @@ export default class LinearGaugeTypeCurve extends React.Component {
     }
 
     public renderGauge(gauge: IgrLinearGauge) {
+
+        if (!gauge) { return; }
+
         this.setupGauge(gauge);
 
         gauge.labelExtent = 0.0;

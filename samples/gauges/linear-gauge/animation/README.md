@@ -116,6 +116,8 @@ export default class LinearGaugeAnimation extends React.Component {
     }
 
     public onAnimateToGauge1 = (e: any) => {
+        if (!this.gauge) { return; }
+
         // linear gauge requires settings for these properties:
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 80;
@@ -183,6 +185,8 @@ export default class LinearGaugeAnimation extends React.Component {
     }
 
     public onAnimateToGauge2 = (e: any) => {
+        if (!this.gauge) { return; }
+
         // linear gauge requires settings for these properties:
         this.gauge.minimumValue = 100;
         this.gauge.maximumValue = 200;
@@ -258,6 +262,8 @@ export default class LinearGaugeAnimation extends React.Component {
     }
 
     public onAnimateToGauge3 = (e: any) => {
+        if (!this.gauge) { return; }
+
           // linear gauge requires settings for these properties:
           this.gauge.minimumValue = 0;
           this.gauge.maximumValue = 100;

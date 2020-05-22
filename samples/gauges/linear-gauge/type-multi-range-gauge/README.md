@@ -98,6 +98,8 @@ export default class LinearGaugeTypeMultiRange extends React.Component {
 
     public renderGauge(gauge: IgrLinearGauge, value: number, colors: string[]) {
 
+        if (!gauge) { return; }
+
         gauge.value = value;
         gauge.minimumValue = 0;
         gauge.maximumValue = 100;
