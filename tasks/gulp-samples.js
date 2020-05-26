@@ -39,8 +39,8 @@ var sampleSource = [
     // igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     // igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
-    // igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
-    // igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
+    igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
+    igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
     // igConfig.SamplesCopyPath + '/grids/**/package.json',
     // igConfig.SamplesCopyPath + '/maps/**/package.json',
     // igConfig.SamplesCopyPath + '/tests1/**/package.json',
@@ -411,6 +411,26 @@ function task2(cb) {
 
 
 // testing
+
+function logRoutes(cb) {
+    // getSamples();
+
+    let routingGroups = Transformer.getRoutingGroups(samples);
+    for (const group of routingGroups) {
+
+        console.log('- group ' + group.Name);
+
+        for (const component of group.Components) {
+
+            console.log('- component ' + component.Name);
+            for (const sample of component.Samples) {
+                console.log('' + sample.SampleRoute + ' === ' + sample.SampleDisplayName);
+            }
+        }
+    }
+
+    cb();
+} exports.logRoutes = logRoutes;
 
 function logFile() {
     return es.map(function(file, cb) {

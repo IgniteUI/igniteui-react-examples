@@ -26,9 +26,13 @@ exports.copySamples = copySamples = gulp.series(
 );
 
 // exports.default = copySamples;
-
 exports.logPublicFiles = sb.logPublicFiles;
 exports.logSourceFiles = sb.logSourceFiles;
 exports.logUniqueFiles = sb.logUniqueFiles;
 exports.logRootFiles   = sb.logRootFiles;
 exports.lintSamples    = sb.lintSamples;
+
+exports.logRoutes = logRoutes = gulp.series(
+    sb.getSamples,
+    sb.logRoutes,
+);
