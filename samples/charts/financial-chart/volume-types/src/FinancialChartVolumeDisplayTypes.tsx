@@ -5,7 +5,7 @@ import { StocksUtility } from '/StocksUtility';
 
 IgrFinancialChartModule.register();
 
-export default class FinancialChartVolumeTypes extends React.Component<any, any> {
+export default class FinancialChartVolumeDisplayTypes extends React.Component<any, any> {
 
     public data: any[];
 

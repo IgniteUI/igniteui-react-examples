@@ -8,5 +8,5 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import FinancialChartVolumeTypes from './FinancialChartVolumeDisplayTypes';
-ReactDOM.render(<FinancialChartVolumeTypes />, document.getElementById('root'));
+import DataGridColumnPinningToolbar from './DataGridColumnPinningToolbar';
+ReactDOM.render(<DataGridColumnPinningToolbar />, document.getElementById('root'));

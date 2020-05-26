@@ -11,7 +11,7 @@ import { Button } from '@material-ui/core';
 
 IgrDataGridModule.register();
 
-export default class DataGridColumnPinning extends React.Component<any, any> {
+export default class DataGridColumnPinningToolbar extends React.Component<any, any> {
 
     public data: any[];
     public grid: IgrDataGrid;

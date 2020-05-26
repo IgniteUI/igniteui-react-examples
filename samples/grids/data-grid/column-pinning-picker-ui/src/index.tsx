@@ -8,5 +8,5 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import DataGridColumnPinning from './DataGridColumnPinning';
-ReactDOM.render(<DataGridColumnPinning />, document.getElementById('root'));
+import DataGridColumnPinningPicker from './DataGridColumnPinningPicker';
+ReactDOM.render(<DataGridColumnPinningPicker />, document.getElementById('root'));
