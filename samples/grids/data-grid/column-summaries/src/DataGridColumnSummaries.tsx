@@ -165,7 +165,7 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
         this.grid.summaryDescriptions.add(countries);
     }
 
-    onProvideCalculator(s: IgrColumnSummaryDescription, e: IgrProvideCalculatorEventArgs) {
+    public onProvideCalculator(s: IgrColumnSummaryDescription, e: IgrProvideCalculatorEventArgs) {
         e.calculator = new CustomDomestic();
     }
 }

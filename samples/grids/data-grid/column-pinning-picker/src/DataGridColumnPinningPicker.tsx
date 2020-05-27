@@ -7,11 +7,10 @@ import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { DataGridSharedData } from './DataGridSharedData';
 import { PinnedPositions } from 'igniteui-react-grids';
-import { Button } from '@material-ui/core';
 
 IgrDataGridModule.register();
 
-export default class DataGridColumnPinningToolbar extends React.Component<any, any> {
+export default class DataGridColumnPinningPicker extends React.Component<any, any> {
 
     public data: any[];
     public grid: IgrDataGrid;
@@ -52,7 +51,6 @@ export default class DataGridColumnPinningToolbar extends React.Component<any, a
                 defaultColumnMinWidth={120}
                 scrollbarStyle = "thin"
                 dataSource={this.data}>
-                    {/*Columns pinned left*/}
                     <IgrTextColumn pinned="left" propertyPath="ID" headerText="Employee ID" width="100"  horizontalAlignment="center"/>
                     <IgrTextColumn pinned="left" propertyPath="FirstName" headerText="First Name" width="170"/>
                     <IgrTextColumn pinned="left" propertyPath="LastName" headerText="Last Name" width="170"/>
@@ -62,7 +60,6 @@ export default class DataGridColumnPinningToolbar extends React.Component<any, a
                     <IgrImageColumn propertyPath="CountryFlag" headerText="Country"
                     width="140" contentOpacity="1" horizontalAlignment="center"/>
 
-                    {/*Columns pinned right*/}
                     <IgrTextColumn propertyPath="Street" headerText="Address" width="240"/>
                     <IgrTextColumn propertyPath="City"  width="150" />
                     <IgrTextColumn propertyPath="Country"  width="150" />

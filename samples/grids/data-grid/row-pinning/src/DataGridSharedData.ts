@@ -90,7 +90,7 @@ export class DataGridSharedData {
             "Samsung SSD", "WD SSD", "Seagate SSD", "Intel SSD",
             "Samsung Monitor", "Asus Monitor", "LG Monitor", "HP Monitor" ];
         const countries: string[] = ["USA", "UK", "France", "Canada", "Poland", "Japan", "Germany"];
-
+        const status: string[] = ["Packing", "Shipped", "Delivered"];
         const sales: any[] = [];
 
         for (let i = 0; i < count; i++) {
@@ -99,8 +99,10 @@ export class DataGridSharedData {
             const value = price * items;
             const margin = this.getRandomNumber(3, 10);
             const profit = Math.round((price * margin / 100) * items);
+            const country = this.getRandomItem(countries);
             sales.push({
                 BundlePrice: price,
+                ProductPrice: price,
                 Margin: margin,
                 OrderDate: this.getRandomDate(new Date(2012, 0, 1), new Date()),
                 OrderItems: items,
@@ -108,7 +110,9 @@ export class DataGridSharedData {
                 ProductID: 1001 + i,
                 ProductName: this.getRandomItem(names),
                 Profit: profit,
-                Countries: this.getRandomItem(countries),
+                Countries: country,
+                CountryFlag: this.getCountryFlag(country),
+                Status: this.getRandomItem(status)
             });
         }
         return sales;
