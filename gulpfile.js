@@ -16,6 +16,16 @@ exports.updateSamples = updateSamples = gulp.series(
     sb.updateSharedFiles,
 );
 
+exports.updateReadme = updateReadme = gulp.series(
+    sb.getSamples,
+    sb.updateReadme,
+);
+
+exports.updatePackages = updatePackages = gulp.series(
+    sb.getSamples,
+    sb.updatePackages,
+);
+
 exports.updateBrowser = updateBrowser = gulp.series(
     sb.getSamples,
     // sb.updateReadme,
