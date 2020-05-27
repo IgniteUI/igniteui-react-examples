@@ -16,7 +16,7 @@ exports.updateSamples = updateSamples = gulp.series(
     sb.updateSharedFiles,
 );
 
-exports.copySamples = copySamples = gulp.series(
+exports.updateBrowser = updateBrowser = gulp.series(
     sb.getSamples,
     // sb.updateReadme,
     // sb.updatePackages,
@@ -25,7 +25,7 @@ exports.copySamples = copySamples = gulp.series(
     sb.copySamples,
 );
 
-// exports.default = copySamples;
+// exports.default = updateBrowser;
 exports.logPublicFiles = sb.logPublicFiles;
 exports.logSourceFiles = sb.logSourceFiles;
 exports.logUniqueFiles = sb.logUniqueFiles;

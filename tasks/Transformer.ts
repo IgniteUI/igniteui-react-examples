@@ -504,7 +504,7 @@ class Transformer {
             imports += "// importing " + component.Name + " samples: \n";
 
             for (const info of component.Samples) {
-                console.log('- copied: ' + info.SampleDisplayName);
+                console.log('- copied: ' + info.SampleFileName);
 
                 // console.log('sample ' + sample.SampleFolderName);
                 // let sampleClass = info.SampleFileName.replace('.tsx','');
