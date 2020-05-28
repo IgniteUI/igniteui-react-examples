@@ -46,6 +46,8 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
     }
 
     public onEsriMapStreet(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const tileSource = new IgrArcGISOnlineMapImagery();
         tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldStreetMap);
         geoMap.backgroundContent = tileSource;
@@ -54,6 +56,8 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
     }
 
     public onEsriMapOceans(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const tileSource = new IgrArcGISOnlineMapImagery();
         tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldOceansMap);
         // or
@@ -64,6 +68,8 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
     }
 
     public onEsriMapTopographic(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const tileSource = new IgrArcGISOnlineMapImagery();
         tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldTopographicMap);
         geoMap.backgroundContent = tileSource;
@@ -72,6 +78,8 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
     }
 
     public onEsriMapNational(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const tileSource = new IgrArcGISOnlineMapImagery();
         tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldNationalGeoMap);
         geoMap.backgroundContent = tileSource;
