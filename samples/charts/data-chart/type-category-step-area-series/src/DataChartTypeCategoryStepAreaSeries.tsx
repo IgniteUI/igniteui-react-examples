@@ -86,10 +86,8 @@ export default class DataChartTypeCategoryStepAreaSeries extends React.Component
     public onChartRef(chart: IgrDataChart) {
         if (!chart) { return; }
 
-        if (!chart) { return; }
-
         this.chart = chart;
-        if (this.legend) {
+        if (this.chart) {
             this.chart.legend = this.legend;
         }
     }

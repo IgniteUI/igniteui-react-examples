@@ -45,7 +45,7 @@ export default class MapSynchronization extends React.Component<any, any> {
     public onReferenceMap1(geoMap: IgrGeographicMap) {
         if (!geoMap) { return; }
 
-        MapUtils.navigateTo(map, MapRegion.European);
+        MapUtils.navigateTo(geoMap, MapRegion.European);
 
         this.GeoMap1 = geoMap;
     }
@@ -53,7 +53,7 @@ export default class MapSynchronization extends React.Component<any, any> {
     public onReferenceMap2(geoMap: IgrGeographicMap) {
         if (!geoMap) { return; }
 
-        MapUtils.navigateTo(map, MapRegion.European);
+        MapUtils.navigateTo(geoMap, MapRegion.European);
 
         this.GeoMap2 = geoMap;
     }
@@ -62,7 +62,7 @@ export default class MapSynchronization extends React.Component<any, any> {
         if (this.GeoMapSynchronizing) { return; }
 
         this.GeoMapSynchronizing = true;
-        this.GeoMap2.windowRect = map.actualWindowRect;
+        this.GeoMap2.windowRect = geoMap.actualWindowRect;
         this.GeoMapSynchronizing = false;
     }
 
