@@ -6,7 +6,7 @@
 - [Source Code](#Source-Code)
 - [Instructions](#Instructions)
 
-This folder contains implementation of React application with example of Spreadsheet Combo Adapter.
+This folder contains implementation of React application with example of Spreadsheet Adapter For Combo Boxes.
 <!-- in the Spreadsheet component -->
 <!-- [Spreadsheet](https://infragistics.com/Reactsite/components/spreadsheet.html) -->
 
@@ -16,7 +16,7 @@ You can preview example of this React application on CodeSandbox by clicking on 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/vnext/samples/excel/spreadsheet/adapter-combo?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetComboAdapter.tsx" rel="noopener noreferrer">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/vnext/samples/excel/spreadsheet/adapter-combo?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetAdapterForComboBoxes.tsx" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/code.png"/>
         </a>
         <!-- <a target="_blank"
@@ -24,7 +24,7 @@ href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/mast
             <img alt="Edit Sample" src="https://codesandbox.io/static/img/play-codesandbox.svg"/>
         </a> -->
         <!-- <a target="_blank" style="margin-left: 0.5rem"
-href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/vnext/samples/excel/spreadsheet/adapter-combo?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetComboAdapter.tsx">
+href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/vnext/samples/excel/spreadsheet/adapter-combo?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetAdapterForComboBoxes.tsx">
             <img height="40px" style="border-radius: 5px" alt="View on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/view.png"/>
         </a> -->
         <!-- <a target="_blank"
@@ -40,7 +40,7 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 <!-- ## Sample Preview -->
 
 <!-- <iframe
-  src="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/vnext/samples/excel/spreadsheet/adapter-combo?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetComboAdapter.tsx"
+  src="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/vnext/samples/excel/spreadsheet/adapter-combo?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SpreadsheetAdapterForComboBoxes.tsx"
   style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -49,10 +49,10 @@ https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
 ## Source Code
 
 You can find source code for this example in :
-[./src/SpreadsheetComboAdapter.tsx](./src/SpreadsheetComboAdapter.tsx) file.
+[./src/SpreadsheetAdapterForComboBoxes.tsx](./src/SpreadsheetAdapterForComboBoxes.tsx) file.
 
 <!-- The following section provides source code from:
-`./src/SpreadsheetComboAdapter.tsx` file: -->
+`./src/SpreadsheetAdapterForComboBoxes.tsx` file: -->
 
 <!-- ```tsx
 {SampleFileSourceCode-REMOVED}

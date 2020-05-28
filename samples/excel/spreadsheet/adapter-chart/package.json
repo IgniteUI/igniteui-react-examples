@@ -1,6 +1,6 @@
 {
-  "name": "react-spreadsheet-chart-adapter",
-  "description": "This project provides example of Spreadsheet Chart Adapter using Infragistics React components",
+  "name": "react-spreadsheet-adapter-for-charts",
+  "description": "This project provides example of Spreadsheet Adapter For Charts using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
