@@ -8,5 +8,5 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import SpreadsheetComboAdapter from './SpreadsheetComboAdapter';
-ReactDOM.render(<SpreadsheetComboAdapter />, document.getElementById('root'));
+import SpreadsheetAdapterForComboBoxes from './SpreadsheetAdapterForComboBoxes';
+ReactDOM.render(<SpreadsheetAdapterForComboBoxes />, document.getElementById('root'));

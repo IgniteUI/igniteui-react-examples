@@ -4,7 +4,7 @@ import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
 import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
-import { ExcelUtility } from '/ExcelUtility';
+import { ExcelUtility } from './ExcelUtility';
 import { SpreadsheetAction } from 'igniteui-react-spreadsheet';
 
 IgrExcelCoreModule.register();
@@ -49,14 +49,20 @@ export default class SpreadsheetClipboard extends React.Component<any, any> {
     }
 
     public cut() {
+        if (!this.spreadsheet) { return; }
+
         this.spreadsheet.executeAction(SpreadsheetAction.Cut);
     }
 
     public copy() {
+        if (!this.spreadsheet) { return; }
+
         this.spreadsheet.executeAction(SpreadsheetAction.Copy);
     }
 
     public paste() {
+        if (!this.spreadsheet) { return; }
+
         this.spreadsheet.executeAction(SpreadsheetAction.Paste);
     }
 }

@@ -7,7 +7,6 @@ import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheetChartAdapterModule } from 'igniteui-react-spreadsheet-chart-adapter';
 import { SpreadsheetChartAdapter } from 'igniteui-react-spreadsheet-chart-adapter';
 import { AxisGroup, AxisPosition, AxisType, CellReferenceMode,
-
     ChartType, ChartTitle, FormattedString, Legend,
     LegendPosition, Workbook,
     WorksheetTableColumnArea, WorkbookFormat, XValues } from 'igniteui-react-excel';
@@ -18,7 +17,7 @@ IgrExcelXlsxModule.register();
 IgrSpreadsheetModule.register();
 IgrSpreadsheetChartAdapterModule.register();
 
-export default class SpreadsheetComboAdapter extends React.Component {
+export default class SpreadsheetAdapterForComboBoxes extends React.Component {
     public spreadsheet: IgrSpreadsheet;
 
     constructor(props: any) {
