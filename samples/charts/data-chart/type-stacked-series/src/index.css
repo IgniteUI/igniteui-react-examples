@@ -1,5 +1,5 @@
-/* {RepositoryWarning}  */
-/* {RepositoryUrl}/tree/master/templates/sample/src/index.css  */
+/* {RepositoryWarning} */
+/* {RepositoryUrl}/tree/master/templates/sample/src/index.css */
 
 /* Note these styles are shared between all samples */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
@@ -110,13 +110,12 @@
 }
 
 .igOptions {
-    /* background: rgb(112, 112, 111);  */
+    /* background: rgb(112, 112, 111); */
     margin: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
-    /* padding-right: 0.5rem; */
-    /* padding-left: 0.5rem; */
-    /* width: calc(100% - 1rem); */
+    padding-right: 0rem;
+    padding-left: 0rem;
     width: 100%;
     font-size: 1rem;
     font-weight: 300;
