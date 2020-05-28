@@ -20,17 +20,22 @@ export default class MapDisplayImageryBing extends React.Component<any, any> {
     public render() {
         return (
             <div className="igContainer-horizontal" >
-                <IgrGeographicMap
-                    ref={this.onBingMapsLabels}
-                    width="100%" height="100%" zoomable="true"/>
-                <IgrGeographicMap
-                    ref={this.onBingMapsArial}
-                    width="100%" height="100%" zoomable="true"/>
-                <IgrGeographicMap
-                    ref={this.onBingMapsRoad}
-                    // actualWindowRectChanged={this.onMapWindowRectChanged}
-                    width="100%" height="100%" zoomable="true"/>
-
+                <div className="igContainer" >
+                    <IgrGeographicMap
+                        ref={this.onBingMapsLabels}
+                        width="100%" height="100%" zoomable="true"/>
+                </div>
+                <div className="igContainer" >
+                    <IgrGeographicMap
+                        ref={this.onBingMapsArial}
+                        width="100%" height="100%" zoomable="true"/>
+                </div>
+                <div className="igContainer" >
+                    <IgrGeographicMap
+                        ref={this.onBingMapsRoad}
+                        // actualWindowRectChanged={this.onMapWindowRectChanged}
+                        width="100%" height="100%" zoomable="true"/>
+                </div>
                 <div className="igOverlay-bottom-right">Imagery Tiles: @Bing Maps</div>
             </div>
         );
