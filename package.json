@@ -6,7 +6,7 @@
   "private": true,
   "homepage": ".",
   "scripts": {
-    "start": "gulp updateBrowser && set PORT=3200 && react-app-rewired --max_old_space_size=10240 start --scripts-version react-scripts-ts ",
+    "start": "gulp updateBrowser && set PORT=4200 && react-app-rewired --max_old_space_size=10240 start --scripts-version react-scripts-ts ",
     "build": "gulp updateBrowser && react-app-rewired --max_old_space_size=10240 build --scripts-version react-scripts-ts ",
     "postbuild": "node tasks/copyWebConfig.js",
     "test": "gulp updateBrowser && react-app-rewired test --env=jsdom --scripts-version react-scripts-ts",
