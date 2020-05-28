@@ -15,7 +15,7 @@ ReactDOM.render(
   // <React.StrictMode>
   //   <SamplesRouter />
   // </React.StrictMode>,
-   <BrowserRouter >
+   <BrowserRouter basename={'/react-browser'}>
       <SamplesBrowser />
   </BrowserRouter>,
   document.getElementById('root')
