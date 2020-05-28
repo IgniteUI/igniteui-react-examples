@@ -64,10 +64,12 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
               headerText="Order ID"
               width="*>70"
               horizontalAlignment="center"
+              isHidden="true"
             />
             <IgrTextColumn
               propertyPath="ProductName"
               headerText="Product Name"
+              isHidden="true"
             />
             <IgrNumericColumn
               propertyPath="ProductPrice"
@@ -76,6 +78,7 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
               positivePrefix="$"
               showGroupingSeparator="true"
               minFractionDigits={2}
+              isHidden="true"
             />
             <IgrNumericColumn
               propertyPath="OrderItems"

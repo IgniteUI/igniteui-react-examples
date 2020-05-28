@@ -58,9 +58,9 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
             autoGenerateColumns="false"
             dataSource={this.data}
           >
-              <IgrTextColumn propertyPath="ID" headerText="Employee ID" width="100"  horizontalAlignment="center"/>
-              <IgrTextColumn propertyPath="FirstName" headerText="First Name" width="170"/>
-              <IgrTextColumn propertyPath="LastName" headerText="Last Name" width="170"/>
+              <IgrTextColumn pinned="left" propertyPath="ID" headerText="Employee ID" width="100"  horizontalAlignment="center"/>
+              <IgrTextColumn pinned="left" propertyPath="FirstName" headerText="First Name" width="170"/>
+              <IgrTextColumn pinned="left" propertyPath="LastName" headerText="Last Name" width="170"/>
 
               <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" width="150" horizontalAlignment="center"/>
               <IgrNumericColumn propertyPath="Age" width="100" horizontalAlignment="center"/>
