@@ -75,6 +75,11 @@ module.exports = function override(config, env) {
             test: /[\\/]node_modules[\\/](igniteui-react-datasources)[\\/]/,
             name: 'igniteui-react-datasources',
             chunks: 'all',
+        },
+        igniteuiDockmanager: {
+            test: /[\\/]node_modules[\\/](igniteui-dockmanager)[\\/]/,
+            name: 'igniteui-dockmanager',
+            chunks: 'all',
         }
         };
 
