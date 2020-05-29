@@ -278,18 +278,11 @@ function updatePackages(cb) {
     let templatePackageFile = fs.readFileSync("./templates/sample/package.json");
     let templatePackageJson = JSON.parse(templatePackageFile.toString());
 
-    // getting content of package.json file from the browser
-    // let browserPackageFile = fs.readFileSync("./package.json");
-    // let browserPackageJson = JSON.parse(browserPackageFile.toString());
-
-    // Transformer.verifyPackage(browserPackageJson, templatePackageJson);
-
     // let last = samples[samples.length - 1];
     // let content = Transformer.getPackage(last, templatePackageJson);
     // fs.writeFileSync(sampleOutputFolder + "package.json", content);
 
     for (const sample of samples) {
-
         let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
         let oldPackageFile = fs.readFileSync(outputPath).toString();
 
@@ -300,11 +293,30 @@ function updatePackages(cb) {
             log('updated: ' + outputPath);
             fs.writeFileSync(outputPath, newPackageFile);
         }
-        // break;
     }
 
     cb();
 } exports.updatePackages = updatePackages;
+
+// updating browser's package.json file using template's package.json
+function copyPackageJson(cb) {
+
+    // getting content of package.json file from templates
+    let templatePackageFile = fs.readFileSync("./templates/sample/package.json");
+    let templatePackageJson = JSON.parse(templatePackageFile.toString());
+
+    // getting content of package.json file from the browser
+    let browserPackageFile = fs.readFileSync("./package.json");
+    let browserPackageJson = JSON.parse(browserPackageFile.toString());
+
+    let browserPackageNew = Transformer.updatePackage(browserPackageJson, templatePackageJson);
+    if (browserPackageNew !== browserPackageFile) {
+        fs.writeFileSync(sampleOutputFolder + "package.json", browserPackageNew);
+        // console.log("updated browser's package.json file");
+    }
+
+    cb();
+} exports.copyPackageJson = copyPackageJson;
 
 function updateIndex(cb) {
 

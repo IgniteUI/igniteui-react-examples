@@ -203,7 +203,7 @@ class Transformer {
         return url;
     }
 
-    public static verifyPackage(browsersPackage: PackageJson, templatePackage: PackageJson): string[] {
+    public static updatePackage(browsersPackage: PackageJson, templatePackage: PackageJson): string {
 
         let errors: string[] = [];
 
@@ -217,7 +217,12 @@ class Transformer {
                 let browsersDep = browsersPackage.dependencies[name];
                 let templateDep = templatePackage.dependencies[name];
                 if (templateDep !== browsersDep) {
-                    errors.push("- template's package.json has \"" + name + "\" with \"" + templateDep + "\" while \"" + browsersDep + "\" is in browser's package.json");
+                    if (name.indexOf('igniteui-') === 0) {
+                        browsersPackage.dependencies[name] = templateDep;
+                        console.log("- changed browser's package " + name + " from " + browsersDep + " to " + templateDep);
+                    } else {
+                        errors.push("- template's package.json has \"" + name + "\" with \"" + templateDep + "\" while \"" + browsersDep + "\" is in browser's package.json");
+                    }
                 }
             }
         }
@@ -238,7 +243,7 @@ class Transformer {
             console.log("ERRORS found in package.json files: \n" + errors.join('\n'))
         }
 
-        return errors;
+        return JSON.stringify(browsersPackage, null, '  ');
     }
 
     // gets updated package.json file for a sample using a template
