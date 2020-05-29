@@ -258,7 +258,7 @@
 .igOverlay-bottom-center,
 .igOverlay-bottom-right {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     font-size: 0.8rem;
     font-family: 'Titillium Web';
     border-radius: 0.5rem;
