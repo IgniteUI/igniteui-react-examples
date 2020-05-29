@@ -65,18 +65,26 @@ export default class DataGridColumnChooserPicker extends React.Component<any, an
           >
             <IgrTextColumn
               propertyPath="ProductID"
-              headerText="Order ID"
+              headerText="ID"
               width="*>70"
               horizontalAlignment="center"
             />
             <IgrTextColumn
               propertyPath="ProductName"
-              headerText="Product Name"
+              headerText="Product" width="*>100"
+            />
+            <IgrImageColumn
+              propertyPath="CountryFlag"
+              headerText="Country"
+              width="*>120"
+              contentOpacity="1"
+              horizontalAlignment="center"
+              paddingTop="5" paddingBottom="5"
             />
             <IgrNumericColumn
               propertyPath="ProductPrice"
               headerText="Price"
-              width="*>90"
+              width="*>110"
               positivePrefix="$"
               showGroupingSeparator="true"
               minFractionDigits={2}
@@ -84,47 +92,40 @@ export default class DataGridColumnChooserPicker extends React.Component<any, an
             <IgrNumericColumn
               propertyPath="OrderItems"
               headerText="Orders"
-              width="*>70"
+              width="*>100"
             />
             <IgrNumericColumn
               propertyPath="OrderValue"
               headerText="Order Value"
-              width="*>100"
+              width="*>140"
               positivePrefix="$"
               showGroupingSeparator="true"
             />
             <IgrDateTimeColumn
               propertyPath="OrderDate"
               headerText="Order Date"
-              width="*>100"
+              width="*>130"
               horizontalAlignment="right"
               dateTimeFormat="DateShort"
-            />
-            <IgrImageColumn
-              propertyPath="CountryFlag"
-              headerText="Country"
-              width="*>100"
-              contentOpacity="1"
-              horizontalAlignment="center"
             />
             <IgrNumericColumn
               propertyPath="Margin"
               headerText="Margin"
-              width="90"
+              width="*>100"
               positiveSuffix="%"
               horizontalAlignment="center"
             />
             <IgrNumericColumn
               propertyPath="Profit"
               headerText="Profit"
-              width="70"
+              width="*>100"
               positivePrefix="$"
               showGroupingSeparator="true"
             />
             <IgrTextColumn
               propertyPath="Status"
               headerText="Status"
-              width="110"
+              width="*>110"
               horizontalAlignment="center"
             />
           </IgrDataGrid>

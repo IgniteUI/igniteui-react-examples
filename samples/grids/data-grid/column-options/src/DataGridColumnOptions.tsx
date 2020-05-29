@@ -46,22 +46,22 @@ export default class DataGridColumnOptions extends React.Component<any, any> {
                 autoGenerateColumns="false"
                 isColumnOptionsEnabled="true"
                 dataSource={this.data}>
-                    <IgrTextColumn propertyPath="ProductID" headerText="Order ID" width="*>70" horizontalAlignment="center"/>
-                    <IgrTextColumn propertyPath="ProductName" headerText="Product Name"   />
-                    <IgrNumericColumn propertyPath="ProductPrice" headerText="Price" width="*>90"
-                    positivePrefix="$" showGroupingSeparator="true" minFractionDigits={2}/>
-                    <IgrNumericColumn propertyPath="OrderItems" headerText="Orders" width="*>70"/>
-                    <IgrNumericColumn propertyPath="OrderValue" headerText="Order Value" width="*>100"
-                    positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>100"
-                    horizontalAlignment="right" dateTimeFormat="DateShort" />
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>100"
+                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="*>90" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="ProductName" headerText="Product"  width="*>120" />
+                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>120" paddingTop="5" paddingBottom="5"
                     contentOpacity="1" horizontalAlignment="center"/>
-                    <IgrNumericColumn propertyPath="Margin" headerText="Margin" width="90"
-                    positiveSuffix="%" horizontalAlignment="center" />
-                    <IgrNumericColumn propertyPath="Profit" headerText="Profit" width="70"
+                    <IgrNumericColumn propertyPath="ProductPrice" headerText="Price" width="*>110"
+                    positivePrefix="$" showGroupingSeparator="true" minFractionDigits={2}/>
+                    <IgrNumericColumn propertyPath="OrderItems" headerText="Orders" width="*>110"/>
+                    <IgrNumericColumn propertyPath="OrderValue" headerText="Order Value" width="*>150"
                     positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrTextColumn propertyPath="Status" headerText="Status" width="110"
+                    <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>150"
+                    horizontalAlignment="right" dateTimeFormat="DateShort" />
+                    <IgrNumericColumn propertyPath="Margin" headerText="Margin" width="*>90"
+                    positiveSuffix="%" horizontalAlignment="center" />
+                    <IgrNumericColumn propertyPath="Profit" headerText="Profit" width="*>70"
+                    positivePrefix="$" showGroupingSeparator="true" />
+                    <IgrTextColumn propertyPath="Status" headerText="Status" width="*>110"
                     horizontalAlignment="center"   />
                 </IgrDataGrid>
             </div>

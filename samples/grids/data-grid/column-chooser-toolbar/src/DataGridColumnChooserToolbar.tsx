@@ -49,8 +49,6 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
             ref={this.onToolbarRef}
             toolbarTitle="Global Sales"
             columnChooser="true"
-            columnChooserText="Hiding"
-            columnChooserTitle="Column Hiding"
           />
           <IgrDataGrid
             ref={this.onGridRef}
@@ -68,13 +66,22 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
             />
             <IgrTextColumn
               propertyPath="ProductName"
-              headerText="Product Name"
+              headerText="Product"
               isHidden="true"
+              width="*>140"
+            />
+            <IgrImageColumn
+              propertyPath="CountryFlag"
+              headerText="Country"
+              width="*>140"
+              contentOpacity="1"
+              horizontalAlignment="center"
+              paddingTop="5" paddingBottom="5"
             />
             <IgrNumericColumn
               propertyPath="ProductPrice"
               headerText="Price"
-              width="*>90"
+              width="*>100"
               positivePrefix="$"
               showGroupingSeparator="true"
               minFractionDigits={2}
@@ -83,47 +90,40 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
             <IgrNumericColumn
               propertyPath="OrderItems"
               headerText="Orders"
-              width="*>70"
+              width="*>60"
             />
             <IgrNumericColumn
               propertyPath="OrderValue"
               headerText="Order Value"
-              width="*>100"
+              width="*>140"
               positivePrefix="$"
               showGroupingSeparator="true"
             />
             <IgrDateTimeColumn
               propertyPath="OrderDate"
               headerText="Order Date"
-              width="*>100"
+              width="*>140"
               horizontalAlignment="right"
               dateTimeFormat="DateShort"
-            />
-            <IgrImageColumn
-              propertyPath="CountryFlag"
-              headerText="Country"
-              width="*>100"
-              contentOpacity="1"
-              horizontalAlignment="center"
             />
             <IgrNumericColumn
               propertyPath="Margin"
               headerText="Margin"
-              width="90"
+              width="*>120"
               positiveSuffix="%"
               horizontalAlignment="center"
             />
             <IgrNumericColumn
               propertyPath="Profit"
               headerText="Profit"
-              width="70"
+              width="*>120"
               positivePrefix="$"
               showGroupingSeparator="true"
             />
             <IgrTextColumn
               propertyPath="Status"
               headerText="Status"
-              width="110"
+              width="*>120"
               horizontalAlignment="center"
             />
           </IgrDataGrid>
