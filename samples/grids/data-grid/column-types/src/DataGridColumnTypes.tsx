@@ -188,15 +188,15 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                     autoGenerateColumns="false"
                     dataSource={this.data}>
                     <IgrImageColumn propertyPath="Photo" headerText="Photo" contentOpacity="1"
-                    horizontalAlignment="center"  width="90"/>
+                    horizontalAlignment="center"  width="*>90"/>
                     <IgrTextColumn propertyPath="Name" width="*>130"/>
                     <IgrTemplateColumn propertyPath="Address" headerText="Address" horizontalAlignment="left"
                         cellUpdating={this.onAddressCellUpdating} width="*>140" />
                     <IgrTemplateColumn propertyPath="Sales" headerText="Sales" horizontalAlignment="center"
-                        cellUpdating={this.onSalesCellUpdating} width="110" />
-                    <IgrNumericColumn propertyPath="Salary" positivePrefix="$" showGroupingSeparator="true" />
+                        cellUpdating={this.onSalesCellUpdating} width="*>110" />
+                    <IgrNumericColumn propertyPath="Salary" width="*>100" positivePrefix="$" showGroupingSeparator="true" />
                     <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth"
-                    horizontalAlignment="right"  width="120"/>
+                    horizontalAlignment="right"  width="*>150"/>
                     {/*
                     <IgrTemplateColumn propertyPath="Email" horizontalAlignment="center"
                     cellUpdating={this.onEmailCellUpdating} width="*>140" />

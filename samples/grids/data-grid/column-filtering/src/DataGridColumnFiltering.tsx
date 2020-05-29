@@ -116,12 +116,12 @@ export default class DataGridRowFiltering extends React.Component<any, any> {
                     dataSource={this.data} >
 
                     <IgrTextColumn propertyPath="Name" width="*>150"/>
-                    <IgrTextColumn propertyPath="Street"   width="160" />
-                    <IgrTextColumn propertyPath="City"  />
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" contentOpacity="1"
-                        horizontalAlignment="center" width="90"/>
-                    <IgrNumericColumn propertyPath="Sales" positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Birthday" />
+                    <IgrTextColumn propertyPath="Street"   width="*>160" />
+                    <IgrTextColumn propertyPath="City"  width="*>100"/>
+                    <IgrImageColumn propertyPath="CountryFlag" paddingTop="5" paddingBottom="5" headerText="Country" contentOpacity="1"
+                        horizontalAlignment="center" width="*>120"/>
+                    <IgrNumericColumn propertyPath="Sales" positivePrefix="$" showGroupingSeparator="true" width="*>100"/>
+                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Birthday" width="*>150"/>
 
                 </IgrDataGrid>
             </div>

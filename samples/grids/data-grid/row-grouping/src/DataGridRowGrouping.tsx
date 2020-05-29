@@ -50,12 +50,12 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
                         <IgrTextColumn propertyPath="Name" headerText="Name" />
                         <IgrNumericColumn propertyPath="Age" headerText="Age" width="*>80"/>
                         <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth"
-                        horizontalAlignment="right"  width="140"/>
+                        horizontalAlignment="right"  width="*>140"/>
+                        <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>140" paddingTop="5" paddingBottom="5" contentOpacity="1" horizontalAlignment="center"/>
                         <IgrTextColumn propertyPath="Street" headerText="Address" width="*>140"/>
-                        <IgrNumericColumn propertyPath="Salary" headerText="Salary" width="90"
+                        <IgrNumericColumn propertyPath="Salary" headerText="Salary" width="*>110"
                         positivePrefix="$" showGroupingSeparator="true"  />
-                        <IgrTextColumn propertyPath="City" headerText="City" width="120" horizontalAlignment="center"/>
-                        <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="90" contentOpacity="1" horizontalAlignment="center"/>
+                        <IgrTextColumn propertyPath="City" width="*>100" headerText="City" horizontalAlignment="center"/>
                 </IgrDataGrid>
             </div>
         );

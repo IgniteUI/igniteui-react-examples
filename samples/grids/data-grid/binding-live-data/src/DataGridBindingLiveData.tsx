@@ -258,63 +258,61 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                 columnHidingAnimationMode="slideToRightAndFadeOut"
                 dataSource={this.state.data}
                 defaultColumnMinWidth="100">
-                    <IgrTextColumn propertyPath="ID" width="90" isHidden="true"/>
-                    <IgrTextColumn propertyPath="Category" width="100" />
-                    <IgrTextColumn propertyPath="Type" width="90"    />
-                    <IgrTextColumn propertyPath="Risk" width="100" />
-                    <IgrTextColumn propertyPath="Contract" width="60" />
-                    <IgrNumericColumn propertyPath="Open Price" width="100"/>
-                    <IgrTemplateColumn propertyPath="Price" width="100"
+                    <IgrTextColumn propertyPath="ID" width="*>90" isHidden="true"/>
+                    <IgrTextColumn propertyPath="Category" width="*>120" />
+                    <IgrTextColumn propertyPath="Type" width="*>90"    />
+                    <IgrTextColumn propertyPath="Risk" width="*>100" />
+                    <IgrTextColumn propertyPath="Contract" width="*>120" />
+                    <IgrNumericColumn propertyPath="Open Price" width="*>130"/>
+                    <IgrTemplateColumn propertyPath="Price" width="*>100"
                         horizontalAlignment="right"
                         cellStyleKeyRequested={this.onPriceStyleKey}
                         cellUpdating={this.onPriceCellUpdating}
                         dataBound={this.onPriceDataBound}/>
 
-                    <IgrTemplateColumn propertyPath="Change" width="100"
+                    <IgrTemplateColumn propertyPath="Change" width=">*100"
                         horizontalAlignment="right"
                         cellStyleKeyRequested={this.onPriceAmountStyleKey}
                         cellUpdating={this.onPriceAmountCellUpdating}/>
 
-                    <IgrTemplateColumn name="ChangePer" propertyPath="Change(%)" width="120"
+                    <IgrTemplateColumn name="ChangePer" propertyPath="Change(%)" width="*>130"
                         horizontalAlignment="right"
                         cellStyleKeyRequested={this.onPricePercentStyleKey}
                         cellUpdating={this.onPricePercentCellUpdating}/>
 
-                    <IgrTextColumn propertyPath="Settlement" width="120" />
-                    <IgrTextColumn propertyPath="Region" width="130" />
-                    <IgrTextColumn propertyPath="Country" width="120" />
-                    <IgrNumericColumn propertyPath="Buy" width="110"/>
-                    <IgrNumericColumn propertyPath="Sell" width="110"/>
-                    <IgrNumericColumn propertyPath="Spread" width="110"/>
-                    <IgrNumericColumn propertyPath="Volume" width="110"/>
-                    <IgrNumericColumn propertyPath="High(D)" width="110"/>
-                    <IgrNumericColumn propertyPath="Low(D)" width="110"/>
-                    <IgrNumericColumn propertyPath="High(Y)" width="110"/>
-                    <IgrNumericColumn propertyPath="Low(Y)" width="110"/>
-                    <IgrNumericColumn propertyPath="Start(Y)" width="110"/>
-                    <IgrTemplateColumn propertyPath="Chart" width="60"
+                    <IgrTextColumn propertyPath="Settlement" width="*>130" />
+                    <IgrTextColumn propertyPath="Region" width="*>130" />
+                    <IgrTextColumn propertyPath="Country" width="*>120" />
+                    <IgrNumericColumn propertyPath="Buy" width="*>110"/>
+                    <IgrNumericColumn propertyPath="Sell" width="*>110"/>
+                    <IgrNumericColumn propertyPath="Spread" width="*>110"/>
+                    <IgrNumericColumn propertyPath="Volume" width="*>110"/>
+                    <IgrNumericColumn propertyPath="High(D)" width="*>110"/>
+                    <IgrNumericColumn propertyPath="Low(D)" width="*>110"/>
+                    <IgrNumericColumn propertyPath="High(Y)" width="*>110"/>
+                    <IgrNumericColumn propertyPath="Low(Y)" width="*>110"/>
+                    <IgrNumericColumn propertyPath="Start(Y)" width="*>110"/>
+                    <IgrTemplateColumn propertyPath="Chart" width="*>60"
                         cellStyleKeyRequested={this.onChartStyleKey}
                         cellUpdating={this.onChartCellUpdating}/>
-                    <IgrTemplateColumn propertyPath="Grid" width="80"
+                    <IgrTemplateColumn propertyPath="Grid" width="*>80"
                         cellStyleKeyRequested={this.onGridStyleKey}
                         cellUpdating={this.onGridCellUpdating} />
-                    <IgrTextColumn propertyPath="IndGroup" width="100" />
-                    <IgrTextColumn propertyPath="IndSector" width="120"/>
-                    <IgrTextColumn propertyPath="IndCategory" width="100" />
-                    <IgrTextColumn propertyPath="Sector" width="90" />
-                    <IgrTextColumn propertyPath="Issuer" width="170"/>
-                    <IgrTextColumn propertyPath="Rating" width="60" />
-                    <IgrTextColumn propertyPath="Currency" width="60" />
-                    <IgrTextColumn propertyPath="Security" width="120" />
-                    <IgrNumericColumn propertyPath="Transactions" width="100" />
-                    <IgrTextColumn propertyPath="Ticker" width="60" />
-                    <IgrNumericColumn propertyPath="CPN" width="80" />
-                    <IgrTextColumn propertyPath="Maturity" width="120" />
-                    <IgrTextColumn propertyPath="Collateral" width="90" />
-                    <IgrTextColumn propertyPath="DBRS" width="60" />
-                    <IgrNumericColumn propertyPath="KRD_3YR" width="110" />
-                    <IgrNumericColumn propertyPath="KRD_5YR" width="50" />
-                    <IgrNumericColumn propertyPath="KRD_1YR" width="80" />
+                    <IgrTextColumn propertyPath="IndGroup" width="*>100" />
+                    <IgrTextColumn propertyPath="IndSector" width="*>120"/>
+                    <IgrTextColumn propertyPath="IndCategory" width="*>100" />
+                    <IgrTextColumn propertyPath="Sector" width="*>90" />
+                    <IgrTextColumn propertyPath="Issuer" width="*>170"/>
+                    <IgrTextColumn propertyPath="Rating" width="*>60" />
+                    <IgrTextColumn propertyPath="Currency" width="*>60" />
+                    <IgrTextColumn propertyPath="Security" width="*>120" />
+                    <IgrNumericColumn propertyPath="Transactions" width="*>150" />
+                    <IgrNumericColumn propertyPath="CPN" width="*>80" />
+                    <IgrTextColumn propertyPath="Maturity" width="*>120" />
+                    <IgrTextColumn propertyPath="Collateral" width="*>90" />
+                    <IgrNumericColumn propertyPath="KRD_3YR" width="*>120" />
+                    <IgrNumericColumn propertyPath="KRD_5YR" width="*>120" />
+                    <IgrNumericColumn propertyPath="KRD_1YR" width="*>120" />
                 </IgrDataGrid>
 
                 <Dialog

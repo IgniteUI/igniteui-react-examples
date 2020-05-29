@@ -41,7 +41,7 @@ export default class DataGridColumnPinningPicker extends React.Component<any, an
                 <div className="igOptions">
                     <button className="igOptions-item" disabled={this.state.isPinningToLeftDisabled} onClick={this.onPinLeft} style={{ width: "100px" }}>Pin Left</button>
                     <button className="igOptions-item" disabled={this.state.isPinningToRightDisabled} onClick={this.onPinRight} style={{ width: "100px" }}>Pin Right</button>
-                    <button className="igOptions-item" onClick={this.onUnPin} style={{ width: "105px" }}>Unpin Columns</button>
+                    <button className="igOptions-item" onClick={this.onUnPin} style={{ width: "125px" }}>Unpin Columns</button>
                 </div>
                 <IgrDataGrid
                 ref={this.onGridRef}
@@ -51,21 +51,21 @@ export default class DataGridColumnPinningPicker extends React.Component<any, an
                 defaultColumnMinWidth={120}
                 scrollbarStyle = "thin"
                 dataSource={this.data}>
-                    <IgrTextColumn pinned="left" propertyPath="ID" headerText="Employee ID" width="100"  horizontalAlignment="center"/>
-                    <IgrTextColumn pinned="left" propertyPath="FirstName" headerText="First Name" width="170"/>
-                    <IgrTextColumn pinned="left" propertyPath="LastName" headerText="Last Name" width="170"/>
+                    <IgrTextColumn pinned="left" propertyPath="ID" headerText="ID" width="*>70"  horizontalAlignment="center"/>
+                    <IgrTextColumn pinned="left" propertyPath="FirstName" headerText="First Name" width="*>170"/>
+                    <IgrTextColumn pinned="left" propertyPath="LastName" headerText="Last Name" width="*>170"/>
 
-                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" width="150" horizontalAlignment="center"/>
-                    <IgrNumericColumn propertyPath="Age" width="100" horizontalAlignment="center"/>
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country"
-                    width="140" contentOpacity="1" horizontalAlignment="center"/>
+                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" width="*>150" horizontalAlignment="center"/>
+                    <IgrNumericColumn propertyPath="Age" width="*>100" horizontalAlignment="center"/>
+                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" paddingTop="5" paddingBottom="5"
+                    width="*>140" contentOpacity="1" horizontalAlignment="center"/>
 
-                    <IgrTextColumn propertyPath="Street" headerText="Address" width="240"/>
-                    <IgrTextColumn propertyPath="City"  width="150" />
-                    <IgrTextColumn propertyPath="Country"  width="150" />
+                    <IgrTextColumn propertyPath="Street" headerText="Address" width="*>240"/>
+                    <IgrTextColumn propertyPath="City"  width="*>150" />
+                    <IgrTextColumn propertyPath="Country"  width="*>150" />
 
-                    <IgrNumericColumn propertyPath="Salary" headerText="Salary" positivePrefix="$" showGroupingSeparator="true"/>
-                    <IgrNumericColumn propertyPath="Sales" headerText="Sales" positivePrefix="$" showGroupingSeparator="true"/>
+                    <IgrNumericColumn propertyPath="Salary" width="*>100" headerText="Salary" positivePrefix="$" showGroupingSeparator="true"/>
+                    <IgrNumericColumn propertyPath="Sales" width="*>100" headerText="Sales" positivePrefix="$" showGroupingSeparator="true"/>
                 </IgrDataGrid>
             </div>
         );

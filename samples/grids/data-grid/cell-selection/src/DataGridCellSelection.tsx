@@ -58,13 +58,13 @@ export default class DataGridCellSelection extends React.Component<any, any> {
                     selectionMode={this.state.selectionMode}>
 
                     <IgrTextColumn propertyPath="Name" width="*>130"/>
-                    <IgrTextColumn propertyPath="Street" headerText="Street" width="140" />
-                    <IgrTextColumn propertyPath="City" headerText="City" />
-                    <IgrNumericColumn propertyPath="Salary" headerText="Salary" positivePrefix="$" showGroupingSeparator="true" />
+                    <IgrTextColumn propertyPath="Street" headerText="Street" width="*>140" />
+                    <IgrTextColumn propertyPath="City" headerText="City" width="*>100" />
+                    <IgrNumericColumn propertyPath="Salary" headerText="Salary" width="*>100" positivePrefix="$" showGroupingSeparator="true" />
 
                     <IgrImageColumn propertyPath="Photo" headerText="Photo" contentOpacity="1"
-                    horizontalAlignment="center"  width="90"/>
-                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" />
+                    horizontalAlignment="center"  width="*>90"/>
+                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" width="*>150"/>
 
                 </IgrDataGrid>
             </div>
