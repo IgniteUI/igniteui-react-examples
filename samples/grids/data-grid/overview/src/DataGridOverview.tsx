@@ -5,6 +5,8 @@ import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
+import { IgrToolbarModule } from "igniteui-react-grids";
+import { IgrToolbar } from "igniteui-react-grids";
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
@@ -13,18 +15,23 @@ import { IgrTemplateColumn } from 'igniteui-react-grids';
 import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 import { IIgrCellTemplateProps } from 'igniteui-react-grids';
+import { IgrColumnGroupDescription } from 'igniteui-react-grids';
+import { IgrColumnSummaryDescription } from 'igniteui-react-grids'
+import { SummaryOperand } from 'igniteui-react-core';
 
 import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
 
 IgrDataGridModule.register();
 IgrGridColumnOptionsModule.register();
+IgrToolbarModule.register();
 IgrSparklineModule.register();
 
-export default class DataGridColumnTypes extends React.Component<any, any> {
+export default class DataGridOverview extends React.Component<any, any> {
 
     public data: any[];
     public grid: IgrDataGrid;
+    public toolbar: IgrToolbar;
 
     constructor(props: any) {
         super(props);
@@ -35,19 +42,33 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         this.data = DataGridSharedData.getEmployees(100);
 
         this.onGridRef = this.onGridRef.bind(this);
+        this.onToolbarRef = this.onToolbarRef.bind(this);
+
+        // this.onLoad = this.onLoad.bind(this);
     }
 
     public render() {
         return (
             <div className="igContainer">
+                 <IgrToolbar
+                    ref={this.onToolbarRef}
+                    toolbarTitle="Sales Team"
+                    columnChooser="true"
+                    columnPinning="true"
+                />
                 <IgrDataGrid
                     ref={this.onGridRef}
-                    height="100%"
+                    height="calc(100% - 2rem)"
                     width="100%"
                     rowHeight="50"
                     autoGenerateColumns="false"
                     dataSource={this.data}
                     defaultColumnMinWidth={100}
+                    summaryScope="Root"
+                    isColumnOptionsEnabled="true"
+                    isGroupCollapsable="true"
+                    groupHeaderDisplayMode="Combined"
+                    groupSummaryDisplayMode="RowBottom"
                     >
                     <IgrImageColumn propertyPath="Photo" headerText="Photo" contentOpacity="1"
                     horizontalAlignment="stretch" width="110" paddingTop="5" paddingBottom="5"  paddingRight="10"/>
@@ -90,6 +111,51 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         if (!grid) { return; }
 
         this.grid = grid;
+        this.grid.actualDataSource.isSectionExpandedDefault = true;
+
+        if (this.toolbar !== null) {
+            this.toolbar.targetGrid = this.grid;
+        }
+    }
+
+    public onToolbarRef(toolbar: IgrToolbar) {
+          this.toolbar = toolbar;
+          if (this.toolbar !== null) {
+              this.toolbar.targetGrid = this.grid;
+          }
+    }
+
+    public componentDidMount() {
+    //     window.addEventListener('load', this.onLoad);
+    // }
+
+    // public onLoad() {
+        const peopleGroup = new IgrColumnGroupDescription();
+        peopleGroup.propertyPath = "Country";
+        peopleGroup.displayName = "Country";
+        this.grid.groupDescriptions.add(peopleGroup);
+
+        const incomeGroup = new IgrColumnGroupDescription();
+        incomeGroup.propertyPath = "Income";
+        incomeGroup.displayName = "Income";
+        this.grid.groupDescriptions.add(incomeGroup);
+
+        const peopleCount = new IgrColumnSummaryDescription();
+        peopleCount.propertyPath = "Photo";
+        peopleCount.operand = SummaryOperand.Count;
+        this.grid.summaryDescriptions.add(peopleCount);
+
+        const sales = new IgrColumnSummaryDescription();
+        sales.propertyPath = "Sales";
+        sales.operand = SummaryOperand.Max;
+        sales.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        this.grid.summaryDescriptions.add(sales);
+
+        const salary = new IgrColumnSummaryDescription();
+        salary.propertyPath = "Salary";
+        salary.operand = SummaryOperand.Average;
+        salary.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        this.grid.summaryDescriptions.add(salary);
     }
 
     public getProductivityChart(props: IIgrCellTemplateProps) {
