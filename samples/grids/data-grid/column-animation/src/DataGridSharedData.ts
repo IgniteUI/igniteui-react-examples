@@ -25,7 +25,7 @@ export class DataGridSharedData {
 
             if (gender === "male") {
                 maleCount++;
-                if (maleCount > 26){
+                if (maleCount > 26) {
                     maleCount = 1;
                 }
                 photoPath = this.getPhotoMale(maleCount);
@@ -144,7 +144,7 @@ export class DataGridSharedData {
             const gender: string = this.getRandomGender();
             const firstName: string = this.getRandomNameFirst(gender);
             const lastName: string = this.getRandomNameLast();
-            const initials = firstName.substr(0,1).toLowerCase();
+            const initials = firstName.substr(0, 1).toLowerCase();
             const email: string = initials + lastName.toLowerCase() + "@" + this.getRandomItem(emails);
 
             const street: string = this.getRandomStreet();

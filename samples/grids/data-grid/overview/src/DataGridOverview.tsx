@@ -23,8 +23,8 @@ import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
 
 IgrDataGridModule.register();
-IgrGridColumnOptionsModule.register();
 IgrDataGridToolbarModule.register();
+IgrGridColumnOptionsModule.register();
 IgrSparklineModule.register();
 
 export default class DataGridOverview extends React.Component<any, any> {
@@ -58,12 +58,12 @@ export default class DataGridOverview extends React.Component<any, any> {
                 />
                 <IgrDataGrid
                     ref={this.onGridRef}
-                    height="calc(100% - 2rem)"
+                    height="calc(100% - 2.75rem)"
                     width="100%"
                     rowHeight="50"
                     autoGenerateColumns="false"
                     dataSource={this.data}
-                    defaultColumnMinWidth={100}
+                    defaultColumnMinWidth="100"
                     summaryScope="Root"
                     isColumnOptionsEnabled="true"
                     isGroupCollapsable="true"
@@ -71,7 +71,7 @@ export default class DataGridOverview extends React.Component<any, any> {
                     groupSummaryDisplayMode="RowBottom"
                     columnMovingMode="Deferred"
                     columnMovingAnimationMode="SlideOver"
-                    columnMovingSeparatorWidth={2}
+                    columnMovingSeparatorWidth="2"
                     columnShowingAnimationMode="slideFromRightAndFadeIn"
                     columnHidingAnimationMode="slideToRightAndFadeOut"
                     >
@@ -221,8 +221,6 @@ export default class DataGridOverview extends React.Component<any, any> {
         const sales = info.rowItem.Sales;
         let gaugeValue: HTMLSpanElement | null = null;
         let gaugeBar: HTMLDivElement | null = null;
-        let gaugeWidth = (sales / 950000) * 100;
-        gaugeWidth = Math.min(100, gaugeWidth);
 
         if (content.childElementCount === 0) {
             gaugeValue = document.createElement("span");
@@ -283,7 +281,9 @@ export default class DataGridOverview extends React.Component<any, any> {
             gaugeBar.style.background = "rgb(21, 190, 6)";
         }
         gaugeValue.textContent = "$" + sales / 1000 + ",000";
-        gaugeBar.id = sales + "_" + gaugeWidth.toFixed(1);
+
+        let gaugeWidth = (sales / 990000) * 100;
+        gaugeWidth = Math.min(100, gaugeWidth);
         gaugeBar.style.width = gaugeWidth + "%";
     }
 
