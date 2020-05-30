@@ -6,16 +6,16 @@ import { IgrNumericColumn } from "igniteui-react-grids";
 import { IgrDateTimeColumn } from "igniteui-react-grids";
 import { IgrDataGridModule } from "igniteui-react-grids";
 import { IgrDataGrid } from "igniteui-react-grids";
-import { IgrToolbarModule } from "igniteui-react-grids";
-import { IgrToolbar } from "igniteui-react-grids";
+import { IgrDataGridToolbarModule } from "igniteui-react-grids";
+import { IgrDataGridToolbar } from "igniteui-react-grids";
 
 IgrDataGridModule.register();
-IgrToolbarModule.register();
+IgrDataGridToolbarModule.register();
 
 export default class DataGridColumnChooserToolbar extends React.Component<any, any> {
   public data: any[];
   public grid: IgrDataGrid;
-  public toolbar: IgrToolbar;
+  public toolbar: IgrDataGridToolbar;
 
   constructor(props: any) {
     super(props);
@@ -34,7 +34,7 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
     }
   }
 
-  public onToolbarRef(toolbar: IgrToolbar) {
+  public onToolbarRef(toolbar: IgrDataGridToolbar) {
     this.toolbar = toolbar;
     if (this.toolbar != null) {
       this.toolbar.targetGrid = this.grid;
@@ -44,7 +44,7 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
   public render() {
     return (
       <div className="igContainer">
-          <IgrToolbar
+          <IgrDataGridToolbar
             ref={this.onToolbarRef}
             toolbarTitle="Global Sales"
             columnPinning="true"

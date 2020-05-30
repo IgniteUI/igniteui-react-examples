@@ -29,7 +29,7 @@ exports.updatePackages = updatePackages = gulp.series(
 exports.updateBrowser = updateBrowser = gulp.series(
     sb.getSamples,
     sb.copySamples,
-    sb.copyPackageJson,
+    // sb.copyPackageJson,
 );
 
 // exports.default = updateBrowser;

@@ -5,8 +5,8 @@ import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
-import { IgrToolbarModule } from "igniteui-react-grids";
-import { IgrToolbar } from "igniteui-react-grids";
+import { IgrDataGridToolbarModule } from "igniteui-react-grids";
+import { IgrDataGridToolbar } from "igniteui-react-grids";
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
@@ -24,14 +24,14 @@ import { IgrSparklineModule } from 'igniteui-react-charts';
 
 IgrDataGridModule.register();
 IgrGridColumnOptionsModule.register();
-IgrToolbarModule.register();
+IgrDataGridToolbarModule.register();
 IgrSparklineModule.register();
 
 export default class DataGridOverview extends React.Component<any, any> {
 
     public data: any[];
     public grid: IgrDataGrid;
-    public toolbar: IgrToolbar;
+    public toolbar: IgrDataGridToolbar;
 
     constructor(props: any) {
         super(props);
@@ -50,7 +50,7 @@ export default class DataGridOverview extends React.Component<any, any> {
     public render() {
         return (
             <div className="igContainer">
-                 <IgrToolbar
+                 <IgrDataGridToolbar
                     ref={this.onToolbarRef}
                     toolbarTitle="Sales Team"
                     columnChooser="true"
@@ -123,7 +123,7 @@ export default class DataGridOverview extends React.Component<any, any> {
         }
     }
 
-    public onToolbarRef(toolbar: IgrToolbar) {
+    public onToolbarRef(toolbar: IgrDataGridToolbar) {
           this.toolbar = toolbar;
           if (this.toolbar !== null) {
               this.toolbar.targetGrid = this.grid;
