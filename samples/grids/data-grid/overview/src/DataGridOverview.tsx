@@ -69,6 +69,11 @@ export default class DataGridOverview extends React.Component<any, any> {
                     isGroupCollapsable="true"
                     groupHeaderDisplayMode="Combined"
                     groupSummaryDisplayMode="RowBottom"
+                    columnMovingMode="Deferred"
+                    columnMovingAnimationMode="SlideOver"
+                    columnMovingSeparatorWidth={2}
+                    columnShowingAnimationMode="slideFromRightAndFadeIn"
+                    columnHidingAnimationMode="slideToRightAndFadeOut"
                     >
                     <IgrImageColumn propertyPath="Photo" headerText="Photo" contentOpacity="1"
                     horizontalAlignment="stretch" width="110" paddingTop="5" paddingBottom="5"  paddingRight="10"/>
