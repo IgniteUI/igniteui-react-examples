@@ -3,30 +3,13 @@
 export class DataGridSharedData {
 
     public static getEmployees(count?: number): any[] {
-        const employees: any[] = this.getContacts(count);
-        for (const person of employees) {
-            person.Salary = this.getRandomNumber(40, 200) * 1000;
-            person.Sales = this.getRandomNumber(200, 990) * 1000;
-            if (person.Salary < 50000) {
-                person.Income = "Low";
-            } else if (person.Salary < 100000) {
-                person.Income = "Average";
-            } else {
-                person.Income = "High";
-            }
-        }
-        return employees;
-    }
-
-    public static getContacts(count?: number): any[] {
         if (count === undefined) {
             count = 250;
         }
 
-        const contacts: any[] = [];
+        const employees: any[] = [];
         let maleCount: number = 0;
         let femaleCount: number = 0;
-        const emails: string[] = [ "gmail.com", "yahoo.com", "twitter.com"];
         for (let i = 0; i < count; i++) {
             const age: number = Math.round(this.getRandomNumber(20, 40));
             const gender: string = this.getRandomGender();
@@ -36,7 +19,8 @@ export class DataGridSharedData {
             const country: string = this.getRandomItem(this.countries);
             const city: string = this.getRandomCity(country);
             const generation = Math.floor(age / 10) * 10 + "s";
-            const email: string = firstName.toLowerCase() + "@" + this.getRandomItem(emails);
+            const email: string = firstName.toLowerCase() + "@" + this.getRandomItem(this.emails);
+            const website: string = firstName.toLowerCase() + "-" + this.getRandomItem(this.websites);
             let photoPath: any;
 
             if (gender === "male") {
@@ -48,32 +32,57 @@ export class DataGridSharedData {
             }
             else {
                 femaleCount++;
-                if (femaleCount > 24){
+                if (femaleCount > 24) {
                     femaleCount = 1;
                 }
                 photoPath = this.getPhotoFemale(femaleCount);
             }
 
-            contacts.push({
-                Address: street + "," + city,
-                Age: age,
-                Birthday: this.getBirthday(age),
-                City: city,
-                Country: country,
-                CountryFlag: this.getCountryFlag(country),
-                Email: email,
-                FirstName: firstName,
-                Gender: this.getGenderPhoto(gender),
-                Generation: generation,
-                ID: this.pad(i + 1, 5),
-                LastName: lastName,
-                Name: firstName + " " + lastName,
-                Phone: this.getRandomPhone(),
-                Photo: photoPath,
-                Street: street
-            });
+            let person: any = {};
+            person.Address = street + "," + city;
+            person.Age = age;
+            person.Birthday = this.getBirthday(age);
+            person.City = city;
+            person.Country = country;
+            person.CountryFlag = this.getCountryFlag(country);
+            person.Email = email;
+            person.FirstName = firstName;
+            person.Gender = this.getGenderPhoto(gender);
+            person.Generation = generation;
+            person.ID = this.pad(i + 1, 5);
+            person.LastName = lastName;
+            person.Name = firstName + " " + lastName;
+            person.Phone = this.getRandomPhone();
+            person.Photo = photoPath,
+            person.Street = street;
+            person.Salary = this.getRandomNumber(40, 200) * 1000;
+            person.Sales = this.getRandomNumber(200, 980) * 1000;
+            person.Website = website;
+            person.Productivity = this.getProductivity();
+
+            if (person.Salary < 50000) {
+                person.Income = "Low";
+            } else if (person.Salary < 100000) {
+                person.Income = "Average";
+            } else {
+                person.Income = "High";
+            }
+
+            employees.push(person);
         }
-        return contacts;
+        return employees;
+    }
+
+    public static getProductivity(weekCount?: number): any[] {
+        if (weekCount === undefined) {
+            weekCount = 52;
+        }
+        const productivity: any[] = [];
+        for (let w = 0; w < weekCount; w++) {
+            const value = this.getRandomNumber(-50, 50);
+            productivity.push({Value: value, Week: w});
+        }
+        return productivity;
     }
 
     public static getSales(count?: number): any[] {
@@ -165,6 +174,8 @@ export class DataGridSharedData {
         return houses;
     }
 
+    private static websites: string[] = [ ".com", ".gov", ".edu", ".org"];
+    private static emails: string[] = [ "gmail.com", "yahoo.com", "twitter.com"];
     private static genders: string[] = ["male", "female"];
     private static maleNames: string[] = ["Kyle", "Oscar", "Ralph", "Mike", "Bill", "Frank", "Howard", "Jack", "Larry", "Pete", "Steve", "Vince", "Mark", "Alex", "Max", "Brian", "Chris", "Andrew", "Martin", "Mike", "Steve", "Glenn", "Bruce"];
     private static femaleNames: string[] = ["Gina", "Irene", "Katie", "Brenda", "Casey", "Fiona", "Holly", "Kate", "Liz", "Pamela", "Nelly", "Marisa", "Monica", "Anna", "Jessica", "Sofia", "Isabella", "Margo", "Jane", "Audrey", "Sally", "Melanie", "Greta", "Aurora", "Sally"];
