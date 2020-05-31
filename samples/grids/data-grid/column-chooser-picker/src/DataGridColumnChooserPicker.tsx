@@ -48,11 +48,9 @@ export default class DataGridColumnChooserPicker extends React.Component<any, an
           <div className="igGridColumnChooserContainer">
             <IgrColumnChooser
                 ref={this.onColumnChoosingRef}
-                height="100%" 
+                height="100%"
                 width="200px"
-                title="Column Chooser"
-                showAllText="Show All"
-                hideAllText="Hide All">
+                title="Column Chooser">
               </IgrColumnChooser>
           </div>
         <div className="igContainer-vertical">
