@@ -13,17 +13,15 @@ import { gridsRoutingData } from "../samples/grids/RoutingData";
 import { chartsRoutingData } from "../samples/charts/RoutingData";
 import { mapsRoutingData } from "../samples/maps/RoutingData";
 import { excelRoutingData } from "../samples/excel/RoutingData";
-// import { tests1RoutingData } from "../samples/tests1/RoutingData";
-// import { tests2RoutingData } from "../samples/tests2/RoutingData";
 
 // https://material-ui.com/components/material-icons/
 import IconButton from '@material-ui/core/IconButton';
 import * as SidebarMenuIcon from '@material-ui/icons/Menu';
-import * as ToolbarArrowIcon from '@material-ui/icons/ArrowForwardIos';
-import * as ItemsExpandedIcon from '@material-ui/icons/ExpandMore';
-import * as ItemsCollapsedIcon from '@material-ui/icons/ExpandLess';
-import * as SampleSearchIcon from "@material-ui/icons/Search";
-import * as SampleLinkIcon from "@material-ui/icons/FiberManualRecord";
+// import * as ToolbarArrowIcon from '@material-ui/icons/ArrowForwardIos';
+// import * as ItemsExpandedIcon from '@material-ui/icons/ExpandMore';
+// import * as ItemsCollapsedIcon from '@material-ui/icons/ExpandLess';
+// import * as SampleSearchIcon from "@material-ui/icons/Search";
+// import * as SampleLinkIcon from "@material-ui/icons/FiberManualRecord";
 
 class SampleInfo {
     public name: string;
@@ -59,23 +57,19 @@ export class SamplesBrowser extends React.Component<any, any>
         this.onSampleOpen = this.onSampleOpen.bind(this);
         // console.log(TestsRoutes.DataRoutes)
 
-        this.populateLookup(chartsRoutingData);
-        this.populateLookup(mapsRoutingData);
-        this.populateLookup(gaugesRoutingData);
-        this.populateLookup(gridsRoutingData);
-        this.populateLookup(excelRoutingData);
+        let routingProviders: RoutingGroup[] = [
+            chartsRoutingData,
+            mapsRoutingData,
+            gaugesRoutingData,
+            gridsRoutingData,
+            excelRoutingData,
+        ];
 
-        this.populateLinks(SamplesRouter.getLinks(chartsRoutingData, this.onSampleOpen));
-        this.populateLinks(SamplesRouter.getLinks(mapsRoutingData, this.onSampleOpen));
-        this.populateLinks(SamplesRouter.getLinks(gaugesRoutingData, this.onSampleOpen));
-        this.populateLinks(SamplesRouter.getLinks(gridsRoutingData, this.onSampleOpen));
-        this.populateLinks(SamplesRouter.getLinks(excelRoutingData, this.onSampleOpen));
-
-        this.populateRoutes(SamplesRouter.getRoutes(chartsRoutingData));
-        this.populateRoutes(SamplesRouter.getRoutes(mapsRoutingData));
-        this.populateRoutes(SamplesRouter.getRoutes(gaugesRoutingData));
-        this.populateRoutes(SamplesRouter.getRoutes(gridsRoutingData));
-        this.populateRoutes(SamplesRouter.getRoutes(excelRoutingData));
+        for (const routingData of routingProviders) {
+            this.populateLookup(routingData);
+            this.populateLinks(SamplesRouter.getLinks(routingData, this.onSampleOpen));
+            this.populateRoutes(SamplesRouter.getRoutes(routingData));
+        }
 
         this.state = {
             SidebarVisible: true,
