@@ -67,7 +67,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                     <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth"
                     horizontalAlignment="stretch" width="*>160" paddingRight="10"/>
                     <IgrImageColumn propertyPath="CountryFlag" headerText="Country" contentOpacity="1"
-                    horizontalAlignment="stretch" width="130" paddingTop="7.5" paddingBottom="7.5" />
+                    horizontalAlignment="stretch" width="130" paddingTop="5" paddingBottom="5" />
 
                     <IgrTemplateColumn propertyPath="Address" headerText="Address" horizontalAlignment="left"
                         cellUpdating={this.onAddressCellUpdating} width="*>160" />
