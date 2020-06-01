@@ -57,6 +57,7 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
             autoGenerateColumns="false"
             cornerRadiusTopLeft="0"
             cornerRadiusTopRight="0"
+            isColumnOptionsEnabled="true"
             dataSource={this.data}
           >
             <IgrTextColumn
