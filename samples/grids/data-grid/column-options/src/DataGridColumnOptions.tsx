@@ -59,7 +59,7 @@ export default class DataGridColumnOptions extends React.Component<any, any> {
                     horizontalAlignment="right" dateTimeFormat="DateShort" />
                     <IgrNumericColumn propertyPath="Margin" headerText="Margin" width="*>90"
                     positiveSuffix="%" horizontalAlignment="center" />
-                    <IgrNumericColumn propertyPath="Profit" headerText="Profit" width="*>70"
+                    <IgrNumericColumn propertyPath="Profit" headerText="Profit" width="*>90"
                     positivePrefix="$" showGroupingSeparator="true" />
                     <IgrTextColumn propertyPath="Status" headerText="Status" width="*>110"
                     horizontalAlignment="center"   />

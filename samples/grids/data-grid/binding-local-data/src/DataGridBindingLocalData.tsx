@@ -41,7 +41,7 @@ export default class DataGridBindingLocalData extends React.Component<any, any> 
                 width="100%"
                 autoGenerateColumns="false"
                 dataSource={this.data}>
-                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="*>70" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="*>90" horizontalAlignment="center"/>
                     <IgrTextColumn propertyPath="ProductName" headerText="Product"  width="*>100" />
                     <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>110"
                     contentOpacity="1" horizontalAlignment="center" paddingTop="5" paddingBottom="5"/>

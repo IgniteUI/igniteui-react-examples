@@ -51,7 +51,7 @@ export default class DataGridColumnPinningPicker extends React.Component<any, an
                 defaultColumnMinWidth={120}
                 scrollbarStyle = "thin"
                 dataSource={this.data}>
-                    <IgrTextColumn pinned="left" propertyPath="ID" headerText="ID" width="*>70"  horizontalAlignment="center"/>
+                    <IgrTextColumn pinned="left" propertyPath="ID" headerText="ID" width="*>90"  horizontalAlignment="center"/>
                     <IgrTextColumn pinned="left" propertyPath="FirstName" headerText="First Name" width="*>170"/>
                     <IgrTextColumn pinned="left" propertyPath="LastName" headerText="Last Name" width="*>170"/>
 

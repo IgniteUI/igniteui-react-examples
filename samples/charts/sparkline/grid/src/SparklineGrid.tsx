@@ -36,7 +36,7 @@ export default class SparklineGrid extends React.Component<any, any> {
                     autoGenerateColumns="false"
                     dataSource={this.data}>
 
-                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="*>80" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="*>90" horizontalAlignment="center"/>
                     <IgrTextColumn propertyPath="ProductName" headerText="Product"  width="*>130"    />
 
                     <IgrNumericColumn propertyPath="ProductPrice" headerText="Price" width="*>100"

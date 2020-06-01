@@ -1,5 +1,6 @@
 import React from "react";
 import { DataGridSharedData } from "./DataGridSharedData";
+
 import { IgrImageColumn } from "igniteui-react-grids";
 import { IgrTextColumn } from "igniteui-react-grids";
 import { IgrNumericColumn } from "igniteui-react-grids";
@@ -8,9 +9,11 @@ import { IgrDataGridModule } from "igniteui-react-grids";
 import { IgrDataGrid } from "igniteui-react-grids";
 import { IgrDataGridToolbarModule } from "igniteui-react-grids";
 import { IgrDataGridToolbar } from "igniteui-react-grids";
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
 IgrDataGridToolbarModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridColumnChooserToolbar extends React.Component<any, any> {
 
@@ -63,7 +66,7 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
             <IgrTextColumn
               propertyPath="ProductID"
               headerText="ID"
-              width="*>90"
+              width="*>110"
               horizontalAlignment="center"
               isHidden="true"
             />
@@ -93,7 +96,7 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
             <IgrNumericColumn
               propertyPath="OrderItems"
               headerText="Orders"
-              width="*>60"
+              width="*>90"
             />
             <IgrNumericColumn
               propertyPath="OrderValue"

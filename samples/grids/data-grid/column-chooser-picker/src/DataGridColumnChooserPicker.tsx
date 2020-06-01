@@ -1,17 +1,20 @@
 import React from "react";
 import { DataGridSharedData } from "./DataGridSharedData";
+
 import { IgrImageColumn } from "igniteui-react-grids";
 import { IgrTextColumn } from "igniteui-react-grids";
 import { IgrNumericColumn } from "igniteui-react-grids";
 import { IgrDateTimeColumn } from "igniteui-react-grids";
 import { IgrDataGridModule } from "igniteui-react-grids";
 import { IgrDataGrid } from "igniteui-react-grids";
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 import { IgrColumnChooserModule } from 'igniteui-react-grids';
 import { IgrColumnChooser } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
 IgrColumnChooserModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridColumnChooserPicker extends React.Component<any, any> {
   public data: any[];
@@ -59,12 +62,13 @@ export default class DataGridColumnChooserPicker extends React.Component<any, an
             height="100%"
             width="100%"
             autoGenerateColumns="false"
+            isColumnOptionsEnabled="true"
             dataSource={this.data}
           >
             <IgrTextColumn
               propertyPath="ProductID"
               headerText="ID"
-              width="*>70"
+              width="*>90"
               horizontalAlignment="center"
             />
             <IgrTextColumn

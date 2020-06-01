@@ -34,7 +34,7 @@ export default class DataGridRowPinning extends React.Component<any, any> {
                 autoGenerateColumns="false"
                 dataSource={this.data}
                 ref={this.onGridRef}>
-                {/* <IgrTextColumn propertyPath="ID"  width="*>80" /> */}
+                {/* <IgrTextColumn propertyPath="ID"  width="*>90" /> */}
                 <IgrImageColumn propertyPath="Photo" width="*>120" contentOpacity="1" horizontalAlignment="center"/>
                 <IgrTextColumn propertyPath="FirstName" width="*>130" headerText="First Name" />
                 <IgrTextColumn propertyPath="LastName" width="*>130" headerText="Last Name"/>

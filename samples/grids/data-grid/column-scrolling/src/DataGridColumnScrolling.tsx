@@ -29,7 +29,7 @@ export default class DataGridColumnScrolling extends React.Component<any, any> {
                 autoGenerateColumns="false"
                 defaultColumnMinWidth={120}
                 dataSource={this.data}>
-                    <IgrTextColumn propertyPath="ID" headerText="ID" width="*>70"  horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="ID" headerText="ID" width="*>90"  horizontalAlignment="center"/>
                     <IgrTextColumn propertyPath="FirstName" headerText="First Name" width="*>170"/>
                     <IgrTextColumn propertyPath="LastName" headerText="Last Name" width="*>170"/>
 
