@@ -36,14 +36,14 @@ export default class SparklineGrid extends React.Component<any, any> {
                     autoGenerateColumns="false"
                     dataSource={this.data}>
 
-                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="60" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="*>80" horizontalAlignment="center"/>
                     <IgrTextColumn propertyPath="ProductName" headerText="Product"  width="*>130"    />
 
-                    <IgrNumericColumn propertyPath="ProductPrice" headerText="Price" width="100"
+                    <IgrNumericColumn propertyPath="ProductPrice" headerText="Price" width="*>100"
                     positivePrefix="$" showGroupingSeparator="true" minFractionDigits={2}/>
 
                     <IgrTemplateColumn propertyPath="OrderHistory" headerText="Order History"
-                    horizontalAlignment="center" width="*>120"
+                    horizontalAlignment="center" width="*>150"
                     template={this.getOrderHistoryTemplate} />
 
                     <IgrNumericColumn propertyPath="OrderCount" headerText="Orders" width="*>90"
@@ -53,7 +53,7 @@ export default class SparklineGrid extends React.Component<any, any> {
                     positivePrefix="$" showGroupingSeparator="true" /> */}
 
                     <IgrTemplateColumn propertyPath="ReturnRate" headerText="Return Rate"
-                    horizontalAlignment="center" width="*>120"
+                    horizontalAlignment="center" width="*>140"
                     template={this.getReturnRateTemplate} />
 
                     <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>90"
