@@ -119,25 +119,35 @@ export class SamplesBrowser extends React.Component<any, any>
 
     public render() {
         let sbBrowsingMode = SamplesRouter.isBrowsingMode();
-        let sbSidebarStyle: any = sbBrowsingMode && this.state.SidebarVisible ? { display: "flex" } : { display: "none" };
+        let sbSidebarStyle: any = {}; // sbBrowsingMode && this.state.SidebarVisible ? { display: "flex" } : { display: "none" };
         let sbToolbarStyle: any = {}; // sbBrowsingMode ? { display: "flex" } : { display: "none" };
         let sbSwitchStyle: any = {}; // sbBrowsingMode ? { width: "calc(100% - 270px)" } : { width: "100%" };
         let sbContentStyle: any = {};
 
         let sbToolbarHeight = 50;
         let sbSidebarWidth = 270;
+        if (sbBrowsingMode && this.state.SidebarVisible) {
+            sbSidebarStyle.minWidth = sbSidebarWidth + "px";
+            sbSidebarStyle.display = "flex";
+            sbContentStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
+        } else {
+            sbSidebarStyle.display = "none";
+            sbSidebarStyle.minWidth = "0px";
+            sbContentStyle.width = "100%";
+        }
+
         if (sbBrowsingMode) {
             sbToolbarStyle.display = "flex";
             sbToolbarStyle.height = sbToolbarHeight + "px";
             // sbToolbarStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
-            sbContentStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
+            // sbContentStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
             // sbSwitchStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
             sbSwitchStyle.height = "calc(100% - " + sbToolbarHeight + "px)";
             sbSwitchStyle.width = "100%";
-            sbSidebarStyle.minWidth = sbSidebarWidth + "px";
+            // sbSidebarStyle.minWidth = sbSidebarWidth + "px";
         } else {
             sbToolbarStyle.display = "none";
-            sbContentStyle.width = "100%";
+            // sbContentStyle.width = "100%";
             sbSwitchStyle.width = "100%";
             sbSwitchStyle.height = "100%";
         }
@@ -227,8 +237,7 @@ export class SamplesBrowser extends React.Component<any, any>
         event.stopPropagation();
 
         this.setState({
-            SidebarVisible: !this.state.SidebarVisible ,
-            SidebarWidth: !this.state.SidebarVisible ? this.SidebarMaxWidth : "0px"
+            SidebarVisible: !this.state.SidebarVisible,
         });
     };
 }
