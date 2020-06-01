@@ -10,7 +10,6 @@ import { SpreadsheetAction } from 'igniteui-react-spreadsheet';
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
 IgrExcelXlsxModule.register();
-
 IgrSpreadsheetModule.register();
 
 export default class SpreadsheetCommands extends React.Component<any, any> {
@@ -26,8 +25,8 @@ export default class SpreadsheetCommands extends React.Component<any, any> {
         return (
             <div className="igContainer">
                 <div className="igOptions">
-                    <input className="igOptions-item" id="zoomIn" value="Zoom In" onClick={this.onCommandClick} type="igOptions-button" />
-                    <input className="igOptions-item" id="zoomOut" value="Zoom Out" onClick={this.onCommandClick} type="igOptions-button" />
+                    <button className="igOptions-item" id="zoomIn" onClick={this.onCommandClick}>Zoom In</button>
+                    <button className="igOptions-item" id="zoomOut" onClick={this.onCommandClick}>Zoom Out</button>
                 </div>
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 25px)" width="100%" />
             </div>
