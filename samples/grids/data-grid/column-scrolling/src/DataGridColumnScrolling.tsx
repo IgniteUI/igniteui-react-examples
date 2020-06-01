@@ -33,10 +33,10 @@ export default class DataGridColumnScrolling extends React.Component<any, any> {
                     <IgrTextColumn propertyPath="FirstName" headerText="First Name" width="*>170"/>
                     <IgrTextColumn propertyPath="LastName" headerText="Last Name" width="*>170"/>
 
-                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" width="*>150" horizontalAlignment="center"/>
-                    <IgrNumericColumn propertyPath="Age" width="*>100" horizontalAlignment="center"/>
                     <IgrImageColumn propertyPath="CountryFlag" headerText="Country" paddingTop="10" paddingBottom="10"
                     width="*>140" contentOpacity="1" horizontalAlignment="center"/>
+                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" width="*>150" horizontalAlignment="center"/>
+                    <IgrNumericColumn propertyPath="Age" width="*>100" horizontalAlignment="center"/>
                     <IgrTextColumn propertyPath="Street" headerText="Address" width="*>240"/>
                     <IgrTextColumn propertyPath="City"  width="*>150" />
                     <IgrTextColumn propertyPath="Country"  width="*>150" />
