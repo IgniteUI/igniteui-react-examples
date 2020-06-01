@@ -511,25 +511,27 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                 }
             }
             let currVal = pricesByCountry.get(country);
-            if (currVal) {
+            // if (currVal !== 0) {
                 currVal += item.Price;
                 currVal = Math.round(currVal * 100.0) / 100.0;
                 pricesByCountry.set(country, currVal);
-            }
+            // }
         }
+        console.log('updatePricesByCountry ' + this.state.pricesByCountry);
 
         if (shouldPopulate) {
-                countryNames = countryNames.sort();
-                for (const name of countryNames) {
-                    this.state.pricesByCountry.push({
-                        Country: name,
-                        Price: pricesByCountry.get(name)
-                    })
-                }
+            console.log('updatePricesByCountry shouldPopulate');
+            countryNames = countryNames.sort();
+            for (const name of countryNames) {
+                this.state.pricesByCountry.push({
+                    Country: name,
+                    Price: pricesByCountry.get(name)
+                })
+            }
         } else {
             for (let i = 0; i < this.state.pricesByCountry.length; i++) {
-                    const country = this.state.pricesByCountry[i].Country
-                    this.state.pricesByCountry[i].Price = pricesByCountry.get(country);
+                const country = this.state.pricesByCountry[i].Country
+                this.state.pricesByCountry[i].Price = pricesByCountry.get(country);
             }
         }
     }
@@ -1083,6 +1085,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
             columnSeries.yAxis = yAxis;
             columnSeries.showDefaultTooltip = true;
             columnSeries.isHighlightingEnabled = true;
+            columnSeries.title = "Price";
 
             columnSeries.dataSource = this.state.pricesByCountry;
             columnSeries.valueMemberPath = "Price";

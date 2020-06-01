@@ -74,6 +74,9 @@ export default class DataGridOverview extends React.Component<any, any> {
                     columnMovingSeparatorWidth="2"
                     columnShowingAnimationMode="slideFromRightAndFadeIn"
                     columnHidingAnimationMode="slideToRightAndFadeOut"
+                    selectionMode="SingleRow"
+                    cornerRadiusTopLeft="0"
+                    cornerRadiusTopRight="0"
                     >
                     <IgrImageColumn propertyPath="Photo" headerText="Photo" contentOpacity="1"
                     horizontalAlignment="stretch" width="110" paddingTop="5" paddingBottom="5"  paddingRight="10"/>
