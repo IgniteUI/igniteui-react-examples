@@ -62,7 +62,7 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
           >
             <IgrTextColumn
               propertyPath="ProductID"
-              headerText="Order ID"
+              headerText="ID"
               width="*>70"
               horizontalAlignment="center"
               isHidden="true"
