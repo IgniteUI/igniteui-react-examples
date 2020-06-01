@@ -119,15 +119,35 @@ export class SamplesBrowser extends React.Component<any, any>
 
     public render() {
         let sbBrowsingMode = SamplesRouter.isBrowsingMode();
-        let sbSidebarStyle = sbBrowsingMode && this.state.SidebarVisible ? { display: "flex" } : { display: "none" };
-        let sbToolbarStyle = sbBrowsingMode ? { display: "flex" } : { display: "none" };
+        let sbSidebarStyle: any = sbBrowsingMode && this.state.SidebarVisible ? { display: "flex" } : { display: "none" };
+        let sbToolbarStyle: any = {}; // sbBrowsingMode ? { display: "flex" } : { display: "none" };
+        let sbSwitchStyle: any = {}; // sbBrowsingMode ? { width: "calc(100% - 270px)" } : { width: "100%" };
+        let sbContentStyle: any = {};
+
+        let sbToolbarHeight = 50;
+        let sbSidebarWidth = 270;
+        if (sbBrowsingMode) {
+            sbToolbarStyle.display = "flex";
+            sbToolbarStyle.height = sbToolbarHeight + "px";
+            // sbToolbarStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
+            sbContentStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
+            // sbSwitchStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
+            sbSwitchStyle.height = "calc(100% - " + sbToolbarHeight + "px)";
+            sbSwitchStyle.width = "100%";
+            sbSidebarStyle.minWidth = sbSidebarWidth + "px";
+        } else {
+            sbToolbarStyle.display = "none";
+            sbContentStyle.width = "100%";
+            sbSwitchStyle.width = "100%";
+            sbSwitchStyle.height = "100%";
+        }
 
         console.log("SB render  " + sbBrowsingMode);
 
         return (
             <div className="sbRoot" >
 
-                <div className="sbNavigation" style={sbSidebarStyle}>
+                <div className="sbSidebar" style={sbSidebarStyle}>
                     {/* <Link to={`/`}>Samples root</Link>
                     <Link to={`/samples`}>Samples home</Link> */}
                     {/* <Link to={`/samples/charts`}>samples charts </Link> */}
@@ -138,7 +158,7 @@ export class SamplesBrowser extends React.Component<any, any>
                     {this.test2Links} */}
                 </div>
 
-                <div className="sbContent" >
+                <div className="sbContent" style={sbContentStyle}>
                     <div className="sbToolbar" style={sbToolbarStyle}>
                         <IconButton onClick={this.onSidebarVisibleClick} style={this.styles.toolbarBtn} edge="start" >
                             <SidebarMenuIcon.default  />
@@ -151,7 +171,7 @@ export class SamplesBrowser extends React.Component<any, any>
 
                         {/* {this.state.SelectedSample} style={this.styles.toolbarIcon} */}
                     </div>
-                    <div className="sbSwitch" >
+                    <div className="sbSwitch" style={sbSwitchStyle}>
                         <Switch >
                             {/* <Route exact={false} path="/samples/charts" key="charts" component={ChartsRouter}/> */}
                             {/* <Route exact={false} path="/charts" key="charts" component={ChartsRouter}/> */}

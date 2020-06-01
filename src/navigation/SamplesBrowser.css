@@ -21,9 +21,10 @@
 }
 
 .sbToolbar {
-    width: calc(100% - 2rem);
-    height: 1.5rem;
-    padding: 1rem;
+    width: 100%;
+    /* height: 1.5rem; */
+    /* padding: 1rem; */
+    align-items: center;
 
     background: rgb(72, 160, 248);
     background: #323232;
@@ -44,11 +45,10 @@
 .sbSwitch {
     width: 100%;
     height: 100%;
-    padding: 0rem;
 
-    width: calc(100% - 1rem);
+    /* width: calc(100% - 1rem);
     height: calc(100% - 1rem);
-    padding: 0.5rem;
+    padding: 0.5rem; */
 
     background: rgb(150, 253, 132);
     background: #ffffff;
@@ -56,10 +56,10 @@
     flex-flow: column;
 }
 
-.sbNavigation {
-    min-width: 270px;
+.sbSidebar {
+    /* min-width: 270px;
     max-width: 270px;
-    width: 270px;
+    width: 270px; */
     /* min-width: 20rem; */
     /* max-width: 20rem; */
     height: 100%;
