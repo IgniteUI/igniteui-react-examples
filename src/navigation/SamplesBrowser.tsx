@@ -128,12 +128,13 @@ export class SamplesBrowser extends React.Component<any, any>
         let sbSidebarWidth = 270;
         if (sbBrowsingMode && this.state.SidebarVisible) {
             sbSidebarStyle.minWidth = sbSidebarWidth + "px";
+            sbSidebarStyle.width = sbSidebarWidth + "px";
             sbSidebarStyle.display = "flex";
             sbContentStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
         } else {
             sbSidebarStyle.display = "none";
             sbSidebarStyle.minWidth = "0px";
-            sbContentStyle.width = "100%";
+            sbSidebarStyle.width = "0px";
         }
 
         if (sbBrowsingMode) {
