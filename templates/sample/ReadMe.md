@@ -2,9 +2,9 @@
 <!-- {RepositoryUrl}/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-- [Preview](#Preview)
+<!-- - [Preview](#Preview)
 - [Source Code](#Source-Code)
-- [Instructions](#Instructions)
+- [Instructions](#Instructions) -->
 
 This folder contains implementation of {PlatformName} application with example of {ComponentName} {SampleDisplayName}.
 
@@ -33,8 +33,17 @@ To run this sample locally, execute these commands:
 git clone {RepositoryUrl}.git
 cd {RepositoryName}
 cd {SampleFolderPath}
+```
+
+open above folder in VS Code or type:
+```
+code .
+```
+
+In terminal window, run:
+```
 npm install
-npm start
+npm run-script start
 ```
 
 Then open {BrowserHostUrl} in your browser

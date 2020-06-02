@@ -2,9 +2,9 @@
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
 <!-- ## Table of Contents -->
-- [Preview](#Preview)
+<!-- - [Preview](#Preview)
 - [Source Code](#Source-Code)
-- [Instructions](#Instructions)
+- [Instructions](#Instructions) -->
 
 This folder contains implementation of React application with example of Radial Gauge Type Direction.
 
@@ -33,8 +33,17 @@ To run this sample locally, execute these commands:
 git clone https://github.com/IgniteUI/igniteui-react-examples.git
 cd igniteui-react-examples
 cd ./samples/gauges/radial-gauge/type-direction
+```
+
+open above folder in VS Code or type:
+```
+code .
+```
+
+In terminal window, run:
+```
 npm install
-npm start
+npm run-script start
 ```
 
 Then open http://localhost:3000/ in your browser
