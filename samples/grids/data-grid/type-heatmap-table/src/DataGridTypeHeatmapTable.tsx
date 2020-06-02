@@ -118,8 +118,9 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
             content.style.lineHeight = "140px";
             label = document.createElement("div");
             label.style.background = "transparent";
-            label.style.color = "gray";
-            label.style.fontSize = "small";
+            label.style.color = "rgb(24, 29, 31)";
+            label.style.fontSize = "13px";
+            label.style.fontFamily = "Verdana";
             label.style.transform = "rotate(270deg)";
             label.style.transformOrigin = "center";
             content.appendChild(label);
@@ -138,8 +139,9 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
             content.style.lineHeight = "140px";
             label = document.createElement("div");
             label.style.background = "transparent";
-            label.style.color = "gray";
-            label.style.fontSize = "small";
+            label.style.color = "rgb(24, 29, 31)";
+            label.style.fontSize = "13px";
+            label.style.fontFamily = "Verdana";
             label.style.verticalAlign = "bottom";
             label.style.textAlign = align;
             content.appendChild(label);

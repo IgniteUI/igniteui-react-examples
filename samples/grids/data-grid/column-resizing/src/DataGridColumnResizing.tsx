@@ -53,7 +53,7 @@ export default class GridColumnResizing extends React.Component<any, any> {
                     <input className="igOptions-slider" type="range" min={1} max={5} step="1" style={{ width: "90px"}} value={this.state.columnSeparatorWidth} onChange={this.onSeparatorWidthChanged} />
                 </div>
                 <div className="igOptions"> */}
-                    <span className="igOptions-item" style={{ width: "120px" }}>Resizing Animation:</span>
+                    <span className="igOptions-item" style={{ width: "180px" }}>Resizing Animation:</span>
                     <select className="igOptions-item" style={{ width: "135px" }} defaultValue="Auto" onChange={this.onColumnResizingAnimationModeChange}>
                         <option>Auto</option>
                         <option>Interpolate</option>
@@ -70,7 +70,7 @@ export default class GridColumnResizing extends React.Component<any, any> {
                     columnResizingSeparatorWidth={1}
                     autoGenerateColumns={false}
                     defaultColumnMinWidth={100}
-                    dataSource={this.data} 
+                    dataSource={this.data}
                     isColumnOptionsEnabled="true">
 
                     <IgrTextColumn propertyPath="Name" width="*>170"/>

@@ -41,17 +41,18 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
         return (
             <div className="igContainer">
                 <div className="igOptions">
-                    <span className="igOptions-item" style={{ width: "160px" }}>Column Moving Mode:</span>
+                    <span className="igOptions-item" style={{ width: "200px" }}>Column Moving Mode:</span>
                     <select className="igOptions-item" style={{ width: "135px" }} defaultValue="Deferred" onChange={this.onColumnMovingModeChange}>
                         <option>Deferred</option>
                         <option>None</option>
                     </select>
                     <span className="igOptions-item">Separator Width: </span>
-                    <input className="igOptions-slider" type="range" min={1} max={5} step="1" defaultValue={this.state.columnSeparatorWidth}
+                    <input className="igOptions-slider" style={{ width: "100px" }}
+                    type="range" min={1} max={5} step="1" defaultValue={this.state.columnSeparatorWidth}
                     onChange={this.onSeparatorWidthChanged}/>
                 </div>
                 <div className="igOptions">
-                    <span className="igOptions-item"style={{ width: "160px" }}>Column Moving Animation:</span>
+                    <span className="igOptions-item" style={{ width: "200px" }}>Column Moving Animation:</span>
                     <select className="igOptions-item" style={{ width: "135px" }} defaultValue="SlideOver" onChange={this.onColumnMovingAnimationModeChange} >
                         <option>Auto</option>
                         <option>SlideOver</option>
@@ -68,7 +69,7 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
                     columnMovingSeparatorWidth={1}
                     defaultColumnMinWidth={100}
                     autoGenerateColumns={false}
-                    dataSource={this.data} 
+                    dataSource={this.data}
                     isColumnOptionsEnabled="true">
 
                     <IgrTextColumn propertyPath="Name" width="*>170"/>

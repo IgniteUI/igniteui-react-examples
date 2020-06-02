@@ -32,7 +32,6 @@ export default class DataGridRowPinning extends React.Component<any, any> {
             <IgrDataGrid
                 height="100%"
                 width="100%"
-                rowHeight="70"
                 autoGenerateColumns="false"
                 dataSource={this.data}
                 ref={this.onGridRef}

@@ -30,7 +30,7 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
         return (
             <div className="igContainer">
                 <div className="igOptions">
-                    <span className="igOptions-item" style={{ width: "175px" }}>Section Header Display Mode:</span>
+                    <span className="igOptions-item" style={{ width: "215px" }}>Section Header Display Mode:</span>
                     <select className="igOptions-item" style={{ width: "100px" }} defaultValue="Deferred" onChange={this.onSectionHeaderDisplayModeChanging}>
                         <option>Combined</option>
                         <option>Split</option>
