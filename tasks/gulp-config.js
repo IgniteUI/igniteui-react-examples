@@ -16,7 +16,7 @@ let config = {
         PackageVersion: "^16.11.7",
         PlatformCode: "tsx",
         PlatformName: "React",
-        BrowserHostUrl: "http://localhost:3000/",
+        BrowserHostUrl: "http://localhost:4200/",
         BrowserRoute: "/samples",
         BrowserRootPath: "./tmp",
         // SamplesCopyPath: "../samples",
