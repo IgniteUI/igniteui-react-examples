@@ -5,8 +5,10 @@ import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridColumnMoving extends React.Component<any, any> {
     public data: any[];
@@ -66,13 +68,14 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
                     columnMovingSeparatorWidth={1}
                     defaultColumnMinWidth={100}
                     autoGenerateColumns={false}
-                    dataSource={this.data} >
+                    dataSource={this.data} 
+                    isColumnOptionsEnabled="true">
 
-                    <IgrTextColumn propertyPath="Name" width="*>150"/>
-                    <IgrTextColumn propertyPath="Street" headerText="Address" width="*>130"/>
-                    <IgrTextColumn propertyPath="City" width="*>100"/>
-                    <IgrNumericColumn propertyPath="Salary" positivePrefix="$" showGroupingSeparator="true" width="*>100"/>
-                    <IgrDateTimeColumn propertyPath="Birthday"  width="*>150" />
+                    <IgrTextColumn propertyPath="Name" width="*>170"/>
+                    <IgrTextColumn propertyPath="Street" headerText="Address" width="*>150"/>
+                    <IgrTextColumn propertyPath="City" width="*>120"/>
+                    <IgrNumericColumn propertyPath="Salary" positivePrefix="$" showGroupingSeparator="true" width="*>120"/>
+                    <IgrDateTimeColumn propertyPath="Birthday"  width="*>170" />
 
                 </IgrDataGrid>
             </div>
