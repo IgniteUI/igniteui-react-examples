@@ -35,6 +35,7 @@ cd igniteui-react-examples
 cd ./samples/charts/category-chart/high-frequency
 ```
 
+open above folder in VS Code or type:
 ```
 code .
 ```
