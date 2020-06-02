@@ -8,8 +8,10 @@ import { IgrNumericColumn } from 'igniteui-react-grids';
 import { HeaderClickAction } from 'igniteui-react-grids';
 import { IgrColumnSortDescription } from 'igniteui-react-grids';
 import { ListSortDirection } from 'igniteui-react-core';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridColumnSorting extends React.Component<any, any> {
 
@@ -44,14 +46,15 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
                 autoGenerateColumns="false"
                 dataSource={this.data}
                 defaultColumnMinWidth={100}
+                isColumnOptionsEnabled="true"
                 ref={this.onGridRef}>
-                    <IgrTextColumn propertyPath="ID" width="*>90" horizontalAlignment="center"/>
-                    <IgrTextColumn propertyPath="Property" headerText="Property" width="*>130"/>
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>140" contentOpacity="1"
+                    <IgrTextColumn propertyPath="ID" width="*>110" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="Property" headerText="Property" width="*>150"/>
+                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>160" contentOpacity="1"
                     horizontalAlignment="center" paddingTop="5" paddingBottom="5"/>
-                    <IgrTextColumn propertyPath="City" width="*>130"/>
-                    <IgrNumericColumn propertyPath="Price" width="*>110" positivePrefix="$" showGroupingSeparator="true"/>
-                    <IgrNumericColumn propertyPath="Rooms" width="*>90" />
+                    <IgrTextColumn propertyPath="City" width="*>150"/>
+                    <IgrNumericColumn propertyPath="Price" width="*>130" positivePrefix="$" showGroupingSeparator="true"/>
+                    <IgrNumericColumn propertyPath="Rooms" width="*>110" />
                </IgrDataGrid>
             </div>
         );

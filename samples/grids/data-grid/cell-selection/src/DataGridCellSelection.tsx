@@ -6,8 +6,10 @@ import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridCellSelection extends React.Component<any, any> {
 
@@ -55,16 +57,17 @@ export default class DataGridCellSelection extends React.Component<any, any> {
                     defaultColumnMinWidth={120}
                     autoGenerateColumns={false}
                     dataSource={this.data}
-                    selectionMode={this.state.selectionMode}>
+                    selectionMode={this.state.selectionMode}
+                    isColumnOptionsEnabled="true">
 
-                    <IgrTextColumn propertyPath="Name" width="*>130"/>
-                    <IgrTextColumn propertyPath="Street" headerText="Street" width="*>140" />
-                    <IgrTextColumn propertyPath="City" headerText="City" width="*>100" />
-                    <IgrNumericColumn propertyPath="Salary" headerText="Salary" width="*>100" positivePrefix="$" showGroupingSeparator="true" />
+                    <IgrTextColumn propertyPath="Name" width="*>150"/>
+                    <IgrTextColumn propertyPath="Street" headerText="Street" width="*>160" />
+                    <IgrTextColumn propertyPath="City" headerText="City" width="*>120" />
+                    <IgrNumericColumn propertyPath="Salary" headerText="Salary" width="*>120" positivePrefix="$" showGroupingSeparator="true" />
 
                     <IgrImageColumn propertyPath="Photo" headerText="Photo" contentOpacity="1"
-                    horizontalAlignment="center"  width="*>90"/>
-                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" width="*>150"/>
+                    horizontalAlignment="center"  width="*>110"/>
+                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" width="*>170"/>
 
                 </IgrDataGrid>
             </div>

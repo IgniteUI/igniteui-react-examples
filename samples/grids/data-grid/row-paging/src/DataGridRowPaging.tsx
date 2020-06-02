@@ -8,8 +8,10 @@ import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { ListSortDirection } from 'igniteui-react-core';
 import { DataGridPager } from './DataGridPager';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridRowPaging extends React.Component<any, any> {
 
@@ -64,15 +66,16 @@ export default class DataGridRowPaging extends React.Component<any, any> {
                     autoGenerateColumns={false}
                     sortDescriptionsChanged={this.onSortChanged}
                     groupDescriptionsChanged={this.onGroupChanged}
-                    filterExpressionsChanged={this.onFilterChanged}>
-                    <IgrTextColumn propertyPath="FirstName" headerText="First Name" width="*>130" />
-                    <IgrTextColumn propertyPath="LastName" headerText="Last Name" width="*>130" />
-                    <IgrTextColumn propertyPath="Street" headerText="Street" width="*>140" />
-                    <IgrTextColumn propertyPath="City" headerText="City" width="*>100"/>
-                    <IgrNumericColumn propertyPath="Salary" width="*>100" headerText="Salary" positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrNumericColumn propertyPath="Sales" width="*>100" headerText="Sales" positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="Birthday" width="*>150" headerText="Date of Birth" />
-                    <IgrNumericColumn propertyPath="Age" width="*>100" headerText="Age" />
+                    filterExpressionsChanged={this.onFilterChanged}
+                    isColumnOptionsEnabled="true">
+                    <IgrTextColumn propertyPath="FirstName" headerText="First Name" width="*>150" />
+                    <IgrTextColumn propertyPath="LastName" headerText="Last Name" width="*>150" />
+                    <IgrTextColumn propertyPath="Street" headerText="Street" width="*>160" />
+                    <IgrTextColumn propertyPath="City" headerText="City" width="*>120"/>
+                    <IgrNumericColumn propertyPath="Salary" width="*>120" headerText="Salary" positivePrefix="$" showGroupingSeparator="true" />
+                    <IgrNumericColumn propertyPath="Sales" width="*>120" headerText="Sales" positivePrefix="$" showGroupingSeparator="true" />
+                    <IgrDateTimeColumn propertyPath="Birthday" width="*>170" headerText="Date of Birth" />
+                    <IgrNumericColumn propertyPath="Age" width="*>120" headerText="Age" />
                 </IgrDataGrid>
 
                 <DataGridPager

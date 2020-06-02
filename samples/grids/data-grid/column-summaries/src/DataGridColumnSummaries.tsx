@@ -9,8 +9,10 @@ import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { SummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult } from 'igniteui-react-core';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridColumnSummaries extends React.Component<any, any> {
 
@@ -55,18 +57,19 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
                     autoGenerateColumns="false"
                     isGroupCollapsable={this.state.isGroupCollapsible}
                     groupHeaderDisplayMode = "combined"
+                    isColumnOptionsEnabled="true"
                     dataSource={this.data}>
-                        <IgrNumericColumn propertyPath="ProductID" width="*>100" headerText="ID" horizontalAlignment="center" />
-                        <IgrTextColumn propertyPath="ProductName" width="*>110" headerText="Product"/>
-                        <IgrNumericColumn positivePrefix="$" propertyPath="BundlePrice" width="*>100" showGroupingSeparator="true" headerText="Price" />
-                        <IgrNumericColumn propertyPath="OrderItems" width="*>120" headerText="Orders"/>
-                        <IgrNumericColumn propertyPath="OrderValue" width="*>140" showGroupingSeparator="true" headerText="Order Totals"
+                        <IgrNumericColumn propertyPath="ProductID" width="*>120" headerText="ID" horizontalAlignment="center" />
+                        <IgrTextColumn propertyPath="ProductName" width="*>130" headerText="Product"/>
+                        <IgrNumericColumn positivePrefix="$" propertyPath="BundlePrice" width="*>120" showGroupingSeparator="true" headerText="Price" />
+                        <IgrNumericColumn propertyPath="OrderItems" width="*>140" headerText="Orders"/>
+                        <IgrNumericColumn propertyPath="OrderValue" width="*>160" showGroupingSeparator="true" headerText="Order Totals"
                         positivePrefix="$"  />
-                        <IgrDateTimeColumn propertyPath="OrderDate" width="*>130" headerText="Order Date"
+                        <IgrDateTimeColumn propertyPath="OrderDate" width="*>150" headerText="Order Date"
                         horizontalAlignment="right"  />
-                        <IgrNumericColumn propertyPath="Profit" width="*>120" showGroupingSeparator="true" headerText="Profit"
+                        <IgrNumericColumn propertyPath="Profit" width="*>140" showGroupingSeparator="true" headerText="Profit"
                         positivePrefix="$"  />
-                        <IgrTextColumn propertyPath="Countries" width="*>150" headerText="Ship Country"/>
+                        <IgrTextColumn propertyPath="Countries" width="*>170" headerText="Ship Country"/>
                 </IgrDataGrid>
             </div>
         );

@@ -5,8 +5,10 @@ import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridCellActivation extends React.Component<any, any> {
 
@@ -27,13 +29,14 @@ export default class DataGridCellActivation extends React.Component<any, any> {
                     autoGenerateColumns={false}
                     dataSource={this.data}
                     selectionMode="SingleCell"
-                    activationMode="Cell">
+                    activationMode="Cell"
+                    isColumnOptionsEnabled="true">
 
-                    <IgrTextColumn propertyPath="Name" width="*>150"/>
-                    <IgrTextColumn propertyPath="Street" headerText="Address" width="*>130" />
-                    <IgrTextColumn propertyPath="City" width="*>110"/>
-                    <IgrNumericColumn propertyPath="Salary" width="*>110" positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="Birthday"  width="*>130" />
+                    <IgrTextColumn propertyPath="Name" width="*>170"/>
+                    <IgrTextColumn propertyPath="Street" headerText="Address" width="*>150" />
+                    <IgrTextColumn propertyPath="City" width="*>130"/>
+                    <IgrNumericColumn propertyPath="Salary" width="*>130" positivePrefix="$" showGroupingSeparator="true" />
+                    <IgrDateTimeColumn propertyPath="Birthday"  width="*>150" />
 
                 </IgrDataGrid>
             </div>

@@ -7,8 +7,10 @@ import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridRowGrouping extends React.Component<any, any> {
 
@@ -46,17 +48,18 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
                     autoGenerateColumns="false"
                     isGroupCollapsable={this.state.isGroupCollapsible}
                     groupHeaderDisplayMode = "combined"
-                    dataSource={this.data}>
+                    dataSource={this.data}
+                    isColumnOptionsEnabled="true">
                         <IgrTextColumn propertyPath="Name" headerText="Name" />
-                        <IgrNumericColumn propertyPath="Age" headerText="Age" width="*>90"/>
+                        <IgrNumericColumn propertyPath="Age" headerText="Age" width="*>110"/>
                         <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth"
-                        horizontalAlignment="right"  width="*>140"/>
-                        <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>140"
+                        horizontalAlignment="right"  width="*>160"/>
+                        <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>160"
                         paddingTop="5" paddingBottom="5" contentOpacity="1" horizontalAlignment="center"/>
-                        <IgrTextColumn propertyPath="Street" headerText="Address" width="*>140"/>
-                        <IgrNumericColumn propertyPath="Salary" headerText="Salary" width="*>110"
+                        <IgrTextColumn propertyPath="Street" headerText="Address" width="*>160"/>
+                        <IgrNumericColumn propertyPath="Salary" headerText="Salary" width="*>130"
                         positivePrefix="$" showGroupingSeparator="true"  />
-                        <IgrTextColumn propertyPath="City" width="*>100" headerText="City" horizontalAlignment="center"/>
+                        <IgrTextColumn propertyPath="City" width="*>120" headerText="City" horizontalAlignment="center"/>
                 </IgrDataGrid>
             </div>
         );
