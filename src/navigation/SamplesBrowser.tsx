@@ -182,6 +182,7 @@ export class SamplesBrowser extends React.Component<any, any>
 
                         {/* {this.state.SelectedSample} style={this.styles.toolbarIcon} */}
                     </div>
+                    <React.Suspense fallback={<span>Loading...</span>}>
                     <div className="sbSwitch" style={sbSwitchStyle}>
                         <Switch >
                             {/* <Route exact={false} path="/samples/charts" key="charts" component={ChartsRouter}/> */}
@@ -204,6 +205,7 @@ export class SamplesBrowser extends React.Component<any, any>
                             {/* <Route component={NoPageFound} /> */}
                         </Switch>
                     </div>
+                    </React.Suspense>
 
                 </div>
 

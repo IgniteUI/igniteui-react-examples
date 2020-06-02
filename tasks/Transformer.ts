@@ -491,6 +491,7 @@ class Transformer {
     public static getRoutingFile(group: SampleGroup): string {
 
         let imports = '\n';
+        imports += "import * as React from 'react';"
         imports += "import { RoutingGroup } from '../../navigation/SamplesData'; \n";
 
         let routes = "// creating routing data for " + group.Name + " samples: \n";
@@ -514,7 +515,7 @@ class Transformer {
                 // console.log('sample ' + sample.SampleFolderName);
                 // let sampleClass = info.SampleFileName.replace('.tsx','');
                 // let samplePath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleClassName;
-                imports += "import " + info.SampleImportName +  " from '" + info.SampleImportPath + "'; \n";
+                imports += "const " + info.SampleImportName +  " = React.lazy(() => import('" + info.SampleImportPath + "')); \n";
 
                 routes += "        { path: '" + info.SampleRoute + "', name: '" + info.SampleDisplayName + "', component: " + info.SampleImportName + " }, \n";
             }
