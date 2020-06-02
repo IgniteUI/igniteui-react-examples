@@ -153,7 +153,8 @@ export class SamplesBrowser extends React.Component<any, any>
             sbSwitchStyle.height = "100%";
         }
 
-        console.log("SB render  " + sbBrowsingMode);
+        let sbRoute = window.location.pathname;
+        console.log("SB render " + sbRoute + " with browsing=" + sbBrowsingMode);
 
         return (
             <div className="sbRoot" >
@@ -200,7 +201,8 @@ export class SamplesBrowser extends React.Component<any, any>
                                 <h3>NoPageFound exact=true</h3>
                             </Route> */}
                             <Route exact={false} >
-                                <h3>NoPageFound exact=false</h3>
+                                <h3>Cannot find a sample with route:</h3>
+                                <h3>{sbRoute}</h3>
                             </Route>
                             {/* <Route component={NoPageFound} /> */}
                         </Switch>
