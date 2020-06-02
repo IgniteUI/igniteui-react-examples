@@ -1,3 +1,5 @@
+
+
 /* {RepositoryWarning}  */
 /* {RepositoryUrl}/tree/master/templates/sample/src/index  */
 
@@ -6,7 +8,5 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import FinancialChartVolumeTypes from './FinancialChartVolumeTypes';
-ReactDOM.render(<FinancialChartVolumeTypes />, document.getElementById('root'));
-
-
+import FinancialChartVolumeDisplayTypes from './FinancialChartVolumeDisplayTypes';
+ReactDOM.render(<FinancialChartVolumeDisplayTypes />, document.getElementById('root'));

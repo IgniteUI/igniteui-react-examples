@@ -9,10 +9,7 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartShapeCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartShapeModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
 import { SampleShapeData } from './SampleShapeData';
 
 IgrDataChartCoreModule.register();
@@ -61,6 +58,8 @@ export default class DataChartTypeScatterPolylineSeries extends React.Component 
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
     }
 

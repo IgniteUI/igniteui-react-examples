@@ -1,10 +1,9 @@
 import * as React from 'react';
-
-
+import "./DataGridStyles.css";
 import { DataGridSharedData } from './DataGridSharedData';
 
-// grid modules:
 import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
@@ -13,12 +12,19 @@ import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
 import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
+import { IIgrCellTemplateProps } from 'igniteui-react-grids';
+
+import { IgrSparkline } from 'igniteui-react-charts';
+import { IgrSparklineModule } from 'igniteui-react-charts';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
+IgrSparklineModule.register();
 
 export default class DataGridColumnTypes extends React.Component<any, any> {
 
     public data: any[];
+    public grid: IgrDataGrid;
 
     constructor(props: any) {
         super(props);
@@ -26,7 +32,81 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         this.onAddressCellUpdating = this.onAddressCellUpdating.bind(this);
         this.onSalesCellUpdating = this.onSalesCellUpdating.bind(this);
         this.onEmailCellUpdating = this.onEmailCellUpdating.bind(this);
-        this.data = DataGridSharedData.getEmployees();
+        this.data = DataGridSharedData.getEmployees(100);
+
+        this.onGridRef = this.onGridRef.bind(this);
+    }
+
+    public render() {
+        return (
+            <div className="igContainer">
+                <IgrDataGrid
+                    ref={this.onGridRef}
+                    height="100%"
+                    width="100%"
+                    rowHeight="50"
+                    autoGenerateColumns="false"
+                    dataSource={this.data}
+                    defaultColumnMinWidth={100}
+                    >
+                    <IgrImageColumn propertyPath="Photo" headerText="Photo" contentOpacity="1"
+                    horizontalAlignment="stretch" width="110" paddingTop="5" paddingBottom="5"  paddingRight="10"/>
+                    <IgrTextColumn propertyPath="Name" width="*>140"/>
+
+                    <IgrTemplateColumn propertyPath="Sales" headerText="Sales" horizontalAlignment="center"
+                    paddingLeft="10" paddingRight="0"
+                        cellUpdating={this.onSalesCellUpdating} width="*>160" />
+
+                    <IgrTemplateColumn propertyPath="Productivity" headerText="Productivity"
+                    horizontalAlignment="center" width="*>150"
+                    template={this.getProductivityChart} />
+
+                    <IgrNumericColumn propertyPath="Salary" positivePrefix="$"
+                    showGroupingSeparator="true" width="*>160"/>
+
+                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth"
+                    horizontalAlignment="stretch" width="*>160" paddingRight="10"/>
+                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" contentOpacity="1"
+                    horizontalAlignment="stretch" width="130" paddingTop="5" paddingBottom="5" />
+
+                    <IgrTemplateColumn propertyPath="Address" headerText="Address" horizontalAlignment="left"
+                        cellUpdating={this.onAddressCellUpdating} width="*>160" />
+
+                    <IgrTemplateColumn propertyPath="Phone" horizontalAlignment="center"
+                        cellUpdating={this.onPhoneCellUpdating} width="140" />
+
+                    {/* <IgrTemplateColumn propertyPath="Email" horizontalAlignment="center"
+                    cellUpdating={this.onEmailCellUpdating} width="160" /> */}
+
+                    {/* <IgrTextColumn propertyPath="Country" width="*>140" horizontalAlignment="center"/> */}
+                    <IgrTextColumn propertyPath="Income" width="*>130" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="Age" width="*>110" horizontalAlignment="center"/>
+               </IgrDataGrid>
+            </div>
+        );
+    }
+
+    public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
+        this.grid = grid;
+    }
+
+    public getProductivityChart(props: IIgrCellTemplateProps) {
+        const info = props.dataContext as IgrTemplateCellInfo;
+        return (
+            <div className="gridSparklineContainer">
+               <IgrSparkline
+                   height="30px" width="100%"
+                   displayType="Column"
+                   dataSource={info.rowItem.Productivity}
+                   valueMemberPath="Value"
+                   labelMemberPath="Week"
+                   lineThickness={2}
+                   brush="rgb(21, 190, 6)"
+                   negativeBrush="rgb(211, 17, 3)" />
+            </div>
+        );
     }
 
     public onAddressCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
@@ -41,13 +121,15 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
             span1 = document.createElement("span");
             span2 = document.createElement("span");
 
-            content.style.verticalAlign = "top";
-            content.style.marginTop = "15px";
-            content.style.lineHeight = "normal";
-            content.style.display = "inline-grid";
             content.style.fontFamily = "Verdana";
             content.style.fontSize = "13px";
-
+            content.style.verticalAlign = "center";
+            content.style.lineHeight = "normal";
+            content.style.display = "flex";
+            content.style.flexDirection = "column";
+            content.style.justifyContent = "center";
+            content.style.height = "100%";
+            content.style.width = "100%";
             content.appendChild(span1);
             content.appendChild(span2);
         }
@@ -68,7 +150,8 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         const sales = info.rowItem.Sales;
         let gaugeValue: HTMLSpanElement | null = null;
         let gaugeBar: HTMLDivElement | null = null;
-        const gaugeWidth = (sales / 1100000) * 100;
+        let gaugeWidth = (sales / 950000) * 100;
+        gaugeWidth = Math.min(100, gaugeWidth);
 
         if (content.childElementCount === 0) {
             gaugeValue = document.createElement("span");
@@ -93,14 +176,20 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
             gauge.style.padding = "0px";
             gauge.style.margin = "0px";
             gauge.style.height = "6px";
-            gauge.style.width = "80px";
-            gauge.style.marginRight = "5px";
+            gauge.style.marginTop = "8px";
+            gauge.style.width = "100%";
             gauge.appendChild(gaugeBar);
 
-            content.style.marginTop = "20px";
-            content.style.verticalAlign = "top";
+            content.style.verticalAlign = "center";
             content.style.lineHeight = "normal";
-            content.style.display = "inline-grid";
+            content.style.display = "flex";
+            content.style.flexDirection = "column";
+            content.style.justifyContent = "center";
+            content.style.height = "100%";
+            content.style.width = "calc(100% - 2rem)";
+            content.style.marginRight = "1rem";
+            content.style.marginLeft = "1rem";
+
             content.appendChild(gauge);
             content.appendChild(gaugeValue);
         } else {
@@ -111,19 +200,20 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
 
         // conditional formatting:
         if (sales < 400000) {
-            gaugeValue.style.color = "Red";
-            gaugeBar.style.background = "Red";
+            gaugeValue.style.color = "rgb(211, 17, 3)";
+            gaugeBar.style.background = "rgb(211, 17, 3)";
         }
         else if (sales < 650000) {
             gaugeValue.style.color = "Orange";
             gaugeBar.style.background = "Orange";
         }
         else {
-            gaugeValue.style.color = "Green";
-            gaugeBar.style.background = "Green";
+            gaugeValue.style.color = "rgb(21, 190, 6)";
+            gaugeBar.style.background = "rgb(21, 190, 6)";
         }
         gaugeValue.textContent = "$" + sales / 1000 + ",000";
-        gaugeBar.style.width = gaugeWidth + "px";
+        gaugeBar.id = sales + "_" + gaugeWidth.toFixed(1);
+        gaugeBar.style.width = gaugeWidth + "%";
     }
 
     public onEmailCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
@@ -142,6 +232,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
             content.style.fontFamily = "Verdana";
             content.style.fontSize = "13px";
             content.style.color = "#4286f4";
+            content.style.width = "100%";
 
             content.appendChild(link);
         } else {
@@ -171,6 +262,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
             content.style.fontFamily = "Verdana";
             content.style.fontSize = "13px";
             content.style.color = "#4286f4";
+            content.style.width = "100%";
 
             content.appendChild(link);
         } else {
@@ -181,32 +273,4 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         link.textContent = item.Phone;
     }
 
-    public render() {
-        return (
-            <div className="igContainer">
-                <IgrDataGrid
-                    height="100%"
-                    width="100%"
-                    rowHeight="70"
-                    autoGenerateColumns="false"
-                    dataSource={this.data}>
-                    <IgrImageColumn propertyPath="Photo" headerText="Photo" contentOpacity="1"
-                    horizontalAlignment="center"  width="90"/>
-                    <IgrTextColumn propertyPath="Name" width="*>130"/>
-                    <IgrTemplateColumn propertyPath="Address" headerText="Address" horizontalAlignment="left"
-                        cellUpdating={this.onAddressCellUpdating} width="*>140" />
-                    <IgrTemplateColumn propertyPath="Sales" headerText="Sales" horizontalAlignment="center"
-                        cellUpdating={this.onSalesCellUpdating} width="110" />
-                    <IgrNumericColumn propertyPath="Salary" positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth"
-                    horizontalAlignment="right"  width="120"/>
-                    {/*
-                    <IgrTemplateColumn propertyPath="Email" horizontalAlignment="center"
-                    cellUpdating={this.onEmailCellUpdating} width="*>140" />
-                    <IgrTemplateColumn propertyPath="Phone" horizontalAlignment="center"
-                    cellUpdating={this.onPhoneCellUpdating} width="140" /> */}
-               </IgrDataGrid>
-            </div>
-        );
-    }
 }

@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-
 import { MapUtils, MapRegion } from './MapUtils';
-
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
@@ -24,7 +21,7 @@ export default class MapNavigation extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
         this.onMapWindowRectChanged = this.onMapWindowRectChanged.bind(this);
         this.onSelectionChanged = this.onSelectionChanged.bind(this);
         this.onMapMouseMove = this.onMapMouseMove.bind(this);
@@ -60,7 +57,7 @@ export default class MapNavigation extends React.Component<any, any> {
 
                 <div className="igComponent" id="map" >
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         actualWindowRectChanged={this.onMapWindowRectChanged}
 
                         width="100%"
@@ -165,8 +162,10 @@ export default class MapNavigation extends React.Component<any, any> {
         this.geoMap.windowScale = e.target.valueAsNumber;
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
-        this.geoMap = map;
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
+        this.geoMap = geoMap;
         this.geoMap.zoomToGeographic({ left:-134.5, top:16.5, width:70.0, height:37.0 });
 
         // optional

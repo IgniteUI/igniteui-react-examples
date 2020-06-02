@@ -1,16 +1,11 @@
 import * as React from 'react';
-
-
-
 import WorldUtils from "./WorldUtils"
 import { IgrGeographicMapImagery } from 'igniteui-react-maps';
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicShapeSeries } from 'igniteui-react-maps';
 import { IgrGeographicPolylineSeries } from 'igniteui-react-maps';
 import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
-
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataContext } from 'igniteui-react-core';
 import { IgrShapeDataSource } from 'igniteui-react-core';
@@ -25,7 +20,7 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
     constructor(props: any) {
         super(props);
 
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
         this.onPointsLoaded = this.onPointsLoaded.bind(this);
         this.onPolylinesLoaded = this.onPolylinesLoaded.bind(this);
         this.onPolygonsLoaded = this.onPolygonsLoaded.bind(this);
@@ -40,7 +35,7 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
             <div className="igContainer">
                 <div className="igComponent" style={mapStyle} >
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true" >
@@ -74,8 +69,10 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
         );
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
-        this.geoMap = map;
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
+        this.geoMap = geoMap;
         this.geoMap.backgroundContent = undefined;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
 
@@ -85,7 +82,6 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
         this.geoMap.actualSeries[0].tooltipTemplate = this.getPolygonsTooltip;
         this.geoMap.actualSeries[1].tooltipTemplate = this.getPolylinesTooltip;
         this.geoMap.actualSeries[2].tooltipTemplate = this.getPointTooltip;
-
 
         // loading a shapefile with geographic polygons
         const sdsPolygons = new IgrShapeDataSource();

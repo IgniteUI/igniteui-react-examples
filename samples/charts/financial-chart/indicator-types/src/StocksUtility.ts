@@ -1,3 +1,5 @@
+
+
 export class StocksUtility {
 
     public static intervalDays: number = 1;

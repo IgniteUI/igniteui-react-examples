@@ -1,7 +1,4 @@
 import * as React from 'react';
-
-
-
 // grid modules:
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
@@ -9,10 +6,8 @@ import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 import { IgrTemplateHeader } from 'igniteui-react-grids';
-
 import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateHeaderCellUpdatingEventArgs } from 'igniteui-react-grids';
-
 
 IgrDataGridModule.register();
 

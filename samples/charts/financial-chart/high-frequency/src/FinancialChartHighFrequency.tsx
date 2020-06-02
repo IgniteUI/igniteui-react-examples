@@ -1,10 +1,7 @@
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
-import { StocksUtility } from '/StocksUtility';
+import { StocksUtility } from './StocksUtility';
 
 IgrFinancialChartModule.register();
 
@@ -73,7 +70,6 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
         );
     }
 
-
     public componentWillUnmount() {
         if (this.interval >= 0) {
              window.clearInterval(this.interval);
@@ -82,11 +78,15 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
     }
 
     public onChartRef(chart: IgrFinancialChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         this.onChartInit();
     }
 
     public onFpsRef(span: HTMLSpanElement) {
+        if (!span) { return; }
+
         this.fps = span;
     }
 
@@ -182,4 +182,3 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
         }
     }
 }
-

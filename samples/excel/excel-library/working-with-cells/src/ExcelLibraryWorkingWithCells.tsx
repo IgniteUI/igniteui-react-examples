@@ -1,13 +1,10 @@
 import * as React from 'react';
-
 import { ExcelUtility } from './ExcelUtility';
 // import { ExcelSharedData } from './ExcelSharedData';
-
 import { IgrExcelModule } from 'igniteui-react-excel';
 import { Workbook } from 'igniteui-react-excel';
 import { Worksheet } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
-
 import { CellReferenceMode } from 'igniteui-react-excel';
 import { WorksheetMergedCellsRegion } from 'igniteui-react-excel';
 import { WorksheetCellComment } from 'igniteui-react-excel';
@@ -217,8 +214,8 @@ export default class ExcelLibraryWorkingWithCells extends React.Component<any, a
     public render() {
         return (
             <div className="igContainer">
-                <div className="workbookOperations">
-                    <button onClick={this.onClick}>Save Workbook</button>
+                <div className="igOptions">
+                    <button style={{width: "auto"}} onClick={this.onClick}>Save Workbook</button>
                 </div>
                 <div className="cellFeatures">
                     <label className="label">Add a Comment to cell A1: </label>

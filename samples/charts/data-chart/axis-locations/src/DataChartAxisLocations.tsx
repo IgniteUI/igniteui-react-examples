@@ -8,14 +8,10 @@ import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 // legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
@@ -106,6 +102,8 @@ export default class DataChartAxisLocations extends React.Component {
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         if (this.legend) {
             this.chart.legend = this.legend;
@@ -113,6 +111,8 @@ export default class DataChartAxisLocations extends React.Component {
     }
 
     public onLegendRef(legend: IgrLegend) {
+        if (!legend) { return; }
+
         this.legend = legend;
         if (this.chart) {
             this.chart.legend = this.legend;
@@ -149,7 +149,6 @@ export default class DataChartAxisLocations extends React.Component {
                 year += 1;
             }
         }
-
 
         this.data = items;
     }

@@ -1,19 +1,10 @@
 import React from 'react';
-
-
-
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-
 import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
-
-import { ExcelUtility } from '/ExcelUtility';
-
-
-
+import { ExcelUtility } from './ExcelUtility';
 
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
@@ -52,6 +43,8 @@ export default class SpreadsheetOverview extends React.Component<any, any> {
     }
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
+        if (!spreadsheet) { return; }
+
         this.spreadsheet = spreadsheet;
 
         const url = "https://static.infragistics.com/xplatform/excel/SalesData.xlsx"

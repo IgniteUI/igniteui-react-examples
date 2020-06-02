@@ -1,8 +1,4 @@
 import * as React from 'react';
-
-
-
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
@@ -27,6 +23,8 @@ export default class DataGridBindingLocalData extends React.Component<any, any> 
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         const state = new IgrColumnGroupDescription();
         state.propertyPath = "Status";
         state.displayName = "Status";
@@ -41,25 +39,24 @@ export default class DataGridBindingLocalData extends React.Component<any, any> 
                 ref={this.onGridRef}
                 height="100%"
                 width="100%"
-                rowHeight="45"
                 autoGenerateColumns="false"
                 dataSource={this.data}>
-                    <IgrTextColumn propertyPath="ProductID" headerText="Order ID" width="*>70" horizontalAlignment="center"/>
-                    <IgrTextColumn propertyPath="ProductName" headerText="Product Name"   />
+                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="*>90" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="ProductName" headerText="Product"  width="*>100" />
+                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>110"
+                    contentOpacity="1" horizontalAlignment="center" paddingTop="5" paddingBottom="5"/>
                     <IgrNumericColumn propertyPath="ProductPrice" headerText="Price" width="*>90"
                     positivePrefix="$" showGroupingSeparator="true" minFractionDigits={2}/>
-                    <IgrNumericColumn propertyPath="OrderItems" headerText="Orders" width="*>70"/>
-                    <IgrNumericColumn propertyPath="OrderValue" headerText="Order Value" width="*>100"
+                    <IgrNumericColumn propertyPath="OrderItems" headerText="Orders" width="*>120"/>
+                    <IgrNumericColumn propertyPath="OrderValue" headerText="Order Value" width="*>140"
                     positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>100"
+                    <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>130"
                     horizontalAlignment="right" dateTimeFormat="DateShort" />
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>100"
-                    contentOpacity="1" horizontalAlignment="center"/>
-                    <IgrNumericColumn propertyPath="Margin" headerText="Margin" width="90"
+                    <IgrNumericColumn propertyPath="Margin" headerText="Margin" width="*>120"
                     positiveSuffix="%" horizontalAlignment="center" />
-                    <IgrNumericColumn propertyPath="Profit" headerText="Profit" width="70"
+                    <IgrNumericColumn propertyPath="Profit" headerText="Profit" width="*>120"
                     positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrTextColumn propertyPath="Status" headerText="Status" width="110"
+                    <IgrTextColumn propertyPath="Status" headerText="Status" width="*>120"
                     horizontalAlignment="center"   />
 
                 </IgrDataGrid>

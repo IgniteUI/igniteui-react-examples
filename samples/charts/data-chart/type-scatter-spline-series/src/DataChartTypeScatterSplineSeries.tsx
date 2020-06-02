@@ -1,10 +1,8 @@
 // types of axis:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrNumericXAxis } from 'igniteui-react-charts';
-
 // types of scatter series:
 import { IgrScatterSplineSeries } from 'igniteui-react-charts';
-
 // modules of data chart:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
@@ -14,10 +12,7 @@ import { IgrDataChartScatterModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
 import { MarkerType } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
 import { SampleScatterStats } from './SampleScatterStats';
 
 IgrDataChartCoreModule.register();

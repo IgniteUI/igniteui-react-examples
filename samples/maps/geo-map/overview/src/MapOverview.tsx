@@ -1,7 +1,4 @@
 import * as React from 'react';
-
-
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
@@ -16,7 +13,7 @@ export default class MapOverview extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
     }
 
     public render() {
@@ -24,7 +21,7 @@ export default class MapOverview extends React.Component<any, any> {
             <div className="igContainer">
                 <div className="igComponent" >
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true"/>
@@ -34,11 +31,12 @@ export default class MapOverview extends React.Component<any, any> {
         );
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
-        this.geoMap = map;
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
+        this.geoMap = geoMap;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.7, height: 0.7 };
 
     }
-
 
 }

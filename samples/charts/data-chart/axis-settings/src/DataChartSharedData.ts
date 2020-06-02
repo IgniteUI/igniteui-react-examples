@@ -1,5 +1,6 @@
-export class DataChartSharedData {
 
+
+export class DataChartSharedData {
 
     public static getEnergyProduction(){
         const data: any[] = [

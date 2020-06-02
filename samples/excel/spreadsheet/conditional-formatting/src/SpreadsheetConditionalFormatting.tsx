@@ -1,9 +1,5 @@
 import React from 'react';
-
-
-
-import { ExcelUtility } from '/ExcelUtility';
-
+import { ExcelUtility } from './ExcelUtility';
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
@@ -33,6 +29,8 @@ export default class SpreadsheetConditionalFormatting extends React.Component {
     }
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
+        if (!spreadsheet) { return; }
+
         this.spreadsheet = spreadsheet;
 
         const url = "https://static.infragistics.com/xplatform/excel/ConditionalData.xlsx";

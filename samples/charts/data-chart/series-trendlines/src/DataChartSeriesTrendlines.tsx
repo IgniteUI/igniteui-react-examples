@@ -13,9 +13,6 @@ import { IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
 // legend's modules:
 import * as React from 'react';
 
-
-
-
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
@@ -97,6 +94,8 @@ export default class DataChartSeriesTrendlines extends React.Component<any, any>
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
     }
 }

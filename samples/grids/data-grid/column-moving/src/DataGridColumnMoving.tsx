@@ -1,7 +1,4 @@
 import React from 'react';
-
-
-
 import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
@@ -32,6 +29,8 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         this.grid = grid;
         this.grid.columnMovingSeparatorBackground = "Black";
     }
@@ -70,10 +69,10 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
                     dataSource={this.data} >
 
                     <IgrTextColumn propertyPath="Name" width="*>150"/>
-                    <IgrTextColumn propertyPath="Street" headerText="Address" />
-                    <IgrTextColumn propertyPath="City" />
-                    <IgrNumericColumn propertyPath="Salary" positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="Birthday"  />
+                    <IgrTextColumn propertyPath="Street" headerText="Address" width="*>130"/>
+                    <IgrTextColumn propertyPath="City" width="*>100"/>
+                    <IgrNumericColumn propertyPath="Salary" positivePrefix="$" showGroupingSeparator="true" width="*>100"/>
+                    <IgrDateTimeColumn propertyPath="Birthday"  width="*>150" />
 
                 </IgrDataGrid>
             </div>

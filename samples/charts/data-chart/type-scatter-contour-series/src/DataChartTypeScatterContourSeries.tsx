@@ -11,11 +11,7 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartScatterCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartScatterModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SampleScatterData } from './SampleScatterData';
 
 IgrDataChartCoreModule.register();
@@ -113,6 +109,8 @@ export default class DataChartTypeScatterContourSeries extends React.Component<a
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
 
         const brushScale = new IgrValueBrushScale({});

@@ -14,15 +14,10 @@ import { IgrDataChartScatterCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartScatterModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrTimeXAxisModule } from 'igniteui-react-charts';
-
 import { SampleCategoryData } from './SampleCategoryData';
 import { SampleFinancialData } from './SampleFinancialData';
 import { SampleScatterData } from './SampleScatterData';
-
 import * as React from 'react';
-
-
-
 import { IgrBarSeries } from 'igniteui-react-charts';
 import { IgrFinancialPriceSeries } from 'igniteui-react-charts';
 
@@ -234,6 +229,8 @@ export default class DataChartAxisTypes extends React.Component<any, any> {
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
 
         // this.chart.dataSource = this.categoryData;

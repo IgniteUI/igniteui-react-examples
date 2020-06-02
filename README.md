@@ -1,44 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+<img height="70px" style="border-radius: 0.25rem" alt="ignite-ui" src="./public/logo-ignite-ui.svg"/>
 
-### `npm start`
+This repository contains code examples of how to use [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Data Chart, Category Chart, Financial Chart, Pie Chart](https://infragistics.com/reactsite/components/data-chart.html)
+- [Excel Library](https://infragistics.com/reactsite/components/excel_library_using_workbooks.html)
+- [Bullet Graph, Linear Gauge, Radial Gauges](https://infragistics.com/reactsite/components/radial-gauge.html)
+- [Data Grid / Data Table](https://infragistics.com/reactsite/components/data-grid.html)
+- [Geographic Map, Treemap](https://infragistics.com/reactsite/components/geo-map.html)
+- [Spreadsheet](https://infragistics.com/reactsite/components/spreadsheet_overview.html)
+- and many more
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Each code example can be run individually from the ```./samples``` folder or you can run the main project to browse all samples in one website. Also, you can run each sample on code sandbox website by opening a readme file, .e.g.
+```
+./samples/charts/category-chart/overview/README.md
+```
+and then clicking on the **Edit on CodeSandbox** button
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup
 
-### `npm run build`
+To setup this project:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- close this repository:
+```
+git clone https://github.com/IgniteUI/igniteui-react-examples.git
+cd igniteui-react-examples
+```
+- open VS Code as Administrator
+- open the folder that contains this repository, e.g. `C:\igniteui-react-examples\`
+- select **View** - **Terminal** menu item
+- run this command:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This will install required packages and Ignite UI for React packages from npm website:
 
-### `npm run eject`
+- [igniteui-react-core](https://www.npmjs.com/package/igniteui-react-core)
+- [igniteui-react-charts](https://www.npmjs.com/package/igniteui-react-charts)
+- [igniteui-react-excel](https://www.npmjs.com/package/igniteui-react-excel)
+- [igniteui-react-gauges](https://www.npmjs.com/package/igniteui-react-gauges)
+- [igniteui-react-grids](https://www.npmjs.com/package/igniteui-react-grids)
+- [igniteui-react-maps](https://www.npmjs.com/package/igniteui-react-maps)
+- [igniteui-react-spreadsheet](https://www.npmjs.com/package/igniteui-react-spreadsheet)
+- [igniteui-react-datasources](https://www.npmjs.com/package/igniteui-react-datasources)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running App
+To start this application, run this command:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm run-script start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+In your browser, open [http://localhost:4200](http://localhost:4200)
+
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+To learn more about **Ignite UI for React** components, check out the [React documentation](https://infragistics.com/reactsite/components/general-getting-started.html).

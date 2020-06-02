@@ -3,8 +3,6 @@ import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import * as React from 'react';
 
-
-
 IgrBulletGraphModule.register();
 
 export default class BulletGraphAnimation extends React.Component {
@@ -20,6 +18,8 @@ export default class BulletGraphAnimation extends React.Component {
     }
 
     public onGaugeRef(component: IgrBulletGraph) {
+        if (!component) { return; }
+
         this.gauge = component;
         this.onAnimateToGauge3(null);
     }
@@ -60,7 +60,7 @@ export default class BulletGraphAnimation extends React.Component {
 
     public onAnimateToGauge3 = (e: any) => {
 
-        if (!this.gauge) { return; }
+        // if (!this.gauge) { return; }
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 120;

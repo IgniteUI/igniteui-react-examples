@@ -1,10 +1,6 @@
 import * as React from 'react';
-
-
-
 import WorldUtils from "./WorldUtils"
 import { LegendOverlay, LegendItem } from "./LegendOverlay"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicHighDensityScatterSeries } from 'igniteui-react-maps';
@@ -20,7 +16,7 @@ export default class MapTypeScatterDensitySeries extends React.Component {
 
     constructor(props: any) {
         super(props);
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
     }
 
     public render() {
@@ -28,7 +24,7 @@ export default class MapTypeScatterDensitySeries extends React.Component {
             <div className="igContainer" >
                 <div className="igComponent">
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true" />
@@ -40,8 +36,10 @@ export default class MapTypeScatterDensitySeries extends React.Component {
         );
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
-        this.geoMap = map;
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
+        this.geoMap = geoMap;
     }
 
     public componentDidMount() {

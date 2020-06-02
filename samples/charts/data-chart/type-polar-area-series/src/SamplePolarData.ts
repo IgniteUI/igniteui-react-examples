@@ -1,4 +1,5 @@
 
+
 export class SamplePolarData {
 
     public static create(): any[] {

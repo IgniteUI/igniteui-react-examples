@@ -1,21 +1,15 @@
-
 import * as React from 'react';
-
-
 import { SampleFinancialData } from './SampleFinancialData';
-
 // axis' modules:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
 // series' modules:
 import { IgrFinancialPriceSeries } from 'igniteui-react-charts';
-
 // data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 // indicator's modules:
 import { IgrAbsoluteVolumeOscillatorIndicator } from 'igniteui-react-charts';
 import { IgrAccumulationDistributionIndicator } from 'igniteui-react-charts';
@@ -48,7 +42,6 @@ import { IgrStandardDeviationIndicator } from 'igniteui-react-charts';
 import { IgrStochRSIIndicator } from 'igniteui-react-charts';
 import { IgrTRIXIndicator } from 'igniteui-react-charts';
 import { IgrStrategyBasedIndicator } from 'igniteui-react-charts';
-
 import { IndicatorDisplayType } from 'igniteui-react-charts';
 
 IgrDataChartCoreModule.register();
@@ -217,6 +210,8 @@ export default class DataChartTypeFinancialIndicatorArea extends React.Component
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         if (chart !== undefined){
             this.switchSeries(this.state.indicatorType);

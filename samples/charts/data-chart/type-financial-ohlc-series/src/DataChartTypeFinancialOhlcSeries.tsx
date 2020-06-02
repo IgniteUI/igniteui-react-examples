@@ -3,16 +3,11 @@ import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
 // series' modules:
 import { IgrFinancialPriceSeries } from 'igniteui-react-charts';
-
 // data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SampleFinancialData } from './SampleFinancialData';
 
 IgrDataChartCoreModule.register();
@@ -50,7 +45,6 @@ export default class DataChartTypeFinancialOhlcSeries extends React.Component<an
                      title="Financial Prices"/>
                     <IgrNumericYAxis  name="yAxis2" labelLocation="OutsideLeft"
                     title="Indicator Values" majorStrokeThickness={0} maximumValue={800}/>
-
 
                     <IgrFinancialPriceSeries
                     name="series2"

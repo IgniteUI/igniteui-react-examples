@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { SampleTreeData } from './SampleTreeData';
 import { IgrTreemapModule } from 'igniteui-react-charts';
 import { IgrTreemap } from 'igniteui-react-charts';
@@ -25,8 +24,10 @@ export default class TreeMapOverview extends React.Component {
 
          this.onClickSquared = this.onClickSquared.bind(this);
     }
-    public onTreeMapRef(element: IgrTreemap) {
-        this.treeMap = element;
+    public onTreeMapRef(treeMap: IgrTreemap) {
+        if (!treeMap) { return; }
+
+        this.treeMap = treeMap;
         this.treeMap.dataSource = SampleTreeData.getPopulation();
         this.treeMap.rootTitle = "Countries";
         this.treeMap.fillScaleMode = TreemapFillScaleMode.Value;

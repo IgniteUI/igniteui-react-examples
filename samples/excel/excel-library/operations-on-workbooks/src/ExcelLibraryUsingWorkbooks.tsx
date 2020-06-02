@@ -1,7 +1,4 @@
 import * as React from 'react';
-
-
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { Workbook } from 'igniteui-react-excel';
@@ -50,7 +47,7 @@ export default class ExcelLibraryUsingWorkbooks extends React.Component<any, any
 
     public render() {
         return (
-            <div>
+            <div className="igContainer">
                 <div className="igOptions">
                     <button className="igOptions-item" onClick={this.createWorkbook}>Create Workbook</button>
                     <button className="igOptions-item" onClick={this.saveWorkbook}>Save Workbook</button>
@@ -64,14 +61,13 @@ export default class ExcelLibraryUsingWorkbooks extends React.Component<any, any
                 <div className="previewGrid">
                     <IgrDataGrid
                         ref = {this.onGridRef}
-                        height="300px"
+                        height="100%"
                         width="100%"
                         dataSource={this.employeeData} />
                 </div>
             </div>
         );
     }
-
 
     public initData() {
         this.expenseData = [];
@@ -151,6 +147,8 @@ export default class ExcelLibraryUsingWorkbooks extends React.Component<any, any
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         this.grid = grid;
     }
 

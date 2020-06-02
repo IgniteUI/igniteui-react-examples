@@ -1,14 +1,9 @@
 import * as React from 'react';
-
-
-
 import { LegendOverlay, LegendItem } from "./LegendOverlay"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicPolylineSeries } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgrDataContext } from 'igniteui-react-core';
 import { IgrShapeDataSource } from 'igniteui-react-core';
 
@@ -21,7 +16,7 @@ export default class MapTypeScatterPolylineSeries extends React.Component {
     constructor(props: any) {
         super(props);
 
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
         this.onDataLoaded = this.onDataLoaded.bind(this);
     }
 
@@ -30,7 +25,7 @@ export default class MapTypeScatterPolylineSeries extends React.Component {
             <div className="igContainer" >
                 <div className="igComponent" >
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true" />
@@ -45,10 +40,11 @@ export default class MapTypeScatterPolylineSeries extends React.Component {
         );
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
-        this.geoMap = map;
-        this.geoMap.windowRect = { left: 0.195, top: 0.325, width: 0.2, height: 0.1 };
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
 
+        this.geoMap = geoMap;
+        this.geoMap.windowRect = { left: 0.195, top: 0.325, width: 0.2, height: 0.1 };
 
         const sds = new IgrShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
@@ -128,5 +124,3 @@ export default class MapTypeScatterPolylineSeries extends React.Component {
         </div>
     }
 }
-
-

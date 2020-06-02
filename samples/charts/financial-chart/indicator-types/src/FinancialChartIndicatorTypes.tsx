@@ -1,10 +1,7 @@
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
-import { StocksUtility } from '/StocksUtility';
+import { StocksUtility } from './StocksUtility';
 
 IgrFinancialChartModule.register();
 
@@ -23,7 +20,7 @@ export default class FinancialChartIndicatorTypes extends React.Component<any, a
                 <div className="igComponent">
                 <IgrFinancialChart
                     width="100%"
-                    height="400px"
+                    height="100%"
                     chartType="Bar"
                     indicatorTypes="MoneyFlowIndex, MassIndex"
                     indicatorThickness={2}

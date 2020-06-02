@@ -1,10 +1,6 @@
 import * as React from 'react';
-
-
-
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrOpenStreetMapImagery } from 'igniteui-react-maps';
@@ -20,7 +16,7 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
     }
 
     public render() {
@@ -28,7 +24,7 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
             <div className="igContainer">
                 <div className="igComponent" >
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         // actualWindowRectChanged={this.onMapWindowRectChanged}
                         width="100%"
                         height="100%"
@@ -39,7 +35,9 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
         );
     }
 
-    public onMapReferenced(geoMap: IgrGeographicMap) {
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const mapImagery = new IgrOpenStreetMapImagery();
         geoMap.backgroundContent = mapImagery;
 
@@ -56,7 +54,5 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
         console.log("geo \n left:" + geo.left +
         ", top:" + geo.top + ", width:"  + geo.width + ", height:"  + geo.height);
     }
-
-
 
 }

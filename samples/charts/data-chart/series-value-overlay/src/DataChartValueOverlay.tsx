@@ -13,9 +13,6 @@ import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from 'react';
 
-
-
-
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
@@ -78,6 +75,8 @@ export default class DataChartValueOverlay extends React.Component<any, any> {
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         if (this.legend) {
             this.chart.legend = this.legend;
@@ -85,6 +84,8 @@ export default class DataChartValueOverlay extends React.Component<any, any> {
     }
 
     public onLegendRef(legend: IgrLegend) {
+        if (!legend) { return; }
+
         this.legend = legend;
         if (this.chart) {
             this.chart.legend = this.legend;

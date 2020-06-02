@@ -1,7 +1,4 @@
 import * as React from 'react';
-
-
-
 import { BingMapsImageryStyle } from 'igniteui-react-maps';
 import { IgrBingMapsMapImagery } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
@@ -30,7 +27,7 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         super(props);
 
         this.state = { tileSource: "Open Street Map"}
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
 
         this.ImageryOptions = [];
         this.ImageryOptions.push(this.getOption("OpenStreetMap", "(Default)"));
@@ -60,7 +57,7 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
 {/* height: "calc(100% - 60px)",  */}
                 <div className="igComponent" style={{background: "white"}}>
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true"/>
@@ -77,8 +74,10 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         );
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
-        this.geoMap = map;
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
+        this.geoMap = geoMap;
         this.geoMap.zoomToGeographic({ left: -120, top: 30, width: 45, height: 20});
     }
 
@@ -119,8 +118,5 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         this.setState({ tileSource:  e.target.value});
 
     }
-
-
-
 
 }

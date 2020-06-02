@@ -8,20 +8,20 @@ import { SamplesRouter } from './SamplesRouter';
 import { RoutingSample } from './SamplesData';
 import { RoutingGroup } from './SamplesData';
 
-// import { gridsRoutingData } from "../samples/grids/RoutingData";
 import { gaugesRoutingData } from "../samples/gauges/RoutingData";
+import { gridsRoutingData } from "../samples/grids/RoutingData";
+import { chartsRoutingData } from "../samples/charts/RoutingData";
 import { mapsRoutingData } from "../samples/maps/RoutingData";
-// import { tests1RoutingData } from "../samples/tests1/RoutingData";
-// import { tests2RoutingData } from "../samples/tests2/RoutingData";
+import { excelRoutingData } from "../samples/excel/RoutingData";
 
 // https://material-ui.com/components/material-icons/
 import IconButton from '@material-ui/core/IconButton';
 import * as SidebarMenuIcon from '@material-ui/icons/Menu';
-import * as ToolbarArrowIcon from '@material-ui/icons/ArrowForwardIos';
-import * as ItemsExpandedIcon from '@material-ui/icons/ExpandMore';
-import * as ItemsCollapsedIcon from '@material-ui/icons/ExpandLess';
-import * as SampleSearchIcon from "@material-ui/icons/Search";
-import * as SampleLinkIcon from "@material-ui/icons/FiberManualRecord";
+// import * as ToolbarArrowIcon from '@material-ui/icons/ArrowForwardIos';
+// import * as ItemsExpandedIcon from '@material-ui/icons/ExpandMore';
+// import * as ItemsCollapsedIcon from '@material-ui/icons/ExpandLess';
+// import * as SampleSearchIcon from "@material-ui/icons/Search";
+// import * as SampleLinkIcon from "@material-ui/icons/FiberManualRecord";
 
 class SampleInfo {
     public name: string;
@@ -57,20 +57,19 @@ export class SamplesBrowser extends React.Component<any, any>
         this.onSampleOpen = this.onSampleOpen.bind(this);
         // console.log(TestsRoutes.DataRoutes)
 
-        this.populateLookup(gaugesRoutingData);
-        this.populateLookup(mapsRoutingData);
+        let routingProviders: RoutingGroup[] = [
+            chartsRoutingData,
+            mapsRoutingData,
+            gaugesRoutingData,
+            gridsRoutingData,
+            excelRoutingData,
+        ];
 
-        this.populateLinks(SamplesRouter.getLinks(mapsRoutingData, this.onSampleOpen));
-        this.populateLinks(SamplesRouter.getLinks(gaugesRoutingData, this.onSampleOpen));
-        // this.populateLinks(SamplesRouter.getLinks(gridsRoutingData, this.onSampleOpen));
-        // this.populateLinks(SamplesRouter.getLinks(tests1RoutingData, this.onSampleOpen));
-        // this.populateLinks(SamplesRouter.getLinks(tests2RoutingData, this.onSampleOpen));
-
-        this.populateRoutes(SamplesRouter.getRoutes(mapsRoutingData));
-        this.populateRoutes(SamplesRouter.getRoutes(gaugesRoutingData));
-        // this.populateRoutes(SamplesRouter.getRoutes(gridsRoutingData));
-        // this.populateRoutes(SamplesRouter.getRoutes(tests1RoutingData));
-        // this.populateRoutes(SamplesRouter.getRoutes(tests2RoutingData));
+        for (const routingData of routingProviders) {
+            this.populateLookup(routingData);
+            this.populateLinks(SamplesRouter.getLinks(routingData, this.onSampleOpen));
+            this.populateRoutes(SamplesRouter.getRoutes(routingData));
+        }
 
         this.state = {
             SidebarVisible: true,
@@ -120,15 +119,46 @@ export class SamplesBrowser extends React.Component<any, any>
 
     public render() {
         let sbBrowsingMode = SamplesRouter.isBrowsingMode();
-        let sbSidebarStyle = sbBrowsingMode && this.state.SidebarVisible ? { display: "flex" } : { display: "none" };
-        let sbToolbarStyle = sbBrowsingMode ? { display: "flex" } : { display: "none" };
+        let sbSidebarStyle: any = {}; // sbBrowsingMode && this.state.SidebarVisible ? { display: "flex" } : { display: "none" };
+        let sbToolbarStyle: any = {}; // sbBrowsingMode ? { display: "flex" } : { display: "none" };
+        let sbSwitchStyle: any = {}; // sbBrowsingMode ? { width: "calc(100% - 270px)" } : { width: "100%" };
+        let sbContentStyle: any = {};
+
+        let sbToolbarHeight = 50;
+        let sbSidebarWidth = 270;
+        if (sbBrowsingMode && this.state.SidebarVisible) {
+            sbSidebarStyle.minWidth = sbSidebarWidth + "px";
+            sbSidebarStyle.width = sbSidebarWidth + "px";
+            sbSidebarStyle.display = "flex";
+            sbContentStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
+        } else {
+            sbSidebarStyle.display = "none";
+            sbSidebarStyle.minWidth = "0px";
+            sbSidebarStyle.width = "0px";
+        }
+
+        if (sbBrowsingMode) {
+            sbToolbarStyle.display = "flex";
+            sbToolbarStyle.height = sbToolbarHeight + "px";
+            // sbToolbarStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
+            // sbContentStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
+            // sbSwitchStyle.width = "calc(100% - " + sbSidebarWidth + "px)";
+            sbSwitchStyle.height = "calc(100% - " + sbToolbarHeight + "px)";
+            sbSwitchStyle.width = "100%";
+            // sbSidebarStyle.minWidth = sbSidebarWidth + "px";
+        } else {
+            sbToolbarStyle.display = "none";
+            // sbContentStyle.width = "100%";
+            sbSwitchStyle.width = "100%";
+            sbSwitchStyle.height = "100%";
+        }
 
         console.log("SB render  " + sbBrowsingMode);
 
         return (
             <div className="sbRoot" >
 
-                <div className="sbNavigation" style={sbSidebarStyle}>
+                <div className="sbSidebar" style={sbSidebarStyle}>
                     {/* <Link to={`/`}>Samples root</Link>
                     <Link to={`/samples`}>Samples home</Link> */}
                     {/* <Link to={`/samples/charts`}>samples charts </Link> */}
@@ -139,7 +169,7 @@ export class SamplesBrowser extends React.Component<any, any>
                     {this.test2Links} */}
                 </div>
 
-                <div className="sbContent" >
+                <div className="sbContent" style={sbContentStyle}>
                     <div className="sbToolbar" style={sbToolbarStyle}>
                         <IconButton onClick={this.onSidebarVisibleClick} style={this.styles.toolbarBtn} edge="start" >
                             <SidebarMenuIcon.default  />
@@ -152,7 +182,7 @@ export class SamplesBrowser extends React.Component<any, any>
 
                         {/* {this.state.SelectedSample} style={this.styles.toolbarIcon} */}
                     </div>
-                    <div className="sbSwitch" >
+                    <div className="sbSwitch" style={sbSwitchStyle}>
                         <Switch >
                             {/* <Route exact={false} path="/samples/charts" key="charts" component={ChartsRouter}/> */}
                             {/* <Route exact={false} path="/charts" key="charts" component={ChartsRouter}/> */}
@@ -208,8 +238,7 @@ export class SamplesBrowser extends React.Component<any, any>
         event.stopPropagation();
 
         this.setState({
-            SidebarVisible: !this.state.SidebarVisible ,
-            SidebarWidth: !this.state.SidebarVisible ? this.SidebarMaxWidth : "0px"
+            SidebarVisible: !this.state.SidebarVisible,
         });
     };
 }

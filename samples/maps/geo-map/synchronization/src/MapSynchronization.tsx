@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-
 import { MapUtils, MapRegion } from './MapUtils';
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
@@ -45,27 +42,31 @@ export default class MapSynchronization extends React.Component<any, any> {
         );
     }
 
-    public onReferenceMap1(map: IgrGeographicMap) {
-        MapUtils.navigateTo(map, MapRegion.European);
+    public onReferenceMap1(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
 
-        this.GeoMap1 = map;
+        MapUtils.navigateTo(geoMap, MapRegion.European);
+
+        this.GeoMap1 = geoMap;
     }
 
-    public onReferenceMap2(map: IgrGeographicMap) {
-        MapUtils.navigateTo(map, MapRegion.European);
+    public onReferenceMap2(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
 
-        this.GeoMap2 = map;
+        MapUtils.navigateTo(geoMap, MapRegion.European);
+
+        this.GeoMap2 = geoMap;
     }
 
-    public onWindowRectChangedMap1(map: IgrGeographicMap, e: IgrRectChangedEventArgs) {
+    public onWindowRectChangedMap1(geoMap: IgrGeographicMap, e: IgrRectChangedEventArgs) {
         if (this.GeoMapSynchronizing) { return; }
 
         this.GeoMapSynchronizing = true;
-        this.GeoMap2.windowRect = map.actualWindowRect;
+        this.GeoMap2.windowRect = geoMap.actualWindowRect;
         this.GeoMapSynchronizing = false;
     }
 
-    public onWindowRectChangedMap2(map: IgrGeographicMap, e: IgrRectChangedEventArgs) {
+    public onWindowRectChangedMap2(geoMap: IgrGeographicMap, e: IgrRectChangedEventArgs) {
         if (this.GeoMapSynchronizing) { return; }
 
         this.GeoMapSynchronizing = true;

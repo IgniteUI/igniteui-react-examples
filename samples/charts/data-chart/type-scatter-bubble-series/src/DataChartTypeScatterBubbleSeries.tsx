@@ -1,7 +1,6 @@
 // types of axis:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrNumericXAxis } from 'igniteui-react-charts';
-
 // types of scatter series:
 import { IgrBubbleSeries } from 'igniteui-react-charts';
 // elements of scatter series:
@@ -21,10 +20,7 @@ import { MarkerType } from 'igniteui-react-charts';
 // legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
 import { SampleScatterStats } from './SampleScatterStats';
 
 IgrDataChartCoreModule.register();
@@ -73,6 +69,8 @@ export default class DataChartTypeScatterBubbleSeries extends React.Component {
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         this.setSeries();
     }

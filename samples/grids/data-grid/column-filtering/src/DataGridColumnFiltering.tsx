@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
@@ -11,7 +8,6 @@ import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { FilterExpression } from 'igniteui-react-core';
 import { FilterFactory } from 'igniteui-react-core';
-
 
 IgrDataGridModule.register();
 
@@ -36,6 +32,8 @@ export default class DataGridRowFiltering extends React.Component<any, any> {
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         this.grid = grid;
         this.applyFilter();
     }
@@ -118,12 +116,12 @@ export default class DataGridRowFiltering extends React.Component<any, any> {
                     dataSource={this.data} >
 
                     <IgrTextColumn propertyPath="Name" width="*>150"/>
-                    <IgrTextColumn propertyPath="Street"   width="160" />
-                    <IgrTextColumn propertyPath="City"  />
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" contentOpacity="1"
-                        horizontalAlignment="center" width="90"/>
-                    <IgrNumericColumn propertyPath="Sales" positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Birthday" />
+                    <IgrTextColumn propertyPath="Street"   width="*>160" />
+                    <IgrTextColumn propertyPath="City"  width="*>100"/>
+                    <IgrImageColumn propertyPath="CountryFlag" paddingTop="5" paddingBottom="5" headerText="Country" contentOpacity="1"
+                        horizontalAlignment="center" width="*>120"/>
+                    <IgrNumericColumn propertyPath="Sales" positivePrefix="$" showGroupingSeparator="true" width="*>100"/>
+                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Birthday" width="*>150"/>
 
                 </IgrDataGrid>
             </div>

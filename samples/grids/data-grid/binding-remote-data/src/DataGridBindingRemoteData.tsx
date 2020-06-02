@@ -1,8 +1,5 @@
 import * as React from 'react';
-
 import './odatajs-4.0.0';
-
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
@@ -32,16 +29,16 @@ export default class DataGridBindingRemoteData extends React.Component<any, any>
                    height="100%"
                    autoGenerateColumns="false"
                    dataSource={this.virtualData}>
-                   <IgrTextColumn propertyPath="OrderID" headerText="Order ID" width="90" horizontalAlignment="center"/>
-                   <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="110"/>
+                   <IgrTextColumn propertyPath="OrderID" headerText="ID" width="*>90" horizontalAlignment="center"/>
+                   <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>130"/>
                    <IgrTextColumn propertyPath="ShipName" headerText="Name"  width="*>130"/>
-                   <IgrNumericColumn propertyPath="Freight" headerText="Freight" width="80"
+                   <IgrNumericColumn propertyPath="Freight" headerText="Freight" width="*>100"
                    positivePrefix="$" minFractionDigits={2}/>
-                   <IgrDateTimeColumn propertyPath="ShippedDate" headerText="Ship Date" width="110"
+                   <IgrDateTimeColumn propertyPath="ShippedDate" headerText="Ship Date" width="*>130"
                    horizontalAlignment="right"/>
-                   <IgrTextColumn propertyPath="ShipAddress" headerText="Address" />
-                   <IgrTextColumn propertyPath="ShipCity" headerText="City" width="130"/>
-                   <IgrTextColumn propertyPath="ShipCountry" headerText="Country" width="110"/>
+                   <IgrTextColumn propertyPath="ShipAddress" headerText="Address" width="*>110" />
+                   <IgrTextColumn propertyPath="ShipCity" headerText="City" width="*>130"/>
+                   <IgrTextColumn propertyPath="ShipCountry" headerText="Country" width="*>110"/>
                 </IgrDataGrid>
             </div>
         );

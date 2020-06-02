@@ -11,11 +11,7 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 // importing legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SampleCategoryData } from './SampleCategoryData';
 
 IgrDataChartCoreModule.register();
@@ -79,6 +75,8 @@ export default class DataChartTypeCategoryBarSeries extends React.Component<any,
     }
 
     public onLegendRef(legend: IgrLegend) {
+        if (!legend) { return; }
+
         this.legend = legend;
         if (this.chart) {
             this.chart.legend = this.legend;
@@ -86,6 +84,8 @@ export default class DataChartTypeCategoryBarSeries extends React.Component<any,
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         if (this.legend) {
             this.chart.legend = this.legend;

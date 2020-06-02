@@ -1,13 +1,9 @@
 import * as React from 'react';
-
-
 import WorldLocations from "./WorldLocations";
 import WorldUtils from "./WorldUtils"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
-
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataContext } from 'igniteui-react-core';
 import { MarkerType } from 'igniteui-react-charts';
@@ -22,7 +18,7 @@ export default class MapTypeScatterSymbolSeries extends React.Component {
     constructor(props: any) {
         super(props);
 
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
         this.createTooltip = this.createTooltip.bind(this);
     }
 
@@ -31,7 +27,7 @@ export default class MapTypeScatterSymbolSeries extends React.Component {
             <div className="igContainer" >
                 <div className="igComponent" >
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true" />
@@ -41,9 +37,11 @@ export default class MapTypeScatterSymbolSeries extends React.Component {
         );
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
-        console.log("onMapReferenced");
-        this.geoMap = map;
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
+        console.log("onMapRef");
+        this.geoMap = geoMap;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
 
         this.addSeriesWith(WorldLocations.getCities(), "Gray");
@@ -96,5 +94,3 @@ export default class MapTypeScatterSymbolSeries extends React.Component {
         </div>
     }
 }
-
-

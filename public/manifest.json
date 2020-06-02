@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "IG React Samples",
+  "name": "Code examples of how to use IgniteUI for React components",
   "icons": [
     {
       "src": "favicon.ico",

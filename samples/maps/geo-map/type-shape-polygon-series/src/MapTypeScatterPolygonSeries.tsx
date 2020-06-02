@@ -1,9 +1,6 @@
 import * as React from 'react';
-
-
 import WorldUtils from "./WorldUtils"
 import { LegendOverlay, LegendItem } from "./LegendOverlay"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicShapeSeries } from 'igniteui-react-maps';
@@ -21,7 +18,7 @@ export default class MapTypeScatterPolygonSeries extends React.Component {
     constructor(props: any) {
         super(props);
 
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
         this.onDataLoaded = this.onDataLoaded.bind(this);
     }
 
@@ -30,7 +27,7 @@ export default class MapTypeScatterPolygonSeries extends React.Component {
             <div className="igContainer">
                 <div className="igComponent" >
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true" />
@@ -47,8 +44,10 @@ export default class MapTypeScatterPolygonSeries extends React.Component {
         );
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
-        this.geoMap = map;
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
+        this.geoMap = geoMap;
         // hiding OpenStreetMap
         this.geoMap.backgroundContent = undefined;
         // zooming map to region of North America
@@ -137,6 +136,5 @@ export default class MapTypeScatterPolygonSeries extends React.Component {
             </div>
         </div>
     }
-
 
 }

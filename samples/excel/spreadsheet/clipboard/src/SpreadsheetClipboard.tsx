@@ -1,24 +1,15 @@
 import React from 'react';
-
-
-
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-
 import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
-
-import { ExcelUtility } from '/ExcelUtility';
+import { ExcelUtility } from './ExcelUtility';
 import { SpreadsheetAction } from 'igniteui-react-spreadsheet';
-
-
 
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
 IgrExcelXlsxModule.register();
-
 IgrSpreadsheetModule.register();
 
 export default class SpreadsheetClipboard extends React.Component<any, any> {
@@ -36,9 +27,9 @@ export default class SpreadsheetClipboard extends React.Component<any, any> {
         return (
             <div className="igContainer">
                 <div className="igOptions">
-                    <input type="igOptions-button" className="igOptions-item" id="cut" value="Cut" onClick={this.cut}/>
-                    <input type="igOptions-button" className="igOptions-item" id="copy" value="Copy" onClick={this.copy}/>
-                    <input type="igOptions-button" className="igOptions-item" id="paste" value="Paste" onClick={this.paste}/>
+                    <button className="igOptions-item" id="cut" onClick={this.cut}>Cut</button>
+                    <button className="igOptions-item" id="copy"  onClick={this.copy}>Copy</button>
+                    <button className="igOptions-item" id="paste" onClick={this.paste}>Paste</button>
                 </div>
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 25px)" width="100%" />
             </div>
@@ -46,6 +37,8 @@ export default class SpreadsheetClipboard extends React.Component<any, any> {
     }
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
+        if (!spreadsheet) { return; }
+
         this.spreadsheet = spreadsheet;
 
         const url = "https://static.infragistics.com/xplatform/excel/SalesData.xlsx";
@@ -55,14 +48,20 @@ export default class SpreadsheetClipboard extends React.Component<any, any> {
     }
 
     public cut() {
+        if (!this.spreadsheet) { return; }
+
         this.spreadsheet.executeAction(SpreadsheetAction.Cut);
     }
 
     public copy() {
+        if (!this.spreadsheet) { return; }
+
         this.spreadsheet.executeAction(SpreadsheetAction.Copy);
     }
 
     public paste() {
+        if (!this.spreadsheet) { return; }
+
         this.spreadsheet.executeAction(SpreadsheetAction.Paste);
     }
 }

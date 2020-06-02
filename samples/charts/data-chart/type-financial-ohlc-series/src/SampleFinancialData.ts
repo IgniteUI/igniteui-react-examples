@@ -1,3 +1,5 @@
+
+
 export class SampleFinancialData {
 
     public static create(): any[] {

@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
@@ -48,18 +45,21 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
                 dataSource={this.data}
                 defaultColumnMinWidth={100}
                 ref={this.onGridRef}>
-                    <IgrTextColumn propertyPath="ID" width="*>80" horizontalAlignment="center"/>
-                    <IgrTextColumn propertyPath="Property" headerText="Property Type" width="*>130"/>
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>100" contentOpacity="1" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="ID" width="*>90" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="Property" headerText="Property" width="*>130"/>
+                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>140" contentOpacity="1"
+                    horizontalAlignment="center" paddingTop="5" paddingBottom="5"/>
                     <IgrTextColumn propertyPath="City" width="*>130"/>
                     <IgrNumericColumn propertyPath="Price" width="*>110" positivePrefix="$" showGroupingSeparator="true"/>
-                    <IgrNumericColumn propertyPath="Rooms" width="80" />
+                    <IgrNumericColumn propertyPath="Rooms" width="*>90" />
                </IgrDataGrid>
             </div>
         );
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         this.grid = grid;
         let csd = new IgrColumnSortDescription();
         csd.propertyPath = "Property";

@@ -1,20 +1,12 @@
 import React from 'react';
-
-
-
-
-import { ExcelUtility } from '/ExcelUtility';
-
+import { ExcelUtility } from './ExcelUtility';
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-
 import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 import { SpreadsheetCell } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheetActiveCellChangedEventArgs } from 'igniteui-react-spreadsheet';
-
-
 
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
@@ -58,12 +50,13 @@ export default class SpreadsheetActivation extends React.Component<any, any> {
         this.setState({filterText: e.target.value});
     }
 
-
     public onClick = (e: any) => {
        this.spreadsheet.activeCell = new SpreadsheetCell(this.filterText);
     }
-    public onSpreadsheetRef(ss: IgrSpreadsheet) {
-         this.spreadsheet = ss;
+    public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
+        if (!spreadsheet) { return; }
+
+         this.spreadsheet = spreadsheet;
          const url = "https://static.infragistics.com/xplatform/excel/SalesData.xlsx";
          ExcelUtility.loadFromUrl(url).then((w) => {
             this.spreadsheet.workbook = w;

@@ -69,16 +69,12 @@
     "src/setupTests.ts",
     "**/odatajs-4.0.0.js",
     "config-overrides.js",
-    "./browserOLD",
-    "./samples",
-    "./iisConfig/*",
-    "./gulp*.js",
-    "./gulp*.ts",
-    "./samples/*",
-    "./tests",
-    "./tasks/*.js",
-    "./tasks/*.ts",
-    "./templates",
-    "./tmp",
+    "iisConfig/*",
+    "gulp*.js",
+    "gulp*.ts",
+    "samples",
+    "tasks/*.js",
+    "tasks/*.ts",
+    "templates"
   ]
 }

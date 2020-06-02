@@ -1,3 +1,5 @@
+
+
 export class Products {
 
     public static names: string[] = [
@@ -14,7 +16,6 @@ export class Products {
             "Barbados", "Jamaica", "Cuba", "Spain",];
 
     public static status: string[] = [ "Packing", "Shipped", "Delivered"]
-
 
     public static getData(count?: number): any[] {
         if (count === undefined) {

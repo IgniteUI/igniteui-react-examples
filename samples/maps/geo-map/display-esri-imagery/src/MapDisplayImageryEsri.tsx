@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-
 import { MapUtils, MapRegion } from './MapUtils';
-
 import { EsriUtility, EsriStyle } from './EsriUtility';
 import { IgrArcGISOnlineMapImagery } from 'igniteui-react-maps';
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
@@ -25,23 +22,27 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="igContainer" >
-                <div className="igContainer-horizontal">
+            <div className="igContainer-horizontal" >
+                <div className="igContainer">
                     <IgrGeographicMap
                         ref={this.onEsriMapStreet}
                         width="100%" height="100%" zoomable="true"/>
+                </div>
+                <div className="igContainer">
                     <IgrGeographicMap
                         ref={this.onEsriMapTopographic}
                         width="100%" height="100%" zoomable="true"/>
                 </div>
-                <div className="igContainer-horizontal">
+                <div className="igContainer">
                     <IgrGeographicMap
                         ref={this.onEsriMapOceans}
                         width="100%" height="100%" zoomable="true"/>
+                </div>
+                {/* <div className="igContainer">
                     <IgrGeographicMap
                         ref={this.onEsriMapNational}
                         width="100%" height="100%" zoomable="true"/>
-                </div>
+                </div> */}
 
                 <div className="igOverlay-bottom-right">Imagery Tiles: @ESRI/ArcGIS</div>
             </div>
@@ -49,6 +50,8 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
     }
 
     public onEsriMapStreet(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const tileSource = new IgrArcGISOnlineMapImagery();
         tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldStreetMap);
         geoMap.backgroundContent = tileSource;
@@ -57,6 +60,8 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
     }
 
     public onEsriMapOceans(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const tileSource = new IgrArcGISOnlineMapImagery();
         tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldOceansMap);
         // or
@@ -67,6 +72,8 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
     }
 
     public onEsriMapTopographic(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const tileSource = new IgrArcGISOnlineMapImagery();
         tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldTopographicMap);
         geoMap.backgroundContent = tileSource;
@@ -75,6 +82,8 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
     }
 
     public onEsriMapNational(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         const tileSource = new IgrArcGISOnlineMapImagery();
         tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldNationalGeoMap);
         geoMap.backgroundContent = tileSource;

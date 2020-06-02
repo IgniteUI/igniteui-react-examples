@@ -9,15 +9,10 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartPolarCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartPolarModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 // legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SamplePolarData } from './SamplePolarData';
 
 IgrDataChartCoreModule.register();
@@ -96,6 +91,8 @@ export default class DataChartTypePolarScatterSeries extends React.Component<any
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         if (this.legend) {
             this.chart.legend = this.legend;
@@ -103,6 +100,8 @@ export default class DataChartTypePolarScatterSeries extends React.Component<any
     }
 
     public onLegendRef(legend: IgrLegend) {
+        if (!legend) { return; }
+
         this.legend = legend;
         if (this.chart) {
             this.chart.legend = this.legend;

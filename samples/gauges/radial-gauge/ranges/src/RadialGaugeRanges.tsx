@@ -3,9 +3,6 @@ import { IgrRadialGaugeRange } from 'igniteui-react-gauges';
 import { IgrRadialGaugeModule } from 'igniteui-react-gauges';
 import * as React from 'react';
 
-
-
-
 IgrRadialGaugeModule.register();
 
 export default class RadialGaugeRanges extends React.Component<any, any> {

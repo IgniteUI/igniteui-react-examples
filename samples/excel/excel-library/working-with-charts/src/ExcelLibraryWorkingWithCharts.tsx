@@ -1,26 +1,18 @@
 import * as React from 'react';
-
-
-
 import { Workbook } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
 import { WorksheetRegion } from 'igniteui-react-excel';
 import { ChartType } from 'igniteui-react-excel';
-
 import { AxisType } from 'igniteui-react-excel';
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
-
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-
 import { ExcelUtility } from './ExcelUtility';
 
 IgrDataGridModule.register();

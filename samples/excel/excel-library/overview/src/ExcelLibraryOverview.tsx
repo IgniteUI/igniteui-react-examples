@@ -1,8 +1,6 @@
 import * as React from 'react';
-
 import { ExcelUtility } from './ExcelUtility';
 // import { ExcelSharedData } from './ExcelSharedData';
-
 import { IgrExcelModule } from 'igniteui-react-excel';
 import { Workbook } from 'igniteui-react-excel';
 import { Worksheet } from 'igniteui-react-excel';
@@ -156,7 +154,9 @@ export default class ExcelLibraryOverview extends React.Component<any, any> {
     public render() {
         return (
             <div className="igContainer">
-            <button onClick={this.onClick}>Save Workbook</button>
+                <div className="igOptions">
+                    <button onClick={this.onClick}>Save Workbook</button>
+                </div>
             </div>
         );
     }

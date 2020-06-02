@@ -1,9 +1,5 @@
-
 import * as React from 'react';
-
-
 import WorldUtils from "./WorldUtils"
-
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
@@ -21,7 +17,7 @@ export default class MapCustomTooltips extends React.Component {
     constructor(props: any) {
         super(props);
 
-        this.onMapReferenced = this.onMapReferenced.bind(this);
+        this.onMapRef = this.onMapRef.bind(this);
         this.createSymbolTooltip = this.createSymbolTooltip.bind(this);
     }
 
@@ -31,7 +27,7 @@ export default class MapCustomTooltips extends React.Component {
             <div className="igContainer">
                 <div className="igComponent" >
                     <IgrGeographicMap
-                        ref={this.onMapReferenced}
+                        ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true"/>
@@ -41,10 +37,12 @@ export default class MapCustomTooltips extends React.Component {
         );
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
         console.log("onDataLoaded");
         const geoRegion = { height: 170, left: -180, top: -85.0, width: 360 };
-        this.geoMap = map;
+        this.geoMap = geoMap;
         this.geoMap.zoomToGeographic(geoRegion);
 
         const cityQTR = { lat: 25.285, lon:  51.531,  isoCode: "qat", name: "Doha" };
@@ -123,5 +121,3 @@ export default class MapCustomTooltips extends React.Component {
     }
 
 }
-
-

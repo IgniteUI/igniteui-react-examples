@@ -8,11 +8,7 @@ import { IgrMoneyFlowIndexIndicator } from 'igniteui-react-charts';
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { SampleFinancialData } from './SampleFinancialData';
 
 IgrDataChartCoreModule.register();

@@ -1,10 +1,6 @@
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
-
 import { CategoryChartSharedData } from './CategoryChartSharedData';
 
 IgrCategoryChartModule.register();
@@ -87,10 +83,14 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
     }
 
     public onFpsRef(span: HTMLSpanElement) {
+        if (!span) { return; }
+
         this.fps = span;
     }
 
     public onChartRef(chart: IgrCategoryChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         this.onChartInit();
     }

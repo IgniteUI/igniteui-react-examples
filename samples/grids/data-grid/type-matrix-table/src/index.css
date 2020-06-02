@@ -1,5 +1,5 @@
-/* {RepositoryWarning}  */
-/* {RepositoryUrl}/tree/master/templates/sample/src/index.css  */
+/* {RepositoryWarning} */
+/* {RepositoryUrl}/tree/master/templates/sample/src/index.css */
 
 /* Note these styles are shared between all samples */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
@@ -9,6 +9,21 @@
     width: 100%;
     padding: 0px;
     margin: 0px;
+}
+
+.igGridColumnChooserContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    margin-top: 2px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 10px;
+    border: 1px gray;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px 2px rgba(50, 50, 50, 0.25);
 }
 
 .igContainer,
@@ -95,13 +110,12 @@
 }
 
 .igOptions {
-    /* background: rgb(112, 112, 111);  */
+    /* background: rgb(112, 112, 111); */
     margin: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
-    /* padding-right: 0.5rem; */
-    /* padding-left: 0.5rem; */
-    /* width: calc(100% - 1rem); */
+    padding-right: 0rem;
+    padding-left: 0rem;
     width: 100%;
     font-size: 1rem;
     font-weight: 300;
@@ -190,7 +204,7 @@
 
 .igLegend {
     --legend-item-overflow: hidden;
-    width: 100%;
+    width: calc(100% - 1rem);
     font-size: 0.75rem;
     /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
     margin-top: 0.25rem;
@@ -244,7 +258,7 @@
 .igOverlay-bottom-center,
 .igOverlay-bottom-right {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     font-size: 0.8rem;
     font-family: 'Titillium Web';
     border-radius: 0.5rem;

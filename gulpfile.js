@@ -6,9 +6,9 @@ function log(msg) {
 }
 
 var sb = require('./tasks/gulp-samples.js')
-// var browser = require('./tasks/gulp-browser.js')
 
 exports.updateSamples = updateSamples = gulp.series(
+    sb.lintSamples,
     sb.getSamples,
     sb.updateReadme,
     sb.updatePackages,
@@ -16,18 +16,30 @@ exports.updateSamples = updateSamples = gulp.series(
     sb.updateSharedFiles,
 );
 
-exports.copySamples = copySamples = gulp.series(
+exports.updateReadme = updateReadme = gulp.series(
     sb.getSamples,
-    // sb.updateReadme,
-    // sb.updatePackages,
-    // sb.updateIndex,
-    // sb.updateSharedFiles,
-    sb.copySamples,
+    sb.updateReadme,
 );
 
-// exports.default = copySamples;
+exports.updatePackages = updatePackages = gulp.series(
+    sb.getSamples,
+    sb.updatePackages,
+);
 
+exports.updateBrowser = updateBrowser = gulp.series(
+    sb.getSamples,
+    sb.copySamples,
+    // sb.copyPackageJson,
+);
+
+// exports.default = updateBrowser;
 exports.logPublicFiles = sb.logPublicFiles;
 exports.logSourceFiles = sb.logSourceFiles;
 exports.logUniqueFiles = sb.logUniqueFiles;
 exports.logRootFiles   = sb.logRootFiles;
+exports.lintSamples    = sb.lintSamples;
+
+exports.logRoutes = logRoutes = gulp.series(
+    sb.getSamples,
+    sb.logRoutes,
+);

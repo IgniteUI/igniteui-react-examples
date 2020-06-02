@@ -1,7 +1,4 @@
 import React from 'react';
-
-
-
 import { IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
@@ -12,7 +9,6 @@ import { IgrColumnFragmentModule } from 'igniteui-react-charts'
 import { IgrValueOverlayModule } from 'igniteui-react-charts';
 import { IgrFinalValueLayerModule } from 'igniteui-react-charts';
 import { IgrCrosshairLayerModule } from 'igniteui-react-charts';
-
 import { IgrColumnSeries } from 'igniteui-react-charts';
 import { IgrCrosshairLayer } from 'igniteui-react-charts';
 import { IgrFinalValueLayer } from 'igniteui-react-charts';
@@ -20,8 +16,6 @@ import { IgrValueOverlay } from 'igniteui-react-charts';
 import { IgrSeries } from 'igniteui-react-charts';
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
-
-
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
@@ -93,6 +87,8 @@ export default class DataChartAxisAnnotations extends React.Component<any, any> 
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         this.valueOverlay.axis = this.chart.actualAxes[1];
         this.toggleCrosshairs(this.state.crosshairsVisible);

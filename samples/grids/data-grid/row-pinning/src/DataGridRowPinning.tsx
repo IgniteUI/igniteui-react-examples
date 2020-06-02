@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
-
 // grid modules:
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
@@ -37,22 +34,23 @@ export default class DataGridRowPinning extends React.Component<any, any> {
                 autoGenerateColumns="false"
                 dataSource={this.data}
                 ref={this.onGridRef}>
-                <IgrTextColumn propertyPath="ID"  width="80" />
-                <IgrTextColumn propertyPath="FirstName" headerText="First Name" />
-                <IgrTextColumn propertyPath="LastName" headerText="Last Name" width="100"/>
-                <IgrTextColumn propertyPath="City"  width="100"/>
-                <IgrTextColumn propertyPath="Country"  width="100"/>
-
-                <IgrNumericColumn propertyPath="Sales"  width="120" positivePrefix="$" showGroupingSeparator="true"/>
-                <IgrNumericColumn propertyPath="Age"  width="70"/>
-                <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" horizontalAlignment="right"/>
-                <IgrImageColumn propertyPath="Photo" contentOpacity="1" horizontalAlignment="center"/>
+                {/* <IgrTextColumn propertyPath="ID"  width="*>90" /> */}
+                <IgrImageColumn propertyPath="Photo" width="*>120" contentOpacity="1" horizontalAlignment="center"/>
+                <IgrTextColumn propertyPath="FirstName" width="*>130" headerText="First Name" />
+                <IgrTextColumn propertyPath="LastName" width="*>130" headerText="Last Name"/>
+                <IgrTextColumn propertyPath="City"  width="*>100"/>
+                <IgrTextColumn propertyPath="Country"  width="*>130"/>
+                <IgrNumericColumn propertyPath="Sales"  width="*>120" positivePrefix="$" showGroupingSeparator="true"/>
+                <IgrNumericColumn propertyPath="Age"  width="*>90"/>
+                <IgrDateTimeColumn propertyPath="Birthday" width="*>150" headerText="Date of Birth" horizontalAlignment="right"/>
             </IgrDataGrid>
         </div>
         );
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         this.grid = grid;
         this.grid.pinnedItems.add(this.data[2]);
         this.grid.pinnedItems.add(this.data[4]);

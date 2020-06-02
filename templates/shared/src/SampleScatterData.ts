@@ -1,3 +1,5 @@
+
+
 export class SampleScatterData {
 
     public static create(): any[] {

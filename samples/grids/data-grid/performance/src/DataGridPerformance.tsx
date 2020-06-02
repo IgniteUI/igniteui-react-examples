@@ -1,8 +1,4 @@
 import * as React from 'react';
-
-
-
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrColumn } from 'igniteui-react-grids';
@@ -10,7 +6,6 @@ import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-grids';
 import { IgrDataBindingEventArgs } from 'igniteui-react-grids';
 import { HeaderClickAction } from 'igniteui-react-grids';
 import { GridSelectionMode } from 'igniteui-react-grids';
-
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
@@ -48,6 +43,8 @@ export default class DataGridPerformance extends React.Component<any, any> {
     }
 
     public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
         this.grid = grid;
     }
 
@@ -203,7 +200,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
         args.styleKey = "igComponent";
     }
 
-
     public onChartCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
 
@@ -230,7 +226,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
     public onGridStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         args.styleKey = "grid";
     }
-
 
     public onGridCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
         let templ = args.cellInfo as IgrTemplateCellInfo;
@@ -268,7 +263,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
         );
     }
 
-
     public render() {
         return (
             <div className="igContainer">
@@ -285,40 +279,40 @@ export default class DataGridPerformance extends React.Component<any, any> {
                 dataSource={this.data}
                 ref={this.onGridRef}>
 
-                <IgrTextColumn propertyPath="FirstName" headerText="First Name" width="100"></IgrTextColumn>
-                <IgrTextColumn propertyPath="LastName" headerText="Last Name" width="100"></IgrTextColumn>
-                <IgrTextColumn propertyPath="Territory" width="90"></IgrTextColumn>
+                <IgrTextColumn propertyPath="FirstName" headerText="First Name" width="*>130"></IgrTextColumn>
+                <IgrTextColumn propertyPath="LastName" headerText="Last Name" width="*>130"></IgrTextColumn>
+                <IgrTextColumn propertyPath="Territory" width="*>130"></IgrTextColumn>
                 <IgrNumericColumn propertyPath="YearToDateSales"
-                    headerText="YTD Sales" width="100" positivePrefix="$"
+                    headerText="YTD Sales" width="*>130" positivePrefix="$"
                     showGroupingSeparator="true">
                 </IgrNumericColumn>
 
                 <IgrTemplateColumn propertyPath="AvgSale"
                     headerText="Avg. Sale"
-                    width="110"
+                    width="*>120"
                     horizontalAlignment="right"
                     cellStyleKeyRequested={this.onPriceStyleKey}
                     cellUpdating={this.onPriceCellUpdating} >
                 </IgrTemplateColumn>
 
-                <IgrTemplateColumn propertyPath="Change" width="120"
+                <IgrTemplateColumn propertyPath="Change" width="*>120"
                     horizontalAlignment="right"
                     cellStyleKeyRequested={this.onPriceAmountStyleKey}
                     cellUpdating={this.onPriceAmountCellUpdating}>
                 </IgrTemplateColumn>
 
-                <IgrTemplateColumn propertyPath="PercentChange" width="110"
+                <IgrTemplateColumn propertyPath="PercentChange" width="*>140"
                     horizontalAlignment="right" headerText="Change (%)"
                     cellStyleKeyRequested={this.onPricePercentStyleKey}
                     cellUpdating={this.onPricePercentCellUpdating}>
                 </IgrTemplateColumn>
 
-                <IgrDateTimeColumn propertyPath="DateValue" headerText="Date" width="120" >
+                <IgrDateTimeColumn propertyPath="DateValue" headerText="Date" width="*>120" >
                 </IgrDateTimeColumn>
 
                 {
                     this.kpiColumns.map(function (i) {
-                    return ( <IgrNumericColumn width="150" key={i} propertyPath={i} /> )
+                    return ( <IgrNumericColumn width="*>150" key={i} propertyPath={i} /> )
                     })
                 }
 
@@ -386,7 +380,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
                             let bByte = Math.round((fromB + (toB - fromB) * p) * 255.0);
 
                             let colorString = "rgba(" + rByte + "," + gByte + "," + bByte + "," + aByte + ")";
-
 
                             args.cellInfo.background = colorString;
             }

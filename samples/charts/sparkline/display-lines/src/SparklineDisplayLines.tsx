@@ -1,10 +1,7 @@
 import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrSparklineCoreModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
-
 
 IgrSparklineCoreModule.register();
 IgrSparklineModule.register();

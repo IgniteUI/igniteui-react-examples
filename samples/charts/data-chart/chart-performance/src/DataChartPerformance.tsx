@@ -7,9 +7,7 @@ import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import * as React from 'react';
-
 import { DataChartSharedData } from './DataChartSharedData';
 
 IgrDataChartCoreModule.register();
@@ -97,10 +95,14 @@ export default class DataChartPerformance extends React.Component<any, any> {
     }
 
     public onFpsRef(span: HTMLSpanElement) {
+        if (!span) { return; }
+
         this.fps = span;
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         this.onChartInit();
     }

@@ -4,20 +4,14 @@ import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartStackedModule } from 'igniteui-react-charts';
 import { IgrColumnFragmentModule } from 'igniteui-react-charts'
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgrStackedFragmentSeries } from 'igniteui-react-charts';
-
 import { IgrNumericXAxis } from 'igniteui-react-charts';
 import { IgrCategoryYAxis } from 'igniteui-react-charts';
-
 import { IgrStacked100BarSeries } from 'igniteui-react-charts';
 // legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
 import * as React from 'react';
-
-
-
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
@@ -88,6 +82,8 @@ export default class DataChartTypeStacked100BarSeries extends React.Component<an
     }
 
     public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
         this.chart = chart;
         if (this.legend) {
             this.chart.legend = this.legend;
@@ -95,6 +91,8 @@ export default class DataChartTypeStacked100BarSeries extends React.Component<an
     }
 
     public onLegendRef(legend: IgrLegend) {
+        if (!legend) { return; }
+
         this.legend = legend;
         if (this.chart) {
             this.chart.legend = this.legend;
