@@ -4,12 +4,12 @@
 
 This repository contains code examples of how to use [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components:
 
-- [igniteui-react-charts](https://infragistics.com/reactsite/components/data-chart.html)
-- [igniteui-react-excel](https://infragistics.com/reactsite/components/excel_library_using_workbooks.html)
-- [igniteui-react-gauges](https://infragistics.com/reactsite/components/radial-gauge.html)
-- [igniteui-react-grids](https://infragistics.com/reactsite/components/data-grid.html)
-- [igniteui-react-maps](https://infragistics.com/reactsite/components/geo-map.html)
-- [igniteui-react-spreadsheet](https://infragistics.com/reactsite/components/spreadsheet_overview.html)
+- [Data Chart, Category Chart, Financial Chart, Pie Chart](https://infragistics.com/reactsite/components/data-chart.html)
+- [Excel Library](https://infragistics.com/reactsite/components/excel_library_using_workbooks.html)
+- [Bullet Graph, Linear Gauge, Radial Gauges](https://infragistics.com/reactsite/components/radial-gauge.html)
+- [Data Grid / Data Table](https://infragistics.com/reactsite/components/data-grid.html)
+- [Geographic Map, Treemap](https://infragistics.com/reactsite/components/geo-map.html)
+- [Spreadsheet](https://infragistics.com/reactsite/components/spreadsheet_overview.html)
 - and many more
 
 Each code example can be run individually from the ```./samples``` folder or you can run the main project to browse all samples in one website. Also, you can run each sample on code sandbox website by opening a readme file, .e.g.
