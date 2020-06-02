@@ -46,7 +46,7 @@ npm install
 npm run-script start
 ```
 
-Then open http://localhost:3000/ in your browser
+Then open http://localhost:4200/ in your browser
 
 
 <!-- in the Geographic Map component -->
