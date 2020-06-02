@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 #root, html, body, main {
+    background: white;
     height: 100%;
     width: 100%;
     padding: 0px;
@@ -30,8 +31,7 @@
 .igContainer-horizontal,
 .igContainer-vertical,
 .igContainer-full-size {
-    /* background: blue; */
-    /* background-color: blue; */
+    background: white;
     display: flex;
     flex-flow: column;
     flex-wrap: nowrap; /* nowrap | wrap | wrap-reverse; */
@@ -42,9 +42,9 @@
     overflow-y: hidden;
 
     min-width: 200px;
-    width: calc(100% - 1rem);
-    height: calc(100% - 1rem);
-    padding: 0.5rem;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    padding: 5px;
     margin: 0px;
 }
 
@@ -79,9 +79,9 @@
 /* used to overlay multiple components, e.g. RadialGaugeTypeDirection */
 .igContainer-relative {
     background: white;
-    height: calc(100% - 1rem);
-    width: calc(100% - 1rem);
-    padding: 0.5rem;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    padding: 5px;
     margin: 0px;
     overflow: hidden;
     align-items: center;

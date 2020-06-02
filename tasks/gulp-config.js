@@ -31,7 +31,7 @@ let config = {
 
         RepositoryOrg: "IgniteUI",
         RepositoryName: "igniteui-react-examples",
-        RepositoryPath: "github/{RepositoryOrg}/{RepositoryName}/tree/vnext/samples/{ComponentGroup}/{ComponentFolder}/{SampleFolderName}",
+        RepositoryPath: "github/{RepositoryOrg}/{RepositoryName}/tree/master/samples/{ComponentGroup}/{ComponentFolder}/{SampleFolderName}",
         RepositoryUrl: "https://github.com/{RepositoryOrg}/{RepositoryName}",
         RepositoryWarning: "NOTE: do not change this file because it's auto re-generated from:",
 

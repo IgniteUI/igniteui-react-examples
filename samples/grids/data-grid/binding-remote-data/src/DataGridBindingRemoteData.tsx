@@ -6,8 +6,10 @@ import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { ODataVirtualDataSource } from 'igniteui-react-datasources';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridBindingRemoteData extends React.Component<any, any> {
 
@@ -28,17 +30,18 @@ export default class DataGridBindingRemoteData extends React.Component<any, any>
                    width="100%"
                    height="100%"
                    autoGenerateColumns="false"
+                   isColumnOptionsEnabled="true"
                    dataSource={this.virtualData}>
-                   <IgrTextColumn propertyPath="OrderID" headerText="ID" width="*>90" horizontalAlignment="center"/>
-                   <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>130"/>
-                   <IgrTextColumn propertyPath="ShipName" headerText="Name"  width="*>130"/>
-                   <IgrNumericColumn propertyPath="Freight" headerText="Freight" width="*>100"
+                   <IgrTextColumn propertyPath="OrderID" headerText="ID" width="*>1100" horizontalAlignment="center"/>
+                   <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>150"/>
+                   <IgrTextColumn propertyPath="ShipName" headerText="Name"  width="*>150"/>
+                   <IgrNumericColumn propertyPath="Freight" headerText="Freight" width="*>120"
                    positivePrefix="$" minFractionDigits={2}/>
-                   <IgrDateTimeColumn propertyPath="ShippedDate" headerText="Ship Date" width="*>130"
+                   <IgrDateTimeColumn propertyPath="ShippedDate" headerText="Ship Date" width="*>150"
                    horizontalAlignment="right"/>
-                   <IgrTextColumn propertyPath="ShipAddress" headerText="Address" width="*>110" />
-                   <IgrTextColumn propertyPath="ShipCity" headerText="City" width="*>130"/>
-                   <IgrTextColumn propertyPath="ShipCountry" headerText="Country" width="*>110"/>
+                   <IgrTextColumn propertyPath="ShipAddress" headerText="Address" width="*>130" />
+                   <IgrTextColumn propertyPath="ShipCity" headerText="City" width="*>150"/>
+                   <IgrTextColumn propertyPath="ShipCountry" headerText="Country" width="*>150"/>
                 </IgrDataGrid>
             </div>
         );

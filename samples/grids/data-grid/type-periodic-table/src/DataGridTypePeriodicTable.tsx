@@ -57,16 +57,16 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
 
     public render() {
 
+        let labelStyle: any = { fontSize: "13px", fontFamily: "Verdana", color: "rgb(24, 29, 31)", padding: "5px"};
+
         return (
             <div className="igContainer" style={{overflow: "hidden"}}>
-                <label>Selected Element: {this.state.selectedElement }</label>
+                <label style={labelStyle}>Selected Element: {this.state.selectedElement }</label>
 
                 <IgrDataGrid
-                    // height="100%"
-                    height="calc(100% - 20px)"
+                    height="calc(100% - 30px)"
                     width="100%"
                     rowHeight={this.CellSize + 5}
-                    // rowHeight="110"
                     rowSeparatorHeight="1"
                     rowSeparatorBackground="white"
                     headerHeight="60"
@@ -171,12 +171,10 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
         if (content.childElementCount === 0) {
             label = document.createElement("div");
             label.style.background = "transparent";
-            label.style.color = "gray";
-            label.style.fontSize = "small";
-            // label.style.transform = "rotate(270deg)";
-            // label.style.transformOrigin = "center";
+            label.style.color = "rgb(24, 29, 31)";
+            label.style.fontSize = "13px";
+            label.style.fontFamily = "Verdana";
             label.style.textAlign = "center";
-
             // content.style.lineHeight = "140px";
             content.style.margin = "0px";
             content.style.padding = "0px";
@@ -195,11 +193,11 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
         if (content.childElementCount === 0) {
             label = document.createElement("div");
             label.style.background = "transparent";
-            label.style.color = "gray";
-            label.style.fontSize = "small";
+            label.style.color = "rgb(24, 29, 31)";
+            label.style.fontSize = "13px";
+            label.style.fontFamily = "Verdana";
             label.style.verticalAlign = "bottom";
             label.style.textAlign = align;
-
             // content.style.lineHeight = "140px";
             content.style.margin = "0px";
             content.style.padding = "0px";

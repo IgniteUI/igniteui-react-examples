@@ -5,8 +5,10 @@ import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridColumnAnimation extends React.Component<any, any> {
 
@@ -48,9 +50,9 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
         return (
             <div className="igContainer">
                 <div className="igOptions">
-                    <label className="igOptions-item" style={{ width: "130px" }}>Adding Animation: </label>
+                    <label className="igOptions-item" style={{ width: "160px" }}>Adding Animation: </label>
                     <select className="igOptions-item" value={this.state.columnAddOrShowAnimation}
-                        onChange={this.onAddShowChange} style={{ width: "175px" }}>
+                        onChange={this.onAddShowChange} style={{ width: "150px" }}>
                         <option>Auto</option>
                         <option>None</option>
                         <option>SlideFromLeft</option>
@@ -63,9 +65,9 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
                         <option>SlideFromTopAndFadeIn</option>
                         <option>SlideFromBottomAndFadeIn</option>
                     </select>
-                    <span className="igOptions-item" style={{ width: "130px" }}>Exchange Animation: </span>
+                    <span className="igOptions-item" style={{ width: "160px" }}>Exchange Animation: </span>
                     <select className="igOptions-item" value={this.state.columnExchangingAnimationMode}
-                        onChange={this.onExchangeChange} style={{ width: "175px" }}>
+                        onChange={this.onExchangeChange} style={{ width: "150px" }}>
                         <option>Auto</option>
                         <option>None</option>
                         <option>SlideToLeft</option>
@@ -80,9 +82,9 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
                     </select>
                 </div>
                 <div className="igOptions">
-                    <span className="igOptions-item" style={{ width: "130px" }}>Hiding Animation: </span>
+                    <span className="igOptions-item" style={{ width: "160px" }}>Hiding Animation: </span>
                     <select className="igOptions-item" value={this.state.columnHidingAnimationMode}
-                        onChange={this.onHideChange} style={{ width: "175px" }}>
+                        onChange={this.onHideChange} style={{ width: "150px" }}>
                         <option>Auto</option>
                         <option>None</option>
                         <option>SlideToLeft</option>
@@ -95,9 +97,9 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
                         <option>SlideToTopAndFadeOut</option>
                         <option>SlideToBottomAndFadeOut</option>
                     </select>
-                    <span className="igOptions-item" style={{ width: "130px" }}>Updating Animation: </span>
+                    <span className="igOptions-item" style={{ width: "160px" }}>Updating Animation: </span>
                     <select className="igOptions-item" value={this.state.columnPropertyUpdatingAnimationMode}
-                        onChange={this.onPropUpdateChange} style={{ width: "175px" }} >
+                        onChange={this.onPropUpdateChange} style={{ width: "150px" }} >
                         <option>Auto</option>
                         <option>None</option>
                         <option>Interpolate</option>
@@ -105,9 +107,9 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
                     </select>
                 </div>
                 <div className="igOptions">
-                    <span className="igOptions-item" style={{ width: "130px" }}>Moving Animation: </span>
+                    <span className="igOptions-item" style={{ width: "160px" }}>Moving Animation: </span>
                     <select className="igOptions-item" value={this.state.columnMovingAnimationMode}
-                        onChange={this.onMoveChange} style={{ width: "175px" }}>
+                        onChange={this.onMoveChange} style={{ width: "150px" }}>
                         <option>Auto</option>
                         <option>None</option>
                         <option>SlideOver</option>
@@ -129,13 +131,14 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
                     columnMovingAnimationMode="SlideOver"
                     columnPropertyUpdatingAnimationMode="Interpolate"
                     autoGenerateColumns={false}
-                    dataSource={this.data} >
+                    dataSource={this.data}
+                    isColumnOptionsEnabled="true">
 
-                    <IgrTextColumn propertyPath="Name" width="*>150"/>
-                    <IgrTextColumn propertyPath="Street" headerText="Address" width="*>130" />
-                    <IgrTextColumn propertyPath="City" width="*>100"/>
-                    <IgrNumericColumn propertyPath="Salary" positivePrefix="$" showGroupingSeparator="true" width="*>100"/>
-                    <IgrDateTimeColumn propertyPath="Birthday" width="*>150"/>
+                    <IgrTextColumn propertyPath="Name" width="*>170"/>
+                    <IgrTextColumn propertyPath="Street" headerText="Address" width="*>150" />
+                    <IgrTextColumn propertyPath="City" width="*>120"/>
+                    <IgrNumericColumn propertyPath="Salary" positivePrefix="$" showGroupingSeparator="true" width="*>120"/>
+                    <IgrDateTimeColumn propertyPath="Birthday" width="*>170"/>
 
                 </IgrDataGrid>
             </div>

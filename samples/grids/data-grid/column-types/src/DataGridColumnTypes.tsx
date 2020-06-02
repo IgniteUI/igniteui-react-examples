@@ -48,39 +48,40 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                     autoGenerateColumns="false"
                     dataSource={this.data}
                     defaultColumnMinWidth={100}
+                    isColumnOptionsEnabled="true"
                     >
                     <IgrImageColumn propertyPath="Photo" headerText="Photo" contentOpacity="1"
-                    horizontalAlignment="stretch" width="110" paddingTop="5" paddingBottom="5"  paddingRight="10"/>
-                    <IgrTextColumn propertyPath="Name" width="*>140"/>
+                    horizontalAlignment="stretch" width="130" paddingTop="5" paddingBottom="5"  paddingRight="10"/>
+                    <IgrTextColumn propertyPath="Name" width="*>160"/>
 
                     <IgrTemplateColumn propertyPath="Sales" headerText="Sales" horizontalAlignment="center"
                     paddingLeft="10" paddingRight="0"
-                        cellUpdating={this.onSalesCellUpdating} width="*>160" />
+                        cellUpdating={this.onSalesCellUpdating} width="*>180" />
 
                     <IgrTemplateColumn propertyPath="Productivity" headerText="Productivity"
-                    horizontalAlignment="center" width="*>150"
+                    horizontalAlignment="center" width="*>170"
                     template={this.getProductivityChart} />
 
                     <IgrNumericColumn propertyPath="Salary" positivePrefix="$"
-                    showGroupingSeparator="true" width="*>160"/>
+                    showGroupingSeparator="true" width="*>180"/>
 
                     <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth"
-                    horizontalAlignment="stretch" width="*>160" paddingRight="10"/>
+                    horizontalAlignment="stretch" width="*>180" paddingRight="10"/>
                     <IgrImageColumn propertyPath="CountryFlag" headerText="Country" contentOpacity="1"
-                    horizontalAlignment="stretch" width="130" paddingTop="5" paddingBottom="5" />
+                    horizontalAlignment="stretch" width="150" paddingTop="5" paddingBottom="5" />
 
                     <IgrTemplateColumn propertyPath="Address" headerText="Address" horizontalAlignment="left"
-                        cellUpdating={this.onAddressCellUpdating} width="*>160" />
+                        cellUpdating={this.onAddressCellUpdating} width="*>180" />
 
                     <IgrTemplateColumn propertyPath="Phone" horizontalAlignment="center"
-                        cellUpdating={this.onPhoneCellUpdating} width="140" />
+                        cellUpdating={this.onPhoneCellUpdating} width="160" />
 
                     {/* <IgrTemplateColumn propertyPath="Email" horizontalAlignment="center"
                     cellUpdating={this.onEmailCellUpdating} width="160" /> */}
 
                     {/* <IgrTextColumn propertyPath="Country" width="*>140" horizontalAlignment="center"/> */}
-                    <IgrTextColumn propertyPath="Income" width="*>130" horizontalAlignment="center"/>
-                    <IgrTextColumn propertyPath="Age" width="*>110" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="Income" width="*>150" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="Age" width="*>130" horizontalAlignment="center"/>
                </IgrDataGrid>
             </div>
         );

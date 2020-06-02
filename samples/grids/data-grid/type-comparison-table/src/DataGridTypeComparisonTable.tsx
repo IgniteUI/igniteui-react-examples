@@ -120,11 +120,11 @@ export default class DataGridTypeComparisonTable extends React.Component<any, an
             content.style.lineHeight = "140px";
             label = document.createElement("div");
             label.style.background = "transparent";
-            label.style.color = "gray";
-            label.style.fontSize = "12pt";
+            label.style.color = "rgb(24, 29, 31)";
+            label.style.fontSize = "13px";
+            label.style.fontFamily = "Verdana";
             label.style.transform = "rotate(270deg)";
             label.style.transformOrigin = "center";
-            label.style.fontSize = "small";
             content.appendChild(label);
         } else {
             label = content.children[0] as HTMLDivElement;
@@ -141,11 +141,11 @@ export default class DataGridTypeComparisonTable extends React.Component<any, an
             content.style.lineHeight = "140px";
             label = document.createElement("div");
             label.style.background = "transparent";
-            label.style.color = "gray";
-            label.style.fontSize = "12pt";
+            label.style.color = "rgb(24, 29, 31)";
+            label.style.fontSize = "13px";
+            label.style.fontFamily = "Verdana";
             label.style.verticalAlign = "bottom";
             label.style.textAlign = align;
-            label.style.fontSize = "small";
             content.appendChild(label);
         } else {
             label = content.children[0] as HTMLDivElement;

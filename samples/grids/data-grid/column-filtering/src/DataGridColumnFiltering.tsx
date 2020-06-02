@@ -8,8 +8,10 @@ import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { FilterExpression } from 'igniteui-react-core';
 import { FilterFactory } from 'igniteui-react-core';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridRowFiltering extends React.Component<any, any> {
 
@@ -113,15 +115,16 @@ export default class DataGridRowFiltering extends React.Component<any, any> {
                     width="100%"
                     defaultColumnMinWidth={100}
                     autoGenerateColumns={false}
-                    dataSource={this.data} >
+                    dataSource={this.data} 
+                    isColumnOptionsEnabled="true">
 
-                    <IgrTextColumn propertyPath="Name" width="*>150"/>
-                    <IgrTextColumn propertyPath="Street"   width="*>160" />
-                    <IgrTextColumn propertyPath="City"  width="*>100"/>
+                    <IgrTextColumn propertyPath="Name" width="*>170"/>
+                    <IgrTextColumn propertyPath="Street"   width="*>180" />
+                    <IgrTextColumn propertyPath="City"  width="*>120"/>
                     <IgrImageColumn propertyPath="CountryFlag" paddingTop="5" paddingBottom="5" headerText="Country" contentOpacity="1"
-                        horizontalAlignment="center" width="*>120"/>
-                    <IgrNumericColumn propertyPath="Sales" positivePrefix="$" showGroupingSeparator="true" width="*>100"/>
-                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Birthday" width="*>150"/>
+                        horizontalAlignment="center" width="*>140"/>
+                    <IgrNumericColumn propertyPath="Sales" positivePrefix="$" showGroupingSeparator="true" width="*>120"/>
+                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Birthday" width="*>170"/>
 
                 </IgrDataGrid>
             </div>

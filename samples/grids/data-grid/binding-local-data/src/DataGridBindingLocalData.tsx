@@ -6,8 +6,10 @@ import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
+IgrGridColumnOptionsModule.register();
 
 export default class DataGridBindingLocalData extends React.Component<any, any> {
 
@@ -40,23 +42,24 @@ export default class DataGridBindingLocalData extends React.Component<any, any> 
                 height="100%"
                 width="100%"
                 autoGenerateColumns="false"
+                isColumnOptionsEnabled="true"
                 dataSource={this.data}>
-                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="*>90" horizontalAlignment="center"/>
-                    <IgrTextColumn propertyPath="ProductName" headerText="Product"  width="*>100" />
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>110"
+                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="*>110" horizontalAlignment="center"/>
+                    <IgrTextColumn propertyPath="ProductName" headerText="Product"  width="*>120" />
+                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>130"
                     contentOpacity="1" horizontalAlignment="center" paddingTop="5" paddingBottom="5"/>
-                    <IgrNumericColumn propertyPath="ProductPrice" headerText="Price" width="*>90"
+                    <IgrNumericColumn propertyPath="ProductPrice" headerText="Price" width="*>110"
                     positivePrefix="$" showGroupingSeparator="true" minFractionDigits={2}/>
-                    <IgrNumericColumn propertyPath="OrderItems" headerText="Orders" width="*>120"/>
-                    <IgrNumericColumn propertyPath="OrderValue" headerText="Order Value" width="*>140"
+                    <IgrNumericColumn propertyPath="OrderItems" headerText="Orders" width="*>140"/>
+                    <IgrNumericColumn propertyPath="OrderValue" headerText="Order Value" width="*>160"
                     positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>130"
+                    <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>150"
                     horizontalAlignment="right" dateTimeFormat="DateShort" />
-                    <IgrNumericColumn propertyPath="Margin" headerText="Margin" width="*>120"
+                    <IgrNumericColumn propertyPath="Margin" headerText="Margin" width="*>140"
                     positiveSuffix="%" horizontalAlignment="center" />
-                    <IgrNumericColumn propertyPath="Profit" headerText="Profit" width="*>120"
+                    <IgrNumericColumn propertyPath="Profit" headerText="Profit" width="*>140"
                     positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrTextColumn propertyPath="Status" headerText="Status" width="*>120"
+                    <IgrTextColumn propertyPath="Status" headerText="Status" width="*>140"
                     horizontalAlignment="center"   />
 
                 </IgrDataGrid>
