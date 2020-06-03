@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 #root, html, body, main {
-    background: white;
+    background: transparent;
     height: 100%;
     width: 100%;
     padding: 0px;
@@ -42,9 +42,9 @@
     overflow-y: hidden;
 
     min-width: 200px;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
-    padding: 5px;
+    width: calc(100% - 5px);
+    height: calc(100% - 5px);
+    padding: 2.5px;
     margin: 0px;
 }
 
