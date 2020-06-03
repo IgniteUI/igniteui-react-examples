@@ -36,14 +36,18 @@ export default class SpreadsheetActivation extends React.Component<any, any> {
                     <button className="igOptions-button" onClick={this.onClick} >Active Cell</button>
                     <label className="igOptions-item"> Current Active Cell: {this.state.activeCell } </label>
                 </div>
-                 <IgrSpreadsheet activeCellChanged={this.onActiveCellChanged}  ref={this.onSpreadsheetRef} height="800px" width="100%" />
+                <div className="igComponent">
+                    <IgrSpreadsheet activeCellChanged={this.onActiveCellChanged} ref={this.onSpreadsheetRef}
+                    height="100%" width="100%" />
+                </div>
             </div>
         );
     }
-     public onActiveCellChanged (s: IgrSpreadsheet, e: IgrSpreadsheetActiveCellChangedEventArgs)
-     {
-       this.setState({activeCell: e.newValue.toString()});
-     }
+
+    public onActiveCellChanged (s: IgrSpreadsheet, e: IgrSpreadsheetActiveCellChangedEventArgs)
+    {
+      this.setState({activeCell: e.newValue.toString()});
+    }
 
     public onFilterTextChanged = (e: any) => {
         this.filterText = e.target.value;

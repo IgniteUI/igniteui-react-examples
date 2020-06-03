@@ -41,7 +41,7 @@ export default class ExcelLibraryWorkingWithCharts extends React.Component<any, 
                 <div className="igOptions">
                     <button className="igOptions-item" onClick={this.exportData}>Export</button>
                 </div>
-                <div style={{height: "calc(100% - 25px)"}}>
+                <div className="igComponent">
                     <IgrCategoryChart
                         height="50%" width="100%"
                         yAxisMinimumValue={0}
@@ -56,19 +56,19 @@ export default class ExcelLibraryWorkingWithCharts extends React.Component<any, 
                         width="100%"
                         autoGenerateColumns="false"
                         dataSource={this.excelData}>
-                        <IgrTextColumn propertyPath="Expense" />
-                        <IgrNumericColumn propertyPath="Jan" />
-                        <IgrNumericColumn propertyPath="Feb" />
-                        <IgrNumericColumn propertyPath="Mar" />
-                        <IgrNumericColumn propertyPath="Apr" />
-                        <IgrNumericColumn propertyPath="May" />
-                        <IgrNumericColumn propertyPath="Jun" />
-                        <IgrNumericColumn propertyPath="Jul" />
-                        <IgrNumericColumn propertyPath="Aug" />
-                        <IgrNumericColumn propertyPath="Sep" />
-                        <IgrNumericColumn propertyPath="Oct" />
-                        <IgrNumericColumn propertyPath="Nov" />
-                        <IgrNumericColumn propertyPath="Dec" />
+                        <IgrTextColumn propertyPath="Expense" width="*>100" />
+                        <IgrNumericColumn propertyPath="Jan" width="*>75" />
+                        <IgrNumericColumn propertyPath="Feb" width="*>75" />
+                        <IgrNumericColumn propertyPath="Mar" width="*>75" />
+                        <IgrNumericColumn propertyPath="Apr" width="*>75" />
+                        <IgrNumericColumn propertyPath="May" width="*>75" />
+                        <IgrNumericColumn propertyPath="Jun" width="*>75" />
+                        <IgrNumericColumn propertyPath="Jul" width="*>75" />
+                        <IgrNumericColumn propertyPath="Aug" width="*>75" />
+                        <IgrNumericColumn propertyPath="Sep" width="*>75" />
+                        <IgrNumericColumn propertyPath="Oct" width="*>75" />
+                        <IgrNumericColumn propertyPath="Nov" width="*>75" />
+                        <IgrNumericColumn propertyPath="Dec" width="*>75" />
                     </IgrDataGrid>
                 </div>
             </div>

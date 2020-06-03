@@ -22,7 +22,7 @@ export default class SpreadsheetHyperlinks extends React.Component {
     public render() {
         return (
             <div className="igContainer">
-                <IgrSpreadsheet ref={this.onSpreadsheetRef} height="800px" width="100%" />
+                <IgrSpreadsheet ref={this.onSpreadsheetRef} height="100%" width="100%" />
             </div>
         );
     }
