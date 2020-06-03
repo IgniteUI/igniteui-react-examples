@@ -32,7 +32,7 @@ export default class DataGridBindingRemoteData extends React.Component<any, any>
                    autoGenerateColumns="false"
                    isColumnOptionsEnabled="true"
                    dataSource={this.virtualData}>
-                   <IgrTextColumn propertyPath="OrderID" headerText="ID" width="*>1100" horizontalAlignment="center"/>
+                   <IgrTextColumn propertyPath="OrderID" headerText="ID" width="*>110" horizontalAlignment="center"/>
                    <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>150"/>
                    <IgrTextColumn propertyPath="ShipName" headerText="Name"  width="*>150"/>
                    <IgrNumericColumn propertyPath="Freight" headerText="Freight" width="*>120"
