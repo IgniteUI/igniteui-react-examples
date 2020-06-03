@@ -217,13 +217,10 @@ export default class ExcelLibraryWorkingWithCells extends React.Component<any, a
                 <div className="igOptions">
                     <button style={{width: "auto"}} onClick={this.onClick}>Save Workbook</button>
                 </div>
-                <div className="cellFeatures">
-                    <label className="label">Add a Comment to cell A1: </label>
-                    <input type="checkbox" id="addComment" onChange={this.onCommentChanged}/> <br/>
-                    <label className="label">Add a Formula for cells F2 to F20: </label>
-                    <input type="checkbox" id="addFormula" onChange={this.onFormulaChanged}/>  <br/>
-                    <label className="label">Merge Cells: </label>
-                    <input type="checkbox" id="mergeCells" onChange={this.onMergeChanged}/>
+                <div className="igOptions-vertical">
+                    <label className="label"><input type="checkbox" id="addComment" onChange={this.onCommentChanged}/>Add a Comment to cell A1: </label>
+                    <label className="label"><input type="checkbox" id="addFormula" onChange={this.onFormulaChanged}/>Add a Formula for cells F2 to F20: </label>
+                    <label className="label"><input type="checkbox" id="mergeCells" onChange={this.onMergeChanged}/>Merge Cells: </label>
                 </div>
             </div>
         );

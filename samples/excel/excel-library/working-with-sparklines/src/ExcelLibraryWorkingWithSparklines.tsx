@@ -52,11 +52,11 @@ export default class ExcelLibraryWorkingWithSparklines extends React.Component<a
                     <button className="igOptions-item" onClick={this.exportGrid}>Export</button>
                 </div>
                 <IgrDataGrid autoGenerateColumns={false} dataSource={this.data} height="calc(100% - 30px)" width="100%">
-                    <IgrTemplateColumn propertyPath="Orders" template={this.templateColTestMethod} />
-                    <IgrTextColumn propertyPath="CompanyName" />
-                    <IgrTextColumn propertyPath="ContactName" />
-                    <IgrTextColumn propertyPath="ContactTitle" />
-                    <IgrTextColumn propertyPath="Country" />
+                    <IgrTemplateColumn width="*>90" propertyPath="Orders" template={this.templateColTestMethod} />
+                    <IgrTextColumn width="*>130" propertyPath="CompanyName"  headerText="Company" />
+                    <IgrTextColumn width="*>90"  propertyPath="ContactName" headerText="Name" />
+                    <IgrTextColumn width="*>70"  propertyPath="ContactTitle" headerText="Title" />
+                    <IgrTextColumn width="*>90"  propertyPath="Country" headerText="Country" />
                 </IgrDataGrid>
             </div>
         );
@@ -67,7 +67,7 @@ export default class ExcelLibraryWorkingWithSparklines extends React.Component<a
 
         return (
             <IgrDataChart dataSource={tmpl.rowItem.Orders} height="40px" width="200px">
-                <IgrCategoryXAxis name="xAxis" labelVisibility="Collapsed" />
+                <IgrCategoryXAxis name="xAxis" labelVisibility="Collapsed" gap={0.5} overlap={0}/>
                 <IgrNumericYAxis name="yAxis" minValue={0} labelVisibility="Collapsed" />
 
                 <IgrColumnSeries name="series" xAxisName="xAxis" yAxisName="yAxis" valueMemberPath="Freight" />
@@ -130,7 +130,7 @@ export default class ExcelLibraryWorkingWithSparklines extends React.Component<a
 
         const data = new Array<any>();
         // generating excel data source
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 20; i++) {
             const companyName = this.getItem(companies);
             const contactTitle = this.getItem(titles);
             const country = this.getItem(countries);
@@ -154,7 +154,7 @@ export default class ExcelLibraryWorkingWithSparklines extends React.Component<a
                     CustomerID: customerID,
                     EmployeeID: this.getRandom(1000, 8000),
                     EmployeeName: employeeName,
-                    Freight: this.getRandom(1, 10),
+                    Freight: this.getRandom(3, 10),
                     OrderDate: orderDate,
                     OrderID: this.getRandom(3000, 5000),
                     RequiredDate: reqDate,

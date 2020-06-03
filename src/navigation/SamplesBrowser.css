@@ -1,5 +1,5 @@
 .sbRoot {
-    background: white;
+    background: transparent;
     /* background: blue; */
     /* background-color: blue; */
     display: flex;
@@ -50,7 +50,7 @@
     height: calc(100% - 1rem);
     padding: 0.5rem; */
 
-    background: white;
+    background: transparent;
     display: flex;
     flex-flow: column;
 }

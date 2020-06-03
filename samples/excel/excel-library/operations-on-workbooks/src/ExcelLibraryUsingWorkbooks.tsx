@@ -58,7 +58,7 @@ export default class ExcelLibraryUsingWorkbooks extends React.Component<any, any
                         <option>Income - Table3</option>
                     </select>
                 </div>
-                <div className="previewGrid">
+                <div className="igComponent">
                     <IgrDataGrid
                         ref = {this.onGridRef}
                         height="100%"

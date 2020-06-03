@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 #root, html, body, main {
-    background: white;
+    background: transparent;
     height: 100%;
     width: 100%;
     padding: 0px;
@@ -42,9 +42,9 @@
     overflow-y: hidden;
 
     min-width: 200px;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
-    padding: 5px;
+    width: calc(100% - 5px);
+    height: calc(100% - 5px);
+    padding: 2.5px;
     margin: 0px;
 }
 
@@ -109,11 +109,13 @@
     padding: 0px;
 }
 
-.igOptions {
+.igOptions,
+.igOptions-horizontal,
+.igOptions-vertical {
     /* background: rgb(112, 112, 111); */
     margin: 0px;
     padding-top: 0px;
-    padding-bottom: 0px;
+    padding-bottom: 5px;
     padding-right: 0rem;
     padding-left: 0rem;
     width: 100%;
@@ -124,13 +126,24 @@
     color: #585858;
 }
 
+.igOptions-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.igOptions-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+
 .igOptions label,
 .igOptions div {
     font-family: 'Titillium Web';
 }
 
 .igOptions-item {
-    margin-left: 10px;
+    margin-left: 5px;
     /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
     display: inline-block;
     vertical-align: center;
