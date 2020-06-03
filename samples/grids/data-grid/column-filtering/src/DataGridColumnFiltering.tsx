@@ -13,7 +13,7 @@ import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 IgrDataGridModule.register();
 IgrGridColumnOptionsModule.register();
 
-export default class DataGridRowFiltering extends React.Component<any, any> {
+export default class DataGridColumnFiltering extends React.Component<any, any> {
 
     public data: any[];
     public grid: IgrDataGrid;
