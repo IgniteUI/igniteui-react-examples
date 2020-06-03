@@ -35,9 +35,9 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
                         <option>Combined</option>
                         <option>Split</option>
                     </select>
-                    <label className="igOptions-label" > Group Header Collapsible: </label>
-
-                    <input type="checkbox" checked={this.state.isGroupCollapsible} onChange={this.onGroupHeaderCollapsible}/>
+                    {/* temporally excluded this option: */}
+                    {/* <label className="igOptions-label" > Group Header Collapsible: </label>
+                    <input type="checkbox" checked={this.state.isGroupCollapsible} onChange={this.onGroupHeaderCollapsible}/> */}
 
                 </div>
 
