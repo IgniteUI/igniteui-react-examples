@@ -12,12 +12,13 @@ This repository contains code examples of how to use [Ignite UI for React](https
 - [Spreadsheet](https://infragistics.com/reactsite/components/spreadsheet_overview.html)
 - and many more
 
-Each code example can be run individually from the ```./samples``` folder or you can run the main project to browse all samples in one website. Also, you can run each sample on code sandbox website by opening a readme file, .e.g.
+You can run each code example individually from the [./samples](./samples) folder or you can run the main project to browse all samples in one website. Also, you can run each sample on code sandbox website by opening a readme file, .e.g.
 ```
 ./samples/charts/category-chart/overview/README.md
 ```
 and then clicking on the **Edit on CodeSandbox** button
 
+Note that this application copies all those examples from [./samples](./samples) to [./src/samples](./src/samples) folder when it is about to start running. Therefore, any changes to [./src/samples](./src/samples) will be overridden on consecutive run of the application.
 
 ## Setup
 
