@@ -18,7 +18,7 @@ export class SamplesRouter {
         console.log("SB pathname '" + location.pathname + "'");
 
         if (location.pathname === "/" ||
-            location.pathname.includes("/samples")) {
+            location.pathname.indexOf("/samples") > 0) {
             return true;
         }
         return false;

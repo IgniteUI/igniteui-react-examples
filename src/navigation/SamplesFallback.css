@@ -1,0 +1,44 @@
+
+.sbFallback {
+    background: white;
+    /* background: blue; */
+    /* background-color: blue; */
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap; /* nowrap | wrap | wrap-reverse; */
+    /* justify-content: flex-start; */
+    /* justify-items: center; */
+    /* align-items: center; */
+    /* position: relative; */
+    overflow-y: hidden;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    padding: 5px;
+    margin: 0px;
+
+    color: rgb(66, 66, 66);
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.sbFallbackInfo {
+    color: black;
+}
+
+.sbFallbackRoute {
+    padding-top: 0.5rem;
+    color: black;
+}
+
+.sbFallbackSuggestion {
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.sbFallbackUrl {
+    color: rgb(10, 124, 238);
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 5px;
+}

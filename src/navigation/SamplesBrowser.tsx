@@ -5,6 +5,8 @@ import { withRouter } from 'react-router-dom';
 import './Scrollbars.css';
 import './SamplesBrowser.css';
 import { SamplesRouter } from './SamplesRouter';
+import { SamplesLoading } from './SamplesLoading';
+import { SamplesFallback } from './SamplesFallback';
 import { RoutingSample } from './SamplesData';
 import { RoutingGroup } from './SamplesData';
 
@@ -183,28 +185,27 @@ export class SamplesBrowser extends React.Component<any, any>
 
                         {/* {this.state.SelectedSample} style={this.styles.toolbarIcon} */}
                     </div>
-                    <React.Suspense fallback={<span>Loading...</span>}>
+                    {/* <React.Suspense fallback={<span>Loading...</span>}> */}
+                    <React.Suspense fallback={<SamplesLoading/>}>
                     <div className="sbSwitch" style={sbSwitchStyle}>
                         <Switch >
                             {/* <Route exact={false} path="/samples/charts" key="charts" component={ChartsRouter}/> */}
                             {/* <Route exact={false} path="/charts" key="charts" component={ChartsRouter}/> */}
                             <Route exact={true} path="/"  >
-                                <h3>Please select a sample</h3>
+                                <div/>
+                                {/* style={{paddingLeft: "1rem"}}>Please select a sample</h3> */}
                             </Route>
                             <Route exact={true} path="/samples">
-                                <h3>Please select a sample</h3>
+                                <h3 style={{marginLeft: "1rem"}}>Please select a sample</h3>
+                                {/* <SamplesLoading/> */}
                             </Route>
+                            {/* routes to all samples */}
                             {this.navRoutes}
-                            {/* {this.test2Routes} */}
 
-                            {/* <Route exact={true} >
-                                <h3>NoPageFound exact=true</h3>
-                            </Route> */}
+                            {/* routing fallback displayed when a sample is missing */}
                             <Route exact={false} >
-                                <h3>Cannot find a sample with route:</h3>
-                                <h3>{sbRoute}</h3>
+                                <SamplesFallback />
                             </Route>
-                            {/* <Route component={NoPageFound} /> */}
                         </Switch>
                     </div>
                     </React.Suspense>
