@@ -39,7 +39,7 @@
     "igniteui-react-maps": "16.12.1",
     "igniteui-react-spreadsheet": "16.12.1",
     "igniteui-react-spreadsheet-chart-adapter": "16.12.1",
-    "jquery": "^1.11.1",
+    "jquery": "^3.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
