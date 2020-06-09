@@ -9,7 +9,7 @@ import { IgcDockManagerPaneType } from 'igniteui-dockmanager';
 import { IgcSplitPaneOrientation } from 'igniteui-dockmanager';
 import { IgcDockManagerComponent } from 'igniteui-dockmanager';
 
-defineCustomElements();
+// defineCustomElements();
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();

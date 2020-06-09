@@ -11,11 +11,11 @@ import { RoutingSample } from './SamplesData';
 import { RoutingGroup } from './SamplesData';
 
 import { gaugesRoutingData } from "../samples/gauges/RoutingData";
-import { gridsRoutingData } from "../samples/grids/RoutingData";
-import { chartsRoutingData } from "../samples/charts/RoutingData";
-import { mapsRoutingData } from "../samples/maps/RoutingData";
-import { excelRoutingData } from "../samples/excel/RoutingData";
-// import { layoutsRoutingData } from "../samples/layouts/RoutingData";
+// import { gridsRoutingData } from "../samples/grids/RoutingData";
+// import { chartsRoutingData } from "../samples/charts/RoutingData";
+// import { mapsRoutingData } from "../samples/maps/RoutingData";
+// import { excelRoutingData } from "../samples/excel/RoutingData";
+import { layoutsRoutingData } from "../samples/layouts/RoutingData";
 
 // https://material-ui.com/components/material-icons/
 import IconButton from '@material-ui/core/IconButton';
@@ -61,12 +61,12 @@ export class SamplesBrowser extends React.Component<any, any>
         // console.log(TestsRoutes.DataRoutes)
 
         let routingProviders: RoutingGroup[] = [
-            chartsRoutingData,
-            mapsRoutingData,
+            // chartsRoutingData,
+            // mapsRoutingData,
             gaugesRoutingData,
-            gridsRoutingData,
-            excelRoutingData,
-            // layoutsRoutingData,
+            // gridsRoutingData,
+            // excelRoutingData,
+            layoutsRoutingData,
         ];
 
         for (const routingData of routingProviders) {

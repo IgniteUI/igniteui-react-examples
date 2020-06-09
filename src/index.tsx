@@ -28,9 +28,9 @@ ReactDOM.render(
 RegisterServiceWorker();
 // serviceWorker.unregister();
 
-// copied from https://stenciljs.com/docs/react
-import { applyPolyfills, defineCustomElements } from 'igniteui-dockmanager/loader';
+// // copied from https://stenciljs.com/docs/react
+// import { applyPolyfills, defineCustomElements } from 'igniteui-dockmanager/loader';
 
-applyPolyfills().then(() => {
-  defineCustomElements();
-});
+// applyPolyfills().then(() => {
+//   defineCustomElements();
+// });

@@ -25,7 +25,7 @@ export default class DockManagerOverview extends React.Component {
         return (
             <div className="igContainer">
                 {/* ISSUE: cannot create DockManager: */}
-                <igc-dockmanager id="dockManager">
+                {/* <igc-dockmanager id="dockManager"> */}
                     <div slot="content1" className="dockManagerContent">Content 1</div>
                     <div slot="content2" className="dockManagerContent">Content 2</div>
                     <div slot="content3" className="dockManagerContent">Content 3</div>
@@ -35,7 +35,7 @@ export default class DockManagerOverview extends React.Component {
                     <div slot="content7" className="dockManagerContent">Content 7</div>
                     <div slot="content8" className="dockManagerContent">Content 8</div>
                     <div slot="content9" className="dockManagerContent">Content 9</div>
-                </igc-dockmanager>
+                {/* </igc-dockmanager> */}
             </div>
         );
     }
