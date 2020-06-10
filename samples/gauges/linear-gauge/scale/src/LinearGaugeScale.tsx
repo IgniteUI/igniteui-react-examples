@@ -6,10 +6,6 @@ IgrLinearGaugeModule.register();
 
 export default class LinearGaugeScale extends React.Component {
 
-    constructor(props: any) {
-        super(props);
-    }
-
     public render() {
         return (
             <div className="igContainer">

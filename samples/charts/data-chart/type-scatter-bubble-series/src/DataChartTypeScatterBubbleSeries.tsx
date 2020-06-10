@@ -6,8 +6,8 @@ import { IgrBubbleSeries } from 'igniteui-react-charts';
 // elements of scatter series:
 import { IgrSizeScale } from 'igniteui-react-charts';
 import { IgrValueBrushScale } from 'igniteui-react-charts';
-import { IgrCustomPaletteBrushScale } from 'igniteui-react-charts';
-import { BrushSelectionMode } from 'igniteui-react-charts';
+// import { IgrCustomPaletteBrushScale } from 'igniteui-react-charts';
+// import { BrushSelectionMode } from 'igniteui-react-charts';
 // modules of data chart:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
@@ -100,9 +100,9 @@ export default class DataChartTypeScatterBubbleSeries extends React.Component {
         series1.xAxisName = "xAxis";
         series1.yAxisName = "yAxis";
 
-        const brushScale2 = new IgrCustomPaletteBrushScale({});
-        brushScale2.brushes = ["#FFFFFF", "#b56ffc"];
-        brushScale2.brushSelectionMode = BrushSelectionMode.Interpolate;
+        // const brushScale2 = new IgrCustomPaletteBrushScale({});
+        // brushScale2.brushes = ["#FFFFFF", "#b56ffc"];
+        // brushScale2.brushSelectionMode = BrushSelectionMode.Interpolate;
 
         const series2 = new IgrBubbleSeries({ name: "series2" });
         series2.title = "Small Countries";
