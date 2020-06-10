@@ -6,11 +6,11 @@ import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicProportionalSymbolSeries } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrValueBrushScale } from 'igniteui-react-charts';
-import { IgrCustomPaletteBrushScale } from 'igniteui-react-charts';
+// import { IgrCustomPaletteBrushScale } from 'igniteui-react-charts';
 import { IgrSizeScale } from 'igniteui-react-charts';
 import { IgrDataContext } from 'igniteui-react-core';
 import { MarkerType } from 'igniteui-react-charts';
-import { BrushSelectionMode } from 'igniteui-react-charts';
+// import { BrushSelectionMode } from 'igniteui-react-charts';
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
