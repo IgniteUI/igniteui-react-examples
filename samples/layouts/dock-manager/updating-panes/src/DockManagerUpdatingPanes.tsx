@@ -1,12 +1,21 @@
 import * as React from "react";
-import { DockManagerSharedData } from "./DockManagerSharedData";
 import './DockManagerStyles.css';
 
-import { IgrLegendModule } from "igniteui-react-charts";
-import { IgrGeographicMap, IgrGeographicMapModule, IgrGeographicSymbolSeries, IgrArcGISOnlineMapImagery } from "igniteui-react-maps";
+import WorldUtils from "./WorldUtils"
+import { DockManagerSharedData } from "./DockManagerSharedData";
+
+import { IgrGeographicMap, IgrGeographicMapModule } from "igniteui-react-maps";
+import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
+import { IgrArcGISOnlineMapImagery } from 'igniteui-react-maps';
+
+import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
+import { IgrDataContext } from 'igniteui-react-core';
 import { IgrCategoryChartModule, MarkerType, ToolTipType, AxisLabelsLocation } from "igniteui-react-charts";
 import { IgrCategoryChart, CategoryTransitionInMode, CategoryChartType } from "igniteui-react-charts";
-import { IgcDockManagerComponent, IgcContentPane, IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
+import { IgrLegendModule } from "igniteui-react-charts";
+
+import { IgcDockManagerComponent, IgcContentPane } from "igniteui-dockmanager";
+import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
 import { defineCustomElements } from "igniteui-dockmanager/loader";
 
 /* eslint-disable */
@@ -24,6 +33,7 @@ defineCustomElements();
 
 IgrCategoryChartModule.register();
 IgrGeographicMapModule.register();
+IgrDataChartInteractivityModule.register();
 IgrLegendModule.register();
 
 export default class DockManagerUpdatingPanes extends React.Component<any, any> {
@@ -45,20 +55,6 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
     private geoLocationMapContainer: HTMLDivElement;
     private geoLocationSeries: IgrGeographicSymbolSeries;
 
-    private chartRef(chart: IgrCategoryChart) {
-        this.chart = chart;
-        if (this.chart && this.map) {
-            this.onReady();
-        }
-    }
-
-    private mapRef(map: IgrGeographicMap) {
-        this.map = map;
-        if (this.chart && this.map) {
-            this.onReady();
-        }
-    }
-
     constructor(props: any) {
         super(props);
 
@@ -73,6 +69,53 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         this.onEmployeeClick = this.onEmployeeClick.bind(this);
     }
 
+    public render() {
+        return (
+            <div className="igContainer">
+                <igc-dockmanager id="dockManager">
+                    <div
+                        className="dockManagerContent"
+                        slot="employeeListContainer"
+                        id="employeeListContainer"/>
+                    <div
+                        className="dockManagerContent"
+                        slot="productivityChartContainer"
+                        id="productivityChartContainer">
+                            <IgrCategoryChart
+                                key="productivityChart"
+                                ref={this.chartRef}
+                                width="calc(100% - 2rem)"
+                                height="100%"/>
+                    </div>
+                    <div
+                        className="dockManagerContent"
+                        slot="geoLocationMapContainer"
+                        id="geoLocationMapContainer" >
+                            <IgrGeographicMap
+                                ref={this.mapRef}
+                                key="geoLocationMap"
+                                width="100%"
+                                height="100%"/>
+                    </div>
+                </igc-dockmanager>
+            </div>
+        );
+    }
+
+    private chartRef(chart: IgrCategoryChart) {
+        this.chart = chart;
+        if (this.chart && this.map) {
+            this.onReady();
+        }
+    }
+
+    private mapRef(map: IgrGeographicMap) {
+        this.map = map;
+        if (this.chart && this.map) {
+            this.onReady();
+        }
+    }
+
     private onReady() {
         this.createEmployeeList();
         this.createLocationMap();
@@ -82,8 +125,6 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         this.geoLocationMapContainer = document.getElementById("geoLocationMapContainer") as HTMLDivElement;
         this.productivityChartContainer = document.getElementById("productivityChartContainer") as HTMLDivElement;
         this.productivityChartContainer.style.overflow = "hidden";
-        // this.productivityChartContainer.style.paddingRight = "hidden";
-        // this.productivityChartContainer.style.background = "blue";
 
         this.productivityChartPane = {
             size: 150,
@@ -105,9 +146,7 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
             contentId: "employeeListContainer"
         };
 
-        this.dockManager = document.getElementById(
-            "dockManager"
-        ) as IgcDockManagerComponent;
+        this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;
         this.dockManager.layout = {
             rootPane: {
                 type: IgcDockManagerPaneType.splitPane,
@@ -143,8 +182,6 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         this.productivityChart.yAxisMaximumValue = 100;
         this.productivityChart.yAxisInterval = 25;
         this.productivityChart.xAxisInterval = 1;
-        // this.productivityChart.brushes = ["LimeGreen"];
-        // this.productivityChart.outlines = ["LimeGreen"];
         this.productivityChart.width = "100%";
         this.productivityChart.height = "100%";
         this.productivityChart.transitionDuration = 100;
@@ -154,12 +191,10 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         this.productivityChart.crosshairsSnapToData = true;
         this.productivityChart.toolTipType = ToolTipType.Item;
 
-        this.productivityChart.transitionInMode =
-            CategoryTransitionInMode.AccordionFromBottom;
+        this.productivityChart.transitionInMode = CategoryTransitionInMode.AccordionFromBottom;
     }
 
     public createEmployeeList() {
-        // let detailsAgeField = this.getEmployeeField("Age:", this.detailsAge);
 
         let employeeListContainer = document.getElementById("employeeListContainer") as HTMLDivElement;
         employeeListContainer.style.width = "calc(100% - 1rem)";
@@ -212,7 +247,7 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         allLocationSeries.markerType = MarkerType.Circle;
         allLocationSeries.markerBrush = "white";
         allLocationSeries.markerOutline = "Red";
-        // allLocationSeries.tooltipTemplate = this.createLocationMapTooltip;
+        allLocationSeries.tooltipTemplate = this.createLocationMapTooltip;
 
         this.geoLocationSeries = new IgrGeographicSymbolSeries({
             name: "symbolSeries2"
@@ -223,7 +258,7 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         this.geoLocationSeries.markerType = MarkerType.Circle;
         this.geoLocationSeries.markerBrush = "white";
         this.geoLocationSeries.markerOutline = "LimeGreen";
-        // this.geoLocationSeries.tooltipTemplate = this.createLocationMapTooltip;
+        this.geoLocationSeries.tooltipTemplate = this.createLocationMapTooltip;
 
         const tileSource = new IgrArcGISOnlineMapImagery();
         tileSource.mapServerUri = "https://services.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer";
@@ -236,42 +271,39 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         this.geoLocationMap.backgroundContent = tileSource;
     }
 
-    public createLocationMapTooltip(context: any) {
-        //         const dataContext = context as DataContext;
-        //         if (!dataContext) return null;
-        //         const dataItem = dataContext.item as any;
-        //         if (!dataItem) return null;
-        //         const lbl = dataItem.City;
-        //         const scr = dataItem.CountryFlag;
-        //         const lat = WorldUtils.toStringLat(dataItem.Latitude);
-        //         const lon = WorldUtils.toStringLon(dataItem.Longitude);
-        // // <div class="tooltipFlagBoarder"> ${context.series.markerOutline}
-        // //         <img class="tooltipFlagImage" src="${scr}" />
-        // // </div>
-        //         let tooltip = html`<div    class="tooltipHorizontal">
-        //                 <img class="tooltipFlagImage" src="${scr}" />
-        //                 <div style="marginLeft: 5px">
-        //                         <div class="tooltipBox">
-        //                                 <div class="tooltipRow">
-        //                                         <div class="tooltipLbl">City:</div>
-        //                                         <div class="tooltipVal" style="color: black;">${lbl}</div>
-        //                                 </div>
-        //                                 <div class="tooltipRow">
-        //                                         <div class="tooltipLbl">Latitude:</div>
-        //                                         <div class="tooltipVal" style="color: black;">${lat} </div>
-        //                                 </div>
-        //                                 <div class="tooltipRow">
-        //                                         <div class="tooltipLbl">Longitude:</div>
-        //                                         <div class="tooltipVal" style="color: black;">${lon}</div>
-        //                                 </div>
-        //                         </div>
-        //                 </div>
-        //         </div>`;
-        //         return tooltip;
+    public createLocationMapTooltip(tooltipProps: any) {
+        const dataContext = tooltipProps.dataContext as IgrDataContext;
+        if (!dataContext) return null;
+
+        const dataItem = dataContext.item as any;
+        if (!dataItem) return null;
+
+        const lbl = dataItem.City;
+        const scr = dataItem.CountryFlag;
+        const lat = WorldUtils.toStringLat(dataItem.Latitude);
+        const lon = WorldUtils.toStringLon(dataItem.Longitude);
+
+        return <div className="tooltipHorizontal">
+            <img className="tooltipFlagImage" src={scr}/>
+            <div className="tooltipBox">
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Latitude:</div>
+                    <div className="tooltipVal">{lat}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Longitude:</div>
+                    <div className="tooltipVal">{lon}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">City: </div>
+                    <div className="tooltipVal">{lbl}</div>
+                </div>
+            </div>
+        </div>
     }
 
     public onEmployeeClick(employee: any) {
-        // console.log(employee.ID)
+
         for (const employeeListItem of this.employeesList) {
             if (employeeListItem.id !== employee.ID) {
                 employeeListItem.style.background = "transparent";
@@ -282,8 +314,8 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
                 this.productivityChart.dataSource = employee.Productivity;
 
                 let geoZoom: any = {};
-                geoZoom.width = 30;
-                geoZoom.height = 20;
+                geoZoom.width = 50;
+                geoZoom.height = 25;
                 geoZoom.left = employee.Longitude - geoZoom.width / 2;
                 geoZoom.top = employee.Latitude - geoZoom.height / 2;
                 this.geoLocationMap.zoomToGeographic(geoZoom);
@@ -291,47 +323,4 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         }
     }
 
-    public render() {
-        return (
-            <div className="igContainer">
-                <igc-dockmanager id="dockManager">
-                    <div
-                        className="dockManagerContent"
-                        slot="employeeListContainer"
-                        id="employeeListContainer"
-                    />
-                    <div
-                        className="dockManagerContent"
-                        slot="productivityChartContainer"
-                        id="productivityChartContainer"
-                        style={{ width: "100%", height: "100%" }}>
-
-                        <div style={{ width: "100%", height: "100%" }}>
-                            <IgrCategoryChart
-                                key="productivityChart"
-                                ref={this.chartRef}
-                                width="100%"
-                                height="100%"
-                            />
-                        </div>
-                    </div>
-                    <div
-                        className="dockManagerContent"
-                        slot="geoLocationMapContainer"
-                        id="geoLocationMapContainer"
-                        style={{ width: "100%", height: "100%" }}>
-
-                        <div style={{ width: "100%", height: "100%" }}>
-                            <IgrGeographicMap
-                                ref={this.mapRef}
-                                key="geoLocationMap"
-                                width="100%"
-                                height="100%"
-                            />
-                        </div>
-                    </div>
-                </igc-dockmanager>
-            </div>
-        );
-    }
 }
