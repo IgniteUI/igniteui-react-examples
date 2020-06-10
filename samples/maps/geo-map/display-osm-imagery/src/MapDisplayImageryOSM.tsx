@@ -4,7 +4,7 @@ import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrOpenStreetMapImagery } from 'igniteui-react-maps';
-import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
+import { IgrDataChartInteractivityModule, IgrSeriesViewer } from 'igniteui-react-charts';
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
@@ -45,7 +45,8 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
         geoMap.zoomToGeographic(geoRect);
     }
 
-    public onMapWindowRectChanged(geoMap: IgrGeographicMap, e: IgrRectChangedEventArgs) {
+    public onMapWindowRectChanged(viewer: IgrSeriesViewer, e: IgrRectChangedEventArgs) {
+        let geoMap = viewer as IgrGeographicMap;
         const rect = e.newRect;
         console.log("win \n left:" + rect.left +
         ", top:" + rect.top + ", width:"  + rect.width + ", height:"  + rect.height);

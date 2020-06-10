@@ -4,7 +4,7 @@ import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrBingMapsMapImagery } from 'igniteui-react-maps';
 import { BingMapsImageryStyle } from 'igniteui-react-maps';
-import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
+import { IgrDataChartInteractivityModule, IgrSeriesViewer } from 'igniteui-react-charts';
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 
@@ -104,7 +104,8 @@ export default class MapDisplayImageryBing extends React.Component<any, any> {
         MapUtils.navigateTo(geoMap, MapRegion.Caribbean);
     }
 
-    public onMapWindowRectChanged(geoMap: IgrGeographicMap, e: IgrRectChangedEventArgs) {
+    public onMapWindowRectChanged(viewer: IgrSeriesViewer, e: IgrRectChangedEventArgs) {
+        let geoMap = viewer as IgrGeographicMap;
         const rect = e.newRect;
         console.log("win \n left:" + rect.left +
         ", top:" + rect.top + ", width:"  + rect.width + ", height:"  + rect.height);
