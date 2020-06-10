@@ -48,7 +48,7 @@ export const SectorTypes: any[] = [
 ]
 
 export const CurrencyTypes: any[] = [
-  "USD", "EUR", "PLN"
+  "USD", "EUR", "PLN", "GBP", "YEN"
 ]
 
 export const CountryRisks: any[] = [
@@ -63,20 +63,24 @@ export const IssuerNames: any[] = [
   "American Airlines", "Delta Airlines", "Southwest", "FedEx",
 ]
 
+export const RatingTypes: any[] = [
+  "AAA", "BBB", "CCC",
+]
+
 export const DefaultData: any[] = [
 {
   "IndGroup": "Airlines",
   "IndSector": "Consumer, Cyclical",
   "IndCategory": "Airlines",
-  "Sector": "Public",
+  // "Sector": "Public",
   // "Sector": "Pfd",
   // tslint:disable-next-line:object-literal-sort-keys
-  "Contract": "Complete",
+  // "Contract": "Complete",
   // "Issuer": "AMERICAN AIRLINES GROUP",
-  "Rating": "WR",
+  // "Rating": "WR",
   "Fitch": "N.A.",
   "Collateral": "Assets",
-  "Currency": "USD",
+  // "Currency": "USD",
   // "Security": "001765866 Pfd",
   "Transactions": "1765866",
   // "Ticker": "AAL",
@@ -290,7 +294,7 @@ export const DataItems: any[] = [
 },
 {
  "Category": "Oil",
- "Type": "Uranium",
+ "Type": "Crude",
  "Spread": 0.02,
  "Open Price": 27.55,
  "Price": 27.58,
@@ -927,6 +931,7 @@ export class LiveFinancialData {
           item.Security = this.getRandomItem(SecurityTypes);
           item.Issuer = this.getRandomItem(IssuerNames);
           item.Maturity = this.getRandomDate();
+          item.Rating = this.getRandomItem(RatingTypes);
 
           for (const mockData of DefaultData) {
               for (const prop in mockData) {
