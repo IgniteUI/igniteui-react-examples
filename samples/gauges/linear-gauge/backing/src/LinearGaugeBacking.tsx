@@ -6,10 +6,6 @@ IgrLinearGaugeModule.register();
 
 export default class LinearGaugeBacking extends React.Component {
 
-    constructor(props: any) {
-        super(props);
-    }
-
     public render() {
         return (
             <div className="igContainer">

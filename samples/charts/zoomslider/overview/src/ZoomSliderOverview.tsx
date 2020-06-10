@@ -5,7 +5,7 @@ import { IgrDataChartAnnotationModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataChart } from 'igniteui-react-charts';
-import { IgrCrosshairLayer } from 'igniteui-react-charts';
+// import { IgrCrosshairLayer } from 'igniteui-react-charts';
 import { IgrCrosshairLayerModule } from 'igniteui-react-charts';
 import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
 import { IgrNumericXAxis } from 'igniteui-react-charts';
@@ -226,7 +226,7 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
             const value = xAxis.actualMinimumValue + (args.position * range);
             const str = SampleScatterStats.abbreviate(value)
             // console.log("p=" + args.position + " r=" + range + " v=" + value + " str=" + str);
-            args.value = null;
+            args.value = str;
         }
         // const index = Math.round(args.position * (this.countriesAll.length - 1));
         // const item = this.countriesAll[index];

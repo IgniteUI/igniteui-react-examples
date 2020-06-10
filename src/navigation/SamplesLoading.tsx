@@ -1,11 +1,7 @@
 import * as React from "react";
 import './SamplesLoading.css'
 
-export class SamplesLoading extends React.Component<any, any>
-{
-    constructor(props: any) {
-        super(props);
-    }
+export class SamplesLoading extends React.Component<any, any> {
 
     public render() {
 

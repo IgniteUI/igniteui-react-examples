@@ -13,10 +13,6 @@ IgrDataChartInteractivityModule.register();
 
 export default class MapDisplayImageryBing extends React.Component<any, any> {
 
-    constructor(props: any) {
-        super(props);
-    }
-
     public render() {
         return (
             <div className="igContainer-horizontal" >

@@ -1,11 +1,7 @@
 import * as React from "react";
 import './SamplesFallback.css'
 
-export class SamplesFallback extends React.Component<any, any>
-{
-    constructor(props: any) {
-        super(props);
-    }
+export class SamplesFallback extends React.Component<any, any> {
 
     public render() {
 

@@ -53,7 +53,7 @@ export class DataGridSharedData {
             person.LastName = lastName;
             person.Name = firstName + " " + lastName;
             person.Phone = this.getRandomPhone();
-            person.Photo = photoPath,
+            person.Photo = photoPath;
             person.Street = street;
             person.Salary = this.getRandomNumber(40, 200) * 1000;
             person.Sales = this.getRandomNumber(200, 980) * 1000;
