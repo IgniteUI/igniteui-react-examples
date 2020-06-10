@@ -37,20 +37,22 @@ var sampleSource = [
     igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
     igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
     igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
-    // maps:
+    // // maps:
     igConfig.SamplesCopyPath + '/maps/**/package.json',
-    // excel:
+    // // excel:
     igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
     // gauges:
     igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
-    // grids:
+    // // grids:
     igConfig.SamplesCopyPath + '/grids/**/package.json',
+    // layouts:
+    igConfig.SamplesCopyPath + '/layouts/**/package.json',
     // tests:
-    // igConfig.SamplesCopyPath + '/tests1/**/package.json',
-    // igConfig.SamplesCopyPath + '/tests2/**/package.json',
+    igConfig.SamplesCopyPath + '/tests1/**/package.json',
+    igConfig.SamplesCopyPath + '/tests2/**/package.json',
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder
@@ -226,12 +228,14 @@ function copySamples(cb) {
               sample.SampleFolderPath + '/src/*.*',
         '!' + sample.SampleFolderPath + '/src/index.css',
         '!' + sample.SampleFolderPath + '/src/index.tsx',
+        '!' + sample.SampleFolderPath + '/src/typedecls.d.ts',
         '!' + sample.SampleFolderPath + '/sandbox.config.json',
         '!' + sample.SampleFolderPath + '/sandbox.config.json',
         '!' + sample.SampleFolderPath + '/README.md',
         '!' + sample.SampleFolderPath + '/ReadMe.md',
         '!' + sample.SampleFolderPath + '/readme.md',
         '!' + sample.SampleFolderPath + '/package.json',
+        '!' + sample.SampleFolderPath + '/package-lock.json',
         ])
         // .pipe(copyExclude(['ReadMe.md', 'index.tsx']))
         // .pipe(logFile())

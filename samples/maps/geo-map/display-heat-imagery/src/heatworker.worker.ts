@@ -7,7 +7,7 @@ HeatTileGeneratorWebWorker.postmessage = postMessageFunction;
 HeatTileGeneratorWebWorker.start();
 
 function postMessageFunction(){
-    self.postMessage.apply(self, Array.prototype.slice.call(arguments));
+    (self.postMessage as any).apply(self, Array.prototype.slice.call(arguments));
 }
 
 export default {} as typeof Worker & (new () => Worker);

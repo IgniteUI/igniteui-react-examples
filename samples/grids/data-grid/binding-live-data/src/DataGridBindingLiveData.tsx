@@ -134,7 +134,7 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
     }
 
     public render() {
-        let buttonStyle:any = { height: "2rem", marginLeft: "10px", marginBottom: "-10px", width: "160px"};
+        let buttonStyle:any = { height: "2rem", marginLeft: "10px", marginBottom: "-10px", width: "160px", whiteSpace: "nowrap" };
         let labelStyle:any = { fontSize: "0.8rem", marginTop: "0px", marginLeft: "0px" };
         let iconStyle:any = { paddingLeft: "20px", paddingTop: "5px" };
 
@@ -282,7 +282,6 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                     <IgrTextColumn propertyPath="Category" width="*>120" />
                     <IgrTextColumn propertyPath="Type" width="*>90"    />
                     <IgrTextColumn propertyPath="Risk" width="*>100" />
-                    <IgrTextColumn propertyPath="Contract" width="*>120" />
                     <IgrNumericColumn propertyPath="Open Price" width="*>130"/>
                     <IgrTemplateColumn propertyPath="Price" width="*>100"
                         horizontalAlignment="right"
@@ -300,9 +299,29 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                         cellStyleKeyRequested={this.onPricePercentStyleKey}
                         cellUpdating={this.onPricePercentCellUpdating}/>
 
+                    <IgrTextColumn propertyPath="Contract" width="*>120" />
                     <IgrTextColumn propertyPath="Settlement" width="*>130" />
                     <IgrTextColumn propertyPath="Region" width="*>130" />
                     <IgrTextColumn propertyPath="Country" width="*>120" />
+                    {/* TODO open chart on clicking a cell in the Chart column */}
+                    {/* <IgrTemplateColumn propertyPath="Chart" width="*>90"
+                        cellStyleKeyRequested={this.onChartStyleKey}
+                        cellUpdating={this.onChartCellUpdating}/>
+                    <IgrTemplateColumn propertyPath="Grid" width="*>90"
+                        cellStyleKeyRequested={this.onGridStyleKey}
+                        cellUpdating={this.onGridCellUpdating} /> */}
+                    <IgrTextColumn propertyPath="IndGroup" headerText="Group" width="*>100" />
+                    <IgrTextColumn propertyPath="IndSector" headerText="Industry" width="*>120"/>
+                    <IgrTextColumn propertyPath="IndCategory" headerText="Category" width="*>100" />
+                    <IgrTextColumn propertyPath="Sector" width="*>90" />
+                    <IgrTextColumn propertyPath="Issuer" width="*>170"/>
+                    <IgrTextColumn propertyPath="Rating" width="*>90" />
+                    <IgrTextColumn propertyPath="Currency" width="*>90" />
+                    <IgrTextColumn propertyPath="Security" width="*>120" />
+                    <IgrNumericColumn propertyPath="Transactions" width="*>150" />
+                    <IgrNumericColumn propertyPath="CPN" width="*>90" />
+                    <IgrTextColumn propertyPath="Maturity" width="*>120" />
+                    <IgrTextColumn propertyPath="Collateral" width="*>120" />
                     <IgrNumericColumn propertyPath="Buy" width="*>110"/>
                     <IgrNumericColumn propertyPath="Sell" width="*>110"/>
                     <IgrNumericColumn propertyPath="Spread" width="*>110"/>
@@ -312,24 +331,6 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
                     <IgrNumericColumn propertyPath="High(Y)" width="*>110"/>
                     <IgrNumericColumn propertyPath="Low(Y)" width="*>110"/>
                     <IgrNumericColumn propertyPath="Start(Y)" width="*>110"/>
-                    <IgrTemplateColumn propertyPath="Chart" width="*>90"
-                        cellStyleKeyRequested={this.onChartStyleKey}
-                        cellUpdating={this.onChartCellUpdating}/>
-                    <IgrTemplateColumn propertyPath="Grid" width="*>90"
-                        cellStyleKeyRequested={this.onGridStyleKey}
-                        cellUpdating={this.onGridCellUpdating} />
-                    <IgrTextColumn propertyPath="IndGroup" width="*>100" />
-                    <IgrTextColumn propertyPath="IndSector" width="*>120"/>
-                    <IgrTextColumn propertyPath="IndCategory" width="*>100" />
-                    <IgrTextColumn propertyPath="Sector" width="*>90" />
-                    <IgrTextColumn propertyPath="Issuer" width="*>170"/>
-                    <IgrTextColumn propertyPath="Rating" width="*>90" />
-                    <IgrTextColumn propertyPath="Currency" width="*>90" />
-                    <IgrTextColumn propertyPath="Security" width="*>120" />
-                    <IgrNumericColumn propertyPath="Transactions" width="*>150" />
-                    <IgrNumericColumn propertyPath="CPN" width="*>90" />
-                    <IgrTextColumn propertyPath="Maturity" width="*>120" />
-                    <IgrTextColumn propertyPath="Collateral" width="*>90" />
                     <IgrNumericColumn propertyPath="KRD_3YR" width="*>120" />
                     <IgrNumericColumn propertyPath="KRD_5YR" width="*>120" />
                     <IgrNumericColumn propertyPath="KRD_1YR" width="*>120" />

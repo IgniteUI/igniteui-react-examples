@@ -2,7 +2,7 @@ import * as React from 'react';
 import { MapUtils, MapRegion } from './MapUtils';
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
-import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
+import { IgrDataChartInteractivityModule, IgrSeriesViewer } from 'igniteui-react-charts';
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 
@@ -58,7 +58,7 @@ export default class MapSynchronization extends React.Component<any, any> {
         this.GeoMap2 = geoMap;
     }
 
-    public onWindowRectChangedMap1(geoMap: IgrGeographicMap, e: IgrRectChangedEventArgs) {
+    public onWindowRectChangedMap1(geoMap: IgrSeriesViewer, e: IgrRectChangedEventArgs) {
         if (this.GeoMapSynchronizing) { return; }
 
         this.GeoMapSynchronizing = true;
@@ -66,7 +66,7 @@ export default class MapSynchronization extends React.Component<any, any> {
         this.GeoMapSynchronizing = false;
     }
 
-    public onWindowRectChangedMap2(geoMap: IgrGeographicMap, e: IgrRectChangedEventArgs) {
+    public onWindowRectChangedMap2(geoMap: IgrSeriesViewer, e: IgrRectChangedEventArgs) {
         if (this.GeoMapSynchronizing) { return; }
 
         this.GeoMapSynchronizing = true;

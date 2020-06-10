@@ -400,6 +400,16 @@
     font-size: 0.75rem;
 }
 
+.tooltipHorizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.tooltipVertical {
+    display: flex;
+    flex-direction: column;
+}
+
 .tooltipRow {
     display: table-row;
 }
@@ -421,6 +431,7 @@
     object-fit: fill;
     height: 50px;
     width: 70px;
+    margin-right: 5px;
 }
 
 .tooltipFlagBoarder {

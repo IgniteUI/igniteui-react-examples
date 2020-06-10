@@ -71,7 +71,7 @@ export class LegendLink extends React.Component<any, any> {
 
         return hasLink ?
         <div className="SourceStyle">
-            <a target="_blank" href={this.props.href} >
+            <a target="_blank" href={this.props.href} rel="noopener noreferrer">
             {this.props.text}</a>
         </div> :
         // <div >

@@ -1,11 +1,11 @@
 
 module.exports = function override(config, env) {
     console.log("Running config-overrides.js");
-    const paths = require('./node_modules/react-scripts-ts/config/paths');
+    const paths = require('./node_modules/react-scripts/config/paths');
     console.log(paths);
     let rules = config.module.rules;
     //let paths = config._paths;
-    let oneOf = rules[3].oneOf;
+    let oneOf = rules[2].oneOf;
     oneOf.splice(0, 0, {
         test: /\.worker\.ts$/,
         include: paths.appSrc,

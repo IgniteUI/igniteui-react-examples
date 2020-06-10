@@ -1,5 +1,5 @@
 import React from 'react';
-import { IgrBubbleSeries } from 'igniteui-react-charts';
+import { IgrBubbleSeries, IgrSeriesViewer } from 'igniteui-react-charts';
 import { IgrAnnotationLayer } from 'igniteui-react-charts';
 import { IgrDataChartAnnotationModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
@@ -150,7 +150,7 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
         this.zoomSlider = slider;
     }
 
-    private onCursorMove(chart: IgrDataChart, args: IgrChartCursorEventArgs) {
+    private onCursorMove(chart: IgrSeriesViewer, args: IgrChartCursorEventArgs) {
         console.log(this.container.offsetWidth);
         this.charts.map(c => {
             if (c !== chart) {
@@ -164,7 +164,7 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
         });
     }
 
-    private onActualWindowRectChanged(chart: IgrDataChart, args: IgrRectChangedEventArgs) {
+    private onActualWindowRectChanged(chart: IgrSeriesViewer, args: IgrRectChangedEventArgs) {
         if (!this.isSynchronizingZoom) {
             this.syncZooms(chart);
         }
@@ -235,7 +235,7 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
         // }
     }
 
-    private onGridAreaRectChanged(chart: IgrDataChart, args: IgrRectChangedEventArgs) {
+    private onGridAreaRectChanged(chart: IgrSeriesViewer, args: IgrRectChangedEventArgs) {
         let newRect = args.newRect;
 
         if (!this.container) {

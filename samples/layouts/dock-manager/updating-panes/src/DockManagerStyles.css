@@ -1,0 +1,41 @@
+
+.dockManagerContent {
+    padding: 0.5rem;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    display: flex;
+    flex-direction: column;
+    /* background: orange; */
+}
+
+.dockManagerFull {
+    padding: 0rem;
+    margin: 0rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dockManagerFrame {
+    padding: 0rem;
+    margin: 0rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.employeesDetailsRow {
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    align-items: center;
+}
+

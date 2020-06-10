@@ -25,7 +25,7 @@ export class SamplesFallback extends React.Component<any, any>
             <div className="sbFallback">
                 <div className="sbFallbackInfo">Cannot find a sample with routing path:</div>
                 <div className="sbFallbackRoute">{sbRoute}</div>
-                <div className="sbFallbackSuggestion">Open<a className="sbFallbackUrl" target="_blank" href={sbUrl}> React samples browser</a></div>
+                <div className="sbFallbackSuggestion">Open<a className="sbFallbackUrl" target="_blank" href={sbUrl} rel="noopener noreferrer"> React samples browser</a></div>
             </div>
         );
     }

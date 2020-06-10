@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
@@ -27,3 +26,10 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 RegisterServiceWorker();
 // serviceWorker.unregister();
+
+// // copied from https://stenciljs.com/docs/react
+// import { applyPolyfills, defineCustomElements } from 'igniteui-dockmanager/loader';
+
+// applyPolyfills().then(() => {
+//   defineCustomElements();
+// });

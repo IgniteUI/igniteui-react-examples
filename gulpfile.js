@@ -26,6 +26,11 @@ exports.updatePackages = updatePackages = gulp.series(
     sb.updatePackages,
 );
 
+exports.updateSharedFiles = updateSharedFiles = gulp.series(
+    sb.getSamples,
+    sb.updateSharedFiles,
+);
+
 exports.updateBrowser = updateBrowser = gulp.series(
     sb.getSamples,
     sb.copySamples,

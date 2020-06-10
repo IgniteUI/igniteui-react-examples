@@ -2,7 +2,7 @@ import * as React from 'react';
 import { MapUtils, MapRegion } from './MapUtils';
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
-import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
+import { IgrDataChartInteractivityModule, IgrSeriesViewer } from 'igniteui-react-charts';
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrArcGISOnlineMapImagery } from 'igniteui-react-maps';
@@ -178,8 +178,8 @@ export default class MapNavigation extends React.Component<any, any> {
         this.geoMap.windowScale = 0.1;
     }
 
-    public onMapWindowRectChanged(geoMap: IgrGeographicMap, e: IgrRectChangedEventArgs) {
-
+    public onMapWindowRectChanged(viewer: IgrSeriesViewer, e: IgrRectChangedEventArgs) {
+        let geoMap = viewer as IgrGeographicMap;
         // converting window rect to geographic rect/region:
         const geoRect: any = geoMap.getGeographicFromZoom(e.newRect);
         geoRect.bottom = geoRect.top + geoRect.height;
