@@ -29,30 +29,30 @@ log('loaded');
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSource = [
     // charts:
-    // igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
-    // igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
+    igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
     // // maps:
-    // igConfig.SamplesCopyPath + '/maps/**/package.json',
+    igConfig.SamplesCopyPath + '/maps/**/package.json',
     // // excel:
-    // igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
-    // igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
+    igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
+    igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
     // gauges:
     igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
-    // igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
-    // igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
+    igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
+    igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
     // // grids:
-    // igConfig.SamplesCopyPath + '/grids/**/package.json',
+    igConfig.SamplesCopyPath + '/grids/**/package.json',
     // layouts:
     igConfig.SamplesCopyPath + '/layouts/**/package.json',
     // tests:
-    // igConfig.SamplesCopyPath + '/tests1/**/package.json',
-    // igConfig.SamplesCopyPath + '/tests2/**/package.json',
+    igConfig.SamplesCopyPath + '/tests1/**/package.json',
+    igConfig.SamplesCopyPath + '/tests2/**/package.json',
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder

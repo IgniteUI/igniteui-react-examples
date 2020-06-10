@@ -51,7 +51,7 @@ export class DockManagerSharedData {
             person.CountryFlag = "http://static.infragistics.com/xplatform/images/flags/" + location.country + ".png";
             person.Email = email;
             person.FirstName = firstName;
-            person.Gender = "http://static.infragistics.com/xplatform/images/genders/" + gender + ".png",
+            person.Gender = "http://static.infragistics.com/xplatform/images/genders/" + gender + ".png";
             person.Generation = generation;
             person.ID = this.pad(i + 1, 5);
             person.LastName = lastName;

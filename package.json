@@ -44,8 +44,8 @@
     "react-event-listener": "^0.6.6",
     "react-loadable": "^5.5.0",
     "react-router-dom": "^4.3.1",
-    "react-transition-group": "^4.1.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-transition-group": "^4.1.1"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.6",

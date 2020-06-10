@@ -6,10 +6,10 @@
   "version": "1.4.0",
   "private": true,
   "scripts": {
-    "start": "set PORT=3200 && react-app-rewired --max_old_space_size=10240 start --scripts-version react-scripts-ts ",
-    "build": "react-app-rewired --max_old_space_size=10240 build --scripts-version react-scripts-ts ",
-    "test": "react-app-rewired test --env=jsdom --scripts-version react-scripts-ts",
-    "eject": "react-app-rewired eject --scripts-version react-scripts-ts "
+    "start": "set PORT=3200 && react-scripts --max_old_space_size=10240 start",
+    "build": "react-scripts --max_old_space_size=10240 build ",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.3",
@@ -36,7 +36,7 @@
     "react-event-listener": "^0.6.6",
     "react-loadable": "^5.5.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^4.0.8",
+    "react-scripts": "3.4.1",
     "react-transition-group": "^4.1.1",
     "tslib": "1.10.0"
   },
@@ -46,7 +46,7 @@
     "@types/react": "^16.8.20",
     "@types/react-dom": "^16.8.3",
     "react-app-rewired": "^1.6.2",
-    "typescript": "^3.3.4000",
+    "typescript": "~3.7.2",
     "worker-loader": "^2.0.0"
   },
   "browserslist": [
