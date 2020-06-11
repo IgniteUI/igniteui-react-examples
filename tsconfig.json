@@ -41,6 +41,7 @@
     "webpack",
     "jest",
     "src/setupTests.ts",
+    "src/CacheBuster.js",
     "**/odatajs-4.0.0.js",
     "config-overrides.js",
     "iisConfig/*",

@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 let gulp = require('gulp');
 
@@ -32,10 +34,13 @@ exports.updateSharedFiles = updateSharedFiles = gulp.series(
 );
 
 exports.updateBrowser = updateBrowser = gulp.series(
+    sb.updateVersion,
     sb.getSamples,
     sb.copySamples,
     // sb.copyPackageJson,
 );
+
+exports.updateVersion = updateVersion = sb.updateVersion;
 
 // exports.default = updateBrowser;
 exports.logPublicFiles = sb.logPublicFiles;
