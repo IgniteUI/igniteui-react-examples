@@ -1,4 +1,5 @@
-
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 module.exports = function override(config, env) {
     console.log("Running config-overrides.js");
     const paths = require('./node_modules/react-scripts/config/paths');
@@ -41,12 +42,12 @@ module.exports = function override(config, env) {
             name: 'igniteui-react-grids',
             chunks: 'all',
         },
-        igniteuiMaps: {
+        igniteuiInputs: {
             test: /[\\/]node_modules[\\/](igniteui-react-inputs)[\\/]/,
             name: 'igniteui-react-inputs',
             chunks: 'all',
         },
-        igniteuiMaps: {
+        igniteuiLayouts: {
             test: /[\\/]node_modules[\\/](igniteui-react-layouts)[\\/]/,
             name: 'igniteui-react-layouts',
             chunks: 'all',

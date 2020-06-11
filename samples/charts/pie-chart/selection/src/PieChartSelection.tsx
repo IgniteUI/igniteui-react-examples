@@ -13,9 +13,15 @@ export default class PieChartSelection extends React.Component<any, any> {
     public chart: IgrPieChart;
 
     constructor(props: any) {
-       super(props);
+        super(props);
 
-        this.initData();
+        this.state = { data: [
+            { MarketShare: 30, Company: "Google",    },
+            { MarketShare: 30, Company: "Apple",     },
+            { MarketShare: 15, Company: "Microsoft", },
+            { MarketShare: 15, Company: "Samsung",   },
+            { MarketShare: 10, Company: "Other",     },
+        ] };
         this.onPieRef = this.onPieRef.bind(this);
         this.onSliceClick = this.onSliceClick.bind(this);
     }
@@ -61,13 +67,4 @@ export default class PieChartSelection extends React.Component<any, any> {
         this.setState( {selectedLabel: selectedSlices } );
     }
 
-    public initData() {
-        this.state = { data: [
-            { MarketShare: 30, Company: "Google",    },
-            { MarketShare: 30, Company: "Apple",     },
-            { MarketShare: 15, Company: "Microsoft", },
-            { MarketShare: 15, Company: "Samsung",   },
-            { MarketShare: 10, Company: "Other",     },
-       ] }
-    }
 }

@@ -22,8 +22,14 @@ export default class DoughnutChartLegend extends React.Component<any, any> {
         this.onChartRef = this.onChartRef.bind(this);
         this.onLegendRef = this.onLegendRef.bind(this);
 
-        this.state = { componentVisible: true }
-        this.initData();
+        this.state = {
+            data: [
+                { MarketShare: 30, Company: "Google",    },
+                { MarketShare: 30, Company: "Apple",     },
+                { MarketShare: 15, Company: "Microsoft", },
+                { MarketShare: 15, Company: "Samsung",   },
+                { MarketShare: 10, Company: "Other",     },
+        ] };
     }
 
     public onChartRef(chart: IgrDoughnutChart) {
@@ -64,14 +70,4 @@ export default class DoughnutChartLegend extends React.Component<any, any> {
         );
     }
 
-    public initData() {
-        this.state = {
-            data: [
-                { MarketShare: 30, Company: "Google",    },
-                { MarketShare: 30, Company: "Apple",     },
-                { MarketShare: 15, Company: "Microsoft", },
-                { MarketShare: 15, Company: "Samsung",   },
-                { MarketShare: 10, Company: "Other",     },
-        ] };
-    }
 }

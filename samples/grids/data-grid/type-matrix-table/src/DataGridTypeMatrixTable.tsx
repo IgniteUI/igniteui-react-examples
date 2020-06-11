@@ -123,7 +123,7 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
         }
 
         const info = e.cellInfo as IgrTemplateCellInfo;
-        label.textContent = info.value;;
+        label.textContent = info.value;
     }
 
     public onHorizontalHeaderUpdating(s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs, align: string) {
@@ -144,7 +144,7 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
         }
 
         const info = e.cellInfo as IgrTemplateCellInfo;
-        label.textContent = info.value;;
+        label.textContent = info.value;
     }
 
     public onCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {

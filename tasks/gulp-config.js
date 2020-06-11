@@ -1,4 +1,4 @@
-// let gulp = require('gulp');
+/* eslint-disable no-undef */
 
 function log(msg) {
     console.log('gulp-config.js ' + msg);

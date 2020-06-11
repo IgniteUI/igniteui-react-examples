@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 let gulp = require('gulp');
 let gulpIgnore = require('gulp-ignore');
 let uglify = require('gulp-uglify');
@@ -322,6 +325,35 @@ function copyPackageJson(cb) {
     cb();
 } exports.copyPackageJson = copyPackageJson;
 
+// updates ./public/meta.json with version in ./package.json file
+function updateVersion(cb) {
+
+    const appPackage = require('../package.json');
+    const appVersion = appPackage.version;
+    const jsonData = { version: appVersion };
+    const jsonContent = JSON.stringify(jsonData);
+    const jsonPublicFile = './public/meta.json';
+
+    fs.writeFile(jsonPublicFile, jsonContent, 'utf8', function(err) {
+        if (err) {
+            console.log('gulp cannot update ' + jsonPublicFile + ' file: \n' + err);
+            return console.log(err);
+        }
+        console.log('gulp updated ' + jsonPublicFile + ' file with latest version number');
+    });
+
+    const jsonSourceFile = './src/CacheApp.json';
+    fs.writeFile(jsonSourceFile, jsonContent, 'utf8', function(err) {
+        if (err) {
+            console.log('gulp cannot update ' + jsonSourceFile + ' file: \n' + err);
+            return console.log(err);
+        }
+        console.log('gulp updated ' + jsonSourceFile + ' file with latest version number');
+    });
+    cb();
+
+} exports.updateVersion = updateVersion;
+
 function updateIndex(cb) {
 
     var template = fs.readFileSync("./templates/sample/src/index.tsx", "utf8");
@@ -522,6 +554,8 @@ function logUniqueFiles(cb) {
     });
 
 } exports.logUniqueFiles = logUniqueFiles;
+
+
 
 
 

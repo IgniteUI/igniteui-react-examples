@@ -137,7 +137,7 @@ class Transformer {
                         fileNames.push(filePath);
                     // console.log(filePath);
                     // && !filePath.includes("index.tsx")
-                    // info.SampleFileName = this.getFileName(filePath);;
+                    // info.SampleFileName = this.getFileName(filePath);
                 }
             }
 

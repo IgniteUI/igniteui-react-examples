@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 import * as React from "react";
 import { Route, Switch, Link } from "react-router-dom"
 import { withRouter } from 'react-router-dom';
@@ -26,6 +28,14 @@ import * as SidebarMenuIcon from '@material-ui/icons/Menu';
 // import * as SampleSearchIcon from "@material-ui/icons/Search";
 // import * as SampleLinkIcon from "@material-ui/icons/FiberManualRecord";
 
+import CacheBuster from '../CacheBuster';
+
+interface CacheBusterProps {
+    loading: boolean;
+    isLatestVersion: boolean;
+    refreshCacheAndReload(): any;
+}
+
 class SampleInfo {
     public name: string;
     public control: string;
@@ -38,7 +48,7 @@ export class SamplesBrowser extends React.Component<any, any>
     public navLinks: any[] = [];
     public navRoutes: any[] = [];
     public navLookup: Map<string, SampleInfo> = new Map();
-    public SidebarMaxWidth: string = "240px";
+
     public styles: any = {
         toolbarIcon: { display: "inline-block", fontSize: "1rem",},
         toolbarBtn: { color: "white", padding: "0.25rem", marginLeft: "0rem", marginRight: "0.75rem", fontSize: "medium", display: "inline-block", height: "32px",},
@@ -120,7 +130,6 @@ export class SamplesBrowser extends React.Component<any, any>
         }
     };
 
-
     public render() {
         let sbBrowsingMode = SamplesRouter.isBrowsingMode();
         let sbSidebarStyle: any = {}; // sbBrowsingMode && this.state.SidebarVisible ? { display: "flex" } : { display: "none" };
@@ -161,60 +170,63 @@ export class SamplesBrowser extends React.Component<any, any>
         console.log("SB render " + sbRoute + " with browsing=" + sbBrowsingMode);
 
         return (
-            <div className="sbRoot" >
+            <CacheBuster>
+                {({ loading, isLatestVersion, refreshCacheAndReload }: CacheBusterProps) => {
+                    if (loading) return null;
+                    if (!loading && !isLatestVersion) {
+                        refreshCacheAndReload();
+                    }
+                    return (
+                        <div className="sbRoot" >
+                            <div className="sbSidebar" style={sbSidebarStyle}>
+                                {/*  <Link to={`/samples`}>Samples home</Link> */}
+                                {this.navLinks}
+                            </div>
 
-                <div className="sbSidebar" style={sbSidebarStyle}>
-                    {/* <Link to={`/`}>Samples root</Link>
-                    <Link to={`/samples`}>Samples home</Link> */}
-                    {/* <Link to={`/samples/charts`}>samples charts </Link> */}
-                    {/* <Link to={`/charts`}>charts</Link> */}
-                    {this.navLinks}
-                    {/* {this.test2Links} */}
-                    {/* {this.test1Links}
-                    {this.test2Links} */}
-                </div>
+                            <div className="sbContent" style={sbContentStyle}>
+                                <div className="sbToolbar" style={sbToolbarStyle}>
+                                    <IconButton onClick={this.onSidebarVisibleClick} style={this.styles.toolbarBtn} edge="start" >
+                                        <SidebarMenuIcon.default  />
+                                    </IconButton>
+                                    {/* <div className="sbToolbarLabel"> {this.state.SelectedControl} </div> */}
+                                    {/* <ToolbarArrowIcon.default className="sbToolbarIcon" /> */}
+                                    {/* <div className="sbToolbarLabel"> - </div> */}
+                                    <div className="sbToolbarLabel"> {this.state.SelectedSample} </div>
+                                    {/* <ToolbarArrowIcon.default className="sbToolbarIcon" /> */}
 
-                <div className="sbContent" style={sbContentStyle}>
-                    <div className="sbToolbar" style={sbToolbarStyle}>
-                        <IconButton onClick={this.onSidebarVisibleClick} style={this.styles.toolbarBtn} edge="start" >
-                            <SidebarMenuIcon.default  />
-                        </IconButton>
-                        {/* <div className="sbToolbarLabel"> {this.state.SelectedControl} </div> */}
-                        {/* <ToolbarArrowIcon.default className="sbToolbarIcon" /> */}
-                        {/* <div className="sbToolbarLabel"> - </div> */}
-                        <div className="sbToolbarLabel"> {this.state.SelectedSample} </div>
-                        {/* <ToolbarArrowIcon.default className="sbToolbarIcon" /> */}
+                                    {/* {this.state.SelectedSample} style={this.styles.toolbarIcon} */}
+                                </div>
+                                {/* <React.Suspense fallback={<span>Loading...</span>}> */}
+                                <React.Suspense fallback={<SamplesLoading/>}>
+                                <div className="sbSwitch" style={sbSwitchStyle}>
+                                    <Switch >
+                                        {/* <Route exact={false} path="/samples/charts" key="charts" component={ChartsRouter}/> */}
+                                        {/* <Route exact={false} path="/charts" key="charts" component={ChartsRouter}/> */}
+                                        <Route exact={true} path="/"  >
+                                            <div/>
+                                            {/* style={{paddingLeft: "1rem"}}>Please select a sample</h3> */}
+                                        </Route>
+                                        <Route exact={true} path="/samples">
+                                            <h3 style={{marginLeft: "1rem"}}>Please select a sample</h3>
+                                            {/* <SamplesLoading/> */}
+                                        </Route>
+                                        {/* routes to all samples */}
+                                        {this.navRoutes}
 
-                        {/* {this.state.SelectedSample} style={this.styles.toolbarIcon} */}
-                    </div>
-                    {/* <React.Suspense fallback={<span>Loading...</span>}> */}
-                    <React.Suspense fallback={<SamplesLoading/>}>
-                    <div className="sbSwitch" style={sbSwitchStyle}>
-                        <Switch >
-                            {/* <Route exact={false} path="/samples/charts" key="charts" component={ChartsRouter}/> */}
-                            {/* <Route exact={false} path="/charts" key="charts" component={ChartsRouter}/> */}
-                            <Route exact={true} path="/"  >
-                                <div/>
-                                {/* style={{paddingLeft: "1rem"}}>Please select a sample</h3> */}
-                            </Route>
-                            <Route exact={true} path="/samples">
-                                <h3 style={{marginLeft: "1rem"}}>Please select a sample</h3>
-                                {/* <SamplesLoading/> */}
-                            </Route>
-                            {/* routes to all samples */}
-                            {this.navRoutes}
+                                        {/* routing fallback displayed when a sample is missing */}
+                                        <Route exact={false} >
+                                            <SamplesFallback />
+                                        </Route>
+                                    </Switch>
+                                </div>
+                                </React.Suspense>
 
-                            {/* routing fallback displayed when a sample is missing */}
-                            <Route exact={false} >
-                                <SamplesFallback />
-                            </Route>
-                        </Switch>
-                    </div>
-                    </React.Suspense>
+                            </div>
 
-                </div>
-
-            </div>
+                        </div>
+                    );
+                }}
+            </CacheBuster>
         );
     }
 

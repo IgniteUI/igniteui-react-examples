@@ -21,8 +21,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
     public constructor(props: any) {
         super(props);
 
-        this.data = this.generateSalesPeople(8000)
-        this.data = this.data;
+        this.data = this.generateSalesPeople(8000);
         this.tick = this.tick.bind(this);
 
         this.onPriceStyleKey = this.onPriceStyleKey.bind(this);

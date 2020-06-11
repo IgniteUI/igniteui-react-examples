@@ -3,7 +3,7 @@
 export class SamplePolarData {
 
     public static create(): any[] {
-        const data: ISamplePolarItem[] = [
+        const data: SamplePolarItem[] = [
             { Direction: 0,   BoatSpeed: 70,  WindSpeed: 90 },
             { Direction: 45,  BoatSpeed: 35,  WindSpeed: 65 },
             { Direction: 90,  BoatSpeed: 25,  WindSpeed: 45 },
@@ -18,7 +18,7 @@ export class SamplePolarData {
     }
 }
 
-interface ISamplePolarItem {
+interface SamplePolarItem {
     Direction?: number;
     WindSpeed?: number;
     BoatSpeed?: number;

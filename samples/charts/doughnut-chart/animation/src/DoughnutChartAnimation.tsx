@@ -21,7 +21,16 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
 
         this.onChartRef = this.onChartRef.bind(this);
         this.onClick = this.onClick.bind(this);
-        this.initData();
+
+        this.state = {
+            data: [
+                { MarketShare: 30, Company: "Google", },
+                { MarketShare: 15, Company: "Microsoft", },
+                { MarketShare: 30, Company: "Apple", },
+                { MarketShare: 15, Company: "Samsung", },
+                { MarketShare: 10, Company: "Other", },
+            ]
+        };
     }
 
     public render() {
@@ -88,17 +97,5 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
                 this.series1.radiusFactor = 0.1;
             }
         }
-    }
-
-    public initData() {
-        this.state = {
-            data: [
-                { MarketShare: 30, Company: "Google", },
-                { MarketShare: 15, Company: "Microsoft", },
-                { MarketShare: 30, Company: "Apple", },
-                { MarketShare: 15, Company: "Samsung", },
-                { MarketShare: 10, Company: "Other", },
-            ]
-        };
     }
 }

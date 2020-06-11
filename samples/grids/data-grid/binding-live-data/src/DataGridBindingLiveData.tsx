@@ -50,7 +50,7 @@ IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
 IgrNumberAbbreviatorModule.register();
 
-interface IAppState {
+interface AppState {
     name: string;
     data: any[];
     liveSomePricesDisabled: boolean;
@@ -68,7 +68,7 @@ interface IAppState {
     allColumns: string[];
 }
 
-export default class DataGridBindingLiveData extends Component<any, IAppState> {
+export default class DataGridBindingLiveData extends Component<any, AppState> {
 
     public chart: IgrDataChart;
     public grid: IgrDataGrid;
@@ -543,17 +543,21 @@ export default class DataGridBindingLiveData extends Component<any, IAppState> {
         if (shouldPopulate) {
             console.log('updatePricesByCountry shouldPopulate');
             countryNames = countryNames.sort();
+            let dataByCountry = this.state.pricesByCountry;
             for (const name of countryNames) {
-                this.state.pricesByCountry.push({
+                dataByCountry.push({
                     Country: name,
                     Price: pricesByCountry.get(name)
                 })
             }
+            this.setState({ pricesByCountry: dataByCountry});
         } else {
-            for (let i = 0; i < this.state.pricesByCountry.length; i++) {
-                const country = this.state.pricesByCountry[i].Country
-                this.state.pricesByCountry[i].Price = pricesByCountry.get(country);
+            let dataByCountry = this.state.pricesByCountry;
+            for (let i = 0; i < dataByCountry.length; i++) {
+                const country = dataByCountry[i].Country
+                dataByCountry[i].Price = pricesByCountry.get(country);
             }
+            this.setState({ pricesByCountry: dataByCountry});
         }
     }
 

@@ -13,7 +13,15 @@ export default class PieChartExplosion extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
-        this.initData();
+
+        this.state = {
+            data: [
+                { MarketShare: 30, Company: "Google",    },
+                { MarketShare: 30, Company: "Apple",     },
+                { MarketShare: 15, Company: "Microsoft", },
+                { MarketShare: 15, Company: "Samsung",   },
+                { MarketShare: 10, Company: "Other",     },
+        ] };
     }
 
     public render() {
@@ -38,14 +46,4 @@ export default class PieChartExplosion extends React.Component<any, any> {
         e.isExploded = !e.isExploded;
     }
 
-    public initData() {
-        this.state = {
-            data: [
-                { MarketShare: 30, Company: "Google",    },
-                { MarketShare: 30, Company: "Apple",     },
-                { MarketShare: 15, Company: "Microsoft", },
-                { MarketShare: 15, Company: "Samsung",   },
-                { MarketShare: 10, Company: "Other",     },
-        ] };
-    }
 }
