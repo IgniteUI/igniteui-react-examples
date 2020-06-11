@@ -16,7 +16,15 @@ export default class DoughnutChartSelection extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.initData();
+        this.data = [
+            { MarketShare: 30, Company: "Google",    },
+            { MarketShare: 15, Company: "Microsoft", },
+            { MarketShare: 30, Company: "Apple",     },
+            { MarketShare: 15, Company: "Samsung",   },
+            { MarketShare: 10, Company: "Other",     },
+        ];
+        this.state = { data: this.data };
+
         this.onPieRef = this.onPieRef.bind(this);
         this.onSliceClick = this.onSliceClick.bind(this);
     }
@@ -77,14 +85,4 @@ export default class DoughnutChartSelection extends React.Component<any, any> {
         this.setState( {selectedLabel: selectedSlices } );
     }
 
-    public initData() {
-        this.data = [
-            { MarketShare: 30, Company: "Google",    },
-            { MarketShare: 15, Company: "Microsoft", },
-            { MarketShare: 30, Company: "Apple",     },
-            { MarketShare: 15, Company: "Samsung",   },
-            { MarketShare: 10, Company: "Other",     },
-        ];
-        this.state = { data: this.data };
-    }
 }

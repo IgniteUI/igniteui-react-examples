@@ -240,7 +240,7 @@ export const DataItems: any[] = [
 },
 {
  "Category": "Oil",
- "Type": "RBOB Gas",
+ "Type": "Gas",
  "Spread": 0.015,
  "Open Price": 1.5086,
  "Price": 1.9532,
