@@ -9,7 +9,7 @@ import './DataGridPager.css';
 /**
  * Interface for the Pager component's properties.
  */
-export interface IDataGridPagerProps {
+export interface DataGridPagerProps {
     /**
      * The data to page through.
      */
@@ -27,7 +27,7 @@ export interface IDataGridPagerProps {
 /**
  * Interface for the Pager component's state.
  */
-interface IDataGridPagerState {
+interface DataGridPagerState {
     /**
      * The internal data source the pager will use. This lets it easily handle sorting,
      * grouping and filtering the data.
@@ -59,13 +59,13 @@ interface IDataGridPagerState {
  * This component is designed to be used in conjunction with the IgrDataGrid component
  * to provide a small paged view of available data.
  */
-export class DataGridPager extends React.Component<IDataGridPagerProps> {
+export class DataGridPager extends React.Component<DataGridPagerProps> {
 
     /**
      * Defining a version of the component's state property with the
-     * IDataGridPagerState interface.
+     * DataGridPagerState interface.
      */
-    public readonly state: IDataGridPagerState = {
+    public readonly state: DataGridPagerState = {
         dataSource: new LocalDataSource(),
         pageCount: 0,
         pageNumber: 1,
@@ -78,7 +78,7 @@ export class DataGridPager extends React.Component<IDataGridPagerProps> {
      * Constructs a new Pager component.
      * @param props The properties for the Pager.
      */
-    constructor(props: IDataGridPagerProps) {
+    constructor(props: DataGridPagerProps) {
         super(props);
 
         // Don't want to emit these in our internal data source.
@@ -99,7 +99,7 @@ export class DataGridPager extends React.Component<IDataGridPagerProps> {
         }
     }
 
-    public componentDidUpdate(previousProps: IDataGridPagerProps, previousState: IDataGridPagerState) {
+    public componentDidUpdate(previousProps: DataGridPagerProps, previousState: DataGridPagerState) {
         // property changes
         if (previousProps.dataSource !== this.props.dataSource) {
             // this.state.dataSource.itemsSource = this.props.dataSource;

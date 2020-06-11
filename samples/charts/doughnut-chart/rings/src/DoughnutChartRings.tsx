@@ -56,7 +56,7 @@ export default class DoughnutChartRings extends React.Component<any, any> {
         ringSeries2.valueMemberPath = "Value";
         ringSeries2.labelsPosition = LabelsPosition.Center;
         ringSeries2.othersCategoryThreshold = 0;
-        ringSeries2.radiusFactor = 0.9;;
+        ringSeries2.radiusFactor = 0.9;
         ringSeries2.outlines = ["white"];
         ringSeries2.dataSource = this.Months; // with 12 items
         ringSeries2.brushes = [

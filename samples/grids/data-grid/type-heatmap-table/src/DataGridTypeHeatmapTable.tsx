@@ -129,7 +129,7 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
         }
 
         const info = e.cellInfo as IgrTemplateCellInfo;
-        label.textContent = info.value;;
+        label.textContent = info.value;
     }
 
     public onHorizontalHeaderUpdating(s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs, align: string) {
@@ -150,7 +150,7 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
         }
 
         const info = e.cellInfo as IgrTemplateCellInfo;
-        label.textContent = info.value;;
+        label.textContent = info.value;
     }
 
     public onHeatCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
@@ -285,7 +285,7 @@ class HeatScale {
         if (index < 0 || index > this.colors.length) {
             return "white";
         } else {
-            return this.colors[index]
-        } ;
+            return this.colors[index];
+        }
     }
 }

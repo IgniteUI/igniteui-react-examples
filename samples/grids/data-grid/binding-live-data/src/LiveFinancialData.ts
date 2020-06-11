@@ -240,7 +240,7 @@ export const DataItems: any[] = [
 },
 {
  "Category": "Oil",
- "Type": "RBOB Gas",
+ "Type": "Gas",
  "Spread": 0.015,
  "Open Price": 1.5086,
  "Price": 1.9532,
@@ -906,7 +906,7 @@ export const DataItems: any[] = [
 }
 ];
 
-interface IResponse {
+interface UpdateResponse {
   data: any[];
   recordsUpdated: number;
 }
@@ -969,7 +969,7 @@ export class LiveFinancialData {
       return currData;
   }
 
-  public static updateRandomPrices2(data: any[]): IResponse {
+  public static updateRandomPrices2(data: any[]): UpdateResponse {
       const currData = data.slice(0, data.length + 1);
       let y = 0;
       for (let i = Math.round(Math.random() * 10); i < data.length; i += Math.round(Math.random() * 10)) {

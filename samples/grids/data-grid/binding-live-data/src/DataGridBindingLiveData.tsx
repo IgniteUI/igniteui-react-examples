@@ -50,7 +50,7 @@ IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
 IgrNumberAbbreviatorModule.register();
 
-interface IAppState {
+interface AppState {
     name: string;
     data: any[];
     liveSomePricesDisabled: boolean;
@@ -68,7 +68,7 @@ interface IAppState {
     allColumns: string[];
 }
 
-export default class DataGridBindingLiveData extends Component<any, IAppState> {
+export default class DataGridBindingLiveData extends Component<any, AppState> {
 
     public chart: IgrDataChart;
     public grid: IgrDataGrid;
