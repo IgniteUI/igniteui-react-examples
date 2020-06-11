@@ -7,7 +7,7 @@
   "homepage": ".",
   "scripts": {
     "clean": "rm -rf build",
-    "lint": "eslint ./samples/**/*.{ts,tsx} ./templates/**/src/*.{ts,tsx} ./src/navigation/*.{ts,tsx}",
+    "lint": "eslint ./samples/**/**/**/*.{ts,tsx} ./templates/**/src/*.{ts,tsx} ./src/navigation/*.{ts,tsx} ./src/*.{ts,tsx}",
     "start": "gulp updateBrowser && set PORT=4200 && react-app-rewired --max_old_space_size=10240 start",
     "build": "gulp updateBrowser && react-app-rewired --max_old_space_size=10240 build",
     "postbuild": "node tasks/copyWebConfig.js",
