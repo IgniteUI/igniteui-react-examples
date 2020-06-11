@@ -1,0 +1,46 @@
+{
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint"
+    ],
+    "plugins": ["react", "@typescript-eslint"],
+    "env": {
+      "browser": true,
+      "jasmine": true,
+      "jest": true
+    },
+    "settings": {
+      "react": {
+        "pragma": "React",
+        "version": "detect"
+      }
+    },
+    "rules": {
+        "no-unused-vars": 0,
+        "no-prototype-builtins": 0,
+        "prefer-const": 0,
+        "prefer-rest-params": 0,
+        "@typescript-eslint/no-unused-vars": 0,
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-inferrable-types": 0,
+        "@typescript-eslint/no-non-null-assertion": 0,
+        "@typescript-eslint/prefer-namespace-keyword": 0,
+        "@typescript-eslint/explicit-module-boundary-types": 0
+    },
+    "overrides": [
+      {
+        "files": ["**/*.ts?(x)"],
+        "rules": {
+          "no-unused-vars": 0
+        }
+      },
+      {
+        "files": ["**/*.js?(x)"],
+        "rules": {
+          "no-unused-vars": 0
+        }
+      }
+    ]
+}

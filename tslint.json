@@ -29,8 +29,8 @@
     "no-var-requires": false,
     "no-console": false,
     "no-string-literal": false,
-    // "no-unused-vars": false,
-    "no-unused-vars": [ "error", { "varsIgnorePattern": "React"} ],
+    "no-unused-vars": false,
+    "@typescript-eslint/no-unused-vars": "off",
     "jsx-no-lambda": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
@@ -41,7 +41,7 @@
     "prefer-const": false,
     "prefer-for-of": false,
     "no-useless-constructor": false,
-    "@typescript-eslint/no-useless-constructor": false
+    "@typescript-eslint/no-useless-constructor": "off"
   },
   "jsRules": {
     "only-arrow-functions": false,
@@ -49,8 +49,8 @@
     "jsx-wrap-multiline": false,
     "no-var-requires": false,
     "no-console": false,
-    // "no-unused-vars": false,
-    "no-unused-vars": [ "error", { "varsIgnorePattern": "React"} ],
+    "no-unused-vars": false,
+    "@typescript-eslint/no-unused-vars": "off",
     "jsx-no-lambda": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
@@ -60,6 +60,6 @@
     "prefer-const": false,
     "prefer-for-of": false,
     "no-useless-constructor": false,
-    "@typescript-eslint/no-useless-constructor": false
+    "@typescript-eslint/no-useless-constructor": "off"
   }
 }
