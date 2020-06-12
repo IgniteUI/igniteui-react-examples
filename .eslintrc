@@ -18,14 +18,22 @@
       }
     },
     "rules": {
+        "default-case": 0,
         "no-undef": 0,
         "no-unused-vars": 0,
+        "no-extend-native": 0,
+        "no-throw-literal": 0,
+        "no-useless-concat": 0,
+        "no-mixed-operators": 0,
         "no-prototype-builtins": 0,
         "prefer-const": 0,
         "prefer-rest-params": 0,
+        "jsx-a11y/alt-text": 0,
+        "jsx-a11y/iframe-has-title": 0,
         "@typescript-eslint/no-unused-vars": 0,
         "@typescript-eslint/no-explicit-any": 0,
         "@typescript-eslint/no-inferrable-types": 0,
+        "@typescript-eslint/no-useless-constructor": 0,
         "@typescript-eslint/no-use-before-define": 0,
         "@typescript-eslint/no-non-null-assertion": 0,
         "@typescript-eslint/interface-name-prefix": 0,
@@ -37,13 +45,55 @@
       {
         "files": ["**/*.ts?(x)"],
         "rules": {
-          "no-unused-vars": 0
+          "default-case": 0,
+          "no-undef": 0,
+          "no-unused-vars": 0,
+          "no-extend-native": 0,
+          "no-throw-literal": 0,
+          "no-useless-concat": 0,
+          "no-mixed-operators": 0,
+          "no-prototype-builtins": 0,
+          "prefer-const": 0,
+          "prefer-rest-params": 0,
+          "jsx-a11y/alt-text": 0,
+          "jsx-a11y/iframe-has-title": 0,
+          "@typescript-eslint/no-unused-vars": 0,
+          "@typescript-eslint/no-explicit-any": 0,
+          "@typescript-eslint/no-inferrable-types": 0,
+          "@typescript-eslint/no-useless-constructor": 0,
+          "@typescript-eslint/no-use-before-define": 0,
+          "@typescript-eslint/no-non-null-assertion": 0,
+          "@typescript-eslint/interface-name-prefix": 0,
+          "@typescript-eslint/prefer-namespace-keyword": 0,
+          "@typescript-eslint/explicit-function-return-type": 0,
+          "@typescript-eslint/explicit-module-boundary-types": 0
         }
       },
       {
         "files": ["**/*.js?(x)"],
         "rules": {
-          "no-unused-vars": 0
+          "default-case": 0,
+          "no-undef": 0,
+          "no-unused-vars": 0,
+          "no-extend-native": 0,
+          "no-throw-literal": 0,
+          "no-useless-concat": 0,
+          "no-mixed-operators": 0,
+          "no-prototype-builtins": 0,
+          "prefer-const": 0,
+          "prefer-rest-params": 0,
+          "jsx-a11y/alt-text": 0,
+          "jsx-a11y/iframe-has-title": 0,
+          "@typescript-eslint/no-unused-vars": 0,
+          "@typescript-eslint/no-explicit-any": 0,
+          "@typescript-eslint/no-inferrable-types": 0,
+          "@typescript-eslint/no-useless-constructor": 0,
+          "@typescript-eslint/no-use-before-define": 0,
+          "@typescript-eslint/no-non-null-assertion": 0,
+          "@typescript-eslint/interface-name-prefix": 0,
+          "@typescript-eslint/prefer-namespace-keyword": 0,
+          "@typescript-eslint/explicit-function-return-type": 0,
+          "@typescript-eslint/explicit-module-boundary-types": 0
         }
       }
     ]
