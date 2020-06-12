@@ -10,7 +10,7 @@ IgrDataGridModule.register();
 
 export default class ExcelLibraryUsingWorkbooks extends React.Component<any, any> {
 
-    public grid : IgrDataGrid;
+    public grid: IgrDataGrid;
 
     public employeeData: any[];
     public expenseData: any[];

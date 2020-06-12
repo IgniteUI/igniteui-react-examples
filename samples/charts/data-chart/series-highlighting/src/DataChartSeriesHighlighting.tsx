@@ -94,17 +94,17 @@ export default class DataChartSeriesHighlighting extends React.Component<any, an
     }
 
     public onSeriesHighlightingChanged = (e: any) => {
-        const isChecked : boolean = e.target.checked;
+        const isChecked: boolean = e.target.checked;
         this.toggleSeriesHighlighting(isChecked);
     }
 
     public onItemHighlightingChanged = (e: any) => {
-        const isChecked : boolean = e.target.checked;
+        const isChecked: boolean = e.target.checked;
         this.toggleItemHighlighting(isChecked);
     }
 
     public onCategoryHighlightingChanged = (e: any) => {
-        const isChecked : boolean = e.target.checked;
+        const isChecked: boolean = e.target.checked;
         this.toggleCategoryHighlighting(isChecked);
     }
 

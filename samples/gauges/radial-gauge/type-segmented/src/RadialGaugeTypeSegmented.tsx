@@ -54,7 +54,7 @@ export default class RadialGaugeTypeSegmented extends React.Component {
         gauge.labelInterval = gauge.interval;
         gauge.labelExtent = 0.8;
         gauge.font = "15px Verdana,Arial";
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             if (e.value > 0) {
                 e.label = e.value + "%"
             } else {

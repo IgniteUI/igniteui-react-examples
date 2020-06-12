@@ -55,7 +55,7 @@ export default class LinearGaugeTypeSegmented extends React.Component {
         gauge.transitionDuration = 500;
         gauge.labelInterval = gauge.interval;
         gauge.labelExtent = 0.15;
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = e.value + "%"
         };
 

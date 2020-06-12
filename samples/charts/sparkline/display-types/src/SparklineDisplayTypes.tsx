@@ -9,7 +9,7 @@ IgrSparklineModule.register();
 export default class SparklineDisplayTypes extends React.Component {
     public data: any[];
 
-    public sparkline : IgrSparkline;
+    public sparkline: IgrSparkline;
 
     constructor(props: any) {
         super(props);

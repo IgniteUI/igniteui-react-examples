@@ -52,7 +52,7 @@ export default class MapBindingMultipleSources extends React.Component {
         this.addSymbolSeriesWith(worldAirports);
     }
 
-    public addGridlineSeriesWith(data : any[])
+    public addGridlineSeriesWith(data: any[])
     {
         const gridSeries = new IgrGeographicPolylineSeries( { name: "gridSeries" });
         gridSeries.dataSource = data;
@@ -63,7 +63,7 @@ export default class MapBindingMultipleSources extends React.Component {
         this.geoMap.series.add(gridSeries);
     }
 
-    public addPolylineSeriesWith(data : any[])
+    public addPolylineSeriesWith(data: any[])
     {
         const lineSeries = new IgrGeographicPolylineSeries ( { name: "lineSeries" });
         lineSeries.dataSource = data;
@@ -74,7 +74,7 @@ export default class MapBindingMultipleSources extends React.Component {
         this.geoMap.series.add(lineSeries);
     }
 
-    public addSymbolSeriesWith(data : any[])
+    public addSymbolSeriesWith(data: any[])
     {
         const symbolSeries = new IgrGeographicSymbolSeries ( { name: "symbolSeries" });
         symbolSeries.dataSource = data;

@@ -9,7 +9,7 @@ IgrSparklineCoreModule.register();
 IgrSparklineModule.register();
 
 export default class SparklineNormalRange extends React.Component<any, any> {
-    public sparkline : IgrSparkline;
+    public sparkline: IgrSparkline;
 
     constructor(props: any) {
         super(props);

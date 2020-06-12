@@ -10,7 +10,7 @@ export default class SparklineDisplayWinLoss extends React.Component {
     public data1: any[];
     public data2: any[];
 
-    public sparkline : IgrSparkline;
+    public sparkline: IgrSparkline;
 
     constructor(props: any) {
         super(props);

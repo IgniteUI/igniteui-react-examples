@@ -212,7 +212,7 @@ export class DataGridPager extends React.Component<DataGridPagerProps> {
     /**
      * Quick helper to determine if one of the paging buttons is disabled or not.
      */
-    private isButtonDisabled = (which: string) : boolean => {
+    private isButtonDisabled = (which: string): boolean => {
         switch (which) {
             case "left": return this.state.pageNumber <= 1;
             case "right": return this.state.pageNumber === this.state.pageCount;
