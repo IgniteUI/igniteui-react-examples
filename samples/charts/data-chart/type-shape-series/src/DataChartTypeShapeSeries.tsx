@@ -32,7 +32,7 @@ export default class DataChartTypeShapeSeries extends React.Component<any, any> 
         this.data = SampleShapeData.create();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
 

@@ -45,7 +45,7 @@ export default class DataGridColumnChooserPicker extends React.Component<any, an
     }
   }
 
-  public render() {
+  public render(): JSX.Element {
     return (
       <div className="igContainer-horizontal">
           <div className="igGridColumnChooserContainer">

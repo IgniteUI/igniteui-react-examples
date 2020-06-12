@@ -14,7 +14,7 @@ export default class SparklineDisplayLines extends React.Component {
         this.data = this.createData(360 * 1.5);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent">

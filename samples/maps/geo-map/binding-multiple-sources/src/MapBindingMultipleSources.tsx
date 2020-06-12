@@ -21,7 +21,7 @@ export default class MapBindingMultipleSources extends React.Component {
         this.onMapRef = this.onMapRef.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent" >

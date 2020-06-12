@@ -124,7 +124,7 @@ export class DataGridPager extends React.Component<DataGridPagerProps> {
         }
     }
 
-    public render() {
+    public render(): JSX.Element {
         const leftSideBtnClasses = "icon-button " + (this.isButtonDisabled("left") ? "icon-button-disable" : "");
         const rightSideBtnClasses = "icon-button " + (this.isButtonDisabled("right") ? "icon-button-disable" : "");
         return (

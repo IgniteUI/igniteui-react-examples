@@ -30,7 +30,7 @@ export default class DataChartSynchronization extends React.Component<any, any> 
         this.initData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent" style={{height: "100%"}}>

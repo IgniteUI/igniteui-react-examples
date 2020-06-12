@@ -37,7 +37,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         this.onGridRef = this.onGridRef.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrDataGrid

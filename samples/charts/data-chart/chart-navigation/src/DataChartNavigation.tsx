@@ -52,7 +52,7 @@ export default class DataChartNavigation extends React.Component<any, any> {
         this.data = SampleScatterStats.getCountriesWithHighIncome();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

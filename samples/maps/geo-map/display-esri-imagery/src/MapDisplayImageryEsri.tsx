@@ -20,7 +20,7 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
         this.onEsriMapTopographic = this.onEsriMapTopographic.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer-horizontal" >
                 <div className="igContainer">

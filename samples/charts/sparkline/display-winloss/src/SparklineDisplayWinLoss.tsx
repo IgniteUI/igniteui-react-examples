@@ -18,7 +18,7 @@ export default class SparklineDisplayWinLoss extends React.Component {
         this.data2 = this.createData2(720 * 2);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent">

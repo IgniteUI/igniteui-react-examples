@@ -23,7 +23,7 @@ export default class PieChartAnimation extends React.Component<any, any> {
         this.onClick = this.onClick.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div style={{ height: "100%", width: "100%", background: "white" }}>
                 <div>

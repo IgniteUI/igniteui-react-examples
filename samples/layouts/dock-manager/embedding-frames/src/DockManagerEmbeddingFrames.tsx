@@ -35,7 +35,7 @@ export default class DockManagerEmbeddingFrames extends React.Component {
         // this.onMapRef = this.onMapRef.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <igc-dockmanager id="dockManager">

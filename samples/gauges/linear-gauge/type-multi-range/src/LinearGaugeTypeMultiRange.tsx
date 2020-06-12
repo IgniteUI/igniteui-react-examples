@@ -26,7 +26,7 @@ export default class LinearGaugeTypeMultiRange extends React.Component {
         this.renderGauge(component, 30, ["#fa6363", "#fd3939", "#ff0000", "#cf0000"]);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
             <IgrLinearGauge

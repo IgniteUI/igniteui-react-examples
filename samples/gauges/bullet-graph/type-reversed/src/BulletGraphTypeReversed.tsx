@@ -23,7 +23,7 @@ export default class BulletGraphTypeReversed extends React.Component {
         // this.renderGauge(component, 30, 20, ["#f88989", "#fd3939", "#ff0000", "#cf0000"]);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer"  >
                 <label className="igTitle">Company Expanse ($ Billions)</label>

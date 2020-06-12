@@ -12,7 +12,7 @@ export default class RadialGaugeNeedle extends React.Component<any, any> {
         this.state = { componentVisible: true }
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
             <IgrRadialGauge

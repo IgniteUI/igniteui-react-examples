@@ -25,7 +25,7 @@ export default class DataGridRowPinning extends React.Component<any, any> {
         this.data = DataGridSharedData.getEmployees();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
         <div className="igContainer">
 

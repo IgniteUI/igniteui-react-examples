@@ -23,7 +23,7 @@ export default class LinearGaugeTypeMultiScale extends React.Component {
         this.renderFahrenheitGauge(component);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrLinearGauge

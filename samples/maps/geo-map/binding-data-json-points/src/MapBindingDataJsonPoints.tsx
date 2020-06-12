@@ -20,7 +20,7 @@ export default class MapBindingDataJsonPoints extends React.Component {
         this.onMapRef = this.onMapRef.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent" >

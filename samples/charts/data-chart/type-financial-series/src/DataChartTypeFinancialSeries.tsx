@@ -38,7 +38,7 @@ export default class DataChartTypeFinancialSeries extends React.Component<any, a
         this.setState({displayTypeIndicator: type});
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
         <div className="igContainer">
             <div className="igOptions">

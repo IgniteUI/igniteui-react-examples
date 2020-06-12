@@ -22,7 +22,7 @@ export default class DoughnutChartRings extends React.Component<any, any> {
         this.onChartRef = this.onChartRef.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrDoughnutChart

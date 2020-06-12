@@ -211,7 +211,7 @@ export default class ExcelLibraryWorkingWithCells extends React.Component<any, a
         this.workbookSave();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

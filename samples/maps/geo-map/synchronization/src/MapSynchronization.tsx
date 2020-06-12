@@ -25,7 +25,7 @@ export default class MapSynchronization extends React.Component<any, any> {
         this.onWindowRectChangedMap2 = this.onWindowRectChangedMap2.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer-horizontal">
                 <IgrGeographicMap subtitle="Geo1"

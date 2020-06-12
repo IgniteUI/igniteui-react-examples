@@ -23,7 +23,7 @@ export default class SpreadsheetClipboard extends React.Component<any, any> {
         this.paste = this.paste.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

@@ -17,7 +17,7 @@ export default class FinancialChartIndicatorCustom extends React.Component {
         this.applyCustomIndicators = this.applyCustomIndicators.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer" style={{height: "calc(100% - 25px)"}} >
                 <div className="igComponent">

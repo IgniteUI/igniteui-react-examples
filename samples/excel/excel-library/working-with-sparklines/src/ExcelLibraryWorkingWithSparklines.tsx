@@ -45,7 +45,7 @@ export default class ExcelLibraryWorkingWithSparklines extends React.Component<a
         this.initData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

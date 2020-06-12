@@ -47,7 +47,7 @@ export default class PieChartLegend extends React.Component<any, any> {
         }
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
 

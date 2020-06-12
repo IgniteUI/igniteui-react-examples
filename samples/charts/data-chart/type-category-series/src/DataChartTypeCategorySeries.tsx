@@ -47,7 +47,7 @@ export default class DataChartTypeCategorySeries extends React.Component<any, an
         this.data = SampleCategoryData.create();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

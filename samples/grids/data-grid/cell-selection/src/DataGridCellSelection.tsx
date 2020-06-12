@@ -33,7 +33,7 @@ export default class DataGridCellSelection extends React.Component<any, any> {
         this.grid = grid;
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

@@ -61,7 +61,7 @@ export default class DataChartAxisAnnotations extends React.Component<any, any> 
         this.finalValueLayer = new IgrFinalValueLayer({ name: "finalValue" });
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

@@ -40,7 +40,7 @@ export default class DataChartSeriesHighlighting extends React.Component<any, an
         this.initData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

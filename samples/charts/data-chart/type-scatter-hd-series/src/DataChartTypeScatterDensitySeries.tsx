@@ -71,7 +71,7 @@ export default class DataChartTypeScatterDensitySeries extends React.Component<a
         this.setState({hdUseBruteForce: useBruteForce});
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
         <div className="igContainer">
             {/* <div className="igOptions">

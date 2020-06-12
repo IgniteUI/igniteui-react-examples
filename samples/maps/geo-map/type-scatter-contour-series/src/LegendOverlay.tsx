@@ -3,7 +3,7 @@ import "./LegendOverlay.css";
 
 export class LegendOverlay extends React.Component<any, any> {
 
-    public render() {
+    public render(): JSX.Element {
 
         let bg: string = this.props.background;
         if (bg === undefined) { bg = "rgba(221, 221, 221, 0.65)"; }
@@ -51,7 +51,7 @@ export class LegendOverlay extends React.Component<any, any> {
 
 export class LegendItem extends React.Component<any, any> {
 
-    public render() {
+    public render(): JSX.Element {
         const bg = this.props.background;
         const bgStyle = { background: bg } as React.CSSProperties;
 
@@ -66,7 +66,7 @@ export class LegendItem extends React.Component<any, any> {
 
 export class LegendLink extends React.Component<any, any> {
 
-    public render() {
+    public render(): JSX.Element {
         const hasLink = this.props.href !== undefined;
 
         return hasLink ?

@@ -218,7 +218,7 @@ export default class DataChartTypeFinancialIndicatorArea extends React.Component
         }
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent" style={{ height: "calc(50% - 20px)" }} >

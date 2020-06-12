@@ -27,7 +27,7 @@ export default class LinearGaugeTypeVertical extends React.Component {
         this.renderGauge(component, 40, ["#cf0000", "#ff0000", "#fd3939", "#fa6363"]);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer-center"  >
                 <IgrLinearGauge

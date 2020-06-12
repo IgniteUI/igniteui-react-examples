@@ -50,7 +50,7 @@ export default class DoughnutChartLegend extends React.Component<any, any> {
         }
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igLegend">

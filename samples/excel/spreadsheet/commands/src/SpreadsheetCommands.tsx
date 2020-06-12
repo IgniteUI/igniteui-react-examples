@@ -21,7 +21,7 @@ export default class SpreadsheetCommands extends React.Component<any, any> {
         this.onCommandClick = this.onCommandClick.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

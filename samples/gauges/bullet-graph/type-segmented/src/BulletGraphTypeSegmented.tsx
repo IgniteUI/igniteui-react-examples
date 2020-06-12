@@ -26,7 +26,7 @@ export default class BulletGraphTypeSegmented extends React.Component {
         this.renderGauge(component, 50, 80, "#ff0000");
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer"  >
                 <IgrBulletGraph

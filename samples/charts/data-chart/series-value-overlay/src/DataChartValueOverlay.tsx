@@ -32,7 +32,7 @@ export default class DataChartValueOverlay extends React.Component<any, any> {
         this.initData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent" style={{height: "calc(100% - 35px)"}}>

@@ -43,7 +43,7 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
     }
   }
 
-  public render() {
+  public render(): JSX.Element {
     return (
       <div className="igContainer">
           <IgrDataGridToolbar

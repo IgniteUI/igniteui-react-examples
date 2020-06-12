@@ -31,7 +31,7 @@ export default class DataChartTypeCategoryWaterfallSeries extends React.Componen
         this.data = this.getData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 {/* <div className="igOptions">

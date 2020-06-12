@@ -48,7 +48,7 @@ export default class DataChartTypeScatterMarkerSeries extends React.Component<an
         this.state = { seriesType: "Bubble" }
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
         <div className="igContainer">
             <div className="igOptions">

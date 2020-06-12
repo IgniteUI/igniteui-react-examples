@@ -69,7 +69,7 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         this.onEmployeeClick = this.onEmployeeClick.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <igc-dockmanager id="dockManager">

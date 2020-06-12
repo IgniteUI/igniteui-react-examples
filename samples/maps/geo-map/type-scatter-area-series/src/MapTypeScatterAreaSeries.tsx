@@ -26,7 +26,7 @@ export default class MapTypeScatterAreaSeries extends React.Component<any, any> 
         this.onDataLoaded = this.onDataLoaded.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer" >
                 <IgrGeographicMap

@@ -26,7 +26,7 @@ export default class LinearGaugeTypeFilled extends React.Component {
         this.renderGauge(component, 30, "red");
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrLinearGauge

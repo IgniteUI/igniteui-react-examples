@@ -24,7 +24,7 @@ export default class PieChartExplosion extends React.Component<any, any> {
         ] };
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div style={{height: "100%", width: "100%", background: "white" }}>
 

@@ -25,7 +25,7 @@ export default class SpreadsheetAdapterForComboBoxes extends React.Component {
         this.onSpreadsheetRef = this.onSpreadsheetRef.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 25px)" width="100%" />

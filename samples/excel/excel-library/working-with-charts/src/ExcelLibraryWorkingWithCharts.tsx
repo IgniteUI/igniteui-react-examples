@@ -35,7 +35,7 @@ export default class ExcelLibraryWorkingWithCharts extends React.Component<any, 
         this.initData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

@@ -47,7 +47,7 @@ export default class DataGridOverview extends React.Component<any, any> {
         // this.onLoad = this.onLoad.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                  <IgrDataGridToolbar

@@ -41,7 +41,7 @@ export default class DataChartTypeScatterBubbleSeries extends React.Component {
         this.onChartRef = this.onChartRef.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
         <div className="igContainer">
             <div className="igComponent"   >

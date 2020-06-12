@@ -79,7 +79,7 @@ export default class RadialGaugeTypeDirection extends React.Component<any, any> 
         gauge.tickBrush = "transparent";
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer-relative">
                 <div className="igContainer-relative-overlay">

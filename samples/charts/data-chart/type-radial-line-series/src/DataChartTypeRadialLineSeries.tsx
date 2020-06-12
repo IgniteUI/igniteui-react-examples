@@ -36,7 +36,7 @@ export default class DataChartTypeRadialLineSeries extends React.Component<any, 
         this.data = SampleRadialData.create();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

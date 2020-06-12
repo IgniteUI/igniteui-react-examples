@@ -14,7 +14,7 @@ export default class FinancialChartPanes extends React.Component<any, any> {
          this.initData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer" style={{height: "calc(100% - 25px)"}} >
                 <div className="igComponent">

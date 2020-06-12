@@ -19,7 +19,7 @@ export default class CategoryChartTooltipTemplate extends React.Component<any, a
         this.initData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="chartContainer" >
                 <p>TODO implement render() in {this.constructor.name}.tsx file</p>
