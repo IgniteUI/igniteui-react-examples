@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 let gulp = require('gulp');
 let gulpIgnore = require('gulp-ignore');
@@ -40,22 +41,19 @@ var sampleSource = [
     igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
     igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
     igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
-    // // maps:
+    // maps:
     igConfig.SamplesCopyPath + '/maps/**/package.json',
-    // // excel:
+    // excel:
     igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
     // gauges:
     igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
-    // // grids:
+    // grids:
     igConfig.SamplesCopyPath + '/grids/**/package.json',
     // layouts:
     igConfig.SamplesCopyPath + '/layouts/**/package.json',
-    // tests:
-    igConfig.SamplesCopyPath + '/tests1/**/package.json',
-    igConfig.SamplesCopyPath + '/tests2/**/package.json',
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder
@@ -330,7 +328,7 @@ function updateVersion(cb) {
 
     const appPackage = require('../package.json');
     const appVersion = appPackage.version;
-    const jsonData = { version: appVersion };
+    const jsonData = { version: appVersion, note: "this file is auto-generated" };
     const jsonContent = JSON.stringify(jsonData);
     const jsonPublicFile = './public/meta.json';
 
