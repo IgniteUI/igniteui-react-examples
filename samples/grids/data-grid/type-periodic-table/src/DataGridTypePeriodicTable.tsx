@@ -55,7 +55,7 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
         }
     }
 
-    public render() {
+    public render(): JSX.Element {
 
         let labelStyle: any = { fontSize: "13px", fontFamily: "Verdana", color: "rgb(24, 29, 31)", padding: "5px"};
 

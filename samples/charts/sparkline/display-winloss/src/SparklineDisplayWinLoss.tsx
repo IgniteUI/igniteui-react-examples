@@ -10,7 +10,7 @@ export default class SparklineDisplayWinLoss extends React.Component {
     public data1: any[];
     public data2: any[];
 
-    public sparkline : IgrSparkline;
+    public sparkline: IgrSparkline;
 
     constructor(props: any) {
         super(props);
@@ -18,7 +18,7 @@ export default class SparklineDisplayWinLoss extends React.Component {
         this.data2 = this.createData2(720 * 2);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent">

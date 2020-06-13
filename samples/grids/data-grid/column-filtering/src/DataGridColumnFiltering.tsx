@@ -86,7 +86,7 @@ export default class DataGridColumnFiltering extends React.Component<any, any> {
         this.grid.filterExpressions.add(filter);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">
@@ -115,7 +115,7 @@ export default class DataGridColumnFiltering extends React.Component<any, any> {
                     width="100%"
                     defaultColumnMinWidth={100}
                     autoGenerateColumns={false}
-                    dataSource={this.data} 
+                    dataSource={this.data}
                     isColumnOptionsEnabled="true">
 
                     <IgrTextColumn propertyPath="Name" width="*>170"/>

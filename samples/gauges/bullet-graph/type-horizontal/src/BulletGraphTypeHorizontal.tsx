@@ -26,7 +26,7 @@ export default class BulletGraphTypeHorizontal extends React.Component {
         this.renderGauge(component, 40, 80, ["#cf0000", "#ff0000", "#fd3939", "#f88989"]);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer"  >
                 <IgrBulletGraph

@@ -51,7 +51,7 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         return <option id={key} key={key}>{name}</option>
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer" style={{background: "white"}}>
 {/* height: "calc(100% - 60px)",  */}

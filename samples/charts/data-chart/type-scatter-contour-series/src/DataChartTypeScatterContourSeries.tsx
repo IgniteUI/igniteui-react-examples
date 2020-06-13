@@ -52,7 +52,7 @@ export default class DataChartTypeScatterContourSeries extends React.Component<a
         this.setState({ seriesContours: num });
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
         <div className="igContainer">
             {/* <div className="igOptions">

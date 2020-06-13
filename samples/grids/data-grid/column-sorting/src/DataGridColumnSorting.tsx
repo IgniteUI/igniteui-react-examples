@@ -26,7 +26,7 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
         this.data = DataGridSharedData.getHouses();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

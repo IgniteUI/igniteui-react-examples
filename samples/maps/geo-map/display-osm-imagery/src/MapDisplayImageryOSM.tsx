@@ -19,7 +19,7 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
         this.onMapRef = this.onMapRef.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent" >

@@ -81,7 +81,7 @@ export class SamplesRouter {
         return lists;
     }
 
-    public static onClickLink(sample: RoutingSample, onSampleOpen: (sample: RoutingSample) => void) {
+    public static onClickLink(sample: RoutingSample, onSampleOpen: (sample: RoutingSample) => void): void {
         // console.log('onClickOpen ' + window.location.pathname );
         let selectedLink = "sbNav-link-" + sample.path;
         document.querySelectorAll(".sbNavigation-link").forEach(element => {
@@ -93,7 +93,7 @@ export class SamplesRouter {
         onSampleOpen(sample);
     }
 
-    public static onClickToggle(component: RoutingComponent) {
+    public static onClickToggle(component: RoutingComponent): void {
         let navList = document.getElementById("sbNav-list-" + component.name);
         if (navList) {
             let style = navList.style as CSSStyleDeclaration;

@@ -24,7 +24,7 @@ export default class RadialGaugeTypeHalf extends React.Component {
         this.renderGauge(component);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
 

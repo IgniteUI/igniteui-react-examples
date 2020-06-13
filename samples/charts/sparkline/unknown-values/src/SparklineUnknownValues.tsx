@@ -11,7 +11,7 @@ IgrSparklineModule.register();
 export default class SparklineUnknownValues extends React.Component<any, any> {
     public data: any[];
 
-    public sparkline : IgrSparkline;
+    public sparkline: IgrSparkline;
 
     constructor(props: any) {
         super(props);
@@ -22,7 +22,7 @@ export default class SparklineUnknownValues extends React.Component<any, any> {
         this.data = SparklineSharedData.getSharedDataWithNullValues();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

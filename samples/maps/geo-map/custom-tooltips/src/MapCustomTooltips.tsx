@@ -21,7 +21,7 @@ export default class MapCustomTooltips extends React.Component {
         this.createSymbolTooltip = this.createSymbolTooltip.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
 
         return (
             <div className="igContainer">

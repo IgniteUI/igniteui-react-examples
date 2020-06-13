@@ -28,13 +28,7 @@ import * as SidebarMenuIcon from '@material-ui/icons/Menu';
 // import * as SampleSearchIcon from "@material-ui/icons/Search";
 // import * as SampleLinkIcon from "@material-ui/icons/FiberManualRecord";
 
-import CacheBuster from '../CacheBuster';
-
-interface CacheBusterProps {
-    loading: boolean;
-    isLatestVersion: boolean;
-    refreshCacheAndReload(): any;
-}
+import { CacheBuster, CacheBusterState } from '../CacheBuster';
 
 class SampleInfo {
     public name: string;
@@ -70,13 +64,13 @@ export class SamplesBrowser extends React.Component<any, any>
         this.onSampleOpen = this.onSampleOpen.bind(this);
         // console.log(TestsRoutes.DataRoutes)
 
-        let routingProviders: RoutingGroup[] = [
+        const routingProviders: RoutingGroup[] = [
+            layoutsRoutingData,
+            gridsRoutingData,
             chartsRoutingData,
             mapsRoutingData,
             gaugesRoutingData,
-            gridsRoutingData,
             excelRoutingData,
-            layoutsRoutingData,
         ];
 
         for (const routingData of routingProviders) {
@@ -96,7 +90,7 @@ export class SamplesBrowser extends React.Component<any, any>
     public populateLookup(group: RoutingGroup) {
         for (const component of group.components) {
             for (const route of component.routes) {
-                let info = new SampleInfo();
+                const info = new SampleInfo();
                 info.group = group.name;
                 info.route = route.path;
                 info.control = component.name;
@@ -131,14 +125,14 @@ export class SamplesBrowser extends React.Component<any, any>
     };
 
     public render() {
-        let sbBrowsingMode = SamplesRouter.isBrowsingMode();
-        let sbSidebarStyle: any = {}; // sbBrowsingMode && this.state.SidebarVisible ? { display: "flex" } : { display: "none" };
-        let sbToolbarStyle: any = {}; // sbBrowsingMode ? { display: "flex" } : { display: "none" };
-        let sbSwitchStyle: any = {}; // sbBrowsingMode ? { width: "calc(100% - 270px)" } : { width: "100%" };
-        let sbContentStyle: any = {};
+        const sbBrowsingMode = SamplesRouter.isBrowsingMode();
+        const sbSidebarStyle: any = {}; // sbBrowsingMode && this.state.SidebarVisible ? { display: "flex" } : { display: "none" };
+        const sbToolbarStyle: any = {}; // sbBrowsingMode ? { display: "flex" } : { display: "none" };
+        const sbSwitchStyle: any = {}; // sbBrowsingMode ? { width: "calc(100% - 270px)" } : { width: "100%" };
+        const sbContentStyle: any = {};
 
-        let sbToolbarHeight = 50;
-        let sbSidebarWidth = 270;
+        const sbToolbarHeight = 50;
+        const sbSidebarWidth = 270;
         if (sbBrowsingMode && this.state.SidebarVisible) {
             sbSidebarStyle.minWidth = sbSidebarWidth + "px";
             sbSidebarStyle.width = sbSidebarWidth + "px";
@@ -169,13 +163,17 @@ export class SamplesBrowser extends React.Component<any, any>
         let sbRoute = window.location.pathname;
         console.log("SB render " + sbRoute + " with browsing=" + sbBrowsingMode);
 
-        return (
-            <CacheBuster>
-                {({ loading, isLatestVersion, refreshCacheAndReload }: CacheBusterProps) => {
-                    if (loading) return null;
-                    if (!loading && !isLatestVersion) {
-                        refreshCacheAndReload();
-                    }
+        // NOTE CacheBuster is not used at this moment:
+        // return (
+            // <CacheBuster>
+            //     {({ loading, isLatest, isRefreshed, refreshWebsite }: CacheBusterState) => {
+            //         // const sbReloads = window.localStorage.getItem("sb-reloads");
+            //         if (loading) return (<SamplesLoading/>);
+            //         if (!loading && !isLatest && !isRefreshed) {
+            //             console.log('SB refreshing');
+            //             refreshWebsite();
+            //             // window.localStorage.setItem("sb-reloads", "true");
+            //         }
                     return (
                         <div className="sbRoot" >
                             <div className="sbSidebar" style={sbSidebarStyle}>
@@ -225,9 +223,9 @@ export class SamplesBrowser extends React.Component<any, any>
 
                         </div>
                     );
-                }}
-            </CacheBuster>
-        );
+        //         }}
+        //     </CacheBuster>
+        // );
     }
 
     public componentDidMount() {

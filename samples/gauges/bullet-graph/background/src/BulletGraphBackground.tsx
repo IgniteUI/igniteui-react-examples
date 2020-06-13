@@ -6,7 +6,7 @@ IgrBulletGraphModule.register();
 
 export default class BulletGraphBackground extends React.Component {
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer" >
                 <IgrBulletGraph

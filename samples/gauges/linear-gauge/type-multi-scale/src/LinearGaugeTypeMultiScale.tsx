@@ -23,7 +23,7 @@ export default class LinearGaugeTypeMultiScale extends React.Component {
         this.renderFahrenheitGauge(component);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrLinearGauge
@@ -48,7 +48,7 @@ export default class LinearGaugeTypeMultiScale extends React.Component {
 
         this.setupGauge(gauge);
 
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = e.value + " °C"
         };
     }
@@ -67,7 +67,7 @@ export default class LinearGaugeTypeMultiScale extends React.Component {
         gauge.minorTickStartExtent = -0.2;
         gauge.minorTickEndExtent = -0.1;
 
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = this.covertToFahrenheit(e.value) + " °F"
         };
     }

@@ -7,7 +7,7 @@ IgrLinearGaugeModule.register();
 
 export default class LinearGaugeRanges extends React.Component {
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
             <IgrLinearGauge

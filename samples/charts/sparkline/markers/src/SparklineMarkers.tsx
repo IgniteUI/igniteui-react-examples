@@ -22,7 +22,7 @@ export default class SparklineMarkers extends React.Component<any, any> {
         this.data = SparklineSharedData.getPaddedDataForMarkers();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

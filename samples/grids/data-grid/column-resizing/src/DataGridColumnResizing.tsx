@@ -37,7 +37,7 @@ export default class GridColumnResizing extends React.Component<any, any> {
         this.grid.columnResizingSeparatorBackground = "Black";
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

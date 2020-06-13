@@ -32,7 +32,7 @@ export default class DataChartTypeCategorySplineAreaSeries extends React.Compone
         this.data = SampleCategoryData.create();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

@@ -19,7 +19,7 @@ export default class SpreadsheetHyperlinks extends React.Component {
         this.onSpreadsheetRef = this.onSpreadsheetRef.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="100%" width="100%" />

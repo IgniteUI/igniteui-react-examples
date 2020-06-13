@@ -24,7 +24,7 @@ export default class DataChartAxisSharing extends React.Component<any, any> {
         this.data = SampleFinancialData.create();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent">

@@ -39,7 +39,7 @@ export default class WorldUtils {
     }
 
     // calculate bearing angle between two locations
-    public static calcBearing(origin: any, dest: any) : number
+    public static calcBearing(origin: any, dest: any): number
     {
         origin = this.toRadianLocation(origin);
         dest = this.toRadianLocation(dest);
@@ -73,7 +73,7 @@ export default class WorldUtils {
     }
 
     // calculate distance between two locations
-    public static calcDistance(origin: any, dest: any) : number {
+    public static calcDistance(origin: any, dest: any): number {
         origin = this.toRadianLocation(origin);
         dest = this.toRadianLocation(dest);
         let sinProd = Math.sin(origin.lat) * Math.sin(dest.lat);
@@ -85,22 +85,22 @@ export default class WorldUtils {
         return distance; // * 6371.0; // in km
     }
 
-    public static toRadianLocation(geoPoint: any) : any {
+    public static toRadianLocation(geoPoint: any): any {
         let x = this.toRadians(geoPoint.lon);
         let y = this.toRadians(geoPoint.lat);
         return { lon: x, lat: y };
     }
 
-    public static toRadians(degrees: number) : number
+    public static toRadians(degrees: number): number
     {
         return degrees * Math.PI / 180;
     }
 
-    public static toDegrees(radians: number) : number {
+    public static toDegrees(radians: number): number {
         return (radians * 180.0 / Math.PI);
     }
 
-    public static toDegreesNormalized(radians: number) : number
+    public static toDegreesNormalized(radians: number): number
     {
         let degrees = this.toDegrees(radians);
         degrees = (degrees + 360) % 360;
@@ -108,19 +108,19 @@ export default class WorldUtils {
     }
 
     // converts latitude coordinate to a string
-    public static toStringLat(latitude: number) : string {
+    public static toStringLat(latitude: number): string {
         let str = Math.abs(latitude).toFixed(1) + "°";
         return latitude > 0 ? str + "N" : str + "S";
     }
 
     // converts longitude coordinate to a string
-    public static toStringLon(coordinate: number) : string {
+    public static toStringLon(coordinate: number): string {
         let val = Math.abs(coordinate);
         let str = val < 100 ? val.toFixed(1) : val.toFixed(0);
         return coordinate > 0 ? str + "°E" : str + "°W";
     }
 
-    public static toStringAbbr(value: number) : string {
+    public static toStringAbbr(value: number): string {
         if (value > 1000000000000) {
             return (value / 1000000000000).toFixed(1) + " T"
         } else if (value > 1000000000) {
@@ -133,21 +133,21 @@ export default class WorldUtils {
         return value.toFixed(0);
     }
 
-    public static getLongitude(location: any) : number {
+    public static getLongitude(location: any): number {
         if (location.x) return location.x;
         if (location.lon) return location.lon;
         if (location.longitude) return location.longitude;
         return Number.NaN;
     }
 
-    public static getLatitude(location: any) : number {
+    public static getLatitude(location: any): number {
         if (location.y) return location.y;
         if (location.lat) return location.lat;
         if (location.latitude) return location.latitude;
         return Number.NaN;
     }
 
-    public static getBounds(locations: any[]) : any {
+    public static getBounds(locations: any[]): any {
         let minLat = 90;
         let maxLat = -90;
         let minLon = 180;

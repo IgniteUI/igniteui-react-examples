@@ -24,7 +24,7 @@ export default class RadialGaugeTypeRing extends React.Component {
         this.renderGauge(component);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent">

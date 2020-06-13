@@ -28,7 +28,7 @@ export default class DataChartTypeScatterPolylineSeries extends React.Component 
         this.data = SampleShapeData.create();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
 

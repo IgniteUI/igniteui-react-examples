@@ -34,7 +34,7 @@ export default class DataChartTypeStacked100BarSeries extends React.Component<an
         this.initData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

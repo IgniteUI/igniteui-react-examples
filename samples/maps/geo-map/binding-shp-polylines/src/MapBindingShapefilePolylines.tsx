@@ -20,7 +20,7 @@ export default class MapBindingShapefilePolylines extends React.Component<any, a
         this.onDataLoaded = this.onDataLoaded.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent" >

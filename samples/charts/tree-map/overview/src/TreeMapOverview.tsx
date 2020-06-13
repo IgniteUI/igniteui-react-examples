@@ -38,7 +38,7 @@ export default class TreeMapOverview extends React.Component {
         this.onClickSquared(null);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
           <div className="igContainer" >
 

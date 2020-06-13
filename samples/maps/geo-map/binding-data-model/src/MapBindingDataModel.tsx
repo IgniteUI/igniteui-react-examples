@@ -48,7 +48,7 @@ export default class MapBindingDataModel extends React.Component {
         this.createSymbolTooltip = this.createSymbolTooltip.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent" >

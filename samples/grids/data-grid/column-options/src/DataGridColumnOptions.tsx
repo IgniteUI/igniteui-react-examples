@@ -35,7 +35,7 @@ export default class DataGridColumnOptions extends React.Component<any, any> {
         this.grid.groupDescriptions.add(state);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrDataGrid

@@ -69,7 +69,7 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
         console.log("regions " + this.regions.length);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div ref={this.onContainerRef} style={{ width: "calc(100% - 10px)", height: "calc(100% - 10px)" }}>
                 <IgrDataChart

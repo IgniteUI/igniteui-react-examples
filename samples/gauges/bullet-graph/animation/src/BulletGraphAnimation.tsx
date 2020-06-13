@@ -24,7 +24,7 @@ export default class BulletGraphAnimation extends React.Component {
         this.onAnimateToGauge3(null);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer" >
 

@@ -45,7 +45,7 @@ export default class RadialGaugeTypeDirection extends React.Component<any, any> 
         gauge.value = this.state.degrees;
         gauge.font = "11px Verdana,Arial";
         gauge.labelExtent  = gauge.scaleStartExtent - 0.1;
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = e.value < 360 ? e.value + "°" : "";
         };
 
@@ -67,7 +67,7 @@ export default class RadialGaugeTypeDirection extends React.Component<any, any> 
         // setting appearance of labels
         gauge.font = "15px Verdana,Arial";
         gauge.labelExtent  = gauge.scaleEndExtent + 0.05;
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             if (this.directions[e.value] !== undefined) {
                 e.label = this.directions[e.value];
             } else {
@@ -79,7 +79,7 @@ export default class RadialGaugeTypeDirection extends React.Component<any, any> 
         gauge.tickBrush = "transparent";
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer-relative">
                 <div className="igContainer-relative-overlay">

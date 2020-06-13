@@ -29,7 +29,7 @@ export default class SpreadsheetDataValidation extends React.Component<any, any>
         this.onSpreadsheetRef = this.onSpreadsheetRef.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="100%" width="100%" />

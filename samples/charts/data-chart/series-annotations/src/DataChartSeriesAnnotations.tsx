@@ -85,7 +85,7 @@ export default class DataChartSeriesAnnotations extends React.Component<any, any
         this.valueOverlay.isAxisAnnotationEnabled = true;
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

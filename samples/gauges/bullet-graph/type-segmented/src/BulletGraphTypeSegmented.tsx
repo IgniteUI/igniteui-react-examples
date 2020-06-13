@@ -26,7 +26,7 @@ export default class BulletGraphTypeSegmented extends React.Component {
         this.renderGauge(component, 50, 80, "#ff0000");
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer"  >
                 <IgrBulletGraph
@@ -58,7 +58,7 @@ export default class BulletGraphTypeSegmented extends React.Component {
         gauge.interval = (gauge.maximumValue - gauge.minimumValue) / 10;
         gauge.labelInterval = gauge.interval;
         gauge.labelExtent = 0.15;
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = e.value + "%"
         };
 

@@ -28,7 +28,7 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
         this.state = { locations: [], polylines: [], polygons: []}
     }
 
-    public render() {
+    public render(): JSX.Element {
         const mapStyle = { background: "rgb(212, 212, 212)" } as React.CSSProperties;
 
         return (

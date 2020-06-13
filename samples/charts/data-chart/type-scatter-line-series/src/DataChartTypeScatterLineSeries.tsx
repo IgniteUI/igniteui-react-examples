@@ -33,7 +33,7 @@ export default class DataChartTypeScatterLineSeries extends React.Component {
         this.data2 = SampleScatterStats.getCountriesWithLowIncome();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent"   >

@@ -39,7 +39,7 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
         }
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer" >
                 <div className="igOptions">

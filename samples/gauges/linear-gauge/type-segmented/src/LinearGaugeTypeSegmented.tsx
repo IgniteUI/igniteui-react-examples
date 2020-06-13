@@ -26,7 +26,7 @@ export default class LinearGaugeTypeSegmented extends React.Component {
         this.renderGauge(component, 30, "red");
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrLinearGauge
@@ -55,7 +55,7 @@ export default class LinearGaugeTypeSegmented extends React.Component {
         gauge.transitionDuration = 500;
         gauge.labelInterval = gauge.interval;
         gauge.labelExtent = 0.15;
-        gauge.formatLabel = (s: any, e : any) => {
+        gauge.formatLabel = (s: any, e: any) => {
             e.label = e.value + "%"
         };
 

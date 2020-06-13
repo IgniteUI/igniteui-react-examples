@@ -21,7 +21,7 @@ export default class SpreadsheetOverview extends React.Component<any, any> {
         this.openFile = this.openFile.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

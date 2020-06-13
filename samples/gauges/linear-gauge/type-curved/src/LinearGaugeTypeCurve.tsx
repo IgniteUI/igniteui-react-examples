@@ -20,7 +20,7 @@ export default class LinearGaugeTypeCurve extends React.Component {
         this.renderGauge(component);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrLinearGauge

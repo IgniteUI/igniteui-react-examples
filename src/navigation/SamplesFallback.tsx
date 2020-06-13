@@ -3,7 +3,7 @@ import './SamplesFallback.css'
 
 export class SamplesFallback extends React.Component<any, any> {
 
-    public render() {
+    public render(): JSX.Element {
 
         let sbRoute = window.location.pathname;
         sbRoute = sbRoute.replace("/react-demos","");

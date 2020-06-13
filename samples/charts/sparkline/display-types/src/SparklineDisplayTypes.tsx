@@ -9,7 +9,7 @@ IgrSparklineModule.register();
 export default class SparklineDisplayTypes extends React.Component {
     public data: any[];
 
-    public sparkline : IgrSparkline;
+    public sparkline: IgrSparkline;
 
     constructor(props: any) {
         super(props);
@@ -17,7 +17,7 @@ export default class SparklineDisplayTypes extends React.Component {
         this.data = this.createData(360 * 1.5);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <label className="igOptions-label">Area Sparkline</label>

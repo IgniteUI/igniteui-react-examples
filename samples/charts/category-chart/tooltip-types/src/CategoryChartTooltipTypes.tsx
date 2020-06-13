@@ -15,7 +15,7 @@ export default class CategoryChartTooltipTypes extends React.Component<any, any>
         this.initData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
         <div className="igContainer" >
             <div className="igOptions">

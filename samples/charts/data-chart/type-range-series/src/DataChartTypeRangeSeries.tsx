@@ -34,7 +34,7 @@ export default class DataChartTypeRangeSeries extends React.Component<any, any> 
         this.data = SampleRangeData.create();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

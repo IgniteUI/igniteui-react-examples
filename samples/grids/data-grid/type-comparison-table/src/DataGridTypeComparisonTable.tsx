@@ -43,7 +43,7 @@ export default class DataGridTypeComparisonTable extends React.Component<any, an
         this.HorizontalLeftHeader.cellUpdating = (s, e) => this.onHorizontalHeaderUpdating(s, e, "left");
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrDataGrid

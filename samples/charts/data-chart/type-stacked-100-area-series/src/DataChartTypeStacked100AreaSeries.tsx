@@ -34,7 +34,7 @@ export default class DataChartTypeStacked100AreaSeries extends React.Component<a
         this.initData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

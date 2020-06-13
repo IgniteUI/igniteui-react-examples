@@ -22,7 +22,7 @@ export default class DockManagerOverview extends React.Component {
 
     public dockManager: IgcDockManagerComponent;
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <igc-dockmanager id="dockManager">

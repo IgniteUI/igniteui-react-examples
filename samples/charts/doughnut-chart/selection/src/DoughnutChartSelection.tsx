@@ -29,7 +29,7 @@ export default class DoughnutChartSelection extends React.Component<any, any> {
         this.onSliceClick = this.onSliceClick.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div style={{height: "100%", width: "100%" }}>
                 <label >

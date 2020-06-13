@@ -81,7 +81,7 @@ export default class DataChartTypeFinancialLineIndicators extends React.Componen
         this.chart.series.add(this.bollingerBands);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

@@ -46,7 +46,7 @@ export default class SpreadsheetConfigOptions extends React.Component<any, any> 
         }
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">
@@ -140,8 +140,8 @@ export default class SpreadsheetConfigOptions extends React.Component<any, any> 
     }
 
     public onProtectedChanged(e: any) {
-        const checked : boolean = e.target.checked;
-        this.setState({isProtected : checked});
+        const checked: boolean = e.target.checked;
+        this.setState({isProtected: checked});
 
         if (checked) {
             this.spreadsheet.activeWorksheet.protect();
@@ -152,16 +152,16 @@ export default class SpreadsheetConfigOptions extends React.Component<any, any> 
     }
 
     public onFormulaBarVisibleChanged(e: any) {
-        this.setState({isFormulaBarVisible : e.target.checked});
+        this.setState({isFormulaBarVisible: e.target.checked});
     }
 
     public onEnterKeyNavEnabledChanged(e: any) {
-        this.setState({isEnterKeyNavEnabled : e.target.checked});
+        this.setState({isEnterKeyNavEnabled: e.target.checked});
     }
 
     public onTabAreaVisibleChanged(e: any) {
-        const checked : boolean = e.target.checked;
-        this.setState({isTabBarAreaVisible : checked});
+        const checked: boolean = e.target.checked;
+        this.setState({isTabBarAreaVisible: checked});
 
         if(checked){
             this.spreadsheet.workbook.windowOptions.tabBarVisible = true;
@@ -172,11 +172,11 @@ export default class SpreadsheetConfigOptions extends React.Component<any, any> 
     }
 
     public onGridlinesVisibleChanged(e: any) {
-        this.setState({areGridlinesVisible : e.target.checked});
+        this.setState({areGridlinesVisible: e.target.checked});
     }
 
     public onHeadersVisibleChanged(e: any) {
-        this.setState({areHeadersVisible : e.target.checked});
+        this.setState({areHeadersVisible: e.target.checked});
     }
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {

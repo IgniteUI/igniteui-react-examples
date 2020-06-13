@@ -37,7 +37,7 @@ export default class DataGridColumnPinningPicker extends React.Component<any, an
         this.grid = grid;
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

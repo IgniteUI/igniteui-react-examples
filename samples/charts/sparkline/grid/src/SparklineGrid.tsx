@@ -26,7 +26,7 @@ export default class SparklineGrid extends React.Component<any, any> {
         this.data = Products.getData();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <IgrDataGrid

@@ -133,10 +133,10 @@ export default class DataGridBindingLiveData extends Component<any, AppState> {
         TaskUtil.stop("generateData");
     }
 
-    public render() {
-        let buttonStyle:any = { height: "2rem", marginLeft: "10px", marginBottom: "-10px", width: "160px", whiteSpace: "nowrap" };
-        let labelStyle:any = { fontSize: "0.8rem", marginTop: "0px", marginLeft: "0px" };
-        let iconStyle:any = { paddingLeft: "20px", paddingTop: "5px" };
+    public render(): JSX.Element {
+        let buttonStyle: any = { height: "2rem", marginLeft: "10px", marginBottom: "-10px", width: "160px", whiteSpace: "nowrap" };
+        let labelStyle: any = { fontSize: "0.8rem", marginTop: "0px", marginLeft: "0px" };
+        let iconStyle: any = { paddingLeft: "20px", paddingTop: "5px" };
 
         return (
             <div className="igContainer">

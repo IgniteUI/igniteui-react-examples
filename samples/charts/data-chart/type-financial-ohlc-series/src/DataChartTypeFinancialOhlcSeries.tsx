@@ -29,7 +29,7 @@ export default class DataChartTypeFinancialOhlcSeries extends React.Component<an
         this.setState({displayTypeIndicator: type});
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
         <div className="igContainer">
             <div className="igComponent" style={{height: "calc(100% - 20px)"}} >

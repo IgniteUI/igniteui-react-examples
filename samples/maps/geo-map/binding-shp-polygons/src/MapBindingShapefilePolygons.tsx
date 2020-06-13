@@ -21,7 +21,7 @@ export default class MapBindingShapefilePolygons extends React.Component<any, an
         this.onDataLoaded = this.onDataLoaded.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent" >

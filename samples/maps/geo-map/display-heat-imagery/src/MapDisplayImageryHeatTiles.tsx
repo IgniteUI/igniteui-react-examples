@@ -24,7 +24,7 @@ export default class MapDisplayImageryHeatTiles extends React.Component {
         this.onDataLoaded = this.onDataLoaded.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igComponent" >

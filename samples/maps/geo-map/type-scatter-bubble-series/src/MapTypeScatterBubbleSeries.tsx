@@ -26,7 +26,7 @@ export default class MapTypeScatterBubbleSeries extends React.Component {
         this.createTooltip = this.createTooltip.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer" >
                 <div className="igComponent" >

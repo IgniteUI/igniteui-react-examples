@@ -42,7 +42,7 @@ export default class DataChartTypePolarSeries extends React.Component<any, any> 
         this.data = SamplePolarData.create();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">

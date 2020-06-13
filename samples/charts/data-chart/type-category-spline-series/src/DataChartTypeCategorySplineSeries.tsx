@@ -32,7 +32,7 @@ export default class DataChartTypeCategorySplineSeries extends React.Component<a
         this.data = SampleCategoryData.create();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">
