@@ -65,12 +65,12 @@ export class SamplesBrowser extends React.Component<any, any>
         // console.log(TestsRoutes.DataRoutes)
 
         const routingProviders: RoutingGroup[] = [
+            layoutsRoutingData,
+            gridsRoutingData,
             chartsRoutingData,
             mapsRoutingData,
             gaugesRoutingData,
-            gridsRoutingData,
             excelRoutingData,
-            layoutsRoutingData,
         ];
 
         for (const routingData of routingProviders) {
