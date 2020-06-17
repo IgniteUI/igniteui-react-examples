@@ -29,7 +29,7 @@ export default class MapTypeScatterDensitySeries extends React.Component {
                         height="100%"
                         zoomable="true" />
                 </div>
-                <LegendOverlay dock="BottomLeft" text="Source: GeoNames" href="http://www.geonames.org/" />
+                <LegendOverlay dock="BottomLeft" text="Source: GeoNames" href="https://www.geonames.org/" />
 
                 <div className="igOverlay-bottom-right">Imagery Tiles: @OpenStreetMap</div>
             </div>
