@@ -29,14 +29,14 @@ export class DockManagerSharedData {
                 if (maleCount > 26) {
                     maleCount = 1;
                 }
-                photoPath = "http://static.infragistics.com/xplatform/images/people/GUY" + this.pad(maleCount, 2) + ".png";
+                photoPath = "https://static.infragistics.com/xplatform/images/people/GUY" + this.pad(maleCount, 2) + ".png";
             }
             else {
                 femaleCount++;
                 if (femaleCount > 24) {
                     femaleCount = 1;
                 }
-                photoPath = "http://static.infragistics.com/xplatform/images/people/GIRL" + this.pad(femaleCount, 2) + ".png";
+                photoPath = "https://static.infragistics.com/xplatform/images/people/GIRL" + this.pad(femaleCount, 2) + ".png";
             }
 
             let person: any = {};
@@ -48,10 +48,10 @@ export class DockManagerSharedData {
             person.Location = location.city + ", " + location.country;
             person.Latitude = location.lat;
             person.Longitude = location.lon;
-            person.CountryFlag = "http://static.infragistics.com/xplatform/images/flags/" + location.country + ".png";
+            person.CountryFlag = "https://static.infragistics.com/xplatform/images/flags/" + location.country + ".png";
             person.Email = email;
             person.FirstName = firstName;
-            person.Gender = "http://static.infragistics.com/xplatform/images/genders/" + gender + ".png";
+            person.Gender = "https://static.infragistics.com/xplatform/images/genders/" + gender + ".png";
             person.Generation = generation;
             person.ID = this.pad(i + 1, 5);
             person.LastName = lastName;
