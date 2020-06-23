@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 let transFS = require('fs.extra');
 
 // let platform = "React";
@@ -248,7 +250,6 @@ class Transformer {
 
     // gets updated package.json file for a sample using a template
     public static getPackage(sample: SampleInfo, tempPackage: PackageJson): string {
-        let samplePackage = sample.PackageFileContent;
 
         let title = tempPackage.name;
         title = Strings.replace(title, 'platform-name', igConfig.PlatformName);
@@ -262,6 +263,9 @@ class Transformer {
         descr = Strings.replace(descr, 'component-name', sample.ComponentName);
         descr = Strings.replace(descr, 'sample-name', sample.SampleDisplayName);
 
+
+
+        let samplePackage = sample.PackageFileContent;
         samplePackage.name = title;
         samplePackage.description = descr;
         samplePackage.author = tempPackage.author;
@@ -269,8 +273,13 @@ class Transformer {
         samplePackage.version = tempPackage.version;
         samplePackage.private = tempPackage.private;
         samplePackage.browserslist = tempPackage.browserslist;
-
         samplePackage.scripts = tempPackage.scripts;
+
+        for (let name in samplePackage.dependencies) {
+            if (name.indexOf("@types/file-saver") >= 0) {
+                console.log("@types/file-saver " + sample.SampleFolderPath);
+            }
+        }
 
         // updating scripts in a sample using scripts from the template
         // for (let name in tempPackage.scripts) {

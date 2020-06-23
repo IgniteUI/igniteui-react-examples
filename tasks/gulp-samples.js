@@ -287,6 +287,7 @@ function updatePackages(cb) {
     // let content = Transformer.getPackage(last, templatePackageJson);
     // fs.writeFileSync(sampleOutputFolder + "package.json", content);
 
+
     for (const sample of samples) {
         let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
         let oldPackageFile = fs.readFileSync(outputPath).toString();
@@ -295,7 +296,7 @@ function updatePackages(cb) {
 
         let newPackageFile = Transformer.getPackage(sample, templatePackageJson);
         if (newPackageFile !== oldPackageFile) {
-            log('updated: ' + outputPath);
+            // log('updated: ' + outputPath);
             fs.writeFileSync(outputPath, newPackageFile);
         }
     }
