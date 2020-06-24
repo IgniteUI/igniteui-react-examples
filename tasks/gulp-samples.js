@@ -60,9 +60,6 @@ var sampleSource = [
 var samples = [];
 
 var sampleOutputFolder = '';
-// var sampleOutputFolder = './sample-test-files/';
-
-
 
 function cleanSamples() {
     // cleaning up obsolete files in individual samples
@@ -554,6 +551,14 @@ function logUniqueFiles(cb) {
 
 } exports.logUniqueFiles = logUniqueFiles;
 
+
+function logSandboxUrls(cb) {
+
+    for (const sample of samples) {
+        console.log("" + sample.SandboxUrlShort);
+    }
+    cb();
+} exports.logSandboxUrls = logSandboxUrls;
 
 
 

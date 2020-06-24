@@ -53,3 +53,8 @@ exports.logRoutes = logRoutes = gulp.series(
     sb.getSamples,
     sb.logRoutes,
 );
+
+exports.logSandboxUrls = logSandboxUrls = gulp.series(
+    sb.getSamples,
+    sb.logSandboxUrls,
+);
