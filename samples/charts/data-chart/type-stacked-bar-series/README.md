@@ -14,7 +14,7 @@ You can preview example of this React application on CodeSandbox by clicking on 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/charts/data-chart/type-stacked-bar-series?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/DataChartTypeStackedBarSeries.tsx" rel="noopener noreferrer">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/vnext/samples/charts/data-chart/type-stacked-bar-series?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/DataChartTypeStackedBarSeries.tsx" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/code.png"/>
         </a>
     </body>
@@ -62,7 +62,7 @@ Then open http://localhost:4200/ in your browser
 <!-- ## Sample Preview -->
 
 <!-- <iframe
-  src="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/charts/data-chart/type-stacked-bar-series?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/DataChartTypeStackedBarSeries.tsx"
+  src="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/vnext/samples/charts/data-chart/type-stacked-bar-series?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/DataChartTypeStackedBarSeries.tsx"
   style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -74,7 +74,7 @@ href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/mast
             <img alt="Edit Sample" src="https://codesandbox.io/static/img/play-codesandbox.svg"/>
         </a> -->
         <!-- <a target="_blank" style="margin-left: 0.5rem"
-href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/charts/data-chart/type-stacked-bar-series?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/DataChartTypeStackedBarSeries.tsx">
+href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/vnext/samples/charts/data-chart/type-stacked-bar-series?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/DataChartTypeStackedBarSeries.tsx">
             <img height="40px" style="border-radius: 5px" alt="View on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/view.png"/>
         </a> -->
         <!-- <a target="_blank"
