@@ -1,11 +1,6 @@
 <!-- NOTE: do not change this file because it's auto re-generated from: -->
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
-<!-- ## Table of Contents -->
-<!-- - [Preview](#Preview)
-- [Source Code](#Source-Code)
-- [Instructions](#Instructions) -->
-
 This folder contains implementation of React application with example of Geographic Map Display Imagery Heat Tiles.
 
 ## Preview
@@ -48,41 +43,3 @@ npm run-script start
 
 Then open http://localhost:4200/ in your browser
 
-
-<!-- in the Geographic Map component -->
-<!-- [Geographic Map](https://infragistics.com/Reactsite/components/geo-map.html) -->
-
-<!-- The following section provides source code from:
-`./src/MapDisplayImageryHeatTiles.tsx` file: -->
-
-<!-- ```tsx
-{SampleFileSourceCode-REMOVED}
-``` -->
-
-<!-- ## Sample Preview -->
-
-<!-- <iframe
-  src="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/vnext/samples/maps/geo-map/display-heat-imagery?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/MapDisplayImageryHeatTiles.tsx"
-  style="width:100%; height:400px; border:0; border-radius: 4px; overflow:hidden;"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe> -->
-
-<html>
-        <!-- <a target="_blank"
-href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points?fontsize=14&hidenavigation=1&theme=dark&view=preview">
-            <img alt="Edit Sample" src="https://codesandbox.io/static/img/play-codesandbox.svg"/>
-        </a> -->
-        <!-- <a target="_blank" style="margin-left: 0.5rem"
-href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/vnext/samples/maps/geo-map/display-heat-imagery?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/MapDisplayImageryHeatTiles.tsx">
-            <img height="40px" style="border-radius: 5px" alt="View on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/view.png"/>
-        </a> -->
-        <!-- <a target="_blank"
-href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points?fontsize=14&hidenavigation=1&theme=dark&view=preview">
-            <img alt="View on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/view.png"/>
-        </a>
-https://codesandbox.io/embed/react-treemap-overview-rtb45
-https://codesandbox.io/static/img/play-codesandbox.svg
-https://codesandbox.io/embed/react-treemap-overview-rtb45?view=browser -->
-
-</html>
