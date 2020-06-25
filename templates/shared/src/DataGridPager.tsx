@@ -124,7 +124,7 @@ export class DataGridPager extends React.Component<DataGridPagerProps> {
         }
     }
 
-    public render() {
+    public render(): JSX.Element {
         const leftSideBtnClasses = "icon-button " + (this.isButtonDisabled("left") ? "icon-button-disable" : "");
         const rightSideBtnClasses = "icon-button " + (this.isButtonDisabled("right") ? "icon-button-disable" : "");
         return (
@@ -235,7 +235,7 @@ export class DataGridPager extends React.Component<DataGridPagerProps> {
      * Helper function to get data for a specific page.
      * @param pageNumber The page to get data for.
      */
-    private getPage(pageNumber: number) : any[] {
+    private getPage(pageNumber: number): any[] {
         const data = [];
 
         if (this.state.dataSource) {

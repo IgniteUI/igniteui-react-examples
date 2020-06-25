@@ -73,7 +73,7 @@ export default class WorldUtils {
     }
 
     // calculate distance between two locations
-    public static calcDistance(origin: any, dest: any): number  {
+    public static calcDistance(origin: any, dest: any): number {
         origin = this.toRadianLocation(origin);
         dest = this.toRadianLocation(dest);
         let sinProd = Math.sin(origin.lat) * Math.sin(dest.lat);
@@ -96,7 +96,7 @@ export default class WorldUtils {
         return degrees * Math.PI / 180;
     }
 
-    public static toDegrees(radians: number): number  {
+    public static toDegrees(radians: number): number {
         return (radians * 180.0 / Math.PI);
     }
 
@@ -133,14 +133,14 @@ export default class WorldUtils {
         return value.toFixed(0);
     }
 
-    public static getLongitude(location: any): number  {
+    public static getLongitude(location: any): number {
         if (location.x) return location.x;
         if (location.lon) return location.lon;
         if (location.longitude) return location.longitude;
         return Number.NaN;
     }
 
-    public static getLatitude(location: any): number  {
+    public static getLatitude(location: any): number {
         if (location.y) return location.y;
         if (location.lat) return location.lat;
         if (location.latitude) return location.latitude;
