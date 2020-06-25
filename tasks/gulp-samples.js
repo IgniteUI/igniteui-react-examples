@@ -216,21 +216,15 @@ function copySamples(cb) {
     deleteSamples();
     log('copying sample files... ');
     for (const sample of samples) {
-        // log(sample.SampleFolderPath);
-
-        // let outputPath = sample.SampleFolderPath;
         let outputPath = './src' + sample.SampleFolderPath.replace('.','');
-        // let outputPath = './sample-test-files' + sample.SampleFolderPath.replace('.','');
         // log(outputPath);
-        // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
 
         gulp.src([
-            //   sample.SampleFolderPath + '/**/*.*',
               sample.SampleFolderPath + '/src/*.*',
         '!' + sample.SampleFolderPath + '/src/index.css',
         '!' + sample.SampleFolderPath + '/src/index.tsx',
         '!' + sample.SampleFolderPath + '/src/typedecls.d.ts',
-        '!' + sample.SampleFolderPath + '/sandbox.config.json',
+        '!' + sample.SampleFolderPath + '/src/react-app-env.d.ts',
         '!' + sample.SampleFolderPath + '/sandbox.config.json',
         '!' + sample.SampleFolderPath + '/README.md',
         '!' + sample.SampleFolderPath + '/ReadMe.md',
@@ -241,8 +235,6 @@ function copySamples(cb) {
         // .pipe(copyExclude(['ReadMe.md', 'index.tsx']))
         // .pipe(logFile())
         .pipe(gulp.dest(outputPath))
-
-        // break;
     }
 
     let routingGroups = Transformer.getRoutingGroups(samples);
