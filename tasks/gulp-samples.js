@@ -379,6 +379,7 @@ function updateSharedFiles(cb) {
     // always override these shared files
     gulp.src([
         './templates/sample/src/index.css',
+        './templates/sample/src/react-app-env.d.ts',
         './templates/sample/sandbox.config.json',
         './templates/sample/tsconfig.json',
         './templates/sample/.gitignore',
