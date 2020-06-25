@@ -275,12 +275,12 @@
     font-size: 0.8rem;
     font-family: 'Titillium Web';
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid gray;
     padding: 0.5rem;
     color: gray;
-    background: rgba(228, 227, 227, 0.548);
-    background: rgba(148, 148, 148, 0.41);
-    /* background: white; */
+    /* background: rgba(228, 227, 227, 0.548); */
+    /* background: rgba(148, 148, 148, 0.41); */
+    background: white;
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
        -khtml-user-select: none; /* Konqueror HTML */
