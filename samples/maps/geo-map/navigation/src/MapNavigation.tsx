@@ -6,7 +6,6 @@ import { IgrDataChartInteractivityModule, IgrSeriesViewer } from 'igniteui-react
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrArcGISOnlineMapImagery } from 'igniteui-react-maps';
-import { EsriUtility, EsriStyle } from './EsriUtility';
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
@@ -170,7 +169,7 @@ export default class MapNavigation extends React.Component<any, any> {
 
         // optional
         const tileSource = new IgrArcGISOnlineMapImagery();
-        tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldOceansMap);
+        tileSource.mapServerUri = "https://services.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer";
         this.geoMap.backgroundContent = tileSource;
 
         this.geoMap.windowPositionHorizontal = 0.1;

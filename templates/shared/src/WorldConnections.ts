@@ -29,7 +29,7 @@ export default class WorldConnections {
         return 0;
     }
 
-    public static init() {
+    public static init(): void {
 
         const cities: any[] = WorldLocations.getAll();
         cities.sort(this.comparePopulation);
@@ -85,7 +85,7 @@ export default class WorldConnections {
         this.airports = Array.from(this.airportsLookup.values());
     }
 
-    public static addAirport(city: any) {
+    public static addAirport(city: any): void {
         if (this.airportsLookup.has(city.name)) {
             this.airportsLookup.get(city.name).flights += 1;
         } else {
