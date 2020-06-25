@@ -26,7 +26,8 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.state = { tileSource: "Open Street Map"}
+        // this.state = { tileSource: "Open Street Map"}
+        this.state = { tileSource: "Esri WorldStreetMap"}
         this.onMapRef = this.onMapRef.bind(this);
 
         this.ImageryOptions = [];
@@ -46,30 +47,29 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
     }
 
     public getOption(source: string, style: string): JSX.Element {
-        const key = source + "_" + style;
         const name = source + " " + style;
-        return <option id={key} key={key}>{name}</option>
+        return <option id={name} key={name}>{name}</option>
     }
 
     public render(): JSX.Element {
         return (
             <div className="igContainer" style={{background: "white"}}>
-{/* height: "calc(100% - 60px)",  */}
+
                 <div className="igComponent" style={{background: "white"}}>
                     <IgrGeographicMap
                         ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true"/>
-                    <div className="igOptions">
-                        <span className="igOptions-label">Imagery Source: </span>
+
+                    <div className="igOverlay-top-left" >
+                        <span className="igOverlay-title">Imagery Tile Source</span>
                         <select value={this.state.tileSource}
                                 onChange={this.onTileSourceChanged}>
                                 {this.ImageryOptions}
                         </select>
                     </div>
                 </div>
-                {/*  style={{width: "calc(100% - 70px)"}} */}
             </div>
         );
     }
