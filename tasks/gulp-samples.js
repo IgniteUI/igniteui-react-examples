@@ -381,6 +381,7 @@ function updateSharedFiles(cb) {
         './templates/sample/src/index.css',
         './templates/sample/sandbox.config.json',
         './templates/sample/tsconfig.json',
+        './templates/sample/.gitignore',
     ])
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, fileCallback) {
