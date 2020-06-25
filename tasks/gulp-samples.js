@@ -380,6 +380,7 @@ function updateSharedFiles(cb) {
     gulp.src([
         './templates/sample/src/index.css',
         './templates/sample/sandbox.config.json',
+        './templates/sample/tsconfig.json',
     ])
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, fileCallback) {
