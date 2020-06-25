@@ -274,10 +274,13 @@
     flex-direction: column;
     font-size: 0.8rem;
     font-family: 'Titillium Web';
-    border-radius: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid black;
     padding: 0.5rem;
     color: gray;
     background: rgba(228, 227, 227, 0.548);
+    background: rgba(148, 148, 148, 0.41);
+    /* background: white; */
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
        -khtml-user-select: none; /* Konqueror HTML */
@@ -289,8 +292,8 @@
 
 .igOverlay-top-left {
     position: absolute;
-    top: 0.25rem;
-    left: 0.25rem;
+    top: 0.5rem;
+    left: 0.5rem;
 }
 
 .igOverlay-top-right {
@@ -372,6 +375,13 @@
     /* white-space: pre; */
 }
 
+.igOverlay-title {
+    color: black;
+    display: block;
+    font-family: 'Titillium Web';
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+}
 
 /* ==================================================================================== */
 /* tooltip styles used in custom tooltips of charts and maps components */
