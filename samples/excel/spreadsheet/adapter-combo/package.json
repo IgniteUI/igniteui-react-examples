@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "igniteui-react-core": "16.12.1",
+    "igniteui-react-charts": "16.12.1",
     "igniteui-react-spreadsheet": "16.12.1",
     "igniteui-react-spreadsheet-chart-adapter": "16.12.1",
     "igniteui-react-excel": "16.12.1",
