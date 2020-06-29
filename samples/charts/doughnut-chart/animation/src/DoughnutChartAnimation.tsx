@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrDoughnutChart } from 'igniteui-react-charts';
 import { IgrRingSeriesModule } from 'igniteui-react-charts';
@@ -11,16 +12,17 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
 
     public data: any[];
     public chart: IgrDoughnutChart;
-    public series1: IgrRingSeries;
-    public refreshMilliseconds: number = 10;
+    public chartSeries: IgrRingSeries;
+    public isAnimating: boolean = false;
     public interval: number = -1;
-    public isTimerStarted: boolean = true;
 
     constructor(props: any) {
         super(props);
 
         this.onChartRef = this.onChartRef.bind(this);
-        this.onClick = this.onClick.bind(this);
+        this.onLoad = this.onLoad.bind(this);
+        this.onAnimationToggle = this.onAnimationToggle.bind(this);
+        this.onAnimationClear = this.onAnimationClear.bind(this);
 
         this.state = {
             data: [
@@ -37,7 +39,7 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
         return (
             <div className="igContainer">
                 <div>
-                    <button onClick={this.onClick}><label>{this.state.animateChartLabel}</label></button>
+                    <button onClick={this.onAnimationToggle}><label>Animation Chart</label></button>
                 </div>
                 <IgrDoughnutChart
                     ref={this.onChartRef}
@@ -48,7 +50,7 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
                         dataSource={this.state.data}
                         labelMemberPath="Company"
                         valueMemberPath="MarketShare"
-                        radiusFactor={0.9}
+                        radiusFactor={0.1}
                         labelExtent={0.7}
                         labelsPosition="InsideEnd"
                         startAngle={0} />
@@ -61,40 +63,53 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
         if (!chart) { return; }
 
         this.chart = chart;
-        this.series1 = this.chart.actualSeries[0] as IgrRingSeries;
-        this.setState({ animateChartLabel: "Start Animation" });
-        this.setupInterval();
+        this.chartSeries = this.chart.actualSeries[0] as IgrRingSeries;
     }
 
-    public onClick = () => {
-        if (!this.isTimerStarted) {
-            this.setState({ animateChartLabel: "Start Animation" });
-            this.isTimerStarted = true;
-            window.setTimeout(() => this.tick(), 16);
+    public componentDidMount() {
+        window.addEventListener('load', this.onLoad);
+    }
+
+    public onLoad() {
+        this.onAnimationClear();
+        this.onAnimationToggle();
+    }
+
+    public onAnimationToggle = () => {
+        if (!this.isAnimating) {
+            console.log("animation start");
+            this.chartSeries.startAngle = 0;
+            this.chartSeries.radiusFactor = 0.1;
+            this.isAnimating = true;
+            this.interval = window.setInterval(() => this.tick(), 15);
         } else {
-            this.isTimerStarted = false;
-            this.setState({ animateChartLabel: "Pause Animation" });
+            console.log("animation stop");
+            this.isAnimating = false;
+            this.onAnimationClear();
         }
     }
 
-    public setupInterval(): void {
+    public onAnimationClear(): void {
         if (this.interval >= 0) {
+            console.log("animation clear");
             window.clearInterval(this.interval);
             this.interval = -1;
         }
-        this.interval = window.setInterval(() => this.tick(),
-            this.refreshMilliseconds);
     }
 
     public tick(): void {
-        if (!this.isTimerStarted) {
-            this.series1.radiusFactor += 0.0025;
-            this.series1.startAngle++;
-            if (this.series1.startAngle >= 360) {
-                this.series1.startAngle = 0;
-            }
-            if (this.series1.radiusFactor >= 1.0) {
-                this.series1.radiusFactor = 0.1;
+        // console.log("animation tick");
+        if (this.isAnimating) {
+            if (this.chartSeries.radiusFactor < 1.0)
+                this.chartSeries.radiusFactor += 0.0025;
+
+            if (this.chartSeries.startAngle < 360)
+                this.chartSeries.startAngle++;
+
+            if (this.chartSeries.radiusFactor >= 1.0 &&
+                this.chartSeries.startAngle >= 360) {
+                this.isAnimating = false;
+                this.onAnimationClear();
             }
         }
     }
