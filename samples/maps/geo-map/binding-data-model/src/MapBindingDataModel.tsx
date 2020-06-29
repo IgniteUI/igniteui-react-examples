@@ -157,11 +157,11 @@ export default class MapBindingDataModel extends React.Component {
         const dataItem = dataContext.item as any;
         if (!dataItem) return null;
 
-        const brush = dataContext.series.shapeStroke
-        const style = { color: brush } as React.CSSProperties;
+        // const brush = dataContext.series.shapeStroke
+        // const style = { color: brush } as React.CSSProperties;
 
         return <div>
-            <div className="tooltipTitle" style={style}>{dataItem.origin.name} - {dataItem.dest.name}</div>
+            <div className="tooltipTitle" >{dataItem.origin.name} - {dataItem.dest.name}</div>
             <div className="tooltipBox">
                 <div className="tooltipRow">
                     <div className="tooltipLbl">Distance:</div>

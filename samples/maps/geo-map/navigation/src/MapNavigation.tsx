@@ -65,7 +65,7 @@ export default class MapNavigation extends React.Component<any, any> {
                 </div>
 
                 <div className="igOverlay-top-left" style={{color: "black", padding: "10px"}} >
-                    <label className="igOverlay-label">Select Map Region</label>
+                    <label className="igOverlay-label">Zoom to Map Region</label>
                     <select value={this.state.selectedRegion}
                             onChange={this.onSelectionChanged}>
                             {this.NavigationOptions}

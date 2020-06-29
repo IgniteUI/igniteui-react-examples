@@ -65,7 +65,7 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
                         <span className="igOverlay-title">Imagery Tile Source</span>
                         <select value={this.state.tileSource}
                                 onChange={this.onTileSourceChanged}
-                                style={{width: "18rem"}}>
+                                style={{width: "15rem"}}>
                                 {this.ImageryOptions}
                         </select>
                     </div>
