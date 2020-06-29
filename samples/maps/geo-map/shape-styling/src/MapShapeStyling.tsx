@@ -190,9 +190,8 @@ export default class MapShapeStyling extends React.Component<any, any> {
         const dataItem = dataContext.item as any;
         if (!dataItem) return null;
 
-        // console.log("createSymbolTooltip");
         const reg = dataItem.fieldValues.Region;
-        const name = dataItem.fieldValues.NAME;
+        const name = dataItem.fieldValues.Name;
         const pop = WorldUtils.toStringAbbr(dataItem.fieldValues.Population);
 
         return <div className="tooltipBox" >
