@@ -26,7 +26,6 @@ export default class PieChartAnimation extends React.Component<any, any> {
         };
 
         this.onPieRef = this.onPieRef.bind(this);
-        this.onLoad = this.onLoad.bind(this);
         this.onAnimationToggle = this.onAnimationToggle.bind(this);
         this.onAnimationClear = this.onAnimationClear.bind(this);
     }
@@ -55,15 +54,13 @@ export default class PieChartAnimation extends React.Component<any, any> {
         if (!chart) { return; }
 
         this.chart = chart;
-    }
-
-    public componentDidMount() {
-        window.addEventListener('load', this.onLoad);
-    }
-
-    public onLoad() {
+        console.log("animation load");
         this.onAnimationClear();
         this.onAnimationToggle();
+    }
+
+    public componentWillUnmount() {
+        this.onAnimationClear();
     }
 
     public onAnimationToggle = () => {

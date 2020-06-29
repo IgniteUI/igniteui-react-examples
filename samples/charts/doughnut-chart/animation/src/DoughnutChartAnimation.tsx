@@ -20,7 +20,6 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
         super(props);
 
         this.onChartRef = this.onChartRef.bind(this);
-        this.onLoad = this.onLoad.bind(this);
         this.onAnimationToggle = this.onAnimationToggle.bind(this);
         this.onAnimationClear = this.onAnimationClear.bind(this);
 
@@ -64,15 +63,14 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
 
         this.chart = chart;
         this.chartSeries = this.chart.actualSeries[0] as IgrRingSeries;
-    }
 
-    public componentDidMount() {
-        window.addEventListener('load', this.onLoad);
-    }
-
-    public onLoad() {
+        console.log("animation load");
         this.onAnimationClear();
         this.onAnimationToggle();
+    }
+
+    public componentWillUnmount() {
+        this.onAnimationClear();
     }
 
     public onAnimationToggle = () => {
