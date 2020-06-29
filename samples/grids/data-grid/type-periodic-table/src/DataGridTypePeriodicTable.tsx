@@ -134,7 +134,7 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
     }
 
     public activeCellChanged (s: IgrDataGrid, e: IgrGridActiveCellChangedEventArgs) {
-        console.log("activeCellChanged");
+        // console.log("activeCellChanged");
 
         const column = e.newActiveCell.columnUniqueKey.toString();
         const row = e.newActiveCell.rowIndex;
@@ -150,19 +150,19 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
     }
 
     public selectedCellRangesChanged (s: IgrDataGrid, e: IgrGridSelectedCellRangesChangedEventArgs) {
-        console.log("selectedCellRangesChanged");
+        // console.log("selectedCellRangesChanged");
     }
 
     public selectedItemsChanged (s: IgrDataGrid, e: IgrGridSelectedItemsChangedEventArgs) {
-        console.log("selectedItemsChanged");
+        // console.log("selectedItemsChanged");
     }
 
     public selectedKeysChanged (s: IgrDataGrid, e: IgrGridSelectedKeysChangedEventArgs) {
-        console.log("selectedKeysChanged");
+        // console.log("selectedKeysChanged");
     }
 
     public selectedCellsChanged (s: IgrDataGrid, e: IgrGridSelectedCellsChangedEventArgs) {
-        console.log("selectedCellsChanged");
+        // console.log("selectedCellsChanged");
     }
 
     public onVerticalHeaderUpdating(s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs) {

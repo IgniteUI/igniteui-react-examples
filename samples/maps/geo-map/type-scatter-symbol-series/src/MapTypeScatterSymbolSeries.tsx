@@ -40,7 +40,6 @@ export default class MapTypeScatterSymbolSeries extends React.Component {
     public onMapRef(geoMap: IgrGeographicMap) {
         if (!geoMap) { return; }
 
-        console.log("onMapRef");
         this.geoMap = geoMap;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
 

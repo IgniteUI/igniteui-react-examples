@@ -47,13 +47,13 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
 
     public onMapWindowRectChanged(viewer: IgrSeriesViewer, e: IgrRectChangedEventArgs) {
         let geoMap = viewer as IgrGeographicMap;
-        const rect = e.newRect;
-        console.log("win \n left:" + rect.left +
-        ", top:" + rect.top + ", width:"  + rect.width + ", height:"  + rect.height);
+        // const rect = e.newRect;
+        // console.log("win \n left:" + rect.left +
+        // ", top:" + rect.top + ", width:"  + rect.width + ", height:"  + rect.height);
 
-        const geo = geoMap.getGeographicFromZoom(rect);
-        console.log("geo \n left:" + geo.left +
-        ", top:" + geo.top + ", width:"  + geo.width + ", height:"  + geo.height);
+        // const geo = geoMap.getGeographicFromZoom(rect);
+        // console.log("geo \n left:" + geo.left +
+        // ", top:" + geo.top + ", width:"  + geo.width + ", height:"  + geo.height);
     }
 
 }

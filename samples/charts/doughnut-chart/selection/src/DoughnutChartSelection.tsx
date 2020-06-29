@@ -62,7 +62,7 @@ export default class DoughnutChartSelection extends React.Component<any, any> {
 
     public onSliceClick = (s: IgrDoughnutChart, e: IgrSliceClickEventArgs) => {
 
-        console.log("onSliceClick")
+        // console.log("onSliceClick")
         let selectedSlices: string = "";
 
         if (e.i.isOthersSlice) {

@@ -538,10 +538,10 @@ export default class DataGridBindingLiveData extends Component<any, AppState> {
                 pricesByCountry.set(country, currVal);
             // }
         }
-        console.log('updatePricesByCountry ' + this.state.pricesByCountry);
+
 
         if (shouldPopulate) {
-            console.log('updatePricesByCountry shouldPopulate');
+
             countryNames = countryNames.sort();
             let dataByCountry = this.state.pricesByCountry;
             for (const name of countryNames) {
@@ -859,7 +859,7 @@ export default class DataGridBindingLiveData extends Component<any, AppState> {
         if (content.childElementCount > 0) {
             icon = content.children[0] as HTMLSpanElement;
             icon.onclick = (e) => {
-                console.log("chart clicked!!")
+                // console.log("chart clicked!!")
                 e.stopPropagation();
             }
         } else {
@@ -889,7 +889,7 @@ export default class DataGridBindingLiveData extends Component<any, AppState> {
         if (content.childElementCount > 0) {
             icon = content.children[0] as HTMLSpanElement;
             icon.onclick = (e) => {
-                console.log("grid clicked!!")
+                // console.log("grid clicked!!")
                 e.stopPropagation();
             }
         } else {

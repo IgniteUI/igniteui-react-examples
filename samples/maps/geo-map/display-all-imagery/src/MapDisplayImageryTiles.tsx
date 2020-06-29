@@ -42,7 +42,7 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         }
 
         const enums = Object.keys(EsriStyle);
-        console.log("ArcGISOnlineMapServers " + enums.length);
+        // console.log("ArcGISOnlineMapServers " + enums.length);
     }
 
     public getOption(source: string, style: string): JSX.Element {
@@ -89,7 +89,7 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         if (this.geoMap === undefined) return;
 
         const mode = e.target.value.toString().replace(" ", "");
-        console.log("setting " + mode);
+        // console.log("setting " + mode);
 
         if (mode.indexOf("OpenStreetMap") === 0) {
             this.geoMap.backgroundContent = new IgrOpenStreetMapImagery();
@@ -111,7 +111,7 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
             let style = EsriStyle[name] as EsriStyle;
             let uri = EsriUtility.getUri(style);
 
-            console.log("setting URI " + uri);
+            // console.log("setting URI " + uri);
             const tileSource = new IgrArcGISOnlineMapImagery();
             tileSource.mapServerUri = uri;
             // or

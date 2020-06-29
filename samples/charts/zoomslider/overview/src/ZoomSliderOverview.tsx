@@ -54,7 +54,7 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
 
         this.regions = [];
         this.countriesAll = SampleScatterStats.getCountries();
-        console.log("countriesAll " + this.countriesAll.length);
+
         this.countriesByRegion = {};
         for (const country of this.countriesAll) {
             const name = country.Region;
@@ -62,11 +62,9 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
             if (!this.countriesByRegion[name]) {
                 this.countriesByRegion[name] = [];
                 this.regions.push(name);
-                console.log("region " + name);
             }
             this.countriesByRegion[name].push(country);
         }
-        console.log("regions " + this.regions.length);
     }
 
     public render(): JSX.Element {
@@ -151,7 +149,7 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
     }
 
     private onCursorMove(chart: IgrSeriesViewer, args: IgrChartCursorEventArgs) {
-        console.log(this.container.offsetWidth);
+        // console.log(this.container.offsetWidth);
         this.charts.map(c => {
             if (c !== chart) {
                 c.actualSeries.filter((s) => s.isAnnotationLayer)

@@ -341,7 +341,7 @@ export class SampleScatterStats {
         const roundValue = Math.round(value);
         const suffixNum = Math.floor(("" + roundValue).length / 3);
         const shortValue = parseFloat((suffixNum !== 0 ? (value / Math.pow(1000, suffixNum)) : value).toFixed(1));
-        // console.log("value=" + value + " short=" + (value / Math.pow(1000, suffixNum)) + " suffix=" + suffixNum);
+
         return shortValue + suffixes[suffixNum];
     }
 }

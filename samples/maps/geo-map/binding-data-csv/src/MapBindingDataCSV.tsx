@@ -50,7 +50,7 @@ export default class MapBindingDataCSV extends React.Component {
 
     public onDataLoaded(csvData: string) {
         const csvLines = csvData.split("\n");
-        console.log("loaded UsaCitiesPopulation.csv " + csvLines.length);
+        // console.log("loaded UsaCitiesPopulation.csv " + csvLines.length);
 
         // parsing CSV data and creating geographic locations
         const geoLocations: any[] = [];

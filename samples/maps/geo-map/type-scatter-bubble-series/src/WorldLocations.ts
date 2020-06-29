@@ -25,7 +25,6 @@ export default class WorldLocations {
     }
 
     public static init(): any[] {
-        // console.log("WorldLocations init");
         this.locations = [
             { cap: false, pop:  0.468, lat: 68.9635467529297, lon: 33.0860404968262, country: "Russia", name: "Murmansk" },
             { cap: false, pop:  0.416, lat: 64.5206680297852, lon: 40.6461601257324, country: "Russia", name: "Arkhangelsk" },
