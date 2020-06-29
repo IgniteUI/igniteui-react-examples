@@ -13,7 +13,8 @@ export class SampleRangeData {
         }
         return data;
     }
-    public static round(value: number) {
+
+    public static round(value: number): number {
         return Math.round(value * 10) / 10;
     }
 }

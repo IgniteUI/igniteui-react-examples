@@ -15,16 +15,16 @@ IgrSpreadsheetModule.register();
 
 export default class SpreadsheetActivation extends React.Component<any, any> {
     public spreadsheet: IgrSpreadsheet;
-    public filterText: string = "";
+    public inputAddress: string = "C9";
 
     constructor(props: any) {
         super(props);
         this.onSpreadsheetRef = this.onSpreadsheetRef.bind(this);
         this.onClick = this.onClick.bind(this);
-        this.onFilterTextChanged = this.onFilterTextChanged.bind(this);
+        this.onInputAddress = this.onInputAddress.bind(this);
         this.onActiveCellChanged = this.onActiveCellChanged.bind(this);
 
-        this.state = { filterText: this.filterText}
+        this.state = { inputAddress: this.inputAddress}
     }
 
     public render(): JSX.Element {
@@ -32,7 +32,7 @@ export default class SpreadsheetActivation extends React.Component<any, any> {
         return (
             <div className="igContainer">
                 <div className="igOptions">
-                    <input className="igOptions-input-text" type="text" name="filterText" value={this.state.filterText} onChange={this.onFilterTextChanged} />
+                    <input className="igOptions-input-text" type="text" name="inputAddress" value={this.state.inputAddress} onChange={this.onInputAddress} />
                     <button className="igOptions-button" onClick={this.onClick} >Active Cell</button>
                     <label className="igOptions-item"> Current Active Cell: {this.state.activeCell } </label>
                 </div>
@@ -46,17 +46,24 @@ export default class SpreadsheetActivation extends React.Component<any, any> {
 
     public onActiveCellChanged (s: IgrSpreadsheet, e: IgrSpreadsheetActiveCellChangedEventArgs)
     {
-      this.setState({activeCell: e.newValue.toString()});
+        this.setState({activeCell: e.newValue.toString()});
     }
 
-    public onFilterTextChanged = (e: any) => {
-        this.filterText = e.target.value;
-        this.setState({filterText: e.target.value});
+    public onInputAddress = (e: any) => {
+        this.inputAddress = e.target.value;
+        this.inputAddress = this.inputAddress.toUpperCase()
+        this.setState({inputAddress: this.inputAddress});
     }
 
     public onClick = (e: any) => {
-       this.spreadsheet.activeCell = new SpreadsheetCell(this.filterText);
+
+        if (this.inputAddress === "") {
+            this.inputAddress = "C9";
+            this.setState({inputAddress: this.inputAddress});
+        }
+        this.spreadsheet.activeCell = new SpreadsheetCell(this.inputAddress);
     }
+
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
         if (!spreadsheet) { return; }
 
