@@ -3,6 +3,7 @@
 
 /* Note these styles are shared between all samples */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
 #root, html, body, main {
     background: transparent;
@@ -137,8 +138,8 @@
 }
 
 
-.igOptions label,
-.igOptions div {
+.igOptions > label,
+.igOptions > div {
     font-family: 'Titillium Web';
 }
 
@@ -277,10 +278,10 @@
     border-radius: 5px;
     border: 1px solid gray;
     padding: 0.5rem;
-    color: gray;
+    color: black;
     /* background: rgba(228, 227, 227, 0.548); */
-    /* background: rgba(148, 148, 148, 0.41); */
-    background: white;
+    background: rgba(148, 148, 148, 0.5);
+    /* background: white; */
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
        -khtml-user-select: none; /* Konqueror HTML */
@@ -391,6 +392,7 @@
     font-size: 0.75rem;
     font-weight: normal;
     color: "Black";
+    font-family: 'Titillium Web';
 }
 
 .tooltipTitle {
@@ -398,6 +400,7 @@
     color: "Black";
     font-weight: bold;
     font-size: 0.75rem;
+    font-family: 'Titillium Web';
     margin-left: 0px;
 }
 
@@ -428,12 +431,14 @@
     display: table-cell;
     text-align: "right";
     font-weight: bold;
+    font-family: 'Titillium Web';
     padding-left: 5px;
 }
 
 .tooltipLbl {
     display: table-cell;
     text-align: "left";
+    font-family: 'Titillium Web';
 }
 
 .tooltipFlagImage {
