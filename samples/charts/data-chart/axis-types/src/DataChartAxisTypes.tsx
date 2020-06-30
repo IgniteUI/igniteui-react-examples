@@ -1,3 +1,4 @@
+import * as React from 'react';
 // data chart's elements for category series:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrNumericXAxis } from 'igniteui-react-charts';
@@ -17,7 +18,6 @@ import { IgrTimeXAxisModule } from 'igniteui-react-charts';
 import { SampleCategoryData } from './SampleCategoryData';
 import { SampleFinancialData } from './SampleFinancialData';
 import { SampleScatterData } from './SampleScatterData';
-import * as React from 'react';
 import { IgrBarSeries } from 'igniteui-react-charts';
 import { IgrFinancialPriceSeries } from 'igniteui-react-charts';
 
@@ -73,13 +73,13 @@ export default class DataChartAxisTypes extends React.Component<any, any> {
         return (
             <div className="igContainer">
                 <div className="igComponent">
-                    <div className="igOptions">
-                        <span className="igOptions-item">Series Type:</span>
-                        <select onChange={this.onAxisTypeChange}>
-                            <option>Column (CategoryXAxis)</option>
-                            <option>Bar (CategoryYAxis)</option>
-                            <option>Scatter (NumericXAxis)</option>
-                            <option>Financial (TimeXAxis)</option>
+                    <div className="igOptions-horizontal">
+                        <span className="igOptions-item">Axis Type:</span>
+                        <select onChange={this.onAxisTypeChange} style={{width: "17rem"}}>
+                            <option>CategoryXAxis with Column Series</option>
+                            <option>CategoryYAxis with Bar Series</option>
+                            <option>NumericXAxis with Scatter Series</option>
+                            <option>TimeXAxis with Financial Series</option>
                         </select>
                     </div>
                     <IgrDataChart
@@ -224,16 +224,12 @@ export default class DataChartAxisTypes extends React.Component<any, any> {
 
             this.chart.series.add(this.financialSeries);
         }
-
-        // this.chart.render();
     }
 
     public onChartRef(chart: IgrDataChart) {
         if (!chart) { return; }
 
         this.chart = chart;
-
-        // this.chart.dataSource = this.categoryData;
 
         this.chart.axes.add(this.categoryXAxis);
         this.chart.axes.add(this.numericYAxis);

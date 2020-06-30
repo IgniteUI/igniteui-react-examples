@@ -37,7 +37,7 @@ export default class DataChartTypeStackedAreaSeries extends React.Component<any,
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <span className="igLegend-title">Legend: </span>
                     <div className="igLegend">
                         <IgrLegend ref={this.onLegendRef}

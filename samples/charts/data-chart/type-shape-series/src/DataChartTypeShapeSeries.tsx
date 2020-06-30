@@ -36,7 +36,7 @@ export default class DataChartTypeShapeSeries extends React.Component<any, any> 
         return (
             <div className="igContainer">
 
-            <div className="igOptions">
+            <div className="igOptions-horizontal">
                     <span className="igOptions-label">Shape Series: </span>
                     <select value={this.state.seriesType}
                         onChange={this.onSeriesTypeChanged}>

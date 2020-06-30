@@ -40,16 +40,14 @@ export default class DataChartTypeFinancialCandlestickSeries extends React.Compo
                     isHorizontalZoomEnabled={true}
                     isVerticalZoomEnabled={true} >
 
-                    <IgrCategoryXAxis name="xAxis" label="Label" labelAngle={90} />
-                    <IgrNumericYAxis  name="yAxis1" labelLocation="OutsideRight"
-                     title="Financial Prices" />
-                    <IgrNumericYAxis  name="yAxis2" labelLocation="OutsideLeft"
-                    title="Indicator Values" majorStrokeThickness={0} maximumValue={800}/>
+                    <IgrCategoryXAxis name="xAxis" label="Label" labelAngle={45} />
+                    <IgrNumericYAxis  name="yAxis" labelLocation="OutsideRight" />
 
                     <IgrFinancialPriceSeries
-                    name="series2"
+                    name="series"
                     xAxisName="xAxis"
-                    yAxisName="yAxis1"
+                    yAxisName="yAxis"
+                    title="Stock Price"
                     displayType="Candlestick"
                     highMemberPath="High"
                     lowMemberPath="Low"

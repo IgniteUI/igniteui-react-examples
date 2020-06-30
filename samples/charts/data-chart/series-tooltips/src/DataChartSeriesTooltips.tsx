@@ -40,7 +40,7 @@ export default class DataChartSeriesTooltips extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <span className="igOptions-label">Tooltip Type: </span>
                     <select value={this.state.toolTipType}
                         onChange={this.onToolTipTypeChanged}>

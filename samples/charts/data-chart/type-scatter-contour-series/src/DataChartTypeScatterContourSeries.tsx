@@ -55,7 +55,7 @@ export default class DataChartTypeScatterContourSeries extends React.Component<a
     public render(): JSX.Element {
         return (
         <div className="igContainer">
-            {/* <div className="igOptions">
+            {/* <div className="igOptions-horizontal">
                 <label className="igOptions-label">Thickness: </label>
                 <label className="igOptions-value" >
                     {this.state.seriesThickness}

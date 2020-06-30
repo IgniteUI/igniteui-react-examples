@@ -41,14 +41,14 @@ export default class DataChartTypeFinancialSeries extends React.Component<any, a
     public render(): JSX.Element {
         return (
         <div className="igContainer">
-            <div className="igOptions">
+            <div className="igOptions-horizontal">
                 <span className="igOptions-label"> Series Display Type: </span>
                 <select value={this.state.markersType}
                     onChange={this.onDisplayTypeSeriesChanged}>
                     <option>Candlestick</option>
                     <option>OHLC</option>
                 </select>
-                <span className="igOptions-label"> Indicator Display Type: </span>
+                <span className="igOptions-label"> Indicator Type: </span>
                 <select value={this.state.markersType}
                     onChange={this.onDisplayTypeIndicatorChanged}>
                     <option>Line</option>
@@ -64,7 +64,7 @@ export default class DataChartTypeFinancialSeries extends React.Component<any, a
                     isHorizontalZoomEnabled={true}
                     isVerticalZoomEnabled={true} >
 
-                    <IgrCategoryXAxis name="xAxis" label="Label" labelAngle={90} />
+                    <IgrCategoryXAxis name="xAxis" label="Label" labelAngle={45} />
                     <IgrNumericYAxis  name="yAxis1" labelLocation="OutsideRight"
                      title="Financial Prices"/>
                     <IgrNumericYAxis  name="yAxis2" labelLocation="OutsideLeft"

@@ -51,7 +51,7 @@ export default class DataChartPerformance extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="igContainer">
-            <div className="igOptions">
+            <div className="igOptions-horizontal">
                 <label className="igOptions-label">Data Points: </label>
                 <label className="igOptions-value" >
                     {this.state.dataInfo}

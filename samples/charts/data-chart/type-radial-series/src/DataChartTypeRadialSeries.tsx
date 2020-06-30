@@ -43,7 +43,7 @@ export default class DataChartTypeRadialSeries extends React.Component<any, any>
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <span className="igOptions-label">Type of Radial Series: </span>
                     <select value={this.state.seriesType}
                         onChange={this.onSeriesTypeChanged}>

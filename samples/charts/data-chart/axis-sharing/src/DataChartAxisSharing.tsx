@@ -1,16 +1,18 @@
+import * as React from 'react';
+import { SampleFinancialData } from './SampleFinancialData';
 // axis' modules:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
 // series' modules:
 import { IgrFinancialPriceSeries } from 'igniteui-react-charts';
-import { IgrMoneyFlowIndexIndicator } from 'igniteui-react-charts';
+import { IgrColumnSeries } from 'igniteui-react-charts';
 // data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import * as React from 'react';
-import { SampleFinancialData } from './SampleFinancialData';
+import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
 
+IgrNumberAbbreviatorModule.register();
 IgrDataChartCoreModule.register();
 IgrDataChartInteractivityModule.register();
 
@@ -31,30 +33,30 @@ export default class DataChartAxisSharing extends React.Component<any, any> {
                     <IgrDataChart
                         width="100%"
                         height="100%"
+                        subtitle="Stock Prices and Trade Volume"
+                        subtitleTopMargin="10"
                         dataSource={this.data}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true} >
 
-                        <IgrCategoryXAxis name="xAxisShared" label="Label" />
+                        <IgrCategoryXAxis name="xAxisShared" label="Label" gap="0.75"/>
                         <IgrNumericYAxis  name="yAxisRight" labelLocation="OutsideRight"
-                        minimumValue={400} title="Stock Price ($)"
+                        minimumValue={400} title="Stock Price"
                         maximumValue={700}
                         />
                         <IgrNumericYAxis name="yAxisLeft" labelLocation="OutsideLeft"
-                        minimumValue={0} title="Money Flow Index"
-                        maximumValue={300}
-                        majorStrokeThickness={0}/>
+                        minimumValue={5000} title="Trade Volume"
+                        maximumValue={45000}
+                        majorStrokeThickness={0}
+                        abbreviateLargeNumbers={true}/>
 
-                        <IgrMoneyFlowIndexIndicator
+                        <IgrColumnSeries
                         name="series2"
                         xAxisName="xAxisShared"
                         yAxisName="yAxisLeft"
-                        displayType="Area"
-                        highMemberPath="High"
-                        lowMemberPath="Low"
-                        closeMemberPath="Close"
-                        openMemberPath="Open"
-                        volumeMemberPath="Volume" />
+                        valueMemberPath="Volume"
+                        showDefaultTooltip="true"
+                        title="Trade Volume" />
 
                         <IgrFinancialPriceSeries
                         name="series1"
@@ -65,7 +67,9 @@ export default class DataChartAxisSharing extends React.Component<any, any> {
                         lowMemberPath="Low"
                         closeMemberPath="Close"
                         openMemberPath="Open"
-                        volumeMemberPath="Volume" />
+                        volumeMemberPath="Volume"
+                        showDefaultTooltip="true"
+                        title="Stock Price" />
 
                     </IgrDataChart>
                 </div>

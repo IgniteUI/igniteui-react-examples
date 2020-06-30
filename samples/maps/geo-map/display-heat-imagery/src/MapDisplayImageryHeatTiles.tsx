@@ -85,7 +85,6 @@ export default class MapDisplayImageryHeatTiles extends React.Component {
         gen.useLogarithmicScale = true;
         gen.useWebWorkers = true;
         gen.webWorkerInstance = new Worker();
-
         gen.scaleColors = [
             "rgba(0, 0, 255, .251)", "rgba(0, 255, 255, .3765)",
             "rgba(50,205,50, .2675)", "rgba(255, 255, 0, .7059)",
@@ -96,6 +95,7 @@ export default class MapDisplayImageryHeatTiles extends React.Component {
         // generating heat map series
         const series = new IgrGeographicTileSeries( { name: "heatMapSeries" });
         series.tileImagery = this.tileImagery;
+        series.showDefaultTooltip = true;
 
         // add heat map series to the map
         this.map.series.add(series);

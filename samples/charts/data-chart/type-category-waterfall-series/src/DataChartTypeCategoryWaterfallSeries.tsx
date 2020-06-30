@@ -34,13 +34,7 @@ export default class DataChartTypeCategoryWaterfallSeries extends React.Componen
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                {/* <div className="igOptions">
-                    <span className="igLegend-title">Legend: </span>
-                    <div  className="igLegend">
-                        <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
-                    </div>
-                </div> */}
-                <div className="igComponent" style={{ height: "calc(100% - 35px)" }} >
+                <div className="igComponent" style={{ height: "100%" }} >
                     <IgrDataChart ref={this.onChartRef}
                         width="100%"
                         height="100%"
@@ -56,7 +50,7 @@ export default class DataChartTypeCategoryWaterfallSeries extends React.Componen
                             yAxisName="yAxis"
                             valueMemberPath="Value"
                             showDefaultTooltip="true"
-                            title="" />
+                            title="Value" />
                     </IgrDataChart>
                 </div>
             </div>

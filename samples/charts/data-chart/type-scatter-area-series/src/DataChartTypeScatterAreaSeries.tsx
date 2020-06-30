@@ -61,7 +61,7 @@ export default class DataChartTypeScatterAreaSeries extends React.Component<any,
     public render(): JSX.Element {
         return (
         <div className="igContainer">
-            {/* <div className="igOptions">
+            {/* <div className="igOptions-horizontal">
                 <span className="igOptions-label">Scale Mode: </span>
                 <select value={this.state.seriesScaleMode}
                     onChange={this.seriesScaleModeChanged}>

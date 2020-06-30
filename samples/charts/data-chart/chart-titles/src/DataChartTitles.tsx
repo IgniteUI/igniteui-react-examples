@@ -35,8 +35,7 @@ export default class DataChartTitles extends React.Component<any, any> {
         return (
             <div className="igContainer">
                 <div className="igLegend">
-                    <IgrLegend ref={this.onLegendRef}
-                        orientation="Horizontal" />
+                    <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                 </div>
                 <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart

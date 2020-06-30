@@ -64,7 +64,7 @@ export default class DataChartAxisAnnotations extends React.Component<any, any> 
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <span className="igOptions-item">Annotations: </span>
                     <label className="igOptions-item"><input type="checkbox" checked={this.state.finalValuesVisible}
                         onChange={this.onFinalValueChange} />Final Value</label>

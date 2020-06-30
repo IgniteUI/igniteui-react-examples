@@ -1,3 +1,5 @@
+import * as React from 'react';
+import { SampleScatterStats } from './SampleScatterStats';
 // data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
@@ -12,11 +14,10 @@ import { IgrNumericXAxis } from 'igniteui-react-charts';
 import { IgrBubbleSeries } from 'igniteui-react-charts';
 import { IgrSizeScale } from 'igniteui-react-charts';
 import { MarkerType } from 'igniteui-react-charts';
+import { IgrDataContext } from 'igniteui-react-core';
 // legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-import * as React from 'react';
-import { SampleScatterStats } from './SampleScatterStats';
 
 IgrDataChartCoreModule.register();
 IgrDataChartScatterCoreModule.register();
@@ -35,12 +36,13 @@ export default class DataChartOverview extends React.Component<any, any> {
 
         this.onChartRef = this.onChartRef.bind(this);
         this.onLegendRef = this.onLegendRef.bind(this);
+        this.onTooltipRender = this.onTooltipRender.bind(this);
     }
 
     public render(): JSX.Element {
         return (
         <div className="igContainer">
-            <div className="igOptions">
+            <div className="igOptions-horizontal">
                 <span className="igLegend-title">Legend: </span>
                 <div className="igLegend">
                     <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
@@ -50,6 +52,7 @@ export default class DataChartOverview extends React.Component<any, any> {
                 <IgrDataChart ref={this.onChartRef}
                     width="100%"
                     height="100%"
+                    subtitle="GDP vs. Population"
                     isHorizontalZoomEnabled={true}
                     isVerticalZoomEnabled={true}
                     dataSource={this.data} >
@@ -61,7 +64,9 @@ export default class DataChartOverview extends React.Component<any, any> {
                     <IgrNumericYAxis name="yAxis"
                     isLogarithmic={true}
                     abbreviateLargeNumbers={true}
-                    title="Total GDP ($)" />
+                    title="Total GDP ($)"
+                    titleLeftMargin="10"
+                    titleRightMargin="0"/>
                     {/* NOTE series are created in code-behind */}
                 </IgrDataChart>
             </div>
@@ -110,7 +115,7 @@ export default class DataChartOverview extends React.Component<any, any> {
         series1.title = title;
         series1.markerType = MarkerType.Circle;
         series1.dataSource = data;
-        series1.showDefaultTooltip = true;
+        series1.tooltipTemplate = this.onTooltipRender;
         series1.xMemberPath = "Population";
         series1.yMemberPath = "GdpTotal";
         series1.radiusMemberPath = "GdpPerCapita";
@@ -120,5 +125,51 @@ export default class DataChartOverview extends React.Component<any, any> {
         series1.yAxisName = "yAxis";
 
         this.chart.series.add(series1);
+    }
+
+    public onTooltipRender(context: any) {
+        const dataContext = context.dataContext as IgrDataContext;
+        if (!dataContext) return null;
+
+        const series = dataContext.series as any;
+        if (!series) return null;
+
+        const dataItem = dataContext.item as any;
+        if (!dataItem) return null;
+
+        const pop = this.toStringAbbr(dataItem.Population);
+        const gdp = this.toStringAbbr(dataItem.GdpPerCapita);
+        const total = this.toStringAbbr(dataItem.GdpTotal);
+
+        return <div>
+            <div className="tooltipTitle">{dataItem.Name}</div>
+            <div className="tooltipBox">
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Population:</div>
+                    <div className="tooltipVal">{pop}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">GDP Total:</div>
+                    <div className="tooltipVal">{total}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">GDP per Capita:</div>
+                    <div className="tooltipVal">{gdp}</div>
+                </div>
+            </div>
+        </div>
+    }
+
+    public toStringAbbr(value: number): string {
+        if (value > 1000000000000) {
+            return (value / 1000000000000).toFixed(1) + " T"
+        } else if (value > 1000000000) {
+            return (value / 1000000000).toFixed(1) + " B"
+        } else if (value > 1000000) {
+            return (value / 1000000).toFixed(1) + " M"
+        } else if (value > 1000) {
+            return (value / 1000).toFixed(1) + " K"
+        }
+        return value.toFixed(0);
     }
 }

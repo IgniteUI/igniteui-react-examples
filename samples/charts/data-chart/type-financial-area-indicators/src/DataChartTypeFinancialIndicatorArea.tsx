@@ -43,7 +43,9 @@ import { IgrStochRSIIndicator } from 'igniteui-react-charts';
 import { IgrTRIXIndicator } from 'igniteui-react-charts';
 import { IgrStrategyBasedIndicator } from 'igniteui-react-charts';
 import { IndicatorDisplayType } from 'igniteui-react-charts';
+import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
 
+IgrNumberAbbreviatorModule.register();
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryTrendLineModule.register();
 IgrDataChartInteractivityModule.register();
@@ -199,12 +201,14 @@ export default class DataChartTypeFinancialIndicatorArea extends React.Component
         if (indicator !== undefined) {
             indicator.xAxisName = "xAxis2";
             indicator.yAxisName = "yAxis2";
+            indicator.title = "Indicator";
             indicator.displayType = this.displayType;
             indicator.highMemberPath = "High";
             indicator.lowMemberPath = "Low";
             indicator.closeMemberPath = "Close";
             indicator.openMemberPath = "Open";
             indicator.volumeMemberPath = "Volume";
+            indicator.showDefaultTooltip = true;
             this.chart.series.add(indicator);
         }
     }
@@ -229,13 +233,14 @@ export default class DataChartTypeFinancialIndicatorArea extends React.Component
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}>
 
-                        <IgrCategoryXAxis name="xAxis1" label="Label" labelAngle={90} />
+                        <IgrCategoryXAxis name="xAxis1" label="Label" labelAngle={45} />
                         <IgrNumericYAxis  name="yAxis1" labelLocation="OutsideLeft" title="Financial Prices" />
 
                         <IgrFinancialPriceSeries
                             name="series1"
                             xAxisName="xAxis1"
                             yAxisName="yAxis1"
+                            title="Stock Prices"
                             displayType="Candlestick"
                             highMemberPath="High"
                             lowMemberPath="Low"
@@ -245,8 +250,8 @@ export default class DataChartTypeFinancialIndicatorArea extends React.Component
                             showDefaultTooltip="true"/>
                     </IgrDataChart>
                 </div>
-                <div className="igOptions">
-                    <span className="igOptions-label"> Indicator Display Type: </span>
+                <div className="igOptions-horizontal">
+                    <span className="igOptions-label"> Indicator Type: </span>
                     <select value={this.state.indicatorType}
                         onChange={this.onIndicatorChanged}>
                         <option>AbsoluteVolumeOscillator</option>
@@ -291,8 +296,9 @@ export default class DataChartTypeFinancialIndicatorArea extends React.Component
                         isHorizontalZoomEnabled="true"
                         isVerticalZoomEnabled="true">
 
-                        <IgrCategoryXAxis name="xAxis2" label="Label" labelAngle={90} />
-                        <IgrNumericYAxis  name="yAxis2" labelLocation="OutsideLeft" title="Indicators" />
+                        <IgrCategoryXAxis name="xAxis2" label="Label" labelAngle={45} />
+                        <IgrNumericYAxis  name="yAxis2" labelLocation="OutsideLeft" title="Indicators"
+                        abbreviateLargeNumbers="true" />
                     </IgrDataChart>
 
                 </div>

@@ -1,27 +1,23 @@
-// types of axis:
-import { IgrNumericYAxis } from 'igniteui-react-charts';
-import { IgrNumericXAxis } from 'igniteui-react-charts';
-// types of scatter series:
-import { IgrBubbleSeries } from 'igniteui-react-charts';
-// elements of scatter series:
-import { IgrSizeScale } from 'igniteui-react-charts';
-import { IgrValueBrushScale } from 'igniteui-react-charts';
-// import { IgrCustomPaletteBrushScale } from 'igniteui-react-charts';
-// import { BrushSelectionMode } from 'igniteui-react-charts';
-// modules of data chart:
+import * as React from 'react';
+import { SampleScatterStats } from './SampleScatterStats';
+// data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
+// scatter series' modules:
 import { IgrDataChartScatterCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartScatterModule } from 'igniteui-react-charts';
-// additional modules
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
+// scatter series' elements:
+import { IgrNumericYAxis } from 'igniteui-react-charts';
+import { IgrNumericXAxis } from 'igniteui-react-charts';
+import { IgrBubbleSeries } from 'igniteui-react-charts';
+import { IgrSizeScale } from 'igniteui-react-charts';
 import { MarkerType } from 'igniteui-react-charts';
+import { IgrDataContext } from 'igniteui-react-core';
 // legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-import * as React from 'react';
-import { SampleScatterStats } from './SampleScatterStats';
 
 IgrDataChartCoreModule.register();
 IgrDataChartScatterCoreModule.register();
@@ -30,7 +26,7 @@ IgrDataChartInteractivityModule.register();
 IgrNumberAbbreviatorModule.register();
 IgrLegendModule.register();
 
-export default class DataChartTypeScatterBubbleSeries extends React.Component {
+export default class DataChartTypeScatterBubbleSeries extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
     public legend: IgrLegend;
@@ -39,19 +35,28 @@ export default class DataChartTypeScatterBubbleSeries extends React.Component {
         super(props);
 
         this.onChartRef = this.onChartRef.bind(this);
+        this.onLegendRef = this.onLegendRef.bind(this);
+        this.onTooltipRender = this.onTooltipRender.bind(this);
     }
 
     public render(): JSX.Element {
         return (
         <div className="igContainer">
-            <div className="igComponent"   >
+            <div className="igOptions-horizontal">
+                <span className="igLegend-title">Legend: </span>
+                <div className="igLegend">
+                    <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
+                </div>
+            </div>
+            <div className="igComponent" style={{height: "calc(100% - 35px)"}}>
                 <IgrDataChart ref={this.onChartRef}
-                    isHorizontalZoomEnabled={true}
-                    isVerticalZoomEnabled={true}
                     width="100%"
                     height="100%"
-                    chartTitle="GDP vs Population">
-                    {/* axes: */}
+                    subtitle="GDP vs. Population"
+                    isHorizontalZoomEnabled={true}
+                    isVerticalZoomEnabled={true}
+                    dataSource={this.data} >
+                    {/* axes */}
                     <IgrNumericXAxis name="xAxis"
                     isLogarithmic={true}
                     abbreviateLargeNumbers={true}
@@ -59,10 +64,11 @@ export default class DataChartTypeScatterBubbleSeries extends React.Component {
                     <IgrNumericYAxis name="yAxis"
                     isLogarithmic={true}
                     abbreviateLargeNumbers={true}
-                    title="Total GDP ($)" />
-
-                    {/* series is created in the setSeries function  */}
-               </IgrDataChart>
+                    title="Total GDP ($)"
+                    titleLeftMargin="10"
+                    titleRightMargin="0"/>
+                    {/* NOTE series are created in code-behind */}
+                </IgrDataChart>
             </div>
         </div>
         );
@@ -72,55 +78,98 @@ export default class DataChartTypeScatterBubbleSeries extends React.Component {
         if (!chart) { return; }
 
         this.chart = chart;
-        this.setSeries();
+        this.populateChart();
+        if (this.legend) {
+            this.chart.legend = this.legend;
+        }
     }
 
-    public setSeries()
+    public onLegendRef(legend: IgrLegend) {
+        if (!legend) { return; }
+
+        this.legend = legend;
+        if (this.chart) {
+            this.chart.legend = this.legend;
+        }
+    }
+
+    public populateChart()
+    {
+        const data1 = SampleScatterStats.getCountriesWithLargePop();
+        const data2 = SampleScatterStats.getCountriesWithSmallPop();
+
+        this.chart.series.clear();
+        this.createSeries(data1, "Large Countries");
+        this.createSeries(data2, "Small Countries");
+    }
+
+    public createSeries(data: any, title: string)
     {
         const sizeScale = new IgrSizeScale({});
         sizeScale.minimumValue = 10;
         sizeScale.maximumValue = 60;
 
-        const brushScale1 = new IgrValueBrushScale({});
-        brushScale1.brushes = ["#FFFFFF", "#b56ffc"];
-        brushScale1.minimumValue = 10;
-        brushScale1.maximumValue = 60;
+        const id = "series" + this.chart.series.count;
 
-        const series1 = new IgrBubbleSeries({ name: "series1" });
-        series1.title = "Large Countries";
+        const series1 = new IgrBubbleSeries({ name: id });
+        series1.title = title;
         series1.markerType = MarkerType.Circle;
-        series1.dataSource = SampleScatterStats.getCountriesWithLargePop();
-        series1.showDefaultTooltip = true;
+        series1.dataSource = data;
+        series1.tooltipTemplate = this.onTooltipRender;
         series1.xMemberPath = "Population";
         series1.yMemberPath = "GdpTotal";
         series1.radiusMemberPath = "GdpPerCapita";
         series1.radiusScale = sizeScale;
-        // series1.fillMemberPath = "GdpPerCapita";
-        // series1.fillScale = brushScale1;
+        series1.labelMemberPath = "Name";
         series1.xAxisName = "xAxis";
         series1.yAxisName = "yAxis";
 
-        // const brushScale2 = new IgrCustomPaletteBrushScale({});
-        // brushScale2.brushes = ["#FFFFFF", "#b56ffc"];
-        // brushScale2.brushSelectionMode = BrushSelectionMode.Interpolate;
-
-        const series2 = new IgrBubbleSeries({ name: "series2" });
-        series2.title = "Small Countries";
-        series2.markerType = MarkerType.Circle;
-        series2.dataSource = SampleScatterStats.getCountriesWithSmallPop();
-        series2.showDefaultTooltip = true;
-        series2.xMemberPath = "Population";
-        series2.yMemberPath = "GdpTotal";
-        series2.radiusMemberPath = "GdpPerCapita";
-        series2.radiusScale = sizeScale;
-        // series2.fillMemberPath = "GdpPerCapita";
-        // series2.fillScale = brushScale2;
-        series2.xAxisName = "xAxis";
-        series2.yAxisName = "yAxis";
-
-        this.chart.series.clear();
         this.chart.series.add(series1);
-        this.chart.series.add(series2);
+    }
 
+    public onTooltipRender(context: any) {
+        const dataContext = context.dataContext as IgrDataContext;
+        if (!dataContext) return null;
+
+        const series = dataContext.series as any;
+        if (!series) return null;
+
+        const dataItem = dataContext.item as any;
+        if (!dataItem) return null;
+
+        const pop = this.toStringAbbr(dataItem.Population);
+        const gdp = this.toStringAbbr(dataItem.GdpPerCapita);
+        const total = this.toStringAbbr(dataItem.GdpTotal);
+
+        return <div>
+            <div className="tooltipTitle">{dataItem.Name}</div>
+            <div className="tooltipBox">
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Population:</div>
+                    <div className="tooltipVal">{pop}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">GDP Total:</div>
+                    <div className="tooltipVal">{total}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">GDP per Capita:</div>
+                    <div className="tooltipVal">{gdp}</div>
+                </div>
+            </div>
+        </div>
+    }
+
+    public toStringAbbr(value: number): string {
+        if (value > 1000000000000) {
+            return (value / 1000000000000).toFixed(1) + " T"
+        } else if (value > 1000000000) {
+            return (value / 1000000000).toFixed(1) + " B"
+        } else if (value > 1000000) {
+            return (value / 1000000).toFixed(1) + " M"
+        } else if (value > 1000) {
+            return (value / 1000).toFixed(1) + " K"
+        }
+        return value.toFixed(0);
     }
 }
