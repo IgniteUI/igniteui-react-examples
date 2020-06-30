@@ -130,6 +130,7 @@
 .igOptions-horizontal {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .igOptions-vertical {
@@ -144,7 +145,8 @@
 }
 
 .igOptions-item {
-    margin-left: 5px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
     display: inline-block;
     vertical-align: center;
@@ -152,8 +154,8 @@
 
 .igOptions-label {
     margin-top: 0px;
-    margin-left: 10px;
-    margin-right: 5px;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
     margin-bottom: 5px;
     /* font-size: 11pt; */
     /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
@@ -161,6 +163,7 @@
     vertical-align: center;
     padding: 0px;
     display: inline-block;
+    white-space: nowrap;
     /* background: orange; */
 }
 
@@ -222,7 +225,7 @@
     font-size: 0.75rem;
     /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
     margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
+    /* margin-bottom: 0.25rem; */
     margin-left: 1rem;
     padding: 0px;
     display: inline-block;
@@ -230,19 +233,17 @@
 }
 
 .igLegend-title {
-    margin-top: 0.75rem;
+    /* margin-top: 0.7rem; */
     margin-left: 1rem;
     margin-right: 0.25rem;
-    margin-bottom: 0.25rem;
+    /* margin-bottom: 0.25rem; */
     padding-top: 0px;
     padding-bottom: 0px;
     padding: 0px;
-    /* font-size: 11pt; */
-    /* font-family: Arial, Verdana, Helvetica, "Times New Roman", Times, serif; */
-    /* vertical-align: top; */
     vertical-align: center;
     display: inline-block;
-    /* background: orange; */
+    white-space: nowrap;
+    font-size: 15px;
 }
 
 .igFlex {
