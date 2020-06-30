@@ -231,6 +231,8 @@ function copySamples(cb) {
         '!' + sample.SampleFolderPath + '/readme.md',
         '!' + sample.SampleFolderPath + '/package.json',
         '!' + sample.SampleFolderPath + '/package-lock.json',
+        '!' + sample.SampleFolderPath + '/.eslintrc.js',
+        '!' + sample.SampleFolderPath + '/.gitignore',
         ])
         // .pipe(copyExclude(['ReadMe.md', 'index.tsx']))
         // .pipe(logFile())
@@ -375,6 +377,7 @@ function updateSharedFiles(cb) {
         './templates/sample/sandbox.config.json',
         './templates/sample/tsconfig.json',
         './templates/sample/.gitignore',
+        './templates/sample/.eslintrc.js',
     ])
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, fileCallback) {
