@@ -72,7 +72,6 @@ export default class MapShapeStyling extends React.Component<any, any> {
         this.shapeComparisonStyling.defaultFill = 'Gray';
         this.shapeComparisonStyling.itemMemberPath = 'Region';
         this.shapeComparisonStyling.itemMappings = [
-            { fill: 'Red', itemValue: 'Eastern Europe' },
             { fill: 'Red', itemValue: 'Central Asia' },
             { fill: 'Red', itemValue: 'Eastern Asia' },
             { fill: 'Orange', itemValue: 'Southern Asia' },
@@ -87,6 +86,7 @@ export default class MapShapeStyling extends React.Component<any, any> {
             { fill: 'DodgerBlue', itemValue: 'Western Europe' },
             { fill: 'DodgerBlue', itemValue: 'Southern Europe' },
             { fill: 'DodgerBlue', itemValue: 'Northern Europe' },
+            { fill: 'DodgerBlue', itemValue: 'Eastern Europe' },
             { fill: '#22c928', itemValue: 'South America' },
             { fill: '#b64fff', itemValue: 'Melanesia' },
             { fill: '#b64fff', itemValue: 'Micronesia' },
