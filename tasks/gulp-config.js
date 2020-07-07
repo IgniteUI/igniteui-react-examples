@@ -30,7 +30,7 @@ let config = {
                  //  "https://infragistics.com/reactsite/components/data-chart.html",
 
         RepositoryOrg: "IgniteUI",
-        RepositoryBranch: "vnext",
+        RepositoryBranch: "master",
         RepositoryName: "igniteui-react-examples",
         RepositoryPath: "github/{RepositoryOrg}/{RepositoryName}/tree/{RepositoryBranch}/samples/{ComponentGroup}/{ComponentFolder}/{SampleFolderName}",
         RepositoryUrl: "https://github.com/{RepositoryOrg}/{RepositoryName}",
