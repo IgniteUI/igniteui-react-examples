@@ -45,7 +45,7 @@ export default class DataChartTypePolarSeries extends React.Component<any, any> 
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <span className="igOptions-label">Type of Polar Series: </span>
                     <select value={this.state.seriesType}
                         onChange={this.onSeriesTypeChanged}>

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 let transFS = require('fs.extra');
 
 // let platform = "React";
@@ -28,6 +30,10 @@ class SampleInfo {
     public SampleDisplayName: string;  // Map Binding Data CSV
     public SampleFileSourcePath: string;     // /src/MapBindingDataCSV.tsx
     public SampleFileSourceCode: string;   // source code from /src/MapBindingDataCSV.tsx file
+    public SampleImportLines: string[];
+    public SampleImportPackages: string[];
+    public SampleImportFiles: string[];
+
     public SampleReadMe: string;       // content of ReadMe.md file generated for /samples/maps/geo-map/binding-csv-points/
     public SampleFilePaths: string[];  // relative paths to files in sample folder: /samples/maps/geo-map/binding-csv-points/
     public SampleFileNames: string[];  // names of files in sample folder: /samples/maps/geo-map/binding-csv-points/
@@ -36,6 +42,7 @@ class SampleInfo {
 
     public SandboxUrlView: string;     // https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points
     public SandboxUrlEdit: string;     //     https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points
+    public SandboxUrlShort: string;    //     https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points
 
     public PackageFileContent: PackageJson;
     public PackageDependencies: PackageDependency[];
@@ -53,7 +60,57 @@ class SampleInfo {
     }
 }
 
+class SampleSourceBlock {
+    public ImportLines: string[];
+    public ImportFiles: string[];
+    public ImportPackages: string[];
+    public ImportCSS: string[];
+    public OtherLines: string[];
+}
+
 class Transformer {
+
+    // splits source code of a sample into block lines with imports, packages, and other lines
+    public static getSampleBlocks(sampleSourceCode: string): SampleSourceBlock {
+        let sample = new SampleSourceBlock();
+        sample.OtherLines = [];
+        sample.ImportLines = [];
+        sample.ImportFiles = [];
+        sample.ImportCSS = [];
+        sample.ImportPackages = [];
+
+        let sampleCodeLines = sampleSourceCode.split('\n');
+        for (const line of sampleCodeLines) {
+            if (line.indexOf(" from 'react'") > 0) continue;
+            if (line.indexOf("//") >= 0) continue;
+
+            if (line.indexOf("import ") >= 0) {
+                sample.ImportLines.push(line);
+                // if (line.indexOf(" from ") === -1) continue;
+
+                if (line.indexOf(" from ") > 0 && line.indexOf("./") === -1) {
+
+                    let importPackage = line.substring(line.indexOf("'") + 1, line.lastIndexOf("'"));
+                    if (importPackage === "") {
+                        importPackage = line.substring(line.indexOf('"') + 1, line.lastIndexOf('"'));
+                    }
+                    // console.log("<" + importPackage + ">");
+                    if (sample.ImportPackages.indexOf(importPackage) === -1) {
+                        sample.ImportPackages.push(importPackage);
+                    }
+                } else if (line.indexOf(" from ") === -1) {
+                    sample.ImportCSS.push(line);
+
+                } else if (line.indexOf("./") > 0 || line.indexOf("../") > 0) {
+                    sample.ImportFiles.push(line);
+                }
+
+            } else {
+                sample.OtherLines.push(line);
+            }
+        }
+        return sample;
+    }
 
     public static getDependencies(sampleInfo: SampleInfo): PackageDependency[] {
         let dependencies: PackageDependency[] = [];
@@ -155,6 +212,11 @@ class Transformer {
                 info.SampleFileSourcePath = "./src/" + info.SampleFileName;
                 info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
 
+                let sampleBlocks = this.getSampleBlocks(info.SampleFileSourceCode);
+                info.SampleImportLines = sampleBlocks.ImportLines;
+                info.SampleImportFiles = sampleBlocks.ImportFiles;
+                info.SampleImportPackages = sampleBlocks.ImportPackages;
+
                 info.SampleImportName = info.SampleFileName.replace('.tsx','').replace('.ts','');
                 info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
 
@@ -168,6 +230,7 @@ class Transformer {
 
                 info.SandboxUrlView = this.getSandboxUrl(info, igConfig.SandboxUrlView);
                 info.SandboxUrlEdit = this.getSandboxUrl(info, igConfig.SandboxUrlEdit);
+                info.SandboxUrlShort = this.getSandboxUrl(info, igConfig.SandboxUrlShort);
 
                 info.DocsUrl = this.getDocsUrl(info);
                 // console.log("SAMPLE " + info.SampleFilePath + " => " + info.SampleDisplayName);
@@ -178,7 +241,6 @@ class Transformer {
         }
     }
 
-
     public static getSandboxUrl(sampleInfo: SampleInfo, sandboxUrlFormat: string): string {
         let url = sandboxUrlFormat + "";
 
@@ -186,10 +248,11 @@ class Transformer {
         url = Strings.replace(url, "{RepositoryPath}", igConfig.RepositoryPath);
         url = Strings.replace(url, "{RepositoryOrg}", igConfig.RepositoryOrg);
         url = Strings.replace(url, "{RepositoryName}", igConfig.RepositoryName);
+        url = Strings.replace(url, "{RepositoryBranch}", igConfig.RepositoryBranch);
         url = Strings.replace(url, "{ComponentGroup}", sampleInfo.ComponentGroup);
         url = Strings.replace(url, "{ComponentFolder}", sampleInfo.ComponentFolder);
         url = Strings.replace(url, "{SampleFolderName}", sampleInfo.SampleFolderName);
-        url = Strings.replace(url, "{sampleFile}", sampleInfo.SampleFileName);
+        url = Strings.replace(url, "{SampleFile}", sampleInfo.SampleFileName);
 
         return url;
     }
@@ -248,7 +311,6 @@ class Transformer {
 
     // gets updated package.json file for a sample using a template
     public static getPackage(sample: SampleInfo, tempPackage: PackageJson): string {
-        let samplePackage = sample.PackageFileContent;
 
         let title = tempPackage.name;
         title = Strings.replace(title, 'platform-name', igConfig.PlatformName);
@@ -262,6 +324,7 @@ class Transformer {
         descr = Strings.replace(descr, 'component-name', sample.ComponentName);
         descr = Strings.replace(descr, 'sample-name', sample.SampleDisplayName);
 
+        let samplePackage = sample.PackageFileContent;
         samplePackage.name = title;
         samplePackage.description = descr;
         samplePackage.author = tempPackage.author;
@@ -269,7 +332,6 @@ class Transformer {
         samplePackage.version = tempPackage.version;
         samplePackage.private = tempPackage.private;
         samplePackage.browserslist = tempPackage.browserslist;
-
         samplePackage.scripts = tempPackage.scripts;
 
         // updating scripts in a sample using scripts from the template
@@ -280,14 +342,6 @@ class Transformer {
         //     }
         // }
 
-        // updating version of dependencies in a sample using dependencies from the template
-        for (let name in tempPackage.dependencies) {
-            if (tempPackage.dependencies.hasOwnProperty(name) &&
-                samplePackage.dependencies.hasOwnProperty(name)) {
-                samplePackage.dependencies[name] = tempPackage.dependencies[name]
-            }
-        }
-
         // updating devDependencies in a sample using devDependencies from the template
         for (let name in tempPackage.devDependencies) {
             if (tempPackage.devDependencies.hasOwnProperty(name) &&
@@ -295,6 +349,39 @@ class Transformer {
                 samplePackage.devDependencies[name] = tempPackage.devDependencies[name]
             }
         }
+
+        // overriding sample dependencies
+        samplePackage.dependencies = {};
+
+        // updating dependencies in sa sample by checking against OPTIONAL dependencies in the template
+        for (let name in tempPackage.dependenciesOptional) {
+
+            let dependency = tempPackage.dependenciesOptional[name];
+            if (dependency.usage === "always") {
+                samplePackage.dependencies[name] = dependency.version;
+            } else if (dependency.usage === "detect") {
+                let isDependencyImported = sample.SampleFileSourceCode.indexOf(name) >= 0;
+                if (isDependencyImported) {
+                    samplePackage.dependencies[name] = dependency.version;
+                // using keywords to check if the dependency is used by some other file, e.g. ExcelUtility.ts
+                } else if (dependency.keywords !== undefined && dependency.keywords.length > 0) {
+                    for (let keyword of dependency.keywords) {
+                        let isDependencyUsed = sample.SampleFileSourceCode.indexOf(keyword) >= 0;
+                        if (isDependencyUsed) {
+                            samplePackage.dependencies[name] = dependency.version;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        // updating dependencies in sa sample by checking against REQUIRED dependencies in the template
+        for (let name in tempPackage.dependencies) {
+            samplePackage.dependencies[name] = tempPackage.dependencies[name];
+        }
+        // console.log("sample: " + sample.SampleFolderPath);
+        // console.log("dependencies \n" + JSON.stringify(samplePackage.dependencies, null, '  '));
 
         return JSON.stringify(samplePackage, null, '  ');
     }
@@ -400,6 +487,7 @@ class Transformer {
         readMe = Strings.replace(readMe, "{RepositoryWarning}", igConfig.RepositoryWarning);
         readMe = Strings.replace(readMe, "{RepositoryUrl}", igConfig.RepositoryUrl);
         readMe = Strings.replace(readMe, "{RepositoryPath}", igConfig.RepositoryPath);
+        readMe = Strings.replace(readMe, "{RepositoryBranch}", igConfig.RepositoryBranch);
         readMe = Strings.replace(readMe, "{RepositoryOrg}", igConfig.RepositoryOrg);
         readMe = Strings.replace(readMe, "{RepositoryName}", igConfig.RepositoryName);
 
@@ -652,6 +740,7 @@ class PackageJson {
     public private?: boolean;
     public scripts: any;
     public dependencies: any;
+    public dependenciesOptional: any;
     public devDependencies: any;
     public browserslist?: string[];
 }

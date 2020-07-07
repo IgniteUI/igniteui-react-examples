@@ -39,7 +39,7 @@ export default class FinancialChartMultipleData extends React.Component<any, any
 
     public initData() {
         StocksHistory.getMultipleStocks().then((stocks: any[]) => {
-            console.log("getMultipleStocks " + stocks.length);
+            // console.log("getMultipleStocks " + stocks.length);
             this.setState({ data: stocks });
         });
     }

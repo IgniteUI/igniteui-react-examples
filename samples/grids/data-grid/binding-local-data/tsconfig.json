@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-
     "resolveJsonModule": true,
     "esModuleInterop": true,
-
     "baseUrl": ".",
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
@@ -21,7 +22,11 @@
     "noUnusedLocals": false,
     "importHelpers": true,
     "suppressImplicitAnyIndexErrors": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "isolatedModules": true,
+    "noEmit": true
   },
   "exclude": [
     "node_modules",
@@ -33,5 +38,8 @@
     "src/setupTests.ts",
     "**/odatajs-4.0.0.js",
     "config-overrides.js"
+  ],
+  "include": [
+    "src"
   ]
 }

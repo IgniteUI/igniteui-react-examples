@@ -55,12 +55,12 @@ export default class DataChartNavigation extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanUpClick}>Pan Up</button>
                     <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanLeftClick}>Pan Left</button>
                     <button className="igOptions-item" style={{width: "80px"}} onClick={this.onZoomInClick}>Zoom In</button>
-                    <span className="igOptions-item" style={{width: "85px"}}>Pan Modifier:</span>
-                    <select value={this.state.panModifier} style={{width: "85px"}} onChange={this.onPanModifierChange}>
+                    <span className="igOptions-item" style={{width: "120px"}}>Pan Modifier:</span>
+                    <select value={this.state.panModifier} style={{width: "120px"}} onChange={this.onPanModifierChange}>
                         <option>Alt</option>
                         <option>Control</option>
                         <option>Shift</option>
@@ -68,19 +68,19 @@ export default class DataChartNavigation extends React.Component<any, any> {
                         <option>Apple</option>
                         <option>None</option>
                     </select>
-                    <span className="igOptions-item">Default Drag Option:</span>
+                    <span className="igOptions-item">Default Interaction:</span>
                     <select value={this.state.defaultInteraction} onChange={this.onDefaultInteractionChange}>
                         <option>DragZoom</option>
                         <option>DragPan</option>
                         <option>None</option>
                     </select>
                 </div>
-                <div className="igOptions" style={{marginBottom: "15px"}}>
+                <div className="igOptions-horizontal" style={{marginBottom: "15px"}}>
                     <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanDownClick}>Pan Down</button>
                     <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanRightClick}>Pan Right</button>
                     <button className="igOptions-item" style={{width: "80px"}} onClick={this.onZoomOutClick}>Zoom Out</button>
-                    <span className="igOptions-item" style={{width: "85px"}}>Zoom Modifier:</span>
-                    <select value={this.state.dragModifier} style={{width: "85px"}} onChange={this.onDragModifierChange}>
+                    <span className="igOptions-item" style={{width: "120px"}}>Zoom Modifier:</span>
+                    <select value={this.state.dragModifier} style={{width: "120px"}} onChange={this.onDragModifierChange}>
                         <option>Alt</option>
                         <option>Control</option>
                         <option>Shift</option>

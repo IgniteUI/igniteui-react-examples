@@ -66,8 +66,6 @@ export default class SparklineDisplayTypes extends React.Component {
             max = Math.max(max, v1+v2);
         }
 
-        console.log(min);
-        console.log(max);
         return data;
     }
 

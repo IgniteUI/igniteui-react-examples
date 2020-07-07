@@ -26,7 +26,7 @@ export default class DataChartSeriesMarkers extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <span className="igOptions-label"> Marker Type: </span>
                     <select value={this.state.markersType}
                         onChange={this.onMarkerTypeChanged}>

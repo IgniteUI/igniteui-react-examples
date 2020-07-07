@@ -51,7 +51,7 @@ export default class MapBindingDataJsonPoints extends React.Component {
     }
 
     public onDataLoaded(jsonData: any[]) {
-        console.log("loaded WorldCities.json " + jsonData.length);
+        // console.log("loaded WorldCities.json " + jsonData.length);
 
         const geoLocations: any[] = [];
         // parsing JSON data and using only cities that are capitals

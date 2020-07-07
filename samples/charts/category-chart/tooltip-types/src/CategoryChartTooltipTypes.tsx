@@ -51,7 +51,7 @@ export default class CategoryChartTooltipTypes extends React.Component<any, any>
     }
 
     public onSeriesAdded = (s: IgrDomainChart, e: IgrChartSeriesEventArgs) => {
-        console.log("onSeriesAdded " + e.series);
+        // console.log("onSeriesAdded " + e.series);
         if (e.series.isAnnotationLayer) {
             e.series.transitionDuration = 100;
         }

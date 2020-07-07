@@ -36,7 +36,6 @@ export default class FinancialChartTitles extends React.Component<any, any> {
 
     public initData() {
         StocksHistory.getAmazonStock().then((stocks: any[]) => {
-            console.log("getMultipleStocks " + stocks.length);
             this.setState({ data: stocks });
         });
     }

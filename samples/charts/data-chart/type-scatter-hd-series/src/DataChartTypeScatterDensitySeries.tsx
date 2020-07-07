@@ -74,7 +74,7 @@ export default class DataChartTypeScatterDensitySeries extends React.Component<a
     public render(): JSX.Element {
         return (
         <div className="igContainer">
-            {/* <div className="igOptions">
+            {/* <div className="igOptions-horizontal">
                 <span className="igOptions-label">Minimum Value: {this.state.seriesHeatMin}</span>
                 <input className="igOptions-slider" type="range" min="0" max="30" step="1"
                     value={this.state.seriesHeatMin}

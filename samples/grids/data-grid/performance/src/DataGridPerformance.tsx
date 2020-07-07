@@ -208,8 +208,8 @@ export default class DataGridPerformance extends React.Component<any, any> {
         if (content.childElementCount > 0) {
             icon = content.children[0] as HTMLSpanElement;
             icon.onclick = (e) => {
-            console.log("chart clicked!!")
-            e.stopPropagation();
+                // console.log("chart clicked!!")
+                e.stopPropagation();
             }
         } else {
             icon = document.createElement("span");
@@ -235,8 +235,8 @@ export default class DataGridPerformance extends React.Component<any, any> {
         if (content.childElementCount > 0) {
             icon = content.children[0] as HTMLSpanElement;
             icon.onclick = (e) => {
-            console.log("grid clicked!!")
-            e.stopPropagation();
+                // console.log("grid clicked!!")
+                e.stopPropagation();
             }
         } else {
             icon = document.createElement("span");

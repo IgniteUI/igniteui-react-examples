@@ -1,6 +1,7 @@
+import * as React from 'react';
+
 import { IgrPieChart } from 'igniteui-react-charts';
 import { IgrPieChartModule } from 'igniteui-react-charts';
-import * as React from 'react';
 
 IgrPieChartModule.register();
 
@@ -8,26 +9,32 @@ export default class PieChartAnimation extends React.Component<any, any> {
 
     public data: any[];
     public chart: IgrPieChart;
-
-    public refreshMilliseconds: number = 10;
+    public isAnimating: boolean = false;
     public interval: number = -1;
-    public fps: HTMLSpanElement;
-    public frameTime: Date;
-    public frameCount: number = 0;
-    public isTimerStarted: boolean = true;
 
     constructor(props: any) {
         super(props);
-        this.initData();
+
+        this.state = {
+            data: [
+                { MarketShare: 30, Company: "Google", },
+                { MarketShare: 15, Company: "Microsoft", },
+                { MarketShare: 30, Company: "Apple", },
+                { MarketShare: 15, Company: "Samsung", },
+                { MarketShare: 10, Company: "Other", },
+            ]
+        };
+
         this.onPieRef = this.onPieRef.bind(this);
-        this.onClick = this.onClick.bind(this);
+        this.onAnimationToggle = this.onAnimationToggle.bind(this);
+        this.onAnimationClear = this.onAnimationClear.bind(this);
     }
 
     public render(): JSX.Element {
         return (
             <div style={{ height: "100%", width: "100%", background: "white" }}>
                 <div>
-                    <button onClick={this.onClick}><label>{this.state.animateChartLabel}</label></button>
+                    <button onClick={this.onAnimationToggle}><label>Animation Chart</label></button>
                 </div>
                 <IgrPieChart dataSource={this.state.data}
                     ref={this.onPieRef}
@@ -38,7 +45,7 @@ export default class PieChartAnimation extends React.Component<any, any> {
                     labelsPosition="InsideEnd"
                     startAngle={0}
                     labelExtent={0.7}
-                    radiusFactor={0.8} />
+                    radiusFactor={0.1} />
             </div >
         );
     }
@@ -47,53 +54,52 @@ export default class PieChartAnimation extends React.Component<any, any> {
         if (!chart) { return; }
 
         this.chart = chart;
-        this.setState({ animateChartLabel: "Start Animation" });
-        this.setupInterval();
+        console.log("animation load");
+        this.onAnimationClear();
+        this.onAnimationToggle();
     }
 
-    public onClick = () => {
+    public componentWillUnmount() {
+        this.onAnimationClear();
+    }
 
-        if (!this.isTimerStarted) {
-            this.setState({ animateChartLabel: "Start Animation" });
-            this.isTimerStarted = true;
-            window.setTimeout(() => this.tick(), 16);
+    public onAnimationToggle = () => {
+        if (!this.isAnimating) {
+            console.log("animation start");
+            this.chart.startAngle = 0;
+            this.chart.radiusFactor = 0.1;
+            this.isAnimating = true;
+            this.interval = window.setInterval(() => this.tick(), 15);
         } else {
-            this.isTimerStarted = false;
-            this.setState({ animateChartLabel: "Pause Animation" });
+            console.log("animation stop");
+            this.isAnimating = false;
+            this.onAnimationClear();
         }
-
     }
 
-    public setupInterval(): void {
+    public onAnimationClear(): void {
         if (this.interval >= 0) {
+            console.log("animation clear");
             window.clearInterval(this.interval);
             this.interval = -1;
         }
-        this.interval = window.setInterval(() => this.tick(),
-            this.refreshMilliseconds);
     }
 
     public tick(): void {
-        if (!this.isTimerStarted) {
-            this.chart.radiusFactor += 0.0025;
-            this.chart.startAngle++;
+        // console.log("animation tick");
+        if (this.isAnimating) {
+            if (this.chart.radiusFactor < 1.0)
+                this.chart.radiusFactor += 0.0025;
 
-            if (this.chart.startAngle >= 360) {
-                this.chart.startAngle = 0;
-            }
-            if (this.chart.radiusFactor >= 1.0) {
-                this.chart.radiusFactor = 0.1;
+            if (this.chart.startAngle < 360)
+                this.chart.startAngle++;
+
+            if (this.chart.radiusFactor >= 1.0 &&
+                this.chart.startAngle >= 360) {
+                this.isAnimating = false;
+                this.onAnimationClear();
             }
         }
     }
 
-    public initData() {
-        this.setState({ data: [
-            { MarketShare: 30, Company: "Google", },
-            { MarketShare: 30, Company: "Apple", },
-            { MarketShare: 15, Company: "Microsoft", },
-            { MarketShare: 15, Company: "Samsung", },
-            { MarketShare: 10, Company: "Other", },
-        ] });
-    }
 }

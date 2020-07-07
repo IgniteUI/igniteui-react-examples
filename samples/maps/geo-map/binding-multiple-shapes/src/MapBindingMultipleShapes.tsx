@@ -76,8 +76,8 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
         this.geoMap.backgroundContent = undefined;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
 
-        console.log("series.count " + this.geoMap.series.count);
-        console.log("actualSeries.length " + this.geoMap.actualSeries.length);
+        // console.log("series.count " + this.geoMap.series.count);
+        // console.log("actualSeries.length " + this.geoMap.actualSeries.length);
 
         this.geoMap.actualSeries[0].tooltipTemplate = this.getPolygonsTooltip;
         this.geoMap.actualSeries[1].tooltipTemplate = this.getPolylinesTooltip;
@@ -105,7 +105,7 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
     }
 
     public onPointsLoaded(sds: IgrShapeDataSource, e: any) {
-        console.log("onPoints");
+        console.log("onPointsLoaded");
 
         const geoLocations: any[] = [];
         // parsing shapefile data and creating geo-locations
@@ -124,7 +124,7 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
     }
 
     public onPolylinesLoaded(sds: IgrShapeDataSource, e: any) {
-        console.log("onPolylines");
+        console.log("onPolylinesLoaded");
 
         const geoPolylines: any[] = [];
         // parsing shapefile data and creating geo-polygons
@@ -143,7 +143,7 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
     }
 
     public onPolygonsLoaded(sds: IgrShapeDataSource, e: any) {
-        console.log("onPolygons ");
+        console.log("onPolygonsLoaded ");
 
         const geoPolygons: any[] = [];
         // parsing shapefile data and creating geo-polygons

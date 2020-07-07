@@ -2,7 +2,7 @@
 
 export class SparklineSharedData {
 
-    public static getSharedData(){
+    public static getSharedData(): any[] {
         const data: any[] = [
             { "Label": 4, "Value": 4 },
             { "Label": 5, "Value": 5 },
@@ -18,7 +18,7 @@ export class SparklineSharedData {
         return data;
     }
 
-    public static getPaddedDataForMarkers(){
+    public static getPaddedDataForMarkers(): any[] {
         const data: any[] = [
             { "Label": null, "Value": null},
             { "Label": 4, "Value": 4 },
@@ -36,7 +36,7 @@ export class SparklineSharedData {
         return data;
     }
 
-    public static getSharedDataWithNullValues(){
+    public static getSharedDataWithNullValues(): any[] {
         const data: any[] = [
             { "Label": 4, "Value": 4 },
             { "Label": 5, "Value": 5 },

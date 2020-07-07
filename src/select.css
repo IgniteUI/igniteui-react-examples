@@ -1,0 +1,74 @@
+
+/* ==================================================================================== */
+/* http://doodlenerd.com/html-control/css-dropdown-generator */
+
+.select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.select select {
+    font-family: 'Arial';
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 10px 15px;
+    outline: 0;
+    border: 1px solid #000000;
+    border-radius: 0px;
+    background: #fcfcfc;
+    color: #7b7b7b;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.select select::-ms-expand {
+    display: none;
+}
+.select select:hover,
+.select select:focus {
+    color: #000000;
+    background: #f4f4f4;
+}
+.select select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.select_arrow {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 14px;
+    height: 14px;
+    border: solid #7b7b7b;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+    border-color: #000000;
+}
+.select select:disabled ~ .select_arrow {
+    border-top-color: #cccccc;
+}
+
+.select option {
+    background-color: white;
+    color: gray;
+    width: 310px;
+    padding: 10px 15px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.select option:hover {
+    padding-left: 25px;
+    width: 270px;
+    color: #EC6F66;
+}

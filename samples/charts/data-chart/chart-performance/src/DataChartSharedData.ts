@@ -1,8 +1,7 @@
 
-
 export class DataChartSharedData {
 
-    public static getEnergyProduction(){
+    public static getEnergyProduction(): any[]{
         const data: any[] = [
             { Country: "Canada", Coal: 400000000, Oil: 100000000, Gas: 175000000, Nuclear: 225000000, Hydro: 350000000 },
             { Country: "China", Coal: 925000000, Oil: 200000000, Gas: 350000000, Nuclear: 400000000, Hydro: 625000000 },

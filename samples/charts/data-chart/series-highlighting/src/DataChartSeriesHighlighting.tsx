@@ -43,7 +43,7 @@ export default class DataChartSeriesHighlighting extends React.Component<any, an
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <label className="igOptions-label">Enable Highlighting: </label>
                     <label className="igOptions-item"><input type="checkbox"
                         checked={this.state.isSeriesHighlighting}

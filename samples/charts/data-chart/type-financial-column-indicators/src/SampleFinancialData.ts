@@ -2,16 +2,20 @@
 
 export class SampleFinancialData {
 
-    public static create(): any[] {
+    public static create(items?: number): any[] {
         // initial values
         let v = 10000;
         let o = 500;
-        let h = o + (Math.random() * 5);
-        let l = o - (Math.random() * 5);
-        let c = l + (Math.random() * (h - l));
+        let h = Math.round(o + (Math.random() * 5));
+        let l = Math.round(o - (Math.random() * 5));
+        let c = Math.round(l + (Math.random() * (h - l)));
 
-        const items = 100;
-        const end = new Date(2020, 11, 1);
+        if (items === undefined) {
+            items = 200;
+        }
+
+        const today = new Date();
+        const end = new Date(today.getFullYear(), 11, 1);
         let time = this.addDays(end, -items);
 
         const data: any[] = [];
@@ -22,11 +26,11 @@ export class SampleFinancialData {
             data.push({"Time": time, "Date": date, "Label": label, "Close": c, "Open": o, "High": h, "Low": l, "Volume": v});
             // generating new values
             const mod = Math.random() - 0.45;
-            o = o + (mod * 5 * 2);
-            v = v + (mod * 5 * 100 );
-            h = o + (Math.random() * 5);
-            l = o - (Math.random() * 5);
-            c = l + (Math.random() * (h - l));
+            o = Math.round(o + (mod * 5 * 2));
+            v = Math.round(v + (mod * 5 * 100));
+            h = Math.round(o + (Math.random() * 5));
+            l = Math.round(o - (Math.random() * 5));
+            c = Math.round(l + (Math.random() * (h - l)));
             time = this.addDays(time, 1);
         }
         return data;

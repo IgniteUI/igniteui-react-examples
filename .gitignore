@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/samples/*/node_modules
+/samples/**/node_modules
 /browser/node_modules
 /src/samples
 
@@ -24,6 +24,9 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+/samples/**/.vscode
+/samples/**/package-lock.json
 
 # testing
 /coverage

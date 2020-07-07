@@ -54,15 +54,15 @@ var sampleSource = [
     igConfig.SamplesCopyPath + '/grids/**/package.json',
     // layouts:
     igConfig.SamplesCopyPath + '/layouts/**/package.json',
+
+    // excluding package.json in node_modules sub folders
+    "!" + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder
 var samples = [];
 
 var sampleOutputFolder = '';
-// var sampleOutputFolder = './sample-test-files/';
-
-
 
 function cleanSamples() {
     // cleaning up obsolete files in individual samples
@@ -216,33 +216,27 @@ function copySamples(cb) {
     deleteSamples();
     log('copying sample files... ');
     for (const sample of samples) {
-        // log(sample.SampleFolderPath);
-
-        // let outputPath = sample.SampleFolderPath;
         let outputPath = './src' + sample.SampleFolderPath.replace('.','');
-        // let outputPath = './sample-test-files' + sample.SampleFolderPath.replace('.','');
         // log(outputPath);
-        // let outputPath = sampleOutputFolder + '/' + sample.SampleFolderPath;
 
         gulp.src([
-            //   sample.SampleFolderPath + '/**/*.*',
               sample.SampleFolderPath + '/src/*.*',
         '!' + sample.SampleFolderPath + '/src/index.css',
         '!' + sample.SampleFolderPath + '/src/index.tsx',
         '!' + sample.SampleFolderPath + '/src/typedecls.d.ts',
-        '!' + sample.SampleFolderPath + '/sandbox.config.json',
+        '!' + sample.SampleFolderPath + '/src/react-app-env.d.ts',
         '!' + sample.SampleFolderPath + '/sandbox.config.json',
         '!' + sample.SampleFolderPath + '/README.md',
         '!' + sample.SampleFolderPath + '/ReadMe.md',
         '!' + sample.SampleFolderPath + '/readme.md',
         '!' + sample.SampleFolderPath + '/package.json',
         '!' + sample.SampleFolderPath + '/package-lock.json',
+        '!' + sample.SampleFolderPath + '/.eslintrc.js',
+        '!' + sample.SampleFolderPath + '/.gitignore',
         ])
         // .pipe(copyExclude(['ReadMe.md', 'index.tsx']))
         // .pipe(logFile())
         .pipe(gulp.dest(outputPath))
-
-        // break;
     }
 
     let routingGroups = Transformer.getRoutingGroups(samples);
@@ -287,6 +281,7 @@ function updatePackages(cb) {
     // let content = Transformer.getPackage(last, templatePackageJson);
     // fs.writeFileSync(sampleOutputFolder + "package.json", content);
 
+
     for (const sample of samples) {
         let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
         let oldPackageFile = fs.readFileSync(outputPath).toString();
@@ -295,7 +290,7 @@ function updatePackages(cb) {
 
         let newPackageFile = Transformer.getPackage(sample, templatePackageJson);
         if (newPackageFile !== oldPackageFile) {
-            log('updated: ' + outputPath);
+            // log('updated: ' + outputPath);
             fs.writeFileSync(outputPath, newPackageFile);
         }
     }
@@ -378,7 +373,11 @@ function updateSharedFiles(cb) {
     // always override these shared files
     gulp.src([
         './templates/sample/src/index.css',
+        './templates/sample/src/react-app-env.d.ts',
         './templates/sample/sandbox.config.json',
+        './templates/sample/tsconfig.json',
+        './templates/sample/.gitignore',
+        './templates/sample/.eslintrc.js',
     ])
     .pipe(flatten({ "includeParents": -1 }))
     .pipe(es.map(function(file, fileCallback) {
@@ -553,6 +552,14 @@ function logUniqueFiles(cb) {
 
 } exports.logUniqueFiles = logUniqueFiles;
 
+
+function logSandboxUrls(cb) {
+
+    for (const sample of samples) {
+        console.log("" + sample.SandboxUrlShort);
+    }
+    cb();
+} exports.logSandboxUrls = logSandboxUrls;
 
 
 

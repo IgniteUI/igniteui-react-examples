@@ -11,7 +11,9 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import * as React from 'react';
 import { SampleFinancialData } from './SampleFinancialData';
+import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
 
+IgrNumberAbbreviatorModule.register();
 IgrDataChartCoreModule.register();
 IgrDataChartInteractivityModule.register();
 
@@ -21,6 +23,7 @@ export default class DataChartTypeFinancialLineIndicators extends React.Componen
 
     private bollingerBands: IgrBollingerBandsOverlay;
     private priceChannel: IgrPriceChannelOverlay;
+    private priceSeries: IgrFinancialPriceSeries;
 
     constructor(props: any) {
         super(props);
@@ -34,42 +37,63 @@ export default class DataChartTypeFinancialLineIndicators extends React.Componen
         this.bollingerBands = new IgrBollingerBandsOverlay({ name: "bollinger" });
         this.bollingerBands.xAxisName = "xAxis";
         this.bollingerBands.yAxisName = "yAxis";
+        this.bollingerBands.title = "Bollinger Bands";
         this.bollingerBands.highMemberPath = "High";
         this.bollingerBands.lowMemberPath = "Low";
         this.bollingerBands.closeMemberPath = "Close";
         this.bollingerBands.openMemberPath = "Open";
         this.bollingerBands.volumeMemberPath = "Volume";
-        this.bollingerBands.brush="rgba(171, 82, 235, 0.3)";
-        this.bollingerBands.outline="rgba(171, 82, 235, 0.9)";
+        this.bollingerBands.showDefaultTooltip = true;
+        this.bollingerBands.areaFillOpacity = 0.1;
+        this.bollingerBands.brush   = "rgba(75, 75, 75, 1.0)";
+        this.bollingerBands.outline = "rgba(75, 75, 75, 1.0)";
 
         this.priceChannel = new IgrPriceChannelOverlay({ name: "priceChannel" });
         this.priceChannel.xAxisName = "xAxis";
         this.priceChannel.yAxisName = "yAxis";
+        this.priceChannel.title = "Price Channel";
         this.priceChannel.highMemberPath = "High";
         this.priceChannel.lowMemberPath = "Low";
         this.priceChannel.closeMemberPath = "Close";
         this.priceChannel.openMemberPath = "Open";
         this.priceChannel.volumeMemberPath = "Volume";
-        this.priceChannel.brush="rgba(171, 82, 235, 0.3)";
-        this.priceChannel.outline="rgba(171, 82, 235, 0.9)";
+        this.priceChannel.showDefaultTooltip = true;
+        this.priceChannel.areaFillOpacity = 0.1;
+        this.priceChannel.brush   = "rgba(75, 75, 75, 1.0)";
+        this.priceChannel.outline = "rgba(75, 75, 75, 1.0)";
+
+        this.priceSeries = new IgrFinancialPriceSeries({ name: "priceSeries" });
+        this.priceSeries.xAxisName = "xAxis";
+        this.priceSeries.yAxisName = "yAxis";
+        this.priceSeries.title = "OHLC Prices";
+        this.priceSeries.highMemberPath = "High";
+        this.priceSeries.lowMemberPath = "Low";
+        this.priceSeries.closeMemberPath = "Close";
+        this.priceSeries.openMemberPath = "Open";
+        this.priceSeries.volumeMemberPath = "Volume";
+        this.priceSeries.showDefaultTooltip = true;
+        this.priceSeries.brush   = "rgba(171, 82, 235, 0.9)";
+        this.priceSeries.outline = "rgba(171, 82, 235, 0.9)";
+        this.priceSeries.negativeBrush = "rgba(192, 49, 82)";
+        this.priceSeries.negativeOutline = "rgba(192, 49, 82)";
     }
 
     public onOverlayChanged = (e: any) => {
         const type = e.target.value.toString();
+        this.chart.series.clear();
         switch (type) {
             case "None": {
-                this.chart.series.remove(this.priceChannel);
-                this.chart.series.remove(this.bollingerBands);
+                this.chart.series.add(this.priceSeries);
                 break;
             }
             case "BollingerBands": {
-                this.chart.series.remove(this.priceChannel);
                 this.chart.series.add(this.bollingerBands);
+                this.chart.series.add(this.priceSeries);
                 break;
             }
             case "PriceChannel": {
-                this.chart.series.remove(this.bollingerBands);
                 this.chart.series.add(this.priceChannel);
+                this.chart.series.add(this.priceSeries);
             }
         }
     }
@@ -79,12 +103,13 @@ export default class DataChartTypeFinancialLineIndicators extends React.Componen
 
         this.chart = chart;
         this.chart.series.add(this.bollingerBands);
+        this.chart.series.add(this.priceSeries);
     }
 
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <span className="igOptions-label"> Overlay Display Type: </span>
                     <select defaultValue={this.state.displayOverlay}
                         onChange={this.onOverlayChanged}>
@@ -102,20 +127,8 @@ export default class DataChartTypeFinancialLineIndicators extends React.Componen
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true} >
 
-                        <IgrCategoryXAxis name="xAxis" label="Label" labelAngle={90} />
+                        <IgrCategoryXAxis name="xAxis" label="Label" labelAngle={45} />
                         <IgrNumericYAxis name="yAxis" title="Financial Prices" />
-
-                        <IgrFinancialPriceSeries
-                            name="series1"
-                            xAxisName="xAxis"
-                            yAxisName="yAxis"
-                            displayType="Candlestick"
-                            highMemberPath="High"
-                            lowMemberPath="Low"
-                            closeMemberPath="Close"
-                            openMemberPath="Open"
-                            volumeMemberPath="Volume"
-                            showDefaultTooltip="true"/>
 
                     </IgrDataChart>
                 </div>

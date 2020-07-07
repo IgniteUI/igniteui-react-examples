@@ -16,7 +16,7 @@ export enum MapRegion {
 
 export class MapUtils {
 
-    public static navigateTo(geoMap: IgrGeographicMap, name: MapRegion) {
+    public static navigateTo(geoMap: IgrGeographicMap, name: MapRegion): void {
 
         const geoRect = this.getRegions()[name];
         // console.log("MapUtils " + name) ;
@@ -83,7 +83,7 @@ export class MapUtils {
 
     private static Regions: any;
 
-    private static addRegion(name: string, geoRect: any) {
+    private static addRegion(name: string, geoRect: any): void {
         geoRect.name = name;
         geoRect.longitude = geoRect.left + (geoRect.width / 2);
         geoRect.latitude = geoRect.top + (geoRect.height / 2);
@@ -91,7 +91,7 @@ export class MapUtils {
         this.Regions[name] = geoRect;
     }
 
-    private static createRegions() {
+    private static createRegions(): void {
         this.Regions = {};
         this.addRegion(MapRegion.Australia, { left: 81.5, top: -52.0, width: 98.0, height: 56.0 });
         this.addRegion(MapRegion.Caribbean, { left: -92.9, top: 5.4, width: 35.1, height: 25.8 });

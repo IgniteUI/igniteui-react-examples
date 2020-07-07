@@ -37,7 +37,7 @@ export default class DataChartSeriesTrendlines extends React.Component<any, any>
         return (
             <div className="igContainer">
 
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <span className="igOptions-item">Trendline Type:</span>
                     <select value={this.state.trendLineType} onChange={this.onTrendlineChange}>
                         <option>None</option>

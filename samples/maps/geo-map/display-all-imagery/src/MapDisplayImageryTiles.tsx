@@ -26,14 +26,14 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.state = { tileSource: "Open Street Map"}
+        this.state = { tileSource: "Esri WorldTopographicMap"}
         this.onMapRef = this.onMapRef.bind(this);
 
         this.ImageryOptions = [];
         this.ImageryOptions.push(this.getOption("OpenStreetMap", "(Default)"));
         this.ImageryOptions.push(this.getOption("BingMaps", "Road"));
-        this.ImageryOptions.push(this.getOption("BingMaps", "Aerial"));
-        this.ImageryOptions.push(this.getOption("BingMaps", "Labels"));
+        this.ImageryOptions.push(this.getOption("BingMaps", "Aerial Without Labels"));
+        this.ImageryOptions.push(this.getOption("BingMaps", "Aerial With Labels"));
 
         // adding options for selecting public ESRI maps:
         // for (const style of Object.keys(this.EsriMapsImageryServers)) {
@@ -42,34 +42,34 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         }
 
         const enums = Object.keys(EsriStyle);
-        console.log("ArcGISOnlineMapServers " + enums.length);
+        // console.log("ArcGISOnlineMapServers " + enums.length);
     }
 
     public getOption(source: string, style: string): JSX.Element {
-        const key = source + "_" + style;
         const name = source + " " + style;
-        return <option id={key} key={key}>{name}</option>
+        return <option id={name} key={name}>{name}</option>
     }
 
     public render(): JSX.Element {
         return (
             <div className="igContainer" style={{background: "white"}}>
-{/* height: "calc(100% - 60px)",  */}
+
                 <div className="igComponent" style={{background: "white"}}>
                     <IgrGeographicMap
                         ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true"/>
-                    <div className="igOptions">
-                        <span className="igOptions-label">Imagery Source: </span>
+
+                    <div className="igOverlay-top-left" >
+                        <span className="igOverlay-title">Imagery Tile Source</span>
                         <select value={this.state.tileSource}
-                                onChange={this.onTileSourceChanged}>
+                                onChange={this.onTileSourceChanged}
+                                style={{width: "15rem"}}>
                                 {this.ImageryOptions}
                         </select>
                     </div>
                 </div>
-                {/*  style={{width: "calc(100% - 70px)"}} */}
             </div>
         );
     }
@@ -79,13 +79,17 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
 
         this.geoMap = geoMap;
         this.geoMap.zoomToGeographic({ left: -120, top: 30, width: 45, height: 20});
+
+        const tileSource = new IgrArcGISOnlineMapImagery();
+        tileSource.mapServerUri = EsriStyle.WorldTopographicMap;
+        this.geoMap.backgroundContent = tileSource;
     }
 
     public onTileSourceChanged = (e: any) =>{
         if (this.geoMap === undefined) return;
 
         const mode = e.target.value.toString().replace(" ", "");
-        console.log("setting " + mode);
+        // console.log("setting " + mode);
 
         if (mode.indexOf("OpenStreetMap") === 0) {
             this.geoMap.backgroundContent = new IgrOpenStreetMapImagery();
@@ -95,9 +99,9 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
             tileSource.apiKey = MapUtils.getBingKey();
             if (mode === "BingMapsRoad") {
                 tileSource.imageryStyle = BingMapsImageryStyle.Road;
-            } else if (mode === "BingMapsAerial") {
+            } else if (mode === "BingMapsAerialWithoutLabels") {
                 tileSource.imageryStyle = BingMapsImageryStyle.Aerial;
-            } else if (mode === "BingMapsLabels") {
+            } else if (mode === "BingMapsLabelsWithLabels") {
                 tileSource.imageryStyle = BingMapsImageryStyle.AerialWithLabels;
             }
             this.geoMap.backgroundContent = tileSource;
@@ -107,11 +111,12 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
             let style = EsriStyle[name] as EsriStyle;
             let uri = EsriUtility.getUri(style);
 
-            console.log("setting URI " + uri);
+            // console.log("setting URI " + uri);
             const tileSource = new IgrArcGISOnlineMapImagery();
-            // tileSource.mapServerUri = "https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer";
-            // tileSource.mapServerUri = EsriStyle.WorldOceansMap;
             tileSource.mapServerUri = uri;
+            // or
+            // tileSource.mapServerUri = EsriStyle.WorldOceansMap;
+            // tileSource.mapServerUri = "https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer";
             this.geoMap.backgroundContent = tileSource;
         }
 

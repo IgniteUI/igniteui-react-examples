@@ -1,10 +1,6 @@
 import * as React from 'react';
 import './DockManagerStyles.css';
 
-import { IgrGeographicMapModule } from 'igniteui-react-maps';
-import { IgrGeographicMap } from 'igniteui-react-maps';
-import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgcDockManagerComponent, IgcContentPane } from "igniteui-dockmanager";
 import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
 import { defineCustomElements } from "igniteui-dockmanager/loader";

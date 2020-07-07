@@ -1,7 +1,8 @@
+import * as React from 'react';
 // data chart's elements for category series:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
-import { IgrColumnSeries } from 'igniteui-react-charts';
+import { IgrLineSeries } from 'igniteui-react-charts';
 import { IgrCalloutLayer } from 'igniteui-react-charts';
 import { IgrCrosshairLayer } from 'igniteui-react-charts';
 import { IgrFinalValueLayer } from 'igniteui-react-charts';
@@ -18,7 +19,6 @@ import { IgrFinalValueLayerModule } from 'igniteui-react-charts';
 import { IgrValueOverlay } from 'igniteui-react-charts';
 import { IgrValueOverlayModule } from 'igniteui-react-charts';
 import { FinalValueSelectionMode } from 'igniteui-react-charts';
-import * as React from 'react';
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
@@ -33,7 +33,7 @@ export default class DataChartSeriesAnnotations extends React.Component<any, any
     public data: any[];
     public chart: IgrDataChart;
 
-    public targetSeries: IgrColumnSeries;
+    public targetSeries: IgrLineSeries;
 
     public calloutLayer: IgrCalloutLayer;
     public crosshairLayer: IgrCrosshairLayer;
@@ -61,34 +61,35 @@ export default class DataChartSeriesAnnotations extends React.Component<any, any
         };
 
         this.calloutLayer = new IgrCalloutLayer({ name: "callout" });
-        this.calloutLayer.xMemberPath = "index";
-        this.calloutLayer.yMemberPath = "value";
-        this.calloutLayer.labelMemberPath = "value";
-        this.calloutLayer.brush = "gray";
+        this.calloutLayer.xMemberPath = "Index";
+        this.calloutLayer.yMemberPath = "SinValue";
+        this.calloutLayer.labelMemberPath = "Label";
+        this.calloutLayer.brush = "#0577e8";
         this.calloutLayer.outline = "white";
 
         this.crosshairLayer = new IgrCrosshairLayer({ name: "crosshair" });
         this.crosshairLayer.isAxisAnnotationEnabled = true;
-        this.crosshairLayer.yAxisAnnotationInterpolatedValuePrecision = 0;
+        this.crosshairLayer.yAxisAnnotationInterpolatedValuePrecision = 2;
         this.crosshairLayer.brush = "#9FB328";
         this.crosshairLayer.outline = "Black";
 
         this.finalValueLayer = new IgrFinalValueLayer({ name: "finalValue" });
-        this.finalValueLayer.axisAnnotationInterpolatedValuePrecision = 0;
+        this.finalValueLayer.axisAnnotationInterpolatedValuePrecision = 2;
         this.finalValueLayer.axisAnnotationTextColor = "White";
+        this.finalValueLayer.axisAnnotationBackground = "#0577e8";
         this.finalValueLayer.finalValueSelectionMode = FinalValueSelectionMode.FinalVisibleInterpolated;
 
         this.valueOverlay = new IgrValueOverlay({ name: "valueOverlay" });
         this.valueOverlay.thickness = 3;
-        this.valueOverlay.value = 100;
-        this.valueOverlay.brush = "Green";
+        this.valueOverlay.value = 0.25;
+        this.valueOverlay.brush = "Brown";
         this.valueOverlay.isAxisAnnotationEnabled = true;
     }
 
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <span className="igOptions-item">Annotations: </span>
                     <label className="igOptions-item"><input type="checkbox" checked={this.state.calloutsVisible}
                         onChange={this.onCalloutChange} />Callouts </label>
@@ -96,8 +97,8 @@ export default class DataChartSeriesAnnotations extends React.Component<any, any
                         onChange={this.onFinalValueChange} />Final Value</label>
                     <label className="igOptions-item"><input type="checkbox" checked={this.state.crosshairsVisible}
                         onChange={this.onCrosshairChange} />Crosshairs</label>
-                    {/*<label className="igOptions-item"><input type="checkbox" checked={this.state.valueOverlayVisible}
-                        onChange={this.onValueOverlayChange} />Value Overlay </label>*/}
+                    {/* <label className="igOptions-item"><input type="checkbox" checked={this.state.valueOverlayVisible}
+                        onChange={this.onValueOverlayChange} />Value Overlay </label> #9505e8*/}
                 </div>
 
                 <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
@@ -107,11 +108,16 @@ export default class DataChartSeriesAnnotations extends React.Component<any, any
                         height="100%"
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true} >
-                        <IgrCategoryXAxis name="xAxis" formatLabel={this.formatDateLabel} interval={1} />
-                        <IgrNumericYAxis name="yAxis" minimumValue={70} maximumValue={110} labelLocation="OutsideRight" />
-                        <IgrColumnSeries name="series"
-                        xAxisName="xAxis" yAxisName="yAxis"
-                        valueMemberPath="temperature"
+                        <IgrCategoryXAxis name="xAxis" label="Angle" interval={2} />
+                        <IgrNumericYAxis name="yAxis" minimumValue={-1.25} maximumValue={1.25}
+                        labelLocation="OutsideRight" formatLabel={this.formatDateLabel}/>
+                        <IgrLineSeries name="series"
+                        xAxisName="xAxis"
+                        yAxisName="yAxis"
+                        valueMemberPath="SinValue"
+                        markerType="Circle"
+                        brush="#0577e8"
+                        markerOutline="#0577e8"
                         ref={this.onSeriesRef} />
                     </IgrDataChart>
                 </div>
@@ -120,27 +126,19 @@ export default class DataChartSeriesAnnotations extends React.Component<any, any
     }
 
     public initData() {
-        const year: number = new Date().getFullYear();
-        this.data = [
-            { temperature: 74, date: new Date(year, 0, 1) },
-            { temperature: 74, date: new Date(year, 1, 1) },
-            { temperature: 76, date: new Date(year, 2, 1) },
-            { temperature: 78, date: new Date(year, 3, 1) },
-            { temperature: 83, date: new Date(year, 4, 1) },
-            { temperature: 87, date: new Date(year, 5, 1) },
-            { temperature: 94, date: new Date(year, 6, 1) },
-            { temperature: 97, date: new Date(year, 7, 1) },
-            { temperature: 93, date: new Date(year, 8, 1) },
-            { temperature: 86, date: new Date(year, 9, 1) },
-            { temperature: 81, date: new Date(year, 10, 1) },
-            { temperature: 79, date: new Date(year, 11, 1) },
-        ];
-
-        let idx: number = 0;
-        for (const item of this.data) {
-             item.index = idx;
-            item.value = item.temperature;
-            idx++;
+        this.data = [];
+        let index = 0;
+        for (let angle = 0; angle <= 360; angle += 10)
+        {
+            const radians = angle * Math.PI / 180;
+            const sin = Math.round(Math.sin(radians) * 100) / 100;
+            const cos = Math.round(Math.cos(radians) * 100) / 100;
+            this.data.push({
+                "Angle": angle, "Radians": radians,
+                "SinValue": sin, "CosValue": cos,
+                "Index": index++,
+                "Label": sin.toFixed(2)
+            });
         }
     }
 
@@ -155,7 +153,7 @@ export default class DataChartSeriesAnnotations extends React.Component<any, any
         this.toggleValueOverlay(true);
     }
 
-    public onSeriesRef(series: IgrColumnSeries) {
+    public onSeriesRef(series: IgrLineSeries) {
         this.targetSeries = series;
         this.finalValueLayer.targetSeries = series;
     }
@@ -211,10 +209,6 @@ export default class DataChartSeriesAnnotations extends React.Component<any, any
     }
 
     public formatDateLabel(item: any): string {
-        const months = [
-            "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-            "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
-        ];
-        return months[item.date.getMonth()];
+        return item.toFixed(2);
     }
 }

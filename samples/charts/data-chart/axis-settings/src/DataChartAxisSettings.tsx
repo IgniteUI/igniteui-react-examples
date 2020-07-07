@@ -37,8 +37,7 @@ export default class DataChartAxisSettings extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
-                    <span className="igLegend-title">Energy Source: </span>
+                <div className="igOptions-horizontal">
                     <div className="igLegend">
                         <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                     </div>
@@ -48,6 +47,7 @@ export default class DataChartAxisSettings extends React.Component<any, any> {
                         ref={this.onChartRef}
                         width="100%"
                         height="100%"
+                        subtitle="Energy Source of Biggest Countries"
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true} >
 
@@ -58,7 +58,7 @@ export default class DataChartAxisSettings extends React.Component<any, any> {
                             labelTextColor="gray"
                             title="Countries"
                             titleTextColor="gray"
-                            titleTextStyle="12pt Verdana"
+                            titleTextStyle="10pt Verdana"
                             titleAngle={0}
                             tickLength={10}
                             tickStrokeThickness={0.5}

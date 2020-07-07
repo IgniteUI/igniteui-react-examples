@@ -1,5 +1,3 @@
-
-
 export default class StocksHistory {
   /** gets stock OHLC prices for multiple stocks */
 
@@ -27,7 +25,7 @@ export default class StocksHistory {
     (stockData as any).__dataIntents = {
       close: ["SeriesTitle/Amazon"]
     };
-    console.log("fetchAmazonStock: ", stockData.length);
+    // console.log("fetchAmazonStock: ", stockData.length);
 
     return new Promise<StockItem[]>((resolve, reject) => {
       resolve(stockData);
@@ -92,9 +90,9 @@ export default class StocksHistory {
       item.close = json.close;
       item.volume = json.volume;
       stockItems.push(item);
-      // console.log(item.time + " >> " + item.date);
+
     }
-    // console.log('data: ', stockItems.length);
+
     return stockItems;
   }
 }
@@ -108,12 +106,4 @@ export class StockItem {
 
   public date?: Date;
 
-  // constructor(date: Date, open: number, high: number, low: number, close: number, volume: number) {
-  //     this.date = date;
-  //     this.open = open;
-  //     this.high = high;
-  //     this.low = low;
-  //     this.close = close;
-  //     this.volume = volume;
-  // }
 }

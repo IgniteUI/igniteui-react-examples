@@ -66,7 +66,6 @@ export default class MapBindingDataModel extends React.Component {
     public onMapRef(geoMap: IgrGeographicMap) {
         if (!geoMap) { return; }
 
-        console.log("onDataLoaded");
         this.geoMap = geoMap;
         this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
 
@@ -157,11 +156,11 @@ export default class MapBindingDataModel extends React.Component {
         const dataItem = dataContext.item as any;
         if (!dataItem) return null;
 
-        const brush = dataContext.series.shapeStroke
-        const style = { color: brush } as React.CSSProperties;
+        // const brush = dataContext.series.shapeStroke
+        // const style = { color: brush } as React.CSSProperties;
 
         return <div>
-            <div className="tooltipTitle" style={style}>{dataItem.origin.name} - {dataItem.dest.name}</div>
+            <div className="tooltipTitle" >{dataItem.origin.name} - {dataItem.dest.name}</div>
             <div className="tooltipBox">
                 <div className="tooltipRow">
                     <div className="tooltipLbl">Distance:</div>

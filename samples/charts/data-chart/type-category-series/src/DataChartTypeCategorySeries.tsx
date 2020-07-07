@@ -50,7 +50,7 @@ export default class DataChartTypeCategorySeries extends React.Component<any, an
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igOptions">
+                <div className="igOptions-horizontal">
                     <span className="igOptions-label">Type of Category Series: </span>
                     <select value={this.state.seriesType}
                         onChange={this.onSeriesTypeChanged}>
