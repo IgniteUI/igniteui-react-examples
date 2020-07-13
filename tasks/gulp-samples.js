@@ -466,6 +466,7 @@ function task2(cb) {
 function logRoutes(cb) {
     // getSamples();
 
+    let index = 0;
     let routingGroups = Transformer.getRoutingGroups(samples);
     for (const group of routingGroups) {
 
@@ -475,7 +476,8 @@ function logRoutes(cb) {
 
             console.log('- component ' + component.Name);
             for (const sample of component.Samples) {
-                console.log('' + sample.SampleRoute + ' === ' + sample.SampleDisplayName);
+                index++;
+                console.log(index + ' ' + sample.SampleRoute + ' === ' + sample.SampleDisplayName);
             }
         }
     }
