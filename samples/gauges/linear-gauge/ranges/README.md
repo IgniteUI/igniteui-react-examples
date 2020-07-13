@@ -22,11 +22,11 @@ You can find source code for this example in :
 
 
 ## Instructions
-To run this sample locally, execute these commands:
+To set up this project locally, execute these commands:
 
 ```
 git clone https://github.com/IgniteUI/igniteui-react-examples.git
-cd igniteui-react-examples
+cd ./igniteui-react-examples
 cd ./samples/gauges/linear-gauge/ranges
 ```
 
