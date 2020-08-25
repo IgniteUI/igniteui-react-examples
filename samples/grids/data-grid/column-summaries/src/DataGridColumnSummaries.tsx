@@ -59,17 +59,17 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
                     groupHeaderDisplayMode = "combined"
                     isColumnOptionsEnabled="true"
                     dataSource={this.data}>
-                        <IgrNumericColumn propertyPath="ProductID" width="*>120" headerText="ID" horizontalAlignment="center" />
-                        <IgrTextColumn propertyPath="ProductName" width="*>130" headerText="Product"/>
-                        <IgrNumericColumn positivePrefix="$" propertyPath="BundlePrice" width="*>120" showGroupingSeparator="true" headerText="Price" />
-                        <IgrNumericColumn propertyPath="OrderItems" width="*>140" headerText="Orders"/>
-                        <IgrNumericColumn propertyPath="OrderValue" width="*>160" showGroupingSeparator="true" headerText="Order Totals"
+                        <IgrNumericColumn field="ProductID" width="*>120" headerText="ID" horizontalAlignment="center" />
+                        <IgrTextColumn field="ProductName" width="*>130" headerText="Product"/>
+                        <IgrNumericColumn positivePrefix="$" field="BundlePrice" width="*>120" showGroupingSeparator="true" headerText="Price" />
+                        <IgrNumericColumn field="OrderItems" width="*>140" headerText="Orders"/>
+                        <IgrNumericColumn field="OrderValue" width="*>160" showGroupingSeparator="true" headerText="Order Totals"
                         positivePrefix="$"  />
-                        <IgrDateTimeColumn propertyPath="OrderDate" width="*>150" headerText="Order Date"
+                        <IgrDateTimeColumn field="OrderDate" width="*>150" headerText="Order Date"
                         horizontalAlignment="right"  />
-                        <IgrNumericColumn propertyPath="Profit" width="*>140" showGroupingSeparator="true" headerText="Profit"
+                        <IgrNumericColumn field="Profit" width="*>140" showGroupingSeparator="true" headerText="Profit"
                         positivePrefix="$"  />
-                        <IgrTextColumn propertyPath="Countries" width="*>170" headerText="Ship Country"/>
+                        <IgrTextColumn field="Countries" width="*>170" headerText="Ship Country"/>
                 </IgrDataGrid>
             </div>
         );

@@ -63,14 +63,14 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
                     autoGenerateColumns="false"
                     dataSource={this.data}>
 
-                    <IgrTextColumn propertyPath="Name"
+                    <IgrTextColumn field="Name"
                     headerText="Productivity"
                     header={this.HorizontalRightHeader}
                     width="*>110" horizontalAlignment="right" />
 
                     {this.renderHeatColumns()}
 
-                    <IgrTextColumn propertyPath="Average"
+                    <IgrTextColumn field="Average"
                     header={this.HorizontalLeftHeader}
                     width="*>110" horizontalAlignment="left"    />
 
@@ -95,7 +95,7 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
         }
         return <IgrTemplateColumn
         key={columnPath}
-        propertyPath={columnPath}
+        field={columnPath}
         headerText={columnName}
         header={this.VerticalHeader}
         width={this.cellSize.toString()}

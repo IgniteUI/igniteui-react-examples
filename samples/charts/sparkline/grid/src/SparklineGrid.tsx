@@ -36,30 +36,30 @@ export default class SparklineGrid extends React.Component<any, any> {
                     autoGenerateColumns="false"
                     dataSource={this.data}>
 
-                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="*>90" horizontalAlignment="center"/>
-                    <IgrTextColumn propertyPath="ProductName" headerText="Product"  width="*>130"    />
+                    <IgrTextColumn field="ProductID" headerText="ID" width="*>90" horizontalAlignment="center"/>
+                    <IgrTextColumn field="ProductName" headerText="Product"  width="*>130"    />
 
-                    <IgrNumericColumn propertyPath="ProductPrice" headerText="Price" width="*>100"
+                    <IgrNumericColumn field="ProductPrice" headerText="Price" width="*>100"
                     positivePrefix="$" showGroupingSeparator="true" minFractionDigits={2}/>
 
-                    <IgrTemplateColumn propertyPath="OrderHistory" headerText="Order History"
+                    <IgrTemplateColumn field="OrderHistory" headerText="Order History"
                     horizontalAlignment="center" width="*>150"
                     template={this.getOrderHistoryTemplate} />
 
-                    <IgrNumericColumn propertyPath="OrderCount" headerText="Orders" width="*>90"
+                    <IgrNumericColumn field="OrderCount" headerText="Orders" width="*>90"
                     horizontalAlignment="center"/>
 
-                    {/* <IgrNumericColumn propertyPath="OrderValue" headerText="Order Value" width="*>110"
+                    {/* <IgrNumericColumn field="OrderValue" headerText="Order Value" width="*>110"
                     positivePrefix="$" showGroupingSeparator="true" /> */}
 
-                    <IgrTemplateColumn propertyPath="ReturnRate" headerText="Return Rate"
+                    <IgrTemplateColumn field="ReturnRate" headerText="Return Rate"
                     horizontalAlignment="center" width="*>140"
                     template={this.getReturnRateTemplate} />
 
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>90"
+                    <IgrImageColumn field="CountryFlag" headerText="Country" width="*>90"
                     contentOpacity="1" horizontalAlignment="center"/>
 
-                    <IgrTextColumn propertyPath="Status" headerText="Status" width="110"
+                    <IgrTextColumn field="Status" headerText="Status" width="110"
                     horizontalAlignment="center"   />
                </IgrDataGrid>
             </div>

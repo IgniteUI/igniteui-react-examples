@@ -56,19 +56,19 @@ export default class ExcelLibraryWorkingWithCharts extends React.Component<any, 
                         width="100%"
                         autoGenerateColumns="false"
                         dataSource={this.excelData}>
-                        <IgrTextColumn propertyPath="Expense" width="*>100" />
-                        <IgrNumericColumn propertyPath="Jan" width="*>75" />
-                        <IgrNumericColumn propertyPath="Feb" width="*>75" />
-                        <IgrNumericColumn propertyPath="Mar" width="*>75" />
-                        <IgrNumericColumn propertyPath="Apr" width="*>75" />
-                        <IgrNumericColumn propertyPath="May" width="*>75" />
-                        <IgrNumericColumn propertyPath="Jun" width="*>75" />
-                        <IgrNumericColumn propertyPath="Jul" width="*>75" />
-                        <IgrNumericColumn propertyPath="Aug" width="*>75" />
-                        <IgrNumericColumn propertyPath="Sep" width="*>75" />
-                        <IgrNumericColumn propertyPath="Oct" width="*>75" />
-                        <IgrNumericColumn propertyPath="Nov" width="*>75" />
-                        <IgrNumericColumn propertyPath="Dec" width="*>75" />
+                        <IgrTextColumn field="Expense" width="*>100" />
+                        <IgrNumericColumn field="Jan" width="*>75" />
+                        <IgrNumericColumn field="Feb" width="*>75" />
+                        <IgrNumericColumn field="Mar" width="*>75" />
+                        <IgrNumericColumn field="Apr" width="*>75" />
+                        <IgrNumericColumn field="May" width="*>75" />
+                        <IgrNumericColumn field="Jun" width="*>75" />
+                        <IgrNumericColumn field="Jul" width="*>75" />
+                        <IgrNumericColumn field="Aug" width="*>75" />
+                        <IgrNumericColumn field="Sep" width="*>75" />
+                        <IgrNumericColumn field="Oct" width="*>75" />
+                        <IgrNumericColumn field="Nov" width="*>75" />
+                        <IgrNumericColumn field="Dec" width="*>75" />
                     </IgrDataGrid>
                 </div>
             </div>

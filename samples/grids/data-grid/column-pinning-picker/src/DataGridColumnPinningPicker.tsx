@@ -54,21 +54,21 @@ export default class DataGridColumnPinningPicker extends React.Component<any, an
                 scrollbarStyle = "thin"
                 dataSource={this.data}
                 isColumnOptionsEnabled="true">
-                    <IgrTextColumn pinned="left" propertyPath="ID" headerText="ID" width="*>110"  horizontalAlignment="center"/>
-                    <IgrTextColumn pinned="left" propertyPath="FirstName" headerText="First Name" width="*>190"/>
-                    <IgrTextColumn pinned="left" propertyPath="LastName" headerText="Last Name" width="*>190"/>
+                    <IgrTextColumn pinned="left" field="ID" headerText="ID" width="*>110"  horizontalAlignment="center"/>
+                    <IgrTextColumn pinned="left" field="FirstName" headerText="First Name" width="*>190"/>
+                    <IgrTextColumn pinned="left" field="LastName" headerText="Last Name" width="*>190"/>
 
-                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" width="*>170" horizontalAlignment="center"/>
-                    <IgrNumericColumn propertyPath="Age" width="*>110" horizontalAlignment="center"/>
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" paddingTop="5" paddingBottom="5"
+                    <IgrDateTimeColumn field="Birthday" headerText="Date of Birth" width="*>170" horizontalAlignment="center"/>
+                    <IgrNumericColumn field="Age" width="*>110" horizontalAlignment="center"/>
+                    <IgrImageColumn field="CountryFlag" headerText="Country" paddingTop="5" paddingBottom="5"
                     width="*>160" contentOpacity="1" horizontalAlignment="center"/>
 
-                    <IgrTextColumn propertyPath="Street" headerText="Address" width="*>260"/>
-                    <IgrTextColumn propertyPath="City"  width="*>170" />
-                    <IgrTextColumn propertyPath="Country"  width="*>170" />
+                    <IgrTextColumn field="Street" headerText="Address" width="*>260"/>
+                    <IgrTextColumn field="City"  width="*>170" />
+                    <IgrTextColumn field="Country"  width="*>170" />
 
-                    <IgrNumericColumn propertyPath="Salary" width="*>120" headerText="Salary" positivePrefix="$" showGroupingSeparator="true"/>
-                    <IgrNumericColumn propertyPath="Sales" width="*>120" headerText="Sales" positivePrefix="$" showGroupingSeparator="true"/>
+                    <IgrNumericColumn field="Salary" width="*>120" headerText="Salary" positivePrefix="$" showGroupingSeparator="true"/>
+                    <IgrNumericColumn field="Sales" width="*>120" headerText="Sales" positivePrefix="$" showGroupingSeparator="true"/>
                 </IgrDataGrid>
             </div>
         );

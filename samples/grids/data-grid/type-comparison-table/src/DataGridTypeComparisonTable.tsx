@@ -61,7 +61,7 @@ export default class DataGridTypeComparisonTable extends React.Component<any, an
                     autoGenerateColumns="false"
                     dataSource={this.data}>
 
-                    <IgrTextColumn propertyPath="Name"
+                    <IgrTextColumn field="Name"
                     header={this.HorizontalRightHeader}
                     headerText="Skills"
                     horizontalAlignment="right"
@@ -69,7 +69,7 @@ export default class DataGridTypeComparisonTable extends React.Component<any, an
 
                     {this.renderDataColumns()}
 
-                    <IgrTextColumn propertyPath="Skills"
+                    <IgrTextColumn field="Skills"
                     header={this.HorizontalLeftHeader}
                     headerText="Total"
                     horizontalAlignment="left"
@@ -96,7 +96,7 @@ export default class DataGridTypeComparisonTable extends React.Component<any, an
         }
         return <IgrTemplateColumn
         key={columnPath}
-        propertyPath={columnPath}
+        field={columnPath}
         headerText={columnName}
         width={this.cellSize.toString()}
         paddingBottom="0" paddingLeft="0"

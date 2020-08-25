@@ -36,15 +36,15 @@ export default class DataGridRowPinning extends React.Component<any, any> {
                 dataSource={this.data}
                 ref={this.onGridRef}
                 isColumnOptionsEnabled="true">
-                {/* <IgrTextColumn propertyPath="ID"  width="*>90" /> */}
-                <IgrImageColumn propertyPath="Photo" width="*>140" contentOpacity="1" horizontalAlignment="center"/>
-                <IgrTextColumn propertyPath="FirstName" width="*>150" headerText="First Name" />
-                <IgrTextColumn propertyPath="LastName" width="*>140" headerText="Last Name"/>
-                <IgrTextColumn propertyPath="City"  width="*>120"/>
-                <IgrTextColumn propertyPath="Country"  width="*>150"/>
-                <IgrNumericColumn propertyPath="Sales"  width="*>140" positivePrefix="$" showGroupingSeparator="true"/>
-                <IgrNumericColumn propertyPath="Age"  width="*>110"/>
-                <IgrDateTimeColumn propertyPath="Birthday" width="*>170" headerText="Date of Birth" horizontalAlignment="right"/>
+                {/* <IgrTextColumn field="ID"  width="*>90" /> */}
+                <IgrImageColumn field="Photo" width="*>140" contentOpacity="1" horizontalAlignment="center"/>
+                <IgrTextColumn field="FirstName" width="*>150" headerText="First Name" />
+                <IgrTextColumn field="LastName" width="*>140" headerText="Last Name"/>
+                <IgrTextColumn field="City"  width="*>120"/>
+                <IgrTextColumn field="Country"  width="*>150"/>
+                <IgrNumericColumn field="Sales"  width="*>140" positivePrefix="$" showGroupingSeparator="true"/>
+                <IgrNumericColumn field="Age"  width="*>110"/>
+                <IgrDateTimeColumn field="Birthday" width="*>170" headerText="Date of Birth" horizontalAlignment="right"/>
             </IgrDataGrid>
         </div>
         );

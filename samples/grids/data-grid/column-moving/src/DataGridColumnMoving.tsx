@@ -72,11 +72,11 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
                     dataSource={this.data}
                     isColumnOptionsEnabled="true">
 
-                    <IgrTextColumn propertyPath="Name" width="*>170"/>
-                    <IgrTextColumn propertyPath="Street" headerText="Address" width="*>150"/>
-                    <IgrTextColumn propertyPath="City" width="*>120"/>
-                    <IgrNumericColumn propertyPath="Salary" positivePrefix="$" showGroupingSeparator="true" width="*>120"/>
-                    <IgrDateTimeColumn propertyPath="Birthday"  width="*>170" />
+                    <IgrTextColumn field="Name" width="*>170"/>
+                    <IgrTextColumn field="Street" headerText="Address" width="*>150"/>
+                    <IgrTextColumn field="City" width="*>120"/>
+                    <IgrNumericColumn field="Salary" positivePrefix="$" showGroupingSeparator="true" width="*>120"/>
+                    <IgrDateTimeColumn field="Birthday"  width="*>170" />
 
                 </IgrDataGrid>
             </div>

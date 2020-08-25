@@ -118,13 +118,13 @@ export default class DataGridColumnFiltering extends React.Component<any, any> {
                     dataSource={this.data}
                     isColumnOptionsEnabled="true">
 
-                    <IgrTextColumn propertyPath="Name" width="*>170"/>
-                    <IgrTextColumn propertyPath="Street"   width="*>180" />
-                    <IgrTextColumn propertyPath="City"  width="*>120"/>
-                    <IgrImageColumn propertyPath="CountryFlag" paddingTop="5" paddingBottom="5" headerText="Country" contentOpacity="1"
+                    <IgrTextColumn field="Name" width="*>170"/>
+                    <IgrTextColumn field="Street"   width="*>180" />
+                    <IgrTextColumn field="City"  width="*>120"/>
+                    <IgrImageColumn field="CountryFlag" paddingTop="5" paddingBottom="5" headerText="Country" contentOpacity="1"
                         horizontalAlignment="center" width="*>140"/>
-                    <IgrNumericColumn propertyPath="Sales" positivePrefix="$" showGroupingSeparator="true" width="*>120"/>
-                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Birthday" width="*>170"/>
+                    <IgrNumericColumn field="Sales" positivePrefix="$" showGroupingSeparator="true" width="*>120"/>
+                    <IgrDateTimeColumn field="Birthday" headerText="Birthday" width="*>170"/>
 
                 </IgrDataGrid>
             </div>

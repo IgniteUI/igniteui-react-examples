@@ -50,16 +50,16 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
                     groupHeaderDisplayMode = "combined"
                     dataSource={this.data}
                     isColumnOptionsEnabled="true">
-                        <IgrTextColumn propertyPath="Name" headerText="Name" />
-                        <IgrNumericColumn propertyPath="Age" headerText="Age" width="*>110"/>
-                        <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth"
+                        <IgrTextColumn field="Name" headerText="Name" />
+                        <IgrNumericColumn field="Age" headerText="Age" width="*>110"/>
+                        <IgrDateTimeColumn field="Birthday" headerText="Date of Birth"
                         horizontalAlignment="right"  width="*>160"/>
-                        <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>160"
+                        <IgrImageColumn field="CountryFlag" headerText="Country" width="*>160"
                         paddingTop="5" paddingBottom="5" contentOpacity="1" horizontalAlignment="center"/>
-                        <IgrTextColumn propertyPath="Street" headerText="Address" width="*>160"/>
-                        <IgrNumericColumn propertyPath="Salary" headerText="Salary" width="*>130"
+                        <IgrTextColumn field="Street" headerText="Address" width="*>160"/>
+                        <IgrNumericColumn field="Salary" headerText="Salary" width="*>130"
                         positivePrefix="$" showGroupingSeparator="true"  />
-                        <IgrTextColumn propertyPath="City" width="*>120" headerText="City" horizontalAlignment="center"/>
+                        <IgrTextColumn field="City" width="*>120" headerText="City" horizontalAlignment="center"/>
                 </IgrDataGrid>
             </div>
         );
