@@ -10,7 +10,9 @@ import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
-import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
+import { IgrComboBoxColumn } from 'igniteui-react-grids';
+import { IgrTemplateCellUpdatingEventArgs, 
+    IgrGridCellValueChangingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 import { IIgrCellTemplateProps } from 'igniteui-react-grids';
 
@@ -25,6 +27,8 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
 
     public data: any[];
     public grid: IgrDataGrid;
+    public cityList: any[];
+    public cityLookup = new Map<string, any>();
 
     constructor(props: any) {
         super(props);
@@ -32,8 +36,19 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         this.onAddressCellUpdating = this.onAddressCellUpdating.bind(this);
         this.onSalesCellUpdating = this.onSalesCellUpdating.bind(this);
         this.onEmailCellUpdating = this.onEmailCellUpdating.bind(this);
-        this.data = DataGridSharedData.getEmployees(100);
+        this.onCellValueChanging = this.onCellValueChanging.bind(this);
 
+        this.data = DataGridSharedData.getEmployees(100);
+        this.cityList = [];
+
+        // iterate all employees and generate a list of cities
+        this.data.forEach(employee => {
+            if(!this.cityLookup.has(employee.City)) {
+                this.cityLookup.set(employee.City, employee);
+                this.cityList.push(employee);
+            }
+        });
+        
         this.onGridRef = this.onGridRef.bind(this);
     }
 
@@ -49,6 +64,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                     dataSource={this.data}
                     defaultColumnMinWidth={100}
                     isColumnOptionsEnabled="true"
+                    cellValueChanging={this.onCellValueChanging}
                     >
                     <IgrImageColumn field="Photo" headerText="Photo" contentOpacity="1"
                     horizontalAlignment="stretch" width="130" paddingTop="5" paddingBottom="5"  paddingRight="10"/>
@@ -67,7 +83,10 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
 
                     <IgrDateTimeColumn field="Birthday" headerText="Date of Birth"
                     horizontalAlignment="stretch" width="*>180" paddingRight="10"/>
-                    <IgrImageColumn field="CountryFlag" headerText="Country" contentOpacity="1"
+
+                    <IgrComboBoxColumn field="City" headerText="City" dataSource={this.cityList} textField="City" valueField={["City"]} width="*>130"/>
+
+                    <IgrImageColumn field="CountryFlag" headerText="Country Flag" contentOpacity="1"
                     horizontalAlignment="stretch" width="150" paddingTop="5" paddingBottom="5" />
 
                     <IgrTemplateColumn field="Address" headerText="Address" horizontalAlignment="left"
@@ -76,10 +95,6 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                     <IgrTemplateColumn field="Phone" horizontalAlignment="center"
                         cellUpdating={this.onPhoneCellUpdating} width="160" />
 
-                    {/* <IgrTemplateColumn field="Email" horizontalAlignment="center"
-                    cellUpdating={this.onEmailCellUpdating} width="160" /> */}
-
-                    {/* <IgrTextColumn field="Country" width="*>140" horizontalAlignment="center"/> */}
                     <IgrTextColumn field="Income" width="*>150" horizontalAlignment="center"/>
                     <IgrTextColumn field="Age" width="*>130" horizontalAlignment="center"/>
                </IgrDataGrid>
@@ -272,6 +287,27 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
 
         link.href = "tel:" + item.Phone;
         link.textContent = item.Phone;
+    }
+
+    public onCellValueChanging(s: IgrDataGrid, e: IgrGridCellValueChangingEventArgs) {
+ 
+        let row = e.cellInfo.rowItem;
+        if (e.column.field === "City")
+        {
+            let employee = this.cityLookup.get(e.newValue);
+            
+            if(employee !== undefined) {
+                row.City = employee.City;
+                row.Country = employee.Country;
+                row.Street = employee.Street;
+                row.CountryFlag = employee.CountryFlag;
+                row.Address = employee.Address;
+
+                //required for pushing changes to the grid
+                s.notifySetItem(e.cellInfo.dataRow, row, row);
+            }
+            
+        }        
     }
 
 }
