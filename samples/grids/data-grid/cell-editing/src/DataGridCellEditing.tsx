@@ -28,29 +28,8 @@ export default class DataGridCellEditing extends React.Component<any, any> {
         this.state = { selectionMode: "MultipleRow" }
         this.data = DataGridSharedData.getEmployees();
     }
-
-    get canUndo(): boolean {
-        return this.grid && this.grid.canUndo;
-    }
-
-    get canRedo(): boolean {
-        return this.grid && this.grid.canRedo;
-    }
-
-    get editMode(): number {
-        if (this.grid) {
-            return this.grid.editMode;
-        }
-        return 1;
-    }
-
-    public onGridRef(grid: IgrDataGrid) {
-        if (!grid) { return; }
-
-        this.grid = grid;
-    }
-
-    public render(): JSX.Element {
+	
+	public render(): JSX.Element {
         return (
             <div className="igContainer">
                 <div className="igOptions">
@@ -89,6 +68,27 @@ export default class DataGridCellEditing extends React.Component<any, any> {
                 </IgrDataGrid>
             </div>
         );
+    }
+
+    get canUndo(): boolean {
+        return this.grid && this.grid.canUndo;
+    }
+
+    get canRedo(): boolean {
+        return this.grid && this.grid.canRedo;
+    }
+
+    get editMode(): number {
+        if (this.grid) {
+            return this.grid.editMode;
+        }
+        return 1;
+    }
+
+    public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
+        this.grid = grid;
     }
 
     onCellValueChanging = (s: IgrDataGrid, e: IgrGridCellValueChangingEventArgs) => {
