@@ -32,16 +32,16 @@ export default class DataGridBindingRemoteData extends React.Component<any, any>
                    autoGenerateColumns="false"
                    isColumnOptionsEnabled="true"
                    dataSource={this.virtualData}>
-                   <IgrTextColumn propertyPath="OrderID" headerText="ID" width="*>110" horizontalAlignment="center"/>
-                   <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>150"/>
-                   <IgrTextColumn propertyPath="ShipName" headerText="Name"  width="*>150"/>
-                   <IgrNumericColumn propertyPath="Freight" headerText="Freight" width="*>120"
+                   <IgrTextColumn field="OrderID" headerText="ID" width="*>110" horizontalAlignment="center"/>
+                   <IgrDateTimeColumn field="OrderDate" headerText="Order Date" width="*>150"/>
+                   <IgrTextColumn field="ShipName" headerText="Name"  width="*>150"/>
+                   <IgrNumericColumn field="Freight" headerText="Freight" width="*>120"
                    positivePrefix="$" minFractionDigits={2}/>
-                   <IgrDateTimeColumn propertyPath="ShippedDate" headerText="Ship Date" width="*>150"
+                   <IgrDateTimeColumn field="ShippedDate" headerText="Ship Date" width="*>150"
                    horizontalAlignment="right"/>
-                   <IgrTextColumn propertyPath="ShipAddress" headerText="Address" width="*>130" />
-                   <IgrTextColumn propertyPath="ShipCity" headerText="City" width="*>150"/>
-                   <IgrTextColumn propertyPath="ShipCountry" headerText="Country" width="*>150"/>
+                   <IgrTextColumn field="ShipAddress" headerText="Address" width="*>130" />
+                   <IgrTextColumn field="ShipCity" headerText="City" width="*>150"/>
+                   <IgrTextColumn field="ShipCountry" headerText="Country" width="*>150"/>
                 </IgrDataGrid>
             </div>
         );

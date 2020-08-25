@@ -46,22 +46,22 @@ export default class DataGridColumnOptions extends React.Component<any, any> {
                 autoGenerateColumns="false"
                 isColumnOptionsEnabled="true"
                 dataSource={this.data}>
-                    <IgrTextColumn propertyPath="ProductID" headerText="ID" width="*>90" horizontalAlignment="center"/>
-                    <IgrTextColumn propertyPath="ProductName" headerText="Product"  width="*>120" />
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>120" paddingTop="5" paddingBottom="5"
+                    <IgrTextColumn field="ProductID" headerText="ID" width="*>90" horizontalAlignment="center"/>
+                    <IgrTextColumn field="ProductName" headerText="Product"  width="*>120" />
+                    <IgrImageColumn field="CountryFlag" headerText="Country" width="*>120" paddingTop="5" paddingBottom="5"
                     contentOpacity="1" horizontalAlignment="center"/>
-                    <IgrNumericColumn propertyPath="ProductPrice" headerText="Price" width="*>110"
+                    <IgrNumericColumn field="ProductPrice" headerText="Price" width="*>110"
                     positivePrefix="$" showGroupingSeparator="true" minFractionDigits={2}/>
-                    <IgrNumericColumn propertyPath="OrderItems" headerText="Orders" width="*>110"/>
-                    <IgrNumericColumn propertyPath="OrderValue" headerText="Order Value" width="*>150"
+                    <IgrNumericColumn field="OrderItems" headerText="Orders" width="*>110"/>
+                    <IgrNumericColumn field="OrderValue" headerText="Order Value" width="*>150"
                     positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="OrderDate" headerText="Order Date" width="*>150"
+                    <IgrDateTimeColumn field="OrderDate" headerText="Order Date" width="*>150"
                     horizontalAlignment="right" dateTimeFormat="DateShort" />
-                    <IgrNumericColumn propertyPath="Margin" headerText="Margin" width="*>120"
+                    <IgrNumericColumn field="Margin" headerText="Margin" width="*>120"
                     positiveSuffix="%" horizontalAlignment="center" />
-                    <IgrNumericColumn propertyPath="Profit" headerText="Profit" width="*>120"
+                    <IgrNumericColumn field="Profit" headerText="Profit" width="*>120"
                     positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrTextColumn propertyPath="Status" headerText="Status" width="*>110"
+                    <IgrTextColumn field="Status" headerText="Status" width="*>110"
                     horizontalAlignment="center"   />
                 </IgrDataGrid>
             </div>

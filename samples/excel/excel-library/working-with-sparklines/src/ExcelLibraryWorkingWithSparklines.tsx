@@ -52,11 +52,11 @@ export default class ExcelLibraryWorkingWithSparklines extends React.Component<a
                     <button className="igOptions-item" onClick={this.exportGrid}>Export</button>
                 </div>
                 <IgrDataGrid autoGenerateColumns={false} dataSource={this.data} height="calc(100% - 30px)" width="100%">
-                    <IgrTemplateColumn width="*>90" propertyPath="Orders" template={this.templateColTestMethod} />
-                    <IgrTextColumn width="*>130" propertyPath="CompanyName"  headerText="Company" />
-                    <IgrTextColumn width="*>90"  propertyPath="ContactName" headerText="Name" />
-                    <IgrTextColumn width="*>70"  propertyPath="ContactTitle" headerText="Title" />
-                    <IgrTextColumn width="*>90"  propertyPath="Country" headerText="Country" />
+                    <IgrTemplateColumn width="*>90" field="Orders" template={this.templateColTestMethod} />
+                    <IgrTextColumn width="*>130" field="CompanyName"  headerText="Company" />
+                    <IgrTextColumn width="*>90"  field="ContactName" headerText="Name" />
+                    <IgrTextColumn width="*>70"  field="ContactTitle" headerText="Title" />
+                    <IgrTextColumn width="*>90"  field="Country" headerText="Country" />
                 </IgrDataGrid>
             </div>
         );

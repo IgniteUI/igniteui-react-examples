@@ -64,20 +64,20 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
             dataSource={this.data}
           >
             <IgrTextColumn
-              propertyPath="ProductID"
+              field="ProductID"
               headerText="ID"
               width="*>110"
               horizontalAlignment="center"
               isHidden="true"
             />
             <IgrTextColumn
-              propertyPath="ProductName"
+              field="ProductName"
               headerText="Product"
               isHidden="true"
               width="*>140"
             />
             <IgrImageColumn
-              propertyPath="CountryFlag"
+              field="CountryFlag"
               headerText="Country"
               width="*>140"
               contentOpacity="1"
@@ -85,7 +85,7 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
               paddingTop="5" paddingBottom="5"
             />
             <IgrNumericColumn
-              propertyPath="ProductPrice"
+              field="ProductPrice"
               headerText="Price"
               width="*>100"
               positivePrefix="$"
@@ -94,40 +94,40 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
               isHidden="true"
             />
             <IgrNumericColumn
-              propertyPath="OrderItems"
+              field="OrderItems"
               headerText="Orders"
               width="*>90"
             />
             <IgrNumericColumn
-              propertyPath="OrderValue"
+              field="OrderValue"
               headerText="Order Value"
               width="*>140"
               positivePrefix="$"
               showGroupingSeparator="true"
             />
             <IgrDateTimeColumn
-              propertyPath="OrderDate"
+              field="OrderDate"
               headerText="Order Date"
               width="*>140"
               horizontalAlignment="right"
               dateTimeFormat="DateShort"
             />
             <IgrNumericColumn
-              propertyPath="Margin"
+              field="Margin"
               headerText="Margin"
               width="*>120"
               positiveSuffix="%"
               horizontalAlignment="center"
             />
             <IgrNumericColumn
-              propertyPath="Profit"
+              field="Profit"
               headerText="Profit"
               width="*>120"
               positivePrefix="$"
               showGroupingSeparator="true"
             />
             <IgrTextColumn
-              propertyPath="Status"
+              field="Status"
               headerText="Status"
               width="*>120"
               horizontalAlignment="center"

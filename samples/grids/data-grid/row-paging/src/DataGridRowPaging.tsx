@@ -68,14 +68,14 @@ export default class DataGridRowPaging extends React.Component<any, any> {
                     groupDescriptionsChanged={this.onGroupChanged}
                     filterExpressionsChanged={this.onFilterChanged}
                     isColumnOptionsEnabled="true">
-                    <IgrTextColumn propertyPath="FirstName" headerText="First Name" width="*>150" />
-                    <IgrTextColumn propertyPath="LastName" headerText="Last Name" width="*>150" />
-                    <IgrTextColumn propertyPath="Street" headerText="Street" width="*>160" />
-                    <IgrTextColumn propertyPath="City" headerText="City" width="*>120"/>
-                    <IgrNumericColumn propertyPath="Salary" width="*>120" headerText="Salary" positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrNumericColumn propertyPath="Sales" width="*>120" headerText="Sales" positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="Birthday" width="*>170" headerText="Date of Birth" />
-                    <IgrNumericColumn propertyPath="Age" width="*>120" headerText="Age" />
+                    <IgrTextColumn field="FirstName" headerText="First Name" width="*>150" />
+                    <IgrTextColumn field="LastName" headerText="Last Name" width="*>150" />
+                    <IgrTextColumn field="Street" headerText="Street" width="*>160" />
+                    <IgrTextColumn field="City" headerText="City" width="*>120"/>
+                    <IgrNumericColumn field="Salary" width="*>120" headerText="Salary" positivePrefix="$" showGroupingSeparator="true" />
+                    <IgrNumericColumn field="Sales" width="*>120" headerText="Sales" positivePrefix="$" showGroupingSeparator="true" />
+                    <IgrDateTimeColumn field="Birthday" width="*>170" headerText="Date of Birth" />
+                    <IgrNumericColumn field="Age" width="*>120" headerText="Age" />
                 </IgrDataGrid>
 
                 <DataGridPager

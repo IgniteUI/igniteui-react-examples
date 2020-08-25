@@ -84,14 +84,14 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
                     selectedCellsChanged={this.selectedCellsChanged}
                     selectedCellRangesChanged={this.selectedCellRangesChanged}>
 
-                    <IgrTextColumn propertyPath="row"
+                    <IgrTextColumn field="row"
                     headerText=" "
                     header={this.HorizontalRightHeader}
                     width="*>40" horizontalAlignment="right" />
 
                     {this.renderElementColumns()}
 
-                    <IgrTextColumn propertyPath="space" headerText=""
+                    <IgrTextColumn field="space" headerText=""
                     header={this.HorizontalLeftHeader}
                     width="*>40" horizontalAlignment="left"    />
 
@@ -117,7 +117,7 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
         }
         return <IgrTemplateColumn
         key={columnPath}
-        propertyPath={columnPath}
+        field={columnPath}
         headerText={columnName}
         header={this.HorizontalCenterHeader}
         width={this.CellSize.toString()}

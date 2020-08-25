@@ -59,14 +59,14 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
                     autoGenerateColumns="false"
                     dataSource={this.dataRelations}>
 
-                    <IgrTextColumn propertyPath="Name"
+                    <IgrTextColumn field="Name"
                     headerText="Friends"
                     header={this.HorizontalRightHeader}
                     width="*>110" horizontalAlignment="right" />
 
                     {this.renderDataColumns()}
 
-                    <IgrTextColumn propertyPath="Count"
+                    <IgrTextColumn field="Count"
                     headerText="Total"
                     header={this.HorizontalLeftHeader}
                     width="*>110" horizontalAlignment="left"    />
@@ -91,7 +91,7 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
             columnName = columnPath;
         }
         return <IgrTemplateColumn key={columnPath}
-        propertyPath={columnPath} headerText={columnName}
+        field={columnPath} headerText={columnName}
         width={this.cellSize.toString()}
         paddingBottom="0" paddingLeft="0" paddingRight="0" paddingTop="0"
         header={this.VerticalHeader}

@@ -278,15 +278,15 @@ export default class DataGridPerformance extends React.Component<any, any> {
                 dataSource={this.data}
                 ref={this.onGridRef}>
 
-                <IgrTextColumn propertyPath="FirstName" headerText="First Name" width="*>130"></IgrTextColumn>
-                <IgrTextColumn propertyPath="LastName" headerText="Last Name" width="*>130"></IgrTextColumn>
-                <IgrTextColumn propertyPath="Territory" width="*>130"></IgrTextColumn>
-                <IgrNumericColumn propertyPath="YearToDateSales"
+                <IgrTextColumn field="FirstName" headerText="First Name" width="*>130"></IgrTextColumn>
+                <IgrTextColumn field="LastName" headerText="Last Name" width="*>130"></IgrTextColumn>
+                <IgrTextColumn field="Territory" width="*>130"></IgrTextColumn>
+                <IgrNumericColumn field="YearToDateSales"
                     headerText="YTD Sales" width="*>130" positivePrefix="$"
                     showGroupingSeparator="true">
                 </IgrNumericColumn>
 
-                <IgrTemplateColumn propertyPath="AvgSale"
+                <IgrTemplateColumn field="AvgSale"
                     headerText="Avg. Sale"
                     width="*>120"
                     horizontalAlignment="right"
@@ -294,24 +294,24 @@ export default class DataGridPerformance extends React.Component<any, any> {
                     cellUpdating={this.onPriceCellUpdating} >
                 </IgrTemplateColumn>
 
-                <IgrTemplateColumn propertyPath="Change" width="*>120"
+                <IgrTemplateColumn field="Change" width="*>120"
                     horizontalAlignment="right"
                     cellStyleKeyRequested={this.onPriceAmountStyleKey}
                     cellUpdating={this.onPriceAmountCellUpdating}>
                 </IgrTemplateColumn>
 
-                <IgrTemplateColumn propertyPath="PercentChange" width="*>140"
+                <IgrTemplateColumn field="PercentChange" width="*>140"
                     horizontalAlignment="right" headerText="Change (%)"
                     cellStyleKeyRequested={this.onPricePercentStyleKey}
                     cellUpdating={this.onPricePercentCellUpdating}>
                 </IgrTemplateColumn>
 
-                <IgrDateTimeColumn propertyPath="DateValue" headerText="Date" width="*>120" >
+                <IgrDateTimeColumn field="DateValue" headerText="Date" width="*>120" >
                 </IgrDateTimeColumn>
 
                 {
                     this.kpiColumns.map(function (i) {
-                    return ( <IgrNumericColumn width="*>150" key={i} propertyPath={i} /> )
+                    return ( <IgrNumericColumn width="*>150" key={i} field={i} /> )
                     })
                 }
 

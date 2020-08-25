@@ -48,13 +48,13 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
                 defaultColumnMinWidth={100}
                 isColumnOptionsEnabled="true"
                 ref={this.onGridRef}>
-                    <IgrTextColumn propertyPath="ID" width="*>110" horizontalAlignment="center"/>
-                    <IgrTextColumn propertyPath="Property" headerText="Property" width="*>150"/>
-                    <IgrImageColumn propertyPath="CountryFlag" headerText="Country" width="*>160" contentOpacity="1"
+                    <IgrTextColumn field="ID" width="*>110" horizontalAlignment="center"/>
+                    <IgrTextColumn field="Property" headerText="Property" width="*>150"/>
+                    <IgrImageColumn field="CountryFlag" headerText="Country" width="*>160" contentOpacity="1"
                     horizontalAlignment="center" paddingTop="5" paddingBottom="5"/>
-                    <IgrTextColumn propertyPath="City" width="*>150"/>
-                    <IgrNumericColumn propertyPath="Price" width="*>130" positivePrefix="$" showGroupingSeparator="true"/>
-                    <IgrNumericColumn propertyPath="Rooms" width="*>110" />
+                    <IgrTextColumn field="City" width="*>150"/>
+                    <IgrNumericColumn field="Price" width="*>130" positivePrefix="$" showGroupingSeparator="true"/>
+                    <IgrNumericColumn field="Rooms" width="*>110" />
                </IgrDataGrid>
             </div>
         );

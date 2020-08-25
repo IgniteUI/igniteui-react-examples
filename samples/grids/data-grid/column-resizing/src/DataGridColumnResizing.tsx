@@ -73,11 +73,11 @@ export default class GridColumnResizing extends React.Component<any, any> {
                     dataSource={this.data}
                     isColumnOptionsEnabled="true">
 
-                    <IgrTextColumn propertyPath="Name" width="*>170"/>
-                    <IgrTextColumn propertyPath="Street" width="*>120" headerText="Address" />
-                    <IgrTextColumn propertyPath="City" width="*>120"/>
-                    <IgrNumericColumn propertyPath="Salary" width="*>120" positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrDateTimeColumn propertyPath="Birthday" width="*>170" />
+                    <IgrTextColumn field="Name" width="*>170"/>
+                    <IgrTextColumn field="Street" width="*>120" headerText="Address" />
+                    <IgrTextColumn field="City" width="*>120"/>
+                    <IgrNumericColumn field="Salary" width="*>120" positivePrefix="$" showGroupingSeparator="true" />
+                    <IgrDateTimeColumn field="Birthday" width="*>170" />
 
                 </IgrDataGrid>
             </div>
