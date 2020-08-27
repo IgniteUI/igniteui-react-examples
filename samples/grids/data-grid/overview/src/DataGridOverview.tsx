@@ -139,28 +139,28 @@ export default class DataGridOverview extends React.Component<any, any> {
 
     // public onLoad() {
         const peopleGroup = new IgrColumnGroupDescription();
-        peopleGroup.propertyPath = "Country";
+        peopleGroup.field = "Country";
         peopleGroup.displayName = "Country";
         this.grid.groupDescriptions.add(peopleGroup);
 
         const incomeGroup = new IgrColumnGroupDescription();
-        incomeGroup.propertyPath = "Income";
+        incomeGroup.field = "Income";
         incomeGroup.displayName = "Income";
         this.grid.groupDescriptions.add(incomeGroup);
 
         const peopleCount = new IgrColumnSummaryDescription();
-        peopleCount.propertyPath = "Photo";
+        peopleCount.field = "Photo";
         peopleCount.operand = SummaryOperand.Count;
         this.grid.summaryDescriptions.add(peopleCount);
 
         const sales = new IgrColumnSummaryDescription();
-        sales.propertyPath = "Sales";
+        sales.field = "Sales";
         sales.operand = SummaryOperand.Max;
         sales.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(sales);
 
         const salary = new IgrColumnSummaryDescription();
-        salary.propertyPath = "Salary";
+        salary.field = "Salary";
         salary.operand = SummaryOperand.Average;
         salary.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(salary);

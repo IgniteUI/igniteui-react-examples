@@ -96,72 +96,72 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
 
     public onLoad() {
         const productGroup = new IgrColumnGroupDescription();
-        productGroup.propertyPath = "ProductName";
+        productGroup.field = "ProductName";
         productGroup.displayName = "ProductName";
         this.grid.groupDescriptions.add(productGroup);
 
         const productCount = new IgrColumnSummaryDescription();
-        productCount.propertyPath = "ProductName";
+        productCount.field = "ProductName";
         productCount.operand = SummaryOperand.Count;
         this.grid.summaryDescriptions.add(productCount);
 
         const priceMin = new IgrColumnSummaryDescription();
-        priceMin.propertyPath = "BundlePrice";
+        priceMin.field = "BundlePrice";
         priceMin.operand = SummaryOperand.Min;
         priceMin.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMin);
 
         const priceMax = new IgrColumnSummaryDescription();
-        priceMax.propertyPath = "BundlePrice";
+        priceMax.field = "BundlePrice";
         priceMax.operand = SummaryOperand.Max;
         priceMax.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMax);
 
         const orderSum = new IgrColumnSummaryDescription();
-        orderSum.propertyPath = "OrderItems";
+        orderSum.field = "OrderItems";
         orderSum.operand = SummaryOperand.Sum;
         this.grid.summaryDescriptions.add(orderSum);
 
         const orderValueSum = new IgrColumnSummaryDescription();
-        orderValueSum.propertyPath = "OrderValue";
+        orderValueSum.field = "OrderValue";
         orderValueSum.operand = SummaryOperand.Sum;
         orderValueSum.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0});
         this.grid.summaryDescriptions.add(orderValueSum);
 
         const orderValueAvg = new IgrColumnSummaryDescription();
-        orderValueAvg.propertyPath = "OrderValue";
+        orderValueAvg.field = "OrderValue";
         orderValueAvg.operand = SummaryOperand.Average;
         orderValueAvg.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(orderValueAvg);
 
         const orderDateMin = new IgrColumnSummaryDescription();
-        orderDateMin.propertyPath = "OrderDate";
+        orderDateMin.field = "OrderDate";
         orderDateMin.operand = SummaryOperand.Min;
         orderDateMin.calculatorDisplayName = "First"
         orderDateMin.formatOverride = new Intl.DateTimeFormat('en-EN');
         this.grid.summaryDescriptions.add(orderDateMin);
 
         const orderDateMax = new IgrColumnSummaryDescription();
-        orderDateMax.propertyPath = "OrderDate";
+        orderDateMax.field = "OrderDate";
         orderDateMax.operand = SummaryOperand.Max;
         orderDateMax.calculatorDisplayName = "Last"
         orderDateMax.formatOverride = new Intl.DateTimeFormat('en-EN');
         this.grid.summaryDescriptions.add(orderDateMax);
 
         const sum1 = new IgrColumnSummaryDescription();
-        sum1.propertyPath = "Profit";
+        sum1.field = "Profit";
         sum1.operand = SummaryOperand.Sum;
         sum1.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(sum1);
 
         const avg2 = new IgrColumnSummaryDescription();
-        avg2.propertyPath = "Profit";
+        avg2.field = "Profit";
         avg2.operand = SummaryOperand.Average;
         avg2.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(avg2);
 
         const countries = new IgrColumnSummaryDescription();
-        countries.propertyPath = "Countries";
+        countries.field = "Countries";
         countries.operand = SummaryOperand.Custom;
         countries.provideCalculator = this.onProvideCalculator;
         // countries.calculator = new CustomDomestic();

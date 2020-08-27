@@ -156,7 +156,7 @@ export class DataGridPager extends React.Component<DataGridPagerProps> {
         this.state.dataSource.sortDescriptions.clear();
         for (let i = 0; i < sortDescriptions.count; i++) {
             const sd = sortDescriptions.item(i);
-            this.state.dataSource.sortDescriptions.add(SortDescription.create(sd.propertyPath, sd.sortDirection));
+            this.state.dataSource.sortDescriptions.add(SortDescription.create(sd.field, sd.sortDirection));
         }
         this.update(true);
     }
@@ -168,7 +168,7 @@ export class DataGridPager extends React.Component<DataGridPagerProps> {
         this.state.dataSource.groupDescriptions.clear();
         for (let i = 0; i < groupDescriptions.count; i++) {
             const gd = groupDescriptions.item(i);
-            this.state.dataSource.groupDescriptions.add(SortDescription.create(gd.propertyPath, gd.sortDirection));
+            this.state.dataSource.groupDescriptions.add(SortDescription.create(gd.field, gd.sortDirection));
         }
         this.update(true);
     }

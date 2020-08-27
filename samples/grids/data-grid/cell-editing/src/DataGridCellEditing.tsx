@@ -24,11 +24,11 @@ export default class DataGridCellEditing extends React.Component<any, any> {
         super(props);
 
         this.onGridRef = this.onGridRef.bind(this);
-        
+
         this.state = { selectionMode: "MultipleRow" }
         this.data = DataGridSharedData.getEmployees();
     }
-	
+
 	public render(): JSX.Element {
         return (
             <div className="igContainer">
@@ -57,14 +57,14 @@ export default class DataGridCellEditing extends React.Component<any, any> {
                     selectionBehavior="ModifierBased"
                     isColumnOptionsEnabled="true"
                     cellValueChanging={this.onCellValueChanging}>
-                    <IgrTextColumn propertyPath="Name" width="*>150"/>
-                    <IgrTextColumn propertyPath="Street" headerText="Street" width="*>160" />
-                    <IgrTextColumn propertyPath="City" headerText="City" width="*>120" />
-                    <IgrNumericColumn propertyPath="Salary" headerText="Salary" width="*>120" positivePrefix="$" showGroupingSeparator="true" />
-                    <IgrImageColumn propertyPath="Photo" headerText="Photo" contentOpacity="1"
+                    <IgrTextColumn field="Name" width="*>150"/>
+                    <IgrTextColumn field="Street" headerText="Street" width="*>160" />
+                    <IgrTextColumn field="City" headerText="City" width="*>120" />
+                    <IgrNumericColumn field="Salary" headerText="Salary" width="*>120" positivePrefix="$" showGroupingSeparator="true" />
+                    <IgrImageColumn field="Photo" headerText="Photo" contentOpacity="1"
                     horizontalAlignment="center"  width="*>110"/>
-                    <IgrDateTimeColumn propertyPath="Birthday" headerText="Date of Birth" width="*>170"/>
-                    <IgrTemplateColumn isColumnOptionsEnabled="false" propertyPath="DeleteColumn" headerText="Delete Row" width="80" cellUpdating={this.onDeleteCellUpdating}/>
+                    <IgrDateTimeColumn field="Birthday" headerText="Date of Birth" width="*>170"/>
+                    <IgrTemplateColumn isColumnOptionsEnabled="false" field="DeleteColumn" headerText="Delete Row" width="80" cellUpdating={this.onDeleteCellUpdating}/>
                 </IgrDataGrid>
             </div>
         );
@@ -95,11 +95,11 @@ export default class DataGridCellEditing extends React.Component<any, any> {
 
         if(e.newValue === "") {
             s.setEditError(e.editID, "Error, cell is empty");
-        } 
+        }
 
         // request a new render so the undo/redo buttons update.
         setTimeout(() => this.setState({ }));
-        
+
     }
 
     onDeleteCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {

@@ -29,7 +29,7 @@ export default class DataGridColumnOptions extends React.Component<any, any> {
         if (!grid) { return; }
 
         const state = new IgrColumnGroupDescription();
-        state.propertyPath = "Status";
+        state.field = "Status";
         state.displayName = "Status";
         this.grid = grid;
         this.grid.groupDescriptions.add(state);

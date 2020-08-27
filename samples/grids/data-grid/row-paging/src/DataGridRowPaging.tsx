@@ -33,7 +33,7 @@ export default class DataGridRowPaging extends React.Component<any, any> {
         this.grid = grid;
 
         const desc = new IgrColumnGroupDescription();
-        desc.propertyPath = "Country";
+        desc.field = "Country";
         desc.displayName = "Country";
         desc.sortDirection = ListSortDirection.Descending;
         this.grid.groupDescriptions.add(desc);

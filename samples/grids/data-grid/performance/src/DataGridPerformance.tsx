@@ -322,7 +322,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
 
     public componentDidMount() {
         let g = new IgrColumnGroupDescription();
-        g.propertyPath = "Territory";
+        g.field = "Territory";
         this.grid.groupDescriptions.add(g);
 
         for (let i = 0; i < 43; i++) {
@@ -457,8 +457,8 @@ export default class DataGridPerformance extends React.Component<any, any> {
         let useClear = false;
         let sortingByAvgSale = false;
         for (let i = 0; i < this.grid.sortDescriptions.count; i++) {
-            if (this.grid.sortDescriptions.item(i).propertyPath === "AvgSale" ||
-                this.grid.sortDescriptions.item(i).propertyPath.indexOf("Change") >= 0) {
+            if (this.grid.sortDescriptions.item(i).field === "AvgSale" ||
+                this.grid.sortDescriptions.item(i).field.indexOf("Change") >= 0) {
                 sortingByAvgSale = true;
             }
         }

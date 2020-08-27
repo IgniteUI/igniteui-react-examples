@@ -93,13 +93,13 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
 
     public onLoad() {
         const state = new IgrColumnGroupDescription();
-        state.propertyPath = "Country";
+        state.field = "Country";
         state.displayName = "Location";
         const city = new IgrColumnGroupDescription();
-        city.propertyPath = "City";
+        city.field = "City";
         city.displayName = "";
         const income = new IgrColumnGroupDescription();
-        income.propertyPath = "Income";
+        income.field = "Income";
         income.displayName = "Income";
         this.grid.groupDescriptions.add(state);
         this.grid.groupDescriptions.add(city);
