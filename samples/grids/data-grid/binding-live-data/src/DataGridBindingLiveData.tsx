@@ -387,7 +387,7 @@ export default class DataGridBindingLiveData extends Component<any, AppState> {
         for (let i = 0; i < this.grid.actualColumns.count; i++) {
             let col = this.grid.actualColumns.item(i);
 
-            let name = col.name || col.propertyPath;
+            let name = col.name || col.field;
             columns.push(name);
         }
         this.setState({ allColumns: columns });
