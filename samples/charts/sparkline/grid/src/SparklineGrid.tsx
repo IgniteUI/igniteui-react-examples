@@ -54,7 +54,7 @@ export default class SparklineGrid extends React.Component<any, any> {
 
                     <IgrTemplateColumn field="ReturnRate" headerText="Return Rate"
                     horizontalAlignment="center" width="*>140"
-                    template={this.getReturnRateTemplate} />
+                    template={this.getReturnRateTemplate}  isEditable="false"/>
 
                     <IgrImageColumn field="CountryFlag" headerText="Country" width="*>90"
                     contentOpacity="1" horizontalAlignment="center"/>
