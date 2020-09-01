@@ -72,10 +72,10 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
 
                     <IgrTemplateColumn field="Sales" headerText="Sales" horizontalAlignment="center"
                     paddingLeft="10" paddingRight="0"
-                        cellUpdating={this.onSalesCellUpdating} width="*>180" />
+                        cellUpdating={this.onSalesCellUpdating} width="*>180"/>
 
                     <IgrTemplateColumn field="Productivity" headerText="Productivity"
-                    horizontalAlignment="center" width="*>170"
+                    horizontalAlignment="center" width="*>170" isEditable="false"
                     template={this.getProductivityChart} />
 
                     <IgrNumericColumn field="Salary" positivePrefix="$"
