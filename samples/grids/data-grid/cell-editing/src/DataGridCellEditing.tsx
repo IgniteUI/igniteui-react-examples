@@ -20,9 +20,23 @@ export default class DataGridCellEditing extends React.Component<any, any> {
 
     public data: any[];
     public grid: IgrDataGrid;
-    public commitButton: HTMLButtonElement;
-    public undoButton: HTMLButtonElement;
-    public redoButton: HTMLButtonElement;
+
+    //#region Public Properties
+
+    get canUndo(): boolean {
+        return this.grid && this.grid.canUndo;
+    }
+
+    get canRedo(): boolean {
+        return this.grid && this.grid.canRedo;
+    }
+
+    get canCommit(): boolean {
+        return this.grid && this.grid.canCommit;
+    }
+    
+
+    //#endregion
 
     constructor(props: any) {
         super(props);
@@ -36,9 +50,9 @@ export default class DataGridCellEditing extends React.Component<any, any> {
         return (
             <div className="igContainer">
                 <div className="igOptions">
-                <button ref={this.onCommitButtonRef} onClick={this.onCommitClick}>Commit</button>
-                    <button ref={this.onUndoButtonRef} onClick={this.onUndoClick}>Undo</button>
-                    <button ref={this.onRedoButtonRef} onClick={this.onRedoClick}>Redo</button>
+                <button onClick={this.onCommitClick} disabled={!this.canCommit}>Commit</button>
+                    <button onClick={this.onUndoClick} disabled={!this.canUndo}>Undo</button>
+                    <button onClick={this.onRedoClick} disabled={!this.canRedo}>Redo</button>
                     <label>
                         Edit Mode:
                         <select onChange={this.onEditModeChange}>                            
@@ -71,27 +85,6 @@ export default class DataGridCellEditing extends React.Component<any, any> {
                 </IgrDataGrid>
             </div>
         );
-    }
-
-    onCommitButtonRef = (button: HTMLButtonElement) => {
-        if (!button) { return; }
-
-        this.commitButton = button;
-        this.commitButton.disabled = true;
-    }
-
-    onUndoButtonRef = (button: HTMLButtonElement) => {
-        if (!button) { return; }
-
-        this.undoButton = button;
-        this.undoButton.disabled = true;
-    }
-
-    onRedoButtonRef = (button: HTMLButtonElement) => {
-        if (!button) { return; }
-
-        this.redoButton = button;
-        this.redoButton.disabled = true;
     }    
 
     onGridRef = (grid: IgrDataGrid) =>{
@@ -104,48 +97,25 @@ export default class DataGridCellEditing extends React.Component<any, any> {
 
     onCommitClick = () => {
        this.grid.commitEdits();
-        this.commitButton.disabled = true;
-        this.undoButton.disabled = !this.grid.canUndo;      
-
         // request a new render so the undo/redo buttons update.
         this.setState({ });
     }
 
     onUndoClick = () => {
         this.grid.undo();
-        this.undoButton.disabled = !this.grid.canUndo;
-        this.commitButton.disabled = true;
-        this.redoButton.disabled = !this.grid.canRedo;        
-
         // request a new render so the undo/redo buttons update.
         this.setState({ });
     }
 
     onRedoClick = () => {
-        this.grid.redo();
-
-        if(this.grid.editMode === EditModeType.Cell || this.grid.editMode === EditModeType.None) {
-            this.commitButton.disabled = !this.grid.canCommit;
-        }
-        if(this.grid.editMode === EditModeType.CellBatch) {
-            this.redoButton.disabled = !this.grid.canRedo;
-            this.undoButton.disabled = !this.grid.canUndo;
-            this.commitButton.disabled = false;
-        } 
-        
+        this.grid.redo();        
         // request a new render so the undo/redo buttons update.
         this.setState({ });
     }
 
-    onEditModeChange = (event: any) => {
-        this.grid.cancelEdits();
+    onEditModeChange = (event: any) => {        
         this.grid.editMode = event.target.value;
-        if(this.grid.editMode === EditModeType.None || this.grid.editMode === EditModeType.Cell) {
-            this.commitButton.disabled = true;
-            this.undoButton.disabled = !this.grid.canUndo;
-            this.redoButton.disabled = !this.grid.canRedo;           
-        }
-
+        this.grid.cancelEdits();
         this.setState({ });
     }
     //#endregion
@@ -155,38 +125,14 @@ export default class DataGridCellEditing extends React.Component<any, any> {
         const button = e.srcElement as HTMLButtonElement;
         const viewIndex = parseInt(button.id);
         const rowItem = this.grid.actualDataSource.getItemAtIndex(viewIndex);
-        let t = (this.grid.actualDataSource as any) as IEditableDataSource;
-
-        if(this.grid.editMode === EditModeType.CellBatch){
-            this.commitButton.disabled = false;
-            this.undoButton.disabled = false;
-            this.redoButton.disabled = !this.grid.canRedo;
-            
-            t.removeItemByKey([rowItem]);
-            this.grid.notifySetItem(rowItem, rowItem, rowItem);            
-        }
-        else if(this.grid.editMode === EditModeType.Cell) {
-            //delete grid row immediately
-            let index = this.data.indexOf(rowItem);
-            this.data.splice(index, 1);
-            this.grid.notifyRemoveItem(index, rowItem);
-        } 
+        
+        this.grid.removeItem(rowItem);  
         this.setState({ });
     }
 
     onCellValueChanging = (s: IgrDataGrid, e: IgrGridCellValueChangingEventArgs) => {
 
-        if(s.editMode === EditModeType.CellBatch && !this.grid.canUndo)
-        {
-            this.commitButton.disabled = !this.grid.canCommit;
-            this.undoButton.disabled = this.grid.canUndo;
-        }
-        else if(this.grid.editMode === EditModeType.Cell || this.grid.editMode === EditModeType.None) {
-            this.commitButton.disabled = this.grid.canCommit;
-        }
         if(e.newValue === "") {
-            this.undoButton.disabled = true;
-            this.commitButton.disabled = true;
             s.setEditError(e.editID, "Error, cell is empty");
         }
 
