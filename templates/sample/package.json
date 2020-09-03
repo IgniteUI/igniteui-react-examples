@@ -27,7 +27,7 @@
     "igniteui-react-core":        { "version": "16.12.3", "usage": "always", "note": "will always force injecting it to a package.json "},
     "igniteui-react-maps":        { "version": "16.12.3", "usage": "detect" },
     "igniteui-react-charts":      { "version": "16.12.3", "usage": "detect", "keywords": ["igniteui-react-maps", "igniteui-react-spreadsheet-chart-adapter"]  },
-    "igniteui-react-datasources": { "version": "16.12.1", "usage": "detect" },
+    "igniteui-react-datasources": { "version": "16.12.3", "usage": "detect" },
     "igniteui-react-gauges":      { "version": "16.12.3", "usage": "detect" },
     "igniteui-react-spreadsheet": { "version": "16.12.3", "usage": "detect" },
     "igniteui-react-spreadsheet-chart-adapter": { "version": "16.12.3", "usage": "detect" },
