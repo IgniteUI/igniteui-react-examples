@@ -33,6 +33,7 @@ export default class SparklineGrid extends React.Component<any, any> {
                     height="100%"
                     width="100%"
                     rowHeight="70"
+                    editMode="None"
                     autoGenerateColumns="false"
                     dataSource={this.data}>
 
