@@ -74,9 +74,10 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                     paddingLeft="10" paddingRight="0"
                         cellUpdating={this.onSalesCellUpdating} width="*>180"/>
 
+                    {/* TODO un-comment this column and getProductivityChart function when editing templated columns is corrected
                     <IgrTemplateColumn field="Productivity" headerText="Productivity"
                     horizontalAlignment="center" width="*>170" isEditable="false"
-                    template={this.getProductivityChart} />
+                    template={this.getProductivityChart} /> */}
 
                     <IgrNumericColumn field="Salary" positivePrefix="$"
                     showGroupingSeparator="true" width="*>180"/>
@@ -108,22 +109,24 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         this.grid = grid;
     }
 
-    public getProductivityChart(props: IIgrCellTemplateProps) {
-        const info = props.dataContext as IgrTemplateCellInfo;
-        return (
-            <div className="gridSparklineContainer">
-               <IgrSparkline
-                   height="30px" width="100%"
-                   displayType="Column"
-                   dataSource={info.rowItem.Productivity}
-                   valueMemberPath="Value"
-                   labelMemberPath="Week"
-                   lineThickness={2}
-                   brush="rgb(21, 190, 6)"
-                   negativeBrush="rgb(211, 17, 3)" />
-            </div>
-        );
-    }
+    // TODO un-comment when editing templated columns is corrected
+
+    // public getProductivityChart(props: IIgrCellTemplateProps) {
+    //     const info = props.dataContext as IgrTemplateCellInfo;
+    //     return (
+    //         <div className="gridSparklineContainer">
+    //            <IgrSparkline
+    //                height="30px" width="100%"
+    //                displayType="Column"
+    //                dataSource={info.rowItem.Productivity}
+    //                valueMemberPath="Value"
+    //                labelMemberPath="Week"
+    //                lineThickness={2}
+    //                brush="rgb(21, 190, 6)"
+    //                negativeBrush="rgb(211, 17, 3)" />
+    //         </div>
+    //     );
+    // }
 
     public onAddressCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
         const content = e.content as HTMLDivElement;
