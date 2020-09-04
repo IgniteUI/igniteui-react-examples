@@ -74,7 +74,8 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                     paddingLeft="10" paddingRight="0"
                         cellUpdating={this.onSalesCellUpdating} width="*>180"/>
 
-                    {/* <IgrTemplateColumn field="Productivity" headerText="Productivity"
+                    {/* TODO un-comment this column and getProductivityChart function when editing templated columns is corrected
+                    <IgrTemplateColumn field="Productivity" headerText="Productivity"
                     horizontalAlignment="center" width="*>170" isEditable="false"
                     template={this.getProductivityChart} /> */}
 
