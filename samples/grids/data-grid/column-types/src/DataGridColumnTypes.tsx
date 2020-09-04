@@ -109,6 +109,8 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         this.grid = grid;
     }
 
+    // TODO un-comment when editing templated columns is corrected
+
     // public getProductivityChart(props: IIgrCellTemplateProps) {
     //     const info = props.dataContext as IgrTemplateCellInfo;
     //     return (
