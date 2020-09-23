@@ -12,9 +12,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-react-core": "16.12.3",
-    "igniteui-react-maps": "16.12.3",
-    "igniteui-react-charts": "16.12.3",
+    "igniteui-react-core": "16.12.4",
+    "igniteui-react-maps": "16.12.4",
+    "igniteui-react-charts": "16.12.4",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
