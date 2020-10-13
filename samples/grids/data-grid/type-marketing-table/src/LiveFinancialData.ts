@@ -959,11 +959,12 @@ export class LiveFinancialData {
 
   public static updateRandomPrices(data: any[]): any {
       const currData = data.slice(0, data.length + 1);
-
+      let y = 0;
       for (let i = Math.round(Math.random() * 10); i < data.length; i += Math.round(Math.random() * 10)) {
         const item = Object.assign({}, data[i]);
         this.randomizeDataValues(item);
-        currData[i] = item;        
+        currData[i] = item;
+        y++;
       }
       return currData;
   }

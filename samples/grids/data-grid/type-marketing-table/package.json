@@ -1,6 +1,6 @@
 {
-  "name": "react-data-grid-binding-live-data",
-  "description": "This project provides example of Data Grid Binding Live Data using Infragistics React components",
+  "name": "react-data-grid-type-marketing-table",
+  "description": "This project provides example of Data Grid Type Marketing Table using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
@@ -12,13 +12,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@material-ui/core": "^4.6.1",
-    "@material-ui/icons": "^4.5.1",
-    "igniteui-react-core": "16.12.3",
-    "igniteui-react-charts": "16.12.3",
-    "igniteui-react-grids": "16.12.3",
-    "igniteui-react-inputs": "16.12.3",
-    "igniteui-react-layouts": "16.12.3",
+    "igniteui-react-core": "16.12.4",
+    "igniteui-react-grids": "16.12.4",
+    "igniteui-react-inputs": "16.12.4",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",

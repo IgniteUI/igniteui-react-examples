@@ -16,7 +16,6 @@
     "igniteui-react-datasources": "16.12.4",
     "igniteui-react-grids": "16.12.4",
     "igniteui-react-inputs": "16.12.4",
-    "igniteui-react-layouts": "16.12.4",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",

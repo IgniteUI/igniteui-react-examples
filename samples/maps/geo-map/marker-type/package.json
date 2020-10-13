@@ -1,6 +1,6 @@
 {
-  "name": "react-geographic-map-map-marker-type",
-  "description": "This project provides example of Geographic Map Map Marker Type using Infragistics React components",
+  "name": "react-geographic-map-map-marker-types",
+  "description": "This project provides example of Geographic Map Map Marker Types using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './DataGridTypeMarketingTable.css';
 import { LiveFinancialData } from './LiveFinancialData';
-import { TaskUtil } from './TaskUtil';
 // IgrDataGrid modules
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
@@ -53,8 +52,7 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
         this.onPriceDataBound = this.onPriceDataBound.bind(this);
         this.onPriceStyleKey = this.onPriceStyleKey.bind(this);
         this.onPriceCellUpdating = this.onPriceCellUpdating.bind(this);        
-
-        TaskUtil.start("generateData");
+        
         this.state = {
             name: 'React',
             data: LiveFinancialData.generateData(5000),
@@ -62,8 +60,7 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
             volume: 5000,            
             hiddenColumns: ["ID"],
             allColumns: []
-        };
-        TaskUtil.stop("generateData");        
+        };        
     }
 
     public render(): JSX.Element {
