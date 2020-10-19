@@ -26,7 +26,7 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
 
         this.onSelectionModeChange = this.onSelectionModeChange.bind(this);
 
-        this.state = { selectionCollisionType: "Fade" };
+        this.state = { selectionCollisionType: "Omit" };
 
         this.onMapRef = this.onMapRef.bind(this);
         this.onDataLoaded = this.onDataLoaded.bind(this);
@@ -37,7 +37,7 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
             <div className="igContainer">                
 
                 <div className="igOptions">
-                <span> Collision Avoidance Type </span>
+                <span> Marker Collision Avoidance </span>
                     <select  onChange={this.onSelectionModeChange} value={this.state.selectionCollisionType}>
                         <option>Fade</option>
                         <option>FadeAndShift</option>
@@ -118,7 +118,7 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
         this.geoSeries.tooltipTemplate = this.createTooltip;
         this.geoSeries.thickness = 1;
         this.geoSeries.markerType = MarkerType.Hexagon;
-        this.geoSeries.markerCollisionAvoidance = CollisionAvoidanceType.Fade;
+        this.geoSeries.markerCollisionAvoidance = CollisionAvoidanceType.Omit;
 
         this.geoSeries.markerBrush = "DodgerBlue";
         this.geoSeries.markerOutline = "DodgerBlue";
@@ -127,28 +127,35 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
         this.geoMap.series.add(this.geoSeries);
     }
 
-    public getMarker(): any {
-        let style = { outline: "Black", fill: "DodgerBlue", text: "black" };
+    public getMarker(): any{ 
 
-        const size = 24;
+        let style = { outline: "#7D73E6", fill: "white", text: "black" };
+        
+        const size = 12;
         const radius = size / 2;
         return {
             measure: function (measureInfo: DataTemplateMeasureInfo) {
+                 const data = measureInfo.data;
                 const context = measureInfo.context;
                 let value = "0.00";
-                
+                let item = data.item as any;
+                if (item != null) {
+                    value = item.name.toString().toUpperCase(); 
+                }
                 const height = context.measureText("M").width;
                 const width = context.measureText(value).width;
                 measureInfo.width = width;
                 measureInfo.height = height + size;
             },
             render: function (renderInfo: DataTemplateRenderInfo) {
-
+                const item = renderInfo.data.item as any;    
+                const value = item.name.toString().toUpperCase(); 
 
                 const ctx = renderInfo.context as CanvasRenderingContext2D;
                 let x = renderInfo.xPosition;
                 let y = renderInfo.yPosition;
-
+               
+                let halfHeight = renderInfo.availableHeight / 2.0;
 
                 if (renderInfo.isHitTestRender) {
                     ctx.fillStyle = renderInfo.data.actualItemBrush.fill;
@@ -159,12 +166,38 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
                     ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
                     ctx.fillStyle = style.fill;
                     ctx.fill();
-                    ctx.lineWidth = 1;
+                    ctx.lineWidth = 2;
                     ctx.strokeStyle = style.outline;
                     ctx.stroke();
                     ctx.closePath();
-                }
+                } 
 
+                x = renderInfo.xPosition + 5;
+                y = renderInfo.yPosition + 7.5;
+                if (y < 0) {
+                    y -= renderInfo.availableHeight + 7.5;
+                } 
+
+                let bottomEdge = renderInfo.passInfo.viewportTop + renderInfo.passInfo.viewportHeight;
+                if (y + renderInfo.availableHeight > bottomEdge) {
+                    y -= renderInfo.availableHeight + 5;
+                } 
+
+                let rightEdge = renderInfo.passInfo.viewportLeft + renderInfo.passInfo.viewportWidth;
+                if (x + renderInfo.availableWidth > rightEdge) {
+                    x -= renderInfo.availableWidth + 12;
+                } 
+
+                ctx.beginPath();
+                ctx.fillStyle = style.outline ;
+                ctx.fillRect(x - 2, y - 2, renderInfo.availableWidth + 8, halfHeight + 6);
+                ctx.closePath(); 
+
+                ctx.font = '8pt Verdana';
+                ctx.textBaseline = "top";
+                ctx.fillStyle = style.fill;
+                ctx.fillText(value, x + 2, y + 1);
+ 
             }
         }
     }
