@@ -55,9 +55,9 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
         
         this.state = {
             name: 'React',
-            data: LiveFinancialData.generateData(5000),
-            frequency: 250,
-            volume: 5000,            
+            data: LiveFinancialData.generateData(3000),
+            frequency: 1000,
+            volume: 3000,            
             hiddenColumns: ["ID"],
             allColumns: []
         };        
@@ -69,9 +69,7 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
                 <IgrDataGrid
                 ref={this.onGridRef}
                 width="100%"
-                height="100%"
-                key="domGrid"
-                useCanvas="false"
+                height="100%"                                
                 rowHeight="32"
                 selectionMode="MultipleRow"
                 autoGenerateColumns="false"
@@ -79,8 +77,9 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
                 headerClickAction={HeaderClickAction.SortByMultipleColumnsTriState}
                 columnShowingAnimationMode="slideFromRightAndFadeIn"
                 columnHidingAnimationMode="slideToRightAndFadeOut"
-                dataSource={this.state.data}
-                defaultColumnMinWidth="100">
+                defaultColumnMinWidth="100"
+                dataSource={this.state.data} >
+                
                     <IgrTextColumn field="ID" width="*>90" isHidden="true"/>
                     <IgrTextColumn field="Category" width="*>120" />
                     <IgrTextColumn field="Type" width="*>90"    />
