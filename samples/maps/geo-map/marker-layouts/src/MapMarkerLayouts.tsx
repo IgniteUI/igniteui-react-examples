@@ -1,17 +1,8 @@
 import * as React from 'react';
-import WorldUtils from "./WorldUtils"
-import { IgrGeographicMapModule } from 'igniteui-react-maps';
-import { IgrGeographicMap } from 'igniteui-react-maps';
-
-import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { MarkerType } from 'igniteui-react-charts';
-import { CollisionAvoidanceType } from 'igniteui-react-charts';
-import { IgrDataContext } from 'igniteui-react-core';
-import { IgrShapeDataSource } from 'igniteui-react-core';
+import { IgrGeographicMapModule, IgrGeographicMap, IgrGeographicSymbolSeries } from 'igniteui-react-maps';
+import { IgrDataChartInteractivityModule, MarkerType } from 'igniteui-react-charts';
 import { DataTemplateMeasureInfo, DataTemplateRenderInfo } from 'igniteui-react-core';
 import { WorldLocations } from "./WorldLocations";
-import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
-
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
@@ -90,49 +81,7 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
         this.symbolSeries.markerTemplate = this.getMarker();
         this.symbolSeries.markerCollisionAvoidance = this.state.selectionCollisionType;
         this.geoMap.series.add(this.symbolSeries);
-    }
-
-    // public onMapRef(geoMap: IgrGeographicMap) {
-    //     if (!geoMap) { return; }
-
-    //     this.geoMap = geoMap;
-    //     // hiding OpenStreetMap
-    //     this.geoMap.backgroundContent = undefined;
-    //     this.geoMap.
-
-    //     // loading a shapefile with geographic shapes
-    //     const sds = new IgrShapeDataSource();
-    //     sds.importCompleted = this.onDataLoaded;
-        
-    //     sds.databaseSource  = WorldLocations();
-    //     sds.dataBind();
-    // }
-
-    // public onDataLoaded(sds: IgrShapeDataSource, e: any) {
-    //     const shapeRecords = sds.getPointData();
-    //     console.log("loaded WorldCountries.shp " + shapeRecords.length);
-
-    //     const countries: any[] = [];
-
-
-    //     for (const record of shapeRecords) {
-    //         // using field/column names from .DBF file
-    //         const country = {
-    //             points: record.points,
-    //             name: record.fieldValues.Name,
-    //             org: record.fieldValues.Alliance,
-    //             pop: record.fieldValues.Population
-    //         };
-
-    //         countries.push(country);
-
-    //     }
-
-    //     this.createSeries(countries, "rgba(203, 205, 204, 1)");
-
-    // }
-
-    
+    }   
 
     public getMarker(): any{ 
 
