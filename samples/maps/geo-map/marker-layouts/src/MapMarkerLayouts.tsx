@@ -2,13 +2,16 @@ import * as React from 'react';
 import WorldUtils from "./WorldUtils"
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
-import { IgrGeographicShapeSeries } from 'igniteui-react-maps';
+
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { MarkerType } from 'igniteui-react-charts';
 import { CollisionAvoidanceType } from 'igniteui-react-charts';
 import { IgrDataContext } from 'igniteui-react-core';
 import { IgrShapeDataSource } from 'igniteui-react-core';
 import { DataTemplateMeasureInfo, DataTemplateRenderInfo } from 'igniteui-react-core';
+import { WorldLocations } from "./WorldLocations";
+import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
+
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
@@ -16,24 +19,23 @@ IgrDataChartInteractivityModule.register();
 
 export default class MapMarkerLayouts extends React.Component<any, any> {
 
-    public geoMap: IgrGeographicMap;
-
-    public geoSeries: IgrGeographicShapeSeries;
-    
+    public geoMap: IgrGeographicMap;    
+    public symbolSeries = new IgrGeographicSymbolSeries ( { name: "symbolSeries" });
 
     constructor(props: any) {
         super(props);
 
         this.onSelectionModeChange = this.onSelectionModeChange.bind(this);
+        this.onMapReferenced = this.onMapReferenced.bind(this);
+        
 
         this.state = { selectionCollisionType: "Omit" };
-
-        this.onMapRef = this.onMapRef.bind(this);
-        this.onDataLoaded = this.onDataLoaded.bind(this);
+       
     }
 
     public render(): JSX.Element {
         return (
+            
             <div className="igContainer">                
 
                 <div className="igOptions">
@@ -49,8 +51,8 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
                 </div>
 
                 <div className="igComponent" >
-                    <IgrGeographicMap
-                        ref={this.onMapRef}
+                    <IgrGeographicMap 
+                        ref={this.onMapReferenced}                       
                         width="100%"
                         height="100%"
                         zoomable="true" />
@@ -64,68 +66,73 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
 
     public onSelectionModeChange = (e: any) => {
         this.setState({ selectionCollisionType: e.target.value });
-        this.geoSeries.markerCollisionAvoidance = e.target.value;
+        this.symbolSeries.markerCollisionAvoidance = e.target.value;
     }
 
-    public onMapRef(geoMap: IgrGeographicMap) {
-        if (!geoMap) { return; }
-
-        this.geoMap = geoMap;
-        // hiding OpenStreetMap
-        this.geoMap.backgroundContent = undefined;
-        // zooming map to region of North America
-        this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
-
-        // loading a shapefile with geographic shapes
-        const sds = new IgrShapeDataSource();
-        sds.importCompleted = this.onDataLoaded;
-        sds.shapefileSource = "https://static.infragistics.com/xplatform/shapes/world_countries_all.shp";
-        sds.databaseSource  = "https://static.infragistics.com/xplatform/shapes/world_countries_all.dbf";
-        sds.dataBind();
+    public onMapReferenced(map: IgrGeographicMap) {
+        this.geoMap = map;
+        
+        const geoRect = { left: -150.0, top: -60.0, width: 315.0, height: 140.0 };
+        this.geoMap.zoomToGeographic(geoRect);
+        
+        this.addSeries(WorldLocations.getCapitals(),"rgb(32, 146, 252)");
+    }
+    
+    public addSeries(locations: any[], brush: string)
+    {
+        
+        this.symbolSeries.dataSource = locations;
+        this.symbolSeries.markerType = MarkerType.Circle;
+        this.symbolSeries.latitudeMemberPath = "lat";
+        this.symbolSeries.longitudeMemberPath = "lon";
+        this.symbolSeries.markerBrush  = "White";
+        this.symbolSeries.markerOutline = brush;
+        this.symbolSeries.markerTemplate = this.getMarker();
+        this.symbolSeries.markerCollisionAvoidance = this.state.selectionCollisionType;
+        this.geoMap.series.add(this.symbolSeries);
     }
 
-    public onDataLoaded(sds: IgrShapeDataSource, e: any) {
-        const shapeRecords = sds.getPointData();
-        console.log("loaded WorldCountries.shp " + shapeRecords.length);
+    // public onMapRef(geoMap: IgrGeographicMap) {
+    //     if (!geoMap) { return; }
 
-        const countries: any[] = [];
+    //     this.geoMap = geoMap;
+    //     // hiding OpenStreetMap
+    //     this.geoMap.backgroundContent = undefined;
+    //     this.geoMap.
+
+    //     // loading a shapefile with geographic shapes
+    //     const sds = new IgrShapeDataSource();
+    //     sds.importCompleted = this.onDataLoaded;
+        
+    //     sds.databaseSource  = WorldLocations();
+    //     sds.dataBind();
+    // }
+
+    // public onDataLoaded(sds: IgrShapeDataSource, e: any) {
+    //     const shapeRecords = sds.getPointData();
+    //     console.log("loaded WorldCountries.shp " + shapeRecords.length);
+
+    //     const countries: any[] = [];
 
 
-        for (const record of shapeRecords) {
-            // using field/column names from .DBF file
-            const country = {
-                points: record.points,
-                name: record.fieldValues.Name,
-                org: record.fieldValues.Alliance,
-                pop: record.fieldValues.Population
-            };
+    //     for (const record of shapeRecords) {
+    //         // using field/column names from .DBF file
+    //         const country = {
+    //             points: record.points,
+    //             name: record.fieldValues.Name,
+    //             org: record.fieldValues.Alliance,
+    //             pop: record.fieldValues.Population
+    //         };
 
-            countries.push(country);
+    //         countries.push(country);
 
-        }
+    //     }
 
-        this.createSeries(countries, "rgba(203, 205, 204, 1)");
+    //     this.createSeries(countries, "rgba(203, 205, 204, 1)");
 
-    }
+    // }
 
-    public createSeries(shapeData: any[], shapeBrush: string) {
-        const seriesName = "series";
-        this.geoSeries = new IgrGeographicShapeSeries({ name: seriesName });
-        this.geoSeries.dataSource = shapeData;
-        this.geoSeries.shapeMemberPath = "points";
-        this.geoSeries.brush = "lightgrey";
-        this.geoSeries.outline = "Black";
-        this.geoSeries.tooltipTemplate = this.createTooltip;
-        this.geoSeries.thickness = 1;
-        this.geoSeries.markerType = MarkerType.Hexagon;
-        this.geoSeries.markerCollisionAvoidance = CollisionAvoidanceType.Omit;
-
-        this.geoSeries.markerBrush = "DodgerBlue";
-        this.geoSeries.markerOutline = "DodgerBlue";
-        this.geoSeries.markerTemplate = this.getMarker();
-
-        this.geoMap.series.add(this.geoSeries);
-    }
+    
 
     public getMarker(): any{ 
 
@@ -201,32 +208,5 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
             }
         }
     }
-
-    public createTooltip(context: any) {
-        const dataContext = context.dataContext as IgrDataContext;
-        if (!dataContext) return null;
-
-        const series = dataContext.series as any;
-        if (!series) return null;
-
-        const dataItem = dataContext.item as any;
-        if (!dataItem) return null;
-
-        const pop = WorldUtils.toStringAbbr(dataItem.pop);
-        const titleColor = series.brush;
-        const titleStyle = { color: titleColor } as React.CSSProperties;
-
-        return <div>
-            <div className="tooltipTitle" style={titleStyle}>{dataItem.org}</div>
-            <div className="tooltipBox">
-                <div className="tooltipRow">
-                    <div className="tooltipLbl">{dataItem.name}</div>
-                    <div className="tooltipVal">{pop}</div>
-                </div>
-            </div>
-        </div>
-    }
-
-
 
 }
