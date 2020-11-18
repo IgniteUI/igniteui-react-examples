@@ -96,7 +96,7 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
                 let value = "0.00";
                 let item = data.item as any;
                 if (item != null) {
-                    value = item.name.toString().toUpperCase(); 
+                    value = item.name.toString(); 
                 }
                 const height = context.measureText("M").width;
                 const width = context.measureText(value).width;
@@ -105,7 +105,7 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
             },
             render: function (renderInfo: DataTemplateRenderInfo) {
                 const item = renderInfo.data.item as any;    
-                const value = item.name.toString().toUpperCase(); 
+                const value = item.name.toString(); 
 
                 const ctx = renderInfo.context as CanvasRenderingContext2D;
                 let x = renderInfo.xPosition;
