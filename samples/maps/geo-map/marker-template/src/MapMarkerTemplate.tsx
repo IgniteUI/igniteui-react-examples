@@ -66,7 +66,7 @@ export default class MapMarkerTemplate extends React.Component {
                 let value = "0.00";
                 let item = data.item as any;
                 if (item != null) {
-                    value = item.pop.toString().toUpperCase(); 
+                    value = item.name.toString(); 
                 }
                 const height = context.measureText("M").width;
                 const width = context.measureText(value).width;
@@ -75,7 +75,7 @@ export default class MapMarkerTemplate extends React.Component {
             },
             render: function (renderInfo: DataTemplateRenderInfo) {
                 const item = renderInfo.data.item as any;    
-                const value = item.pop.toString().toUpperCase(); 
+                const value = item.name.toString(); 
 
                 const ctx = renderInfo.context as CanvasRenderingContext2D;
                 let x = renderInfo.xPosition;
