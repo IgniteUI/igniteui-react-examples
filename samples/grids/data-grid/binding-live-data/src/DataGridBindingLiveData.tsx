@@ -277,7 +277,8 @@ export default class DataGridBindingLiveData extends Component<any, AppState> {
                 columnShowingAnimationMode="slideFromRightAndFadeIn"
                 columnHidingAnimationMode="slideToRightAndFadeOut"
                 dataSource={this.state.data}
-                defaultColumnMinWidth="100">
+                defaultColumnMinWidth="100"
+                isRowHoverEnabled="false">
                     <IgrTextColumn field="ID" width="*>90" isHidden="true"/>
                     <IgrTextColumn field="Category" width="*>120" />
                     <IgrTextColumn field="Type" width="*>90"    />

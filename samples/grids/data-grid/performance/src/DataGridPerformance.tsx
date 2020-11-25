@@ -275,6 +275,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
                 defaultColumnMinWidth="80"
                 columnShowingAnimationMode="auto"
                 columnHidingAnimationMode="auto"
+                isRowHoverEnabled="false"
                 dataSource={this.data}
                 ref={this.onGridRef}>
 
