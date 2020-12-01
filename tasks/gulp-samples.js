@@ -54,6 +54,7 @@ var sampleSource = [
     igConfig.SamplesCopyPath + '/grids/**/package.json',
     // layouts:
     igConfig.SamplesCopyPath + '/layouts/**/package.json',
+    igConfig.SamplesCopyPath + '/editors/**/package.json',
 
     // excluding package.json in node_modules sub folders
     "!" + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
