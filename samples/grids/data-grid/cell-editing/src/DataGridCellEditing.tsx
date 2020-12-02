@@ -10,6 +10,7 @@ import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrGridCellValueChangingEventArgs } from 'igniteui-react-grids';
+import { IgrGridRowEditEndedEventArgs } from 'igniteui-react-grids';
 import { EditModeType } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
@@ -80,7 +81,9 @@ export default class DataGridCellEditing extends React.Component<any, any> {
                     selectionMode="SingleRow"
                     selectionBehavior="ModifierBased"
                     isColumnOptionsEnabled="true"
-                    cellValueChanging={this.onCellValueChanging}>
+                    cellValueChanging={this.onCellValueChanging}                    
+                    rowEditEnded={this.onRowEditEnded}
+                    >
                     <IgrTextColumn field="Name" width="*>150"/>
                     <IgrTextColumn field="Street" headerText="Street" width="*>160" />
                     <IgrTextColumn field="City" headerText="City" width="*>120" />
@@ -146,6 +149,10 @@ export default class DataGridCellEditing extends React.Component<any, any> {
         // request a new render so the undo/redo buttons update.
         setTimeout(() => this.setState({ }));
 
+    }
+
+    onRowEditEnded = (s: IgrDataGrid, e: IgrGridRowEditEndedEventArgs) => {
+        this.setState({});
     }
 
     onDeleteCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
