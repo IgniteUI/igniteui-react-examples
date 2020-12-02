@@ -65,6 +65,7 @@ export default class DataGridCellEditing extends React.Component<any, any> {
                             <option value="0">None</option>
                             <option value="1">Cell</option>
                             <option value="2">CellBatch</option>
+                            <option value="3">Row</option>
                         </select>
                     </label>
                 </div>
