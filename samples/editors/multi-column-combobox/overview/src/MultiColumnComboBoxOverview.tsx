@@ -20,6 +20,7 @@ export default class IgrMultiColumnComboBoxOverview extends React.Component<any,
         this.multiColumnComboBox = multiColumnComboBox;
         this.multiColumnComboBox.dataSource = this.countryData;
         this.multiColumnComboBox.textField = "country";
+        this.multiColumnComboBox.placeholder = "Choose a country"
         this.multiColumnComboBox.sortMode = SortMode.SortByOneColumnOnly;
     }
 
