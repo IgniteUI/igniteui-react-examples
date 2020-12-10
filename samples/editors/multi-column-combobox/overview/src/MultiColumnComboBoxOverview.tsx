@@ -5,7 +5,7 @@ import { IgrMultiColumnComboBox, SortMode } from 'igniteui-react-grids';
 
 IgrMultiColumnComboBoxModule.register();
 
-export default class IgrMultiColumnComboBoxOverview extends React.Component<any, any> {
+export default class MultiColumnComboBoxOverview extends React.Component<any, any> {
     public multiColumnComboBox!: IgrMultiColumnComboBox;
     public countryData: any[];
     
