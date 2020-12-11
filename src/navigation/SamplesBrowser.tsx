@@ -18,6 +18,7 @@ import { chartsRoutingData } from "../samples/charts/RoutingData";
 import { mapsRoutingData } from "../samples/maps/RoutingData";
 import { excelRoutingData } from "../samples/excel/RoutingData";
 import { layoutsRoutingData } from "../samples/layouts/RoutingData";
+import { editorsRoutingData } from "../samples/editors/RoutingData"; 
 
 // https://material-ui.com/components/material-icons/
 import IconButton from '@material-ui/core/IconButton';
@@ -71,6 +72,7 @@ export class SamplesBrowser extends React.Component<any, any>
             mapsRoutingData,
             gaugesRoutingData,
             excelRoutingData,
+            editorsRoutingData
         ];
 
         for (const routingData of routingProviders) {
