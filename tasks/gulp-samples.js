@@ -377,7 +377,7 @@ function updateSharedFiles(cb) {
         './templates/sample/src/react-app-env.d.ts',
         './templates/sample/sandbox.config.json',
         './templates/sample/tsconfig.json',
-        './templates/sample/.gitignore',
+        // './templates/sample/.gitignore',
         './templates/sample/.eslintrc.js',
     ])
     .pipe(flatten({ "includeParents": -1 }))
