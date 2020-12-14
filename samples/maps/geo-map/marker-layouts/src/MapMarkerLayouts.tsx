@@ -1,8 +1,8 @@
 import * as React from 'react';
+import WorldLocations from "./WorldLocations";
 import { IgrGeographicMapModule, IgrGeographicMap, IgrGeographicSymbolSeries } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule, MarkerType } from 'igniteui-react-charts';
 import { DataTemplateMeasureInfo, DataTemplateRenderInfo } from 'igniteui-react-core';
-import { WorldLocations } from "./WorldLocations";
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
