@@ -12,9 +12,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-react-core": "20.2.153",
-    "igniteui-react-spreadsheet": "20.2.153",
-    "igniteui-react-excel": "20.2.153",
+    "igniteui-react-core": "16.13.0",
+    "igniteui-react-spreadsheet": "16.13.0",
+    "igniteui-react-excel": "16.13.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
