@@ -9,8 +9,9 @@ import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartShapeCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartShapeModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
+import { IgrDataContext } from 'igniteui-react-core';
+import { IgrStyleShapeEventArgs } from 'igniteui-react-charts';
 import * as React from 'react';
-import { SampleShapeData } from './SampleShapeData';
 
 IgrDataChartCoreModule.register();
 IgrDataChartShapeCoreModule.register();
@@ -18,14 +19,13 @@ IgrDataChartShapeModule.register();
 IgrDataChartInteractivityModule.register();
 
 export default class DataChartTypeScatterPolygonSeries extends React.Component {
-    public data: any[];
+
     public chart: IgrDataChart;
 
     constructor(props: any) {
         super(props);
 
         this.onChartRef = this.onChartRef.bind(this);
-        this.data = SampleShapeData.create();
     }
 
     public render(): JSX.Element {
@@ -37,19 +37,24 @@ export default class DataChartTypeScatterPolygonSeries extends React.Component {
                         isVerticalZoomEnabled={true}
                         width="100%"
                         height="100%"
-                        dataSource={this.data}  chartTitle="House Floor Plan">
-                        <IgrNumericXAxis name="xAxis" minimumValue={-1} maximumValue={11} interval={1} />
-                        <IgrNumericYAxis name="yAxis" minimumValue={-1} maximumValue={11} interval={1} />
+                        subtitleTopMargin="10"
+                        subtitle="Airplane Seating Chart (Polygons)">
+                        <IgrNumericXAxis name="xAxis" minimumValue={-800} maximumValue={800} interval={200} />
+                        <IgrNumericYAxis name="yAxis" minimumValue={-600} maximumValue={600} interval={200} />
 
                         <IgrScatterPolygonSeries
-                            name="series1"
+                            name="airplaneShapeSeries"
                             xAxisName="xAxis"
                             yAxisName="yAxis"
-                            shapeMemberPath="Points"
-                            title="House Outline"
-                            brush="Black"
-                            outline="Black"
-                            showDefaultTooltip="true"/>
+                            shapeMemberPath="points"
+                            brush="LightGray"
+                            outline="Black"/>
+
+                        <IgrScatterPolygonSeries
+                            name="airplaneSeatSeries"
+                            xAxisName="xAxis"
+                            yAxisName="yAxis"
+                            shapeMemberPath="points"/>
                    </IgrDataChart>
                 </div>
             </div>
@@ -60,21 +65,90 @@ export default class DataChartTypeScatterPolygonSeries extends React.Component {
         if (!chart) { return; }
 
         this.chart = chart;
-        this.setSeries();
+
+        fetch('https://static.infragistics.com/xplatform/json/airplane-shape.json')
+            .then((response) => response.json())
+            .then((data) => this.onAirplaneShapesLoaded(data));
+
+        fetch('https://static.infragistics.com/xplatform/json/airplane-seats.json')
+            .then((response) => response.json())
+            .then((data) => this.onAirplaneSeatsLoaded(data));
     }
 
-    public setSeries()
-    {
-        const series1 = new IgrScatterPolygonSeries({ name: "series1" });
-        series1.shapeMemberPath = "Points";
-        series1.title = "House Floor Plan";
-        series1.brush = "Gray";
-        series1.outline = "Black";
-        series1.xAxisName = "xAxis";
-        series1.yAxisName = "yAxis";
+    public onAirplaneShapesLoaded(jsonData: any[]) {
+        console.log('onAirplaneShapesLoaded');
+        const airplaneShapeSeries = this.chart.actualSeries[0] as IgrScatterPolygonSeries;
+        airplaneShapeSeries.dataSource = jsonData;
+        airplaneShapeSeries.renderSeries(false);
+    }
 
-        this.chart.series.clear();
-        this.chart.series.add(series1);
+    public onAirplaneSeatsLoaded(jsonData: any[]) {
+        console.log('onAirplaneSeatsLoaded');
+        const airplaneSeatSeries = this.chart.actualSeries[1] as IgrScatterPolygonSeries;
+        airplaneSeatSeries.styleShape = this.onStylingShape;
+        airplaneSeatSeries.tooltipTemplate = this.createTooltip;
+        airplaneSeatSeries.dataSource = jsonData;
+        airplaneSeatSeries.renderSeries(false);
+    }
+
+    public onStylingShape(sender: any, args: IgrStyleShapeEventArgs) {
+
+        console.log('onStylingShape');
+        args.shapeOpacity = 1.0;
+        args.shapeStrokeThickness = 0.5;
+        args.shapeStroke = 'Black';
+        args.shapeFill = 'White';
+
+        const itemRecord = args.item as any;
+        if (itemRecord.class === 'First') {
+            args.shapeFill = 'DodgerBlue';
+        }
+        if (itemRecord.class === 'Business') {
+            args.shapeFill = 'LimeGreen';
+        }
+        if (itemRecord.class === 'Premium') {
+            args.shapeFill = 'Orange';
+        }
+        if (itemRecord.class === 'Economy') {
+            args.shapeFill = 'Red';
+        }
+
+        if (itemRecord.status === 'Sold') {
+            args.shapeFill = 'Gray';
+        }
+    }
+
+    public createTooltip(context: any) {
+        const dataContext = context.dataContext as IgrDataContext;
+        if (!dataContext) return null;
+
+        const series = dataContext.series as any;
+        if (!series) return null;
+
+        const dataItem = dataContext.item as any;
+        if (!dataItem) return null;
+
+        // style="display: 'inline-block', marginLeft: 5"
+        return <div >
+            <div className='tooltipBox'>
+                <div className='tooltipRow'>
+                    <div className='tooltipLbl'>Class</div>
+                    <div className='tooltipVal'>{dataItem.class}</div>
+                </div>
+                <div className='tooltipRow'>
+                    <div className='tooltipLbl'>Seat</div>
+                    <div className='tooltipVal'>{dataItem.seat} </div>
+                </div>
+                <div className='tooltipRow'>
+                    <div className='tooltipLbl'>Price</div>
+                    <div className='tooltipVal'>{dataItem.price}</div>
+                </div>
+                <div className='tooltipRow'>
+                    <div className='tooltipLbl'>Status</div>
+                    <div className='tooltipVal'>{dataItem.status}</div>
+                </div>
+            </div>
+        </div>
     }
 
 }
