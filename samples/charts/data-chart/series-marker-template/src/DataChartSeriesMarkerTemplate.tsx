@@ -28,7 +28,7 @@ export default class DataChartSeriesMarkerTemplate extends React.Component<any, 
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
+                <div className="igComponent">
                     <IgrDataChart
                         width="100%"
                         height="100%"
@@ -64,33 +64,63 @@ export default class DataChartSeriesMarkerTemplate extends React.Component<any, 
 
     public getMarker(): any
     {           
-        const markerHeight = 25;
-        const markerWidth = 40;
-
+        let style = { outline: "#9FB328", fill: "white", text: "black" };        
+        const size = 12;
+        
         return {
             measure: function (measureInfo: DataTemplateMeasureInfo) {
-                measureInfo.width = markerWidth;
-                measureInfo.height = markerHeight;
+                const data = measureInfo.data;
+                const context = measureInfo.context;
+                let value = "0.00";
+                let item = data.item as any;
+                if (item != null) {
+                    value = item.Value.toString(); 
+                }
+                const height = context.measureText("M").width;
+                const width = context.measureText(value).width;
+                measureInfo.width = width;
+                measureInfo.height = height + size;
             },
             render: function (renderInfo: DataTemplateRenderInfo) {
                 const item = renderInfo.data.item as any;    
                 const value = item.Value.toString(); 
-                
-                const ctx = renderInfo.context as CanvasRenderingContext2D;                
-                                
+
+                const ctx = renderInfo.context as CanvasRenderingContext2D;
                 let x = renderInfo.xPosition;
                 let y = renderInfo.yPosition;
+               
+                let halfHeight = renderInfo.availableHeight / 2.0;
 
-                ctx.fillStyle = "#9FB328";                
-                ctx.fillRect(x - (markerWidth / 2), y - (markerHeight / 2), markerWidth, markerHeight);
+                if (renderInfo.isHitTestRender) {
+                    ctx.fillStyle = renderInfo.data.actualItemBrush.fill;
+                    
+                    let width = renderInfo.availableWidth;
+                    let height = renderInfo.availableHeight;
 
-                ctx.fillStyle = "white";
+                    ctx.fillRect(x - (width / 2), y - (height / 2), renderInfo.availableWidth, renderInfo.availableHeight);
+                    return;
+                }
 
-                let textMeasure : TextMetrics = ctx.measureText(value);
-                
-                let textHeight = Math.abs(textMeasure.actualBoundingBoxAscent - textMeasure.actualBoundingBoxDescent);
+                ctx.beginPath();
+                ctx.fillStyle = style.outline;
 
-                ctx.fillText(value, x - (textMeasure.width / 2), y - ((textHeight / 2)));            
+                let xOffset = 14;
+                let yOffset = 10;
+
+                if(renderInfo.data.item.Value >= 100){
+                    xOffset = 20;
+                }
+
+                let width = renderInfo.availableWidth + xOffset;
+                let height = halfHeight + yOffset;
+
+                ctx.fillRect(x - (width / 2), y - (height / 2), width, height);
+                ctx.closePath(); 
+
+                ctx.font = '8pt Verdana';
+                ctx.textBaseline = 'top';
+                ctx.fillStyle = style.fill;
+                ctx.fillText(value, x - (xOffset / 2), y - (yOffset / 2)); 
             }
         }
     }
