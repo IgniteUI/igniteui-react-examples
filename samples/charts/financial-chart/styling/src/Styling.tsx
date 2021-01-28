@@ -5,7 +5,7 @@ import StocksHistory from './StocksHistory';
 
 IgrFinancialChartModule.register();
 
-export default class FinancialChartMultipleData extends React.Component<any, any> {
+export default class Styling extends React.Component<any, any> {
     public data: any[];
 
     constructor(props: any) {
