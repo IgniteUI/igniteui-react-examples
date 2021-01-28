@@ -53,7 +53,7 @@ export default class DataChartSeriesMarkerTemplate extends React.Component<any, 
 
     public initData() {
 
-        let numbers : number[] = [80, 50, 75, 100, 80, 40, 80, 75, 80, 85, 50, 85, 50, 75, 100, 80, 40, 80, 75, 80, 85, 50, 85, 50, 75, 100];
+        let numbers: number[] = [80, 50, 75, 100, 80, 40, 80, 75, 80, 85, 50, 85, 50, 75, 100, 80, 40, 80, 75, 80, 85, 50, 85, 50, 75, 100];
 
         this.data = [];
 

@@ -19,6 +19,7 @@ export default class FinancialChartAnnotations extends React.Component<any, any>
             finalValuesVisible: true,
             markersTypes: "Circle",
             markersVisible: true,
+            toolTipTypes: "Item"
         };
         this.initData();
     }
@@ -40,6 +41,13 @@ export default class FinancialChartAnnotations extends React.Component<any, any>
                 <label className="igOptions-item"><input type="checkbox"
                 checked={this.state.markersVisible}
                 onChange={this.onMarkersVisible}/> Markers </label>
+                <label className="igOptions-label">Item ToolTip: </label>
+                    <select value={this.state.toolTipType}
+                        onChange={this.onToolTipTypeChanged}>
+                         <option>None</option>
+                        <option>Category</option>
+                        <option>Item</option>
+                    </select>
             </div>
             <div className="igComponent" style={{height: "calc(100% - 65px)"}}>
                 <IgrFinancialChart
@@ -51,23 +59,25 @@ export default class FinancialChartAnnotations extends React.Component<any, any>
                     xAxisMode={this.state.xAxisMode}
                     yAxisMode={this.state.yAxisMode}
                     dataSource={this.data}
-
+                    toolTipType={this.state.toolTipTypes}
                     markerTypes={this.state.markersTypes}
-
                     calloutsVisible={this.state.calloutsVisible}
                     calloutsXMemberPath="index"
                     calloutsYMemberPath="value"
                     calloutsLabelMemberPath="info"
                     calloutsContentMemberPath="info"
-
                     crosshairsSnapToData={false}
                     crosshairsDisplayMode={this.state.crosshairsMode}
                     crosshairsAnnotationEnabled={this.state.crosshairsVisible}
-
                     finalValueAnnotationsVisible={this.state.finalValuesVisible}/>
             </div>
         </div>
         );
+    }
+
+    public onToolTipTypeChanged = (e: any) =>{
+        const tooltip = e.target.value.toString();
+        this.setState({toolTipTypes: tooltip});
     }
 
     public onCrosshairsVisible = (e: any) =>{

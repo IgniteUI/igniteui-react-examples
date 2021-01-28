@@ -53,7 +53,7 @@ export default class CategoryChartMarkers extends React.Component<any, any> {
                     <IgrCategoryChart
                         width="100%"
                         height="100%"
-                        chartTitle="Olympic Medals By Country"
+                        chartTitle="Renewable Electricity Generated:"
                         isSeriesHighlightingEnabled={true}
                         dataSource={this.data}
                         chartType={this.state.chartType}
@@ -75,31 +75,46 @@ export default class CategoryChartMarkers extends React.Component<any, any> {
     }
 
     public initData() {
-        const usaMedals: any = [
-            { Year: "1996", UnitedStates: 148 },
-            { Year: "2000", UnitedStates: 142 },
-            { Year: "2004", UnitedStates: 134 },
-            { Year: "2008", UnitedStates: 131 },
-            { Year: "2012", UnitedStates: 135 },
-            { Year: "2016", UnitedStates: 146 }
+        const USA: any = [
+            { Year: "2009", USA: 19 },
+            { Year: "2010", USA: 24 },
+            { Year: "2011", USA: 28 },
+            { Year: "2012", USA: 26 },
+            { Year: "2013", USA: 38 },
+            { Year: "2014", USA: 31 },
+            { Year: "2015", USA: 19 },
+            { Year: "2016", USA: 52 },
+            { Year: "2017", USA: 50 },
+            { Year: "2018", USA: 34 },
+            { Year: "2019", USA: 38 }            
         ];
-        const chinaMedals: any = [
-            { Year: "1996", China: 110 },
-            { Year: "2000", China: 115 },
-            { Year: "2004", China: 121 },
-            { Year: "2008", China: 129 },
-            { Year: "2012", China: 115 },
-            { Year: "2016", China: 112 }
+        const China: any = [
+            { Year: "2009", China: 21 },
+            { Year: "2010", China: 26 },
+            { Year: "2011", China: 29 },
+            { Year: "2012", China: 32 },
+            { Year: "2013", China: 47 },
+            { Year: "2014", China: 46 },
+            { Year: "2015", China: 50 },
+            { Year: "2016", China: 90 },
+            { Year: "2017", China: 132 },
+            { Year: "2018", China: 134 },
+            { Year: "2019", China: 96 },
         ];
-        const russiaMedals: any = [
-            { Year: "1996", Russia: 95 },
-            { Year: "2000", Russia: 91 },
-            { Year: "2004", Russia: 86 },
-            { Year: "2008", Russia: 65 },
-            { Year: "2012", Russia: 77 },
-            { Year: "2016", Russia: 88 }
+        const Europe: any = [
+            { Year: "2009", Europe: 31 },
+            { Year: "2010", Europe: 43 },
+            { Year: "2011", Europe: 66 },
+            { Year: "2012", Europe: 69 },
+            { Year: "2013", Europe: 58 },
+            { Year: "2014", Europe: 40 },
+            { Year: "2015", Europe: 78 },
+            { Year: "2016", Europe: 13 },
+            { Year: "2017", Europe: 78 },
+            { Year: "2018", Europe: 40 },
+            { Year: "2019", Europe: 80 },
         ];
-        this.data = [ usaMedals, chinaMedals, russiaMedals ];
+        this.data = [ Europe, China, USA ];
     }
 
 }

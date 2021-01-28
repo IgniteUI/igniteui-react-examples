@@ -22,7 +22,7 @@ export default class FinancialChartIndicatorTypes extends React.Component<any, a
                     width="100%"
                     height="100%"
                     chartType="Bar"
-                    indicatorTypes="MoneyFlowIndex, MassIndex"
+                    indicatorTypes="MovingAverageConvergenceDivergence, RelativeStrengthIndex"
                     indicatorThickness={2}
                     indicatorNegativeBrushes="Red"
                     indicatorBrushes="Green, Blue"
