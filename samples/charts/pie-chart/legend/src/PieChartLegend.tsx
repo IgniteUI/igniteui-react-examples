@@ -21,12 +21,12 @@ export default class PieChartLegend extends React.Component<any, any> {
 
         this.state = {
             data: [
-                { MarketShare: 30, Company: "Google",    },
-                { MarketShare: 30, Company: "Apple",     },
-                { MarketShare: 15, Company: "Microsoft", },
-                { MarketShare: 15, Company: "Samsung",   },
-                { MarketShare: 10, Company: "Other",     },
+                { MarketShare: 37, Company: "Space Cooling", Summary:"Space Cooling 37%", },
+                { MarketShare: 25, Company: "Residential Appliance", Summary:"Residential Appliance 25%",  },
+                { MarketShare: 20, Company: "Heating", Summary:"Heating 20%", },
+                { MarketShare: 18, Company: "Lighting", Summary:"Lighting 18%", },                
         ] };
+       
     }
 
     public onChartRef(chart: IgrPieChart) {
@@ -50,20 +50,23 @@ export default class PieChartLegend extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="igContainer">
-
+                <span className="igLegend-title">Global Electricity Demand by Energy Use</span>
                 <div className="igLegend">
-                    <IgrItemLegend ref={this.onLegendRef} />
+                    <IgrItemLegend ref={this.onLegendRef}  />
                 </div>
 
                 <div className="igComponent">
                     <IgrPieChart ref={this.onChartRef}
                                  dataSource={this.state.data}
-                                 labelMemberPath="MarketShare"
+                                 labelMemberPath="Summary"
+                                 labelsPosition="OutsideEnd"
+                                 labelExtent={30}
                                  valueMemberPath="MarketShare"
-                                 legendLabelMemberPath="Company"
-                                 outlines="white"
+                                 legendLabelMemberPath="Summary"
                                  width="100%"
-                                 height="100%" />
+                                 height="100%"
+                                 radiusFactor={0.7}
+                                 startAngle ={-60} />
                 </div>
             </div>
         );
