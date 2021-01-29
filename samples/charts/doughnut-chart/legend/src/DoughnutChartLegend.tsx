@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IgrDoughnutChartModule } from 'igniteui-react-charts';
+import { IgrDoughnutChartModule, IgrSliceClickEventArgs } from 'igniteui-react-charts';
 import { IgrDoughnutChart } from 'igniteui-react-charts';
 import { IgrItemLegend } from 'igniteui-react-charts';
 import { IgrItemLegendModule } from 'igniteui-react-charts';
@@ -24,11 +24,11 @@ export default class DoughnutChartLegend extends React.Component<any, any> {
 
         this.state = {
             data: [
-                { MarketShare: 30, Company: "Google",    },
-                { MarketShare: 30, Company: "Apple",     },
-                { MarketShare: 15, Company: "Microsoft", },
-                { MarketShare: 15, Company: "Samsung",   },
-                { MarketShare: 10, Company: "Other",     },
+                { MarketShare: 37, Company: "Space Cooling", Summary:"Space Cooling 37%", },
+                { MarketShare: 25, Company: "Residential Appliance", Summary:"Residential Appliance 25%",  },
+                { MarketShare: 12, Company: "Heating", Summary:"Heating 12%", },
+                { MarketShare: 8, Company: "Lighting", Summary:"Lighting 8%", },                
+                { MarketShare: 18, Company: "Other Services", Summary:"Other Services 18%", },                
         ] };
     }
 
@@ -50,20 +50,33 @@ export default class DoughnutChartLegend extends React.Component<any, any> {
         }
     }
 
+    public onSliceClick = (s: IgrDoughnutChart, e: IgrSliceClickEventArgs) => {
+        e.isExploded = !e.isExploded;
+        e.isSelected = false;
+    }
+
     public render(): JSX.Element {
         return (
             <div className="igContainer">
+                <span className="igLegend-title">Global Electricity Demand by Energy Use</span>
                 <div className="igLegend">
                     <IgrItemLegend ref={this.onLegendRef} />
                 </div>
                 <div className="igComponent">
                     <IgrDoughnutChart ref={this.onChartRef}
                                      width="100%"
-                                     height="100%">
+                                     height="100%"
+                                     allowSliceExplosion="true"
+                                     sliceClick={this.onSliceClick}>
                             <IgrRingSeries name="ring1"
                                 dataSource={this.state.data}
-                                labelMemberPath="Company"
-                                valueMemberPath="MarketShare"/>
+                                labelMemberPath="Summary"
+                                valueMemberPath="MarketShare"
+                                labelsPosition="OutsideEnd"
+                                labelExtent="30"
+                                radiusFactor={0.7}
+                                startAngle="-60"
+                                legendLabelMemberPath="Company"/>
                     </IgrDoughnutChart>
                 </div>
             </div>
