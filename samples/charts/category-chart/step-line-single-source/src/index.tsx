@@ -8,5 +8,5 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import CategoryChartOverview from './StepLineSingleSource';
-ReactDOM.render(<CategoryChartOverview />, document.getElementById('root'));
+import StepLineSingleSource from './StepLineSingleSource';
+ReactDOM.render(<StepLineSingleSource />, document.getElementById('root'));

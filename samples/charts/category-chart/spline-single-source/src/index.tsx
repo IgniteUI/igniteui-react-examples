@@ -8,5 +8,5 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import CategoryChartOverview from './SplineSingleSource';
-ReactDOM.render(<CategoryChartOverview />, document.getElementById('root'));
+import SplineSingleSource from './SplineSingleSource';
+ReactDOM.render(<SplineSingleSource />, document.getElementById('root'));

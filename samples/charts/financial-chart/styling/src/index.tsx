@@ -8,5 +8,5 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import FinancialChartMultipleData from './FinancialChartMultipleData';
-ReactDOM.render(<FinancialChartMultipleData />, document.getElementById('root'));
+import Styling from './Styling';
+ReactDOM.render(<Styling />, document.getElementById('root'));
