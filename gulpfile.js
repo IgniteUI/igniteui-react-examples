@@ -58,3 +58,8 @@ exports.logSandboxUrls = logSandboxUrls = gulp.series(
     sb.getSamples,
     sb.logSandboxUrls,
 );
+
+exports.updateCodeViewer = updateCodeViewer = gulp.series(
+    sb.getSamples,
+    sb.updateCodeViewer  
+);

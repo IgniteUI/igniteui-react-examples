@@ -71,6 +71,24 @@ function cleanSamples() {
     del.sync("./samples/**/manifest.json", {force:true});
 }
 
+function updateCodeViewer(cb) {
+    
+    // for(const sample of samples){
+    //     log(sample.SampleFolderPath);
+
+    //     var codeViewPath = sample.SampleFolderPath + "/codeview.json";
+
+    //     del.sync(codeViewPath);
+
+    //     var content =  "\"sampleFiles\": [ \r\n { \r\n \"hasRelativeAssetsUrls\": false, \r\n \"path\": tsxFilePathHere, \r\n \"content\": CONTENT HERE, \r\n \"isMain\": true, \r\n \"fileExtension\": \"tsx\", \r\n \"fileHeader\": \"tsx\" \r\n }";
+
+    //     fs.writeFileSync(codeViewPath, content);
+    // }
+
+    cb();
+    
+} exports.updateCodeViewer = updateCodeViewer;
+
 function lintSamples(cb) {
 
     // del.sync("./sample-test-files/**/*.*", {force:true}); LinearGaugeLabels.tsx
@@ -113,11 +131,10 @@ function lintSamples(cb) {
     });
 } exports.lintSamples = lintSamples;
 
-
 function getSamples(cb) {
 
     // deleteSamples();
-    cleanSamples();
+       cleanSamples();
 
     samples = [];
     // del.sync("./sample-test-files/**/*.*", {force:true});
@@ -171,8 +188,6 @@ function getSamples(cb) {
 
 
 } exports.getSamples = getSamples;
-
-
 
 function makeDirectoryFor(filePath) {
     var dirname = path.dirname(filePath);
