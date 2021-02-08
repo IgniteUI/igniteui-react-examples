@@ -33,6 +33,8 @@ export default class CategoryChartLineChartStyling extends React.Component<any, 
                         ref={this.onChartRef}
                         width="100%"
                         height="100%"
+                        isHorizontalZoomEnabled={false}
+                        isVerticalZoomEnabled={false}
                         brushes="#ee5879, #c4c4c4, #9af2e4"
                         markerOutlines="#ee5879, #c4c4c4, #9af2e4"
                         markerTypes="circle"
