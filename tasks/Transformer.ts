@@ -759,3 +759,25 @@ class PackageDependency {
         return '"' + this.name + `": "` + this.version + '"';
     }
 }
+
+class CodeViewer {
+    public path: string;
+    public hasRelativeAssetsUrls: Boolean;
+    public content: string;
+    public isMain: Boolean;
+    public fileExtension: string;
+    public fileHeader: string;
+
+    constructor(filePath: string, content: string, fileExtension: string, fileHeader: string, isMain: Boolean) {
+
+        var jsonContent = content;
+        jsonContent = jsonContent.replace(/\/\//g, "/");
+
+        this.hasRelativeAssetsUrls = false;
+        this.path = filePath;
+        this.content = jsonContent;
+        this.isMain = isMain;
+        this.fileExtension = fileExtension;
+        this.fileHeader = fileHeader;
+    }
+}
