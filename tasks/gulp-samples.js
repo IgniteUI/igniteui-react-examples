@@ -71,24 +71,6 @@ function cleanSamples() {
     del.sync("./samples/**/manifest.json", {force:true});
 }
 
-function updateCodeViewer(cb) {
-    
-    // for(const sample of samples){
-    //     log(sample.SampleFolderPath);
-
-    //     var codeViewPath = sample.SampleFolderPath + "/codeview.json";
-
-    //     del.sync(codeViewPath);
-
-    //     var content =  "\"sampleFiles\": [ \r\n { \r\n \"hasRelativeAssetsUrls\": false, \r\n \"path\": tsxFilePathHere, \r\n \"content\": CONTENT HERE, \r\n \"isMain\": true, \r\n \"fileExtension\": \"tsx\", \r\n \"fileHeader\": \"tsx\" \r\n }";
-
-    //     fs.writeFileSync(codeViewPath, content);
-    // }
-
-    cb();
-    
-} exports.updateCodeViewer = updateCodeViewer;
-
 function lintSamples(cb) {
 
     // del.sync("./sample-test-files/**/*.*", {force:true}); LinearGaugeLabels.tsx
@@ -578,6 +560,48 @@ function logSandboxUrls(cb) {
     }
     cb();
 } exports.logSandboxUrls = logSandboxUrls;
+
+function updateCodeViewer(cb) {
+
+    del.sync("public/code-viewer/**");
+    
+    for (const sample of samples) {        
+        
+        var codeViewFilePath = sample.SampleRoute;    
+        var codeViewPath = "public/code-viewer/" + codeViewFilePath + ".json";
+
+        log("generating: " + codeViewPath);
+
+        var content = "{\r\n \"sampleFiles\":\r\n";
+
+        var contentItems = [];
+        var tsxItem = new CodeViewer(sample.SampleFilePath, sample.SampleFileSourceCode, "tsx", "tsx", true);
+
+        contentItems.push(tsxItem);
+
+        for (const file of sample.SampleFilePaths) {
+            if (file.indexOf(".css") > 0) {
+                var cssContent = fs.readFileSync(file, "utf8");
+                var cssItem = new CodeViewer(file, cssContent, "css", "css", true);
+                contentItems.push(cssItem);
+            }
+            else if (file.indexOf(".ts") > 0 && file.indexOf(".d.ts") === -1) {
+                var tsContent = fs.readFileSync(file, "utf8");
+                var tsItem = new CodeViewer(file, tsContent, "ts", "ts", false);
+                contentItems.push(tsItem);
+            }
+        }
+
+        content += JSON.stringify(contentItems, null, ' ');
+        content += "\r\n}";
+
+        makeDirectoryFor(codeViewPath);
+        fs.writeFileSync(codeViewPath, content);
+    }
+
+    cb();
+
+} exports.updateCodeViewer = updateCodeViewer;
 
 
 
