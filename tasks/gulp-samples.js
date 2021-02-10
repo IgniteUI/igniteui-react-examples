@@ -566,6 +566,12 @@ function updateCodeViewer(cb) {
     del.sync("public/code-viewer/**");
     
     for (const sample of samples) {        
+        
+        var codeViewFilePath = sample.SampleRoute;    
+        var codeViewPath = "public/code-viewer/" + codeViewFilePath + ".json";
+
+        log("generating: " + codeViewPath);
+
         var content = "{\r\n \"sampleFiles\":\r\n";
 
         var contentItems = [];
@@ -574,23 +580,17 @@ function updateCodeViewer(cb) {
         contentItems.push(tsxItem);
 
         for (const file of sample.SampleFilePaths) {
-            var split = file.split(".");
-
-            if (split[split.length - 1] == "css") {
+            if (file.indexOf(".css") > 0) {
                 var cssContent = fs.readFileSync(file, "utf8");
                 var cssItem = new CodeViewer(file, cssContent, "css", "css", true);
                 contentItems.push(cssItem);
             }
-            else if (split[split.length - 1] == "ts" && !file.includes(".d.ts")) {
+            else if (file.indexOf(".ts") > 0 && file.indexOf(".d.ts") === -1) {
                 var tsContent = fs.readFileSync(file, "utf8");
                 var tsItem = new CodeViewer(file, tsContent, "ts", "ts", false);
                 contentItems.push(tsItem);
             }
         }
-
-        var codeViewFilePath = sample.SampleRoute;
-    
-        var codeViewPath = "public/code-viewer/" + codeViewFilePath + ".json";
 
         content += JSON.stringify(contentItems, null, ' ');
         content += "\r\n}";
