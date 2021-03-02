@@ -1,6 +1,6 @@
 {
-  "name": "react-data-grid-cell-activation",
-  "description": "This project provides example of Data Grid Cell Activation using Infragistics React components",
+  "name": "react-data-grid-cell-editing",
+  "description": "This project provides example of Data Grid Cell Editing using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
@@ -12,11 +12,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-react-core": "16.13.0",
-    "igniteui-react-grids": "16.13.0",
-    "igniteui-react-layouts": "16.13.0",
-    "igniteui-react-inputs": "16.13.0",
-    "igniteui-react-datasources": "16.13.0",
+    "@infragistics/igniteui-react-core": "20.2.177",
+    "@infragistics/igniteui-react-grids": "20.2.177",
+    "@infragistics/igniteui-react-inputs": "20.2.177",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
