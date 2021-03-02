@@ -1,6 +1,6 @@
 {
-  "name": "react-multi-column-combobox-multi-column-combo-box-overview",
-  "description": "This project provides example of Multi Column Combobox Multi Column Combo Box Overview using Infragistics React components",
+  "name": "react-date-picker-range",
+  "description": "This project provides example of Date Picker Range using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
@@ -12,8 +12,8 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-react-core": "16.13.0",
-    "igniteui-react-inputs": "16.13.0",
+    
+    "@infragistics/igniteui-react-inputs": "20.2.177",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",

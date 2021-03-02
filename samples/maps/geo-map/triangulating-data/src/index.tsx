@@ -8,5 +8,5 @@ import ReactDOM from 'react-dom';
 
 import './index.css'; // styles shared between all samples
 
-import MapBindingShapefilePoints from './MapTriangulatingData';
-ReactDOM.render(<MapBindingShapefilePoints />, document.getElementById('root'));
+import MapTriangulatingData from './MapTriangulatingData';
+ReactDOM.render(<MapTriangulatingData />, document.getElementById('root'));
