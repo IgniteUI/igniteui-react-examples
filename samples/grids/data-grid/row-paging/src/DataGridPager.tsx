@@ -92,7 +92,7 @@ export class DataGridPager extends React.Component<DataGridPagerProps> {
         if (this.props.dataSource.length > 0) {
             // this.state.dataSource.itemsSource = this.props.dataSource;
             let ds = this.state.dataSource;
-            ds.itemsSource = this.props.dataSource;
+            ds.dataSource = this.props.dataSource;
 
             const count = Math.round(this.props.dataSource.length / this.props.pageSize);
             this.setState({ pageCount: count, pageNumber: 1, dataSource: ds});
@@ -104,7 +104,7 @@ export class DataGridPager extends React.Component<DataGridPagerProps> {
         if (previousProps.dataSource !== this.props.dataSource) {
             // this.state.dataSource.itemsSource = this.props.dataSource;
             let ds = this.state.dataSource;
-            ds.itemsSource = this.props.dataSource;
+            ds.dataSource = this.props.dataSource;
 
             // new data so calculate a new page count and update the state.
             const count = Math.round(this.state.dataSource.actualCount / this.props.pageSize);
