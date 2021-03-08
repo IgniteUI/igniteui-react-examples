@@ -37,6 +37,7 @@ exports.updateBrowser = updateBrowser = gulp.series(
     sb.updateVersion,
     sb.getSamples,
     sb.copySamples,
+    sb.updateCodeViewer
     // sb.copyPackageJson,
 );
 
@@ -61,5 +62,5 @@ exports.logSandboxUrls = logSandboxUrls = gulp.series(
 
 exports.updateCodeViewer = updateCodeViewer = gulp.series(
     sb.getSamples,
-    sb.updateCodeViewer  
+    sb.updateCodeViewer
 );
