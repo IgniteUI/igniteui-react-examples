@@ -771,7 +771,7 @@ class CodeViewer {
     constructor(filePath: string, content: string, fileExtension: string, fileHeader: string, isMain: Boolean) {
 
         var jsonContent = content;
-        jsonContent = jsonContent.replace(/\/\//g, "/");
+        // jsonContent = jsonContent.replace(/\/\//g, "/");
 
         this.hasRelativeAssetsUrls = false;
         this.path = filePath;
