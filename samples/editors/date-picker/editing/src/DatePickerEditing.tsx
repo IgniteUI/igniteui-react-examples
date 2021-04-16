@@ -21,7 +21,7 @@ export default class DatePickerEditing extends React.Component<any, any> {
         return (
             <div className="igContainer">    
                 <div className="igComponent">               
-                    <IgrDatePicker ref={this.onDatePickerRef} height="50px" width="220px" />
+                    <IgrDatePicker ref={this.onDatePickerRef} height="60px" width="220px" />
                 </div>
             </div>
         );

@@ -24,9 +24,9 @@ export default class DatePickerRange extends React.Component<any, any> {
             <div className="igContainer">
                 <div className="dateRanges">
                     <span className="caption">From:  </span>
-                    <IgrDatePicker ref={this.onFromDatePickerRef} height="50px" width="220px" valueChanged={this.fromDateChanged}  />
+                    <IgrDatePicker ref={this.onFromDatePickerRef} height="60px" width="220px" valueChanged={this.fromDateChanged}  />
                     <span className="caption">  To:  </span>
-                    <IgrDatePicker ref={this.onToDatePickerRef} height="50px" width="220px" valueChanged={this.toDateChanged}/>
+                    <IgrDatePicker ref={this.onToDatePickerRef} height="60px" width="220px" valueChanged={this.toDateChanged}/>
                 </div>
             </div>
         );
