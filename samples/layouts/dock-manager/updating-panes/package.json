@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "igniteui-dockmanager": "1.0.0",
-    "@infragistics/igniteui-react-core": "20.2.177",
-    "@infragistics/igniteui-react-maps": "20.2.177",
-    "@infragistics/igniteui-react-charts": "20.2.177",
+    "@infragistics/igniteui-react-core": "21.1.0-dev.540",
+    "@infragistics/igniteui-react-maps": "21.1.0-dev.540",
+    "@infragistics/igniteui-react-charts": "21.1.0-dev.540",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
