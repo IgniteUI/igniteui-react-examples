@@ -1,6 +1,6 @@
 {
-  "name": "react-data-grid-cell-activation",
-  "description": "This project provides example of Data Grid Cell Activation using Infragistics React components",
+  "name": "react-data-grid-cell-selection",
+  "description": "This project provides example of Data Grid Row Selection using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

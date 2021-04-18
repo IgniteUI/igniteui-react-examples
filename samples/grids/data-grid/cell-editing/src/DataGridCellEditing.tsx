@@ -11,7 +11,6 @@ import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrGridCellValueChangingEventArgs } from 'igniteui-react-grids';
 import { IgrGridRowEditEndedEventArgs } from 'igniteui-react-grids';
-import { EditModeType } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
 IgrGridColumnOptionsModule.register();
@@ -36,6 +35,13 @@ export default class DataGridCellEditing extends React.Component<any, any> {
     public get editMode(): number {
         if (this.grid) {
             return this.grid.editMode;
+        }
+        return 1;
+    }
+
+    public get excelEditMode(): number {
+        if (this.grid) {
+            return this.grid.editModeClickAction;
         }
         return 1;
     }
@@ -69,6 +75,13 @@ export default class DataGridCellEditing extends React.Component<any, any> {
                             <option value="3">Row</option>
                         </select>
                     </label>
+                    <label>
+                        Excel Style Editing:
+                        <select value={this.excelEditMode} onChange={this.onExcelEditModeChange}>                            
+                            <option value="1">SingleClick</option>
+                            <option value="2">DoubleClick</option>
+                        </select>
+                    </label>
                 </div>
                 <IgrDataGrid
                     ref={this.onGridRef}
@@ -78,6 +91,7 @@ export default class DataGridCellEditing extends React.Component<any, any> {
                     autoGenerateColumns={false}
                     dataSource={this.data}
                     activationMode="Cell"
+                    editModeClickAction="SingleClick"
                     selectionMode="SingleRow"
                     selectionBehavior="ModifierBased"
                     isColumnOptionsEnabled="true"
@@ -125,6 +139,12 @@ export default class DataGridCellEditing extends React.Component<any, any> {
     onEditModeChange = (event: any) => {
         this.grid.cancelEdits();
         this.grid.editMode = parseInt(event.target.value);
+        this.setState({ });
+    }
+
+    onExcelEditModeChange = (event: any) => {
+       
+        this.grid.editModeClickAction = parseInt(event.target.value);
         this.setState({ });
     }
     //#endregion
