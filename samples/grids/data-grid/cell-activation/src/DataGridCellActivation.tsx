@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { DataGridSharedData } from './DataGridSharedData';
-import { EnterKeyBehaviorAfterEdit, IgrDataGrid } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
-import { EnterKeyBehaviors } from '@infragistics/igniteui-react-grids';
+import { EnterKeyBehaviors } from 'igniteui-react-grids';
+import { EnterKeyBehaviorAfterEdit } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
 IgrGridColumnOptionsModule.register();
