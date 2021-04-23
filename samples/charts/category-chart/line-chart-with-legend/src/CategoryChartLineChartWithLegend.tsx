@@ -32,6 +32,8 @@ export default class CategoryChartLineChartWithLegend extends React.Component<an
                         ref={this.onChartRef}
                         width="100%"
                         height="100%"
+                        isHorizontalZoomEnabled={false}
+                        isVerticalZoomEnabled={false}
                         dataSource={this.data}
                         chartType="line"
                         yAxisTitle="TWh"
