@@ -82,7 +82,7 @@
     "path": "^0.12.7",
     "prettier": "^2.0.5",
     "react-app-rewired": "^2.1.6",
-    "react-dev-utils": "^10.2.1",
+    "react-dev-utils": "^11.0.4",
     "remark": "^12.0.0",
     "remark-frontmatter": "^2.0.0",
     "run-sequence": "^2.2.1",
