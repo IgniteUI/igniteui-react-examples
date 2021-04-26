@@ -12,8 +12,8 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@infragistics/igniteui-react-core": "20.2.177",
-    "@infragistics/igniteui-react-inputs": "20.2.177",
+    "igniteui-react-core": "16.13.1",
+    "igniteui-react-inputs": "16.13.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
