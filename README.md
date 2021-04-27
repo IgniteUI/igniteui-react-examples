@@ -2,10 +2,10 @@
 <div style="display: flex; flex-flow: row; font-family: 'Titillium Web'">
     <!-- <div style="font-size: 2.5rem; align-self: start; justify-content: start; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem; ">Examples</div> -->
     <img height="70px" style="border-radius: 0.25rem" alt="ignite-ui" src="./public/logo-ignite-ui.svg"/>
-    <div style="font-size: 2.5rem; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem; color: white; "> for React </div>
+    <!-- <div style="font-size: 2.5rem; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem; color: white; "> for React </div> -->
 </div>
 
-# React Examples
+# Ignite UI for React Examples
 
 This repository contains over 240 examples on how to use [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components:
 
