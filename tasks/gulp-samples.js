@@ -26,7 +26,7 @@ eval(require('typescript')
 .readFileSync("./tasks/Transformer.ts").toString()));
 
 function log(msg) {
-    console.log('gulp-samples.js ' + msg);
+    console.log('' + msg);
 }
 log('loaded');
 
