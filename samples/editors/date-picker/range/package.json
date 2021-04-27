@@ -13,7 +13,7 @@
   },
   "dependencies": {
 
-    "igniteui-react-inputs": "16.13.1",
+    "@infragistics/igniteui-react-inputs": "21.1.148",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
