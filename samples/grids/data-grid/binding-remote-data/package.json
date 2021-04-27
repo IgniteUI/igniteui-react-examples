@@ -16,6 +16,7 @@
     "@infragistics/igniteui-react-datasources": "21.1.148",
     "@infragistics/igniteui-react-grids": "21.1.148",
     "@infragistics/igniteui-react-inputs": "21.1.148",
+    "@infragistics/igniteui-react-layouts": "21.1.148",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
