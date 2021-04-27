@@ -28,7 +28,6 @@
 /samples/**/.vscode
 /samples/**/package-lock.json
 /public/code-viewer/**
-package-lock.json
 
 # testing
 /coverage

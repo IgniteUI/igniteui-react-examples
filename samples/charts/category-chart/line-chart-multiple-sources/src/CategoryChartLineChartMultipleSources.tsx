@@ -26,7 +26,9 @@ export default class CategoryChartLineChartMultipleSources extends React.Compone
                 <div className="igComponent" style={{height: "calc(100% - 1.25rem)"}} >
                     <IgrCategoryChart                        
                         width="100%"
-                        height="100%"                      
+                        height="100%"       
+                        isHorizontalZoomEnabled={false}
+                        isVerticalZoomEnabled={false}               
                         dataSource={this.data}
                         chartType="line"
                         yAxisTitle="TWh"
