@@ -13,7 +13,7 @@ IgrExcelXlsxModule.register();
 
 export class ExcelUtility {
 
-    public static getExtension(format: WorkbookFormat) {
+    public static getExtension(format: WorkbookFormat): string {
         switch (format) {
             case WorkbookFormat.StrictOpenXml:
             case WorkbookFormat.Excel2007:
