@@ -50,7 +50,7 @@ export class ExcelUtility {
             const req = new XMLHttpRequest();
             req.open("GET", url, true);
             req.responseType = "arraybuffer";
-            req.onload = (d) => {
+            req.onload = (d): void => {
                 const data = new Uint8Array(req.response);
                 Workbook.load(data, new WorkbookLoadOptions(), (w) => {
                     resolve(w);
@@ -81,12 +81,12 @@ export class ExcelUtility {
     private static readFileAsUint8Array(file: File): Promise<Uint8Array> {
         return new Promise<Uint8Array>((resolve, reject) => {
             const fr = new FileReader();
-            fr.onerror = (e) => {
+            fr.onerror = (e): void => {
                 reject(fr.error);
             };
 
             if (fr.readAsBinaryString) {
-                fr.onload = (e) => {
+                fr.onload = (e): void => {
                     const rs = (fr as any).resultString;
                     const str: string = rs != null ? rs : fr.result;
                     const result = new Uint8Array(str.length);
@@ -97,7 +97,7 @@ export class ExcelUtility {
                 };
                 fr.readAsBinaryString(file);
             } else {
-                fr.onload = (e) => {
+                fr.onload = (e): void => {
                     resolve(new Uint8Array(fr.result as ArrayBuffer));
                 };
                 fr.readAsArrayBuffer(file);

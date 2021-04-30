@@ -981,7 +981,7 @@ export class LiveFinancialData {
       return {data: currData, recordsUpdated: y };
   }
 
-  public static randomizeDataValues(item: any) {
+  public static randomizeDataValues(item: any): void {
       const changeP = "Change(%)";
       const res = this.getRandomPrice(item.Price);
       item.Change = res.Price - item.Price;
