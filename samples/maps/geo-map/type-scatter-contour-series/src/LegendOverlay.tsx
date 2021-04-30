@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import "./LegendOverlay.css";
 
 export class LegendOverlay extends React.Component<any, any> {

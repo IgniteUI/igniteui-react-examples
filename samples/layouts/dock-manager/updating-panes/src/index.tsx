@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-import * as React from "react";
 import './DockManagerStyles.css';
 
 import WorldUtils from "./WorldUtils"

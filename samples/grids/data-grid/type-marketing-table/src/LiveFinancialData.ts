@@ -1006,7 +1006,7 @@ export class LiveFinancialData {
       return result;
   }
 
-  public static getRandomDate() {
+  public static getRandomDate(): Date {
       const now: Date = new Date();
       const month = this.getRandomNumber(0, 8);
       const day = this.getRandomNumber(10, 27);
