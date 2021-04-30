@@ -1,12 +1,49 @@
-
-
-/* {RepositoryWarning}  */
-/* {RepositoryUrl}/tree/master/templates/sample/src/index  */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './index.css'; // styles shared between all samples
+import './index.css';
 
-import SpreadsheetSortDialog from './SpreadsheetSortDialog';
+import React from 'react';
+import { IgrExcelXlsxModule } from 'igniteui-react-excel';
+import { IgrExcelCoreModule } from 'igniteui-react-excel';
+import { IgrExcelModule } from 'igniteui-react-excel';
+import { IgrSpreadsheetModule } from 'igniteui-react-spreadsheet';
+import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
+import { ExcelUtility } from './ExcelUtility';
+
+IgrExcelCoreModule.register();
+IgrExcelModule.register();
+IgrExcelXlsxModule.register();
+
+IgrSpreadsheetModule.register();
+
+export default class SpreadsheetSortDialog extends React.Component<any, any> {
+    public spreadsheet: IgrSpreadsheet;
+
+    constructor(props: any) {
+        super(props);
+        this.onSpreadsheetRef = this.onSpreadsheetRef.bind(this);
+    }
+
+    public render(): JSX.Element {
+        return (
+            <div className="igContainer">
+                <IgrSpreadsheet ref={this.onSpreadsheetRef} height="100%" width="100%" />
+            </div>
+        );
+    }
+
+    public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
+        if (!spreadsheet) { return; }
+
+        this.spreadsheet = spreadsheet;
+
+        const url = "https://static.infragistics.com/xplatform/excel/SalesData.xlsx";
+        ExcelUtility.loadFromUrl(url).then((w) => {
+            this.spreadsheet.workbook = w;
+        });
+    }
+}
+
+// rendering above class to the React DOM
 ReactDOM.render(<SpreadsheetSortDialog />, document.getElementById('root'));
