@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-import React from 'react';
 import { SampleTreeData } from './SampleTreeData';
 import { IgrTreemapModule } from 'igniteui-react-charts';
 import { IgrTreemap } from 'igniteui-react-charts';

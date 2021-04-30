@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-import React from 'react';
-
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-import React from 'react';
 import { IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-import React from 'react';
 import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
