@@ -20,16 +20,17 @@ class SampleInfo {
     public ComponentName: string;      // Geo Map
 
     // public SampleDirOnDisk: string;    // C:\repo\igniteui-react-examples\samples\maps\geo-map\binding-csv-points\
-    public SampleFolderPath: string;     // /samples/maps/geo-map/binding-csv-points/
-    public SampleFilePath: string;       // /samples/maps/geo-map/binding-csv-points/src/MapBindingDataCSV.tsx
-    public SampleRoute: string;          //         /maps/geo-map/binding-csv-points/
-    public SampleFolderName: string;     //                       binding-csv-points
-    public SampleFileName: string;       // MapBindingDataCSV.tsx
-    public SampleImportName: string;     // MapBindingDataCSV
-    public SampleImportPath: string;     // ./geo-map/binding-csv-points/MapBindingDataCSV
-    public SampleDisplayName: string;  // Map Binding Data CSV
-    public SampleFileSourcePath: string;     // /src/MapBindingDataCSV.tsx
-    public SampleFileSourceCode: string;   // source code from /src/MapBindingDataCSV.tsx file
+    public SampleFolderPath: string;      // /samples/maps/geo-map/binding-csv-points/
+    public SampleFilePath: string;        // /samples/maps/geo-map/binding-csv-points/src/index.tsx
+    public SampleRoute: string;           //         /maps/geo-map/binding-csv-points/
+    public SampleFolderName: string;      //                       binding-csv-points
+    public SampleFileName: string;        // index.tsx
+    public SampleImportName: string;      // index
+    public SampleImportPath: string;      // ./geo-map/binding-csv-points/index
+    public SampleFileSourcePath: string;  // /src/index.tsx
+    public SampleFileSourceCode: string;  // source code from /src/index.tsx file
+    public SampleFileSourceClass: string; // MapBindingDataCSV
+    public SampleDisplayName: string;     // Map Binding Data CSV
     public SampleImportLines: string[];
     public SampleImportPackages: string[];
     public SampleImportFiles: string[];
@@ -163,15 +164,9 @@ class Transformer {
     public static process(samples: SampleInfo[]): void {
 
         for (const info of samples) {
-            // let SampleDirectory = info.SampleDirOnDisk;
+            // console.log("Transformer processing: " + info.SampleFolderPath);
 
-            // info.PackageDependencies = this.getDependencies(info);
-
-            // ../samples/maps/geo-map/binding-csv-points
-            // let relativePath = this.getRelative(SampleDirectory);
-            // .., samples, maps, geo-map, binding-csv-points
             let folders = info.SampleFolderPath.split('/');
-
             if (folders.length > 2) info.ComponentGroup = folders[2];
             if (folders.length > 3) info.ComponentFolder = folders[3];
             if (folders.length > 4) info.SampleFolderName = folders[4];
@@ -184,6 +179,12 @@ class Transformer {
 
             // console.log(info.SampleFolderPath + " " + info.SampleFilePaths.length);
 
+            if (!info.SampleFilePaths || info.SampleFilePaths.length === 0) {
+                console.log("WARNING Transformer cannot find sample files in: " + info.SampleFolderPath);
+                return;
+            }
+
+            // console.log("Transformer fileNames ...");
             let fileNames = [];
             let fileFound = [];
             for (const filePath of info.SampleFilePaths) {
@@ -192,11 +193,10 @@ class Transformer {
                 if (Strings.includes(filePath, igConfig.SamplesFileExtension) &&
                     Strings.excludes(filePath, igConfig.SamplesFileExclusions, true)) {
                         fileNames.push(filePath);
-                    // console.log(filePath);
-                    // && !filePath.includes("index.tsx")
-                    // info.SampleFileName = this.getFileName(filePath);
                 }
             }
+
+            // console.log("Transformer fileNames= " + fileNames.length);
 
             if (fileNames.length === 0) {
                 console.log("WARNING Transformer cannot match any " + igConfig.SamplesFileExtension + " files in " + info.SampleFolderPath + " sample:");
@@ -207,20 +207,39 @@ class Transformer {
                 console.log("WARNING Transformer cannot decide which " + igConfig.SamplesFileExtension + " file to use for sample name: ");
                 console.log(" - " + fileNames.join("\n - "));
             } else { // only one .tsx file per sample
+                // console.log("Transformer fileNames[0]= " +  fileNames[0]);
                 info.SampleFilePath = fileNames[0];
                 info.SampleFileName = this.getFileName(info.SampleFilePath);
                 info.SampleFileSourcePath = "./src/" + info.SampleFileName;
                 info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
 
+                let classExp = new RegExp(/(export.default.class.)(.*)(.\{)/g);
+                // let className = info.SampleFileSourceCode.match(classExp);
+                let className = info.SampleFileSourceCode.match(classExp)[0];
+                // console.log("Transformer className1= " +  className);
+                className = className.replace('export default class ', '');
+                className = className.replace('extends', '');
+                className = className.replace('React.Component', '');
+                className = className.replace('<any, any>', '');
+                className = className.replace(' {', '');
+                className = className.trim();
+                // console.log("Transformer className2= " +  className);
+                info.SampleFileSourceClass = className; //.replace('export class ', '');
+
+                // console.log("Transformer sampleBlocks ...");
                 let sampleBlocks = this.getSampleBlocks(info.SampleFileSourceCode);
                 info.SampleImportLines = sampleBlocks.ImportLines;
                 info.SampleImportFiles = sampleBlocks.ImportFiles;
                 info.SampleImportPackages = sampleBlocks.ImportPackages;
 
-                info.SampleImportName = info.SampleFileName.replace('.tsx','').replace('.ts','');
+                // info.SampleImportName = info.SampleFileName.replace('.tsx','').replace('.ts','');
+                // info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
+                info.SampleImportName = info.SampleFileSourceClass.replace('.ts', '');
                 info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
 
-                info.SampleDisplayName = Strings.splitCamel(info.SampleFileName)
+                // console.log("Transformer SampleDisplayName ...");
+                info.SampleDisplayName = Strings.splitCamel(info.SampleFileSourceClass);
+                // info.SampleDisplayName = Strings.splitCamel(info.SampleFileName)
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SamplesFileExtension, "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Type ", "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Binding ", "Binding ");
@@ -228,10 +247,12 @@ class Transformer {
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Data Chart Type ", "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, info.ComponentName + " ", "");
 
+                // console.log("Transformer Sandbox ...");
                 info.SandboxUrlView = this.getSandboxUrl(info, igConfig.SandboxUrlView);
                 info.SandboxUrlEdit = this.getSandboxUrl(info, igConfig.SandboxUrlEdit);
                 info.SandboxUrlShort = this.getSandboxUrl(info, igConfig.SandboxUrlShort);
 
+                // console.log("Transformer getDocsUrl ...");
                 info.DocsUrl = this.getDocsUrl(info);
                 // console.log("SAMPLE " + info.SampleFilePath + " => " + info.SampleDisplayName);
             }

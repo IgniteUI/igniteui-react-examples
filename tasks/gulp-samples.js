@@ -52,6 +52,8 @@ var sampleSource = [
 
     // excluding package.json in node_modules sub folders
     "!" + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
+    '!' + igConfig.SamplesCopyPath + '/**/node_modules/**',
+    '!' + igConfig.SamplesCopyPath + '/**/node_modules',
 ];
 
 // this variable stores detailed information about all samples in ./samples/ folder
@@ -581,7 +583,7 @@ function updateCodeViewer(cb) {
                 var cssItem = new CodeViewer(file, cssContent, "css", "css", true);
                 contentItems.push(cssItem);
             }
-            else if (file.indexOf(".ts") > 0 && file.indexOf(".d.ts") === -1) {
+            else if (file.indexOf(".ts") > 0 && file.indexOf("index.tsx") === -1) {
                 var tsContent = fs.readFileSync(file, "utf8");
                 var tsItem = new CodeViewer(file, tsContent, "ts", "ts", false);
                 contentItems.push(tsItem);
