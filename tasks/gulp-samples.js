@@ -605,7 +605,8 @@ function simplifySamples(cb) {
 
     for (const sample of samples) {
 
-        var sourcePath = sample.SampleFolderPath + "/src/" + sample.SampleFileName;
+        // var sourcePath = sample.SampleFolderPath + "/src/" + sample.SampleFileName;
+        var sourcePath = sample.SampleFolderPath + "/src/index.tsx";
         var outputPath = sample.SampleFolderPath + "/src/index.tsx";
         // console.log("simplifying: " + sourcePath); // + " >> " + outputPath);
 
@@ -614,37 +615,29 @@ function simplifySamples(cb) {
 
             sample.SampleFileSourceCode = sample.SampleFileSourceCode.replace("import * as React from 'react';", "");
             let code = "";
-            // code += "// import React from 'react';";
-            code += "import React from 'react';\n";
-            code += "import ReactDOM from 'react-dom';\n\n";
-            code += "import './index.css';\n\n";
+            // code += "import React from 'react';\n";
+            // code += "import ReactDOM from 'react-dom';\n\n";
+            // code += "import './index.css';\n\n";
+            // code += sample.SampleFileSourceCode;
+            // code += "\n";
+            // code += "// rendering above class to the React DOM\n";
+            // code += "ReactDOM.render(<" + sample.SampleImportName + " />, document.getElementById('root'));";
+
+
             code += sample.SampleFileSourceCode;
-            code += "\n";
-            code += "// rendering above class to the React DOM\n";
-            code += "ReactDOM.render(<" + sample.SampleImportName + " />, document.getElementById('root'));";
+            let importExp = new RegExp(/(import.React.from)/g);
+            let importMatches = code.match(importExp);
+            if (importMatches.length > 1) {
+                code = code.replace("\r\nimport React from 'react';\r\n","");
+                console.log("replaced: " + sourcePath);
+            }
+            // code = code.replace("import React from 'react';\n","");
 
             // code = code.replace(/\n\n\n/g,"\n");
             // code = Strings.replace(code, "\r\n\r\n", "\r\n");
-
             fs.writeFileSync(outputPath, code);
-            del.sync(sourcePath, {force:true});
+            // del.sync(sourcePath, {force:true});
         // }
-
-        // for (const file of sample.SampleFilePaths) {
-        //     var sampleFiles = [];
-        //     if (file.indexOf("/src/") > 0 &&
-        //         file.indexOf(".tsx") > 0&&
-        //         file.indexOf("index.tsx") === -1) {
-        //         // console.log("simplifying: " + file); // + " >> " + outputPath);
-        //         sampleFiles.push(file);
-        //     }
-
-        //     if (sampleFiles.length > 1) {
-        //         console.log("simplifying: " + sampleFiles.join('\n')); // + " >> " + outputPath);
-        //     }
-        // }
-        // fs.writeFileSync(outputPath, sample.SampleFileSourceCode);
-        // del.sync(sourcePath, {force:true});
     }
     cb();
 
