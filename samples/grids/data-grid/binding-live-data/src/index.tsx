@@ -5,7 +5,7 @@ import './index.css';
 
 import './DataGridBindingLiveData.css';
 import { LiveFinancialData } from './LiveFinancialData';
-import { TaskUtil } from './TaskUtil';
+
 // IgrDataGrid modules
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
@@ -116,7 +116,6 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         this.onLiveAllPricesClicked = this.onLiveAllPricesClicked.bind(this);
         this.onLiveSomePricesClicked = this.onLiveSomePricesClicked.bind(this);
 
-        TaskUtil.start("generateData");
         this.state = {
             name: 'React',
             data: LiveFinancialData.generateData(1000),
@@ -134,7 +133,6 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
             hiddenColumns: ["ID"],
             allColumns: []
         };
-        TaskUtil.stop("generateData");
     }
 
     public render(): JSX.Element {
