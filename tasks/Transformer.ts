@@ -762,15 +762,15 @@ class PackageDependency {
 
 class CodeViewer {
     public path: string;
-    public hasRelativeAssetsUrls: Boolean;
+    public hasRelativeAssetsUrls: boolean;
     public content: string;
-    public isMain: Boolean;
+    public isMain: boolean;
     public fileExtension: string;
     public fileHeader: string;
 
-    constructor(filePath: string, content: string, fileExtension: string, fileHeader: string, isMain: Boolean) {
+    constructor(filePath: string, content: string, fileExtension: string, fileHeader: string, isMain: boolean) {
 
-        var jsonContent = content;
+        let jsonContent = content;
         // jsonContent = jsonContent.replace(/\/\//g, "/");
 
         this.hasRelativeAssetsUrls = false;
