@@ -122,12 +122,12 @@ function getSamples(cb) {
     .pipe(es.map(function(samplePackage, sampleCallback) {
 
         let SampleFolderName = Transformer.getRelative(samplePackage.dirname);
-        log(SampleFolderName);
+        // log(SampleFolderName);
 
         let sampleFiles = [];
         gulp.src([
               SampleFolderName + "/src/*.*",
-        "!" + SampleFolderName + "/src/react-app-env.d.ts"])
+        "!" + SampleFolderName + "/src/*.d.ts"])
         .pipe(flatten({ "includeParents": -1 }))
         // .pipe(gSort( { asc: false } ))
         .pipe(es.map(function(file, fileCallback) {
@@ -218,19 +218,16 @@ function copySamples(cb) {
         gulp.src([
               sample.SampleFolderPath + '/src/*.*',
         '!' + sample.SampleFolderPath + '/src/index.css',
-        '!' + sample.SampleFolderPath + '/src/index.tsx',
-        '!' + sample.SampleFolderPath + '/src/typedecls.d.ts',
-        '!' + sample.SampleFolderPath + '/src/react-app-env.d.ts',
-        '!' + sample.SampleFolderPath + '/sandbox.config.json',
-        '!' + sample.SampleFolderPath + '/README.md',
-        '!' + sample.SampleFolderPath + '/ReadMe.md',
-        '!' + sample.SampleFolderPath + '/readme.md',
-        '!' + sample.SampleFolderPath + '/package.json',
-        '!' + sample.SampleFolderPath + '/package-lock.json',
-        '!' + sample.SampleFolderPath + '/.eslintrc.js',
-        '!' + sample.SampleFolderPath + '/.gitignore',
+        '!' + sample.SampleFolderPath + '/src/*.d.ts',
         ])
-        // .pipe(copyExclude(['ReadMe.md', 'index.tsx']))
+        .pipe(es.map(function(file, fileCallback) {
+            let code = file.contents.toString();
+            code = code.replace("import ReactDOM from 'react-dom';","");
+            code = code.replace("// rendering above class to the React DOM","");
+            code = code.replace(/ReactDOM.*/g,"");
+            file.contents = Buffer.from(code);
+            fileCallback(null, file);
+         }))
         // .pipe(logFile())
         .pipe(gulp.dest(outputPath))
     }
