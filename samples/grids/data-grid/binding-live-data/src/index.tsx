@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-import React, { Component } from 'react';
 import './DataGridBindingLiveData.css';
 import { LiveFinancialData } from './LiveFinancialData';
 import { TaskUtil } from './TaskUtil';
@@ -73,7 +72,7 @@ interface AppState {
     allColumns: string[];
 }
 
-export default class DataGridBindingLiveData extends Component<any, AppState> {
+export default class DataGridBindingLiveData extends React.Component<any, AppState> {
 
     public chart: IgrDataChart;
     public grid: IgrDataGrid;

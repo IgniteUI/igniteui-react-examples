@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-import React, { Component } from 'react';
 import './DataGridTypeMarketingTable.css';
 import { LiveFinancialData } from './LiveFinancialData';
 // IgrDataGrid modules
@@ -26,14 +25,14 @@ interface AppState {
     name: string;
     data: any[];
     frequency: number;
-    volume: number;    
+    volume: number;
     hiddenColumns: string[];
     allColumns: string[];
 }
 
-export default class DataGridTypeMarketingTable extends Component<any, AppState> {
+export default class DataGridTypeMarketingTable extends React.Component<any, AppState> {
 
-    public grid: IgrDataGrid;    
+    public grid: IgrDataGrid;
     public lastUpdateTime: Date = new Date();
     public isTimerTicking: boolean = false;
     public isUpdatingAllPrices = false;
@@ -53,19 +52,19 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
         this.onPricePercentCellUpdating = this.onPricePercentCellUpdating.bind(this);
         this.onPriceAmountStyleKey = this.onPriceAmountStyleKey.bind(this);
         this.onPriceAmountCellUpdating = this.onPriceAmountCellUpdating.bind(this);
-        
+
         this.onPriceDataBound = this.onPriceDataBound.bind(this);
         this.onPriceStyleKey = this.onPriceStyleKey.bind(this);
-        this.onPriceCellUpdating = this.onPriceCellUpdating.bind(this);        
-        
+        this.onPriceCellUpdating = this.onPriceCellUpdating.bind(this);
+
         this.state = {
             name: 'React',
             data: LiveFinancialData.generateData(3000),
             frequency: 1000,
-            volume: 3000,            
+            volume: 3000,
             hiddenColumns: ["ID"],
             allColumns: []
-        };        
+        };
     }
 
     public render(): JSX.Element {
@@ -74,7 +73,7 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
                 <IgrDataGrid
                 ref={this.onGridRef}
                 width="100%"
-                height="100%"                                
+                height="100%"
                 rowHeight="32"
                 selectionMode="MultipleRow"
                 autoGenerateColumns="false"
@@ -84,7 +83,7 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
                 columnHidingAnimationMode="slideToRightAndFadeOut"
                 defaultColumnMinWidth="100"
                 dataSource={this.state.data} >
-                
+
                     <IgrTextColumn field="ID" width="*>90" isHidden="true"/>
                     <IgrTextColumn field="Category" width="*>120" />
                     <IgrTextColumn field="Type" width="*>90"    />
@@ -197,7 +196,7 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
                 sortingByPrice = true;
             }
         }
-        
+
         if (intervalElapsed)
         {
             this.lastUpdateTime = new Date();
@@ -208,7 +207,7 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
                 {
                     index = Math.round(Math.random() * this.state.data.length - 1);
                 }
-                toChangeIndexes[index.toString()] = true;                
+                toChangeIndexes[index.toString()] = true;
             }
         }
 
@@ -261,7 +260,7 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
             this.grid.invalidateVisibleRows();
         }
         // }
-        // this.grid.invalidateVisibleRows();        
+        // this.grid.invalidateVisibleRows();
 
         window.setTimeout(() => this.onTimerTick(), 16);
     }
@@ -546,7 +545,7 @@ export default class DataGridTypeMarketingTable extends Component<any, AppState>
                 // sp.style.color = this.valuesDecreasedColor;
             }
         }
-    }    
+    }
 
     public onGridStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
         args.styleKey = "grid";
