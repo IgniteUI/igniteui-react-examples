@@ -23,6 +23,15 @@ exports.updateReadme = updateReadme = gulp.series(
     sb.updateReadme,
 );
 
+exports.getSamples = getSamples = gulp.series(
+    sb.getSamples,
+);
+
+exports.simplifySamples = simplifySamples = gulp.series(
+    sb.getSamples,
+    sb.simplifySamples,
+);
+
 exports.updatePackages = updatePackages = gulp.series(
     sb.getSamples,
     sb.updatePackages,

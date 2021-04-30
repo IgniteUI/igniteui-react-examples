@@ -391,7 +391,7 @@ class Transformer {
         let info = new SampleInfo();
 
         info.SampleFolderPath = this.getRelative(samplePackageFile.dirname);
-        info.PackageFileContent = JSON.parse(samplePackageFile.contents.toString());
+        // info.PackageFileContent = JSON.parse(samplePackageFile.contents.toString());
         info.SampleFilePaths = sampleFilePaths;
 
         for (const filePath of info.SampleFilePaths) {

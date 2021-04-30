@@ -13,13 +13,8 @@ let path = require('path');
 let flatten = require('gulp-flatten');
 let del = require('del');
 let es = require('event-stream');
-let shell = require('gulp-shell');
-let replace = require('gulp-replace');
-let contains = require('gulp-contains');
 
 var igConfig = require('./gulp-config.js')
-// var platform = "React";
-// var igConfig = require('./gulp-config.js')[platform];
 
 eval(require('typescript')
 .transpile(require('fs')
@@ -125,10 +120,12 @@ function getSamples(cb) {
     .pipe(es.map(function(samplePackage, sampleCallback) {
 
         let SampleFolderName = Transformer.getRelative(samplePackage.dirname);
-        // log(SampleFolderName);
+        log(SampleFolderName);
 
         let sampleFiles = [];
-        gulp.src([SampleFolderName + "/**"])
+        gulp.src([
+              SampleFolderName + "/src/*.*",
+        "!" + SampleFolderName + "/src/react-app-env.d.ts"])
         .pipe(flatten({ "includeParents": -1 }))
         // .pipe(gSort( { asc: false } ))
         .pipe(es.map(function(file, fileCallback) {
@@ -601,6 +598,58 @@ function updateCodeViewer(cb) {
     cb();
 
 } exports.updateCodeViewer = updateCodeViewer;
+
+
+function simplifySamples(cb) {
+
+    // var skipFiles = ["react-app-env.d.ts", "index.tsx", "index.css", ""];
+
+    for (const sample of samples) {
+
+        var sourcePath = sample.SampleFolderPath + "/src/" + sample.SampleFileName;
+        var outputPath = sample.SampleFolderPath + "/src/index.tsx";
+        // console.log("simplifying: " + sourcePath); // + " >> " + outputPath);
+
+        // if (sourcePath.indexOf("/category-chart/") > 0 &&
+        //     sourcePath.indexOf("/annotations/") > 0) {
+
+            sample.SampleFileSourceCode = sample.SampleFileSourceCode.replace("import * as React from 'react';", "");
+            let code = "";
+            // code += "// import React from 'react';";
+            code += "import React from 'react';\n";
+            code += "import ReactDOM from 'react-dom';\n\n";
+            code += "import './index.css';\n\n";
+            code += sample.SampleFileSourceCode;
+            code += "\n";
+            code += "// rendering above class to the React DOM\n";
+            code += "ReactDOM.render(<" + sample.SampleImportName + " />, document.getElementById('root'));";
+
+            // code = code.replace(/\n\n\n/g,"\n");
+            // code = Strings.replace(code, "\r\n\r\n", "\r\n");
+
+            fs.writeFileSync(outputPath, code);
+            del.sync(sourcePath, {force:true});
+        // }
+
+        // for (const file of sample.SampleFilePaths) {
+        //     var sampleFiles = [];
+        //     if (file.indexOf("/src/") > 0 &&
+        //         file.indexOf(".tsx") > 0&&
+        //         file.indexOf("index.tsx") === -1) {
+        //         // console.log("simplifying: " + file); // + " >> " + outputPath);
+        //         sampleFiles.push(file);
+        //     }
+
+        //     if (sampleFiles.length > 1) {
+        //         console.log("simplifying: " + sampleFiles.join('\n')); // + " >> " + outputPath);
+        //     }
+        // }
+        // fs.writeFileSync(outputPath, sample.SampleFileSourceCode);
+        // del.sync(sourcePath, {force:true});
+    }
+    cb();
+
+} exports.simplifySamples = simplifySamples;
 
 
 
