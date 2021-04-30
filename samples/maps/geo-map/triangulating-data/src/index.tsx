@@ -14,23 +14,23 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class MapBindingShapefilePoints extends React.Component {
+export default class MapTriangulatingData extends React.Component {
 
     public geoMap: IgrGeographicMap;
 
     constructor(props: any) {
         super(props);
-        this.onMapRef = this.onMapRef.bind(this);        
+        this.onMapRef = this.onMapRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">                
+            <div className="igContainer">
                 <div className="igComponent" >
                     <IgrGeographicMap
                         ref={this.onMapRef}
                         width="100%"
-                        height="100%"                        
+                        height="100%"
                         zoomable="true"/>
                 </div>
                 <div className="igOverlay-bottom-right">Imagery Tiles: @OpenStreetMap</div>
@@ -53,7 +53,7 @@ export default class MapBindingShapefilePoints extends React.Component {
         let colorScale: IgrCustomPaletteColorScale = new IgrCustomPaletteColorScale({});
         colorScale.palette = brushes;
         colorScale.minimumValue = 0.05;
-        colorScale.interpolationMode = ColorScaleInterpolationMode.InterpolateRGB; 
+        colorScale.interpolationMode = ColorScaleInterpolationMode.InterpolateRGB;
 
         const geoSeries = new IgrGeographicScatterAreaSeries({name: "series"});
         geoSeries.colorScale = colorScale;

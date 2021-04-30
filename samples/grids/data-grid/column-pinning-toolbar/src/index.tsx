@@ -19,7 +19,7 @@ IgrDataGridModule.register();
 IgrDataGridToolbarModule.register();
 IgrGridColumnOptionsModule.register();
 
-export default class DataGridColumnChooserToolbar extends React.Component<any, any> {
+export default class DataGridColumnPinningToolbar extends React.Component<any, any> {
   public data: any[];
   public grid: IgrDataGrid;
   public toolbar: IgrDataGridToolbar;

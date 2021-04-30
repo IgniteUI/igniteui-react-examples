@@ -17,7 +17,7 @@ IgrExcelXlsxModule.register();
 
 IgrSpreadsheetModule.register();
 
-export default class SpreadsheetFormatDialog extends React.Component<any, any> {
+export default class SpreadsheetFilterDialog extends React.Component<any, any> {
     public spreadsheet: IgrSpreadsheet;
 
     constructor(props: any) {

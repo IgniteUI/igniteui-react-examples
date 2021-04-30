@@ -17,7 +17,7 @@ IgrDoughnutChartModule.register();
 IgrRingSeriesModule.register();
 IgrItemLegendModule.register();
 
-export default class DoughnutChartOverview extends React.Component<any, any> {
+export default class DoughnutChartExplosion extends React.Component<any, any> {
 
     public data: any[];
     public chart: IgrDoughnutChart;
@@ -35,8 +35,8 @@ export default class DoughnutChartOverview extends React.Component<any, any> {
                 { MarketShare: 37, Company: "Space Cooling", Summary:"Space Cooling 37%", },
                 { MarketShare: 25, Company: "Residential Appliance", Summary:"Residential Appliance 25%",  },
                 { MarketShare: 12, Company: "Heating", Summary:"Heating 12%", },
-                { MarketShare: 8, Company: "Lighting", Summary:"Lighting 8%", },                
-                { MarketShare: 18, Company: "Other Services", Summary:"Other Services 18%", },                
+                { MarketShare: 8, Company: "Lighting", Summary:"Lighting 8%", },
+                { MarketShare: 18, Company: "Other Services", Summary:"Other Services 18%", },
        ] };
     }
 
@@ -65,7 +65,7 @@ export default class DoughnutChartOverview extends React.Component<any, any> {
                             legendLabelMemberPath="Company"/>
                 </IgrDoughnutChart>
             </div>
-        </div> 
+        </div>
         );
     }
 

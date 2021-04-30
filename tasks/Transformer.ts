@@ -217,13 +217,9 @@ class Transformer {
                 // let className = info.SampleFileSourceCode.match(classExp);
                 let className = info.SampleFileSourceCode.match(classExp)[0];
                 // console.log("Transformer className1= " +  className);
-                className = className.replace('export default class ', '');
-                className = className.replace('extends', '');
-                className = className.replace('React.Component', '');
-                className = className.replace('<any, any>', '');
-                className = className.replace(' {', '');
+                className = className.replace(/(export.default.class.)(.*)(.extends.*)/g, '$2');
                 className = className.trim();
-                // console.log("Transformer className2= " +  className);
+                // console.log("Transformer className= " +  className);
                 info.SampleFileSourceClass = className; //.replace('export class ', '');
 
                 // console.log("Transformer sampleBlocks ...");
@@ -235,7 +231,8 @@ class Transformer {
                 // info.SampleImportName = info.SampleFileName.replace('.tsx','').replace('.ts','');
                 // info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
                 info.SampleImportName = info.SampleFileSourceClass.replace('.ts', '');
-                info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
+                // info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
+                info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/index';
 
                 // console.log("Transformer SampleDisplayName ...");
                 info.SampleDisplayName = Strings.splitCamel(info.SampleFileSourceClass);
@@ -619,7 +616,7 @@ class Transformer {
             imports += "// importing " + component.Name + " samples: \n";
 
             for (const info of component.Samples) {
-                console.log('- copied: ' + info.SampleFileName);
+                console.log('- copied: ' + info.SampleFilePath);
 
                 // console.log('sample ' + sample.SampleFolderName);
                 // let sampleClass = info.SampleFileName.replace('.tsx','');
