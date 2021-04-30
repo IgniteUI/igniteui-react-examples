@@ -597,7 +597,7 @@ class Transformer {
     public static getRoutingFile(group: SampleGroup): string {
 
         let imports = '\n';
-        imports += "import * as React from 'react';"
+        imports += "import * as React from 'react';\n"
         imports += "import { RoutingGroup } from '../../navigation/SamplesData'; \n";
 
         let routes = "// creating routing data for " + group.Name + " samples: \n";

@@ -225,6 +225,8 @@ function copySamples(cb) {
             code = code.replace("import ReactDOM from 'react-dom';","");
             code = code.replace("// rendering above class to the React DOM","");
             code = code.replace(/ReactDOM.*/g,"");
+            code = code.replace("import './index.css';","");
+
             file.contents = Buffer.from(code);
             fileCallback(null, file);
          }))
