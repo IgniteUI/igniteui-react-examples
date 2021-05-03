@@ -12,13 +12,15 @@ import { SamplesFallback } from './SamplesFallback';
 import { RoutingSample } from './SamplesData';
 import { RoutingGroup } from './SamplesData';
 
+console.log('SB uses IG v21.1.154');
+
 import { gaugesRoutingData } from "../samples/gauges/RoutingData";
 import { gridsRoutingData } from "../samples/grids/RoutingData";
 import { chartsRoutingData } from "../samples/charts/RoutingData";
 import { mapsRoutingData } from "../samples/maps/RoutingData";
 import { excelRoutingData } from "../samples/excel/RoutingData";
 import { layoutsRoutingData } from "../samples/layouts/RoutingData";
-import { editorsRoutingData } from "../samples/editors/RoutingData"; 
+import { editorsRoutingData } from "../samples/editors/RoutingData";
 
 // https://material-ui.com/components/material-icons/
 import IconButton from '@material-ui/core/IconButton';
