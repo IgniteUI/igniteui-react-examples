@@ -38,7 +38,7 @@ export default class DockManagerEmbeddingFrames extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                 <igc-dockmanager id="dockManager">
                     <div className="dockManagerFull" slot="doughnutChartContainer"  >
                         <iframe className="dockManagerFrame" seamless frameBorder="0"

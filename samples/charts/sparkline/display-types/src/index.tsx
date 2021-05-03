@@ -24,27 +24,27 @@ export default class SparklineDisplayTypes extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <label className="igOptions-label">Area Sparkline</label>
-                <div className="igComponent">
+            <div className="container sample">
+                <label className="options-label">Area Sparkline</label>
+                <div className="container">
                     <IgrSparkline height="100%" width="100%" displayType="Area"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Value"/>
                 </div>
-                <label className="igOptions-label">Line Sparkline</label>
-                <div className="igComponent">
+                <label className="options-label">Line Sparkline</label>
+                <div className="container">
                     <IgrSparkline height="100%" width="100%" displayType="Line"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Value" />
                 </div>
-                <label className="igOptions-label">Column Sparkline</label>
-                <div className="igComponent">
+                <label className="options-label">Column Sparkline</label>
+                <div className="container">
                     <IgrSparkline height="100%" width="100%" displayType="Column"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Value"/>
                 </div>
-                <label className="igOptions-label">WinLoss Sparkline</label>
-                <div className="igComponent">
+                <label className="options-label">WinLoss Sparkline</label>
+                <div className="container">
                     <IgrSparkline height="100%" width="100%" displayType="WinLoss"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Value" />

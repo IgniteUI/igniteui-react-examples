@@ -21,8 +21,8 @@ export default class FinancialChartIndicatorTypes extends React.Component<any, a
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer" >
-                <div className="igComponent">
+            <div className="container sample" >
+                <div className="container">
                 <IgrFinancialChart
                     width="100%"
                     height="100%"

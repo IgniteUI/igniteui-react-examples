@@ -26,8 +26,8 @@ export default class SpreadsheetOverview extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
+            <div className="container sample">
+                <div className="options horizontal">
                     <input type="file" onChange={(e) => this.openFile(e.target.files as FileList)} accept=".xls, .xlt, .xlsx, .xlsm, .xltm, .xltx"/>
                 </div>
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 30px)" width="100%" />

@@ -26,8 +26,8 @@ export default class MapTypeScatterDensitySeries extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer" >
-                <div className="igComponent">
+            <div className="container sample" >
+                <div className="container">
                     <IgrGeographicMap
                         ref={this.onMapRef}
                         width="100%"
@@ -36,7 +36,7 @@ export default class MapTypeScatterDensitySeries extends React.Component {
                 </div>
                 <LegendOverlay dock="BottomLeft" text="Source: GeoNames" href="https://www.geonames.org/" />
 
-                <div className="igOverlay-bottom-right">Imagery Tiles: @OpenStreetMap</div>
+                <div className="overlay-bottom-right overlay-border">Imagery Tiles: @OpenStreetMap</div>
             </div>
         );
     }

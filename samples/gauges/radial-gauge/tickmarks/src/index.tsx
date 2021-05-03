@@ -18,7 +18,7 @@ export default class RadialGaugeTickmarks extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
              <IgrRadialGauge
                 tickStartExtent={0.5}
                 tickEndExtent={0.57}

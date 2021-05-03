@@ -33,7 +33,7 @@ export default class BulletGraphTypeVertical extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer-center"  >
+            <div className="container-center"  >
                 <IgrBulletGraph
                     ref={this.onCreateGaugeGreen}
                     height="100%"

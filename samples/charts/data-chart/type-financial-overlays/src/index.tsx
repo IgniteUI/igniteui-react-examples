@@ -113,9 +113,9 @@ export default class DataChartTypeFinancialLineIndicators extends React.Componen
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions-horizontal">
-                    <span className="igOptions-label"> Overlay Display Type: </span>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label"> Overlay Display Type: </label>
                     <select defaultValue={this.state.displayOverlay}
                         onChange={this.onOverlayChanged}>
                         <option>None</option>
@@ -123,7 +123,7 @@ export default class DataChartTypeFinancialLineIndicators extends React.Componen
                         <option>PriceChannel</option>
                     </select>
                 </div>
-                <div className="igComponent" style={{ height: "calc(100% - 35px)" }} >
+                <div className="container" style={{ height: "calc(100% - 35px)" }} >
                     <IgrDataChart
                         width="100%"
                         height="100%"

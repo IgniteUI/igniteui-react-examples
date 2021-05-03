@@ -30,7 +30,7 @@ export default class CategoryChartStackColumns extends React.Component<any, any>
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
 
                 <IgrCategoryChart
                     ref={this.onChartRef}
@@ -71,7 +71,7 @@ export default class CategoryChartStackColumns extends React.Component<any, any>
                     xAxisGap={0.45}
                     xAxisOverlap={1}/>
 
-                <div className="igLegend">
+                <div className="options vertical">
                     <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                 </div>
             </div>

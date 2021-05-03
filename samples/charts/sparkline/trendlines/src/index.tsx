@@ -28,9 +28,9 @@ export default class SparklineTrendlines extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <span className="igOptions-item">Trendline Type: </span>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label">Trendline Type: </label>
                     <select
                     onChange={this.onTrendlineChanged}
                     defaultValue="ExponentialFit">
@@ -50,7 +50,7 @@ export default class SparklineTrendlines extends React.Component<any, any> {
                         <option>WeightedAverage</option>
                     </select>
                 </div>
-                <div className="igComponent">
+                <div className="container">
                     <IgrSparkline height="calc(100% - 30px)" width="100%"
                         ref={this.onSparklineRef}
                         dataSource={this.data}

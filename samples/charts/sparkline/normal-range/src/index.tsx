@@ -33,19 +33,19 @@ export default class SparklineNormalRange extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <label className="igOptions-item"><input defaultChecked={true} type="checkbox" onChange={this.onRangeVisibilityChanged}/>Range Visibility</label>
-                    <label className="igOptions-item"><input type="range"
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label"><input defaultChecked={true} type="checkbox" onChange={this.onRangeVisibilityChanged}/>Range Visibility</label>
+                    <label className="options-label"><input type="range"
                     min={-2} max={7} step="0.5"
                     value={this.state.normalRangeMinimum}
                     onChange={this.onMinSliderChanged}/>Min Range {this.state.normalRangeMinimum} </label>
-                    <label className="igOptions-item"><input type="range"
+                    <label className="options-label"><input type="range"
                     min={-2} max={7} step="0.5"
                     value={this.state.normalRangeMaximum}
                     onChange={this.onMaxSliderChanged}/>Max Range {this.state.normalRangeMaximum} </label>
                 </div>
-                <div className="igComponent">
+                <div className="container">
                     <IgrSparkline height="calc(100% - 30px)" width="100%"
                         ref={this.onSparklineRef}
                         dataSource={this.state.data}

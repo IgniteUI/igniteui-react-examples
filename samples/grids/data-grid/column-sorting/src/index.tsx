@@ -33,10 +33,10 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <span className="igOptions-item">Header Click Action: </span>
-                    <select className="igOptions-item" value={this.state.sortType}
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label">Header Click Action: </label>
+                    <select className="options-select" value={this.state.sortType}
                         onChange={this.onChartTypeChanged}>
                         <option>SortByMultipleColumns</option>
                         <option>SortByMultipleColumnsTriState</option>

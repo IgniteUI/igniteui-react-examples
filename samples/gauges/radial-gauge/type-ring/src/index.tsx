@@ -31,17 +31,17 @@ export default class RadialGaugeTypeRing extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent">
+            <div className="container sample">
+                <div className="container">
                     <IgrRadialGauge
                         ref={this.onCreateGauge}
                         height="100%"
                         width="100%"  />
                 </div>
-                {/* <div className="igOverlay-center"  >
-                     <label style={{color: "#10b401", display: "block"}}>90</label>
-                     <label style={{color: "#fdb417", display: "block"}}>80</label>
-                     <label style={{color: "#ff0000", display: "block"}}>60</label>
+                {/* <div className="overlay-center"  >
+                     <label className="overlay-label" style={{color: "#10b401", display: "block"}}>90</label>
+                     <label className="overlay-label" style={{color: "#fdb417", display: "block"}}>80</label>
+                     <label className="overlay-label" style={{color: "#ff0000", display: "block"}}>60</label>
                 </div> */}
             </div>
         );

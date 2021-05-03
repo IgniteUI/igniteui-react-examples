@@ -30,9 +30,9 @@ export default class CategoryChartTrendline extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer" >
-                <div className="igOptions">
-                    <span className="igOptions-label">Trend Line Type: </span>
+            <div className="container sample" >
+                <div className="options horizontal">
+                    <label className="options-label">Trend Line Type: </label>
                     <select
                         value={this.state.trendLineType}
                         onChange={this.onTrendlineTypeChanged}>
@@ -53,7 +53,7 @@ export default class CategoryChartTrendline extends React.Component<any, any> {
                     </select>
                 </div>
 
-            <div className="igComponent" style={{height: "calc(100% - 50px)"}} >
+            <div className="container" style={{height: "calc(100% - 50px)"}} >
                 <IgrCategoryChart
                     ref={this.onChartRef}
                     width="100%"
@@ -69,7 +69,7 @@ export default class CategoryChartTrendline extends React.Component<any, any> {
                     yAxisTitle="Temperature (C)"
                     xAxisTitle="Years"/>
             </div>
-            <div className="igLegend">
+            <div className="options vertical">
                 <IgrLegend ref={this.onLegendRef} orientation="Horizontal"  />
             </div>
 

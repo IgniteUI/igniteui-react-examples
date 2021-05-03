@@ -27,29 +27,24 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer-horizontal" >
-                <div className="igContainer">
+            <div className="container horizontal" >
+                <div className="container">
                     <IgrGeographicMap
                         ref={this.onEsriMapStreet}
                         width="100%" height="100%" zoomable="true"/>
                 </div>
-                <div className="igContainer">
+                <div className="container">
                     <IgrGeographicMap
                         ref={this.onEsriMapTopographic}
                         width="100%" height="100%" zoomable="true"/>
                 </div>
-                <div className="igContainer">
+                <div className="container">
                     <IgrGeographicMap
                         ref={this.onEsriMapOceans}
                         width="100%" height="100%" zoomable="true"/>
                 </div>
-                {/* <div className="igContainer">
-                    <IgrGeographicMap
-                        ref={this.onEsriMapNational}
-                        width="100%" height="100%" zoomable="true"/>
-                </div> */}
 
-                <div className="igOverlay-bottom-right">Imagery Tiles: @ESRI/ArcGIS</div>
+                <div className="overlay-bottom-right overlay-border">Imagery Tiles: @ESRI/ArcGIS</div>
             </div>
         );
     }

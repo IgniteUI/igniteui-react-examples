@@ -35,8 +35,8 @@ export default class DataChartTypeScatterPolylineSeries extends React.Component 
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent"  >
+            <div className="container sample">
+                <div className="container"  >
                     <IgrDataChart ref={this.onChartRef}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}

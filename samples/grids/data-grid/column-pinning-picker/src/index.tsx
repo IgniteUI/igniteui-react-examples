@@ -44,11 +44,11 @@ export default class DataGridColumnPinningPicker extends React.Component<any, an
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <button className="igOptions-item" disabled={this.state.isPinningToLeftDisabled} onClick={this.onPinLeft} style={{ width: "100px" }}>Pin Left</button>
-                    <button className="igOptions-item" disabled={this.state.isPinningToRightDisabled} onClick={this.onPinRight} style={{ width: "100px" }}>Pin Right</button>
-                    <button className="igOptions-item" onClick={this.onUnPin} style={{ width: "125px" }}>Unpin Columns</button>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <button className="options-button" disabled={this.state.isPinningToLeftDisabled} onClick={this.onPinLeft} style={{ width: "100px" }}>Pin Left</button>
+                    <button className="options-button" disabled={this.state.isPinningToRightDisabled} onClick={this.onPinRight} style={{ width: "100px" }}>Pin Right</button>
+                    <button className="options-button" onClick={this.onUnPin} style={{ width: "125px" }}>Unpin Columns</button>
                 </div>
                 <IgrDataGrid
                 ref={this.onGridRef}

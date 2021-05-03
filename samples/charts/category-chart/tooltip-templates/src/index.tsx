@@ -30,14 +30,14 @@ export default class CategoryChartTooltipTemplate extends React.Component<any, a
                 <p>TODO implement render() in {this.constructor.name}.tsx file</p>
 
                 {/* <div>
-                    <label className="igOptions-label">Enable Highlighting: </label>
-                    <label className="igOptions-item"><input type="checkbox"
+                    <label className="options-label">Enable Highlighting: </label>
+                    <label className="options-label"><input type="checkbox"
                     checked={this.state.isSeriesHighlighting}
                     onChange={this.onSeriesHighlightingChanged}/> Series </label>
-                    <label className="igOptions-item"><input type="checkbox"
+                    <label className="options-label"><input type="checkbox"
                     checked={this.state.isItemHighlighting}
                     onChange={this.onItemHighlightingChanged}/>Item </label>
-                    <label className="igOptions-item"><input type="checkbox"
+                    <label className="options-label"><input type="checkbox"
                     checked={this.state.isCategoryHighlighting}
                     onChange={this.onCategoryHighlightingChanged}/>Category </label>
                 </div>

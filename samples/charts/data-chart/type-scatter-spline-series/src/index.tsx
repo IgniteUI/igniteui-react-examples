@@ -40,8 +40,8 @@ export default class DataChartTypeScatterSplineSeries extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent"   >
+            <div className="container sample">
+                <div className="container"   >
                     <IgrDataChart
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}

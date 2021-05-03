@@ -41,7 +41,7 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                 <div>
                     <button onClick={this.onAnimationToggle}><label>Animation Chart</label></button>
                 </div>

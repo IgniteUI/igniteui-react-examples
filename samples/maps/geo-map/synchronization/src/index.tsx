@@ -32,7 +32,7 @@ export default class MapSynchronization extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer-horizontal">
+            <div className="container horizontal">
                 <IgrGeographicMap subtitle="Geo1"
                     ref={this.onReferenceMap1}
                     actualWindowRectChanged={this.onWindowRectChangedMap1}
@@ -42,7 +42,7 @@ export default class MapSynchronization extends React.Component<any, any> {
                     actualWindowRectChanged={this.onWindowRectChangedMap2}
                     width="100%" height="100%" zoomable="true"/>
 
-                <div className="igOverlay-bottom-right">Imagery Tiles: @OpenStreetMap</div>
+                <div className="overlay-bottom-right overlay-border">Imagery Tiles: @OpenStreetMap</div>
             </div>
         );
     }

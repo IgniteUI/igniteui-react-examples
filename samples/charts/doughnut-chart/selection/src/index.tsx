@@ -29,8 +29,8 @@ export default class DoughnutChartSelection extends React.Component<any, any> {
                 { MarketShare: 37, Company: "Space Cooling", Summary:"Space Cooling 37%", },
                 { MarketShare: 25, Company: "Residential Appliance", Summary:"Residential Appliance 25%",  },
                 { MarketShare: 12, Company: "Heating", Summary:"Heating 12%", },
-                { MarketShare: 8, Company: "Lighting", Summary:"Lighting 8%", },                
-                { MarketShare: 18, Company: "Other Services", Summary:"Other Services 18%", },                
+                { MarketShare: 8, Company: "Lighting", Summary:"Lighting 8%", },
+                { MarketShare: 18, Company: "Other Services", Summary:"Other Services 18%", },
          ];
         this.state = { data: this.data };
 
@@ -39,14 +39,14 @@ export default class DoughnutChartSelection extends React.Component<any, any> {
     }
 
     public render(): JSX.Element {
-        return (           
-        <div className="igContainer">
-               <span className="igLegend-title">Global Electricity Demand by Energy Use</span>
-               <div className="igLegend">
+        return (
+        <div className="container sample">
+               <label className="legend-title">Global Electricity Demand by Energy Use</label>
+               <div className="options vertical">
                     <IgrItemLegend ref={this.onLegendRef} />
                 </div>
 
-                <div className="igComponent">
+                <div className="container">
                 <IgrDoughnutChart
                      ref={this.onChartRef}
                      height="calc(100% - 45px)"

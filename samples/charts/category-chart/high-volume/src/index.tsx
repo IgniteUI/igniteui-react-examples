@@ -27,19 +27,19 @@ export default class CategoryChartHighVolume extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer">
-            <div className="igOptions">
-                <label className="igOptions-label">Data Points: </label>
-                <label className="igOptions-value">
+        <div className="container sample">
+            <div className="options horizontal">
+                <label className="options-label">Data Points: </label>
+                <label className="options-value">
                     {this.state.dataInfo}
                 </label>
-                <input className="igOptions-slider" type="range" min="10000" max="1000000" step="1000"
+                <input className="options-slider" type="range" min="10000" max="1000000" step="1000"
                     value={this.state.dataPoints}
                     onChange={this.onDataPointsChanged}/>
                 <button onClick={this.onDataGenerateClick}>Generate Data</button>
             </div>
 
-            <div className="igComponent" style={{height: "calc(100% - 30px)"}} >
+            <div className="container" style={{height: "calc(100% - 30px)"}} >
                 <IgrCategoryChart
                     width="100%"
                     height="100%"

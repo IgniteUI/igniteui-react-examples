@@ -29,16 +29,16 @@ export default class SparklineMarkers extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <label className="igOptions-item"><input id="High" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />High Markers</label>
-                    <label className="igOptions-item"><input id="Low" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Low Markers</label>
-                    <label className="igOptions-item"><input id="First" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />First Markers</label>
-                    <label className="igOptions-item"><input id="Last" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Last Markers</label>
-                    <label className="igOptions-item"><input id="Negative" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Negative Markers</label>
-                    <label className="igOptions-item"><input id="All" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />All Markers</label>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label"><input id="High" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />High Markers</label>
+                    <label className="options-label"><input id="Low" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Low Markers</label>
+                    <label className="options-label"><input id="First" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />First Markers</label>
+                    <label className="options-label"><input id="Last" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Last Markers</label>
+                    <label className="options-label"><input id="Negative" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />Negative Markers</label>
+                    <label className="options-label"><input id="All" defaultChecked={true} type="checkbox" onChange={this.onMarkerCheckboxChanged} />All Markers</label>
                 </div>
-                <div className="igComponent">
+                <div className="container">
                     <IgrSparkline height="100%" width="100%"
                         ref={this.onSparklineRef}
                         dataSource={this.data}

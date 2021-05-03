@@ -42,12 +42,12 @@ export default class DoughnutChartExplosion extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-            <span className="igLegend-title">Global Electricity Demand by Energy Use</span>
-                <div className="igLegend">
+            <div className="container sample">
+            <label className="legend-title">Global Electricity Demand by Energy Use</label>
+                <div className="options vertical">
                     <IgrItemLegend ref={this.onLegendRef} />
                 </div>
-            <div className="igComponent">
+            <div className="container">
                 <IgrDoughnutChart
                      ref={this.onChartRef}
                      height="100%"

@@ -47,9 +47,9 @@ export default class DataChartTypeRadialSeries extends React.Component<any, any>
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions-horizontal">
-                    <span className="igOptions-label">Type of Radial Series: </span>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label">Type of Radial Series: </label>
                     <select value={this.state.seriesType}
                         onChange={this.onSeriesTypeChanged}>
                         <option>Area</option>
@@ -57,12 +57,12 @@ export default class DataChartTypeRadialSeries extends React.Component<any, any>
                         <option>Pie</option>
                         <option>Line</option>
                     </select>
-                    <span className="igLegend-title">Legend: </span>
-                    <div className="igLegend">
+                    <label className="legend-title">Legend: </label>
+                    <div className="options vertical">
                         <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                     </div>
                 </div>
-                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
+                <div className="container" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart ref={this.onChartRef}
                         chartTitle="Company Finances by Department"
                         width="100%"

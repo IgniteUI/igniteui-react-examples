@@ -52,18 +52,18 @@ export default class ExcelLibraryUsingWorkbooks extends React.Component<any, any
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <button className="igOptions-item" onClick={this.createWorkbook}>Create Workbook</button>
-                    <button className="igOptions-item" onClick={this.saveWorkbook}>Save Workbook</button>
-                    <span className="igOptions-item">Select Table to Export: </span>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <button className="options-button" onClick={this.createWorkbook}>Create Workbook</button>
+                    <button className="options-button" onClick={this.saveWorkbook}>Save Workbook</button>
+                    <label className="options-label">Select Table to Export: </label>
                     <select onChange={this.onTableChange} value={(this.state as any).selected}>
                         <option>Employees - Table1</option>
                         <option>Expenses - Table2</option>
                         <option>Income - Table3</option>
                     </select>
                 </div>
-                <div className="igComponent">
+                <div className="container">
                     <IgrDataGrid
                         ref = {this.onGridRef}
                         height="100%"

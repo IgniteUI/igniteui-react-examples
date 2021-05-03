@@ -33,15 +33,15 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <span className="igOptions-item" style={{ width: "215px" }}>Section Header Display Mode:</span>
-                    <select className="igOptions-item" style={{ width: "100px" }} defaultValue="Deferred" onChange={this.onSectionHeaderDisplayModeChanging}>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label" style={{ width: "215px" }}>Section Header Display Mode:</label>
+                    <select className="options-select" style={{ width: "100px" }} defaultValue="Deferred" onChange={this.onSectionHeaderDisplayModeChanging}>
                         <option>Combined</option>
                         <option>Split</option>
                     </select>
                     {/* temporally excluded this option: */}
-                    {/* <label className="igOptions-label" > Group Header Collapsible: </label>
+                    {/* <label className="options-label" > Group Header Collapsible: </label>
                     <input type="checkbox" checked={this.state.isGroupCollapsible} onChange={this.onGroupHeaderCollapsible}/> */}
 
                 </div>

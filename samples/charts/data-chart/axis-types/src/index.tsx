@@ -76,10 +76,10 @@ export default class DataChartAxisTypes extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent">
-                    <div className="igOptions-horizontal">
-                        <span className="igOptions-item">Axis Type:</span>
+            <div className="container sample">
+                <div className="container">
+                    <div className="options horizontal">
+                        <label className="options-label">Axis Type:</label>
                         <select onChange={this.onAxisTypeChange} style={{width: "17rem"}}>
                             <option>CategoryXAxis with Column Series</option>
                             <option>CategoryYAxis with Bar Series</option>

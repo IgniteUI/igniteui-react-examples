@@ -29,9 +29,9 @@ export default class CategoryChartOverview extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <span className="igOptions-label">Chart Type: </span>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label">Chart Type: </label>
                     <select value={this.state.chartType}
                         onChange={this.onChartTypeChanged}>
                         <option>Auto</option>
@@ -46,7 +46,7 @@ export default class CategoryChartOverview extends React.Component<any, any> {
                         <option>Waterfall</option>
                     </select>
                 </div>
-                <div className="igComponent" style={{height: "calc(100% - 1.25rem)"}} >
+                <div className="container" style={{height: "calc(100% - 1.25rem)"}} >
                     <IgrCategoryChart
                         ref={this.onChartRef}
                         width="100%"

@@ -29,14 +29,14 @@ export default class SparklineUnknownValues extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <label className="igOptions-item">
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label">
                     <input defaultChecked={false}
                     type="checkbox"
                     onChange={this.onRangeVisibilityChanged}/>Plot Unknown Values</label>
                 </div>
-                <div className="igComponent">
+                <div className="container">
                     <IgrSparkline height="100%" width="100%"
                         ref={this.onSparklineRef}
                         dataSource={this.data}

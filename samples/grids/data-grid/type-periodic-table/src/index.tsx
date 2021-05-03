@@ -65,7 +65,7 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
         let labelStyle: any = { fontSize: "13px", fontFamily: "Verdana", color: "rgb(24, 29, 31)", padding: "5px"};
 
         return (
-            <div className="igContainer" style={{overflow: "hidden"}}>
+            <div className="container sample" >
                 <label style={labelStyle}>Selected Element: {this.state.selectedElement }</label>
 
                 <IgrDataGrid

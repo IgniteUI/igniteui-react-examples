@@ -31,7 +31,7 @@ export default class MapTypeScatterContourSeries extends React.Component<any, an
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer" >
+            <div className="container sample" >
                 <IgrGeographicMap
                     ref={this.onMapRef}
                     width="100%"
@@ -40,7 +40,7 @@ export default class MapTypeScatterContourSeries extends React.Component<any, an
 
                 <LegendOverlay dock="BottomLeft"
                 text="Source: NOAA" href="https://www.noaa.gov/" />
-                <div className="igOverlay-bottom-right">Imagery Tiles: @OpenStreetMap</div>
+                <div className="overlay-bottom-right overlay-border">Imagery Tiles: @OpenStreetMap</div>
 
             </div>
         );

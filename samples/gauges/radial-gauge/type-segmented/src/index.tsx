@@ -31,15 +31,15 @@ export default class RadialGaugeTypeSegmented extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent">
+            <div className="container sample">
+                <div className="container">
                     <IgrRadialGauge
                         ref={this.onCreateGauge}
                         height="100%"
                         width="100%"  />
                 </div>
-                <div className="igOverlay-center">
-                    <label className="igOverlay-center-label" style={{color: "#1e90ff"}}>80</label>
+                <div className="overlay-center">
+                    <label className="overlay-label" style={{color: "#1e90ff"}}>80</label>
                 </div>
             </div>
         );

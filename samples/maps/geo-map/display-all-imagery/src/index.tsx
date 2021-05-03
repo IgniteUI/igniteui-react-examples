@@ -57,23 +57,24 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer" style={{background: "white"}}>
+            <div className="container sample" >
 
-                <div className="igComponent" style={{background: "white"}}>
+                <div className="options horizontal" >
+                    <label className="options-label">Imagery Tile Source</label>
+                    <select value={this.state.tileSource}
+                            onChange={this.onTileSourceChanged}
+                            style={{width: "15rem"}}>
+                            {this.ImageryOptions}
+                    </select>
+                </div>
+
+                <div className="container" >
                     <IgrGeographicMap
                         ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true"/>
 
-                    <div className="igOverlay-top-left" >
-                        <span className="igOverlay-title">Imagery Tile Source</span>
-                        <select value={this.state.tileSource}
-                                onChange={this.onTileSourceChanged}
-                                style={{width: "15rem"}}>
-                                {this.ImageryOptions}
-                        </select>
-                    </div>
                 </div>
             </div>
         );

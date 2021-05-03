@@ -25,18 +25,18 @@ export default class SparklineDisplayWinLoss extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent">
+            <div className="container sample">
+                <div className="container">
                     <IgrSparkline height="100%" width="100%" displayType="WinLoss"
                         dataSource={this.data1}
                         valueMemberPath="Value1"/>
                 </div>
-                <div className="igComponent">
+                <div className="container">
                     <IgrSparkline height="100%" width="100%" displayType="WinLoss"
                         dataSource={this.data1}
                         valueMemberPath="Value2" />
                 </div>
-                <div className="igComponent">
+                <div className="container">
                     <IgrSparkline height="100%" width="100%" displayType="WinLoss"
                         dataSource={this.data2}
                         valueMemberPath="Value1"/>

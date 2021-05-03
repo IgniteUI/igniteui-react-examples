@@ -78,28 +78,28 @@ export default class DataChartTypeScatterDensitySeries extends React.Component<a
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer">
-            {/* <div className="igOptions-horizontal">
-                <span className="igOptions-label">Minimum Value: {this.state.seriesHeatMin}</span>
-                <input className="igOptions-slider" type="range" min="0" max="30" step="1"
+        <div className="container sample">
+            {/* <div className="options horizontal">
+                <label className="options-label">Minimum Value: {this.state.seriesHeatMin}</label>
+                <input className="options-slider" type="range" min="0" max="30" step="1"
                     value={this.state.seriesHeatMin}
                     onChange={this.seriesMinChanged}/>
-                <span className="igOptions-label">Maximum Value: {this.state.seriesHeatMax}</span>
-                <input className="igOptions-slider" type="range" min="0" max="30" step="1"
+                <label className="options-label">Maximum Value: {this.state.seriesHeatMax}</label>
+                <input className="options-slider" type="range" min="0" max="30" step="1"
                     value={this.state.seriesHeatMax}
                     onChange={this.seriesMaxChanged}/>
-                <span className="igOptions-label">Series Resolution: {this.state.seriesResolution}</span>
-                <input className="igOptions-slider" type="range" min="0" max="10" step="1"
+                <label className="options-label">Series Resolution: {this.state.seriesResolution}</label>
+                <input className="options-slider" type="range" min="0" max="10" step="1"
                     value={this.state.seriesResolution}
                     onChange={this.seriesResolutionChanged}/>
-                <span className="igOptions-label">Point Extent: {this.state.seriesPointExtent}</span>
-                <input className="igOptions-slider" type="range" min="1" max="5" step="1"
+                <label className="options-label">Point Extent: {this.state.seriesPointExtent}</label>
+                <input className="options-slider" type="range" min="1" max="5" step="1"
                     value={this.state.seriesPointExtent}
                     onChange={this.seriesExtentChanged}/>
-                <span className="igOptions-label">Use Brute Force</span>
+                <label className="options-label">Use Brute Force</label>
                 <input className="checkbox" type="checkbox" checked={this.state.hdUseBruteForce} onChange={this.useBruteForceChanged} />
             </div> */}
-            <div className="igComponent">
+            <div className="container">
                 <IgrDataChart
                     ref={this.onChartRef}
                     isHorizontalZoomEnabled={true}

@@ -67,17 +67,17 @@ export default class DataChartAxisAnnotations extends React.Component<any, any> 
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions-horizontal">
-                    <span className="igOptions-item">Annotations: </span>
-                    <label className="igOptions-item"><input type="checkbox" checked={this.state.finalValuesVisible}
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label">Annotations: </label>
+                    <label className="options-label"><input type="checkbox" checked={this.state.finalValuesVisible}
                         onChange={this.onFinalValueChange} />Final Value</label>
-                    <label className="igOptions-item"><input type="checkbox" checked={this.state.crosshairsVisible}
+                    <label className="options-label"><input type="checkbox" checked={this.state.crosshairsVisible}
                         onChange={this.onCrosshairChange} />Crosshairs</label>
-                    {/*<label className="igOptions-item"><input type="checkbox" checked={this.state.valueOverlayVisible}
+                    {/*<label className="options-label"><input type="checkbox" checked={this.state.valueOverlayVisible}
                         onChange={this.onValueOverlayChange} />Value Overlay </label>*/}
                 </div>
-                <div className="igComponent" style={{ height: "calc(100% - 35px)" }} >
+                <div className="container" style={{ height: "calc(100% - 35px)" }} >
                     <IgrDataChart ref={this.onChartRef} dataSource={this.data} width="100%" height="100%" isHorizontalZoomEnabled={true} isVerticalZoomEnabled={true}>
                         <IgrCategoryXAxis name="xAxis" interval={1} formatLabel={this.formatDateLabel} />
                         <IgrNumericYAxis name="yAxis" interval={20} minimumValue={70} maximumValue={110}

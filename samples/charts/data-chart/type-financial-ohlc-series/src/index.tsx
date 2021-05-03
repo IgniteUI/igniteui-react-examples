@@ -36,8 +36,8 @@ export default class DataChartTypeFinancialOhlcSeries extends React.Component<an
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer">
-            <div className="igComponent" style={{height: "calc(100% - 20px)"}} >
+        <div className="container sample">
+            <div className="container" style={{height: "calc(100% - 20px)"}} >
                 <IgrDataChart
                     width="100%"
                     height="100%"

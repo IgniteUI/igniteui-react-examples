@@ -21,25 +21,25 @@ export default class SparklineDisplayArea extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent">
+            <div className="container sample">
+                <div className="container">
                     <IgrSparkline height="100%" width="100%" displayType="Area"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Revenue"/>
                 </div>
-                <label className="igOptions-label">Revenue Sparkline</label>
-                <div className="igComponent">
+                <label className="options-label">Revenue Sparkline</label>
+                <div className="container">
                     <IgrSparkline height="100%" width="100%" displayType="Area"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Income"/>
                 </div>
-                <label className="igOptions-label">Income Sparkline</label>
-                <div className="igComponent">
+                <label className="options-label">Income Sparkline</label>
+                <div className="container">
                     <IgrSparkline height="100%" width="100%" displayType="Area"
                         dataSource={this.data} minimum={-1} maximum={1}
                         valueMemberPath="Expanse" />
                 </div>
-                <label className="igOptions-label">Expanse Sparkline</label>
+                <label className="options-label">Expanse Sparkline</label>
             </div >
         );
     }

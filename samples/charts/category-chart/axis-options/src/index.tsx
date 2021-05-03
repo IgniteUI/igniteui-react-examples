@@ -19,8 +19,8 @@ export default class CategoryChartAxisTypes extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer" >
-            <div className="igComponent">
+        <div className="container sample" >
+            <div className="container">
                 <IgrCategoryChart
                     width="100%"
                     height="100%"

@@ -13,7 +13,7 @@ IgrMultiColumnComboBoxModule.register();
 export default class MultiColumnComboBoxOverview extends React.Component<any, any> {
     public multiColumnComboBox!: IgrMultiColumnComboBox;
     public countryData: any[];
-    
+
     constructor(props: any) {
         super(props);
         this.onMultiColumnComboBoxRef = this.onMultiColumnComboBoxRef.bind(this);
@@ -26,16 +26,16 @@ export default class MultiColumnComboBoxOverview extends React.Component<any, an
         this.multiColumnComboBox.dataSource = this.countryData;
         this.multiColumnComboBox.textField = "Country";
         this.multiColumnComboBox.fields = ["Country", "Continent", "Population"];
-        this.multiColumnComboBox.placeholder = "Choose a country";        
-        this.multiColumnComboBox.sortMode = SortMode.SortByOneColumnOnly;        
+        this.multiColumnComboBox.placeholder = "Choose a country";
+        this.multiColumnComboBox.sortMode = SortMode.SortByOneColumnOnly;
     }
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">    
-                <div className="igComponent">               
+            <div className="container sample">
+                <div className="container">
                     <IgrMultiColumnComboBox width="300px"
-                            ref={this.onMultiColumnComboBoxRef}>                                
+                            ref={this.onMultiColumnComboBoxRef}>
                     </IgrMultiColumnComboBox>
                 </div>
             </div>

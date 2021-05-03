@@ -21,18 +21,18 @@ export default class CategoryChartLineChartWithLegend extends React.Component<an
         super(props);
 
         this.onChartRef = this.onChartRef.bind(this);
-        this.onLegendRef = this.onLegendRef.bind(this);        
+        this.onLegendRef = this.onLegendRef.bind(this);
         this.initData();
     }
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <span>Renewable Electricity Generated</span>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label>Renewable Electricity Generated</label>
                     <IgrLegend ref={this.onLegendRef} orientation="horizontal" />
                 </div>
-                <div className="igComponent" style={{height: "calc(100% - 1.25rem)"}} >
+                <div className="container" style={{height: "calc(100% - 1.25rem)"}} >
                     <IgrCategoryChart
                         ref={this.onChartRef}
                         width="100%"

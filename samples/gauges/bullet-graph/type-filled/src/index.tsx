@@ -33,7 +33,7 @@ export default class BulletGraphTypeFilled extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer"  >
+            <div className="container sample"  >
                 <IgrBulletGraph
                     ref={this.onCreateGaugeGreen}
                     height="120px"

@@ -34,17 +34,17 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <span className="igOptions-item" style={{ width: "150px" }}>Summary Scope:</span>
-                    <select className="igOptions-item" style={{ width: "100px" }} defaultValue="Root" onChange={this.onSummaryScopeChanging}>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label" style={{ width: "150px" }}>Summary Scope:</label>
+                    <select className="options-select" style={{ width: "100px" }} defaultValue="Root" onChange={this.onSummaryScopeChanging}>
                     <option>Root</option>
                         <option>Groups</option>
                         <option>Both</option>
                         <option>None</option>
                     </select>
-                    <span className="igOptions-item" style={{ width: "100" }}>Group Summary Display Mode:</span>
-                    <select className="igOptions-item" style={{ width: "110px" }} defaultValue="RowBottom" onChange={this.onGroupSummaryDisplayModeChanging}>
+                    <label className="options-label" style={{ width: "100" }}>Group Summary Display Mode:</label>
+                    <select className="options-select" style={{ width: "110px" }} defaultValue="RowBottom" onChange={this.onGroupSummaryDisplayModeChanging}>
                         <option>List</option>
                         <option>Cells</option>
                         <option>RowTop</option>

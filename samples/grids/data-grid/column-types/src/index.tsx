@@ -16,7 +16,7 @@ import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
 import { IgrComboBoxColumn } from 'igniteui-react-grids';
-import { IgrTemplateCellUpdatingEventArgs, 
+import { IgrTemplateCellUpdatingEventArgs,
     IgrGridCellValueChangingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 import { IIgrCellTemplateProps } from 'igniteui-react-grids';
@@ -53,13 +53,13 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                 this.cityList.push(employee);
             }
         });
-        
+
         this.onGridRef = this.onGridRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                 <IgrDataGrid
                     ref={this.onGridRef}
                     height="100%"
@@ -119,7 +119,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
     // public getProductivityChart(props: IIgrCellTemplateProps) {
     //     const info = props.dataContext as IgrTemplateCellInfo;
     //     return (
-    //         <div className="gridSparklineContainer">
+    //         <div className="container">
     //            <IgrSparkline
     //                height="30px" width="100%"
     //                displayType="Column"
@@ -298,12 +298,12 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
     }
 
     public onCellValueChanging(s: IgrDataGrid, e: IgrGridCellValueChangingEventArgs) {
- 
+
         let row = e.cellInfo.rowItem;
         if (e.column.field === "City")
         {
             let employee = this.cityLookup.get(e.newValue);
-            
+
             if(employee !== undefined) {
                 row.City = employee.City;
                 row.Country = employee.Country;
@@ -314,8 +314,8 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                 //required for pushing changes to the grid
                 s.notifySetItem(e.cellInfo.dataRow, row, row);
             }
-            
-        }        
+
+        }
     }
 
 }

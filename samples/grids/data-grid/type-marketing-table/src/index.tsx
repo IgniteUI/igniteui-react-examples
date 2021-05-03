@@ -69,7 +69,7 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                 <IgrDataGrid
                 ref={this.onGridRef}
                 width="100%"

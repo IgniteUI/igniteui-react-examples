@@ -30,7 +30,7 @@ export default class SpreadsheetAdapterForComboBoxes extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 25px)" width="100%" />
             </div>
         );

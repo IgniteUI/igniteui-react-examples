@@ -40,10 +40,10 @@ export default class DataGridCellSelection extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <span className="igOptions-item">Selection Mode: </span>
-                    <select className="igOptions-item" value={this.state.selectionMode}
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label">Selection Mode: </label>
+                    <select className="options-select" value={this.state.selectionMode}
                         onChange={this.onSelectionModeChange}>
                         <option>None</option>
                         <option>SingleCell</option>

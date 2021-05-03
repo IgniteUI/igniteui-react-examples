@@ -23,9 +23,9 @@ export default class FinancialChartVolumeDisplayTypes extends React.Component<an
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer" >
-            <div className="igOptions">
-                <label className="igOptions-label">Volume Type:</label>
+        <div className="container sample" >
+            <div className="options horizontal">
+                <label className="options-label">Volume Type:</label>
                 <select value={this.state.volumeType}
                     onChange={this.onVolumeTypeChanged}>
                     <option>Column</option>
@@ -34,7 +34,7 @@ export default class FinancialChartVolumeDisplayTypes extends React.Component<an
                     <option>None</option>
                 </select>
             </div>
-            <div className="igComponent" style={{height: "calc(100% - 65px)"}}>
+            <div className="container" style={{height: "calc(100% - 65px)"}}>
                 <IgrFinancialChart
                     width="100%"
                     height="100%"

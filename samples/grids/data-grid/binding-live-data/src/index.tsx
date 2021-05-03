@@ -141,7 +141,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         let iconStyle: any = { paddingLeft: "20px", paddingTop: "5px" };
 
         return (
-            <div className="igContainer">
+            <div className="container sample">
 
                 <div className="toolAreaRow">
                     <div className="toolAreaColumn">
@@ -150,13 +150,13 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                             onClick={this.onLiveSomePricesClicked} >
                                 {this.state.liveSomePricesText}
                         </Button>
-                        <span>&nbsp;</span>
+                        <label>&nbsp;</label>
                         <Button variant="contained" color="secondary" style={buttonStyle}
                         disabled={this.state.liveAllPricesDisabled}
                         onClick={this.onLiveAllPricesClicked} >
                             {this.state.liveAllPricesText}
                         </Button>
-                        <span>&nbsp;</span>
+                        <label>&nbsp;</label>
                         <Button variant="contained" style={buttonStyle}
                         onClick={this.onChartClicked} >
                             Chart
@@ -170,7 +170,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                                     min={100}
                                     max={1000}
                                     step={100}
-                                    className="igOptions-slider"
+                                    className="options-slider"
                                     value={this.state.frequency}
                                     onChange={this.onPriceFrequencyChanged}/>
                         </div>
@@ -180,7 +180,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                                 min={100}
                                 max={10000}
                                 step={100}
-                                className="igOptions-slider"
+                                className="options-slider"
                                 value={this.state.volume}
                                 onChange={this.onPriceVolumeChanged}/>
                         </div>
@@ -217,7 +217,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
 
                         </div>
                         <div className="toolAreaRow">
-                            <span className="hiddenIcon" >visibility_off</span>
+                            <label className="hiddenIcon" >visibility_off</label>
                             <Select
                             className="hiddenDrop"
                             value={this.state.hiddenColumns}
@@ -847,7 +847,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
     }
 
     public onChartStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
-        args.styleKey = "igComponent";
+        args.styleKey = "container";
     }
 
     public onChartCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {

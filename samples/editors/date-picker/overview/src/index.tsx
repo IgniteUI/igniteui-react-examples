@@ -11,11 +11,11 @@ IgrDatePickerModule.register();
 
 
 export default class DatePickerOverview extends React.Component<any, any> {
-    
+
     constructor(props: any) {
         super(props);
-        this.onDatePickerRef = this.onDatePickerRef.bind(this);                
-    }    
+        this.onDatePickerRef = this.onDatePickerRef.bind(this);
+    }
 
     public onDatePickerRef(datePicker: IgrDatePicker){
         datePicker.value = new Date(Date.now());
@@ -23,8 +23,8 @@ export default class DatePickerOverview extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">    
-                <div className="igComponent">               
+            <div className="container sample">
+                <div className="container">
                     <IgrDatePicker ref={this.onDatePickerRef} height="50px" width="220px" />
                 </div>
             </div>

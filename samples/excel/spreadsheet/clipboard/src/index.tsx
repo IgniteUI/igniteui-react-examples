@@ -28,11 +28,11 @@ export default class SpreadsheetClipboard extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <button className="igOptions-item" id="cut" onClick={this.cut}>Cut</button>
-                    <button className="igOptions-item" id="copy"  onClick={this.copy}>Copy</button>
-                    <button className="igOptions-item" id="paste" onClick={this.paste}>Paste</button>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <button className="options-button" id="cut" onClick={this.cut}>Cut</button>
+                    <button className="options-button" id="copy"  onClick={this.copy}>Copy</button>
+                    <button className="options-button" id="paste" onClick={this.paste}>Paste</button>
                 </div>
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 25px)" width="100%" />
             </div>

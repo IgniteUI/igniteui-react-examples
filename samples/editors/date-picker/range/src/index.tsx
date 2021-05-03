@@ -26,11 +26,11 @@ export default class DatePickerRange extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                 <div className="dateRanges">
-                    <span className="caption">From:  </span>
+                    <label className="caption">From:  </label>
                     <IgrDatePicker ref={this.onFromDatePickerRef} height="50px" width="220px" valueChanged={this.fromDateChanged}  />
-                    <span className="caption">  To:  </span>
+                    <label className="caption">  To:  </label>
                     <IgrDatePicker ref={this.onToDatePickerRef} height="50px" width="220px" valueChanged={this.toDateChanged}/>
                 </div>
             </div>
@@ -49,15 +49,15 @@ export default class DatePickerRange extends React.Component<any, any> {
 
     public fromDateChanged(s: IgrDatePicker, e: IgrValueChangedEventArgs) {
         let newDate = e.newValue;
-        if (newDate > this.toDatePickerRef.value) {            
-            this.toDatePickerRef.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);            
+        if (newDate > this.toDatePickerRef.value) {
+            this.toDatePickerRef.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
         }
     }
 
     public toDateChanged(s: IgrDatePicker, e: IgrValueChangedEventArgs) {
         let newDate = e.newValue;
-        if (newDate < this.fromDatePickerRef.value) {            
-            this.fromDatePickerRef.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() - 1);            
+        if (newDate < this.fromDatePickerRef.value) {
+            this.fromDatePickerRef.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() - 1);
         }
     }
 }

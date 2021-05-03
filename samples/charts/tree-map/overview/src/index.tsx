@@ -44,16 +44,16 @@ export default class TreeMapOverview extends React.Component {
 
     public render(): JSX.Element {
         return (
-          <div className="igContainer" >
+          <div className="container sample" >
 
-            <div className="igOptions">
-                <button style={{ width: "140px"}} onClick={this.onClickSliceVer} className="igOptions-button">Slice Vertically</button>
-                <button style={{ width: "140px"}} onClick={this.onClickStripVer} className="igOptions-button">Stripped Vertically</button>
-                <button style={{ width: "140px"}} onClick={this.onClickSquared} className="igOptions-button">Squarified</button>
+            <div className="options horizontal">
+                <button style={{ width: "140px"}} onClick={this.onClickSliceVer} className="options-button">Slice Vertically</button>
+                <button style={{ width: "140px"}} onClick={this.onClickStripVer} className="options-button">Stripped Vertically</button>
+                <button style={{ width: "140px"}} onClick={this.onClickSquared} className="options-button">Squarified</button>
             </div>
-            <div className="igOptions" style={{ marginBottom: "10px"}}>
-                <button style={{ width: "140px"}} onClick={this.onClickSliceHor} className="igOptions-button">Slice Horizontally</button>
-                <button style={{ width: "140px"}} onClick={this.onClickStripHor} className="igOptions-button">Stripped Horizontally</button>
+            <div className="options horizontal" style={{ marginBottom: "10px"}}>
+                <button style={{ width: "140px"}} onClick={this.onClickSliceHor} className="options-button">Slice Horizontally</button>
+                <button style={{ width: "140px"}} onClick={this.onClickStripHor} className="options-button">Stripped Horizontally</button>
             </div>
 
             <div style={{ width: "100%", height: "calc(100% - 75px)"}}>

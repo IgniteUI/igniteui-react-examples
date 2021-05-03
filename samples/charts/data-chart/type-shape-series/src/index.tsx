@@ -39,17 +39,17 @@ export default class DataChartTypeShapeSeries extends React.Component<any, any> 
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
 
-            <div className="igOptions-horizontal">
-                    <span className="igOptions-label">Shape Series: </span>
+            <div className="options horizontal">
+                    <label className="options-label">Shape Series: </label>
                     <select value={this.state.seriesType}
                         onChange={this.onSeriesTypeChanged}>
                         <option>Polygon</option>
                         <option>Polyline</option>
                     </select>
                 </div>
-                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
+                <div className="container" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart ref={this.onChartRef}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}

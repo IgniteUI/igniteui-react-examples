@@ -43,14 +43,14 @@ export default class DataChartTypePolarLineSeries extends React.Component<any, a
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions-horizontal">
-                    <span className="igLegend-title">Legend: </span>
-                    <div className="igLegend">
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="legend-title">Legend: </label>
+                    <div className="options vertical">
                         <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                     </div>
                 </div>
-                <div className="igComponent" style={{ height: "calc(100% - 35px)" }} >
+                <div className="container" style={{ height: "calc(100% - 35px)" }} >
                     <IgrDataChart ref={this.onChartRef}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}

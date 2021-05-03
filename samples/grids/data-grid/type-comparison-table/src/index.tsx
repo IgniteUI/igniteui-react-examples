@@ -50,7 +50,7 @@ export default class DataGridTypeComparisonTable extends React.Component<any, an
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                 <IgrDataGrid
                     height="100%"
                     width="100%"

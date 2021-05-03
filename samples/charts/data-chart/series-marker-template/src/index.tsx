@@ -32,8 +32,8 @@ export default class DataChartSeriesMarkerTemplate extends React.Component<any, 
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent">
+            <div className="container sample">
+                <div className="container">
                     <IgrDataChart
                         width="100%"
                         height="100%"
@@ -47,7 +47,7 @@ export default class DataChartSeriesMarkerTemplate extends React.Component<any, 
                         <IgrColumnSeries name="series3"
                                        valueMemberPath="Value"
                                        xAxisName="xAxis"
-                                       yAxisName="yAxis"                                       
+                                       yAxisName="yAxis"
                                        markerTemplate={this.getMarker()}
                                         />
                    </IgrDataChart>
@@ -68,10 +68,10 @@ export default class DataChartSeriesMarkerTemplate extends React.Component<any, 
     }
 
     public getMarker(): any
-    {           
-        let style = { outline: "#9FB328", fill: "white", text: "black" };        
+    {
+        let style = { outline: "#9FB328", fill: "white", text: "black" };
         const size = 12;
-        
+
         return {
             measure: function (measureInfo: DataTemplateMeasureInfo) {
                 const data = measureInfo.data;
@@ -79,7 +79,7 @@ export default class DataChartSeriesMarkerTemplate extends React.Component<any, 
                 let value = "0.00";
                 let item = data.item as any;
                 if (item != null) {
-                    value = item.Value.toString(); 
+                    value = item.Value.toString();
                 }
                 const height = context.measureText("M").width;
                 const width = context.measureText(value).width;
@@ -87,18 +87,18 @@ export default class DataChartSeriesMarkerTemplate extends React.Component<any, 
                 measureInfo.height = height + size;
             },
             render: function (renderInfo: DataTemplateRenderInfo) {
-                const item = renderInfo.data.item as any;    
-                const value = item.Value.toString(); 
+                const item = renderInfo.data.item as any;
+                const value = item.Value.toString();
 
                 const ctx = renderInfo.context as CanvasRenderingContext2D;
                 let x = renderInfo.xPosition;
                 let y = renderInfo.yPosition;
-               
+
                 let halfHeight = renderInfo.availableHeight / 2.0;
 
                 if (renderInfo.isHitTestRender) {
                     ctx.fillStyle = renderInfo.data.actualItemBrush.fill;
-                    
+
                     let width = renderInfo.availableWidth;
                     let height = renderInfo.availableHeight;
 
@@ -120,12 +120,12 @@ export default class DataChartSeriesMarkerTemplate extends React.Component<any, 
                 let height = halfHeight + yOffset;
 
                 ctx.fillRect(x - (width / 2), y - (height / 2), width, height);
-                ctx.closePath(); 
+                ctx.closePath();
 
                 ctx.font = '8pt Verdana';
                 ctx.textBaseline = 'top';
                 ctx.fillStyle = style.fill;
-                ctx.fillText(value, x - (xOffset / 2), y - (yOffset / 2)); 
+                ctx.fillText(value, x - (xOffset / 2), y - (yOffset / 2));
             }
         }
     }

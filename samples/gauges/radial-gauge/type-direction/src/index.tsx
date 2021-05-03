@@ -86,14 +86,14 @@ export default class RadialGaugeTypeDirection extends React.Component<any, any> 
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer-relative">
-                <div className="igContainer-relative-overlay">
+            <div className="container-relative">
+                <div className="container-overlay">
                     <IgrRadialGauge
                         ref={this.onCreateDegreesGauge}
                         height="100%"
                         width="100%"  />
                 </div>
-                <div className="igContainer-relative-overlay">
+                <div className="container-overlay">
                     <IgrRadialGauge
                         ref={this.onCreateDirectionGauge}
                         height="100%"

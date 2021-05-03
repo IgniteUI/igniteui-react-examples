@@ -21,9 +21,9 @@ export default class CategoryChartMarkers extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <span className="igOptions-label">Chart Type: </span>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label">Chart Type: </label>
                     <select value={this.state.chartType}
                         onChange={this.onChartTypeChanged}>
                         <option>Auto</option>
@@ -37,7 +37,7 @@ export default class CategoryChartMarkers extends React.Component<any, any> {
                         <option>StepLine</option>
                         <option>Waterfall</option>
                     </select>
-                    <span className="igOptions-label"> Marker Type: </span>
+                    <label className="options-label"> Marker Type: </label>
                     <select value={this.state.markersTypes}
                         onChange={this.onMarkerTypeChanged}>
                         <option>Automatic</option>
@@ -54,7 +54,7 @@ export default class CategoryChartMarkers extends React.Component<any, any> {
                         <option>None</option>
                     </select>
                 </div>
-                <div className="igComponent" style={{height: "calc(100% - 50px)"}} >
+                <div className="container" style={{height: "calc(100% - 50px)"}} >
                     <IgrCategoryChart
                         width="100%"
                         height="100%"

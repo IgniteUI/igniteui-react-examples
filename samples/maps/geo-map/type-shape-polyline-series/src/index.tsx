@@ -27,8 +27,8 @@ export default class MapTypeScatterPolylineSeries extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer" >
-                <div className="igComponent" >
+            <div className="container sample" >
+                <div className="container" >
                     <IgrGeographicMap
                         ref={this.onMapRef}
                         width="100%"
@@ -40,7 +40,7 @@ export default class MapTypeScatterPolylineSeries extends React.Component {
                     <LegendItem background="rgb(32, 146, 252)" text="American Roads"/>
                     <LegendItem background="rgb(14, 194, 14)"  text="Mexican Roads"/>
                 </LegendOverlay>
-                <div className="igOverlay-bottom-right">Imagery Tiles: @OpenStreetMap</div>
+                <div className="overlay-bottom-right overlay-border">Imagery Tiles: @OpenStreetMap</div>
             </div>
         );
     }

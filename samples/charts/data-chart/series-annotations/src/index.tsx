@@ -93,20 +93,20 @@ export default class DataChartSeriesAnnotations extends React.Component<any, any
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions-horizontal">
-                    <span className="igOptions-item">Annotations: </span>
-                    <label className="igOptions-item"><input type="checkbox" checked={this.state.calloutsVisible}
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label">Annotations: </label>
+                    <label className="options-label"><input type="checkbox" checked={this.state.calloutsVisible}
                         onChange={this.onCalloutChange} />Callouts </label>
-                    <label className="igOptions-item"><input type="checkbox" checked={this.state.finalValuesVisible}
+                    <label className="options-label"><input type="checkbox" checked={this.state.finalValuesVisible}
                         onChange={this.onFinalValueChange} />Final Value</label>
-                    <label className="igOptions-item"><input type="checkbox" checked={this.state.crosshairsVisible}
+                    <label className="options-label"><input type="checkbox" checked={this.state.crosshairsVisible}
                         onChange={this.onCrosshairChange} />Crosshairs</label>
-                    {/* <label className="igOptions-item"><input type="checkbox" checked={this.state.valueOverlayVisible}
+                    {/* <label className="options-label"><input type="checkbox" checked={this.state.valueOverlayVisible}
                         onChange={this.onValueOverlayChange} />Value Overlay </label> #9505e8*/}
                 </div>
 
-                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
+                <div className="container" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart dataSource={this.data}
                         ref={this.onChartRef}
                         width="100%"

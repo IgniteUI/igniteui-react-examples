@@ -45,15 +45,15 @@ export default class DataChartTypeFinancialSeries extends React.Component<any, a
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer">
-            <div className="igOptions-horizontal">
-                <span className="igOptions-label"> Series Display Type: </span>
+        <div className="container sample">
+            <div className="options horizontal">
+                <label className="options-label"> Series Display Type: </label>
                 <select value={this.state.markersType}
                     onChange={this.onDisplayTypeSeriesChanged}>
                     <option>Candlestick</option>
                     <option>OHLC</option>
                 </select>
-                <span className="igOptions-label"> Indicator Type: </span>
+                <label className="options-label"> Indicator Type: </label>
                 <select value={this.state.markersType}
                     onChange={this.onDisplayTypeIndicatorChanged}>
                     <option>Line</option>
@@ -61,7 +61,7 @@ export default class DataChartTypeFinancialSeries extends React.Component<any, a
                     <option>Column</option>
                 </select>
             </div>
-            <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
+            <div className="container" style={{height: "calc(100% - 35px)"}} >
                 <IgrDataChart
                     width="100%"
                     height="100%"

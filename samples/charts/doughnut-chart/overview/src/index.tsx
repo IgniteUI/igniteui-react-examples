@@ -31,7 +31,7 @@ export default class DoughnutChartOverview extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                 <IgrDoughnutChart
                      height="100%">
                         <IgrRingSeries name="ring1"

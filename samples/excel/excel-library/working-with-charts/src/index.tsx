@@ -42,11 +42,11 @@ export default class ExcelLibraryWorkingWithCharts extends React.Component<any, 
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <button className="igOptions-item" onClick={this.exportData}>Export</button>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <button className="options-button" onClick={this.exportData}>Export</button>
                 </div>
-                <div className="igComponent">
+                <div className="container">
                     <IgrCategoryChart
                         height="50%" width="100%"
                         yAxisMinimumValue={0}

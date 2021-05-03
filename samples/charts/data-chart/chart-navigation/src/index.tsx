@@ -59,12 +59,12 @@ export default class DataChartNavigation extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions-horizontal">
-                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanUpClick}>Pan Up</button>
-                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanLeftClick}>Pan Left</button>
-                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onZoomInClick}>Zoom In</button>
-                    <span className="igOptions-item" style={{width: "120px"}}>Pan Modifier:</span>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <button className="options-button" style={{width: "80px"}} onClick={this.onPanUpClick}>Pan Up</button>
+                    <button className="options-button" style={{width: "80px"}} onClick={this.onPanLeftClick}>Pan Left</button>
+                    <button className="options-button" style={{width: "80px"}} onClick={this.onZoomInClick}>Zoom In</button>
+                    <label className="options-label" style={{width: "120px"}}>Pan Modifier:</label>
                     <select value={this.state.panModifier} style={{width: "120px"}} onChange={this.onPanModifierChange}>
                         <option>Alt</option>
                         <option>Control</option>
@@ -73,18 +73,18 @@ export default class DataChartNavigation extends React.Component<any, any> {
                         <option>Apple</option>
                         <option>None</option>
                     </select>
-                    <span className="igOptions-item">Default Interaction:</span>
+                    <label className="options-label">Default Interaction:</label>
                     <select value={this.state.defaultInteraction} onChange={this.onDefaultInteractionChange}>
                         <option>DragZoom</option>
                         <option>DragPan</option>
                         <option>None</option>
                     </select>
                 </div>
-                <div className="igOptions-horizontal" style={{marginBottom: "15px"}}>
-                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanDownClick}>Pan Down</button>
-                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onPanRightClick}>Pan Right</button>
-                    <button className="igOptions-item" style={{width: "80px"}} onClick={this.onZoomOutClick}>Zoom Out</button>
-                    <span className="igOptions-item" style={{width: "120px"}}>Zoom Modifier:</span>
+                <div className="options horizontal" style={{marginBottom: "15px"}}>
+                    <button className="options-button" style={{width: "80px"}} onClick={this.onPanDownClick}>Pan Down</button>
+                    <button className="options-button" style={{width: "80px"}} onClick={this.onPanRightClick}>Pan Right</button>
+                    <button className="options-button" style={{width: "80px"}} onClick={this.onZoomOutClick}>Zoom Out</button>
+                    <label className="options-label" style={{width: "120px"}}>Zoom Modifier:</label>
                     <select value={this.state.dragModifier} style={{width: "120px"}} onChange={this.onDragModifierChange}>
                         <option>Alt</option>
                         <option>Control</option>
@@ -93,11 +93,11 @@ export default class DataChartNavigation extends React.Component<any, any> {
                         <option>Apple</option>
                         <option>None</option>
                     </select>
-                    <label className="igOptions-item"><input type="checkbox"
+                    <label className="options-label"><input type="checkbox"
                         checked={this.state.isZoomEnabled}
                         onChange={this.onZoomEnabledChange} /> Enable Zooming</label>
                 </div>
-                <div className="igComponent" style={{height: "calc(100% - 75px)"}} >
+                <div className="container" style={{height: "calc(100% - 75px)"}} >
                     <IgrDataChart
                         ref={this.onChartRef}
                         defaultInteraction={this.state.defaultInteraction}

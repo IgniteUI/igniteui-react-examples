@@ -13,7 +13,7 @@ export default class LinearGaugeBacking extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
             <IgrLinearGauge
                 height="80px"
                 width="100%"

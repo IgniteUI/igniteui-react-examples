@@ -218,11 +218,11 @@ export default class ExcelLibraryWorkingWithCells extends React.Component<any, a
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
+            <div className="container sample">
+                <div className="options horizontal">
                     <button style={{width: "auto"}} onClick={this.onClick}>Save Workbook</button>
                 </div>
-                <div className="igOptions-vertical">
+                <div className="options vertical">
                     <label className="label"><input type="checkbox" id="addComment" onChange={this.onCommentChanged}/>Add a Comment to cell A1: </label>
                     <label className="label"><input type="checkbox" id="addFormula" onChange={this.onFormulaChanged}/>Add a Formula for cells F2 to F20: </label>
                     <label className="label"><input type="checkbox" id="mergeCells" onChange={this.onMergeChanged}/>Merge Cells: </label>

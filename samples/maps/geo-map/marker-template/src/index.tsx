@@ -23,19 +23,19 @@ export default class MapMarkerTemplate extends React.Component {
     constructor(props: any) {
         super(props);
 
-        this.onMapRef = this.onMapRef.bind(this);       
+        this.onMapRef = this.onMapRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer" >               
-                <div className="igComponent" >
+            <div className="container sample" >
+                <div className="container" >
                     <IgrGeographicMap
                         ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true" />
-                </div>               
+                </div>
             </div>
         );
     }
@@ -52,16 +52,16 @@ export default class MapMarkerTemplate extends React.Component {
         this.symbolSeries.latitudeMemberPath = "lat";
         this.symbolSeries.longitudeMemberPath = "lon";
         this.symbolSeries.markerBrush  = "White";
-        this.symbolSeries.markerOutline = "DodgerBlue";   
+        this.symbolSeries.markerOutline = "DodgerBlue";
         this.symbolSeries.markerTemplate = this.getMarker();
-           
+
         this.geoMap.series.add(this.symbolSeries);
-    }  
+    }
 
     public getMarker(): any
-    {   
+    {
         let style = { outline: "#7D73E6", fill: "white", text: "black" };
-        
+
         const size = 12;
         const radius = size / 2;
         return {
@@ -71,7 +71,7 @@ export default class MapMarkerTemplate extends React.Component {
                 let value = "0.00";
                 let item = data.item as any;
                 if (item != null) {
-                    value = item.name.toString(); 
+                    value = item.name.toString();
                 }
                 const height = context.measureText("M").width;
                 const width = context.measureText(value).width;
@@ -79,13 +79,13 @@ export default class MapMarkerTemplate extends React.Component {
                 measureInfo.height = height + size;
             },
             render: function (renderInfo: DataTemplateRenderInfo) {
-                const item = renderInfo.data.item as any;    
-                const value = item.name.toString(); 
+                const item = renderInfo.data.item as any;
+                const value = item.name.toString();
 
                 const ctx = renderInfo.context as CanvasRenderingContext2D;
                 let x = renderInfo.xPosition;
                 let y = renderInfo.yPosition;
-               
+
                 let halfHeight = renderInfo.availableHeight / 2.0;
 
                 if (renderInfo.isHitTestRender) {
@@ -101,34 +101,34 @@ export default class MapMarkerTemplate extends React.Component {
                     ctx.strokeStyle = style.outline;
                     ctx.stroke();
                     ctx.closePath();
-                } 
+                }
 
                 x = renderInfo.xPosition + 5;
                 y = renderInfo.yPosition + 7.5;
                 if (y < 0) {
                     y -= renderInfo.availableHeight + 7.5;
-                } 
+                }
 
                 let bottomEdge = renderInfo.passInfo.viewportTop + renderInfo.passInfo.viewportHeight;
                 if (y + renderInfo.availableHeight > bottomEdge) {
                     y -= renderInfo.availableHeight + 5;
-                } 
+                }
 
                 let rightEdge = renderInfo.passInfo.viewportLeft + renderInfo.passInfo.viewportWidth;
                 if (x + renderInfo.availableWidth > rightEdge) {
                     x -= renderInfo.availableWidth + 12;
-                } 
+                }
 
                 ctx.beginPath();
                 ctx.fillStyle = style.outline ;
                 ctx.fillRect(x - 2, y - 2, renderInfo.availableWidth + 8, halfHeight + 6);
-                ctx.closePath(); 
+                ctx.closePath();
 
                 ctx.font = '8pt Verdana';
                 ctx.textBaseline = "top";
                 ctx.fillStyle = style.fill;
                 ctx.fillText(value, x + 2, y + 1);
- 
+
             }
         }
     }

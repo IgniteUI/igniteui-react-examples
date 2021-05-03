@@ -33,13 +33,13 @@ export default class SpreadsheetActivation extends React.Component<any, any> {
     public render(): JSX.Element {
 
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <input className="igOptions-input-text" type="text" name="inputAddress" value={this.state.inputAddress} onChange={this.onInputAddress} />
-                    <button className="igOptions-button" onClick={this.onClick} >Active Cell</button>
-                    <label className="igOptions-item"> Current Active Cell: {this.state.activeCell } </label>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <input className="options-text" type="text" name="inputAddress" value={this.state.inputAddress} onChange={this.onInputAddress} />
+                    <button className="options-button" onClick={this.onClick} >Active Cell</button>
+                    <label className="options-label"> Current Active Cell: {this.state.activeCell } </label>
                 </div>
-                <div className="igComponent">
+                <div className="container">
                     <IgrSpreadsheet activeCellChanged={this.onActiveCellChanged} ref={this.onSpreadsheetRef}
                     height="100%" width="100%" />
                 </div>

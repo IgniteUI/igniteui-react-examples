@@ -229,8 +229,8 @@ export default class DataChartTypeFinancialIndicatorLine extends React.Component
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent" style={{ height: "calc(50% - 20px)" }} >
+            <div className="container sample">
+                <div className="container" style={{ height: "calc(50% - 20px)" }} >
                     <IgrDataChart
                         width="100%"
                         height="100%"
@@ -255,8 +255,8 @@ export default class DataChartTypeFinancialIndicatorLine extends React.Component
                             showDefaultTooltip="true" />
                     </IgrDataChart>
                 </div>
-                <div className="igOptions-horizontal">
-                    <span className="igOptions-label"> Indicator Type: </span>
+                <div className="options horizontal">
+                    <label className="options-label"> Indicator Type: </label>
                     <select value={this.state.indicatorType}
                         onChange={this.onIndicatorChanged}>
                         <option>AbsoluteVolumeOscillator</option>
@@ -292,7 +292,7 @@ export default class DataChartTypeFinancialIndicatorLine extends React.Component
                     </select>
                 </div>
 
-                <div className="igComponent" style={{ height: "calc(50% - 20px)" }}>
+                <div className="container" style={{ height: "calc(50% - 20px)" }}>
                     <IgrDataChart
                         width="100%"
                         height="100%"

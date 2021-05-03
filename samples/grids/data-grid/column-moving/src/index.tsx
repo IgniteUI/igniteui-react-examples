@@ -43,21 +43,21 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <span className="igOptions-item" style={{ width: "200px" }}>Column Moving Mode:</span>
-                    <select className="igOptions-item" style={{ width: "135px" }} defaultValue="Deferred" onChange={this.onColumnMovingModeChange}>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label" style={{ width: "200px" }}>Column Moving Mode:</label>
+                    <select className="options-select" style={{ width: "135px" }} defaultValue="Deferred" onChange={this.onColumnMovingModeChange}>
                         <option>Deferred</option>
                         <option>None</option>
                     </select>
-                    <span className="igOptions-item">Separator Width: </span>
-                    <input className="igOptions-slider" style={{ width: "100px" }}
+                    <label className="options-label">Separator Width: </label>
+                    <input className="options-slider" style={{ width: "100px" }}
                     type="range" min={1} max={5} step="1" defaultValue={this.state.columnSeparatorWidth}
                     onChange={this.onSeparatorWidthChanged}/>
                 </div>
-                <div className="igOptions">
-                    <span className="igOptions-item" style={{ width: "200px" }}>Column Moving Animation:</span>
-                    <select className="igOptions-item" style={{ width: "135px" }} defaultValue="SlideOver" onChange={this.onColumnMovingAnimationModeChange} >
+                <div className="options horizontal">
+                    <label className="options-label" style={{ width: "200px" }}>Column Moving Animation:</label>
+                    <select className="options-select" style={{ width: "135px" }} defaultValue="SlideOver" onChange={this.onColumnMovingAnimationModeChange} >
                         <option>Auto</option>
                         <option>SlideOver</option>
                         <option>None</option>

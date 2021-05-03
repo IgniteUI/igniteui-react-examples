@@ -54,7 +54,7 @@ export default class DataGridOverview extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                  <IgrDataGridToolbar
                     ref={this.onToolbarRef}
                     toolbarTitle="Sales Team"
@@ -139,10 +139,7 @@ export default class DataGridOverview extends React.Component<any, any> {
     }
 
     public componentDidMount() {
-    //     window.addEventListener('load', this.onLoad);
-    // }
 
-    // public onLoad() {
         const peopleGroup = new IgrColumnGroupDescription();
         peopleGroup.field = "Country";
         peopleGroup.displayName = "Country";
@@ -174,7 +171,7 @@ export default class DataGridOverview extends React.Component<any, any> {
     public getProductivityChart(props: IIgrCellTemplateProps) {
         const info = props.dataContext as IgrTemplateCellInfo;
         return (
-            <div className="gridSparklineContainer">
+            <div className="container">
                <IgrSparkline
                    height="30px" width="100%"
                    displayType="Column"

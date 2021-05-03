@@ -59,25 +59,25 @@ export default class DataChartTypeScatterContourSeries extends React.Component<a
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer">
-            {/* <div className="igOptions-horizontal">
-                <label className="igOptions-label">Thickness: </label>
-                <label className="igOptions-value" >
+        <div className="container sample">
+            {/* <div className="options horizontal">
+                <label className="options-label">Thickness: </label>
+                <label className="options-value" >
                     {this.state.seriesThickness}
                 </label>
-                <input className="igOptions-slider" type="range" min="1" max="10" step="1"
+                <input className="options-slider" type="range" min="1" max="10" step="1"
                     value={this.state.seriesThickness}
                     onChange={this.onSeriesThicknessChanged}/>
 
-                <label className="igOptions-label">Contours: </label>
-                <label className="igOptions-value" >
+                <label className="options-label">Contours: </label>
+                <label className="options-value" >
                     {this.state.seriesContours}
                 </label>
-                <input className="igOptions-slider" type="range" min="1" max="15" step="1"
+                <input className="options-slider" type="range" min="1" max="15" step="1"
                     value={this.state.seriesContours}
                     onChange={this.onSeriesContoursChanged}/>
             </div> */}
-            <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
+            <div className="container" style={{height: "calc(100% - 35px)"}} >
                 <IgrDataChart
                     ref={this.onChartRef}
                     isHorizontalZoomEnabled={true}

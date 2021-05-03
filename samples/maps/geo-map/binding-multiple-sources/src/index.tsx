@@ -28,16 +28,16 @@ export default class MapBindingMultipleSources extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent" >
+            <div className="container sample">
+                <div className="container" >
                     <IgrGeographicMap
                         ref={this.onMapRef}
                         width="100%"
                         height="100%"
                         zoomable="true" />
                 </div>
-                <div className="igOverlay-bottom-right">Imagery Tiles: @OpenStreetMap</div>
-                <span className="igOverlay-bottom-left">Data Source: IG</span>
+                <div className="overlay-bottom-right overlay-border">Imagery Tiles: @OpenStreetMap</div>
+                <label>Data Source: IG</label>
             </div>
         );
     }

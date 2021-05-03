@@ -30,9 +30,9 @@ export default class DataChartSeriesMarkers extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions-horizontal">
-                    <span className="igOptions-label"> Marker Type: </span>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label"> Marker Type: </label>
                     <select value={this.state.markersType}
                         onChange={this.onMarkerTypeChanged}>
                         <option>Automatic</option>
@@ -49,7 +49,7 @@ export default class DataChartSeriesMarkers extends React.Component<any, any> {
                         <option>None</option>
                     </select>
                 </div>
-                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
+                <div className="container" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart
                         width="100%"
                         height="100%"

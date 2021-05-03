@@ -23,22 +23,22 @@ export default class FinancialChartAxisTypes extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer" >
-            <div className="igOptions">
-                <label className="igOptions-label">X-Axis Mode:</label>
+        <div className="container sample" >
+            <div className="options horizontal">
+                <label className="options-label">X-Axis Mode:</label>
                 <select value={this.state.xAxisMode}
                     onChange={this.onXAxisModeChanged}>
                     <option>Ordinal</option>
                     <option>Time</option>
                 </select>
-                <label className="igOptions-label">Y-Axis Mode:</label>
+                <label className="options-label">Y-Axis Mode:</label>
                 <select value={this.state.yAxisMode}
                     onChange={this.onYAxisModeChanged}>
                     <option>PercentChange</option>
                     <option>Numeric</option>
                 </select>
             </div>
-            <div className="igComponent" style={{height: "calc(100% - 65px)"}}>
+            <div className="container" style={{height: "calc(100% - 65px)"}}>
                 <IgrFinancialChart
                     width="100%"
                     height="100%"

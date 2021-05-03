@@ -24,16 +24,16 @@ export default class CategoryChartLineChartSingleSource extends React.Component<
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <span>Renewable Electricity Generated</span>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label>Renewable Electricity Generated</label>
                 </div>
-                <div className="igComponent" style={{height: "calc(100% - 1.25rem)"}} >
-                    <IgrCategoryChart                        
+                <div className="container" style={{height: "calc(100% - 1.25rem)"}} >
+                    <IgrCategoryChart
                         width="100%"
-                        height="100%"          
+                        height="100%"
                         isHorizontalZoomEnabled={false}
-                        isVerticalZoomEnabled={false}            
+                        isVerticalZoomEnabled={false}
                         dataSource={this.data}
                         chartType="line"
                         yAxisTitle="TWh"

@@ -30,13 +30,13 @@ export default class BulletGraphTypeReversed extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer"  >
-                <label className="igTitle">Company Expanse ($ Billions)</label>
+            <div className="container sample"  >
+                <label className="legend-title">Company Expanse ($ Billions)</label>
                 <IgrBulletGraph
                     ref={this.onCreateGaugeRed} isScaleInverted={true}
                     height="120px"
                     width="100%" />
-                <label className="igTitle">Company Revenue ($ Billions)</label>
+                <label className="legend-title">Company Revenue ($ Billions)</label>
                 <IgrBulletGraph
                     ref={this.onCreateGaugeGreen}
                     height="120px"

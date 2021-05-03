@@ -25,7 +25,7 @@ export default class SpreadsheetFilterDialog extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="100%" width="100%" />
             </div>
         );

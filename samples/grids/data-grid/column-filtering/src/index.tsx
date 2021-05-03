@@ -93,24 +93,24 @@ export default class DataGridColumnFiltering extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <span className="igOptions-item">  Column: </span>
-                    <select className="igOptions-item" value={this.state.filterColumn}
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label">  Column: </label>
+                    <select className="options-select" value={this.state.filterColumn}
                         onChange={this.onFilterColumnChanged}>
                         <option>Name</option>
                         <option>Street</option>
                         <option>City</option>
                         <option>Country</option>
                     </select>
-                    <select className="igOptions-item" value={this.state.filterMode}
+                    <select className="options-select" value={this.state.filterMode}
                         onChange={this.onFilterModeChanged}>
                         <option>Contains</option>
                         <option>StartsWith</option>
                         <option>EndsWith</option>
                     </select>
-                    <label className="igOptions-item"> Expression: </label>
-                    <input className="igOptions-input-text" type="text" name="title" value={this.state.filterText}
+                    <label className="options-label"> Expression: </label>
+                    <input className="options-text" type="text" name="title" value={this.state.filterText}
                        onChange={this.onFilterTextChanged} />
                 </div>
 

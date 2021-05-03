@@ -52,14 +52,22 @@ export default class MapNavigation extends React.Component<any, any> {
             windowScale: 0,
             windowPositionVertical: 0,
             windowPositionHorizontal: 0,
+            geoT: "",
+            geoL: "",
+            geoH: "",
+            geoW: "",
+            winT: "",
+            winL: "",
+            winH: "",
+            winW: "",
         };
     }
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer"    >
+            <div className="container sample"    >
 
-                <div className="igComponent" id="map" >
+                <div className="container" id="map" >
                     <IgrGeographicMap
                         ref={this.onMapRef}
                         actualWindowRectChanged={this.onMapWindowRectChanged}
@@ -69,87 +77,75 @@ export default class MapNavigation extends React.Component<any, any> {
                         zoomable="true"/>
                 </div>
 
-                <div className="igOverlay-top-left" style={{color: "black", padding: "10px"}} >
-                    <label className="igOverlay-label">Zoom to Map Region</label>
+                <div className="overlay-left overlay-border vertical" style={{background: "rgba(217, 217, 217, 0.5)"}} >
+                    <label style={{fontWeight: 600}}>Zoom to Map Region</label>
                     <select value={this.state.selectedRegion}
                             onChange={this.onSelectionChanged}>
                             {this.NavigationOptions}
                     </select>
-                    <label className="igOverlay-label">Map Geographic Rect</label>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Top:</label>
-                        <label className="igOverlay-value">{MapUtils.toLat(this.state.mapRegion.top)}</label>
+                    <label style={{fontWeight: 600}}>Map Geographic Rect</label>
+                    <div className="horizontal" >
+                        <div className="vertical"  style={{marginRight: "1rem"}}>
+                            <label >{geoT}</label>
+                            <label >{geoL}</label>
+                        </div>
+                        <div className="vertical">
+                            <label >{geoH}</label>
+                            <label >{geoW}</label>
+                        </div>
                     </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Left:</label>
-                        <label className="igOverlay-value">{MapUtils.toLng(this.state.mapRegion.left)}</label>
+
+
+                    <label style={{fontWeight: 600}}>Map Window Rect</label>
+
+                    <div className="horizontal" >
+                        <div className="vertical"  style={{marginRight: "1rem"}}>
+                            <label >{winT}</label>
+                            <label >{winL}</label>
+                        </div>
+                        <div className="vertical">
+                            <label >{winH}</label>
+                            <label >{winW}</label>
+                        </div>
                     </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Height:</label>
-                        <label className="igOverlay-value">{MapUtils.toLat(this.state.mapRegion.height)}</label>
+
+                    <label style={{fontWeight: 600}}>Map Window Position</label>
+                    <div className="horizontal">
+                        <div className="vertical"  style={{marginRight: "1rem"}}>
+                            <label >Horizontal:</label>
+                            <label >Vertical:</label>
+                            <label >Scale:</label>
+                        </div>
+                        <div className="vertical">
+                            <label >{this.state.windowPositionHorizontal.toFixed(4)}</label>
+                            <label >{this.state.windowPositionVertical.toFixed(4)}</label>
+                            <label >{this.state.windowScale.toFixed(4)}</label>
+                        </div>
                     </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Width:</label>
-                        <label className="igOverlay-value">{MapUtils.toLng(this.state.mapRegion.width)}</label>
+
+                    <label style={{fontWeight: 600}}>Map Hover Coordinates</label>
+                    <div className="horizontal">
+                        <div className="vertical" style={{marginRight: "1rem"}}>
+                            <label >Longitude: </label>
+                            <label >Latitude: </label>
+                            <label >Window X: </label>
+                            <label >Window Y: </label>
+                            <label >Pixel X: </label>
+                            <label >Pixel Y: </label>
+                        </div>
+                        <div className="vertical">
+                            <label >{MapUtils.toLng(this.state.mapHoverGeographicCoordinate.x)}</label>
+                            <label >{MapUtils.toLat(this.state.mapHoverGeographicCoordinate.y)}</label>
+                            <label >{this.state.mapHoverWindowCoordinate.x.toFixed(4)}</label>
+                            <label >{this.state.mapHoverWindowCoordinate.y.toFixed(4)}</label>
+                            <label >{MapUtils.toPixel(this.state.mapHoverRelativeCoordinate.x)}</label>
+                            <label >{MapUtils.toPixel(this.state.mapHoverRelativeCoordinate.y)}</label>
+                        </div>
                     </div>
-                    <label className="igOverlay-label">Map Window Rect</label>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Top:</label>
-                        <label className="igOverlay-value">{this.state.windowRect.top.toFixed(4)}</label>
-                    </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Left:</label>
-                        <label className="igOverlay-value">{this.state.windowRect.left.toFixed(4)}</label>
-                    </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Height:</label>
-                        <label className="igOverlay-value">{this.state.windowRect.height.toFixed(4)}</label>
-                    </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Width:</label>
-                        <label className="igOverlay-value">{this.state.windowRect.width.toFixed(4)}</label>
-                    </div>
-                    <label className="igOverlay-label">Map Window Position</label>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Horizontal:</label>
-                        <label className="igOverlay-value">{this.state.windowPositionHorizontal.toFixed(4)}</label>
-                    </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Vertical:</label>
-                        <label className="igOverlay-value">{this.state.windowPositionVertical.toFixed(4)}</label>
-                    </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Scale:</label>
-                        <label className="igOverlay-value">{this.state.windowScale.toFixed(4)}</label>
-                    </div>
-                    <label className="igOverlay-label">Map Hover Coordinates</label>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Longitude:</label>
-                        <label className="igOverlay-value">{MapUtils.toLng(this.state.mapHoverGeographicCoordinate.x)}</label>
-                    </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Latitude:</label>
-                        <label className="igOverlay-value">{MapUtils.toLat(this.state.mapHoverGeographicCoordinate.y)}</label>
-                    </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Window X:</label>
-                        <label className="igOverlay-value">{this.state.mapHoverWindowCoordinate.x.toFixed(4)}</label>
-                    </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Window Y:</label>
-                        <label className="igOverlay-value">{this.state.mapHoverWindowCoordinate.y.toFixed(4)}</label>
-                    </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Pixel X:</label>
-                        <label className="igOverlay-value">{MapUtils.toPixel(this.state.mapHoverRelativeCoordinate.x)}</label>
-                    </div>
-                    <div className="igOverlay-row">
-                        <label className="igOverlay-field">Pixel Y:</label>
-                        <label className="igOverlay-value">{MapUtils.toPixel(this.state.mapHoverRelativeCoordinate.y)}</label>
-                    </div>
+
                 </div>
 
-                <div className="igOverlay-bottom-right">Imagery Tiles: @ESRI/ArcGIS</div>
+                <div className="overlay-bottom-right overlay-border">Imagery Tiles: @ESRI/ArcGIS</div>
             </div>
         );
     }
@@ -196,12 +192,30 @@ export default class MapNavigation extends React.Component<any, any> {
         const v = geoMap.actualWindowPositionVertical;
         const s = geoMap.actualWindowScale;
 
+        const geoT = "T: " + MapUtils.toLat(this.geoRect.top);
+        const geoL = "L: " + MapUtils.toLng(this.geoRect.left);
+        const geoH = "H: " + MapUtils.toLng(this.geoRect.height);
+        const geoW = "W: " + MapUtils.toLng(this.geoRect.width);
+
+        const winT = "T: " + windowRect.top.toFixed(4);
+        const winL = "L: " + windowRect.left.toFixed(4);
+        const winH = "H: " + windowRect.height.toFixed(4);
+        const winW = "W: " + windowRect.width.toFixed(4);
+
         this.setState({
             mapRegion: geoRect,
             windowRect: e.newRect,
             windowPositionHorizontal: h,
             windowPositionVertical: v,
-            windowScale: s
+            windowScale: s,
+            geoT: geoT,
+            geoL: geoL,
+            geoH: geoH,
+            geoW: geoW,
+            winT: winT,
+            winL: winL,
+            winH: winH,
+            winW: winW,
         });
 
         // console.log("{ " +

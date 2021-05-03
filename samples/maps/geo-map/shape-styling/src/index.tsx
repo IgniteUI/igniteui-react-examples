@@ -106,9 +106,9 @@ export default class MapShapeStyling extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions-horizontal">
-                    <span >Shape Styling:</span>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label >Shape Styling:</label>
                     <select value={this.state.stylingType}
                             onChange={this.onOptionsSelected}
                             style={{width: "14rem"}}>
@@ -118,7 +118,7 @@ export default class MapShapeStyling extends React.Component<any, any> {
                             <option>ShapeRandomStyling</option>
                     </select>
                 </div>
-                <div className="igComponent" >
+                <div className="container" >
                     <IgrGeographicMap
                         ref={this.onMapRef}
                         width="100%"

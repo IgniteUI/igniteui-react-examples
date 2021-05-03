@@ -26,10 +26,10 @@ export default class SpreadsheetCommands extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <button className="igOptions-item" id="zoomIn" onClick={this.onCommandClick}>Zoom In</button>
-                    <button className="igOptions-item" id="zoomOut" onClick={this.onCommandClick}>Zoom Out</button>
+            <div className="container sample">
+                <div className="options horizontal">
+                    <button className="options-button" id="zoomIn" onClick={this.onCommandClick}>Zoom In</button>
+                    <button className="options-button" id="zoomOut" onClick={this.onCommandClick}>Zoom Out</button>
                 </div>
                 <IgrSpreadsheet ref={this.onSpreadsheetRef} height="calc(100% - 25px)" width="100%" />
             </div>

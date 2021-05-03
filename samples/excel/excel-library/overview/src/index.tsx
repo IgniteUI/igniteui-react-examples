@@ -158,8 +158,8 @@ export default class ExcelLibraryOverview extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
+            <div className="container sample">
+                <div className="options horizontal">
                     <button onClick={this.onClick}>Save Workbook</button>
                 </div>
             </div>

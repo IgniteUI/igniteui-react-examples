@@ -30,7 +30,7 @@ export default class DataGridBindingRemoteData extends React.Component<any, any>
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                 <IgrDataGrid
                    width="100%"
                    height="100%"

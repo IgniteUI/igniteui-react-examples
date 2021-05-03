@@ -201,7 +201,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
     }
 
     public onChartStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
-        args.styleKey = "igComponent";
+        args.styleKey = "container";
     }
 
     public onChartCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
@@ -262,14 +262,14 @@ export default class DataGridPerformance extends React.Component<any, any> {
             textAlign: tmpl.resolvedTextAlign,
             font: font,
             opacity: tmpl.resolvedContentOpacity }}>
-            <span>{tmpl.value}</span>
+            <label>{tmpl.value}</label>
             </div>
         );
     }
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
                 <IgrDataGrid
                 width="100%"
                 height="100%"

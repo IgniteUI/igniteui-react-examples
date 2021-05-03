@@ -30,7 +30,7 @@ export default class DataGridRowHighlighting extends React.Component<any, IRowHo
         super(props);
 
         this.onGridRef = this.onGridRef.bind(this);
-        
+
         this.state = { hoverEnabled: true,
         hoverColor: '' };
         this.data = DataGridSharedData.getEmployees();
@@ -44,16 +44,16 @@ export default class DataGridRowHighlighting extends React.Component<any, IRowHo
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    
-                    <span className="igOptions-item">Enable Row Hover</span>
+            <div className="container sample">
+                <div className="options horizontal">
+
+                    <label className="options-label">Enable Row Hover</label>
                     <div>
                         <input type="checkbox" checked={this.state.hoverEnabled} onChange={this.onHoverChange}/>
                     </div>
 
-                    <span className="igOptions-item">Row Hover Color: </span>
-                    <select className="igOptions-item" value={this.state.hoverColor}
+                    <label className="options-label">Row Hover Color: </label>
+                    <select className="options-select" value={this.state.hoverColor}
                         onChange={this.onHoverColorChange}>
                         <option value="default">Default</option>
                         <option value="#ffbfbf">Red</option>

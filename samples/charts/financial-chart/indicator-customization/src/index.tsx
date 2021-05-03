@@ -24,8 +24,8 @@ export default class FinancialChartIndicatorCustom extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer" style={{height: "calc(100% - 25px)"}} >
-                <div className="igComponent">
+            <div className="container sample" >
+                <div className="container">
                     <IgrFinancialChart
                         width="100%"
                         height="100%"

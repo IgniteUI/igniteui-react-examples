@@ -39,8 +39,8 @@ export default class DataChartTypeRangeAreaSeries extends React.Component<any, a
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
+            <div className="container sample">
+                <div className="container" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart ref={this.onChartRef}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}

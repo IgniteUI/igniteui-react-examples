@@ -29,9 +29,9 @@ export default class PieChartLegend extends React.Component<any, any> {
                 { MarketShare: 37, Company: "Space Cooling", Summary:"Space Cooling 37%", },
                 { MarketShare: 25, Company: "Residential Appliance", Summary:"Residential Appliance 25%",  },
                 { MarketShare: 20, Company: "Heating", Summary:"Heating 20%", },
-                { MarketShare: 18, Company: "Lighting", Summary:"Lighting 18%", },                
+                { MarketShare: 18, Company: "Lighting", Summary:"Lighting 18%", },
         ] };
-       
+
     }
 
     public onChartRef(chart: IgrPieChart) {
@@ -54,13 +54,13 @@ export default class PieChartLegend extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <span className="igLegend-title">Global Electricity Demand by Energy Use</span>
-                <div className="igLegend">
+            <div className="container sample">
+                <label className="legend-title">Global Electricity Demand by Energy Use</label>
+                <div className="options vertical">
                     <IgrItemLegend ref={this.onLegendRef}  />
                 </div>
 
-                <div className="igComponent">
+                <div className="container">
                     <IgrPieChart ref={this.onChartRef}
                                  dataSource={this.state.data}
                                  labelMemberPath="Summary"

@@ -65,33 +65,33 @@ export default class DataChartTypeScatterAreaSeries extends React.Component<any,
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer">
-            {/* <div className="igOptions-horizontal">
-                <span className="igOptions-label">Scale Mode: </span>
+        <div className="container sample">
+            {/* <div className="options horizontal">
+                <label className="options-label">Scale Mode: </label>
                 <select value={this.state.seriesScaleMode}
                     onChange={this.seriesScaleModeChanged}>
                     <option>Select</option>
                     <option>InterpolateRGB</option>
                     <option>InterpolateHSV</option>
                 </select>
-                <label className="igOptions-label">Minimum: </label>
-                <label className="igOptions-value" >
+                <label className="options-label">Minimum: </label>
+                <label className="options-value" >
                     {this.state.seriesScaleMin}
                 </label>
-                <input className="igOptions-slider" type="range" min="-5" max="0" step="1"
+                <input className="options-slider" type="range" min="-5" max="0" step="1"
                     value={this.state.seriesScaleMin}
                     onChange={this.seriesScaleMinChanged}/>
 
-                <label className="igOptions-label">Maximum: </label>
-                <label className="igOptions-value" >
+                <label className="options-label">Maximum: </label>
+                <label className="options-value" >
                     {this.state.seriesScaleMax}
                 </label>
-                <input className="igOptions-slider" type="range" min="0" max="5" step="1"
+                <input className="options-slider" type="range" min="0" max="5" step="1"
                     value={this.state.seriesScaleMax}
                     onChange={this.seriesScaleMaxChanged}/>
 
             </div> */}
-            <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
+            <div className="container" style={{height: "calc(100% - 35px)"}} >
                 <IgrDataChart
                     ref={this.onChartRef}
                     isHorizontalZoomEnabled={true}

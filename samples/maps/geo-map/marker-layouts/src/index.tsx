@@ -15,7 +15,7 @@ IgrDataChartInteractivityModule.register();
 
 export default class MapMarkerLayouts extends React.Component<any, any> {
 
-    public geoMap: IgrGeographicMap;    
+    public geoMap: IgrGeographicMap;
     public symbolSeries = new IgrGeographicSymbolSeries ( { name: "symbolSeries" });
 
     constructor(props: any) {
@@ -23,19 +23,19 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
 
         this.onSelectionModeChange = this.onSelectionModeChange.bind(this);
         this.onMapReferenced = this.onMapReferenced.bind(this);
-        
+
 
         this.state = { selectionCollisionType: "Omit" };
-       
+
     }
 
     public render(): JSX.Element {
         return (
-            
-            <div className="igContainer">                
 
-                <div className="igOptions">
-                <span> Marker Collision Avoidance </span>
+            <div className="container sample">
+
+                <div className="options horizontal">
+                <label> Marker Collision Avoidance </label>
                     <select  onChange={this.onSelectionModeChange} value={this.state.selectionCollisionType}>
                         <option>Fade</option>
                         <option>FadeAndShift</option>
@@ -46,16 +46,16 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
                     </select>
                 </div>
 
-                <div className="igComponent" >
-                    <IgrGeographicMap 
-                        ref={this.onMapReferenced}                       
+                <div className="container" >
+                    <IgrGeographicMap
+                        ref={this.onMapReferenced}
                         width="100%"
                         height="100%"
                         zoomable="true" />
                 </div>
 
 
-                <div className="igOverlay-bottom-right">Imagery Tiles: @OpenStreetMap</div>
+                <div className="overlay-bottom-right overlay-border">Imagery Tiles: @OpenStreetMap</div>
             </div>
         );
     }
@@ -67,16 +67,16 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
 
     public onMapReferenced(map: IgrGeographicMap) {
         this.geoMap = map;
-        
+
         const geoRect = { left: -150.0, top: -60.0, width: 315.0, height: 140.0 };
         this.geoMap.zoomToGeographic(geoRect);
-        
+
         this.addSeries(WorldLocations.getCapitals(),"rgb(32, 146, 252)");
     }
-    
+
     public addSeries(locations: any[], brush: string)
     {
-        
+
         this.symbolSeries.dataSource = locations;
         this.symbolSeries.markerType = MarkerType.Circle;
         this.symbolSeries.latitudeMemberPath = "lat";
@@ -86,12 +86,12 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
         this.symbolSeries.markerTemplate = this.getMarker();
         this.symbolSeries.markerCollisionAvoidance = this.state.selectionCollisionType;
         this.geoMap.series.add(this.symbolSeries);
-    }   
+    }
 
-    public getMarker(): any{ 
+    public getMarker(): any{
 
         let style = { outline: "#7D73E6", fill: "white", text: "black" };
-        
+
         const size = 12;
         const radius = size / 2;
         return {
@@ -101,7 +101,7 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
                 let value = "0.00";
                 let item = data.item as any;
                 if (item != null) {
-                    value = item.name.toString(); 
+                    value = item.name.toString();
                 }
                 const height = context.measureText("M").width;
                 const width = context.measureText(value).width;
@@ -109,13 +109,13 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
                 measureInfo.height = height + size;
             },
             render: function (renderInfo: DataTemplateRenderInfo) {
-                const item = renderInfo.data.item as any;    
-                const value = item.name.toString(); 
+                const item = renderInfo.data.item as any;
+                const value = item.name.toString();
 
                 const ctx = renderInfo.context as CanvasRenderingContext2D;
                 let x = renderInfo.xPosition;
                 let y = renderInfo.yPosition;
-               
+
                 let halfHeight = renderInfo.availableHeight / 2.0;
 
                 if (renderInfo.isHitTestRender) {
@@ -131,34 +131,34 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
                     ctx.strokeStyle = style.outline;
                     ctx.stroke();
                     ctx.closePath();
-                } 
+                }
 
                 x = renderInfo.xPosition + 5;
                 y = renderInfo.yPosition + 7.5;
                 if (y < 0) {
                     y -= renderInfo.availableHeight + 7.5;
-                } 
+                }
 
                 let bottomEdge = renderInfo.passInfo.viewportTop + renderInfo.passInfo.viewportHeight;
                 if (y + renderInfo.availableHeight > bottomEdge) {
                     y -= renderInfo.availableHeight + 5;
-                } 
+                }
 
                 let rightEdge = renderInfo.passInfo.viewportLeft + renderInfo.passInfo.viewportWidth;
                 if (x + renderInfo.availableWidth > rightEdge) {
                     x -= renderInfo.availableWidth + 12;
-                } 
+                }
 
                 ctx.beginPath();
                 ctx.fillStyle = style.outline ;
                 ctx.fillRect(x - 2, y - 2, renderInfo.availableWidth + 8, halfHeight + 6);
-                ctx.closePath(); 
+                ctx.closePath();
 
                 ctx.font = '8pt Verdana';
                 ctx.textBaseline = "top";
                 ctx.fillStyle = style.fill;
                 ctx.fillText(value, x + 2, y + 1);
- 
+
             }
         }
     }

@@ -55,21 +55,21 @@ export default class DataChartPerformance extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer">
-            <div className="igOptions-horizontal">
-                <label className="igOptions-label">Data Points: </label>
-                <label className="igOptions-value" >
+        <div className="container sample">
+            <div className="options horizontal">
+                <label className="options-label">Data Points: </label>
+                <label className="options-value" >
                     {this.state.dataInfo}
                 </label>
-                <input className="igOptions-slider" type="range" min="10000" max="1000000" step="1000"
+                <input className="options-slider" type="range" min="10000" max="1000000" step="1000"
                     value={this.state.dataPoints}
                     onChange={this.onDataPointsChanged}/>
                 <button onClick={this.onDataGenerateClick}>Generate Data</button>
-                <label className="igOptions-item"><input type="checkbox"
+                <label className="options-label"><input type="checkbox"
                     onChange={this.onScalingRatioChanged}/> Optimize Scaling </label>
-                <span ref={this.onFpsRef} className="igOptions-label" />
+                <label ref={this.onFpsRef} className="options-label" />
             </div>
-            <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
+            <div className="container" style={{height: "calc(100% - 35px)"}} >
                 <IgrDataChart
                     ref={this.onChartRef}
                     width="100%"

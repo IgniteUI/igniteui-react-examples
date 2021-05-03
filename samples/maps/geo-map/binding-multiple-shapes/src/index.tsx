@@ -37,8 +37,8 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
         const mapStyle = { background: "rgb(212, 212, 212)" } as React.CSSProperties;
 
         return (
-            <div className="igContainer">
-                <div className="igComponent" style={mapStyle} >
+            <div className="container sample">
+                <div className="container" style={mapStyle} >
                     <IgrGeographicMap
                         ref={this.onMapRef}
                         width="100%"

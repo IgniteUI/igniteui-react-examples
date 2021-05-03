@@ -23,9 +23,9 @@ export default class FinancialChartTrendlines extends React.Component<any, any> 
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer">
-            <div className="igOptions">
-                <label className="igOptions-label">Trendline Type:</label>
+        <div className="container sample">
+            <div className="options horizontal">
+                <label className="options-label">Trendline Type:</label>
                 <select value={this.state.trendLineType}
                     onChange={this.onTrendlineChanged}>
                     <option>CubicFit</option>
@@ -44,7 +44,7 @@ export default class FinancialChartTrendlines extends React.Component<any, any> 
                 </select>
             </div>
 
-            <div className="igComponent" style={{height: "calc(100% - 65px)"}}>
+            <div className="container" style={{height: "calc(100% - 65px)"}}>
                 <IgrFinancialChart
                     width="100%"
                     height="100%"

@@ -53,10 +53,10 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
-                    <label className="igOptions-item" style={{ width: "160px" }}>Adding Animation: </label>
-                    <select className="igOptions-item" value={this.state.columnAddOrShowAnimation}
+            <div className="container sample">
+                <div className="options horizontal">
+                    <label className="options-label" style={{ width: "160px" }}>Adding Animation: </label>
+                    <select className="options-select" value={this.state.columnAddOrShowAnimation}
                         onChange={this.onAddShowChange} style={{ width: "150px" }}>
                         <option>Auto</option>
                         <option>None</option>
@@ -70,8 +70,8 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
                         <option>SlideFromTopAndFadeIn</option>
                         <option>SlideFromBottomAndFadeIn</option>
                     </select>
-                    <span className="igOptions-item" style={{ width: "160px" }}>Exchange Animation: </span>
-                    <select className="igOptions-item" value={this.state.columnExchangingAnimationMode}
+                    <label className="options-label" style={{ width: "160px" }}>Exchange Animation: </label>
+                    <select className="options-select" value={this.state.columnExchangingAnimationMode}
                         onChange={this.onExchangeChange} style={{ width: "150px" }}>
                         <option>Auto</option>
                         <option>None</option>
@@ -86,9 +86,9 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
                         <option>SlideToBottomAndCrossfade</option>
                     </select>
                 </div>
-                <div className="igOptions">
-                    <span className="igOptions-item" style={{ width: "160px" }}>Hiding Animation: </span>
-                    <select className="igOptions-item" value={this.state.columnHidingAnimationMode}
+                <div className="options horizontal">
+                    <label className="options-label" style={{ width: "160px" }}>Hiding Animation: </label>
+                    <select className="options-select" value={this.state.columnHidingAnimationMode}
                         onChange={this.onHideChange} style={{ width: "150px" }}>
                         <option>Auto</option>
                         <option>None</option>
@@ -102,8 +102,8 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
                         <option>SlideToTopAndFadeOut</option>
                         <option>SlideToBottomAndFadeOut</option>
                     </select>
-                    <span className="igOptions-item" style={{ width: "160px" }}>Updating Animation: </span>
-                    <select className="igOptions-item" value={this.state.columnPropertyUpdatingAnimationMode}
+                    <label className="options-label" style={{ width: "160px" }}>Updating Animation: </label>
+                    <select className="options-select" value={this.state.columnPropertyUpdatingAnimationMode}
                         onChange={this.onPropUpdateChange} style={{ width: "150px" }} >
                         <option>Auto</option>
                         <option>None</option>
@@ -111,17 +111,17 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
                         <option>InterpolateDeep</option>
                     </select>
                 </div>
-                <div className="igOptions">
-                    <span className="igOptions-item" style={{ width: "160px" }}>Moving Animation: </span>
-                    <select className="igOptions-item" value={this.state.columnMovingAnimationMode}
+                <div className="options horizontal">
+                    <label className="options-label" style={{ width: "160px" }}>Moving Animation: </label>
+                    <select className="options-select" value={this.state.columnMovingAnimationMode}
                         onChange={this.onMoveChange} style={{ width: "150px" }}>
                         <option>Auto</option>
                         <option>None</option>
                         <option>SlideOver</option>
                     </select>
-                    <button className="igOptions-item" onClick={this.onHideClick} style={{ width: "100px" }}>Hide Column</button>
-                    <button className="igOptions-item" onClick={this.onShowClick} style={{ width: "100px" }}>Show Column</button>
-                    <button className="igOptions-item" onClick={this.onReloadClick} style={{ width: "100px" }}>Reload Grid</button>
+                    <button className="options-button" onClick={this.onHideClick} style={{ width: "100px" }}>Hide Column</button>
+                    <button className="options-button" onClick={this.onShowClick} style={{ width: "100px" }}>Show Column</button>
+                    <button className="options-button" onClick={this.onReloadClick} style={{ width: "100px" }}>Reload Grid</button>
                 </div>
 
                 <IgrDataGrid

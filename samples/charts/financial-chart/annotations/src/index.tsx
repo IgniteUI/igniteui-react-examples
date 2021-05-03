@@ -30,23 +30,23 @@ export default class FinancialChartAnnotations extends React.Component<any, any>
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer" >
-            <div className="igOptions">
-                <label className="igOptions-label">Annotations: </label>
-                <label className="igOptions-item"><input type="checkbox"
+        <div className="container sample" >
+            <div className="options horizontal">
+                <label className="options-label">Annotations: </label>
+                <label className="options-label"><input type="checkbox"
                 checked={this.state.crosshairsVisible}
                 onChange={this.onCrosshairsVisible}/> Crosshair </label>
-                <label className="igOptions-item"><input type="checkbox"
+                <label className="options-label"><input type="checkbox"
                 checked={this.state.calloutsVisible}
                 onChange={this.onCalloutsVisible}/> Callouts </label>
-                <label className="igOptions-item"><input type="checkbox"
+                <label className="options-label"><input type="checkbox"
                 checked={this.state.finalValuesVisible}
                 onChange={this.onFinalValuesVisible}/> Final Values </label>
-                <label className="igOptions-item"><input type="checkbox"
+                <label className="options-label"><input type="checkbox"
                 checked={this.state.markersVisible}
                 onChange={this.onMarkersVisible}/> Markers </label>
             </div>
-            <div className="igComponent" style={{height: "calc(100% - 65px)"}}>
+            <div className="container" style={{height: "calc(100% - 65px)"}}>
                 <IgrFinancialChart
                     width="100%"
                     height="100%"

@@ -14,7 +14,7 @@ export default class BulletGraphRanges extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer" >
+            <div className="container sample" >
                 <IgrBulletGraph
                     height="80px"
                     width="100%"

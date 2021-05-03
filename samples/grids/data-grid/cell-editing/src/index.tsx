@@ -29,7 +29,7 @@ export default class DataGridCellEditing extends React.Component<any, any> {
     public get canCommit(): boolean {
         return this.grid && this.grid.canCommit;
     }
-    
+
     public get canUndo(): boolean {
         return this.grid && this.grid.canUndo;
     }
@@ -47,27 +47,27 @@ export default class DataGridCellEditing extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
-    
+
         this.data = DataGridSharedData.getEmployees();
-        
+
     }
 
     onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
-        this.grid = grid;       
+        this.grid = grid;
     }
 
 	public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igOptions">
+            <div className="container sample">
+                <div className="options horizontal">
                     <button disabled={!this.canCommit} onClick={this.onCommitClick}>Commit</button>
                     <button disabled={!this.canUndo} onClick={this.onUndoClick}>Undo</button>
                     <button disabled={!this.canRedo} onClick={this.onRedoClick}>Redo</button>
                     <label>
                         Edit Mode:
-                        <select value={this.editMode} onChange={this.onEditModeChange}>                            
+                        <select value={this.editMode} onChange={this.onEditModeChange}>
                             <option value="0">None</option>
                             <option value="1">Cell</option>
                             <option value="2">CellBatch</option>
@@ -86,7 +86,7 @@ export default class DataGridCellEditing extends React.Component<any, any> {
                     selectionMode="SingleRow"
                     selectionBehavior="ModifierBased"
                     isColumnOptionsEnabled="true"
-                    cellValueChanging={this.onCellValueChanging}                    
+                    cellValueChanging={this.onCellValueChanging}
                     rowEditEnded={this.onRowEditEnded}
                     >
                     <IgrTextColumn field="Name" width="*>150"/>
@@ -102,7 +102,7 @@ export default class DataGridCellEditing extends React.Component<any, any> {
         );
     }
 
-    
+
 
     //#region Input Control Handlers
 
@@ -133,13 +133,13 @@ export default class DataGridCellEditing extends React.Component<any, any> {
         this.setState({ });
     }
     //#endregion
-    
+
     //#region Grid Handlers
     onDeleteRowClick = (e: MouseEvent) => {
         const button = e.srcElement as HTMLButtonElement;
         const viewIndex = parseInt(button.id);
         const rowItem = this.grid.actualDataSource.getItemAtIndex(viewIndex);
-        
+
         this.grid.removeItem(rowItem);
         this.setState({ });
     }
@@ -147,7 +147,7 @@ export default class DataGridCellEditing extends React.Component<any, any> {
     onCellValueChanging = (s: IgrDataGrid, e: IgrGridCellValueChangingEventArgs) => {
 
         if(e.newValue === "") {
-            
+
             s.setEditError(e.editID, "Error, cell is empty");
         }
 

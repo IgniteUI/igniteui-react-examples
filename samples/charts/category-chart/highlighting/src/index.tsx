@@ -25,21 +25,21 @@ export default class CategoryChartHighlighting extends React.Component<any, any>
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer" >
-            <div className="igOptions">
-                <label className="igOptions-label">Enable Highlighting: </label>
-                <label className="igOptions-item"><input type="checkbox"
+        <div className="container sample" >
+            <div className="options horizontal">
+                <label className="options-label">Enable Highlighting: </label>
+                <label className="options-label"><input type="checkbox"
                 checked={this.state.isSeriesHighlighting}
                 onChange={this.onSeriesHighlightingChanged}/> Series </label>
-                <label className="igOptions-item"><input type="checkbox"
+                <label className="options-label"><input type="checkbox"
                 checked={this.state.isItemHighlighting}
                 onChange={this.onItemHighlightingChanged}/>Item </label>
-                <label className="igOptions-item"><input type="checkbox"
+                <label className="options-label"><input type="checkbox"
                 checked={this.state.isCategoryHighlighting}
                 onChange={this.onCategoryHighlightingChanged}/>Category </label>
             </div>
 
-            <div className="igComponent" style={{height: "calc(100% - 30px)"}} >
+            <div className="container" style={{height: "calc(100% - 30px)"}} >
                 <IgrCategoryChart
                     width="100%"
                    height="100%"

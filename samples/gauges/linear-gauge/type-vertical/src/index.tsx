@@ -34,7 +34,7 @@ export default class LinearGaugeTypeVertical extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer-center"  >
+            <div className="container-center"  >
                 <IgrLinearGauge
                     ref={this.onCreateGaugeGreen}
                     width="120px"

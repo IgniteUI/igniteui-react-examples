@@ -39,8 +39,8 @@ export default class DataChartValueOverlay extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
-                <div className="igComponent" style={{height: "calc(100% - 35px)"}}>
+            <div className="container sample">
+                <div className="container" style={{height: "calc(100% - 35px)"}}>
                     <IgrDataChart width="100%"
                         height="100%"
                         dataSource={this.data}

@@ -31,7 +31,7 @@ export default class RadialGaugeTypeFull extends React.Component {
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
 
                 <IgrRadialGauge
                     ref={this.onGaugeRef}

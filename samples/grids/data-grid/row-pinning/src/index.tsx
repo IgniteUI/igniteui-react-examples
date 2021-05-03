@@ -32,7 +32,7 @@ export default class DataGridRowPinning extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="igContainer">
+        <div className="container sample">
 
             <IgrDataGrid
                 height="100%"

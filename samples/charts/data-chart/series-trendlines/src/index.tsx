@@ -40,10 +40,10 @@ export default class DataChartSeriesTrendlines extends React.Component<any, any>
 
     public render(): JSX.Element {
         return (
-            <div className="igContainer">
+            <div className="container sample">
 
-                <div className="igOptions-horizontal">
-                    <span className="igOptions-item">Trendline Type:</span>
+                <div className="options horizontal">
+                    <label className="options-label">Trendline Type:</label>
                     <select value={this.state.trendLineType} onChange={this.onTrendlineChange}>
                         <option>None</option>
                         <option>CubicFit</option>
@@ -61,7 +61,7 @@ export default class DataChartSeriesTrendlines extends React.Component<any, any>
                         <option>WeightedAverage</option>
                     </select>
                 </div>
-                <div className="igComponent" style={{height: "calc(100% - 35px)"}} >
+                <div className="container" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart
                         ref={this.onChartRef}
                         dataSource={this.data}
