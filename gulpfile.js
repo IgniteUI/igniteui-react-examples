@@ -13,8 +13,8 @@ exports.updateSamples = updateSamples = gulp.series(
     sb.lintSamples,
     sb.getSamples,
     sb.updateReadme,
-    sb.updatePackages,
-    sb.updateIndex,
+    // sb.updatePackages,
+    // sb.updateIndex,
     sb.updateSharedFiles,
 );
 

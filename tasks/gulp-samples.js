@@ -72,12 +72,12 @@ function lintSamples(cb) {
     // del.sync("./sample-test-files/**/*.*", {force:true}); LinearGaugeLabels.tsx
 
     gulp.src([
-        // './samples/tests2/**/**/LinearGaugeLabels.tsx',
-        // './samples/gauges/**/**/*.tsx',
-        './templates/**/**/*.tsx',
         // './templates/**/**/*.ts',
+        // './templates/**/**/*.tsx',
+        './samples/**/**/index.tsx',
         // './samples/**/**/**/*.tsx',
-       '!./samples/**/**/**/index.tsx',
+        //'!./samples/**/**/**/index.tsx',
+          '!./samples/**/node_modules/**/*.tsx',
     ], {base: './'})
     // .pipe(gSort( { asc: false } ))
     .pipe(es.map(function(file, fileCallback) {
