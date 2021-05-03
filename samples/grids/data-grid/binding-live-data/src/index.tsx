@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 import './DataGridBindingLiveData.css';
 import { LiveFinancialData } from './LiveFinancialData';
-
 // IgrDataGrid modules
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
@@ -253,14 +250,9 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
 
                     {/* <div className="toolAreaRow1">
 
-
-
-
                     </div>
 
                     <div className="toolAreaRow2">
-
-
 
                     </div> */}
                 </div>
@@ -541,7 +533,6 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                 pricesByCountry.set(country, currVal);
             // }
         }
-
 
         if (shouldPopulate) {
 

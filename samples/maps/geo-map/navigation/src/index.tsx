@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import { MapUtils, MapRegion } from './MapUtils';
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
@@ -94,7 +91,6 @@ export default class MapNavigation extends React.Component<any, any> {
                             <label >{geoW}</label>
                         </div>
                     </div>
-
 
                     <label style={{fontWeight: 600}}>Map Window Rect</label>
 

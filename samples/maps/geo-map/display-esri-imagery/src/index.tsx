@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import { MapUtils, MapRegion } from './MapUtils';
 import { EsriUtility, EsriStyle } from './EsriUtility';
 import { IgrArcGISOnlineMapImagery } from 'igniteui-react-maps';

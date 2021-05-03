@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
@@ -27,7 +25,6 @@ import { IgrStacked100BarSeries } from 'igniteui-react-charts';
 // legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();

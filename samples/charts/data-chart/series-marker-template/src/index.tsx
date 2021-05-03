@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 // data chart's elements for column series:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
@@ -14,7 +12,6 @@ import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { DataTemplateMeasureInfo } from 'igniteui-react-core';
 import { DataTemplateRenderInfo } from 'igniteui-react-core';
-
 
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();

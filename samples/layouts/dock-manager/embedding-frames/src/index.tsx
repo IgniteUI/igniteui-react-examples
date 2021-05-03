@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import './DockManagerStyles.css';
-
 import { IgcDockManagerComponent, IgcContentPane } from "igniteui-dockmanager";
 import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
 import { defineCustomElements } from "igniteui-dockmanager/loader";
@@ -59,7 +55,6 @@ export default class DockManagerEmbeddingFrames extends React.Component {
 
     public componentDidMount() {
         // fetching JSON data with geographic locations from public folder
-
 
         this.gaugePane = {
             // size: 150,

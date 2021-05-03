@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 import { DataGridSharedData } from "./DataGridSharedData";
-
 import { IgrImageColumn } from "igniteui-react-grids";
 import { IgrTextColumn } from "igniteui-react-grids";
 import { IgrNumericColumn } from "igniteui-react-grids";

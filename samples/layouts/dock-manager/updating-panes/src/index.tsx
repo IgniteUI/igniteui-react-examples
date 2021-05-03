@@ -1,23 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 import './DockManagerStyles.css';
-
 import WorldUtils from "./WorldUtils"
 import { DockManagerSharedData } from "./DockManagerSharedData";
-
 import { IgrGeographicMap, IgrGeographicMapModule } from "igniteui-react-maps";
 import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
 import { IgrArcGISOnlineMapImagery } from 'igniteui-react-maps';
-
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataContext } from 'igniteui-react-core';
 import { IgrCategoryChartModule, MarkerType, ToolTipType, AxisLabelsLocation } from "igniteui-react-charts";
 import { IgrCategoryChart, CategoryTransitionInMode, CategoryChartType } from "igniteui-react-charts";
 import { IgrLegendModule } from "igniteui-react-charts";
-
 import { IgcDockManagerComponent, IgcContentPane } from "igniteui-dockmanager";
 import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
 import { defineCustomElements } from "igniteui-dockmanager/loader";

@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 import './DataGridTypeMarketingTable.css';
 import { LiveFinancialData } from './LiveFinancialData';
 // IgrDataGrid modules

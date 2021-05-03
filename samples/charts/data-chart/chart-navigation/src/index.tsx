@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 // data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
@@ -17,7 +15,6 @@ import { IgrNumericXAxis } from 'igniteui-react-charts';
 import { IgrBubbleSeries } from 'igniteui-react-charts';
 import { IgrSizeScale } from 'igniteui-react-charts';
 import { IgrValueBrushScale } from 'igniteui-react-charts';
-
 import { SampleScatterStats } from './SampleScatterStats';
 
 IgrDataChartCoreModule.register();

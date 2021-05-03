@@ -1,14 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import { IgrDatePicker, IgrDatePickerModule, IgrInputModule } from 'igniteui-react-inputs';
 
 IgrInputModule.register();
 IgrDatePickerModule.register();
-
 
 export default class DatePickerOverview extends React.Component<any, any> {
 

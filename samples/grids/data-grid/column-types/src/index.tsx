@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import "./DataGridStyles.css";
 import { DataGridSharedData } from './DataGridSharedData';
-
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
@@ -17,6 +13,7 @@ import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
 import { IgrComboBoxColumn } from 'igniteui-react-grids';
 import { IgrTemplateCellUpdatingEventArgs,
+
     IgrGridCellValueChangingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 import { IIgrCellTemplateProps } from 'igniteui-react-grids';

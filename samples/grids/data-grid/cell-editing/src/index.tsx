@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
@@ -101,8 +98,6 @@ export default class DataGridCellEditing extends React.Component<any, any> {
             </div>
         );
     }
-
-
 
     //#region Input Control Handlers
 

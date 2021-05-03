@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import WorldUtils from "./WorldUtils"
 import { LegendOverlay, LegendItem } from "./LegendOverlay"
 import { IgrGeographicMapModule } from 'igniteui-react-maps';

@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 // importing axis' modules:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrNumericXAxis } from 'igniteui-react-charts';
@@ -28,7 +26,6 @@ import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 // importing legend's modules:
 import { IgrLegend } from 'igniteui-react-charts';
 import { IgrLegendModule } from 'igniteui-react-charts';
-
 import { SampleCategoryData } from './SampleCategoryData';
 
 IgrDataChartCoreModule.register();

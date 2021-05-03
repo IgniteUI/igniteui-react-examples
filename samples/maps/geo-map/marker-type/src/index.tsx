@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import WorldLocations from "./WorldLocations";
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicMap } from 'igniteui-react-maps';
@@ -89,7 +86,6 @@ export default class MapMarkerTypes extends React.Component {
 
         this.geoMap.series.add(this.symbolSeries);
     }
-
 
     public onMarkerTypeSelected = (e: any) => {
         const markerTypeMode = e.target.value.toString();

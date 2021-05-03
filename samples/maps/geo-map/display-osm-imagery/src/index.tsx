@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 import { IgrGeographicMapModule } from 'igniteui-react-maps';

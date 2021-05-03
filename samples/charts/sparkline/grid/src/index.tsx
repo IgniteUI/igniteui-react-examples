@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import "./SparklineGrid.css";
 import { Products } from './Products';
 // sparkline modules:

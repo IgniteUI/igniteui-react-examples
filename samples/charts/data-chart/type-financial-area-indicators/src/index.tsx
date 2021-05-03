@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import { SampleFinancialData } from './SampleFinancialData';
 // axis' modules:
 import { IgrNumericYAxis } from 'igniteui-react-charts';

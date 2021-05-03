@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import { SampleScatterStats } from './SampleScatterStats';
 // data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';

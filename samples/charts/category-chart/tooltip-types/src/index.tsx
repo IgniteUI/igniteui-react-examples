@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 import { IgrChartSeriesEventArgs } from 'igniteui-react-charts';
 import { IgrDomainChart } from 'igniteui-react-charts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
-
 
 IgrCategoryChartModule.register();
 

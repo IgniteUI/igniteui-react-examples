@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import { IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrDoughnutChart } from 'igniteui-react-charts';
 import { IgrRingSeriesModule } from 'igniteui-react-charts';
@@ -42,7 +39,6 @@ export default class DoughnutChartRings extends React.Component<any, any> {
 
     public onChartRef(chart: IgrDoughnutChart) {
         if (!chart) { return; }
-
 
         this.chart = chart;
 

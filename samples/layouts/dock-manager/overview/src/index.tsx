@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import './DockManagerStyles.css';
-
 import { IgcDockManagerComponent, IgcContentPane } from "igniteui-dockmanager";
 import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
 import { defineCustomElements } from "igniteui-dockmanager/loader";
@@ -82,7 +78,6 @@ export default class DockManagerOverview extends React.Component {
         };
         return pane;
     }
-
 
     public componentDidMount() {
 

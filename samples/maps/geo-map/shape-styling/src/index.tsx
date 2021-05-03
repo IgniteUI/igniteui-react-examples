@@ -1,16 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import WorldUtils from "./WorldUtils"
 import { ShapeStyling } from './MapShapeStyleUtility';
 import { ShapeScaleStyling } from './MapShapeStyleUtility';
 import { ShapeRangeStyling } from './MapShapeStyleUtility';
 import { ShapeRandomStyling } from './MapShapeStyleUtility';
 import { ShapeComparisonStyling } from './MapShapeStyleUtility';
-
 import { IgrGeographicMap } from 'igniteui-react-maps';
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
 import { IgrGeographicShapeSeries } from 'igniteui-react-maps';

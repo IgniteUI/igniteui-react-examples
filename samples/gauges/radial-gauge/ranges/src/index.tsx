@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 import { IgrRadialGauge } from 'igniteui-react-gauges';
 import { IgrRadialGaugeRange } from 'igniteui-react-gauges';
 import { IgrRadialGaugeModule } from 'igniteui-react-gauges';
-
 
 IgrRadialGaugeModule.register();
 

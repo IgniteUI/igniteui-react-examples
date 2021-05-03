@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import { DataGridSharedData } from './DataGridSharedData';
 // grid modules:
 import { IgrDataGridModule } from 'igniteui-react-grids';

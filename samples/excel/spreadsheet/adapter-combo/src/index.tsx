@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
@@ -10,6 +9,7 @@ import { IgrSpreadsheet } from 'igniteui-react-spreadsheet';
 import { IgrSpreadsheetChartAdapterModule } from 'igniteui-react-spreadsheet-chart-adapter';
 import { SpreadsheetChartAdapter } from 'igniteui-react-spreadsheet-chart-adapter';
 import { AxisGroup, AxisPosition, AxisType, CellReferenceMode,
+
     ChartType, ChartTitle, FormattedString, Legend,
     LegendPosition, Workbook,
     WorksheetTableColumnArea, WorkbookFormat, XValues } from 'igniteui-react-excel';

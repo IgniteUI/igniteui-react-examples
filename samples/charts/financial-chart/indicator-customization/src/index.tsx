@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 import { IgrFinancialEventArgs } from 'igniteui-react-charts';
 import { IgrFinancialChartCustomIndicatorArgs } from 'igniteui-react-charts';
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
-
 import { StocksUtility } from './StocksUtility';
 
 IgrFinancialChartModule.register();

@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import { SampleComboData } from './SampleComboData';
 import { IgrMultiColumnComboBoxModule, IgrTextColumn } from 'igniteui-react-grids';
 import { IgrMultiColumnComboBox, SortMode } from 'igniteui-react-grids';

@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
 import { IgrBubbleSeries, IgrSeriesViewer } from 'igniteui-react-charts';
 import { IgrAnnotationLayer } from 'igniteui-react-charts';
 import { IgrDataChartAnnotationModule } from 'igniteui-react-charts';

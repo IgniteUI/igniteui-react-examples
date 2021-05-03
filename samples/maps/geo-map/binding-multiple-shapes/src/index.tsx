@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import WorldUtils from "./WorldUtils"
 import { IgrGeographicMapImagery } from 'igniteui-react-maps';
 import { IgrGeographicMapModule } from 'igniteui-react-maps';

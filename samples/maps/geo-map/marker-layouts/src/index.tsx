@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import WorldLocations from "./WorldLocations";
 import { IgrGeographicMapModule, IgrGeographicMap, IgrGeographicSymbolSeries } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule, MarkerType } from 'igniteui-react-charts';
@@ -11,7 +8,6 @@ import { DataTemplateMeasureInfo, DataTemplateRenderInfo } from 'igniteui-react-
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
-
 
 export default class MapMarkerLayouts extends React.Component<any, any> {
 
@@ -23,7 +19,6 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
 
         this.onSelectionModeChange = this.onSelectionModeChange.bind(this);
         this.onMapReferenced = this.onMapReferenced.bind(this);
-
 
         this.state = { selectionCollisionType: "Omit" };
 
@@ -53,7 +48,6 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
                         height="100%"
                         zoomable="true" />
                 </div>
-
 
                 <div className="overlay-bottom-right overlay-border">Imagery Tiles: @OpenStreetMap</div>
             </div>
