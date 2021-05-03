@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from: -->
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
-This folder contains implementation of React application with example of Data Grid Binding Live Data  Component<any, App State>.
+This folder contains implementation of React application with example of Data Grid Binding Live Data.
 
 ## Preview
 

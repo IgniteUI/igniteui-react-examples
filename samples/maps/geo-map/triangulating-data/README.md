@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from: -->
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/master/templates/sample/ReadMe.md -->
 
-This folder contains implementation of React application with example of Geographic Map Binding Shapefile Points.
+This folder contains implementation of React application with example of Geographic Map Map Triangulating Data.
 
 ## Preview
 
