@@ -12,7 +12,7 @@ import { SamplesFallback } from './SamplesFallback';
 import { RoutingSample } from './SamplesData';
 import { RoutingGroup } from './SamplesData';
 
-console.log('SB uses IG v21.1.154');
+console.log('SB uses IG v16.14.0-beta0');
 
 import { gaugesRoutingData } from "../samples/gauges/RoutingData";
 import { gridsRoutingData } from "../samples/grids/RoutingData";
