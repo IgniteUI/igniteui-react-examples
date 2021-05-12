@@ -208,7 +208,7 @@ function copySamples(cb) {
     log('copying sample files... ');
     for (const sample of samples) {
         let outputPath = './src' + sample.SampleFolderPath.replace('..','');
-        log('copying to ' + outputPath);
+        log('copying to ' + outputPath + '/index.tsx');
 
         gulp.src([
               sample.SampleFolderPath + '/src/*.*',
