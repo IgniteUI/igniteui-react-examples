@@ -8,6 +8,7 @@
 /browser/src/samples2
 /browser/src.
 /browser/build
+/browser/public/code-viewer/**
 
 # IDEs and editors
 /.idea
@@ -30,7 +31,6 @@
 
 /samples/**/.vscode
 /samples/**/package-lock.json
-/public/code-viewer/**
 
 # testing
 /coverage
