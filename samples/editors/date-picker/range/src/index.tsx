@@ -35,12 +35,14 @@ export default class DatePickerRange extends React.Component<any, any> {
 
     public onFromDatePickerRef(picker: IgrDatePicker) {
         this.fromDatePickerRef = picker;
-        picker.value = new Date(Date.now());
+        if (picker)
+            picker.value = new Date(Date.now());
     }
 
     public onToDatePickerRef(picker: IgrDatePicker) {
         this.toDatePickerRef = picker;
-        picker.value = new Date(Date.now());
+        if (picker)
+            picker.value = new Date(Date.now());
     }
 
     public fromDateChanged(s: IgrDatePicker, e: IgrValueChangedEventArgs) {

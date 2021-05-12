@@ -13,8 +13,9 @@ export default class DatePickerOverview extends React.Component<any, any> {
         this.onDatePickerRef = this.onDatePickerRef.bind(this);
     }
 
-    public onDatePickerRef(datePicker: IgrDatePicker){
-        datePicker.value = new Date(Date.now());
+    public onDatePickerRef(datePicker: IgrDatePicker) {
+        if (datePicker)
+            datePicker.value = new Date(Date.now());
     }
 
     public render(): JSX.Element {
