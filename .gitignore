@@ -2,7 +2,13 @@
 
 # dependencies
 /node_modules
+
+# samples auto-generated files
 /samples/**/node_modules
+/samples/**/.vscode
+/samples/**/package-lock.json
+
+# browser auto-generated files
 /browser/node_modules
 /browser/src/samples
 /browser/src/samples2
@@ -28,9 +34,6 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
-/samples/**/.vscode
-/samples/**/package-lock.json
 
 # testing
 /coverage
