@@ -230,7 +230,14 @@ class Transformer {
 
                 // info.SampleImportName = info.SampleFileName.replace('.tsx','').replace('.ts','');
                 // info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
-                info.SampleImportName = info.SampleFileSourceClass.replace('.ts', '');
+                // info.SampleImportName = info.SampleFileSourceClass.replace('.ts', '');
+                // using folder names to make sure each sample has unique class name
+                info.SampleImportName = info.ComponentFolder + "-" + info.SampleFolderName;
+                info.SampleImportName = Strings.replace(info.SampleImportName, "/", " ");
+                info.SampleImportName = Strings.replace(info.SampleImportName, "-", " ");
+                info.SampleImportName = Strings.toTitleCase(info.SampleImportName);
+                info.SampleImportName = Strings.replace(info.SampleImportName, " ", "");
+
                 // info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
                 info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/index';
 
@@ -617,10 +624,10 @@ class Transformer {
 
             for (const info of component.Samples) {
                 console.log('- copied: ' + info.SampleFilePath);
-
                 // console.log('sample ' + sample.SampleFolderName);
                 // let sampleClass = info.SampleFileName.replace('.tsx','');
                 // let samplePath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleClassName;
+
                 imports += "const " + info.SampleImportName +  " = React.lazy(() => import('" + info.SampleImportPath + "')); \n";
 
                 routes += "        { path: '" + info.SampleRoute + "', name: '" + info.SampleDisplayName + "', component: " + info.SampleImportName + " }, \n";
@@ -737,7 +744,7 @@ class Strings {
         if (separator === undefined) { separator = ' '; }
         return str.toLowerCase().split(separator).map(function(word) {
           return (word.charAt(0).toUpperCase() + word.slice(1));
-        }).join(' ');
+        }).join(separator);
       }
 
     public static splitCamel(orgStr: string): string {
