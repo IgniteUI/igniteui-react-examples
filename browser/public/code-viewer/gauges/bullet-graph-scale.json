@@ -1,0 +1,21 @@
+{
+ "sampleFiles":
+[
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/gauges/bullet-graph/scale/src/index.tsx",
+  "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport { IgrBulletGraph } from 'igniteui-react-gauges';\nimport { IgrBulletGraphModule } from 'igniteui-react-gauges';\n\nIgrBulletGraphModule.register();\n\nexport default class BulletGraphScale extends React.Component {\n\n    public render(): JSX.Element {\n        return (\n            <div className=\"container sample\" >\n                <IgrBulletGraph\n                    height=\"80px\"\n                    width=\"100%\"\n                    minimumValue={0} value={70} interval={10}\n                    maximumValue={100} targetValue={90}\n                    isScaleInverted={false}\n                    scaleBackgroundBrush=\"DodgerBlue\"\n                    scaleBackgroundOutline=\"Red\"\n                    scaleBackgroundThickness={2}\n                    scaleStartExtent={0.05}\n                    scaleEndExtent={0.95} />\n            </div>\n        );\n    }\n}\n\n// rendering above class to the React DOM\nReactDOM.render(<BulletGraphScale />, document.getElementById('root'));\n",
+  "isMain": true,
+  "fileExtension": "tsx",
+  "fileHeader": "tsx"
+ },
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/gauges/bullet-graph/scale/src/index.css",
+  "content": "",
+  "isMain": true,
+  "fileExtension": "css",
+  "fileHeader": "css"
+ }
+]
+}

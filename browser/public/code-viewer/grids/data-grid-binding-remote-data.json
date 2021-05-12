@@ -1,0 +1,21 @@
+{
+ "sampleFiles":
+[
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/grids/data-grid/binding-remote-data/src/index.tsx",
+  "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport './odatajs-4.0.0';\nimport { IgrDataGridModule } from 'igniteui-react-grids';\nimport { IgrDataGrid } from 'igniteui-react-grids';\nimport { IgrTextColumn } from 'igniteui-react-grids';\nimport { IgrNumericColumn } from 'igniteui-react-grids';\nimport { IgrDateTimeColumn } from 'igniteui-react-grids';\nimport { ODataVirtualDataSource } from 'igniteui-react-datasources';\nimport { IgrGridColumnOptionsModule } from 'igniteui-react-grids';\n\nIgrDataGridModule.register();\nIgrGridColumnOptionsModule.register();\n\nexport default class DataGridBindingRemoteData extends React.Component<any, any> {\n\n    public data: any[];\n    private virtualData: ODataVirtualDataSource;\n\n    constructor(props: any) {\n        super(props);\n\n        this.state = { componentVisible: true }\n        this.initData();\n    }\n\n    public render(): JSX.Element {\n        return (\n            <div className=\"container sample\">\n                <IgrDataGrid\n                   width=\"100%\"\n                   height=\"100%\"\n                   autoGenerateColumns=\"false\"\n                   isColumnOptionsEnabled=\"true\"\n                   dataSource={this.virtualData}>\n                   <IgrTextColumn field=\"OrderID\" headerText=\"ID\" width=\"*>110\" horizontalAlignment=\"center\"/>\n                   <IgrDateTimeColumn field=\"OrderDate\" headerText=\"Order Date\" width=\"*>150\"/>\n                   <IgrTextColumn field=\"ShipName\" headerText=\"Name\"  width=\"*>150\"/>\n                   <IgrNumericColumn field=\"Freight\" headerText=\"Freight\" width=\"*>120\"\n                   positivePrefix=\"$\" minFractionDigits={2}/>\n                   <IgrDateTimeColumn field=\"ShippedDate\" headerText=\"Ship Date\" width=\"*>150\"\n                   horizontalAlignment=\"right\"/>\n                   <IgrTextColumn field=\"ShipAddress\" headerText=\"Address\" width=\"*>130\" />\n                   <IgrTextColumn field=\"ShipCity\" headerText=\"City\" width=\"*>150\"/>\n                   <IgrTextColumn field=\"ShipCountry\" headerText=\"Country\" width=\"*>150\"/>\n                </IgrDataGrid>\n            </div>\n        );\n    }\n\n    public initData() {\n        const vds = new ODataVirtualDataSource();\n        vds.baseUri = (\"https://services.odata.org/V4/Northwind/Northwind.svc\");\n        vds.entitySet = (\"Orders\");\n        this.virtualData = vds;\n    }\n}\n\n// rendering above class to the React DOM\nReactDOM.render(<DataGridBindingRemoteData />, document.getElementById('root'));\n",
+  "isMain": true,
+  "fileExtension": "tsx",
+  "fileHeader": "tsx"
+ },
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/grids/data-grid/binding-remote-data/src/index.css",
+  "content": "",
+  "isMain": true,
+  "fileExtension": "css",
+  "fileHeader": "css"
+ }
+]
+}

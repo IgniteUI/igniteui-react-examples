@@ -1,0 +1,29 @@
+{
+ "sampleFiles":
+[
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/maps/geo-map/display-heat-imagery/src/index.tsx",
+  "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport { IgrGeographicMapModule } from 'igniteui-react-maps';\nimport { IgrGeographicMap } from 'igniteui-react-maps';\nimport { IgrGeographicTileSeries } from 'igniteui-react-maps';\nimport { IgrDataChartInteractivityModule } from 'igniteui-react-charts';\nimport { IgrHeatTileGenerator } from 'igniteui-react-core';\nimport { IgrTileGeneratorMapImagery } from 'igniteui-react-maps';\n// background worker\nimport Worker from \"./heatworker.worker\"\n\nIgrDataChartInteractivityModule.register();\nIgrGeographicMapModule.register();\n\nexport default class MapDisplayImageryHeatTiles extends React.Component {\n\n    public map!: IgrGeographicMap;\n    public tileImagery: IgrTileGeneratorMapImagery;\n\n    constructor(props: any) {\n        super(props);\n\n        this.tileImagery = new IgrTileGeneratorMapImagery();\n        this.onMapRef = this.onMapRef.bind(this);\n        this.onDataLoaded = this.onDataLoaded.bind(this);\n    }\n\n    public render(): JSX.Element {\n        return (\n            <div className=\"container sample\">\n                <div className=\"container\" >\n                    <IgrGeographicMap\n                        ref={this.onMapRef}\n                        width=\"100%\"\n                        height=\"100%\"\n                        zoomable=\"true\"/>\n                </div>\n                <div className=\"overlay-bottom-right overlay-border\">Imagery Tiles: @OpenStreetMap</div>\n            </div>\n        );\n    }\n\n    public onMapRef(geoMap: IgrGeographicMap) {\n        if (!geoMap) { return; }\n\n        this.map = geoMap;\n        this.map.zoomToGeographic({ left: -134.5, top: 16.0, width: 70.0, height: 37.0 });\n    }\n\n    public componentDidMount() {\n        // fetching JSON data with geographic locations from public folder\n\n        fetch(\"https://static.infragistics.com/xplatform/data/UsaCitiesPopulation.csv\")\n            .then((response) => response.text())\n            .then((data) => this.onDataLoaded(data));\n    }\n\n    public onDataLoaded(csvData: string) {\n        const csvLines = csvData.split(\"\\n\");\n        console.log(\"loaded UsaCitiesPopulation.csv \" + csvLines.length);\n\n        const latitudes: number[] = [];\n        const longitudes: number[] = [];\n        const populations: number[] = [];\n\n        // parsing CSV data and creating geographic locations\n        for (let i = 1; i < csvLines.length; i++) {\n            const columns = csvLines[i].split(\",\");\n            latitudes.push(Number(columns[1]));\n            longitudes.push(Number(columns[2]));\n            populations.push(Number(columns[3]));\n        }\n\n        // generating heat map imagery tiles\n        const gen = new IgrHeatTileGenerator();\n        gen.xValues = longitudes;\n        gen.yValues = latitudes;\n        gen.values = populations;\n        gen.blurRadius = 6;\n        gen.maxBlurRadius = 20;\n        gen.useBlurRadiusAdjustedForZoom = true;\n        gen.minimumColor = \"rgba(100, 255, 0, 0.5)\";\n        gen.maximumColor = \"rgba(255, 255, 0, 0.5)\";\n        gen.useGlobalMinMax = true;\n        gen.useGlobalMinMaxAdjustedForZoom = true;\n        gen.useLogarithmicScale = true;\n        gen.useWebWorkers = true;\n        gen.webWorkerInstance = new Worker();\n        gen.scaleColors = [\n            \"rgba(0, 0, 255, .251)\", \"rgba(0, 255, 255, .3765)\",\n            \"rgba(50,205,50, .2675)\", \"rgba(255, 255, 0, .7059)\",\n            \"rgba(255, 0, 0, .7843)\"\n        ];\n        this.tileImagery.tileGenerator = gen;\n\n        // generating heat map series\n        const series = new IgrGeographicTileSeries( { name: \"heatMapSeries\" });\n        series.tileImagery = this.tileImagery;\n        series.showDefaultTooltip = true;\n\n        // add heat map series to the map\n        this.map.series.add(series);\n    }\n}\n\n// rendering above class to the React DOM\nReactDOM.render(<MapDisplayImageryHeatTiles />, document.getElementById('root'));\n",
+  "isMain": true,
+  "fileExtension": "tsx",
+  "fileHeader": "tsx"
+ },
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/maps/geo-map/display-heat-imagery/src/heatworker.worker.ts",
+  "content": "import { HeatTileGeneratorWebWorker } from 'igniteui-react-core';\r\n\r\nlet worker: Worker = self as any;\r\nworker.onmessage = HeatTileGeneratorWebWorker.onmessage;\r\n\r\nHeatTileGeneratorWebWorker.postmessage = postMessageFunction;\r\nHeatTileGeneratorWebWorker.start();\r\n\r\nfunction postMessageFunction(){\r\n    (self.postMessage as any).apply(self, Array.prototype.slice.call(arguments));\r\n}\r\n\r\nexport default {} as typeof Worker & (new () => Worker);\r\n",
+  "isMain": false,
+  "fileExtension": "ts",
+  "fileHeader": "ts"
+ },
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/maps/geo-map/display-heat-imagery/src/index.css",
+  "content": "",
+  "isMain": true,
+  "fileExtension": "css",
+  "fileHeader": "css"
+ }
+]
+}

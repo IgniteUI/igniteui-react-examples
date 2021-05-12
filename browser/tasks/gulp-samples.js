@@ -27,26 +27,21 @@ log('loaded');
 
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSource = [
-    igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
     igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
-
+    // igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
     igConfig.SamplesCopyPath + '/maps/**/package.json',
-
     igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
-    igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
-
+    // igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
     igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
-    igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
-    igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
-
+    // igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
+    // igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/grids/**/package.json',
-
     igConfig.SamplesCopyPath + '/layouts/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
 
@@ -212,8 +207,8 @@ function copySamples(cb) {
     deleteSamples();
     log('copying sample files... ');
     for (const sample of samples) {
-        let outputPath = './src' + sample.SampleFolderPath.replace('.','');
-        // log(outputPath);
+        let outputPath = './src' + sample.SampleFolderPath.replace('..','');
+        log('copying to ' + outputPath);
 
         gulp.src([
               sample.SampleFolderPath + '/src/*.*',
@@ -508,15 +503,15 @@ function logSourceFiles(cb) {
 
 function logRootFiles(cb) {
     gulp.src([
-        './samples/**/*.*',
-       '!./samples/**/src/*.*',
-       '!./samples/**/*.tsx',
-       '!./samples/**/*.ts',
-       '!./samples/**/*.css',
-       '!./samples/**/index.*',
-       '!./samples/**/manifest.json',
-       '!./samples/**/package.json',
-       '!./samples/**/tsconfig.json',
+        '../samples/**/*.*',
+       '!../samples/**/src/*.*',
+       '!../samples/**/*.tsx',
+       '!../samples/**/*.ts',
+       '!../samples/**/*.css',
+       '!../samples/**/index.*',
+       '!../samples/**/manifest.json',
+       '!../samples/**/package.json',
+       '!../samples/**/tsconfig.json',
     ])
     .pipe(es.map(function(file, cbFile) {
         let relative = Transformer.getRelative(file.dirname);

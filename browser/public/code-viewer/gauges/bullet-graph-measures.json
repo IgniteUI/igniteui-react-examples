@@ -1,0 +1,21 @@
+{
+ "sampleFiles":
+[
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/gauges/bullet-graph/measures/src/index.tsx",
+  "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport { IgrBulletGraph } from 'igniteui-react-gauges';\nimport { IgrBulletGraphModule } from 'igniteui-react-gauges';\n\nIgrBulletGraphModule.register();\n\nexport default class BulletGraphMeasures extends React.Component {\n\n    public render(): JSX.Element {\n        return (\n            <div className=\"container sample\" >\n                <IgrBulletGraph\n                     height=\"80px\"\n                     width=\"100%\"\n                     minimumValue={0}\n                     maximumValue={100}\n\n                     value={50}\n                     valueBrush=\"DodgerBlue\"\n                     valueStrokeThickness={1}\n                     valueInnerExtent={0.5}\n                     valueOuterExtent={0.65}\n\n                     targetValue={80}\n                     targetValueBreadth={10}\n                     targetValueBrush=\"LimeGreen\"\n                     targetValueOutline=\"LimeGreen\"\n                     targetValueStrokeThickness={1}\n                     targetValueInnerExtent={0.3}\n                     targetValueOuterExtent={0.85}\n\n                     scaleBackgroundBrush = \"#e5e5e5\"\n                     scaleBackgroundOutline = \"#e5e5e5\"\n                     backingBrush = \"#f7f7f7\"\n                     backingOutline = \"#bfbfbf\"\n                     tickStrokeThickness = {1.5} />\n            </div>\n        );\n    }\n}\n\n// rendering above class to the React DOM\nReactDOM.render(<BulletGraphMeasures />, document.getElementById('root'));\n",
+  "isMain": true,
+  "fileExtension": "tsx",
+  "fileHeader": "tsx"
+ },
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/gauges/bullet-graph/measures/src/index.css",
+  "content": "",
+  "isMain": true,
+  "fileExtension": "css",
+  "fileHeader": "css"
+ }
+]
+}

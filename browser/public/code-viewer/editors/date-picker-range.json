@@ -1,0 +1,29 @@
+{
+ "sampleFiles":
+[
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/editors/date-picker/range/src/index.tsx",
+  "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport \"./date-picker-range.css\";\nimport { IgrDatePicker, IgrDatePickerModule, IgrInputModule, IgrValueChangedEventArgs } from 'igniteui-react-inputs';\n\nIgrInputModule.register();\nIgrDatePickerModule.register();\n\nexport default class DatePickerRange extends React.Component<any, any> {\n\n    public fromDatePickerRef: IgrDatePicker;\n    public toDatePickerRef: IgrDatePicker;\n\n    constructor(props: any) {\n        super(props);\n        this.onFromDatePickerRef = this.onFromDatePickerRef.bind(this);\n        this.onToDatePickerRef = this.onToDatePickerRef.bind(this);\n        this.fromDateChanged = this.fromDateChanged.bind(this);\n        this.toDateChanged = this.toDateChanged.bind(this);\n    }\n\n    public render(): JSX.Element {\n        return (\n            <div className=\"container sample\">\n                <div className=\"dateRanges\">\n                    <label className=\"caption\">From:  </label>\n                    <IgrDatePicker ref={this.onFromDatePickerRef} height=\"50px\" width=\"220px\" valueChanged={this.fromDateChanged}  />\n                    <label className=\"caption\">  To:  </label>\n                    <IgrDatePicker ref={this.onToDatePickerRef} height=\"50px\" width=\"220px\" valueChanged={this.toDateChanged}/>\n                </div>\n            </div>\n        );\n    }\n\n    public onFromDatePickerRef(picker: IgrDatePicker) {\n        this.fromDatePickerRef = picker;\n        picker.value = new Date(Date.now());\n    }\n\n    public onToDatePickerRef(picker: IgrDatePicker) {\n        this.toDatePickerRef = picker;\n        picker.value = new Date(Date.now());\n    }\n\n    public fromDateChanged(s: IgrDatePicker, e: IgrValueChangedEventArgs) {\n        let newDate = e.newValue;\n        if (newDate > this.toDatePickerRef.value) {\n            this.toDatePickerRef.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);\n        }\n    }\n\n    public toDateChanged(s: IgrDatePicker, e: IgrValueChangedEventArgs) {\n        let newDate = e.newValue;\n        if (newDate < this.fromDatePickerRef.value) {\n            this.fromDatePickerRef.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() - 1);\n        }\n    }\n}\n\n// rendering above class to the React DOM\nReactDOM.render(<DatePickerRange />, document.getElementById('root'));\n",
+  "isMain": true,
+  "fileExtension": "tsx",
+  "fileHeader": "tsx"
+ },
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/editors/date-picker/range/src/date-picker-range.css",
+  "content": ".dateRanges {\r\n  display: flex;\r\n}\r\n\r\n.caption {\r\n  align-self: center;\r\n  margin-left: 25px;\r\n  margin-right: 10px;\r\n  margin-top: 8px;\r\n}\r\n",
+  "isMain": true,
+  "fileExtension": "css",
+  "fileHeader": "css"
+ },
+ {
+  "hasRelativeAssetsUrls": false,
+  "path": "../samples/editors/date-picker/range/src/index.css",
+  "content": "",
+  "isMain": true,
+  "fileExtension": "css",
+  "fileHeader": "css"
+ }
+]
+}

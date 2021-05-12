@@ -426,7 +426,7 @@ class Transformer {
         if (path.indexOf(igConfig.RepositoryName) > -1) {
             path = path.split(igConfig.RepositoryName)[1];
             path = path.split("\\").join("/");
-            return "." + path;
+            return ".." + path;
             // return path;
         }
 

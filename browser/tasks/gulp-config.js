@@ -20,7 +20,7 @@ let config = {
         BrowserRoute: "/samples",
         BrowserRootPath: "./tmp",
         // SamplesCopyPath: "../samples",
-        SamplesCopyPath: "./samples",
+        SamplesCopyPath: "../samples",
         SamplesCopyFiles: [".tsx", ".ts", ".css", ".csv", ".html", ".png", ".svg" ],
         SamplesFileExtension: ".tsx",
         SamplesFileExclusions: ["Component.ts", "State.ts", "Props.ts", "Base.ts", "Data.ts", "Pager.tsx", "LegendOverlay.tsx"],
