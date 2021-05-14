@@ -1,12 +1,73 @@
-
-
-/* {RepositoryWarning}  */
-/* {RepositoryUrl}/tree/master/templates/sample/src/index  */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
+// data chart's elements for category series:
+import { IgrNumericYAxis } from 'igniteui-react-charts';
+import { IgrCategoryXAxis } from 'igniteui-react-charts';
+import { IgrRangeColumnSeries } from 'igniteui-react-charts';
+// data chart's modules:
+import { IgrDataChart } from 'igniteui-react-charts';
+import { IgrDataChartCoreModule } from 'igniteui-react-charts';
+import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
+import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
+// legend's modules:
+import { IgrLegend } from 'igniteui-react-charts';
+import { IgrLegendModule } from 'igniteui-react-charts';
+import { SampleRangeData } from './SampleRangeData';
 
-import './index.css'; // styles shared between all samples
+IgrDataChartCoreModule.register();
+IgrDataChartCategoryModule.register();
+IgrDataChartInteractivityModule.register();
+IgrLegendModule.register();
 
-import DataChartTypeRangeColumnSeries from './DataChartTypeRangeColumnSeries';
+export default class DataChartTypeRangeColumnSeries extends React.Component<any, any> {
+    public data: any[];
+    public chart: IgrDataChart;
+    public legend: IgrLegend;
+
+    constructor(props: any) {
+        super(props);
+
+        this.onChartRef = this.onChartRef.bind(this);
+
+        this.state = { seriesType: "Column" }
+        this.data = SampleRangeData.create();
+    }
+
+    public render(): JSX.Element {
+        return (
+            <div className="container sample">
+                <div className="container" style={{height: "calc(100% - 35px)"}} >
+                    <IgrDataChart ref={this.onChartRef}
+                        isHorizontalZoomEnabled={true}
+                        isVerticalZoomEnabled={true}
+                        chartTitle="Annual Temperature Changes"
+                        width="100%"
+                        height="100%"
+                        dataSource={this.data} >
+                        <IgrCategoryXAxis name="xAxis" label="Year" gap={0.5} />
+                        <IgrNumericYAxis  name="yAxis" minimumValue={20}
+                        title="Temperature (°C)"/>
+
+                        <IgrRangeColumnSeries
+                            name="series1"
+                            xAxisName="xAxis"
+                            yAxisName="yAxis"
+                            highMemberPath="High"
+                            lowMemberPath="Low"
+                            showDefaultTooltip="true"/>
+                   </IgrDataChart>
+                </div>
+            </div>
+        );
+    }
+
+    public onChartRef(chart: IgrDataChart) {
+        if (!chart) { return; }
+
+        this.chart = chart;
+    }
+}
+
+// rendering above class to the React DOM
 ReactDOM.render(<DataChartTypeRangeColumnSeries />, document.getElementById('root'));

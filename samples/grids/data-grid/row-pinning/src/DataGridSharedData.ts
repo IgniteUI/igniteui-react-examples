@@ -200,7 +200,7 @@ export class DataGridSharedData {
         return array[index];
     }
 
-    private static getRandomDate(start: Date, end: Date) {
+    private static getRandomDate(start: Date, end: Date): Date {
         return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
     }
 
@@ -278,7 +278,7 @@ export class DataGridSharedData {
         return 'https://static.infragistics.com/xplatform/images/flags/' + country + '.png';
     }
 
-    private static pad(num: number, size: number) {
+    private static pad(num: number, size: number): string{
         let s = num + "";
         while (s.length < size) {
             s = "0" + s;
