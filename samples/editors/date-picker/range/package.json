@@ -12,7 +12,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-
+    "igniteui-react-core": "16.14.0-beta0",
     "igniteui-react-inputs": "16.14.0-beta0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
