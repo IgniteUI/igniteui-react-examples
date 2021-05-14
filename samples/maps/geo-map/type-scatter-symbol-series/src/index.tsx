@@ -1,12 +1,100 @@
-
-
-/* {RepositoryWarning}  */
-/* {RepositoryUrl}/tree/master/templates/sample/src/index  */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
+import WorldLocations from "./WorldLocations";
+import WorldUtils from "./WorldUtils"
+import { IgrGeographicMapModule } from 'igniteui-react-maps';
+import { IgrGeographicMap } from 'igniteui-react-maps';
+import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
+import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
+import { IgrDataContext } from 'igniteui-react-core';
+import { MarkerType } from 'igniteui-react-charts';
 
-import './index.css'; // styles shared between all samples
+IgrGeographicMapModule.register();
+IgrDataChartInteractivityModule.register();
 
-import MapTypeScatterSymbolSeries from './MapTypeScatterSymbolSeries';
+export default class MapTypeScatterSymbolSeries extends React.Component {
+
+    public geoMap: IgrGeographicMap;
+
+    constructor(props: any) {
+        super(props);
+
+        this.onMapRef = this.onMapRef.bind(this);
+        this.createTooltip = this.createTooltip.bind(this);
+    }
+
+    public render(): JSX.Element {
+        return (
+            <div className="container sample" >
+                <div className="container" >
+                    <IgrGeographicMap
+                        ref={this.onMapRef}
+                        width="100%"
+                        height="100%"
+                        zoomable="true" />
+                </div>
+                <div className="overlay-bottom-right overlay-border">Imagery Tiles: @OpenStreetMap</div>
+            </div>
+        );
+    }
+
+    public onMapRef(geoMap: IgrGeographicMap) {
+        if (!geoMap) { return; }
+
+        this.geoMap = geoMap;
+        this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
+
+        this.addSeriesWith(WorldLocations.getCities(), "Gray");
+        this.addSeriesWith(WorldLocations.getCapitals(),"rgb(32, 146, 252)");
+    }
+
+    public addSeriesWith(locations: any[], brush: string)
+    {
+        const symbolSeries = new IgrGeographicSymbolSeries ( { name: "symbolSeries" });
+        symbolSeries.dataSource = locations;
+        symbolSeries.markerType = MarkerType.Circle;
+        symbolSeries.latitudeMemberPath = "lat";
+        symbolSeries.longitudeMemberPath = "lon";
+        symbolSeries.markerBrush  = "White";
+        symbolSeries.markerOutline = brush;
+        symbolSeries.tooltipTemplate = this.createTooltip;
+
+        this.geoMap.series.add(symbolSeries);
+    }
+
+    public createTooltip(context: any) {
+        const dataContext = context.dataContext as IgrDataContext;
+        if (!dataContext) return null;
+
+        const dataItem = dataContext.item as any;
+        if (!dataItem) return null;
+
+        const brush = dataContext.series.markerOutline;
+        const seriesStyle = { color: brush} as React.CSSProperties;
+
+        const lat = WorldUtils.toStringLat(dataItem.lat);
+        const lon = WorldUtils.toStringLon(dataItem.lon);
+
+        return <div>
+            <div className="tooltipTitle" style={seriesStyle}>{dataItem.name}</div>
+            <div className="tooltipBox">
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Country:</div>
+                    <div className="tooltipVal">{dataItem.country}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Latitude:</div>
+                    <div className="tooltipVal">{lat}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Longitude:</div>
+                    <div className="tooltipVal">{lon}</div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+// rendering above class to the React DOM
 ReactDOM.render(<MapTypeScatterSymbolSeries />, document.getElementById('root'));

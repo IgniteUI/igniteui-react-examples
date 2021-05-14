@@ -9,7 +9,7 @@ You can preview example of this React application on CodeSandbox by clicking on 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/charts/sparkline/display-winloss?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/SparklineDisplayWinLoss.tsx" rel="noopener noreferrer">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/charts/sparkline/display-winloss?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/index.tsx" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/code.png"/>
         </a>
     </body>
@@ -18,7 +18,7 @@ You can preview example of this React application on CodeSandbox by clicking on 
 ## Source Code
 
 You can find source code for this example in :
-[./src/SparklineDisplayWinLoss.tsx](./src/SparklineDisplayWinLoss.tsx) file.
+[./src/index.tsx](./src/index.tsx) file.
 
 
 ## Instructions
