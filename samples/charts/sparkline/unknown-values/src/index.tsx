@@ -29,7 +29,7 @@ export default class SparklineUnknownValues extends React.Component<any, any> {
             <div className="container sample">
                 <div className="options horizontal">
                     <label className="options-label">
-                    <input defaultChecked={false}
+                    <input defaultChecked={true}
                     type="checkbox"
                     onChange={this.onRangeVisibilityChanged}/>Plot Unknown Values</label>
                 </div>
