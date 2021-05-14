@@ -37,7 +37,7 @@ export default class SpreadsheetAdapterForCharts extends React.Component {
 
     public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
 
-        if (spreadsheet != null) {
+        if (spreadsheet) {
 
             this.spreadsheet = spreadsheet;
             this.spreadsheet.chartAdapter = new SpreadsheetChartAdapter();

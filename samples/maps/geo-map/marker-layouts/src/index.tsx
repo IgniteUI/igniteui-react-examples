@@ -62,7 +62,7 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
     public onMapReferenced(map: IgrGeographicMap) {        
         this.geoMap = map;
 
-        if (this.geoMap != null) {
+        if (map) {
 
             const geoRect = { left: -150.0, top: -60.0, width: 315.0, height: 140.0 };
             this.geoMap.zoomToGeographic(geoRect);
