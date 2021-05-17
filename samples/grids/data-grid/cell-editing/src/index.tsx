@@ -55,6 +55,13 @@ export default class DataGridCellEditing extends React.Component<any, any> {
         this.grid = grid;
     }
 
+    public get excelEditMode(): number {
+        if (this.grid) {
+            return this.grid.editModeClickAction;
+        }
+        return 1;
+    }
+
 	public render(): JSX.Element {
         return (
             <div className="container sample">
@@ -71,6 +78,13 @@ export default class DataGridCellEditing extends React.Component<any, any> {
                             <option value="3">Row</option>
                         </select>
                     </label>
+                    <label>
+                        Excel Style Editing:
+                        <select value={this.excelEditMode} onChange={this.onExcelEditModeChange}>
+                            <option value="1">SingleClick</option>
+                            <option value="2">DoubleClick</option>
+                        </select>
+                    </label>
                 </div>
                 <IgrDataGrid
                     ref={this.onGridRef}
@@ -80,6 +94,7 @@ export default class DataGridCellEditing extends React.Component<any, any> {
                     autoGenerateColumns={false}
                     dataSource={this.data}
                     activationMode="Cell"
+                    editModeClickAction="SingleClick"
                     selectionMode="SingleRow"
                     selectionBehavior="ModifierBased"
                     isColumnOptionsEnabled="true"
@@ -97,6 +112,11 @@ export default class DataGridCellEditing extends React.Component<any, any> {
                 </IgrDataGrid>
             </div>
         );
+    }
+
+    onExcelEditModeChange = (event: any) => {
+        this.grid.editModeClickAction = parseInt(event.target.value);
+        this.setState({ });
     }
 
     //#region Input Control Handlers
