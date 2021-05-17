@@ -82,7 +82,7 @@ export default class SparklineNormalRange extends React.Component<any, any> {
     }
 
     public onSparklineRef(sparkline: IgrSparkline) {
-        if (sparkline != null) {
+        if (sparkline) {
             this.sparkline = sparkline;
         }
     }

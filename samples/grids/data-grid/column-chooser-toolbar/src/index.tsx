@@ -34,14 +34,14 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
 
   public onGridRef(grid: IgrDataGrid) {
     this.grid = grid;
-    if (this.toolbar != null) {
+    if (toolbar) {
       this.toolbar.targetGrid = this.grid;
     }
   }
 
   public onToolbarRef(toolbar: IgrDataGridToolbar) {
     this.toolbar = toolbar;
-    if (this.toolbar != null) {
+    if (toolbar) {
       this.toolbar.targetGrid = this.grid;
     }
   }

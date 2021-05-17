@@ -38,10 +38,8 @@ export default class SpreadsheetDataValidation extends React.Component<any, any>
         );
     }
 
-    public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {
-        if (!spreadsheet) { return; }
-
-        if (spreadsheet != null) {
+    public onSpreadsheetRef(spreadsheet: IgrSpreadsheet) {    
+        if (spreadsheet) {
             this.spreadsheet = spreadsheet;
 
             this.spreadsheet.workbook.worksheets(0).columns(0).setWidth(25, WorksheetColumnWidthUnit.Character);

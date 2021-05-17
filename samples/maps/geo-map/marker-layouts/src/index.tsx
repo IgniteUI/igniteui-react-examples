@@ -59,13 +59,16 @@ export default class MapMarkerLayouts extends React.Component<any, any> {
         this.symbolSeries.markerCollisionAvoidance = e.target.value;
     }
 
-    public onMapReferenced(map: IgrGeographicMap) {
+    public onMapReferenced(map: IgrGeographicMap) {        
         this.geoMap = map;
 
-        const geoRect = { left: -150.0, top: -60.0, width: 315.0, height: 140.0 };
-        this.geoMap.zoomToGeographic(geoRect);
+        if (map) {
 
-        this.addSeries(WorldLocations.getCapitals(),"rgb(32, 146, 252)");
+            const geoRect = { left: -150.0, top: -60.0, width: 315.0, height: 140.0 };
+            this.geoMap.zoomToGeographic(geoRect);
+
+            this.addSeries(WorldLocations.getCapitals(), "rgb(32, 146, 252)");
+        }
     }
 
     public addSeries(locations: any[], brush: string)
