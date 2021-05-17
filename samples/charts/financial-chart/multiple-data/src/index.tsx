@@ -24,15 +24,11 @@ export default class FinancialChartMultipleData extends React.Component<any, any
                     width="100%"
                     height="100%"
                     chartType="Line"
-                    zoomSliderType="None"
-                    chartTitle="Tesla vs Amazon vs Microsoft Changes"
+                    thickness={2}
+                    chartTitle="Google vs Microsoft Changes"
                     subtitle="Between 2013 and 2017"
                     yAxisMode="PercentChange"
-                    yAxisTitle="Percent Changed Since 2013"
-                    yAxisInterval={100}
-                    yAxisMaximumValue={950}
-                    yAxisMinimumValue={-100}
-                    thickness={2}
+                    yAxisTitle="Percent Changed"
                     dataSource={this.state.data} />
                 </div>
             </div>
@@ -41,7 +37,6 @@ export default class FinancialChartMultipleData extends React.Component<any, any
 
     public initData() {
         StocksHistory.getMultipleStocks().then((stocks: any[]) => {
-            // console.log("getMultipleStocks " + stocks.length);
             this.setState({ data: stocks });
         });
     }

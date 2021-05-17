@@ -29,21 +29,25 @@ export default class FinancialChartOverview extends React.Component<any, any> {
         return (
             <div className="container sample" >
                 <div className="options vertical">
-                    <IgrLegend ref={this.onLegendRef}
+                    <span className="legend-title">Google vs Microsoft Stock Prices</span>
+                    <div className="legend">
+                        <IgrLegend
+                            ref={this.onLegendRef}
                             orientation="Horizontal" />
+                    </div>
                 </div>
                 <div className="container" style={{height: "calc(100% - 25px)"}}>
                     <IgrFinancialChart
+                        ref={this.onChartRef}
                         width="100%"
                         height="100%"
                         chartType="Bar"
-                        zoomSliderType="Bar"
-                        chartTitle="Tesla vs Amazon"
-                        subtitle="Between 2013 and 2017"
-                        isToolbarVisible={true}
+                        thickness={2}
+                        excludedProperties={["Date"]}
                         dataSource={this.state.data}
-                        yAxisMode="PercentChange"
-                        thickness={2} />
+                        zoomSliderType="Bar"
+                        isToolbarVisible={true}
+                        yAxisMode="PercentChange" />
                 </div>
             </div>
         );
@@ -69,7 +73,6 @@ export default class FinancialChartOverview extends React.Component<any, any> {
 
     public initData() {
         StocksHistory.getMultipleStocks().then((stocks: any[]) => {
-            console.log("getMultipleStocks " + stocks.length);
             this.setState({ data: stocks });
         });
     }
