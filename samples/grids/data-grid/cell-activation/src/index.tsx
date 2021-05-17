@@ -8,6 +8,8 @@ import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
+import { EnterKeyBehaviors } from 'igniteui-react-grids';
+import { EnterKeyBehaviorAfterEdit } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
 IgrGridColumnOptionsModule.register();
@@ -15,21 +17,63 @@ IgrGridColumnOptionsModule.register();
 export default class DataGridCellActivation extends React.Component<any, any> {
 
     public data: any[];
+    public grid: IgrDataGrid;
+
+    public canMoveAfterEdit: boolean;
+
 
     constructor(props: any) {
         super(props);
+
+        this.onGridRef = this.onGridRef.bind(this);
+        this.onEnterKeyModeChange = this.onEnterKeyModeChange.bind(this);
+        this.onEnterKeyAfterEditModeChange = this.onEnterKeyAfterEditModeChange.bind(this);
+
+        this.state = {
+            canMoveAfterEdit: true,
+            enterBehavior: EnterKeyBehaviors.Edit,
+            enterBehaviorAfterEdit: EnterKeyBehaviorAfterEdit.MoveDown
+        };
+
         this.data = DataGridSharedData.getEmployees();
     }
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
+
+                <div className="options">
+                    <label className="options-label">Enter Key Mode: </label>
+                    <select className="options-select" value={this.state.enterBehavior}
+                        onChange={this.onEnterKeyModeChange}>
+                        <option>Edit</option>
+                        <option>MoveUp</option>
+                        <option>MoveDown</option>
+                        <option>MoveLeft</option>
+                        <option>MoveRight</option>
+                        <option>None</option>
+                    </select>
+
+                    <label className="options-label">Enter Key After Edit Mode: </label>
+                    <select className="options-select" disabled={!this.state.canMoveAfterEdit} id="enterAfterEditMode"
+                        value={this.state.enterBehaviorAfterEdit}
+                        onChange={this.onEnterKeyAfterEditModeChange}>
+                        <option>MoveDown</option>
+                        <option>MoveUp</option>
+                        <option>MoveLeft</option>
+                        <option>MoveRight</option>
+                        <option>None</option>
+                    </select>
+                </div>
+
                 <IgrDataGrid
                     height="100%"
                     width="100%"
                     defaultColumnMinWidth={100}
                     autoGenerateColumns={false}
                     dataSource={this.data}
+                    enterBehavior={this.state.enterBehavior}
+                    enterBehaviorAfterEdit={this.state.enterBehaviorAfterEdit}
                     selectionMode="SingleCell"
                     activationMode="Cell"
                     isColumnOptionsEnabled="true">
@@ -43,6 +87,28 @@ export default class DataGridCellActivation extends React.Component<any, any> {
                 </IgrDataGrid>
             </div>
         );
+    }
+
+    public onGridRef(grid: IgrDataGrid) {
+        if (!grid) { return; }
+
+        this.grid = grid;
+    }
+
+    public onEnterKeyModeChange = (e: any) => {
+
+        if(e.target.value !== "Edit"){
+            this.setState({ canMoveAfterEdit: false, enterBehavior: e.target.value, enterBehaviorAfterEdit:EnterKeyBehaviorAfterEdit.None });
+        }
+        else if (e.target.value === "Edit") {
+
+            this.setState({ canMoveAfterEdit: true, enterBehavior: e.target.value, enterBehaviorAfterEdit:EnterKeyBehaviorAfterEdit.MoveDown });
+        }
+
+    }
+
+    public onEnterKeyAfterEditModeChange = (e: any) => {
+        this.setState({ enterBehavior: EnterKeyBehaviors.Edit, enterBehaviorAfterEdit: e.target.value  });
     }
 }
 
