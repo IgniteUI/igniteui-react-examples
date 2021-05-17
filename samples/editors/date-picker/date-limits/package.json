@@ -1,6 +1,6 @@
 {
-  "name": "react-date-picker-range",
-  "description": "This project provides example of Date Picker Range using Infragistics React components",
+  "name": "react-date-picker-date-limits",
+  "description": "This project provides example of Date Picker Date Limits using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
