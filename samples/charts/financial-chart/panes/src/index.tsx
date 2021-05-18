@@ -26,7 +26,6 @@ export default class FinancialChartPanes extends React.Component<any, any> {
                         chartType="Candle"
                         zoomSliderType="Candle"
                         volumeType="Area"
-                        overlayTypes="PriceChannel"
                         overlayBrushes="rgba(5, 138, 0, 0.17)"
                         overlayOutlines="rgba(5, 138, 0, 0.4)"
                         overlayThickness={1}
