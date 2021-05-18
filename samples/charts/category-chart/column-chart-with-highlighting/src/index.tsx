@@ -49,7 +49,8 @@ export default class CategoryChartColumnChartWithHighlighting extends React.Comp
                     isCategoryHighlightingEnabled={this.state.isCategoryHighlighting}
                     isItemHighlightingEnabled={this.state.isItemHighlighting}
                     isSeriesHighlightingEnabled={this.state.isSeriesHighlighting}
-                    yAxisMinimumValue={0}
+                    yAxisTitle="Temperatures in Celsius"
+					yAxisMinimumValue={0}
                     xAxisInterval={1}/>
             </div>
         </div>
