@@ -14,7 +14,7 @@ export default class FinancialChartAxisTypes extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.state = { xAxisMode: "Time", yAxisMode: "PercentChange" }
+        this.state = { xAxisMode: "Ordinal", yAxisMode: "Numeric" }
         this.initData();
     }
 
@@ -41,6 +41,7 @@ export default class FinancialChartAxisTypes extends React.Component<any, any> {
                     height="100%"
                     xAxisMode={this.state.xAxisMode}
                     yAxisMode={this.state.yAxisMode}
+                    chartType="Line"
                     dataSource={this.data}/>
             </div>
 

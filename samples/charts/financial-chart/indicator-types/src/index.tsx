@@ -23,8 +23,8 @@ export default class FinancialChartIndicatorTypes extends React.Component<any, a
                 <IgrFinancialChart
                     width="100%"
                     height="100%"
-                    chartType="Bar"
-                    indicatorTypes="MoneyFlowIndex, MassIndex"
+                    chartType="Line"
+                    indicatorTypes="MovingAverageConvergenceDivergence, RelativeStrengthIndex"
                     indicatorThickness={2}
                     indicatorNegativeBrushes="Red"
                     indicatorBrushes="Green, Blue"

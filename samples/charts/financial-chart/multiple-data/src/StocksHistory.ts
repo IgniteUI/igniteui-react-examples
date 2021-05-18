@@ -4,10 +4,10 @@ export default class StocksHistory {
   public static async getMultipleStocks(): Promise<any[]> {
     // getting prices of multiples stocks asynchronously
     const dataSources: any[] = [
-      await this.getAmazonStock(),
+      //await this.getAmazonStock(),
       await this.getGoogleStock(),
       await this.getMicrosoftStock(),
-      await this.getTeslaStock()
+      //await this.getTeslaStock()
     ];
 
     return new Promise<any[]>((resolve, reject) => {
