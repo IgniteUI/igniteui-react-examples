@@ -22,7 +22,7 @@ export default class FinancialChartTrendlines extends React.Component<any, any> 
         return (
         <div className="container sample">
             <div className="options horizontal">
-                <label className="options-label">Trendline Type:</label>
+                <label className="options-label">Trendlines:</label>
                 <select value={this.state.trendLineType}
                     onChange={this.onTrendlineChanged}>
                     <option>CubicFit</option>
@@ -45,16 +45,18 @@ export default class FinancialChartTrendlines extends React.Component<any, any> 
                 <IgrFinancialChart
                     width="100%"
                     height="100%"
+                    chartType="Bar"
+                    thickness={2}
                     trendLineType={this.state.trendLineType}
                     trendLineThickness={2}
                     trendLinePeriod={10}
-                    trendLineBrushes="rgba(5, 138, 0, 1), rgba(0, 101, 209, 1)"
-                    brushes="rgba(5, 138, 0, 1), rgba(0, 101, 209, 1)"
-                    chartTitle="Tesla vs Amazon Trend"
+                    trendLineBrushes="rgba(0, 101, 209, 1)"
+                    chartTitle="Microsoft Trend"
                     subtitle="Between 2013 and 2017"
                     dataSource={this.state.data}
                     zoomSliderType="None"
-                    chartType="Line" />
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false} />
             </div>
         </div>
         );
@@ -66,7 +68,7 @@ export default class FinancialChartTrendlines extends React.Component<any, any> 
     }
 
     public initData() {
-        StocksHistory.getMultipleStocks().then((stocks: any[]) => {
+        StocksHistory.getMicrosoftStock().then((stocks: any[]) => {
             this.setState({ data: stocks });
         });
     }

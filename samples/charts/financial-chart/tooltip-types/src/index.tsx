@@ -13,7 +13,7 @@ export default class FinancialChartTooltipTypes extends React.Component<any, any
 
     constructor(props: any) {
         super(props);
-        this.state = { toolTipType: "Default", data:[] }
+        this.state = { toolTipType: "Item", data:[] }
         this.initData();
     }
 
