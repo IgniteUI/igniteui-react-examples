@@ -40,58 +40,54 @@ export default class DataChartTypePolarSeries extends React.Component<any, any> 
         this.onLegendRef = this.onLegendRef.bind(this);
         this.onSeriesTypeChanged = this.onSeriesTypeChanged.bind(this);
 
-        this.state = { seriesType: "Spline" }
+        this.state = { seriesType: "Spline Area" }
         this.data = SamplePolarData.create();
     }
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <div className="options horizontal">
-                    <label className="options-label">Type of Polar Series: </label>
-                    <select value={this.state.seriesType}
-                        onChange={this.onSeriesTypeChanged}>
-                        <option>Area</option>
-                        <option>Spline Area</option>
-                        <option>Spline</option>
-                        <option>Line</option>
-                        <option>Scatter</option>
-                    </select>
-                    <label className="legend-title">Legend: </label>
-                    <div className="options vertical">
+                <div className="options vertical">
+                    <span className="legend-title">Legend: </span>
+                    <div className="legend">
                         <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                     </div>
+
+                    <div className="overlay-right">
+                        <div className="options horizontal">
+                            <label className="options-label">Polar Series: </label>
+                            <select value={this.state.seriesType} onChange={this.onSeriesTypeChanged}>
+                                <option>Area</option>
+                                <option>Spline Area</option>
+                                <option>Spline</option>
+                                <option>Line</option>
+                                <option>Scatter</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
+                
                 <div className="container" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart ref={this.onChartRef}
-                        isHorizontalZoomEnabled={true}
-                        isVerticalZoomEnabled={true}
-                        titleTopMargin="10px"
-                        chartTitle="Sailing Chart"
-                        subtitle="Wind Speed vs. Boat Speed"
                         width="100%"
                         height="100%"
+                        chartTitle="Sailing Chart"
+                        subtitle="Wind Speed vs. Boat Speed"
+                        titleTopMargin={10}
+                        isHorizontalZoomEnabled={false}
+                        isVerticalZoomEnabled={false}
                         dataSource={this.data} >
-                        <IgrNumericAngleAxis  name="angleAxis"
-                        startAngleOffset={-90}
-                        interval={30}
-                        minimumValue={0}
-                        maximumValue={360}/>
+                        <IgrNumericAngleAxis name="angleAxis"
+                            startAngleOffset={-90}
+                            interval={30}
+                            minimumValue={0}
+                            maximumValue={360} />
                         <IgrNumericRadiusAxis name="radiusAxis"
-                        innerRadiusExtentScale={0.1}
-                        radiusExtentScale={0.9}
-                        minimumValue={0}
-                        maximumValue={100}
-                        interval={25}/>
-
-                        {/* series are created in the setSeries function
-                        alternatively, you can create these elements using this code: */}
-                        {/* <IgrPolarAreaSeries
-                            name="series1"
-                            angleMemberPath="Direction"
-                            radiusMemberPath="WindSpeed"
-                            radiusAxisName="radiusAxis"
-                            angleAxisName="angleAxis"/> */}
+                            innerRadiusExtentScale={0.1}
+                            radiusExtentScale={0.9}
+                            minimumValue={0}
+                            maximumValue={100}
+                            interval={25} />
                    </IgrDataChart>
                 </div>
             </div>
@@ -113,22 +109,24 @@ export default class DataChartTypePolarSeries extends React.Component<any, any> 
             series1.radiusMemberPath  = "BoatSpeed";
             series1.radiusAxisName = "radiusAxis";
             series1.angleAxisName = "angleAxis";
+            series1.showDefaultTooltip = true;
+            series1.areaFillOpacity = 1;
+            series1.markerType = MarkerType.Circle;
+            series1.title = "Boat Speed";
+
             const series2 = new IgrPolarAreaSeries({ name: "series2" });
             series2.angleMemberPath = "Direction";
             series2.radiusMemberPath  = "WindSpeed";
             series2.radiusAxisName = "radiusAxis";
             series2.angleAxisName = "angleAxis";
-
-            series1.areaFillOpacity = 1;
+            series2.showDefaultTooltip = true;
             series2.areaFillOpacity = 1;
-            series1.markerType = MarkerType.Circle;
             series2.markerType = MarkerType.Circle;
-            series1.title = "Boat Speed";
             series2.title = "Wind Speed";
+
             this.chart.series.clear();
             this.chart.series.add(series2);
             this.chart.series.add(series1);
-
         } else if (seriesType === "Spline Area") {
             // creating a series with mapping to data columns of wind pattern
             const series1 = new IgrPolarSplineAreaSeries({ name: "series1" });
@@ -136,23 +134,24 @@ export default class DataChartTypePolarSeries extends React.Component<any, any> 
             series1.radiusMemberPath  = "BoatSpeed";
             series1.radiusAxisName = "radiusAxis";
             series1.angleAxisName = "angleAxis";
+            series1.showDefaultTooltip = true;
+            series1.areaFillOpacity = 1;
+            series1.markerType = MarkerType.Circle;
+            series1.title = "Boat Speed";
 
             const series2 = new IgrPolarSplineAreaSeries({ name: "series2" });
             series2.angleMemberPath = "Direction";
             series2.radiusMemberPath  = "WindSpeed";
             series2.radiusAxisName = "radiusAxis";
             series2.angleAxisName = "angleAxis";
-
-            series1.areaFillOpacity = 0.3;
-            series2.areaFillOpacity = 0.3;
-            series1.markerType = MarkerType.Circle;
+            series2.showDefaultTooltip = true;
+            series2.areaFillOpacity = 1;
             series2.markerType = MarkerType.Circle;
-            series1.title = "Boat Speed";
             series2.title = "Wind Speed";
+
             this.chart.series.clear();
             this.chart.series.add(series2);
             this.chart.series.add(series1);
-
         } else if (seriesType === "Spline") {
             // creating a series with mapping to data columns of wind pattern
             const series1 = new IgrPolarSplineSeries({ name: "series1" });
@@ -160,20 +159,24 @@ export default class DataChartTypePolarSeries extends React.Component<any, any> 
             series1.radiusMemberPath  = "BoatSpeed";
             series1.radiusAxisName = "radiusAxis";
             series1.angleAxisName = "angleAxis";
+            series1.showDefaultTooltip = true;
+            series1.areaFillOpacity = 1;
+            series1.markerType = MarkerType.Circle;
+            series1.title = "Boat Speed";
+
             const series2 = new IgrPolarSplineSeries({ name: "series2" });
             series2.angleMemberPath = "Direction";
             series2.radiusMemberPath  = "WindSpeed";
             series2.radiusAxisName = "radiusAxis";
             series2.angleAxisName = "angleAxis";
-
-            series1.markerType = MarkerType.Circle;
+            series2.showDefaultTooltip = true;
+            series2.areaFillOpacity = 1;
             series2.markerType = MarkerType.Circle;
-            series1.title = "Boat Speed";
             series2.title = "Wind Speed";
+
             this.chart.series.clear();
             this.chart.series.add(series2);
             this.chart.series.add(series1);
-
         } else if (seriesType === "Line") {
             // creating a series with mapping to data columns of wind pattern
             const series1 = new IgrPolarLineSeries({ name: "series1" });
@@ -181,20 +184,24 @@ export default class DataChartTypePolarSeries extends React.Component<any, any> 
             series1.radiusMemberPath  = "BoatSpeed";
             series1.radiusAxisName = "radiusAxis";
             series1.angleAxisName = "angleAxis";
+            series1.showDefaultTooltip = true;
+            series1.areaFillOpacity = 1;
+            series1.markerType = MarkerType.Circle;
+            series1.title = "Boat Speed";
+
             const series2 = new IgrPolarLineSeries({ name: "series2" });
             series2.angleMemberPath = "Direction";
             series2.radiusMemberPath  = "WindSpeed";
             series2.radiusAxisName = "radiusAxis";
             series2.angleAxisName = "angleAxis";
-
-            series1.markerType = MarkerType.Circle;
+            series2.showDefaultTooltip = true;
+            series2.areaFillOpacity = 1;
             series2.markerType = MarkerType.Circle;
-            series1.title = "Boat Speed";
             series2.title = "Wind Speed";
+            
             this.chart.series.clear();
             this.chart.series.add(series2);
             this.chart.series.add(series1);
-
         } else if (seriesType === "Scatter") {
             // creating a series with mapping to data columns of wind pattern
             const series1 = new IgrPolarScatterSeries({ name: "series1" });
@@ -202,16 +209,21 @@ export default class DataChartTypePolarSeries extends React.Component<any, any> 
             series1.radiusMemberPath  = "BoatSpeed";
             series1.radiusAxisName = "radiusAxis";
             series1.angleAxisName = "angleAxis";
+            series1.showDefaultTooltip = true;
+            series1.areaFillOpacity = 1;
+            series1.markerType = MarkerType.Circle;
+            series1.title = "Boat Speed";
+
             const series2 = new IgrPolarScatterSeries({ name: "series2" });
             series2.angleMemberPath = "Direction";
             series2.radiusMemberPath  = "WindSpeed";
             series2.radiusAxisName = "radiusAxis";
             series2.angleAxisName = "angleAxis";
-
-            series1.markerType = MarkerType.Circle;
+            series2.showDefaultTooltip = true;
+            series2.areaFillOpacity = 1;
             series2.markerType = MarkerType.Circle;
-            series1.title = "Boat Speed";
             series2.title = "Wind Speed";
+
             this.chart.series.clear();
             this.chart.series.add(series2);
             this.chart.series.add(series1);
@@ -224,7 +236,7 @@ export default class DataChartTypePolarSeries extends React.Component<any, any> 
         this.chart = chart;
         if (this.legend) {
             this.chart.legend = this.legend;
-            this.setSeries("Spline");
+            this.setSeries(this.state.seriesType);
         }
     }
 
@@ -234,7 +246,7 @@ export default class DataChartTypePolarSeries extends React.Component<any, any> 
         this.legend = legend;
         if (this.chart) {
             this.chart.legend = this.legend;
-            this.setSeries("Spline");
+            this.setSeries(this.state.seriesType);
         }
     }
 }

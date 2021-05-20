@@ -30,6 +30,7 @@ export default class DataChartTypeRangeSeries extends React.Component<any, any> 
         super(props);
 
         this.onChartRef = this.onChartRef.bind(this);
+        this.onLegendRef = this.onLegendRef.bind(this);
         this.onSeriesTypeChanged = this.onSeriesTypeChanged.bind(this);
 
         this.state = { seriesType: "Column" }
@@ -39,32 +40,37 @@ export default class DataChartTypeRangeSeries extends React.Component<any, any> 
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <div className="options horizontal">
-                    <label className="options-label">Type of Range Series: </label>
-                    <select value={this.state.seriesType}
-                        onChange={this.onSeriesTypeChanged}>
-                        <option>Column</option>
-                        <option>Area</option>
-                    </select>
+                <div className="options vertical">
+                    <span className="legend-title">Legend: </span>
+                    <div className="legend">
+                        <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
+                    </div>
+
+                    <div className="overlay-right">
+                        <div className="options horizontal">
+                            <label className="options-label">Polar Series: </label>
+                            <select value={this.state.seriesType} onChange={this.onSeriesTypeChanged}>
+                                <option>Area</option>
+                                <option>Column</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
+
                 <div className="container" style={{height: "calc(100% - 35px)"}} >
                     <IgrDataChart ref={this.onChartRef}
-                        isHorizontalZoomEnabled={true}
-                        isVerticalZoomEnabled={true}
-                        chartTitle="Annual Temperature Changes"
                         width="100%"
                         height="100%"
+                        chartTitle="Annual Temperature Changes"
+                        isHorizontalZoomEnabled={false}
+                        isVerticalZoomEnabled={false}
                         dataSource={this.data} >
-                        <IgrCategoryXAxis name="xAxis" label="Year" gap={0.5} />
-                        <IgrNumericYAxis  name="yAxis" minimumValue={20}
-                        title="Temperature (°C)"/>
-                        {/* series are created in the setSeries function */}
-                        {/* <IgrRangeColumnSeries
-                            name="series1"
-                            xAxisName="xAxis"
-                            yAxisName="yAxis"
-                            highMemberPath="High"
-                            lowMemberPath="Low" /> */}
+                        <IgrCategoryXAxis name="xAxis"
+                            label="Year"
+                            gap={0.5} />
+                        <IgrNumericYAxis name="yAxis"
+                            minimumValue={20}
+                            title="Temperature (°C)"/>
                    </IgrDataChart>
                 </div>
             </div>
@@ -77,27 +83,25 @@ export default class DataChartTypeRangeSeries extends React.Component<any, any> 
         this.setSeries(selectedSeries);
     }
 
-    public setSeries(seriesType: string)
-    {
+    public setSeries(seriesType: string) {
          if (seriesType === "Area") {
-
             const series1 = new IgrRangeAreaSeries({ name: "series1" });
             series1.highMemberPath = "High";
             series1.lowMemberPath  = "Low";
             series1.xAxisName = "xAxis";
             series1.yAxisName = "yAxis";
             series1.thickness = 0;
+            series1.title = "Weather Forecast";
 
             this.chart.series.clear();
             this.chart.series.add(series1);
-
         } else if (seriesType === "Column") {
-
             const series1 = new IgrRangeColumnSeries({ name: "series1" });
             series1.highMemberPath = "High";
             series1.lowMemberPath  = "Low";
             series1.xAxisName = "xAxis";
             series1.yAxisName = "yAxis";
+            series1.title = "Weather Forecast";
 
             this.chart.series.clear();
             this.chart.series.add(series1);
@@ -108,9 +112,20 @@ export default class DataChartTypeRangeSeries extends React.Component<any, any> 
         if (!chart) { return; }
 
         this.chart = chart;
-        this.setSeries("Column");
+        if (this.legend) {
+            this.chart.legend = this.legend;
+            this.setSeries(this.state.seriesType);
+        }
     }
+    public onLegendRef(legend: IgrLegend) {
+        if (!legend) { return; }
 
+        this.legend = legend;
+        if (this.chart) {
+            this.chart.legend = this.legend;
+            this.setSeries(this.state.seriesType);
+        }
+    }
 }
 
 // rendering above class to the React DOM
