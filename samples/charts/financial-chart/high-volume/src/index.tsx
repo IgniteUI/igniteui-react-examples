@@ -22,17 +22,13 @@ export default class FinancialChartHighVolume extends React.Component<any, any> 
         return (
             <div className="container sample" >
                 <div className="container" style={{height: "calc(100% - 25px)"}}>
-                <IgrFinancialChart
-                    width="100%"
-                    height="100%"
-                    chartType="Line"
-                    zoomSliderType="Line"
-                    thickness={2}
-                    dataSource={this.data}
-                    chartTitle={this.title}
-                    subtitle={this.subtitle}/>
+                    <IgrFinancialChart width="100%" height="100%"
+                        chartType="Line"                                                
+                        dataSource={this.data}
+                        chartTitle={this.title}
+                        subtitle={this.subtitle}/>
+                </div>
             </div>
-        </div>
         );
     }
 

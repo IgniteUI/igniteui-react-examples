@@ -24,9 +24,6 @@ export default class FinancialChartPerformance extends React.Component<any, any>
                         width="100%"
                         height="100%"
                         chartType="Line"
-                        volumeType="Line"
-                        zoomSliderType="None"
-                        markerTypes="None"
                         xAxisMode="Ordinal"
                         yAxisMode="Numeric"
                         yAxisExtent={60}

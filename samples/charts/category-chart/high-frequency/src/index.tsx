@@ -9,23 +9,18 @@ IgrCategoryChartModule.register();
 
 export default class CategoryChartHighFrequency extends React.Component<any, any> {
     public dataIndex: number = 0;
-    public dataPoints: number = 100000;
+    public dataPoints: number = 500;
     public data: any[];
 
-    public refreshMilliseconds: number = 10;
+    public refreshMilliseconds: number = 5;
     public interval: number = -1;
 
-    public chart: IgrCategoryChart;
-    public fps: HTMLSpanElement;
-    public frameTime: Date;
-    public frameCount: number = 0;
+    public chart: IgrCategoryChart;        
 
     constructor(props: any) {
         super(props);
 
         this.onChartRef = this.onChartRef.bind(this);
-        this.onFpsRef = this.onFpsRef.bind(this);
-        this.onScalingRatioChanged = this.onScalingRatioChanged.bind(this);
         this.onRefreshFrequencyChanged = this.onRefreshFrequencyChanged.bind(this);
         this.onDataGenerateClick = this.onDataGenerateClick.bind(this);
         this.onDataPointsChanged = this.onDataPointsChanged.bind(this);
@@ -41,7 +36,7 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
             dataSource: this.data,
             scalingRatio: window.devicePixelRatio,
             refreshInterval: this.refreshMilliseconds,
-            refreshInfo: (this.refreshMilliseconds / 1000).toFixed(3) + "s"
+            refreshInfo: "5ms"
         }
     }
 
@@ -49,32 +44,26 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
         return (
             <div className="container sample">
                 <div className="options horizontal">
-                    <button onClick={this.onDataFeedClick}>{this.state.dataFeedAction}</button>
-                    <button onClick={this.onDataGenerateClick}>Generate Data</button>
-                    <label className="options-label">Refresh Interval: </label>
-                    <label className="options-value" >
-                        {this.state.refreshInfo}
-                    </label>
-                    <input className="options-slider" type="range" min="10" max="500"
+                    <button onClick={this.onDataFeedClick}>{this.state.dataFeedAction}</button>                    
+                    <label className="options-label">Refresh: </label>
+                    <label className="options-value">{this.state.refreshInfo}</label>
+                    <input className="options-slider" type="range" min="5" max="250" step="5"
                         value={this.state.refreshInterval}
                         onChange={this.onRefreshFrequencyChanged} />
+                    <button onClick={this.onDataGenerateClick}>Generate</button>
                     <label className="options-label">Data Points: </label>
-                    <label className="options-value" >
-                        {this.state.dataInfo}
-                    </label>
-                    <input className="options-slider" type="range" min="10000" max="1000000" step="1000"
+                    <label className="options-value">{this.state.dataInfo}</label>
+                    <input className="options-slider" type="range" min="100" max="2000" step="100"
                         value={this.state.dataPoints}
-                        onChange={this.onDataPointsChanged} />
-                    <label className="options-label"><input type="checkbox"
-                        onChange={this.onScalingRatioChanged} /> Optimize Scaling </label>
-                    <label ref={this.onFpsRef} className="options-label" />
+                        onChange={this.onDataPointsChanged} />                    
                 </div>
                 <div className="container" style={{ height: "calc(100% - 45px)" }} >
                     <IgrCategoryChart ref={this.onChartRef}
                         width="100%"
                         height="100%"
                         chartType="Line"
-                        dataSource={this.state.dataSource} />
+                        dataSource={this.state.dataSource}
+                        yAxisExtent={40} />
                 </div>
             </div>
         );
@@ -87,12 +76,6 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
         }
     }
 
-    public onFpsRef(span: HTMLSpanElement) {
-        if (!span) { return; }
-
-        this.fps = span;
-    }
-
     public onChartRef(chart: IgrCategoryChart) {
         if (!chart) { return; }
 
@@ -100,17 +83,8 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
         this.onChartInit();
     }
 
-    public onChartInit(): void {
-        this.frameTime = new Date();
+    public onChartInit(): void {        
         this.setupInterval();
-    }
-
-    public onScalingRatioChanged = (e: any) => {
-        if (e.target.checked) {
-            this.setState({ scalingRatio: 1.0 });
-        } else {
-            this.setState({ scalingRatio: NaN });
-        }
     }
 
     public onDataGenerateClick() {
@@ -123,7 +97,7 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
     public onDataFeedClick() {
         let feedAction = this.state.dataFeedAction;
 
-        if (feedAction == "Start") {
+        if (feedAction === "Start") {
             this.setState({ dataFeedAction: "Stop" });
         }
         else {
@@ -137,11 +111,11 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
         if (isNaN(num)) {
             num = 10000;
         }
-        if (num < 10000) {
-            num = 10000;
+        if (num < 100) {
+            num = 100;
         }
-        if (num > 1000000) {
-            num = 1000000;
+        if (num > 2000) {
+            num = 2000;
         }
         const info = CategoryChartSharedData.toShortString(num);
         this.dataPoints = num;
@@ -167,9 +141,8 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
         if (num > 500) {
             num = 500;
         }
-        this.refreshMilliseconds = num;
-        const info = (this.refreshMilliseconds / 1000).toFixed(3) + "s";
-        this.setState({ refreshInterval: num, refreshInfo: info });
+        this.refreshMilliseconds = num;        
+        this.setState({ refreshInterval: num, refreshInfo: this.refreshMilliseconds + "ms" });
         this.setupInterval();
     }
 
@@ -184,7 +157,7 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
     }
 
     public tick(): void {
-        if (this.state.dataFeedAction == "Stop") {
+        if (this.state.dataFeedAction === "Stop") {
             this.dataIndex++;
             const oldItem = this.data[0];
             const newItem = CategoryChartSharedData.getNewItem(this.data, this.dataIndex);
@@ -193,17 +166,7 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
             this.data.push(newItem);
             this.chart.notifyInsertItem(this.data, this.data.length - 1, newItem);
             this.data.shift();
-            this.chart.notifyRemoveItem(this.data, 0, oldItem);
-
-            this.frameCount++;
-            const currTime = new Date();
-            const elapsed = (currTime.getTime() - this.frameTime.getTime());
-            if (elapsed > 5000) {
-                const fps = this.frameCount / (elapsed / 1000.0);
-                this.frameTime = currTime;
-                this.frameCount = 0;
-                this.fps.textContent = " FPS: " + Math.round(fps).toString();
-            }
+            this.chart.notifyRemoveItem(this.data, 0, oldItem);            
         }
     }
 }
