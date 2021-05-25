@@ -66,6 +66,12 @@ export default class DataChartTypeStackedSeries extends React.Component<any, any
     public render(): JSX.Element {
         return (
             <div className="container sample">
+                <div className="options vertical">
+                    <label className="legend-title">Energy Production By Source: </label>
+                    <div className="legend">
+                        <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
+                    </div>
+                </div>
                 <div className="overlay-right" style={{marginRight: "1rem"}}>
                     <label className="options-label">Type of Category Series: </label>
                     <select onChange={this.onSeriesTypeChanged}>
@@ -80,12 +86,6 @@ export default class DataChartTypeStackedSeries extends React.Component<any, any
                         <option>Stacked Bar Series</option>
                         <option>Stacked 100 Bar Series</option>
                     </select>
-                </div>
-                <div className="options vertical">
-                    <label className="legend-title">Energy Production By Source: </label>
-                    <div className="legend">
-                        <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
-                    </div>
                 </div>
                 <div className="container" >
                     <IgrDataChart ref={this.onChartRef}
