@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrFinancialChart } from 'igniteui-react-charts';
+import { IgrFinancialChart, MarkerType } from 'igniteui-react-charts';
 import { IgrFinancialChartModule } from 'igniteui-react-charts';
 import { StocksUtility } from './StocksUtility';
 
@@ -12,6 +12,8 @@ export default class FinancialChartAnnotations extends React.Component<any, any>
     public data: any[];
     public excludeProperties: string[] = ["index", "info"];
 
+    private _chart: IgrFinancialChart;
+
     constructor(props: any) {
         super(props);
         this.state = {
@@ -19,8 +21,10 @@ export default class FinancialChartAnnotations extends React.Component<any, any>
             crosshairsMode: "Both",
             crosshairsVisible: true,
             finalValuesVisible: true,
-            markersTypes: "Circle",
-            markersVisible: true,
+            markersVisible: false,
+            markerTypes: [ MarkerType.None ],
+            toolTipVisible: true,
+            toolTipType: "Item"
         };
         this.initData();
     }
@@ -30,68 +34,84 @@ export default class FinancialChartAnnotations extends React.Component<any, any>
         <div className="container sample" >
             <div className="options horizontal">
                 <label className="options-label">Annotations: </label>
-                <label className="options-label"><input type="checkbox"
-                checked={this.state.crosshairsVisible}
-                onChange={this.onCrosshairsVisible}/> Crosshair </label>
-                <label className="options-label"><input type="checkbox"
-                checked={this.state.calloutsVisible}
-                onChange={this.onCalloutsVisible}/> Callouts </label>
-                <label className="options-label"><input type="checkbox"
-                checked={this.state.finalValuesVisible}
-                onChange={this.onFinalValuesVisible}/> Final Values </label>
-                <label className="options-label"><input type="checkbox"
-                checked={this.state.markersVisible}
-                onChange={this.onMarkersVisible}/> Markers </label>
+                <label className="options-item">
+                    <input type="checkbox"
+                        checked={this.state.crosshairsVisible}
+                        onChange={this.onCrosshairsVisible}/> Crosshair 
+                </label>
+                <label className="options-item">
+                    <input type="checkbox"
+                        checked={this.state.calloutsVisible}
+                        onChange={this.onCalloutsVisible}/> Callouts 
+                </label>
+                <label className="options-item">
+                    <input type="checkbox"
+                        checked={this.state.toolTipVisible}
+                        onChange={this.onItemTooltipVisible}/> Item Tooltip 
+                </label>
+                <label className="options-item">
+                    <input type="checkbox"
+                        checked={this.state.finalValuesVisible}
+                        onChange={this.onFinalValuesVisible}/> Final Values 
+                </label>
+                <label className="options-item">
+                    <input type="checkbox"
+                        checked={this.state.markersVisible}
+                        onChange={this.onMarkersVisible}/> Markers 
+                </label>
             </div>
+
             <div className="container" style={{height: "calc(100% - 65px)"}}>
                 <IgrFinancialChart
+                    ref={this.onChartRef}
                     width="100%"
                     height="100%"
                     chartType="Line"
                     thickness={2}
-                    excludedProperties={this.excludeProperties}
                     xAxisMode={this.state.xAxisMode}
                     yAxisMode={this.state.yAxisMode}
                     dataSource={this.data}
-
-                    markerTypes={this.state.markersTypes}
-
+                    excludedProperties={this.excludeProperties}
                     calloutsVisible={this.state.calloutsVisible}
                     calloutsXMemberPath="index"
                     calloutsYMemberPath="value"
                     calloutsLabelMemberPath="info"
                     calloutsContentMemberPath="info"
-
                     crosshairsSnapToData={false}
+                    toolTipType={this.state.toolTipType}
                     crosshairsDisplayMode={this.state.crosshairsMode}
                     crosshairsAnnotationEnabled={this.state.crosshairsVisible}
-
-                    finalValueAnnotationsVisible={this.state.finalValuesVisible}/>
+                    finalValueAnnotationsVisible={this.state.finalValuesVisible}
+                    markerTypes={this.state.markerTypes}/>
             </div>
         </div>
         );
     }
 
-    public onCrosshairsVisible = (e: any) =>{
-        const isVisible = e.target.checked;
-        this.setState( {crosshairsVisible: isVisible} );
-        if (isVisible) {
-            this.setState( {crosshairsMode: "Both"} );
-        }
-        else {
-            this.setState( {crosshairsMode: "None"} );
-        }
+    private onChartRef = (chart: IgrFinancialChart) => {
+        this._chart = chart;
     }
-    public onCalloutsVisible = (e: any) =>{
-        this.setState( {calloutsVisible: e.target.checked} );
-    }
-    public onFinalValuesVisible = (e: any) =>{
-        this.setState( {finalValuesVisible: e.target.checked} );
-    }
-    public onMarkersVisible = (e: any) =>{
+
+    public onCrosshairsVisible = (e: any) => {
         const visible = e.target.checked;
-        const markers = e.target.checked ? "Circle" : "None";
-        this.setState( {markersTypes: markers, markersVisible: visible} );
+        const mode = e.target.checked ? "Both" : "None";
+        this.setState({ crosshairsVisible: visible, crosshairsMode: mode });
+    }
+    public onCalloutsVisible = (e: any) => {
+        this.setState({ calloutsVisible: e.target.checked });
+    }
+    public onFinalValuesVisible = (e: any) => {
+        this.setState({ finalValuesVisible: e.target.checked });
+    }
+    public onMarkersVisible = (e: any) => {
+        const visible = e.target.checked;
+        const type = e.target.checked ? [ MarkerType.Automatic ] : [ MarkerType.None ];
+        this.setState({ markerTypes: type, markersVisible: visible });
+    }
+    public onItemTooltipVisible = (e: any) => {
+        const visible = e.target.checked;
+        const type = e.target.checked ? "Item" : "None";
+        this.setState({ toolTipVisible: visible, toolTipType: type });
     }
 
     public initData() {
