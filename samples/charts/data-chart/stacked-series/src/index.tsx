@@ -66,7 +66,7 @@ export default class DataChartTypeStackedSeries extends React.Component<any, any
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <div className="options horizontal">
+                <div className="overlay-right" style={{marginRight: "1rem"}}>
                     <label className="options-label">Type of Category Series: </label>
                     <select onChange={this.onSeriesTypeChanged}>
                         <option>Stacked Column Series</option>
@@ -80,13 +80,14 @@ export default class DataChartTypeStackedSeries extends React.Component<any, any
                         <option>Stacked Bar Series</option>
                         <option>Stacked 100 Bar Series</option>
                     </select>
-                    <label className="legend-title">Legend: </label>
-                    <div className="options vertical">
-                        <IgrLegend ref={this.onLegendRef}
-                            orientation="Horizontal" />
+                </div>
+                <div className="options vertical">
+                    <label className="legend-title">Energy Production By Source: </label>
+                    <div className="legend">
+                        <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                     </div>
                 </div>
-                <div className="container" style={{height: "calc(100% - 35px)"}}>
+                <div className="container" >
                     <IgrDataChart ref={this.onChartRef}
                         width="100%"
                         height="100%"
@@ -140,7 +141,6 @@ export default class DataChartTypeStackedSeries extends React.Component<any, any
         fragments.push(fragment3);
         fragments.push(fragment4);
         fragments.push(fragment5);
-
         return fragments;
     }
 
@@ -158,132 +158,100 @@ export default class DataChartTypeStackedSeries extends React.Component<any, any
         const fragments = this.getFragments();
 
         if (seriesType === "Stacked Column Series") {
-
             const stack = new IgrStackedColumnSeries({ name: "series1" });
-
             stack.xAxis = this.catXAxis;
             stack.yAxis = this.numYAxis;
             stack.yAxisName = "numYAxis";
             stack.xAxisName = "catXAxis";
-
             this.chart.axes.add(this.catXAxis);
             this.chart.axes.add(this.numYAxis);
-
             for (const frag of fragments) {
                 stack.series.add(frag);
             }
-
             this.chart.series.add(stack);
-
         }
         else if (seriesType === "Stacked 100 Column Series") {
-
             const stack = new IgrStacked100ColumnSeries({ name: "series1" });
-
             stack.xAxis = this.catXAxis;
             stack.yAxis = this.numYAxis;
             stack.yAxisName = "numYAxis";
             stack.xAxisName = "catXAxis";
-
             this.chart.axes.add(this.catXAxis);
             this.chart.axes.add(this.numYAxis);
-
             for (const frag of fragments) {
                 stack.series.add(frag);
             }
-
             this.chart.series.add(stack);
-
         }
         else if (seriesType === "Stacked Area Series") {
             const stack = new IgrStackedAreaSeries({ name: "series1" });
-
             stack.xAxis = this.catXAxis;
             stack.yAxis = this.numYAxis;
             stack.yAxisName = "numYAxis";
             stack.xAxisName = "catXAxis";
-
             this.chart.axes.add(this.catXAxis);
             this.chart.axes.add(this.numYAxis);
-
             for (const frag of fragments) {
                 stack.series.add(frag);
             }
-
             this.chart.series.add(stack);
-
         }
         else if (seriesType === "Stacked 100 Area Series") {
             const stack = new IgrStacked100AreaSeries({ name: "series1" });
-
             stack.xAxis = this.catXAxis;
             stack.yAxis = this.numYAxis;
             stack.yAxisName = "numYAxis";
             stack.xAxisName = "catXAxis";
-
             this.chart.axes.add(this.catXAxis);
             this.chart.axes.add(this.numYAxis);
-
             for (const frag of fragments) {
                 stack.series.add(frag);
             }
-
             this.chart.series.add(stack);
         }
         else if (seriesType === "Stacked Line Series") {
             const stack = new IgrStackedLineSeries({ name: "series1" });
-
             stack.xAxis = this.catXAxis;
             stack.yAxis = this.numYAxis;
             stack.yAxisName = "numYAxis";
             stack.xAxisName = "catXAxis";
-
             this.chart.axes.add(this.catXAxis);
             this.chart.axes.add(this.numYAxis);
-
             for (const frag of fragments) {
                 stack.series.add(frag);
             }
-
             this.chart.series.add(stack);
         }
         else if (seriesType === "Stacked 100 Line Series") {
             const stack = new IgrStacked100LineSeries({ name: "series1" });
-
             stack.xAxis = this.catXAxis;
             stack.yAxis = this.numYAxis;
             stack.yAxisName = "numYAxis";
             stack.xAxisName = "catXAxis";
-
             this.chart.axes.add(this.catXAxis);
             this.chart.axes.add(this.numYAxis);
 
             for (const frag of fragments) {
                 stack.series.add(frag);
             }
-
             this.chart.series.add(stack);
         }
         else if (seriesType === "Stacked Spline Series") {
             const stack = new IgrStackedSplineSeries({ name: "series1" });
-
             stack.xAxis = this.catXAxis;
             stack.yAxis = this.numYAxis;
             stack.yAxisName = "numYAxis";
             stack.xAxisName = "catXAxis";
-
             this.chart.axes.add(this.catXAxis);
             this.chart.axes.add(this.numYAxis);
 
             for (const frag of fragments) {
                 stack.series.add(frag);
             }
-
             this.chart.series.add(stack);
         }
         else if (seriesType === "Stacked 100 Spline Series") {
             const stack = new IgrStacked100SplineSeries({ name: "series1" });
-
             stack.xAxis = this.catXAxis;
             stack.yAxis = this.numYAxis;
             stack.yAxisName = "numYAxis";
@@ -291,16 +259,13 @@ export default class DataChartTypeStackedSeries extends React.Component<any, any
 
             this.chart.axes.add(this.catXAxis);
             this.chart.axes.add(this.numYAxis);
-
             for (const frag of fragments) {
                 stack.series.add(frag);
             }
-
             this.chart.series.add(stack);
         }
         else if (seriesType === "Stacked Bar Series") {
             const stack = new IgrStackedBarSeries({ name: "series1" });
-
             stack.xAxis = this.numXAxis;
             stack.yAxis = this.catYAxis;
             stack.xAxisName = "numXAxis";
@@ -312,12 +277,10 @@ export default class DataChartTypeStackedSeries extends React.Component<any, any
             for (const frag of fragments) {
                 stack.series.add(frag);
             }
-
             this.chart.series.add(stack);
         }
         else if (seriesType === "Stacked 100 Bar Series") {
             const stack = new IgrStacked100BarSeries({ name: "series1" });
-
             stack.xAxis = this.numXAxis;
             stack.yAxis = this.catYAxis;
             stack.xAxisName = "numXAxis";
@@ -329,7 +292,6 @@ export default class DataChartTypeStackedSeries extends React.Component<any, any
             for (const frag of fragments) {
                 stack.series.add(frag);
             }
-
             this.chart.series.add(stack);
         }
     }
