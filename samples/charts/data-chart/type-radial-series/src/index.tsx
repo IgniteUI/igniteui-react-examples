@@ -38,30 +38,34 @@ export default class DataChartTypeRadialSeries extends React.Component<any, any>
         this.onLegendRef = this.onLegendRef.bind(this);
         this.onSeriesTypeChanged = this.onSeriesTypeChanged.bind(this);
 
-        this.state = { seriesType: "Pie" }
+        this.state = { seriesType: "Radial Pie Chart" }
         this.data = SampleRadialData.create();
     }
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <div className="options horizontal">
-                    <label className="options-label">Type of Radial Series: </label>
-                    <select value={this.state.seriesType}
-                        onChange={this.onSeriesTypeChanged}>
-                        <option>Area</option>
-                        <option>Column</option>
-                        <option>Pie</option>
-                        <option>Line</option>
-                    </select>
-                    <label className="legend-title">Legend: </label>
+
+                <div className="options vertical">
+                    <label className="legend-title">Company Finances by Department </label>
                     <div className="options vertical">
                         <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                     </div>
                 </div>
-                <div className="container" style={{height: "calc(100% - 35px)"}} >
+
+                <div className="overlay-right" style={{marginRight: "1rem"}}>
+                    <label className="options-label">Type of Radial Chart </label>
+                    <select value={this.state.seriesType}
+                        onChange={this.onSeriesTypeChanged}>
+                        <option>Radial Pie Chart</option>
+                        <option>Radial Area Chart</option>
+                        <option>Radial Column Chart</option>
+                        <option>Radial Line Chart</option>
+                    </select>
+                </div>
+
+                <div className="container" >
                     <IgrDataChart ref={this.onChartRef}
-                        chartTitle="Company Finances by Department"
                         width="100%"
                         height="100%"
                         gridMode="BeforeSeries"
@@ -94,7 +98,7 @@ export default class DataChartTypeRadialSeries extends React.Component<any, any>
 
     public setSeries(seriesType: string)
     {
-         if (seriesType === "Area") {
+         if (seriesType === "Radial Area Chart") {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgrRadialAreaSeries({ name: "series1" });
             series1.valueMemberPath  = "Budget";
@@ -111,7 +115,7 @@ export default class DataChartTypeRadialSeries extends React.Component<any, any>
             this.chart.series.add(series1);
             this.chart.series.add(series2);
 
-        } else if (seriesType === "Pie") {
+        } else if (seriesType === "Radial Pie Chart") {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgrRadialPieSeries({ name: "series1" });
             series1.valueMemberPath  = "Budget";
@@ -128,7 +132,7 @@ export default class DataChartTypeRadialSeries extends React.Component<any, any>
             this.chart.series.add(series1);
             this.chart.series.add(series2);
 
-        } else if (seriesType === "Line") {
+        } else if (seriesType === "Radial Line Chart") {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgrRadialLineSeries({ name: "series1" });
             series1.valueMemberPath  = "Budget";
@@ -145,7 +149,7 @@ export default class DataChartTypeRadialSeries extends React.Component<any, any>
             this.chart.series.add(series1);
             this.chart.series.add(series2);
 
-        } else if (seriesType === "Column") {
+        } else if (seriesType === "Radial Column Chart") {
             // creating a series with mapping to data columns of financial data
             const series1 = new IgrRadialColumnSeries({ name: "series1" });
             series1.valueMemberPath  = "Budget";
