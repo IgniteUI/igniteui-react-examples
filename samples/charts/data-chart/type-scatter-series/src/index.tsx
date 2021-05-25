@@ -49,22 +49,20 @@ export default class DataChartTypeScatterSeries extends React.Component<any, any
         return (
         <div className="container sample">
             <div className="options vertical">
-                <span className="legend-title">Legend: </span>
+                <span className="legend-title">GDP vs Population </span>
                 <div className="legend" >
                     <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
                 </div>
-
-                <div className="overlay-right">
-                    <div className="options horizontal">
-                        <label className="options-label">Scatter Series: </label>
+            </div>
+                
+            <div className="overlay-right"> 
+                        <label className="options-label">Type of Scatter Series </label>
                         <select value={this.state.seriesType} onChange={this.onSeriesTypeChanged}>
                             <option>Bubble</option>
                             <option>Point</option>
                             <option>Line</option>
                             <option>Spline</option>
-                        </select>
-                    </div>
-                </div>
+                        </select> 
             </div>
 
             <div className="container" style={{height: "calc(100% - 35px)"}} >
@@ -72,7 +70,6 @@ export default class DataChartTypeScatterSeries extends React.Component<any, any
                     ref={this.onChartRef}
                     width="100%"
                     height="100%"
-                    chartTitle="GDP vs Population"
                     isHorizontalZoomEnabled={true}
                     isVerticalZoomEnabled={true}>
                     {/* axes: */}
