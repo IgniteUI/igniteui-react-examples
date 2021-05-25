@@ -26,11 +26,11 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
 
         this.state = {
             data: [
-                { MarketShare: 30, Company: "Google", },
-                { MarketShare: 15, Company: "Microsoft", },
-                { MarketShare: 30, Company: "Apple", },
-                { MarketShare: 15, Company: "Samsung", },
-                { MarketShare: 10, Company: "Other", },
+                { MarketShare: 30, Company: "Google", Summary: "Google 30%"},
+                { MarketShare: 15, Company: "Microsoft", Summary: "Microsoft 15%"},
+                { MarketShare: 30, Company: "Apple", Summary: "Apple 30%"},
+                { MarketShare: 15, Company: "Samsung", Summary: "Samsung 15%"},
+                { MarketShare: 10, Company: "Other", Summary: "Other 10%"},
             ]
         };
     }
@@ -48,7 +48,7 @@ export default class DoughnutChartAnimation extends React.Component<any, any> {
                     <IgrRingSeries
                         name="ring1"
                         dataSource={this.state.data}
-                        labelMemberPath="Company"
+                        labelMemberPath="Summary"
                         valueMemberPath="MarketShare"
                         radiusFactor={0.1}
                         labelExtent={0.7}
