@@ -8,7 +8,6 @@ import { IgrItemLegendModule } from 'igniteui-react-charts';
 import { IgrRingSeriesModule } from 'igniteui-react-charts';
 import { IgrRingSeries } from 'igniteui-react-charts';
 import { IgrSliceClickEventArgs } from 'igniteui-react-charts';
-import { IgrIndexCollection } from 'igniteui-react-charts';
 
 IgrDoughnutChartModule.register();
 IgrRingSeriesModule.register();
@@ -29,40 +28,45 @@ export default class DoughnutChartExplosion extends React.Component<any, any> {
 
         this.state = {
             data: [
-                { MarketShare: 37, Company: "Space Cooling", Summary:"Space Cooling 37%", },
-                { MarketShare: 25, Company: "Residential Appliance", Summary:"Residential Appliance 25%",  },
-                { MarketShare: 12, Company: "Heating", Summary:"Heating 12%", },
-                { MarketShare: 8, Company: "Lighting", Summary:"Lighting 8%", },
-                { MarketShare: 18, Company: "Other Services", Summary:"Other Services 18%", },
-       ] };
+                { MarketShare: 37, Category: "Cooling", Summary: "Cooling 37%", },
+                { MarketShare: 25, Category: "Residential", Summary: "Residential 25%",  },
+                { MarketShare: 12, Category: "Heating", Summary: "Heating 12%", },
+                { MarketShare: 8, Category: "Lighting", Summary: "Lighting 8%", },
+                { MarketShare: 18, Category: "Other", Summary: "Other 18%", },
+        ]};
     }
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
-            <label className="legend-title">Global Electricity Demand by Energy Use</label>
                 <div className="options vertical">
-                    <IgrItemLegend ref={this.onLegendRef} />
+                    <span className="legend-title">Global Electricity Demand by Energy Use</span>
+                    <div className="legend">
+                        <IgrItemLegend ref={this.onLegendRef} />
+                    </div>
                 </div>
-            <div className="container">
-                <IgrDoughnutChart
-                     ref={this.onChartRef}
-                     height="100%"
-                     allowSliceExplosion="true"
-                     sliceClick={this.onSliceClick}>
-                        <IgrRingSeries
-                            name="ring1"
-                            dataSource={this.state.data}
-                            labelMemberPath="Summary"
-                            valueMemberPath="MarketShare"
-                            radiusFactor={0.7}
-                            labelsPosition="OutsideEnd"
-                            labelExtent="30"
-                            startAngle="-60"
-                            legendLabelMemberPath="Company"/>
-                </IgrDoughnutChart>
+                
+                <div className="container">
+                    <IgrDoughnutChart
+                        ref={this.onChartRef}
+                        width="100%"
+                        height="100%"
+                        allowSliceExplosion="true"
+                        sliceClick={this.onSliceClick}>
+                            <IgrRingSeries
+                                name="ring1"
+                                dataSource={this.state.data}
+                                labelMemberPath="Summary"
+                                labelsPosition="OutsideEnd"
+                                labelExtent={30}
+                                valueMemberPath="MarketShare"
+                                legendLabelMemberPath="Category"
+                                radiusFactor={0.7}
+                                startAngle={30}
+                                />
+                    </IgrDoughnutChart>
+                </div>
             </div>
-        </div>
         );
     }
 
@@ -77,8 +81,8 @@ export default class DoughnutChartExplosion extends React.Component<any, any> {
         if (this.chart.actualSeries &&
             this.chart.actualSeries.length > 0) {
             this.series1 = this.chart.actualSeries[0] as IgrRingSeries;
-            this.series1.explodedSlices = new IgrIndexCollection();
-            this.series1.explodedSlices.add(1);
+            this.series1.explodedSlices.add(3);
+            this.series1.explodedSlices.add(4);
         }
     }
 
