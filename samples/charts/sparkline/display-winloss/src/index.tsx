@@ -9,83 +9,78 @@ IgrSparklineCoreModule.register();
 IgrSparklineModule.register();
 
 export default class SparklineDisplayWinLoss extends React.Component {
-    public data1: any[];
-    public data2: any[];
-
-    public sparkline: IgrSparkline;
+    public data: any[];
 
     constructor(props: any) {
         super(props);
-        this.data1 = this.createData2(720 * 1);
-        this.data2 = this.createData2(720 * 2);
+        this.data = this.getData();
     }
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <div className="container">
-                    <IgrSparkline height="100%" width="100%" displayType="WinLoss"
-                        dataSource={this.data1}
-                        valueMemberPath="Value1"/>
-                </div>
-                <div className="container">
-                    <IgrSparkline height="100%" width="100%" displayType="WinLoss"
-                        dataSource={this.data1}
-                        valueMemberPath="Value2" />
-                </div>
-                <div className="container">
-                    <IgrSparkline height="100%" width="100%" displayType="WinLoss"
-                        dataSource={this.data2}
-                        valueMemberPath="Value1"/>
+                <div className="container vertical">
+                    <section>Revenue Sparkline</section>
+                    <IgrSparkline
+                        height="100%"
+                        width="100%"
+                        displayType="WinLoss"
+                        dataSource={this.data}
+                        valueMemberPath="Revenue"
+                        labelMemberPath="Angle"
+                        minimum={-1}
+                        maximum={1} />
+
+                    <section>Income Sparkline</section>
+                    <IgrSparkline
+                        height="100%"
+                        width="100%"
+                        displayType="WinLoss"
+                        dataSource={this.data}
+                        valueMemberPath="Income"
+                        labelMemberPath="Angle"
+                        minimum={-1}
+                        maximum={1} />
+
+                    <section>Expanse Sparkline</section>
+                    <IgrSparkline
+                        height="100%"
+                        width="100%"
+                        displayType="WinLoss"
+                        dataSource={this.data}
+                        valueMemberPath="Expanse"
+                        labelMemberPath="Angle"
+                        minimum={-1}
+                        maximum={1} />
                 </div>
             </div >
         );
     }
 
-    public createData1(itemsCount: number): any[] {
-        const data: any[] = [];
-        let v1 = 0;
-        let v2 = 5;
-        for (let i = 0; i <= itemsCount; i++) {
-            v1 += (Math.random() - 0.5) * 4;
-            v1 = this.clamp(v1, -10, 10);
-            v2 += (Math.random() - 0.5) * 4;
-            v2 = this.clamp(v2, -10, 10);
-            let l = i.toString();
-            data.push({ Label: l, Value1: v1, Value2: v2 });
-        }
-        return data;
-    }
-
-    public createData2(itemsCount: number): any[] {
+    public getData(): any[] {
         const data: any[] = [];
         let index = 0;
-        for (let angle = 0; angle <= itemsCount; angle += 10)
-        {
-            const r1 = Math.random() - 0.1;
-            const r2 = Math.random() - 0.2;
-            const v1 = Math.sin(angle * r1 * Math.PI / 180);
-            const v2 = Math.cos(angle * r2 * Math.PI / 180);
+        let min = 1000;
+        let max = -1000;
+
+        for (let angle = 0; angle <= 360 * 4; angle += 5) {
+            const v1 = Math.sin(angle * Math.PI / 180);
+            const v2 = Math.sin(3 * angle * Math.PI / 180) / 3;
+            let revenue = v1 + v2;
+            let expanse = revenue < 0 ? revenue : 0;
+            let income = revenue > 0 ? revenue : 0;
             data.push({
-                "Index": index++,
-                "Angle": angle,
-                "Value1": v1,
-                "Value2": v2,
+                Label: index++,
+                Angle: angle,
+                Revenue: revenue,
+                Expanse: expanse,
+                Income: income
             });
+            min = Math.min(min, revenue);
+            max = Math.max(max, revenue);
         }
         return data;
     }
-
-    public clamp(v: number, min: number, max: number): number {
-        if (v > max) {
-            v = max;
-        }
-        else if (v < min) {
-            v = min;
-        }
-        return v;
-    }
-
 }
 
 // rendering above class to the React DOM

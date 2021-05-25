@@ -4,23 +4,20 @@ import './index.css';
 import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrSparklineCoreModule } from 'igniteui-react-charts';
-import { SparklineSharedData } from './SparklineSharedData';
 
 IgrSparklineCoreModule.register();
 IgrSparklineModule.register();
 
 export default class SparklineTrendlines extends React.Component<any, any> {
-    public data: any[];
-
-    public sparkline: IgrSparkline;
-
     constructor(props: any) {
         super(props);
 
-        this.onSparklineRef = this.onSparklineRef.bind(this);
         this.onTrendlineChanged = this.onTrendlineChanged.bind(this);
 
-        this.data = SparklineSharedData.getSharedData();
+        this.state = {
+            data: this.getData(),
+            trendLineType: "ExponentialFit"
+        };
     }
 
     public render(): JSX.Element {
@@ -28,9 +25,7 @@ export default class SparklineTrendlines extends React.Component<any, any> {
             <div className="container sample">
                 <div className="options horizontal">
                     <label className="options-label">Trendline Type: </label>
-                    <select
-                    onChange={this.onTrendlineChanged}
-                    defaultValue="ExponentialFit">
+                    <select onChange={this.onTrendlineChanged} value={this.state.trendLineType}>
                         <option>CubicFit</option>
                         <option>CumulativeAverage</option>
                         <option>ExponentialAverage</option>
@@ -48,14 +43,15 @@ export default class SparklineTrendlines extends React.Component<any, any> {
                     </select>
                 </div>
                 <div className="container">
-                    <IgrSparkline height="calc(100% - 30px)" width="100%"
-                        ref={this.onSparklineRef}
-                        dataSource={this.data}
+                    <IgrSparkline
+                        height="100%"
+                        width="100%"
+                        dataSource={this.state.data}
                         valueMemberPath="Value"
                         displayType="Area"
                         trendLineThickness={3}
                         trendLinePeriod={5}
-                        trendLineType="ExponentialFit"
+                        trendLineType={this.state.trendLineType}
                         trendLineBrush="Red"/>
                 </div>
             </div >
@@ -64,13 +60,28 @@ export default class SparklineTrendlines extends React.Component<any, any> {
 
     public onTrendlineChanged(e: any) {
         const selection = e.target.value.toString();
-        this.sparkline.trendLineType = selection;
+        this.setState({ trendLineType: selection });
     }
 
-    public onSparklineRef(sparkline: IgrSparkline) {
-        if (sparkline) {
-            this.sparkline = sparkline;
+    public getData(): any[] {
+        const data: any[] = [];
+        let index = 0;
+        let min = 1000;
+        let max = -1000;
+
+        for (let angle = 0; angle <= 360 * 4; angle += 5) {
+            const v1 = Math.sin(angle * Math.PI / 180);
+            const v2 = Math.sin(3 * angle * Math.PI / 180) / 3;
+            let revenue = v1 + v2;
+            data.push({
+                Label: index++,
+                Angle: angle,
+                Value: revenue
+            });
+            min = Math.min(min, revenue);
+            max = Math.max(max, revenue);
         }
+        return data;
     }
 }
 
