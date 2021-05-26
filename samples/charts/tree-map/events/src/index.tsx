@@ -7,7 +7,7 @@ import { CountryTreeData } from './CountryTreeData';
 
 IgrTreemapModule.register();
 
-export default class TreeMapOverview extends React.Component<any, any> {
+export default class TreeMapEvents extends React.Component<any, any> {
     public treeMap: IgrTreemap;
 
     constructor(props: any) {
@@ -141,4 +141,4 @@ export default class TreeMapOverview extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<TreeMapOverview />, document.getElementById('root'));
+ReactDOM.render(<TreeMapEvents />, document.getElementById('root'));
