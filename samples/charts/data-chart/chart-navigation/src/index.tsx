@@ -4,34 +4,30 @@ import './index.css';
 // data chart's modules:
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
-// scatter series' modules:
-import { IgrDataChartScatterCoreModule } from 'igniteui-react-charts';
-import { IgrDataChartScatterModule } from 'igniteui-react-charts';
+import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
+// financial series modules:
+import { IgrDataChartFinancialModule } from 'igniteui-react-charts';
 // data chart's elements:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
-import { IgrNumericXAxis } from 'igniteui-react-charts';
-import { IgrBubbleSeries } from 'igniteui-react-charts';
-import { IgrSizeScale } from 'igniteui-react-charts';
-import { IgrValueBrushScale } from 'igniteui-react-charts';
-import { SampleScatterStats } from './SampleScatterStats';
+import { IgrCategoryXAxis } from 'igniteui-react-charts';
+import { IgrFinancialPriceSeries } from 'igniteui-react-charts';
+import { SampleFinancialData } from './SampleFinancialData';
 
 IgrDataChartCoreModule.register();
-IgrDataChartScatterCoreModule.register();
-IgrDataChartScatterModule.register();
+IgrDataChartCategoryModule.register();
+IgrDataChartFinancialModule.register();
 IgrDataChartInteractivityModule.register();
-IgrNumberAbbreviatorModule.register();
 
 export default class DataChartNavigation extends React.Component<any, any> {
-    public data: any[];
     public chart: IgrDataChart;
 
     constructor(props: any) {
         super(props);
 
         this.state = {
-            defaultInteraction: "DragZoom",
+            data: SampleFinancialData.create(),
+            defaultInteraction: "DragPan",
             dragModifier: "Alt",
             isZoomEnabled: true,
             panModifier: "Control" };
@@ -50,69 +46,96 @@ export default class DataChartNavigation extends React.Component<any, any> {
         this.onPanUpClick = this.onPanUpClick.bind(this);
         this.onZoomInClick = this.onZoomInClick.bind(this);
         this.onZoomOutClick = this.onZoomOutClick.bind(this);
-
-        this.data = SampleScatterStats.getCountriesWithHighIncome();
     }
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
                 <div className="options horizontal">
-                    <button className="options-button" style={{width: "80px"}} onClick={this.onPanUpClick}>Pan Up</button>
-                    <button className="options-button" style={{width: "80px"}} onClick={this.onPanLeftClick}>Pan Left</button>
-                    <button className="options-button" style={{width: "80px"}} onClick={this.onZoomInClick}>Zoom In</button>
-                    <label className="options-label" style={{width: "120px"}}>Pan Modifier:</label>
-                    <select value={this.state.panModifier} style={{width: "120px"}} onChange={this.onPanModifierChange}>
-                        <option>Alt</option>
-                        <option>Control</option>
-                        <option>Shift</option>
-                        <option>Windows</option>
-                        <option>Apple</option>
-                        <option>None</option>
-                    </select>
-                    <label className="options-label">Default Interaction:</label>
-                    <select value={this.state.defaultInteraction} onChange={this.onDefaultInteractionChange}>
-                        <option>DragZoom</option>
-                        <option>DragPan</option>
-                        <option>None</option>
-                    </select>
+                    <div className="options vertical" style={{width: "100px"}}>
+                        <button onClick={this.onPanUpClick}>Pan Up</button>
+                        <button onClick={this.onPanDownClick}>Pan Down</button>
+                    </div>
+                    <div className="options vertical" style={{width: "100px"}}>
+                        <button onClick={this.onPanLeftClick}>Pan Left</button>
+                        <button onClick={this.onPanRightClick}>Pan Right</button>
+                    </div>
+                    <div className="options vertical" style={{width: "100px"}}>
+                        <button onClick={this.onZoomInClick}>Zoom In</button>
+                        <button onClick={this.onZoomOutClick}>Zoom Out</button>
+                    </div>
+                    <div className="options vertical" style={{ width: "120px", alignSelf: "center" }}>
+                        <label className="options-label" style={{ margin: "5px" }}>Pan Modifier:</label>
+                        <label className="options-label" style={{ margin: "5px" }}>Zoom Modifier:</label>
+                    </div>
+                    <div className="options vertical" style={{ width: "100px" }}>
+                        <select value={this.state.panModifier} style={{ margin: "5px"}} onChange={this.onPanModifierChange}>
+                            <option>Alt</option>
+                            <option>Control</option>
+                            <option>Shift</option>
+                            <option>Windows</option>
+                            <option>Apple</option>
+                            <option>None</option>
+                        </select>
+                        <select value={this.state.dragModifier} style={{ margin: "5px"}} onChange={this.onDragModifierChange}>
+                            <option>Alt</option>
+                            <option>Control</option>
+                            <option>Shift</option>
+                            <option>Windows</option>
+                            <option>Apple</option>
+                            <option>None</option>
+                        </select>
+                    </div>
+                    <div className="options vertical" style={{ width: "150px", alignSelf: "center" }}>
+                        <label className="options-label" style={{ margin: "5px"}}>Interaction:</label>
+                        <label className="options-label" style={{ margin: "5px"}}>Zooming:</label>
+                    </div>
+                    <div className="options vertical" style={{ width: "100px" }}>
+                        <select value={this.state.defaultInteraction} style={{ margin: "5px"}} onChange={this.onDefaultInteractionChange}>
+                            <option>DragZoom</option>
+                            <option>DragPan</option>
+                            <option>None</option>
+                        </select>
+                        <input type="checkbox" checked={this.state.isZoomEnabled} onChange={this.onZoomEnabledChange} />
+                    </div>
                 </div>
-                <div className="options horizontal" style={{marginBottom: "15px"}}>
-                    <button className="options-button" style={{width: "80px"}} onClick={this.onPanDownClick}>Pan Down</button>
-                    <button className="options-button" style={{width: "80px"}} onClick={this.onPanRightClick}>Pan Right</button>
-                    <button className="options-button" style={{width: "80px"}} onClick={this.onZoomOutClick}>Zoom Out</button>
-                    <label className="options-label" style={{width: "120px"}}>Zoom Modifier:</label>
-                    <select value={this.state.dragModifier} style={{width: "120px"}} onChange={this.onDragModifierChange}>
-                        <option>Alt</option>
-                        <option>Control</option>
-                        <option>Shift</option>
-                        <option>Windows</option>
-                        <option>Apple</option>
-                        <option>None</option>
-                    </select>
-                    <label className="options-label"><input type="checkbox"
-                        checked={this.state.isZoomEnabled}
-                        onChange={this.onZoomEnabledChange} /> Enable Zooming</label>
-                </div>
-                <div className="container" style={{height: "calc(100% - 75px)"}} >
+
+                <div className="container vertical">
                     <IgrDataChart
                         ref={this.onChartRef}
-                        defaultInteraction={this.state.defaultInteraction}
-                        dragModifier={this.state.dragModifier}
-                        panModifier={this.state.panModifier}
+                        width="100%"
+                        height="100%"
+                        subtitle="Stock Prices Series in Candlestick Display Type"
+                        subtitleTopMargin={10}
                         isHorizontalZoomEnabled={this.state.isZoomEnabled}
                         isVerticalZoomEnabled={this.state.isZoomEnabled}
-                        width="100%"
-                        height="100%" >
-                        {/* axes: */}
-                        <IgrNumericXAxis name="xAxis"
-                        isLogarithmic={true}
-                        abbreviateLargeNumbers={true}
-                        title="Population" />
-                        <IgrNumericYAxis name="yAxis"
-                        isLogarithmic={true}
-                        abbreviateLargeNumbers={true}
-                        title="Total GDP ($)" />
+                        panModifier={this.state.panModifier}
+                        dragModifier={this.state.dragModifier}
+                        defaultInteraction={this.state.defaultInteraction}
+                        dataSource={this.state.data}>
+                        <IgrCategoryXAxis
+                            name="xAxis"
+                            label="Label"/>
+                        <IgrNumericYAxis
+                            name="yAxis"
+                            title="Amount (in USD)"
+                            titleRightMargin={10}
+                            labelRightMargin={10}
+                            labelHorizontalAlignment="Left"
+                            labelLocation="OutsideRight"/>
+                        <IgrFinancialPriceSeries
+                            name="series1"
+                            xAxisName="xAxis"
+                            yAxisName="yAxis"
+                            displayType="Candlestick"
+                            openMemberPath="Open"
+                            closeMemberPath="Close"
+                            highMemberPath="High"
+                            lowMemberPath="Low"
+                            volumeMemberPath="Volume"
+                            showDefaultTooltip={true}
+                            isTransitionInEnabled={true}
+                            title="Price"/>
                     </IgrDataChart>
                 </div>
             </div>
@@ -123,7 +146,6 @@ export default class DataChartNavigation extends React.Component<any, any> {
         if (!chart) { return; }
 
         this.chart = chart;
-        this.createSeries();
         this.chart.actualWindowScaleHorizontal = 0.60;
         this.chart.actualWindowScaleVertical = 0.60;
         this.chart.actualWindowPositionVertical = 0.20;
@@ -192,35 +214,6 @@ export default class DataChartNavigation extends React.Component<any, any> {
         if (this.chart.actualWindowScaleVertical > 0.05) {
             this.chart.actualWindowScaleVertical -= 0.05;
         }
-
-    }
-
-    public createSeries()
-    {
-        const sizeScale = new IgrSizeScale({});
-        sizeScale.minimumValue = 10;
-        sizeScale.maximumValue = 60;
-
-        const brushScale1 = new IgrValueBrushScale({});
-        brushScale1.brushes = ["#FFFFFF", "#b56ffc"];
-        brushScale1.minimumValue = 10;
-        brushScale1.maximumValue = 60;
-
-        const series = new IgrBubbleSeries({ name: "series" });
-        series.title = "Countries";
-        series.dataSource = SampleScatterStats.getCountries();
-        series.showDefaultTooltip = true;
-        series.xMemberPath = "Population";
-        series.yMemberPath = "GdpTotal";
-        series.radiusMemberPath = "GdpPerCapita";
-        series.radiusScale = sizeScale;
-        // series.fillMemberPath = "GdpPerCapita";
-        // series.fillScale = brushScale1;
-        series.xAxisName = "xAxis";
-        series.yAxisName = "yAxis";
-
-        this.chart.series.clear();
-        this.chart.series.add(series);
     }
 }
 
