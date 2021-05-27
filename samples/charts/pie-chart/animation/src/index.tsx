@@ -18,11 +18,11 @@ export default class PieChartAnimation extends React.Component<any, any> {
 
         this.state = {
             data: [
-                { MarketShare: 30, Company: "Google", },
-                { MarketShare: 15, Company: "Microsoft", },
-                { MarketShare: 30, Company: "Apple", },
-                { MarketShare: 15, Company: "Samsung", },
-                { MarketShare: 10, Company: "Other", },
+                { MarketShare: 37, Category: "Cooling" },
+                { MarketShare: 25, Category: "Residential" },
+                { MarketShare: 12, Category: "Heating" },
+                { MarketShare: 11, Category: "Lighting" },
+                { MarketShare: 15, Category: "Other" }
             ]
         };
 
@@ -33,21 +33,25 @@ export default class PieChartAnimation extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div style={{ height: "100%", width: "100%", background: "white" }}>
-                <div>
-                    <button onClick={this.onAnimationToggle}><label>Animation Chart</label></button>
+            <div className="container vertical">
+                <div className="options horizontal">
+                    <button onClick={this.onAnimationToggle}>Animate Chart</button>
                 </div>
-                <IgrPieChart dataSource={this.state.data}
-                    ref={this.onPieRef}
-                    labelMemberPath="Company"
-                    valueMemberPath="MarketShare"
-                    width="100%"
-                    height="calc(100% - 45px)"
-                    labelsPosition="InsideEnd"
-                    startAngle={0}
-                    labelExtent={0.7}
-                    radiusFactor={0.1} />
-            </div >
+
+                <div className="container vertical">
+                    <IgrPieChart
+                        width="100%"
+                        height="100%"
+                        ref={this.onPieRef}
+                        dataSource={this.state.data}
+                        labelMemberPath="Category"
+                        valueMemberPath="MarketShare"
+                        labelsPosition="InsideEnd"
+                        startAngle={0}
+                        labelExtent={0.7}
+                        radiusFactor={0.1} />
+                </div>
+            </div>
         );
     }
 
@@ -55,7 +59,6 @@ export default class PieChartAnimation extends React.Component<any, any> {
         if (!chart) { return; }
 
         this.chart = chart;
-        console.log("animation load");
         this.onAnimationClear();
         this.onAnimationToggle();
     }
@@ -66,13 +69,11 @@ export default class PieChartAnimation extends React.Component<any, any> {
 
     public onAnimationToggle = () => {
         if (!this.isAnimating) {
-            console.log("animation start");
             this.chart.startAngle = 0;
             this.chart.radiusFactor = 0.1;
             this.isAnimating = true;
             this.interval = window.setInterval(() => this.tick(), 15);
         } else {
-            console.log("animation stop");
             this.isAnimating = false;
             this.onAnimationClear();
         }
@@ -80,14 +81,12 @@ export default class PieChartAnimation extends React.Component<any, any> {
 
     public onAnimationClear(): void {
         if (this.interval >= 0) {
-            console.log("animation clear");
             window.clearInterval(this.interval);
             this.interval = -1;
         }
     }
 
     public tick(): void {
-        // console.log("animation tick");
         if (this.isAnimating) {
             if (this.chart.radiusFactor < 1.0)
                 this.chart.radiusFactor += 0.0025;
@@ -102,7 +101,6 @@ export default class PieChartAnimation extends React.Component<any, any> {
             }
         }
     }
-
 }
 
 // rendering above class to the React DOM
