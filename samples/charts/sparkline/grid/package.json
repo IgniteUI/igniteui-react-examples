@@ -16,6 +16,7 @@
     "igniteui-react-charts": "16.14.0-beta0",
     "igniteui-react-grids": "16.14.0-beta0",
     "igniteui-react-inputs": "16.14.0-beta0",
+    "igniteui-react-layouts": "16.14.0-beta0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import "./SparklineGrid.css";
 import { Products } from './Products';
 // sparkline modules:
 import { IgrSparkline } from 'igniteui-react-charts';
@@ -32,38 +31,58 @@ export default class SparklineGrid extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrDataGrid
-                    height="100%"
                     width="100%"
-                    rowHeight="70"
-                    editMode="None"
+                    height="100%"
+                    rowHeight="90"
                     autoGenerateColumns="false"
                     dataSource={this.data}>
-
-                    <IgrTextColumn field="ProductID" headerText="ID" width="*>90" horizontalAlignment="center"/>
-                    <IgrTextColumn field="ProductName" headerText="Product"  width="*>130"    />
-
-                    <IgrNumericColumn field="ProductPrice" headerText="Price" width="*>100"
-                    positivePrefix="$" showGroupingSeparator="true" minFractionDigits={2}/>
-
-                    <IgrTemplateColumn field="OrderHistory" headerText="Order History"
-                    horizontalAlignment="center" width="*>150"
-                    template={this.getOrderHistoryTemplate} />
-
-                    <IgrNumericColumn field="OrderCount" headerText="Orders" width="*>90"
-                    horizontalAlignment="center"/>
-
-                    {/* <IgrNumericColumn field="OrderValue" headerText="Order Value" width="*>110"
-                    positivePrefix="$" showGroupingSeparator="true" /> */}
-
-                    <IgrTemplateColumn field="ReturnRate" headerText="Return Rate"
-                    horizontalAlignment="center" width="*>140"
-                    template={this.getReturnRateTemplate}  isEditable="false"/>
-
-                    <IgrImageColumn field="CountryFlag" headerText="Country" width="*>90"
-                    contentOpacity="1" horizontalAlignment="center"/>
-
-                    <IgrTextColumn field="Status" headerText="Status" width="110"
-                    horizontalAlignment="center"   />
+                    <IgrTextColumn
+                        field="ProductID"
+                        headerText="ID"
+                        width="*>110"
+                        horizontalAlignment="Center" />
+                    <IgrTextColumn
+                        field="ProductName"
+                        headerText="Product"
+                        width="*>140" />
+                    <IgrNumericColumn
+                        field="ProductPrice"
+                        headerText="Price"
+                        width="*>110"
+                        positivePrefix="$"
+                        showGroupingSeparator={true}
+                        minFractionDigits={2} />
+                    <IgrTemplateColumn
+                        field="OrderHistory"
+                        headerText="Order History"
+                        width="*>180"
+                        paddingTop={10}
+                        paddingBottom={10}
+                        horizontalAlignment="Center"
+                        template={this.getOrderHistoryTemplate} />
+                    <IgrNumericColumn
+                        field="OrderCount"
+                        headerText="Orders"
+                        width="*>110"
+                        horizontalAlignment="Center" />
+                    <IgrNumericColumn
+                        field="Profit"
+                        width="*>120"
+                        positivePrefix="$"
+                        showGroupingSeparator={true} />
+                    <IgrImageColumn
+                        field="CountryFlag"
+                        headerText="Country"
+                        width="*>120"
+                        isEditable={false}
+                        contentOpacity={1}
+                        horizontalAlignment="Center"
+                        paddingTop={10}
+                        paddingBottom={10} />
+                    <IgrTextColumn
+                        field="Status"
+                        width="*>120"
+                        horizontalAlignment="Center" />
                </IgrDataGrid>
             </div>
         );
@@ -72,34 +91,15 @@ export default class SparklineGrid extends React.Component<any, any> {
     public getOrderHistoryTemplate(props: IIgrCellTemplateProps) {
         const info = props.dataContext as IgrTemplateCellInfo;
         return (
-            <div className="sparklineInGrid">
-               <IgrSparkline
-                   height="60px" width="100%"
-                   displayType="Line"
-                   dataSource={info.rowItem.OrderHistory}
-                   valueMemberPath="Sold"
-                   labelMemberPath="Week"
-                   lineThickness={2}
-                   brush="rgb(21, 190, 6)"
-                   negativeBrush="rgb(211, 17, 3)" />
-            </div>
-        );
-    }
-
-    public getReturnRateTemplate(props: IIgrCellTemplateProps) {
-
-        const info = props.dataContext as IgrTemplateCellInfo;
-        return (
-            <div className="sparklineInGrid">
-               <IgrSparkline
-                   height="60px" width="100%"
-                   displayType="Column"
-                   dataSource={info.rowItem.ReturnRate}
-                   valueMemberPath="Balance"
-                   labelMemberPath="Week"
-                   lineThickness={2}
-                   brush="rgb(21, 190, 6)"
-                   negativeBrush="rgb(211, 17, 3)" />
+            <div style={{ width: "100%", height: "70px", background: "transparent" }}>
+                <IgrSparkline
+                    width="100%"
+                    height="100%" 
+                    displayType="Line"
+                    dataSource={info.rowItem.OrderHistory}
+                    valueMemberPath="Sold"
+                    labelMemberPath="Week"
+                    brush="rgb(21, 190, 6)" />
             </div>
         );
     }
