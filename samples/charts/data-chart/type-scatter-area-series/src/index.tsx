@@ -40,7 +40,7 @@ export default class DataChartTypeScatterAreaSeries extends React.Component<any,
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            <div className="container" style={{height: "calc(100% - 35px)"}} >
+            <div className="container vertical">
                 <IgrDataChart
                     width="100%"
                     height="100%"
