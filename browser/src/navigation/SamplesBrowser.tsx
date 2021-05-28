@@ -12,8 +12,6 @@ import { SamplesFallback } from './SamplesFallback';
 import { RoutingSample } from './SamplesData';
 import { RoutingGroup } from './SamplesData';
 
-console.log('SB uses IG v16.14.0-beta.2');
-
 import { gaugesRoutingData } from "../samples/gauges/RoutingData";
 import { gridsRoutingData } from "../samples/grids/RoutingData";
 import { chartsRoutingData } from "../samples/charts/RoutingData";
@@ -62,7 +60,7 @@ export class SamplesBrowser extends React.Component<any, any>
     constructor(props: any) {
         super(props);
 
-        console.log("SB ()");
+        console.log('SB uses IG v16.14.0-beta.2');
 
         this.onSampleOpen = this.onSampleOpen.bind(this);
         // console.log(TestsRoutes.DataRoutes)
