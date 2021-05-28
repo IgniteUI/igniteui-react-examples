@@ -3,10 +3,12 @@
 export class SampleDensityData {
 
     public static create(): any[] {
-        const amount = 200000;
+        const amount = 25000;
         let data: any[] = [];
-        this.generate(data, amount / 2, -5000, -5000, 10000, 10000);
-        this.generate(data, amount / 2,  5000,  5000, 10000, 10000);
+        this.generate(data, amount / 2, 0, 0, 75000, 20000);
+        this.generate(data, amount / 4, 0, 0, 100000, 25000);
+        this.generate(data, amount / 8, 0, 0, 150000, 30000);
+        this.generate(data, amount / 8, 0, 0, 200000, 75000);
 
         return data;
     }
