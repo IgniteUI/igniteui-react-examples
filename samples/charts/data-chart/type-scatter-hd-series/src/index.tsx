@@ -34,12 +34,17 @@ export default class DataChartTypeScatterDensitySeries extends React.Component<a
     public render(): JSX.Element {
         return (
             <div className="container sample">
+
+                <div className="options horizontal">
+                    <div className="legend-title">
+                        <span>Stars Distribution in Milky Way Galaxy</span>
+                    </div>
+                </div>
+
                 <div className="container vertical">
                     <IgrDataChart
                         width="100%"
                         height="100%"
-                        subtitle="Stars Distribution in Milky Way Galaxy"
-                        subtitleTopMargin={10}
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}
                         dataSource={this.state.data} >

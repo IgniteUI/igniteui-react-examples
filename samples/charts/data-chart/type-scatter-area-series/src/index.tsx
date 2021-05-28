@@ -40,32 +40,34 @@ export default class DataChartTypeScatterAreaSeries extends React.Component<any,
     public render(): JSX.Element {
         return (
         <div className="container sample">
+
+            <div className="options horizontal">
+                <div className="legend-title">
+                    <span>Distribution of Magnetic Field</span>
+                </div>
+            </div>
+
             <div className="container vertical">
                 <IgrDataChart
                     width="100%"
                     height="100%"
                     gridMode="BeforeSeries"
-                    subtitle="Distribution of Magnetic Field"
-                    subtitleTopMargin={10}
                     isHorizontalZoomEnabled={true}
                     isVerticalZoomEnabled={true}
                     dataSource={this.state.data} >
-                    <IgrNumericXAxis
-                        name="xAxis"
-                        titleBottomMargin={10}
-                        title="Longitude"
-                        minimumValue={-180}
-                        maximumValue={180} />
-                    <IgrNumericYAxis
-                        name="yAxis"
-                        titleLeftMargin={10}
-                        title="Latitude"
-                        minimumValue={-90}
-                        maximumValue={90} />
+
+                    {/* primary axes required for scatter-contour-series  */}
+                    <IgrNumericXAxis name="xAxis1" labelLocation="OutsideBottom" title="Longitude" minimumValue={-180} maximumValue={180} />
+                    <IgrNumericYAxis name="yAxis1" labelLocation="OutsideLeft" title="Latitude" minimumValue={-90} maximumValue={90} />
+
+                    {/* optional axes that provide more context for displayed data */}
+                    <IgrNumericXAxis name="xAxis2" labelLocation="OutsideTop" title="Longitude" minimumValue={-180} maximumValue={180} />
+                    <IgrNumericYAxis name="yAxis2" labelLocation="OutsideRight" title="Latitude" minimumValue={-90} maximumValue={90} />
+
                     <IgrScatterAreaSeries
                         name="series"
-                        xAxisName="xAxis"
-                        yAxisName="yAxis"
+                        xAxisName="xAxis1"
+                        yAxisName="yAxis1"
                         xMemberPath="X"
                         yMemberPath="Y"
                         colorMemberPath="Z"

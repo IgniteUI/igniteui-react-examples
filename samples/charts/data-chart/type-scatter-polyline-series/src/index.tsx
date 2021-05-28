@@ -41,12 +41,26 @@ export default class DataChartTypeScatterPolylineSeries extends React.Component<
     public render(): JSX.Element {
         return (
             <div className="container sample">
+
+                <div className="options horizontal">
+                    <div className="legend-title">
+                        <span>Airplane Seating Chart (Polylines)</span>
+                    </div>
+                </div>
+
+                <div className="custom-legend">
+                    <div><span style="background: DodgerBlue; "></span><label>First Class</label></div>
+                    <div><span style="background: LimeGreen; "></span><label>Business Class</label></div>
+                    <div><span style="background: Orange; "></span><label>Premium Class</label></div>
+                    <div><span style="background: Red; "></span><label>Economy Class</label></div>
+                    <div><span style="background: Gray; "></span><label>Sold Seat</label> </div>
+                    <div><span style="background: LightGray; "></span><label>Airplane</label> </div>
+                </div>
+
                 <div className="container" >
                     <IgrDataChart
                         width="100%"
                         height="100%"
-                        subtitle="Airplane Seating Chart (Polylines)"
-                        subtitleTopMargin="10"
                         isHorizontalZoomEnabled={true}
                         isVerticalZoomEnabled={true}>
                         <IgrNumericXAxis
