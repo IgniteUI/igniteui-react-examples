@@ -1,5 +1,5 @@
 export class CountryTreeData {
-    public static create() : any[] {
+    public static create(): any[] {
         let data: any[] = [];
         data.push({ Parent: null, Name: "Asia", Pop: NaN });
         data.push({ Parent: null, Name: "Middle East", Pop: NaN });

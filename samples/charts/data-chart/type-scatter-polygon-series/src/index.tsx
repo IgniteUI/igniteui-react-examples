@@ -49,12 +49,12 @@ export default class DataChartTypeScatterPolygonSeries extends React.Component<a
                 </div>
 
                 <div className="custom-legend">
-                    <div><span style="background: DodgerBlue; "></span><label>First Class</label></div>
-                    <div><span style="background: LimeGreen; "></span><label>Business Class</label></div>
-                    <div><span style="background: Orange; "></span><label>Premium Class</label></div>
-                    <div><span style="background: Red; "></span><label>Economy Class</label></div>
-                    <div><span style="background: Gray; "></span><label>Sold Seat</label> </div>
-                    <div><span style="background: LightGray; "></span><label>Airplane</label> </div>
+                    <div><span style={{ background: "DodgerBlue" }}></span><label>First Class</label></div>
+                    <div><span style={{ background: "LimeGreen" }}></span><label>Business Class</label></div>
+                    <div><span style={{ background: "Orange" }}></span><label>Premium Class</label></div>
+                    <div><span style={{ background: "Red" }}></span><label>Economy Class</label></div>
+                    <div><span style={{ background: "Gray" }}></span><label>Sold Seat</label> </div>
+                    <div><span style={{ background: "LightGray" }}></span><label>Airplane</label> </div>
                 </div>
 
                 <div className="container"  >

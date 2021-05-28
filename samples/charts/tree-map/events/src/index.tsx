@@ -39,7 +39,7 @@ export default class TreeMapEvents extends React.Component<any, any> {
           <div className="container sample" >
             <div className="options vertical">
                 <div className="options horizontal">
-                    <label style={{ marginLeft: "0.25rem", marginRight: "1.0rem" }}>Treemap Hovered Node's</label>
+                    <label style={{ marginLeft: "0.25rem", marginRight: "1.0rem" }}>Treemap Hovered Node</label>
                     {/* this label displays info about currently hovered item in Treemap */}
                     <label style={{ marginLeft: "0.5rem" }}>Parent:</label>
                     <label style={{ width: "3rem", fontWeight: 800 }}>{this.state.hoveredNodeParent}</label> 
@@ -49,7 +49,7 @@ export default class TreeMapEvents extends React.Component<any, any> {
                     <label style={{ width: "5rem", fontWeight: 800 }}>{this.state.hoveredNodeValue}</label>
                 </div>
                 <div className="options horizontal">
-                    <label style={{ marginLeft: "0.25rem", marginRight: "1.0rem" }}>Treemap Selected Node's</label>
+                    <label style={{ marginLeft: "0.25rem", marginRight: "1.0rem" }}>Treemap Selected Node</label>
                     {/* this label displays info about currently selected item in Treemap */}
                     <label style={{ marginLeft: "0.5rem" }}>Parent:</label>
                     <label style={{ width: "3rem", fontWeight: 800 }}>{this.state.selectedNodeParent}</label> 
