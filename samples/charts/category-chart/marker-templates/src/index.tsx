@@ -75,7 +75,7 @@ export default class CategoryChartMarkerTemplates extends React.Component<any, a
     }
 
     public onSeriesAdded(sender: any, e: any) {
-        let series : IgrColumnSeries = e.series as IgrColumnSeries;
+        let series: IgrColumnSeries = e.series as IgrColumnSeries;
         series.markerTemplate = this.getMarker();
     }
 

@@ -17,7 +17,7 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
 
     public chart: IgrFinancialChart;
     public fps: HTMLSpanElement;
-    public timerButton : HTMLButtonElement;
+    public timerButton: HTMLButtonElement;
     public frameTime: Date;
     public frameCount: number = 0;
 
@@ -42,7 +42,7 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
             dataInfo: StocksUtility.toShortString(this.dataPoints),
             dataPoints: this.dataPoints,
             dataSource: this.data,
-            refreshInfo : "0.1s",
+            refreshInfo: "0.1s",
             scalingRatio: window.devicePixelRatio
         }
     }
@@ -103,7 +103,7 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
         this.fps = span;
     }
 
-    public onTimerButtonRef(button : HTMLButtonElement){
+    public onTimerButtonRef(button: HTMLButtonElement){
         if(!button) { return; }
 
         this.timerButton = button;
