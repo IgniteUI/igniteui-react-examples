@@ -41,7 +41,8 @@
     "prefer-const": false,
     "prefer-for-of": false,
     "no-useless-constructor": false,
-    "@typescript-eslint/no-useless-constructor": "off"
+    "@typescript-eslint/no-useless-constructor": "off",
+    "@typescript-eslint/type-annotation-spacing": "off"
   },
   "jsRules": {
     "only-arrow-functions": false,

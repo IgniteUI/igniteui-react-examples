@@ -16,7 +16,7 @@ export default class CategoryChartColumnChartWithHighlighting extends React.Comp
         this.state = {
             isCategoryHighlighting: false,
             isItemHighlighting: true,
-            isSeriesHighlighting: true,            
+            isSeriesHighlighting: true,
         }
         this.initData();
     }
@@ -42,7 +42,7 @@ export default class CategoryChartColumnChartWithHighlighting extends React.Comp
 
             <div className="container" style={{height: "calc(100% - 30px)"}} >
                 <IgrCategoryChart
-                    
+
                     width="100%"
                     height="100%"
                     dataSource={this.data}
@@ -69,18 +69,18 @@ export default class CategoryChartColumnChartWithHighlighting extends React.Comp
 
     public initData() {
         const CityTemperatureData: any = [
-            { Month : "January", NY : 10.6, LA : 28.3},
-            { Month : "February", NY : 7.8, LA : 31.1},
-            { Month : "March", NY : 12.2,   LA : 27.8},
-            { Month : "April", NY : 11.7,  LA : 33.9},
-            { Month : "May", NY : 19.4,    LA : 35.0},
-            { Month : "June", NY : 23.3,    LA : 36.7},
-            { Month : "July", NY : 27.2,    LA : 33.3},
-            { Month : "August", NY : 25.6,  LA : 36.7},
-            { Month : "September", NY : 22.8,  LA : 43.9},
-            { Month : "October", NY : 17.8,    LA : 38.3 },
-            { Month : "November", NY : 17.8,  LA : 32.8},
-            { Month : "December", NY : 8.3, LA : 28.9},
+            { Month: "January", NY: 10.6, LA: 28.3},
+            { Month: "February", NY: 7.8, LA: 31.1},
+            { Month: "March", NY: 12.2,   LA: 27.8},
+            { Month: "April", NY: 11.7,  LA: 33.9},
+            { Month: "May", NY: 19.4,    LA: 35.0},
+            { Month: "June", NY: 23.3,    LA: 36.7},
+            { Month: "July", NY: 27.2,    LA: 33.3},
+            { Month: "August", NY: 25.6,  LA: 36.7},
+            { Month: "September", NY: 22.8,  LA: 43.9},
+            { Month: "October", NY: 17.8,    LA: 38.3 },
+            { Month: "November", NY: 17.8,  LA: 32.8},
+            { Month: "December", NY: 8.3, LA: 28.9},
         ];
         this.data = [ CityTemperatureData];
     }
