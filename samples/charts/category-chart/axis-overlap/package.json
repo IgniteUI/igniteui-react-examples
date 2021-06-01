@@ -1,9 +1,10 @@
 {
-  "name": "react-category-chart-axis-options",
-  "description": "This project provides example of Category Chart Axis Options using Infragistics React components",
+  "name": "example-ignite-ui-react",
+  "description": "This project provides example of using Ignite UI for React components",
   "author": "Infragistics",
-  "homepage": ".",
   "version": "1.4.0",
+  "license": "",
+  "homepage": ".",
   "private": true,
   "scripts": {
     "start": "set PORT=4200 && react-scripts --max_old_space_size=10240 start",
@@ -12,8 +13,17 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-react-core": "16.14.0-beta0",
-    "igniteui-react-charts": "16.14.0-beta0",
+    "igniteui-react-core": "16.14.0-beta.2",
+    "igniteui-react-charts": "16.14.0-beta.2",
+    "igniteui-react-datasources": "16.14.0-beta.2",
+    "igniteui-react-excel": "16.14.0-beta.2",
+    "igniteui-react-gauges": "16.14.0-beta.2",
+    "igniteui-react-grids": "16.14.0-beta.2",
+    "igniteui-react-inputs": "16.14.0-beta.2",
+    "igniteui-react-layouts": "16.14.0-beta.2",
+    "igniteui-react-maps": "16.14.0-beta.2",
+    "igniteui-react-spreadsheet": "16.14.0-beta.2",
+    "igniteui-react-spreadsheet-chart-adapter": "16.14.0-beta.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",

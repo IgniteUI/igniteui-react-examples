@@ -27,6 +27,8 @@
     "jsx-self-close": false,
     "jsx-wrap-multiline": false,
     "no-var-requires": false,
+    "no-var": false,
+    "no-var-keyword": false,
     "no-console": false,
     "no-string-literal": false,
     "no-unused-vars": false,

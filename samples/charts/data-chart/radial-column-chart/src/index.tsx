@@ -1,103 +1,114 @@
+import { DataItem, Data } from './SampleData';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// axis modules:
-import { IgrCategoryAngleAxis } from 'igniteui-react-charts';
-import { IgrNumericRadiusAxis } from 'igniteui-react-charts';
-// series modules:
-import { IgrRadialColumnSeries } from 'igniteui-react-charts';
-// data chart's modules:
-import { IgrDataChart } from 'igniteui-react-charts';
-import { IgrDataChartCoreModule } from 'igniteui-react-charts';
-import { IgrDataChartRadialCoreModule } from 'igniteui-react-charts';
-import { IgrDataChartRadialModule } from 'igniteui-react-charts';
-import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-// legend's modules:
-import { IgrLegend } from 'igniteui-react-charts';
-import { IgrLegendModule } from 'igniteui-react-charts';
-import { SampleRadialData } from './SampleRadialData';
 
-IgrDataChartCoreModule.register();
-IgrDataChartRadialCoreModule.register();
-IgrDataChartRadialModule.register();
-IgrDataChartInteractivityModule.register();
-IgrLegendModule.register();
+import { IgrDataChartCoreModule, IgrDataChartPolarModule, IgrDataChartPolarCoreModule, IgrDataChartInteractivityModule, IgrLegendModule } from 'igniteui-react-charts';
 
-export default class DataChartTypeRadialColumnSeries extends React.Component<any, any> {
-    public data: any[];
-    public chart: IgrDataChart;
-    public legend: IgrLegend;
+import { IgrLegend, IgrDataChart, IgrCategoryAngleAxis, IgrNumericRadiusAxis, IgrRadialColumnSeries } from 'igniteui-react-charts';
+const mods: any[] = [
+    IgrDataChartCoreModule,
+    IgrDataChartPolarModule,
+    IgrDataChartPolarCoreModule,
+    IgrDataChartInteractivityModule,
+    IgrLegendModule
+];
+mods.forEach((m) => m.register());
+
+export default class Sample extends React.Component<any, any> {
+    private legend: IgrLegend
+    private legendRef(r: IgrLegend) {
+        this.legend = r;
+        this.setState({});
+    }
+    private chart: IgrDataChart
+    private chartRef(r: IgrDataChart) {
+        this.chart = r;
+        this.setState({});
+    }
+    private angleAxis: IgrCategoryAngleAxis
+    private radiusAxis: IgrNumericRadiusAxis
+    private radialColumnSeries1: IgrRadialColumnSeries
+    private radialColumnSeries2: IgrRadialColumnSeries
 
     constructor(props: any) {
         super(props);
 
-        this.onChartRef = this.onChartRef.bind(this);
-        this.onLegendRef = this.onLegendRef.bind(this);
-
-        this.state = { seriesType: "Pie" }
-        this.data = SampleRadialData.create();
-    }
+        this.legendRef = this.legendRef.bind(this);
+        this.chartRef = this.chartRef.bind(this);
+   }
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="options horizontal">
-                    <label className="legend-title">Legend: </label>
-                    <div className="options vertical">
-                        <IgrLegend ref={this.onLegendRef} orientation="Horizontal" />
-                    </div>
-                </div>
-                <div className="container" style={{ height: "calc(100% - 35px)" }} >
-                    <IgrDataChart ref={this.onChartRef}
-                        chartTitle="Company Finances by Department"
-                        width="100%"
-                        height="100%"
-                        gridMode="BeforeSeries"
-                        dataSource={this.data}
-                        isHorizontalZoomEnabled={true}
-                        isVerticalZoomEnabled={true} >
-                        <IgrCategoryAngleAxis name="angleAxis" label="Department" />
-                        <IgrNumericRadiusAxis name="radiusAxis" innerRadiusExtentScale={0.1} minimumValue={0} />
-                        <IgrRadialColumnSeries
-                            name="series1"
-                            valueMemberPath="Budget"
-                            valueAxisName="radiusAxis"
-                            angleAxisName="angleAxis"
-                            title="Budget"
-                            areaFillOpacity="0.8"
-                            showDefaultTooltip="true" />
-                        <IgrRadialColumnSeries
-                            name="series2"
-                            valueMemberPath="Spending"
-                            valueAxisName="radiusAxis"
-                            angleAxisName="angleAxis"
-                            title="Spending"
-                            areaFillOpacity="0.8"
-                            showDefaultTooltip="true" />
-                    </IgrDataChart>
-                </div>
+        <div className="container sample">
+
+            <div className="legend-title">
+                Ronaldo vs. Messi Player Stats
             </div>
+
+            <div className="legend">
+                <IgrLegend
+                    orientation="Horizontal"
+                    ref={this.legendRef}>
+                </IgrLegend>
+            </div>
+
+            <div className="container fill">
+                <IgrDataChart
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
+                    legend={this.legend}
+                    ref={this.chartRef}>
+                    <IgrCategoryAngleAxis
+                        dataSource={this.data}
+                        label="attribute"
+                        name="angleAxis">
+                    </IgrCategoryAngleAxis>
+                    <IgrNumericRadiusAxis
+                        innerRadiusExtentScale="0.1"
+                        minimumValue="0"
+                        maximumValue="10"
+                        interval="2"
+                        name="radiusAxis">
+                    </IgrNumericRadiusAxis>
+                    <IgrRadialColumnSeries
+                        valueMemberPath="ronaldoValue"
+                        angleAxisName="angleAxis"
+                        valueAxisName="radiusAxis"
+                        dataSource={this.data}
+                        thickness="3"
+                        areaFillOpacity="0.8"
+                        showDefaultTooltip="true"
+                        title="Ronaldo"
+                        name="RadialColumnSeries1">
+                    </IgrRadialColumnSeries>
+                    <IgrRadialColumnSeries
+                        dataSource={this.data}
+                        angleAxisName="angleAxis"
+                        valueAxisName="radiusAxis"
+                        valueMemberPath="messiValue"
+                        showDefaultTooltip="true"
+                        areaFillOpacity="0.8"
+                        thickness="3"
+                        title="Messi"
+                        name="RadialColumnSeries2">
+                    </IgrRadialColumnSeries>
+                </IgrDataChart>
+            </div>
+        </div>
         );
-    }
+   }
 
-    public onChartRef(chart: IgrDataChart) {
-        if (!chart) { return; }
-
-        this.chart = chart;
-        if (this.legend) {
-            this.chart.legend = this.legend;
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
         }
+        return this._data;
     }
 
-    public onLegendRef(legend: IgrLegend) {
-        if (!legend) { return; }
-
-        this.legend = legend;
-        if (this.chart) {
-            this.chart.legend = this.legend;
-        }
-    }
 }
-
-// rendering above class to the React DOM
-ReactDOM.render(<DataChartTypeRadialColumnSeries />, document.getElementById('root'));
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

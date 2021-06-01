@@ -1,41 +1,76 @@
+import { DataItem, Data } from './SampleData';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrPieChart } from 'igniteui-react-charts';
-import { IgrPieChartModule } from 'igniteui-react-charts';
 
-IgrPieChartModule.register();
+import { IgrItemLegendModule, IgrPieChartModule } from 'igniteui-react-charts';
 
-export default class PieChartOverview extends React.Component<any, any> {
+import { IgrItemLegend, IgrPieChart } from 'igniteui-react-charts';
+const mods: any[] = [
+    IgrItemLegendModule,
+    IgrPieChartModule
+];
+mods.forEach((m) => m.register());
 
-    public data: any[];
+export default class Sample extends React.Component<any, any> {
+    private legend: IgrItemLegend
+    private legendRef(r: IgrItemLegend) {
+        this.legend = r;
+        this.setState({});
+    }
+    private chart: IgrPieChart
+    private chartRef(r: IgrPieChart) {
+        this.chart = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
 
-        this.state = { data: [
-            { MarketShare: 30, Company: "Google",    },
-            { MarketShare: 30, Company: "Apple",     },
-            { MarketShare: 15, Company: "Microsoft", },
-            { MarketShare: 15, Company: "Samsung",   },
-            { MarketShare: 10, Company: "Other",     },
-       ] };
-    }
+        this.legendRef = this.legendRef.bind(this);
+        this.chartRef = this.chartRef.bind(this);
+   }
 
     public render(): JSX.Element {
         return (
-            <div style={{height: "100%", width: "100%", background: "white" }}>
+        <div className="container sample">
 
-                <IgrPieChart dataSource={this.state.data}
-                            labelMemberPath="Company"
-                            valueMemberPath="MarketShare"
-                            width="100%"
-                            height="100%"/>
+            <div className="legend-title">
+                Global Electricity Demand by Energy Use
             </div>
+
+            <div className="legend">
+                <IgrItemLegend
+                    orientation="Horizontal"
+                    ref={this.legendRef}>
+                </IgrItemLegend>
+            </div>
+
+            <div className="container fill">
+                <IgrPieChart
+                    dataSource={this.data}
+                    valueMemberPath="marketShare"
+                    labelMemberPath="category"
+                    labelsPosition="BestFit"
+                    radiusFactor="0.7"
+                    legend={this.legend}
+                    ref={this.chartRef}>
+                </IgrPieChart>
+            </div>
+        </div>
         );
+   }
+
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
     }
 
 }
-
-// rendering above class to the React DOM
-ReactDOM.render(<PieChartOverview />, document.getElementById('root'));
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

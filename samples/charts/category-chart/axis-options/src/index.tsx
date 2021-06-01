@@ -1,106 +1,95 @@
+import { DataItem, Data } from './SampleData';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrCategoryChart } from 'igniteui-react-charts';
+
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
+import { IgrPropertyEditorModule } from 'igniteui-react-grids';
 
-IgrCategoryChartModule.register();
+import { IgrCategoryChart } from 'igniteui-react-charts';
+const mods: any[] = [
+    IgrCategoryChartModule,
+    IgrPropertyEditorModule
+];
+mods.forEach((m) => m.register());
 
-export default class CategoryChartAxisTypes extends React.Component<any, any> {
-    public data: any[];
+export default class Sample extends React.Component<any, any> {
+    private chart: IgrCategoryChart
+    private chartRef(r: IgrCategoryChart) {
+        this.chart = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
-        this.initData();
-    }
+
+        this.chartRef = this.chartRef.bind(this);
+   }
 
     public render(): JSX.Element {
         return (
-        <div className="container sample" >
-            <div className="container">
+        <div className="container sample">
+
+            <div className="legend-title">
+                Olympic Medals By Country
+            </div>
+            <div className="container fill">
                 <IgrCategoryChart
-                    width="100%"
-                    height="100%"
-                    chartType="Line"
-                    markerTypes="Circle"
-                    chartTitle="Olympic Medals By Country"
                     dataSource={this.data}
-                    thickness={3}
-
-                    xAxisLabelTextStyle="9pt Verdana"
-                    xAxisLabelTopMargin={5}
+                    chartType="Line"
                     xAxisLabelTextColor="gray"
-                    yAxisLabelLocation="OutsideRight"
-                    yAxisLabelTextStyle="9pt Verdana"
-                    yAxisLabelRightMargin={0}
+                    xAxisLabelTextStyle="9pt Verdana"
+                    xAxisLabelTopMargin="5"
                     yAxisLabelTextColor="gray"
-
-                    xAxisTitle="Olympic Games"
+                    yAxisLabelTextStyle="9pt Verdana"
+                    yAxisLabelRightMargin="0"
+                    yAxisLabelLocation="OutsideRight"
+                    xAxisInterval="1"
+                    xAxisGap="0.125"
+                    xAxisOverlap="0"
+                    yAxisInterval="25"
+                    yAxisMinimumValue="50"
+                    yAxisMaximumValue="150"
+                    yAxisMinorInterval="5"
+                    yAxisTitleLeftMargin="5"
                     xAxisTitleTextColor="gray"
-                    xAxisTitleTextStyle="10pt Verdana"
-                    xAxisTitleAngle={0}
-                    yAxisTitle="Total Medals"
-                    yAxisTitleTextStyle="10pt Verdana"
                     yAxisTitleTextColor="gray"
-                    yAxisTitleAngle={90}
-                    yAxisTitleLeftMargin={5}
-
-                    xAxisTickLength={10}
-                    xAxisTickStrokeThickness={0.5}
-                    xAxisTickStroke="black"
-                    yAxisTickLength={10}
-                    yAxisTickStrokeThickness={0.5}
-                    yAxisTickStroke="black"
-
-                    yAxisMinimumValue={50}
-                    yAxisMaximumValue={150}
-
-                    xAxisInterval={1}
+                    xAxisTitleTextStyle="10pt Verdana"
+                    yAxisTitleTextStyle="10pt Verdana"
                     xAxisMajorStroke="gray"
-                    xAxisMajorStrokeThickness={0.5}
-
-                    yAxisInterval={25}
                     yAxisMajorStroke="black"
-                    yAxisMajorStrokeThickness={1}
-                    yAxisMinorInterval={5}
+                    xAxisMajorStrokeThickness="0.5"
+                    yAxisMajorStrokeThickness="1"
+                    yAxisMinorStrokeThickness="0.5"
+                    xAxisTickLength="10"
+                    yAxisTickLength="10"
+                    xAxisTickStroke="black"
+                    yAxisTickStroke="black"
+                    xAxisTickStrokeThickness="0.5"
+                    yAxisTickStrokeThickness="0.5"
+                    xAxisTitle="Olympic Games"
+                    yAxisTitle="Total Medals"
                     yAxisMinorStroke="gray"
-                    yAxisMinorStrokeThickness={0.5}
-
-                    xAxisGap={0.125}
-                    xAxisOverlap={0}/>
+                    xAxisTitleAngle="0"
+                    yAxisTitleAngle="90"
+                    thickness="3"
+                    ref={this.chartRef}>
+                </IgrCategoryChart>
             </div>
         </div>
         );
+   }
+
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
     }
 
-    public initData() {
-        const usaMedals: any = [
-            { Year: "1996", UnitedStates: 148 },
-            { Year: "2000", UnitedStates: 142 },
-            { Year: "2004", UnitedStates: 134 },
-            { Year: "2008", UnitedStates: 131 },
-            { Year: "2012", UnitedStates: 135 },
-            { Year: "2016", UnitedStates: 146 },
-        ];
-        const chinaMedals: any = [
-            { Year: "1996", China: 110 },
-            { Year: "2000", China: 115 },
-            { Year: "2004", China: 121 },
-            { Year: "2008", China: 129 },
-            { Year: "2012", China: 115 },
-            { Year: "2016", China: 112 },
-        ];
-        const russiaMedals: any = [
-            { Year: "1996", Russia: 95 },
-            { Year: "2000", Russia: 91 },
-            { Year: "2004", Russia: 86 },
-            { Year: "2008", Russia: 65 },
-            { Year: "2012", Russia: 77 },
-            { Year: "2016", Russia: 88 },
-        ];
-        this.data = [ usaMedals, chinaMedals, russiaMedals ];
-    }
 }
-
-// rendering above class to the React DOM
-ReactDOM.render(<CategoryChartAxisOptions />, document.getElementById('root'));
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

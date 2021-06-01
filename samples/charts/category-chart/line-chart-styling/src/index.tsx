@@ -1,88 +1,83 @@
+import { DataItem, Data } from './SampleData';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrCategoryChart } from 'igniteui-react-charts';
-import { IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrLegend } from 'igniteui-react-charts';
-import { IgrLegendModule } from 'igniteui-react-charts';
 
-IgrCategoryChartModule.register();
-IgrLegendModule.register();
+import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 
-export default class CategoryChartLineChartStyling extends React.Component<any, any> {
-    public data: any[];
-    public chart: IgrCategoryChart;
-    public legend: IgrLegend;
+import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
+const mods: any[] = [
+    IgrLegendModule,
+    IgrCategoryChartModule
+];
+mods.forEach((m) => m.register());
+
+export default class Sample extends React.Component<any, any> {
+    private legend: IgrLegend
+    private legendRef(r: IgrLegend) {
+        this.legend = r;
+        this.setState({});
+    }
+    private chart: IgrCategoryChart
+    private chartRef(r: IgrCategoryChart) {
+        this.chart = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
 
-        this.onChartRef = this.onChartRef.bind(this);
-        this.onLegendRef = this.onLegendRef.bind(this);
-
-        this.initData();
-    }
+        this.legendRef = this.legendRef.bind(this);
+        this.chartRef = this.chartRef.bind(this);
+   }
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="options horizontal">
-                    <label>Renewable Electricity Generated</label>
-                    <IgrLegend ref={this.onLegendRef} orientation="horizontal" />
-                </div>
-                <div className="container" style={{height: "calc(100% - 1.25rem)"}} >
-                    <IgrCategoryChart
-                        ref={this.onChartRef}
-                        width="100%"
-                        height="100%"
-                        isHorizontalZoomEnabled={false}
-                        isVerticalZoomEnabled={false}
-                        brushes="#ee5879, #c4c4c4, #9af2e4"
-                        markerOutlines="#ee5879, #c4c4c4, #9af2e4"
-                        markerTypes="circle"
-                        dataSource={this.data}
-                        chartType="line"
-                        yAxisTitle="TWh"
-                        yAxisTitleLeftMargin={5} />
-                </div>
+        <div className="container sample">
+
+            <div className="legend-title">
+                Renewable Electricity Generated
             </div>
+
+            <div className="legend">
+                <IgrLegend
+                    orientation="Horizontal"
+                    ref={this.legendRef}>
+                </IgrLegend>
+            </div>
+
+            <div className="container fill">
+                <IgrCategoryChart
+                    chartType="Line"
+                    yAxisLabelLeftMargin="0"
+                    yAxisTitleLeftMargin="10"
+                    yAxisTitle="TWh"
+                    dataSource={this.data}
+                    brushes="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
+                    outlines="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
+                    legend={this.legend}
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
+                    thickness="2"
+                    markerBrushes="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
+                    markerOutlines="white"
+                    ref={this.chartRef}>
+                </IgrCategoryChart>
+            </div>
+        </div>
         );
-    }
+   }
 
-    public onChartRef(chart: IgrCategoryChart) {
-        if (!chart) { return; }
-
-        this.chart = chart;
-        if (this.legend) {
-            this.chart.legend = this.legend;
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
         }
+        return this._data;
     }
 
-    public onLegendRef(legend: IgrLegend) {
-        if (!legend) { return; }
-
-        this.legend = legend;
-        if (this.chart) {
-            this.chart.legend = this.legend;
-        }
-    }
-
-    public initData() {
-        this.data = [
-            { Year: "2009", Europe: 31, China: 21,  USA: 19 },
-            { Year: "2010", Europe: 43, China: 26,  USA: 24 },
-            { Year: "2011", Europe: 66, China: 29,  USA: 28 },
-            { Year: "2012", Europe: 69, China: 32,  USA: 26 },
-            { Year: "2013", Europe: 58, China: 47,  USA: 38 },
-            { Year: "2014", Europe: 40, China: 46,  USA: 31 },
-            { Year: "2015", Europe: 78, China: 50,  USA: 19 },
-            { Year: "2016", Europe: 13, China: 90,  USA: 52 },
-            { Year: "2017", Europe: 78, China: 132, USA: 50 },
-            { Year: "2018", Europe: 40, China: 134, USA: 34 },
-            { Year: "2019", Europe: 80, China: 96,  USA: 38 }
-        ];
-    }
 }
-
-// rendering above class to the React DOM
-ReactDOM.render(<CategoryChartLineChartStyling />, document.getElementById('root'));
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

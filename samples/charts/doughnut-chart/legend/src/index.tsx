@@ -1,91 +1,85 @@
+import { DataItem, Data } from './SampleData';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrDoughnutChartModule, IgrSliceClickEventArgs } from 'igniteui-react-charts';
-import { IgrDoughnutChart } from 'igniteui-react-charts';
-import { IgrItemLegend } from 'igniteui-react-charts';
-import { IgrItemLegendModule } from 'igniteui-react-charts';
-import { IgrRingSeriesModule } from 'igniteui-react-charts';
-import { IgrRingSeries } from 'igniteui-react-charts';
 
-IgrDoughnutChartModule.register();
-IgrRingSeriesModule.register();
-IgrItemLegendModule.register();
+import { IgrLegendModule, IgrDoughnutChartModule } from 'igniteui-react-charts';
 
-export default class DoughnutChartLegend extends React.Component<any, any> {
+import { IgrItemLegend, IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
+const mods: any[] = [
+    IgrLegendModule,
+    IgrDoughnutChartModule
+];
+mods.forEach((m) => m.register());
 
-    public data: any[];
-    public chart: IgrDoughnutChart;
-    public legend: IgrItemLegend;
+export default class Sample extends React.Component<any, any> {
+    private legend: IgrItemLegend
+    private legendRef(r: IgrItemLegend) {
+        this.legend = r;
+        this.setState({});
+    }
+    private chart: IgrDoughnutChart
+    private chartRef(r: IgrDoughnutChart) {
+        this.chart = r;
+        this.setState({});
+    }
+    private series: IgrRingSeries
 
     constructor(props: any) {
         super(props);
 
-        this.onChartRef = this.onChartRef.bind(this);
-        this.onLegendRef = this.onLegendRef.bind(this);
-
-        this.state = {
-            data: [
-                { MarketShare: 37, Company: "Space Cooling", Summary:"Space Cooling 37%", },
-                { MarketShare: 25, Company: "Residential Appliance", Summary:"Residential Appliance 25%",  },
-                { MarketShare: 12, Company: "Heating", Summary:"Heating 12%", },
-                { MarketShare: 8, Company: "Lighting", Summary:"Lighting 8%", },
-                { MarketShare: 18, Company: "Other Services", Summary:"Other Services 18%", },
-        ] };
-    }
-
-    public onChartRef(chart: IgrDoughnutChart) {
-        if (!chart) { return; }
-
-        this.chart = chart;
-        if (this.legend) {
-            this.chart.actualSeries[0].legend = this.legend;
-        }
-    }
-
-    public onLegendRef(legend: IgrItemLegend) {
-        if (!legend) { return; }
-
-        this.legend = legend;
-        if (this.chart) {
-            this.chart.actualSeries[0].legend = this.legend;
-        }
-    }
-
-    public onSliceClick = (s: IgrDoughnutChart, e: IgrSliceClickEventArgs) => {
-        e.isExploded = !e.isExploded;
-        e.isSelected = false;
-    }
+        this.legendRef = this.legendRef.bind(this);
+        this.chartRef = this.chartRef.bind(this);
+   }
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <label className="legend-title">Global Electricity Demand by Energy Use</label>
-                <div className="options vertical">
-                    <IgrItemLegend ref={this.onLegendRef} />
-                </div>
-                <div className="container">
-                    <IgrDoughnutChart ref={this.onChartRef}
-                                     width="100%"
-                                     height="100%"
-                                     allowSliceExplosion="true"
-                                     sliceClick={this.onSliceClick}>
-                            <IgrRingSeries name="ring1"
-                                dataSource={this.state.data}
-                                labelMemberPath="Summary"
-                                valueMemberPath="MarketShare"
-                                labelsPosition="OutsideEnd"
-                                labelExtent="30"
-                                radiusFactor={0.7}
-                                startAngle="-60"
-                                legendLabelMemberPath="Company"/>
-                    </IgrDoughnutChart>
-                </div>
+        <div className="container sample">
+
+            <div className="legend-title">
+                Global Electricity Demand by Energy Use
             </div>
+
+            <div className="legend">
+                <IgrItemLegend
+                    orientation="Horizontal"
+                    ref={this.legendRef}>
+                </IgrItemLegend>
+            </div>
+
+            <div className="container fill">
+                <IgrDoughnutChart
+                    allowSliceExplosion="true"
+                    ref={this.chartRef}>
+                    <IgrRingSeries
+                        dataSource={this.data}
+                        valueMemberPath="marketShare"
+                        labelMemberPath="summary"
+                        legendLabelMemberPath="category"
+                        labelsPosition="OutsideEnd"
+                        legend={this.legend}
+                        labelExtent="30"
+                        startAngle="30"
+                        outlines="white"
+                        radiusFactor="0.6"
+                        name="series">
+                    </IgrRingSeries>
+                </IgrDoughnutChart>
+            </div>
+        </div>
         );
+   }
+
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
     }
 
 }
-
-// rendering above class to the React DOM
-ReactDOM.render(<DoughnutChartLegend />, document.getElementById('root'));
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

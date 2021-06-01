@@ -1,46 +1,65 @@
+import { DataItem, Data } from './SampleData';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrDoughnutChartModule } from 'igniteui-react-charts';
-import { IgrDoughnutChart } from 'igniteui-react-charts';
-import { IgrRingSeriesModule } from 'igniteui-react-charts';
-import { IgrRingSeries } from 'igniteui-react-charts';
 
-IgrDoughnutChartModule.register();
-IgrRingSeriesModule.register();
+import { IgrLegendModule, IgrDoughnutChartModule } from 'igniteui-react-charts';
 
-export default class DoughnutChartOverview extends React.Component<any, any> {
+import { IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
+const mods: any[] = [
+    IgrLegendModule,
+    IgrDoughnutChartModule
+];
+mods.forEach((m) => m.register());
 
-    public data: any[];
+export default class Sample extends React.Component<any, any> {
+    private chart: IgrDoughnutChart
+    private chartRef(r: IgrDoughnutChart) {
+        this.chart = r;
+        this.setState({});
+    }
+    private series: IgrRingSeries
 
     constructor(props: any) {
         super(props);
 
-        this.state = {
-            data: [
-                { MarketShare: 30, Company: "Google",    },
-                { MarketShare: 15, Company: "Microsoft", },
-                { MarketShare: 30, Company: "Apple",     },
-                { MarketShare: 15, Company: "Samsung",   },
-                { MarketShare: 10, Company: "Other",     },
-        ] };
-    }
+        this.chartRef = this.chartRef.bind(this);
+   }
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
+        <div className="container sample">
+
+            <div className="legend-title">
+                Market Share of Tech Companies
+            </div>
+            <div className="container fill">
                 <IgrDoughnutChart
-                     height="100%">
-                        <IgrRingSeries name="ring1"
-                            dataSource={this.state.data}
-                            labelMemberPath="Company"
-                            valueMemberPath="MarketShare"/>
+                    ref={this.chartRef}>
+                    <IgrRingSeries
+                        dataSource={this.data}
+                        valueMemberPath="marketShare"
+                        labelMemberPath="summary"
+                        legendLabelMemberPath="category"
+                        outlines="white"
+                        name="series">
+                    </IgrRingSeries>
                 </IgrDoughnutChart>
             </div>
+        </div>
         );
+   }
+
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
     }
 
 }
-
-// rendering above class to the React DOM
-ReactDOM.render(<DoughnutChartOverview />, document.getElementById('root'));
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

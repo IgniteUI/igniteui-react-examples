@@ -1,83 +1,82 @@
+import { DataItem, Data } from './SampleData';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrItemLegend } from 'igniteui-react-charts';
-import { IgrItemLegendModule } from 'igniteui-react-charts';
-import { IgrPieChart } from 'igniteui-react-charts';
-import { IgrPieChartModule } from 'igniteui-react-charts';
 
-IgrPieChartModule.register();
-IgrItemLegendModule.register();
+import { IgrItemLegendModule, IgrPieChartModule } from 'igniteui-react-charts';
 
-export default class PieChartOthers extends React.Component<any, any> {
+import { IgrItemLegend, IgrPieChart } from 'igniteui-react-charts';
+const mods: any[] = [
+    IgrItemLegendModule,
+    IgrPieChartModule
+];
+mods.forEach((m) => m.register());
 
-    public data: any[];
-    public chart: IgrPieChart;
-    public legend: IgrItemLegend;
+export default class Sample extends React.Component<any, any> {
+    private legend: IgrItemLegend
+    private legendRef(r: IgrItemLegend) {
+        this.legend = r;
+        this.setState({});
+    }
+    private chart: IgrPieChart
+    private chartRef(r: IgrPieChart) {
+        this.chart = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
 
-        this.onChartRef = this.onChartRef.bind(this);
-        this.onLegendRef = this.onLegendRef.bind(this);
-
-        this.state = { data: [
-                { MarketShare: 37, Company: "Space Cooling", Summary:"Space Cooling 37%", },
-                { MarketShare: 25, Company: "Residential Appliance", Summary:"Residential Appliance 25%",  },
-                { MarketShare: 12, Company: "Heating", Summary:"Heating 12%", },
-                { MarketShare: 8, Company: "Lighting", Summary:"Lighting 8%", },
-                { MarketShare: 18, Company: "Other Services", Summary:"Other Services 18%", },
-        ] };
-    }
-
-    public onChartRef(chart: IgrPieChart) {
-        if (!chart) { return; }
-
-        this.chart = chart;
-        if (this.legend) {
-            this.chart.legend = this.legend;
-        }
-    }
-
-    public onLegendRef(legend: IgrItemLegend) {
-        if (!legend) { return; }
-
-        this.legend = legend;
-        if (this.chart) {
-            this.chart.legend = this.legend;
-        }
-    }
+        this.legendRef = this.legendRef.bind(this);
+        this.chartRef = this.chartRef.bind(this);
+   }
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <label className="legend-title">Global Electricity Demand by Energy Use</label>
-                <div className="options vertical">
-                    <IgrItemLegend ref={this.onLegendRef}  />
-                </div>
+        <div className="container sample">
 
-                <div className="container">
-                <IgrPieChart dataSource={this.state.data}
-                            ref={this.onChartRef}
-                            labelMemberPath="Summary"
-                            labelsPosition="OutsideEnd"
-                            labelExtent="30"
-                            valueMemberPath="MarketShare"
-                            width="100%"
-                            height="100%"
-                            othersCategoryThreshold="10"
-                            othersCategoryType="Number"
-                            othersCategoryText="Others"
-                            radiusFactor={0.7}
-                            legendLabelMemberPath="Summary"
-                            startAngle={-60}
-                            />
-                </div>
+            <div className="legend-title">
+                Global Electricity Demand by Energy Use
             </div>
+
+            <div className="legend">
+                <IgrItemLegend
+                    orientation="Horizontal"
+                    ref={this.legendRef}>
+                </IgrItemLegend>
+            </div>
+
+            <div className="container fill">
+                <IgrPieChart
+                    dataSource={this.data}
+                    valueMemberPath="marketShare"
+                    labelMemberPath="summary"
+                    legendLabelMemberPath="summary"
+                    labelsPosition="OutsideEnd"
+                    othersCategoryThreshold="10"
+                    othersCategoryType="Number"
+                    othersCategoryText="Others"
+                    radiusFactor="0.7"
+                    legend={this.legend}
+                    labelExtent="30"
+                    outlines="white"
+                    ref={this.chartRef}>
+                </IgrPieChart>
+            </div>
+        </div>
         );
+   }
+
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
     }
 
 }
-
-// rendering above class to the React DOM
-ReactDOM.render(<PieChartOthers />, document.getElementById('root'));
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));
