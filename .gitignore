@@ -7,6 +7,7 @@
 /samples/**/node_modules
 /samples/**/.vscode
 /samples/**/package-lock.json
+/samples/**/build
 
 # browser auto-generated files
 /browser/node_modules
