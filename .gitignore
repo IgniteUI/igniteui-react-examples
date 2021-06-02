@@ -17,7 +17,7 @@
 /browser/build
 /browser/public/code-viewer/**
 
-# IDEs and editors
+# IDE and editors
 /.idea
 .project
 .classpath
@@ -25,16 +25,13 @@
 *.launch
 .settings/
 *.sublime-workspace
-
-# IDE - VS
-.vs/
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+ 
+**/.vs/
+**/.vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
 
 # testing
 /coverage
