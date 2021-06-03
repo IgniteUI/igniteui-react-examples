@@ -42,7 +42,7 @@ export default class DoughnutChartExplosion extends React.Component<any, any> {
                 <div className="options vertical">
                     <span className="legend-title">Global Electricity Demand by Energy Use</span>
                     <div className="legend">
-                        <IgrItemLegend ref={this.onLegendRef} />
+                        <IgrItemLegend ref={this.onLegendRef} orientation="Horizontal"/>
                     </div>
                 </div>
                 
