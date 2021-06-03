@@ -56,7 +56,7 @@ export default class PieChartExplosion extends React.Component<any, any> {
             <div className="container sample">
                 <label className="legend-title">Global Electricity Demand by Energy Use</label>
                 <div className="options vertical">
-                    <IgrItemLegend ref={this.onLegendRef}  />
+                    <IgrItemLegend ref={this.onLegendRef} orientation="Horizontal" />
                 </div>
 
                 <div className="container">
