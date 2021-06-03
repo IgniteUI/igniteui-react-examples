@@ -43,6 +43,7 @@ exports.updateSharedFiles = updateSharedFiles = gulp.series(
 );
 
 exports.updateBrowser = updateBrowser = gulp.series(
+    sb.logTypescriptVersion,
     sb.updateVersion,
     sb.getSamples,
     sb.copySamples,
@@ -73,3 +74,5 @@ exports.updateCodeViewer = updateCodeViewer = gulp.series(
     sb.getSamples,
     sb.updateCodeViewer
 );
+
+exports.logTypescriptVersion = logTypescriptVersion = sb.logTypescriptVersion

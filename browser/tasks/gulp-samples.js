@@ -595,6 +595,20 @@ function updateCodeViewer(cb) {
 
 } exports.updateCodeViewer = updateCodeViewer;
 
+function logTypescriptVersion(cb) {
+
+    // log('updating readme files... ');
+    var file = fs.readFileSync("./node_modules/typescript/package.json", "utf8");
+    var lines = file.split("\n");
+
+    for (const line of lines) {
+        if (line.indexOf("version") > 0) {
+            console.log(">> logTypescript " + line);
+        }
+    }
+    cb();
+
+} exports.logTypescriptVersion = logTypescriptVersion;
 
 function simplifySamples(cb) {
 
@@ -639,8 +653,6 @@ function simplifySamples(cb) {
     cb();
 
 } exports.simplifySamples = simplifySamples;
-
-
 
 
 
