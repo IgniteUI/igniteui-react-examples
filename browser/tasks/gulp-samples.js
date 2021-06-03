@@ -595,6 +595,8 @@ function updateCodeViewer(cb) {
 
 } exports.updateCodeViewer = updateCodeViewer;
 
+
+
 function logTypescriptVersion(cb) {
 
     // log('updating readme files... ');
@@ -654,6 +656,41 @@ function simplifySamples(cb) {
 
 } exports.simplifySamples = simplifySamples;
 
+
+let verifyBuildSpecs = [
+    { files: [], pattern: "./build/code-viewer/**/*.json" },
+    { files: [], pattern: "./build/static/**/*.txt" },
+    { files: [], pattern: "./build/web.config" },
+    { files: [], pattern: "./build/index.html" },
+    { files: [], pattern: "./build/manifest.json" },
+];
+
+function verifyBuildStats(cb) {
+    for (const info of verifyBuildSpecs) {
+        if (info.files.length === 0)
+            console.log(">> verifyBuild ERROR cannot find any " + info.pattern + " files");
+        else
+            console.log(">> verifyBuild found " + info.files.length + " files in " + info.pattern);
+    }
+    cb();
+}
+
+function verifyBuild(cb) {
+    let verifiedPatterns = 0;
+    for (const info of verifyBuildSpecs) {
+        gulp.src([info.pattern]).pipe(es.map(function(file, fileCallback) {
+            info.files.push(file.basename);
+            fileCallback(null, file);
+        }))
+        .on("end", function() {
+            verifiedPatterns++;
+            if (verifiedPatterns >= verifyBuildSpecs.length) {
+                verifyBuildStats(cb);
+                cb();
+            }
+        });
+    }
+} exports.verifyBuild = verifyBuild;
 
 
 

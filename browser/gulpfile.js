@@ -59,6 +59,7 @@ exports.logSourceFiles = sb.logSourceFiles;
 exports.logUniqueFiles = sb.logUniqueFiles;
 exports.logRootFiles   = sb.logRootFiles;
 exports.lintSamples    = sb.lintSamples;
+exports.verifyBuild    = sb.verifyBuild;
 
 exports.logRoutes = logRoutes = gulp.series(
     sb.getSamples,
