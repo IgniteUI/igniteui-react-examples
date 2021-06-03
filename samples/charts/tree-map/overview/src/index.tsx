@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
                     idMemberPath="id"
                     dataSource={this.data}
                     fillBrushes="rgba(78, 98, 207, 1) rgba(138, 88, 214, 1)"
-                    fillScaleMode="pop"
+                    fillScaleMode="Value"
                     isFillScaleLogarithmic="true"
                     fillScaleMinimumValue="0"
                     fillScaleMaximumValue="1500000000"
