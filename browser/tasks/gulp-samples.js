@@ -659,7 +659,7 @@ function simplifySamples(cb) {
 
 let verifyBuildSpecs = [
     { files: [], pattern: "./build/code-viewer/**/*.json" },
-    { files: [], pattern: "./build/static/**/*.txt" },
+    { files: [], pattern: "./build/static/**/*.js" },
     { files: [], pattern: "./build/web.config" },
     { files: [], pattern: "./build/index.html" },
     { files: [], pattern: "./build/manifest.json" },
