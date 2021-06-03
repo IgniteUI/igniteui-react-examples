@@ -213,16 +213,23 @@ class Transformer {
                 info.SampleFileSourcePath = "./src/" + info.SampleFileName;
                 info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
 
-                let classExp = new RegExp(/(export.default.class.)(.*)(.\{)/g);
+                // let classExp = new RegExp(/(export.default.class.)(.*)(.\{)/g);
                 // let className = info.SampleFileSourceCode.match(classExp);
-                let className = info.SampleFileSourceCode.match(classExp)[0];
+                // let className = info.SampleFileSourceCode.match(classExp)[0];
                 // console.log("Transformer className1= " +  className);
-                className = className.replace(/(export.default.class.)(.*)(.extends.*)/g, '$2');
-                className = className.trim();
+                // className = className.replace(/(export.default.class.)(.*)(.extends.*)/g, '$2');
+                // className = className.trim();
                 // console.log("Transformer className= " +  className);
-                info.SampleFileSourceClass = className; //.replace('export class ', '');
+                // using folder names to make sure each sample has unique class name
+                let className = info.ComponentFolder + "-" + info.SampleFolderName;
+                className = Strings.replace(className, "/", " ");
+                className = Strings.replace(className, "-", " ");
+                className = Strings.toTitleCase(className);
+                className = Strings.replace(className, " ", "");
+                info.SampleFileSourceClass = className;
 
-                // console.log("Transformer sampleBlocks ...");
+                // console.log("Transformer SampleFileSourceClass=" + info.SampleFileSourceClass);
+
                 let sampleBlocks = this.getSampleBlocks(info.SampleFileSourceCode);
                 info.SampleImportLines = sampleBlocks.ImportLines;
                 info.SampleImportFiles = sampleBlocks.ImportFiles;

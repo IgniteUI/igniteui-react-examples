@@ -221,6 +221,7 @@ function copySamples(cb) {
             code = code.replace("// rendering above class to the React DOM","");
             code = code.replace(/ReactDOM.*/g,"");
             code = code.replace("import './index.css';","");
+            code = code.replace("// rendering above component in the React DOM","");
 
             file.contents = Buffer.from(code);
             fileCallback(null, file);
@@ -635,7 +636,6 @@ function simplifySamples(cb) {
             // code += "\n";
             // code += "// rendering above class to the React DOM\n";
             // code += "ReactDOM.render(<" + sample.SampleImportName + " />, document.getElementById('root'));";
-
 
             code += sample.SampleFileSourceCode;
             let importExp = new RegExp(/(import.React.from)/g);
