@@ -3,91 +3,104 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
+import { IgrDataContext } from 'igniteui-react-core';
+import { IgrDataChartCoreModule } from 'igniteui-react-charts';
+import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 
+IgrDataChartCoreModule.register();
+IgrDataChartInteractivityModule.register();
 IgrCategoryChartModule.register();
 
 export default class CategoryChartTooltipTemplate extends React.Component<any, any> {
     public data: any[];
+    public chart: IgrCategoryChart;
 
     constructor(props: any) {
         super(props);
 
-        this.state = {
-            isCategoryHighlighting: false,
-            isItemHighlighting: false,
-            isSeriesHighlighting: false,
-        }
-
         this.initData();
+
+        this.onChartRef = this.onChartRef.bind(this);
+        this.onSeriesAdded = this.onSeriesAdded.bind(this);
     }
 
     public render(): JSX.Element {
         return (
-            <div className="chartContainer" >
-                <p>TODO implement render() in {this.constructor.name}.tsx file</p>
-
-                {/* <div>
-                    <label className="options-label">Enable Highlighting: </label>
-                    <label className="options-label"><input type="checkbox"
-                    checked={this.state.isSeriesHighlighting}
-                    onChange={this.onSeriesHighlightingChanged}/> Series </label>
-                    <label className="options-label"><input type="checkbox"
-                    checked={this.state.isItemHighlighting}
-                    onChange={this.onItemHighlightingChanged}/>Item </label>
-                    <label className="options-label"><input type="checkbox"
-                    checked={this.state.isCategoryHighlighting}
-                    onChange={this.onCategoryHighlightingChanged}/>Category </label>
+            <div className="container sample">
+                <div className="options vertical">
+                    <span className="legend-title">Highest Grossing Movie Franchises</span>
                 </div>
-
-                <IgrCategoryChart
-                    width="100%"
-                   height="calc(100% - 65px)"
-                    dataSource={this.data}
-                    isCategoryHighlightingEnabled={this.state.isCategoryHighlighting}
-                    isItemHighlightingEnabled={this.state.isItemHighlighting}
-                    isSeriesHighlightingEnabled={this.state.isSeriesHighlighting}
-                    yAxisMinimumValue={0}
-                    xAxisInterval={1}/> */}
+                <div className="container fill" >
+                    <IgrCategoryChart
+                        width="100%"
+                        height="100%"
+                        ref={this.onChartRef}
+                        dataSource={this.data}
+                        chartType="Column"
+                        isTransitionInEnabled="true"
+                        xAxisInterval={1}
+                        seriesAdded={this.onSeriesAdded} />
+                </div>
             </div>
         );
     }
 
-    public onSeriesHighlightingChanged = (e: any) =>{
-        this.setState({isSeriesHighlighting: e.target.checked});
+    public onSeriesAdded(sender: any, e: any) {
+        console.log("onSeriesAdded");
+
+        if (e.series) {
+            console.log("onSeriesAdded series");
+            e.series.tooltipTemplate = this.onTooltipRender;
+        }
     }
-    public onItemHighlightingChanged = (e: any) =>{
-        this.setState({isItemHighlighting: e.target.checked});
+
+    public onTooltipRender(context: any): any {
+
+        console.log("onTooltipRender");
+        const dataContext = context.dataContext as IgrDataContext;
+        if (!dataContext) return null;
+
+        const series = dataContext.series as any;
+        if (!series) return null;
+
+        const dataItem = dataContext.item as any;
+        if (!dataItem) return null;
+
+        return <div>
+            <div className="tooltipTitle">{dataItem.Country} Production</div>
+            <div className="tooltipBox">
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Franchise:</div>
+                    <div className="tooltipVal">{dataItem.Franchise}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Revenue of All Movies:</div>
+                    <div className="tooltipVal">{dataItem.TotalRevenue}</div>
+                </div>
+                <div className="tooltipRow">
+                    <div className="tooltipLbl">Highest Grossing Movie: $:</div>
+                    <div className="tooltipVal">{dataItem.HighestGrossing}</div>
+                </div>
+            </div>
+        </div>
     }
-    public onCategoryHighlightingChanged = (e: any) =>{
-        this.setState({isCategoryHighlighting: e.target.checked});
+
+    public onChartRef(chart: IgrCategoryChart) {
+        if (!chart) { return; }
+
+        this.chart = chart;
+        // this.chart.toolTipType = ToolTipType.None;
     }
 
     public initData() {
-        const usaMedals: any = [
-            { Year: "1996 Atlanta", UnitedStates: 148 },
-            { Year: "2000 Sydney",  UnitedStates: 142 },
-            { Year: "2004 Athens",  UnitedStates: 134 },
-            { Year: "2008 Beijing", UnitedStates: 131 },
-            { Year: "2012 London",  UnitedStates: 135 },
-            { Year: "2016 Rio",     UnitedStates: 146 },
+        this.data = [
+            { Franchise: "Marvel Universe", TotalRevenue: 22.55, HighestGrossing: 2.8 },
+            { Franchise: "Star Wars", TotalRevenue: 10.32, HighestGrossing: 2.07 },
+            { Franchise: "Harry Potter", TotalRevenue: 9.19, HighestGrossing: 1.34 },
+            { Franchise: "Avengers", TotalRevenue: 7.76, HighestGrossing: 2.8 },
+            { Franchise: "Spider Man", TotalRevenue: 7.22, HighestGrossing: 1.28 },
+            { Franchise: "James Bond", TotalRevenue: 7.12, HighestGrossing: 1.11 }
         ];
-        const chinaMedals: any = [
-            { Year: "1996 Atlanta", China: 110 },
-            { Year: "2000 Sydney",  China: 115 },
-            { Year: "2004 Athens",  China: 121 },
-            { Year: "2008 Beijing", China: 129 },
-            { Year: "2012 London",  China: 115 },
-            { Year: "2016 Rio",     China: 112 },
-        ];
-        const russiaMedals: any = [
-            { Year: "1996 Atlanta", Russia: 95 },
-            { Year: "2000 Sydney",  Russia: 91 },
-            { Year: "2004 Athens",  Russia: 86 },
-            { Year: "2008 Beijing", Russia: 65 },
-            { Year: "2012 London",  Russia: 77 },
-            { Year: "2016 Rio",     Russia: 88 },
-        ];
-        this.data = [ usaMedals, chinaMedals, russiaMedals ];
     }
 }
 
