@@ -116,7 +116,7 @@ export default class CategoryChartLineChartWithAnnotations extends React.Compone
         for (const item of this.data) {
             item.index = idx;
             item.value = item.USA;
-            item.label = item.USA + " " + "TWh";
+            item.label = item.USA + " TWh";
             idx++;
         }
     }
