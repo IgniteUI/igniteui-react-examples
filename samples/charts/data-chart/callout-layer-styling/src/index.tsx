@@ -1,4 +1,4 @@
-import { DataItem, Data, CalloutsItem, Callouts } from './SampleData';
+import {Data, Callouts } from './SampleData';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

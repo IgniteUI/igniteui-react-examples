@@ -1,4 +1,4 @@
-import { DataItem, Data } from './SampleData';
+import {Data } from './SampleData';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

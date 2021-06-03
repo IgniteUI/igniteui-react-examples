@@ -1,4 +1,4 @@
-// import { DataItem, Data } from './SampleData';
+// import {Data } from './SampleData';
 import { SampleTreeData } from './SampleTreeData';
 
 import React from 'react';
