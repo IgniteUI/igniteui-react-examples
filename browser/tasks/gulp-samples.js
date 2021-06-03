@@ -28,7 +28,7 @@ log('loaded');
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSource = [
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
