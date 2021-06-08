@@ -65,21 +65,27 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="false"
                         name="Stacked100LineSeries">
                         <IgrStackedFragmentSeries
+                            name="s1"
                             valueMemberPath="asia">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
+                            name="s2"
                             valueMemberPath="africa">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
+                            name="s3"
                             valueMemberPath="europe">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
+                            name="s4"
                             valueMemberPath="northAmerica">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
+                            name="s5"
                             valueMemberPath="southAmerica">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
+                            name="s6"
                             valueMemberPath="oceania">
                         </IgrStackedFragmentSeries>
                     </IgrStacked100LineSeries>
