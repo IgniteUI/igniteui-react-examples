@@ -5,7 +5,6 @@
 
 # samples auto-generated files
 /samples/**/node_modules
-/samples/**/.vscode
 /samples/**/package-lock.json
 /samples/**/build
 
@@ -25,7 +24,9 @@
 *.launch
 .settings/
 *.sublime-workspace
- 
+
+.vs/
+.vscode/*
 **/.vs/
 **/.vscode/*
 # !.vscode/settings.json
