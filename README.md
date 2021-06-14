@@ -1,11 +1,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
 <div style="display: flex; flex-flow: row; font-family: 'Titillium Web'">
     <!-- <div style="font-size: 2.5rem; align-self: start; justify-content: start; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem; ">Examples</div> -->
-    <img height="70px" style="border-radius: 0.25rem" alt="ignite-ui" src="./public/logo-ignite-ui.svg"/>
+    <img height="70px" style="border-radius: 0.25rem" alt="ignite-ui" src="./browser/public/logo-ignite-ui.svg"/>
     <!-- <div style="font-size: 2.5rem; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem; color: white; "> for React </div> -->
 </div>
 
-# Ignite UI for React Examples
+# Examples of Ignite UI for React Components
 
 This repository contains over 240 examples on how to use [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components:
 
@@ -17,10 +17,10 @@ This repository contains over 240 examples on how to use [Ignite UI for React](h
 - [Excel Library](https://infragistics.com/reactsite/components/excel_library_using_workbooks.html)
 - and many more
 
-You can run each sample project individually from the [./samples](./samples) folder or you can run the root folder to browse all samples in one website. Also, you can run each sample on Code Sandbox website by clicking on the `Edit on CodeSandbox` button in a readme file of sample project, .e.g.
-```
-./samples/charts/category-chart/overview/README.md
-```
+You can run each sample project individually from the [./samples](./samples) folder or you can run the root folder to browse all samples in one website. In addition, you can run each sample on Code Sandbox website by clicking on the `Edit on CodeSandbox` button in a readme file of sample project, e.g.
+
+[./samples/charts/category-chart/overview/README.md](./samples/charts/category-chart/overview/README.md)
+
 
 ## Setup
 
