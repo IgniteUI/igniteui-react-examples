@@ -5,7 +5,7 @@
     <!-- <div style="font-size: 2.5rem; margin: 0px; margin-left: 0.5rem; margin-right: 0.5rem; color: white; "> for React </div> -->
 </div>
 
-# Ignite UI for React Examples
+# Examples of Ignite UI for React Components
 
 This repository contains over 240 examples on how to use [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components:
 
