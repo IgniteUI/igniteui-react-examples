@@ -17,10 +17,10 @@ This repository contains over 240 examples on how to use [Ignite UI for React](h
 - [Excel Library](https://infragistics.com/reactsite/components/excel_library_using_workbooks.html)
 - and many more
 
-You can run each sample project individually from the [./samples](./samples) folder or you can run the root folder to browse all samples in one website. Also, you can run each sample on Code Sandbox website by clicking on the `Edit on CodeSandbox` button in a readme file of sample project, .e.g.
-```
-./samples/charts/category-chart/overview/README.md
-```
+You can run each sample project individually from the [./samples](./samples) folder or you can run the root folder to browse all samples in one website. In addition, you can run each sample on Code Sandbox website by clicking on the `Edit on CodeSandbox` button in a readme file of sample project, e.g.
+
+[./samples/charts/category-chart/overview/README.md](./samples/charts/category-chart/overview/README.md)
+
 
 ## Setup
 
