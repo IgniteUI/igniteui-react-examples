@@ -7,7 +7,7 @@
 
 # Examples of Ignite UI for React Components
 
-This repository contains over 240 examples on how to use [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components:
+This repository contains over 240 examples on how to use [Ignite UI for React](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) components:
 
 - [Bullet Graph, Linear Gauge, Radial Gauges](https://infragistics.com/reactsite/components/radial-gauge.html)
 - [Data Chart, Category Chart, Financial Chart, Pie Chart](https://infragistics.com/reactsite/components/data-chart.html)
@@ -21,6 +21,11 @@ You can run each sample project individually from the [./samples](./samples) fol
 
 [./samples/charts/category-chart/overview/README.md](./samples/charts/category-chart/overview/README.md)
 
+## Preview
+
+You can preview and browse all samples in this repository by opening our [React Samples Browser](https://www.infragistics.com/react-demos/samples/). Alternatively, you you can view these samples with detailed information in our [React Help Documentation](https://infragistics.com/reactsite/components/general-getting-started.html).
+
+![Samples Browser Preview](./browser/public/images/preview.PNG)
 
 ## Setup
 
@@ -51,25 +56,15 @@ At this point, you should see a website hosted example of [Ignite UI for React](
 
 - type `npm install` command in terminal window
 
-This will install required packages and [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) packages from npm website:
+This will install required packages and [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) packages
 
-- [igniteui-react-core](https://www.npmjs.com/package/igniteui-react-core)
-- [igniteui-react-charts](https://www.npmjs.com/package/igniteui-react-charts)
-- [igniteui-react-excel](https://www.npmjs.com/package/igniteui-react-excel)
-- [igniteui-react-gauges](https://www.npmjs.com/package/igniteui-react-gauges)
-- [igniteui-react-grids](https://www.npmjs.com/package/igniteui-react-grids)
-- [igniteui-react-maps](https://www.npmjs.com/package/igniteui-react-maps)
-- [igniteui-react-spreadsheet](https://www.npmjs.com/package/igniteui-react-spreadsheet)
-- [igniteui-react-datasources](https://www.npmjs.com/package/igniteui-react-datasources)
+- type `npm run start` command in terminal window to start this application locally
 
-
-To start this application locally:
-
-- type `npm run start` command in terminal window
-
-Note this application copies all individually sample projects from [./samples](./samples) to [./src/samples](./src/samples) folder when it is about to start running. Therefore, any changes to [./src/samples](./src/samples) will be overridden on consecutive run of the application.
+Note this application copies all individually sample projects from [./samples](./samples) to [./browser/src](./browser/src) folder when it is about to start running. Therefore, any changes to [./browser/src](./browser/src) will be overridden on consecutive run of the application.
 
 Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser. You should see a website with navigation menu for browning all samples in this repository.
+
+![SB Preview](./browser/public/images/preview.PNG)
 
 
 ## Adding New Sample
@@ -142,4 +137,4 @@ NOTE this will re-generate the Readme.md file in the new sample
 
 ## Learn More
 
-To learn more about **Ignite UI for React** components, check out the [React documentation](https://infragistics.com/reactsite/components/general-getting-started.html).
+To learn more about **Ignite UI for React** components, check out the [React documentation](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html).

@@ -255,6 +255,7 @@ function updateReadme(cb) {
         makeDirectoryFor(outputPath);
         // log(outputPath);
         let readmeFile = Transformer.updateReadme(sample, template);
+        readmeFile = readmeFile.replace("../samples", "./samples")
         fs.writeFileSync(outputPath, readmeFile);
         // break;
     }
