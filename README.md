@@ -23,8 +23,11 @@ You can run each sample project individually from the [./samples](./samples) fol
 
 ## Preview
 
-You can preview and browse all examples of [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components by opening this website:
+You can preview and browse all examples of [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components by opening this [samples browser](https://www.infragistics.com/react-demos/samples/). Also, you you can view the sample examples with documentation in our [help website](https://infragistics.com/reactsite/components/general-getting-started.html).
 
+![Samples Browser Preview](./browser/public/images/preview.png)
+
+<!--
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
         <a target="_blank" href="https://www.infragistics.com/react-demos/samples/" rel="noopener noreferrer" >
@@ -34,7 +37,7 @@ You can preview and browse all examples of [Ignite UI for React](https://infragi
             </div>
         </a>
     </body>
-</html>
+</html> -->
 
 ## Setup
 
@@ -73,13 +76,15 @@ Note this application copies all individually sample projects from [./samples](.
 
 Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser. You should see a website with navigation menu for browning all samples in this repository.
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+![SB Preview](./browser/public/images/preview.png)
+
+<!-- <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
         <a target="_blank" href="https://www.infragistics.com/react-demos/samples/" rel="noopener noreferrer">
             <img height="500px" style="border-radius: 0rem" alt="SB Preview" src="./browser/public/images/preview.png"/>
         </a>
     </body>
-</html>
+</html> -->
 
 ## Adding New Sample
 
