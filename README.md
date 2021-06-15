@@ -7,7 +7,7 @@
 
 # Examples of Ignite UI for React Components
 
-This repository contains over 240 examples on how to use [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components:
+This repository contains over 240 examples on how to use [Ignite UI for React](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) components:
 
 - [Bullet Graph, Linear Gauge, Radial Gauges](https://infragistics.com/reactsite/components/radial-gauge.html)
 - [Data Chart, Category Chart, Financial Chart, Pie Chart](https://infragistics.com/reactsite/components/data-chart.html)
@@ -23,7 +23,7 @@ You can run each sample project individually from the [./samples](./samples) fol
 
 ## Preview
 
-You can preview and browse all examples of [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components by opening this [samples browser](https://www.infragistics.com/react-demos/samples/). Alternatively, you you can view these examples with detailed documentation in our [help website](https://infragistics.com/reactsite/components/general-getting-started.html).
+You can preview and browse all samples in this repository by opening our [React Samples Browser](https://www.infragistics.com/react-demos/samples/). Alternatively, you you can view these samples with detailed information in our [React Help Documentation](https://infragistics.com/reactsite/components/general-getting-started.html).
 
 ![Samples Browser Preview](./browser/public/images/preview.PNG)
 
@@ -137,4 +137,4 @@ NOTE this will re-generate the Readme.md file in the new sample
 
 ## Learn More
 
-To learn more about **Ignite UI for React** components, check out the [React documentation](https://infragistics.com/reactsite/components/general-getting-started.html).
+To learn more about **Ignite UI for React** components, check out the [React documentation](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html).

@@ -1,27 +1,28 @@
 <!-- {RepositoryWarning} -->
-<!-- {RepositoryUrl}/tree/master/templates/sample/ReadMe.md -->
+<!-- {RepositoryUrl}/tree/vnext/templates/sample/ReadMe.md -->
 
-This folder contains implementation of {PlatformName} application with example of {ComponentName} {SampleDisplayName}.
+This folder contains implementation of {PlatformName} application with example of {SampleDisplayName} using [{ComponentName}](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) component.
 
-## Preview
-
-You can preview example of this {PlatformName} application on CodeSandbox by clicking on this sample:
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
+        <a target="_blank" href="https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html" rel="noopener noreferrer">
+            <img height="40px" style="border-radius: 0rem" alt="View Docs" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-docs.png"/>
+        </a>
+        <a target="_blank" href="./src/index.tsx" rel="noopener noreferrer">
+            <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="View Code" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-code.png"/>
+        </a>
+        <a target="_blank" href="https://www.infragistics.com/react-demos/samples{SampleRoute}" rel="noopener noreferrer">
+            <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-run.png"/>
+        </a>
         <a target="_blank" href="{SandboxUrlEdit}" rel="noopener noreferrer">
-            <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/code.png"/>
+            <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-sandbox.png"/>
         </a>
     </body>
 </html>
 
-## Source Code
-
-You can find source code for this example in :
-[{SampleFileSourcePath}]({SampleFileSourcePath}) file.
-
-
 ## Instructions
+
 To set up this project locally, execute these commands:
 
 ```
@@ -43,3 +44,7 @@ npm run-script start
 
 Then open {BrowserHostUrl} in your browser
 
+
+## Learn More
+
+To learn more about **Ignite UI for React** components, check out the [React documentation](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html).
