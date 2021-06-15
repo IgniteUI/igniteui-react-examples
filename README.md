@@ -23,21 +23,9 @@ You can run each sample project individually from the [./samples](./samples) fol
 
 ## Preview
 
-You can preview and browse all examples of [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components by opening this [samples browser](https://www.infragistics.com/react-demos/samples/). Also, you you can view the sample examples with documentation in our [help website](https://infragistics.com/reactsite/components/general-getting-started.html).
+You can preview and browse all examples of [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) components by opening this [samples browser](https://www.infragistics.com/react-demos/samples/). Alternatively, you you can view these examples with detailed documentation in our [help website](https://infragistics.com/reactsite/components/general-getting-started.html).
 
-![Samples Browser Preview](./browser/public/images/preview.png)
-
-<!--
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-    <body>
-        <a target="_blank" href="https://www.infragistics.com/react-demos/samples/" rel="noopener noreferrer" >
-            <div style="background: black; padding: 0.5rem; display: flex; align-items: center; max-width: 40%; border-radius: 0.25rem">
-                <img height="25px" style="background: black" alt="React" src="https://static.infragistics.com/xplatform/images/browsers/react.png"/>
-                <label style="color: white; padding-left: 0.5rem ">Open Samples Browser</label>
-            </div>
-        </a>
-    </body>
-</html> -->
+![Samples Browser Preview](./browser/public/images/preview.PNG)
 
 ## Setup
 
@@ -76,15 +64,8 @@ Note this application copies all individually sample projects from [./samples](.
 
 Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser. You should see a website with navigation menu for browning all samples in this repository.
 
-![SB Preview](./browser/public/images/preview.png)
+![SB Preview](./browser/public/images/preview.PNG)
 
-<!-- <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-    <body>
-        <a target="_blank" href="https://www.infragistics.com/react-demos/samples/" rel="noopener noreferrer">
-            <img height="500px" style="border-radius: 0rem" alt="SB Preview" src="./browser/public/images/preview.png"/>
-        </a>
-    </body>
-</html> -->
 
 ## Adding New Sample
 
