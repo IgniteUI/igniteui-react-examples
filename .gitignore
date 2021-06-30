@@ -7,6 +7,8 @@
 /samples/**/node_modules
 /samples/**/package-lock.json
 /samples/**/build
+/tmp/
+
 
 # browser auto-generated files
 /browser/node_modules
