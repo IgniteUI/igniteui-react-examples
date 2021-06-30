@@ -1,0 +1,11 @@
+[core]
+	autocrlf = true
+[web]
+	browser = google-chrome
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
