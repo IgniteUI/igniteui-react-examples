@@ -1,14 +1,13 @@
-import { Data } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { IgrStackedFragmentSeries } from "igniteui-react-charts";
-import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
+import { DataItem, Data } from './SampleData';
+import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStacked100AreaSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
 
-import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStacked100AreaSeries } from 'igniteui-react-charts';
 const mods: any[] = [
+    IgrLegendModule,
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
     IgrDataChartCategoryCoreModule,
@@ -19,6 +18,11 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
+    private legend: IgrLegend
+    private legendRef(r: IgrLegend) {
+        this.legend = r;
+        this.setState({});
+    }
     private chart: IgrDataChart
     private chartRef(r: IgrDataChart) {
         this.chart = r;
@@ -27,24 +31,38 @@ export default class Sample extends React.Component<any, any> {
     private xAxis: IgrCategoryXAxis
     private yAxis: IgrNumericYAxis
     private stacked100AreaSeries: IgrStacked100AreaSeries
+    private s1: IgrStackedFragmentSeries
+    private s2: IgrStackedFragmentSeries
+    private s3: IgrStackedFragmentSeries
+    private s4: IgrStackedFragmentSeries
+    private s5: IgrStackedFragmentSeries
+    private s6: IgrStackedFragmentSeries
 
     constructor(props: any) {
         super(props);
 
+        this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
-                Annual Number of Births by World Region, Relative
+                Annual Birth Rates by World Region
+            </div>
+            <div className="legend">
+                <IgrLegend
+                    orientation="Horizontal"
+                    ref={this.legendRef}>
+                </IgrLegend>
             </div>
             <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         dataSource={this.data}
@@ -94,7 +112,7 @@ export default class Sample extends React.Component<any, any> {
             </div>
         </div>
         );
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -104,6 +122,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._data;
     }
+    
+
 
 }
 // rendering above component in the React DOM

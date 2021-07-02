@@ -1,13 +1,11 @@
-// import { Data } from './SampleData';
-import { SampleTreeData } from './SampleTreeData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { DataItem, Data } from './SampleData';
 import { IgrTreemapModule } from 'igniteui-react-charts';
-
 import { IgrTreemap } from 'igniteui-react-charts';
+
 const mods: any[] = [
     IgrTreemapModule
 ];
@@ -24,22 +22,23 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.treemapRef = this.treemapRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Comparing Population of Countries
             </div>
+            
             <div className="container fill">
                 <IgrTreemap
                     valueMemberPath="pop"
                     rootTitle="Countries"
                     parentIdMemberPath="parent"
                     labelMemberPath="name"
-                    idMemberPath="id"
+                    idMemberPath="name"
                     dataSource={this.data}
                     fillBrushes="rgba(78, 98, 207, 1) rgba(138, 88, 214, 1)"
                     fillScaleMode="Value"
@@ -58,10 +57,18 @@ export default class Sample extends React.Component<any, any> {
             </div>
         </div>
         );
-   }
+    }
 
+    private _data: Data = null;
+    public get data(): Data {
+        if (this._data == null)
+        {
+            this._data = new Data();
+        }
+        return this._data;
+    }
+    
 
-   public data: any[] = SampleTreeData.getPopulation();
 
 }
 // rendering above component in the React DOM

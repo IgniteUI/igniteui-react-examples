@@ -1,12 +1,11 @@
-import { Data } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { DataItem, Data } from './SampleData';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
-
 import { IgrCategoryChart } from 'igniteui-react-charts';
+
 const mods: any[] = [
     IgrCategoryChartModule
 ];
@@ -23,15 +22,16 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Average Temperature Range in New York
             </div>
+            
             <div className="container fill">
                 <IgrCategoryChart
                     chartType="Column"
@@ -48,7 +48,7 @@ export default class Sample extends React.Component<any, any> {
             </div>
         </div>
         );
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -58,6 +58,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._data;
     }
+    
+
 
 }
 // rendering above component in the React DOM

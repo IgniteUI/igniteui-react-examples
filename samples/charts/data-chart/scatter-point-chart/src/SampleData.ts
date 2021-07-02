@@ -80,7 +80,7 @@ export class DataEurope extends Array<DataEuropeItem> {
             population: 10601000,
             birthRate: 10.5,
             deathRate: 10.5,
-            name: `Czech Republic`
+            name: `Czechia`
         }));
         this.push(new DataEuropeItem(
         {
@@ -192,7 +192,7 @@ export class DataEurope extends Array<DataEuropeItem> {
             population: 2079000,
             birthRate: 11.3,
             deathRate: 9.75,
-            name: `Macedonia`
+            name: `North Macedonia`
         }));
         this.push(new DataEuropeItem(
         {
@@ -325,7 +325,7 @@ export class DataEurope extends Array<DataEuropeItem> {
             population: 65860000,
             birthRate: 11.9,
             deathRate: 9.2,
-            name: `United Kingdom`
+            name: `UK`
         }));
     }
 }
@@ -404,7 +404,7 @@ export class DataAfrica extends Array<DataAfricaItem> {
             population: 4493000,
             birthRate: 36.11,
             deathRate: 14.01,
-            name: `C.A.R.`
+            name: `CAR`
         }));
         this.push(new DataAfricaItem(
         {
@@ -432,14 +432,14 @@ export class DataAfrica extends Array<DataAfricaItem> {
             population: 23226000,
             birthRate: 37.1,
             deathRate: 12.54,
-            name: `Cote Ivoire`
+            name: `Ivory Coast`
         }));
         this.push(new DataAfricaItem(
         {
             population: 76245000,
             birthRate: 42.81,
             deathRate: 10.19,
-            name: `DCongo`
+            name: `DRC`
         }));
         this.push(new DataAfricaItem(
         {
@@ -621,7 +621,7 @@ export class DataAfrica extends Array<DataAfricaItem> {
             population: 199000,
             birthRate: 34.33,
             deathRate: 6.81,
-            name: `Sao Tome and Principe`
+            name: `Sao Tome`
         }));
         this.push(new DataAfricaItem(
         {

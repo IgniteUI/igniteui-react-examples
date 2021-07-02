@@ -4,7 +4,7 @@ export class DataItem {
     }
     
     public costs: number;
-    public netIncome: any;
+    public netIncome: number;
     public category: string;
 
 }
@@ -50,7 +50,7 @@ export class Data extends Array<DataItem> {
         this.push(new DataItem(
         {
             costs: 0,
-            netIncome: null,
+            netIncome: 25,
             category: `Net Income`
         }));
     }

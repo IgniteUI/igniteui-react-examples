@@ -1,12 +1,11 @@
-import { DataEuropeItem, DataEurope, DataAfricaItem, DataAfrica } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { DataEuropeItem, DataEurope, DataAfricaItem, DataAfrica } from './SampleData';
 import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterSeries } from 'igniteui-react-charts';
+
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -38,23 +37,21 @@ export default class Sample extends React.Component<any, any> {
 
         this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Population Statistics for Selected Continents
             </div>
-
             <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-
             <div className="container fill">
                 <IgrDataChart
                     legend={this.legend}
@@ -84,21 +81,21 @@ export default class Sample extends React.Component<any, any> {
                         name="ScatterSeries1">
                     </IgrScatterSeries>
                     <IgrScatterSeries
+                        title="Africa"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
-                        markerType="Circle"
                         dataSource={this.dataAfrica}
+                        markerType="Circle"
                         showDefaultTooltip="true"
-                        title="Africa"
                         name="ScatterSeries2">
                     </IgrScatterSeries>
                 </IgrDataChart>
             </div>
         </div>
         );
-   }
+    }
 
     private _dataEurope: DataEurope = null;
     public get dataEurope(): DataEurope {
@@ -108,7 +105,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._dataEurope;
     }
-
+    
     private _dataAfrica: DataAfrica = null;
     public get dataAfrica(): DataAfrica {
         if (this._dataAfrica == null)
@@ -117,6 +114,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._dataAfrica;
     }
+    
+
 
 }
 // rendering above component in the React DOM

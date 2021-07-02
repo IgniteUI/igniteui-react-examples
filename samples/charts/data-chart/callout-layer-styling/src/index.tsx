@@ -1,17 +1,12 @@
-import {Data, Callouts } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { IgrLineSeries } from 'igniteui-react-charts';
-import { IgrCalloutLayer } from 'igniteui-react-charts';
-import { IgrCalloutLayerModule } from 'igniteui-react-charts';
+import { DataItem, Data, CalloutsItem, Callouts } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
+import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCalloutLayer } from 'igniteui-react-charts';
 
-import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis } from 'igniteui-react-charts';
 const mods: any[] = [
-    IgrCalloutLayerModule,
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
     IgrDataChartAnnotationModule,
@@ -28,20 +23,23 @@ export default class Sample extends React.Component<any, any> {
     }
     private xAxis: IgrCategoryXAxis
     private yAxis: IgrNumericYAxis
+    private lineSeries1: IgrLineSeries
+    private calloutLayer1: IgrCalloutLayer
 
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Renewable Electricity Generated
             </div>
+            
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}>
@@ -55,13 +53,14 @@ export default class Sample extends React.Component<any, any> {
                         labelLocation="OutsideRight"
                         name="yAxis">
                     </IgrNumericYAxis>
-                    <IgrLineSeries name="series1"
+                    <IgrLineSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         valueMemberPath="uSA"
-                        dataSource={this.data}>
+                        dataSource={this.data}
+                        name="LineSeries1">
                     </IgrLineSeries>
-                    <IgrCalloutLayer name="layer1"
+                    <IgrCalloutLayer
                         labelMemberPath="label"
                         xMemberPath="index"
                         yMemberPath="value"
@@ -70,13 +69,14 @@ export default class Sample extends React.Component<any, any> {
                         calloutOutline="black"
                         calloutLeaderBrush="black"
                         calloutStrokeThickness="2"
-                        dataSource={this.callouts}>
+                        dataSource={this.callouts}
+                        name="CalloutLayer1">
                     </IgrCalloutLayer>
                 </IgrDataChart>
             </div>
         </div>
         );
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -86,7 +86,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._data;
     }
-
+    
     private _callouts: Callouts = null;
     public get callouts(): Callouts {
         if (this._callouts == null)
@@ -95,6 +95,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._callouts;
     }
+    
+
 
 }
 // rendering above component in the React DOM
