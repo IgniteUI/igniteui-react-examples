@@ -43,7 +43,8 @@ exports.updateSharedFiles = updateSharedFiles = gulp.series(
 );
 
 exports.updateBrowser = updateBrowser = gulp.series(
-    sb.logTypescriptVersion,
+    sb.logVersionTypescript,
+    sb.logVersionIgniteUI,
     sb.updateVersion,
     sb.getSamples,
     sb.copySamples,
@@ -61,6 +62,9 @@ exports.logRootFiles   = sb.logRootFiles;
 exports.lintSamples    = sb.lintSamples;
 exports.verifyBuild    = sb.verifyBuild;
 
+exports.logVersionIgniteUI   = sb.logVersionIgniteUI;
+exports.logVersionTypescript = sb.logVersionTypescript;
+
 exports.logRoutes = logRoutes = gulp.series(
     sb.getSamples,
     sb.logRoutes,
@@ -76,4 +80,4 @@ exports.updateCodeViewer = updateCodeViewer = gulp.series(
     sb.updateCodeViewer
 );
 
-exports.logTypescriptVersion = logTypescriptVersion = sb.logTypescriptVersion
+exports.logVersionTypescript = logVersionTypescript = sb.logVersionTypescript

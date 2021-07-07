@@ -597,22 +597,13 @@ function updateCodeViewer(cb) {
 
 } exports.updateCodeViewer = updateCodeViewer;
 
-
-
-function logTypescriptVersion(cb) {
-
-    // log('updating readme files... ');
-    var file = fs.readFileSync("./node_modules/typescript/package.json", "utf8");
-    var lines = file.split("\n");
-
-    for (const line of lines) {
-        if (line.indexOf("version") > 0) {
-            console.log(">> logTypescript " + line);
-        }
-    }
+function logVersionTypescript(cb) {
+    var packageFile = fs.readFileSync("./node_modules/typescript/package.json", "utf8");
+    let packageJson = JSON.parse(packageFile.toString());
+    let packageData = JSON.stringify(packageJson.version, null, ' ');
+    console.log(">> using package: " + packageData + ' typescript' );
     cb();
-
-} exports.logTypescriptVersion = logTypescriptVersion;
+} exports.logVersionTypescript = logVersionTypescript;
 
 function simplifySamples(cb) {
 
@@ -693,7 +684,19 @@ function verifyBuild(cb) {
     }
 } exports.verifyBuild = verifyBuild;
 
+function logVersionIgniteUI(cb) {
+    let packageFile = fs.readFileSync("./package.json");
+    let packageJson = JSON.parse(packageFile.toString());
+    let packageData = JSON.stringify(packageJson.dependencies, null, ' ');
 
+    for (const line of packageData.split('\n')) {
+        if (line.indexOf('igniteui-') > 0) {
+            let package = line.split(':');
+            console.log('>> using package: ' + package[1].trim() + ' ' + package[0].trim());
+        }
+    }
+    cb();
+} exports.logVersionIgniteUI = logVersionIgniteUI;
 
 
 
