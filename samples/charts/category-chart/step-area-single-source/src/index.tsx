@@ -36,12 +36,12 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrCategoryChart
                     chartType="StepArea"
-                    dataSource={this.data}
-                    yAxisTitle="TWh"
-                    toolTipType="Category"
                     isTransitionInEnabled="true"
+                    yAxisTitle="TWh"
+                    dataSource={this.data}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    toolTipType="Category"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
             </div>

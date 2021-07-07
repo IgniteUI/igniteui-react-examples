@@ -58,9 +58,9 @@ export default class Sample extends React.Component<any, any> {
             </div>
             <div className="container fill">
                 <IgrDataChart
-                    legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryYAxis
                         dataSource={this.data}

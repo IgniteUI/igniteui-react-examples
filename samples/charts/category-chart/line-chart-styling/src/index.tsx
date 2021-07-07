@@ -47,15 +47,15 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrCategoryChart
                     chartType="Line"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    dataSource={this.data}
-                    yAxisTitle="TWh"
-                    yAxisTitleLeftMargin="10"
                     yAxisLabelLeftMargin="0"
+                    yAxisTitleLeftMargin="10"
+                    yAxisTitle="TWh"
+                    dataSource={this.data}
                     brushes="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
                     outlines="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
                     legend={this.legend}
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
                     thickness="2"
                     markerBrushes="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
                     markerOutlines="white"

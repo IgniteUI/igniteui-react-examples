@@ -48,8 +48,8 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrCategoryChart
                     chartType="Line"
-                    dataSource={this.data}
                     yAxisTitle="TWh"
+                    dataSource={this.data}
                     legend={this.legend}
                     ref={this.chartRef}>
                 </IgrCategoryChart>
