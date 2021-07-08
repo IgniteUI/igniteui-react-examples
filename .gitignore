@@ -2,6 +2,7 @@
 
 # samples auto-generated files:
 /samples/**/build/
+/samples/**/dist/
 /samples/**/node_modules/
 /samples/**/package-lock.json
 /tmp/
@@ -11,6 +12,7 @@
 /browser/node_modules/
 /browser/src/samples/
 /browser/build/
+/browser/dist/
 /browser/**/code-viewer/**
 
 # IDE and editors
