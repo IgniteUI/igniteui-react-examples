@@ -16,6 +16,9 @@ export default class DatePickerFormat extends React.Component<any, any> {
     }
 
     public onDatePickerRef(datePicker: IgrDatePicker){
+        
+        if(!datePicker) return;
+
         datePicker.value = new Date(Date.now());
         datePicker.dateFormat = this.state.dateFormat;
         datePicker.allowTextInput = false;

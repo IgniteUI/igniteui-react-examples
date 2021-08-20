@@ -14,6 +14,7 @@
   "dependencies": {
     "igniteui-react-core": "16.14.1",
     "igniteui-react-inputs": "16.14.1",
+    "igniteui-react-layouts": "16.14.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",

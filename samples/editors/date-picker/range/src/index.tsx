@@ -51,14 +51,14 @@ export default class DatePickerRange extends React.Component<any, any> {
 
     public fromDateChanged(s: IgrDatePicker, e: IgrValueChangedEventArgs) {
         let newDate = e.newValue;
-        if (newDate > this.toDatePickerRef.value) {
+        if (this.toDatePickerRef != null && newDate > this.toDatePickerRef.value) {
             this.toDatePickerRef.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
         }
     }
 
     public toDateChanged(s: IgrDatePicker, e: IgrValueChangedEventArgs) {
         let newDate = e.newValue;
-        if (newDate < this.fromDatePickerRef.value) {
+        if (this.fromDatePickerRef != null && newDate < this.fromDatePickerRef.value) {
             this.fromDatePickerRef.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() - 1);
         }
     }
