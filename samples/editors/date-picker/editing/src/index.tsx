@@ -16,6 +16,9 @@ export default class DatePickerEditing extends React.Component<any, any> {
     }
 
     public onDatePickerRef(datePicker: IgrDatePicker){
+        
+        if(!datePicker) return;
+
         datePicker.value = new Date(Date.now());
         datePicker.allowTextInput = true;
     }
