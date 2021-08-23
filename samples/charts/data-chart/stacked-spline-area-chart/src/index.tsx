@@ -90,24 +90,24 @@ export default class Sample extends React.Component<any, any> {
                             valueMemberPath="asia">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
-                            name="s2"
-                            valueMemberPath="africa">
+                            valueMemberPath="africa"
+                            name="s2">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
-                            name="s3"
-                            valueMemberPath="europe">
+                            valueMemberPath="europe"
+                            name="s3">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
-                            name="s4"
-                            valueMemberPath="northAmerica">
+                            valueMemberPath="northAmerica"
+                            name="s4">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
-                            name="s5"
-                            valueMemberPath="southAmerica">
+                            valueMemberPath="southAmerica"
+                            name="s5">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
-                            name="s6"
-                            valueMemberPath="oceania">
+                            valueMemberPath="oceania"
+                            name="s6">
                         </IgrStackedFragmentSeries>
                     </IgrStackedSplineAreaSeries>
                 </IgrDataChart>
