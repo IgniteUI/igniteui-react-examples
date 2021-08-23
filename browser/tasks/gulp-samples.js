@@ -222,6 +222,8 @@ function copySamples(cb) {
             code = code.replace(/ReactDOM.*/g,"");
             code = code.replace("import './index.css';","");
             code = code.replace("// rendering above component in the React DOM","");
+            code = code.replace(" var "," let ");
+            code = code.replace(", MarkerType_$type","");
 
             file.contents = Buffer.from(code);
             fileCallback(null, file);
