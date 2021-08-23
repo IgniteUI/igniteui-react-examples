@@ -47,7 +47,6 @@
     "iisConfig/*",
     "gulp*.js",
     "gulp*.ts",
-    "samples",
     "tasks/*.js",
     "tasks/*.ts",
     "templates"
