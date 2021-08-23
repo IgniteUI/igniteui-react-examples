@@ -10,7 +10,8 @@
     "start": "set PORT=4200 && react-scripts --max_old_space_size=10240 start",
     "build": "react-scripts --max_old_space_size=10240 build ",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
     "igniteui-react-core": "16.14.2-beta.0",
@@ -34,6 +35,9 @@
     "@types/node": "^11.11.8",
     "@types/react": "^16.8.20",
     "@types/react-dom": "^16.8.3",
+    "eslint": "^6.6.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-react": "^7.20.0",
     "react-app-rewired": "^1.6.2",
     "typescript": "~3.7.2",
     "worker-loader": "^2.0.0"
