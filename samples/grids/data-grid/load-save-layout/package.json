@@ -1,6 +1,6 @@
 {
-  "name": "react-data-grid-overview",
-  "description": "This project provides example of Data Grid Overview using Infragistics React components",
+  "name": "react-data-grid-load-save-layout",
+  "description": "This project provides example of Data Grid Load & Save Layout using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

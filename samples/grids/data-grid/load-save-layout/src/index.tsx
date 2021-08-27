@@ -28,7 +28,7 @@ IgrDataGridToolbarModule.register();
 IgrGridColumnOptionsModule.register();
 IgrSparklineModule.register();
 
-export default class DataGridOverview extends React.Component<any, any> {
+export default class DataGridLoadSaveLayout extends React.Component<any, any> {
 
     public data: any[];
     public grid: IgrDataGrid;
@@ -375,4 +375,4 @@ export default class DataGridOverview extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataGridOverview />, document.getElementById('root'));
+ReactDOM.render(<DataGridLoadSaveLayout />, document.getElementById('root'));
