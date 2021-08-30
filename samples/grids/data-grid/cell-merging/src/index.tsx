@@ -46,6 +46,7 @@ export default class DataGridCellMerging extends React.Component<any, any> {
                     {/* <button onClick={this.onClick}>Click Me</button> */}
                 </div>
                 <IgrDataGrid
+                ref={this.onGridRef}
                 height="100%"
                 width="100%"
                 rowHeight="60"
