@@ -53,9 +53,9 @@ export default class DataGridCellMerging extends React.Component<any, any> {
                 autoGenerateColumns="false"
                 defaultColumnMinWidth="110"
                 isColumnOptionsEnabled="true"
-                mergedCellMode={this.state.cellMergeMode}
 
-                dataSource={this.data}>
+                dataSource={this.data}>{/*TODO mergedCellMode={this.state.cellMergeMode}*/}
+
 
                     <IgrTextColumn width="*>140" field="Category" />
                     <IgrTextColumn width="*>160" field="Type" />
@@ -92,7 +92,7 @@ export default class DataGridCellMerging extends React.Component<any, any> {
 
     public onMergeCellModeChange = (e: any) => {
         this.setState({ cellMergeMode: e.target.value });
-        this.grid.mergedCellMode = e.target.value;
+        //TODO this.grid.mergedCellMode = e.target.value;
     }
 }
 
