@@ -14,6 +14,7 @@
 /browser/build/
 /browser/dist/
 /browser/**/code-viewer/**
+/browser/package-lock.json
 
 # IDE and editors
 /.idea
