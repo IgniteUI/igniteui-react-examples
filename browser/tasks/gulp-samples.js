@@ -691,12 +691,34 @@ function logVersionIgniteUI(cb) {
     let packageJson = JSON.parse(packageFile.toString());
     let packageData = JSON.stringify(packageJson.dependencies, null, ' ');
 
+    let igPackages = [];
     for (const line of packageData.split('\n')) {
         if (line.indexOf('igniteui-') > 0) {
-            let package = line.split(':');
-            console.log('>> using package: ' + package[1].trim() + ' ' + package[0].trim());
+            let packageLine = Strings.replace(line, ',', '')
+            packageLine = Strings.replace(packageLine, '"', '');
+            packageLine = Strings.replace(packageLine, '@infragistics/', '');
+            let packagePair = packageLine.split(':');
+            let packageVersion = packagePair[1].trim();
+            let packageName = packagePair[0].trim();
+
+            console.log('>> using package: ' + packageVersion + ' ' + packageName);
+            let package = { ver: packageVersion, name: packageName };
+            igPackages.push(package);
         }
     }
+
+    let outputText = '[\r\n';
+    for (let i = 0; i < igPackages.length; i++) {
+        outputText += JSON.stringify(igPackages[i]);
+        if (i < igPackages.length - 1)
+            outputText += ',';
+        outputText += '\r\n';
+    }
+    outputText += "]";
+
+    const outputPath = "./src/navigation/BrowserInfo.json";
+
+    fs.writeFileSync(outputPath, outputText);
     cb();
 } exports.logVersionIgniteUI = logVersionIgniteUI;
 
