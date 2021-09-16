@@ -60,7 +60,7 @@ export class SamplesBrowser extends React.Component<any, any>
     constructor(props: any) {
         super(props);
 
-        console.log('SB uses IG v16.14.0');
+        console.log('SB uses IG v21.2.0-dev.573');
 
         this.onSampleOpen = this.onSampleOpen.bind(this);
         // console.log(TestsRoutes.DataRoutes)

@@ -43,7 +43,6 @@ export default class DataGridCellMerging extends React.Component<any, any> {
                         <option>Never</option>
                         <option>OnlyWhenSorted</option>
                     </select>
-                    {/* <button onClick={this.onClick}>Click Me</button> */}
                 </div>
                 <IgrDataGrid
                 ref={this.onGridRef}
@@ -53,8 +52,8 @@ export default class DataGridCellMerging extends React.Component<any, any> {
                 autoGenerateColumns="false"
                 defaultColumnMinWidth="110"
                 isColumnOptionsEnabled="true"
-
-                dataSource={this.data}>{/*TODO mergedCellMode={this.state.cellMergeMode}*/}
+                mergedCellMode={this.state.cellMergeMode}
+                dataSource={this.data}>
 
 
                     <IgrTextColumn width="*>140" field="Category" />
@@ -92,7 +91,7 @@ export default class DataGridCellMerging extends React.Component<any, any> {
 
     public onMergeCellModeChange = (e: any) => {
         this.setState({ cellMergeMode: e.target.value });
-        //TODO this.grid.mergedCellMode = e.target.value;
+        this.grid.mergedCellMode = e.target.value;
     }
 }
 
