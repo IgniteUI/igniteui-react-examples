@@ -29,7 +29,8 @@ import * as SidebarMenuIcon from '@material-ui/icons/Menu';
 // import * as SampleSearchIcon from "@material-ui/icons/Search";
 // import * as SampleLinkIcon from "@material-ui/icons/FiberManualRecord";
 
-import { CacheBuster, CacheBusterState } from '../CacheBuster';
+// import { CacheBuster, CacheBusterState } from '../CacheBuster';
+import BrowserInfo from './BrowserInfo.json';
 
 class SampleInfo {
     public name: string;
@@ -60,7 +61,10 @@ export class SamplesBrowser extends React.Component<any, any>
     constructor(props: any) {
         super(props);
 
-        console.log('SB uses IG v16.14.0');
+        // logging versions of IG packages
+        for (const item of BrowserInfo) {
+            console.log('SB uses v' + item.ver + ' ' + item.name);
+        }
 
         this.onSampleOpen = this.onSampleOpen.bind(this);
         // console.log(TestsRoutes.DataRoutes)
