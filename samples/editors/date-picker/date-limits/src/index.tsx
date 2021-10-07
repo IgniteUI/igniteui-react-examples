@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css'; // styles shared between all samples
 
 
-import { IgrDatePicker, IgrDatePickerModule, IgrInputModule } from 'igniteui-react-inputs';
+import { IgrDatePicker, IgrDatePickerModule } from 'igniteui-react-inputs';
 
-IgrInputModule.register();
 IgrDatePickerModule.register();
 
 export default class DatePickerDateLimits extends React.Component<any, any> {
