@@ -12,14 +12,15 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@infragistics/igniteui-react-core": "21.2.0-dev.634",
-    "@infragistics/igniteui-react-grids": "21.2.0-dev.634",
-    "@infragistics/igniteui-react-inputs": "21.2.0-dev.634",
-    "@infragistics/igniteui-react-layouts": "21.2.0-dev.634",
+    "@infragistics/igniteui-react-core": "21.2.0-dev.679",
+    "@infragistics/igniteui-react-grids": "21.2.0-dev.679",
+    "@infragistics/igniteui-react-inputs": "21.2.0-dev.679",
+    "@infragistics/igniteui-react-layouts": "21.2.0-dev.679",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
-    "tslib": "1.10.0"
+    "tslib": "1.10.0",
+    "webpack": "^4.42.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
