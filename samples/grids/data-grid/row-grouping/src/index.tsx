@@ -52,7 +52,7 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
                     groupHeaderDisplayMode = "combined"
                     dataSource={this.data}
                     isColumnOptionsEnabled="true"
-                    isColumnGroupingEnabled="true">
+                    isGroupByAreaVisible="true">
                         <IgrTextColumn field="Name" headerText="Name" />
                         <IgrNumericColumn field="Age" headerText="Age" width="*>110"/>
                         <IgrDateTimeColumn field="Birthday" headerText="Date of Birth"
