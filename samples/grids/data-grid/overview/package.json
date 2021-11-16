@@ -12,11 +12,11 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@infragistics/igniteui-react-core": "21.2.0-dev.634",
-    "@infragistics/igniteui-react-charts": "21.2.0-dev.634",
-    "@infragistics/igniteui-react-grids": "21.2.0-dev.634",
-    "@infragistics/igniteui-react-inputs": "21.2.0-dev.634",
-    "@infragistics/igniteui-react-layouts": "21.2.0-dev.634",
+    "@infragistics/igniteui-react-core": "21.2.0-dev.704",
+    "@infragistics/igniteui-react-charts": "21.2.0-dev.704",
+    "@infragistics/igniteui-react-grids": "21.2.0-dev.704",
+    "@infragistics/igniteui-react-inputs": "21.2.0-dev.704",
+    "@infragistics/igniteui-react-layouts": "21.2.0-dev.704",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",

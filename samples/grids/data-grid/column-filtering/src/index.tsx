@@ -118,7 +118,8 @@ export default class DataGridColumnFiltering extends React.Component<any, any> {
                     defaultColumnMinWidth={100}
                     autoGenerateColumns={false}
                     dataSource={this.data}
-                    isColumnOptionsEnabled="true">
+                    isColumnOptionsEnabled="true"
+                    filterUIType="FilterRow">
 
                     <IgrTextColumn field="Name" width="*>170"/>
                     <IgrTextColumn field="Street"   width="*>180" />

@@ -51,7 +51,8 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
                     isGroupCollapsable={this.state.isGroupCollapsible}
                     groupHeaderDisplayMode = "combined"
                     dataSource={this.data}
-                    isColumnOptionsEnabled="true">
+                    isColumnOptionsEnabled="true"
+                    isGroupByAreaVisible="true">
                         <IgrTextColumn field="Name" headerText="Name" />
                         <IgrNumericColumn field="Age" headerText="Age" width="*>110"/>
                         <IgrDateTimeColumn field="Birthday" headerText="Date of Birth"
