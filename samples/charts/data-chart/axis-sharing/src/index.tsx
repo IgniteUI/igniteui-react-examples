@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { SampleFinancialData } from './SampleFinancialData';
+import { SharedAxisFinancialData } from './SharedAxisFinancialData';
 // axis' modules:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
@@ -25,7 +25,7 @@ export default class DataChartAxisSharing extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.data = SampleFinancialData.create();
+        this.data = SharedAxisFinancialData.create();
     }
 
     public render(): JSX.Element {
@@ -43,7 +43,7 @@ export default class DataChartAxisSharing extends React.Component<any, any> {
 
                         <IgrCategoryXAxis name="xAxisShared" label="Label" gap="0.75"/>
                         <IgrNumericYAxis  name="yAxisRight" labelLocation="OutsideRight"
-                        minimumValue={400} title="Stock Price"
+                        minimumValue={400} title="Stock Price ($)"
                         maximumValue={700}
                         />
                         <IgrNumericYAxis name="yAxisLeft" labelLocation="OutsideLeft"

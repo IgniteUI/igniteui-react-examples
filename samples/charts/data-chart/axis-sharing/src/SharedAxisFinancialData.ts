@@ -1,6 +1,6 @@
 
 
-export class SampleFinancialData {
+export class SharedAxisFinancialData {
 
     public static create(items?: number): any[] {
         // initial values
@@ -11,11 +11,11 @@ export class SampleFinancialData {
         let c = Math.round(l + (Math.random() * (h - l)));
 
         if (items === undefined) {
-            items = 200;
+            items = 400;
         }
 
         const today = new Date();
-        const end = new Date(today.getFullYear(), 11, 1);
+        const end = new Date(today.getFullYear(), today.getMonth(), today.getDay());
         let time = this.addDays(end, -items);
 
         const data: any[] = [];
@@ -25,9 +25,12 @@ export class SampleFinancialData {
             // adding new data item
             data.push({"Time": time, "Date": date, "Label": label, "Close": c, "Open": o, "High": h, "Low": l, "Volume": v});
             // generating new values
-            const mod = Math.random() - 0.45;
-            o = Math.round(o + (mod * 5 * 2));
-            v = Math.round(v + (mod * 5 * 100));
+            const mod = Math.random() - 0.49;
+            o = Math.round(o + (mod * 20));
+            o = Math.max(o, 500);
+            o = Math.min(o, 675);
+
+            v = Math.round(v + (mod * 500));
             h = Math.round(o + (Math.random() * 5));
             l = Math.round(o - (Math.random() * 5));
             c = Math.round(l + (Math.random() * (h - l)));
