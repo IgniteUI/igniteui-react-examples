@@ -583,7 +583,7 @@ function updateCodeViewer(cb) {
             }
             else if (file.indexOf(".ts") > 0 && file.indexOf("index.tsx") === -1) {
                 var tsContent = fs.readFileSync(file, "utf8");
-                var tsItem = new CodeViewer(file, tsContent, "ts", "ts", false);
+                var tsItem = new CodeViewer(file, tsContent, "ts", "DATA", true);
                 contentItems.push(tsItem);
             }
         }
