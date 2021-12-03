@@ -16,15 +16,13 @@ export default class DatePickerOverview extends React.Component<any, any> {
         if (!datePicker) return;
 
         datePicker.value = new Date(Date.now());
-        datePicker.showTodayButton = true;
-        datePicker.showWeekNumbers = true;
     }
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
                 <div className="container">
-                    <IgrDatePicker ref={this.onDatePickerRef} height="50px" width="220px" />
+                    <IgrDatePicker ref={this.onDatePickerRef} height="60px" width="220px" showTodayButton="true" showWeekNumbers="true" />
                 </div>
             </div>
         );
