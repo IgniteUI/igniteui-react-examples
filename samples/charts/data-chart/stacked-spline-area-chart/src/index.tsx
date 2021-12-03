@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import { DataItem, Data } from './SampleData';
-import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
+import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrLegendModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStackedSplineAreaSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
 
 const mods: any[] = [
@@ -12,7 +12,8 @@ const mods: any[] = [
     IgrDataChartCategoryCoreModule,
     IgrDataChartInteractivityModule,
     IgrDataChartStackedModule,
-    IgrStackedFragmentSeriesModule
+    IgrStackedFragmentSeriesModule,
+    IgrLegendModule,
 ];
 mods.forEach((m) => m.register());
 
