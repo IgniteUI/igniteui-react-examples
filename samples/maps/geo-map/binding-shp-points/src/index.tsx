@@ -43,7 +43,7 @@ export default class MapBindingShapefilePoints extends React.Component {
         if (!geoMap) { return; }
 
         this.geoMap = geoMap;
-        this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
+        this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
 
         // loading a shapefile with geographic points
         const sds = new IgrShapeDataSource();

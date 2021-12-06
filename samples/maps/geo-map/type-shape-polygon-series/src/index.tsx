@@ -53,7 +53,7 @@ export default class MapTypeScatterPolygonSeries extends React.Component {
         // hiding OpenStreetMap
         this.geoMap.backgroundContent = undefined;
         // zooming map to region of North America
-        this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
+        this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
 
         // loading a shapefile with geographic shapes
         const sds = new IgrShapeDataSource();
