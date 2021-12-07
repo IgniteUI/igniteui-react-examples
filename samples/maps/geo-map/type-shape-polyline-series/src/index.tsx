@@ -46,7 +46,7 @@ export default class MapTypeScatterPolylineSeries extends React.Component {
         if (!geoMap) { return; }
 
         this.geoMap = geoMap;
-        this.geoMap.windowRect = { left: 0.195, top: 0.325, width: 0.2, height: 0.1 };
+        this.geoMap.updateZoomWindow({ left: 0.195, top: 0.325, width: 0.2, height: 0.1 });        
 
         const sds = new IgrShapeDataSource();
         sds.importCompleted = this.onDataLoaded;
