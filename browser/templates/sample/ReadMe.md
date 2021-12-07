@@ -1,7 +1,7 @@
 <!-- {RepositoryWarning} -->
 <!-- {RepositoryUrl}/tree/vnext/templates/sample/ReadMe.md -->
 
-This folder contains implementation of {PlatformName} application with example of {SampleDisplayName} using [{ComponentName}](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) component.
+This folder contains implementation of {PlatformName} application with example of {SampleDisplayName} feature using [{ComponentName}](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) component.
 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
