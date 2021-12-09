@@ -4,7 +4,6 @@ import './index.css';
 import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
-import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
@@ -37,10 +36,6 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
                         <option>Combined</option>
                         <option>Split</option>
                     </select>
-                    {/* temporally excluded this option: */}
-                    {/* <label className="options-label" > Group Header Collapsible: </label>
-                    <input type="checkbox" checked={this.state.isGroupCollapsible} onChange={this.onGroupHeaderCollapsible}/> */}
-
                 </div>
 
                 <IgrDataGrid
@@ -51,13 +46,12 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
                     isGroupCollapsable={this.state.isGroupCollapsible}
                     groupHeaderDisplayMode = "combined"
                     dataSource={this.data}
-                    isColumnOptionsEnabled="true"
-                    isGroupByAreaVisible="true">
+                    isColumnOptionsEnabled="true">
                         <IgrTextColumn field="Name" headerText="Name" />
                         <IgrNumericColumn field="Age" headerText="Age" width="*>110"/>
                         <IgrDateTimeColumn field="Birthday" headerText="Date of Birth"
                         horizontalAlignment="right"  width="*>160"/>
-                        <IgrImageColumn field="CountryFlag" headerText="Country" width="*>160"
+                        <IgrTextColumn field="CountryFlag" headerText="Country" width="*>160"
                         paddingTop="5" paddingBottom="5" contentOpacity="1" horizontalAlignment="center"/>
                         <IgrTextColumn field="Street" headerText="Address" width="*>160"/>
                         <IgrNumericColumn field="Salary" headerText="Salary" width="*>130"
@@ -95,16 +89,16 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
     }
 
     public onLoad() {
-        const state = new IgrColumnGroupDescription();
-        state.field = "Country";
-        state.displayName = "Location";
+        const country = new IgrColumnGroupDescription();
+        country.field = "Country";
+        country.displayName = "Location";
         const city = new IgrColumnGroupDescription();
         city.field = "City";
         city.displayName = "";
         const income = new IgrColumnGroupDescription();
         income.field = "Income";
         income.displayName = "Income";
-        this.grid.groupDescriptions.add(state);
+        this.grid.groupDescriptions.add(country);
         this.grid.groupDescriptions.add(city);
         this.grid.groupDescriptions.add(income);
     }
