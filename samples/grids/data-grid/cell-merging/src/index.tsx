@@ -7,6 +7,7 @@ import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
+import { HeaderClickAction } from 'igniteui-react-grids';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
@@ -53,6 +54,7 @@ export default class DataGridCellMerging extends React.Component<any, any> {
                 defaultColumnMinWidth="110"
                 isColumnOptionsEnabled="true"
                 mergedCellMode={this.state.cellMergeMode}
+                headerClickAction={HeaderClickAction.SortByMultipleColumnsTriState}
                 dataSource={this.data}>
 
 
