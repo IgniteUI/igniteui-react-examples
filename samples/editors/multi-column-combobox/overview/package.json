@@ -15,6 +15,7 @@
     "@infragistics/igniteui-react-core": "21.2.153",
     "@infragistics/igniteui-react-grids": "21.2.153",
     "@infragistics/igniteui-react-inputs": "21.2.153",
+    "@infragistics/igniteui-react-layouts": "21.2.153",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
@@ -25,7 +26,7 @@
     "@types/node": "^11.11.8",
     "@types/react": "^16.8.20",
     "@types/react-dom": "^16.8.3",
-    "react-app-rewired": "^1.6.2",
+    "react-app-rewired": "^2.1.6",
     "typescript": "~3.7.2",
     "worker-loader": "^2.0.0"
   },
