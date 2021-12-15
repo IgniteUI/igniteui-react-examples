@@ -14,7 +14,7 @@ import { IgrGridCustomFilterRequestedEventArgs } from'igniteui-react-grids';
 IgrDataGridModule.register();
 IgrGridColumnOptionsModule.register();
 
-export default class DataGridColumnFiltering extends React.Component<any, any> {
+export default class DataGridColumnFilterOperands extends React.Component<any, any> {
 
     public data: any[];
     public grid: IgrDataGrid;
@@ -98,4 +98,4 @@ export default class DataGridColumnFiltering extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataGridColumnFiltering />, document.getElementById('root'));
+ReactDOM.render(<DataGridColumnFilterOperands />, document.getElementById('root'));
