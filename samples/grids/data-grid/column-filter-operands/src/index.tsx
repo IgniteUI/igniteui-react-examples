@@ -14,7 +14,7 @@ import { IgrGridCustomFilterRequestedEventArgs } from'igniteui-react-grids';
 IgrDataGridModule.register();
 IgrGridColumnOptionsModule.register();
 
-export default class DataGridColumnFiltering extends React.Component<any, any> {
+export default class DataGridColumnFilterOperands extends React.Component<any, any> {
 
     public data: any[];
     public grid: IgrDataGrid;
@@ -87,7 +87,7 @@ export default class DataGridColumnFiltering extends React.Component<any, any> {
                     dataSource={this.data}
                     isColumnOptionsEnabled="true"
                     filterUIType="FilterRow">
-                    <IgrTextColumn field="Country" paddingTop="5" paddingBottom="5" headerText="Code-behind Filter*" contentOpacity="1"
+                    <IgrTextColumn field="Country" paddingTop="5" paddingBottom="5" headerText="Country" contentOpacity="1"
                         horizontalAlignment="center" width="*>140"/>
                     <IgrNumericColumn field="Age" headerText="Age" width="*>120" />
                     <IgrNumericColumn field="Sales" headerText="Sales" positivePrefix="$" width="*>170" />
@@ -98,4 +98,4 @@ export default class DataGridColumnFiltering extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataGridColumnFiltering />, document.getElementById('root'));
+ReactDOM.render(<DataGridColumnFilterOperands />, document.getElementById('root'));

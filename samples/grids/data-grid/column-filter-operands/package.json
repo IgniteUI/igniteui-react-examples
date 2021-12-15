@@ -1,6 +1,6 @@
 {
-  "name": "react-data-grid-column-filtering",
-  "description": "This project provides example of Data Grid Column Filtering using Infragistics React components",
+  "name": "react-data-grid-column-filter-operands",
+  "description": "This project provides example of Data Grid Column Filter Operands using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
