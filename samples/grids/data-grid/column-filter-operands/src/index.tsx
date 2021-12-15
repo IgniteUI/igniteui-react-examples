@@ -5,7 +5,6 @@ import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
-import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrFilterOperand } from 'igniteui-react-grids';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
@@ -32,28 +31,53 @@ export default class DataGridColumnFiltering extends React.Component<any, any> {
         if (!grid) { return; }
 
         this.grid = grid;
-        
-        const filterOperand = new IgrFilterOperand();
-        filterOperand.editorType = EditorType.Text;
-        filterOperand.displayName = "(Custom) In Code Filter";
-        filterOperand.filterRequested = this.onFilter;
-        let column = this.grid.actualColumns.item(0);
-        column.filterOperands.add(filterOperand);
+        
+        const filterOperand = new IgrFilterOperand();
+        filterOperand.editorType = EditorType.Text;
+        filterOperand.displayName = "Show Only France";
+        filterOperand.filterRequested = this.onFilter;
+        let column = this.grid.actualColumns.item(0);
+        column.filterOperands.add(filterOperand);
+
+        const filterOperand2 = new IgrFilterOperand();
+        filterOperand2.editorType = EditorType.Numeric;
+        filterOperand2.displayName = "Less Than Age 30";
+        filterOperand2.filterRequested = this.onFilter2;
+        let column2 = this.grid.actualColumns.item(1);
+        column2.filterOperands.add(filterOperand2);
+
+        const filterOperand3 = new IgrFilterOperand();
+        filterOperand3.editorType = EditorType.Numeric;
+        filterOperand3.displayName = "Greater Than $500k";
+        filterOperand3.filterRequested = this.onFilter3;
+        let column3 = this.grid.actualColumns.item(2);
+        column3.filterOperands.add(filterOperand3);
     }
 
     public onFilter(s: IgrFilterOperand, args: IgrGridCustomFilterRequestedEventArgs)
     {
         let prop = args.filterFactory.property(args.column.field);
-        console.log(prop);
-        //Filter-in only records with France
-        let filter = prop.isEqualTo("France")
-        return filter;        
+        //Filter-in only records with France
+        args.expression = prop.isEqualTo("France");
+    }
+
+    public onFilter2(s: IgrFilterOperand, args: IgrGridCustomFilterRequestedEventArgs)
+    {
+        let prop = args.filterFactory.property(args.column.field);
+        //Filter-in only records with LessThan or Equal to 30
+        args.expression = prop.isLessThanOrEqualTo(30);
+    }
+
+    public onFilter3(s: IgrFilterOperand, args: IgrGridCustomFilterRequestedEventArgs)
+    {
+        let prop = args.filterFactory.property(args.column.field);
+        //Filter-in only records with GreaterThan $500,000.00
+        args.expression = prop.isGreaterThan(500000);
     }
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                
+            <div className="container sample">                
                 <IgrDataGrid
                     ref={this.onGridRef}
                     height="calc(100% - 40px)"
@@ -63,50 +87,14 @@ export default class DataGridColumnFiltering extends React.Component<any, any> {
                     dataSource={this.data}
                     isColumnOptionsEnabled="true"
                     filterUIType="FilterRow">
-
-                   
-                    <IgrTextColumn field="Country" paddingTop="5" paddingBottom="5" headerText="Code-behind Filter" contentOpacity="1"
+                    <IgrTextColumn field="Country" paddingTop="5" paddingBottom="5" headerText="Code-behind Filter*" contentOpacity="1"
                         horizontalAlignment="center" width="*>140"/>
-                    <IgrNumericColumn field="Age" headerText="Custom Class Filter" width="*>120">
-                        {/* <CustomFilter></CustomFilter> */}
-                    </IgrNumericColumn>
-                    <IgrNumericColumn field="Sales" headerText="Sales" positivePrefix="$" width="*>170" >
-                        {/* <IgbFilterOperand EditorType="EditorType.Numeric" IsInputRequired="false" DisplayName="(Custom) In-Line Filter"
-                                            FilterRequested="@(args => args.FilterFactory.Property("Sales").IsLessThanOrEqualTo(300000))">
-
-                        </IgbFilterOperand> */}
-                    </IgrNumericColumn>
+                    <IgrNumericColumn field="Age" headerText="Age" width="*>120" />
+                    <IgrNumericColumn field="Sales" headerText="Sales" positivePrefix="$" width="*>170" />
                 </IgrDataGrid>
             </div>
         );
     }
-
-}
-
-class CustomFilter extends IgrFilterOperand
-{
-    constructor(props: IgrFilterOperand) {
-
-    super();
-    props.displayName = "Filter As Class",
-    props.isInputRequired = false;
-    props.editorType = EditorType.Numeric;
-    props.filterRequested = this.onFilter;
-
-    public onFilter(s: IgrFilterOperand, args: IgrGridCustomFilterRequestedEventArgs)
-    {
-        let prop = args.filterFactory.property(args.column.field);
-        console.log(prop);
-        //Filter-in only records with France
-        let filter = prop.isEqualTo("France")
-        return filter;        
-    }
-
-    // public createImplementation(s: function (): IgrFilterOperand) 
-    // {
-
-    // }
-
 }
 
 // rendering above class to the React DOM
