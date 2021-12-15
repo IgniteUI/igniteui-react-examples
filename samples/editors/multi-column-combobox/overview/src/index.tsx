@@ -4,6 +4,7 @@ import './index.css';
 import { SampleComboData } from './SampleComboData';
 import { IgrMultiColumnComboBoxModule } from 'igniteui-react-grids';
 import { IgrMultiColumnComboBox, SortMode } from 'igniteui-react-grids';
+import { IgrColumnWidth } from 'igniteui-react-grids';
 
 IgrMultiColumnComboBoxModule.register();
 
@@ -25,6 +26,12 @@ export default class MultiColumnComboBoxOverview extends React.Component<any, an
         this.multiColumnComboBox.fields = ["country", "continent", "pop"];
         this.multiColumnComboBox.placeholder = "Choose a country";
         this.multiColumnComboBox.sortMode = SortMode.SortByOneColumnOnly;
+        var cw: IgrColumnWidth = new IgrColumnWidth();
+        cw.isStarSized = false;
+        cw.minimumWidth = 200;  
+        cw.value = 200;
+        this.multiColumnComboBox.defaultColumnWidth = cw;  
+
     }
 
     public render(): JSX.Element {
