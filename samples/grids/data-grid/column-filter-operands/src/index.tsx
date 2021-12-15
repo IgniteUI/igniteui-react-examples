@@ -87,7 +87,7 @@ export default class DataGridColumnFilterOperands extends React.Component<any, a
                     dataSource={this.data}
                     isColumnOptionsEnabled="true"
                     filterUIType="FilterRow">
-                    <IgrTextColumn field="Country" paddingTop="5" paddingBottom="5" headerText="Code-behind Filter*" contentOpacity="1"
+                    <IgrTextColumn field="Country" paddingTop="5" paddingBottom="5" headerText="Country" contentOpacity="1"
                         horizontalAlignment="center" width="*>140"/>
                     <IgrNumericColumn field="Age" headerText="Age" width="*>120" />
                     <IgrNumericColumn field="Sales" headerText="Sales" positivePrefix="$" width="*>170" />
