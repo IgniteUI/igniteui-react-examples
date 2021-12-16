@@ -25,7 +25,7 @@
     "strictNullChecks": false,
     "importHelpers": true,
     "suppressImplicitAnyIndexErrors": true,
-    "strict": true,
+    "strict": false,
     "isolatedModules": true,
     "noEmit": true
   },
@@ -47,7 +47,6 @@
     "iisConfig/*",
     "gulp*.js",
     "gulp*.ts",
-    "samples",
     "tasks/*.js",
     "tasks/*.ts",
     "templates"

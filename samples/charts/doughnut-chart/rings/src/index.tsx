@@ -1,12 +1,11 @@
-import { MonthsItem, Months, SeasonsItem, Seasons } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { MonthsItem, Months, SeasonsItem, Seasons } from './SampleData';
 import { IgrLegendModule, IgrDoughnutChartModule } from 'igniteui-react-charts';
-
 import { IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
+
 const mods: any[] = [
     IgrLegendModule,
     IgrDoughnutChartModule
@@ -26,15 +25,16 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Hierarchical Chart
             </div>
+            
             <div className="container fill">
                 <IgrDoughnutChart
                     allowSliceSelection="false"
@@ -64,7 +64,7 @@ export default class Sample extends React.Component<any, any> {
             </div>
         </div>
         );
-   }
+    }
 
     private _months: Months = null;
     public get months(): Months {
@@ -74,7 +74,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._months;
     }
-
+    
     private _seasons: Seasons = null;
     public get seasons(): Seasons {
         if (this._seasons == null)
@@ -83,6 +83,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._seasons;
     }
+    
+
 
 }
 // rendering above component in the React DOM

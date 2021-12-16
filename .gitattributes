@@ -1,0 +1,39 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+# Handle line endings automatically for files detected as text
+# and leave all files detected as binary untouched.
+* text=auto
+
+# Never modify line endings of our bash scripts
+*.sh -crlf
+
+# The above will handle all files NOT found below
+# Declare files that will always have CRLF line endings on checkout.
+*.cs -crlf
+*.css -crlf
+*.tsx -crlf
+*.ts -crlf
+*.js -crlf
+*.json -crlf
+*.html -crlf
+*.razor -crlf
+*.txt -crlf
+*.xml -crlf
+
+*.cs text eol=crlf
+*.css text eol=crlf
+*.tsx text eol=crlf
+*.ts text eol=crlf
+*.js text eol=crlf
+*.json text eol=crlf
+*.html text eol=crlf
+*.razor text eol=crlf
+*.txt text eol=crlf
+*.xml text eol=crlf
+
+# These files are binary and should be left untouched
+# (binary is macro for -text -diff)
+*.class         binary
+*.jar           binary
+*.gif           binary
+*.jpg           binary
+*.png           binary

@@ -1,12 +1,11 @@
-import { Data } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrDoughnutChartModule } from 'igniteui-react-charts';
-
 import { IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
+
 const mods: any[] = [
     IgrLegendModule,
     IgrDoughnutChartModule
@@ -25,15 +24,16 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Market Share of Tech Companies
             </div>
+            
             <div className="container fill">
                 <IgrDoughnutChart
                     ref={this.chartRef}>
@@ -49,7 +49,7 @@ export default class Sample extends React.Component<any, any> {
             </div>
         </div>
         );
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -59,6 +59,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._data;
     }
+    
+
 
 }
 // rendering above component in the React DOM

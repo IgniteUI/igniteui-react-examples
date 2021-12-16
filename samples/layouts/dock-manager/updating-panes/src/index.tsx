@@ -9,7 +9,7 @@ import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
 import { IgrArcGISOnlineMapImagery } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataContext } from 'igniteui-react-core';
-import { IgrCategoryChartModule, MarkerType, ToolTipType, AxisLabelsLocation } from "igniteui-react-charts";
+import { IgrCategoryChartModule, MarkerType, ToolTipType, YAxisLabelLocation } from "igniteui-react-charts";
 import { IgrCategoryChart, CategoryTransitionInMode, CategoryChartType } from "igniteui-react-charts";
 import { IgrLegendModule } from "igniteui-react-charts";
 import { IgcDockManagerComponent, IgcContentPane } from "igniteui-dockmanager";
@@ -174,7 +174,7 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         this.productivityChart.includedProperties = ["Value", "Month"];
         this.productivityChart.chartType = CategoryChartType.Column;
         this.productivityChart.thickness = 1;
-        this.productivityChart.yAxisLabelLocation = AxisLabelsLocation.OutsideRight;
+        this.productivityChart.yAxisLabelLocation = YAxisLabelLocation.OutsideRight;
         this.productivityChart.yAxisLabelRightMargin = 20;
         this.productivityChart.yAxisMinimumValue = 25;
         this.productivityChart.yAxisMaximumValue = 100;

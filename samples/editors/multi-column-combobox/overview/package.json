@@ -12,9 +12,10 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-react-core": "16.14.3",
-    "igniteui-react-grids": "16.14.3",
-    "igniteui-react-inputs": "16.14.3",
+    "igniteui-react-core": "16.15.0",
+    "igniteui-react-grids": "16.15.0",
+    "igniteui-react-inputs": "16.15.0",
+    "igniteui-react-layouts": "16.15.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
@@ -25,7 +26,7 @@
     "@types/node": "^11.11.8",
     "@types/react": "^16.8.20",
     "@types/react-dom": "^16.8.3",
-    "react-app-rewired": "^1.6.2",
+    "react-app-rewired": "^2.1.6",
     "typescript": "~3.7.2",
     "worker-loader": "^2.0.0"
   },

@@ -1,12 +1,11 @@
-import { Data } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { DataItem, Data } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule } from 'igniteui-react-charts';
-
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrRangeAreaSeries } from 'igniteui-react-charts';
+
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule
@@ -27,15 +26,16 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Monthly Temperature Range in Los Angeles
             </div>
+            
             <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
@@ -58,8 +58,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrRangeAreaSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        lowMemberPath="LowLA"
-                        highMemberPath="HighLA"
+                        lowMemberPath="lowLA"
+                        highMemberPath="highLA"
                         dataSource={this.data}
                         title="Los Angeles"
                         name="series">
@@ -68,7 +68,7 @@ export default class Sample extends React.Component<any, any> {
             </div>
         </div>
         );
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -78,6 +78,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._data;
     }
+    
+
 
 }
 // rendering above component in the React DOM

@@ -1,13 +1,11 @@
-import { Data } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { IgrBarSeries } from 'igniteui-react-charts';
+import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryCoreModule, IgrDataChartCategoryModule, IgrDataChartInteractivityModule, IgrDataChartVerticalCategoryModule } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrBarSeries } from 'igniteui-react-charts';
 
-import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis } from 'igniteui-react-charts';
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -31,29 +29,29 @@ export default class Sample extends React.Component<any, any> {
     }
     private yAxis: IgrCategoryYAxis
     private xAxis: IgrNumericXAxis
+    private barSeries1: IgrBarSeries
+    private barSeries2: IgrBarSeries
 
     constructor(props: any) {
         super(props);
 
         this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Highest Grossing Movie Franchises
             </div>
-
             <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-
             <div className="container fill">
                 <IgrDataChart
                     legend={this.legend}
@@ -70,7 +68,7 @@ export default class Sample extends React.Component<any, any> {
                         title="Billions of U.S. Dollars"
                         name="xAxis">
                     </IgrNumericXAxis>
-                    <IgrBarSeries name="series1"
+                    <IgrBarSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         valueMemberPath="totalRevenue"
@@ -78,9 +76,10 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.data}
                         isHighlightingEnabled="true"
                         showDefaultTooltip="true"
-                        title="Total Revenue of Franchise">
+                        title="Total Revenue of Franchise"
+                        name="BarSeries1">
                     </IgrBarSeries>
-                    <IgrBarSeries name="series2"
+                    <IgrBarSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         title="Highest Grossing Movie in Series"
@@ -88,13 +87,14 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.data}
                         showDefaultTooltip="true"
                         isTransitionInEnabled="true"
-                        isHighlightingEnabled="true">
+                        isHighlightingEnabled="true"
+                        name="BarSeries2">
                     </IgrBarSeries>
                 </IgrDataChart>
             </div>
         </div>
         );
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -104,6 +104,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._data;
     }
+    
+
 
 }
 // rendering above component in the React DOM

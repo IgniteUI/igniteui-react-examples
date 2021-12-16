@@ -1,12 +1,11 @@
-import { Data } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartPolarModule, IgrDataChartPolarCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgrLegend, IgrDataChart, IgrNumericAngleAxis, IgrNumericRadiusAxis, IgrPolarAreaSeries } from 'igniteui-react-charts';
+
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -37,23 +36,21 @@ export default class Sample extends React.Component<any, any> {
 
         this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Wind Speed vs Boat Speed
             </div>
-
             <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-
             <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
@@ -105,7 +102,7 @@ export default class Sample extends React.Component<any, any> {
             </div>
         </div>
         );
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -115,6 +112,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._data;
     }
+    
+
 
 }
 // rendering above component in the React DOM

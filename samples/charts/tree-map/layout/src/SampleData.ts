@@ -3,9 +3,9 @@ export class DataItem {
         Object.assign(this, init);
     }
     
-    public parent: any;
+    public parent: string;
     public name: string;
-    public pop: any;
+    public pop: number;
 
 }
 export class Data extends Array<DataItem> {
@@ -61,1287 +61,1287 @@ export class Data extends Array<DataItem> {
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Angola`,
-            pop: null
+            pop: 19618432
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Benin`,
-            pop: null
+            pop: 9099922
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Botswana`,
-            pop: null
+            pop: 2030738
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Burkina Faso`,
-            pop: null
+            pop: 16967845
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Burundi`,
-            pop: null
+            pop: 8575172
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Cameroon`,
-            pop: null
+            pop: 20030362
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Cape Verde`,
-            pop: null
+            pop: 500585
         }));
         this.push(new DataItem(
         {
-            parent: null,
-            name: `Central African Republic`,
-            pop: null
+            parent: `Africa`,
+            name: `CAR`,
+            pop: 4486837
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Chad`,
-            pop: null
+            pop: 11525496
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Comoros`,
-            pop: null
+            pop: 753943
         }));
         this.push(new DataItem(
         {
-            parent: null,
-            name: `Cote Ivoire`,
-            pop: null
+            parent: `Africa`,
+            name: `Ivory Coast`,
+            pop: 20152894
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Djibouti`,
-            pop: null
+            pop: 905564
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Equatorial Guinea`,
-            pop: null
+            pop: 720213
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Eritrea`,
-            pop: null
+            pop: 5415280
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Ethiopia`,
-            pop: null
+            pop: 84734262
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Gabon`,
-            pop: null
+            pop: 1534262
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Gambia`,
-            pop: null
+            pop: 1776103
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Ghana`,
-            pop: null
+            pop: 24965816
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Guinea`,
-            pop: null
+            pop: 10221808
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Guinea-Bissau`,
-            pop: null
+            pop: 1547061
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Kenya`,
-            pop: null
+            pop: 41609728
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Lesotho`,
-            pop: null
+            pop: 2193843
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Liberia`,
-            pop: null
+            pop: 4128572
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Madagascar`,
-            pop: null
+            pop: 21315135
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Malawi`,
-            pop: null
+            pop: 15380888
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Mali`,
-            pop: null
+            pop: 15839538
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Mauritania`,
-            pop: null
+            pop: 3541540
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Mauritius`,
-            pop: null
+            pop: 1286051
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Mozambique`,
-            pop: null
+            pop: 23929708
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Namibia`,
-            pop: null
+            pop: 2324004
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Niger`,
-            pop: null
+            pop: 16068994
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Nigeria`,
-            pop: null
+            pop: 162470737
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Rwanda`,
-            pop: null
+            pop: 10942950
         }));
         this.push(new DataItem(
         {
-            parent: null,
-            name: `Sao Tome and Principe`,
-            pop: null
+            parent: `Africa`,
+            name: `Sao Tome`,
+            pop: 168526
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Senegal`,
-            pop: null
+            pop: 12767556
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Seychelles`,
-            pop: null
+            pop: 86000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Sierra Leone`,
-            pop: null
+            pop: 5997486
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `South Africa`,
-            pop: null
+            pop: 50586757
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `South Sudan`,
-            pop: null
+            pop: 10314021
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Sudan`,
-            pop: null
+            pop: 34318385
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Swaziland`,
-            pop: null
+            pop: 1067773
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Tanzania`,
-            pop: null
+            pop: 46218486
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Togo`,
-            pop: null
+            pop: 6154813
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Uganda`,
-            pop: null
+            pop: 34509205
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Zambia`,
-            pop: null
+            pop: 13474959
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Zimbabwe`,
-            pop: null
+            pop: 12754378
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Africa`,
             name: `Congo`,
-            pop: null
+            pop: 4139748
         }));
         this.push(new DataItem(
         {
-            parent: null,
-            name: `Congo,Dem. Rep.`,
-            pop: null
+            parent: `Africa`,
+            name: `DRC`,
+            pop: 67757577
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Bangladesh`,
-            pop: null
+            pop: 150493658
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Bhutan`,
-            pop: null
+            pop: 738267
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Brunei`,
-            pop: null
+            pop: 405938
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Cambodia`,
-            pop: null
+            pop: 14305183
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `China`,
-            pop: null
+            pop: 1344130000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `India`,
-            pop: null
+            pop: 1241491960
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Indonesia`,
-            pop: null
+            pop: 242325638
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Japan`,
-            pop: null
+            pop: 127817277
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Kazakhstan`,
-            pop: null
+            pop: 16558676
         }));
         this.push(new DataItem(
         {
-            parent: null,
-            name: `Kyrgyz Republic`,
-            pop: null
+            parent: `Asia`,
+            name: `Kyrgyzstan`,
+            pop: 5514600
         }));
         this.push(new DataItem(
         {
-            parent: null,
-            name: `Noth Korea`,
-            pop: null
+            parent: `Asia`,
+            name: `North Korea`,
+            pop: 24451285
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `South Korea`,
-            pop: null
+            pop: 49779000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Macao`,
-            pop: null
+            pop: 555731
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Hong Kong`,
-            pop: null
+            pop: 7071600
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Lao PDR`,
-            pop: null
+            pop: 6288037
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Malaysia`,
-            pop: null
+            pop: 28859154
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Maldives`,
-            pop: null
+            pop: 320081
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Mongolia`,
-            pop: null
+            pop: 2800114
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Myanmar`,
-            pop: null
+            pop: 48336763
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Nepal`,
-            pop: null
+            pop: 30485798
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Philippines`,
-            pop: null
+            pop: 94852030
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Singapore`,
-            pop: null
+            pop: 5183700
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Sri Lanka`,
-            pop: null
+            pop: 20869000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Tajikistan`,
-            pop: null
+            pop: 6976958
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Thailand`,
-            pop: null
+            pop: 69518555
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Turkmenistan`,
-            pop: null
+            pop: 5105301
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Uzbekistan`,
-            pop: null
+            pop: 29341200
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Asia`,
             name: `Vietnam`,
-            pop: null
+            pop: 87840000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Antigua and Barbuda`,
-            pop: null
+            pop: 89612
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Aruba`,
-            pop: null
+            pop: 108141
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Bahamas`,
-            pop: null
+            pop: 347176
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Barbados`,
-            pop: null
+            pop: 273925
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Belize`,
-            pop: null
+            pop: 356600
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Bermuda`,
-            pop: null
+            pop: 64700
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Cayman Islands`,
-            pop: null
+            pop: 56729
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Costa Rica`,
-            pop: null
+            pop: 4726575
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Cuba`,
-            pop: null
+            pop: 11253665
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Curacao`,
-            pop: null
+            pop: 145619
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Dominica`,
-            pop: null
+            pop: 67675
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Dominican Republic`,
-            pop: null
+            pop: 10056181
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Faeroe Islands`,
-            pop: null
+            pop: 48863
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Grenada`,
-            pop: null
+            pop: 104890
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Guam`,
-            pop: null
+            pop: 182111
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Guatemala`,
-            pop: null
+            pop: 14757316
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Haiti`,
-            pop: null
+            pop: 10123787
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Honduras`,
-            pop: null
+            pop: 7754687
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Jamaica`,
-            pop: null
+            pop: 2706500
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Nicaragua`,
-            pop: null
+            pop: 5869859
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Northern Mariana Islands`,
-            pop: null
+            pop: 61174
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Panama`,
-            pop: null
+            pop: 3571185
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `St. Kitts and Nevis`,
-            pop: null
+            pop: 53051
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `St. Lucia`,
-            pop: null
+            pop: 176000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `St. Vincent and the Grenadines`,
-            pop: null
+            pop: 109365
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Trinidad and Tobago`,
-            pop: null
+            pop: 1346350
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Turks and Caicos Islands`,
-            pop: null
+            pop: 39184
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Virgin Islands (U.S.)`,
-            pop: null
+            pop: 109666
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `El Salvador`,
-            pop: null
+            pop: 6227491
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Central America`,
             name: `Puerto Rico`,
-            pop: null
+            pop: 3706690
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Albania`,
-            pop: null
+            pop: 3215988
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Andorra`,
-            pop: null
+            pop: 86165
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Armenia`,
-            pop: null
+            pop: 3100236
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Austria`,
-            pop: null
+            pop: 8423635
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Belarus`,
-            pop: null
+            pop: 9473000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Belgium`,
-            pop: null
+            pop: 11020952
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Bosnia and Herzegovina`,
-            pop: null
+            pop: 3752228
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Bulgaria`,
-            pop: null
+            pop: 7348328
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Channel Islands`,
-            pop: null
+            pop: 153876
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Croatia`,
-            pop: null
+            pop: 4403000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Cyprus`,
-            pop: null
+            pop: 1116564
         }));
         this.push(new DataItem(
         {
-            parent: null,
-            name: `Czech Republic`,
-            pop: null
+            parent: `Europe`,
+            name: `Czechia`,
+            pop: 10496088
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Denmark`,
-            pop: null
+            pop: 5570572
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Estonia`,
-            pop: null
+            pop: 1339928
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Finland`,
-            pop: null
+            pop: 5388272
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `France`,
-            pop: null
+            pop: 65433714
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Georgia`,
-            pop: null
+            pop: 4486000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Germany`,
-            pop: null
+            pop: 81797673
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Greece`,
-            pop: null
+            pop: 11300410
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Hungary`,
-            pop: null
+            pop: 9971727
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Iceland`,
-            pop: null
+            pop: 319014
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Ireland`,
-            pop: null
+            pop: 4576317
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Isle of Man`,
-            pop: null
+            pop: 83327
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Italy`,
-            pop: null
+            pop: 60723603
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Kosovo`,
-            pop: null
+            pop: 1802765
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Latvia`,
-            pop: null
+            pop: 2058184
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Liechtenstein`,
-            pop: null
+            pop: 36304
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Lithuania`,
-            pop: null
+            pop: 3030173
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Luxembourg`,
-            pop: null
+            pop: 518252
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Malta`,
-            pop: null
+            pop: 415654
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Moldova`,
-            pop: null
+            pop: 3559000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Monaco`,
-            pop: null
+            pop: 35427
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Montenegro`,
-            pop: null
+            pop: 632261
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Netherlands`,
-            pop: null
+            pop: 16693074
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Norway`,
-            pop: null
+            pop: 4953088
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Poland`,
-            pop: null
+            pop: 38534157
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Portugal`,
-            pop: null
+            pop: 10556999
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Romania`,
-            pop: null
+            pop: 21384832
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Russian`,
-            pop: null
+            pop: 142960000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `San Marino`,
-            pop: null
+            pop: 31735
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Serbia`,
-            pop: null
+            pop: 7258745
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Sint Maarten`,
-            pop: null
+            pop: 36609
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Slovak Republic`,
-            pop: null
+            pop: 5398384
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Slovenia`,
-            pop: null
+            pop: 2052843
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Spain`,
-            pop: null
+            pop: 46174601
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `St. Martin (French part)`,
-            pop: null
+            pop: 30615
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Sweden`,
-            pop: null
+            pop: 9449213
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Switzerland`,
-            pop: null
+            pop: 7912398
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Europe`,
             name: `Ukraine`,
-            pop: null
+            pop: 45706100
         }));
         this.push(new DataItem(
         {
-            parent: null,
-            name: `United Kingdom`,
-            pop: null
+            parent: `Europe`,
+            name: `UK`,
+            pop: 62744081
         }));
         this.push(new DataItem(
         {
-            parent: null,
-            name: `Macedonia,FYR`,
-            pop: null
+            parent: `Europe`,
+            name: `North Macedonia`,
+            pop: 2063893
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Afghanistan`,
-            pop: null
+            pop: 35320445
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Algeria`,
-            pop: null
+            pop: 35980193
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Azerbaijan`,
-            pop: null
+            pop: 9173082
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Bahrain`,
-            pop: null
+            pop: 1323535
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Iraq`,
-            pop: null
+            pop: 32961959
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Israel`,
-            pop: null
+            pop: 7765900
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Jordan`,
-            pop: null
+            pop: 6181000
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Kuwait`,
-            pop: null
+            pop: 2818042
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Lebanon`,
-            pop: null
+            pop: 4259405
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Libya`,
-            pop: null
+            pop: 6422772
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Morocco`,
-            pop: null
+            pop: 32272974
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Oman`,
-            pop: null
+            pop: 2846145
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Pakistan`,
-            pop: null
+            pop: 176745364
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Qatar`,
-            pop: null
+            pop: 1870041
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Saudi Arabia`,
-            pop: null
+            pop: 28082541
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Somalia`,
-            pop: null
+            pop: 9556873
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Syrian Arab Republic`,
-            pop: null
+            pop: 20820311
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Tunisia`,
-            pop: null
+            pop: 10673800
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Turkey`,
-            pop: null
+            pop: 73639596
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `United Arab Emirates`,
-            pop: null
+            pop: 7890924
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `West Bank and Gaza`,
-            pop: null
+            pop: 3927051
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Yemen`,
-            pop: null
+            pop: 24799880
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Iran`,
-            pop: null
+            pop: 74798599
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Middle East`,
             name: `Egypt.`,
-            pop: null
+            pop: 82536770
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `North America`,
             name: `Canada`,
-            pop: null
+            pop: 34483975
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `North America`,
             name: `Greenland`,
-            pop: null
+            pop: 56840
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `North America`,
             name: `Mexico`,
-            pop: null
+            pop: 114793341
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `North America`,
             name: `United States`,
-            pop: null
+            pop: 311591917
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `American Samoa`,
-            pop: null
+            pop: 69543
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Australia`,
-            pop: null
+            pop: 22323900
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Fiji`,
-            pop: null
+            pop: 868406
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `French Polynesia`,
-            pop: null
+            pop: 273777
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Kiribati`,
-            pop: null
+            pop: 101093
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Marshall Islands`,
-            pop: null
+            pop: 54816
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `New Caledonia`,
-            pop: null
+            pop: 254024
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `New Zealand`,
-            pop: null
+            pop: 4405200
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Palau`,
-            pop: null
+            pop: 20609
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Papua New Guinea`,
-            pop: null
+            pop: 7013829
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Samoa`,
-            pop: null
+            pop: 183874
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Timor-Leste`,
-            pop: null
+            pop: 1175880
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Tonga`,
-            pop: null
+            pop: 104509
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Tuvalu`,
-            pop: null
+            pop: 9847
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Vanuatu`,
-            pop: null
+            pop: 245619
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Micronesia`,
-            pop: null
+            pop: 111542
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `Oceania`,
             name: `Solomon Islands`,
-            pop: null
+            pop: 552267
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Argentina`,
-            pop: null
+            pop: 40764561
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Bolivia`,
-            pop: null
+            pop: 10088108
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Brazil`,
-            pop: null
+            pop: 196655014
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Chile`,
-            pop: null
+            pop: 17269525
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Colombia`,
-            pop: null
+            pop: 46927125
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Ecuador`,
-            pop: null
+            pop: 14666055
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Guyana`,
-            pop: null
+            pop: 756040
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Paraguay`,
-            pop: null
+            pop: 6568290
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Peru`,
-            pop: null
+            pop: 29399817
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Suriname`,
-            pop: null
+            pop: 529419
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Uruguay`,
-            pop: null
+            pop: 3368595
         }));
         this.push(new DataItem(
         {
-            parent: null,
+            parent: `South America`,
             name: `Venezuela`,
-            pop: null
+            pop: 29278000
         }));
     }
 }

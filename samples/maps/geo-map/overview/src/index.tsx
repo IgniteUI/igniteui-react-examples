@@ -37,10 +37,8 @@ export default class MapOverview extends React.Component<any, any> {
         if (!geoMap) { return; }
 
         this.geoMap = geoMap;
-        this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.7, height: 0.7 };
-
+        this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.7, height: 0.7 });        
     }
-
 }
 
 // rendering above class to the React DOM

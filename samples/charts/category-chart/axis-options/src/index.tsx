@@ -1,13 +1,12 @@
-import { Data } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { DataItem, Data } from './SampleData';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrPropertyEditorModule } from 'igniteui-react-grids';
-
 import { IgrCategoryChart } from 'igniteui-react-charts';
+
 const mods: any[] = [
     IgrCategoryChartModule,
     IgrPropertyEditorModule
@@ -25,26 +24,19 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Olympic Medals By Country
             </div>
+            
             <div className="container fill">
                 <IgrCategoryChart
-                    dataSource={this.data}
                     chartType="Line"
-                    xAxisLabelTextColor="gray"
-                    xAxisLabelTextStyle="9pt Verdana"
-                    xAxisLabelTopMargin="5"
-                    yAxisLabelTextColor="gray"
-                    yAxisLabelTextStyle="9pt Verdana"
-                    yAxisLabelRightMargin="0"
-                    yAxisLabelLocation="OutsideRight"
                     xAxisInterval="1"
                     xAxisGap="0.125"
                     xAxisOverlap="0"
@@ -52,9 +44,15 @@ export default class Sample extends React.Component<any, any> {
                     yAxisMinimumValue="50"
                     yAxisMaximumValue="150"
                     yAxisMinorInterval="5"
+                    xAxisLabelTopMargin="5"
+                    yAxisLabelRightMargin="0"
+                    xAxisLabelTextColor="gray"
+                    yAxisLabelTextColor="gray"
                     yAxisTitleLeftMargin="5"
                     xAxisTitleTextColor="gray"
                     yAxisTitleTextColor="gray"
+                    xAxisLabelTextStyle="9pt Verdana"
+                    yAxisLabelTextStyle="9pt Verdana"
                     xAxisTitleTextStyle="10pt Verdana"
                     yAxisTitleTextStyle="10pt Verdana"
                     xAxisMajorStroke="gray"
@@ -73,13 +71,15 @@ export default class Sample extends React.Component<any, any> {
                     yAxisMinorStroke="gray"
                     xAxisTitleAngle="0"
                     yAxisTitleAngle="90"
+                    yAxisLabelLocation="OutsideRight"
+                    dataSource={this.data}
                     thickness="3"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
             </div>
         </div>
         );
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -89,6 +89,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._data;
     }
+    
+
 
 }
 // rendering above component in the React DOM

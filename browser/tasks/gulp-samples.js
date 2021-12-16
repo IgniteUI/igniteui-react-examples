@@ -222,6 +222,8 @@ function copySamples(cb) {
             code = code.replace(/ReactDOM.*/g,"");
             code = code.replace("import './index.css';","");
             code = code.replace("// rendering above component in the React DOM","");
+            code = code.replace(" var "," let ");
+            code = code.replace(", MarkerType_$type","");
 
             file.contents = Buffer.from(code);
             fileCallback(null, file);
@@ -581,7 +583,7 @@ function updateCodeViewer(cb) {
             }
             else if (file.indexOf(".ts") > 0 && file.indexOf("index.tsx") === -1) {
                 var tsContent = fs.readFileSync(file, "utf8");
-                var tsItem = new CodeViewer(file, tsContent, "ts", "ts", false);
+                var tsItem = new CodeViewer(file, tsContent, "ts", "DATA", true);
                 contentItems.push(tsItem);
             }
         }
@@ -597,22 +599,13 @@ function updateCodeViewer(cb) {
 
 } exports.updateCodeViewer = updateCodeViewer;
 
-
-
-function logTypescriptVersion(cb) {
-
-    // log('updating readme files... ');
-    var file = fs.readFileSync("./node_modules/typescript/package.json", "utf8");
-    var lines = file.split("\n");
-
-    for (const line of lines) {
-        if (line.indexOf("version") > 0) {
-            console.log(">> logTypescript " + line);
-        }
-    }
+function logVersionTypescript(cb) {
+    var packageFile = fs.readFileSync("./node_modules/typescript/package.json", "utf8");
+    let packageJson = JSON.parse(packageFile.toString());
+    let packageData = JSON.stringify(packageJson.version, null, ' ');
+    console.log(">> using package: " + packageData + ' typescript' );
     cb();
-
-} exports.logTypescriptVersion = logTypescriptVersion;
+} exports.logVersionTypescript = logVersionTypescript;
 
 function simplifySamples(cb) {
 
@@ -693,7 +686,41 @@ function verifyBuild(cb) {
     }
 } exports.verifyBuild = verifyBuild;
 
+function logVersionIgniteUI(cb) {
+    let packageFile = fs.readFileSync("./package.json");
+    let packageJson = JSON.parse(packageFile.toString());
+    let packageData = JSON.stringify(packageJson.dependencies, null, ' ');
 
+    let igPackages = [];
+    for (const line of packageData.split('\n')) {
+        if (line.indexOf('igniteui-') > 0) {
+            let packageLine = Strings.replace(line, ',', '')
+            packageLine = Strings.replace(packageLine, '"', '');
+            packageLine = Strings.replace(packageLine, '@infragistics/', '');
+            let packagePair = packageLine.split(':');
+            let packageVersion = packagePair[1].trim();
+            let packageName = packagePair[0].trim();
+
+            console.log('>> using package: ' + packageVersion + ' ' + packageName);
+            let package = { ver: packageVersion, name: packageName };
+            igPackages.push(package);
+        }
+    }
+
+    let outputText = '[\r\n';
+    for (let i = 0; i < igPackages.length; i++) {
+        outputText += JSON.stringify(igPackages[i]);
+        if (i < igPackages.length - 1)
+            outputText += ',';
+        outputText += '\r\n';
+    }
+    outputText += "]";
+
+    const outputPath = "./src/navigation/BrowserInfo.json";
+
+    fs.writeFileSync(outputPath, outputText);
+    cb();
+} exports.logVersionIgniteUI = logVersionIgniteUI;
 
 
 

@@ -40,8 +40,8 @@ export default class MapBindingDataJsonPoints extends React.Component {
     public onMapRef(geoMap: IgrGeographicMap) {
         if (!geoMap) { return; }
 
-        this.geoMap = geoMap;
-        this.geoMap.windowRect = { left: 0.2, top: 0.1, width: 0.6, height: 0.6 };
+        this.geoMap = geoMap;        
+        this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
     }
 
     public componentDidMount() {

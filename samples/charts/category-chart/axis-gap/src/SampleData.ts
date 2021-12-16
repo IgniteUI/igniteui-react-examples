@@ -3,8 +3,10 @@ export class DataItem {
         Object.assign(this, init);
     }
     
-    public month: string;
-    public temperature: number;
+    public year: string;
+    public europe: number;
+    public china: number;
+    public uSA: number;
 
 }
 export class Data extends Array<DataItem> {
@@ -12,63 +14,80 @@ export class Data extends Array<DataItem> {
         super();
         this.push(new DataItem(
         {
-            month: `January`,
-            temperature: 3
+            year: `2009`,
+            europe: 31,
+            china: 21,
+            uSA: 19
         }));
         this.push(new DataItem(
         {
-            month: `February`,
-            temperature: 4
+            year: `2010`,
+            europe: 43,
+            china: 26,
+            uSA: 24
         }));
         this.push(new DataItem(
         {
-            month: `March`,
-            temperature: 9
+            year: `2011`,
+            europe: 66,
+            china: 29,
+            uSA: 28
         }));
         this.push(new DataItem(
         {
-            month: `April`,
-            temperature: 15
+            year: `2012`,
+            europe: 69,
+            china: 32,
+            uSA: 26
         }));
         this.push(new DataItem(
         {
-            month: `May`,
-            temperature: 21
+            year: `2013`,
+            europe: 58,
+            china: 47,
+            uSA: 38
         }));
         this.push(new DataItem(
         {
-            month: `June`,
-            temperature: 26
+            year: `2014`,
+            europe: 40,
+            china: 46,
+            uSA: 31
         }));
         this.push(new DataItem(
         {
-            month: `July`,
-            temperature: 29
+            year: `2015`,
+            europe: 78,
+            china: 50,
+            uSA: 19
         }));
         this.push(new DataItem(
         {
-            month: `August`,
-            temperature: 28
+            year: `2016`,
+            europe: 13,
+            china: 90,
+            uSA: 52
         }));
         this.push(new DataItem(
         {
-            month: `September`,
-            temperature: 24
+            year: `2017`,
+            europe: 78,
+            china: 132,
+            uSA: 50
         }));
         this.push(new DataItem(
         {
-            month: `October`,
-            temperature: 18
+            year: `2018`,
+            europe: 40,
+            china: 134,
+            uSA: 34
         }));
         this.push(new DataItem(
         {
-            month: `November`,
-            temperature: 11
-        }));
-        this.push(new DataItem(
-        {
-            month: `December`,
-            temperature: 5
+            year: `2019`,
+            europe: 80,
+            china: 96,
+            uSA: 38
         }));
     }
 }

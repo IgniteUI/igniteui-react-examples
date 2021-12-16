@@ -1,12 +1,11 @@
-import { Data } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { DataItem, Data } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrLegendModule } from 'igniteui-react-charts';
-
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrRangeColumnSeries } from 'igniteui-react-charts';
+
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
@@ -35,23 +34,21 @@ export default class Sample extends React.Component<any, any> {
 
         this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
-                Monthly Temperature Range in LA and NYC for 2020 (in Celsius)
+                Monthly Temperature Range in LA and NYC
             </div>
-
             <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-
             <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
@@ -72,8 +69,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrRangeColumnSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        lowMemberPath="LowLA"
-                        highMemberPath="HighLA"
+                        lowMemberPath="lowLA"
+                        highMemberPath="highLA"
                         dataSource={this.data}
                         title="Los Angeles"
                         name="series1">
@@ -82,8 +79,8 @@ export default class Sample extends React.Component<any, any> {
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         title="New York City"
-                        lowMemberPath="LowNY"
-                        highMemberPath="HighNY"
+                        lowMemberPath="lowNY"
+                        highMemberPath="highNY"
                         dataSource={this.data}
                         name="series2">
                     </IgrRangeColumnSeries>
@@ -91,7 +88,7 @@ export default class Sample extends React.Component<any, any> {
             </div>
         </div>
         );
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -101,6 +98,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._data;
     }
+    
+
 
 }
 // rendering above component in the React DOM

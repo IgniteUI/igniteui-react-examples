@@ -30,6 +30,8 @@ export class SamplesRouter {
         for (const component of group.components ) {
             for (const sample of component.routes ) {
                 let url = sample.path;
+                // console.log('getRoutes sample.path ' + sample.path);
+                // console.log('getRoutes sample.name ' + sample.name);
                 routes.push (
                     <Route exact={true} path={url} key={url} component={sample.component}/>
                     // <Route exact={false} path={`${process.env.PUBLIC_URL}/samples`} key="samples" component={AppBrowser}/>

@@ -1,12 +1,11 @@
-import { Data } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { DataItem, Data } from './SampleData';
 import { IgrPieChartModule, IgrItemLegendModule } from 'igniteui-react-charts';
-
 import { IgrItemLegend, IgrPieChart } from 'igniteui-react-charts';
+
 const mods: any[] = [
     IgrPieChartModule,
     IgrItemLegendModule
@@ -30,23 +29,21 @@ export default class Sample extends React.Component<any, any> {
 
         this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Global Electricity Demand by Energy Use
             </div>
-
             <div className="legend">
                 <IgrItemLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrItemLegend>
             </div>
-
             <div className="container fill">
                 <IgrPieChart
                     dataSource={this.data}
@@ -64,7 +61,7 @@ export default class Sample extends React.Component<any, any> {
             </div>
         </div>
         );
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -74,6 +71,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._data;
     }
+    
+
 
 }
 // rendering above component in the React DOM

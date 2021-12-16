@@ -34,7 +34,7 @@ let config = {
         RepositoryName: "igniteui-react-examples",
         RepositoryPath: "github/{RepositoryOrg}/{RepositoryName}/tree/{RepositoryBranch}/samples/{ComponentGroup}/{ComponentFolder}/{SampleFolderName}",
         RepositoryUrl: "https://github.com/{RepositoryOrg}/{RepositoryName}",
-        RepositoryWarning: "NOTE: do not change this file because it's auto re-generated from:",
+        RepositoryWarning: "NOTE: do not change this file because it's auto re-generated from template:",
 
         SandboxUrlOptions: "fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/{SampleFile}",
         SandboxUrlView:  "https://codesandbox.io/embed/{RepositoryPath}?{SandboxUrlOptions}",

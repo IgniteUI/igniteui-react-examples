@@ -173,6 +173,7 @@ class Transformer {
 
             info.ComponentName = Strings.toTitleCase(info.ComponentFolder, '-');
             info.ComponentName = info.ComponentName.replace("Geo Map", "Geographic Map");
+            info.ComponentName = info.ComponentName.replace("-", " ");
 
             // info.SampleFolderPath = relativePath;
             info.SampleRoute = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "-" + info.SampleFolderName;
@@ -250,7 +251,7 @@ class Transformer {
 
                 // console.log("Transformer SampleDisplayName ...");
                 info.SampleDisplayName = Strings.splitCamel(info.SampleFileSourceClass);
-                // info.SampleDisplayName = Strings.splitCamel(info.SampleFileName)
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, info.ComponentName, "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SamplesFileExtension, "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Type ", "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Binding ", "Binding ");

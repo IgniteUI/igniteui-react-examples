@@ -1,12 +1,11 @@
-import { DataForGermanyItem, DataForGermany, DataForFranceItem, DataForFrance, DataForNorwayItem, DataForNorway } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { DataForGermanyItem, DataForGermany, DataForFranceItem, DataForFrance, DataForNorwayItem, DataForNorway } from './SampleData';
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterLineSeries } from 'igniteui-react-charts';
+
 const mods: any[] = [
     IgrLegendModule,
     IgrNumberAbbreviatorModule,
@@ -40,23 +39,21 @@ export default class Sample extends React.Component<any, any> {
 
         this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Life Expectancy vs Health Expenditure
             </div>
-
             <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-
             <div className="container fill">
                 <IgrDataChart
                     legend={this.legend}
@@ -113,7 +110,7 @@ export default class Sample extends React.Component<any, any> {
             </div>
         </div>
         );
-   }
+    }
 
     private _dataForGermany: DataForGermany = null;
     public get dataForGermany(): DataForGermany {
@@ -123,7 +120,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._dataForGermany;
     }
-
+    
     private _dataForFrance: DataForFrance = null;
     public get dataForFrance(): DataForFrance {
         if (this._dataForFrance == null)
@@ -132,7 +129,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._dataForFrance;
     }
-
+    
     private _dataForNorway: DataForNorway = null;
     public get dataForNorway(): DataForNorway {
         if (this._dataForNorway == null)
@@ -141,6 +138,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._dataForNorway;
     }
+    
+
 
 }
 // rendering above component in the React DOM

@@ -1,20 +1,19 @@
-import {Data, Callouts } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { IgrBarSeries } from 'igniteui-react-charts';
-import { IgrCalloutLayer } from 'igniteui-react-charts';
-import { IgrCalloutLayerModule } from 'igniteui-react-charts';
-import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartVerticalCategoryModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
+import { DataItem, Data, CalloutsItem, Callouts } from './SampleData';
+import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartVerticalCategoryModule, IgrAnnotationLayerProxyModule, IgrCalloutLayerModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
+import { IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrBarSeries, IgrCalloutLayer } from 'igniteui-react-charts';
 
-import { IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis } from 'igniteui-react-charts';
 const mods: any[] = [
-    IgrCalloutLayerModule,
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
+    IgrDataChartCategoryCoreModule,
+    IgrDataChartInteractivityModule,
     IgrDataChartVerticalCategoryModule,
+    IgrAnnotationLayerProxyModule,
+    IgrCalloutLayerModule,
     IgrDataChartAnnotationModule
 ];
 mods.forEach((m) => m.register());
@@ -27,20 +26,23 @@ export default class Sample extends React.Component<any, any> {
     }
     private yAxis: IgrCategoryYAxis
     private xAxis: IgrNumericXAxis
+    private barSeries1: IgrBarSeries
+    private calloutLayer1: IgrCalloutLayer
 
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Where Online Shoppers Start Their Search
             </div>
+            
             <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
@@ -58,16 +60,17 @@ export default class Sample extends React.Component<any, any> {
                         labelFormat="{0}%"
                         name="xAxis">
                     </IgrNumericXAxis>
-                    <IgrBarSeries name="series1"
+                    <IgrBarSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         valueMemberPath="percent"
                         isTransitionInEnabled="true"
                         dataSource={this.data}
                         isHighlightingEnabled="true"
-                        showDefaultTooltip="true">
+                        showDefaultTooltip="true"
+                        name="BarSeries1">
                     </IgrBarSeries>
-                    <IgrCalloutLayer name="layer1"
+                    <IgrCalloutLayer
                         labelMemberPath="label"
                         xMemberPath="x"
                         yMemberPath="y"
@@ -75,13 +78,14 @@ export default class Sample extends React.Component<any, any> {
                         calloutTextColor="black"
                         calloutBackground="rgba(0, 0, 0, 0)"
                         calloutLeaderBrush="rgba(0, 0, 0, 0)"
-                        dataSource={this.callouts}>
+                        dataSource={this.callouts}
+                        name="CalloutLayer1">
                     </IgrCalloutLayer>
                 </IgrDataChart>
             </div>
         </div>
         );
-   }
+    }
 
     private _data: Data = null;
     public get data(): Data {
@@ -91,7 +95,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._data;
     }
-
+    
     private _callouts: Callouts = null;
     public get callouts(): Callouts {
         if (this._callouts == null)
@@ -100,6 +104,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._callouts;
     }
+    
+
 
 }
 // rendering above component in the React DOM
