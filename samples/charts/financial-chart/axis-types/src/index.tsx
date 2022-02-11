@@ -14,7 +14,7 @@ export default class FinancialChartAxisTypes extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.state = { xAxisMode: "Ordinal", yAxisMode: "Numeric" }
+        this.state = { xAxisMode: "Ordinal", yAxisMode: "Numeric", yAxisIsLogarithmic: false }
         this.initData();
     }
 
@@ -34,6 +34,11 @@ export default class FinancialChartAxisTypes extends React.Component<any, any> {
                     <option>PercentChange</option>
                     <option>Numeric</option>
                 </select>
+                <label className="options-item">
+                    <input type="checkbox"
+                        checked={this.state.yAxisIsLogarithmic}
+                        onChange={this.onYAxisIsLogarithmicChanged}/> Y-Axis IsLogarithmic 
+                </label>
             </div>
             <div className="container" style={{height: "calc(100% - 65px)"}}>
                 <IgrFinancialChart
@@ -41,7 +46,8 @@ export default class FinancialChartAxisTypes extends React.Component<any, any> {
                     height="100%"
                     xAxisMode={this.state.xAxisMode}
                     yAxisMode={this.state.yAxisMode}
-                    chartType="Line"
+                    yAxisIsLogarithmic={this.state.yAxisIsLogarithmic}
+                    chartType="Candle"
                     dataSource={this.data}/>
             </div>
 
@@ -57,6 +63,11 @@ export default class FinancialChartAxisTypes extends React.Component<any, any> {
     public onYAxisModeChanged = (e: any) =>{
         const mode = e.target.value;
         this.setState({yAxisMode: mode});
+    }
+
+    public onYAxisIsLogarithmicChanged = (e: any) => {
+        const setValue = e.target.checked;
+        this.setState({yAxisIsLogarithmic: setValue});
     }
 
     public initData() {
