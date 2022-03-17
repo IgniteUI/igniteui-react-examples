@@ -60,99 +60,23 @@ export default class DataChartCompositeChart extends React.Component<any, any> {
             isHorizontalZoomEnabled={false}
             isVerticalZoomEnabled={false}
           >
-            <IgrCategoryXAxis
-              name="xAxis"
-              label="Date"
-              overlap="0"
-              gap="0.1"
-              useClusteringMode={true}
-            />
+            <IgrCategoryXAxis name="xAxis" label="Date" overlap="0" gap="0.1" useClusteringMode={true}/>
 
-            <IgrNumericYAxis
-              name="yAxis"
-              abbreviateLargeNumbers={true}
-              title="U.S. Dollars"
-              minimumValue={0}
-              maximumValue={30000000}
-              titleLeftMargin={5}
-              titleRightMargin={0}
-            />
-            <IgrNumericYAxis
-              name="yAxis2"
-              abbreviateLargeNumbers={true}
-              title="Percentage"
-              majorStrokeThickness={0}
-              minimumValue={20}
-              maximumValue={80}
-              labelLocation="OutsideRight"
-              labelHorizontalAlignment="Left"
-            />
+            <IgrNumericYAxis name="yAxis" abbreviateLargeNumbers={true} title="U.S. Dollars" minimumValue={0} maximumValue={30000000} titleLeftMargin={5} titleRightMargin={0}/>
 
-            <IgrColumnSeries
-              name="series1"
-              xAxisName="xAxis"
-              yAxisName="yAxis"
-              valueMemberPath="Revenue"
-              title="Revenue"
-              markerType="Hidden"
-            />
+            <IgrNumericYAxis name="yAxis2" abbreviateLargeNumbers={true} title="Percentage" majorStrokeThickness={0} minimumValue={0} maximumValue={160} labelLocation="OutsideRight" labelHorizontalAlignment="Left"/>
 
-            <IgrColumnSeries
-              name="series2"
-              xAxisName="xAxis"
-              yAxisName="yAxis"
-              valueMemberPath="Expenses"
-              title="Expenses"
-              markerType="Hidden"
-            />
+            <IgrColumnSeries name="series1" xAxisName="xAxis" yAxisName="yAxis" valueMemberPath="Revenue" title="Revenue" markerType="Hidden"/>
 
-            <IgrSplineAreaSeries
-              name="series3"
-              xAxisName="xAxis"
-              yAxisName="yAxis2"
-              valueMemberPath="IncomePerRevenue"
-              title="Income / Revenue %"
-              markerType="Circle"
-            />
+            <IgrColumnSeries name="series2" xAxisName="xAxis" yAxisName="yAxis" valueMemberPath="Expenses" title="Expenses" markerType="Hidden"/>
 
-            <IgrCalloutLayer
-              name="callout1"
-              targetSeriesName="series1"
-              xMemberPath="RevenueX"
-              yMemberPath="Revenue"
-              labelMemberPath="FormattedRevenue"
-              isAutoCalloutBehaviorEnabled={false}
-              useValueForAutoCalloutLabels={false}
-              calloutLeaderBrush="Transparent"
-              calloutBackground="Transparent"
-              calloutTextColor="Black"
-              calloutPositionPadding="-5"
-            />
+            <IgrSplineAreaSeries name="series3" xAxisName="xAxis" yAxisName="yAxis2" valueMemberPath="IncomePerRevenue" title="Income / Revenue %" markerType="Circle"/>
 
-            <IgrCalloutLayer
-              name="callout2"
-              targetSeriesName="series2"
-              xMemberPath="ExpensesX"
-              yMemberPath="Expenses"
-              labelMemberPath="FormattedExpenses"
-              isAutoCalloutBehaviorEnabled={false}
-              useValueForAutoCalloutLabels={false}
-              calloutLeaderBrush="Transparent"
-              calloutBackground="Transparent"
-              calloutTextColor="Black"
-              calloutPositionPadding="-5"
-            />
+            <IgrCalloutLayer name="callout1" targetSeriesName="series1" xMemberPath="RevenueX" yMemberPath="Revenue" labelMemberPath="FormattedRevenue" isAutoCalloutBehaviorEnabled={false} useValueForAutoCalloutLabels={false} calloutLeaderBrush="Transparent" calloutBackground="Transparent" calloutTextColor="Black" calloutPositionPadding="-5"/>
 
-            <IgrCalloutLayer
-              name="callout3"
-              targetSeriesName="series3"
-              isAutoCalloutBehaviorEnabled={true}
-              useValueForAutoCalloutLabels={true}
-              calloutLeaderBrush="Transparent"
-              calloutTextColor="Black"
-              calloutBackground="LightGray"
-              autoCalloutLabelPrecision={1}
-            />
+            <IgrCalloutLayer name="callout2" targetSeriesName="series2" xMemberPath="ExpensesX" yMemberPath="Expenses" labelMemberPath="FormattedExpenses" isAutoCalloutBehaviorEnabled={false} useValueForAutoCalloutLabels={false} calloutLeaderBrush="Transparent" calloutBackground="Transparent" calloutTextColor="Black" calloutPositionPadding="-5"/>
+
+            <IgrCalloutLayer name="callout3" targetSeriesName="series3" isAutoCalloutBehaviorEnabled={true} useValueForAutoCalloutLabels={true} calloutLeaderBrush="Transparent" calloutTextColor="Black" calloutBackground="LightGray" autoCalloutLabelPrecision={1}/>
           </IgrDataChart>
         </div>
       </div>
