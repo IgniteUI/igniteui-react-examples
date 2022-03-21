@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import "./date-picker-range.css";
-import { IgrDatePicker, IgrDatePickerModule, IgrValueChangedEventArgs } from 'igniteui-react-inputs';
+import { IgrDatePicker, IgrDatePickerModule, IgrSelectedValueChangedEventArgs } from 'igniteui-react-inputs';
 
 IgrDatePickerModule.register();
 
@@ -24,9 +24,9 @@ export default class DatePickerRange extends React.Component<any, any> {
             <div className="container sample">
                 <div className="dateRanges">
                     <label className="caption">From:  </label>
-                    <IgrDatePicker ref={this.onFromDatePickerRef} height="50px" width="220px" valueChanged={this.fromDateChanged}  />
+                    <IgrDatePicker ref={this.onFromDatePickerRef} height="50px" width="220px" selectedValueChanged={this.fromDateChanged}  />
                     <label className="caption">  To:  </label>
-                    <IgrDatePicker ref={this.onToDatePickerRef} height="50px" width="220px" valueChanged={this.toDateChanged}/>
+                    <IgrDatePicker ref={this.onToDatePickerRef} height="50px" width="220px" selectedValueChanged={this.toDateChanged}/>
                 </div>
             </div>
         );
@@ -48,14 +48,14 @@ export default class DatePickerRange extends React.Component<any, any> {
         picker.allowTextInput = false;
     }
 
-    public fromDateChanged(s: IgrDatePicker, e: IgrValueChangedEventArgs) {
+    public fromDateChanged(s: IgrDatePicker, e: IgrSelectedValueChangedEventArgs) {
         let newDate = e.newValue;
         if (this.toDatePickerRef != null && newDate > this.toDatePickerRef.value) {
             this.toDatePickerRef.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() + 1);
         }
     }
 
-    public toDateChanged(s: IgrDatePicker, e: IgrValueChangedEventArgs) {
+    public toDateChanged(s: IgrDatePicker, e: IgrSelectedValueChangedEventArgs) {
         let newDate = e.newValue;
         if (this.fromDatePickerRef != null && newDate < this.fromDatePickerRef.value) {
             this.fromDatePickerRef.value = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() - 1);
