@@ -87,7 +87,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                     <IgrDateTimeColumn field="Birthday" headerText="Date of Birth"
                     horizontalAlignment="stretch" width="*>180" paddingRight="10"/>
 
-                    <IgrComboBoxColumn field="City" headerText="City" dataSource={this.cityList} textField="City" valueField={["City"]} width="*>130"/>
+                    <IgrComboBoxColumn field="City" headerText="City" dataSource={this.cityList} textField="City" valueField="City" width="*>130"/>
 
                     <IgrImageColumn field="CountryFlag" headerText="Country Flag" contentOpacity="1"
                     horizontalAlignment="stretch" width="150" paddingTop="5" paddingBottom="5" />
