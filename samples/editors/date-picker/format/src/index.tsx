@@ -35,7 +35,7 @@ export default class DatePickerFormat extends React.Component<any, any> {
                     </select>
                 </div>
                 <div className="container">
-                    <IgrDatePicker ref={this.onDatePickerRef} dateFormat={this.state.dateFormat} height="60px" width="220px" />
+                    <IgrDatePicker ref={this.onDatePickerRef} dateFormat={this.state.dateFormat} height="60px" width="300px" />
                 </div>
             </div>
         );
