@@ -10,6 +10,7 @@ import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 import { EnterKeyBehaviors } from 'igniteui-react-grids';
 import { EnterKeyBehaviorAfterEdit } from 'igniteui-react-grids';
+import { EditModeType } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
 IgrGridColumnOptionsModule.register();
@@ -20,7 +21,7 @@ export default class DataGridCellActivation extends React.Component<any, any> {
     public grid: IgrDataGrid;
 
     public canMoveAfterEdit: boolean;
-
+    public canEdit: EditModeType;
 
     constructor(props: any) {
         super(props);
@@ -32,7 +33,8 @@ export default class DataGridCellActivation extends React.Component<any, any> {
         this.state = {
             canMoveAfterEdit: true,
             enterBehavior: EnterKeyBehaviors.Edit,
-            enterBehaviorAfterEdit: EnterKeyBehaviorAfterEdit.MoveDown
+            enterBehaviorAfterEdit: EnterKeyBehaviorAfterEdit.MoveDown,
+            canEdit: EditModeType.Cell
         };
 
         this.data = DataGridSharedData.getEmployees();
@@ -74,6 +76,7 @@ export default class DataGridCellActivation extends React.Component<any, any> {
                     dataSource={this.data}
                     enterBehavior={this.state.enterBehavior}
                     enterBehaviorAfterEdit={this.state.enterBehaviorAfterEdit}
+                    editMode={this.state.canEdit}
                     selectionMode="SingleCell"
                     activationMode="Cell"
                     isColumnOptionsEnabled="true">
@@ -98,11 +101,11 @@ export default class DataGridCellActivation extends React.Component<any, any> {
     public onEnterKeyModeChange = (e: any) => {
 
         if(e.target.value !== "Edit"){
-            this.setState({ canMoveAfterEdit: false, enterBehavior: e.target.value, enterBehaviorAfterEdit:EnterKeyBehaviorAfterEdit.None });
+            this.setState({ canMoveAfterEdit: false, canEdit:EditModeType.None, enterBehavior: e.target.value, enterBehaviorAfterEdit:EnterKeyBehaviorAfterEdit.None });
         }
         else if (e.target.value === "Edit") {
 
-            this.setState({ canMoveAfterEdit: true, enterBehavior: e.target.value, enterBehaviorAfterEdit:EnterKeyBehaviorAfterEdit.MoveDown });
+            this.setState({ canMoveAfterEdit: true, canEdit:EditModeType.Cell, enterBehavior: e.target.value, enterBehaviorAfterEdit:EnterKeyBehaviorAfterEdit.MoveDown });
         }
 
     }
