@@ -80,6 +80,7 @@ export default class Sample extends React.Component<any, any> {
                     chartType="Line"
                     dataSource={this.data}
                     isSeriesHighlightingEnabled="true"
+                    computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
             </div>

@@ -6,6 +6,7 @@ import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrCategoryChartModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
 
+
 const mods: any[] = [
     IgrLegendModule,
     IgrCategoryChartModule,
@@ -58,6 +59,7 @@ export default class Sample extends React.Component<any, any> {
                     isVerticalZoomEnabled="false"
                     markerBrushes="white"
                     markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
+                    computedPlotAreaMarginMode="Series"
                     toolTipType="Category"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
@@ -78,5 +80,7 @@ export default class Sample extends React.Component<any, any> {
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

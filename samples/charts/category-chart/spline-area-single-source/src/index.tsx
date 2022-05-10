@@ -6,6 +6,7 @@ import { DataItem, Data } from './SampleData';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 
+
 const mods: any[] = [
     IgrCategoryChartModule
 ];
@@ -35,14 +36,15 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrCategoryChart
                     chartType="SplineArea"
-                    isTransitionInEnabled="true"
-                    yAxisLabelLeftMargin="0"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisTitle="TWh"
-                    dataSource={this.data}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    dataSource={this.data}
+                    yAxisTitle="TWh"
+                    yAxisTitleLeftMargin="10"
+                    yAxisTitleRightMargin="5"
+                    yAxisLabelLeftMargin="0"
+                    isTransitionInEnabled="true"
+                    computedPlotAreaMarginMode="Series"
                     toolTipType="Category"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
@@ -63,5 +65,7 @@ export default class Sample extends React.Component<any, any> {
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));
