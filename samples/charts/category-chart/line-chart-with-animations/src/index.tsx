@@ -74,7 +74,8 @@ export default class CategoryChartLineChartWithAnimations extends React.Componen
                     yAxisTitle="TWh"
                     yAxisTitleLeftMargin={10}
                     yAxisTitleRightMargin={5}
-                    yAxisLabelLeftMargin={0} />
+                    yAxisLabelLeftMargin={0} 
+					computedPlotAreaMarginMode="Series"/>
             </div>
         );
     }
