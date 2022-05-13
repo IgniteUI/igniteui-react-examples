@@ -1,6 +1,6 @@
 {
-  "name": "react-data-chart-scrollbars",
-  "description": "This project provides example of Data Chart Scrollbars using Infragistics React components",
+  "name": "react-financial-chart-stock-index-chart",
+  "description": "This project provides example of Financial Chart Stock Index Chart using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
@@ -12,8 +12,8 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@infragistics/igniteui-react-core": "21.2.222",
-    "@infragistics/igniteui-react-charts": "21.2.222",
+    "@infragistics/igniteui-react-core": "21.2.0-dev.888",
+    "@infragistics/igniteui-react-charts": "21.2.0-dev.888",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
