@@ -1,6 +1,6 @@
 {
-  "name": "react-financial-chart-stock-index-chart",
-  "description": "This project provides example of Financial Chart Stock Index Chart using Infragistics React components",
+  "name": "react-financial-chart-scrollbars",
+  "description": "This project provides example of Financial Chart Scrollbars using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

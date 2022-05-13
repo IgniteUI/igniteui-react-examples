@@ -7,7 +7,7 @@ import { StockIndexData } from './StockIndexData';
 
 IgrFinancialChartModule.register();
 
-export default class FinancialChartStockIndexChart extends React.Component<any, any> {
+export default class FinancialChartScrollbars extends React.Component<any, any> {
 
     private chart: IgrFinancialChart;
     public data: any[];
@@ -54,4 +54,4 @@ export default class FinancialChartStockIndexChart extends React.Component<any, 
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<FinancialChartStockIndexChart />, document.getElementById('root'));
+ReactDOM.render(<FinancialChartScrollbars />, document.getElementById('root'));
