@@ -1,0 +1,124 @@
+export class DataGridLocalizationJa {
+    [key: string]: string;
+    "Apply": string = "申し込み";
+    "Cancel": string = "キャンセル";
+    "Clear_Column_Filter": string = "[JP]Clear";
+    "Column_Move": string = "[JP]Move";
+    "Column_Move_Left": string = "[JP]Left";
+    "Column_Move_Right": string = "[JP]Right";
+    "Column_Pin": string = "[JP]Pin";
+    "Column_Pin_Left": string = "[JP]Left";
+    "Column_Pin_Right": string = "[JP]Right";
+    "Column_Sort": string = "[JP]Sort";
+    "Column_Sort_Ascending": string = "[JP]Asc";
+    "Column_Sort_Descending": string = "[JP]Dec";
+    "Filter_Columns_List": string = "[JP]Filter";
+    "Search": string = "[JP]Search";
+    "Select_All": string = "[JP]Select All";
+    "ComparisonOperator_Bottom": string = "[JP]Bottom";
+    "ComparisonOperator_BottomPercentile": string = "[JP]Bottom percentile";
+    "ComparisonOperator_Contains": string = "[JP]Contains";
+    "ComparisonOperator_DoesNotContain": string = "[JP]Does not contain";
+    "ComparisonOperator_DoesNotEndWith": string = "[JP]Does not end with";
+    "ComparisonOperator_DoesNotMatch": string = "[JP]Does not match";
+    "ComparisonOperator_DoesNotStartWith": string = "[JP]Does not start with";
+    "ComparisonOperator_Empty": string = "[JP]Empty";
+    "ComparisonOperator_EndsWith": string = "[JP]Ends with";
+    "ComparisonOperator_Equals": string = "[JP]Equals";
+    "ComparisonOperator_False": string = "[JP]False";
+    "ComparisonOperator_GreaterThan": string = "[JP]Greater than";
+    "ComparisonOperator_GreaterThanOrEqualTo": string = "[JP]Greater than or equal to";
+    "ComparisonOperator_LastMonth": string = "[JP]Last Month";
+    "ComparisonOperator_LastQuater": string = "[JP]Last Quarter";
+    "ComparisonOperator_LastWeek": string = "[JP]Last Week";
+    "ComparisonOperator_LastYear": string = "[JP]Last Year";
+    "ComparisonOperator_LessThan": string = "[JP]Less than";
+    "ComparisonOperator_LessThanOrEqualTo": string = "[JP]Less than or equal to";
+    "ComparisonOperator_NextMonth": string = "[JP]Next Month";
+    "ComparisonOperator_NextQuater": string = "[JP]Next Quarter";
+    "ComparisonOperator_NextWeek": string = "[JP]Next Week";
+    "ComparisonOperator_NextYear": string = "[JP]Next Year";
+    "ComparisonOperator_NotEmpty": string = "[JP]Not empty";
+    "ComparisonOperator_NotEquals": string = "[JP]Not equals";
+    "ComparisonOperator_StartsWith": string = "[JP]Starts with";
+    "ComparisonOperator_ThisMonth": string = "[JP]This Month";
+    "ComparisonOperator_ThisQuarter": string = "[JP]This Quarter";
+    "ComparisonOperator_ThisWeek": string = "[JP]This Week";
+    "ComparisonOperator_ThisYear": string = "[JP]This Year";
+    "ComparisonOperator_Today": string = "[JP]Today";
+    "ComparisonOperator_Tomorrow": string = "[JP]Tomorrow";
+    "ComparisonOperator_Top": string = "[JP]Top";
+    "ComparisonOperator_TopPercentile": string = "[JP]Top percentile";
+    "ComparisonOperator_True": string = "[JP]True";
+    "ComparisonOperator_Yesterday": string = "[JP]Yesterday";
+    "Column_Options_Summary_Average": string = "[JP]Avg";
+    "Column_Options_Summary_Count": string = "[JP]Count";
+    "Column_Options_Summary_Maximum": string = "[JP]Maximum";
+    "Column_Options_Summary_Minimum": string = "[JP]Minimum";
+    "Column_Options_Summary_Sum": string = "[JP]Sum";
+    "Column_Options_Summaries": string = "[JP]Summaries";
+}
+
+export class DataGridSummariesLocalizationJa {
+    [key: string]: string;
+    "DataSource_Summary_Avg": string = "[JP]Avg"; 
+    "DataSource_Summary_Count": string = "[JP]Count"; 
+    "DataSource_Summary_Max": string = "[JP]Max"; 
+    "DataSource_Summary_Min": string = "[JP]Min"; 
+    "DataSource_Summary_Sum": string = "[JP]Sum";
+}
+
+export class DataGridDateTimeColumnLocalizationJa {
+    [key: string]: string;
+    "April_Full" = "4月";
+	"April_Short" = "4月";
+	"August_Full" = "August";
+	"August_Short" = "8月";
+	"December_Full" = "December";
+	"December_Short" = "12月";
+	"February_Full" = "February";
+	"February_Short" = "2月";
+	"Friday_Full" = "Friday";
+	"Friday_Short" = "Fri";
+	"Friday_Single" = "金";
+	"January_Full" = "January";
+	"January_Short" = "1月";
+	"July_Full" = "July";
+	"July_Short" = "7月";
+	"June_Full" = "June";
+	"June_Short" = "6月";
+	"March_Full" = "March";
+	"March_Short" = "3月";
+	"May_Full" = "May";
+	"May_Short" = "5月";
+	"Monday_Full" = "Monday";
+	"Monday_Short" = "Mon";
+	"Monday_Single" = "月";
+	"November_Full" = "November";
+	"November_Short" = "11月";
+	"October_Full" = "October";
+	"October_Short" = "10月";
+	"Saturday_Full" = "Saturday";
+	"Saturday_Short" = "Sat";
+	"Saturday_Single" = "土";
+	"September_Full" = "September";
+	"September_Short" = "9月";
+	"Sunday_Full" = "Sunday";
+	"Sunday_Short" = "Sun";
+	"Sunday_Single" = "日";
+	"Thursday_Full" = "Thursday";
+	"Thursday_Short" = "Thu";
+	"Thursday_Single" = "木";
+	"Today" = "Today";
+	"Tuesday_Full" = "Tuesday";
+	"Tuesday_Short" = "Tue";
+	"Tuesday_Single" = "火";
+	"Wednesday_Full" = "Wednesday";
+	"Wednesday_Short" = "Wed";
+	"Wednesday_Single" = "水";
+}
+
+export class DataGridMultiColumnComboBoxLocalizationJa {
+    [key: string]: string;
+    "NoMatches" = "[JP]NoMatches";
+}
