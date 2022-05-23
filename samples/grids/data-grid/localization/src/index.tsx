@@ -1,22 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { IgrColumnSummaryDescription } from 'igniteui-react-grids'
+import { IgrComboBoxColumn } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
 import { SummaryOperand } from 'igniteui-react-core';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 import { Localization } from 'igniteui-react-core';
+import { DataGridSharedData } from './DataGridSharedData';
+
+// importing localization data:
 import { DataGridLocalizationJa } from './DataGridLocaleJa';
 import { DataGridSummariesLocalizationJa } from './DataGridLocaleJa';
 import { DataGridDateTimeColumnLocalizationJa } from './DataGridLocaleJa';
 import { DataGridMultiColumnComboBoxLocalizationJa } from './DataGridLocaleJa';
-import { IgrComboBoxColumn } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
 IgrGridColumnOptionsModule.register();
