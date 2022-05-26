@@ -70,17 +70,17 @@ export default class DataGridLocalization extends React.Component<any, any> {
                     groupHeaderDisplayMode = "combined"
                     isColumnOptionsEnabled="true"
                     dataSource={this.data}>
-                        <IgrNumericColumn field="ProductID" width="*>120" headerText="ID" horizontalAlignment="center" />
-                        <IgrTextColumn field="ProductName" width="*>130" headerText="Product"/>
-                        <IgrNumericColumn positivePrefix="$" field="BundlePrice" width="*>120" showGroupingSeparator="true" headerText="Price" />
-                        <IgrNumericColumn field="OrderItems" width="*>140" headerText="Orders"/>
-                        <IgrNumericColumn field="OrderValue" width="*>160" showGroupingSeparator="true" headerText="Order Totals"
+                        <IgrNumericColumn field="ProductID" width="*>120" headerText="製品番号" horizontalAlignment="center" />
+                        <IgrTextColumn field="ProductName" width="*>130" headerText="製品"/>
+                        <IgrNumericColumn positivePrefix="$" field="BundlePrice" width="*>120" showGroupingSeparator="true" headerText="価格" />
+                        <IgrNumericColumn field="OrderItems" width="*>140" headerText="注文"/>
+                        <IgrNumericColumn field="OrderValue" width="*>160" showGroupingSeparator="true" headerText="注文合計"
                         positivePrefix="$"  />
-                        <IgrDateTimeColumn field="OrderDate" width="*>150" headerText="Order Date"
+                        <IgrDateTimeColumn field="OrderDate" width="*>150" headerText="注文日"
                         horizontalAlignment="right"  />
-                        <IgrNumericColumn field="Profit" width="*>140" showGroupingSeparator="true" headerText="Profit"
+                        <IgrNumericColumn field="Profit" width="*>140" showGroupingSeparator="true" headerText="利益"
                         positivePrefix="$"  />
-                        <IgrComboBoxColumn dataSource={this.countryList} field="Countries" textField="Countries" valueField="Countries" width="*>170" headerText="Ship Country"/>
+                        <IgrComboBoxColumn dataSource={this.countryList} field="Countries" textField="Countries" valueField="Countries" width="*>170" headerText="出荷国"/>
                 </IgrDataGrid>
             </div>
         );
@@ -114,22 +114,25 @@ export default class DataGridLocalization extends React.Component<any, any> {
        
         const productGroup = new IgrColumnGroupDescription();
         productGroup.field = "ProductName";
-        productGroup.displayName = "ProductName";
+        productGroup.displayName = "商品名";
         this.grid.groupDescriptions.add(productGroup);
 
         const productCount = new IgrColumnSummaryDescription();
         productCount.field = "ProductName";
+        productCount.displayName = "商品名"
         productCount.operand = SummaryOperand.Count;
         this.grid.summaryDescriptions.add(productCount);
 
         const priceMin = new IgrColumnSummaryDescription();
         priceMin.field = "BundlePrice";
+        priceMin.displayName = "価格"
         priceMin.operand = SummaryOperand.Min;
         priceMin.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMin);
 
         const priceMax = new IgrColumnSummaryDescription();
         priceMax.field = "BundlePrice";
+        priceMax.displayName = "価格";
         priceMax.operand = SummaryOperand.Max;
         priceMax.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMax);
@@ -141,18 +144,21 @@ export default class DataGridLocalization extends React.Component<any, any> {
 
         const orderValueSum = new IgrColumnSummaryDescription();
         orderValueSum.field = "OrderValue";
+        orderValueSum.displayName = "オーダー値";
         orderValueSum.operand = SummaryOperand.Sum;
         orderValueSum.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0});
         this.grid.summaryDescriptions.add(orderValueSum);
 
         const orderValueAvg = new IgrColumnSummaryDescription();
         orderValueAvg.field = "OrderValue";
+        orderValueAvg.displayName = "オーダー値";
         orderValueAvg.operand = SummaryOperand.Average;
         orderValueAvg.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(orderValueAvg);
 
         const orderDateMin = new IgrColumnSummaryDescription();
         orderDateMin.field = "OrderDate";
+        orderDateMin.displayName = "注文日";
         orderDateMin.operand = SummaryOperand.Min;
         orderDateMin.calculatorDisplayName = "First"
         orderDateMin.formatOverride = new Intl.DateTimeFormat('en-EN');
@@ -160,6 +166,7 @@ export default class DataGridLocalization extends React.Component<any, any> {
 
         const orderDateMax = new IgrColumnSummaryDescription();
         orderDateMax.field = "OrderDate";
+        orderDateMax.displayName = "注文日";
         orderDateMax.operand = SummaryOperand.Max;
         orderDateMax.calculatorDisplayName = "Last"
         orderDateMax.formatOverride = new Intl.DateTimeFormat('en-EN');
@@ -167,12 +174,14 @@ export default class DataGridLocalization extends React.Component<any, any> {
 
         const sum1 = new IgrColumnSummaryDescription();
         sum1.field = "Profit";
+        sum1.displayName = "利益";
         sum1.operand = SummaryOperand.Sum;
         sum1.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(sum1);
 
         const avg2 = new IgrColumnSummaryDescription();
         avg2.field = "Profit";
+        avg2.displayName = "利益";
         avg2.operand = SummaryOperand.Average;
         avg2.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(avg2);
