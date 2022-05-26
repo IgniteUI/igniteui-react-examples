@@ -139,6 +139,7 @@ export default class DataGridLocalization extends React.Component<any, any> {
 
         const orderSum = new IgrColumnSummaryDescription();
         orderSum.field = "OrderItems";
+        orderSum.displayName = "アイテムを注文する";
         orderSum.operand = SummaryOperand.Sum;
         this.grid.summaryDescriptions.add(orderSum);
 
