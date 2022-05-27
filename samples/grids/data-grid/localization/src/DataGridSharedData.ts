@@ -23,7 +23,7 @@ export class DataGridSharedData {
             const website: string = firstName.toLowerCase() + "-" + this.getRandomItem(this.websites);
             let photoPath: any;
 
-            if (gender === "male") {
+            if (gender === "男") {
                 maleCount++;
                 if (maleCount > 26) {
                     maleCount = 1;
@@ -61,11 +61,11 @@ export class DataGridSharedData {
             person.Productivity = this.getProductivity();
 
             if (person.Salary < 50000) {
-                person.Income = "Low";
+                person.Income = "低い";
             } else if (person.Salary < 100000) {
-                person.Income = "Average";
+                person.Income = "平均";
             } else {
-                person.Income = "High";
+                person.Income = "高い";
             }
 
             employees.push(person);
@@ -98,8 +98,8 @@ export class DataGridSharedData {
             "Samsung HDD", "WD HDD", "Seagate HDD", "Intel HDD",
             "Samsung SSD", "WD SSD", "Seagate SSD", "Intel SSD",
             "Samsung Monitor", "Asus Monitor", "LG Monitor", "HP Monitor" ];
-        const countries: string[] = ["USA", "UK", "France", "Canada", "Poland", "Japan", "Germany"];
-        const status: string[] = ["Packing", "Shipped", "Delivered"];
+        const countries: string[] = ["アメリカ合衆国", "イギリス", "フランス", "カナダ", "ポーランド", "日本", "ドイツ"];
+        const status: string[] = ["梱包中", "出荷完了", "配達完了"];
         const sales: any[] = [];
 
         for (let i = 0; i < count; i++) {
@@ -133,9 +133,10 @@ export class DataGridSharedData {
         }
 
         const houses: any[] = [];
-        const property: string[] = [ "Townhouse", "Single", "Condo", "Villa"];
+        const property: string[] = [ "タウンハウス", "戸建て", "マンション", "別荘"];
         const emails: string[] = [ "estates.com", "remax.com", "zillow.com", "realtor.com", "coldwell.com"];
-        const countries: string[] = ["USA", "UK", "France", "Canada", "Poland", "Japan", "Germany"];
+        const countries: string[] = ["アメリカ合衆国", "イギリス", "フランス", "カナダ", "ポーランド", "日本", "ドイツ"];
+
 
         for (let i = 0; i < count; i++) {
             const year: number = this.getRandomNumber(1950, 2015);
@@ -176,20 +177,20 @@ export class DataGridSharedData {
 
     private static websites: string[] = [ ".com", ".gov", ".edu", ".org"];
     private static emails: string[] = [ "gmail.com", "yahoo.com", "twitter.com"];
-    private static genders: string[] = ["male", "female"];
-    private static maleNames: string[] = ["Kyle", "Oscar", "Ralph", "Mike", "Bill", "Frank", "Howard", "Jack", "Larry", "Pete", "Steve", "Vince", "Mark", "Alex", "Max", "Brian", "Chris", "Andrew", "Martin", "Mike", "Steve", "Glenn", "Bruce"];
-    private static femaleNames: string[] = ["Gina", "Irene", "Katie", "Brenda", "Casey", "Fiona", "Holly", "Kate", "Liz", "Pamela", "Nelly", "Marisa", "Monica", "Anna", "Jessica", "Sofia", "Isabella", "Margo", "Jane", "Audrey", "Sally", "Melanie", "Greta", "Aurora", "Sally"];
-    private static lastNames: string[] = ["Adams", "Crowley", "Ellis", "Martinez", "Irvine", "Maxwell", "Clark", "Owens", "Rooney", "Lincoln", "Thomas", "Spacey", "MOrgan", "King", "Newton", "Fitzgerald", "Holmes", "Jefferson", "Landry", "Berry", "Perez", "Spencer", "Starr", "Carter", "Edwards", "Stark", "Johnson", "Fitz", "Chief", "Blanc", "Perry", "Stone", "Williams", "Lane", "Jobs", "Adams", "Power", "Tesla"];
-    private static countries: string[] = ["USA", "UK", "France", "Canada", "Poland"];
-    private static citiesUS: string[] = ["New York", "Los Angeles", "Miami", "San Francisco", "San Diego", "Las Vegas"];
-    private static citiesUK: string[] = ["London", "Liverpool", "Manchester"];
-    private static citiesFR: string[] = ["Paris", "Marseille", "Lyon"];
-    private static citiesCA: string[] = ["Toronto", "Vancouver", "Montreal"];
-    private static citiesPL: string[] = ["Krakow", "Warsaw", "Wroclaw", "Gdansk"];
-    private static citiesJP: string[] = ["Tokyo", "Osaka", "Kyoto", "Yokohama"];
-    private static citiesGR: string[] = ["Berlin", "Bonn", "Cologne", "Munich", "Hamburg"];
-    private static roadSuffixes: string[] = ["Road", "Street", "Way"];
-    private static roadNames: string[] = ["Main", "Garden", "Broad", "Oak", "Cedar", "Park", "Pine", "Elm", "Market", "Hill"];
+    private static genders: string[] = ["男", "女"];
+    private static maleNames: string[] = ["カイル", "オスカー", "ラルフ", "マイク", "ビル", "フランク", "ハワード", "ジャック", "ラリー", "ピート", "スティーブ", "ヴィンス", "マーク", "アレックス", "マックス", "ブライアン", "クリス", "アンドリュー", "マーティン", "マイク", "スティーブ", "グレン", "ブルース"];
+    private static femaleNames: string[] = ["ジーナ", "アイリーン", "ケイティ", "ブレンダ", "ケーシー", "フィオナ", "ホリー", "ケイト", "リズ", "パメラ", "ネリー", "マリサ", "モニカ", "アンナ", "ジェシカ", "ソフィア", "イザベラ", "マーゴ", "ジェーン", "オードリー", "サリー", "メラニー", "グレタ", "オーロラ", "サリー"];
+    private static lastNames: string[] = ["アダムス", "クローリー", "エリス", "マルチネス", "アーバイン", "マクスウェル", "クラーク", "オーエンス", "ルーニー", "リンカーン", "トーマス", "スペーシー", "モーガン", "キング", "ニュートン", "フィッツジェラルド", "ホームズ", "ジェファーソン", "ランドリー", "ベリー", "ペレス", "スペンサー", "スター", "カーター", "エドワーズ", "スターク", "ジョンソン", "フィッツ", "チーフ", "ブランク", "ペリー", "ストーン", "ウィリアムズ", "レーン", "ジョブズ", "アダムス", "パワー", "テスラ"];
+    private static countries: string[] = ["アメリカ合衆国", "イギリス", "フランス", "カナダ", "ポーランド"];
+    private static citiesUS: string[] = ["ニューヨーク", "ロサンゼルス", "マイアミ", "サンフランシスコ", "サンディエゴ", "ラスベガス"];
+    private static citiesUK: string[] = ["ロンドン", "リバプール", "マンチェスター"];
+    private static citiesFR: string[] = ["パリ", "マルセイユ", "リヨン"];
+    private static citiesCA: string[] = ["トロント", "バンクーバー", "モントリオール"];
+    private static citiesPL: string[] = ["クラクフ", "ワルシャワ", "ヴロツワフ", "グダニスク"];
+    private static citiesJP: string[] = ["東京", "大阪", "京都", "横浜"];
+    private static citiesGR: string[] = ["ベルリン", "ボン", "ケルン", "ミュンヘン", "ハンブルク"];
+    private static roadSuffixes: string[] = ["通り", "筋", "小路"];
+    private static roadNames: string[] = ["メイン", "ガーデン", "ブロード", "オーク", "シダー", "パーク", "パイン", "エルム", "マーケット", "ヒル"];
 
     private static getRandomNumber(min: number, max: number): number {
         return Math.round(min + Math.random() * (max - min));
@@ -221,7 +222,7 @@ export class DataGridSharedData {
     }
 
     private static getRandomNameFirst(gender: string): string {
-        if (gender === "male") {
+        if (gender === "男") {
             return this.getRandomItem(this.maleNames);
         }
         else {
@@ -230,19 +231,19 @@ export class DataGridSharedData {
     }
 
     private static getRandomCity(country: string): string {
-        if (country === "Canada") {
+        if (country === "カナダ") {
             return this.getRandomItem(this.citiesCA);
-        } else if (country === "France") {
+        } else if (country === "フランス") {
             return this.getRandomItem(this.citiesFR);
-        } else if (country === "Poland") {
+        } else if (country === "ポーランド") {
             return this.getRandomItem(this.citiesPL);
-        } else if (country === "USA") {
+        } else if (country === "アメリカ合衆国") {
             return this.getRandomItem(this.citiesUS);
-        } else if (country === "Japan") {
+        } else if (country === "日本") {
             return this.getRandomItem(this.citiesJP);
-        } else if (country === "Germany") {
+        } else if (country === "ドイツ") {
             return this.getRandomItem(this.citiesGR);
-        } else { // if (country === "United Kingdom") {
+        } else {
             return this.getRandomItem(this.citiesUK);
         }
     }
@@ -271,11 +272,52 @@ export class DataGridSharedData {
     }
 
     private static getGenderPhoto(gender: string): string {
-        return 'https://static.infragistics.com/xplatform/images/genders/' + gender + '.png';
+        // Note: Mapping between En and Ja.
+        // This comment is for the sake of coding and debugging.
+        // private static genders: string[] = ["male", "female"];
+        // private static genders: string[] = ["男", "女"];
+
+        const genderEn = (gender == "男" ? "male" : "female");
+        return 'https://static.infragistics.com/xplatform/images/genders/' + genderEn + '.png';
     }
 
     private static getCountryFlag(country: string): string {
-        return 'https://static.infragistics.com/xplatform/images/flags/' + country + '.png';
+        // Note: Mapping between En and Ja.
+        // This comment is for the sake of coding and debugging.
+        // const countries: string[] = ["USA", "UK", "France", "Canada", "Poland", "Japan", "Germany"];
+        // const countries: string[] = ["アメリカ合衆国", "イギリス", "フランス", "カナダ", "ポーランド", "日本", "ドイツ"];
+
+        let countryEn = "";
+        if (country == "カナダ")
+        {
+            countryEn = "Canada";
+        }
+        else if (country == "フランス")
+        {
+            countryEn = "France";
+        }
+        else if (country == "ポーランド")
+        {
+            countryEn = "Poland";
+        }
+        else if (country == "アメリカ合衆国")
+        {
+            countryEn = "USA";
+        }
+        else if (country == "日本")
+        {
+            countryEn = "Japan";
+        }
+        else if (country == "ドイツ")
+        {
+            countryEn = "Germany";
+        }
+        else
+        { // if (country === "United Kingdom") {
+            countryEn = "UK";
+        }
+
+        return 'https://static.infragistics.com/xplatform/images/flags/' + countryEn + '.png';
     }
 
     private static pad(num: number, size: number): string{
