@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrItemLegend, IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
+import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
+
+
 
 const mods: any[] = [
     IgrLegendModule,
@@ -50,8 +52,8 @@ export default class Sample extends React.Component<any, any> {
                     allowSliceExplosion="true"
                     ref={this.chartRef}>
                     <IgrRingSeries
-                        dataSource={this.data}
-                        valueMemberPath="marketShare"
+                        dataSource={this.energyGlobalDemand}
+                        valueMemberPath="value"
                         labelMemberPath="summary"
                         legendLabelMemberPath="category"
                         labelsPosition="OutsideEnd"
@@ -68,17 +70,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _energyGlobalDemand: EnergyGlobalDemand = null;
+    public get energyGlobalDemand(): EnergyGlobalDemand {
+        if (this._energyGlobalDemand == null)
         {
-            this._data = new Data();
+            this._energyGlobalDemand = new EnergyGlobalDemand();
         }
-        return this._data;
+        return this._energyGlobalDemand;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));
