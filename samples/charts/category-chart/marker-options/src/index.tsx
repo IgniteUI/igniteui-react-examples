@@ -2,30 +2,34 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
-import { IgrPropertyEditorModule } from 'igniteui-react-grids';
+import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrCategoryChartModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrPropertyEditor, IgrPropertyEditorPropertyDescription } from 'igniteui-react-grids';
+import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
-import { ComponentRenderer, PropertyEditorDescriptionModule, CategoryChartDescriptionModule, DataChartInteractivityDescriptionModule } from 'igniteui-react-core';
-import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-grids';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, CategoryChartDescriptionModule, DataChartInteractivityDescriptionModule } from 'igniteui-react-core';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { MarkerType, MarkerType_$type } from 'igniteui-react-charts';
 import { EnumUtil } from 'igniteui-react-core';
 
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
 const mods: any[] = [
-    IgrPropertyEditorModule,
+    IgrPropertyEditorPanelModule,
     IgrCategoryChartModule,
     IgrDataChartInteractivityModule
 ];
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private propertyEditor: IgrPropertyEditor
-    private propertyEditorRef(r: IgrPropertyEditor) {
+    private propertyEditor: IgrPropertyEditorPanel
+    private propertyEditorRef(r: IgrPropertyEditorPanel) {
         this.propertyEditor = r;
         this.setState({});
     }
-    private propertyEditorPropertyDescription: IgrPropertyEditorPropertyDescription
+    private chartTypeEditor: IgrPropertyEditorPropertyDescription
+    private markerTypeEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -43,19 +47,19 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            <div className="options vertical">
-                <IgrPropertyEditor
+            <div className="options horizontal">
+                <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
                     isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isWrappingEnabled="true"
+                    ref={this.propertyEditorRef}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="ChartType"
                         label="Chart Type"
                         primitiveValue="Line"
-                        name="propertyEditorPropertyDescription1"
-                    >
+                        name="ChartTypeEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownNames={["Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None"]}
@@ -66,10 +70,9 @@ export default class Sample extends React.Component<any, any> {
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
                         dropDownValues={["Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None"]}
-                        name="propertyEditorPropertyDescription2"
-                    >
+                        name="MarkerTypeEditor">
                     </IgrPropertyEditorPropertyDescription>
-                </IgrPropertyEditor>
+                </IgrPropertyEditorPanel>
             </div>
             <div className="legend-title">
                 Renewable Electricity Generated
@@ -78,7 +81,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrCategoryChart
                     chartType="Line"
-                    dataSource={this.data}
+                    dataSource={this.countryRenewableElectricity}
                     isSeriesHighlightingEnabled="true"
                     computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
@@ -88,13 +91,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
         {
-            this._data = new Data();
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
-        return this._data;
+        return this._countryRenewableElectricity;
     }
     
 
@@ -103,7 +106,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorDescriptionModule.register(context);
+            PropertyEditorPanelDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
             DataChartInteractivityDescriptionModule.register(context);
         }
@@ -111,7 +114,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     
-    public editorChangeUpdateMarkerType(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+    public editorChangeUpdateMarkerType({ sender, args }: { sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs }): void {
         var item = sender as IgrPropertyEditorPropertyDescription;
         var chart = this.chart;
             
@@ -120,5 +123,7 @@ export default class Sample extends React.Component<any, any> {
     }
         
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

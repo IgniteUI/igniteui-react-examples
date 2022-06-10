@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartPolarModule, IgrDataChartPolarCoreModule, IgrDataChartInteractivityModule, IgrLegendModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrNumericAngleAxis, IgrNumericRadiusAxis, IgrPolarAreaSeries } from 'igniteui-react-charts';
+import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
+
+
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -56,8 +58,8 @@ export default class Sample extends React.Component<any, any> {
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
-                    markerBrushes="white"
                     outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
+                    markerBrushes="white"
                     markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
                     legend={this.legend}
                     ref={this.chartRef}>
@@ -83,7 +85,7 @@ export default class Sample extends React.Component<any, any> {
                         angleAxisName="angleAxis"
                         radiusAxisName="radiusAxis"
                         markerType="Circle"
-                        dataSource={this.data}
+                        dataSource={this.boatSailingData}
                         thickness="1"
                         areaFillOpacity="0.3"
                         showDefaultTooltip="true"
@@ -91,7 +93,7 @@ export default class Sample extends React.Component<any, any> {
                         name="PolarAreaSeries1">
                     </IgrPolarAreaSeries>
                     <IgrPolarAreaSeries
-                        dataSource={this.data}
+                        dataSource={this.boatSailingData}
                         angleAxisName="angleAxis"
                         radiusAxisName="radiusAxis"
                         angleMemberPath="direction"
@@ -109,17 +111,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _boatSailingData: BoatSailingData = null;
+    public get boatSailingData(): BoatSailingData {
+        if (this._boatSailingData == null)
         {
-            this._data = new Data();
+            this._boatSailingData = new BoatSailingData();
         }
-        return this._data;
+        return this._boatSailingData;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

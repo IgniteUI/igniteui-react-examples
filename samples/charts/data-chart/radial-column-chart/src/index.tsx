@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartRadialModule, IgrDataChartRadialCoreModule, IgrDataChartInteractivityModule, IgrLegendModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrCategoryAngleAxis, IgrNumericRadiusAxis, IgrRadialColumnSeries } from 'igniteui-react-charts';
+import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerStats';
+
+
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -58,7 +60,7 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryAngleAxis
-                        dataSource={this.data}
+                        dataSource={this.footballPlayerStats}
                         label="attribute"
                         name="angleAxis">
                     </IgrCategoryAngleAxis>
@@ -70,10 +72,10 @@ export default class Sample extends React.Component<any, any> {
                         name="radiusAxis">
                     </IgrNumericRadiusAxis>
                     <IgrRadialColumnSeries
-                        valueMemberPath="ronaldoValue"
+                        valueMemberPath="ronaldo"
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
-                        dataSource={this.data}
+                        dataSource={this.footballPlayerStats}
                         thickness="3"
                         areaFillOpacity="0.8"
                         showDefaultTooltip="true"
@@ -81,10 +83,10 @@ export default class Sample extends React.Component<any, any> {
                         name="RadialColumnSeries1">
                     </IgrRadialColumnSeries>
                     <IgrRadialColumnSeries
-                        dataSource={this.data}
+                        dataSource={this.footballPlayerStats}
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
-                        valueMemberPath="messiValue"
+                        valueMemberPath="messi"
                         showDefaultTooltip="true"
                         areaFillOpacity="0.8"
                         thickness="3"
@@ -97,17 +99,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _footballPlayerStats: FootballPlayerStats = null;
+    public get footballPlayerStats(): FootballPlayerStats {
+        if (this._footballPlayerStats == null)
         {
-            this._data = new Data();
+            this._footballPlayerStats = new FootballPlayerStats();
         }
-        return this._data;
+        return this._footballPlayerStats;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

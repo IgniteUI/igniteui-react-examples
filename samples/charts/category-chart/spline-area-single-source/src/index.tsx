@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+
 
 
 const mods: any[] = [
@@ -36,14 +37,15 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrCategoryChart
                     chartType="SplineArea"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    dataSource={this.data}
-                    yAxisTitle="TWh"
+                    isTransitionInEnabled="true"
+                    yAxisLabelLeftMargin="0"
                     yAxisTitleLeftMargin="10"
                     yAxisTitleRightMargin="5"
-                    yAxisLabelLeftMargin="0"
-                    isTransitionInEnabled="true"
+                    yAxisTitle="TWh"
+                    dataSource={this.countryRenewableElectricity}
+                    includedProperties={["Year", "Europe"]}
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
                     computedPlotAreaMarginMode="Series"
                     toolTipType="Category"
                     ref={this.chartRef}>
@@ -53,13 +55,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
         {
-            this._data = new Data();
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
-        return this._data;
+        return this._countryRenewableElectricity;
     }
     
 

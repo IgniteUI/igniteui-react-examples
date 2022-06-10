@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+
 
 
 const mods: any[] = [
@@ -40,7 +41,8 @@ export default class Sample extends React.Component<any, any> {
                     yAxisTitleLeftMargin="10"
                     yAxisTitleRightMargin="5"
                     yAxisTitle="TWh"
-                    dataSource={this.data}
+                    dataSource={this.countryRenewableElectricity}
+                    includedProperties={["Year", "Europe"]}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     computedPlotAreaMarginMode="Series"
@@ -51,13 +53,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
         {
-            this._data = new Data();
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
-        return this._data;
+        return this._countryRenewableElectricity;
     }
     
 

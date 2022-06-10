@@ -1,18 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Data } from './SampleData';
-import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrCategoryChart } from 'igniteui-react-charts';
 
+import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
+import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
+import { IgrPropertyEditorPanel } from 'igniteui-react-layouts';
+import { IgrCategoryChart } from 'igniteui-react-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
 const mods: any[] = [
+    IgrPropertyEditorPanelModule,
     IgrLegendModule,
     IgrCategoryChartModule
 ];
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    
+    private propertyEditorPanel1: IgrPropertyEditorPanel
+    private propertyEditorPanel1Ref(r: IgrPropertyEditorPanel) {
+        this.propertyEditorPanel1 = r;
+        this.setState({});
+    }
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -22,12 +34,7 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.state = {
-            xAxisGapValue: 1,
-            xAxisMaximumGap: 1.5
-        }
-
-        this.onXAxisGapChange = this.onXAxisGapChange.bind(this);
+        this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -35,10 +42,33 @@ export default class Sample extends React.Component<any, any> {
         return (
         <div className="container sample">
             <div className="options horizontal">
-            <label className="option-label">X-Axis Gap: </label>
-                    <label className="options-value">{this.state.xAxisGapValue}</label>
-                    <input className="options-slider" type="range" min={0.5} max={this.state.xAxisMaximumGap} step={0.05} value={this.state.xAxisGapValue}
-                           onChange={this.onXAxisGapChange}/>
+                <IgrPropertyEditorPanel
+                    componentRenderer={this.renderer}
+                    target={this.chart}
+                    descriptionType="CategoryChart"
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
+                    ref={this.propertyEditorPanel1Ref}>
+                    <IgrPropertyEditorPropertyDescription
+                        propertyPath="XAxisGap"
+                        label="X Axis - Gap"
+                        valueType="Slider"
+                        shouldOverrideDefaultEditor="true"
+                        primitiveValue="0.5"
+                        min="0"
+                        max="1.5"
+                        step="0.1">
+                    </IgrPropertyEditorPropertyDescription>
+                    <IgrPropertyEditorPropertyDescription
+                        dropDownValues={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
+                        primitiveValue="0.5"
+                        propertyPath="XAxisMaximumGap"
+                        label="Maximum Gap"
+                        valueType="EnumValue"
+                        shouldOverrideDefaultEditor="true"
+                        dropDownNames={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}>
+                    </IgrPropertyEditorPropertyDescription>
+                </IgrPropertyEditorPanel>
             </div>
             <div className="legend-title">
                 Renewable Electricity Generated
@@ -48,12 +78,14 @@ export default class Sample extends React.Component<any, any> {
                 <IgrCategoryChart
                     chartType="Column"
                     xAxisInterval="1"
-                    xAxisGap={this.state.xAxisGapValue}
-                    xAxisMaximumGap={this.state.xAxisMaximumGap}
+                    xAxisGap="0.5"
+                    xAxisMaximumGap="1.5"
                     yAxisTitle="TWh"
-                    dataSource={this.data}
+                    dataSource={this.countryRenewableElectricity}
+                    includedProperties={["Year", "Europe", "China", "USA"]}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    crosshairsSnapToData="true"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
             </div>
@@ -61,18 +93,28 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
         {
-            this._data = new Data();
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
-        return this._data;
+        return this._countryRenewableElectricity;
+    }
+    
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            LegendDescriptionModule.register(context);
+            CategoryChartDescriptionModule.register(context);
+        }
+        return this._componentRenderer
     }
 
-    public onXAxisGapChange(e: any){
-        this.setState({ xAxisGapValue : e.target.value});
-    }
 }
 
 

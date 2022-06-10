@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStacked100AreaSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
+import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
+
+
 
 const mods: any[] = [
     IgrLegendModule,
@@ -65,7 +67,7 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
-                        dataSource={this.data}
+                        dataSource={this.continentsBirthRate}
                         label="year"
                         name="xAxis">
                     </IgrCategoryXAxis>
@@ -80,7 +82,7 @@ export default class Sample extends React.Component<any, any> {
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         markerType="Circle"
-                        dataSource={this.data}
+                        dataSource={this.continentsBirthRate}
                         showDefaultTooltip="false"
                         name="Stacked100AreaSeries">
                         <IgrStackedFragmentSeries
@@ -114,17 +116,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _continentsBirthRate: ContinentsBirthRate = null;
+    public get continentsBirthRate(): ContinentsBirthRate {
+        if (this._continentsBirthRate == null)
         {
-            this._data = new Data();
+            this._continentsBirthRate = new ContinentsBirthRate();
         }
-        return this._data;
+        return this._continentsBirthRate;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

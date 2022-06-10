@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
-import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrLegendModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
+import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStacked100ColumnSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
+import { OnlineTrafficByDeviceItem, OnlineTrafficByDevice } from './OnlineTrafficByDevice';
+
+
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -12,8 +14,7 @@ const mods: any[] = [
     IgrDataChartCategoryCoreModule,
     IgrDataChartInteractivityModule,
     IgrDataChartStackedModule,
-    IgrStackedFragmentSeriesModule,
-    IgrLegendModule,
+    IgrStackedFragmentSeriesModule
 ];
 mods.forEach((m) => m.register());
 
@@ -62,7 +63,7 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
-                        dataSource={this.data}
+                        dataSource={this.onlineTrafficByDevice}
                         gap="0.75"
                         label="category"
                         name="xAxis">
@@ -74,7 +75,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrStacked100ColumnSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        dataSource={this.data}
+                        dataSource={this.onlineTrafficByDevice}
                         areaFillOpacity="1"
                         showDefaultTooltip="true"
                         name="Stacked100ColumnSeries">
@@ -97,17 +98,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _onlineTrafficByDevice: OnlineTrafficByDevice = null;
+    public get onlineTrafficByDevice(): OnlineTrafficByDevice {
+        if (this._onlineTrafficByDevice == null)
         {
-            this._data = new Data();
+            this._onlineTrafficByDevice = new OnlineTrafficByDevice();
         }
-        return this._data;
+        return this._onlineTrafficByDevice;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

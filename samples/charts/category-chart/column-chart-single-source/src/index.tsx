@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
+import { TemperatureAverageDataItem, TemperatureAverageData } from './TemperatureAverageData';
+
+
 
 const mods: any[] = [
     IgrCategoryChartModule
@@ -35,14 +37,17 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrCategoryChart
                     chartType="Column"
-                    xAxisInterval="1"
+                    isCategoryHighlightingEnabled="true"
                     yAxisLabelLeftMargin="0"
                     yAxisTitleLeftMargin="10"
                     yAxisTitleRightMargin="5"
                     yAxisTitle="Temperature in Degrees Celsius"
-                    dataSource={this.data}
+                    dataSource={this.temperatureAverageData}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    highlightingMode="FadeOthersSpecific"
+                    highlightingBehavior="NearestItemsAndSeries"
+                    crosshairsDisplayMode="None"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
             </div>
@@ -50,17 +55,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _temperatureAverageData: TemperatureAverageData = null;
+    public get temperatureAverageData(): TemperatureAverageData {
+        if (this._temperatureAverageData == null)
         {
-            this._data = new Data();
+            this._temperatureAverageData = new TemperatureAverageData();
         }
-        return this._data;
+        return this._temperatureAverageData;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

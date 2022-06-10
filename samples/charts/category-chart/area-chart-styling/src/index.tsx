@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+
 
 
 const mods: any[] = [
@@ -51,7 +52,8 @@ export default class Sample extends React.Component<any, any> {
                     yAxisLabelLeftMargin="0"
                     yAxisTitleLeftMargin="10"
                     yAxisTitle="TWh"
-                    dataSource={this.data}
+                    dataSource={this.countryRenewableElectricity}
+                    includedProperties={["Year", "Europe", "China", "USA"]}
                     brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     legend={this.legend}
@@ -69,13 +71,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
         {
-            this._data = new Data();
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
-        return this._data;
+        return this._countryRenewableElectricity;
     }
     
 

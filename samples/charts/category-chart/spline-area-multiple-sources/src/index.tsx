@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrCategoryChartModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+
 
 
 const mods: any[] = [
@@ -49,14 +50,13 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrCategoryChart
                     chartType="SplineArea"
+                    isTransitionInEnabled="true"
+                    yAxisTitle="TWh"
+                    dataSource={this.countryRenewableElectricity}
+                    legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    dataSource={this.data}
-                    yAxisTitle="TWh"
-                    isTransitionInEnabled="true"
-                    legend={this.legend}
                     computedPlotAreaMarginMode="Series"
-                    toolTipType="Category"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
             </div>
@@ -64,13 +64,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
         {
-            this._data = new Data();
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
-        return this._data;
+        return this._countryRenewableElectricity;
     }
     
 

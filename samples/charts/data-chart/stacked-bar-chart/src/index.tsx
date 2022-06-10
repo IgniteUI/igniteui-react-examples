@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data, CalloutDataItem, CalloutData } from './SampleData';
 import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule, IgrCalloutLayerModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrStackedBarSeries, IgrStackedFragmentSeries, IgrCalloutLayer } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrStackedBarSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
+import { EnergyRenewableConsumptionItem, EnergyRenewableConsumption } from './EnergyRenewableConsumption';
+
+
 
 const mods: any[] = [
     IgrLegendModule,
@@ -36,7 +38,6 @@ export default class Sample extends React.Component<any, any> {
     private s2: IgrStackedFragmentSeries
     private s3: IgrStackedFragmentSeries
     private s4: IgrStackedFragmentSeries
-    private calloutLayer: IgrCalloutLayer
 
     constructor(props: any) {
         super(props);
@@ -62,9 +63,10 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryYAxis
-                        dataSource={this.data}
+                        dataSource={this.energyRenewableConsumption}
                         gap="0.75"
                         isInverted="true"
                         label="location"
@@ -78,7 +80,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrStackedBarSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        dataSource={this.data}
+                        dataSource={this.energyRenewableConsumption}
                         areaFillOpacity="1"
                         showDefaultTooltip="true"
                         name="StackedBarSeries">
@@ -99,42 +101,25 @@ export default class Sample extends React.Component<any, any> {
                             valueMemberPath="other">
                         </IgrStackedFragmentSeries>
                     </IgrStackedBarSeries>
-                    <IgrCalloutLayer
-                        labelMemberPath="label"
-                        xMemberPath="x"
-                        yMemberPath="y"
-                        calloutTextColor="black"
-                        calloutBackground="rgba(0, 0, 0, 0)"
-                        calloutLeaderBrush="rgba(0, 0, 0, 0)"
-                        dataSource={this.calloutData}
-                        name="CalloutLayer">
-                    </IgrCalloutLayer>
                 </IgrDataChart>
             </div>
         </div>
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _energyRenewableConsumption: EnergyRenewableConsumption = null;
+    public get energyRenewableConsumption(): EnergyRenewableConsumption {
+        if (this._energyRenewableConsumption == null)
         {
-            this._data = new Data();
+            this._energyRenewableConsumption = new EnergyRenewableConsumption();
         }
-        return this._data;
-    }
-    
-    private _calloutData: CalloutData = null;
-    public get calloutData(): CalloutData {
-        if (this._calloutData == null)
-        {
-            this._calloutData = new CalloutData();
-        }
-        return this._calloutData;
+        return this._energyRenewableConsumption;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

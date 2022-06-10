@@ -2,14 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
-import { IgrDataChartCoreModule, IgrDataChartCategoryCoreModule, IgrDataChartCategoryModule, IgrDataChartInteractivityModule, IgrDataChartVerticalCategoryModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrBarSeries } from 'igniteui-react-charts';
+import { IgrDataChartCoreModule, IgrDataChartCategoryCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrDataChartVerticalCategoryModule } from 'igniteui-react-charts';
+import { IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrCategoryHighlightLayer, IgrBarSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { OnlineShoppingSearchesItem, OnlineShoppingSearches } from './OnlineShoppingSearches';
+
+
 
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryCoreModule,
     IgrDataChartCategoryModule,
+    IgrDataChartAnnotationModule,
     IgrDataChartInteractivityModule,
     IgrDataChartVerticalCategoryModule
 ];
@@ -23,7 +26,9 @@ export default class Sample extends React.Component<any, any> {
     }
     private yAxis: IgrCategoryYAxis
     private xAxis: IgrNumericXAxis
+    private categoryHighlightLayer: IgrCategoryHighlightLayer
     private barSeries1: IgrBarSeries
+    private tooltips: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -45,10 +50,12 @@ export default class Sample extends React.Component<any, any> {
                     isVerticalZoomEnabled="false"
                     ref={this.chartRef}>
                     <IgrCategoryYAxis
-                        dataSource={this.data}
+                        dataSource={this.onlineShoppingSearches}
                         gap="0.5"
                         overlap="-0.1"
                         isInverted="true"
+                        useEnhancedIntervalManagement="true"
+                        enhancedIntervalPreferMoreCategoryLabels="true"
                         label="shop"
                         name="yAxis">
                     </IgrCategoryYAxis>
@@ -56,33 +63,41 @@ export default class Sample extends React.Component<any, any> {
                         labelFormat="{0}%"
                         name="xAxis">
                     </IgrNumericXAxis>
+                    <IgrCategoryHighlightLayer
+                        name="CategoryHighlightLayer">
+                    </IgrCategoryHighlightLayer>
                     <IgrBarSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         valueMemberPath="percent"
                         isTransitionInEnabled="true"
-                        dataSource={this.data}
+                        dataSource={this.onlineShoppingSearches}
                         isHighlightingEnabled="true"
                         showDefaultTooltip="true"
                         name="BarSeries1">
                     </IgrBarSeries>
+                    <IgrDataToolTipLayer
+                        name="Tooltips">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _onlineShoppingSearches: OnlineShoppingSearches = null;
+    public get onlineShoppingSearches(): OnlineShoppingSearches {
+        if (this._onlineShoppingSearches == null)
         {
-            this._data = new Data();
+            this._onlineShoppingSearches = new OnlineShoppingSearches();
         }
-        return this._data;
+        return this._onlineShoppingSearches;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

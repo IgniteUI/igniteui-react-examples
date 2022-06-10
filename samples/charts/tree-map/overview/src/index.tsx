@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrTreemapModule } from 'igniteui-react-charts';
 import { IgrTreemap } from 'igniteui-react-charts';
+import { CountyHierarchicalDataItem, CountyHierarchicalData } from './CountyHierarchicalData';
+
+
 
 const mods: any[] = [
     IgrTreemapModule
@@ -34,12 +36,12 @@ export default class Sample extends React.Component<any, any> {
             
             <div className="container fill">
                 <IgrTreemap
-                    valueMemberPath="pop"
+                    valueMemberPath="population"
                     rootTitle="Countries"
                     parentIdMemberPath="parent"
                     labelMemberPath="name"
                     idMemberPath="name"
-                    dataSource={this.data}
+                    dataSource={this.countyHierarchicalData}
                     fillBrushes="rgba(78, 98, 207, 1) rgba(138, 88, 214, 1)"
                     fillScaleMode="Value"
                     isFillScaleLogarithmic="true"
@@ -59,17 +61,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countyHierarchicalData: CountyHierarchicalData = null;
+    public get countyHierarchicalData(): CountyHierarchicalData {
+        if (this._countyHierarchicalData == null)
         {
-            this._data = new Data();
+            this._countyHierarchicalData = new CountyHierarchicalData();
         }
-        return this._data;
+        return this._countyHierarchicalData;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

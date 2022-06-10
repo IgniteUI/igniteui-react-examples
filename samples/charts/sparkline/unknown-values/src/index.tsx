@@ -1,67 +1,103 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrSparkline } from 'igniteui-react-charts';
+
+import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
-import { IgrSparklineCoreModule } from 'igniteui-react-charts';
-import { UnknownValuePlotting } from 'igniteui-react-core';
-import { SparklineSharedData } from './SparklineSharedData';
+import { IgrPropertyEditorPanel } from 'igniteui-react-layouts';
+import { IgrSparkline } from 'igniteui-react-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-react-core';
+import { SparklineUnknownDataItem, SparklineUnknownData } from './SparklineUnknownData';
 
-IgrSparklineCoreModule.register();
-IgrSparklineModule.register();
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
+const mods: any[] = [
+    IgrPropertyEditorPanelModule,
+    IgrSparklineModule
+];
+mods.forEach((m) => m.register());
 
-export default class SparklineUnknownValues extends React.Component<any, any> {
-    public data: any[];
-
-    public sparkline: IgrSparkline;
+export default class Sample extends React.Component<any, any> {
+    private propertyEditorPanel1: IgrPropertyEditorPanel
+    private propertyEditorPanel1Ref(r: IgrPropertyEditorPanel) {
+        this.propertyEditorPanel1 = r;
+        this.setState({});
+    }
+    private chart: IgrSparkline
+    private chartRef(r: IgrSparkline) {
+        this.chart = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
 
-        this.onSparklineRef = this.onSparklineRef.bind(this);
-        this.onRangeVisibilityChanged = this.onRangeVisibilityChanged.bind(this);
-
-        this.data = SparklineSharedData.getSharedDataWithNullValues();
+        this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
+        this.chartRef = this.chartRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="options horizontal">
-                    <label className="options-label">
-                    <input defaultChecked={true}
-                    type="checkbox"
-                    onChange={this.onRangeVisibilityChanged}/>Plot Unknown Values</label>
-                </div>
-                <div className="container">
-                    <IgrSparkline height="100%" width="100%"
-                        ref={this.onSparklineRef}
-                        dataSource={this.data}
-                        valueMemberPath="Value"
-                        displayType="Area"
-                        unknownValuePlotting="LinearInterpolate"/>
-                </div>
-            </div >
+        <div className="container sample">
+            <div className="options horizontal">
+                <IgrPropertyEditorPanel
+                    componentRenderer={this.renderer}
+                    target={this.chart}
+                    descriptionType="Sparkline"
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
+                    ref={this.propertyEditorPanel1Ref}>
+                    <IgrPropertyEditorPropertyDescription
+                        propertyPath="UnknownValuePlotting"
+                        label="Unknown Value Plotting"
+                        valueType="EnumValue"
+                        shouldOverrideDefaultEditor="true"
+                        dropDownNames={["LinearInterpolate", "DontPlot"]}
+                        dropDownValues={["LinearInterpolate", "DontPlot"]}
+                        primitiveValue="LinearInterpolate">
+                    </IgrPropertyEditorPropertyDescription>
+                </IgrPropertyEditorPanel>
+            </div>
+            
+            
+            <div className="container fill">
+                <IgrSparkline
+                    dataSource={this.sparklineUnknownData}
+                    valueMemberPath="value"
+                    labelMemberPath="label"
+                    displayType="Area"
+                    unknownValuePlotting="LinearInterpolate"
+                    ref={this.chartRef}>
+                </IgrSparkline>
+            </div>
+        </div>
         );
     }
 
-    public onRangeVisibilityChanged(e: any) {
-        const selection = e.target.checked as boolean;
+    private _sparklineUnknownData: SparklineUnknownData = null;
+    public get sparklineUnknownData(): SparklineUnknownData {
+        if (this._sparklineUnknownData == null)
+        {
+            this._sparklineUnknownData = new SparklineUnknownData();
+        }
+        return this._sparklineUnknownData;
+    }
+    
 
-        if (selection) {
-            this.sparkline.unknownValuePlotting = UnknownValuePlotting.LinearInterpolate;
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            SparklineDescriptionModule.register(context);
         }
-        else {
-            this.sparkline.unknownValuePlotting = UnknownValuePlotting.DontPlot;
-        }
+        return this._componentRenderer
     }
 
-    public onSparklineRef(sparkline: IgrSparkline) {
-        if (sparkline) {
-            this.sparkline = sparkline;
-        }
-    }
 }
 
-// rendering above class to the React DOM
-ReactDOM.render(<SparklineUnknownValues />, document.getElementById('root'));
+
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

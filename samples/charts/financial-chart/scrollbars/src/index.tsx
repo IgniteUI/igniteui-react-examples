@@ -1,57 +1,72 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
+import { IgrFinancialChartModule, IgrDataChartInteractivityModule, IgrLegendModule } from 'igniteui-react-charts';
 import { IgrFinancialChart } from 'igniteui-react-charts';
-import { IgrFinancialChartModule } from 'igniteui-react-charts';
-import { StockIndexData } from './StockIndexData';
+import { MultipleStocks } from './MultipleStocks';
 
-IgrFinancialChartModule.register();
 
-export default class FinancialChartScrollbars extends React.Component<any, any> {
 
-    private chart: IgrFinancialChart;
-    public data: any[];
+const mods: any[] = [
+    IgrFinancialChartModule,
+    IgrDataChartInteractivityModule,
+    IgrLegendModule
+];
+mods.forEach((m) => m.register());
+
+export default class Sample extends React.Component<any, any> {
+    private chart: IgrFinancialChart
+    private chartRef(r: IgrFinancialChart) {
+        this.chart = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
-        this.data = StockIndexData.getData();
 
-        this.onChartRef = this.onChartRef.bind(this);
-
+        this.chartRef = this.chartRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
-        <div className="container sample" >
-            <div className="container">
+        <div className="container sample">
+            
+            
+            
+            <div className="container fill">
                 <IgrFinancialChart
-                    ref={this.onChartRef}
-                    width="100%"
-                    height="100%"
-                    isToolbarVisible={false}
-                    chartType="Candle"
-                    chartTitle="S&P 500"
-                    yAxisMode="Numeric"
-                    yAxisTitle="Financial Prices"
-                    zoomSliderType="None"
-                    dataSource={this.data}
                     isHorizontalZoomEnabled="true"
+                    isToolbarVisible="false"
+                    isWindowSyncedToVisibleRange="true"
+                    zoomSliderType="None"
                     isVerticalZoomEnabled="true"
+                    dataSource={this.multipleStocks}
+                    windowRect="0, 0, 0.5, 1"
                     horizontalViewScrollbarMode="Persistent"
-                    verticalViewScrollbarMode="Persistent"/>
+                    verticalViewScrollbarMode="Persistent"
+                    ref={this.chartRef}>
+                </IgrFinancialChart>
             </div>
         </div>
         );
     }
 
-    public onChartRef(chart: IgrFinancialChart) {
-        if (!chart) { return; }
-        this.chart = chart;
-
-        this.chart.windowRect = {left: 1, top: 1, width: 0.90, height: 0.90};
-        
+    private _multipleStocks: MultipleStocks = null;
+    private _multipleStocks_fetching: boolean = false;
+    public get multipleStocks(): MultipleStocks {
+        if (this._multipleStocks == null && !this._multipleStocks_fetching)
+        {
+            this._multipleStocks_fetching = true;
+            ( async () => { this._multipleStocks = await (await MultipleStocks.fetch()); this.setState({});  })();
+        }
+        return this._multipleStocks;
     }
+    
+
+
 }
 
-// rendering above class to the React DOM
-ReactDOM.render(<FinancialChartScrollbars />, document.getElementById('root'));
+
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

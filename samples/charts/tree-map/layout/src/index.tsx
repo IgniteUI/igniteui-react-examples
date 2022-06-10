@@ -2,26 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
-import { IgrPropertyEditorModule } from 'igniteui-react-grids';
+import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrTreemapModule } from 'igniteui-react-charts';
-import { IgrPropertyEditor, IgrPropertyEditorPropertyDescription } from 'igniteui-react-grids';
+import { IgrPropertyEditorPanel } from 'igniteui-react-layouts';
 import { IgrTreemap } from 'igniteui-react-charts';
-import { ComponentRenderer, PropertyEditorDescriptionModule, TreemapDescriptionModule } from 'igniteui-react-core';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, TreemapDescriptionModule } from 'igniteui-react-core';
+import { CountyHierarchicalDataItem, CountyHierarchicalData } from './CountyHierarchicalData';
 
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
 const mods: any[] = [
-    IgrPropertyEditorModule,
+    IgrPropertyEditorPanelModule,
     IgrTreemapModule
 ];
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private propertyEditor: IgrPropertyEditor
-    private propertyEditorRef(r: IgrPropertyEditor) {
-        this.propertyEditor = r;
+    private propertyEditorPanel1: IgrPropertyEditorPanel
+    private propertyEditorPanel1Ref(r: IgrPropertyEditorPanel) {
+        this.propertyEditorPanel1 = r;
         this.setState({});
     }
-    private propertyEditorPropertyDescription: IgrPropertyEditorPropertyDescription
     private treemap: IgrTreemap
     private treemapRef(r: IgrTreemap) {
         this.treemap = r;
@@ -31,49 +33,42 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.propertyEditorRef = this.propertyEditorRef.bind(this);
+        this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
         this.treemapRef = this.treemapRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            <div className="options vertical">
-                <IgrPropertyEditor
+            <div className="options horizontal">
+                <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
                     target={this.treemap}
                     descriptionType="Treemap"
                     isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isWrappingEnabled="true"
+                    ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="LayoutType"
                         label="Layout"
-                        primitiveValue="Squarified"
-                        name="propertyEditorPropertyDescription1"
-                    >
+                        primitiveValue="Squarified">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="LayoutOrientation"
                         primitiveValue="Vertical"
-                        label="Orientation"
-                        name="propertyEditorPropertyDescription2"
-                    >
+                        label="Orientation">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HeaderDisplayMode"
                         primitiveValue="Overlay"
-                        label="Headers"
-                        name="propertyEditorPropertyDescription3"
-                    >
+                        label="Headers">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="LabelVerticalAlignment"
                         primitiveValue="Center"
-                        label="Labels"
-                        name="propertyEditorPropertyDescription4"
-                    >
+                        label="Labels">
                     </IgrPropertyEditorPropertyDescription>
-                </IgrPropertyEditor>
+                </IgrPropertyEditorPanel>
             </div>
             <div className="legend-title">
                 Comparing Population of Countries
@@ -81,12 +76,12 @@ export default class Sample extends React.Component<any, any> {
             
             <div className="container fill">
                 <IgrTreemap
-                    valueMemberPath="pop"
+                    valueMemberPath="population"
                     rootTitle="Countries"
                     parentIdMemberPath="parent"
                     labelMemberPath="name"
                     idMemberPath="name"
-                    dataSource={this.data}
+                    dataSource={this.countyHierarchicalData}
                     fillBrushes="rgba(41, 158, 65, 1) rgba(78, 98, 207, 1) rgba(94, 53, 156, 1)"
                     isFillScaleLogarithmic="true"
                     headerDisplayMode="Overlay"
@@ -101,13 +96,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countyHierarchicalData: CountyHierarchicalData = null;
+    public get countyHierarchicalData(): CountyHierarchicalData {
+        if (this._countyHierarchicalData == null)
         {
-            this._data = new Data();
+            this._countyHierarchicalData = new CountyHierarchicalData();
         }
-        return this._data;
+        return this._countyHierarchicalData;
     }
     
 
@@ -116,12 +111,14 @@ export default class Sample extends React.Component<any, any> {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorDescriptionModule.register(context);
+            PropertyEditorPanelDescriptionModule.register(context);
             TreemapDescriptionModule.register(context);
         }
         return this._componentRenderer
     }
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

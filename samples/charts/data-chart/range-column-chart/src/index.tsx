@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrLegendModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrRangeColumnSeries } from 'igniteui-react-charts';
+import { TemperatureRangeDataItem, TemperatureRangeData } from './TemperatureRangeData';
+
+
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -57,7 +59,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         interval="1"
-                        dataSource={this.data}
+                        dataSource={this.temperatureRangeData}
                         label="month"
                         name="xAxis">
                     </IgrCategoryXAxis>
@@ -69,9 +71,9 @@ export default class Sample extends React.Component<any, any> {
                     <IgrRangeColumnSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        lowMemberPath="lowLA"
-                        highMemberPath="highLA"
-                        dataSource={this.data}
+                        lowMemberPath="lA_Low"
+                        highMemberPath="lA_High"
+                        dataSource={this.temperatureRangeData}
                         title="Los Angeles"
                         name="series1">
                     </IgrRangeColumnSeries>
@@ -79,9 +81,9 @@ export default class Sample extends React.Component<any, any> {
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         title="New York City"
-                        lowMemberPath="lowNY"
-                        highMemberPath="highNY"
-                        dataSource={this.data}
+                        lowMemberPath="nY_Low"
+                        highMemberPath="nY_High"
+                        dataSource={this.temperatureRangeData}
                         name="series2">
                     </IgrRangeColumnSeries>
                 </IgrDataChart>
@@ -90,17 +92,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _temperatureRangeData: TemperatureRangeData = null;
+    public get temperatureRangeData(): TemperatureRangeData {
+        if (this._temperatureRangeData == null)
         {
-            this._data = new Data();
+            this._temperatureRangeData = new TemperatureRangeData();
         }
-        return this._data;
+        return this._temperatureRangeData;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

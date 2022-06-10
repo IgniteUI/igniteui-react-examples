@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrWaterfallSeries } from 'igniteui-react-charts';
+import { CompanyIncomeDataItem, CompanyIncomeData } from './CompanyIncomeData';
+
+
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -44,7 +46,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         interval="1"
-                        dataSource={this.data}
+                        dataSource={this.companyIncomeData}
                         overlap="1"
                         label="category"
                         name="xAxis">
@@ -61,14 +63,14 @@ export default class Sample extends React.Component<any, any> {
                         yAxisName="yAxis"
                         valueMemberPath="costs"
                         isTransitionInEnabled="true"
-                        dataSource={this.data}
+                        dataSource={this.companyIncomeData}
                         showDefaultTooltip="true"
                         name="WaterfallSeries1">
                     </IgrWaterfallSeries>
                     <IgrWaterfallSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        dataSource={this.data}
+                        dataSource={this.companyIncomeData}
                         valueMemberPath="netIncome"
                         showDefaultTooltip="true"
                         isTransitionInEnabled="true"
@@ -82,17 +84,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _companyIncomeData: CompanyIncomeData = null;
+    public get companyIncomeData(): CompanyIncomeData {
+        if (this._companyIncomeData == null)
         {
-            this._data = new Data();
+            this._companyIncomeData = new CompanyIncomeData();
         }
-        return this._data;
+        return this._companyIncomeData;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));
