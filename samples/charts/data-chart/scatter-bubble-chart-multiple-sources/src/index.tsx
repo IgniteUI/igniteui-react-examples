@@ -1,13 +1,15 @@
-import { DataEuropeItem, DataEurope, DataAfricaItem, DataAfrica } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { IgrSizeScale } from 'igniteui-react-charts';
+import { SizeScale1Item, SizeScale2Item } from './SampleData';
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries } from 'igniteui-react-charts';
+import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
+import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
+
+
+
 const mods: any[] = [
     IgrLegendModule,
     IgrNumberAbbreviatorModule,
@@ -34,33 +36,26 @@ export default class Sample extends React.Component<any, any> {
     private bubbleSeries1: IgrBubbleSeries
     private bubbleSeries2: IgrBubbleSeries
 
-    private sizeScale: IgrSizeScale = new IgrSizeScale({});
     constructor(props: any) {
         super(props);
 
         this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
-
-        this.sizeScale = new IgrSizeScale({});
-        this.sizeScale.minimumValue = 10;
-        this.sizeScale.maximumValue = 50;
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Total Population of Selected Countries
             </div>
-
             <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-
             <div className="container fill">
                 <IgrDataChart
                     legend={this.legend}
@@ -82,11 +77,10 @@ export default class Sample extends React.Component<any, any> {
                         xMemberPath="workedHours"
                         yMemberPath="gDP"
                         markerType="Circle"
-                        dataSource={this.dataAfrica}
+                        dataSource={this.countryDemographicAfrican}
                         showDefaultTooltip="true"
                         title="African Countries"
-                        name="BubbleSeries1"
-                        radiusScale={this.sizeScale}>
+                        name="BubbleSeries1">
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
                         title="European Countries"
@@ -95,36 +89,67 @@ export default class Sample extends React.Component<any, any> {
                         xMemberPath="workedHours"
                         yMemberPath="gDP"
                         radiusMemberPath="population"
-                        dataSource={this.dataEurope}
+                        dataSource={this.countryDemographicEurope}
                         markerType="Circle"
                         showDefaultTooltip="true"
-                        name="BubbleSeries2"
-                        radiusScale={this.sizeScale}>
+                        name="BubbleSeries2">
                     </IgrBubbleSeries>
                 </IgrDataChart>
             </div>
         </div>
         );
-   }
-
-    private _dataEurope: DataEurope = null;
-    public get dataEurope(): DataEurope {
-        if (this._dataEurope == null)
-        {
-            this._dataEurope = new DataEurope();
-        }
-        return this._dataEurope;
     }
 
-    private _dataAfrica: DataAfrica = null;
-    public get dataAfrica(): DataAfrica {
-        if (this._dataAfrica == null)
+    private _sizeScale1: SizeScale1Item = null;
+    public get sizeScale1(): SizeScale1Item {
+        if (this._sizeScale1 == null)
         {
-            this._dataAfrica = new DataAfrica();
+            this._sizeScale1 = 
+            new SizeScale1Item(
+            {
+                type: `SizeScale`,
+                minimumValue: 10,
+                maximumValue: 50
+            })}
+            return this._sizeScale1;
         }
-        return this._dataAfrica;
-    }
+        
+        private _sizeScale2: SizeScale2Item = null;
+        public get sizeScale2(): SizeScale2Item {
+            if (this._sizeScale2 == null)
+            {
+                this._sizeScale2 = 
+                new SizeScale2Item(
+                {
+                    type: `SizeScale`,
+                    minimumValue: 10,
+                    maximumValue: 50
+                })}
+                return this._sizeScale2;
+            }
+            
+            private _countryDemographicAfrican: CountryDemographicAfrican = null;
+            public get countryDemographicAfrican(): CountryDemographicAfrican {
+                if (this._countryDemographicAfrican == null)
+                {
+                    this._countryDemographicAfrican = new CountryDemographicAfrican();
+                }
+                return this._countryDemographicAfrican;
+            }
+            
+            private _countryDemographicEurope: CountryDemographicEurope = null;
+            public get countryDemographicEurope(): CountryDemographicEurope {
+                if (this._countryDemographicEurope == null)
+                {
+                    this._countryDemographicEurope = new CountryDemographicEurope();
+                }
+                return this._countryDemographicEurope;
+            }
+            
+
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

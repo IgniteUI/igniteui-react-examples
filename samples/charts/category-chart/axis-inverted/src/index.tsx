@@ -76,7 +76,7 @@ export default class Sample extends React.Component<any, any> {
                     xAxisInverted="true"
                     yAxisInverted="true"
                     dataSource={this.countryRenewableElectricity}
-                    includedProperties={["Year", "Europe"]}
+                    includedProperties={["year", "europe"]}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     computedPlotAreaMarginMode="Series"

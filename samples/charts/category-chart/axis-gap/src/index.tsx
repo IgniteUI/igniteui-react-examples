@@ -82,7 +82,7 @@ export default class Sample extends React.Component<any, any> {
                     xAxisMaximumGap="1.5"
                     yAxisTitle="TWh"
                     dataSource={this.countryRenewableElectricity}
-                    includedProperties={["Year", "Europe", "China", "USA"]}
+                    includedProperties={["year", "europe", "china", "america"]}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     crosshairsSnapToData="true"

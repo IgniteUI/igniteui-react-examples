@@ -54,7 +54,7 @@ export default class Sample extends React.Component<any, any> {
                     yAxisTitleRightMargin="5"
                     yAxisTitle="TWh"
                     dataSource={this.countryRenewableElectricity}
-                    includedProperties={["Year", "Europe", "China", "USA"]}
+                    includedProperties={["year", "europe", "china", "america"]}
                     legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"

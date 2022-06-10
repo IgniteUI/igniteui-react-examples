@@ -3,9 +3,8 @@ export class TemperatureAverageDataItem {
         Object.assign(this, init);
     }
     
-    public marketShare: number;
-    public category: string;
-    public summary: string;
+    public month: string;
+    public temperature: number;
 
 }
 export class TemperatureAverageData extends Array<TemperatureAverageDataItem> {
@@ -13,33 +12,63 @@ export class TemperatureAverageData extends Array<TemperatureAverageDataItem> {
         super();
         this.push(new TemperatureAverageDataItem(
         {
-            marketShare: 30,
-            category: `Google`,
-            summary: `Google 30%`
+            month: `Jan`,
+            temperature: 3
         }));
         this.push(new TemperatureAverageDataItem(
         {
-            marketShare: 25,
-            category: `Apple`,
-            summary: `Apple 25%`
+            month: `Feb`,
+            temperature: 4
         }));
         this.push(new TemperatureAverageDataItem(
         {
-            marketShare: 20,
-            category: `Microsoft`,
-            summary: `Microsoft 20%`
+            month: `Mar`,
+            temperature: 9
         }));
         this.push(new TemperatureAverageDataItem(
         {
-            marketShare: 15,
-            category: `Samsung`,
-            summary: `Samsung 15%`
+            month: `Apr`,
+            temperature: 15
         }));
         this.push(new TemperatureAverageDataItem(
         {
-            marketShare: 10,
-            category: `Other`,
-            summary: `Other 10%`
+            month: `May`,
+            temperature: 21
+        }));
+        this.push(new TemperatureAverageDataItem(
+        {
+            month: `Jun`,
+            temperature: 26
+        }));
+        this.push(new TemperatureAverageDataItem(
+        {
+            month: `Jul`,
+            temperature: 29
+        }));
+        this.push(new TemperatureAverageDataItem(
+        {
+            month: `Aug`,
+            temperature: 28
+        }));
+        this.push(new TemperatureAverageDataItem(
+        {
+            month: `Sep`,
+            temperature: 24
+        }));
+        this.push(new TemperatureAverageDataItem(
+        {
+            month: `Oct`,
+            temperature: 18
+        }));
+        this.push(new TemperatureAverageDataItem(
+        {
+            month: `Nov`,
+            temperature: 11
+        }));
+        this.push(new TemperatureAverageDataItem(
+        {
+            month: `Dec`,
+            temperature: 5
         }));
     }
 }

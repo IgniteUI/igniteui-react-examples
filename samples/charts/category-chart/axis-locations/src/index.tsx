@@ -78,7 +78,7 @@ export default class Sample extends React.Component<any, any> {
                     yAxisTitle="Labels Location"
                     yAxisLabelLocation="OutsideRight"
                     dataSource={this.countryRenewableElectricity}
-                    includedProperties={["Year", "Europe", "China", "USA"]}
+                    includedProperties={["year", "europe", "china", "america"]}
                     legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"

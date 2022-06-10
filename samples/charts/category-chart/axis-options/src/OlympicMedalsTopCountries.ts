@@ -4,9 +4,9 @@ export class OlympicMedalsTopCountriesItem {
     }
     
     public year: string;
-    public uSA: number;
-    public cHN: number;
-    public rUS: number;
+    public america: number;
+    public china: number;
+    public russia: number;
 
 }
 export class OlympicMedalsTopCountries extends Array<OlympicMedalsTopCountriesItem> {
@@ -15,44 +15,44 @@ export class OlympicMedalsTopCountries extends Array<OlympicMedalsTopCountriesIt
         this.push(new OlympicMedalsTopCountriesItem(
         {
             year: `1996`,
-            uSA: 148,
-            cHN: 110,
-            rUS: 95
+            america: 148,
+            china: 110,
+            russia: 95
         }));
         this.push(new OlympicMedalsTopCountriesItem(
         {
             year: `2000`,
-            uSA: 142,
-            cHN: 115,
-            rUS: 91
+            america: 142,
+            china: 115,
+            russia: 91
         }));
         this.push(new OlympicMedalsTopCountriesItem(
         {
             year: `2004`,
-            uSA: 134,
-            cHN: 121,
-            rUS: 86
+            america: 134,
+            china: 121,
+            russia: 86
         }));
         this.push(new OlympicMedalsTopCountriesItem(
         {
             year: `2008`,
-            uSA: 131,
-            cHN: 129,
-            rUS: 65
+            america: 131,
+            china: 129,
+            russia: 65
         }));
         this.push(new OlympicMedalsTopCountriesItem(
         {
             year: `2012`,
-            uSA: 135,
-            cHN: 115,
-            rUS: 77
+            america: 135,
+            china: 115,
+            russia: 77
         }));
         this.push(new OlympicMedalsTopCountriesItem(
         {
             year: `2016`,
-            uSA: 146,
-            cHN: 112,
-            rUS: 88
+            america: 146,
+            china: 112,
+            russia: 88
         }));
     }
 }

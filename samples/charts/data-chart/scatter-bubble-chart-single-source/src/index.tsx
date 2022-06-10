@@ -1,13 +1,14 @@
-import { DataEuropeItem, DataEurope } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { IgrSizeScale } from 'igniteui-react-charts';
+import { SizeScaleItem } from './SampleData';
 import { IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries } from 'igniteui-react-charts';
+import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
+
+
+
 const mods: any[] = [
     IgrNumberAbbreviatorModule,
     IgrDataChartCoreModule,
@@ -27,24 +28,20 @@ export default class Sample extends React.Component<any, any> {
     private yAxis: IgrNumericYAxis
     private bubbleSeries1: IgrBubbleSeries
 
-    private sizeScale: IgrSizeScale = new IgrSizeScale({});
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-
-        this.sizeScale = new IgrSizeScale({});
-        this.sizeScale.minimumValue = 10;
-        this.sizeScale.maximumValue = 50;
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 GDP per Capita vs Hours Worked per Week
             </div>
+            
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}>
@@ -65,27 +62,44 @@ export default class Sample extends React.Component<any, any> {
                         xMemberPath="workedHours"
                         yMemberPath="gDP"
                         markerType="Circle"
-                        dataSource={this.dataEurope}
+                        dataSource={this.countryDemographicEurope}
                         showDefaultTooltip="true"
                         title="European Countries"
-                        name="BubbleSeries1"
-                        radiusScale={this.sizeScale}>
+                        name="BubbleSeries1">
                     </IgrBubbleSeries>
                 </IgrDataChart>
             </div>
         </div>
         );
-   }
-
-    private _dataEurope: DataEurope = null;
-    public get dataEurope(): DataEurope {
-        if (this._dataEurope == null)
-        {
-            this._dataEurope = new DataEurope();
-        }
-        return this._dataEurope;
     }
 
+    private _sizeScale: SizeScaleItem = null;
+    public get sizeScale(): SizeScaleItem {
+        if (this._sizeScale == null)
+        {
+            this._sizeScale = 
+            new SizeScaleItem(
+            {
+                type: `SizeScale`,
+                minimumValue: 10,
+                maximumValue: 50
+            })}
+            return this._sizeScale;
+        }
+        
+        private _countryDemographicEurope: CountryDemographicEurope = null;
+        public get countryDemographicEurope(): CountryDemographicEurope {
+            if (this._countryDemographicEurope == null)
+            {
+                this._countryDemographicEurope = new CountryDemographicEurope();
+            }
+            return this._countryDemographicEurope;
+        }
+        
+
+
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

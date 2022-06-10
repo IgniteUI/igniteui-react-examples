@@ -59,7 +59,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrLineSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        valueMemberPath="uSA"
+                        valueMemberPath="america"
                         dataSource={this.countryRenewableElectricity}
                         name="LineSeries1">
                     </IgrLineSeries>
