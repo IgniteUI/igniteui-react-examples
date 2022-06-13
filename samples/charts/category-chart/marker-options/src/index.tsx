@@ -110,11 +110,11 @@ export default class Sample extends React.Component<any, any> {
             CategoryChartDescriptionModule.register(context);
             DataChartInteractivityDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
     
-    public editorChangeUpdateMarkerType({ sender, args }: { sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs }): void {
+    public editorChangeUpdateMarkerType(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
         var item = sender as IgrPropertyEditorPropertyDescription;
         var chart = this.chart;
             

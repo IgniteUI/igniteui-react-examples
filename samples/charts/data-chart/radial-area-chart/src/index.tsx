@@ -84,15 +84,15 @@ export default class Sample extends React.Component<any, any> {
                         name="RadialAreaSeries1">
                     </IgrRadialAreaSeries>
                     <IgrRadialAreaSeries
-                        valueMemberPath="messi"
+                        dataSource={this.footballPlayerStats}
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
-                        markerType="Circle"
-                        dataSource={this.footballPlayerStats}
-                        thickness="3"
-                        areaFillOpacity="0.5"
+                        valueMemberPath="messi"
                         showDefaultTooltip="true"
+                        areaFillOpacity="0.5"
+                        thickness="3"
                         title="Messi"
+                        markerType="Circle"
                         name="RadialAreaSeries2">
                     </IgrRadialAreaSeries>
                 </IgrDataChart>

@@ -109,7 +109,7 @@ export default class Sample extends React.Component<any, any> {
             LegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
 }

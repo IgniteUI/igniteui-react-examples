@@ -114,7 +114,7 @@ export default class Sample extends React.Component<any, any> {
             PropertyEditorPanelDescriptionModule.register(context);
             TreemapDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
 }

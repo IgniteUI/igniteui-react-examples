@@ -135,11 +135,11 @@ export default class Sample extends React.Component<any, any> {
             DataChartCoreDescriptionModule.register(context);
             DataChartCategoryDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
     
-    public editorButtonReplayTransitionIn({ sender, args }: { sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs }): void {
+    public editorButtonReplayTransitionIn(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         var series = this.chart.actualSeries;
         for (var i = 0; i < series.length; i++) {
             series[i].replayTransitionIn();

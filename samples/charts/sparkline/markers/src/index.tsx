@@ -7,7 +7,7 @@ import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrPropertyEditorPanel } from 'igniteui-react-layouts';
 import { IgrSparkline } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-react-core';
-import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
+import { SparklineProfitDataItem, SparklineProfitData } from './SparklineProfitData';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
@@ -115,9 +115,9 @@ export default class Sample extends React.Component<any, any> {
                     highMarkerSize="10"
                     lowMarkerSize="10"
                     negativeMarkerSize="10"
-                    minimum="-3"
-                    maximum="8"
-                    dataSource={this.sparklineMixedData}
+                    minimum="0"
+                    maximum="60"
+                    dataSource={this.sparklineProfitData}
                     valueMemberPath="value"
                     labelMemberPath="label"
                     displayType="Line"
@@ -128,13 +128,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _sparklineMixedData: SparklineMixedData = null;
-    public get sparklineMixedData(): SparklineMixedData {
-        if (this._sparklineMixedData == null)
+    private _sparklineProfitData: SparklineProfitData = null;
+    public get sparklineProfitData(): SparklineProfitData {
+        if (this._sparklineProfitData == null)
         {
-            this._sparklineMixedData = new SparklineMixedData();
+            this._sparklineProfitData = new SparklineProfitData();
         }
-        return this._sparklineMixedData;
+        return this._sparklineProfitData;
     }
     
 
@@ -146,7 +146,7 @@ export default class Sample extends React.Component<any, any> {
             PropertyEditorPanelDescriptionModule.register(context);
             SparklineDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
 }

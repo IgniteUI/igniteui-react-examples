@@ -58,22 +58,22 @@ export default class Sample extends React.Component<any, any> {
                         primitiveValue="Visible">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        dropDownValues={["-7", "-6", "-5", "-4", "-3", "-2", "-1", "0"]}
-                        primitiveValue="-5"
+                        dropDownValues={["0", "10", "15", "20", "25", "30"]}
+                        primitiveValue="15"
                         propertyPath="NormalRangeMinimum"
                         label="Normal Range Minimum"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["-7", "-6", "-5", "-4", "-3", "-2", "-1", "0"]}>
+                        dropDownNames={["0", "10", "15", "20", "25", "30"]}>
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        dropDownValues={["7", "6", "5", "4", "3", "2", "1", "0"]}
-                        primitiveValue="5"
+                        dropDownValues={["0", "10", "15", "20", "25", "30"]}
+                        primitiveValue="25"
                         propertyPath="NormalRangeMaximum"
                         label="Normal Range Maximum"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["7", "6", "5", "4", "3", "2", "1", "0"]}>
+                        dropDownNames={["0", "10", "15", "20", "25", "30"]}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -85,8 +85,8 @@ export default class Sample extends React.Component<any, any> {
                     dataSource={this.sparklineMixedData}
                     valueMemberPath="value"
                     labelMemberPath="label"
-                    normalRangeMinimum="-5"
-                    normalRangeMaximum="5"
+                    normalRangeMinimum="15"
+                    normalRangeMaximum="25"
                     displayType="Area"
                     ref={this.chartRef}>
                 </IgrSparkline>
@@ -113,7 +113,7 @@ export default class Sample extends React.Component<any, any> {
             PropertyEditorPanelDescriptionModule.register(context);
             SparklineDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
 }

@@ -121,7 +121,7 @@ export default class Sample extends React.Component<any, any> {
             DataChartCategoryDescriptionModule.register(context);
             DataChartInteractivityDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
 }

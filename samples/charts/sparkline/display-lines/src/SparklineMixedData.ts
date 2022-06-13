@@ -3,9 +3,8 @@ export class SparklineMixedDataItem {
         Object.assign(this, init);
     }
     
+    public label: string;
     public value: number;
-    public category: string;
-    public summary: string;
 
 }
 export class SparklineMixedData extends Array<SparklineMixedDataItem> {
@@ -13,33 +12,43 @@ export class SparklineMixedData extends Array<SparklineMixedDataItem> {
         super();
         this.push(new SparklineMixedDataItem(
         {
-            value: 37,
-            category: `Cooling`,
-            summary: `Cooling 37%`
+            label: `A`,
+            value: 30
         }));
         this.push(new SparklineMixedDataItem(
         {
-            value: 25,
-            category: `Residential`,
-            summary: `Residential 25%`
+            label: `B`,
+            value: -10
         }));
         this.push(new SparklineMixedDataItem(
         {
-            value: 12,
-            category: `Heating`,
-            summary: `Heating 12%`
+            label: `C`,
+            value: 40
         }));
         this.push(new SparklineMixedDataItem(
         {
-            value: 11,
-            category: `Lighting`,
-            summary: `Lighting 11%`
+            label: `D`,
+            value: -20
         }));
         this.push(new SparklineMixedDataItem(
         {
-            value: 15,
-            category: `Other`,
-            summary: `Other 15%`
+            label: `E`,
+            value: 30
+        }));
+        this.push(new SparklineMixedDataItem(
+        {
+            label: `F`,
+            value: 40
+        }));
+        this.push(new SparklineMixedDataItem(
+        {
+            label: `G`,
+            value: -10
+        }));
+        this.push(new SparklineMixedDataItem(
+        {
+            label: `H`,
+            value: 30
         }));
     }
 }
