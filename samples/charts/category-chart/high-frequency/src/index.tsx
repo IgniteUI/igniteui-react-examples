@@ -63,7 +63,8 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
                         height="100%"
                         chartType="Line"
                         dataSource={this.state.dataSource}
-                        yAxisExtent={40} />
+                        yAxisExtent={40}
+                        markerTypes="None" />
                 </div>
             </div>
         );
