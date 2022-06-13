@@ -2,11 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { SizeScaleItem } from './SampleData';
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries } from 'igniteui-react-charts';
-import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
-import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
+import { CountryStatsAfricaItem, CountryStatsAfrica } from './CountryStatsAfrica';
+import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
 
 
 
@@ -61,7 +60,9 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     ref={this.chartRef}>
                     <IgrNumericXAxis
-                        title="Hours Worked per Week"
+                        isLogarithmic="true"
+                        abbreviateLargeNumbers="true"
+                        title="Population"
                         name="xAxis">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
@@ -74,13 +75,14 @@ export default class Sample extends React.Component<any, any> {
                         radiusMemberPath="population"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        xMemberPath="workedHours"
+                        xMemberPath="population"
                         yMemberPath="gDP"
                         markerType="Circle"
                         markerThickness="2"
-                        markerBrush="rgba(186, 231, 114, 1)"
-                        markerOutline="rgba(186, 231, 114, 1)"
-                        dataSource={this.countryDemographicAfrican}
+                        markerBrush="rgba(62, 202, 62, 1)"
+                        markerOutline="rgba(62, 202, 62, 1)"
+                        dataSource={this.countryStatsAfrica}
+                        markerFillOpacity="0.5"
                         showDefaultTooltip="true"
                         title="African Countries"
                         name="BubbleSeries1">
@@ -89,13 +91,14 @@ export default class Sample extends React.Component<any, any> {
                         title="European Countries"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        xMemberPath="workedHours"
+                        xMemberPath="population"
                         yMemberPath="gDP"
                         radiusMemberPath="population"
-                        dataSource={this.countryDemographicEurope}
+                        dataSource={this.countryStatsEurope}
                         markerType="Circle"
-                        markerOutline="rgba(248, 174, 95, 1)"
-                        markerBrush="rgba(248, 174, 95, 1)"
+                        markerOutline="rgba(171, 6, 221, 1)"
+                        markerBrush="rgba(171, 6, 221, 1)"
+                        markerFillOpacity="0.5"
                         markerThickness="2"
                         showDefaultTooltip="true"
                         name="BubbleSeries2">
@@ -106,38 +109,24 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _sizeScale: SizeScaleItem = null;
-    public get sizeScale(): SizeScaleItem {
-        if (this._sizeScale == null)
+    private _countryStatsAfrica: CountryStatsAfrica = null;
+    public get countryStatsAfrica(): CountryStatsAfrica {
+        if (this._countryStatsAfrica == null)
         {
-            this._sizeScale = 
-            new SizeScaleItem(
-            {
-                type: `SizeScale`,
-                minimumValue: 10,
-                maximumValue: 50
-            })}
-            return this._sizeScale;
+            this._countryStatsAfrica = new CountryStatsAfrica();
         }
-        
-        private _countryDemographicAfrican: CountryDemographicAfrican = null;
-        public get countryDemographicAfrican(): CountryDemographicAfrican {
-            if (this._countryDemographicAfrican == null)
-            {
-                this._countryDemographicAfrican = new CountryDemographicAfrican();
-            }
-            return this._countryDemographicAfrican;
+        return this._countryStatsAfrica;
+    }
+    
+    private _countryStatsEurope: CountryStatsEurope = null;
+    public get countryStatsEurope(): CountryStatsEurope {
+        if (this._countryStatsEurope == null)
+        {
+            this._countryStatsEurope = new CountryStatsEurope();
         }
-        
-        private _countryDemographicEurope: CountryDemographicEurope = null;
-        public get countryDemographicEurope(): CountryDemographicEurope {
-            if (this._countryDemographicEurope == null)
-            {
-                this._countryDemographicEurope = new CountryDemographicEurope();
-            }
-            return this._countryDemographicEurope;
-        }
-        
+        return this._countryStatsEurope;
+    }
+    
 
 
 }
