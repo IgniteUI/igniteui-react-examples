@@ -170,3 +170,8 @@
     /* font-family: 'Kanit', sans-serif; */
     /* background: rgb(39, 39, 39); */
 }
+
+.sbNavigation-Button {
+    background: rgb(126, 126, 126);
+    color: black;
+}
