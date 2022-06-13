@@ -112,7 +112,7 @@ export default class CategoryChartColumnChartWithHighlighting extends React.Comp
     }
 
     public onHighlightTargetChanged(e: any) {
-        let value = e.target.value as String;
+        let value = e.target.value as string;
         if(value == "Series") {
             this.setState({
                 isItemHighlighting: false, 
