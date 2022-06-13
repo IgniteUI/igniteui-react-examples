@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrDataLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries } from 'igniteui-react-charts';
+import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataLegendModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
+import { IgrDataLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrCrosshairLayer } from 'igniteui-react-charts';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 
@@ -15,7 +15,9 @@ const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartScatterModule,
     IgrDataChartScatterCoreModule,
-    IgrDataChartInteractivityModule
+    IgrDataChartInteractivityModule,
+    IgrDataLegendModule,
+    IgrDataChartAnnotationModule
 ];
 mods.forEach((m) => m.register());
 
@@ -34,6 +36,7 @@ export default class Sample extends React.Component<any, any> {
     private yAxis: IgrNumericYAxis
     private bubbleSeries1: IgrBubbleSeries
     private bubbleSeries2: IgrBubbleSeries
+    private crosshairLayer: IgrCrosshairLayer
 
     constructor(props: any) {
         super(props);
@@ -106,6 +109,9 @@ export default class Sample extends React.Component<any, any> {
                             maximumValue="100">
                         </IgrSizeScale>
                     </IgrBubbleSeries>
+                    <IgrCrosshairLayer
+                        name="CrosshairLayer">
+                    </IgrCrosshairLayer>
                 </IgrDataChart>
             </div>
         </div>

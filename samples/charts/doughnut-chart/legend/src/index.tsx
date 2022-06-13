@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { IgrLegendModule, IgrDoughnutChartModule } from 'igniteui-react-charts';
+import { IgrItemLegendModule, IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrItemLegend, IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
 
 
 
 const mods: any[] = [
-    IgrLegendModule,
+    IgrItemLegendModule,
     IgrDoughnutChartModule
 ];
 mods.forEach((m) => m.register());

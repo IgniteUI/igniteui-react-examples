@@ -60,6 +60,8 @@ export default class Sample extends React.Component<any, any> {
                         name="yAxis">
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
+                        minimumValue="0"
+                        maximumValue="80"
                         interval="20"
                         labelFormat="{0}%"
                         name="xAxis">
@@ -73,7 +75,11 @@ export default class Sample extends React.Component<any, any> {
                         valueMemberPath="percent"
                         isTransitionInEnabled="true"
                         dataSource={this.onlineShoppingSearches}
+                        brush="rgba(134, 6, 138, 0.654901960784314)"
+                        outline="rgba(133, 6, 138, 1)"
+                        thickness="2"
                         isHighlightingEnabled="true"
+                        areaFillOpacity="0.5"
                         showDefaultTooltip="true"
                         name="BarSeries1">
                     </IgrBarSeries>
@@ -82,7 +88,7 @@ export default class Sample extends React.Component<any, any> {
                         xMemberPath="x"
                         yMemberPath="y"
                         contentMemberPath="label"
-                        calloutTextColor="black"
+                        calloutTextColor="rgba(133, 6, 138, 1)"
                         calloutBackground="rgba(0, 0, 0, 0)"
                         calloutLeaderBrush="rgba(0, 0, 0, 0)"
                         dataSource={this.onlineShoppingSearches}

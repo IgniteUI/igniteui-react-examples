@@ -65,6 +65,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         title="Temperature (in Celsius)"
+                        titleAngle="90"
                         titleLeftMargin="10"
                         name="yAxis">
                     </IgrNumericYAxis>

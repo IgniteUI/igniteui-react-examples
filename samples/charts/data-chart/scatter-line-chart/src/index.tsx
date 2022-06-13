@@ -6,7 +6,6 @@ import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, Ig
 import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterLineSeries } from 'igniteui-react-charts';
 import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
 import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
-import { HealthDataForNorwayItem, HealthDataForNorway } from './HealthDataForNorway';
 
 
 
@@ -36,7 +35,6 @@ export default class Sample extends React.Component<any, any> {
     private yAxis: IgrNumericYAxis
     private scatterLineSeries1: IgrScatterLineSeries
     private scatterLineSeries2: IgrScatterLineSeries
-    private scatterLineSeries3: IgrScatterLineSeries
 
     constructor(props: any) {
         super(props);
@@ -89,26 +87,15 @@ export default class Sample extends React.Component<any, any> {
                         name="ScatterLineSeries1">
                     </IgrScatterLineSeries>
                     <IgrScatterLineSeries
-                        title="France"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="lifeExpectancy"
                         yMemberPath="healthExpense"
+                        markerType="Circle"
                         dataSource={this.healthDataForFrance}
-                        markerType="Circle"
                         showDefaultTooltip="true"
+                        title="France"
                         name="ScatterLineSeries2">
-                    </IgrScatterLineSeries>
-                    <IgrScatterLineSeries
-                        title="Norway"
-                        xAxisName="xAxis"
-                        yAxisName="yAxis"
-                        xMemberPath="lifeExpectancy"
-                        yMemberPath="healthExpense"
-                        dataSource={this.healthDataForNorway}
-                        markerType="Circle"
-                        showDefaultTooltip="true"
-                        name="ScatterLineSeries3">
                     </IgrScatterLineSeries>
                 </IgrDataChart>
             </div>
@@ -132,15 +119,6 @@ export default class Sample extends React.Component<any, any> {
             this._healthDataForFrance = new HealthDataForFrance();
         }
         return this._healthDataForFrance;
-    }
-    
-    private _healthDataForNorway: HealthDataForNorway = null;
-    public get healthDataForNorway(): HealthDataForNorway {
-        if (this._healthDataForNorway == null)
-        {
-            this._healthDataForNorway = new HealthDataForNorway();
-        }
-        return this._healthDataForNorway;
     }
     
 

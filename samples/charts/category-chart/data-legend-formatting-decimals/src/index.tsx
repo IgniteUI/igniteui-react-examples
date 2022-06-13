@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
             </div>
             <div className="legend">
                 <IgrDataLegend
-                    valueFormatMinFractions="2"
+                    valueFormatMinFractions="1"
                     valueFormatMode="Decimal"
                     target={this.chart}
                     unitsText="B"

@@ -86,6 +86,7 @@ export default class Sample extends React.Component<any, any> {
                         minimumValue="0"
                         maximumValue="60"
                         title="Millions of Dollars"
+                        titleAngle="-90"
                         titleLeftMargin="10"
                         name="yAxis">
                     </IgrNumericYAxis>

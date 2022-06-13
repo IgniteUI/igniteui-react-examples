@@ -45,6 +45,8 @@ export default class Sample extends React.Component<any, any> {
             
             <div className="container fill">
                 <IgrDataChart
+                    shouldAutoExpandMarginForInitialLabels="true"
+                    computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         dataSource={this.countryRenewableElectricity}

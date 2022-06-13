@@ -55,6 +55,7 @@ export default class Sample extends React.Component<any, any> {
                         minimumValue="0"
                         maximumValue="60"
                         title="Millions of Dollars"
+                        titleAngle="90"
                         titleLeftMargin="10"
                         name="yAxis">
                     </IgrNumericYAxis>
@@ -65,9 +66,11 @@ export default class Sample extends React.Component<any, any> {
                         isTransitionInEnabled="true"
                         dataSource={this.companyIncomeData}
                         showDefaultTooltip="true"
+                        title="Value"
                         name="WaterfallSeries1">
                     </IgrWaterfallSeries>
                     <IgrWaterfallSeries
+                        title="Value"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.companyIncomeData}

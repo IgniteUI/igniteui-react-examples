@@ -75,6 +75,12 @@ export class CountryRenewableCallouts extends Array<CountryRenewableCalloutsItem
         {
             index: 10,
             label: `38 TWh`,
+            value: 34
+        }));
+        this.push(new CountryRenewableCalloutsItem(
+        {
+            index: 11,
+            label: `38 TWh`,
             value: 38
         }));
     }

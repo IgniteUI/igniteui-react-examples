@@ -38,7 +38,6 @@ export default class Sample extends React.Component<any, any> {
     private s3: IgrStackedFragmentSeries
     private s4: IgrStackedFragmentSeries
     private s5: IgrStackedFragmentSeries
-    private s6: IgrStackedFragmentSeries
 
     constructor(props: any) {
         super(props);
@@ -74,7 +73,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrNumericYAxis
                         interval="20"
                         title="Millions of Births"
-                        titleLeftMargin="10"
+                        titleAngle="-90"
                         labelFormat="{0} %"
                         name="yAxis">
                     </IgrNumericYAxis>
@@ -104,10 +103,6 @@ export default class Sample extends React.Component<any, any> {
                         <IgrStackedFragmentSeries
                             name="s5"
                             valueMemberPath="southAmerica">
-                        </IgrStackedFragmentSeries>
-                        <IgrStackedFragmentSeries
-                            name="s6"
-                            valueMemberPath="oceania">
                         </IgrStackedFragmentSeries>
                     </IgrStacked100AreaSeries>
                 </IgrDataChart>

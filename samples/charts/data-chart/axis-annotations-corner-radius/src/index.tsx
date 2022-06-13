@@ -61,23 +61,33 @@ export default class Sample extends React.Component<any, any> {
                         yAxisName="yAxis"
                         valueMemberPath="america"
                         dataSource={this.countryRenewableElectricity}
+                        title="Electricity"
                         name="LineSeries1">
                     </IgrLineSeries>
                     <IgrCalloutLayer
                         labelMemberPath="label"
                         xMemberPath="index"
                         yMemberPath="value"
-                        calloutCornerRadius="10"
+                        calloutCornerRadius="5"
+                        calloutPaddingLeft="20"
+                        calloutPaddingTop="10"
+                        calloutPaddingRight="20"
+                        calloutPaddingBottom="10"
                         dataSource={this.countryRenewableCallouts}
                         name="CalloutLayer1">
                     </IgrCalloutLayer>
                     <IgrFinalValueLayer
-                        axisAnnotationBackgroundCornerRadius="100">
+                        axisAnnotationBackgroundCornerRadius="10"
+                        axisAnnotationPaddingLeft="10"
+                        axisAnnotationPaddingTop="10"
+                        axisAnnotationPaddingRight="10"
+                        axisAnnotationPaddingBottom="10">
                     </IgrFinalValueLayer>
                     <IgrCrosshairLayer
                         isAxisAnnotationEnabled="true"
-                        xAxisAnnotationBackgroundCornerRadius="100"
-                        yAxisAnnotationBackgroundCornerRadius="100">
+                        xAxisAnnotationBackgroundCornerRadius="10"
+                        yAxisAnnotationBackgroundCornerRadius="10"
+                        yAxisAnnotationInterpolatedValuePrecision="0">
                     </IgrCrosshairLayer>
                     <IgrDataToolTipLayer
                         name="Tooltips">

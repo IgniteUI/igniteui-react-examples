@@ -50,10 +50,8 @@ export default class Sample extends React.Component<any, any> {
                         name="xAxis">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
-                        minimumValue="0"
-                        maximumValue="50"
-                        interval="10"
                         title="Temperature (in Celsius)"
+                        titleAngle="-90"
                         titleLeftMargin="10"
                         name="yAxis">
                     </IgrNumericYAxis>

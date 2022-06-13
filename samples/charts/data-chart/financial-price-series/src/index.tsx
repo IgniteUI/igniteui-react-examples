@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries } from 'igniteui-react-charts';
+import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
+import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { Stock2YearsItem, Stock2Years } from './Stock2Years';
 
 
@@ -15,7 +15,8 @@ const mods: any[] = [
     IgrDataChartFinancialCoreModule,
     IgrDataChartFinancialModule,
     IgrDataChartFinancialOverlaysModule,
-    IgrDataChartInteractivityModule
+    IgrDataChartInteractivityModule,
+    IgrDataChartAnnotationModule
 ];
 mods.forEach((m) => m.register());
 
@@ -28,6 +29,7 @@ export default class Sample extends React.Component<any, any> {
     private xAxis: IgrCategoryXAxis
     private yAxis: IgrNumericYAxis
     private series1: IgrFinancialPriceSeries
+    private tooltip: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -45,6 +47,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     isHorizontalZoomEnabled="true"
                     isVerticalZoomEnabled="true"
+                    shouldAutoExpandMarginForInitialLabels="true"
+                    computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         interval="1"
@@ -55,10 +59,11 @@ export default class Sample extends React.Component<any, any> {
                         name="xAxis">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
-                        labelLocation="OutsideBottom"
+                        labelLocation="OutsideRight"
                         name="yAxis">
                     </IgrNumericYAxis>
                     <IgrFinancialPriceSeries
+                        displayType="Candlestick"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         openMemberPath="open"
@@ -71,6 +76,9 @@ export default class Sample extends React.Component<any, any> {
                         title="Stock Price"
                         name="Series1">
                     </IgrFinancialPriceSeries>
+                    <IgrDataToolTipLayer
+                        name="Tooltip">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

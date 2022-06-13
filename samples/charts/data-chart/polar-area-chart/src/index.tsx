@@ -88,16 +88,16 @@ export default class Sample extends React.Component<any, any> {
                         name="PolarAreaSeries1">
                     </IgrPolarAreaSeries>
                     <IgrPolarAreaSeries
-                        dataSource={this.boatSailingData}
-                        angleAxisName="angleAxis"
-                        radiusAxisName="radiusAxis"
                         angleMemberPath="direction"
                         radiusMemberPath="boatSpeed"
-                        showDefaultTooltip="true"
-                        areaFillOpacity="0.8"
-                        thickness="1"
-                        title="Boat Speed"
+                        angleAxisName="angleAxis"
+                        radiusAxisName="radiusAxis"
                         markerType="Circle"
+                        dataSource={this.boatSailingData}
+                        thickness="1"
+                        areaFillOpacity="0.8"
+                        showDefaultTooltip="true"
+                        title="Boat Speed"
                         name="PolarAreaSeries2">
                     </IgrPolarAreaSeries>
                 </IgrDataChart>

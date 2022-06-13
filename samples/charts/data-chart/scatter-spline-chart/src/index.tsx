@@ -6,7 +6,6 @@ import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, Ig
 import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterSplineSeries } from 'igniteui-react-charts';
 import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
 import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
-import { HealthDataForNorwayItem, HealthDataForNorway } from './HealthDataForNorway';
 
 
 
@@ -36,7 +35,6 @@ export default class Sample extends React.Component<any, any> {
     private yAxis: IgrNumericYAxis
     private scatterSplineSeries1: IgrScatterSplineSeries
     private scatterSplineSeries2: IgrScatterSplineSeries
-    private scatterSplineSeries3: IgrScatterSplineSeries
 
     constructor(props: any) {
         super(props);
@@ -99,17 +97,6 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true"
                         name="ScatterSplineSeries2">
                     </IgrScatterSplineSeries>
-                    <IgrScatterSplineSeries
-                        title="Norway"
-                        xAxisName="xAxis"
-                        yAxisName="yAxis"
-                        xMemberPath="lifeExpectancy"
-                        yMemberPath="healthExpense"
-                        dataSource={this.healthDataForNorway}
-                        markerType="Circle"
-                        showDefaultTooltip="true"
-                        name="ScatterSplineSeries3">
-                    </IgrScatterSplineSeries>
                 </IgrDataChart>
             </div>
         </div>
@@ -132,15 +119,6 @@ export default class Sample extends React.Component<any, any> {
             this._healthDataForFrance = new HealthDataForFrance();
         }
         return this._healthDataForFrance;
-    }
-    
-    private _healthDataForNorway: HealthDataForNorway = null;
-    public get healthDataForNorway(): HealthDataForNorway {
-        if (this._healthDataForNorway == null)
-        {
-            this._healthDataForNorway = new HealthDataForNorway();
-        }
-        return this._healthDataForNorway;
     }
     
 

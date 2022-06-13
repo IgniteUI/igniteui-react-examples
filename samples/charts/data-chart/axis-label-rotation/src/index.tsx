@@ -7,7 +7,7 @@ import { IgrDataChartCategoryModule, IgrDataChartInteractivityModule } from 'ign
 import { IgrPropertyEditorPanel } from 'igniteui-react-layouts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrColumnSeries } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataChartCategoryDescriptionModule, DataChartInteractivityDescriptionModule } from 'igniteui-react-core';
-import { TemperatureAverageDataItem, TemperatureAverageData } from './TemperatureAverageData';
+import { TemperatureAverageDataLongLabelsItem, TemperatureAverageDataLongLabels } from './TemperatureAverageDataLongLabels';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
@@ -80,10 +80,9 @@ export default class Sample extends React.Component<any, any> {
                     autoMarginAndAngleUpdateMode="SizeChangingAndZoom"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
-                        dataSource={this.temperatureAverageData}
+                        dataSource={this.temperatureAverageDataLongLabels}
                         useEnhancedIntervalManagement="true"
                         enhancedIntervalPreferMoreCategoryLabels="true"
-                        labelExtent="60"
                         label="month"
                         name="xAxis">
                     </IgrCategoryXAxis>
@@ -94,7 +93,7 @@ export default class Sample extends React.Component<any, any> {
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         valueMemberPath="temperature"
-                        dataSource={this.temperatureAverageData}
+                        dataSource={this.temperatureAverageDataLongLabels}
                         name="colSeries1">
                     </IgrColumnSeries>
                 </IgrDataChart>
@@ -103,13 +102,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _temperatureAverageData: TemperatureAverageData = null;
-    public get temperatureAverageData(): TemperatureAverageData {
-        if (this._temperatureAverageData == null)
+    private _temperatureAverageDataLongLabels: TemperatureAverageDataLongLabels = null;
+    public get temperatureAverageDataLongLabels(): TemperatureAverageDataLongLabels {
+        if (this._temperatureAverageDataLongLabels == null)
         {
-            this._temperatureAverageData = new TemperatureAverageData();
+            this._temperatureAverageDataLongLabels = new TemperatureAverageDataLongLabels();
         }
-        return this._temperatureAverageData;
+        return this._temperatureAverageDataLongLabels;
     }
     
 
