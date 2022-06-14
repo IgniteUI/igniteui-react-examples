@@ -29,7 +29,10 @@ export default class Sample extends React.Component<any, any> {
     private xAxis: IgrNumericXAxis
     private yAxis: IgrNumericYAxis
     private bubbleSeries1: IgrBubbleSeries
+    private sizeScale1: IgrSizeScale
     private bubbleSeries2: IgrBubbleSeries
+    private sizeScale2: IgrSizeScale
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -76,28 +79,30 @@ export default class Sample extends React.Component<any, any> {
                         name="BubbleSeries1">
                         <IgrSizeScale
                             minimumValue="10"
-                            maximumValue="100">
+                            maximumValue="100"
+                            name="SizeScale1">
                         </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
+                        radiusMemberPath="population"
+                        radiusMemberAsLegendLabel="Population:"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        dataSource={this.countryDemographicEurope}
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
-                        radiusMemberPath="population"
-                        title="Europe"
-                        radiusMemberAsLegendLabel="Population:"
                         xMemberAsLegendLabel="Death Rate:"
                         yMemberAsLegendLabel="Birth Rate:"
+                        dataSource={this.countryDemographicEurope}
+                        title="Europe"
                         name="BubbleSeries2">
                         <IgrSizeScale
                             minimumValue="10"
-                            maximumValue="100">
+                            maximumValue="100"
+                            name="SizeScale2">
                         </IgrSizeScale>
                     </IgrBubbleSeries>
-                    <IgrDataToolTipLayer name="DataToolTipLayer"
-                    >
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

@@ -30,6 +30,9 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private yAxisStroke: IgrPropertyEditorPropertyDescription
+    private yAxisMajorStroke: IgrPropertyEditorPropertyDescription
+    private yAxisMinorStroke: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -62,7 +65,8 @@ export default class Sample extends React.Component<any, any> {
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
                         dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
-                        primitiveValue="gray">
+                        primitiveValue="gray"
+                        name="YAxisStroke">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
@@ -71,7 +75,8 @@ export default class Sample extends React.Component<any, any> {
                         label="Y Axis Major Stroke"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}>
+                        dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
+                        name="YAxisMajorStroke">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
@@ -80,7 +85,8 @@ export default class Sample extends React.Component<any, any> {
                         label="Y Axis Minor Stroke"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}>
+                        dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
+                        name="YAxisMinorStroke">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>

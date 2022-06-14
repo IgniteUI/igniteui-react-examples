@@ -72,8 +72,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrRangeColumnSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        lowMemberPath="lA_Low"
-                        highMemberPath="lA_High"
+                        lowMemberPath="lowLA"
+                        highMemberPath="highLA"
                         dataSource={this.temperatureRangeData}
                         title="Los Angeles"
                         name="series1">
@@ -82,8 +82,8 @@ export default class Sample extends React.Component<any, any> {
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         title="New York City"
-                        lowMemberPath="nY_Low"
-                        highMemberPath="nY_High"
+                        lowMemberPath="lowNY"
+                        highMemberPath="highNY"
                         dataSource={this.temperatureRangeData}
                         name="series2">
                     </IgrRangeColumnSeries>

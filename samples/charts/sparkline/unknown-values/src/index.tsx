@@ -24,6 +24,7 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private unknownValuePlottingEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrSparkline
     private chartRef(r: IgrSparkline) {
         this.chart = r;
@@ -55,7 +56,8 @@ export default class Sample extends React.Component<any, any> {
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["LinearInterpolate", "DontPlot"]}
                         dropDownValues={["LinearInterpolate", "DontPlot"]}
-                        primitiveValue="LinearInterpolate">
+                        primitiveValue="LinearInterpolate"
+                        name="UnknownValuePlottingEditor">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>

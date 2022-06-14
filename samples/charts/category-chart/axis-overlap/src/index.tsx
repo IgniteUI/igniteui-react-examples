@@ -30,6 +30,7 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private xAxisOverlap: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -63,7 +64,8 @@ export default class Sample extends React.Component<any, any> {
                         primitiveValue="0"
                         min="0"
                         max="1"
-                        step="0.1">
+                        step="0.1"
+                        name="XAxisOverlap">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>

@@ -24,6 +24,12 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private firstMarkerVisibilityEditor: IgrPropertyEditorPropertyDescription
+    private highMarkerVisibilityEditor: IgrPropertyEditorPropertyDescription
+    private lowMarkerVisibilityEditor: IgrPropertyEditorPropertyDescription
+    private negativeMarkerVisibilityEditor: IgrPropertyEditorPropertyDescription
+    private lastMarkerVisibilityEditor: IgrPropertyEditorPropertyDescription
+    private markerVisibilityEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrSparkline
     private chartRef(r: IgrSparkline) {
         this.chart = r;
@@ -55,7 +61,8 @@ export default class Sample extends React.Component<any, any> {
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["Visible", "Collapsed"]}
                         dropDownValues={["Visible", "Collapsed"]}
-                        primitiveValue="Visible">
+                        primitiveValue="Visible"
+                        name="FirstMarkerVisibilityEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["Visible", "Collapsed"]}
@@ -63,7 +70,8 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="HighMarkerVisibility"
                         label="High Markers"
                         valueType="EnumValue"
-                        dropDownNames={["Visible", "Collapsed"]}>
+                        dropDownNames={["Visible", "Collapsed"]}
+                        name="HighMarkerVisibilityEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["Visible", "Collapsed"]}
@@ -71,7 +79,8 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="LowMarkerVisibility"
                         label="Low Markers"
                         valueType="EnumValue"
-                        dropDownNames={["Visible", "Collapsed"]}>
+                        dropDownNames={["Visible", "Collapsed"]}
+                        name="LowMarkerVisibilityEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["Visible", "Collapsed"]}
@@ -79,7 +88,8 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="NegativeMarkerVisibility"
                         label="Negative Markers"
                         valueType="EnumValue"
-                        dropDownNames={["Visible", "Collapsed"]}>
+                        dropDownNames={["Visible", "Collapsed"]}
+                        name="NegativeMarkerVisibilityEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["Visible", "Collapsed"]}
@@ -87,7 +97,8 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="LastMarkerVisibility"
                         label="Last Markers"
                         valueType="EnumValue"
-                        dropDownNames={["Visible", "Collapsed"]}>
+                        dropDownNames={["Visible", "Collapsed"]}
+                        name="LastMarkerVisibilityEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["Visible", "Collapsed"]}
@@ -95,7 +106,8 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="MarkerVisibility"
                         label="All Markers"
                         valueType="EnumValue"
-                        dropDownNames={["Visible", "Collapsed"]}>
+                        dropDownNames={["Visible", "Collapsed"]}
+                        name="MarkerVisibilityEditor">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>

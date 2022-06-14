@@ -24,6 +24,9 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private normalRangeVisibilityEditor: IgrPropertyEditorPropertyDescription
+    private normalRangeMinimumEditor: IgrPropertyEditorPropertyDescription
+    private normalRangeMaximumEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrSparkline
     private chartRef(r: IgrSparkline) {
         this.chart = r;
@@ -55,16 +58,18 @@ export default class Sample extends React.Component<any, any> {
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["Visible", "Collapsed"]}
                         dropDownValues={["Visible", "Collapsed"]}
-                        primitiveValue="Visible">
+                        primitiveValue="Visible"
+                        name="NormalRangeVisibilityEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["0", "10", "15", "20", "25", "30"]}
-                        primitiveValue="15"
+                        primitiveValue="25"
                         propertyPath="NormalRangeMinimum"
                         label="Normal Range Minimum"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["0", "10", "15", "20", "25", "30"]}>
+                        dropDownNames={["0", "10", "15", "20", "25", "30"]}
+                        name="NormalRangeMinimumEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["0", "10", "15", "20", "25", "30"]}
@@ -73,7 +78,8 @@ export default class Sample extends React.Component<any, any> {
                         label="Normal Range Maximum"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["0", "10", "15", "20", "25", "30"]}>
+                        dropDownNames={["0", "10", "15", "20", "25", "30"]}
+                        name="NormalRangeMaximumEditor">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>

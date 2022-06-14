@@ -24,6 +24,10 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private layoutTypeEditor: IgrPropertyEditorPropertyDescription
+    private layoutOrientationEditor: IgrPropertyEditorPropertyDescription
+    private headerDisplayModeEditor: IgrPropertyEditorPropertyDescription
+    private labelVerticalAlignmentEditor: IgrPropertyEditorPropertyDescription
     private treemap: IgrTreemap
     private treemapRef(r: IgrTreemap) {
         this.treemap = r;
@@ -51,22 +55,26 @@ export default class Sample extends React.Component<any, any> {
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="LayoutType"
                         label="Layout"
-                        primitiveValue="Squarified">
+                        primitiveValue="Squarified"
+                        name="LayoutTypeEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="LayoutOrientation"
                         primitiveValue="Vertical"
-                        label="Orientation">
+                        label="Orientation"
+                        name="LayoutOrientationEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HeaderDisplayMode"
                         primitiveValue="Overlay"
-                        label="Headers">
+                        label="Headers"
+                        name="HeaderDisplayModeEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="LabelVerticalAlignment"
                         primitiveValue="Center"
-                        label="Labels">
+                        label="Labels"
+                        name="LabelVerticalAlignmentEditor">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>

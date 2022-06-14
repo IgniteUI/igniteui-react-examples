@@ -24,6 +24,8 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private xAxisInvertedEditor: IgrPropertyEditorPropertyDescription
+    private yAxisInvertedEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -52,13 +54,15 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="XAxisInverted"
                         label="X Axis - Inverted"
                         shouldOverrideDefaultEditor="true"
-                        primitiveValue="True">
+                        primitiveValue="True"
+                        name="XAxisInvertedEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="YAxisInverted"
                         label="Y Axis - Inverted"
                         shouldOverrideDefaultEditor="true"
-                        primitiveValue="True">
+                        primitiveValue="True"
+                        name="YAxisInvertedEditor">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>

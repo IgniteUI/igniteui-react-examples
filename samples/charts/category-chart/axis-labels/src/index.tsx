@@ -30,6 +30,9 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private xAxisLabelAngleEditor: IgrPropertyEditorPropertyDescription
+    private yAxisLabelAngleEditor: IgrPropertyEditorPropertyDescription
+    private xAxisLabelTextColorEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -62,7 +65,8 @@ export default class Sample extends React.Component<any, any> {
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["0", "45", "90", "135", "180", "225", "270"]}
                         dropDownValues={["0", "45", "90", "135", "180", "225", "270"]}
-                        primitiveValue="0">
+                        primitiveValue="0"
+                        name="XAxisLabelAngleEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["-90", "-45", "0", "45", "90"]}
@@ -71,7 +75,8 @@ export default class Sample extends React.Component<any, any> {
                         label="Y Axis Label Angle"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["-90", "-45", "0", "45", "90"]}>
+                        dropDownNames={["-90", "-45", "0", "45", "90"]}
+                        name="YAxisLabelAngleEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["red", "green"]}
@@ -80,7 +85,8 @@ export default class Sample extends React.Component<any, any> {
                         label="Y Axis Label Color"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["red", "green"]}>
+                        dropDownNames={["red", "green"]}
+                        name="XAxisLabelTextColorEditor">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>

@@ -30,6 +30,7 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private yAxisLabelLocation: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -58,7 +59,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="YAxisLabelLocation"
                         label="Y Axis - Label Location"
-                        primitiveValue="OutsideRight">
+                        primitiveValue="OutsideRight"
+                        name="YAxisLabelLocation">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>

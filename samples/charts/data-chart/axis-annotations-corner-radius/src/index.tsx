@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCalloutLayer, IgrDataToolTipLayer, IgrFinalValueLayer, IgrCrosshairLayer } from 'igniteui-react-charts';
+import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCalloutLayer, IgrFinalValueLayer, IgrCrosshairLayer, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
 
@@ -28,6 +28,8 @@ export default class Sample extends React.Component<any, any> {
     private yAxis: IgrNumericYAxis
     private lineSeries1: IgrLineSeries
     private calloutLayer1: IgrCalloutLayer
+    private finalValueLayer: IgrFinalValueLayer
+    private crosshairLayer: IgrCrosshairLayer
     private tooltips: IgrDataToolTipLayer
 
     constructor(props: any) {
@@ -77,19 +79,19 @@ export default class Sample extends React.Component<any, any> {
                         name="CalloutLayer1">
                     </IgrCalloutLayer>
                     <IgrFinalValueLayer
-                        name="FinalValueLayer"
                         axisAnnotationBackgroundCornerRadius="10"
                         axisAnnotationPaddingLeft="10"
                         axisAnnotationPaddingTop="10"
                         axisAnnotationPaddingRight="10"
-                        axisAnnotationPaddingBottom="10">
+                        axisAnnotationPaddingBottom="10"
+                        name="FinalValueLayer">
                     </IgrFinalValueLayer>
                     <IgrCrosshairLayer
-                        name="CrosshairLayer"
                         isAxisAnnotationEnabled="true"
                         xAxisAnnotationBackgroundCornerRadius="10"
                         yAxisAnnotationBackgroundCornerRadius="10"
-                        yAxisAnnotationInterpolatedValuePrecision="0">
+                        yAxisAnnotationInterpolatedValuePrecision="0"
+                        name="CrosshairLayer">
                     </IgrCrosshairLayer>
                     <IgrDataToolTipLayer
                         name="Tooltips">

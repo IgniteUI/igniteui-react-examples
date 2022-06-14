@@ -25,6 +25,8 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private shouldConsiderAutoRotationForInitialLabels: IgrPropertyEditorPropertyDescription
+    private autoMarginAndAngleUpdateMode: IgrPropertyEditorPropertyDescription
     private chart: IgrDataChart
     private chartRef(r: IgrDataChart) {
         this.chart = r;
@@ -56,16 +58,18 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="ShouldConsiderAutoRotationForInitialLabels"
                         label="Rotate Labels?"
                         shouldOverrideDefaultEditor="true"
-                        primitiveValue="True">
+                        primitiveValue="True"
+                        name="ShouldConsiderAutoRotationForInitialLabels">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["None", "SizeChanging", "SizeChangingAndZoom"]}
                         primitiveValue="SizeChangingAndZoom"
-                        propertyPath="autoMarginAndAngleUpdateMode"
+                        propertyPath="AutoMarginAndAngleUpdateMode"
                         label="AutoMarginAndAngleUpdateMode:"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["None", "SizeChanging", "SizeChangingAndZoom"]}>
+                        dropDownNames={["None", "SizeChanging", "SizeChangingAndZoom"]}
+                        name="AutoMarginAndAngleUpdateMode">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>

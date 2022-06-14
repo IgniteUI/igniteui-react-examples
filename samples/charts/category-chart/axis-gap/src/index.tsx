@@ -25,6 +25,8 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private xAxisGap: IgrPropertyEditorPropertyDescription
+    private xAxisMaximumGap: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -57,7 +59,8 @@ export default class Sample extends React.Component<any, any> {
                         primitiveValue="0.5"
                         min="0"
                         max="1.5"
-                        step="0.1">
+                        step="0.1"
+                        name="XAxisGap">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
@@ -66,7 +69,8 @@ export default class Sample extends React.Component<any, any> {
                         label="Maximum Gap"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}>
+                        dropDownNames={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
+                        name="XAxisMaximumGap">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>

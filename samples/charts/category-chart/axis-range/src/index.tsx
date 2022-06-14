@@ -30,6 +30,8 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private yAxisMinimumValue: IgrPropertyEditorPropertyDescription
+    private yAxisMaximumValue: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -62,7 +64,8 @@ export default class Sample extends React.Component<any, any> {
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]}
                         dropDownValues={["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]}
-                        primitiveValue="0">
+                        primitiveValue="0"
+                        name="YAxisMinimumValue">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}
@@ -71,7 +74,8 @@ export default class Sample extends React.Component<any, any> {
                         label="Y Axis Maximum Value"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}>
+                        dropDownNames={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}
+                        name="YAxisMaximumValue">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
