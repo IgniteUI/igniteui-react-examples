@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCalloutLayer, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCalloutLayer, IgrDataToolTipLayer, IgrFinalValueLayer, IgrCrosshairLayer } from 'igniteui-react-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
 
@@ -77,6 +77,7 @@ export default class Sample extends React.Component<any, any> {
                         name="CalloutLayer1">
                     </IgrCalloutLayer>
                     <IgrFinalValueLayer
+                        name="FinalValueLayer"
                         axisAnnotationBackgroundCornerRadius="10"
                         axisAnnotationPaddingLeft="10"
                         axisAnnotationPaddingTop="10"
@@ -84,6 +85,7 @@ export default class Sample extends React.Component<any, any> {
                         axisAnnotationPaddingBottom="10">
                     </IgrFinalValueLayer>
                     <IgrCrosshairLayer
+                        name="CrosshairLayer"
                         isAxisAnnotationEnabled="true"
                         xAxisAnnotationBackgroundCornerRadius="10"
                         yAxisAnnotationBackgroundCornerRadius="10"

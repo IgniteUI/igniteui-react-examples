@@ -2,3 +2,4 @@ src/*.d.ts
 src/CacheBuster.js
 src/samples/grids/data-grid/binding-remote-data/odatajs-4.0.0.js
 samples/grids/data-grid/binding-remote-data/src/odatajs-4.0.0.js
+src/samples/charts/data-chart/range-column-chart/TemperatureRangeData.ts

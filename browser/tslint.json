@@ -42,6 +42,7 @@
     "max-classes-per-file": [true, 10],
     "prefer-const": false,
     "prefer-for-of": false,
+    "camelcase": "off",
     "no-useless-constructor": false,
     "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/no-useless-constructor": "off",

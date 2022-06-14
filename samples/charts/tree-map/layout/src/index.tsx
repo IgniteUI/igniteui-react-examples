@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrTreemapModule } from 'igniteui-react-charts';
-import { IgrPropertyEditorPanel } from 'igniteui-react-layouts';
+import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrTreemap } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, TreemapDescriptionModule } from 'igniteui-react-core';
 import { CountyHierarchicalDataItem, CountyHierarchicalData } from './CountyHierarchicalData';
