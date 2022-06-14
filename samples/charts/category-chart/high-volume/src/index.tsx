@@ -42,7 +42,7 @@ export default class CategoryChartHighVolume extends React.Component<any, any> {
                     height="100%"
                     chartType="Line"
                     markerTypes="None"
-                    ToolTipType="ToolTipType.Default"
+                    toolTipType="Default"
                     xAxisEnhancedIntervalPreferMoreCategoryLabels="false"
                     shouldAutoExpandMarginForInitialLabels="false"
                     crosshairsDisplayMode="None" 
