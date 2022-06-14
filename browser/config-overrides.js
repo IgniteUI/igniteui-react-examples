@@ -4,9 +4,12 @@ module.exports = function override(config, env) {
     console.log("Running config-overrides.js");
     const paths = require('./node_modules/react-scripts/config/paths');
     console.log(paths);
+    console.log(config);
     let rules = config.module.rules;
+    console.log("rules");
+    console.log(rules);
     //let paths = config._paths;
-    let oneOf = rules[2].oneOf;
+    let oneOf = rules[0].oneOf;
     oneOf.splice(0, 0, {
         test: /\.worker\.ts$/,
         include: paths.appSrc,
@@ -20,7 +23,7 @@ module.exports = function override(config, env) {
 
     config.output.globalObject = 'this';
 
-    //config.optimization.splitChunks = {};
+    config.optimization.splitChunks = {};
     config.optimization.splitChunks.cacheGroups = {
         igniteuiCharts: {
             test: /[\\/]node_modules[\\/](igniteui-react-charts)[\\/]/,
