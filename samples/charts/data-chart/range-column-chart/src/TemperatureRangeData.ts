@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 export class TemperatureRangeDataItem {
     public constructor(init: Partial<TemperatureRangeDataItem>) {
         Object.assign(this, init);

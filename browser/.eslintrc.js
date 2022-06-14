@@ -22,6 +22,9 @@ module.exports = {
       // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
       "default-case": "off",
       "no-undef": "off",
+      "camelcase": {
+        "properties": "never"
+      },
       "no-unused-vars": "off",
       "no-extend-native": "off",
       "no-throw-literal": "off",
@@ -33,6 +36,7 @@ module.exports = {
       "jsx-a11y/alt-text": "off",
       "jsx-a11y/iframe-has-title": "off",
       "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/camelcase": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-inferrable-types": "off",
       "@typescript-eslint/no-useless-constructor": "off",

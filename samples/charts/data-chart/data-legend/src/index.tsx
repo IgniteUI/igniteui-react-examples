@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataLegendModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrDataLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrCrosshairLayer } from 'igniteui-react-charts';
+import { IgrDataLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrCrosshairLayer, IgrSizeScale } from 'igniteui-react-charts';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 

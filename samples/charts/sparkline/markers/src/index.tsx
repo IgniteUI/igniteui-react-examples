@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
-import { IgrPropertyEditorPanel } from 'igniteui-react-layouts';
+import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrSparkline } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-react-core';
 import { SparklineProfitDataItem, SparklineProfitData } from './SparklineProfitData';

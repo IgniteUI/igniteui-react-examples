@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
-import { IgrPropertyEditorPanel } from 'igniteui-react-layouts';
+import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
