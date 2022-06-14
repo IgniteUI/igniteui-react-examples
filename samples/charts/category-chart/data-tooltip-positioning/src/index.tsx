@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { IgrPropertyEditorPaneModule } from 'igniteui-react-layouts';
+import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
-import { ComponentRenderer, PropertyEditorPaneDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
 defineAllComponents();
 const mods: any[] = [
-    IgrPropertyEditorPaneModule,
+    IgrPropertyEditorPanelModule,
     IgrLegendModule,
     IgrCategoryChartModule
 ];
@@ -108,7 +108,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorPaneDescriptionModule.register(context);
+            PropertyEditorPanelDescriptionModule.register(context);
             LegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
         }
