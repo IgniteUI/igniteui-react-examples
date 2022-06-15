@@ -15,7 +15,7 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
     public refreshMilliseconds: number = 5;
     public interval: number = -1;
 
-    public chart: IgrCategoryChart;        
+    public chart: IgrCategoryChart;
 
     constructor(props: any) {
         super(props);
@@ -44,7 +44,7 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
         return (
             <div className="container sample">
                 <div className="options horizontal">
-                    <button onClick={this.onDataFeedClick}>{this.state.dataFeedAction}</button>                    
+                    <button onClick={this.onDataFeedClick}>{this.state.dataFeedAction}</button>
                     <label className="options-label">Refresh: </label>
                     <label className="options-value">{this.state.refreshInfo}</label>
                     <input className="options-slider" type="range" min="5" max="250" step="5"
@@ -55,7 +55,7 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
                     <label className="options-value">{this.state.dataInfo}</label>
                     <input className="options-slider" type="range" min="100" max="2000" step="100"
                         value={this.state.dataPoints}
-                        onChange={this.onDataPointsChanged} />                    
+                        onChange={this.onDataPointsChanged} />
                 </div>
                 <div className="container" style={{ height: "calc(100% - 45px)" }} >
                     <IgrCategoryChart ref={this.onChartRef}
@@ -64,6 +64,9 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
                         chartType="Line"
                         dataSource={this.state.dataSource}
                         yAxisExtent={40}
+                        xAxisEnhancedIntervalPreferMoreCategoryLabels="false"
+                        shouldAutoExpandMarginForInitialLabels="false"
+                        crosshairsDisplayMode="None"
                         markerTypes="None" />
                 </div>
             </div>
@@ -84,7 +87,7 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
         this.onChartInit();
     }
 
-    public onChartInit(): void {        
+    public onChartInit(): void {
         this.setupInterval();
     }
 
@@ -142,7 +145,7 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
         if (num > 500) {
             num = 500;
         }
-        this.refreshMilliseconds = num;        
+        this.refreshMilliseconds = num;
         this.setState({ refreshInterval: num, refreshInfo: this.refreshMilliseconds + "ms" });
         this.setupInterval();
     }
@@ -167,7 +170,7 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
             this.data.push(newItem);
             this.chart.notifyInsertItem(this.data, this.data.length - 1, newItem);
             this.data.shift();
-            this.chart.notifyRemoveItem(this.data, 0, oldItem);            
+            this.chart.notifyRemoveItem(this.data, 0, oldItem);
         }
     }
 }
