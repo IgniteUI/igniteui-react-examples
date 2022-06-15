@@ -53,17 +53,20 @@ export default class Sample extends React.Component<any, any> {
                     isWrappingEnabled="true"
                     ref={this.propertyEditorRef}>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="dataToolTipGroupedPositionModeX"
+                        propertyPath="DataToolTipGroupedPositionModeX"
                         label="Grouped X Position:"
+                        primitiveValue="PinRight"
                         name="GroupedPositionXEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="dataToolTipGroupedPositionModeY"
+                        propertyPath="DataToolTipGroupedPositionModeY"
+                        primitiveValue="PinTop"
                         label="Grouped Y Position:"
                         name="GroupedPositionYEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="dataToolTipGroupingMode"
+                        propertyPath="DataToolTipGroupingMode"
+                        primitiveValue="Grouped"
                         label="Grouping Mode:"
                         name="GroupingModeEditor">
                     </IgrPropertyEditorPropertyDescription>
@@ -81,6 +84,7 @@ export default class Sample extends React.Component<any, any> {
                     yAxisTitleLeftMargin="10"
                     yAxisTitleRightMargin="5"
                     yAxisTitle="Billions of U.S. Dollars"
+                    dataToolTipGroupingMode="Grouped"
                     dataToolTipGroupedPositionModeX="PinRight"
                     dataToolTipGroupedPositionModeY="PinTop"
                     dataSource={this.highestGrossingMovies}
