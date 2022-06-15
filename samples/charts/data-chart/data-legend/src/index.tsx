@@ -96,16 +96,16 @@ export default class Sample extends React.Component<any, any> {
                         </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
-                        radiusMemberPath="population"
-                        radiusMemberAsLegendLabel="Population:"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
+                        dataSource={this.countryDemographicEurope}
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
+                        radiusMemberPath="population"
+                        title="Europe"
+                        radiusMemberAsLegendLabel="Population:"
                         xMemberAsLegendLabel="Death Rate:"
                         yMemberAsLegendLabel="Birth Rate:"
-                        dataSource={this.countryDemographicEurope}
-                        title="Europe"
                         name="BubbleSeries2">
                         <IgrSizeScale
                             minimumValue="10"

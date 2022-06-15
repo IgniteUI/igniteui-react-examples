@@ -38,13 +38,12 @@ export default class Sample extends React.Component<any, any> {
                 <IgrFinancialChart
                     isHorizontalZoomEnabled="true"
                     isToolbarVisible="false"
-                    isWindowSyncedToVisibleRange="true"
                     zoomSliderType="None"
                     isVerticalZoomEnabled="true"
                     dataSource={this.multipleStocks}
                     windowRect="0, 0, 0.5, 1"
                     horizontalViewScrollbarMode="Persistent"
-                    verticalViewScrollbarMode="Persistent"
+                    verticalViewScrollbarMode="Fading"
                     ref={this.chartRef}>
                 </IgrFinancialChart>
             </div>

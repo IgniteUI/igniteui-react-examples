@@ -83,6 +83,7 @@ export default class Sample extends React.Component<any, any> {
                         name="RadialPieSeries1">
                     </IgrRadialPieSeries>
                     <IgrRadialPieSeries
+                        dataSource={this.footballPlayerStats}
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
                         valueMemberPath="messi"
@@ -90,7 +91,6 @@ export default class Sample extends React.Component<any, any> {
                         areaFillOpacity="0.8"
                         thickness="3"
                         title="Messi"
-                        dataSource={this.footballPlayerStats}
                         name="RadialPieSeries2">
                     </IgrRadialPieSeries>
                 </IgrDataChart>
