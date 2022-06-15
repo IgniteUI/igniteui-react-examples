@@ -25,7 +25,6 @@ export default class FinancialChartHighVolume extends React.Component<any, any> 
                     <IgrFinancialChart width="100%" height="100%"
                         chartType="Line"
                         xAxisEnhancedIntervalPreferMoreCategoryLabels="false"
-                        shouldAutoExpandMarginForInitialLabels="false"
                         markerTypes="None"
                         dataSource={this.data}
                         chartTitle={this.title}

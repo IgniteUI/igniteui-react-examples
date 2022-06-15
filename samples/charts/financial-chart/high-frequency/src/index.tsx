@@ -76,7 +76,6 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
                         chartType="Line"
                         zoomSliderType="None"
                         xAxisEnhancedIntervalPreferMoreCategoryLabels="false"
-                        shouldAutoExpandMarginForInitialLabels="false"
                         crosshairsDisplayMode="None"
                         markerTypes="None"
                         isToolbarVisible={false}
