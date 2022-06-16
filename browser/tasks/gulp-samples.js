@@ -542,9 +542,15 @@ function logUniqueFiles(cb) {
 
 function logSandboxUrls(cb) {
 
+    let content = "";
     for (const sample of samples) {
         console.log("" + sample.SandboxUrlShort);
+        content += sample.SandboxUrlShort + "\n";
+
     }
+    let output = "./sandbox-react.txt";
+    fs.writeFileSync(output, content);
+
     cb();
 } exports.logSandboxUrls = logSandboxUrls;
 
