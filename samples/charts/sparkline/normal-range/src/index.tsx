@@ -1,92 +1,129 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrSparkline } from 'igniteui-react-charts';
+
+import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
-import { IgrSparklineCoreModule } from 'igniteui-react-charts';
-import { Visibility } from 'igniteui-react-core';
-import { SparklineSharedData } from './SparklineSharedData';
+import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
+import { IgrSparkline } from 'igniteui-react-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-react-core';
+import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
 
-IgrSparklineCoreModule.register();
-IgrSparklineModule.register();
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
+const mods: any[] = [
+    IgrPropertyEditorPanelModule,
+    IgrSparklineModule
+];
+mods.forEach((m) => m.register());
 
-export default class SparklineNormalRange extends React.Component<any, any> {
-    public sparkline: IgrSparkline;
+export default class Sample extends React.Component<any, any> {
+    private propertyEditorPanel1: IgrPropertyEditorPanel
+    private propertyEditorPanel1Ref(r: IgrPropertyEditorPanel) {
+        this.propertyEditorPanel1 = r;
+        this.setState({});
+    }
+    private normalRangeVisibilityEditor: IgrPropertyEditorPropertyDescription
+    private normalRangeMinimumEditor: IgrPropertyEditorPropertyDescription
+    private normalRangeMaximumEditor: IgrPropertyEditorPropertyDescription
+    private chart: IgrSparkline
+    private chartRef(r: IgrSparkline) {
+        this.chart = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
 
-        this.onSparklineRef = this.onSparklineRef.bind(this);
-        this.onMinSliderChanged = this.onMinSliderChanged.bind(this);
-        this.onMaxSliderChanged = this.onMaxSliderChanged.bind(this);
-        this.onRangeVisibilityChanged = this.onRangeVisibilityChanged.bind(this);
-
-        this.state = {
-            normalRangeMinimum: 1,
-            normalRangeMaximum: 4,
-            data: SparklineSharedData.getSharedData()
-        }
+        this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
+        this.chartRef = this.chartRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="options horizontal">
-                    <label className="options-label"><input defaultChecked={true} type="checkbox" onChange={this.onRangeVisibilityChanged}/>Range Visibility</label>
-                    <label className="options-label"><input type="range"
-                    min={-2} max={7} step="0.5"
-                    value={this.state.normalRangeMinimum}
-                    onChange={this.onMinSliderChanged}/>Min Range {this.state.normalRangeMinimum} </label>
-                    <label className="options-label"><input type="range"
-                    min={-2} max={7} step="0.5"
-                    value={this.state.normalRangeMaximum}
-                    onChange={this.onMaxSliderChanged}/>Max Range {this.state.normalRangeMaximum} </label>
-                </div>
-                <div className="container">
-                    <IgrSparkline height="calc(100% - 30px)" width="100%"
-                        ref={this.onSparklineRef}
-                        dataSource={this.state.data}
-                        valueMemberPath="Value"
-                        displayType="Area"
-                        normalRangeVisibility="Visible"
-                        normalRangeMinimum={1}
-                        normalRangeMaximum={4}
-                        normalRangeFill="rgba(255, 0, 0, 0.4)"
-                        displayNormalRangeInFront="true" />
-                </div>
-            </div >
+        <div className="container sample">
+            <div className="options vertical">
+                <IgrPropertyEditorPanel
+                    componentRenderer={this.renderer}
+                    target={this.chart}
+                    descriptionType="Sparkline"
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
+                    ref={this.propertyEditorPanel1Ref}>
+                    <IgrPropertyEditorPropertyDescription
+                        propertyPath="NormalRangeVisibility"
+                        label="Normal Range Visibility"
+                        valueType="EnumValue"
+                        shouldOverrideDefaultEditor="true"
+                        dropDownNames={["Visible", "Collapsed"]}
+                        dropDownValues={["Visible", "Collapsed"]}
+                        primitiveValue="Visible"
+                        name="NormalRangeVisibilityEditor">
+                    </IgrPropertyEditorPropertyDescription>
+                    <IgrPropertyEditorPropertyDescription
+                        dropDownValues={["0", "10", "15", "20", "25", "30"]}
+                        primitiveValue="25"
+                        propertyPath="NormalRangeMinimum"
+                        label="Normal Range Minimum"
+                        valueType="EnumValue"
+                        shouldOverrideDefaultEditor="true"
+                        dropDownNames={["0", "10", "15", "20", "25", "30"]}
+                        name="NormalRangeMinimumEditor">
+                    </IgrPropertyEditorPropertyDescription>
+                    <IgrPropertyEditorPropertyDescription
+                        dropDownValues={["0", "10", "15", "20", "25", "30"]}
+                        primitiveValue="25"
+                        propertyPath="NormalRangeMaximum"
+                        label="Normal Range Maximum"
+                        valueType="EnumValue"
+                        shouldOverrideDefaultEditor="true"
+                        dropDownNames={["0", "10", "15", "20", "25", "30"]}
+                        name="NormalRangeMaximumEditor">
+                    </IgrPropertyEditorPropertyDescription>
+                </IgrPropertyEditorPanel>
+            </div>
+            
+            
+            <div className="container fill">
+                <IgrSparkline
+                    normalRangeVisibility="Visible"
+                    dataSource={this.sparklineMixedData}
+                    valueMemberPath="value"
+                    labelMemberPath="label"
+                    normalRangeMinimum="15"
+                    normalRangeMaximum="25"
+                    displayType="Area"
+                    ref={this.chartRef}>
+                </IgrSparkline>
+            </div>
+        </div>
         );
     }
 
-    public onRangeVisibilityChanged(e: any) {
-        const selection = e.target.checked as boolean;
-
-        if (selection) {
-            this.sparkline.normalRangeVisibility = Visibility.Visible;
+    private _sparklineMixedData: SparklineMixedData = null;
+    public get sparklineMixedData(): SparklineMixedData {
+        if (this._sparklineMixedData == null)
+        {
+            this._sparklineMixedData = new SparklineMixedData();
         }
-        else {
-            this.sparkline.normalRangeVisibility = Visibility.Collapsed;
+        return this._sparklineMixedData;
+    }
+    
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            SparklineDescriptionModule.register(context);
         }
+        return this._componentRenderer;
     }
 
-    public onMinSliderChanged(e: any) {
-        const value: number = parseFloat(e.target.value);
-        this.sparkline.normalRangeMinimum = value;
-        this.setState({ normalRangeMinimum: value.toFixed(1) });
-    }
-
-    public onMaxSliderChanged(e: any) {
-        const value: number = parseFloat(e.target.value);
-        this.sparkline.normalRangeMaximum = value;
-        this.setState({ normalRangeMaximum: value.toFixed(1) });
-    }
-
-    public onSparklineRef(sparkline: IgrSparkline) {
-        if (sparkline) {
-            this.sparkline = sparkline;
-        }
-    }
 }
 
-// rendering above class to the React DOM
-ReactDOM.render(<SparklineNormalRange />, document.getElementById('root'));
+
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

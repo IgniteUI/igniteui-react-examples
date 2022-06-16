@@ -1,104 +1,121 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrCategoryChart } from 'igniteui-react-charts';
-import { IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrLegend } from 'igniteui-react-charts';
-import { IgrLegendModule } from 'igniteui-react-charts';
 
-IgrCategoryChartModule.register();
-IgrLegendModule.register();
+import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
+import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
+import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
+import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
+import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
-export default class CategoryChartColumnChartWithTooltips extends React.Component<any, any> {
-    public data: any[];
-    public chart: IgrCategoryChart;
-    public legend: IgrLegend;
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
+const mods: any[] = [
+    IgrPropertyEditorPanelModule,
+    IgrLegendModule,
+    IgrCategoryChartModule
+];
+mods.forEach((m) => m.register());
+
+export default class Sample extends React.Component<any, any> {
+    private propertyEditor: IgrPropertyEditorPanel
+    private propertyEditorRef(r: IgrPropertyEditorPanel) {
+        this.propertyEditor = r;
+        this.setState({});
+    }
+    private toolTipTypeEditor: IgrPropertyEditorPropertyDescription
+    private legend: IgrLegend
+    private legendRef(r: IgrLegend) {
+        this.legend = r;
+        this.setState({});
+    }
+    private chart: IgrCategoryChart
+    private chartRef(r: IgrCategoryChart) {
+        this.chart = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
 
-        this.onChartRef = this.onChartRef.bind(this);
-        this.onLegendRef = this.onLegendRef.bind(this);
-
-        this.state = { toolTipType: "Default" }
-        this.initData();
+        this.propertyEditorRef = this.propertyEditorRef.bind(this);
+        this.legendRef = this.legendRef.bind(this);
+        this.chartRef = this.chartRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
-        <div className="container sample" >
+        <div className="container sample">
             <div className="options vertical">
-                <span className="legend-title">Highest Grossing Movie Franchises</span>
-                    <div className="legend">
-                        <IgrLegend ref={this.onLegendRef}
-                        orientation="horizontal" />
-                    </div>
+                <IgrPropertyEditorPanel
+                    componentRenderer={this.renderer}
+                    target={this.chart}
+                    descriptionType="CategoryChart"
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
+                    ref={this.propertyEditorRef}>
+                    <IgrPropertyEditorPropertyDescription
+                        propertyPath="ToolTipType"
+                        label="ToolTip Type:"
+                        primitiveValue="Data"
+                        name="ToolTipTypeEditor">
+                    </IgrPropertyEditorPropertyDescription>
+                </IgrPropertyEditorPanel>
             </div>
-            <div className="overlay-right" >
-                <div className="options horizontal">
-                    <span className="options-label">Tooltip Type: </span>
-                    <select value={this.state.toolTipType}
-                        onChange={this.onChartTooltipChanged}>
-                        <option>Default</option>
-                        <option>Item</option>
-                        <option>Category</option>
-                    </select>
-                </div>
+            <div className="legend-title">
+                Highest Grossing Movie Franchises
             </div>
-            <div className="container" style={{height: "calc(100% - 30px)"}} >
+            <div className="legend">
+                <IgrLegend
+                    ref={this.legendRef}>
+                </IgrLegend>
+            </div>
+            <div className="container fill">
                 <IgrCategoryChart
-                    ref={this.onChartRef}
-                    width="100%"
-                    height="100%"
-                    dataSource={this.data}
-                    toolTipType={this.state.toolTipType}
-                    yAxisMinimumValue={0}
-                    xAxisInterval={1}
+                    chartType="Column"
+                    xAxisInterval="1"
+                    yAxisLabelLeftMargin="0"
+                    yAxisTitleLeftMargin="10"
+                    yAxisTitleRightMargin="5"
                     yAxisTitle="Billions of U.S. Dollars"
-                    yAxisTitleLeftMargin={10}
-                    yAxisTitleRightMargin={5}
-                    yAxisLabelLeftMargin={0}
+                    dataSource={this.highestGrossingMovies}
+                    legend={this.legend}
                     isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"/>
+                    isVerticalZoomEnabled="false"
+                    crosshairsSnapToData="true"
+                    ref={this.chartRef}>
+                </IgrCategoryChart>
             </div>
         </div>
         );
     }
 
-    public onChartRef(chart: IgrCategoryChart) {
-        if (!chart) { return; }
-
-        this.chart = chart;
-        if (this.legend) {
-            this.chart.legend = this.legend;
+    private _highestGrossingMovies: HighestGrossingMovies = null;
+    public get highestGrossingMovies(): HighestGrossingMovies {
+        if (this._highestGrossingMovies == null)
+        {
+            this._highestGrossingMovies = new HighestGrossingMovies();
         }
+        return this._highestGrossingMovies;
     }
+    
 
-    public onLegendRef(legend: IgrLegend) {
-        if (!legend) { return; }
-
-        this.legend = legend;
-        if (this.chart) {
-            this.chart.legend = this.legend;
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            LegendDescriptionModule.register(context);
+            CategoryChartDescriptionModule.register(context);
         }
+        return this._componentRenderer;
     }
 
-    public onChartTooltipChanged = (e: any) =>{
-        this.setState({toolTipType: e.target.value});
-    }
-
-    public initData() {
-        const FilmFranchiseData: any = [
-            { Franchise: "Marvel Universe", TotalRevenue: 22.55, HighestGrossing: 2.8 },
-            { Franchise: "Star Wars",       TotalRevenue: 10.32, HighestGrossing: 2.07 },
-            { Franchise: "Harry Potter",    TotalRevenue: 9.19,  HighestGrossing: 1.34 },
-            { Franchise: "Avengers",        TotalRevenue: 7.76,  HighestGrossing: 2.8 },
-            { Franchise: "Spider Man",      TotalRevenue: 7.22,  HighestGrossing: 1.28 },
-            { Franchise: "James Bond",      TotalRevenue: 7.12,  HighestGrossing: 1.11 },
-        ];
-        this.data = [ FilmFranchiseData];
-    }
 }
 
-// rendering above class to the React DOM
-ReactDOM.render(<CategoryChartColumnChartWithTooltips />, document.getElementById('root'));
+
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

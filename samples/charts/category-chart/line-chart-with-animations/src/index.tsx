@@ -9,9 +9,12 @@ IgrCategoryChartModule.register();
 export default class CategoryChartLineChartWithAnimations extends React.Component<any, any> {
     
     public data: any[];
+    public chart: IgrCategoryChart;
 
     constructor(props: any) {            
         super(props);
+
+        this.onChartRef = this.onChartRef.bind(this);
 
         this.onTransitionInDurationChanged = this.onTransitionInDurationChanged.bind(this);
         this.onTransitionInModeChanged = this.onTransitionInModeChanged.bind(this);        
@@ -60,6 +63,7 @@ export default class CategoryChartLineChartWithAnimations extends React.Componen
                 </div>
 
                 <IgrCategoryChart width="100%" height="calc(100% - 30px)"
+                    ref={this.onChartRef}
                     dataSource={this.data}
                     chartType="Line"
                     isTransitionInEnabled={true}
@@ -70,9 +74,16 @@ export default class CategoryChartLineChartWithAnimations extends React.Componen
                     yAxisTitle="TWh"
                     yAxisTitleLeftMargin={10}
                     yAxisTitleRightMargin={5}
-                    yAxisLabelLeftMargin={0} />
+                    yAxisLabelLeftMargin={0} 
+					computedPlotAreaMarginMode="Series"/>
             </div>
         );
+    }
+
+    public onChartRef(chart: IgrCategoryChart) {
+        if (!chart) { return; }
+
+        this.chart = chart;
     }
 
     public initData() {
@@ -104,7 +115,7 @@ export default class CategoryChartLineChartWithAnimations extends React.Componen
     }
 
     public onReloadChartClick(e: any){
-        this.initData();
+        this.chart.replayTransitionIn();
     }
 }
 

@@ -68,7 +68,8 @@ export default class CategoryChartLineChartWithAnnotations extends React.Compone
                         calloutsXMemberPath="index"
                         calloutsLabelMemberPath="label"
                         markerTypes={this.state.markersTypes}
-                        includedProperties={this.includedProperties}/>
+                        includedProperties={this.includedProperties}
+						computedPlotAreaMarginMode="Series"/>
                 </div>
             </div>
         );

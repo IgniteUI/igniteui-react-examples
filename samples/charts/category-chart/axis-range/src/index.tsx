@@ -2,15 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
-import { IgrPropertyEditorModule } from 'igniteui-react-grids';
+import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
-import { IgrPropertyEditor, IgrPropertyEditorPropertyDescription } from 'igniteui-react-grids';
-import { ComponentRenderer, PropertyEditorDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
+import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
 const mods: any[] = [
-    IgrPropertyEditorModule,
+    IgrPropertyEditorPanelModule,
     IgrLegendModule,
     IgrCategoryChartModule
 ];
@@ -22,12 +25,13 @@ export default class Sample extends React.Component<any, any> {
         this.legend = r;
         this.setState({});
     }
-    private propertyEditor: IgrPropertyEditor
-    private propertyEditorRef(r: IgrPropertyEditor) {
-        this.propertyEditor = r;
+    private propertyEditorPanel1: IgrPropertyEditorPanel
+    private propertyEditorPanel1Ref(r: IgrPropertyEditorPanel) {
+        this.propertyEditorPanel1 = r;
         this.setState({});
     }
-    private propertyEditorPropertyDescription: IgrPropertyEditorPropertyDescription
+    private yAxisMinimumValue: IgrPropertyEditorPropertyDescription
+    private yAxisMaximumValue: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -38,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.legendRef = this.legendRef.bind(this);
-        this.propertyEditorRef = this.propertyEditorRef.bind(this);
+        this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -46,12 +50,13 @@ export default class Sample extends React.Component<any, any> {
         return (
         <div className="container sample">
             <div className="options vertical">
-                <IgrPropertyEditor
+                <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
                     isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isWrappingEnabled="true"
+                    ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="YAxisMinimumValue"
                         label="Y Axis Minimum Value"
@@ -60,8 +65,7 @@ export default class Sample extends React.Component<any, any> {
                         dropDownNames={["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]}
                         dropDownValues={["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]}
                         primitiveValue="0"
-                        name="propertyEditorPropertyDescription1"
-                    >
+                        name="YAxisMinimumValue">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         dropDownValues={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}
@@ -71,10 +75,9 @@ export default class Sample extends React.Component<any, any> {
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}
-                        name="propertyEditorPropertyDescription2"
-                    >
+                        name="YAxisMaximumValue">
                     </IgrPropertyEditorPropertyDescription>
-                </IgrPropertyEditor>
+                </IgrPropertyEditorPanel>
             </div>
             <div className="legend-title">
                 Highest Grossing Movie Franchises
@@ -90,10 +93,12 @@ export default class Sample extends React.Component<any, any> {
                     chartType="Line"
                     yAxisMinimumValue="0"
                     yAxisMaximumValue="150"
-                    dataSource={this.data}
+                    dataSource={this.countryRenewableElectricity}
+                    includedProperties={["year", "europe", "china", "america"]}
                     legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
             </div>
@@ -101,13 +106,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
         {
-            this._data = new Data();
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
-        return this._data;
+        return this._countryRenewableElectricity;
     }
     
 
@@ -116,13 +121,15 @@ export default class Sample extends React.Component<any, any> {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorDescriptionModule.register(context);
+            PropertyEditorPanelDescriptionModule.register(context);
             LegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

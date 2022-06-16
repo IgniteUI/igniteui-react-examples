@@ -458,26 +458,17 @@ function task2(cb) {
 // testing
 
 function logRoutes(cb) {
-    // getSamples();
-
-    let index = 0;
-    let routingGroups = Transformer.getRoutingGroups(samples);
-    for (const group of routingGroups) {
-
-        console.log('- group ' + group.Name);
-
-        for (const component of group.Components) {
-
-            console.log('- component ' + component.Name);
-            for (const sample of component.Samples) {
-                index++;
-                console.log(index + ' ' + sample.SampleRoute + ' === ' + sample.SampleDisplayName);
-            }
-        }
+    let routes = [];
+    for (const sample of samples) {
+        routes.push(sample.SampleRoute)
     }
-
+    routes.sort();
+    for (const route of routes) {
+        console.log(route);
+    }
     cb();
 } exports.logRoutes = logRoutes;
+
 
 function logFile() {
     return es.map(function(file, cb) {

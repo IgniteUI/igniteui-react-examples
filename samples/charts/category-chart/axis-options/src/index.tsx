@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrPropertyEditorModule } from 'igniteui-react-grids';
 import { IgrCategoryChart } from 'igniteui-react-charts';
+import { OlympicMedalsTopCountriesItem, OlympicMedalsTopCountries } from './OlympicMedalsTopCountries';
+
+
 
 const mods: any[] = [
-    IgrCategoryChartModule,
-    IgrPropertyEditorModule
+    IgrCategoryChartModule
 ];
 mods.forEach((m) => m.register());
 
@@ -72,8 +72,9 @@ export default class Sample extends React.Component<any, any> {
                     xAxisTitleAngle="0"
                     yAxisTitleAngle="90"
                     yAxisLabelLocation="OutsideRight"
-                    dataSource={this.data}
+                    dataSource={this.olympicMedalsTopCountries}
                     thickness="3"
+                    computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
             </div>
@@ -81,17 +82,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _olympicMedalsTopCountries: OlympicMedalsTopCountries = null;
+    public get olympicMedalsTopCountries(): OlympicMedalsTopCountries {
+        if (this._olympicMedalsTopCountries == null)
         {
-            this._data = new Data();
+            this._olympicMedalsTopCountries = new OlympicMedalsTopCountries();
         }
-        return this._data;
+        return this._olympicMedalsTopCountries;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

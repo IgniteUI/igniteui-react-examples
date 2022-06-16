@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataForGermanyItem, DataForGermany, DataForFranceItem, DataForFrance, DataForNorwayItem, DataForNorway } from './SampleData';
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterSplineSeries } from 'igniteui-react-charts';
+import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
+import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
+
+
 
 const mods: any[] = [
     IgrLegendModule,
@@ -32,7 +35,6 @@ export default class Sample extends React.Component<any, any> {
     private yAxis: IgrNumericYAxis
     private scatterSplineSeries1: IgrScatterSplineSeries
     private scatterSplineSeries2: IgrScatterSplineSeries
-    private scatterSplineSeries3: IgrScatterSplineSeries
 
     constructor(props: any) {
         super(props);
@@ -79,7 +81,7 @@ export default class Sample extends React.Component<any, any> {
                         xMemberPath="lifeExpectancy"
                         yMemberPath="healthExpense"
                         markerType="Circle"
-                        dataSource={this.dataForGermany}
+                        dataSource={this.healthDataForGermany}
                         showDefaultTooltip="true"
                         title="Germany"
                         name="ScatterSplineSeries1">
@@ -90,21 +92,10 @@ export default class Sample extends React.Component<any, any> {
                         yAxisName="yAxis"
                         xMemberPath="lifeExpectancy"
                         yMemberPath="healthExpense"
-                        dataSource={this.dataForFrance}
+                        dataSource={this.healthDataForFrance}
                         markerType="Circle"
                         showDefaultTooltip="true"
                         name="ScatterSplineSeries2">
-                    </IgrScatterSplineSeries>
-                    <IgrScatterSplineSeries
-                        title="Norway"
-                        xAxisName="xAxis"
-                        yAxisName="yAxis"
-                        xMemberPath="lifeExpectancy"
-                        yMemberPath="healthExpense"
-                        dataSource={this.dataForNorway}
-                        markerType="Circle"
-                        showDefaultTooltip="true"
-                        name="ScatterSplineSeries3">
                     </IgrScatterSplineSeries>
                 </IgrDataChart>
             </div>
@@ -112,35 +103,28 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _dataForGermany: DataForGermany = null;
-    public get dataForGermany(): DataForGermany {
-        if (this._dataForGermany == null)
+    private _healthDataForGermany: HealthDataForGermany = null;
+    public get healthDataForGermany(): HealthDataForGermany {
+        if (this._healthDataForGermany == null)
         {
-            this._dataForGermany = new DataForGermany();
+            this._healthDataForGermany = new HealthDataForGermany();
         }
-        return this._dataForGermany;
+        return this._healthDataForGermany;
     }
     
-    private _dataForFrance: DataForFrance = null;
-    public get dataForFrance(): DataForFrance {
-        if (this._dataForFrance == null)
+    private _healthDataForFrance: HealthDataForFrance = null;
+    public get healthDataForFrance(): HealthDataForFrance {
+        if (this._healthDataForFrance == null)
         {
-            this._dataForFrance = new DataForFrance();
+            this._healthDataForFrance = new HealthDataForFrance();
         }
-        return this._dataForFrance;
-    }
-    
-    private _dataForNorway: DataForNorway = null;
-    public get dataForNorway(): DataForNorway {
-        if (this._dataForNorway == null)
-        {
-            this._dataForNorway = new DataForNorway();
-        }
-        return this._dataForNorway;
+        return this._healthDataForFrance;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

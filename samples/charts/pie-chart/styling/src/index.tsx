@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrPieChartModule, IgrItemLegendModule } from 'igniteui-react-charts';
 import { IgrItemLegend, IgrPieChart } from 'igniteui-react-charts';
+import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
+
+
 
 const mods: any[] = [
     IgrPieChartModule,
@@ -46,8 +48,8 @@ export default class Sample extends React.Component<any, any> {
             </div>
             <div className="container fill">
                 <IgrPieChart
-                    dataSource={this.data}
-                    valueMemberPath="marketShare"
+                    dataSource={this.energyGlobalDemand}
+                    valueMemberPath="value"
                     labelMemberPath="category"
                     labelsPosition="OutsideEnd"
                     radiusFactor="0.7"
@@ -63,17 +65,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _energyGlobalDemand: EnergyGlobalDemand = null;
+    public get energyGlobalDemand(): EnergyGlobalDemand {
+        if (this._energyGlobalDemand == null)
         {
-            this._data = new Data();
+            this._energyGlobalDemand = new EnergyGlobalDemand();
         }
-        return this._data;
+        return this._energyGlobalDemand;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

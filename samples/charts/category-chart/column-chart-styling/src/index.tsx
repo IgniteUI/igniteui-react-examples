@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
+import { EnergyRenewableConsumptionItem, EnergyRenewableConsumption } from './EnergyRenewableConsumption';
+
+
 
 const mods: any[] = [
     IgrLegendModule,
@@ -48,17 +50,18 @@ export default class Sample extends React.Component<any, any> {
                 <IgrCategoryChart
                     chartType="Column"
                     xAxisGap="0.5"
-                    yAxisInterval="10"
-                    yAxisMinimumValue="-20"
-                    yAxisMaximumValue="30"
+                    isCategoryHighlightingEnabled="true"
                     xAxisMajorStroke="lightgray"
-                    dataSource={this.data}
+                    dataSource={this.energyRenewableConsumption}
                     brushes="rgba(157, 231, 114, 1) rgba(139, 91, 177, 1) rgba(109, 177, 255, 1) rgba(238, 88, 121, 1) rgba(248, 161, 95, 1)"
                     outlines="white"
                     legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     isSeriesHighlightingEnabled="true"
+                    highlightingMode="FadeOthersSpecific"
+                    highlightingBehavior="NearestItemsAndSeries"
+                    crosshairsDisplayMode="None"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
             </div>
@@ -66,17 +69,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _energyRenewableConsumption: EnergyRenewableConsumption = null;
+    public get energyRenewableConsumption(): EnergyRenewableConsumption {
+        if (this._energyRenewableConsumption == null)
         {
-            this._data = new Data();
+            this._energyRenewableConsumption = new EnergyRenewableConsumption();
         }
-        return this._data;
+        return this._energyRenewableConsumption;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

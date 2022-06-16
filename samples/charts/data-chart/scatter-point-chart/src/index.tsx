@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataEuropeItem, DataEurope, DataAfricaItem, DataAfrica } from './SampleData';
 import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterSeries } from 'igniteui-react-charts';
+import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
+import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
+
+
 
 const mods: any[] = [
     IgrLegendModule,
@@ -75,7 +78,7 @@ export default class Sample extends React.Component<any, any> {
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
                         markerType="Circle"
-                        dataSource={this.dataEurope}
+                        dataSource={this.countryDemographicEurope}
                         showDefaultTooltip="true"
                         title="Europe"
                         name="ScatterSeries1">
@@ -86,7 +89,7 @@ export default class Sample extends React.Component<any, any> {
                         yAxisName="yAxis"
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
-                        dataSource={this.dataAfrica}
+                        dataSource={this.countryDemographicAfrican}
                         markerType="Circle"
                         showDefaultTooltip="true"
                         name="ScatterSeries2">
@@ -97,26 +100,28 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _dataEurope: DataEurope = null;
-    public get dataEurope(): DataEurope {
-        if (this._dataEurope == null)
+    private _countryDemographicEurope: CountryDemographicEurope = null;
+    public get countryDemographicEurope(): CountryDemographicEurope {
+        if (this._countryDemographicEurope == null)
         {
-            this._dataEurope = new DataEurope();
+            this._countryDemographicEurope = new CountryDemographicEurope();
         }
-        return this._dataEurope;
+        return this._countryDemographicEurope;
     }
     
-    private _dataAfrica: DataAfrica = null;
-    public get dataAfrica(): DataAfrica {
-        if (this._dataAfrica == null)
+    private _countryDemographicAfrican: CountryDemographicAfrican = null;
+    public get countryDemographicAfrican(): CountryDemographicAfrican {
+        if (this._countryDemographicAfrican == null)
         {
-            this._dataAfrica = new DataAfrica();
+            this._countryDemographicAfrican = new CountryDemographicAfrican();
         }
-        return this._dataAfrica;
+        return this._countryDemographicAfrican;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

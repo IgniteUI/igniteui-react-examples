@@ -23,7 +23,9 @@ export default class FinancialChartHighVolume extends React.Component<any, any> 
             <div className="container sample" >
                 <div className="container" style={{height: "calc(100% - 25px)"}}>
                     <IgrFinancialChart width="100%" height="100%"
-                        chartType="Line"                                                
+                        chartType="Line"
+                        xAxisEnhancedIntervalPreferMoreCategoryLabels="false"
+                        markerTypes="None"
                         dataSource={this.data}
                         chartTitle={this.title}
                         subtitle={this.subtitle}/>

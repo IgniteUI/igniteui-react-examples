@@ -1,31 +1,47 @@
 {
-  "name": "react-sparkline-unknown-values",
-  "description": "This project provides example of Sparkline Unknown Values using Infragistics React components",
+  "name": "example-ignite-ui-react",
+  "description": "This project provides example of using Ignite UI for React components",
   "author": "Infragistics",
-  "homepage": ".",
   "version": "1.4.0",
+  "license": "",
+  "homepage": ".",
   "private": true,
   "scripts": {
     "start": "set PORT=4200 && react-scripts --max_old_space_size=10240 start",
     "build": "react-scripts --max_old_space_size=10240 build ",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
-    "igniteui-react-core": "16.15.0",
-    "igniteui-react-charts": "16.15.0",
+    "igniteui-react-charts": "16.16.0",
+    "igniteui-react-core": "16.16.0",
+    "igniteui-react-datasources": "16.16.0",
+    "igniteui-react-excel": "16.16.0",
+    "igniteui-react-gauges": "16.16.0",
+    "igniteui-react-grids": "16.16.0",
+    "igniteui-react-inputs": "16.16.0",
+    "igniteui-react-layouts": "16.16.0",
+    "igniteui-react-maps": "16.16.0",
+    "igniteui-react-spreadsheet": "16.16.0",
+    "igniteui-react-spreadsheet-chart-adapter": "16.16.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
-    "tslib": "1.10.0"
+    "tslib": "^2.0.0",
+    "igniteui-webcomponents": "^3.1.0",
+    "lit-html": "^2.2.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
     "@types/node": "^11.11.8",
     "@types/react": "^16.8.20",
     "@types/react-dom": "^16.8.3",
+    "eslint": "^6.6.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-react": "^7.20.0",
     "react-app-rewired": "^1.6.2",
-    "typescript": "~3.7.2",
+    "typescript": "^4.4.4",
     "worker-loader": "^2.0.0"
   },
   "browserslist": [

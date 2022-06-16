@@ -48,6 +48,7 @@ module.exports = {
         "files": ["*.ts", "*.tsx"],
         "rules": {
             "default-case": "off",
+            "no-var": "off",
             "no-undef": "off",
             "no-unused-vars": "off",
             "no-extend-native": "off",

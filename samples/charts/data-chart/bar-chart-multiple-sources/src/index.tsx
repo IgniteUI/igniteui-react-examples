@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
-import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryCoreModule, IgrDataChartCategoryModule, IgrDataChartInteractivityModule, IgrDataChartVerticalCategoryModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrBarSeries } from 'igniteui-react-charts';
+import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryCoreModule, IgrDataChartCategoryModule, IgrDataChartInteractivityModule, IgrDataChartVerticalCategoryModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrCategoryHighlightLayer, IgrBarSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
+
+
 
 const mods: any[] = [
     IgrLegendModule,
@@ -12,7 +14,8 @@ const mods: any[] = [
     IgrDataChartCategoryCoreModule,
     IgrDataChartCategoryModule,
     IgrDataChartInteractivityModule,
-    IgrDataChartVerticalCategoryModule
+    IgrDataChartVerticalCategoryModule,
+    IgrDataChartAnnotationModule
 ];
 mods.forEach((m) => m.register());
 
@@ -29,8 +32,10 @@ export default class Sample extends React.Component<any, any> {
     }
     private yAxis: IgrCategoryYAxis
     private xAxis: IgrNumericXAxis
+    private categoryHighlightLayer: IgrCategoryHighlightLayer
     private barSeries1: IgrBarSeries
     private barSeries2: IgrBarSeries
+    private tooltips: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -57,10 +62,12 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryYAxis
-                        dataSource={this.data}
+                        dataSource={this.highestGrossingMovies}
                         gap="0.5"
                         overlap="-0.1"
                         isInverted="true"
+                        useEnhancedIntervalManagement="true"
+                        enhancedIntervalPreferMoreCategoryLabels="true"
                         label="franchise"
                         name="yAxis">
                     </IgrCategoryYAxis>
@@ -68,12 +75,15 @@ export default class Sample extends React.Component<any, any> {
                         title="Billions of U.S. Dollars"
                         name="xAxis">
                     </IgrNumericXAxis>
+                    <IgrCategoryHighlightLayer
+                        name="CategoryHighlightLayer">
+                    </IgrCategoryHighlightLayer>
                     <IgrBarSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         valueMemberPath="totalRevenue"
                         isTransitionInEnabled="true"
-                        dataSource={this.data}
+                        dataSource={this.highestGrossingMovies}
                         isHighlightingEnabled="true"
                         showDefaultTooltip="true"
                         title="Total Revenue of Franchise"
@@ -84,29 +94,34 @@ export default class Sample extends React.Component<any, any> {
                         yAxisName="yAxis"
                         title="Highest Grossing Movie in Series"
                         valueMemberPath="highestGrossing"
-                        dataSource={this.data}
+                        dataSource={this.highestGrossingMovies}
                         showDefaultTooltip="true"
                         isTransitionInEnabled="true"
                         isHighlightingEnabled="true"
                         name="BarSeries2">
                     </IgrBarSeries>
+                    <IgrDataToolTipLayer
+                        name="Tooltips">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _highestGrossingMovies: HighestGrossingMovies = null;
+    public get highestGrossingMovies(): HighestGrossingMovies {
+        if (this._highestGrossingMovies == null)
         {
-            this._data = new Data();
+            this._highestGrossingMovies = new HighestGrossingMovies();
         }
-        return this._data;
+        return this._highestGrossingMovies;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

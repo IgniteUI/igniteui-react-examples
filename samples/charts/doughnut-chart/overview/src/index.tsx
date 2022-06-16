@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
+import { CompanyMarketSharesItem, CompanyMarketShares } from './CompanyMarketShares';
+
+
 
 const mods: any[] = [
     IgrLegendModule,
@@ -38,8 +40,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDoughnutChart
                     ref={this.chartRef}>
                     <IgrRingSeries
-                        dataSource={this.data}
-                        valueMemberPath="marketShare"
+                        dataSource={this.companyMarketShares}
+                        valueMemberPath="value"
                         labelMemberPath="summary"
                         legendLabelMemberPath="category"
                         outlines="white"
@@ -51,17 +53,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _companyMarketShares: CompanyMarketShares = null;
+    public get companyMarketShares(): CompanyMarketShares {
+        if (this._companyMarketShares == null)
         {
-            this._data = new Data();
+            this._companyMarketShares = new CompanyMarketShares();
         }
-        return this._data;
+        return this._companyMarketShares;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

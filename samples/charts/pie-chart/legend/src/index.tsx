@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrItemLegendModule, IgrPieChartModule } from 'igniteui-react-charts';
 import { IgrItemLegend, IgrPieChart } from 'igniteui-react-charts';
+import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
+
+
 
 const mods: any[] = [
     IgrItemLegendModule,
@@ -13,9 +15,9 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private itemLegend: IgrItemLegend
-    private itemLegendRef(r: IgrItemLegend) {
-        this.itemLegend = r;
+    private legend: IgrItemLegend
+    private legendRef(r: IgrItemLegend) {
+        this.legend = r;
         this.setState({});
     }
     private chart: IgrPieChart
@@ -27,7 +29,7 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.itemLegendRef = this.itemLegendRef.bind(this);
+        this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -41,18 +43,18 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend">
                 <IgrItemLegend
                     orientation="Horizontal"
-                    ref={this.itemLegendRef}>
+                    ref={this.legendRef}>
                 </IgrItemLegend>
             </div>
             <div className="container fill">
                 <IgrPieChart
-                    dataSource={this.data}
-                    valueMemberPath="marketShare"
+                    dataSource={this.energyGlobalDemand}
+                    valueMemberPath="value"
                     labelMemberPath="summary"
                     legendLabelMemberPath="summary"
                     labelsPosition="OutsideEnd"
                     radiusFactor="0.7"
-                    legend={this.itemLegend}
+                    legend={this.legend}
                     labelExtent="30"
                     outlines="white"
                     ref={this.chartRef}>
@@ -62,17 +64,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _energyGlobalDemand: EnergyGlobalDemand = null;
+    public get energyGlobalDemand(): EnergyGlobalDemand {
+        if (this._energyGlobalDemand == null)
         {
-            this._data = new Data();
+            this._energyGlobalDemand = new EnergyGlobalDemand();
         }
-        return this._data;
+        return this._energyGlobalDemand;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

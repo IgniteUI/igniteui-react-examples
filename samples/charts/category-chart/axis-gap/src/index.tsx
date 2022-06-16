@@ -2,27 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
-import { IgrPropertyEditorModule } from 'igniteui-react-grids';
+import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrPropertyEditor, IgrPropertyEditorPropertyDescription } from 'igniteui-react-grids';
+import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
-import { ComponentRenderer, PropertyEditorDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
 const mods: any[] = [
-    IgrPropertyEditorModule,
+    IgrPropertyEditorPanelModule,
     IgrLegendModule,
     IgrCategoryChartModule
 ];
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private propertyEditor: IgrPropertyEditor
-    private propertyEditorRef(r: IgrPropertyEditor) {
-        this.propertyEditor = r;
+    private propertyEditorPanel1: IgrPropertyEditorPanel
+    private propertyEditorPanel1Ref(r: IgrPropertyEditorPanel) {
+        this.propertyEditorPanel1 = r;
         this.setState({});
     }
-    private propertyEditorPropertyDescription: IgrPropertyEditorPropertyDescription
+    private xAxisGap: IgrPropertyEditorPropertyDescription
+    private xAxisMaximumGap: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -32,7 +36,7 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.propertyEditorRef = this.propertyEditorRef.bind(this);
+        this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -40,24 +44,35 @@ export default class Sample extends React.Component<any, any> {
         return (
         <div className="container sample">
             <div className="options vertical">
-                <IgrPropertyEditor
+                <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
                     isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isWrappingEnabled="true"
+                    ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisGap"
                         label="X Axis - Gap"
+                        valueType="Slider"
+                        shouldOverrideDefaultEditor="true"
+                        primitiveValue="0.5"
+                        min="0"
+                        max="1.5"
+                        step="0.1"
+                        name="XAxisGap">
+                    </IgrPropertyEditorPropertyDescription>
+                    <IgrPropertyEditorPropertyDescription
+                        dropDownValues={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
+                        primitiveValue="0.5"
+                        propertyPath="XAxisMaximumGap"
+                        label="Maximum Gap"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["1.0", "0.9", "0.8", "0.7", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
-                        dropDownValues={["1.0", "0.9", "0.8", "0.7", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
-                        primitiveValue="0.5"
-                        name="propertyEditorPropertyDescription1"
-                    >
+                        dropDownNames={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
+                        name="XAxisMaximumGap">
                     </IgrPropertyEditorPropertyDescription>
-                </IgrPropertyEditor>
+                </IgrPropertyEditorPanel>
             </div>
             <div className="legend-title">
                 Renewable Electricity Generated
@@ -68,10 +83,13 @@ export default class Sample extends React.Component<any, any> {
                     chartType="Column"
                     xAxisInterval="1"
                     xAxisGap="0.5"
+                    xAxisMaximumGap="1.5"
                     yAxisTitle="TWh"
-                    dataSource={this.data}
+                    dataSource={this.countryRenewableElectricity}
+                    includedProperties={["year", "europe", "china", "america"]}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    crosshairsSnapToData="true"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
             </div>
@@ -79,13 +97,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
         {
-            this._data = new Data();
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
-        return this._data;
+        return this._countryRenewableElectricity;
     }
     
 
@@ -94,13 +112,15 @@ export default class Sample extends React.Component<any, any> {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorDescriptionModule.register(context);
+            PropertyEditorPanelDescriptionModule.register(context);
             LegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
         }
-        return this._componentRenderer
+        return this._componentRenderer;
     }
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

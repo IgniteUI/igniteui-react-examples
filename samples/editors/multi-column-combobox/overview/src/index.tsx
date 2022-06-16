@@ -26,19 +26,13 @@ export default class MultiColumnComboBoxOverview extends React.Component<any, an
         this.multiColumnComboBox.fields = ["country", "continent", "pop"];
         this.multiColumnComboBox.placeholder = "Choose a country";
         this.multiColumnComboBox.sortMode = SortMode.SortByOneColumnOnly;
-        var cw: IgrColumnWidth = new IgrColumnWidth();
-        cw.isStarSized = false;
-        cw.minimumWidth = 200;  
-        cw.value = 200;
-        this.multiColumnComboBox.defaultColumnWidth = cw;  
-
     }
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
                 <div className="container">
-                    <IgrMultiColumnComboBox width="600px"
+                    <IgrMultiColumnComboBox width="600px" defaultColumnWidth="200"
                             ref={this.onMultiColumnComboBoxRef}>
                     </IgrMultiColumnComboBox>
                 </div>

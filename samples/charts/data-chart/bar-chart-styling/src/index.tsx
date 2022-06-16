@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data, CalloutsItem, Callouts } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartVerticalCategoryModule, IgrAnnotationLayerProxyModule, IgrCalloutLayerModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrBarSeries, IgrCalloutLayer } from 'igniteui-react-charts';
+import { IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrCategoryHighlightLayer, IgrBarSeries, IgrCalloutLayer, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { OnlineShoppingSearchesItem, OnlineShoppingSearches } from './OnlineShoppingSearches';
+
+
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -26,8 +28,10 @@ export default class Sample extends React.Component<any, any> {
     }
     private yAxis: IgrCategoryYAxis
     private xAxis: IgrNumericXAxis
+    private categoryHighlightLayer: IgrCategoryHighlightLayer
     private barSeries1: IgrBarSeries
     private calloutLayer1: IgrCalloutLayer
+    private tooltips: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -49,24 +53,33 @@ export default class Sample extends React.Component<any, any> {
                     isVerticalZoomEnabled="false"
                     ref={this.chartRef}>
                     <IgrCategoryYAxis
-                        dataSource={this.data}
+                        dataSource={this.onlineShoppingSearches}
                         gap="0.75"
                         isInverted="true"
                         label="shop"
                         name="yAxis">
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
+                        minimumValue="0"
+                        maximumValue="80"
                         interval="20"
                         labelFormat="{0}%"
                         name="xAxis">
                     </IgrNumericXAxis>
+                    <IgrCategoryHighlightLayer
+                        name="CategoryHighlightLayer">
+                    </IgrCategoryHighlightLayer>
                     <IgrBarSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         valueMemberPath="percent"
                         isTransitionInEnabled="true"
-                        dataSource={this.data}
+                        dataSource={this.onlineShoppingSearches}
+                        brush="rgba(134, 6, 138, 0.654901960784314)"
+                        outline="rgba(133, 6, 138, 1)"
+                        thickness="2"
                         isHighlightingEnabled="true"
+                        areaFillOpacity="0.5"
                         showDefaultTooltip="true"
                         name="BarSeries1">
                     </IgrBarSeries>
@@ -75,38 +88,34 @@ export default class Sample extends React.Component<any, any> {
                         xMemberPath="x"
                         yMemberPath="y"
                         contentMemberPath="label"
-                        calloutTextColor="black"
+                        calloutTextColor="rgba(133, 6, 138, 1)"
                         calloutBackground="rgba(0, 0, 0, 0)"
                         calloutLeaderBrush="rgba(0, 0, 0, 0)"
-                        dataSource={this.callouts}
+                        dataSource={this.onlineShoppingSearches}
                         name="CalloutLayer1">
                     </IgrCalloutLayer>
+                    <IgrDataToolTipLayer
+                        name="Tooltips">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _onlineShoppingSearches: OnlineShoppingSearches = null;
+    public get onlineShoppingSearches(): OnlineShoppingSearches {
+        if (this._onlineShoppingSearches == null)
         {
-            this._data = new Data();
+            this._onlineShoppingSearches = new OnlineShoppingSearches();
         }
-        return this._data;
-    }
-    
-    private _callouts: Callouts = null;
-    public get callouts(): Callouts {
-        if (this._callouts == null)
-        {
-            this._callouts = new Callouts();
-        }
-        return this._callouts;
+        return this._onlineShoppingSearches;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

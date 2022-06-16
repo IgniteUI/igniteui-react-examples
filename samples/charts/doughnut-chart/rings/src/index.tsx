@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { MonthsItem, Months, SeasonsItem, Seasons } from './SampleData';
 import { IgrLegendModule, IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
+import { CalendarSeasonsItem, CalendarSeasons } from './CalendarSeasons';
+import { CalendarMonthsItem, CalendarMonths } from './CalendarMonths';
+
+
 
 const mods: any[] = [
     IgrLegendModule,
@@ -41,7 +44,7 @@ export default class Sample extends React.Component<any, any> {
                     allowSliceExplosion="false"
                     ref={this.chartRef}>
                     <IgrRingSeries
-                        dataSource={this.seasons}
+                        dataSource={this.calendarSeasons}
                         valueMemberPath="value"
                         labelMemberPath="label"
                         labelsPosition="Center"
@@ -52,7 +55,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrRingSeries>
                     <IgrRingSeries
                         brushes="rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1)"
-                        dataSource={this.months}
+                        dataSource={this.calendarMonths}
                         valueMemberPath="value"
                         labelMemberPath="label"
                         labelsPosition="Center"
@@ -66,26 +69,28 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _months: Months = null;
-    public get months(): Months {
-        if (this._months == null)
+    private _calendarSeasons: CalendarSeasons = null;
+    public get calendarSeasons(): CalendarSeasons {
+        if (this._calendarSeasons == null)
         {
-            this._months = new Months();
+            this._calendarSeasons = new CalendarSeasons();
         }
-        return this._months;
+        return this._calendarSeasons;
     }
     
-    private _seasons: Seasons = null;
-    public get seasons(): Seasons {
-        if (this._seasons == null)
+    private _calendarMonths: CalendarMonths = null;
+    public get calendarMonths(): CalendarMonths {
+        if (this._calendarMonths == null)
         {
-            this._seasons = new Seasons();
+            this._calendarMonths = new CalendarMonths();
         }
-        return this._seasons;
+        return this._calendarMonths;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

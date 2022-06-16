@@ -1,89 +1,105 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrSparkline } from 'igniteui-react-charts';
+
+import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
-import { IgrSparklineCoreModule } from 'igniteui-react-charts';
+import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
+import { IgrSparkline } from 'igniteui-react-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-react-core';
+import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
 
-IgrSparklineCoreModule.register();
-IgrSparklineModule.register();
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+defineAllComponents();
+const mods: any[] = [
+    IgrPropertyEditorPanelModule,
+    IgrSparklineModule
+];
+mods.forEach((m) => m.register());
 
-export default class SparklineTrendlines extends React.Component<any, any> {
+export default class Sample extends React.Component<any, any> {
+    private propertyEditorPanel1: IgrPropertyEditorPanel
+    private propertyEditorPanel1Ref(r: IgrPropertyEditorPanel) {
+        this.propertyEditorPanel1 = r;
+        this.setState({});
+    }
+    private trendLineTypeEditor: IgrPropertyEditorPropertyDescription
+    private chart: IgrSparkline
+    private chartRef(r: IgrSparkline) {
+        this.chart = r;
+        this.setState({});
+    }
+
     constructor(props: any) {
         super(props);
 
-        this.onTrendlineChanged = this.onTrendlineChanged.bind(this);
-
-        this.state = {
-            data: this.getData(),
-            trendLineType: "ExponentialFit"
-        };
+        this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
+        this.chartRef = this.chartRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="options horizontal">
-                    <label className="options-label">Trendline Type: </label>
-                    <select onChange={this.onTrendlineChanged} value={this.state.trendLineType}>
-                        <option>CubicFit</option>
-                        <option>CumulativeAverage</option>
-                        <option>ExponentialAverage</option>
-                        <option>ExponentialFit</option>
-                        <option>LinearFit</option>
-                        <option>LogarithmicFit</option>
-                        <option>ModifiedAverage</option>
-                        <option>None</option>
-                        <option>PowerLawFit</option>
-                        <option>QuadraticFit</option>
-                        <option>QuarticFit</option>
-                        <option>QuinticFit</option>
-                        <option>SimpleAverage</option>
-                        <option>WeightedAverage</option>
-                    </select>
-                </div>
-                <div className="container">
-                    <IgrSparkline
-                        height="100%"
-                        width="100%"
-                        dataSource={this.state.data}
-                        valueMemberPath="Value"
-                        displayType="Area"
-                        trendLineThickness={3}
-                        trendLinePeriod={5}
-                        trendLineType={this.state.trendLineType}
-                        trendLineBrush="Red"/>
-                </div>
-            </div >
+        <div className="container sample">
+            <div className="options vertical">
+                <IgrPropertyEditorPanel
+                    componentRenderer={this.renderer}
+                    target={this.chart}
+                    descriptionType="Sparkline"
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
+                    ref={this.propertyEditorPanel1Ref}>
+                    <IgrPropertyEditorPropertyDescription
+                        propertyPath="TrendLineType"
+                        label="Trendline Type"
+                        valueType="EnumValue"
+                        shouldOverrideDefaultEditor="true"
+                        dropDownNames={["CubicFit", "CumulativeAverage", "ExponentialAverage", "ExponentialFit", "LinearFit", "LogarithmicFit", "ModifiedAverage", "None", "PowerLawFit", "QuadraticFit", "QuarticFit", "QuinticFit", "SimpleAverage", "WeightedAverage"]}
+                        dropDownValues={["CubicFit", "CumulativeAverage", "ExponentialAverage", "ExponentialFit", "LinearFit", "LogarithmicFit", "ModifiedAverage", "None", "PowerLawFit", "QuadraticFit", "QuarticFit", "QuinticFit", "SimpleAverage", "WeightedAverage"]}
+                        primitiveValue="CubicFit"
+                        name="TrendLineTypeEditor">
+                    </IgrPropertyEditorPropertyDescription>
+                </IgrPropertyEditorPanel>
+            </div>
+            
+            
+            <div className="container fill">
+                <IgrSparkline
+                    dataSource={this.sparklineMixedData}
+                    valueMemberPath="value"
+                    labelMemberPath="label"
+                    trendLineType="CubicFit"
+                    displayType="Area"
+                    ref={this.chartRef}>
+                </IgrSparkline>
+            </div>
+        </div>
         );
     }
 
-    public onTrendlineChanged(e: any) {
-        const selection = e.target.value.toString();
-        this.setState({ trendLineType: selection });
-    }
-
-    public getData(): any[] {
-        const data: any[] = [];
-        let index = 0;
-        let min = 1000;
-        let max = -1000;
-
-        for (let angle = 0; angle <= 360 * 4; angle += 5) {
-            const v1 = Math.sin(angle * Math.PI / 180);
-            const v2 = Math.sin(3 * angle * Math.PI / 180) / 3;
-            let revenue = v1 + v2;
-            data.push({
-                Label: index++,
-                Angle: angle,
-                Value: revenue
-            });
-            min = Math.min(min, revenue);
-            max = Math.max(max, revenue);
+    private _sparklineMixedData: SparklineMixedData = null;
+    public get sparklineMixedData(): SparklineMixedData {
+        if (this._sparklineMixedData == null)
+        {
+            this._sparklineMixedData = new SparklineMixedData();
         }
-        return data;
+        return this._sparklineMixedData;
     }
+    
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            SparklineDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
+    }
+
 }
 
-// rendering above class to the React DOM
-ReactDOM.render(<SparklineTrendlines />, document.getElementById('root'));
+
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

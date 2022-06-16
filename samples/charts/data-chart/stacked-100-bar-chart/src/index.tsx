@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrStacked100BarSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
+import { EnergyRenewableConsumptionItem, EnergyRenewableConsumption } from './EnergyRenewableConsumption';
+
+
 
 const mods: any[] = [
     IgrLegendModule,
@@ -63,7 +65,7 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryYAxis
-                        dataSource={this.data}
+                        dataSource={this.energyRenewableConsumption}
                         isInverted="true"
                         label="location"
                         name="yAxis">
@@ -76,7 +78,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrStacked100BarSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        dataSource={this.data}
+                        dataSource={this.energyRenewableConsumption}
                         areaFillOpacity="1"
                         showDefaultTooltip="true"
                         name="Stacked100BarSeries">
@@ -103,17 +105,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _energyRenewableConsumption: EnergyRenewableConsumption = null;
+    public get energyRenewableConsumption(): EnergyRenewableConsumption {
+        if (this._energyRenewableConsumption == null)
         {
-            this._data = new Data();
+            this._energyRenewableConsumption = new EnergyRenewableConsumption();
         }
-        return this._data;
+        return this._energyRenewableConsumption;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

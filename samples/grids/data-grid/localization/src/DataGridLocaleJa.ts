@@ -1,0 +1,124 @@
+export class DataGridLocalizationJa {
+    [key: string]: string;
+    "Apply": string = "適用";
+    "Cancel": string = "キャンセル";
+    "Clear_Column_Filter": string = "列フィルターをクリア";
+    "Column_Move": string = "移動";
+    "Column_Move_Left": string = "左";
+    "Column_Move_Right": string = "右";
+    "Column_Pin": string = "ピン固定";
+    "Column_Pin_Left": string = "左";
+    "Column_Pin_Right": string = "右";
+    "Column_Sort": string = "ソート";
+    "Column_Sort_Ascending": string = "昇順";
+    "Column_Sort_Descending": string = "降順";
+    "Filter_Columns_List": string = "列リストのフィルター";
+    "Search": string = "検索";
+    "Select_All": string = "すべて選択";
+    "ComparisonOperator_Bottom": string = "下";
+    "ComparisonOperator_BottomPercentile": string = "下位の百分位数";
+    "ComparisonOperator_Contains": string = "～を含む";
+    "ComparisonOperator_DoesNotContain": string = "～を含まない";
+    "ComparisonOperator_DoesNotEndWith": string = "～で終わらない";
+    "ComparisonOperator_DoesNotMatch": string = "～と一致しない";
+    "ComparisonOperator_DoesNotStartWith": string = "～で始まらない";
+    "ComparisonOperator_Empty": string = "空";
+    "ComparisonOperator_EndsWith": string = "次の値で終わる";
+    "ComparisonOperator_Equals": string = "等しい";
+    "ComparisonOperator_False": string = "False";
+    "ComparisonOperator_GreaterThan": string = "次の値より大きい";
+    "ComparisonOperator_GreaterThanOrEqualTo": string = "次の値より大きいまたは等しい";
+    "ComparisonOperator_LastMonth": string = "先月";
+    "ComparisonOperator_LastQuater": string = "前四半期";
+    "ComparisonOperator_LastWeek": string = "先週";
+    "ComparisonOperator_LastYear": string = "昨年";
+    "ComparisonOperator_LessThan": string = "次の値より小さい";
+    "ComparisonOperator_LessThanOrEqualTo": string = "次の値より小さいまたは等しい";
+    "ComparisonOperator_NextMonth": string = "翌月";
+    "ComparisonOperator_NextQuater": string = "翌四半期";
+    "ComparisonOperator_NextWeek": string = "来週";
+    "ComparisonOperator_NextYear": string = "翌年";
+    "ComparisonOperator_NotEmpty": string = "空ではない";
+    "ComparisonOperator_NotEquals": string = "次の値に等しくない";
+    "ComparisonOperator_StartsWith": string = "～で始まる";
+    "ComparisonOperator_ThisMonth": string = "今月";
+    "ComparisonOperator_ThisQuarter": string = "本四半期";
+    "ComparisonOperator_ThisWeek": string = "今週";
+    "ComparisonOperator_ThisYear": string = "今年";
+    "ComparisonOperator_Today": string = "今日";
+    "ComparisonOperator_Tomorrow": string = "明日";
+    "ComparisonOperator_Top": string = "上";
+    "ComparisonOperator_TopPercentile": string = "上位の百分位数";
+    "ComparisonOperator_True": string = "True";
+    "ComparisonOperator_Yesterday": string = "昨日";
+    "Column_Options_Summary_Average": string = "平均";
+    "Column_Options_Summary_Count": string = "カウント";
+    "Column_Options_Summary_Maximum": string = "最大値";
+    "Column_Options_Summary_Minimum": string = "最小値";
+    "Column_Options_Summary_Sum": string = "合計値";
+    "Column_Options_Summaries": string = "集計";
+}
+
+export class DataGridSummariesLocalizationJa {
+    [key: string]: string;
+    "DataSource_Summary_Avg": string = "平均"; 
+    "DataSource_Summary_Count": string = "カウント"; 
+    "DataSource_Summary_Max": string = "最大値"; 
+    "DataSource_Summary_Min": string = "最小値"; 
+    "DataSource_Summary_Sum": string = "合計値";
+}
+
+export class DataGridDateTimeColumnLocalizationJa {
+    [key: string]: string;
+    "April_Full" = "4月";
+	"April_Short" = "4月";
+	"August_Full" = "August";
+	"August_Short" = "8月";
+	"December_Full" = "December";
+	"December_Short" = "12月";
+	"February_Full" = "February";
+	"February_Short" = "2月";
+	"Friday_Full" = "Friday";
+	"Friday_Short" = "Fri";
+	"Friday_Single" = "金";
+	"January_Full" = "January";
+	"January_Short" = "1月";
+	"July_Full" = "July";
+	"July_Short" = "7月";
+	"June_Full" = "June";
+	"June_Short" = "6月";
+	"March_Full" = "March";
+	"March_Short" = "3月";
+	"May_Full" = "May";
+	"May_Short" = "5月";
+	"Monday_Full" = "Monday";
+	"Monday_Short" = "Mon";
+	"Monday_Single" = "月";
+	"November_Full" = "November";
+	"November_Short" = "11月";
+	"October_Full" = "October";
+	"October_Short" = "10月";
+	"Saturday_Full" = "Saturday";
+	"Saturday_Short" = "Sat";
+	"Saturday_Single" = "土";
+	"September_Full" = "September";
+	"September_Short" = "9月";
+	"Sunday_Full" = "Sunday";
+	"Sunday_Short" = "Sun";
+	"Sunday_Single" = "日";
+	"Thursday_Full" = "Thursday";
+	"Thursday_Short" = "Thu";
+	"Thursday_Single" = "木";
+	"Today" = "Today";
+	"Tuesday_Full" = "Tuesday";
+	"Tuesday_Short" = "Tue";
+	"Tuesday_Single" = "火";
+	"Wednesday_Full" = "Wednesday";
+	"Wednesday_Short" = "Wed";
+	"Wednesday_Single" = "水";
+}
+
+export class DataGridMultiColumnComboBoxLocalizationJa {
+    [key: string]: string;
+    "NoMatches" = "一致なし";
+}

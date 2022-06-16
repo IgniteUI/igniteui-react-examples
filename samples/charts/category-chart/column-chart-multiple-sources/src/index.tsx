@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
 import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
+import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
+
+
 
 const mods: any[] = [
     IgrLegendModule,
@@ -48,14 +50,16 @@ export default class Sample extends React.Component<any, any> {
                 <IgrCategoryChart
                     chartType="Column"
                     xAxisInterval="1"
+                    isCategoryHighlightingEnabled="true"
                     yAxisLabelLeftMargin="0"
                     yAxisTitleLeftMargin="10"
                     yAxisTitleRightMargin="5"
                     yAxisTitle="Billions of U.S. Dollars"
-                    dataSource={this.data}
+                    dataSource={this.highestGrossingMovies}
                     legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    crosshairsDisplayMode="None"
                     ref={this.chartRef}>
                 </IgrCategoryChart>
             </div>
@@ -63,17 +67,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _highestGrossingMovies: HighestGrossingMovies = null;
+    public get highestGrossingMovies(): HighestGrossingMovies {
+        if (this._highestGrossingMovies == null)
         {
-            this._data = new Data();
+            this._highestGrossingMovies = new HighestGrossingMovies();
         }
-        return this._data;
+        return this._highestGrossingMovies;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

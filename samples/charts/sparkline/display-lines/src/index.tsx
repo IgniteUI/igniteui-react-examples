@@ -1,78 +1,76 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { IgrSparkline } from 'igniteui-react-charts';
+
+import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
-import { IgrSparklineCoreModule } from 'igniteui-react-charts';
+import { IgrSparkline } from 'igniteui-react-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescriptionModule } from 'igniteui-react-core';
+import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
 
-IgrSparklineCoreModule.register();
-IgrSparklineModule.register();
 
-export default class SparklineDisplayLines extends React.Component {
-    public data: any[];
+
+const mods: any[] = [
+    IgrPropertyEditorPanelModule,
+    IgrSparklineModule
+];
+mods.forEach((m) => m.register());
+
+export default class Sample extends React.Component<any, any> {
+    private chart: IgrSparkline
+    private chartRef(r: IgrSparkline) {
+        this.chart = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
-        this.data = this.generateData();
+
+        this.chartRef = this.chartRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <label className="options-label">Revenue Sparkline</label>
-                <div className="container">
-                    <IgrSparkline height="100%" width="100%" displayType="Line"
-                        dataSource={this.data} minimum={-1} maximum={1}
-                        valueMemberPath="Value" labelMemberPath="Angle"/>
-                </div>
-                <label className="options-label">Income Sparkline</label>
-                <div className="container">
-                    <IgrSparkline height="100%" width="100%" displayType="Line"
-                        dataSource={this.data} minimum={-1} maximum={1}
-                        valueMemberPath="Income" labelMemberPath="Angle"/>
-                </div>
-                <label className="options-label">Expanse Sparkline</label>
-                <div className="container">
-                    <IgrSparkline height="100%" width="100%" displayType="Line"
-                        dataSource={this.data} minimum={-1} maximum={1}
-                        valueMemberPath="Expanse" labelMemberPath="Angle"/>
-                </div>
-            </div >
+        <div className="container sample">
+            
+            
+            
+            <div className="container fill">
+                <IgrSparkline
+                    dataSource={this.sparklineMixedData}
+                    valueMemberPath="value"
+                    labelMemberPath="label"
+                    displayType="Line"
+                    ref={this.chartRef}>
+                </IgrSparkline>
+            </div>
+        </div>
         );
     }
 
-    public generateData()
-    {
-        const data: any[] = [];
-        let index = 0;
-        let min = 1000.0;
-        let max = -1000.0;
-
-        for (let angle = 0; angle < 360 * 4; angle += 5)
+    private _sparklineMixedData: SparklineMixedData = null;
+    public get sparklineMixedData(): SparklineMixedData {
+        if (this._sparklineMixedData == null)
         {
-            let v1 = Math.sin(angle * Math.PI / 180);
-            let v2 = Math.sin(3 * angle * Math.PI / 180) / 3;
-            let revenue = v1 + v2;
-            let expanse = revenue < 0 ? revenue : 0;
-            let income = revenue > 0 ? revenue : 0;
-
-            data.push({
-                "Index": index++,
-                "Angle": angle,
-                // Value = v1 + v2
-                "Value": revenue,
-                "Expanse": expanse,
-                "Income": income
-            });
-
-            min = Math.min(min, v1 + v2);
-            max = Math.max(max, v1 + v2);
+            this._sparklineMixedData = new SparklineMixedData();
         }
+        return this._sparklineMixedData;
+    }
+    
 
-        return data;
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            SparklineDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
     }
 
 }
 
-// rendering above class to the React DOM
-ReactDOM.render(<SparklineDisplayLines />, document.getElementById('root'));
+
+// rendering above component in the React DOM
+ReactDOM.render(<Sample />, document.getElementById('root'));

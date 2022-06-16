@@ -43,7 +43,7 @@ export default class ExcelLibraryUsingWorksheets extends React.Component<any, an
         sheet.defaultColumnWidth = 220 * 20;
 
         if (this.isSorted) {
-            sheet.sortSettings.setRegion("A1:A20");
+            sheet.sortSettings.setRegion("A2:A20");
             sheet.sortSettings.sortConditions().addItem(
                 new RelativeIndex(0), new OrderedSortCondition(SortDirection.Ascending));
         }

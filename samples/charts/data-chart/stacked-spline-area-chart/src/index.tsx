@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data } from './SampleData';
-import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrLegendModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
+import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStackedSplineAreaSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
+import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
+
+
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -12,8 +14,7 @@ const mods: any[] = [
     IgrDataChartCategoryCoreModule,
     IgrDataChartInteractivityModule,
     IgrDataChartStackedModule,
-    IgrStackedFragmentSeriesModule,
-    IgrLegendModule,
+    IgrStackedFragmentSeriesModule
 ];
 mods.forEach((m) => m.register());
 
@@ -36,7 +37,6 @@ export default class Sample extends React.Component<any, any> {
     private s3: IgrStackedFragmentSeries
     private s4: IgrStackedFragmentSeries
     private s5: IgrStackedFragmentSeries
-    private s6: IgrStackedFragmentSeries
 
     constructor(props: any) {
         super(props);
@@ -65,7 +65,7 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
-                        dataSource={this.data}
+                        dataSource={this.continentsBirthRate}
                         gap="0.75"
                         label="year"
                         name="xAxis">
@@ -75,7 +75,7 @@ export default class Sample extends React.Component<any, any> {
                         maximumValue="140"
                         interval="20"
                         title="Millions of Births"
-                        titleLeftMargin="10"
+                        titleAngle="-90"
                         labelFormat="{0} m"
                         name="yAxis">
                     </IgrNumericYAxis>
@@ -83,7 +83,7 @@ export default class Sample extends React.Component<any, any> {
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         markerType="Circle"
-                        dataSource={this.data}
+                        dataSource={this.continentsBirthRate}
                         showDefaultTooltip="false"
                         name="StackedSplineAreaSeries">
                         <IgrStackedFragmentSeries
@@ -91,24 +91,20 @@ export default class Sample extends React.Component<any, any> {
                             valueMemberPath="asia">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
-                            valueMemberPath="africa"
-                            name="s2">
+                            name="s2"
+                            valueMemberPath="africa">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
-                            valueMemberPath="europe"
-                            name="s3">
+                            name="s3"
+                            valueMemberPath="europe">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
-                            valueMemberPath="northAmerica"
-                            name="s4">
+                            name="s4"
+                            valueMemberPath="northAmerica">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
-                            valueMemberPath="southAmerica"
-                            name="s5">
-                        </IgrStackedFragmentSeries>
-                        <IgrStackedFragmentSeries
-                            valueMemberPath="oceania"
-                            name="s6">
+                            name="s5"
+                            valueMemberPath="southAmerica">
                         </IgrStackedFragmentSeries>
                     </IgrStackedSplineAreaSeries>
                 </IgrDataChart>
@@ -117,17 +113,19 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _continentsBirthRate: ContinentsBirthRate = null;
+    public get continentsBirthRate(): ContinentsBirthRate {
+        if (this._continentsBirthRate == null)
         {
-            this._data = new Data();
+            this._continentsBirthRate = new ContinentsBirthRate();
         }
-        return this._data;
+        return this._continentsBirthRate;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

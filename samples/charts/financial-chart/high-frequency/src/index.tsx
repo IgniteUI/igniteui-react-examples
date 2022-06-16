@@ -53,7 +53,7 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
                 <div className="options horizontal">
                     <label className="options-label" style={{width: "5rem"}}>Data Update:</label>
                     <label className="options-value">{this.state.refreshInfo}</label>
-                    <input className="options-slider" type="range" onChange={this.onRefreshFrequencyChanged} min="20" max="1000" step="10" />                    
+                    <input className="options-slider" type="range" onChange={this.onRefreshFrequencyChanged} min="20" max="1000" step="10" />
                     <button ref={this.onTimerButtonRef} onClick={this.onTimerButtonClick}>Stop Data</button>
                     <label ref={this.onFpsRef} className="options-label" />
                 </div>
@@ -65,7 +65,7 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
                         onChange={this.onDataPointsChanged}/>
                     <button onClick={this.onDataGenerateClick}>Generate Data</button>
                     <label className="options-label"><input type="checkbox"
-                        onChange={this.onScalingRatioChanged}/> Optimize Scaling </label>                    
+                        onChange={this.onScalingRatioChanged}/> Optimize Scaling </label>
                 </div>
 
                 <div className="container" style={{height: "calc(100% - 75px)"}}>
@@ -75,6 +75,9 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
                         height="100%"
                         chartType="Line"
                         zoomSliderType="None"
+                        xAxisEnhancedIntervalPreferMoreCategoryLabels="false"
+                        crosshairsDisplayMode="None"
+                        markerTypes="None"
                         isToolbarVisible={false}
                         dataSource={this.state.dataSource}
                         thickness={2} />
@@ -179,7 +182,7 @@ export default class FinancialChartHighFrequency extends React.Component<any, an
         this.refreshMilliseconds = num;
 
         const info = (this.refreshMilliseconds / 1000);
-        
+
         this.setState({ refreshInfo: info + "s"});
         this.setupInterval();
     }

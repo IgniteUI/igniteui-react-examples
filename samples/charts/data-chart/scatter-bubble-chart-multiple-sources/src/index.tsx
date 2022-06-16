@@ -1,13 +1,14 @@
-import { DataEuropeItem, DataEurope, DataAfricaItem, DataAfrica } from './SampleData';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { IgrSizeScale } from 'igniteui-react-charts';
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-
 import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries } from 'igniteui-react-charts';
+import { CountryStatsAfricaItem, CountryStatsAfrica } from './CountryStatsAfrica';
+import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
+
+
+
 const mods: any[] = [
     IgrLegendModule,
     IgrNumberAbbreviatorModule,
@@ -34,39 +35,34 @@ export default class Sample extends React.Component<any, any> {
     private bubbleSeries1: IgrBubbleSeries
     private bubbleSeries2: IgrBubbleSeries
 
-    private sizeScale: IgrSizeScale = new IgrSizeScale({});
     constructor(props: any) {
         super(props);
 
         this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
-
-        this.sizeScale = new IgrSizeScale({});
-        this.sizeScale.minimumValue = 10;
-        this.sizeScale.maximumValue = 50;
-   }
+    }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
+            
             <div className="legend-title">
                 Total Population of Selected Countries
             </div>
-
             <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-
             <div className="container fill">
                 <IgrDataChart
                     legend={this.legend}
                     ref={this.chartRef}>
                     <IgrNumericXAxis
-                        title="Hours Worked per Week"
+                        isLogarithmic="true"
+                        abbreviateLargeNumbers="true"
+                        title="Population"
                         name="xAxis">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
@@ -79,52 +75,54 @@ export default class Sample extends React.Component<any, any> {
                         radiusMemberPath="population"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        xMemberPath="workedHours"
+                        xMemberPath="population"
                         yMemberPath="gDP"
                         markerType="Circle"
-                        dataSource={this.dataAfrica}
+                        dataSource={this.countryStatsAfrica}
                         showDefaultTooltip="true"
                         title="African Countries"
-                        name="BubbleSeries1"
-                        radiusScale={this.sizeScale}>
+                        name="BubbleSeries1">
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
                         title="European Countries"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        xMemberPath="workedHours"
+                        xMemberPath="population"
                         yMemberPath="gDP"
                         radiusMemberPath="population"
-                        dataSource={this.dataEurope}
+                        dataSource={this.countryStatsEurope}
                         markerType="Circle"
                         showDefaultTooltip="true"
-                        name="BubbleSeries2"
-                        radiusScale={this.sizeScale}>
+                        name="BubbleSeries2">
                     </IgrBubbleSeries>
                 </IgrDataChart>
             </div>
         </div>
         );
-   }
-
-    private _dataEurope: DataEurope = null;
-    public get dataEurope(): DataEurope {
-        if (this._dataEurope == null)
-        {
-            this._dataEurope = new DataEurope();
-        }
-        return this._dataEurope;
     }
 
-    private _dataAfrica: DataAfrica = null;
-    public get dataAfrica(): DataAfrica {
-        if (this._dataAfrica == null)
+    private _countryStatsAfrica: CountryStatsAfrica = null;
+    public get countryStatsAfrica(): CountryStatsAfrica {
+        if (this._countryStatsAfrica == null)
         {
-            this._dataAfrica = new DataAfrica();
+            this._countryStatsAfrica = new CountryStatsAfrica();
         }
-        return this._dataAfrica;
+        return this._countryStatsAfrica;
     }
+    
+    private _countryStatsEurope: CountryStatsEurope = null;
+    public get countryStatsEurope(): CountryStatsEurope {
+        if (this._countryStatsEurope == null)
+        {
+            this._countryStatsEurope = new CountryStatsEurope();
+        }
+        return this._countryStatsEurope;
+    }
+    
+
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));

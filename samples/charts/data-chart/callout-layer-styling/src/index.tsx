@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { DataItem, Data, CalloutsItem, Callouts } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCalloutLayer } from 'igniteui-react-charts';
+import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
+
+
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -42,9 +45,11 @@ export default class Sample extends React.Component<any, any> {
             
             <div className="container fill">
                 <IgrDataChart
+                    shouldAutoExpandMarginForInitialLabels="true"
+                    computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
-                        dataSource={this.data}
+                        dataSource={this.countryRenewableElectricity}
                         label="year"
                         name="xAxis">
                     </IgrCategoryXAxis>
@@ -56,8 +61,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrLineSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        valueMemberPath="uSA"
-                        dataSource={this.data}
+                        valueMemberPath="america"
+                        dataSource={this.countryRenewableElectricity}
                         name="LineSeries1">
                     </IgrLineSeries>
                     <IgrCalloutLayer
@@ -69,7 +74,7 @@ export default class Sample extends React.Component<any, any> {
                         calloutOutline="black"
                         calloutLeaderBrush="black"
                         calloutStrokeThickness="2"
-                        dataSource={this.callouts}
+                        dataSource={this.countryRenewableCallouts}
                         name="CalloutLayer1">
                     </IgrCalloutLayer>
                 </IgrDataChart>
@@ -78,26 +83,28 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _data: Data = null;
-    public get data(): Data {
-        if (this._data == null)
+    private _countryRenewableElectricity: CountryRenewableElectricity = null;
+    public get countryRenewableElectricity(): CountryRenewableElectricity {
+        if (this._countryRenewableElectricity == null)
         {
-            this._data = new Data();
+            this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
-        return this._data;
+        return this._countryRenewableElectricity;
     }
     
-    private _callouts: Callouts = null;
-    public get callouts(): Callouts {
-        if (this._callouts == null)
+    private _countryRenewableCallouts: CountryRenewableCallouts = null;
+    public get countryRenewableCallouts(): CountryRenewableCallouts {
+        if (this._countryRenewableCallouts == null)
         {
-            this._callouts = new Callouts();
+            this._countryRenewableCallouts = new CountryRenewableCallouts();
         }
-        return this._callouts;
+        return this._countryRenewableCallouts;
     }
     
 
 
 }
+
+
 // rendering above component in the React DOM
 ReactDOM.render(<Sample />, document.getElementById('root'));
