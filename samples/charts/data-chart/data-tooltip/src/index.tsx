@@ -7,6 +7,8 @@ import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSiz
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 
+
+
 const mods: any[] = [
     IgrLegendModule,
     IgrNumberAbbreviatorModule,
@@ -41,10 +43,13 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                    <div className="legend-title">
+
+            <div className="legend-title">
                 Total Population of Selected Countries
             </div>
-                                    <div className="container fill">
+
+
+            <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}>
                     <IgrNumericXAxis
@@ -80,16 +85,16 @@ export default class Sample extends React.Component<any, any> {
                         </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
-                        radiusMemberPath="population"
-                        radiusMemberAsLegendLabel="Population:"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
+                        dataSource={this.countryDemographicEurope}
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
+                        radiusMemberPath="population"
+                        title="Europe"
+                        radiusMemberAsLegendLabel="Population:"
                         xMemberAsLegendLabel="Death Rate:"
                         yMemberAsLegendLabel="Birth Rate:"
-                        dataSource={this.countryDemographicEurope}
-                        title="Europe"
                         name="BubbleSeries2">
                         <IgrSizeScale
                             minimumValue="10"

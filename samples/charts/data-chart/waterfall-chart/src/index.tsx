@@ -6,6 +6,8 @@ import { IgrDataChartCoreModule, IgrDataChartCategoryModule } from 'igniteui-rea
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrWaterfallSeries } from 'igniteui-react-charts';
 import { CompanyIncomeDataItem, CompanyIncomeData } from './CompanyIncomeData';
 
+
+
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule
@@ -32,10 +34,13 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                    <div className="legend-title">
+
+            <div className="legend-title">
                 Facebook Consolidated Statements of Income
             </div>
-                                    <div className="container fill">
+
+
+            <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"

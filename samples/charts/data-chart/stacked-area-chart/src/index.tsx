@@ -6,6 +6,8 @@ import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, Ig
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStackedAreaSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
 import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
+
+
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -47,16 +49,19 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                    <div className="legend-title">
+
+            <div className="legend-title">
                 Annual Birth Rates by World Region
             </div>
-                                    <div className="legend">
+
+            <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-                        <div className="container fill">
+
+            <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"

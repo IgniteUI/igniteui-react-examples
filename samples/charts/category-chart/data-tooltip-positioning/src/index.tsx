@@ -11,7 +11,9 @@ import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGross
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { defineAllComponents } from 'igniteui-webcomponents';
+
 defineAllComponents();
+
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
     IgrLegendModule,
@@ -44,7 +46,7 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                        <div className="options vertical">
+            <div className="options vertical">
                 <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
                     target={this.chart}
@@ -72,10 +74,13 @@ export default class Sample extends React.Component<any, any> {
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
-                                    <div className="legend-title">
+
+            <div className="legend-title">
                 Highest Grossing Movie Franchises
             </div>
-                                    <div className="container fill">
+
+
+            <div className="container fill">
                 <IgrCategoryChart
                     chartType="Column"
                     xAxisInterval="1"

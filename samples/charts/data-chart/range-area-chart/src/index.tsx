@@ -6,6 +6,8 @@ import { IgrDataChartCoreModule, IgrDataChartCategoryModule } from 'igniteui-rea
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrRangeAreaSeries } from 'igniteui-react-charts';
 import { TemperatureRangeDataItem, TemperatureRangeData } from './TemperatureRangeData';
 
+
+
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule
@@ -32,10 +34,13 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                    <div className="legend-title">
+
+            <div className="legend-title">
                 Monthly Temperature Range in Los Angeles
             </div>
-                                    <div className="container fill">
+
+
+            <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"

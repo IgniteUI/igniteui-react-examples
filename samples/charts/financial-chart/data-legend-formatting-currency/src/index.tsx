@@ -6,6 +6,8 @@ import { IgrFinancialChartModule, IgrDataChartInteractivityModule, IgrDataLegend
 import { IgrDataLegend, IgrFinancialChart } from 'igniteui-react-charts';
 import { MultipleStocks } from './MultipleStocks';
 
+
+
 const mods: any[] = [
     IgrFinancialChartModule,
     IgrDataChartInteractivityModule,
@@ -35,7 +37,9 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                                <div className="legend">
+
+
+            <div className="legend">
                 <IgrDataLegend
                     includedColumns={["Close", "Change", "Value"]}
                     excludedColumns={["High", "Low", "Open", "Volume"]}
@@ -46,7 +50,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.legendRef}>
                 </IgrDataLegend>
             </div>
-                        <div className="container fill">
+
+            <div className="container fill">
                 <IgrFinancialChart
                     chartType="Candle"
                     zoomSliderType="None"

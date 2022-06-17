@@ -7,6 +7,8 @@ import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCall
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
 
+
+
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
@@ -39,10 +41,13 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                    <div className="legend-title">
+
+            <div className="legend-title">
                 Renewable Electricity Generated
             </div>
-                                    <div className="container fill">
+
+
+            <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}>
                     <IgrCategoryXAxis

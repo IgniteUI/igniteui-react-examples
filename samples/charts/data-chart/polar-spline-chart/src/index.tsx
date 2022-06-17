@@ -6,6 +6,8 @@ import { IgrDataChartCoreModule, IgrDataChartPolarModule, IgrDataChartPolarCoreM
 import { IgrDataChart, IgrNumericAngleAxis, IgrNumericRadiusAxis, IgrPolarSplineSeries } from 'igniteui-react-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
+
+
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartPolarModule,
@@ -34,10 +36,13 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                    <div className="legend-title">
+
+            <div className="legend-title">
                 Wind Speed vs Boat Speed
             </div>
-                                    <div className="container fill">
+
+
+            <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"

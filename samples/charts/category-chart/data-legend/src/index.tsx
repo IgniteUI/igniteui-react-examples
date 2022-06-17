@@ -6,6 +6,8 @@ import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrDataLegend, IgrCategoryChart } from 'igniteui-react-charts';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
+
+
 const mods: any[] = [
     IgrLegendModule,
     IgrCategoryChartModule
@@ -34,17 +36,20 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                    <div className="legend-title">
+
+            <div className="legend-title">
                 Highest Grossing Movie Franchises
             </div>
-                                    <div className="legend">
+
+            <div className="legend">
                 <IgrDataLegend
                     target={this.chart}
                     unitsText="B"
                     ref={this.legendRef}>
                 </IgrDataLegend>
             </div>
-                        <div className="container fill">
+
+            <div className="container fill">
                 <IgrCategoryChart
                     chartType="Column"
                     xAxisInterval="1"

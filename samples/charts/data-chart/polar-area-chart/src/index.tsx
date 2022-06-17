@@ -6,6 +6,8 @@ import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartPolarModule, IgrDa
 import { IgrLegend, IgrDataChart, IgrNumericAngleAxis, IgrNumericRadiusAxis, IgrPolarAreaSeries } from 'igniteui-react-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
+
+
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -41,16 +43,19 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                    <div className="legend-title">
+
+            <div className="legend-title">
                 Wind Speed vs Boat Speed
             </div>
-                                    <div className="legend">
+
+            <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-                        <div className="container fill">
+
+            <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
@@ -85,16 +90,16 @@ export default class Sample extends React.Component<any, any> {
                         name="PolarAreaSeries1">
                     </IgrPolarAreaSeries>
                     <IgrPolarAreaSeries
-                        angleMemberPath="direction"
-                        radiusMemberPath="boatSpeed"
+                        dataSource={this.boatSailingData}
                         angleAxisName="angleAxis"
                         radiusAxisName="radiusAxis"
-                        markerType="Circle"
-                        dataSource={this.boatSailingData}
-                        thickness="1"
-                        areaFillOpacity="0.8"
+                        angleMemberPath="direction"
+                        radiusMemberPath="boatSpeed"
                         showDefaultTooltip="true"
+                        areaFillOpacity="0.8"
+                        thickness="1"
                         title="Boat Speed"
+                        markerType="Circle"
                         name="PolarAreaSeries2">
                     </IgrPolarAreaSeries>
                 </IgrDataChart>

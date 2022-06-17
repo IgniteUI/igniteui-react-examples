@@ -6,6 +6,8 @@ import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategor
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { Stock2YearsItem, Stock2Years } from './Stock2Years';
 
+
+
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
@@ -38,7 +40,10 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                                <div className="container fill">
+
+
+
+            <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="true"
                     isVerticalZoomEnabled="true"

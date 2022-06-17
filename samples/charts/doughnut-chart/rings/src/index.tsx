@@ -7,6 +7,8 @@ import { IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
 import { CalendarSeasonsItem, CalendarSeasons } from './CalendarSeasons';
 import { CalendarMonthsItem, CalendarMonths } from './CalendarMonths';
 
+
+
 const mods: any[] = [
     IgrLegendModule,
     IgrDoughnutChartModule
@@ -31,10 +33,13 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                    <div className="legend-title">
+
+            <div className="legend-title">
                 Hierarchical Chart
             </div>
-                                    <div className="container fill">
+
+
+            <div className="container fill">
                 <IgrDoughnutChart
                     allowSliceSelection="false"
                     allowSliceExplosion="false"

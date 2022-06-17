@@ -7,6 +7,8 @@ import { IgrDataLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbl
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 
+
+
 const mods: any[] = [
     IgrLegendModule,
     IgrNumberAbbreviatorModule,
@@ -48,16 +50,19 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-                                    <div className="legend-title">
+
+            <div className="legend-title">
                 Total Population of Selected Countries
             </div>
-                                    <div className="legend">
+
+            <div className="legend">
                 <IgrDataLegend
                     target={this.chart}
                     ref={this.legendRef}>
                 </IgrDataLegend>
             </div>
-                        <div className="container fill">
+
+            <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}>
                     <IgrNumericXAxis
