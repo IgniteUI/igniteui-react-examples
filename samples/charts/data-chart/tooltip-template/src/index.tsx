@@ -11,6 +11,7 @@ import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCoreModule } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
+import { IgrNumberAbbreviatorModule } from 'igniteui-react-charts';
 
 import { IgrChartMouseEventArgs } from 'igniteui-react-charts';
 import { SampleCategoryData } from './SampleCategoryData';
@@ -19,6 +20,7 @@ import { IgrDataContext } from 'igniteui-react-core';
 IgrDataChartCoreModule.register();
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
+IgrNumberAbbreviatorModule.register();
 
 export default class DataChartTooltipTemplate extends React.Component<any, any> {
     public data: any[];
@@ -43,7 +45,7 @@ export default class DataChartTooltipTemplate extends React.Component<any, any> 
                         isHorizontalZoomEnabled={false}
                         isVerticalZoomEnabled={true} seriesMouseEnter={this.onSeriesMouseEnter}>
                         <IgrCategoryXAxis name="xAxis" label="Country" />
-                        <IgrNumericYAxis name="yAxis" />
+                        <IgrNumericYAxis name="yAxis"  abbreviateLargeNumbers="true" />
                         <IgrColumnSeries
                             name="series1"
                             title="Coal"
@@ -108,11 +110,11 @@ export default class DataChartTooltipTemplate extends React.Component<any, any> 
         const dataItem = dataContext.item as any;
         if (!dataItem) return null;
 
-        const coal = dataItem.Coal;
-        const hydro = dataItem.Hydro;
-        const nuclear = dataItem.Nuclear;
-        const gas = dataItem.Gas;
-        const oil = dataItem.Oil;
+        const coal = (dataItem.Coal / 1000000) + " M";
+        const hydro = (dataItem.Hydro / 1000000) + " M";
+        const nuclear = (dataItem.Nuclear / 1000000) + " M";
+        const gas = (dataItem.Gas / 1000000) + " M";
+        const oil = (dataItem.Oil / 1000000) + " M";
 
         return <div>
             <div className="tooltipTitle">{dataItem.Country} Production</div>
