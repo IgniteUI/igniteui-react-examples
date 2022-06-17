@@ -48,7 +48,7 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            <div className="options vertical">
+                        <div className="options vertical">
                 <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
                     target={this.chart}
@@ -64,16 +64,16 @@ export default class Sample extends React.Component<any, any> {
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Renewable Electricity Generated
             </div>
-            <div className="legend">
+                                    <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-            <div className="container fill">
+                        <div className="container fill">
                 <IgrCategoryChart
                     chartType="Line"
                     xAxisInterval="1"

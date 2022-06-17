@@ -6,8 +6,6 @@ import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { TemperatureAverageDataItem, TemperatureAverageData } from './TemperatureAverageData';
 
-
-
 const mods: any[] = [
     IgrCategoryChartModule
 ];
@@ -29,12 +27,10 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Average Temperature Range in New York
             </div>
-            
-            <div className="container fill">
+                                    <div className="container fill">
                 <IgrCategoryChart
                     chartType="Column"
                     isCategoryHighlightingEnabled="true"

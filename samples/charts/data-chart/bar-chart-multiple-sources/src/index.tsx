@@ -6,8 +6,6 @@ import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryCoreModule
 import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrCategoryHighlightLayer, IgrBarSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -47,17 +45,16 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Highest Grossing Movie Franchises
             </div>
-            <div className="legend">
+                                    <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-            <div className="container fill">
+                        <div className="container fill">
                 <IgrDataChart
                     legend={this.legend}
                     ref={this.chartRef}>

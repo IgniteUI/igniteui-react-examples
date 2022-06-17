@@ -7,8 +7,6 @@ import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterSp
 import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
 import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrNumberAbbreviatorModule,
@@ -46,17 +44,16 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Life Expectancy vs Health Expenditure
             </div>
-            <div className="legend">
+                                    <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-            <div className="container fill">
+                        <div className="container fill">
                 <IgrDataChart
                     legend={this.legend}
                     ref={this.chartRef}>

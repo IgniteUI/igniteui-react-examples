@@ -43,7 +43,7 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            <div className="options vertical">
+                        <div className="options vertical">
                 <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
                     target={this.chart}
@@ -83,9 +83,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
-            
-            
-            <div className="container fill">
+                                                <div className="container fill">
                 <IgrSparkline
                     normalRangeVisibility="Visible"
                     dataSource={this.sparklineMixedData}

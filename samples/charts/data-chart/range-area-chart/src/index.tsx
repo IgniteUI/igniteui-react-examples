@@ -6,8 +6,6 @@ import { IgrDataChartCoreModule, IgrDataChartCategoryModule } from 'igniteui-rea
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrRangeAreaSeries } from 'igniteui-react-charts';
 import { TemperatureRangeDataItem, TemperatureRangeData } from './TemperatureRangeData';
 
-
-
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule
@@ -22,7 +20,8 @@ export default class Sample extends React.Component<any, any> {
     }
     private xAxis: IgrCategoryXAxis
     private yAxis: IgrNumericYAxis
-    private series: IgrRangeAreaSeries
+    private rangeAreaSeries1: IgrRangeAreaSeries
+    private rangeAreaSeries2: IgrRangeAreaSeries
 
     constructor(props: any) {
         super(props);
@@ -33,12 +32,10 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Monthly Temperature Range in Los Angeles
             </div>
-            
-            <div className="container fill">
+                                    <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
@@ -58,20 +55,20 @@ export default class Sample extends React.Component<any, any> {
                     <IgrRangeAreaSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        lowMemberPath="lowNY"
-                        highMemberPath="highNY"
+                        lowMemberPath="lowLA"
+                        highMemberPath="highLA"
                         dataSource={this.temperatureRangeData}
-                        title="New York"
-                        name="series">
+                        title="Los Angeles"
+                        name="RangeAreaSeries1">
                     </IgrRangeAreaSeries>
                     <IgrRangeAreaSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
+                        title="New York"
                         lowMemberPath="lowNY"
                         highMemberPath="highNY"
                         dataSource={this.temperatureRangeData}
-                        title="New York"
-                        name="series">
+                        name="RangeAreaSeries2">
                     </IgrRangeAreaSeries>
                 </IgrDataChart>
             </div>

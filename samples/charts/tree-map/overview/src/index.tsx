@@ -6,8 +6,6 @@ import { IgrTreemapModule } from 'igniteui-react-charts';
 import { IgrTreemap } from 'igniteui-react-charts';
 import { CountyHierarchicalDataItem, CountyHierarchicalData } from './CountyHierarchicalData';
 
-
-
 const mods: any[] = [
     IgrTreemapModule
 ];
@@ -29,12 +27,10 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Comparing Population of Countries
             </div>
-            
-            <div className="container fill">
+                                    <div className="container fill">
                 <IgrTreemap
                     valueMemberPath="population"
                     rootTitle="Countries"

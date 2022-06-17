@@ -6,8 +6,6 @@ import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartRadialModule, IgrD
 import { IgrLegend, IgrDataChart, IgrCategoryAngleAxis, IgrNumericRadiusAxis, IgrRadialAreaSeries } from 'igniteui-react-charts';
 import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerStats';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -43,17 +41,16 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Ronaldo vs Messi Player Stats
             </div>
-            <div className="legend">
+                                    <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-            <div className="container fill">
+                        <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
@@ -84,15 +81,15 @@ export default class Sample extends React.Component<any, any> {
                         name="RadialAreaSeries1">
                     </IgrRadialAreaSeries>
                     <IgrRadialAreaSeries
-                        dataSource={this.footballPlayerStats}
+                        valueMemberPath="messi"
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
-                        valueMemberPath="messi"
-                        showDefaultTooltip="true"
-                        areaFillOpacity="0.5"
-                        thickness="3"
-                        title="Messi"
                         markerType="Circle"
+                        dataSource={this.footballPlayerStats}
+                        thickness="3"
+                        areaFillOpacity="0.5"
+                        showDefaultTooltip="true"
+                        title="Messi"
                         name="RadialAreaSeries2">
                     </IgrRadialAreaSeries>
                 </IgrDataChart>

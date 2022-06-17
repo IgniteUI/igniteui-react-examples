@@ -6,8 +6,6 @@ import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrLegendModule } f
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrRangeColumnSeries } from 'igniteui-react-charts';
 import { TemperatureRangeDataItem, TemperatureRangeData } from './TemperatureRangeData';
 
-
-
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
@@ -41,17 +39,16 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Monthly Temperature Range in LA and NYC
             </div>
-            <div className="legend">
+                                    <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-            <div className="container fill">
+                        <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"

@@ -6,8 +6,6 @@ import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, Ig
 import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrStackedBarSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
 import { EnergyRenewableConsumptionItem, EnergyRenewableConsumption } from './EnergyRenewableConsumption';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -49,17 +47,16 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Renewable Energy Consumption
             </div>
-            <div className="legend">
+                                    <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-            <div className="container fill">
+                        <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
@@ -86,19 +83,23 @@ export default class Sample extends React.Component<any, any> {
                         name="StackedBarSeries">
                         <IgrStackedFragmentSeries
                             name="s1"
+                            title="Hydro"
                             valueMemberPath="hydro">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s2"
-                            valueMemberPath="wind">
+                            valueMemberPath="wind"
+                            title="Wind">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s3"
-                            valueMemberPath="solar">
+                            valueMemberPath="solar"
+                            title="Solar">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s4"
-                            valueMemberPath="other">
+                            valueMemberPath="other"
+                            title="Other">
                         </IgrStackedFragmentSeries>
                     </IgrStackedBarSeries>
                 </IgrDataChart>

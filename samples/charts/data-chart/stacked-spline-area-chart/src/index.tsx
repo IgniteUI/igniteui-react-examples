@@ -6,8 +6,6 @@ import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategor
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStackedSplineAreaSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
 import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
-
-
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
@@ -48,17 +46,16 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Annual Birth Rates by World Region
             </div>
-            <div className="legend">
+                                    <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-            <div className="container fill">
+                        <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
@@ -88,23 +85,28 @@ export default class Sample extends React.Component<any, any> {
                         name="StackedSplineAreaSeries">
                         <IgrStackedFragmentSeries
                             name="s1"
+                            title="Asia"
                             valueMemberPath="asia">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s2"
-                            valueMemberPath="africa">
+                            valueMemberPath="africa"
+                            title="Africa">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s3"
-                            valueMemberPath="europe">
+                            valueMemberPath="europe"
+                            title="Europe">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s4"
-                            valueMemberPath="northAmerica">
+                            valueMemberPath="northAmerica"
+                            title="North America">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s5"
-                            valueMemberPath="southAmerica">
+                            valueMemberPath="southAmerica"
+                            title="South America">
                         </IgrStackedFragmentSeries>
                     </IgrStackedSplineAreaSeries>
                 </IgrDataChart>

@@ -6,8 +6,6 @@ import { IgrLegendModule, IgrDoughnutChartModule } from 'igniteui-react-charts';
 import { IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
 import { CompanyMarketSharesItem, CompanyMarketShares } from './CompanyMarketShares';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrDoughnutChartModule
@@ -31,12 +29,10 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Market Share of Tech Companies
             </div>
-            
-            <div className="container fill">
+                                    <div className="container fill">
                 <IgrDoughnutChart
                     ref={this.chartRef}>
                     <IgrRingSeries

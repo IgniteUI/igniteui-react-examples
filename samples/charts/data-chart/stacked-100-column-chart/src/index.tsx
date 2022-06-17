@@ -6,8 +6,6 @@ import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategor
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStacked100ColumnSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
 import { OnlineTrafficByDeviceItem, OnlineTrafficByDevice } from './OnlineTrafficByDevice';
 
-
-
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
@@ -46,17 +44,16 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Distribution of Online Traffic Worldwide, by Device
             </div>
-            <div className="legend">
+                                    <div className="legend">
                 <IgrLegend
                     orientation="Horizontal"
                     ref={this.legendRef}>
                 </IgrLegend>
             </div>
-            <div className="container fill">
+                        <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
@@ -81,15 +78,18 @@ export default class Sample extends React.Component<any, any> {
                         name="Stacked100ColumnSeries">
                         <IgrStackedFragmentSeries
                             name="s1"
+                            title="Desktop"
                             valueMemberPath="desktop">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s2"
-                            valueMemberPath="mobile">
+                            valueMemberPath="mobile"
+                            title="Mobile">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s3"
-                            valueMemberPath="tablet">
+                            valueMemberPath="tablet"
+                            title="Tablet">
                         </IgrStackedFragmentSeries>
                     </IgrStacked100ColumnSeries>
                 </IgrDataChart>

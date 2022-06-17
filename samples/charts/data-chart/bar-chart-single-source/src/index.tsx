@@ -6,8 +6,6 @@ import { IgrDataChartCoreModule, IgrDataChartCategoryCoreModule, IgrDataChartCat
 import { IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrCategoryHighlightLayer, IgrBarSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { OnlineShoppingSearchesItem, OnlineShoppingSearches } from './OnlineShoppingSearches';
 
-
-
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryCoreModule,
@@ -39,12 +37,10 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 Where Online Shoppers Start Their Search
             </div>
-            
-            <div className="container fill">
+                                    <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"

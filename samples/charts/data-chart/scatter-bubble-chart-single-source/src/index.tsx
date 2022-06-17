@@ -6,8 +6,6 @@ import { IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatter
 import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries } from 'igniteui-react-charts';
 import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
 
-
-
 const mods: any[] = [
     IgrNumberAbbreviatorModule,
     IgrDataChartCoreModule,
@@ -36,12 +34,10 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            
-            <div className="legend-title">
+                                    <div className="legend-title">
                 GDP per Capita vs Population
             </div>
-            
-            <div className="container fill">
+                                    <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}>
                     <IgrNumericXAxis
