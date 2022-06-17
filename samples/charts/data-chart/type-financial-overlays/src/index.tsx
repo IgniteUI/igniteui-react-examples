@@ -19,7 +19,7 @@ IgrNumberAbbreviatorModule.register();
 IgrDataChartCoreModule.register();
 IgrDataChartInteractivityModule.register();
 
-export default class DataChartTypeFinancialLineIndicators extends React.Component<any, any> {
+export default class Sample extends React.Component<any, any> {
     public data: any[];
     public chart: IgrDataChart;
 
@@ -140,4 +140,4 @@ export default class DataChartTypeFinancialLineIndicators extends React.Componen
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataChartTypeFinancialOverlays />, document.getElementById('root'));
+ReactDOM.render(<Sample />, document.getElementById('root'));
