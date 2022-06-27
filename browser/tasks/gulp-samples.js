@@ -736,7 +736,7 @@ function updateIG(cb) {
         { name: "@infragistics/igniteui-react-spreadsheet"              , version: "22.1.196" },
         { name: "@infragistics/igniteui-react-datasources"              , version: "22.1.196", },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "^3.1.0",  },
+        { name: "igniteui-webcomponents", version: "^3.2.0",  },
         { name: "igniteui-dockmanager", version: "1.6.0-beta.1" },
     ];
 
