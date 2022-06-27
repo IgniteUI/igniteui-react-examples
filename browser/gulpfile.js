@@ -81,3 +81,6 @@ exports.updateCodeViewer = updateCodeViewer = gulp.series(
 );
 
 exports.logVersionTypescript = logVersionTypescript = sb.logVersionTypescript
+
+exports.updateIG = updateIG = sb.updateIG
+
