@@ -12,7 +12,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-dockmanager": "1.0.0",
+    "igniteui-dockmanager": "1.6.0-beta.1",
     "@infragistics/igniteui-react-core": "22.1.196",
     "@infragistics/igniteui-react-maps": "22.1.196",
     "@infragistics/igniteui-react-charts": "22.1.196",
