@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "igniteui-dockmanager": "1.6.0-beta.1",
-    "@infragistics/igniteui-react-core": "22.1.196",
+    "igniteui-react-core": "16.16.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
