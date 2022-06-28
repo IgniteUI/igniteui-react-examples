@@ -726,15 +726,15 @@ function updateIG(cb) {
     // "@infragistics/igniteui-angular-charts" instead of "igniteui-angular-charts"
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-react-core"                     , version: "16.16.0" },
-        { name: "igniteui-react-charts"                   , version: "16.16.0" },
-        { name: "igniteui-react-excel"                    , version: "16.16.0" },
-        { name: "igniteui-react-gauges"                   , version: "16.16.0" },
-        { name: "igniteui-react-layouts"                  , version: "16.16.0" },
-        { name: "igniteui-react-maps"                     , version: "16.16.0" },
-        { name: "igniteui-react-spreadsheet-chart-adapter", version: "16.16.0" },
-        { name: "igniteui-react-spreadsheet"              , version: "16.16.0" },
-        { name: "igniteui-react-datasources"              , version: "16.16.0", },
+        { name: "@infragistics/igniteui-react-core"                     , version: "22.1.196" },
+        { name: "@infragistics/igniteui-react-charts"                   , version: "22.1.196" },
+        { name: "@infragistics/igniteui-react-excel"                    , version: "22.1.196" },
+        { name: "@infragistics/igniteui-react-gauges"                   , version: "22.1.196" },
+        { name: "@infragistics/igniteui-react-layouts"                  , version: "22.1.196" },
+        { name: "@infragistics/igniteui-react-maps"                     , version: "22.1.196" },
+        { name: "@infragistics/igniteui-react-spreadsheet-chart-adapter", version: "22.1.196" },
+        { name: "@infragistics/igniteui-react-spreadsheet"              , version: "22.1.196" },
+        { name: "@infragistics/igniteui-react-datasources"              , version: "22.1.196", },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "^3.2.0",  },
         { name: "igniteui-dockmanager", version: "1.6.0-beta.1" },
