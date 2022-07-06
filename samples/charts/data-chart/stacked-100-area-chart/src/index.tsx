@@ -76,7 +76,7 @@ export default class Sample extends React.Component<any, any> {
                         interval="20"
                         title="Millions of Births"
                         titleAngle="-90"
-                        labelFormat="{0} %"
+                        labelFormat="{0}%"
                         name="yAxis">
                     </IgrNumericYAxis>
                     <IgrStacked100AreaSeries

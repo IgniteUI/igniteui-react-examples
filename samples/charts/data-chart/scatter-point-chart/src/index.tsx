@@ -86,14 +86,14 @@ export default class Sample extends React.Component<any, any> {
                         name="ScatterSeries1">
                     </IgrScatterSeries>
                     <IgrScatterSeries
+                        title="Africa"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
-                        markerType="Circle"
                         dataSource={this.countryDemographicAfrican}
+                        markerType="Circle"
                         showDefaultTooltip="true"
-                        title="Africa"
                         name="ScatterSeries2">
                     </IgrScatterSeries>
                 </IgrDataChart>

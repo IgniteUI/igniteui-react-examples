@@ -74,7 +74,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         interval="20"
-                        labelFormat="{0} %"
+                        labelFormat="{0}%"
                         name="yAxis">
                     </IgrNumericYAxis>
                     <IgrStacked100SplineSeries
