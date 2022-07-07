@@ -49,7 +49,7 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            <div className="options horizontal">
+            <div className="options vertical">
                 <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
                     target={this.chart}
