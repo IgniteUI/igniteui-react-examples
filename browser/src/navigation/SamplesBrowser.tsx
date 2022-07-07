@@ -63,7 +63,10 @@ export class SamplesBrowser extends React.Component<any, any>
 
         // logging versions of IG packages
         for (const item of BrowserInfo) {
-            console.log('SB uses v' + item.ver + ' ' + item.name);
+            if (item.name && item.name.indexOf('igniteui-react-core') >= 0) {
+                console.log('SB uses v' + item.ver + ' ' + item.name);
+                break;
+            }
         }
 
         this.onSampleOpen = this.onSampleOpen.bind(this);
@@ -167,7 +170,7 @@ export class SamplesBrowser extends React.Component<any, any>
         }
 
         let sbRoute = window.location.pathname;
-        console.log("SB render " + sbRoute + " with browsing=" + sbBrowsingMode);
+        // console.log("SB render " + sbRoute + " with browsing=" + sbBrowsingMode);
 
         // NOTE CacheBuster is not used at this moment:
         // return (
