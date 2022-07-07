@@ -97,11 +97,25 @@
     line-height: 1.75;
     /* padding-left: 1rem; */
 }
+
 .sbToolbarButton {
     vertical-align: middle;
     height: 32px;
     line-height: 1.75;
+    color: white;
+    padding: 0.25rem;
+    margin-left: 0rem;
+    margin-right: 0.75rem;
+    font-size: medium;
+    display: inline-block;
+    height: 32px;
 }
+
+.sbToolbarButton:hover {
+    background: rgba(204, 204, 204, 0.123);
+    transition: "all 0.0s";
+}
+
 .sbNavigation-group {
     padding-top: 1rem;
     padding-bottom: 0.5rem;
@@ -135,8 +149,8 @@
     text-decoration: none;
     text-transform: capitalize;
     display: block;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     padding-left: 1rem;
     padding-right: 0px;
     /* color: #272727 !important; */
