@@ -25,6 +25,7 @@
     "@material-ui/utils": "^4.5.2",
     "@types/file-saver": "^2.0.0",
     "@types/react-loadable": "5.5.5",
+    "@types/react-router": "5.1.14",
     "@types/react-router-dom": "4.3.5",
     "@types/react-transition-group": "2.9.2",
     "classnames": "2.3.1",
@@ -47,6 +48,7 @@
     "react-dom": "16.14.0",
     "react-event-listener": "0.6.6",
     "react-loadable": "5.5.0",
+    "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
     "react-scripts": "3.4.1",
     "react-transition-group": "4.4.2"
