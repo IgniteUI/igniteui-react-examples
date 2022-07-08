@@ -593,8 +593,61 @@ function updateCodeViewer(cb) {
     }
 
     cb();
-
 } exports.updateCodeViewer = updateCodeViewer;
+
+function logPackages(cb) {
+    let fileNames = [];
+    gulp.src([
+        './node_modules/@material-ui/**/package.json',
+        './node_modules/@types/react*/package.json',
+        './node_modules/classnames/package.json',
+        './node_modules/file-saver/package.json',
+        './node_modules/igniteui*/package.json',
+        './node_modules/prop*/package.json',
+        './node_modules/react*/package.json',
+
+        './node_modules/typescript/package.json',
+        './node_modules/webpack/package.json',
+        './node_modules/worker-loader/package.json',
+       '!./node_modules/**/node_modules/**/package.json',
+    ])
+    .pipe(es.map(function(file, cbFile) {
+        // console.log("logPackages " + filePath);
+        var fileContent = file.contents.toString();
+        var fileLines = fileContent.split('\n');
+        let v = false;
+        let n = false;
+        for (const line of fileLines) {
+            // console.log(line);
+            if (line.indexOf('"name":') >= 0) {
+                n = line.replace('"name":', '').replace(',', '').trim();
+                n = n.split('"').join('');
+            }
+            if (line.indexOf('"version":') >= 0) {
+                v = line.replace('"version":', '').replace(',', '').trim();
+                v = v.split('"').join('');
+            }
+            if (n && v) {
+                fileNames.push({ version: v, name: n });
+                break;
+            }
+        }
+
+        cbFile(null, file);
+    }))
+    .on("end", function() {
+        console.log(">> using packages: ");
+        console.log(fileNames);
+
+        const outputPath = "./src/navigation/BrowserInfo.json";
+        let outputContent = JSON.stringify(fileNames, null, ' ');
+        outputContent = outputContent.split('",\n  ').join('", ');
+        outputContent = outputContent.split('{\n  ').join('{ ');
+        outputContent = outputContent.split('\n }').join(' }');
+        fs.writeFileSync(outputPath, outputContent);
+        cb();
+    });
+} exports.logPackages = logPackages;
 
 function logVersionTypescript(cb) {
     var packageFile = fs.readFileSync("./node_modules/typescript/package.json", "utf8");

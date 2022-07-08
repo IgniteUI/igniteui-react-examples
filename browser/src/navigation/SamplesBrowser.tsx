@@ -64,7 +64,7 @@ export class SamplesBrowser extends React.Component<any, any>
         // logging versions of IG packages
         for (const item of BrowserInfo) {
             if (item.name && item.name.indexOf('igniteui-react-core') >= 0) {
-                console.log('SB uses v' + item.ver + ' ' + item.name);
+                console.log('SB uses v' + item.version + ' ' + item.name);
                 break;
             }
         }
