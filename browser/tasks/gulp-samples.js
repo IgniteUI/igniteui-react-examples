@@ -27,23 +27,24 @@ log('loaded');
 
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSource = [
-    igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
-    igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
-    igConfig.SamplesCopyPath + '/maps/**/package.json',
-    igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
-    igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
-    igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
-    igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
-    igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
-    igConfig.SamplesCopyPath + '/grids/**/package.json',
-    igConfig.SamplesCopyPath + '/layouts/**/package.json',
-    igConfig.SamplesCopyPath + '/editors/**/package.json',
+    igConfig.SamplesCopyPath + '/maps/**/binding-data-model/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/financial-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/pie-chart/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
+    // igConfig.SamplesCopyPath + '/maps/**/package.json',
+    // igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
+    // igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
+    // igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
+    // igConfig.SamplesCopyPath + '/gauges/linear-gauge/**/package.json',
+    // igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
+    // igConfig.SamplesCopyPath + '/grids/**/package.json',
+    // igConfig.SamplesCopyPath + '/layouts/**/package.json',
+    // igConfig.SamplesCopyPath + '/editors/**/package.json',
 
     // excluding package.json in node_modules sub folders
     "!" + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',
@@ -636,15 +637,15 @@ function logPackages(cb) {
         cbFile(null, file);
     }))
     .on("end", function() {
-        console.log(">> using packages: ");
-        console.log(fileNames);
-
         const outputPath = "./src/navigation/BrowserInfo.json";
         let outputContent = JSON.stringify(fileNames, null, ' ');
         outputContent = outputContent.split('",\n  ').join('", ');
         outputContent = outputContent.split('{\n  ').join('{ ');
         outputContent = outputContent.split('\n }').join(' }');
         fs.writeFileSync(outputPath, outputContent);
+
+        console.log(">> using packages: ");
+        console.log(outputContent);
         cb();
     });
 } exports.logPackages = logPackages;
