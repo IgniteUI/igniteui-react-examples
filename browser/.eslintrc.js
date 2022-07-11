@@ -22,9 +22,7 @@ module.exports = {
       // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
       "default-case": "off",
       "no-undef": "off",
-      "camelcase": {
-        "properties": "never"
-      },
+      "camelcase": "off",
       "no-unused-vars": "off",
       "no-extend-native": "off",
       "no-throw-literal": "off",
