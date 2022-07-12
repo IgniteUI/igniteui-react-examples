@@ -599,7 +599,6 @@ function updateCodeViewer(cb) {
 function logPackages(cb) {
     let fileNames = [];
     gulp.src([
-        './node_modules/@material-ui/**/package.json',
         './node_modules/@types/react*/package.json',
         './node_modules/classnames/package.json',
         './node_modules/file-saver/package.json',

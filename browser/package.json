@@ -16,13 +16,6 @@
     "eject": "react-app-rewired eject"
   },
   "dependencies": {
-    "@material-ui/core": "^4.6.1",
-    "@material-ui/icons": "^4.5.1",
-    "@material-ui/lab": "^4.0.0-alpha.32",
-    "@material-ui/styles": "^4.6.0",
-    "@material-ui/system": "^4.5.2",
-    "@material-ui/types": "^4.1.1",
-    "@material-ui/utils": "^4.5.2",
     "@types/file-saver": "^2.0.0",
     "@types/react-loadable": "5.5.5",
     "@types/react-router": "5.1.14",
