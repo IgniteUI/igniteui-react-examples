@@ -9,7 +9,7 @@ IgrButtonModule.register();
 IgrIconButtonModule.register();
 IgrRippleModule.register();
 
-export default class MyCard extends React.Component<any, any> {
+export default class CardOverview extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);        
@@ -70,4 +70,4 @@ export default class MyCard extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<MyCard/>, document.getElementById("root"));
+ReactDOM.render(<CardOverview/>, document.getElementById("root"));

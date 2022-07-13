@@ -1,0 +1,42 @@
+igc-expansion-panel {
+    width: 500px;
+    background-color: #18203b;
+    color: white;
+    border-radius: 8px;
+}
+
+igc-button::part(base){
+    color: #18203b;
+}
+
+igc-button::part(base)::before {
+    background-color: #ffd351;
+}
+
+igc-expansion-panel::part(indicator) {
+    color: #ffd351;
+}
+
+igc-expansion-panel::part(header) {
+    background-color: #18203b;
+}
+
+igc-expansion-panel::part(title),
+igc-expansion-panel::part(subtitle) {
+    color: #ffd351;
+}
+
+igc-button {
+    display: flex;
+    margin-top: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
