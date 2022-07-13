@@ -1,12 +1,15 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 module.exports = function override(config, env) {
-    console.log("Running config-overrides.js");
+    console.log("config-overrides.js started");
     const paths = require('./node_modules/react-scripts/config/paths');
+    console.log("config-overrides.js paths");
     console.log(paths);
     let rules = config.module.rules;
+    console.log("config-overrides.js rules");
+    console.log(rules);
     //let paths = config._paths;
-    let oneOf = rules[2].oneOf;
+    let oneOf = rules[1].oneOf;
     oneOf.splice(0, 0, {
         test: /\.worker\.ts$/,
         include: paths.appSrc,

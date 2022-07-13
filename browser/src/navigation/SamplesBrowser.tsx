@@ -20,15 +20,6 @@ import { mapsRoutingData } from "../samples/maps/RoutingData";
 // import { layoutsRoutingData } from "../samples/layouts/RoutingData";
 // import { editorsRoutingData } from "../samples/editors/RoutingData";
 
-// https://material-ui.com/components/material-icons/
-import IconButton from '@material-ui/core/IconButton';
-import * as SidebarMenuIcon from '@material-ui/icons/Menu';
-// import * as ToolbarArrowIcon from '@material-ui/icons/ArrowForwardIos';
-// import * as ItemsExpandedIcon from '@material-ui/icons/ExpandMore';
-// import * as ItemsCollapsedIcon from '@material-ui/icons/ExpandLess';
-// import * as SampleSearchIcon from "@material-ui/icons/Search";
-// import * as SampleLinkIcon from "@material-ui/icons/FiberManualRecord";
-
 // import { CacheBuster, CacheBusterState } from '../CacheBuster';
 import BrowserInfo from './BrowserInfo.json';
 
@@ -192,9 +183,9 @@ export class SamplesBrowser extends React.Component<any, any>
 
                             <div className="sbContent" style={sbContentStyle}>
                                 <div className="sbToolbar" style={sbToolbarStyle}>
-                                    <IconButton onClick={this.onSidebarVisibleClick} style={this.styles.toolbarBtn} edge="start" >
-                                        <SidebarMenuIcon.default  />
-                                    </IconButton>
+
+                                    <div className="nav-bar-menu" onClick={this.onSidebarVisibleClick}>&#x2630;</div>
+
                                     {/* <div className="sbToolbarLabel"> {this.state.SelectedControl} </div> */}
                                     {/* <ToolbarArrowIcon.default className="sbToolbarIcon" /> */}
                                     {/* <div className="sbToolbarLabel"> - </div> */}
