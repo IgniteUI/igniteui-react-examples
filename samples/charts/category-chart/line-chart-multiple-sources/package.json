@@ -14,13 +14,13 @@
     "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
-    "igniteui-react-core": "16.16.1",
-    "igniteui-react-charts": "16.16.1",
+    "igniteui-react-core": "16.16.2",
+    "igniteui-react-charts": "16.16.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "3.4.1",
     "tslib": "^2.0.0",
-    "igniteui-webcomponents": "^3.2.0",
+    "igniteui-webcomponents": "3.2.0",
     "lit-html": "^2.2.0"
   },
   "devDependencies": {
