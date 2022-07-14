@@ -1,0 +1,12 @@
+.card-wrapper {
+    max-width: 320px;
+    min-width: 220px;
+}
+
+.center {
+    align-items: center;
+}
+
+.marginIcon {
+    margin-right: 10px;
+}
