@@ -6,10 +6,21 @@ module.exports = function override(config, env) {
     // console.log("config-overrides.js paths");
     // console.log(paths);
     let rules = config.module.rules;
-    // console.log("config-overrides.js rules");
-    // console.log(rules);
     //let paths = config._paths;
-    let oneOf = rules[1].oneOf;
+    let oneOf = null; // rules[1].oneOf;
+
+    for (const rule of rules) {
+        if (rule.oneOf !== undefined) {
+            oneOf = rule.oneOf;
+            break;
+        }
+    }
+    if (oneOf === null) {
+        console.log("config-overrides.js rules:");
+        console.log(rules);
+        throw "config-overrides.js cannot find config rule with 'oneOf'"
+    }
+
     oneOf.splice(0, 0, {
         test: /\.worker\.ts$/,
         include: paths.appSrc,
