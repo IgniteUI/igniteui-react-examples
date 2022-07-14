@@ -1,0 +1,11 @@
+.horizontal-border-container {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    border: 1px solid gainsboro;
+}
+
+igc-icon {
+    --size: 48px;
+    color: olive;
+}
