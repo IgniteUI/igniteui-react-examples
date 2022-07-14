@@ -1,8 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import { IgrCard, IgrCardMedia, IgrCardHeader, IgrCardContent, IgrCardActions, IgrCardModule, IgrIconButton, IgrIconButtonModule, IgrButton, IgrButtonModule, IgrRipple, IgrRippleModule } from "igniteui-react";
-import "igniteui-webcomponents/themes/light/bootstrap.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { IgrCard, IgrCardMedia, IgrCardHeader,
+    IgrCardContent, IgrCardActions, IgrCardModule,
+    IgrIconButton, IgrIconButtonModule, IgrButton,
+    IgrButtonModule, IgrRipple, IgrRippleModule } from 'igniteui-react';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrCardModule.register();
 IgrButtonModule.register();
@@ -12,7 +15,7 @@ IgrRippleModule.register();
 export default class CardOverview extends React.Component<any, any> {
 
     constructor(props: any) {
-        super(props);        
+        super(props);
         this.iconRef = this.iconRef.bind(this);
     }
 
@@ -65,7 +68,7 @@ export default class CardOverview extends React.Component<any, any> {
 
         icon.registerIconFromText("twitter", twitterIcon, "material");
         icon.registerIconFromText("facebook", facebookIcon, "material");
-        
+
     }
 }
 

@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import { IgrExpansionPanel, IgrExpansionPanelModule } from "igniteui-react";
-import "igniteui-webcomponents/themes/light/bootstrap.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { IgrExpansionPanel, IgrExpansionPanelModule } from 'igniteui-react';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrExpansionPanelModule.register();
 
 export default class ExpansionPanelUsage extends React.Component<any, any> {
 
     constructor(props: any) {
-        super(props);                
+        super(props);
     }
 
     public render(): JSX.Element {

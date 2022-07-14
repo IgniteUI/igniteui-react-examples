@@ -1,8 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import { IgrExpansionPanel, IgrButton, IgrButtonModule, IgrExpansionPanelModule } from "igniteui-react";
-import "igniteui-webcomponents/themes/light/bootstrap.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { IgrExpansionPanel, IgrButton, IgrButtonModule, IgrExpansionPanelModule } from 'igniteui-react';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrButtonModule.register();
 IgrExpansionPanelModule.register();
@@ -10,7 +10,7 @@ IgrExpansionPanelModule.register();
 export default class ExpansionPanelStyling extends React.Component<any, any> {
 
     constructor(props: any) {
-        super(props);        
+        super(props);
     }
 
     public render(): JSX.Element {
