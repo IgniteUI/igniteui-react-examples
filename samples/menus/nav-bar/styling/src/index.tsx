@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './NavbarStyling.css';
 import { IgrNavbar, IgrIcon, IgrNavbarModule, IgrIconModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
