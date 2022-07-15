@@ -12,11 +12,11 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-react-core": "22.1.205",
-    "igniteui-react-charts": "22.1.205",
-    "igniteui-react-spreadsheet": "22.1.205",
-    "igniteui-react-spreadsheet-chart-adapter": "22.1.205",
-    "igniteui-react-excel": "22.1.205",
+    "@infragistics/igniteui-react-core": "22.1.205",
+    "@infragistics/igniteui-react-charts": "22.1.205",
+    "@infragistics/igniteui-react-spreadsheet": "22.1.205",
+    "@infragistics/igniteui-react-spreadsheet-chart-adapter": "22.1.205",
+    "@infragistics/igniteui-react-excel": "22.1.205",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "5.0.0",
