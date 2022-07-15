@@ -219,12 +219,23 @@ function copySamples(cb) {
         .pipe(es.map(function(file, fileCallback) {
             let code = file.contents.toString();
             code = code.replace("import ReactDOM from 'react-dom';","");
+            code = code.replace('import ReactDOM from "react-dom";',"");
             code = code.replace("// rendering above class to the React DOM","");
             code = code.replace(/ReactDOM.*/g,"");
             code = code.replace("import './index.css';","");
+            code = code.replace('import "./index.css";',"");
             code = code.replace("// rendering above component in the React DOM","");
             code = code.replace(" var "," let ");
             code = code.replace(", MarkerType_$type","");
+            // auto fix TS lint issue in import statements:
+            code = code.replace('from "igniteui-react";', "from 'igniteui-react';");
+            code = code.replace('from "igniteui-react-core";', "from 'igniteui-react-core';");
+            code = code.replace('from "igniteui-react-charts";', "from 'igniteui-react-charts';");
+            code = code.replace('from "igniteui-react-maps";', "from 'igniteui-react-maps';");
+            code = code.replace('from "igniteui-react-gauges";', "from 'igniteui-react-gauges';");
+            code = code.replace('from "igniteui-react-grids";', "from 'igniteui-react-grids';");
+            code = code.replace('from "igniteui-react-inputs";', "from 'igniteui-react-inputs';");
+            code = code.replace('from "igniteui-react-layouts";', "from 'igniteui-react-layouts';");
 
             file.contents = Buffer.from(code);
             fileCallback(null, file);
