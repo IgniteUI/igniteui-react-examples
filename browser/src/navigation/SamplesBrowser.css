@@ -91,11 +91,20 @@
     vertical-align: middle;
     height: 32px;
 }
+
 .sbToolbarLabel {
     vertical-align: middle;
     height: 32px;
+    width: 100%;
     line-height: 1.75;
-    /* padding-left: 1rem; */
+}
+
+.sbToolbarVersion{
+    vertical-align: middle;
+    height: 32px;
+    line-height: 1.75;
+    padding-right: 1rem;
+    text-transform: lowercase;
 }
 
 .sbToolbarButton {
@@ -185,7 +194,7 @@
     /* background: rgb(39, 39, 39); */
 }
 
-.nav-bar-menu {
+.sbToolbarMenu {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     margin-left: 0.5rem;;
@@ -195,7 +204,7 @@
     cursor: pointer;
 }
 
-.nav-bar-menu:hover {
+.sbToolbarMenu:hover {
     background: rgba(204, 204, 204, 0.3);
     transition: "all 0.0s";
 }

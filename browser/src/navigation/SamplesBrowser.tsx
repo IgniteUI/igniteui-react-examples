@@ -35,6 +35,7 @@ export class SamplesBrowser extends React.Component<any, any>
     public navLinks: any[] = [];
     public navRoutes: any[] = [];
     public navLookup: Map<string, SampleInfo> = new Map();
+    public igrVersion: string = "";
 
     public styles: any = {
         toolbarIcon: { display: "inline-block", fontSize: "1rem",},
@@ -56,6 +57,7 @@ export class SamplesBrowser extends React.Component<any, any>
         for (const item of BrowserInfo) {
             if (item.name && item.name.indexOf('igniteui-react-core') >= 0) {
                 console.log('SB uses v' + item.version + ' ' + item.name);
+                this.igrVersion = item.version.toString();
                 break;
             }
         }
@@ -184,15 +186,14 @@ export class SamplesBrowser extends React.Component<any, any>
                             <div className="sbContent" style={sbContentStyle}>
                                 <div className="sbToolbar" style={sbToolbarStyle}>
 
-                                    <div className="nav-bar-menu" onClick={this.onSidebarVisibleClick}>&#x2630;</div>
+                                    <div className="sbToolbarMenu" onClick={this.onSidebarVisibleClick}>&#x2630;</div>
 
                                     {/* <div className="sbToolbarLabel"> {this.state.SelectedControl} </div> */}
                                     {/* <ToolbarArrowIcon.default className="sbToolbarIcon" /> */}
                                     {/* <div className="sbToolbarLabel"> - </div> */}
                                     <div className="sbToolbarLabel"> {this.state.SelectedSample} </div>
                                     {/* <ToolbarArrowIcon.default className="sbToolbarIcon" /> */}
-
-                                    {/* {this.state.SelectedSample} style={this.styles.toolbarIcon} */}
+                                    <div className="sbToolbarVersion">v{this.igrVersion}</div>
                                 </div>
                                 {/* <React.Suspense fallback={<span>Loading...</span>}> */}
                                 <React.Suspense fallback={<SamplesLoading/>}>
