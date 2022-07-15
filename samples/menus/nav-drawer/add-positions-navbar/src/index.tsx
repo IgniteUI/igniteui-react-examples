@@ -1,8 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import { IgrNavbar, IgrNavDrawer, IgrNavDrawerHeaderItem, IgrNavDrawerItem, IgrIcon, IgrRadioGroup, IgrRadio, IgrNavDrawerModule, IgrNavbarModule, IgrRadioGroupModule, IgrRadioModule, IgrIconModule } from "igniteui-react";
-import "igniteui-webcomponents/themes/light/bootstrap.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { IgrNavbar, IgrNavDrawer, IgrNavDrawerHeaderItem, IgrNavDrawerItem, IgrIcon, IgrRadioGroup, IgrRadio, IgrNavDrawerModule, IgrNavbarModule, IgrRadioGroupModule, IgrRadioModule, IgrIconModule } from 'igniteui-react';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrNavDrawerModule.register();
 IgrNavbarModule.register();

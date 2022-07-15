@@ -1,8 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import { IgrCard, IgrCardMedia, IgrCardHeader, IgrCardContent, IgrCardActions, IgrCardModule, IgrIconButton, IgrIconButtonModule, IgrButton, IgrButtonModule, IgrRipple, IgrRippleModule } from "igniteui-react";
-import "igniteui-webcomponents/themes/light/bootstrap.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { IgrCard, IgrCardMedia, IgrCardHeader, IgrCardContent, IgrCardActions, IgrCardModule, IgrIconButton, IgrIconButtonModule, IgrButton, IgrButtonModule, IgrRipple, IgrRippleModule } from 'igniteui-react';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrCardModule.register();
 IgrButtonModule.register();
