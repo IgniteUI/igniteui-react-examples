@@ -27,7 +27,9 @@ log('loaded');
 
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSource = [
+    // igConfig.SamplesCopyPath + '/layouts/**/overview/package.json',
     // igConfig.SamplesCopyPath + '/maps/**/binding-data-model/package.json',
+
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/doughnut-chart/**/package.json',
@@ -779,20 +781,30 @@ function updateIG(cb) {
     // "@infragistics/igniteui-angular-charts" instead of "igniteui-angular-charts"
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-react-core"                     , version: "16.16.1" },
-        { name: "igniteui-react-charts"                   , version: "16.16.1" },
-        { name: "igniteui-react-excel"                    , version: "16.16.1" },
-        { name: "igniteui-react-gauges"                   , version: "16.16.1" },
-        { name: "igniteui-react-grids"                    , version: "16.16.1" },
-        { name: "igniteui-react-inputs"                   , version: "16.16.1" },
-        { name: "igniteui-react-layouts"                  , version: "16.16.1" },
-        { name: "igniteui-react-maps"                     , version: "16.16.1" },
-        { name: "igniteui-react-spreadsheet-chart-adapter", version: "16.16.1" },
-        { name: "igniteui-react-spreadsheet"              , version: "16.16.1" },
-        { name: "igniteui-react-datasources"              , version: "16.16.1", },
+        { name: "igniteui-react-core"                     , version: "16.16.2" },
+        { name: "igniteui-react-charts"                   , version: "16.16.2" },
+        { name: "igniteui-react-excel"                    , version: "16.16.2" },
+        { name: "igniteui-react-gauges"                   , version: "16.16.2" },
+        { name: "igniteui-react-grids"                    , version: "16.16.2" },
+        { name: "igniteui-react-inputs"                   , version: "16.16.2" },
+        { name: "igniteui-react-layouts"                  , version: "16.16.2" },
+        { name: "igniteui-react-maps"                     , version: "16.16.2" },
+        { name: "igniteui-react-spreadsheet-chart-adapter", version: "16.16.2" },
+        { name: "igniteui-react-spreadsheet"              , version: "16.16.2" },
+        { name: "igniteui-react-datasources"              , version: "16.16.2", },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "^3.2.0",  },
-        { name: "igniteui-dockmanager", version: "1.6.0-beta.1" },
+        { name: "igniteui-webcomponents", version: "3.2.0",  },
+        { name: "igniteui-dockmanager", version: "1.9.0" },
+        // main react packages
+        { name: "react"             , version: "^17.0.1", },
+        { name: "react-dom"         , version: "^17.0.1", },
+        { name: "react-scripts"     , version: "5.0.0", },
+        { name: "@types/jest"       , version: "^26.0.19", },
+        { name: "@types/node"       , version: "^12.19.11", },
+        { name: "@types/react"      , version: "^16.14.2", },
+        { name: "@types/react-dom"  , version: "^16.9.10", },
+        { name: "react-app-rewired" , version: "^2.2.1", },
+        { name: "typescript"        , version: "^4.1.3", },
     ];
 
     // NOTE you can comment out strings in this array to run these function only on a subset of samples
@@ -810,6 +822,7 @@ function updateIG(cb) {
         // '../samples/menus/**/package.json',
         // '../samples/notifications/**/package.json',
         // '../samples/scheduling/**/package.json',
+        // '../samples/layouts/**/overview/package.json',
 
         // '../samples/charts/category-chart/**/package.json',
         // '../samples/maps/geo-map/type-scatter-bubble-series/package.json',
