@@ -1,0 +1,8 @@
+igc-chip::part(base) {
+    background: #011627;
+    color: #ECAA53;
+}
+
+igc-chip::part(suffix) {
+    color: #B7B6C2;
+}
