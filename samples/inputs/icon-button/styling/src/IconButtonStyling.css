@@ -1,0 +1,10 @@
+
+igc-icon-button[variant=contained]:not([disabled])::part(base) {
+    padding: 12px;
+    color: olive;
+    background-color: lightgray;
+  }
+  
+igc-icon-button::part(icon) {
+  --size: 32px;
+}
