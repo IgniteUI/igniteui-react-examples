@@ -1,0 +1,4 @@
+igc-circular-progress {
+    --diameter: 100px;
+    --stroke-thickness: 5px;
+}
