@@ -1,0 +1,6 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+igc-ripple {
+    --color: yellow;
+}
