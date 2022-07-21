@@ -1,0 +1,17 @@
+igc-slider {
+    padding: 30px 30px  0px 30px;
+}
+
+igc-slider::part(thumb) {
+    background: #28a745;
+}
+
+igc-slider::part(thumb):focus {
+    background: #28a745;
+    box-shadow: 0 0 0 2px #28a74694;
+}
+
+igc-slider::part(fill) {
+    display: block;
+    background: #28a745;
+}
