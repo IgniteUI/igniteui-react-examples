@@ -1,0 +1,11 @@
+igc-linear-progress::part(track){
+    background-color: #D3D3D3
+}
+
+igc-linear-progress::part(fill){
+    background-color: #ECAA53
+}
+
+igc-linear-progress::part(label){
+    color: #ECAA53
+}
