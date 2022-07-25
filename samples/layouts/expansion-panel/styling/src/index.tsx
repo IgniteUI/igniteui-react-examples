@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './ExpansionPanelStyling.css';
 import { IgrExpansionPanel, IgrButton, IgrButtonModule, IgrExpansionPanelModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
