@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './CardStyling.css';
 import { IgrCard, IgrCardMedia, IgrCardHeader, IgrCardContent, IgrCardActions, IgrIconButton, IgrRipple, IgrCardModule, IgrIconButtonModule, IgrRippleModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
