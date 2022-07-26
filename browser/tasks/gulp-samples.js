@@ -48,6 +48,9 @@ var sampleSource = [
     igConfig.SamplesCopyPath + '/layouts/**/package.json',
     igConfig.SamplesCopyPath + '/inputs/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
+    igConfig.SamplesCopyPath + '/menus/**/package.json',
+    igConfig.SamplesCopyPath + '/notifications/**/package.json',
+    igConfig.SamplesCopyPath + '/scheduling/**/package.json',
 
     // excluding package.json in node_modules sub folders
     "!" + igConfig.SamplesCopyPath + '/**/node_modules/**/package.json',

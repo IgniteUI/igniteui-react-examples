@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './CardHorizontal.css';
 import { IgrCard, IgrCardHeader, IgrCardContent, IgrCardActions, IgrCardModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 

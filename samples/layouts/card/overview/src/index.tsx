@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './CardOverview.css';
 import { IgrCard, IgrCardMedia, IgrCardHeader,
     IgrCardContent, IgrCardActions, IgrCardModule,
     IgrIconButton, IgrIconButtonModule, IgrButton,
