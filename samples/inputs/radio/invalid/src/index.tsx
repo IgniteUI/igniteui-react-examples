@@ -5,7 +5,6 @@ import { IgrRadio, IgrRadioModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrRadioModule.register();
-IgrRadioGroupModule.register();
 
 export default class RadioInvalid extends React.Component<any, any> {
 
