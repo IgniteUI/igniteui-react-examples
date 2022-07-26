@@ -18,6 +18,7 @@ import { chartsRoutingData } from "../samples/charts/RoutingData";
 import { mapsRoutingData } from "../samples/maps/RoutingData";
 import { excelRoutingData } from "../samples/excel/RoutingData";
 import { layoutsRoutingData } from "../samples/layouts/RoutingData";
+import { inputsRoutingData } from "../samples/inputs/RoutingData";
 import { editorsRoutingData } from "../samples/editors/RoutingData";
 
 // import { CacheBuster, CacheBusterState } from '../CacheBuster';
@@ -66,6 +67,7 @@ export class SamplesBrowser extends React.Component<any, any>
         // console.log(TestsRoutes.DataRoutes)
 
         const routingProviders: RoutingGroup[] = [
+            inputsRoutingData,
             layoutsRoutingData,
             gridsRoutingData,
             chartsRoutingData,

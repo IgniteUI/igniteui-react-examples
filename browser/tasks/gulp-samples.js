@@ -46,6 +46,7 @@ var sampleSource = [
     igConfig.SamplesCopyPath + '/gauges/radial-gauge/**/package.json',
     igConfig.SamplesCopyPath + '/grids/**/package.json',
     igConfig.SamplesCopyPath + '/layouts/**/package.json',
+    igConfig.SamplesCopyPath + '/inputs/**/package.json',
     igConfig.SamplesCopyPath + '/editors/**/package.json',
     igConfig.SamplesCopyPath + '/menus/**/package.json',
     igConfig.SamplesCopyPath + '/notifications/**/package.json',
