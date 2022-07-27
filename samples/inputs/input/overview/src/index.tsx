@@ -14,12 +14,10 @@ export default class InputOverview extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="container">
-                    <IgrInput displayType="email" label="Subscribe" placeholder="john.doe@mail.com">
-                        <span slot="prefix">Email</span>
-                    </IgrInput>
-                </div>
+            <div className="container-center sample">
+                <IgrInput displayType="email" label="Subscribe" placeholder="john.doe@mail.com">
+                    <span slot="prefix">Email</span>
+                </IgrInput>
             </div>
         );
     }
