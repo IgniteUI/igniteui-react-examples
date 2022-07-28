@@ -14,11 +14,9 @@ export default class BadgeOutlined extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="container">
-                    <IgrBadge outlined="true" />
-                </div>
-            </div>
+			<div className="container-center sample ">
+				<IgrBadge outlined="true" />
+			</div>            
         );
     }
 }

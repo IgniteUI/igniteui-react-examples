@@ -19,15 +19,13 @@ export default class InputStyling extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="container">
-                    <IgrInput displayType="tel" label="Phone">
-                        <span slot="prefix">+359</span>
-                        <IgrIcon ref={this.iconRef} iconName="phone">
-                        </IgrIcon>
-                        <span slot="helper-text">Ex.: +359 888 123 456</span>
-                    </IgrInput>
-                </div>
+            <div className="container-center sample">
+                <IgrInput displayType="tel" label="Phone">
+                    <span slot="prefix">+359</span>
+                    <IgrIcon ref={this.iconRef} iconName="phone">
+                    </IgrIcon>
+                    <span slot="helper-text">Ex.: +359 888 123 456</span>
+                </IgrInput>
             </div>
         );
     }

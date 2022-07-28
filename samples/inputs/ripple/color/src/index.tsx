@@ -15,13 +15,11 @@ export default class RippleColor extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="container">
-                    <IgrButton>
-                        <IgrRipple></IgrRipple>
-                        <span>Ripple Button</span>
-                    </IgrButton>
-                </div>
+            <div className="container-center sample">
+                <IgrButton>
+                    <IgrRipple></IgrRipple>
+                    <span>Ripple Button</span>
+                </IgrButton>
             </div>
         );
     }

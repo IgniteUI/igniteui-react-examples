@@ -17,19 +17,17 @@ export default class FormOverview extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="container">
-                    <IgrForm className="form">
-                        <div>Subscribe</div>
+            <div className="container-center sample">
+                <IgrForm className="form">
+                    <div>Subscribe</div>
 
-                        <IgrInput required="true" name="name" displayType="text" label="Your Name"></IgrInput>
-                        <IgrInput required="true" name="email" displayType="email" label="Your E-mail"></IgrInput>
-                        <IgrCheckbox name="agreement"><span>I accept the license agreement</span></IgrCheckbox>
-                        <br />
-                        <IgrButton displayType="reset"><span>Reset</span></IgrButton>
-                        <IgrButton displayType="submit"><span>Submit</span></IgrButton>
-                    </IgrForm>
-                </div>
+                    <IgrInput required="true" name="name" displayType="text" label="Your Name"></IgrInput>
+                    <IgrInput required="true" name="email" displayType="email" label="Your E-mail"></IgrInput>
+                    <IgrCheckbox name="agreement"><span>I accept the license agreement</span></IgrCheckbox>
+                    <br />
+                    <IgrButton displayType="reset"><span>Reset</span></IgrButton>
+                    <IgrButton displayType="submit"><span>Submit</span></IgrButton>
+                </IgrForm>
             </div>
         );
     }

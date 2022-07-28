@@ -15,10 +15,8 @@ export default class SliderConstraints extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="container">
-                    <IgrSlider max="1000" min="100" lowerBound="200" upperBound="800" value="400" primaryTicks="2"/>
-                </div>
+            <div className="container-center sample">
+                <IgrSlider max="1000" min="100" lowerBound="200" upperBound="800" value="400" primaryTicks="2"/>
             </div>
         );
     }

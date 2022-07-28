@@ -15,10 +15,8 @@ export default class SliderDiscrete extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="container">
-                    <IgrSlider step="10" discreteTrack="true"/>
-                </div>
+            <div className="container-center sample">
+                <IgrSlider step="10" discreteTrack="true"/>
             </div>
         );
     }

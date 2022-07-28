@@ -14,10 +14,8 @@ export default class CheckboxDisabled extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <div className="container">
-                    <IgrCheckbox disabled="true"><span>Label</span></IgrCheckbox>
-                </div>
+            <div className="container-center sample">
+                <IgrCheckbox disabled="true"><span>Label</span></IgrCheckbox>
             </div>
         );
     }

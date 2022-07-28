@@ -14,7 +14,7 @@ export default class BadgeVariants extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
+			<div className="container-center sample ">
                 <IgrBadge variant="success" />
             </div>
         );
