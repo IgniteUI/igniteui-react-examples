@@ -1,7 +1,8 @@
 <!-- NOTE: do not change this file because it's auto re-generated from template: -->
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/vnext/templates/sample/ReadMe.md -->
 
-This folder contains implementation of Web Components application with example of Helper Text feature using [Input](https://infragistics.com/webcomponentssite/components/general-getting-started.html) component.
+This folder contains implementation of React application with example of  Helper Text feature using [Input](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) component.
+
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
