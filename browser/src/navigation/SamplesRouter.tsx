@@ -13,7 +13,7 @@ export class SamplesRouter {
     public static isBrowsingMode(): boolean {
 
         let location = window.location;
-        console.log("SB nav: " + location.href);
+        // console.log("SB nav: " + location.href);
         // console.log("SB origin '" + location.origin + "'");
         // console.log("SB pathname '" + location.pathname + "'");
 

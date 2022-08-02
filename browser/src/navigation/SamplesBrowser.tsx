@@ -165,7 +165,7 @@ export class SamplesBrowser extends React.Component<any, any>
         }
 
         let sbRoute = window.location.pathname;
-        // console.log("SB render " + sbRoute + " with browsing=" + sbBrowsingMode);
+        console.log("SB nav " + sbRoute);
 
         // NOTE CacheBuster is not used at this moment:
         // return (
