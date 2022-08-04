@@ -2,34 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { ExcelUtility } from './ExcelUtility';
-// import { ExcelSharedData } from './ExcelSharedData';
 import { Workbook } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
-import { WorksheetRegion } from 'igniteui-react-excel';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn, IIgrCellTemplateProps } from 'igniteui-react-grids';
-import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
 import { IgrTemplateCellInfo } from 'igniteui-react-grids';
-// data chart's elements for category series:
-import { IgrNumericYAxis } from 'igniteui-react-charts';
-import { IgrCategoryXAxis } from 'igniteui-react-charts';
-import { IgrColumnSeries } from 'igniteui-react-charts';
-// data chart's modules:
-import { IgrDataChart } from 'igniteui-react-charts';
-import { IgrDataChartCoreModule } from 'igniteui-react-charts';
-import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
+import { IgrSparkline } from 'igniteui-react-charts';
+import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
 import { IgrExcelModule } from 'igniteui-react-excel';
-import { Visibility } from 'igniteui-react-core';
-import { WorkbookFontProxy, SparklineType } from 'igniteui-react-excel';
+import { SparklineType } from 'igniteui-react-excel';
 
 IgrDataGridModule.register();
 
-IgrDataChartCoreModule.register();
-IgrDataChartCategoryModule.register();
+IgrSparklineModule.register();
 
 IgrExcelCoreModule.register();
 IgrExcelModule.register();
@@ -68,12 +57,8 @@ export default class ExcelLibraryWorkingWithSparklines extends React.Component<a
         const tmpl = props.dataContext as IgrTemplateCellInfo;
 
         return (
-            <IgrDataChart dataSource={tmpl.rowItem.Orders} height="40px" width="200px">
-                <IgrCategoryXAxis name="xAxis" labelVisibility="Collapsed" gap={0.5} overlap={0}/>
-                <IgrNumericYAxis name="yAxis" minValue={0} labelVisibility="Collapsed" />
-
-                <IgrColumnSeries name="series" xAxisName="xAxis" yAxisName="yAxis" valueMemberPath="Freight" />
-            </IgrDataChart>
+            <IgrSparkline dataSource={tmpl.rowItem.Orders} height="40px" width="200px"
+                          displayType="Column" valueMemberPath="Freight" minimum={0} />
         );
     }
 
