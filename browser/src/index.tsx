@@ -8,7 +8,7 @@ import RegisterServiceWorker from './serviceWorker';
 import './index.css'; // styles shared between all samples
 
 // console.log('SB index');
-addEventListener('activate', function(event) {
+// addEventListener('activate', function(event) {
    console.log('SB index activate');
    // event.waitUntil(
      caches.keys().then(function(keyList) {
@@ -18,7 +18,7 @@ addEventListener('activate', function(event) {
        }));
      })
    // );
- });
+//  });
 
 ReactDOM.render(
    <BrowserRouter basename={'/react-demos'}>
