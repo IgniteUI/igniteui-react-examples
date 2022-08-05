@@ -12,17 +12,17 @@ import { SamplesFallback } from './SamplesFallback';
 import { RoutingSample } from './SamplesData';
 import { RoutingGroup } from './SamplesData';
 
-import { gaugesRoutingData } from "../samples/gauges/RoutingData";
-import { gridsRoutingData } from "../samples/grids/RoutingData";
-import { chartsRoutingData } from "../samples/charts/RoutingData";
+// import { gaugesRoutingData } from "../samples/gauges/RoutingData";
+// import { gridsRoutingData } from "../samples/grids/RoutingData";
+// import { chartsRoutingData } from "../samples/charts/RoutingData";
 import { mapsRoutingData } from "../samples/maps/RoutingData";
-import { excelRoutingData } from "../samples/excel/RoutingData";
-import { layoutsRoutingData } from "../samples/layouts/RoutingData";
-import { inputsRoutingData } from "../samples/inputs/RoutingData";
-import { editorsRoutingData } from "../samples/editors/RoutingData";
-import { notificationsRoutingData } from "../samples/notifications/RoutingData";
-import { menusRoutingData } from "../samples/menus/RoutingData";
-import { schedulingRoutingData } from "../samples/scheduling/RoutingData";
+// import { excelRoutingData } from "../samples/excel/RoutingData";
+// import { layoutsRoutingData } from "../samples/layouts/RoutingData";
+// import { inputsRoutingData } from "../samples/inputs/RoutingData";
+// import { editorsRoutingData } from "../samples/editors/RoutingData";
+// import { notificationsRoutingData } from "../samples/notifications/RoutingData";
+// import { menusRoutingData } from "../samples/menus/RoutingData";
+// import { schedulingRoutingData } from "../samples/scheduling/RoutingData";
 
 // import { CacheBuster, CacheBusterState } from '../CacheBuster';
 import BrowserInfo from './BrowserInfo.json';
@@ -74,17 +74,17 @@ export class SamplesBrowser extends React.Component<any, any>
         // console.log(TestsRoutes.DataRoutes)
 
         const routingProviders: RoutingGroup[] = [
-            inputsRoutingData,
-            layoutsRoutingData,
-            gridsRoutingData,
-            chartsRoutingData,
+            // inputsRoutingData,
+            // layoutsRoutingData,
+            // gridsRoutingData,
+            // chartsRoutingData,
             mapsRoutingData,
-            gaugesRoutingData,
-            excelRoutingData,
-            editorsRoutingData,
-            notificationsRoutingData,
-            menusRoutingData,
-            schedulingRoutingData
+            // gaugesRoutingData,
+            // excelRoutingData,
+            // editorsRoutingData,
+            // notificationsRoutingData,
+            // menusRoutingData,
+            // schedulingRoutingData
         ];
 
         for (const routingData of routingProviders) {
@@ -223,16 +223,16 @@ public isObsolete(versionA: string, versionB: string) {
           if (this.isObsolete(cachedVersion, currentVersion)) {
             console.log(`SB version changed from  ${cachedVersion} to ${currentVersion}. Forcing refresh`);
 
-            console.log('SB cache clearing ...')
-            if (caches) {
-              // Service worker cache should be cleared with caches.delete()
-              caches.keys().then(function(names) {
-                for (let name of names) caches.delete(name);
-              });
-            }
-            console.log('SB cache hard reloading...')
+            // console.log('SB cache clearing ...')
+            // if (caches) {
+            //   // Service worker cache should be cleared with caches.delete()
+            //   caches.keys().then(function(names) {
+            //     for (let name of names) caches.delete(name);
+            //   });
+            // }
+            // console.log('SB cache hard reloading...')
             // delete browser cache and hard reload
-            window.location.reload();
+            // window.location.reload();
           } else {
             console.log(`SB version not changed ${currentVersion}. No cache refresh.`);
           }
