@@ -29,6 +29,8 @@ export default function register(): void {
       process.env.PUBLIC_URL!,
       window.location.toString()
     );
+    console.log('SW: reg public ' + publicUrl);
+
     if (publicUrl.origin !== window.location.origin) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
@@ -38,6 +40,8 @@ export default function register(): void {
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+
+      console.log('SW: url ' + swUrl);
 
       if (isLocalhost) {
         // This is running on localhost. Lets check if a service worker still exists or not.
@@ -73,7 +77,7 @@ function registerValidSW(swUrl: string): void {
                 // the fresh content will have been added to the cache.
                 // It's the perfect time to display a 'New content is
                 // available; please refresh.' message in your web app.
-                console.log('New content is available; please refresh.');
+                console.log('SW: New content is available; please refresh.');
               } else {
                 // At this point, everything has been precached.
                 // It's the perfect time to display a
@@ -99,6 +103,7 @@ function checkValidServiceWorker(swUrl: string): void {
         response.status === 404 ||
         response.headers.get('content-type')!.indexOf('javascript') === -1
       ) {
+        console.log('SW: not found - reload the page.' );
         // No service worker found. Probably a different app. Reload the page.
         navigator.serviceWorker.ready.then(registration => {
           registration.unregister().then(() => {
@@ -107,13 +112,12 @@ function checkValidServiceWorker(swUrl: string): void {
         });
       } else {
         // Service worker found. Proceed as normal.
+        console.log('SW: found - registering' );
         registerValidSW(swUrl);
       }
     })
     .catch(() => {
-      console.log(
-        'No internet connection found. App is running in offline mode.'
-      );
+      console.log('SW: No internet connection found. App is running in offline mode.' );
     });
 }
 
