@@ -337,23 +337,23 @@ function updateVersion(cb) {
     const appVersion = appPackage.version;
     const jsonData = { version: appVersion, note: "this file is auto-generated" };
     const jsonContent = JSON.stringify(jsonData);
-    const jsonPublicFile = './public/meta.json';
 
-    fs.writeFile(jsonPublicFile, jsonContent, 'utf8', function(err) {
+    const metaFile = './public/meta.json';
+    fs.writeFile(metaFile, jsonContent, 'utf8', function(err) {
         if (err) {
-            console.log('gulp cannot update ' + jsonPublicFile + ' file: \n' + err);
+            console.log('gulp cannot update ' + metaFile + ' file: \n' + err);
             return console.log(err);
         }
-        console.log('gulp updated ' + jsonPublicFile + ' file with latest version number');
+        console.log('gulp updated ' + metaFile + ' file with latest version number');
     });
 
-    const jsonSourceFile = './src/CacheApp.json';
-    fs.writeFile(jsonSourceFile, jsonContent, 'utf8', function(err) {
+    const cacheSourceFile = './src/CacheApp.json';
+    fs.writeFile(cacheSourceFile, jsonContent, 'utf8', function(err) {
         if (err) {
-            console.log('gulp cannot update ' + jsonSourceFile + ' file: \n' + err);
+            console.log('gulp cannot update ' + cacheSourceFile + ' file: \n' + err);
             return console.log(err);
         }
-        console.log('gulp updated ' + jsonSourceFile + ' file with latest version number');
+        console.log('gulp updated ' + cacheSourceFile + ' file with latest version number');
     });
     cb();
 
