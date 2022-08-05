@@ -20,6 +20,9 @@ import { excelRoutingData } from "../samples/excel/RoutingData";
 import { layoutsRoutingData } from "../samples/layouts/RoutingData";
 import { inputsRoutingData } from "../samples/inputs/RoutingData";
 import { editorsRoutingData } from "../samples/editors/RoutingData";
+import { notificationsRoutingData } from "../samples/notifications/RoutingData";
+import { menusRoutingData } from "../samples/menus/RoutingData";
+import { schedulingRoutingData } from "../samples/scheduling/RoutingData";
 
 // import { CacheBuster, CacheBusterState } from '../CacheBuster';
 import BrowserInfo from './BrowserInfo.json';
@@ -74,7 +77,10 @@ export class SamplesBrowser extends React.Component<any, any>
             mapsRoutingData,
             gaugesRoutingData,
             excelRoutingData,
-            editorsRoutingData
+            editorsRoutingData,
+            notificationsRoutingData,
+            menusRoutingData,
+            schedulingRoutingData
         ];
 
         for (const routingData of routingProviders) {
