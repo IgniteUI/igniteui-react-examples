@@ -8,17 +8,17 @@ import RegisterServiceWorker from './serviceWorker';
 import './index.css'; // styles shared between all samples
 
 // console.log('SB index');
-// addEventListener('activate', function(event) {
-//    console.log('SB index activate');
-//    // event.waitUntil(
-//      caches.keys().then(function(keyList) {
-//        return Promise.all(keyList.map(function(key) {
-//             console.log('SB index caches ' + key);
-//             return caches.delete(key);
-//        }));
-//      })
-//    // );
-//  });
+addEventListener('activate', function(event) {
+   console.log('SB index activate');
+   // event.waitUntil(
+     caches.keys().then(function(keyList) {
+       return Promise.all(keyList.map(function(key) {
+            console.log('SB index caches ' + key);
+            return caches.delete(key);
+       }));
+     })
+   // );
+ });
 
 ReactDOM.render(
    <BrowserRouter basename={'/react-demos'}>
