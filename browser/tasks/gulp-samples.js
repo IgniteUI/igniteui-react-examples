@@ -28,7 +28,7 @@ log('loaded');
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSource = [
     // igConfig.SamplesCopyPath + '/layouts/**/overview/package.json',
-    // igConfig.SamplesCopyPath + '/maps/**/binding-data-model/package.json',
+    igConfig.SamplesCopyPath + '/maps/**/binding-data-model/package.json',
 
     // igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     // igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',
@@ -38,7 +38,7 @@ var sampleSource = [
     // igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
     // igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
     // igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
-    igConfig.SamplesCopyPath + '/maps/**/package.json',
+    // igConfig.SamplesCopyPath + '/maps/**/package.json',
     // igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     // igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
     // igConfig.SamplesCopyPath + '/gauges/bullet-graph/**/package.json',
@@ -333,9 +333,11 @@ function copyPackageJson(cb) {
 // updates ./public/meta.json with version in ./package.json file
 function updateVersion(cb) {
 
+    const appDate = new Date()
+    const appTime = appDate.toISOString().split('T')[0] + appDate.toTimeString().split(' ')[0];
     const appPackage = require('../package.json');
     const appVersion = appPackage.version;
-    const jsonData = { version: appVersion, note: "this file is auto-generated" };
+    const jsonData = { version: appVersion, date: appTime, note: "this file is auto-generated" };
     const jsonContent = JSON.stringify(jsonData);
 
     const metaFile = './public/meta.json';

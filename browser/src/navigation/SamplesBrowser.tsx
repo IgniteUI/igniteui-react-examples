@@ -61,6 +61,21 @@ export class SamplesBrowser extends React.Component<any, any>
     constructor(props: any) {
         super(props);
 
+        const appDate = new Date()
+        const appTime = appDate.toISOString().split('T')[0] + appDate.toTimeString().split(' ')[0];
+        console.log('SB date ' + appTime)
+
+        console.log('SB cache clearing ...')
+        if (caches) {
+          // Service worker cache should be cleared with caches.delete()
+          caches.keys().then(function(names) {
+            for (let name of names) {
+                console.log('SB cache clearing ' + name)
+                caches.delete(name);
+            }
+          });
+        }
+
         // logging versions of IG packages
         for (const item of BrowserInfo) {
             if (item.name && item.name.indexOf('igniteui-react-core') >= 0) {
