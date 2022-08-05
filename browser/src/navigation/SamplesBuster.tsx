@@ -2,8 +2,8 @@
 /* eslint-disable no-undef */
 
 import React from 'react';
-import CacheApp from './CacheApp.json';
-const currentVersion = CacheApp.version;
+import SamplesBrowser from './SamplesBrowser.json';
+const currentVersion = SamplesBrowser.version;
 
 // // version from response - first param, local version second param
 // const isObsolete = (versionA: string, versionB: string) => {
@@ -24,20 +24,20 @@ const currentVersion = CacheApp.version;
 //   // return versionA !== versionB;
 // };
 
-interface CacheBusterProps {
-  children(state: CacheBusterState): any;
+interface SamplesBusterProps {
+  children(state: SamplesBusterState): any;
 }
 
-export interface CacheBusterState {
+export interface SamplesBusterState {
   loading: boolean;
   isLatest: boolean;
   isRefreshed: boolean;
   refreshWebsite(): any;
 }
 
-export class CacheBuster extends React.Component<CacheBusterProps, CacheBusterState> {
+export class SamplesBuster extends React.Component<SamplesBusterProps, SamplesBusterState> {
 
-  constructor(props: CacheBusterProps) {
+  constructor(props: SamplesBusterProps) {
     super(props);
 
     this.state = {
@@ -127,4 +127,4 @@ export class CacheBuster extends React.Component<CacheBusterProps, CacheBusterSt
 
 }
 
-// export default CacheBuster;
+// export default SamplesBuster;

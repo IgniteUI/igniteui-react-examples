@@ -42,7 +42,7 @@
     "webpack",
     "jest",
     "src/setupTests.ts",
-    "src/CacheBuster.tsx",
+    "src/navigation/SamplesBuster.tsx",
     "**/odatajs-4.0.0.js",
     "config-overrides.js",
     "iisConfig/*",

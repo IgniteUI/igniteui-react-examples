@@ -24,12 +24,9 @@ import { mapsRoutingData } from "../samples/maps/RoutingData";
 // import { menusRoutingData } from "../samples/menus/RoutingData";
 // import { schedulingRoutingData } from "../samples/scheduling/RoutingData";
 
-// import { CacheBuster, CacheBusterState } from '../CacheBuster';
+// import { SamplesBuster, SamplesBusterState } from '../SamplesBuster';
+import SamplesCache from './SamplesCache';
 import BrowserInfo from './BrowserInfo.json';
-
-import CacheApp from '../CacheApp.json';
-const currentVersion = CacheApp.version;
-console.log('SB loaded CacheApp.json file: ' + currentVersion)
 
 class SampleInfo {
     public name: string;
@@ -61,20 +58,8 @@ export class SamplesBrowser extends React.Component<any, any>
     constructor(props: any) {
         super(props);
 
-        const appDate = new Date()
-        const appTime = appDate.toISOString().split('T')[0] + appDate.toTimeString().split(' ')[0];
-        console.log('SB date ' + appTime)
-
-        console.log('SB cache clearing ...')
-        if (caches) {
-          // Service worker cache should be cleared with caches.delete()
-          caches.keys().then(function(names) {
-            for (let name of names) {
-                console.log('SB cache clearing ' + name)
-                caches.delete(name);
-            }
-          });
-        }
+        // clearing browser cache
+        SamplesCache.clear();
 
         // logging versions of IG packages
         for (const item of BrowserInfo) {
@@ -113,47 +98,7 @@ export class SamplesBrowser extends React.Component<any, any>
             SelectedControl: '',
             SelectedSample: 'react samples browser',
         }
-
-
     }
-
-// version from response - first param, local version second param
-public isObsolete(versionA: string, versionB: string) {
-    const versionsA = versionA.split(/\./g);
-    const versionsB = versionB.split(/\./g);
-    while (versionsA.length || versionsB.length) {
-      const a = Number(versionsA.shift());
-      const b = Number(versionsB.shift());
-      // eslint-disable-next-line no-continue
-      if (a === b) continue;
-      // eslint-disable-next-line no-restricted-globals
-      const comp = a < b || isNaN(b);
-      console.log('SB version isObsolete ' + a + ' vs ' + b + ' = ' + comp );
-      return comp; // a > b || isNaN(b);
-    }
-    return false;
-}
-
-    public async fetchMetadata(): Promise<string> {
-        let metaVersion = '1.0.0';
-        let metaURL = '/meta.json';
-        let pathname = window.location.pathname;
-        // if (pathname !== '/') {
-        //     metaURL = pathname + '/meta.json';
-        // }
-        console.log('SB version location: ' + pathname);
-        console.log('SB version public: ' + process.env.PUBLIC_URL);
-        try {
-          const response = await fetch(metaURL);
-          const metaJson = await response.json();  // may error if there is no body
-          metaVersion = metaJson.version;
-        //   console.log('SB version: '+ metaURL + ' ver: ' + metaVersion);
-        } catch (ex) {
-            console.log('SB fetch error \n' + ex);
-            // this.loadOfflineData(index, observer);
-        }
-        return new Promise<string>((resolve, reject) => { resolve(metaVersion); });
-      }
 
     public populateLookup(group: RoutingGroup) {
         for (const component of group.components) {
@@ -232,31 +177,10 @@ public isObsolete(versionA: string, versionB: string) {
         let sbRoute = window.location.pathname;
         console.log("SB nav " + sbRoute);
 
-        this.fetchMetadata()
-        .then((cachedVersion) => {
-          console.log('SB version meta.json file: ' + cachedVersion + ' vs cacheApp.json ' + currentVersion)
-          if (this.isObsolete(cachedVersion, currentVersion)) {
-            console.log(`SB version changed from  ${cachedVersion} to ${currentVersion}. Forcing refresh`);
-
-            // console.log('SB cache clearing ...')
-            // if (caches) {
-            //   // Service worker cache should be cleared with caches.delete()
-            //   caches.keys().then(function(names) {
-            //     for (let name of names) caches.delete(name);
-            //   });
-            // }
-            // console.log('SB cache hard reloading...')
-            // delete browser cache and hard reload
-            // window.location.reload();
-          } else {
-            console.log(`SB version not changed ${currentVersion}. No cache refresh.`);
-          }
-        });
-
-        // NOTE CacheBuster is not used at this moment:
+        // NOTE SamplesBuster is not used at this moment:
         // return (
-            // <CacheBuster>
-            //     {({ loading, isLatest, isRefreshed, refreshWebsite }: CacheBusterState) => {
+            // <SamplesBuster>
+            //     {({ loading, isLatest, isRefreshed, refreshWebsite }: SamplesBusterState) => {
             //         // const sbReloads = window.localStorage.getItem("sb-reloads");
             //         if (loading) return (<SamplesLoading/>);
             //         if (!loading && !isLatest && !isRefreshed) {
@@ -313,7 +237,7 @@ public isObsolete(versionA: string, versionB: string) {
                         </div>
                     );
         //         }}
-        //     </CacheBuster>
+        //     </SamplesBuster>
         // );
     }
 

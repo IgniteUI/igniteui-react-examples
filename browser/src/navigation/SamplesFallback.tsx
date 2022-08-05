@@ -10,7 +10,7 @@ export class SamplesFallback extends React.Component<any, any> {
         sbRoute = sbRoute.replace("/samples","");
         let sbUrl = window.location.origin;
         if (sbUrl.indexOf("localhost") >= 0) {
-            sbUrl = "https://http://localhost:4200/react-demos/samples";
+            sbUrl = "https://localhost:4200/react-demos/samples";
         } else if (sbUrl.indexOf("staging.infragistics.com") >= 0) {
             sbUrl = "https://staging.infragistics.com/react-demos/samples";
         } else  { // we are on production{ // we are on production

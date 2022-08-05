@@ -334,7 +334,7 @@ function copyPackageJson(cb) {
 function updateVersion(cb) {
 
     const appDate = new Date()
-    const appTime = appDate.toISOString().split('T')[0] + appDate.toTimeString().split(' ')[0];
+    const appTime = appDate.toISOString().split('T')[0] + " " + appDate.toTimeString().split(' ')[0];
     const appPackage = require('../package.json');
     const appVersion = appPackage.version;
     const jsonData = { version: appVersion, date: appTime, note: "this file is auto-generated" };
@@ -349,7 +349,7 @@ function updateVersion(cb) {
         console.log('gulp updated ' + metaFile + ' file with latest version number');
     });
 
-    const cacheSourceFile = './src/CacheApp.json';
+    const cacheSourceFile = './src/navigation/SamplesBrowser.json';
     fs.writeFile(cacheSourceFile, jsonContent, 'utf8', function(err) {
         if (err) {
             console.log('gulp cannot update ' + cacheSourceFile + ' file: \n' + err);
