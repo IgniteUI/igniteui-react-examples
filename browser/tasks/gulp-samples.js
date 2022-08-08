@@ -337,6 +337,7 @@ function updateVersion(cb) {
     const appTime = appDate.toISOString().split('T')[0] + " " + appDate.toTimeString().split(' ')[0];
     const appPackage = require('../package.json');
     const appVersion = appPackage.version;
+    const appInfo = appVersion + appTime;
     const jsonData = { version: appVersion, date: appTime, note: "this file is auto-generated" };
     const jsonContent = JSON.stringify(jsonData);
 
@@ -346,7 +347,7 @@ function updateVersion(cb) {
             console.log('gulp cannot update ' + metaFile + ' file: \n' + err);
             return console.log(err);
         }
-        console.log('gulp updated ' + metaFile + ' file with latest version number');
+        console.log('gulp updated ' + metaFile + ' file with ' + appInfo);
     });
 
     const cacheSourceFile = './src/navigation/SamplesBrowser.json';
@@ -355,7 +356,7 @@ function updateVersion(cb) {
             console.log('gulp cannot update ' + cacheSourceFile + ' file: \n' + err);
             return console.log(err);
         }
-        console.log('gulp updated ' + cacheSourceFile + ' file with latest version number');
+        console.log('gulp updated ' + cacheSourceFile + ' file with ' + appInfo);
     });
     cb();
 
