@@ -2,7 +2,7 @@
   "name": "react-samples-browser",
   "description": "Browser application with examples of IgniteUI for React components",
   "author": "Infragistics",
-  "version": "22.1.7",
+  "version": "22.1.8",
   "private": true,
   "homepage": ".",
   "scripts": {
