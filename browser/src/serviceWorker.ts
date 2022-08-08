@@ -29,7 +29,7 @@ export default function register(): void {
       process.env.PUBLIC_URL!,
       window.location.toString()
     );
-    console.log('SW: reg public ' + publicUrl);
+    console.log('SW reg public ' + publicUrl);
 
     if (publicUrl.origin !== window.location.origin) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
@@ -41,7 +41,7 @@ export default function register(): void {
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
-      console.log('SW: url ' + swUrl);
+      console.log('SW load url ' + swUrl);
 
       if (isLocalhost) {
         // This is running on localhost. Lets check if a service worker still exists or not.
@@ -68,21 +68,24 @@ function registerValidSW(swUrl: string): void {
     .register(swUrl)
     .then(registration => {
       registration.onupdatefound = () => {
+        console.log('SW found worker update ...');
         const installingWorker = registration.installing;
         if (installingWorker) {
+          console.log('SW installing worker ...');
           installingWorker.onstatechange = () => {
             if (installingWorker.state === 'installed') {
+              console.log('SW installing done.');
               if (navigator.serviceWorker.controller) {
                 // At this point, the old content will have been purged and
                 // the fresh content will have been added to the cache.
                 // It's the perfect time to display a 'New content is
                 // available; please refresh.' message in your web app.
-                console.log('SW: New content is available; please refresh.');
+                console.log('SW New content is available; please refresh.');
               } else {
                 // At this point, everything has been precached.
                 // It's the perfect time to display a
                 // 'Content is cached for offline use.' message.
-                console.log('Content is cached for offline use.');
+                console.log('SW Content is cached for offline use.');
               }
             }
           };
@@ -90,7 +93,7 @@ function registerValidSW(swUrl: string): void {
       };
     })
     .catch(error => {
-      console.error('Error during service worker registration:', error);
+      console.error('SW Error during service worker registration:', error);
     });
 }
 
@@ -103,7 +106,7 @@ function checkValidServiceWorker(swUrl: string): void {
         response.status === 404 ||
         response.headers.get('content-type')!.indexOf('javascript') === -1
       ) {
-        console.log('SW: not found - reload the page.' );
+        console.log('SW not found - reload the page.' );
         // No service worker found. Probably a different app. Reload the page.
         navigator.serviceWorker.ready.then(registration => {
           registration.unregister().then(() => {
@@ -112,12 +115,12 @@ function checkValidServiceWorker(swUrl: string): void {
         });
       } else {
         // Service worker found. Proceed as normal.
-        console.log('SW: found - registering' );
+        console.log('SW found - registering' );
         registerValidSW(swUrl);
       }
     })
     .catch(() => {
-      console.log('SW: No internet connection found. App is running in offline mode.' );
+      console.log('SW No internet connection found. App is running in offline mode.' );
     });
 }
 

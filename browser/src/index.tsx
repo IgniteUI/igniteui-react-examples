@@ -7,9 +7,9 @@ import RegisterServiceWorker from './serviceWorker';
 
 import './index.css'; // styles shared between all samples
 
-// console.log('SB index');
+console.log('SB index');
 // addEventListener('activate', function(event) {
-   console.log('SB index activate');
+  //  console.log('SB index activate');
    // event.waitUntil(
      caches.keys().then(function(keyList) {
        return Promise.all(keyList.map(function(key) {

@@ -8,10 +8,7 @@ export default class SamplesCache {
         const browserVersion = SamplesBrowser.version;
         const browserDate = SamplesBrowser.date;
 
-        // const appDate = new Date()
-        // const appTime = appDate.toISOString().split('T')[0] + " " + appDate.toTimeString().split(' ')[0];
-        console.log('SB built date ' + browserDate)
-        console.log('SB built ver: ' + browserVersion)
+        console.log('SB built ver: ' + browserVersion + " built date: " + browserDate)
 
         this.fetchMetadata()
         .then((cachedVersion) => {
