@@ -29,6 +29,8 @@ log('loaded');
 var sampleSource = [
     // igConfig.SamplesCopyPath + '/layouts/**/overview/package.json',
     // igConfig.SamplesCopyPath + '/maps/**/binding-data-model/package.json',
+    // igConfig.SamplesCopyPath + '/charts/pie-chart/overview/package.json',
+    // igConfig.SamplesCopyPath + '/layouts/expansion-panel/**/package.json',
 
     igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
     igConfig.SamplesCopyPath + '/charts/data-chart/**/package.json',

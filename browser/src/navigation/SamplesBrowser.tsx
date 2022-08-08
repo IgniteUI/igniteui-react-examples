@@ -127,6 +127,8 @@ export class SamplesBrowser extends React.Component<any, any>
     }
 
     public onSampleOpen = (sample: RoutingSample) => {
+        let sbRoute = window.location.pathname;
+        console.log("SB nav " + sbRoute);
         // const item = event.currentTarget.id;
         // console.log('onControlClick ' + item);
         if (this.navLookup.has(sample.path)) {
@@ -175,7 +177,7 @@ export class SamplesBrowser extends React.Component<any, any>
         }
 
         let sbRoute = window.location.pathname;
-        console.log("SB nav " + sbRoute);
+        // console.log("SB nav " + sbRoute);
 
         // NOTE SamplesBuster is not used at this moment:
         // return (

@@ -29,7 +29,7 @@ export default class SamplesCache {
         //   }
         });
 
-        console.log('SB cache clearing ...')
+        // console.log('SB cache clearing ...')
         if (caches) {
           // Service worker cache should be cleared with caches.delete()
           caches.keys().then(function(names) {
