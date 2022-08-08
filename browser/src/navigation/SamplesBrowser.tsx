@@ -12,17 +12,17 @@ import { SamplesFallback } from './SamplesFallback';
 import { RoutingSample } from './SamplesData';
 import { RoutingGroup } from './SamplesData';
 
-// import { gaugesRoutingData } from "../samples/gauges/RoutingData";
-// import { gridsRoutingData } from "../samples/grids/RoutingData";
-// import { chartsRoutingData } from "../samples/charts/RoutingData";
+import { gaugesRoutingData } from "../samples/gauges/RoutingData";
+import { gridsRoutingData } from "../samples/grids/RoutingData";
+import { chartsRoutingData } from "../samples/charts/RoutingData";
 import { mapsRoutingData } from "../samples/maps/RoutingData";
-// import { excelRoutingData } from "../samples/excel/RoutingData";
-// import { layoutsRoutingData } from "../samples/layouts/RoutingData";
-// import { inputsRoutingData } from "../samples/inputs/RoutingData";
-// import { editorsRoutingData } from "../samples/editors/RoutingData";
-// import { notificationsRoutingData } from "../samples/notifications/RoutingData";
-// import { menusRoutingData } from "../samples/menus/RoutingData";
-// import { schedulingRoutingData } from "../samples/scheduling/RoutingData";
+import { excelRoutingData } from "../samples/excel/RoutingData";
+import { layoutsRoutingData } from "../samples/layouts/RoutingData";
+import { inputsRoutingData } from "../samples/inputs/RoutingData";
+import { editorsRoutingData } from "../samples/editors/RoutingData";
+import { notificationsRoutingData } from "../samples/notifications/RoutingData";
+import { menusRoutingData } from "../samples/menus/RoutingData";
+import { schedulingRoutingData } from "../samples/scheduling/RoutingData";
 
 // import { SamplesBuster, SamplesBusterState } from '../SamplesBuster';
 import SamplesCache from './SamplesCache';
@@ -74,17 +74,17 @@ export class SamplesBrowser extends React.Component<any, any>
         // console.log(TestsRoutes.DataRoutes)
 
         const routingProviders: RoutingGroup[] = [
-            // inputsRoutingData,
-            // layoutsRoutingData,
-            // gridsRoutingData,
-            // chartsRoutingData,
+            inputsRoutingData,
+            layoutsRoutingData,
+            gridsRoutingData,
+            chartsRoutingData,
             mapsRoutingData,
-            // gaugesRoutingData,
-            // excelRoutingData,
-            // editorsRoutingData,
-            // notificationsRoutingData,
-            // menusRoutingData,
-            // schedulingRoutingData
+            gaugesRoutingData,
+            excelRoutingData,
+            editorsRoutingData,
+            notificationsRoutingData,
+            menusRoutingData,
+            schedulingRoutingData
         ];
 
         for (const routingData of routingProviders) {
