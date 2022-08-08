@@ -62,7 +62,7 @@ export class SamplesRouter {
                     // </a>
                     <Link className='sbNavigation-link' key={url} id={id} to={url}
                           onClick={(e) => this.onClickLink(sample, onSampleOpen)}>
-                        <div className='sbNavigation-link-symbol'>&#x2605;</div>
+                        <div className='sbNavigation-link-symbol'>─</div>
                         <div>{sample.name}</div>
                     </Link>
                 );
@@ -108,56 +108,5 @@ export class SamplesRouter {
     }
 
 
-    // constructor(props: any) {
-    //     super(props);
-
-    //     console.log("SamplesRouter constructor");
-
-    //     this.NavRoutes = [];
-    //     this.NavRoutes.push(
-    //         <Route exact={false} path="/samples" key="samples" component={SamplesBrowser}/>
-    //         // <Route exact={false} path={`${process.env.PUBLIC_URL}/samples`} key="samples" component={AppBrowser}/>
-    //     );
-    //     // basic routes
-    //     this.NavRoutes.push(
-    //         <Route exact={false} path="/" key="root" component={SamplesEmbedded}/>
-    //         // <Route exact={true} path={`${process.env.PUBLIC_URL}/`} key="root" component={AppBrowser}/>
-    //     );
-    // }
-
-    // public render() {
-    //     // const samplePath = AppRouter.getSamplePath();
-    //     // console.log("AppRouter rendering: " + samplePath);
-    //     return (
-    //         <main style={{height: "100%", width: "100%" }}>
-    //             {/* <Switch>
-    //                 {this.NavRoutes}
-    //             </Switch> */}
-    //         </main>
-    //     );
-    // }
-
 }
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;

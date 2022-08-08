@@ -158,8 +158,7 @@
     padding-bottom: 0.25rem;
     padding-left: 0rem;
     padding-right: 0px;
-    color: #dbdbdb;
-    color: #3e9feb;
+    color: #3e9feb !important;
     display: flex;
     flex-direction: row;
     line-height: 1.5;
@@ -173,6 +172,7 @@
 }
 
 .sbNavigation-link-symbol {
+    color: #3e9feb;
     padding-left: 0.75rem;
     padding-right: 0.5rem;
     /* color: #272727 !important; */
