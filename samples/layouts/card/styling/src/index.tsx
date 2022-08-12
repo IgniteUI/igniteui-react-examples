@@ -21,35 +21,35 @@ export default class CardStyling extends React.Component<any, any> {
             <div className="container sample center">
                 <div className="card-wrapper">
                     <IgrCard>
-                        <IgrCardMedia height="180px">
-                            <img src="https://images.unsplash.com/photo-1541516160071-4bb0c5af65ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"></img>
+                        <IgrCardMedia key="media" height="180px">
+                            <img key="mediaImg" src="https://images.unsplash.com/photo-1541516160071-4bb0c5af65ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"></img>
                         </IgrCardMedia>
 
-                        <IgrCardHeader>
-                            <h3 slot="title">Jane Doe</h3>
-                            <h5 slot="subtitle">Professional Photographer</h5>
+                        <IgrCardHeader key="header">
+                            <h3 key="headerTitle" slot="title">Jane Doe</h3>
+                            <h5 key="headerSubtitle" slot="subtitle">Professional Photographer</h5>
                         </IgrCardHeader>
 
-                        <IgrCardContent>
-                            <p>Hi! I am Jane, photographer and filmmaker.
+                        <IgrCardContent key="content">
+                            <p key="contentParagraph">Hi! I am Jane, photographer and filmmaker.
                                 Photography is a way of feeling, of touching,
                                 of loving. What you have caught on film is captured forever...
                                 it remembers little things, long after you have
                                 forgotten everything.</p>
                         </IgrCardContent>
 
-                        <IgrCardActions>
-                            <div slot="end">
-                                <IgrIconButton iconName="twitter">
-                                    <IgrRipple />
+                        <IgrCardActions key="actions">
+                            <div key="actionsEndSlot" slot="end">
+                                <IgrIconButton key="twitterBtn" iconName="twitter">
+                                    <IgrRipple key="twitterRipple"/>
                                 </IgrIconButton>
 
-                                <IgrIconButton iconName="facebook">
-                                    <IgrRipple />
+                                <IgrIconButton key="fbButton" iconName="facebook">
+                                    <IgrRipple key="fbRipple"/>
                                 </IgrIconButton>
 
-                                <IgrIconButton iconName="instagram">
-                                    <IgrRipple />
+                                <IgrIconButton key="instaBtn" iconName="instagram">
+                                    <IgrRipple key="instaRipple"/>
                                 </IgrIconButton>
                             </div>
                         </IgrCardActions>
