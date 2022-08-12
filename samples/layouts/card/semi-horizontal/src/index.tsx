@@ -20,27 +20,29 @@ export default class CardSemiHorizontal extends React.Component<any, any> {
             <div className="container sample center">
                 <div className="card-wrapper">
                     <IgrCard>
-                        <div className="semi-horizontal">
-                            <div>
-                                <IgrCardHeader>
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/music/singer_with_mic.jpg" slot="thumbnail" />
-                                    <h5 slot="title">HERE</h5>
-                                    <h5 slot="subtitle">by Mellow D</h5>
+                        <div key="cardContainer" className="semi-horizontal">
+                            <div key="cardHeaderContainer" >
+                                <IgrCardHeader key="header">
+                                    <IgrAvatar key="headerAvatar" src="https://static.infragistics.com/xplatform/images/music/singer_with_mic.jpg" slot="thumbnail" />
+                                    <h5 key="headerTitle" slot="title">HERE</h5>
+                                    <h5 key="headerSubtitle" slot="subtitle">by Mellow D</h5>
                                 </IgrCardHeader>
 
-                                <IgrCardContent>
-                                    <p>Far far away, behind the word mountains,
+                                <IgrCardContent key="content">
+                                    <p key="contentParagraph">Far far away, behind the word mountains,
                                         far from the countries Vokalia and Consonantia,
                                         there live the blind texts.</p>
                                 </IgrCardContent>
 
-                                <IgrCardActions>
-                                    <IgrButton><span>Play Album</span></IgrButton>
+                                <IgrCardActions key="actions">
+                                    <IgrButton key="actionsBtn">
+                                        <span key="btnCaption">Play Album</span>
+                                    </IgrButton>
                                 </IgrCardActions>
                             </div>
                             
-                            <IgrCardMedia className='card-media'>
-                                <img src="https://static.infragistics.com/xplatform/images/music/singer_female.jpg"></img>
+                            <IgrCardMedia key="media" className='card-media'>
+                                <img key="mediaImg" src="https://static.infragistics.com/xplatform/images/music/singer_female.jpg"></img>
                             </IgrCardMedia>
                         </div>
                     </IgrCard>

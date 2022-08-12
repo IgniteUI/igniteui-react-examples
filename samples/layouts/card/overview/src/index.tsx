@@ -25,33 +25,33 @@ export default class CardOverview extends React.Component<any, any> {
             <div className="container sample center">
                 <div className="card-wrapper">
                     <IgrCard>
-                        <IgrCardMedia>
-                            <img src="https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=50"></img>
+                        <IgrCardMedia key="media">
+                            <img key="mediaImg" src="https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=50"></img>
                         </IgrCardMedia>
 
-                        <IgrCardHeader>
-                            <h3 slot="title">New York City</h3>
-                            <h5 slot="subtitle">City in New York</h5>
+                        <IgrCardHeader key="header">
+                            <h3 key="headerTitle" slot="title">New York City</h3>
+                            <h5 key="headerSubtitle" slot="subtitle">City in New York</h5>
                         </IgrCardHeader>
 
-                        <IgrCardContent>
-                            <p>New York City comprises 5 boroughs sitting where the
+                        <IgrCardContent key="content">
+                            <p key="contentParagraph">New York City comprises 5 boroughs sitting where the
                                 Hudson River meets the Atlantic Ocean. At its core is Manhattan,
                                 a densely populated borough that’s among the world’s major commercial,
                                 financial and cultural centers.</p>
                         </IgrCardContent>
 
-                        <IgrCardActions>
-                            <IgrButton>
-                                <span>Read more</span>
-                                <IgrRipple />
+                        <IgrCardActions key="actions">
+                            <IgrButton key="actionsBtn">
+                                <span key="btnSpan">Read more</span>
+                                <IgrRipple key="btnRipple" />
                             </IgrButton>
-                            <div slot="end">
-                                <IgrIconButton ref={this.iconRef} className="marginIcon" iconName="twitter" collection="material">
-                                    <IgrRipple />
+                            <div slot="end" key="endSlot">
+                                <IgrIconButton key="twitterIcon" ref={this.iconRef} style={{marginRight: "10px"}} iconName="twitter" collection="material">
+                                    <IgrRipple key="twitterRipple"/>
                                 </IgrIconButton>
-                                <IgrIconButton iconName="facebook" collection="material">
-                                    <IgrRipple />
+                                <IgrIconButton key="fbIcon" iconName="facebook" collection="material">
+                                    <IgrRipple key="fbRipple"/>
                                 </IgrIconButton>
                             </div>
                         </IgrCardActions>

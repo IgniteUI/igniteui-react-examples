@@ -21,10 +21,10 @@ export default class ExpansionPanelPropertiesAndEvents extends React.Component<a
         return (
             <div className="container sample center">
                 <IgrExpansionPanel closed={this.onExpansionPanelClosed} opened={this.onExpansionPanelOpened}>
-                    <h1 slot="title">Golden Retriever</h1>
-                    <h3 className={this.state.subtitleClass} slot="subtitle">Medium-large gun dog</h3>
-                    <div slot="indicator">{this.state.expansionText}</div>
-                    <span>The Golden Retriever is a medium-large gun dog that retrieves shot waterfowl, such as ducks
+                    <h1 key="epTitle" slot="title">Golden Retriever</h1>
+                    <h3 key="epSubtitle" className={this.state.subtitleClass} slot="subtitle">Medium-large gun dog</h3>
+                    <div key="epIndicator" slot="indicator">{this.state.expansionText}</div>
+                    <span key="epSpan">The Golden Retriever is a medium-large gun dog that retrieves shot waterfowl, such as ducks
                         and upland game birds, during hunting and shooting parties.[3] The name retriever refers to the breeds ability
                         to retrieve shot game undamaged due to their soft mouth. Golden retrievers have an instinctive love of water, and
                         are easy to train to basic or advanced obedience standards.</span>

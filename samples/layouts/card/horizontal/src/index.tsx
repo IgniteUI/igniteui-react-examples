@@ -18,23 +18,23 @@ export default class CardHorizontal extends React.Component<any, any> {
             <div className="container sample">
                 <div className="card-wrapper">
                     <IgrCard>
-                        <div className="card-horizontal">
-                            <div>
-                                <IgrCardHeader>
-                                    <img src="https://static.infragistics.com/xplatform/images/music/rozes.jpg" slot="thumbnail"></img>
-                                    <h5 slot="title">Rozes</h5>
-                                    <h5 slot="subtitle">Under the Grave (2016)</h5>
+                        <div key="cardContainer" className="card-horizontal">
+                            <div key="cardHeaderContainer">
+                                <IgrCardHeader key="cardHeader">
+                                    <img key="headerImg" src="https://static.infragistics.com/xplatform/images/music/rozes.jpg" slot="thumbnail"></img>
+                                    <h5 key="headerTitle" slot="title">Rozes</h5>
+                                    <h5 key="headerSubtitle" slot="subtitle">Under the Grave (2016)</h5>
                                 </IgrCardHeader>
-                                <IgrCardContent>
-                                    <p>As I have always said: I write what’s real and what’s true,
+                                <IgrCardContent key="cardContent">
+                                    <p key="content">As I have always said: I write what’s real and what’s true,
                                         even if it means throwing myself under the bus.</p>
                                 </IgrCardContent>
                             </div>
-                            <div className="divider"></div>
-                            <IgrCardActions>
-                                <span className="material-icons">skip_previous</span>
-                                <span className="material-icons">play_arrow</span>
-                                <span className="material-icons">skip_next</span>
+                            <div key="divider" className="divider"></div>
+                            <IgrCardActions key="cardActions">
+                                <span key="actionsPrevious" className="material-icons">skip_previous</span>
+                                <span key="actionsPlay" className="material-icons">play_arrow</span>
+                                <span key="actionsNext" className="material-icons">skip_next</span>
                             </IgrCardActions>
                         </div>
                     </IgrCard>

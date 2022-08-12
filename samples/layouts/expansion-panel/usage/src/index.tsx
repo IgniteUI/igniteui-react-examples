@@ -17,9 +17,9 @@ export default class ExpansionPanelUsage extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrExpansionPanel>
-                    <h1 slot="title">Golden Retriever</h1>
-                    <h3 slot="subtitle">Medium-large gun dog</h3>
-                    <span>The Golden Retriever is a medium-large gun dog that retrieves shot waterfowl, such as ducks
+                    <h1 key="epTitle" slot="title">Golden Retriever</h1>
+                    <h3 key="epSubtitle" slot="subtitle">Medium-large gun dog</h3>
+                    <span key="epSpan">The Golden Retriever is a medium-large gun dog that retrieves shot waterfowl, such as ducks
                         and upland game birds, during hunting and shooting parties.[3] The name retriever refers to the breeds ability
                         to retrieve shot game undamaged due to their soft mouth. Golden retrievers have an instinctive love of water, and
                         are easy to train to basic or advanced obedience standards.</span>
