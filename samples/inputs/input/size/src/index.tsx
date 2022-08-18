@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './InputSizeStyling.css';
 import { IgrInput, IgrInputModule, IgrRadio, IgrRadioModule, IgrRadioGroup, IgrRadioGroupModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -23,18 +24,17 @@ export default class InputSize extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container-center sample">
-                <IgrRadioGroup alignment="horizontal">
-                    <IgrRadio name="size" value="small" labelPosition="after" change={this.onRadioChange}><span>Small</span></IgrRadio>
-                    <IgrRadio name="size" value="medium" labelPosition="after" checked="true" change={this.onRadioChange}><span>Medium</span></IgrRadio>
-                    <IgrRadio name="size" value="large" labelPosition="after" change={this.onRadioChange}><span>Large</span></IgrRadio>
-                </IgrRadioGroup>
-                <IgrInput ref={this.inputRequiredRef} displayType="text" label="Required" value="This input is required" required="true">
-                </IgrInput>
-                <IgrInput ref={this.inputDisabledRef} displayType="text" label="Disabled" value="This input is disabled" disabled="true">
-                </IgrInput>
-                <IgrInput ref={this.inputReadonlyRef} displayType="text" label="Readonly" value="This input is readonly" readonly="true">
-                </IgrInput>
+            <div className="container sample">
+                <div id="radioGroup">
+                    <IgrRadioGroup alignment="horizontal">
+                        <IgrRadio name="size" value="small" labelPosition="after" change={this.onRadioChange}><span>Small</span></IgrRadio>
+                        <IgrRadio name="size" value="medium" labelPosition="after" checked="true" change={this.onRadioChange}><span>Medium</span></IgrRadio>
+                        <IgrRadio name="size" value="large" labelPosition="after" change={this.onRadioChange}><span>Large</span></IgrRadio>
+                    </IgrRadioGroup>
+                </div>
+                <IgrInput ref={this.inputRequiredRef} displayType="text" label="Required" value="This input is required" required="true" />                
+                <IgrInput ref={this.inputDisabledRef} displayType="text" label="Disabled" value="This input is disabled" disabled="true" />                
+                <IgrInput ref={this.inputReadonlyRef} displayType="text" label="Readonly" value="This input is readonly" readonly="true" />                
             </div>
         );
     }
