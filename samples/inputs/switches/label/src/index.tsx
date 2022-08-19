@@ -14,7 +14,7 @@ export default class SwitchLabel extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container-center sample">
+            <div className="sample">
                 <IgrSwitch ariaLabelledby="switchLabel" labelPosition="Before" ><span id="switch-label">Label</span></IgrSwitch>
             </div>
         );

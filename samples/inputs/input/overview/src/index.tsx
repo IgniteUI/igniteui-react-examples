@@ -14,7 +14,7 @@ export default class InputOverview extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container-center sample">
+            <div className="sample">
                 <IgrInput displayType="email" label="Subscribe" placeholder="john.doe@mail.com">
                     <span slot="prefix">Email</span>
                 </IgrInput>

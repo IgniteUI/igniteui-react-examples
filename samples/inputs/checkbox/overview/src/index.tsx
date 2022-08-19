@@ -14,8 +14,10 @@ export default class CheckboxOverview extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container sample">
-                <IgrCheckbox><span>Checkbox</span></IgrCheckbox>
+            <div className="sample">
+                <IgrCheckbox>
+                    <span key="checkboxLabel">Checkbox</span>
+                </IgrCheckbox>
             </div>
         );
     }
