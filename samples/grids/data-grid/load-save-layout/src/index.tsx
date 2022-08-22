@@ -32,19 +32,13 @@ export default class DataGridLoadSaveLayout extends React.Component<any, any> {
         super(props);
         
         this.data = DataGridSharedData.getEmployees(100);
-
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onToolbarRef = this.onToolbarRef.bind(this);
-
-        this.onLoadLayoutClicked = this.onLoadLayoutClicked.bind(this);
-        this.onSaveLayoutClicked = this.onSaveLayoutClicked.bind(this);
     }
 
-    public onLoadLayoutClicked() {
+    public onLoadLayoutClicked = () => {
         this.grid.loadLayout(this.savedLayout);
     }
 
-    public onSaveLayoutClicked() {
+    public onSaveLayoutClicked = () => {
         
         this.grid.saveLayout();
         this.savedLayout = this.grid.saveLayout();
@@ -122,7 +116,7 @@ export default class DataGridLoadSaveLayout extends React.Component<any, any> {
         );
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;
@@ -133,7 +127,7 @@ export default class DataGridLoadSaveLayout extends React.Component<any, any> {
         }
     }
 
-    public onToolbarRef(toolbar: IgrDataGridToolbar) {
+    public onToolbarRef = (toolbar: IgrDataGridToolbar) => {
           this.toolbar = toolbar;
           if (this.toolbar !== null) {
               this.toolbar.targetGrid = this.grid;

@@ -31,9 +31,6 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
     constructor(props: any) {
         super(props);
 
-        this.onVerticalHeaderUpdating = this.onVerticalHeaderUpdating.bind(this);
-        this.onHeatCellUpdating = this.onHeatCellUpdating.bind(this);
-
         this.createData();
 
         this.HeatScale = new HeatScale(0, 1);
@@ -113,7 +110,7 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
         borderBottomWidth="0" />;
     }
 
-    public onVerticalHeaderUpdating(s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs) {
+    public onVerticalHeaderUpdating = (s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         let label: HTMLSpanElement | null = null;
         if (content.childElementCount === 0) {
@@ -134,7 +131,7 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
         label.textContent = info.value;
     }
 
-    public onHorizontalHeaderUpdating(s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs, align: string) {
+    public onHorizontalHeaderUpdating = (s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs, align: string) => {
         const content = e.content as HTMLDivElement;
         let label: HTMLSpanElement | null = null;
         if (content.childElementCount === 0) {
@@ -155,7 +152,7 @@ export default class DataGridTypeHeatmapTable extends React.Component<any, any> 
         label.textContent = info.value;
     }
 
-    public onHeatCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
+    public onHeatCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         const info = e.cellInfo as IgrTemplateCellInfo;
         let heatCell: HTMLDivElement | null = null;

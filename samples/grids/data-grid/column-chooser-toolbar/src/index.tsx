@@ -25,21 +25,18 @@ export default class DataGridColumnChooserToolbar extends React.Component<any, a
   constructor(props: any) {
     super(props);
 
-    this.onGridRef = this.onGridRef.bind(this);
-    this.onToolbarRef = this.onToolbarRef.bind(this);
-
     this.state = { componentVisible: true };
     this.data = DataGridSharedData.getSales();
   }
 
-  public onGridRef(grid: IgrDataGrid) {
+  public onGridRef = (grid: IgrDataGrid) => {
     this.grid = grid;
     if (this.toolbar) {
       this.toolbar.targetGrid = this.grid;
     }
   }
 
-  public onToolbarRef(toolbar: IgrDataGridToolbar) {
+  public onToolbarRef = (toolbar: IgrDataGridToolbar) => {
     this.toolbar = toolbar;
     if (this.toolbar) {
       this.toolbar.targetGrid = this.grid;

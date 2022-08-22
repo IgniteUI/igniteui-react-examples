@@ -26,10 +26,6 @@ export default class DataGridCellActivation extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onEnterKeyModeChange = this.onEnterKeyModeChange.bind(this);
-        this.onEnterKeyAfterEditModeChange = this.onEnterKeyAfterEditModeChange.bind(this);
-
         this.state = {
             canMoveAfterEdit: true,
             enterBehavior: EnterKeyBehaviors.Edit,
@@ -92,7 +88,7 @@ export default class DataGridCellActivation extends React.Component<any, any> {
         );
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;

@@ -36,15 +36,7 @@ export default class DataGridOverview extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onAddressCellUpdating = this.onAddressCellUpdating.bind(this);
-        this.onSalesCellUpdating = this.onSalesCellUpdating.bind(this);
-        this.onEmailCellUpdating = this.onEmailCellUpdating.bind(this);
         this.data = DataGridSharedData.getEmployees(100);
-
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onToolbarRef = this.onToolbarRef.bind(this);
-
-        // this.onLoad = this.onLoad.bind(this);
     }
 
     public render(): JSX.Element {
@@ -115,7 +107,7 @@ export default class DataGridOverview extends React.Component<any, any> {
         );
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;
@@ -126,7 +118,7 @@ export default class DataGridOverview extends React.Component<any, any> {
         }
     }
 
-    public onToolbarRef(toolbar: IgrDataGridToolbar) {
+    public onToolbarRef = (toolbar: IgrDataGridToolbar) => {
           this.toolbar = toolbar;
           if (this.toolbar !== null) {
               this.toolbar.targetGrid = this.grid;
@@ -163,7 +155,7 @@ export default class DataGridOverview extends React.Component<any, any> {
         this.grid.summaryDescriptions.add(salary);
     }
 
-    public getProductivityChart(props: IIgrCellTemplateProps) {
+    public getProductivityChart = (props: IIgrCellTemplateProps) => {
         const info = props.dataContext as IgrTemplateCellInfo;
         return (
             <div className="container">
@@ -180,7 +172,7 @@ export default class DataGridOverview extends React.Component<any, any> {
         );
     }
 
-    public onAddressCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
+    public onAddressCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         let span1: HTMLSpanElement | null = null;
         let span2: HTMLSpanElement | null = null;
@@ -215,7 +207,7 @@ export default class DataGridOverview extends React.Component<any, any> {
         }
     }
 
-    public onSalesCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
+    public onSalesCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         const info = e.cellInfo as IgrTemplateCellInfo;
         const sales = info.rowItem.Sales;
@@ -287,7 +279,7 @@ export default class DataGridOverview extends React.Component<any, any> {
         gaugeBar.style.width = gaugeWidth + "%";
     }
 
-    public onEmailCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
+    public onEmailCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         const info = e.cellInfo as IgrTemplateCellInfo;
         const item = info.rowItem;
@@ -314,7 +306,7 @@ export default class DataGridOverview extends React.Component<any, any> {
         link.textContent = item.Email;
     }
 
-    public onPhoneCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
+    public onPhoneCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
 
         const info = e.cellInfo as IgrTemplateCellInfo;

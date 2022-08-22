@@ -21,12 +21,11 @@ export default class DataGridPager extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
         this.state = { componentVisible: true }
         this.initData();
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         const state = new IgrColumnGroupDescription();

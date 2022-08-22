@@ -23,7 +23,6 @@ export default class DataGridRowPinning extends React.Component<any, any> {
         super(props);
 
         this.state = { componentVisible: true };
-        this.onGridRef = this.onGridRef.bind(this);
         this.data = DataGridSharedData.getEmployees();
     }
 
@@ -52,7 +51,7 @@ export default class DataGridRowPinning extends React.Component<any, any> {
         );
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;

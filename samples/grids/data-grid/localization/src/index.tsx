@@ -33,9 +33,7 @@ export default class DataGridLocalization extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onCountryColumnRef = this.onCountryColumnRef.bind(this);
-        this.onLoad = this.onLoad.bind(this);
+       
         this.data = DataGridSharedData.getSales();
 
         // If your browser language is JA then you should use "ja" after eg."DataGrid-ja" etc.  The grid will automatically look for the correct
@@ -88,14 +86,14 @@ export default class DataGridLocalization extends React.Component<any, any> {
         );
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;
         this.grid.actualDataSource.isSectionExpandedDefault = true;
     }
 
-    public onCountryColumnRef(column: IgrComboBoxColumn) {
+    public onCountryColumnRef = (column: IgrComboBoxColumn) => {
         if (!column) { return; }
 
         this.comboColumn = column;
@@ -105,7 +103,7 @@ export default class DataGridLocalization extends React.Component<any, any> {
         window.addEventListener('load', this.onLoad);
     }
 
-    public onLoad() {
+    public onLoad = () => {
 
         this.data.forEach(sales => {
             if (!this.countryLookup.has(sales.Countries)) {

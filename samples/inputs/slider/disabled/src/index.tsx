@@ -15,7 +15,7 @@ export default class SliderDisabled extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-            <div className="container-center sample">
+            <div className="container sample">
                 <IgrSlider value="40" disabled="true"/>
             </div>
         );

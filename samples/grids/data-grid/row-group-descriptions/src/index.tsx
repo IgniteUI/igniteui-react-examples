@@ -20,9 +20,7 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onLoad = this.onLoad.bind(this);
-
+      
         this.state = { componentVisible: true, isGroupCollapsible: true }
         this.data = DataGridSharedData.getEmployees(50);
     }
@@ -77,7 +75,7 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
         this.grid.groupHeaderDisplayMode = e.target.value;
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;
@@ -88,7 +86,7 @@ export default class DataGridRowGrouping extends React.Component<any, any> {
         window.addEventListener('load', this.onLoad);
     }
 
-    public onLoad() {
+    public onLoad = () => {
         const country = new IgrColumnGroupDescription();
         country.field = "Country";
         country.displayName = "Location";

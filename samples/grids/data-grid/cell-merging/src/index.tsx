@@ -21,13 +21,11 @@ export default class DataGridCellMerging extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onMergeCellModeChange = this.onMergeCellModeChange.bind(this);
         this.state = { cellMergeMode: "Always" }
         this.data = LiveFinancialData.generateData(200);
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;

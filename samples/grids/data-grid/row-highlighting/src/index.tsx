@@ -26,14 +26,12 @@ export default class DataGridRowHighlighting extends React.Component<any, IRowHo
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
-
         this.state = { hoverEnabled: true,
         hoverColor: '' };
         this.data = DataGridSharedData.getEmployees();
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;

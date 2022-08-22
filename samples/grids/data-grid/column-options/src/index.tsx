@@ -22,12 +22,11 @@ export default class DataGridColumnOptions extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
         this.state = { componentVisible: true }
         this.data = DataGridSharedData.getSales();
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         const state = new IgrColumnGroupDescription();
