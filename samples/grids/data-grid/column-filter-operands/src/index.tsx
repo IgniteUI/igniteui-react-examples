@@ -22,12 +22,10 @@ export default class DataGridColumnFilterOperands extends React.Component<any, a
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onFilter = this.onFilter.bind(this);
         this.data = DataGridSharedData.getEmployees(4000);
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;
@@ -54,21 +52,21 @@ export default class DataGridColumnFilterOperands extends React.Component<any, a
         column3.filterOperands.add(filterOperand3);
     }
 
-    public onFilter(s: IgrFilterOperand, args: IgrGridCustomFilterRequestedEventArgs)
+    public onFilter = (s: IgrFilterOperand, args: IgrGridCustomFilterRequestedEventArgs) =>
     {
         let prop = args.filterFactory.property(args.column.field);
         //Filter-in only records with France
         args.expression = prop.isEqualTo("France");
     }
 
-    public onFilter2(s: IgrFilterOperand, args: IgrGridCustomFilterRequestedEventArgs)
+    public onFilter2 = (s: IgrFilterOperand, args: IgrGridCustomFilterRequestedEventArgs) =>
     {
         let prop = args.filterFactory.property(args.column.field);
         //Filter-in only records with LessThan or Equal to 30
         args.expression = prop.isLessThanOrEqualTo(30);
     }
 
-    public onFilter3(s: IgrFilterOperand, args: IgrGridCustomFilterRequestedEventArgs)
+    public onFilter3 = (s: IgrFilterOperand, args: IgrGridCustomFilterRequestedEventArgs) =>
     {
         let prop = args.filterFactory.property(args.column.field);
         //Filter-in only records with GreaterThan $500,000.00

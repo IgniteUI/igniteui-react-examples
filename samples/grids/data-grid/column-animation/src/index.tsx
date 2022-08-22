@@ -20,17 +20,6 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onHideClick = this.onHideClick.bind(this);
-        this.onReloadClick = this.onReloadClick.bind(this);
-        this.onShowClick = this.onShowClick.bind(this);
-
-        this.onAddShowChange = this.onAddShowChange.bind(this);
-        this.onExchangeChange = this.onExchangeChange.bind(this);
-        this.onHideChange = this.onHideChange.bind(this);
-        this.onMoveChange = this.onMoveChange.bind(this);
-        this.onPropUpdateChange = this.onPropUpdateChange.bind(this);
-
         this.state = {
             columnAddOrShowAnimation: "SlideFromLeft",
             columnExchangingAnimationMode: "Crossfade",
@@ -42,7 +31,7 @@ export default class DataGridColumnAnimation extends React.Component<any, any> {
         this.data = DataGridSharedData.getEmployees();
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;

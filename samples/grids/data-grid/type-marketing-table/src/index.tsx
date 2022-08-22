@@ -43,18 +43,6 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onGridStyleKey = this.onGridStyleKey.bind(this);
-        this.onGridCellUpdating = this.onGridCellUpdating.bind(this);
-        this.onPricePercentStyleKey = this.onPricePercentStyleKey.bind(this);
-        this.onPricePercentCellUpdating = this.onPricePercentCellUpdating.bind(this);
-        this.onPriceAmountStyleKey = this.onPriceAmountStyleKey.bind(this);
-        this.onPriceAmountCellUpdating = this.onPriceAmountCellUpdating.bind(this);
-
-        this.onPriceDataBound = this.onPriceDataBound.bind(this);
-        this.onPriceStyleKey = this.onPriceStyleKey.bind(this);
-        this.onPriceCellUpdating = this.onPriceCellUpdating.bind(this);
-
         this.state = {
             name: 'React',
             data: LiveFinancialData.generateData(3000),
@@ -136,7 +124,7 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
         );
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         let oldRef = this.grid;
@@ -161,7 +149,7 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
         this.startTicking();
     }
 
-    public onTimerTick()
+    public onTimerTick = () =>
     {
         if (!this.isTimerTicking) {
             return;
@@ -264,7 +252,7 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
     }
 
     // cellStyleKeyRequested?: (s: IgrDefinitionBase, e: IgrCellStyleRequestedEventArgs) => void;
-    public onPriceStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
+    public onPriceStyleKey = (grid: any, args: IgrCellStyleRequestedEventArgs) => {
         let row: any | null = null;
         if (this.grid) {
             row = this.grid.actualDataSource.getItemAtIndex(args.rowNumber);
@@ -278,7 +266,7 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
         }
     }
 
-    public onPriceCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPriceCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
         let item = args.cellInfo.rowItem;
         let priceShiftUp = item.Change >= 0;
         let templ = args.cellInfo as IgrTemplateCellInfo;
@@ -373,7 +361,7 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
         }
     }
 
-    public onPricePercentStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
+    public onPricePercentStyleKey = (grid: any, args: IgrCellStyleRequestedEventArgs) => {
         if (args.resolvedValue >= 0) {
             args.styleKey = "pricePercentUp";
         } else {
@@ -381,7 +369,7 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
         }
     }
 
-    public onPricePercentCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPricePercentCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
         let templ = args.cellInfo as IgrTemplateCellInfo;
         let priceShiftUp = templ.value >= 0;
 
@@ -460,7 +448,7 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
         }
     }
 
-    public onPriceAmountStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
+    public onPriceAmountStyleKey = (grid: any, args: IgrCellStyleRequestedEventArgs) => {
         if (args.resolvedValue >= 0) {
             args.styleKey = "priceAmountUp";
         } else {
@@ -468,7 +456,7 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
         }
     }
 
-    public onPriceAmountCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPriceAmountCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
         let templ = args.cellInfo as IgrTemplateCellInfo;
         let priceShiftUp = templ.value >= 0;
 
@@ -545,11 +533,11 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
         }
     }
 
-    public onGridStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
+    public onGridStyleKey = (grid: any, args: IgrCellStyleRequestedEventArgs) => {
         args.styleKey = "grid";
     }
 
-    public onGridCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
+    public onGridCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
         if (args.isCanvasBased) {
             return;
         }
@@ -574,14 +562,14 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
         }
     }
 
-    public startTicking() {
+    public startTicking = () => {
         if (!this.isTimerTicking) {
             this.isTimerTicking = true;
             window.setTimeout(() => this.onTimerTick(), 16);
         }
     }
 
-    public onGridGroupingAdd() {
+    public onGridGroupingAdd = () => {
         let g = new IgrColumnGroupDescription();
         g.field = "Category";
         g.sortDirection = ListSortDirection.Descending;
@@ -598,7 +586,7 @@ export default class DataGridTypeMarketingTable extends React.Component<any, App
         this.grid.groupDescriptions.add(g);
     }
 
-    public onPriceDataBound(sender: any, args: IgrDataBindingEventArgs) {
+    public onPriceDataBound = (sender: any, args: IgrDataBindingEventArgs) => {
             let item: any = args.cellInfo.rowItem;
             if (item === null) { return; }
 

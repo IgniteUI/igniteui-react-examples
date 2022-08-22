@@ -24,7 +24,6 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
         super(props);
 
         this.state = { sortType: "SortByMultipleColumnsTriState" }
-        this.onGridRef = this.onGridRef.bind(this);
         this.data = DataGridSharedData.getHouses();
     }
 
@@ -62,7 +61,7 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
         );
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;
@@ -72,7 +71,7 @@ export default class DataGridColumnSorting extends React.Component<any, any> {
         this.grid.sortDescriptions.add(csd);
     }
 
-    public onChartTypeChanged = (e: any) =>{
+    public onChartTypeChanged = (e: any) => {
         this.setState({sortType: e.target.value});
         this.grid.headerClickAction = e.target.value;
     }

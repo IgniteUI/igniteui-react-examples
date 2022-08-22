@@ -28,9 +28,6 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onVerticalHeaderUpdating = this.onVerticalHeaderUpdating.bind(this);
-        this.onCellUpdating = this.onCellUpdating.bind(this);
-
         this.createData();
 
         this.VerticalHeader = new IgrTemplateHeader({});
@@ -107,7 +104,7 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
         />;
     }
 
-    public onVerticalHeaderUpdating(s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs) {
+    public onVerticalHeaderUpdating = (s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         let label: HTMLSpanElement | null = null;
         if (content.childElementCount === 0) {
@@ -128,7 +125,7 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
         label.textContent = info.value;
     }
 
-    public onHorizontalHeaderUpdating(s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs, align: string) {
+    public onHorizontalHeaderUpdating = (s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs, align: string) => {
         const content = e.content as HTMLDivElement;
         let label: HTMLSpanElement | null = null;
         if (content.childElementCount === 0) {
@@ -149,7 +146,7 @@ export default class DataGridTypeMatrixTable extends React.Component<any, any> {
         label.textContent = info.value;
     }
 
-    public onCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
+    public onCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         const info = e.cellInfo as IgrTemplateCellInfo;
         let cell: HTMLDivElement | null = null;

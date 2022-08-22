@@ -21,10 +21,7 @@ export default class DataGridColumnPinningPicker extends React.Component<any, an
 
     constructor(props: any) {
         super(props);
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onPinLeft = this.onPinLeft.bind(this);
-        this.onPinRight = this.onPinRight.bind(this);
-        this.onUnPin = this.onUnPin.bind(this);
+     
         this.state = {
             componentVisible: true,
             isPinningToLeftDisabled: true,
@@ -33,7 +30,7 @@ export default class DataGridColumnPinningPicker extends React.Component<any, an
         this.data = DataGridSharedData.getEmployees();
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;

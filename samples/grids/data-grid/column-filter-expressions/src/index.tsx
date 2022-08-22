@@ -27,15 +27,11 @@ export default class DataGridColumnFilterExpressions extends React.Component<any
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onFilterTextChanged = this.onFilterTextChanged.bind(this);
-        this.onFilterModeChanged = this.onFilterModeChanged.bind(this);
-
         this.state = { filterText: this.filterText, filterMode: this.filterMode, filterColumn: this.filterColumn }
         this.data = DataGridSharedData.getEmployees(4000);
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;

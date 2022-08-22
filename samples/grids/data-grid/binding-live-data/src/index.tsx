@@ -9,7 +9,6 @@ import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
-import { IgrColumn } from 'igniteui-react-grids';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataChartAnnotationModule } from 'igniteui-react-charts';
 import { IgrItemToolTipLayer } from 'igniteui-react-charts';
@@ -85,33 +84,6 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
 
     constructor(props: any) {
         super(props);
-
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onGridStyleKey = this.onGridStyleKey.bind(this);
-        this.onGridCellUpdating = this.onGridCellUpdating.bind(this);
-        this.onPricePercentStyleKey = this.onPricePercentStyleKey.bind(this);
-        this.onPricePercentCellUpdating = this.onPricePercentCellUpdating.bind(this);
-        this.onPriceAmountStyleKey = this.onPriceAmountStyleKey.bind(this);
-        this.onPriceAmountCellUpdating = this.onPriceAmountCellUpdating.bind(this);
-        this.onGridGroupingChanged = this.onGridGroupingChanged.bind(this);
-        this.onGridCanvasModeChanged = this.onGridCanvasModeChanged.bind(this);
-        this.onGridHeatModeChanged = this.onGridHeatModeChanged.bind(this);
-        this.onGridColumnHidden = this.onGridColumnHidden.bind(this);
-        this.onGridSearchChanged = this.onGridSearchChanged.bind(this);
-
-        this.onChartRef = this.onChartRef.bind(this);
-        this.onChartClose = this.onChartClose.bind(this);
-        this.onChartStyleKey = this.onChartStyleKey.bind(this);
-        this.onChartCellUpdating = this.onChartCellUpdating.bind(this);
-        this.onChartClicked = this.onChartClicked.bind(this);
-
-        this.onPriceFrequencyChanged = this.onPriceFrequencyChanged.bind(this);
-        this.onPriceVolumeChanged = this.onPriceVolumeChanged.bind(this);
-        this.onPriceDataBound = this.onPriceDataBound.bind(this);
-        this.onPriceStyleKey = this.onPriceStyleKey.bind(this);
-        this.onPriceCellUpdating = this.onPriceCellUpdating.bind(this);
-        this.onLiveAllPricesClicked = this.onLiveAllPricesClicked.bind(this);
-        this.onLiveSomePricesClicked = this.onLiveSomePricesClicked.bind(this);
 
         this.state = {
             name: 'React',
@@ -362,7 +334,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         );
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         let oldRef = this.grid;
@@ -388,7 +360,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         this.setState({ allColumns: columns });
     }
 
-    public onTimerTick()
+    public onTimerTick = () =>
     {
         if (!this.isTimerTicking) {
             return;
@@ -505,7 +477,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         window.setTimeout(() => this.onTimerTick(), 16);
     }
 
-    public updatePricesByCountry() {
+    public updatePricesByCountry = () => {
         let shouldPopulate = false;
         if (this.state.pricesByCountry.length === 0) {
             shouldPopulate = true;
@@ -556,7 +528,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
     }
 
     // cellStyleKeyRequested?: (s: IgrDefinitionBase, e: IgrCellStyleRequestedEventArgs) => void;
-    public onPriceStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
+    public onPriceStyleKey = (grid: any, args: IgrCellStyleRequestedEventArgs) => {
         let row: any | null = null;
         if (this.grid) {
             row = this.grid.actualDataSource.getItemAtIndex(args.rowNumber);
@@ -570,7 +542,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public onPriceCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPriceCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
         let item = args.cellInfo.rowItem;
         let priceShiftUp = item.Change >= 0;
         let templ = args.cellInfo as IgrTemplateCellInfo;
@@ -665,7 +637,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public onPricePercentStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
+    public onPricePercentStyleKey = (grid: any, args: IgrCellStyleRequestedEventArgs) => {
         if (args.resolvedValue >= 0) {
             args.styleKey = "pricePercentUp";
         } else {
@@ -673,7 +645,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public onPricePercentCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPricePercentCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
         let templ = args.cellInfo as IgrTemplateCellInfo;
         let priceShiftUp = templ.value >= 0;
 
@@ -752,7 +724,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public onPriceAmountStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
+    public onPriceAmountStyleKey = (grid: any, args: IgrCellStyleRequestedEventArgs) => {
         if (args.resolvedValue >= 0) {
             args.styleKey = "priceAmountUp";
         } else {
@@ -760,7 +732,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public onPriceAmountCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
+    public onPriceAmountCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
         let templ = args.cellInfo as IgrTemplateCellInfo;
         let priceShiftUp = templ.value >= 0;
 
@@ -837,11 +809,11 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public onChartStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
+    public onChartStyleKey = (grid: any, args: IgrCellStyleRequestedEventArgs) => {
         args.styleKey = "container";
     }
 
-    public onChartCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
+    public onChartCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
         if (args.isCanvasBased) {
             return;
         }
@@ -868,11 +840,11 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
 
     }
 
-    public onGridStyleKey(grid: any, args: IgrCellStyleRequestedEventArgs) {
+    public onGridStyleKey = (grid: any, args: IgrCellStyleRequestedEventArgs) => {
         args.styleKey = "grid";
     }
 
-    public onGridCellUpdating(grid: any, args: IgrTemplateCellUpdatingEventArgs) {
+    public onGridCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
         if (args.isCanvasBased) {
             return;
         }
@@ -897,20 +869,20 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public startTicking() {
+    public startTicking = () => {
         if (!this.isTimerTicking) {
             this.isTimerTicking = true;
             window.setTimeout(() => this.onTimerTick(), 16);
         }
     }
 
-    public stopTicking() {
+    public stopTicking = () => {
         if (this.isTimerTicking) {
             this.isTimerTicking = false;
         }
     }
 
-    public onLiveSomePricesClicked() {
+    public onLiveSomePricesClicked = () => {
         this.isUpdatingAllPrices = false;
         this.isUpdatingSomePrices = !this.isUpdatingSomePrices;
         if (this.isTimerTicking) {
@@ -930,7 +902,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public onLiveAllPricesClicked() {
+    public onLiveAllPricesClicked = () => {
         this.isUpdatingAllPrices = !this.isUpdatingAllPrices;
         this.isUpdatingSomePrices = false;
         if (this.isTimerTicking) {
@@ -950,7 +922,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public onChartClicked() {
+    public onChartClicked = () => {
         this.updatePricesByCountry();
             this.setState({
                 chartOpen: true
@@ -960,7 +932,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
     // onChange?: (event: React.ChangeEvent<{}>, value: number | number[]) => void;
     // public onPriceFrequencyChanged(event: any, value: number) {
     // public onPriceFrequencyChanged(event: any, value: number | number[]) {
-        public onPriceFrequencyChanged(event: any, input: any) {
+        public onPriceFrequencyChanged = (event: any, input: any) => {
     // public onPriceFrequencyChanged(event: React.ChangeEvent<{}>, value: number) {
         let value = parseFloat(input.toString());
         this.setState({
@@ -968,7 +940,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         });
     }
 
-    public onPriceVolumeChanged(event: any, input: any) {
+    public onPriceVolumeChanged = (event: any, input: any) => {
         let value = parseFloat(input.toString());
         this.setState({
             volume: value,
@@ -977,15 +949,15 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         this.grid.dataSource = this.state.data;
     }
 
-    public onGridCanvasModeChanged(event: any) {
+    public onGridCanvasModeChanged = (event: any) => {
         this.setState({ canvasChecked: event.target.checked });
     }
 
-    public onGridHeatModeChanged(event: any) {
+    public onGridHeatModeChanged = (event: any) => {
         this.setState({ heatChecked: event.target.checked });
     }
 
-    public onGridGroupingChanged(event: any) {
+    public onGridGroupingChanged = (event: any) => {
         this.setState({ groupingChecked: event.target.checked });
 
         if (event.target.checked) {
@@ -995,12 +967,12 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public onGridGroupingRemove() {
+    public onGridGroupingRemove = () => {
         this.grid.groupDescriptions.clear();
         this.grid.flush();
     }
 
-    public onGridGroupingAdd() {
+    public onGridGroupingAdd = () => {
         let g = new IgrColumnGroupDescription();
         g.field = "Category";
         g.sortDirection = ListSortDirection.Descending;
@@ -1017,7 +989,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         this.grid.groupDescriptions.add(g);
     }
 
-    public onPriceDataBound(sender: any, args: IgrDataBindingEventArgs) {
+    public onPriceDataBound = (sender: any, args: IgrDataBindingEventArgs) => {
             let item: any = args.cellInfo.rowItem;
             if (item === null) { return; }
 
@@ -1074,11 +1046,11 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
             }
     }
 
-    public onChartClose() {
+    public onChartClose = () => {
         this.setState({ chartOpen: false });
     }
 
-    public onChartRef(chart: IgrDataChart) {
+    public onChartRef = (chart: IgrDataChart) => {
         if (!chart) { return; }
 
         this.chart = chart;
@@ -1119,11 +1091,11 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public transition(props: any) {
+    public transition = (props: any) => {
         return <Slide direction="up" {...props} />;
     }
 
-    public onGridSearchChanged(event: any) {
+    public onGridSearchChanged = (event: any) => {
         let term = event.target.value;
 
         if (!this.grid) {
@@ -1146,7 +1118,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public onGridColumnHidden(event: any) {
+    public onGridColumnHidden = (event: any) => {
         let options = event.target.value;
         // console.log(event.target);
         let hidden = [];

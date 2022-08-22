@@ -7,7 +7,6 @@ import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
-import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
@@ -21,19 +20,13 @@ export default class DataGridBindingLocalData extends React.Component<any, any> 
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
         this.state = { componentVisible: true }
         this.initData();
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
-
-        const state = new IgrColumnGroupDescription();
-        state.field = "Status";
-        state.displayName = "Status";
         this.grid = grid;
-        this.grid.groupDescriptions.add(state);
     }
 
     public render(): JSX.Element {
@@ -63,7 +56,6 @@ export default class DataGridBindingLocalData extends React.Component<any, any> 
                     positivePrefix="$" showGroupingSeparator="true" />
                     <IgrTextColumn field="Status" headerText="Status" width="*>140"
                     horizontalAlignment="center"   />
-
                 </IgrDataGrid>
             </div>
         );
