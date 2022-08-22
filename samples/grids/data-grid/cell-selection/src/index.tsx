@@ -21,15 +21,11 @@ export default class DataGridCellSelection extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
-        // this.onClick = this.onClick.bind(this);
-        this.onSelectionModeChange = this.onSelectionModeChange.bind(this);
-
         this.state = { selectionMode: "MultipleRow" }
         this.data = DataGridSharedData.getEmployees();
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;
@@ -80,10 +76,6 @@ export default class DataGridCellSelection extends React.Component<any, any> {
         this.setState({ selectionMode: e.target.value });
         this.grid.selectionMode = e.target.value;
     }
-
-    // public onClick = (e: any) => {
-    //     this.grid.selectedItems.add(this.data.values[0]);
-    // }
 }
 
 // rendering above class to the React DOM

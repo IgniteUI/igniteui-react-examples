@@ -23,8 +23,7 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onLoad = this.onLoad.bind(this);
+      
         this.state = { componentVisible: true, isGroupCollapsible: true, summaryScope: "Root", groupSummaryDisplayMode: "RowBottom" }
         this.data = DataGridSharedData.getSales(50);
     }
@@ -85,7 +84,7 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
         this.grid.groupSummaryDisplayMode = e.target.value;
         this.setState( {groupSummaryDisplayMode: e.target.value} );
     }
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;
@@ -96,7 +95,7 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
         window.addEventListener('load', this.onLoad);
     }
 
-    public onLoad() {
+    public onLoad = () => {
         const productGroup = new IgrColumnGroupDescription();
         productGroup.field = "ProductName";
         productGroup.displayName = "ProductName";
@@ -170,7 +169,7 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
         this.grid.summaryDescriptions.add(countries);
     }
 
-    public onProvideCalculator(s: IgrColumnSummaryDescription, e: IgrProvideCalculatorEventArgs) {
+    public onProvideCalculator = (s: IgrColumnSummaryDescription, e: IgrProvideCalculatorEventArgs) => {
         e.calculator = new CustomDomestic();
     }
 }

@@ -21,20 +21,14 @@ export default class DataGridAccessibility extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
         this.state = { componentVisible: true }
         this.initData();
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
-        const state = new IgrColumnGroupDescription();
-        state.field = "Status";
-        state.displayName = "Status";
         this.grid = grid;
-        this.grid.useAccessibility = true;
-        this.grid.groupDescriptions.add(state);
     }
 
     public render(): JSX.Element {

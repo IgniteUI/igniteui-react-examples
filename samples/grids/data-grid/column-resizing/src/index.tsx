@@ -19,11 +19,6 @@ export default class GridColumnResizing extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onColumnResizingModeChange = this.onColumnResizingModeChange.bind(this);
-        this.onColumnResizingAnimationModeChange = this.onColumnResizingAnimationModeChange.bind(this);
-        this.onSeparatorWidthChanged = this.onSeparatorWidthChanged.bind(this);
-
         this.state = {
             columnSeparatorWidth: 1,
             columnResizingMode: "Deferred",
@@ -32,7 +27,7 @@ export default class GridColumnResizing extends React.Component<any, any> {
         this.data = DataGridSharedData.getEmployees();
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;
@@ -94,7 +89,7 @@ export default class GridColumnResizing extends React.Component<any, any> {
         this.grid.columnResizingAnimationMode = e.target.value;
     }
 
-    public onSeparatorWidthChanged(e: any) {
+    public onSeparatorWidthChanged = (e: any) => {
         this.grid.columnResizingSeparatorWidth = e.target.value;
         // this.setState({ columnSeparatorWidth: e.target.value });
     }

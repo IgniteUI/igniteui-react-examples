@@ -24,21 +24,18 @@ export default class DataGridColumnChooserPicker extends React.Component<any, an
   constructor(props: any) {
     super(props);
 
-    this.onGridRef = this.onGridRef.bind(this);
-    this.onColumnChoosingRef = this.onColumnChoosingRef.bind(this);
-
     this.state = { componentVisible: true };
     this.data = DataGridSharedData.getSales();
   }
 
-  public onGridRef(grid: IgrDataGrid) {
+  public onGridRef = (grid: IgrDataGrid) => {
     this.grid = grid;
     if (this.columnChooser) {
       this.columnChooser.targetGrid = this.grid;
     }
   }
 
-  public onColumnChoosingRef(columnChooser: IgrColumnChooser) {
+  public onColumnChoosingRef = (columnChooser: IgrColumnChooser) => {
     this.columnChooser = columnChooser;
     if (this.columnChooser) {
       this.columnChooser.targetGrid = this.grid;

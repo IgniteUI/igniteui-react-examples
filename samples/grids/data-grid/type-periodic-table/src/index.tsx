@@ -32,10 +32,6 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
     constructor(props: any) {
         super(props);
 
-        this.onVerticalHeaderUpdating = this.onVerticalHeaderUpdating.bind(this);
-        this.onElementCellUpdating = this.onElementCellUpdating.bind(this);
-        this.activeCellChanged = this.activeCellChanged.bind(this);
-
         this.createData();
 
         this.HeatScale = new HeatScale(0, 6000);
@@ -134,7 +130,7 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
         borderBottomWidth="0" />;
     }
 
-    public activeCellChanged (s: IgrDataGrid, e: IgrGridActiveCellChangedEventArgs) {
+    public activeCellChanged = (s: IgrDataGrid, e: IgrGridActiveCellChangedEventArgs) => {
         // console.log("activeCellChanged");
 
         const column = e.newActiveCell.columnUniqueKey.toString();
@@ -150,23 +146,23 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
         }
     }
 
-    public selectedCellRangesChanged (s: IgrDataGrid, e: IgrGridSelectedCellRangesChangedEventArgs) {
+    public selectedCellRangesChanged = (s: IgrDataGrid, e: IgrGridSelectedCellRangesChangedEventArgs) => {
         // console.log("selectedCellRangesChanged");
     }
 
-    public selectedItemsChanged (s: IgrDataGrid, e: IgrGridSelectedItemsChangedEventArgs) {
+    public selectedItemsChanged = (s: IgrDataGrid, e: IgrGridSelectedItemsChangedEventArgs) => {
         // console.log("selectedItemsChanged");
     }
 
-    public selectedKeysChanged (s: IgrDataGrid, e: IgrGridSelectedKeysChangedEventArgs) {
+    public selectedKeysChanged = (s: IgrDataGrid, e: IgrGridSelectedKeysChangedEventArgs) => {
         // console.log("selectedKeysChanged");
     }
 
-    public selectedCellsChanged (s: IgrDataGrid, e: IgrGridSelectedCellsChangedEventArgs) {
+    public selectedCellsChanged = (s: IgrDataGrid, e: IgrGridSelectedCellsChangedEventArgs) => {
         // console.log("selectedCellsChanged");
     }
 
-    public onVerticalHeaderUpdating(s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs) {
+    public onVerticalHeaderUpdating = (s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         let label: HTMLSpanElement | null = null;
         if (content.childElementCount === 0) {
@@ -188,7 +184,7 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
         label.textContent = info.value;
     }
 
-    public onHorizontalHeaderUpdating(s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs, align: string) {
+    public onHorizontalHeaderUpdating = (s: IgrTemplateHeader, e: IgrTemplateHeaderCellUpdatingEventArgs, align: string) => {
         const content = e.content as HTMLDivElement;
         let label: HTMLSpanElement | null = null;
         if (content.childElementCount === 0) {
@@ -211,7 +207,7 @@ export default class DataGridTypePeriodicTable extends React.Component<any, any>
         label.textContent = info.value;
     }
 
-    public onElementCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
+    public onElementCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         const info = e.cellInfo as IgrTemplateCellInfo;
         let cell: HTMLDivElement | null = null;

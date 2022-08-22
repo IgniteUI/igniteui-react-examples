@@ -19,11 +19,6 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onGridRef = this.onGridRef.bind(this);
-        this.onColumnMovingModeChange = this.onColumnMovingModeChange.bind(this);
-        this.onColumnMovingAnimationModeChange = this.onColumnMovingAnimationModeChange.bind(this);
-        this.onSeparatorWidthChanged = this.onSeparatorWidthChanged.bind(this);
-
         this.state = {
             columnSeparatorWidth: 1,
             columnMovingMode: "Deferred",
@@ -32,7 +27,7 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
         this.data = DataGridSharedData.getEmployees();
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;
@@ -93,7 +88,7 @@ export default class DataGridColumnMoving extends React.Component<any, any> {
         this.grid.columnMovingAnimationMode = e.target.value;
     }
 
-    public onSeparatorWidthChanged(e: any) {
+    public onSeparatorWidthChanged = (e: any) => {
         this.grid.columnMovingSeparatorWidth = e.target.value;
     }
 }

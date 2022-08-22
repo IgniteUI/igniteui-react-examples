@@ -35,11 +35,6 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.onAddressCellUpdating = this.onAddressCellUpdating.bind(this);
-        this.onSalesCellUpdating = this.onSalesCellUpdating.bind(this);
-        this.onEmailCellUpdating = this.onEmailCellUpdating.bind(this);
-        this.onCellValueChanging = this.onCellValueChanging.bind(this);
-
         this.data = DataGridSharedData.getEmployees(100);
         this.cityList = [];
 
@@ -50,8 +45,6 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
                 this.cityList.push(employee);
             }
         });
-
-        this.onGridRef = this.onGridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -105,7 +98,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         );
     }
 
-    public onGridRef(grid: IgrDataGrid) {
+    public onGridRef = (grid: IgrDataGrid) => {
         if (!grid) { return; }
 
         this.grid = grid;
@@ -130,7 +123,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
     //     );
     // }
 
-    public onAddressCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
+    public onAddressCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         let span1: HTMLSpanElement | null = null;
         let span2: HTMLSpanElement | null = null;
@@ -165,7 +158,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         }
     }
 
-    public onSalesCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
+    public onSalesCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         const info = e.cellInfo as IgrTemplateCellInfo;
         const sales = info.rowItem.Sales;
@@ -237,7 +230,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         gaugeBar.style.width = gaugeWidth + "%";
     }
 
-    public onEmailCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
+    public onEmailCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
         const info = e.cellInfo as IgrTemplateCellInfo;
         const item = info.rowItem;
@@ -264,7 +257,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         link.textContent = item.Email;
     }
 
-    public onPhoneCellUpdating(s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) {
+    public onPhoneCellUpdating = (s: IgrTemplateColumn, e: IgrTemplateCellUpdatingEventArgs) => {
         const content = e.content as HTMLDivElement;
 
         const info = e.cellInfo as IgrTemplateCellInfo;
@@ -294,7 +287,7 @@ export default class DataGridColumnTypes extends React.Component<any, any> {
         link.textContent = item.Phone;
     }
 
-    public onCellValueChanging(s: IgrDataGrid, e: IgrGridCellValueChangingEventArgs) {
+    public onCellValueChanging = (s: IgrDataGrid, e: IgrGridCellValueChangingEventArgs) => {
 
         let row = e.cellInfo.rowItem;
         if (e.column.field === "City")
