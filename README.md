@@ -73,7 +73,7 @@ At this point, you should see a website hosted example of [Ignite UI for React](
 ## Running All Samples
 
 - open VS Code as Administrator
-- open the folder that contains this repository, e.g. `C:\GitHub\igniteui-react-examples\`
+- open the browser folder in this repository, e.g. `C:\GitHub\igniteui-react-examples\browser`
 - select **View** - **Terminal** menu item
 
 - type `npm install` command in terminal window
