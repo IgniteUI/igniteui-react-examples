@@ -85,8 +85,8 @@ export default class MapDisplayImageryHeatTiles extends React.Component {
         gen.useGlobalMinMax = true;
         gen.useGlobalMinMaxAdjustedForZoom = true;
         gen.useLogarithmicScale = true;
-        gen.useWebWorkers = true;
-        gen.webWorkerInstance = new Worker();
+        gen.useWebWorkers = false;
+        // gen.webWorkerInstance = new Worker();
         gen.scaleColors = [
             "rgba(0, 0, 255, .251)", "rgba(0, 255, 255, .3765)",
             "rgba(50,205,50, .2675)", "rgba(255, 255, 0, .7059)",
