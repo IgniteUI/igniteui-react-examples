@@ -50,7 +50,7 @@
     "react-loadable": "5.5.0",
     "react-router": "4.3.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.1",
     "react-transition-group": "4.4.2"
   },
   "devDependencies": {
@@ -86,7 +86,7 @@
     "path": "^0.12.7",
     "prettier": "^2.0.5",
     "react-app-rewired": "^2.2.1",
-    "react-dev-utils": "11.0.4",
+    "react-dev-utils": "12.0.1",
     "remark": "^12.0.0",
     "remark-frontmatter": "^2.0.0",
     "run-sequence": "^2.2.1",
