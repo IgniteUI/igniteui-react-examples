@@ -70,7 +70,7 @@ export class MapUtils {
     }
 
     public static getBingKey(): string {
-        return "Aj2inbXEmvSbAbbVUKH1-DWlUeWIGjFTY3K2K8d1lqE5mEwI3_1oFX2U2tqONiHF";
+        return "Avlo7qsH1zZZI0XNpTwZ4XwvUJmCbd-mczMeUXVAW9kYYOKdmBIVRe8aoO02Xctq";
     }
 
     public static getRegions(): any {
