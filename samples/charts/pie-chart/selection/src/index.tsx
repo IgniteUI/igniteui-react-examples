@@ -47,6 +47,7 @@ export default class PieChartSelection extends React.Component<any, any> {
                             ref={this.onPieRef}
                             labelMemberPath="Summary"
                             valueMemberPath="MarketShare"
+                            legendLabelMemberPath="Company"
                             width="100%"
                             height="calc(100% - 45px)"
                             selectionMode="multiple"
@@ -56,7 +57,6 @@ export default class PieChartSelection extends React.Component<any, any> {
                             selectedSliceStrokeThickness= "2"
                             labelsPosition="OutsideEnd"
                             labelExtent="30"
-                            legendLabelMemberPath="Summary"
                             radiusFactor={0.7}
                             selectedItem="1"
                             startAngle={-60}
