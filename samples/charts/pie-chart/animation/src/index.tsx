@@ -18,11 +18,11 @@ export default class PieChartAnimation extends React.Component<any, any> {
 
         this.state = {
             data: [
-                { MarketShare: 37, Category: "Cooling" },
-                { MarketShare: 25, Category: "Residential" },
-                { MarketShare: 12, Category: "Heating" },
-                { MarketShare: 11, Category: "Lighting" },
-                { MarketShare: 15, Category: "Other" }
+                { MarketShare: 37, Category: "Cooling"     , Summary: "Cooling 37%" },
+                { MarketShare: 25, Category: "Residential" , Summary: "Cooling 25%" },
+                { MarketShare: 12, Category: "Heating"     , Summary: "Cooling 12%" },
+                { MarketShare: 11, Category: "Lighting"    , Summary: "Cooling 11%" },
+                { MarketShare: 15, Category: "Other"       , Summary: "Cooling 15%" }
             ]
         };
 
@@ -44,7 +44,8 @@ export default class PieChartAnimation extends React.Component<any, any> {
                         height="100%"
                         ref={this.onPieRef}
                         dataSource={this.state.data}
-                        labelMemberPath="Category"
+                        labelMemberPath="Summary"
+                        legendLabelMemberPath="Category"
                         valueMemberPath="MarketShare"
                         labelsPosition="InsideEnd"
                         startAngle={0}
