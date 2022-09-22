@@ -64,6 +64,7 @@ export default class PieChartExplosion extends React.Component<any, any> {
                     ref={this.onChartRef}
                     labelMemberPath="Summary"
                     valueMemberPath="MarketShare"
+                    legendLabelMemberPath="Company"
                     width="100%"
                     height="100%"
                     labelsPosition="OutsideEnd"
@@ -72,7 +73,6 @@ export default class PieChartExplosion extends React.Component<any, any> {
                     explodedSlices="1"
                     allowSliceExplosion="true"
                     radiusFactor={0.7}
-                    legendLabelMemberPath="Summary"
                     sliceClick={this.onSliceClick}
                     startAngle ={-60}/>
             </div>
