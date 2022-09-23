@@ -39,7 +39,7 @@ export default class ExpansionPanelPropertiesAndEvents extends React.Component<a
 
         this.setState({ subtitleClass: "", eventSpanClass: "eventSpanShown", eventSpanText: "Closed event fired!"});
 
-        window.clearTimeout();
+        window.clearTimeout(undefined);
 
         window.setTimeout(() => {
             this.setState({eventSpanClass: "eventSpanHidden"});
@@ -49,7 +49,7 @@ export default class ExpansionPanelPropertiesAndEvents extends React.Component<a
     public onExpansionPanelOpened() {
         this.setState({ subtitleClass: "subtitleHidden", eventSpanClass: "eventSpanShown", eventSpanText: "Opened event fired!"});
 
-        window.clearTimeout();
+        window.clearTimeout(undefined);
 
         window.setTimeout(() => {
             this.setState({eventSpanClass: "eventSpanHidden"});
