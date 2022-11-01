@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import WorldUtils from "./WorldUtils"
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
@@ -112,4 +112,5 @@ export default class MapBindingShapefilePolygons extends React.Component<any, an
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<MapBindingShapefilePolygons />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MapBindingShapefilePolygons/>);

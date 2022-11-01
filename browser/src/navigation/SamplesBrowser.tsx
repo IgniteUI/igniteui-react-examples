@@ -1,9 +1,7 @@
 /* eslint-disable no-undef */
 
 import * as React from "react";
-import { Route, Switch } from "react-router-dom"
-import { withRouter } from 'react-router-dom';
-
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './Scrollbars.css';
 import './SamplesBrowser.css';
 import { SamplesRouter } from './SamplesRouter';
@@ -210,16 +208,18 @@ export class SamplesBrowser extends React.Component<any, any>
                                     <div className="sbToolbarVersion">v{this.igrVersion}</div>
                                 </div>
                                 {/* <React.Suspense fallback={<span>Loading...</span>}> */}
+                                <Router>
                                 <React.Suspense fallback={<SamplesLoading/>}>
                                 <div className="sbSwitch" style={sbSwitchStyle}>
-                                    <Switch >
+                                    <Routes >
                                         {/* <Route exact={false} path="/samples/charts" key="charts" component={ChartsRouter}/> */}
                                         {/* <Route exact={false} path="/charts" key="charts" component={ChartsRouter}/> */}
-                                        <Route exact={true} path="/"  >
+
+                                        <Route path="/"  >
                                             <div/>
                                             {/* style={{paddingLeft: "1rem"}}>Please select a sample</h3> */}
                                         </Route>
-                                        <Route exact={true} path="/samples">
+                                        <Route path="/samples">
                                             <h3 style={{marginLeft: "1rem"}}>Please select a sample</h3>
                                             {/* <SamplesLoading/> */}
                                         </Route>
@@ -227,15 +227,14 @@ export class SamplesBrowser extends React.Component<any, any>
                                         {this.navRoutes}
 
                                         {/* routing fallback displayed when a sample is missing */}
-                                        <Route exact={false} >
+                                        <Route>
                                             <SamplesFallback />
                                         </Route>
-                                    </Switch>
+                                    </Routes>
                                 </div>
                                 </React.Suspense>
-
+                                </Router>
                             </div>
-
                         </div>
                     );
         //         }}
@@ -275,4 +274,4 @@ export class SamplesBrowser extends React.Component<any, any>
     };
 }
 
-export default withRouter(SamplesBrowser);
+export default SamplesBrowser

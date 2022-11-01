@@ -226,8 +226,17 @@ function copySamples(cb) {
         ])
         .pipe(es.map(function(file, fileCallback) {
             let code = file.contents.toString();
+
+            code = code.replace("const root = ReactDOM.createRoot(document.getElementById('root'));", "");
+            code = code.replace("root.render(<" + sample.SampleImportName + "/>);", "");
+            code = code.replace(/root.render(.*(?<![^a-z]))((?![^a-z]).*)/g, "");
+            code = code.replace("root.render(<Sample/>);", "");
             code = code.replace("import ReactDOM from 'react-dom';","");
             code = code.replace('import ReactDOM from "react-dom";',"");
+            code = code.replace("import ReactDOM from 'react-dom/*';","");
+            code = code.replace('import ReactDOM from "react-dom/*";',"");
+            code = code.replace("import ReactDOM from 'react-dom/client';", "");
+            code = code.replace('import ReactDOM from "react-dom/client";', "");
             code = code.replace("// rendering above class to the React DOM","");
             code = code.replace(/ReactDOM.*/g,"");
             code = code.replace("import './index.css';","");

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
 
 import SamplesBrowser from "./navigation/SamplesBrowser";
@@ -20,12 +20,8 @@ import './index.css'; // styles shared between all samples
    // );
 //  });
 
-ReactDOM.render(
-   <BrowserRouter basename={'/react-demos'}>
-      <SamplesBrowser />
-  </BrowserRouter>,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<SamplesBrowser/> );
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { LegendOverlay, LegendItem } from "./LegendOverlay"
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
@@ -128,4 +128,5 @@ export default class MapTypeScatterPolylineSeries extends React.Component {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<MapTypeScatterPolylineSeries />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MapTypeScatterPolylineSeries/>);

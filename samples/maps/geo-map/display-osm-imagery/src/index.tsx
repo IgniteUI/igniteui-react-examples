@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 // for handling of maps events
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
@@ -61,4 +61,5 @@ export default class MapDisplayImageryOSM extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<MapDisplayImageryOSM />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MapDisplayImageryOSM/>);

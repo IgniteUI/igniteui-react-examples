@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
 import { IgrExcelCoreModule } from 'igniteui-react-excel';
@@ -57,4 +57,5 @@ export default class SpreadsheetOverview extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<SpreadsheetOverview />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<SpreadsheetOverview/>);

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import "./DataGridStyles.css";
 import { DataGridSharedData } from './DataGridSharedData';
@@ -18,7 +18,7 @@ import { IgrTemplateCellInfo } from 'igniteui-react-grids';
 import { IIgrCellTemplateProps } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { IgrColumnSummaryDescription } from 'igniteui-react-grids'
-import { SummaryOperand } from 'igniteui-react-core';
+import { DataSourceSummaryOperand } from 'igniteui-react-core';
 import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
 
@@ -139,18 +139,18 @@ export default class DataGridOverview extends React.Component<any, any> {
 
         const peopleCount = new IgrColumnSummaryDescription();
         peopleCount.field = "Photo";
-        peopleCount.operand = SummaryOperand.Count;
+        peopleCount.operand = DataSourceSummaryOperand.Count;
         this.grid.summaryDescriptions.add(peopleCount);
 
         const sales = new IgrColumnSummaryDescription();
         sales.field = "Sales";
-        sales.operand = SummaryOperand.Max;
+        sales.operand = DataSourceSummaryOperand.Max;
         sales.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(sales);
 
         const salary = new IgrColumnSummaryDescription();
         salary.field = "Salary";
-        salary.operand = SummaryOperand.Average;
+        salary.operand = DataSourceSummaryOperand.Average;
         salary.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(salary);
     }
@@ -339,4 +339,5 @@ export default class DataGridOverview extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataGridOverview />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataGridOverview/>);

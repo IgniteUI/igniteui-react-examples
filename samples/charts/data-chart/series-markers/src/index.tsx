@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 // data chart's elements for category series:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
@@ -97,4 +97,5 @@ export default class DataChartSeriesMarkers extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataChartSeriesMarkers />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataChartSeriesMarkers/>);

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart } from 'igniteui-react-charts';
@@ -167,4 +167,5 @@ export default class DataChartAxisAnnotations extends React.Component<any, any> 
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataChartAxisAnnotations />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataChartAxisAnnotations/>);

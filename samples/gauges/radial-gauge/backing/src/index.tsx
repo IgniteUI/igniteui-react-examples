@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrRadialGauge } from 'igniteui-react-gauges';
 import { IgrRadialGaugeModule } from 'igniteui-react-gauges';
@@ -41,4 +41,5 @@ export default class RadialGaugeBacking extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<RadialGaugeBacking />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<RadialGaugeBacking/>);
