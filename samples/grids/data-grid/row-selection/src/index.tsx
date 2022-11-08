@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css'; // styles shared between all samples
 
 import { DataGridSharedData } from './DataGridSharedData';
@@ -71,4 +71,4 @@ export default class DataGridRowSelection extends React.Component<any, any> {
     }
 }
 
-ReactDOM.render(<DataGridRowSelection />, document.getElementById('root'));
+root.render(<DataGridRowSelection/>);

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
@@ -138,4 +138,5 @@ export default class DataGridPager extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataGridPager />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataGridPager/>);

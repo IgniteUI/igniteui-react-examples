@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { SweepDirection } from 'igniteui-react-core';
 import { IgrRadialGauge } from 'igniteui-react-gauges';
@@ -343,4 +343,5 @@ export default class RadialGaugeAnimation extends React.Component {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<RadialGaugeAnimation />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<RadialGaugeAnimation/>);

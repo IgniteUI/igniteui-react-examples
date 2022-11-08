@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import WorldUtils from "./WorldUtils"
 import { IgrGeographicMapModule } from 'igniteui-react-maps';
@@ -178,4 +178,5 @@ export default class MapBindingDataModel extends React.Component {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<MapBindingDataModel />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MapBindingDataModel/>);

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrFinancialEventArgs } from 'igniteui-react-charts';
 import { IgrFinancialChartCustomIndicatorArgs } from 'igniteui-react-charts';
@@ -94,4 +94,5 @@ export default class FinancialChartIndicatorCustom extends React.Component {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<FinancialChartIndicatorCustom />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<FinancialChartIndicatorCustom/>);

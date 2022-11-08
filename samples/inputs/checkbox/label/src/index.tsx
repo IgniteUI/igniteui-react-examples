@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import './CheckboxLabelStyles.css'
 import { IgrCheckbox, IgrCheckboxModule } from 'igniteui-react';
@@ -26,4 +26,5 @@ export default class CheckboxLabel extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<CheckboxLabel />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<CheckboxLabel/>);

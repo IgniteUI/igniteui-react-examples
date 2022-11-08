@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 // importing axis' modules:
 import { AxisLabelsLocation, IgrNumericYAxis } from 'igniteui-react-charts';
@@ -67,4 +67,5 @@ export default class DataChartCrosshairLayerStyling extends React.Component<any,
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataChartCrosshairLayerStyling />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataChartCrosshairLayerStyling/>);

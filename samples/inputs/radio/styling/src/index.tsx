@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { IgrRadio, IgrRadioGroup, IgrRadioModule, IgrRadioGroupModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './index.css';
@@ -30,4 +30,5 @@ export default class RadioStyling extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<RadioStyling />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<RadioStyling/>);

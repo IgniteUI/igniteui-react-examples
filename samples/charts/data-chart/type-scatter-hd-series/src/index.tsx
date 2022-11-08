@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 // types of axis:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
@@ -81,4 +81,5 @@ export default class DataChartTypeScatterDensitySeries extends React.Component<a
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataChartTypeScatterDensitySeries />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataChartTypeScatterDensitySeries/>);

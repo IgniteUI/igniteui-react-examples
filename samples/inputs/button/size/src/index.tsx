@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import './ButtonSizingStyle.css';
 import { IgrButton, IgrRadio, IgrRadioGroup, IgrButtonModule, IgrRadioModule, IgrRadioGroupModule } from 'igniteui-react';
@@ -74,4 +74,5 @@ export default class ButtonSize extends React.Component<any, any> {
 
 
 // rendering above class to the React DOM
-ReactDOM.render(<ButtonSize />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<ButtonSize/>);

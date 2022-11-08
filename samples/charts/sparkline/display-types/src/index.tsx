@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
@@ -84,4 +84,5 @@ export default class SparklineDisplayTypes extends React.Component {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<SparklineDisplayTypes />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<SparklineDisplayTypes/>);

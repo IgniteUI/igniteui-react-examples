@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { MapUtils, MapRegion } from './MapUtils';
 // for handling of maps events
@@ -240,4 +240,5 @@ export default class MapNavigation extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<MapNavigation />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MapNavigation/>);

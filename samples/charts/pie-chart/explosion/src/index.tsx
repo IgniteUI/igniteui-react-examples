@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrItemLegend } from 'igniteui-react-charts';
 import { IgrItemLegendModule } from 'igniteui-react-charts';
@@ -87,4 +87,5 @@ export default class PieChartExplosion extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<PieChartExplosion />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<PieChartExplosion/>);

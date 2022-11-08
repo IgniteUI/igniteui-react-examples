@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import WorldUtils from "./WorldUtils"
 import { LegendOverlay, LegendItem } from "./LegendOverlay"
@@ -142,4 +142,5 @@ export default class MapTypeScatterPolygonSeries extends React.Component {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<MapTypeScatterPolygonSeries />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MapTypeScatterPolygonSeries/>);

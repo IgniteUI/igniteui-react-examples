@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import './DataGridBindingLiveData.css';
 import { LiveFinancialData } from './LiveFinancialData';
@@ -1150,4 +1150,5 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
 
 }
 // rendering above class to the React DOM
-ReactDOM.render(<DataGridBindingLiveData />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataGridBindingLiveData/>);

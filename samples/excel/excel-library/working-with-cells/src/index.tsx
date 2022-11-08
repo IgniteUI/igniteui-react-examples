@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { ExcelUtility } from './ExcelUtility';
 // import { ExcelSharedData } from './ExcelSharedData';
@@ -234,4 +234,5 @@ export default class ExcelLibraryWorkingWithCells extends React.Component<any, a
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<ExcelLibraryWorkingWithCells />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<ExcelLibraryWorkingWithCells/>);

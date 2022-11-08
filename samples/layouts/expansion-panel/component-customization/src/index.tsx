@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import './ExpansionPanelCustomization.css';
 import { IgrExpansionPanel, IgrButton, IgrButtonModule, IgrExpansionPanelModule } from 'igniteui-react';
@@ -48,4 +48,5 @@ export default class ExpansionPanelComponentCustomization extends React.Componen
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<ExpansionPanelComponentCustomization/>, document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<ExpansionPanelComponentCustomization/>);

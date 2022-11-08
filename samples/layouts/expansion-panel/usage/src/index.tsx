@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import './ExpansionPanelUsage.css';
 import { IgrExpansionPanel, IgrExpansionPanelModule } from 'igniteui-react';
@@ -30,4 +30,5 @@ export default class ExpansionPanelUsage extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<ExpansionPanelUsage/>, document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<ExpansionPanelUsage/>);

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
@@ -74,4 +74,5 @@ export default class Sample extends React.Component<any, any> {
 
 
 // rendering above component in the React DOM
-ReactDOM.render(<Sample />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Sample/>);

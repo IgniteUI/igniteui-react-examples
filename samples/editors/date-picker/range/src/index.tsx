@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import "./date-picker-range.css";
 import { IgrDatePicker, IgrDatePickerModule, IgrSelectedValueChangedEventArgs } from 'igniteui-react-inputs';
@@ -64,4 +64,5 @@ export default class DatePickerRange extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DatePickerRange />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DatePickerRange/>);

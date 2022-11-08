@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Workbook } from 'igniteui-react-excel';
 import { WorkbookFormat } from 'igniteui-react-excel';
@@ -171,4 +171,5 @@ export default class ExcelLibraryWorkingWithCharts extends React.Component<any, 
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<ExcelLibraryWorkingWithCharts />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<ExcelLibraryWorkingWithCharts/>);

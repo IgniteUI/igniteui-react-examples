@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGridModule } from 'igniteui-react-grids';
@@ -96,4 +96,5 @@ export default class DataGridColumnFilterOperands extends React.Component<any, a
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataGridColumnFilterOperands />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataGridColumnFilterOperands/>);

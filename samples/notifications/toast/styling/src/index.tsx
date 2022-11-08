@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import './ToastStyling.css';
 import { IgrButton, IgrToast, IgrButtonModule, IgrToastModule } from 'igniteui-react';
@@ -45,4 +45,5 @@ export default class ToastStyling extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<ToastStyling/>, document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<ToastStyling/>);

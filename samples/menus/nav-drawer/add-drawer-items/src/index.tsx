@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrNavDrawer, IgrNavDrawerHeaderItem, IgrNavDrawerItem, IgrIcon, IgrNavDrawerModule, IgrIconModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -64,4 +64,5 @@ export default class NavDrawerAddDrawerItems extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<NavDrawerAddDrawerItems/>, document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NavDrawerAddDrawerItems/>);

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 // axis modules:
 import { IgrCategoryAngleAxis } from 'igniteui-react-charts';
@@ -190,4 +190,5 @@ export default class DataChartTypeRadialSeries extends React.Component<any, any>
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataChartTypeRadialSeries />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataChartTypeRadialSeries/>);

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { PeriodicElements } from './PeriodicElements';
 import { IgrDataGridModule } from 'igniteui-react-grids';
@@ -416,4 +416,5 @@ class HeatScale {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataGridTypePeriodicTable />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataGridTypePeriodicTable/>);

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGridModule } from 'igniteui-react-grids';
@@ -10,7 +10,7 @@ import { IgrProvideCalculatorEventArgs } from 'igniteui-react-core';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
-import { SummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult } from 'igniteui-react-core';
+import { DataSourceSummaryOperand, SummaryCalculator, DefaultSummaryResult, IDataSource, ISummaryResult } from 'igniteui-react-core';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 
 IgrDataGridModule.register();
@@ -103,67 +103,67 @@ export default class DataGridColumnSummaries extends React.Component<any, any> {
 
         const productCount = new IgrColumnSummaryDescription();
         productCount.field = "ProductName";
-        productCount.operand = SummaryOperand.Count;
+        productCount.operand = DataSourceSummaryOperand.Count;
         this.grid.summaryDescriptions.add(productCount);
 
         const priceMin = new IgrColumnSummaryDescription();
         priceMin.field = "BundlePrice";
-        priceMin.operand = SummaryOperand.Min;
+        priceMin.operand = DataSourceSummaryOperand.Min;
         priceMin.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMin);
 
         const priceMax = new IgrColumnSummaryDescription();
         priceMax.field = "BundlePrice";
-        priceMax.operand = SummaryOperand.Max;
+        priceMax.operand = DataSourceSummaryOperand.Max;
         priceMax.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMax);
 
         const orderSum = new IgrColumnSummaryDescription();
         orderSum.field = "OrderItems";
-        orderSum.operand = SummaryOperand.Sum;
+        orderSum.operand = DataSourceSummaryOperand.Sum;
         this.grid.summaryDescriptions.add(orderSum);
 
         const orderValueSum = new IgrColumnSummaryDescription();
         orderValueSum.field = "OrderValue";
-        orderValueSum.operand = SummaryOperand.Sum;
+        orderValueSum.operand = DataSourceSummaryOperand.Sum;
         orderValueSum.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0});
         this.grid.summaryDescriptions.add(orderValueSum);
 
         const orderValueAvg = new IgrColumnSummaryDescription();
         orderValueAvg.field = "OrderValue";
-        orderValueAvg.operand = SummaryOperand.Average;
+        orderValueAvg.operand = DataSourceSummaryOperand.Average;
         orderValueAvg.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(orderValueAvg);
 
         const orderDateMin = new IgrColumnSummaryDescription();
         orderDateMin.field = "OrderDate";
-        orderDateMin.operand = SummaryOperand.Min;
+        orderDateMin.operand = DataSourceSummaryOperand.Min;
         orderDateMin.calculatorDisplayName = "First"
         orderDateMin.formatOverride = new Intl.DateTimeFormat('en-EN');
         this.grid.summaryDescriptions.add(orderDateMin);
 
         const orderDateMax = new IgrColumnSummaryDescription();
         orderDateMax.field = "OrderDate";
-        orderDateMax.operand = SummaryOperand.Max;
+        orderDateMax.operand = DataSourceSummaryOperand.Max;
         orderDateMax.calculatorDisplayName = "Last"
         orderDateMax.formatOverride = new Intl.DateTimeFormat('en-EN');
         this.grid.summaryDescriptions.add(orderDateMax);
 
         const sum1 = new IgrColumnSummaryDescription();
         sum1.field = "Profit";
-        sum1.operand = SummaryOperand.Sum;
+        sum1.operand = DataSourceSummaryOperand.Sum;
         sum1.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(sum1);
 
         const avg2 = new IgrColumnSummaryDescription();
         avg2.field = "Profit";
-        avg2.operand = SummaryOperand.Average;
+        avg2.operand = DataSourceSummaryOperand.Average;
         avg2.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(avg2);
 
         const countries = new IgrColumnSummaryDescription();
         countries.field = "Countries";
-        countries.operand = SummaryOperand.Custom;
+        countries.operand = DataSourceSummaryOperand.Custom;
         countries.provideCalculator = this.onProvideCalculator;
         // countries.calculator = new CustomDomestic();
         this.grid.summaryDescriptions.add(countries);
@@ -187,7 +187,7 @@ class CustomDomestic extends SummaryCalculator
         this.usCountries = 0;
     }
     public endCalculation(): ISummaryResult {
-       return new DefaultSummaryResult(this.propertyName, SummaryOperand.Custom, this.usCountries)
+       return new DefaultSummaryResult(this.propertyName, DataSourceSummaryOperand.Custom, this.usCountries)
     }
     public aggregate(a: any): void {
        if(a.Countries === "USA")
@@ -198,4 +198,6 @@ class CustomDomestic extends SummaryCalculator
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataGridColumnSummaries />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataGridColumnSummaries/>);
+
