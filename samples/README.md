@@ -3,9 +3,9 @@
     <img style="border-radius: 0.25rem" alt="ignite-ui" src="https://raw.githubusercontent.com/IgniteUI/igniteui-xplat-docs/vnext/doc/en/images/readme/ig-banner.png"/>>
 </div>
 
-# Individual Examples of React Components
+# Individual Samples of React Components
 
-This folder contains over 240 individual examples on how to use [Ignite UI for React](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) components:
+In this folder, you will find individual *samples** on how to use [Ignite UI for React](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) components:
 
 - Charts:
 [Area](https://www.infragistics.com/products/ignite-ui-react/react/components/charts/types/area-chart),
