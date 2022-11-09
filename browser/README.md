@@ -3,9 +3,9 @@
     <img style="border-radius: 0.25rem" alt="ignite-ui" src="https://raw.githubusercontent.com/IgniteUI/igniteui-xplat-docs/vnext/doc/en/images/readme/ig-banner.png"/>>
 </div>
 
-# Examples of Ignite UI for React Components
+# Browser App for React Components
 
-This repository contains over 240 examples on how to use [Ignite UI for React](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) components:
+This folder contains source code for a React app that combines examples implemented in the `samples` folder and it allows you to browser [Ignite UI for React](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) components in a single website such as:
 
 - Charts:
 [Area](https://www.infragistics.com/products/ignite-ui-react/react/components/charts/types/area-chart),
@@ -38,40 +38,11 @@ This repository contains over 240 examples on how to use [Ignite UI for React](h
 [Date Picker](https://www.infragistics.com/products/ignite-ui-react/react/components/editors/date-picker),
 [Multi-Column Combobox](https://www.infragistics.com/products/ignite-ui-react/react/components/editors/multi-column-combobox)
 
-## Preview
-
-You can preview and browse all samples in this repository by opening our [React Samples Browser](https://www.infragistics.com/react-demos/samples/). Alternatively, you you can view these samples with detailed information in our [React Help Documentation](https://infragistics.com/reactsite/components/general-getting-started.html).
-
-In addition, you can run each sample project individually from the [./samples](./samples) folder or you can run from the [./browser](./browser) folder to browse all samples in one website (see instructions below). You can run each sample on Code Sandbox website by clicking on the **Edit Sandbox** button in a readme file of sample project, e.g.
-
-[./samples/charts/category-chart/overview/README.md](./samples/charts/category-chart/overview/README.md)
-
-
 ## Setup
 
-To set up this project locally, clone this repository:
-```
-git clone https://github.com/IgniteUI/igniteui-react-examples.git
-```
+- in VS Code, open the browser folder
+`C:\GitHub\igniteui-react-examples\browser`
 
-## Running Individual Sample
-
-- in VS Code, open a folder with existing sample, e.g.
-```
-./samples/charts/category-chart/axis-options/
-```
-- type `npm install` command in terminal window
-- type `npm run start` command in terminal window
-
-- Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser.
-
-At this point, you should see a website hosted example of [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) component
-
-
-## Running All Samples
-
-- open VS Code as Administrator
-- open the browser folder in this repository, e.g. `C:\GitHub\igniteui-react-examples\browser`
 - select **View** - **Terminal** menu item
 
 - type `npm install` command in terminal window
@@ -84,76 +55,7 @@ Note this application copies all individually sample projects from [./samples](.
 
 Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser. You should see a website with navigation menu for browning all samples in this repository.
 
-![SB Preview](./browser/public/images/preview.PNG)
-
-
-## Adding New Sample
-
-- create a new branch from the `vnext` branch
-
-- open a folder with existing sample, e.g.
-```
-./samples/charts/category-chart/axis-options/
-```
-- copy the sample and rename the new folder, e.g.
-```
-./samples/charts/category-chart/axis-types/
-```
-- open the newly created folder in VS Code
-
-- rename the .tsx file in src folder, using this naming convention:
-
-`ControlNameSampleName.tsx`
-
-```
-./samples/charts/category-chart/axis-types/src/CategoryChartAxisTypes.tsx
-```
-
-- open the .tsx file
-
-- rename class to the name of .tsx file
-
-- type `npm install` command in terminal window
-
-- type `npm run start` command in terminal window
-
-- implement the new sample in the .tsx file
-
-- close the new sample project in VS Code
-
-- delete `node_modules` folder in the new sample project
-
-- follow instructions in the next section
-
-## Verify New Sample
-
-- open the root folder of this repository in VS Code
-
-- type `gulp updateSamples` command in terminal window
-
-NOTE this will re-generate the Readme.md file in the new sample
-
-- type `npm run start` command in terminal window
-
-- open [http://localhost:4200](http://localhost:4200) in your browser
-
-- verify that the new sample is listed in the navigation menu
-
-- verify that the new sample loads by clicking navigation link
-
-- verify that there are no errors in DEV console
-
-- take a screenshot of the new sample with navigation menu
-
-- commit your changes
-
-- create a pull request and target the `vnext` branch
-
-- paste the screenshot in you pull request
-
-- submit your pull request
-
-
+![SB Preview](./public/images/preview.PNG)
 
 ## Learn More
 
