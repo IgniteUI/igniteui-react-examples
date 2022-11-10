@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrBubbleSeries, IgrSeriesViewer } from 'igniteui-react-charts';
 import { IgrAnnotationLayer } from 'igniteui-react-charts';
@@ -353,4 +353,5 @@ export default class ZoomSliderOverview extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<ZoomSliderOverview />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<ZoomSliderOverview/>);

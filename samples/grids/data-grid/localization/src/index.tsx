@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
@@ -9,7 +9,7 @@ import { IgrComboBoxColumn } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrDateTimeColumn } from 'igniteui-react-grids';
-import { SummaryOperand } from 'igniteui-react-core';
+import { DataSourceSummaryOperand } from 'igniteui-react-core';
 import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
 import { Localization } from 'igniteui-react-core';
 import { DataGridSharedData } from './DataGridSharedData';
@@ -120,47 +120,47 @@ export default class DataGridLocalization extends React.Component<any, any> {
         const productCount = new IgrColumnSummaryDescription();
         productCount.field = "ProductName";
         productCount.displayName = "商品名"
-        productCount.operand = SummaryOperand.Count;
+        productCount.operand = DataSourceSummaryOperand.Count;
         this.grid.summaryDescriptions.add(productCount);
 
         const priceMin = new IgrColumnSummaryDescription();
         priceMin.field = "BundlePrice";
         priceMin.displayName = "価格"
-        priceMin.operand = SummaryOperand.Min;
+        priceMin.operand = DataSourceSummaryOperand.Min;
         priceMin.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMin);
 
         const priceMax = new IgrColumnSummaryDescription();
         priceMax.field = "BundlePrice";
         priceMax.displayName = "価格";
-        priceMax.operand = SummaryOperand.Max;
+        priceMax.operand = DataSourceSummaryOperand.Max;
         priceMax.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(priceMax);
 
         const orderSum = new IgrColumnSummaryDescription();
         orderSum.field = "OrderItems";
         orderSum.displayName = "アイテムを注文する";
-        orderSum.operand = SummaryOperand.Sum;
+        orderSum.operand = DataSourceSummaryOperand.Sum;
         this.grid.summaryDescriptions.add(orderSum);
 
         const orderValueSum = new IgrColumnSummaryDescription();
         orderValueSum.field = "OrderValue";
         orderValueSum.displayName = "オーダー値";
-        orderValueSum.operand = SummaryOperand.Sum;
+        orderValueSum.operand = DataSourceSummaryOperand.Sum;
         orderValueSum.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0});
         this.grid.summaryDescriptions.add(orderValueSum);
 
         const orderValueAvg = new IgrColumnSummaryDescription();
         orderValueAvg.field = "OrderValue";
         orderValueAvg.displayName = "オーダー値";
-        orderValueAvg.operand = SummaryOperand.Average;
+        orderValueAvg.operand = DataSourceSummaryOperand.Average;
         orderValueAvg.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(orderValueAvg);
 
         const orderDateMin = new IgrColumnSummaryDescription();
         orderDateMin.field = "OrderDate";
         orderDateMin.displayName = "注文日";
-        orderDateMin.operand = SummaryOperand.Min;
+        orderDateMin.operand = DataSourceSummaryOperand.Min;
         orderDateMin.calculatorDisplayName = "First"
         orderDateMin.formatOverride = new Intl.DateTimeFormat('en-EN');
         this.grid.summaryDescriptions.add(orderDateMin);
@@ -168,7 +168,7 @@ export default class DataGridLocalization extends React.Component<any, any> {
         const orderDateMax = new IgrColumnSummaryDescription();
         orderDateMax.field = "OrderDate";
         orderDateMax.displayName = "注文日";
-        orderDateMax.operand = SummaryOperand.Max;
+        orderDateMax.operand = DataSourceSummaryOperand.Max;
         orderDateMax.calculatorDisplayName = "Last"
         orderDateMax.formatOverride = new Intl.DateTimeFormat('en-EN');
         this.grid.summaryDescriptions.add(orderDateMax);
@@ -176,14 +176,14 @@ export default class DataGridLocalization extends React.Component<any, any> {
         const sum1 = new IgrColumnSummaryDescription();
         sum1.field = "Profit";
         sum1.displayName = "利益";
-        sum1.operand = SummaryOperand.Sum;
+        sum1.operand = DataSourceSummaryOperand.Sum;
         sum1.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(sum1);
 
         const avg2 = new IgrColumnSummaryDescription();
         avg2.field = "Profit";
         avg2.displayName = "利益";
-        avg2.operand = SummaryOperand.Average;
+        avg2.operand = DataSourceSummaryOperand.Average;
         avg2.formatOverride = new Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
         this.grid.summaryDescriptions.add(avg2);
 
@@ -192,4 +192,5 @@ export default class DataGridLocalization extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataGridLocalization />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataGridLocalization/>);

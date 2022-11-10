@@ -1,13 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrDataGridModule } from 'igniteui-react-grids';
 import { IgrDataGrid } from 'igniteui-react-grids';
-import { IgrColumn } from 'igniteui-react-grids';
+import { IgrDataGridColumn } from 'igniteui-react-grids';
 import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-grids';
 import { IgrDataBindingEventArgs } from 'igniteui-react-grids';
 import { HeaderClickAction } from 'igniteui-react-grids';
-import { GridSelectionMode } from 'igniteui-react-grids';
+import { DataGridSelectionMode } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
@@ -260,7 +260,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
                 autoGenerateColumns="false"
                 headerClickAction={HeaderClickAction.SortByMultipleColumnsTriState}
                 rowHeight="40"
-                selectionMode={GridSelectionMode.MultipleRow}
+                selectionMode={DataGridSelectionMode.MultipleRow}
                 defaultColumnMinWidth="80"
                 columnShowingAnimationMode="auto"
                 columnHidingAnimationMode="auto"
@@ -273,9 +273,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
                 <IgrTextColumn field="Territory" width="*>130"></IgrTextColumn>
                 <IgrNumericColumn field="YearToDateSales"
                     headerText="YTD Sales" width="*>130" positivePrefix="$"
-                    showGroupingSeparator="true">
-                </IgrNumericColumn>
-
+                    showGroupingSeparator="true"/>
                 <IgrTemplateColumn field="AvgSale"
                     headerText="Avg. Sale"
                     width="*>120"
@@ -296,9 +294,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
                     cellUpdating={this.onPricePercentCellUpdating}>
                 </IgrTemplateColumn>
 
-                <IgrDateTimeColumn field="DateValue" headerText="Date" width="*>120" >
-                </IgrDateTimeColumn>
-
+                <IgrDateTimeColumn field="DateValue" headerText="Date" width="*>120" />
                 {
                     this.kpiColumns.map(function (i) {
                     return ( <IgrNumericColumn width="*>150" key={i} field={i} /> )
@@ -318,7 +314,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
         for (let i = 0; i < 43; i++) {
             (() => {
                 let currVal = i;
-                this.grid.forColumnsWithPropertyPath("KPI_" + currVal, (col: IgrColumn) => {
+                this.grid.forColumnsWithPropertyPath("KPI_" + currVal, (col: IgrDataGridColumn) => {
                     col.cellStyleKeyRequested = (sender: any, args: IgrCellStyleRequestedEventArgs) => {
                     let value = args.resolvedValue;
                     if (value < 20.0) {
@@ -346,7 +342,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
             })();
     }
 
-    this.grid.forColumnsWithPropertyPath("AvgSale", (col: IgrColumn) => {
+    this.grid.forColumnsWithPropertyPath("AvgSale", (col: IgrDataGridColumn) => {
         col.dataBound = (sender: any, args: IgrDataBindingEventArgs) => {
                     let item: any = args.cellInfo.rowItem;
                     if (item !== null)
@@ -723,4 +719,5 @@ export class SalesPerson {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataGridPerformance />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataGridPerformance/>);

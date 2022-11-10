@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import './DockManagerStyles.css';
 import { IgcDockManagerComponent, IgcContentPane } from "igniteui-dockmanager";
@@ -153,4 +153,5 @@ export default class DockManagerOverview extends React.Component {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DockManagerOverview />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DockManagerOverview/>);

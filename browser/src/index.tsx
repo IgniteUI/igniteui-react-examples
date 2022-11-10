@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import SamplesBrowser from "./navigation/SamplesBrowser";
 import RegisterServiceWorker from './serviceWorker';
+import { createRoot } from 'react-dom/client';
 
 import './index.css'; // styles shared between all samples
 
@@ -20,11 +21,12 @@ import './index.css'; // styles shared between all samples
    // );
 //  });
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(
    <BrowserRouter basename={'/react-demos'}>
       <SamplesBrowser />
-  </BrowserRouter>,
-  document.getElementById('root')
+  </BrowserRouter>
 );
 
 // If you want your app to work offline and load faster, you can change

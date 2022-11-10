@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrCalendar, IgrCalendarModule, IgrCalendarDate, DateRangeDescriptor, DateRangeType } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -37,4 +37,5 @@ export default class CalendarSpecialDates extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<CalendarSpecialDates/>, document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<CalendarSpecialDates/>);

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrLinearProgress, IgrLinearProgressModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -23,4 +23,5 @@ export default class StylingLinearProgressIndicator extends React.Component<any,
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<StylingLinearProgressIndicator />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<StylingLinearProgressIndicator/>);

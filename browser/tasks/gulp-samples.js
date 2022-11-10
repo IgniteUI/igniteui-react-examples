@@ -113,6 +113,11 @@ function lintSamples(cb) {
     });
 } exports.lintSamples = lintSamples;
 
+let materialSamples = [
+    '../samples/grids/data-grid/binding-live-data',
+    '../samples/grids/data-grid/load-save-layout',
+];
+
 function getSamples(cb) {
 
     // deleteSamples();
@@ -125,28 +130,33 @@ function getSamples(cb) {
     // .pipe(gSort( { asc: false } ))
     .pipe(es.map(function(samplePackage, sampleCallback) {
 
-        let SampleFolderName = Transformer.getRelative(samplePackage.dirname);
-        // log(SampleFolderName);
+        let sampleFolderName = Transformer.getRelative(samplePackage.dirname);
 
-        let sampleFiles = [];
-        gulp.src([
-              SampleFolderName + "/src/*.*",
-        "!" + SampleFolderName + "/src/*.d.ts"])
-        .pipe(flatten({ "includeParents": -1 }))
-        // .pipe(gSort( { asc: false } ))
-        .pipe(es.map(function(file, fileCallback) {
-            let fileDir = Transformer.getRelative(file.dirname);
-            sampleFiles.push(fileDir + "/" + file.basename);
-            fileCallback(null, file);
-        }))
-        .on("end", function() {
-            // log(SampleFolderName);
-
-            let sampleInfo = Transformer.getSampleInfo(samplePackage, sampleFiles);
-            samples.push(sampleInfo);
-
+        if (materialSamples.indexOf(sampleFolderName) >= 0) {
+            // skip until material UI components are replaced in samples
+            log("skipping sample with material UI components " + sampleFolderName);
             sampleCallback(null, samplePackage);
-        });
+        } else {
+            let sampleFiles = [];
+            gulp.src([
+                  sampleFolderName + "/src/*.*",
+            "!" + sampleFolderName + "/src/*.d.ts"])
+            .pipe(flatten({ "includeParents": -1 }))
+            // .pipe(gSort( { asc: false } ))
+            .pipe(es.map(function(file, fileCallback) {
+                let fileDir = Transformer.getRelative(file.dirname);
+                sampleFiles.push(fileDir + "/" + file.basename);
+                fileCallback(null, file);
+            }))
+            .on("end", function() {
+                // log(sampleFolderName);
+
+                let sampleInfo = Transformer.getSampleInfo(samplePackage, sampleFiles);
+                samples.push(sampleInfo);
+
+                sampleCallback(null, samplePackage);
+            });
+        }
 
         // sampleCallback(null, sample);
     }))
@@ -226,8 +236,19 @@ function copySamples(cb) {
         ])
         .pipe(es.map(function(file, fileCallback) {
             let code = file.contents.toString();
+
+            code = code.replace("const root = ReactDOM.createRoot(document.getElementById('root'));", "");
+            code = code.replace("root.render(<" + sample.SampleImportName + "/>);", "");
+            code = code.replace(/root.render(.*(?<![^a-z]))((?![^a-z]).*)/g, "");
+            code = code.replace("root.render(<Sample/>);", "");
+
             code = code.replace("import ReactDOM from 'react-dom';","");
             code = code.replace('import ReactDOM from "react-dom";',"");
+            code = code.replace("import ReactDOM from 'react-dom/*';","");
+            code = code.replace('import ReactDOM from "react-dom/*";',"");
+            code = code.replace("import ReactDOM from 'react-dom/client';", "");
+            code = code.replace('import ReactDOM from "react-dom/client";', "");
+
             code = code.replace("// rendering above class to the React DOM","");
             code = code.replace(/ReactDOM.*/g,"");
             code = code.replace("import './index.css';","");

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { ExcelUtility } from './ExcelUtility';
 import { IgrExcelXlsxModule } from 'igniteui-react-excel';
@@ -42,4 +42,5 @@ export default class SpreadsheetHyperlinks extends React.Component {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<SpreadsheetHyperlinks />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<SpreadsheetHyperlinks/>);

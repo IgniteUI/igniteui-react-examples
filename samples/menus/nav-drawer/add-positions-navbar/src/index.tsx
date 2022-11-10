@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrNavbar, IgrNavDrawer, IgrNavDrawerHeaderItem, IgrNavDrawerItem, IgrIcon, IgrRadioGroup, IgrRadio, IgrNavDrawerModule, IgrNavbarModule, IgrRadioGroupModule, IgrRadioModule, IgrIconModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -118,4 +118,5 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<NavDrawerAddPositionsNavbar/>, document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NavDrawerAddPositionsNavbar/>);
