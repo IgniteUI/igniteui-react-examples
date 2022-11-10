@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css'; // styles shared between all samples
 
 
@@ -48,4 +48,4 @@ export default class DatePickerDateLimits extends React.Component<any, any> {
     }
 }
 
-ReactDOM.render(<DatePickerDateLimits />, document.getElementById('root'));
+root.render(<DatePickerDateLimits/>);

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrBulletGraph } from 'igniteui-react-gauges';
 import { IgrLinearGraphRange } from 'igniteui-react-gauges';
@@ -86,4 +86,5 @@ export default class BulletGraphTypeVertical extends React.Component {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<BulletGraphTypeVertical />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<BulletGraphTypeVertical/>);

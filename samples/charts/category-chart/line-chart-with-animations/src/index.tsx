@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
@@ -120,4 +120,5 @@ export default class CategoryChartLineChartWithAnimations extends React.Componen
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<CategoryChartLineChartWithAnimations />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<CategoryChartLineChartWithAnimations/>);

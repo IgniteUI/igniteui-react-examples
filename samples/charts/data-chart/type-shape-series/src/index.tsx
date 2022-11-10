@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 // axis' modules:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
@@ -117,4 +117,5 @@ export default class DataChartTypeShapeSeries extends React.Component<any, any> 
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataChartTypeShapeSeries />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataChartTypeShapeSeries/>);

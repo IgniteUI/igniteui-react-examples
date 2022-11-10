@@ -12,24 +12,24 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@types/file-saver": "^2.0.0",
+    "@types/file-saver": "^3.0.8",
     "file-saver": "^1.3.8",
-    "@infragistics/igniteui-react-core": "22.1.215",
-    "@infragistics/igniteui-react-spreadsheet": "22.1.215",
-    "@infragistics/igniteui-react-excel": "22.1.215",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "5.0.0",
-    "tslib": "1.10.0"
+    "@infragistics/igniteui-react-core": "22.2.0-dev.568",
+    "@infragistics/igniteui-react-spreadsheet": "22.2.0-dev.568",
+    "@infragistics/igniteui-react-excel": "22.2.0-dev.568",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "tslib": "2.4.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.19",
-    "@types/node": "^12.19.11",
-    "@types/react": "^16.14.2",
-    "@types/react-dom": "^16.9.10",
+    "@types/jest": "^29.2.0",
+    "@types/node": "^18.11.7",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
     "react-app-rewired": "^2.2.1",
-    "typescript": "^4.1.3",
-    "worker-loader": "^2.0.0"
+    "typescript": "^4.8.4",
+    "worker-loader": "^3.0.8"
   },
   "browserslist": [
     ">0.2%",

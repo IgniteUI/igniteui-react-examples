@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { IgrTreemapModule } from 'igniteui-react-charts';
 import { IgrTreemap } from 'igniteui-react-charts';
 import { IgrTreemapNodePointerEventArgs } from 'igniteui-react-charts';
@@ -141,4 +141,5 @@ export default class TreeMapEvents extends React.Component<any, any> {
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<TreeMapEvents />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<TreeMapEvents/>);

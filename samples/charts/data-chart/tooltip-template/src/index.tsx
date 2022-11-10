@@ -1,5 +1,5 @@
 import React, { ReactElement, version } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 // importing axis' modules:
 import { IgrNumericYAxis } from 'igniteui-react-charts';
@@ -145,4 +145,5 @@ export default class DataChartTooltipTemplate extends React.Component<any, any> 
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<DataChartTooltipTemplate />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<DataChartTooltipTemplate/>);

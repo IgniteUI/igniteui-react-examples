@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css'; // styles shared between all samples
 
 import { IgrDatePicker, IgrDatePickerModule } from 'igniteui-react-inputs';
@@ -33,4 +33,4 @@ export default class DatePickerEditing extends React.Component<any, any> {
     }
 }
 
-ReactDOM.render(<DatePickerEditing />, document.getElementById('root'));
+root.render(<DatePickerEditing/>);

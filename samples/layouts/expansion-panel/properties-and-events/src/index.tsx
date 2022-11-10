@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import './ExpansionPanelPropsAndEvents.css';
 import { IgrExpansionPanel, IgrExpansionPanelModule } from 'igniteui-react';
@@ -35,17 +35,13 @@ export default class ExpansionPanelPropertiesAndEvents extends React.Component<a
         );
     }
 
-    private _timeoutId: number;
-
     public onExpansionPanelClosed() {
 
         this.setState({ subtitleClass: "", eventSpanClass: "eventSpanShown", eventSpanText: "Closed event fired!"});
 
-        if (this._timeoutId) {
-            window.clearTimeout(this._timeoutId);
-        }
+        window.clearTimeout(undefined);
 
-        this._timeoutId = window.setTimeout(() => {
+        window.setTimeout(() => {
             this.setState({eventSpanClass: "eventSpanHidden"});
         }, 2000);
     }
@@ -53,15 +49,14 @@ export default class ExpansionPanelPropertiesAndEvents extends React.Component<a
     public onExpansionPanelOpened() {
         this.setState({ subtitleClass: "subtitleHidden", eventSpanClass: "eventSpanShown", eventSpanText: "Opened event fired!"});
 
-        if (this._timeoutId) {
-            window.clearTimeout(this._timeoutId);
-        }
+        window.clearTimeout(undefined);
 
-        this._timeoutId = window.setTimeout(() => {
+        window.setTimeout(() => {
             this.setState({eventSpanClass: "eventSpanHidden"});
         }, 2000);
     }
 }
 
 // rendering above class to the React DOM
-ReactDOM.render(<ExpansionPanelPropertiesAndEvents/>, document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<ExpansionPanelPropertiesAndEvents/>);
