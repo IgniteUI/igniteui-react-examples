@@ -114,8 +114,8 @@ function lintSamples(cb) {
 } exports.lintSamples = lintSamples;
 
 let materialSamples = [
-    '../samples/grids/data-grid/binding-live-data',
-    '../samples/grids/data-grid/load-save-layout',
+    // '../samples/grids/data-grid/binding-live-data',
+    // '../samples/grids/data-grid/load-save-layout',
 ];
 
 function getSamples(cb) {
