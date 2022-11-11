@@ -15,11 +15,15 @@ import { IgrImageColumn } from 'igniteui-react-grids';
 import { IgrColumnGroupDescription } from 'igniteui-react-grids';
 import { IgrColumnSummaryDescription } from 'igniteui-react-grids'
 import { DataSourceSummaryOperand } from 'igniteui-react-core';
-import Button from '@material-ui/core/Button';
+import { IgrButton } from 'igniteui-react';
+import { IgrButtonModule } from 'igniteui-react';
+
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrDataGridModule.register();
 IgrDataGridToolbarModule.register();
 IgrGridColumnOptionsModule.register();
+IgrButtonModule.register();
 
 export default class DataGridLoadSaveLayout extends React.Component<any, any> {
 
@@ -50,15 +54,15 @@ export default class DataGridLoadSaveLayout extends React.Component<any, any> {
         return (
             <div className="container sample">
 
-                <div className="options">
-                    <Button variant="contained" color="primary" style={buttonStyle}                                
-                                onClick={this.onLoadLayoutClicked} >
-                                  Load  
-                    </Button>
-                    <Button variant="contained" color="primary" style={buttonStyle}                                
-                                onClick={this.onSaveLayoutClicked} >
-                                  Save     
-                    </Button>
+                <div className="options" style={{height: "50px"}}>
+                    <IgrButton variant="contained" style={buttonStyle}                                
+                               clicked={this.onLoadLayoutClicked}>
+                        <span>Load</span>
+                    </IgrButton>
+                    <IgrButton variant="contained" style={buttonStyle}                                
+                               clicked={this.onSaveLayoutClicked}>
+                        <span>Save</span>                                  
+                    </IgrButton>
                 </div>
 
                  <IgrDataGridToolbar
