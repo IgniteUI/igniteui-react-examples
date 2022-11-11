@@ -5,7 +5,9 @@ import './DataGridBindingLiveData.css';
 import { LiveFinancialData } from './LiveFinancialData';
 // IgrDataGrid modules
 import { IgrDataGrid } from 'igniteui-react-grids';
+import { IgrDataGridToolbar } from 'igniteui-react-grids';
 import { IgrDataGridModule } from 'igniteui-react-grids';
+import { IgrDataGridToolbarModule } from 'igniteui-react-grids';
 import { IgrNumericColumn } from 'igniteui-react-grids';
 import { IgrTextColumn } from 'igniteui-react-grids';
 import { IgrTemplateColumn } from 'igniteui-react-grids';
@@ -28,27 +30,28 @@ import { IgrColumnSeries } from 'igniteui-react-charts';
 import { IgrCategoryXAxis } from 'igniteui-react-charts';
 import { IgrNumericYAxis } from 'igniteui-react-charts';
 // other modules
-import Button from '@material-ui/core/Button';
-import Switch from '@material-ui/core/Switch';
-import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import Slide from '@material-ui/core/Slide';
-import Select from '@material-ui/core/Select';
-import Checkbox from '@material-ui/core/Checkbox';
-import Input from '@material-ui/core/Input';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import TextField from '@material-ui/core/TextField';
+import { IgrButton } from 'igniteui-react';
+import { IgrInput } from 'igniteui-react';
+import { IgrSwitch } from 'igniteui-react';
+import { IgrSlider } from 'igniteui-react';
+
+import { IgrButtonModule } from 'igniteui-react';
+import { IgrInputModule } from 'igniteui-react';
+import { IgrSwitchModule } from 'igniteui-react';
+import { IgrSliderModule } from 'igniteui-react';
+
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrDataGridModule.register();
+IgrDataGridToolbarModule.register();
 IgrDataChartAnnotationModule.register();
 IgrDataChartCategoryModule.register();
 IgrDataChartInteractivityModule.register();
 IgrNumberAbbreviatorModule.register();
+IgrButtonModule.register();
+IgrInputModule.register();
+IgrSwitchModule.register();
+IgrSliderModule.register();
 
 interface AppState {
     name: string;
@@ -72,6 +75,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
 
     public chart: IgrDataChart;
     public grid: IgrDataGrid;
+    public toolbar: IgrDataGridToolbar;
     public recordsUpdatedLastSecond: number[];
     public lastUpdateTime: Date = new Date();
     public isTimerTicking: boolean = false;
@@ -114,121 +118,77 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
 
                 <div className="toolAreaRow">
                     <div className="toolAreaColumn">
-                        <Button variant="contained" color="primary" style={buttonStyle}
+                        <IgrButton variant="contained" style={buttonStyle}
                             disabled={this.state.liveSomePricesDisabled}
-                            onClick={this.onLiveSomePricesClicked} >
-                                {this.state.liveSomePricesText}
-                        </Button>
+                            clicked={this.onLiveSomePricesClicked} >
+                                <span>{this.state.liveSomePricesText}</span>
+                        </IgrButton>
                         <label>&nbsp;</label>
-                        <Button variant="contained" color="secondary" style={buttonStyle}
+                        <IgrButton variant="contained" style={buttonStyle}
                         disabled={this.state.liveAllPricesDisabled}
-                        onClick={this.onLiveAllPricesClicked} >
-                            {this.state.liveAllPricesText}
-                        </Button>
+                        clicked={this.onLiveAllPricesClicked} >
+                            <span>{this.state.liveAllPricesText}</span>
+                        </IgrButton>
                         <label>&nbsp;</label>
-                        <Button variant="contained" style={buttonStyle}
-                        onClick={this.onChartClicked} >
-                            Chart
-                        </Button>
+                        <IgrButton variant="contained" style={buttonStyle}
+                        clicked={this.onChartClicked} >
+                            <span>Chart</span>
+                        </IgrButton>
                     </div>
 
                     <div className="toolAreaColumn">
                         <div className="frequencySlider">
-                                <Typography id="label">Frequency: {this.state.frequency / 1000}s</Typography>
-                                <Slider
+                                <label id="label">Frequency: {this.state.frequency / 1000}s</label>
+                                <IgrSlider
                                     min={100}
                                     max={1000}
                                     step={100}
                                     className="options-slider"
                                     value={this.state.frequency}
-                                    onChange={this.onPriceFrequencyChanged}/>
+                                    change={this.onPriceFrequencyChanged}/>
                         </div>
                         <div className="volumeSlider">
-                            <Typography id="label">Volume: {this.state.volume / 1000}k</Typography>
-                            <Slider
+                            <label id="label">Volume: {this.state.volume / 1000}k</label>
+                            <IgrSlider
                                 min={100}
                                 max={10000}
                                 step={100}
                                 className="options-slider"
                                 value={this.state.volume}
-                                onChange={this.onPriceVolumeChanged}/>
+                                change={this.onPriceVolumeChanged}/>
                         </div>
                     </div>
 
                     <div className="toolAreaColumn">
                         <div className="toolAreaRow">
-                            <FormControlLabel
-                                label="Canvas" labelPlacement="top" style={labelStyle}
-                                control={
-                                <Switch
-                                    checked={this.state.canvasChecked}
-                                    onChange={this.onGridCanvasModeChanged}
-                                    value="canvas"
-                                    color="primary"/>}/>
-
-                            <FormControlLabel
-                                label="Grouping" labelPlacement="top" style={labelStyle}
-                                control={
-                                    <Switch
-                                        checked={this.state.groupingChecked}
-                                        onChange={this.onGridGroupingChanged}
-                                        value="grouping"
-                                        color="primary"
-                                    />}/>
-                            <FormControlLabel
-                                label="Heat" labelPlacement="top" style={labelStyle}
-                                control={
-                                    <Switch
-                                        checked={this.state.heatChecked}
-                                        onChange={this.onGridHeatModeChanged}
-                                        value="heat"
-                                        color="primary"/>}/>
-
+                            <div className="gridSwitch">
+                                <label id="label">Canvas</label>
+                                <IgrSwitch checked={this.state.canvasChecked}
+                                    change={this.onGridCanvasModeChanged}
+                                    value="canvas" />
+                            </div>
+                            <div className="gridSwitch">
+                                <label id="label">Grouping</label>
+                                <IgrSwitch checked={this.state.groupingChecked}
+                                    change={this.onGridGroupingChanged}
+                                    value="grouping" />
+                            </div>
+                            <div className="gridSwitch">
+                                <label id="label">Heat</label>
+                                <IgrSwitch checked={this.state.heatChecked}
+                                    change={this.onGridHeatModeChanged}
+                                    value="heat" />
+                            </div>
                         </div>
-                        <div className="toolAreaRow">
-                            <label className="hiddenIcon" >visibility_off</label>
-                            <Select
-                            className="hiddenDrop"
-                            value={this.state.hiddenColumns}
-                            multiple={true}
-                            onChange={this.onGridColumnHidden}
-                            input={<Input id="select-multiple-checkbox" />}
-                            renderValue={selected => (selected as any).length ? ((selected as any).length + ' columns') : '0 columns'}
-                            MenuProps={{
-                                PaperProps: {
-                                    style: {
-                                        maxHeight: 48 * 4.5 + 8,
-                                        width: 250,
-                                    },
-                                },
-                            }}>
-                            {this.state.allColumns.map(name => (
-                                <MenuItem key={name} value={name}>
-                                    <Checkbox checked={this.state.hiddenColumns.indexOf(name) > -1} />
-                                    <ListItemText primary={name} />
-                                </MenuItem>
-                            ))}
-                            </Select>
-
-                            <TextField style={{ marginBottom: "6px"}}
-                            id="standard-search"
-                            label="Search"
-                            type="search"
-                            className="searchField"
-                            onChange={this.onGridSearchChanged}/>
+                        <div className="toolAreaRow" style={{paddingTop: "25px"}}>
+                            <IgrInput inputOcurred={this.onGridSearchChanged} placeholder="Search" displayType="text" />
                         </div>
-
                     </div>
-
-                    {/* <div className="toolAreaRow1">
-
-                    </div>
-
-                    <div className="toolAreaRow2">
-
-                    </div> */}
                 </div>
 
+                <IgrDataGridToolbar
+                    ref={this.onToolbarRef}                    
+                    columnChooser="true" />
                 <IgrDataGrid
                 ref={this.onGridRef}
                 width="100%"
@@ -246,10 +206,10 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                 defaultColumnMinWidth="100"
                 isRowHoverEnabled="false">
                     <IgrTextColumn field="ID" width="*>90" isHidden="true"/>
-                    <IgrTextColumn field="Category" width="*>120" />
-                    <IgrTextColumn field="Type" width="*>90"    />
+                    <IgrTextColumn field="Category" width="*>130" />
+                    <IgrTextColumn field="Type" width="*>100"    />
                     <IgrTextColumn field="Risk" width="*>100" />
-                    <IgrNumericColumn field="Open Price" width="*>130"/>
+                    <IgrNumericColumn field="Open Price" width="*>140"/>
                     <IgrTemplateColumn field="Price" width="*>100"
                         horizontalAlignment="right"
                         cellStyleKeyRequested={this.onPriceStyleKey}
@@ -261,13 +221,13 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                         cellStyleKeyRequested={this.onPriceAmountStyleKey}
                         cellUpdating={this.onPriceAmountCellUpdating}/>
 
-                    <IgrTemplateColumn name="ChangePer" field="Change(%)" width="*>130"
+                    <IgrTemplateColumn name="ChangePer" field="Change(%)" width="*>150"
                         horizontalAlignment="right"
                         cellStyleKeyRequested={this.onPricePercentStyleKey}
                         cellUpdating={this.onPricePercentCellUpdating}/>
 
                     <IgrTextColumn field="Contract" width="*>120" />
-                    <IgrTextColumn field="Settlement" width="*>130" />
+                    <IgrTextColumn field="Settlement" width="*>140" />
                     <IgrTextColumn field="Region" width="*>130" />
                     <IgrTextColumn field="Country" width="*>120" />
                     {/* TODO open chart on clicking a cell in the Chart column */}
@@ -277,59 +237,45 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                     <IgrTemplateColumn field="Grid" width="*>90"
                         cellStyleKeyRequested={this.onGridStyleKey}
                         cellUpdating={this.onGridCellUpdating} /> */}
-                    <IgrTextColumn field="IndGroup" headerText="Group" width="*>100" />
+                    <IgrTextColumn field="IndGroup" headerText="Group" width="*>110" />
                     <IgrTextColumn field="IndSector" headerText="Industry" width="*>120"/>
-                    <IgrTextColumn field="IndCategory" headerText="Category" width="*>100" />
-                    <IgrTextColumn field="Sector" width="*>90" />
+                    <IgrTextColumn field="IndCategory" headerText="Category" width="*>130" />
+                    <IgrTextColumn field="Sector" width="*>110" />
                     <IgrTextColumn field="Issuer" width="*>170"/>
-                    <IgrTextColumn field="Rating" width="*>90" />
-                    <IgrTextColumn field="Currency" width="*>90" />
+                    <IgrTextColumn field="Rating" width="*>110" />
+                    <IgrTextColumn field="Currency" width="*>130" />
                     <IgrTextColumn field="Security" width="*>120" />
                     <IgrNumericColumn field="Transactions" width="*>150" />
                     <IgrNumericColumn field="CPN" width="*>90" />
                     <IgrTextColumn field="Maturity" width="*>120" />
-                    <IgrTextColumn field="Collateral" width="*>120" />
+                    <IgrTextColumn field="Collateral" width="*>130" />
                     <IgrNumericColumn field="Buy" width="*>110"/>
                     <IgrNumericColumn field="Sell" width="*>110"/>
                     <IgrNumericColumn field="Spread" width="*>110"/>
-                    <IgrNumericColumn field="Volume" width="*>110"/>
-                    <IgrNumericColumn field="High(D)" width="*>110"/>
-                    <IgrNumericColumn field="Low(D)" width="*>110"/>
-                    <IgrNumericColumn field="High(Y)" width="*>110"/>
+                    <IgrNumericColumn field="Volume" width="*>120"/>
+                    <IgrNumericColumn field="High(D)" width="*>120"/>
+                    <IgrNumericColumn field="Low(D)" width="*>120"/>
+                    <IgrNumericColumn field="High(Y)" width="*>120"/>
                     <IgrNumericColumn field="Low(Y)" width="*>110"/>
-                    <IgrNumericColumn field="Start(Y)" width="*>110"/>
-                    <IgrNumericColumn field="KRD_3YR" width="*>120" />
-                    <IgrNumericColumn field="KRD_5YR" width="*>120" />
-                    <IgrNumericColumn field="KRD_1YR" width="*>120" />
+                    <IgrNumericColumn field="Start(Y)" width="*>120"/>
+                    <IgrNumericColumn field="KRD_3YR" width="*>130" />
+                    <IgrNumericColumn field="KRD_5YR" width="*>130" />
+                    <IgrNumericColumn field="KRD_1YR" width="*>130" />
                 </IgrDataGrid>
-
-                <Dialog
-                    className="chartDialog"
-                    open={this.state.chartOpen}
-                    // TransitionComponent={this.transition}
-                    maxWidth="md"
-                    fullWidth={true}
-                    keepMounted={true}
-                    onClose={this.onChartClose}>
-                    {/* <DialogTitle>
-                        {"IgrDataChart"}
-                    </DialogTitle> */}
-                    <DialogContent>
-                        <div style={{ textAlign: "center", width: "100%" }}>
-                            <IgrDataChart
+                
+                <div id="chartDialog">
+                    <div id="dialogContent">
+                        <IgrButton clicked={this.onChartClose}>
+                            <span>Close</span>
+                        </IgrButton>     
+                        <IgrDataChart
                             width="100%"
                             height="350px"
                             chartTitle="Data Chart with Prices By Country"
                             titleTopMargin={10}
-                            ref={this.onChartRef} />
-                        </div>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.onChartClose} color="primary">
-                            Close
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                            ref={this.onChartRef} />                                            
+                    </div>
+                </div>
             </div>
         );
     }
@@ -358,6 +304,13 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
             columns.push(name);
         }
         this.setState({ allColumns: columns });
+    }
+
+    public onToolbarRef = (toolbar: IgrDataGridToolbar) => {
+        this.toolbar = toolbar;
+        if (this.toolbar) {
+            this.toolbar.targetGrid = this.grid;
+        }
     }
 
     public onTimerTick = () =>
@@ -924,24 +877,28 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
 
     public onChartClicked = () => {
         this.updatePricesByCountry();
-            this.setState({
-                chartOpen: true
-            });
+
+        let element = document.getElementById("chartDialog");
+        element.style.visibility = (element.style.visibility == "visible") ? "hidden" : "visible";
+
+        this.setState({
+            chartOpen: true
+        });
     }
 
     // onChange?: (event: React.ChangeEvent<{}>, value: number | number[]) => void;
     // public onPriceFrequencyChanged(event: any, value: number) {
     // public onPriceFrequencyChanged(event: any, value: number | number[]) {
         public onPriceFrequencyChanged = (event: any, input: any) => {
-    // public onPriceFrequencyChanged(event: React.ChangeEvent<{}>, value: number) {
-        let value = parseFloat(input.toString());
+    // public onPriceFrequencyChanged(event: React.ChangeEvent<{}>, value: number) {        
+        let value = parseFloat(input.detail.toString());
         this.setState({
             frequency: value,
         });
     }
 
     public onPriceVolumeChanged = (event: any, input: any) => {
-        let value = parseFloat(input.toString());
+        let value = parseFloat(input.detail.toString());
         this.setState({
             volume: value,
             data: LiveFinancialData.generateData(value)
@@ -950,17 +907,18 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
     }
 
     public onGridCanvasModeChanged = (event: any) => {
-        this.setState({ canvasChecked: event.target.checked });
+        this.setState({ canvasChecked: event.checked });
     }
 
     public onGridHeatModeChanged = (event: any) => {
-        this.setState({ heatChecked: event.target.checked });
+        this.setState({ heatChecked: event.checked });
     }
 
     public onGridGroupingChanged = (event: any) => {
-        this.setState({ groupingChecked: event.target.checked });
 
-        if (event.target.checked) {
+        this.setState({ groupingChecked: event.checked });
+
+        if (event.checked) {
             this.onGridGroupingAdd();
         } else {
             this.onGridGroupingRemove();
@@ -1047,6 +1005,10 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
     }
 
     public onChartClose = () => {
+
+        let element = document.getElementById("chartDialog");
+        element.style.visibility = (element.style.visibility == "visible") ? "hidden" : "visible";
+
         this.setState({ chartOpen: false });
     }
 
@@ -1091,12 +1053,13 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
         }
     }
 
-    public transition = (props: any) => {
-        return <Slide direction="up" {...props} />;
-    }
+    // public transition = (props: any) => {
+    //     return <Slide direction="up" {...props} />;
+    // }
 
     public onGridSearchChanged = (event: any) => {
-        let term = event.target.value;
+
+        let term = event.value;
 
         if (!this.grid) {
             return;
