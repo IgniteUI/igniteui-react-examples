@@ -187,7 +187,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                 </div>
 
                 <IgrDataGridToolbar
-                    ref={this.onToolbarRef}                    
+                    ref={this.onToolbarRef}
                     columnChooser="true" />
                 <IgrDataGrid
                 ref={this.onGridRef}
@@ -262,18 +262,18 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                     <IgrNumericColumn field="KRD_5YR" width="*>130" />
                     <IgrNumericColumn field="KRD_1YR" width="*>130" />
                 </IgrDataGrid>
-                
-                <div id="chartDialog">
+
+                <div id="dialogContainer">
                     <div id="dialogContent">
                         <IgrButton clicked={this.onChartClose}>
                             <span>Close</span>
-                        </IgrButton>     
+                        </IgrButton>
                         <IgrDataChart
                             width="100%"
                             height="350px"
                             chartTitle="Data Chart with Prices By Country"
                             titleTopMargin={10}
-                            ref={this.onChartRef} />                                            
+                            ref={this.onChartRef} />
                     </div>
                 </div>
             </div>
@@ -878,7 +878,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
     public onChartClicked = () => {
         this.updatePricesByCountry();
 
-        let element = document.getElementById("chartDialog");
+        let element = document.getElementById("dialogContainer");
         element.style.visibility = (element.style.visibility == "visible") ? "hidden" : "visible";
 
         this.setState({
@@ -890,7 +890,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
     // public onPriceFrequencyChanged(event: any, value: number) {
     // public onPriceFrequencyChanged(event: any, value: number | number[]) {
         public onPriceFrequencyChanged = (event: any, input: any) => {
-    // public onPriceFrequencyChanged(event: React.ChangeEvent<{}>, value: number) {        
+    // public onPriceFrequencyChanged(event: React.ChangeEvent<{}>, value: number) {
         let value = parseFloat(input.detail.toString());
         this.setState({
             frequency: value,
@@ -1006,7 +1006,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
 
     public onChartClose = () => {
 
-        let element = document.getElementById("chartDialog");
+        let element = document.getElementById("dialogContainer");
         element.style.visibility = (element.style.visibility == "visible") ? "hidden" : "visible";
 
         this.setState({ chartOpen: false });
@@ -1027,7 +1027,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
             xAxis.dataSource = this.state.pricesByCountry;
             xAxis.label = "Country";
             xAxis.labelAngle = 90;
-            xAxis.interval = 1;
+            xAxis.interval = 2;
             let yAxis = new IgrNumericYAxis({ name: "yAxis", abbreviateLargeNumbers: false });
 
             let columnSeries = new IgrColumnSeries({ name: "columnSeries" });
