@@ -40,8 +40,6 @@ import { IgrInputModule } from 'igniteui-react';
 import { IgrSwitchModule } from 'igniteui-react';
 import { IgrSliderModule } from 'igniteui-react';
 
-//import { defineComponents, IgcDialogComponent } from 'igniteui-webcomponents';
-
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrDataGridModule.register();
@@ -54,8 +52,6 @@ IgrButtonModule.register();
 IgrInputModule.register();
 IgrSwitchModule.register();
 IgrSliderModule.register();
-
-//defineComponents(IgcDialogComponent);
 
 interface AppState {
     name: string;
@@ -266,36 +262,20 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                     <IgrNumericColumn field="KRD_5YR" width="*>130" />
                     <IgrNumericColumn field="KRD_1YR" width="*>130" />
                 </IgrDataGrid>
-
-                {/* <Dialog
-                    className="chartDialog"
-                    open={this.state.chartOpen}
-                    // TransitionComponent={this.transition}
-                    maxWidth="md"
-                    fullWidth={true}
-                    keepMounted={true}
-                    onClose={this.onChartClose}>
-                    <DialogContent>
-                        <div style={{ textAlign: "center", width: "100%" }}>
-                            <IgrDataChart
+                
+                <div id="chartDialog">
+                    <div id="dialogContent">
+                        <IgrButton clicked={this.onChartClose}>
+                            <span>Close</span>
+                        </IgrButton>     
+                        <IgrDataChart
                             width="100%"
                             height="350px"
                             chartTitle="Data Chart with Prices By Country"
                             titleTopMargin={10}
-                            ref={this.onChartRef} />
-                        </div>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.onChartClose} color="primary">
-                            Close
-                        </Button>
-                    </DialogActions>
-                </Dialog> */}
-
-                {/* <igc-dialog id="something" >
-
-                </igc-dialog> */}
-
+                            ref={this.onChartRef} />                                            
+                    </div>
+                </div>
             </div>
         );
     }
@@ -897,9 +877,13 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
 
     public onChartClicked = () => {
         this.updatePricesByCountry();
-            this.setState({
-                chartOpen: true
-            });
+
+        let element = document.getElementById("chartDialog");
+        element.style.visibility = (element.style.visibility == "visible") ? "hidden" : "visible";
+
+        this.setState({
+            chartOpen: true
+        });
     }
 
     // onChange?: (event: React.ChangeEvent<{}>, value: number | number[]) => void;
@@ -1021,6 +1005,10 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
     }
 
     public onChartClose = () => {
+
+        let element = document.getElementById("chartDialog");
+        element.style.visibility = (element.style.visibility == "visible") ? "hidden" : "visible";
+
         this.setState({ chartOpen: false });
     }
 
