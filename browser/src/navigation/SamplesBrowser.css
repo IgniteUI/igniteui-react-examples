@@ -99,6 +99,7 @@
     line-height: 1.75;
     padding-right: 1rem;
     text-transform: lowercase;
+    white-space: nowrap;
 }
 
 .sbToolbarButton {
