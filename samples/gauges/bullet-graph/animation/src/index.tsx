@@ -9,6 +9,7 @@ IgrBulletGraphModule.register();
 
 export default class BulletGraphAnimation extends React.Component {
     public gauge: IgrBulletGraph;
+    private shouldAnimate: boolean = false;
 
     constructor(props: any) {
         super(props);
@@ -37,8 +38,7 @@ export default class BulletGraphAnimation extends React.Component {
                 </div>
 
                 <IgrBulletGraph
-                    ref={this.onGaugeRef}
-                    transitionDuration={1000}
+                    ref={this.onGaugeRef}                    
                     height="80px"
                     width="100%"
                     minimumValue={0}
@@ -63,6 +63,9 @@ export default class BulletGraphAnimation extends React.Component {
     public onAnimateToGauge3 = (e: any) => {
 
         // if (!this.gauge) { return; }
+        if(this.shouldAnimate){
+            this.gauge.transitionDuration = 1000;
+        }
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 120;
@@ -130,11 +133,17 @@ export default class BulletGraphAnimation extends React.Component {
         this.gauge.backingBrush = "#f7f7f7";
         this.gauge.backingOutline = "#d1d1d1";
         this.gauge.backingStrokeThickness = 0;
+
+        this.shouldAnimate = true;
     }
 
     public onAnimateToGauge2 = (e: any) => {
 
         if (!this.gauge) { return; }
+
+        if(this.shouldAnimate){
+            this.gauge.transitionDuration = 1000;
+        }
 
         this.gauge.minimumValue = 100;
         this.gauge.maximumValue = 200;
@@ -206,11 +215,17 @@ export default class BulletGraphAnimation extends React.Component {
         this.gauge.backingBrush = "#f7f7f7";
         this.gauge.backingOutline = "#d1d1d1";
         this.gauge.backingStrokeThickness = 0;
+
+        this.shouldAnimate = true;
     }
 
     public onAnimateToGauge1 = (e: any) => {
 
         if (!this.gauge) { return; }
+
+        if(this.shouldAnimate){
+            this.gauge.transitionDuration = 1000;
+        }
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 80;
@@ -275,6 +290,7 @@ export default class BulletGraphAnimation extends React.Component {
         this.gauge.backingOutline = "#d1d1d1";
         this.gauge.backingStrokeThickness = 0;
 
+        this.shouldAnimate = true;
     }
 
 }
