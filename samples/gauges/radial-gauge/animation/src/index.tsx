@@ -14,6 +14,7 @@ IgrRadialGaugeModule.register();
 
 export default class RadialGaugeAnimation extends React.Component {
     public gauge: IgrRadialGauge;
+    private shouldAnimate : boolean = false;
 
     constructor(props: any) {
         super(props);
@@ -43,8 +44,7 @@ export default class RadialGaugeAnimation extends React.Component {
                 </div>
 
                 <IgrRadialGauge
-                    ref={this.onGaugeRef}
-                    transitionDuration={1000}
+                    ref={this.onGaugeRef}                    
                     height="calc(100% - 50px)"
                     width="100%"
                     value={25}
@@ -89,6 +89,10 @@ export default class RadialGaugeAnimation extends React.Component {
     // full radial gauge
     public onAnimateToGauge4 = (e: any) => {
         if (!this.gauge) { return; }
+
+        if(this.shouldAnimate){
+            this.gauge.transitionDuration = 1000;
+        }
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 50;
@@ -164,11 +168,17 @@ export default class RadialGaugeAnimation extends React.Component {
             range.outerStartExtent = 0.57;
             range.outerEndExtent = 0.57;
         }
+
+        this.shouldAnimate = true;
     }
 
     // semi radial gauge
     public onAnimateToGauge3 = (e: any) => {
         if (!this.gauge) { return; }
+
+        if(this.shouldAnimate){
+            this.gauge.transitionDuration = 1000;
+        }
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 80;
@@ -219,11 +229,16 @@ export default class RadialGaugeAnimation extends React.Component {
         this.gauge.minorTickCount = 6;
 
         this.gauge.ranges.clear();
+        this.shouldAnimate = true;
     }
 
     // half radial gauge
     public onAnimateToGauge2 = (e: any) => {
         if (!this.gauge) { return; }
+
+        if(this.shouldAnimate){
+            this.gauge.transitionDuration = 1000;
+        }
 
         this.gauge.minimumValue = 100;
         this.gauge.maximumValue = 200;
@@ -279,11 +294,17 @@ export default class RadialGaugeAnimation extends React.Component {
             range.outerStartExtent = 0.9;
             range.outerEndExtent = 0.9;
         }
+
+        this.shouldAnimate = true;
     }
 
     // quatre radial gauge
     public onAnimateToGauge1 = (e: any) => {
         if (!this.gauge) { return; }
+
+        if(this.shouldAnimate){
+            this.gauge.transitionDuration = 1000;
+        }
 
         this.gauge.minimumValue = 0;
         this.gauge.maximumValue = 10;
@@ -339,6 +360,8 @@ export default class RadialGaugeAnimation extends React.Component {
             range.outerStartExtent = 0.9;
             range.outerEndExtent = 0.9;
         }
+
+        this.shouldAnimate = true;
     }
 }
 
