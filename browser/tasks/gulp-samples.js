@@ -819,23 +819,23 @@ function logVersionIgniteUI(cb) {
 function updateIG(cb) {
 
     // NOTE: change this array with new version of packages and optionally use "@infragistics/" proget prefix, e.g.
-    // "@infragistics/igniteui-angular-charts" instead of "igniteui-angular-charts" e.g.
-    // { name: "@infragistics/igniteui-webcomponents-charts", version: "22.1.62" }, // proget
+    // "igniteui-angular-charts" instead of "igniteui-angular-charts" e.g.
+    // { name: "igniteui-webcomponents-charts", version: "22.1.62" }, // proget
     // { name:               "igniteui-webcomponents-charts", version: "16.16.2" },   // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "@infragistics/igniteui-react-core"                     , version: "22.1.205" },
-        { name: "@infragistics/igniteui-react-charts"                   , version: "22.1.205" },
-        { name: "@infragistics/igniteui-react-excel"                    , version: "22.1.205" },
-        { name: "@infragistics/igniteui-react-gauges"                   , version: "22.1.205" },
-        { name: "@infragistics/igniteui-react-grids"                    , version: "22.1.205" },
-        { name: "@infragistics/igniteui-react-inputs"                   , version: "22.1.205" },
-        { name: "@infragistics/igniteui-react-layouts"                  , version: "22.1.205" },
-        { name: "@infragistics/igniteui-react-maps"                     , version: "22.1.205" },
-        { name: "@infragistics/igniteui-react-spreadsheet-chart-adapter", version: "22.1.205" },
-        { name: "@infragistics/igniteui-react-spreadsheet"              , version: "22.1.205" },
-        { name: "@infragistics/igniteui-react-datasources"              , version: "22.1.205" },
-        { name: "@infragistics/igniteui-react"                          , version: "22.1.205" },
+        { name: "igniteui-react-core"                     , version: "22.1.205" },
+        { name: "igniteui-react-charts"                   , version: "22.1.205" },
+        { name: "igniteui-react-excel"                    , version: "22.1.205" },
+        { name: "igniteui-react-gauges"                   , version: "22.1.205" },
+        { name: "igniteui-react-grids"                    , version: "22.1.205" },
+        { name: "igniteui-react-inputs"                   , version: "22.1.205" },
+        { name: "igniteui-react-layouts"                  , version: "22.1.205" },
+        { name: "igniteui-react-maps"                     , version: "22.1.205" },
+        { name: "igniteui-react-spreadsheet-chart-adapter", version: "22.1.205" },
+        { name: "igniteui-react-spreadsheet"              , version: "22.1.205" },
+        { name: "igniteui-react-datasources"              , version: "22.1.205" },
+        { name: "igniteui-react"                          , version: "22.1.205" },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "3.2.0" },
         { name: "igniteui-dockmanager",   version: "1.9.0" },
