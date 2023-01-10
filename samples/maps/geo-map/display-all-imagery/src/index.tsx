@@ -91,21 +91,28 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
     public onTileSourceChanged = (e: any) =>{
         if (this.geoMap === undefined) return;
 
-        const mode = e.target.value.toString().replace(" ", "");
-        // console.log("setting " + mode);
+        let mode: string = e.target.value.toString();        
+        
+        let splitString = mode.split(" ");
+
+        mode = "";
+
+        for(let i=0; i<splitString.length; i++){
+            mode += splitString[i];
+        }
 
         if (mode.indexOf("OpenStreetMap") === 0) {
             this.geoMap.backgroundContent = new IgrOpenStreetMapImagery();
 
         } else if (mode.indexOf("BingMaps") === 0) {
-            const tileSource = new IgrBingMapsMapImagery();
-            tileSource.apiKey = MapUtils.getBingKey();
-            if (mode === "BingMapsRoad") {
-                tileSource.imageryStyle = BingMapsImageryStyle.Road;
-            } else if (mode === "BingMapsAerialWithoutLabels") {
-                tileSource.imageryStyle = BingMapsImageryStyle.Aerial;
-            } else if (mode === "BingMapsLabelsWithLabels") {
-                tileSource.imageryStyle = BingMapsImageryStyle.AerialWithLabels;
+            let tileSource: IgrBingMapsMapImagery = null;
+            
+            if (mode === "BingMapsRoad") {                
+                tileSource = this.getBingMapsImagery(BingMapsImageryStyle.Road);
+            } else if (mode === "BingMapsAerialWithoutLabels") {                
+                tileSource = this.getBingMapsImagery(BingMapsImageryStyle.Aerial);
+            } else if (mode === "BingMapsAerialWithLabels") {                
+                tileSource = this.getBingMapsImagery(BingMapsImageryStyle.AerialWithLabels);
             }
             this.geoMap.backgroundContent = tileSource;
 
@@ -125,6 +132,24 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
 
         this.setState({ tileSource:  e.target.value});
 
+    }
+
+    public getBingMapsImagery(mapStyle: BingMapsImageryStyle): IgrBingMapsMapImagery {
+        if (!this.geoMap) { return null; }
+
+        const tileSource = new IgrBingMapsMapImagery();
+        tileSource.apiKey = MapUtils.getBingKey();
+        tileSource.imageryStyle = mapStyle;
+        // resolving BingMaps uri based on HTTP protocol of hosting website
+        let tileUri = tileSource.actualBingImageryRestUri;
+        let isHttpSecured = window.location.toString().startsWith("https:");
+        if (isHttpSecured) {
+            tileSource.bingImageryRestUri = tileUri.replace("http:", "https:");
+        } else {
+            tileSource.bingImageryRestUri = tileUri.replace("https:", "http:");
+        }
+
+        return tileSource;
     }
 
 }
