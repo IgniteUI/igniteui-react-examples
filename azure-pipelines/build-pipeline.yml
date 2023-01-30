@@ -1,0 +1,57 @@
+trigger:
+  branches:
+    include:
+    - vnext
+    - master
+  paths:
+    exclude:
+    - '**/jp/*'
+    - '**/kr/*'
+pr:
+  branches:
+    exclude:
+    - '*'  # must quote since "*" is a YAML reserved character; we want a string
+
+parameters:
+- name: isVerbose
+  displayName: 'Get verbose output from steps - where configurable'
+  type: boolean
+  default: false
+
+name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+
+variables:
+  buildType: 'staging'
+  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
+    buildType: 'production'
+
+stages:
+- stage: Build
+  pool:
+    name: BuildAgentOnPrem
+    demands: npm
+  jobs:
+  - job: BuildSamples
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSource: 'spec'
+          versionSpec: '16.x'
+
+# TODO choco install jq -y
+# TODO PS script: jq 'walk(if type == \"object\" then with_entries( if .key == \"igniteui-dockmanager\" then .key = \"@infragistics/igniteui-dockmanager\" else . end ) else . end)' .\package.json > package-tmp.json
+# TODO PS script (same): mv package-tmp.json package.json -force
+
+      - task: Npm@1
+        displayName: 'npm ci'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)'
+          verbose: ${{ parameters.isVerbose }}
+          customCommand: ci
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish pipeline artifacts'
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)'
+          artifact: 'XPlatSamples'
