@@ -3,10 +3,7 @@ trigger:
     include:
     - vnext
     - master
-  paths:
-    exclude:
-    - '**/jp/*'
-    - '**/kr/*'
+
 pr:
   branches:
     exclude:
@@ -19,11 +16,6 @@ parameters:
   default: false
 
 name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
-
-variables:
-  buildType: 'staging'
-  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
-    buildType: 'production'
 
 stages:
 - stage: Build
