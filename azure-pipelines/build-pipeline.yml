@@ -46,6 +46,11 @@ stages:
           script: 'type .\.npmrc'
           workingDirectory: '$(Build.SourcesDirectory)\browser'
           failOnStderr: true
+      - task: CmdLine@2
+        inputs:
+          script: 'npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq ''.dependencies.\"igniteui-dockmanager\"'' .\package.json).Trim(''"''))'
+          workingDirectory: '$(Build.SourcesDirectory)\browser'
+          failOnStderr: true
 
       - task: Npm@1
         displayName: 'npm ci'
@@ -62,11 +67,7 @@ stages:
           verbose: ${{ parameters.isVerbose }}
           customCommand: 'uninstall igniteui-dockmanager'
 
-      - task: CmdLine@2
-        inputs:
-          script: 'npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq ''.dependencies.\"igniteui-dockmanager\"'' .\package.json).Trim(''"''))'
-          workingDirectory: '$(Build.SourcesDirectory)\browser'
-          failOnStderr: true
+
 
       - task: PublishPipelineArtifact@1
         displayName: 'Publish pipeline artifacts'
