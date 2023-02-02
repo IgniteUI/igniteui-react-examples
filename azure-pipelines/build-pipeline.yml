@@ -47,6 +47,10 @@ stages:
           workingDirectory: '$(Build.SourcesDirectory)\browser'
           failOnStderr: true
 
+      - task: CmdLine@2
+        inputs:
+          script: 'choco install jq -y'
+          failOnStderr: true
 
       - task: PowerShell@2
         inputs:
