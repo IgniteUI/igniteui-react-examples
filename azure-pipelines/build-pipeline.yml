@@ -41,11 +41,17 @@ stages:
           workingFile: '$(Build.SourcesDirectory)/browser/.npmrc'
           customEndpoint: 'public proget'
 
+      - task: CmdLine@2
+        inputs:
+          script: 'Get-Content .\.npmrc'
+          workingDirectory: '$(Build.SourcesDirectory)\browser'
+          failOnStderr: true
+
       - task: Npm@1
         displayName: 'npm ci'
         inputs:
           command: custom
-          workingDir: '$(Build.SourcesDirectory)'
+          workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
           customCommand: ci
       - task: Npm@1
@@ -59,7 +65,7 @@ stages:
       - task: CmdLine@2
         inputs:
           script: 'npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq ''.dependencies.\"igniteui-dockmanager\"'' .\package.json).Trim(''"''))'
-          workingDirectory: 'browser'
+          workingDirectory: '$(Build.SourcesDirectory)\browser'
           failOnStderr: true
 
       - task: PublishPipelineArtifact@1
