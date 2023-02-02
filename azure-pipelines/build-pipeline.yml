@@ -30,9 +30,16 @@ stages:
           versionSource: 'spec'
           versionSpec: '16.x'
 
-# TODO choco install jq -y
-# TODO PS script: jq 'walk(if type == \"object\" then with_entries( if .key == \"igniteui-dockmanager\" then .key = \"@infragistics/igniteui-dockmanager\" else . end ) else . end)' .\package.json > package-tmp.json
-# TODO PS script (same): mv package-tmp.json package.json -force
+      - task: Npm@1
+        inputs:
+          command: 'custom'
+          workingDir: '/browser/'
+          customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
+
+      - task: npmAuthenticate@0
+        inputs:
+          workingFile: '/browser/.npmrc'
+          customEndpoint: 'public proget'
 
       - task: Npm@1
         displayName: 'npm ci'
@@ -41,6 +48,19 @@ stages:
           workingDir: '$(Build.SourcesDirectory)'
           verbose: ${{ parameters.isVerbose }}
           customCommand: ci
+      - task: Npm@1
+        displayName: 'npm uninstall igniteui-dockmanager (trial)'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)\browser'
+          verbose: ${{ parameters.isVerbose }}
+          customCommand: 'uninstall igniteui-dockmanager'
+
+      - task: CmdLine@2
+        inputs:
+          script: 'npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq ''.dependencies.\"igniteui-dockmanager\"'' .\package.json).Trim(''"''))'
+          workingDirectory: 'browser'
+          failOnStderr: true
 
       - task: PublishPipelineArtifact@1
         displayName: 'Publish pipeline artifacts'
