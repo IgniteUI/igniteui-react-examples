@@ -54,7 +54,7 @@ stages:
           script: |
             cd $(Build.SourcesDirectory)\browser
             
-            npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq ''.dependencies.\"igniteui-dockmanager\"'' .\package.json).Trim(''"''))
+            npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
 
       - task: Npm@1
         displayName: 'npm ci'
