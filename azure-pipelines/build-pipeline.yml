@@ -46,11 +46,15 @@ stages:
           script: 'type .\.npmrc'
           workingDirectory: '$(Build.SourcesDirectory)\browser'
           failOnStderr: true
-      - task: CmdLine@2
+
+
+      - task: PowerShell@2
         inputs:
-          script: 'npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq ''.dependencies.\"igniteui-dockmanager\"'' .\package.json).Trim(''"''))'
-          workingDirectory: '$(Build.SourcesDirectory)\browser'
-          failOnStderr: true
+          targetType: 'inline'
+          script: |
+            cd $(Build.SourcesDirectory)\browser
+            
+            npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq ''.dependencies.\"igniteui-dockmanager\"'' .\package.json).Trim(''"''))
 
       - task: Npm@1
         displayName: 'npm ci'
