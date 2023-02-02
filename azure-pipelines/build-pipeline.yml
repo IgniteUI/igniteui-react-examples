@@ -43,7 +43,7 @@ stages:
 
       - task: CmdLine@2
         inputs:
-          script: 'Get-Content .\.npmrc'
+          script: 'type .\.npmrc'
           workingDirectory: '$(Build.SourcesDirectory)\browser'
           failOnStderr: true
 
