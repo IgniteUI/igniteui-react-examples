@@ -28,7 +28,7 @@ stages:
       - task: NodeTool@0
         inputs:
           versionSource: 'spec'
-          versionSpec: '16.18.1'
+          versionSpec: '16.4.0'
 
       - task: Npm@1
         inputs:
