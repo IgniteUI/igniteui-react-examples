@@ -47,19 +47,6 @@ stages:
           workingDirectory: '$(Build.SourcesDirectory)\browser'
           failOnStderr: true
 
-      - task: CmdLine@2
-        inputs:
-          script: 'choco install jq -y'
-          failOnStderr: true
-
-      - task: PowerShell@2
-        inputs:
-          targetType: 'inline'
-          script: |
-            cd $(Build.SourcesDirectory)\browser
-            
-            npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
-
       - task: Npm@1
         displayName: 'npm ci'
         inputs:
@@ -75,10 +62,21 @@ stages:
           verbose: ${{ parameters.isVerbose }}
           customCommand: 'uninstall igniteui-dockmanager'
 
+      - task: CmdLine@2
+        inputs:
+          script: 'choco install jq -y'
+          failOnStderr: true
+
+      - task: PowerShell@2
+        inputs:
+          targetType: 'inline'
+          script: |
+            cd $(Build.SourcesDirectory)\browser
+            npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
 
 
       - task: PublishPipelineArtifact@1
         displayName: 'Publish pipeline artifacts'
         inputs:
           targetPath: '$(Build.ArtifactStagingDirectory)'
-          artifact: 'XPlatSamples'
+          artifact: 'ReactSamplesBrowser'
