@@ -36,10 +36,10 @@ stages:
       #    workingDir: '$(Build.SourcesDirectory)/browser/'
           #customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
 
-      - task: npmAuthenticate@0
-        inputs:
-          workingFile: '$(Build.SourcesDirectory)/browser/.npmrc'
-          customEndpoint: 'public proget'
+      #- task: npmAuthenticate@0
+      #  inputs:
+      #    workingFile: '$(Build.SourcesDirectory)/browser/.npmrc'
+      #    customEndpoint: 'public proget'
 
       - task: CmdLine@2
         inputs:
