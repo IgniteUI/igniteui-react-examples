@@ -41,12 +41,6 @@ stages:
       #    workingFile: '$(Build.SourcesDirectory)/browser/.npmrc'
       #    customEndpoint: 'public proget'
 
-      - task: CmdLine@2
-        inputs:
-          script: 'type .\.npmrc'
-          workingDirectory: '$(Build.SourcesDirectory)\browser'
-          failOnStderr: true
-
       - task: Npm@1
         displayName: 'npm ci'
         inputs:
