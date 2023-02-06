@@ -3,6 +3,7 @@ trigger:
     include:
     - vnext
     - master
+    - azure-pipelines
 
 pr:
   branches:
@@ -82,8 +83,18 @@ stages:
           #customCommand: ci
           customCommand: 'run build'
 
+      - task: ArchiveFiles@2
+        displayName: 'Package samples browser'
+        inputs:
+          verbose: ${{ parameters.isVerbose }}
+          rootFolderOrFile: '$(Build.SourcesDirectory)/browser/build'
+          includeRootFolder: false
+          archiveType: 'zip'
+          archiveFile: '$(Build.ArtifactStagingDirectory)/ReactSamples.zip'
+          replaceExistingArchive: true
+
       - task: PublishPipelineArtifact@1
         displayName: 'Publish pipeline artifacts'
         inputs:
-          targetPath: '$(Build.SourcesDirectory)\browser'
+          targetPath: '$(Build.ArtifactStagingDirectory)/ReactSamples.zip'
           artifact: 'ReactSamplesBrowser'
