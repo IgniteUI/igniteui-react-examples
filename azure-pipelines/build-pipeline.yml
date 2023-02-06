@@ -25,7 +25,7 @@ stages:
   jobs:
   - job: BuildSamples
     steps:
-      - checkout: 
+      - checkout: 'self' 
         path: 'igniteui-react-samples'
 
       - task: NodeTool@0
