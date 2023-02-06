@@ -25,6 +25,9 @@ stages:
   jobs:
   - job: BuildSamples
     steps:
+      - checkout: 
+        path: 'igniteui-react-samples'
+
       - task: NodeTool@0
         inputs:
           versionSource: 'spec'
