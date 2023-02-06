@@ -51,8 +51,7 @@ stages:
           command: custom
           workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
-          #customCommand: ci
-          customCommand: install
+          customCommand: ci
       
       #- task: Npm@1
       #  displayName: 'npm uninstall igniteui-dockmanager (trial)'
