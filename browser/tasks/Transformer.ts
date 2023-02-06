@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 let transFS = require('fs.extra');
-
+let pathModule = require('path');
 // let platform = "React";
 // let igConfig = require('./gulp-config.js')[platform];
 
@@ -440,9 +440,9 @@ class Transformer {
         // let path = filePath;
 
         if (sampleFullPath.indexOf(igConfig.RepositoryName) > -1) {
-            sampleFullPath = sampleFullPath.split(igConfig.RepositoryName).pop() as string;
-            sampleFullPath = sampleFullPath.split(path.sep).join("/");
-            return "." + sampleFullPath;
+            sampleFullPath = sampleFullPath.split(igConfig.RepositoryName)[1];
+            sampleFullPath = sampleFullPath.split(pathModule.sep).join("/");
+            return ".." + sampleFullPath;
             // return sampleFullPath;
         }
 
