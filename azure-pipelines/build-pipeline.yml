@@ -26,7 +26,7 @@ stages:
   - job: BuildSamples
     steps:
       - checkout: 'self' 
-        path: 'igniteui-react-examples'
+        path: $(Build.Repository.Name)
 
       - task: NodeTool@0
         inputs:
