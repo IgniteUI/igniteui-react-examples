@@ -30,14 +30,16 @@ stages:
         path: $(Build.Repository.Name)
 
       - task: NodeTool@0
+        displayName: 'Install Node'
         inputs:
           versionSource: 'spec'
-          versionSpec: '16.4.0'
+          versionSpec: '16.x'
 
       - task: Npm@1
+        displayName: 'Register licensed npm registry in .npmrc'
         inputs:
           command: 'custom'
-          workingDir: '$(Build.Repository.Name)/browser/'
+          workingDir: 'browser/'
           customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
 
       - task: npmAuthenticate@0
