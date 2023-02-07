@@ -43,6 +43,7 @@ stages:
           customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
 
       - task: npmAuthenticate@0
+        displayName: 'Authenticate to licensed npm registry in .npmrc'
         inputs:
           workingFile: 'browser/.npmrc'
           customEndpoint: 'public proget'
@@ -64,11 +65,13 @@ stages:
           customCommand: 'uninstall igniteui-dockmanager --no-save'
 
       - task: CmdLine@2
+        displayName: 'Install jq - using choco'
         inputs:
           script: 'choco install jq -y'
           failOnStderr: true
 
       - task: PowerShell@2
+        displayName: 'npm install igniteui-dockmanager (licensed)'
         inputs:
           targetType: 'inline'
           script: |
@@ -95,7 +98,7 @@ stages:
           replaceExistingArchive: true
 
       - task: PublishPipelineArtifact@1
-        displayName: 'Publish pipeline artifacts'
+        displayName: 'Publish pipeline artifact'
         inputs:
           targetPath: '$(Build.ArtifactStagingDirectory)/ReactSamples.zip'
           artifact: 'ReactSamplesBrowser'
