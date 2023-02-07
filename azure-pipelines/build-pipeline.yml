@@ -34,16 +34,16 @@ stages:
           versionSource: 'spec'
           versionSpec: '16.4.0'
 
-      #- task: Npm@1
-      #  inputs:
-      #    command: 'custom'
-      #    workingDir: '$(Build.SourcesDirectory)/browser/'
-          #customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
+      - task: Npm@1
+        inputs:
+          command: 'custom'
+          workingDir: '$(Build.SourcesDirectory)/browser/'
+          customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
 
-      #- task: npmAuthenticate@0
-      #  inputs:
-      #    workingFile: '$(Build.SourcesDirectory)/browser/.npmrc'
-      #    customEndpoint: 'public proget'
+      - task: npmAuthenticate@0
+        inputs:
+          workingFile: '$(Build.SourcesDirectory)/browser/.npmrc'
+          customEndpoint: 'public proget'
 
       - task: Npm@1
         displayName: 'npm ci'
@@ -53,25 +53,25 @@ stages:
           verbose: ${{ parameters.isVerbose }}
           customCommand: ci
       
-      #- task: Npm@1
-      #  displayName: 'npm uninstall igniteui-dockmanager (trial)'
-      #  inputs:
-      #    command: custom
-      #    workingDir: '$(Build.SourcesDirectory)\browser'
-      #    verbose: ${{ parameters.isVerbose }}
-      #    customCommand: 'uninstall igniteui-dockmanager --no-save'
+      - task: Npm@1
+        displayName: 'npm uninstall igniteui-dockmanager (trial)'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)\browser'
+          verbose: ${{ parameters.isVerbose }}
+          customCommand: 'uninstall igniteui-dockmanager --no-save'
 
       - task: CmdLine@2
         inputs:
           script: 'choco install jq -y'
           failOnStderr: true
 
-      #- task: PowerShell@2
-      #  inputs:
-      #    targetType: 'inline'
-      #    script: |
-      #      cd $(Build.SourcesDirectory)\browser
-      #      npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
+      - task: PowerShell@2
+        inputs:
+          targetType: 'inline'
+          script: |
+            cd $(Build.SourcesDirectory)\browser
+            npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
 
       - task: Npm@1
         displayName: 'npm run build'
