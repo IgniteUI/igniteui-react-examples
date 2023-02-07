@@ -36,14 +36,14 @@ stages:
           versionSpec: '16.x'
 
       - task: Npm@1
-        displayName: 'Register licensed npm registry in .npmrc'
+        displayName: 'Register public/licensed npm registry in .npmrc'
         inputs:
           command: 'custom'
           workingDir: 'browser/'
           customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
 
       - task: npmAuthenticate@0
-        displayName: 'Authenticate to licensed npm registry in .npmrc'
+        displayName: 'Authenticate to public/licensed npm registry in .npmrc'
         inputs:
           workingFile: 'browser/.npmrc'
           customEndpoint: 'public proget'
@@ -65,7 +65,7 @@ stages:
           customCommand: 'uninstall igniteui-dockmanager --no-save'
 
       - task: CmdLine@2
-        displayName: 'Install jq - using choco'
+        displayName: 'Install jq - using choco.'
         inputs:
           script: 'choco install jq -y'
           failOnStderr: true
@@ -74,6 +74,8 @@ stages:
         displayName: 'npm install igniteui-dockmanager (licensed)'
         inputs:
           targetType: 'inline'
+          # We are sing a PowerShell script because the npm step doesn't allow for explicit use of variable expansion which is what we use here.
+          # The script below grabs the current version of the dockmanager and installs it separately (after we UNinstalled it in a previous step)
           script: |
             cd $(Build.SourcesDirectory)\browser
             npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
