@@ -44,7 +44,7 @@ stages:
 
       - task: npmAuthenticate@0
         inputs:
-          workingFile: '$(Build.Repository.Name)/browser/.npmrc'
+          workingFile: 'browser/.npmrc'
           customEndpoint: 'public proget'
 
       - task: Npm@1
