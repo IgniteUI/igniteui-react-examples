@@ -35,18 +35,18 @@ stages:
           versionSource: 'spec'
           versionSpec: '16.x'
 
-      - task: Npm@1
-        displayName: 'Register public/licensed npm registry in .npmrc'
-        inputs:
-          command: 'custom'
-          workingDir: 'browser/'
-          customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
+#      - task: Npm@1
+#        displayName: 'Register public/licensed npm registry in .npmrc'
+#        inputs:
+#          command: 'custom'
+#          workingDir: 'browser/'
+#          customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
 
-      - task: npmAuthenticate@0
-        displayName: 'Authenticate to public/licensed npm registry in .npmrc'
-        inputs:
-          workingFile: 'browser/.npmrc'
-          customEndpoint: 'public proget'
+#      - task: npmAuthenticate@0
+#        displayName: 'Authenticate to public/licensed npm registry in .npmrc'
+#        inputs:
+#          workingFile: 'browser/.npmrc'
+#          customEndpoint: 'public proget'
 
       - task: Npm@1
         displayName: 'npm ci'
@@ -55,7 +55,8 @@ stages:
           workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
           customCommand: ci
-      
+          customEndpoint: 'public proget'
+
       - task: Npm@1
         displayName: 'npm uninstall igniteui-dockmanager (trial)'
         inputs:
