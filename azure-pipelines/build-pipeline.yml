@@ -62,7 +62,7 @@ stages:
         displayName: 'npm install igniteui-dockmanager (licensed)'
         inputs:
           targetType: 'inline'
-          # We are sing a PowerShell script because the npm step doesn't allow for explicit use of variable expansion which is what we use here.
+          # We are using a PowerShell script because the npm step doesn't allow for explicit use of variable expansion which is what we use here.
           # The script below grabs the current version of the dockmanager and installs it separately (after we UNinstalled it in a previous step)
           script: |
             cd $(Build.SourcesDirectory)\browser
