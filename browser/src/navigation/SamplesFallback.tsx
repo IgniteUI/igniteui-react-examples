@@ -17,12 +17,24 @@ export class SamplesFallback extends React.Component<any, any> {
             sbUrl = "https://infragistics.com/react-demos/samples";
         }
 
+        var sbHome    = "https://www.infragistics.com/react-demos/samples";
+        var sbMissing = "https://www.infragistics.com/webcomponents-demos/samples" + sbRoute;
+
         return (
-            <div className="sbFallback">
-                <div className="sbFallbackInfo">Cannot find a sample with routing path:</div>
-                <div className="sbFallbackRoute">{sbRoute}</div>
-                <div className="sbFallbackSuggestion">Open<a className="sbFallbackUrl" target="_blank" href={sbUrl} rel="noopener noreferrer"> React samples browser</a></div>
+            <div className="container sample vertical" style={{width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", overflow: "hidden"}}>
+            <img style={{maxHeight: "calc(100% - 6rem)", maxWidth: "30rem"}} src="/assets/comingSoon.svg"></img>
+            <div style={{background: "#f2f2f2", width: "100%", paddingBottom: "1rem", marginTop: "-0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", overflow: "hidden"}}>
+                  <div style={{fontSize: "1.5rem", fontWeight: "bold", textAlign: "center"}}>Coming Soon...</div>
+                  <div style={{fontSize: "0.75rem", textAlign: "center"}}>
+                      This <a href={sbMissing} title={sbMissing} >example</a> is under development. We are almost done!
+                  </div>
+                  <div style={{fontSize: "0.75rem", textAlign: "center"}}>
+                      <span>
+                          Meanwhile, you can explore all Ignite UI for React samples on this <a href={sbHome} target="_blank" rel="noreferrer">website</a>                          
+                      </span>
+                  </div>
             </div>
+          </div>
         );
     }
 }
