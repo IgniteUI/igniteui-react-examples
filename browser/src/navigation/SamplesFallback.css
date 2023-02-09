@@ -21,6 +21,44 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.sbFallbackBackground {
+    align-items: center;
+    background: #f2f2f2;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;        
+    margin-top: -0.5rem;
+    overflow: hidden;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+.sbFallbackCaption {
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.sbFallbackContainer {
+    align-items: center;    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;    
+    overflow: hidden;
+    width: 100%;
+}
+
+.sbFallbackHeader {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sbFallbackIcon {
+    max-height: calc(100% - 6rem);
+    max-width: 30rem;
+}
+
 .sbFallbackInfo {
     color: black;
 }

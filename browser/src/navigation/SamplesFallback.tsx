@@ -21,14 +21,14 @@ export class SamplesFallback extends React.Component<any, any> {
         var sbMissing = "https://www.infragistics.com/webcomponents-demos/samples" + sbRoute;
 
         return (
-            <div className="container sample vertical" style={{width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", overflow: "hidden"}}>
-            <img style={{maxHeight: "calc(100% - 6rem)", maxWidth: "30rem"}} src="/assets/comingSoon.svg"></img>
-            <div style={{background: "#f2f2f2", width: "100%", paddingBottom: "1rem", marginTop: "-0.5rem", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", overflow: "hidden"}}>
-                  <div style={{fontSize: "1.5rem", fontWeight: "bold", textAlign: "center"}}>Coming Soon...</div>
-                  <div style={{fontSize: "0.75rem", textAlign: "center"}}>
+            <div className="container sample vertical sbFallbackContainer">
+            <img className="sbFallbackIcon" src="/assets/comingSoon.svg"></img>
+            <div className="sbFallbackBackground">
+                  <div className="sbFallbackHeader">Coming Soon...</div>
+                  <div className="sbFallbackCaption">
                       This <a href={sbMissing} title={sbMissing} >example</a> is under development. We are almost done!
                   </div>
-                  <div style={{fontSize: "0.75rem", textAlign: "center"}}>
+                  <div className="sbFallbackCaption">
                       <span>
                           Meanwhile, you can explore all Ignite UI for React samples on this <a href={sbHome} target="_blank" rel="noreferrer">website</a>                          
                       </span>
