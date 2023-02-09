@@ -18,7 +18,7 @@ export class SamplesFallback extends React.Component<any, any> {
         }
 
         var sbHome    = "https://www.infragistics.com/react-demos/samples";
-        var sbMissing = "https://www.infragistics.com/webcomponents-demos/samples" + sbRoute;
+        var sbMissing = "https://www.infragistics.com/react-demos" + sbRoute;
 
         return (
             <div className="container sample vertical sbFallbackContainer">
@@ -26,7 +26,7 @@ export class SamplesFallback extends React.Component<any, any> {
             <div className="sbFallbackBackground">
                   <div className="sbFallbackHeader">Coming Soon...</div>
                   <div className="sbFallbackCaption">
-                      This <a href={sbMissing} title={sbMissing} >example</a> is under development. We are almost done!
+                      This <a href={sbMissing} title={sbRoute} >example</a> is under development. We are almost done!
                   </div>
                   <div className="sbFallbackCaption">
                       <span>
