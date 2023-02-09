@@ -17,12 +17,24 @@ export class SamplesFallback extends React.Component<any, any> {
             sbUrl = "https://infragistics.com/react-demos/samples";
         }
 
+        var sbHome    = "https://www.infragistics.com/react-demos/samples";
+        var sbMissing = "https://www.infragistics.com/react-demos" + sbRoute;
+
         return (
-            <div className="sbFallback">
-                <div className="sbFallbackInfo">Cannot find a sample with routing path:</div>
-                <div className="sbFallbackRoute">{sbRoute}</div>
-                <div className="sbFallbackSuggestion">Open<a className="sbFallbackUrl" target="_blank" href={sbUrl} rel="noopener noreferrer"> React samples browser</a></div>
+            <div className="container sample vertical sbFallbackContainer">
+            <img className="sbFallbackIcon" src="/assets/comingSoon.svg"></img>
+            <div className="sbFallbackBackground">
+                  <div className="sbFallbackHeader">Coming Soon...</div>
+                  <div className="sbFallbackCaption">
+                      This <a href={sbMissing} title={sbRoute} >example</a> is under development. We are almost done!
+                  </div>
+                  <div className="sbFallbackCaption">
+                      <span>
+                          Meanwhile, you can explore all Ignite UI for React samples on this <a href={sbHome} target="_blank" rel="noreferrer">website</a>                          
+                      </span>
+                  </div>
             </div>
+          </div>
         );
     }
 }
