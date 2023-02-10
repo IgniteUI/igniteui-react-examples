@@ -51,5 +51,17 @@
     "tasks/*.js",
     "tasks/*.ts",
     "templates"
-  ]
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**/*.ts",
+      "node_modules/**/*.js",
+      "**/odatajs-4.0.0.js",
+      "templates",
+      "tasks",
+      "public/assets/**/*.*",
+      "public/code-viewer/**/*.*",
+      "src/samples/**/*.*"
+    ]
+  }
 }
