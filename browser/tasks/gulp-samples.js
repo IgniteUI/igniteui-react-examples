@@ -604,7 +604,7 @@ function updateCodeViewer(cb) {
 
     for (const sample of samples) {
 
-        var codeViewFilePath = sample.SampleRoute;
+        var codeViewFilePath = sample.SampleRouteNew;
         var codeViewPath = "./public/code-viewer" + codeViewFilePath + ".json";
 
         log("generating: " + codeViewPath);

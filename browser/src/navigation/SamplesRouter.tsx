@@ -52,7 +52,9 @@ export class SamplesRouter {
         for (const component of group.components ) {
             let links: any[] = [];
             for (const sample of component.routes ) {
-
+                if (!sample.showLink) {
+                    continue;
+                }
                 let id = 'sbNav-link-' + sample.path;
                 let url = '/samples' + sample.path;
                 links.push (

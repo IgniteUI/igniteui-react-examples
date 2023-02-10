@@ -14,4 +14,5 @@ export class RoutingSample {
     public name: string;
     public path: string;
     public component: any;
+    public showLink: boolean;
 }
