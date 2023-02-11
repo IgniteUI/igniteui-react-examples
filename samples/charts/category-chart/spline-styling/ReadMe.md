@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from template: -->
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/vnext/templates/sample/ReadMe.md -->
 
-This folder contains implementation of React application with example of  Spline Styling feature using [Category Chart](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) component.
+This folder contains implementation of React application with example of Spline Styling feature using [Category Chart](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) component.
 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -12,7 +12,7 @@ This folder contains implementation of React application with example of  Spline
         <a target="_blank" href="./src/index.tsx" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="View Code" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-code.png"/>
         </a>
-        <a target="_blank" href="https://www.infragistics.com/react-demos/samples/charts/category-chart-spline-styling" rel="noopener noreferrer">
+        <a target="_blank" href="https://www.infragistics.com/react-demos/samples/charts/category-chart/spline-styling" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://github.com/IgniteUI/igniteui-blazor-examples/raw/vnext/templates/sample/images/button-run.png"/>
         </a>
         <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/charts/category-chart/spline-styling?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/index.tsx" rel="noopener noreferrer">
