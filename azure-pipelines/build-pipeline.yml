@@ -74,7 +74,7 @@ stages:
           command: custom
           workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
-          customCommand: 'audit fix'
+          customCommand: 'audit fix --dry-run'
 
       - task: Npm@1
         displayName: 'npm run build'
