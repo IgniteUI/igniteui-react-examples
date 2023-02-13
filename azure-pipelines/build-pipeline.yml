@@ -69,6 +69,14 @@ stages:
             npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
 
       - task: Npm@1
+        displayName: 'npm audit fix'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)\browser'
+          verbose: ${{ parameters.isVerbose }}
+          customCommand: 'audit fix'
+
+      - task: Npm@1
         displayName: 'npm run build'
         inputs:
           command: custom
