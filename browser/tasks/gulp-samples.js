@@ -360,7 +360,7 @@ function updateVersion(cb) {
     const appTime = appDate.toISOString().split('T')[0] + " " + appDate.toTimeString().split(' ')[0];
     const appPackage = require('../package.json');
     const appVersion = appPackage.version;
-    const appInfo = appVersion + appTime;
+    const appInfo = appVersion + " at " + appTime;
     const jsonData = { version: appVersion, date: appTime, note: "this file is auto-generated" };
     const jsonContent = JSON.stringify(jsonData);
 
