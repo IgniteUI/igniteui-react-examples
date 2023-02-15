@@ -1,0 +1,94 @@
+trigger:
+  branches:
+    include:
+    - vnext
+    - master
+    - azure-pipelines
+
+pr:
+  branches:
+    exclude:
+    - '*'  # must quote since "*" is a YAML reserved character; we want a string
+
+parameters:
+- name: isVerbose
+  displayName: 'Get verbose output from steps - where configurable'
+  type: boolean
+  default: false
+
+name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+
+stages:
+- stage: Build
+  pool:
+    name: BuildAgentOnPrem
+    demands: npm
+  jobs:
+  - job: BuildSamples
+    steps:
+      - checkout: 'self' 
+        path: $(Build.Repository.Name)
+
+      - task: NodeTool@0
+        displayName: 'Install Node'
+        inputs:
+          versionSource: 'spec'
+          versionSpec: '16.x'
+
+      - task: Npm@1
+        displayName: 'npm ci'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)\browser'
+          verbose: ${{ parameters.isVerbose }}
+          customCommand: ci
+          customEndpoint: 'public proget'
+
+      - task: Npm@1
+        displayName: 'npm uninstall igniteui-dockmanager (trial)'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)\browser'
+          verbose: ${{ parameters.isVerbose }}
+          customCommand: 'uninstall igniteui-dockmanager --no-save'
+
+      - task: CmdLine@2
+        displayName: 'Install jq - using choco.'
+        inputs:
+          script: 'choco install jq -y'
+          failOnStderr: true
+
+      - task: PowerShell@2
+        displayName: 'npm install igniteui-dockmanager (licensed)'
+        inputs:
+          targetType: 'inline'
+          # We are using a PowerShell script because the npm step doesn't allow for explicit use of variable expansion which is what we use here.
+          # The script below grabs the current version of the dockmanager and installs it separately (after we UNinstalled it in a previous step)
+          script: |
+            cd $(Build.SourcesDirectory)\browser
+            npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
+
+      - task: Npm@1
+        displayName: 'npm run build'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)\browser'
+          verbose: ${{ parameters.isVerbose }}
+          #customCommand: ci
+          customCommand: 'run build'
+
+      - task: ArchiveFiles@2
+        displayName: 'Package samples browser'
+        inputs:
+          verbose: ${{ parameters.isVerbose }}
+          rootFolderOrFile: '$(Build.SourcesDirectory)/browser/build'
+          includeRootFolder: false
+          archiveType: 'zip'
+          archiveFile: '$(Build.ArtifactStagingDirectory)/ReactSamples.zip'
+          replaceExistingArchive: true
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish pipeline artifact'
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)/ReactSamples.zip'
+          artifact: 'ReactSamplesBrowser'

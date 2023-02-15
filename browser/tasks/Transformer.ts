@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 let transFS = require('fs.extra');
-
+let pathModule = require('path');
 // let platform = "React";
 // let igConfig = require('./gulp-config.js')[platform];
 
@@ -442,17 +442,18 @@ class Transformer {
         return info;
     }
 
-    public static getRelative(path: string): string {
+    public static getRelative(sampleFullPath: string): string {
         // let path = filePath;
-        if (path.indexOf(igConfig.RepositoryName) > -1) {
-            path = path.split(igConfig.RepositoryName)[1];
-            path = path.split("\\").join("/");
-            return ".." + path;
-            // return path;
+
+        if (sampleFullPath.indexOf(igConfig.RepositoryName) > -1) {
+            sampleFullPath = sampleFullPath.split(igConfig.RepositoryName)[1];
+            sampleFullPath = sampleFullPath.split(pathModule.sep).join("/");
+            return ".." + sampleFullPath;
+            // return sampleFullPath;
         }
 
-        console.log("failed on getRelative " + path);
-        return path;
+        console.log("failed on getRelative " + sampleFullPath);
+        return sampleFullPath;
     }
 
     public static getFileName(relativePath: string): string {
