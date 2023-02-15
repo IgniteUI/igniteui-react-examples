@@ -22,7 +22,8 @@ class SampleInfo {
     // public SampleDirOnDisk: string;    // C:\repo\igniteui-react-examples\samples\maps\geo-map\binding-csv-points\
     public SampleFolderPath: string;      // /samples/maps/geo-map/binding-csv-points/
     public SampleFilePath: string;        // /samples/maps/geo-map/binding-csv-points/src/index.tsx
-    public SampleRoute: string;           //         /maps/geo-map/binding-csv-points/
+    public SampleRouteOld: string;        //         /maps/geo-map-binding-csv-points/
+    public SampleRouteNew: string;        //         /maps/geo-map/binding-csv-points/
     public SampleFolderName: string;      //                       binding-csv-points
     public SampleFileName: string;        // index.tsx
     public SampleImportName: string;      // index
@@ -145,7 +146,7 @@ class Transformer {
     }
     public static printRoutes(samples: SampleInfo[]): void {
         for (const info of samples) {
-            console.log(info.SampleFolderPath + " => " + info.SampleRoute);
+            console.log(info.SampleFolderPath + " => " + info.SampleRouteNew);
         }
     }
     public static printUrls(samples: SampleInfo[]): void {
@@ -175,8 +176,12 @@ class Transformer {
             info.ComponentName = info.ComponentName.replace("Geo Map", "Geographic Map");
             info.ComponentName = info.ComponentName.replace("-", " ");
 
-            // info.SampleFolderPath = relativePath;
-            info.SampleRoute = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "-" + info.SampleFolderName;
+            // for backward comparability:
+            // using old routing that has "-" between ComponentFolder and sample SampleFolderName
+            // using new routing that has "/" between ComponentFolder and sample SampleFolderName
+            // new routing path matches exactly sample path this makes it easier to use in docs since
+            info.SampleRouteOld = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "-" + info.SampleFolderName;
+            info.SampleRouteNew = "/" +  info.ComponentGroup + "/" + info.ComponentFolder + "/" + info.SampleFolderName;
 
             // console.log(info.SampleFolderPath + " " + info.SampleFilePaths.length);
 
@@ -258,6 +263,7 @@ class Transformer {
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Display ", "Display ");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Data Chart Type ", "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, info.ComponentName + " ", "");
+                info.SampleDisplayName = info.SampleDisplayName.trim();
 
                 // console.log("Transformer Sandbox ...");
                 info.SandboxUrlView = this.getSandboxUrl(info, igConfig.SandboxUrlView);
@@ -269,7 +275,7 @@ class Transformer {
                 // console.log("SAMPLE " + info.SampleFilePath + " => " + info.SampleDisplayName);
             }
 
-            // console.log(info.SampleFolderPath + " => " + info.SampleRoute + " => " + info.SampleDisplayName);
+            // console.log(info.SampleFolderPath + " => " + info.SampleRouteNew + " => " + info.SampleDisplayName);
 
         }
     }
@@ -509,7 +515,7 @@ class Transformer {
         // readMe = Strings.replace(readMe, "{SampleFolderPath}", sample.SampleFolderPath);
         readMe = Strings.replace(readMe, "{SampleFolderPath}", sample.SampleFolderPath);
         readMe = Strings.replace(readMe, "{SampleFolderName}", sample.SampleFolderName);
-        readMe = Strings.replace(readMe, "{SampleRoute}", sample.SampleRoute);
+        readMe = Strings.replace(readMe, "{SampleRoute}", sample.SampleRouteNew);
         readMe = Strings.replace(readMe, "{SampleDisplayName}", sample.SampleDisplayName);
         readMe = Strings.replace(readMe, "{SampleFileName}", sample.SampleFileName);
         readMe = Strings.replace(readMe, "{SampleFilePath}", sample.SampleFilePath);
@@ -590,7 +596,7 @@ class Transformer {
             // group.samples = map.get(key);
 
             // for (let item of map.get(key) ) {
-            //     console.log(item.SampleRoute);
+            //     console.log(item.SampleRouteNew);
             // }
             // // groups.push(map.get(key));
             groups.push(group);
@@ -638,8 +644,12 @@ class Transformer {
                 // let samplePath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleClassName;
 
                 imports += "const " + info.SampleImportName +  " = React.lazy(() => import('" + info.SampleImportPath + "')); \n";
-
-                routes += "        { path: '" + info.SampleRoute + "', name: '" + info.SampleDisplayName + "', component: " + info.SampleImportName + " }, \n";
+                // for backward comparability:
+                // using old routing that has "-" between ComponentFolder and sample SampleFolderName
+                // using new routing that has "/" between ComponentFolder and sample SampleFolderName
+                // new routing path matches exactly sample path this makes it easier to use in docs since
+                routes += "        { path: '" + info.SampleRouteNew + "', name: '" + info.SampleDisplayName + "', component: " + info.SampleImportName + ", showLink: true  }, \n";
+                routes += "        { path: '" + info.SampleRouteOld + "', name: '" + info.SampleDisplayName + "', component: " + info.SampleImportName + ", showLink: false }, \n";
             }
             routes += '    ]},\n';
         }
