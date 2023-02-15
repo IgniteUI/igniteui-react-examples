@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStackedSplineSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
+import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStackedSplineSeries, IgrStackedFragmentSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
 
@@ -14,6 +14,7 @@ const mods: any[] = [
     IgrDataChartCategoryModule,
     IgrDataChartCategoryCoreModule,
     IgrDataChartInteractivityModule,
+    IgrDataChartAnnotationModule,
     IgrDataChartStackedModule,
     IgrStackedFragmentSeriesModule
 ];
@@ -38,6 +39,7 @@ export default class Sample extends React.Component<any, any> {
     private s3: IgrStackedFragmentSeries
     private s4: IgrStackedFragmentSeries
     private s5: IgrStackedFragmentSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -63,14 +65,14 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
+                    legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         dataSource={this.continentsBirthRate}
-                        gap="0.75"
                         label="year"
+                        gap="0.75"
                         name="xAxis">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
@@ -83,16 +85,16 @@ export default class Sample extends React.Component<any, any> {
                         name="yAxis">
                     </IgrNumericYAxis>
                     <IgrStackedSplineSeries
+                        dataSource={this.continentsBirthRate}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        markerType="Circle"
-                        dataSource={this.continentsBirthRate}
                         showDefaultTooltip="false"
+                        markerType="Circle"
                         name="StackedSplineSeries">
                         <IgrStackedFragmentSeries
                             name="s1"
-                            title="Asia"
-                            valueMemberPath="asia">
+                            valueMemberPath="asia"
+                            title="Asia">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s2"
@@ -115,6 +117,9 @@ export default class Sample extends React.Component<any, any> {
                             title="South America">
                         </IgrStackedFragmentSeries>
                     </IgrStackedSplineSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

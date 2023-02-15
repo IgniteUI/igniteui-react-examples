@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartRadialModule, IgrDataChartRadialCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrCategoryAngleAxis, IgrNumericRadiusAxis, IgrRadialPieSeries } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryAngleAxis, IgrNumericRadiusAxis, IgrRadialPieSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerStats';
 
 
@@ -32,6 +32,7 @@ export default class Sample extends React.Component<any, any> {
     private radiusAxis: IgrNumericRadiusAxis
     private radialPieSeries1: IgrRadialPieSeries
     private radialPieSeries2: IgrRadialPieSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -80,7 +81,7 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.footballPlayerStats}
                         thickness="3"
                         areaFillOpacity="0.8"
-                        showDefaultTooltip="true"
+                        showDefaultTooltip="false"
                         title="Ronaldo"
                         name="RadialPieSeries1">
                     </IgrRadialPieSeries>
@@ -89,12 +90,15 @@ export default class Sample extends React.Component<any, any> {
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
                         valueMemberPath="messi"
-                        showDefaultTooltip="true"
+                        showDefaultTooltip="false"
                         areaFillOpacity="0.8"
                         thickness="3"
                         title="Messi"
                         name="RadialPieSeries2">
                     </IgrRadialPieSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

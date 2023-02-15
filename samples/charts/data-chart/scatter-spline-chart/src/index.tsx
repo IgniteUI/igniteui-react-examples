@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterSplineSeries } from 'igniteui-react-charts';
+import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterSplineSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
 import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
 
@@ -16,7 +16,7 @@ const mods: any[] = [
     IgrDataChartScatterModule,
     IgrDataChartScatterCoreModule,
     IgrDataChartInteractivityModule,
-    IgrDataChartInteractivityModule
+    IgrDataChartAnnotationModule
 ];
 mods.forEach((m) => m.register());
 
@@ -35,6 +35,7 @@ export default class Sample extends React.Component<any, any> {
     private yAxis: IgrNumericYAxis
     private scatterSplineSeries1: IgrScatterSplineSeries
     private scatterSplineSeries2: IgrScatterSplineSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -99,6 +100,9 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true"
                         name="ScatterSplineSeries2">
                     </IgrScatterSplineSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>
