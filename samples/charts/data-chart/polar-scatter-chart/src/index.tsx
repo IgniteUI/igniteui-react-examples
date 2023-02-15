@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrDataChartCoreModule, IgrDataChartPolarModule, IgrDataChartPolarCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrNumericAngleAxis, IgrNumericRadiusAxis, IgrPolarScatterSeries } from 'igniteui-react-charts';
+import { IgrDataChartCoreModule, IgrDataChartPolarModule, IgrDataChartPolarCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
+import { IgrDataChart, IgrNumericAngleAxis, IgrNumericRadiusAxis, IgrPolarScatterSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
 
@@ -12,7 +12,8 @@ const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartPolarModule,
     IgrDataChartPolarCoreModule,
-    IgrDataChartInteractivityModule
+    IgrDataChartInteractivityModule,
+    IgrDataChartAnnotationModule
 ];
 mods.forEach((m) => m.register());
 
@@ -26,6 +27,7 @@ export default class Sample extends React.Component<any, any> {
     private radiusAxis: IgrNumericRadiusAxis
     private polarScatterSeries1: IgrPolarScatterSeries
     private polarScatterSeries2: IgrPolarScatterSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -69,7 +71,7 @@ export default class Sample extends React.Component<any, any> {
                         radiusAxisName="radiusAxis"
                         markerType="Circle"
                         dataSource={this.boatSailingData}
-                        showDefaultTooltip="true"
+                        showDefaultTooltip="false"
                         title="Wind Speed"
                         name="PolarScatterSeries1">
                     </IgrPolarScatterSeries>
@@ -79,11 +81,14 @@ export default class Sample extends React.Component<any, any> {
                         radiusAxisName="radiusAxis"
                         angleMemberPath="direction"
                         radiusMemberPath="boatSpeed"
-                        showDefaultTooltip="true"
+                        showDefaultTooltip="false"
                         title="Boat Speed"
                         markerType="Circle"
                         name="PolarScatterSeries2">
                     </IgrPolarScatterSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

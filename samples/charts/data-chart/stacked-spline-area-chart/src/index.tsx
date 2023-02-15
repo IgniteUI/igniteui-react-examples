@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStackedSplineAreaSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
+import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStackedSplineAreaSeries, IgrStackedFragmentSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
 
@@ -14,6 +14,7 @@ const mods: any[] = [
     IgrDataChartCategoryModule,
     IgrDataChartCategoryCoreModule,
     IgrDataChartInteractivityModule,
+    IgrDataChartAnnotationModule,
     IgrDataChartStackedModule,
     IgrStackedFragmentSeriesModule
 ];
@@ -38,6 +39,7 @@ export default class Sample extends React.Component<any, any> {
     private s3: IgrStackedFragmentSeries
     private s4: IgrStackedFragmentSeries
     private s5: IgrStackedFragmentSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -96,25 +98,28 @@ export default class Sample extends React.Component<any, any> {
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s2"
-                            title="Africa"
-                            valueMemberPath="africa">
+                            valueMemberPath="africa"
+                            title="Africa">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s3"
-                            title="Europe"
-                            valueMemberPath="europe">
+                            valueMemberPath="europe"
+                            title="Europe">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s4"
-                            title="North America"
-                            valueMemberPath="northAmerica">
+                            valueMemberPath="northAmerica"
+                            title="North America">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s5"
-                            title="South America"
-                            valueMemberPath="southAmerica">
+                            valueMemberPath="southAmerica"
+                            title="South America">
                         </IgrStackedFragmentSeries>
                     </IgrStackedSplineAreaSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

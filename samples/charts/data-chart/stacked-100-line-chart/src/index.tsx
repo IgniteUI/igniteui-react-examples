@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStacked100LineSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
+import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStacked100LineSeries, IgrStackedFragmentSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
 
@@ -14,6 +14,7 @@ const mods: any[] = [
     IgrDataChartCategoryModule,
     IgrDataChartCategoryCoreModule,
     IgrDataChartInteractivityModule,
+    IgrDataChartAnnotationModule,
     IgrDataChartStackedModule,
     IgrStackedFragmentSeriesModule
 ];
@@ -38,6 +39,7 @@ export default class Sample extends React.Component<any, any> {
     private s3: IgrStackedFragmentSeries
     private s4: IgrStackedFragmentSeries
     private s5: IgrStackedFragmentSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -111,6 +113,9 @@ export default class Sample extends React.Component<any, any> {
                             title="South America">
                         </IgrStackedFragmentSeries>
                     </IgrStacked100LineSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

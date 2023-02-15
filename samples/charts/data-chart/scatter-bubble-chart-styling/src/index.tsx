@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { CountryStatsAfricaItem, CountryStatsAfrica } from './CountryStatsAfrica';
 import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
 
@@ -34,6 +34,7 @@ export default class Sample extends React.Component<any, any> {
     private yAxis: IgrNumericYAxis
     private bubbleSeries1: IgrBubbleSeries
     private bubbleSeries2: IgrBubbleSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -105,6 +106,9 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true"
                         name="BubbleSeries2">
                     </IgrBubbleSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

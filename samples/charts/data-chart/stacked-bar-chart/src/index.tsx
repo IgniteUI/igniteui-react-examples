@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule, IgrCalloutLayerModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrStackedBarSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
+import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule, IgrCalloutLayerModule } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrStackedBarSeries, IgrStackedFragmentSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { EnergyRenewableConsumptionItem, EnergyRenewableConsumption } from './EnergyRenewableConsumption';
 
 
@@ -14,6 +14,7 @@ const mods: any[] = [
     IgrDataChartCategoryModule,
     IgrDataChartCategoryCoreModule,
     IgrDataChartInteractivityModule,
+    IgrDataChartAnnotationModule,
     IgrDataChartStackedModule,
     IgrStackedFragmentSeriesModule,
     IgrCalloutLayerModule
@@ -38,6 +39,7 @@ export default class Sample extends React.Component<any, any> {
     private s2: IgrStackedFragmentSeries
     private s3: IgrStackedFragmentSeries
     private s4: IgrStackedFragmentSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -107,6 +109,9 @@ export default class Sample extends React.Component<any, any> {
                             title="Other">
                         </IgrStackedFragmentSeries>
                     </IgrStackedBarSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrStacked100BarSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
+import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrStacked100BarSeries, IgrStackedFragmentSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { EnergyRenewableConsumptionItem, EnergyRenewableConsumption } from './EnergyRenewableConsumption';
 
 
@@ -14,6 +14,7 @@ const mods: any[] = [
     IgrDataChartCategoryModule,
     IgrDataChartCategoryCoreModule,
     IgrDataChartInteractivityModule,
+    IgrDataChartAnnotationModule,
     IgrDataChartStackedModule,
     IgrStackedFragmentSeriesModule
 ];
@@ -37,6 +38,7 @@ export default class Sample extends React.Component<any, any> {
     private s2: IgrStackedFragmentSeries
     private s3: IgrStackedFragmentSeries
     private s4: IgrStackedFragmentSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -105,6 +107,9 @@ export default class Sample extends React.Component<any, any> {
                             title="Other">
                         </IgrStackedFragmentSeries>
                     </IgrStacked100BarSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

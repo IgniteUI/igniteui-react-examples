@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrLegendModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrRangeColumnSeries } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrRangeColumnSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { TemperatureRangeDataItem, TemperatureRangeData } from './TemperatureRangeData';
 
 
@@ -30,6 +30,7 @@ export default class Sample extends React.Component<any, any> {
     private yAxis: IgrNumericYAxis
     private series1: IgrRangeColumnSeries
     private series2: IgrRangeColumnSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -77,6 +78,7 @@ export default class Sample extends React.Component<any, any> {
                         lowMemberPath="lowLA"
                         highMemberPath="highLA"
                         dataSource={this.temperatureRangeData}
+                        showDefaultTooltip="false"
                         title="Los Angeles"
                         name="series1">
                     </IgrRangeColumnSeries>
@@ -86,9 +88,13 @@ export default class Sample extends React.Component<any, any> {
                         title="New York City"
                         lowMemberPath="lowNY"
                         highMemberPath="highNY"
+                        showDefaultTooltip="false"
                         dataSource={this.temperatureRangeData}
                         name="series2">
                     </IgrRangeColumnSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

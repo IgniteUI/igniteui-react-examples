@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrDataChartCoreModule, IgrDataChartPolarModule, IgrDataChartPolarCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrNumericAngleAxis, IgrNumericRadiusAxis, IgrPolarSplineSeries } from 'igniteui-react-charts';
+import { IgrDataChart, IgrNumericAngleAxis, IgrNumericRadiusAxis, IgrPolarSplineSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
 
@@ -26,6 +26,7 @@ export default class Sample extends React.Component<any, any> {
     private radiusAxis: IgrNumericRadiusAxis
     private polarSplineSeries1: IgrPolarSplineSeries
     private polarSplineSeries2: IgrPolarSplineSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -70,7 +71,7 @@ export default class Sample extends React.Component<any, any> {
                         markerType="Circle"
                         dataSource={this.boatSailingData}
                         thickness="1"
-                        showDefaultTooltip="true"
+                        showDefaultTooltip="false"
                         title="Wind Speed"
                         name="PolarSplineSeries1">
                     </IgrPolarSplineSeries>
@@ -80,12 +81,15 @@ export default class Sample extends React.Component<any, any> {
                         radiusAxisName="radiusAxis"
                         angleMemberPath="direction"
                         radiusMemberPath="boatSpeed"
-                        showDefaultTooltip="true"
+                        showDefaultTooltip="false"
                         thickness="1"
                         title="Boat Speed"
                         markerType="Circle"
                         name="PolarSplineSeries2">
                     </IgrPolarSplineSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

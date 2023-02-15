@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterLineSeries } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterLineSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
 import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
 
@@ -35,6 +35,7 @@ export default class Sample extends React.Component<any, any> {
     private yAxis: IgrNumericYAxis
     private scatterLineSeries1: IgrScatterLineSeries
     private scatterLineSeries2: IgrScatterLineSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -89,16 +90,19 @@ export default class Sample extends React.Component<any, any> {
                         name="ScatterLineSeries1">
                     </IgrScatterLineSeries>
                     <IgrScatterLineSeries
+                        title="France"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="lifeExpectancy"
                         yMemberPath="healthExpense"
-                        markerType="Circle"
                         dataSource={this.healthDataForFrance}
+                        markerType="Circle"
                         showDefaultTooltip="true"
-                        title="France"
                         name="ScatterLineSeries2">
                     </IgrScatterLineSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStacked100ColumnSeries, IgrStackedFragmentSeries } from 'igniteui-react-charts';
+import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStacked100ColumnSeries, IgrStackedFragmentSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { OnlineTrafficByDeviceItem, OnlineTrafficByDevice } from './OnlineTrafficByDevice';
 
 
@@ -14,6 +14,7 @@ const mods: any[] = [
     IgrDataChartCategoryModule,
     IgrDataChartCategoryCoreModule,
     IgrDataChartInteractivityModule,
+    IgrDataChartAnnotationModule,
     IgrDataChartStackedModule,
     IgrStackedFragmentSeriesModule
 ];
@@ -36,6 +37,7 @@ export default class Sample extends React.Component<any, any> {
     private s1: IgrStackedFragmentSeries
     private s2: IgrStackedFragmentSeries
     private s3: IgrStackedFragmentSeries
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -98,6 +100,9 @@ export default class Sample extends React.Component<any, any> {
                             title="Tablet">
                         </IgrStackedFragmentSeries>
                     </IgrStacked100ColumnSeries>
+                    <IgrDataToolTipLayer
+                        name="DataToolTipLayer">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>
