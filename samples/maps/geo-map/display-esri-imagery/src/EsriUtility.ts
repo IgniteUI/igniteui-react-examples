@@ -13,13 +13,13 @@ export enum EsriStyle {
     WorldTerrainMap = "https://services.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer",
     WorldNationalGeoMap = "https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer",
     WorldShadedReliefMap = "https://services.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer",
-    WorldOceansMap = "https://services.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer",
 
     // not usable imagery tiles
     // WorldHillShadeDarkMap = "https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade_Dark/MapServer",
     // WorldHillShadeLightMap = "https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer",
     // WorldElevation3dTerrainMap = "https://services.arcgisonline.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer",
     // WorldElevation3dTopographicMap = "https://services.arcgisonline.com/arcgis/rest/services/WorldElevation3D/TopoBathy3D/ImageServer",
+    // WorldOceansMap = "https://services.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer",
 
     // note Esri overlays show geographic tiles for the whole of world without any shapes
     WorldOceansBaseMap = "https://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer",
