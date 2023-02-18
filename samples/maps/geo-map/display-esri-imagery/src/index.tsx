@@ -60,9 +60,9 @@ export default class MapDisplayImageryEsri extends React.Component<any, any> {
         if (!geoMap) { return; }
 
         const tileSource = new IgrArcGISOnlineMapImagery();
-        tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldOceansMap);
+        tileSource.mapServerUri = EsriUtility.getUri(EsriStyle.WorldOceansBaseMap);
         // or
-        // tileSource.mapServerUri = "https://services.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer";
+        // tileSource.mapServerUri = "https://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer";
         geoMap.backgroundContent = tileSource;
 
         MapUtils.navigateTo(geoMap, MapRegion.Caribbean);
