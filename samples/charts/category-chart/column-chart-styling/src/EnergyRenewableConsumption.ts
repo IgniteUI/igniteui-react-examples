@@ -2,7 +2,7 @@ export class EnergyRenewableConsumptionItem {
     public constructor(init: Partial<EnergyRenewableConsumptionItem>) {
         Object.assign(this, init);
     }
-    
+
     public location: string;
     public year: number;
     public hydro: number;

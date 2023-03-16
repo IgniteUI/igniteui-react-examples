@@ -2,7 +2,7 @@ export class ContinentsBirthRateItem {
     public constructor(init: Partial<ContinentsBirthRateItem>) {
         Object.assign(this, init);
     }
-    
+
     public year: string;
     public asia: number;
     public africa: number;

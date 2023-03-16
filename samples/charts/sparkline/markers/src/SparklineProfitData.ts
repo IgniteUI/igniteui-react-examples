@@ -2,7 +2,7 @@ export class SparklineProfitDataItem {
     public constructor(init: Partial<SparklineProfitDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public value: number;
     public label: string;
 

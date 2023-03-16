@@ -56,28 +56,28 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorRef}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="CrosshairsDisplayMode"
-                        label="Crosshairs:"
+                        label="Crosshairs: "
                         primitiveValue="Both"
                         name="CrosshairsDisplayModeEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightingMode"
-                        label="Highlighting:"
+                        label="Highlighting: "
                         primitiveValue="BrightenSpecific"
                         name="HighlightingModeEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="CalloutsVisible"
-                        label="Callouts:"
-                        shouldOverrideDefaultEditor="true"
+                        label="Callouts: "
                         primitiveValue="True"
+                        shouldOverrideDefaultEditor="true"
                         name="CalloutsVisibleEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="FinalValueAnnotationsVisible"
-                        label="Final Value:"
-                        shouldOverrideDefaultEditor="true"
+                        label="Final Value: "
                         primitiveValue="True"
+                        shouldOverrideDefaultEditor="true"
                         name="FinalValueAnnotationsEditor">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
@@ -86,7 +86,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Average Temperature in Sedney
             </div>
-
 
             <div className="container fill">
                 <IgrCategoryChart
@@ -128,7 +127,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._temperatureAnnotatedData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -142,7 +140,6 @@ export default class Sample extends React.Component<any, any> {
     }
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

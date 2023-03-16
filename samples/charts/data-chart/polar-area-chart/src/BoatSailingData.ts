@@ -2,7 +2,7 @@ export class BoatSailingDataItem {
     public constructor(init: Partial<BoatSailingDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public direction: number;
     public boatSpeed: number;
     public windSpeed: number;

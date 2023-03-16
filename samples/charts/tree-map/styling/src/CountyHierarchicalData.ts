@@ -2,7 +2,7 @@ export class CountyHierarchicalDataItem {
     public constructor(init: Partial<CountyHierarchicalDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public code: string;
     public parent: string;
     public name: string;

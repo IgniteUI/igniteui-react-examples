@@ -2,7 +2,7 @@ export class OnlineTrafficByDeviceItem {
     public constructor(init: Partial<OnlineTrafficByDeviceItem>) {
         Object.assign(this, init);
     }
-    
+
     public category: string;
     public desktop: number;
     public mobile: number;

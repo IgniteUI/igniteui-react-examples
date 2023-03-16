@@ -6,8 +6,6 @@ import { IgrItemLegendModule, IgrDoughnutChartModule } from 'igniteui-react-char
 import { IgrItemLegend, IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
 
-
-
 const mods: any[] = [
     IgrItemLegendModule,
     IgrDoughnutChartModule
@@ -80,11 +78,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._energyGlobalDemand;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

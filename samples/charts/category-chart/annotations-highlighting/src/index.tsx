@@ -54,13 +54,13 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorRef}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightingMode"
-                        label="Highlighting Mode:"
+                        label="Highlighting Mode: "
                         primitiveValue="FadeOthersSpecific"
                         name="HighlightingModeEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightingBehavior"
-                        label="Highlighting Behavior:"
+                        label="Highlighting Behavior: "
                         primitiveValue="NearestItemsAndSeries"
                         name="HighlightingBehaviorEditor">
                     </IgrPropertyEditorPropertyDescription>
@@ -70,7 +70,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Average Temperature in Sedney
             </div>
-
 
             <div className="container fill">
                 <IgrCategoryChart
@@ -101,7 +100,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._temperatureAnnotatedData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -115,7 +113,6 @@ export default class Sample extends React.Component<any, any> {
     }
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

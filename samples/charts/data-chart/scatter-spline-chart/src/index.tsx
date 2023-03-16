@@ -7,8 +7,6 @@ import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterSp
 import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
 import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrNumberAbbreviatorModule,
@@ -117,7 +115,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._healthDataForGermany;
     }
-    
+
     private _healthDataForFrance: HealthDataForFrance = null;
     public get healthDataForFrance(): HealthDataForFrance {
         if (this._healthDataForFrance == null)
@@ -126,11 +124,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._healthDataForFrance;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

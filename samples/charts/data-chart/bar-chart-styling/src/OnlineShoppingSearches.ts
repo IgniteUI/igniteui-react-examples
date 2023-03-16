@@ -2,7 +2,7 @@ export class OnlineShoppingSearchesItem {
     public constructor(init: Partial<OnlineShoppingSearchesItem>) {
         Object.assign(this, init);
     }
-    
+
     public x: number;
     public y: number;
     public label: string;

@@ -6,8 +6,6 @@ import { IgrLegendModule, IgrDataChartAnnotationModule, IgrDataChartCoreModule, 
 import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrCategoryHighlightLayer, IgrBarSeries, IgrCalloutLayer, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { RoadblocksToSuccessItem, RoadblocksToSuccess } from './RoadblocksToSuccess';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartAnnotationModule,
@@ -161,11 +159,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._roadblocksToSuccess;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

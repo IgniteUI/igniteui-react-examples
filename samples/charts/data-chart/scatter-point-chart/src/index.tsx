@@ -2,12 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
+import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterSeries } from 'igniteui-react-charts';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
-
-
 
 const mods: any[] = [
     IgrLegendModule,
@@ -15,7 +13,7 @@ const mods: any[] = [
     IgrDataChartScatterModule,
     IgrDataChartScatterCoreModule,
     IgrDataChartInteractivityModule,
-    IgrDataChartInteractivityModule
+    IgrDataChartAnnotationModule
 ];
 mods.forEach((m) => m.register());
 
@@ -110,7 +108,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryDemographicEurope;
     }
-    
+
     private _countryDemographicAfrican: CountryDemographicAfrican = null;
     public get countryDemographicAfrican(): CountryDemographicAfrican {
         if (this._countryDemographicAfrican == null)
@@ -119,11 +117,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryDemographicAfrican;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

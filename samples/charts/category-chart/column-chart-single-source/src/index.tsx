@@ -6,8 +6,6 @@ import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { TemperatureAverageDataItem, TemperatureAverageData } from './TemperatureAverageData';
 
-
-
 const mods: any[] = [
     IgrCategoryChartModule
 ];
@@ -33,7 +31,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Average Temperature Range in New York
             </div>
-
 
             <div className="container fill">
                 <IgrCategoryChart
@@ -64,11 +61,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._temperatureAverageData;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

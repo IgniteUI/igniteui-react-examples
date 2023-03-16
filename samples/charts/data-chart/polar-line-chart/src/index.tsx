@@ -6,14 +6,12 @@ import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartPolarModule, IgrDa
 import { IgrLegend, IgrDataChart, IgrNumericAngleAxis, IgrNumericRadiusAxis, IgrPolarLineSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
     IgrDataChartPolarModule,
     IgrDataChartPolarCoreModule,
-    IgrDataChartInteractivityModule, 
+    IgrDataChartInteractivityModule,
     IgrDataChartAnnotationModule
 ];
 mods.forEach((m) => m.register());
@@ -119,11 +117,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._boatSailingData;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

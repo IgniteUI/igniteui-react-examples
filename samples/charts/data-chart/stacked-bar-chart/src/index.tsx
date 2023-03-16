@@ -6,8 +6,6 @@ import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, Ig
 import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrStackedBarSeries, IgrStackedFragmentSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { EnergyRenewableConsumptionItem, EnergyRenewableConsumption } from './EnergyRenewableConsumption';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -126,11 +124,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._energyRenewableConsumption;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

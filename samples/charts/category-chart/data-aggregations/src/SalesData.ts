@@ -1,16697 +1,16700 @@
-export class SalesDataItem {
-    public constructor(init: Partial<SalesDataItem>) {
-        Object.assign(this, init);
-    }
-    
-    public country: string;
-    public product: string;
-    public unitsSold: string;
-    public manufacturingPrice: number;
-    public salePrice: number;
-    public grossSales: number;
-    public discounts: number;
-    public sales: number;
-    public cOGS: number;
-    public profit: number;
-    public date: string;
-    public monthName: string;
-    public year: string;
-
-}
+//begin data
 export class SalesData extends Array<SalesDataItem> {
     public constructor() {
         super();
         this.push(new SalesDataItem(
         {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `501`,
-            manufacturingPrice: 15,
-            salePrice: 23,
-            grossSales: 26440,
-            discounts: 0,
-            sales: 26440,
-            cOGS: 16185,
-            profit: 11255,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1372`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 27440,
-            discounts: 0,
-            sales: 27440,
-            cOGS: 16185,
-            profit: 11255,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `2762`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 55240,
-            discounts: 0,
-            sales: 55240,
-            cOGS: 13210,
-            profit: 42030,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `1464`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 21960,
-            discounts: 0,
-            sales: 21960,
-            cOGS: 21780,
-            profit: 180,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `719`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 10785,
-            discounts: 0,
-            sales: 10785,
-            cOGS: 8880,
-            profit: 1905,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `3576`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 53640,
-            discounts: 0,
-            sales: 53640,
-            cOGS: 24700,
-            profit: 28940,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `4422`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 1547700,
-            discounts: 0,
-            sales: 1547700,
-            cOGS: 393380,
-            profit: 1154320,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `3649`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 54735,
-            discounts: 0,
-            sales: 54735,
-            cOGS: 9210,
-            profit: 45525,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `4172`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 50064,
-            discounts: 0,
-            sales: 50064,
-            cOGS: 7554,
-            profit: 42510,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3841`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 76820,
-            discounts: 0,
-            sales: 76820,
-            cOGS: 18990,
-            profit: 57830,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `3726`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 44712,
-            discounts: 0,
-            sales: 44712,
-            cOGS: 4635,
-            profit: 40077,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `2625`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 39375,
-            discounts: 0,
-            sales: 39375,
-            cOGS: 24700,
-            profit: 14675,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `1958`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 244750,
-            discounts: 0,
-            sales: 244750,
-            cOGS: 319860,
-            profit: 75110,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `3271`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 981300,
-            discounts: 0,
-            sales: 981300,
-            cOGS: 239500,
-            profit: 741800,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `2091`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 14637,
-            discounts: 0,
-            sales: 14637,
-            cOGS: 10730,
-            profit: 3907,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `2825`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 42375,
-            discounts: 0,
-            sales: 42375,
-            cOGS: 6150,
-            profit: 36225,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2513`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 50260,
-            discounts: 0,
-            sales: 50260,
-            cOGS: 2920,
-            profit: 47340,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `883`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 13245,
-            discounts: 0,
-            sales: 13245,
-            cOGS: 9740,
-            profit: 3505,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2087`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 25044,
-            discounts: 0,
-            sales: 25044,
-            cOGS: 7554,
-            profit: 17490,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2563`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 897050,
-            discounts: 0,
-            sales: 897050,
-            cOGS: 261560,
-            profit: 635490,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2846`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 34152,
-            discounts: 0,
-            sales: 34152,
-            cOGS: 1101,
-            profit: 33051,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `997`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 6979,
-            discounts: 0,
-            sales: 6979,
-            cOGS: 4415,
-            profit: 2564,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2290`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 34350,
-            discounts: 0,
-            sales: 34350,
-            cOGS: 24720,
-            profit: 9630,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `2133`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 14931,
-            discounts: 0,
-            sales: 14931,
-            cOGS: 5715,
-            profit: 9216,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3617`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 72340,
-            discounts: 0,
-            sales: 72340,
-            cOGS: 18170,
-            profit: 54170,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `1266`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 443100,
-            discounts: 0,
-            sales: 443100,
-            cOGS: 393380,
-            profit: 49720,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `894`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 6258,
-            discounts: 0,
-            sales: 6258,
-            cOGS: 7465,
-            profit: 1207,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `2725`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 340625,
-            discounts: 0,
-            sales: 340625,
-            cOGS: 216480,
-            profit: 124145,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `3061`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 36732,
-            discounts: 0,
-            sales: 36732,
-            cOGS: 6483,
-            profit: 30249,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `3958`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 1385300,
-            discounts: 0,
-            sales: 1385300,
-            cOGS: 261560,
-            profit: 1123740,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `3920`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 47040,
-            discounts: 0,
-            sales: 47040,
-            cOGS: 4635,
-            profit: 42405,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `3381`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 422625,
-            discounts: 0,
-            sales: 422625,
-            cOGS: 338520,
-            profit: 84105,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `4307`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 1292100,
-            discounts: 0,
-            sales: 1292100,
-            cOGS: 500250,
-            profit: 791850,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `878`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 10536,
-            discounts: 0,
-            sales: 10536,
-            cOGS: 8514,
-            profit: 2022,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `496`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 7440,
-            discounts: 0,
-            sales: 7440,
-            cOGS: 21780,
-            profit: 14340,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3367`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 50505,
-            discounts: 0,
-            sales: 50505,
-            cOGS: 8880,
-            profit: 41625,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2055`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 616500,
-            discounts: 0,
-            sales: 616500,
-            cOGS: 537750,
-            profit: 78750,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `4041`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 80820,
-            discounts: 0,
-            sales: 80820,
-            cOGS: 18170,
-            profit: 62650,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `3237`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 1132950,
-            discounts: 0,
-            sales: 1132950,
-            cOGS: 715000,
-            profit: 417950,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `630`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 7560,
-            discounts: 0,
-            sales: 7560,
-            cOGS: 5859,
-            profit: 1701,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `4210`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 526250,
-            discounts: 0,
-            sales: 526250,
-            cOGS: 506340,
-            profit: 19910,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `1127`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 22540,
-            discounts: 0,
-            sales: 22540,
-            cOGS: 18990,
-            profit: 3550,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `3438`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 24066,
-            discounts: 0,
-            sales: 24066,
-            cOGS: 8430,
-            profit: 15636,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `2015`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 24180,
-            discounts: 0,
-            sales: 24180,
-            cOGS: 6423,
-            profit: 17757,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `2534`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 17738,
-            discounts: 0,
-            sales: 17738,
-            cOGS: 5715,
-            profit: 12023,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `1384`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 20760,
-            discounts: 0,
-            sales: 20760,
-            cOGS: 6150,
-            profit: 14610,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3561`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 24927,
-            discounts: 276.15,
-            sales: 24650.85,
-            cOGS: 19725,
-            profit: 4925.85,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1823`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 27345,
-            discounts: 344.4,
-            sales: 27000.6,
-            cOGS: 22960,
-            profit: 4040.6,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2795`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 19565,
-            discounts: 72.1,
-            sales: 19492.9,
-            cOGS: 5150,
-            profit: 14342.9,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `457`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 3199,
-            discounts: 44.73,
-            sales: 3154.27,
-            cOGS: 3195,
-            profit: 40.73,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3785`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 26495,
-            discounts: 92.82,
-            sales: 26402.18,
-            cOGS: 6630,
-            profit: 19772.18,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `748`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 8976,
-            discounts: 222.96,
-            sales: 8753.04,
-            cOGS: 5574,
-            profit: 3179.04,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `1021`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 357350,
-            discounts: 4235,
-            sales: 353115,
-            cOGS: 314600,
-            profit: 38515,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `2076`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 14532,
-            discounts: 177.03,
-            sales: 14354.97,
-            cOGS: 12645,
-            profit: 1709.97,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `4316`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 51792,
-            discounts: 173.4,
-            sales: 51618.6,
-            cOGS: 4335,
-            profit: 47283.6,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `4174`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 50088,
-            discounts: 320.52,
-            sales: 49767.48,
-            cOGS: 8013,
-            profit: 41754.48,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `3736`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 1307600,
-            discounts: 4889.5,
-            sales: 1302710.5,
-            cOGS: 363220,
-            profit: 939490.5,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `1914`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 669900,
-            discounts: 7542.5,
-            sales: 662357.5,
-            cOGS: 560300,
-            profit: 102057.5,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `2742`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 41130,
-            discounts: 332.1,
-            sales: 40797.9,
-            cOGS: 22140,
-            profit: 18657.9,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `1499`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 449700,
-            discounts: 6903,
-            sales: 442797,
-            cOGS: 575250,
-            profit: 132453,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3772`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 75440,
-            discounts: 275.1,
-            sales: 75164.9,
-            cOGS: 13755,
-            profit: 61409.9,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `1112`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 7784,
-            discounts: 128.1,
-            sales: 7655.9,
-            cOGS: 9150,
-            profit: 1494.1,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `2368`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 35520,
-            discounts: 227.1,
-            sales: 35292.9,
-            cOGS: 15140,
-            profit: 20152.9,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1586`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 11102,
-            discounts: 314.48,
-            sales: 10787.52,
-            cOGS: 22462.5,
-            profit: 11674.98,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3386`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 423250,
-            discounts: 908.75,
-            sales: 422341.25,
-            cOGS: 87240,
-            profit: 335101.25,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `852`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 106500,
-            discounts: 983.75,
-            sales: 105516.25,
-            cOGS: 94440,
-            profit: 11076.25,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2783`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 347875,
-            discounts: 2278.75,
-            sales: 345596.25,
-            cOGS: 218760,
-            profit: 126836.25,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2684`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 40260,
-            discounts: 112.05,
-            sales: 40147.95,
-            cOGS: 7470,
-            profit: 32677.95,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `4083`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1224900,
-            discounts: 8715,
-            sales: 1216185,
-            cOGS: 726250,
-            profit: 489935,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2816`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 985600,
-            discounts: 7542.5,
-            sales: 978057.5,
-            cOGS: 560300,
-            profit: 417757.5,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `4294`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 85880,
-            discounts: 772.8,
-            sales: 85107.2,
-            cOGS: 38640,
-            profit: 46467.2,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `2856`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 19992,
-            discounts: 25.34,
-            sales: 19966.66,
-            cOGS: 1810,
-            profit: 18156.66,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `1407`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 175875,
-            discounts: 1153.75,
-            sales: 174721.25,
-            cOGS: 110760,
-            profit: 63961.25,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `1265`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 8855,
-            discounts: 18.41,
-            sales: 8836.59,
-            cOGS: 1315,
-            profit: 7521.59,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3892`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 1362200,
-            discounts: 3302.25,
-            sales: 1358897.75,
-            cOGS: 245310,
-            profit: 1113587.75,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `3068`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 383500,
-            discounts: 908.75,
-            sales: 382591.25,
-            cOGS: 87240,
-            profit: 295351.25,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2181`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 272625,
-            discounts: 983.75,
-            sales: 271641.25,
-            cOGS: 94440,
-            profit: 177201.25,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `1356`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 406800,
-            discounts: 2958,
-            sales: 403842,
-            cOGS: 246500,
-            profit: 177201.25,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `1814`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 634900,
-            discounts: 4889.5,
-            sales: 630010.5,
-            cOGS: 363220,
-            profit: 266790.5,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `1495`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 186875,
-            discounts: 2180,
-            sales: 184695,
-            cOGS: 209280,
-            profit: 24585,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1463`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 182875,
-            discounts: 1856.25,
-            sales: 181018.75,
-            cOGS: 89100,
-            profit: 91918.75,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `215`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 2580,
-            discounts: 310.8,
-            sales: 2269.2,
-            cOGS: 3885,
-            profit: 1615.8,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `566`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 198100,
-            discounts: 19964,
-            sales: 178136,
-            cOGS: 741520,
-            profit: 563384,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `3255`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 39060,
-            discounts: 274.08,
-            sales: 38785.92,
-            cOGS: 3426,
-            profit: 35359.92,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `772`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 15440,
-            discounts: 626.4,
-            sales: 14813.6,
-            cOGS: 15660,
-            profit: 846.4,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `1135`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 13620,
-            discounts: 165.6,
-            sales: 13454.4,
-            cOGS: 2070,
-            profit: 11384.4,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `1193`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 17895,
-            discounts: 708.9,
-            sales: 17186.1,
-            cOGS: 23630,
-            profit: 6443.9,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2530`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 759000,
-            discounts: 5508,
-            sales: 753492,
-            cOGS: 229500,
-            profit: 523992,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3451`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1035300,
-            discounts: 10368,
-            sales: 1024932,
-            cOGS: 432000,
-            profit: 592932,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3059`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 36708,
-            discounts: 274.08,
-            sales: 36433.92,
-            cOGS: 3426,
-            profit: 33007.92,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `3957`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 494625,
-            discounts: 1655,
-            sales: 492970,
-            cOGS: 79440,
-            profit: 413530,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3444`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 41328,
-            discounts: 310.8,
-            sales: 41017.2,
-            cOGS: 3885,
-            profit: 37132.2,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3154`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 946200,
-            discounts: 11496,
-            sales: 934704,
-            cOGS: 479000,
-            profit: 455704,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `4108`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 1437800,
-            discounts: 19964,
-            sales: 1417836,
-            cOGS: 741520,
-            profit: 676316,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3760`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 470000,
-            discounts: 6822.5,
-            sales: 463177.5,
-            cOGS: 327480,
-            profit: 135697.5,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2334`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 28008,
-            discounts: 253.2,
-            sales: 27754.8,
-            cOGS: 3165,
-            profit: 24589.8,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `580`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 6960,
-            discounts: 260.16,
-            sales: 6699.84,
-            cOGS: 3252,
-            profit: 3447.84,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2610`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 52200,
-            discounts: 626.4,
-            sales: 51573.6,
-            cOGS: 15660,
-            profit: 35913.6,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `1459`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 510650,
-            discounts: 20139,
-            sales: 490511,
-            cOGS: 748020,
-            profit: 257509,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `3774`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 45288,
-            discounts: 253.2,
-            sales: 45034.8,
-            cOGS: 3165,
-            profit: 41869.8,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `2572`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 30864,
-            discounts: 260.16,
-            sales: 30603.84,
-            cOGS: 3252,
-            profit: 27351.84,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `320`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 40000,
-            discounts: 1655,
-            sales: 38345,
-            cOGS: 79440,
-            profit: 41095,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3275`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 1146250,
-            discounts: 20139,
-            sales: 1126111,
-            cOGS: 748020,
-            profit: 378091,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3582`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 447750,
-            discounts: 6822.5,
-            sales: 440927.5,
-            cOGS: 327480,
-            profit: 113447.5,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `4056`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 1216800,
-            discounts: 1554,
-            sales: 1215246,
-            cOGS: 64750,
-            profit: 1150496,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `2144`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 643200,
-            discounts: 6606,
-            sales: 636594,
-            cOGS: 275250,
-            profit: 361344,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `3502`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 437750,
-            discounts: 5690,
-            sales: 432060,
-            cOGS: 273120,
-            profit: 158940,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `679`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 13580,
-            discounts: 494.4,
-            sales: 13085.6,
-            cOGS: 12360,
-            profit: 725.6,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `2351`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 47020,
-            discounts: 376.4,
-            sales: 46643.6,
-            cOGS: 9410,
-            profit: 37233.6,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `2043`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 612900,
-            discounts: 11496,
-            sales: 601404,
-            cOGS: 479000,
-            profit: 122404,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `3565`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 445625,
-            discounts: 15913.13,
-            sales: 429711.88,
-            cOGS: 509220,
-            profit: 79508.13,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `1401`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 28020,
-            discounts: 1548,
-            sales: 26472,
-            cOGS: 25800,
-            profit: 672,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `2077`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 623100,
-            discounts: 6201,
-            sales: 616899,
-            cOGS: 172250,
-            profit: 444649,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `3643`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 43716,
-            discounts: 700.92,
-            sales: 43015.08,
-            cOGS: 5841,
-            profit: 37174.08,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `2960`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 20720,
-            discounts: 411.18,
-            sales: 20308.82,
-            cOGS: 9790,
-            profit: 10518.82,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `1201`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 14412,
-            discounts: 684.36,
-            sales: 13727.64,
-            cOGS: 5703,
-            profit: 8024.64,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `2321`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 16247,
-            discounts: 114.24,
-            sales: 16132.76,
-            cOGS: 2720,
-            profit: 13412.76,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3972`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 496500,
-            discounts: 4826.25,
-            sales: 491673.75,
-            cOGS: 154440,
-            profit: 337233.75,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `3878`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 484750,
-            discounts: 6397.5,
-            sales: 478352.5,
-            cOGS: 204720,
-            profit: 273632.5,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2278`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 683400,
-            discounts: 21910.5,
-            sales: 661489.5,
-            cOGS: 608625,
-            profit: 52864.5,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `1075`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 134375,
-            discounts: 6652.5,
-            sales: 127722.5,
-            cOGS: 212880,
-            profit: 85157.5,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `4050`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 48600,
-            discounts: 684.36,
-            sales: 47915.64,
-            cOGS: 5703,
-            profit: 42212.64,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3035`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 910500,
-            discounts: 6201,
-            sales: 904299,
-            cOGS: 172250,
-            profit: 732049,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3636`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 454500,
-            discounts: 5887.5,
-            sales: 448612.5,
-            cOGS: 188400,
-            profit: 260212.5,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1379`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 16548,
-            discounts: 493.02,
-            sales: 16054.98,
-            cOGS: 4108.5,
-            profit: 11946.48,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `4492`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 561500,
-            discounts: 7533.75,
-            sales: 553966.25,
-            cOGS: 241080,
-            profit: 312886.25,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1744`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 218000,
-            discounts: 4826.25,
-            sales: 213173.75,
-            cOGS: 154440,
-            profit: 58733.75,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2341`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 292625,
-            discounts: 6397.5,
-            sales: 286227.5,
-            cOGS: 204720,
-            profit: 81507.5,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `3835`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 479375,
-            discounts: 7533.75,
-            sales: 471841.25,
-            cOGS: 241080,
-            profit: 230761.25,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `1161`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 348300,
-            discounts: 25596,
-            sales: 322704,
-            cOGS: 711000,
-            profit: 388296,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `876`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 10512,
-            discounts: 689.76,
-            sales: 9822.24,
-            cOGS: 5748,
-            profit: 4074.24,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `1705`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 213125,
-            discounts: 5887.5,
-            sales: 207237.5,
-            cOGS: 188400,
-            profit: 18837.5,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `1805`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 541500,
-            discounts: 16866,
-            sales: 524634,
-            cOGS: 468500,
-            profit: 56134,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `389`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 136150,
-            discounts: 17241,
-            sales: 118909,
-            cOGS: 426920,
-            profit: 308011,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1459`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 29180,
-            discounts: 498.6,
-            sales: 28681.4,
-            cOGS: 8310,
-            profit: 20371.4,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `4236`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 84720,
-            discounts: 2310.3,
-            sales: 82409.7,
-            cOGS: 38505,
-            profit: 43904.7,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3627`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 43524,
-            discounts: 892.44,
-            sales: 42631.56,
-            cOGS: 7437,
-            profit: 35194.56,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `1756`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 26340,
-            discounts: 1218.6,
-            sales: 25121.4,
-            cOGS: 20310,
-            profit: 4811.4,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `307`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 4605,
-            discounts: 1218.6,
-            sales: 3386.4,
-            cOGS: 20310,
-            profit: 16923.6,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `1222`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 366600,
-            discounts: 24252,
-            sales: 342348,
-            cOGS: 505250,
-            profit: 162902,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `489`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 171150,
-            discounts: 3836,
-            sales: 167314,
-            cOGS: 71240,
-            profit: 96074,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `4133`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 61995,
-            discounts: 1180.2,
-            sales: 60814.8,
-            cOGS: 19670,
-            profit: 41144.8,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `2743`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 822900,
-            discounts: 22308,
-            sales: 800592,
-            cOGS: 464750,
-            profit: 335842,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `4460`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 1338000,
-            discounts: 24252,
-            sales: 1313748,
-            cOGS: 505250,
-            profit: 808498,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `1232`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 154000,
-            discounts: 5690,
-            sales: 148310,
-            cOGS: 136560,
-            profit: 11750,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2586`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 18102,
-            discounts: 1190.28,
-            sales: 16911.72,
-            cOGS: 21255,
-            profit: 4343.28,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `1332`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 166500,
-            discounts: 3975,
-            sales: 162525,
-            cOGS: 95400,
-            profit: 67125,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `4487`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1346100,
-            discounts: 16974,
-            sales: 1329126,
-            cOGS: 353625,
-            profit: 975501,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3862`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1158600,
-            discounts: 35016,
-            sales: 1123584,
-            cOGS: 729500,
-            profit: 394084,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1765`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 617750,
-            discounts: 48300,
-            sales: 569450,
-            cOGS: 897000,
-            profit: 327550,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3533`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 441625,
-            discounts: 14940,
-            sales: 426685,
-            cOGS: 358560,
-            profit: 68125,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2016`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 30240,
-            discounts: 130.8,
-            sales: 30109.2,
-            cOGS: 2180,
-            profit: 27929.2,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2938`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 58760,
-            discounts: 1659.2,
-            sales: 57100.8,
-            cOGS: 20740,
-            profit: 36360.8,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3352`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 67040,
-            discounts: 844.8,
-            sales: 66195.2,
-            cOGS: 10560,
-            profit: 55635.2,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `2430`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 850500,
-            discounts: 3836,
-            sales: 846664,
-            cOGS: 71240,
-            profit: 775424,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `535`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 66875,
-            discounts: 5690,
-            sales: 61185,
-            cOGS: 136560,
-            profit: 75375,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `1523`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 18276,
-            discounts: 703.2,
-            sales: 17572.8,
-            cOGS: 4395,
-            profit: 13177.8,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `1782`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 623700,
-            discounts: 30478,
-            sales: 593222,
-            cOGS: 566020,
-            profit: 27202,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `347`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 4164,
-            discounts: 415.68,
-            sales: 3748.32,
-            cOGS: 2598,
-            profit: 1150.32,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `3509`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 1228150,
-            discounts: 30478,
-            sales: 1197672,
-            cOGS: 566020,
-            profit: 631652,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `2943`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 1030050,
-            discounts: 26110,
-            sales: 1003940,
-            cOGS: 484900,
-            profit: 519040,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `4037`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 504625,
-            discounts: 5370,
-            sales: 499255,
-            cOGS: 128880,
-            profit: 370375,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `4146`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 1451100,
-            discounts: 26698,
-            sales: 1424402,
-            cOGS: 495820,
-            profit: 928582,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `725`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 5075,
-            discounts: 480.2,
-            sales: 4594.8,
-            cOGS: 6860,
-            profit: 2265.2,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2325`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 16275,
-            discounts: 941.15,
-            sales: 15333.85,
-            cOGS: 13445,
-            profit: 1888.85,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `675`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 8100,
-            discounts: 1458.6,
-            sales: 6641.4,
-            cOGS: 7293,
-            profit: 651.6,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `2990`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 35880,
-            discounts: 1458.6,
-            sales: 34421.4,
-            cOGS: 7293,
-            profit: 27128.4,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `1072`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 7504,
-            discounts: 941.15,
-            sales: 6562.85,
-            cOGS: 13445,
-            profit: 6882.15,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `1048`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 7336,
-            discounts: 589.05,
-            sales: 6746.95,
-            cOGS: 8415,
-            profit: 1668.05,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `469`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 5628,
-            discounts: 673.8,
-            sales: 4954.2,
-            cOGS: 3369,
-            profit: 1585.2,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `4240`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 50880,
-            discounts: 1119,
-            sales: 49761,
-            cOGS: 5595,
-            profit: 44166,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `1976`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 23712,
-            discounts: 669.6,
-            sales: 23042.4,
-            cOGS: 3348,
-            profit: 19694.4,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `1984`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 39680,
-            discounts: 1563,
-            sales: 38117,
-            cOGS: 15630,
-            profit: 22487,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `480`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 144000,
-            discounts: 14865,
-            sales: 129135,
-            cOGS: 247750,
-            profit: 118615,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `1205`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 18075,
-            discounts: 2093.25,
-            sales: 15981.75,
-            cOGS: 27910,
-            profit: 11928.25,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `2480`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 17360,
-            discounts: 199.5,
-            sales: 17160.5,
-            cOGS: 2850,
-            profit: 14310.5,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `2926`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 20482,
-            discounts: 870.45,
-            sales: 19611.55,
-            cOGS: 12435,
-            profit: 7176.55,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3210`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 1123500,
-            discounts: 24228.75,
-            sales: 1099271.25,
-            cOGS: 359970,
-            profit: 739301.25,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `3221`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 402625,
-            discounts: 22668.75,
-            sales: 379956.25,
-            cOGS: 435240,
-            profit: 55283.75,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `1127`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 13524,
-            discounts: 1405.2,
-            sales: 12118.8,
-            cOGS: 7026,
-            profit: 5092.8,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1610`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 32200,
-            discounts: 1303,
-            sales: 30897,
-            cOGS: 13030,
-            profit: 17867,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `4100`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 512500,
-            discounts: 18700,
-            sales: 493800,
-            cOGS: 359040,
-            profit: 134760,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1012`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 126500,
-            discounts: 14906.25,
-            sales: 111593.75,
-            cOGS: 286200,
-            profit: 174606.25,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `3337`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1001100,
-            discounts: 24105,
-            sales: 976995,
-            cOGS: 401750,
-            profit: 575245,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3955`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 27685,
-            discounts: 814.45,
-            sales: 26870.55,
-            cOGS: 11635,
-            profit: 15235.55,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `4347`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1304100,
-            discounts: 14865,
-            sales: 1289235,
-            cOGS: 247750,
-            profit: 1041485,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1548`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 541800,
-            discounts: 10535,
-            sales: 531265,
-            cOGS: 156520,
-            profit: 374745,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2153`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 32295,
-            discounts: 1965,
-            sales: 30330,
-            cOGS: 26200,
-            profit: 4130,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `4126`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 515750,
-            discounts: 5381.25,
-            sales: 510368.75,
-            cOGS: 103320,
-            profit: 407048.75,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3376`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 67520,
-            discounts: 2663,
-            sales: 64857,
-            cOGS: 26630,
-            profit: 38227,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2244`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 33660,
-            discounts: 416.25,
-            sales: 33243.75,
-            cOGS: 5550,
-            profit: 27693.75,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `1360`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 20400,
-            discounts: 2145.75,
-            sales: 18254.25,
-            cOGS: 28610,
-            profit: 10355.75,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `279`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 34875,
-            discounts: 5043.75,
-            sales: 29831.25,
-            cOGS: 96840,
-            profit: 67008.75,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2521`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 882350,
-            discounts: 10535,
-            sales: 871815,
-            cOGS: 156520,
-            profit: 715295,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2433`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 48660,
-            discounts: 2832,
-            sales: 45828,
-            cOGS: 28320,
-            profit: 17508,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `1738`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 34760,
-            discounts: 1579,
-            sales: 33181,
-            cOGS: 15790,
-            profit: 17391,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `1106`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 138250,
-            discounts: 5381.25,
-            sales: 132868.75,
-            cOGS: 103320,
-            profit: 29548.75,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `213`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 63900,
-            discounts: 18750,
-            sales: 45150,
-            cOGS: 312500,
-            profit: 267350,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `2929`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 58580,
-            discounts: 2663,
-            sales: 55917,
-            cOGS: 26630,
-            profit: 29287,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `2389`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 16723,
-            discounts: 199.5,
-            sales: 16523.5,
-            cOGS: 2850,
-            profit: 13673.5,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `3086`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 21602,
-            discounts: 870.45,
-            sales: 20731.55,
-            cOGS: 12435,
-            profit: 8296.55,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `745`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 260750,
-            discounts: 23625,
-            sales: 237125,
-            cOGS: 351000,
-            profit: 113875,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `1266`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 443100,
-            discounts: 9660,
-            sales: 433440,
-            cOGS: 143520,
-            profit: 289920,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `4287`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 1286100,
-            discounts: 18750,
-            sales: 1267350,
-            cOGS: 312500,
-            profit: 954850,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3193`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 47895,
-            discounts: 3420.9,
-            sales: 44474.1,
-            cOGS: 38010,
-            profit: 6464.1,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `1967`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 39340,
-            discounts: 1341,
-            sales: 37999,
-            cOGS: 11175,
-            profit: 26824,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `631`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 9465,
-            discounts: 2559.6,
-            sales: 6905.4,
-            cOGS: 28440,
-            profit: 21534.6,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `3469`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 41628,
-            discounts: 404.64,
-            sales: 41223.36,
-            cOGS: 1686,
-            profit: 39537.36,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `3215`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 48225,
-            discounts: 1827,
-            sales: 46398,
-            cOGS: 20300,
-            profit: 26098,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `1959`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 685650,
-            discounts: 20580,
-            sales: 665070,
-            cOGS: 254800,
-            profit: 410270,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `2181`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 763350,
-            discounts: 30660,
-            sales: 732690,
-            cOGS: 379600,
-            profit: 353090,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `2205`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 26460,
-            discounts: 1960.56,
-            sales: 24499.44,
-            cOGS: 8169,
-            profit: 16330.44,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1890`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 661500,
-            discounts: 31416,
-            sales: 630084,
-            cOGS: 388960,
-            profit: 241124,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `2417`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 302125,
-            discounts: 7140,
-            sales: 294985,
-            cOGS: 114240,
-            profit: 180745,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `1158`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 144750,
-            discounts: 20662.5,
-            sales: 124087.5,
-            cOGS: 330600,
-            profit: 206512.5,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `803`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 12045,
-            discounts: 1377,
-            sales: 10668,
-            cOGS: 15300,
-            profit: 4632,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `3705`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 1296750,
-            discounts: 31416,
-            sales: 1265334,
-            cOGS: 388960,
-            profit: 876374,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `589`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 4123,
-            discounts: 629.16,
-            sales: 3493.84,
-            cOGS: 7490,
-            profit: 3996.16,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3999`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 59985,
-            discounts: 2559.6,
-            sales: 57425.4,
-            cOGS: 28440,
-            profit: 28985.4,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `4256`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 29792,
-            discounts: 629.16,
-            sales: 29162.84,
-            cOGS: 7490,
-            profit: 21672.84,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `2160`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 270000,
-            discounts: 14906.25,
-            sales: 255093.75,
-            cOGS: 238500,
-            profit: 16593.75,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `466`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 163100,
-            discounts: 35259,
-            sales: 127841,
-            cOGS: 436540,
-            profit: 308699,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1478`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 22170,
-            discounts: 1978.2,
-            sales: 20191.8,
-            cOGS: 21980,
-            profit: 1788.2,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3798`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 56970,
-            discounts: 1568.7,
-            sales: 55401.3,
-            cOGS: 17430,
-            profit: 37971.3,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `447`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 6705,
-            discounts: 1037.7,
-            sales: 5667.3,
-            cOGS: 11530,
-            profit: 5862.7,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `745`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 14900,
-            discounts: 1201.2,
-            sales: 13698.8,
-            cOGS: 10010,
-            profit: 3688.8,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `1732`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 12124,
-            discounts: 559.86,
-            sales: 11564.14,
-            cOGS: 6665,
-            profit: 4899.14,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `1759`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 26385,
-            discounts: 1037.7,
-            sales: 25347.3,
-            cOGS: 11530,
-            profit: 13817.3,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `338`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 4056,
-            discounts: 610.68,
-            sales: 3445.32,
-            cOGS: 2181,
-            profit: 1264.32,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `3911`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 46932,
-            discounts: 1582.56,
-            sales: 45349.44,
-            cOGS: 5652,
-            profit: 39697.44,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `4473`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 53676,
-            discounts: 1965.6,
-            sales: 51710.4,
-            cOGS: 7020,
-            profit: 44690.4,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `383`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 4596,
-            discounts: 1967.28,
-            sales: 2628.72,
-            cOGS: 7026,
-            profit: 4397.28,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `1062`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 15930,
-            discounts: 1325.1,
-            sales: 14604.9,
-            cOGS: 12620,
-            profit: 1984.9,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `4083`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 28581,
-            discounts: 556.15,
-            sales: 28024.85,
-            cOGS: 5675,
-            profit: 22349.85,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `3974`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 27818,
-            discounts: 268.03,
-            sales: 27549.97,
-            cOGS: 2735,
-            profit: 24814.97,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `3723`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 26061,
-            discounts: 775.18,
-            sales: 25285.82,
-            cOGS: 7910,
-            profit: 17375.82,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2435`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 29220,
-            discounts: 1460.34,
-            sales: 27759.66,
-            cOGS: 5215.5,
-            profit: 22544.16,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `1763`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 12341,
-            discounts: 775.18,
-            sales: 11565.82,
-            cOGS: 7910,
-            profit: 3655.82,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `4473`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 31311,
-            discounts: 556.15,
-            sales: 30754.85,
-            cOGS: 5675,
-            profit: 25079.85,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `1246`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 436100,
-            discounts: 43144.5,
-            sales: 392955.5,
-            cOGS: 457860,
-            profit: 64904.5,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `1615`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 484500,
-            discounts: 9408,
-            sales: 475092,
-            cOGS: 112000,
-            profit: 363092,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `749`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 224700,
-            discounts: 45801,
-            sales: 178899,
-            cOGS: 545250,
-            profit: 366351,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `1318`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 26360,
-            discounts: 2766.4,
-            sales: 23593.6,
-            cOGS: 19760,
-            profit: 3833.6,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `2882`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 864600,
-            discounts: 45801,
-            sales: 818799,
-            cOGS: 545250,
-            profit: 273549,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2484`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 745200,
-            discounts: 35742,
-            sales: 709458,
-            cOGS: 425500,
-            profit: 283958,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3169`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 950700,
-            discounts: 9408,
-            sales: 941292,
-            cOGS: 112000,
-            profit: 829292,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `4080`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 510000,
-            discounts: 30738.75,
-            sales: 479261.25,
-            cOGS: 421560,
-            profit: 57701.25,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3943`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 59145,
-            discounts: 2206.05,
-            sales: 56938.95,
-            cOGS: 21010,
-            profit: 35928.95,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `253`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 5060,
-            discounts: 2149,
-            sales: 2911,
-            cOGS: 15350,
-            profit: 12439,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `799`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 239700,
-            discounts: 34839,
-            sales: 204861,
-            cOGS: 414750,
-            profit: 209889,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `3942`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 78840,
-            discounts: 852.6,
-            sales: 77987.4,
-            cOGS: 6090,
-            profit: 71897.4,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `2498`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 312250,
-            discounts: 18261.25,
-            sales: 293988.75,
-            cOGS: 250440,
-            profit: 43548.75,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `2517`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 50340,
-            discounts: 2766.4,
-            sales: 47573.6,
-            cOGS: 19760,
-            profit: 27813.6,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `1145`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 343500,
-            discounts: 28812,
-            sales: 314688,
-            cOGS: 343000,
-            profit: 28312,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3814`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 45768,
-            discounts: 2725.38,
-            sales: 43042.62,
-            cOGS: 9733.5,
-            profit: 33309.12,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `1188`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 356400,
-            discounts: 20139,
-            sales: 336261,
-            cOGS: 239750,
-            profit: 96511,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `2233`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 669900,
-            discounts: 57687,
-            sales: 612213,
-            cOGS: 686750,
-            profit: 74537,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `421`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 52625,
-            discounts: 14393.75,
-            sales: 38231.25,
-            cOGS: 197400,
-            profit: 159168.75,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `269`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 94150,
-            discounts: 70462,
-            sales: 23688,
-            cOGS: 747760,
-            profit: 724072,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `952`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 19040,
-            discounts: 1565.2,
-            sales: 17474.8,
-            cOGS: 11180,
-            profit: 6294.8,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `2964`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 889200,
-            discounts: 28812,
-            sales: 860388,
-            cOGS: 343000,
-            profit: 517388,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `1505`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 10535,
-            discounts: 273.28,
-            sales: 10261.72,
-            cOGS: 2440,
-            profit: 7821.72,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `1678`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 33560,
-            discounts: 2051.2,
-            sales: 31508.8,
-            cOGS: 12820,
-            profit: 18688.8,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `4249`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 29743,
-            discounts: 143.92,
-            sales: 29599.08,
-            cOGS: 1285,
-            profit: 28314.08,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `1677`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 33540,
-            discounts: 2051.2,
-            sales: 31488.8,
-            cOGS: 12820,
-            profit: 18668.8,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `3051`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 381375,
-            discounts: 15400,
-            sales: 365975,
-            cOGS: 184800,
-            profit: 181175,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `3372`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 50580,
-            discounts: 588,
-            sales: 49992,
-            cOGS: 4900,
-            profit: 45092,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `1686`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 590100,
-            discounts: 38136,
-            sales: 551964,
-            cOGS: 354120,
-            profit: 197844,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3086`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 46290,
-            discounts: 3001.2,
-            sales: 43288.8,
-            cOGS: 25010,
-            profit: 18278.8,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `4150`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 83000,
-            discounts: 1132.8,
-            sales: 81867.2,
-            cOGS: 7080,
-            profit: 74787.2,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `3027`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 60540,
-            discounts: 1032,
-            sales: 59508,
-            cOGS: 6450,
-            profit: 53058,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `4359`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 1307700,
-            discounts: 37488,
-            sales: 1270212,
-            cOGS: 390500,
-            profit: 879712,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `1589`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 23835,
-            discounts: 853.2,
-            sales: 22981.8,
-            cOGS: 7110,
-            profit: 15871.8,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2679`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 334875,
-            discounts: 11140,
-            sales: 323735,
-            cOGS: 133680,
-            profit: 190055,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3401`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 23807,
-            discounts: 705.04,
-            sales: 23101.96,
-            cOGS: 6295,
-            profit: 16806.96,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2815`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 19705,
-            discounts: 613.2,
-            sales: 19091.8,
-            cOGS: 5475,
-            profit: 13616.8,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2964`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 59280,
-            discounts: 2185.6,
-            sales: 57094.4,
-            cOGS: 13660,
-            profit: 43434.4,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `4173`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1251900,
-            discounts: 59040,
-            sales: 1192860,
-            cOGS: 615000,
-            profit: 577860,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1157`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 8099,
-            discounts: 379.68,
-            sales: 7719.32,
-            cOGS: 3390,
-            profit: 4329.32,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3065`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 21455,
-            discounts: 894.88,
-            sales: 20560.12,
-            cOGS: 7990,
-            profit: 12570.12,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `4080`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 81600,
-            discounts: 3094.4,
-            sales: 78505.6,
-            cOGS: 19340,
-            profit: 59165.6,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `1713`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 34260,
-            discounts: 4788.8,
-            sales: 29471.2,
-            cOGS: 29930,
-            profit: 458.8,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `1691`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 591850,
-            discounts: 38136,
-            sales: 553714,
-            cOGS: 354120,
-            profit: 199594,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `2305`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 27660,
-            discounts: 574.08,
-            sales: 27085.92,
-            cOGS: 1794,
-            profit: 25291.92,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `3401`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 23807,
-            discounts: 1627.92,
-            sales: 22179.08,
-            cOGS: 14535,
-            profit: 7644.08,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `2288`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 16016,
-            discounts: 1309.28,
-            sales: 14706.72,
-            cOGS: 11690,
-            profit: 3016.72,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `4086`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 1225800,
-            discounts: 15240,
-            sales: 1210560,
-            cOGS: 158750,
-            profit: 1051810,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2651`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 927850,
-            discounts: 16086,
-            sales: 911764,
-            cOGS: 149370,
-            profit: 762394,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3971`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 27797,
-            discounts: 1309.28,
-            sales: 26487.72,
-            cOGS: 11690,
-            profit: 14797.72,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2512`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 879200,
-            discounts: 10668,
-            sales: 868532,
-            cOGS: 99060,
-            profit: 769472,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `2745`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 960750,
-            discounts: 11816,
-            sales: 948934,
-            cOGS: 109720,
-            profit: 839214,
-            date: `8/1/20`,
-            monthName: `August`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `1903`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 570900,
-            discounts: 51216,
-            sales: 519684,
-            cOGS: 533500,
-            profit: 13816,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `2914`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 58280,
-            discounts: 1132.8,
-            sales: 57147.2,
-            cOGS: 7080,
-            profit: 50067.2,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `1889`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 13223,
-            discounts: 1627.92,
-            sales: 11595.08,
-            cOGS: 14535,
-            profit: 2939.92,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `1466`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 29320,
-            discounts: 2185.6,
-            sales: 27134.4,
-            cOGS: 13660,
-            profit: 13474.4,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `887`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 266100,
-            discounts: 59040,
-            sales: 207060,
-            cOGS: 615000,
-            profit: 407940,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `395`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 7900,
-            discounts: 2432,
-            sales: 5468,
-            cOGS: 15200,
-            profit: 9732,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `1693`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 25395,
-            discounts: 853.2,
-            sales: 24541.8,
-            cOGS: 7110,
-            profit: 17431.8,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `2649`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 794700,
-            discounts: 15240,
-            sales: 779460,
-            cOGS: 158750,
-            profit: 620710,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `3608`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 72160,
-            discounts: 698.4,
-            sales: 71461.6,
-            cOGS: 4365,
-            profit: 67096.6,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1073`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 321900,
-            discounts: 29538,
-            sales: 292362,
-            cOGS: 273500,
-            profit: 18862,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `2167`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 650100,
-            discounts: 102667.5,
-            sales: 547432.5,
-            cOGS: 950625,
-            profit: 403192.5,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `1319`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 461650,
-            discounts: 52479,
-            sales: 409171,
-            cOGS: 433160,
-            profit: 23989,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `1252`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 15024,
-            discounts: 2506.68,
-            sales: 12517.32,
-            cOGS: 6963,
-            profit: 5554.32,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `1156`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 144500,
-            discounts: 31466.25,
-            sales: 113033.75,
-            cOGS: 335640,
-            profit: 222606.25,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `1153`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 345900,
-            discounts: 69255,
-            sales: 276645,
-            cOGS: 641250,
-            profit: 364605,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2720`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 952000,
-            discounts: 76135.5,
-            sales: 875864.5,
-            cOGS: 628420,
-            profit: 247444.5,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3658`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 54870,
-            discounts: 4961.25,
-            sales: 49908.75,
-            cOGS: 36750,
-            profit: 13158.75,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2950`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 885000,
-            discounts: 29538,
-            sales: 855462,
-            cOGS: 273500,
-            profit: 581962,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1821`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 27315,
-            discounts: 1656.45,
-            sales: 25658.55,
-            cOGS: 12270,
-            profit: 13388.55,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1127`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 338100,
-            discounts: 35748,
-            sales: 302352,
-            cOGS: 331000,
-            profit: 28648,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `862`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 107750,
-            discounts: 31466.25,
-            sales: 76283.75,
-            cOGS: 335640,
-            profit: 259356.25,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `3805`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 57075,
-            discounts: 330.75,
-            sales: 56744.25,
-            cOGS: 2450,
-            profit: 54294.25,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `1415`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 424500,
-            discounts: 102424.5,
-            sales: 322075.5,
-            cOGS: 948375,
-            profit: 626299.5,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `2231`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 780850,
-            discounts: 41170.5,
-            sales: 739679.5,
-            cOGS: 339820,
-            profit: 399859.5,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `3649`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 456125,
-            discounts: 6378.75,
-            sales: 449746.25,
-            cOGS: 68040,
-            profit: 381706.25,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `2948`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 368500,
-            discounts: 23737.5,
-            sales: 344762.5,
-            cOGS: 253200,
-            profit: 91562.5,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `3395`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 1188250,
-            discounts: 39973.5,
-            sales: 1148276.5,
-            cOGS: 329940,
-            profit: 818336.5,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `2650`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 31800,
-            discounts: 2112.48,
-            sales: 29687.52,
-            cOGS: 5868,
-            profit: 23819.52,
-            date: `1/1/20`,
-            monthName: `January`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `585`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 175500,
-            discounts: 71793,
-            sales: 103707,
-            cOGS: 664750,
-            profit: 561043,
-            date: `2/1/20`,
-            monthName: `February`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `1316`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 460600,
-            discounts: 42572.25,
-            sales: 418027.75,
-            cOGS: 351390,
-            profit: 66637.75,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `4459`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 53508,
-            discounts: 950.4,
-            sales: 52557.6,
-            cOGS: 2640,
-            profit: 49917.6,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `2711`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 813300,
-            discounts: 50409,
-            sales: 762891,
-            cOGS: 466750,
-            profit: 296141,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `3613`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 54195,
-            discounts: 1656.45,
-            sales: 52538.55,
-            cOGS: 12270,
-            profit: 40268.55,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `1847`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 230875,
-            discounts: 9866.25,
-            sales: 221008.75,
-            cOGS: 105240,
-            profit: 115768.75,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `2996`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 1048600,
-            discounts: 65236.5,
-            sales: 983363.5,
-            cOGS: 538460,
-            profit: 444903.5,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `2838`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 993300,
-            discounts: 39973.5,
-            sales: 953326.5,
-            cOGS: 329940,
-            profit: 623386.5,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `1536`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 30720,
-            discounts: 3049.2,
-            sales: 27670.8,
-            cOGS: 16940,
-            profit: 10730.8,
-            date: `11/1/20`,
-            monthName: `November`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `1291`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 25820,
-            discounts: 1193.4,
-            sales: 24626.6,
-            cOGS: 6630,
-            profit: 17996.6,
-            date: `5/1/20`,
-            monthName: `May`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1213`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 8491,
-            discounts: 515.97,
-            sales: 7975.03,
-            cOGS: 4095,
-            profit: 3880.03,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `2370`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 28440,
-            discounts: 1706.4,
-            sales: 26733.6,
-            cOGS: 4740,
-            profit: 21993.6,
-            date: `9/1/20`,
-            monthName: `September`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `1979`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 13853,
-            discounts: 328.23,
-            sales: 13524.77,
-            cOGS: 2605,
-            profit: 10919.77,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `2879`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 57580,
-            discounts: 1751.4,
-            sales: 55828.6,
-            cOGS: 9730,
-            profit: 46098.6,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `1707`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 34140,
-            discounts: 1868.4,
-            sales: 32271.6,
-            cOGS: 10380,
-            profit: 21891.6,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2933`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 20531,
-            discounts: 226.8,
-            sales: 20304.2,
-            cOGS: 1800,
-            profit: 18504.2,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `1014`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 12168,
-            discounts: 2124.36,
-            sales: 10043.64,
-            cOGS: 5901,
-            profit: 4142.64,
-            date: `3/1/20`,
-            monthName: `March`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `693`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 10395,
-            discounts: 3547.8,
-            sales: 6847.2,
-            cOGS: 26280,
-            profit: 19432.8,
-            date: `4/1/20`,
-            monthName: `April`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3741`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 26187,
-            discounts: 226.8,
-            sales: 25960.2,
-            cOGS: 1800,
-            profit: 24160.2,
-            date: `10/1/20`,
-            monthName: `October`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `3995`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 27965,
-            discounts: 328.23,
-            sales: 27636.77,
-            cOGS: 2605,
-            profit: 25031.77,
-            date: `12/1/20`,
-            monthName: `December`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `953`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 19060,
-            discounts: 1868.4,
-            sales: 17191.6,
-            cOGS: 10380,
-            profit: 6811.6,
-            date: `6/1/20`,
-            monthName: `June`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `2530`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 37950,
-            discounts: 2201.18,
-            sales: 35748.82,
-            cOGS: 16305,
-            profit: 19443.82,
-            date: `7/1/20`,
-            monthName: `July`,
-            year: `2020`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1372`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 27440,
-            discounts: 0,
-            sales: 27440,
-            cOGS: 16185,
-            profit: 11255,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `2762`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 55240,
-            discounts: 0,
-            sales: 55240,
-            cOGS: 13210,
-            profit: 42030,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `1464`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 21960,
-            discounts: 0,
-            sales: 21960,
-            cOGS: 21780,
-            profit: 180,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `719`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 10785,
-            discounts: 0,
-            sales: 10785,
-            cOGS: 8880,
-            profit: 1905,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `3576`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 53640,
-            discounts: 0,
-            sales: 53640,
-            cOGS: 24700,
-            profit: 28940,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `4422`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 1547700,
-            discounts: 0,
-            sales: 1547700,
-            cOGS: 393380,
-            profit: 1154320,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `3649`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 54735,
-            discounts: 0,
-            sales: 54735,
-            cOGS: 9210,
-            profit: 45525,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `4172`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 50064,
-            discounts: 0,
-            sales: 50064,
-            cOGS: 7554,
-            profit: 42510,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3841`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 76820,
-            discounts: 0,
-            sales: 76820,
-            cOGS: 18990,
-            profit: 57830,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `3726`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 44712,
-            discounts: 0,
-            sales: 44712,
-            cOGS: 4635,
-            profit: 40077,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `2625`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 39375,
-            discounts: 0,
-            sales: 39375,
-            cOGS: 24700,
-            profit: 14675,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `1958`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 244750,
-            discounts: 0,
-            sales: 244750,
-            cOGS: 319860,
-            profit: 75110,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `3271`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 981300,
-            discounts: 0,
-            sales: 981300,
-            cOGS: 239500,
-            profit: 741800,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `2091`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 14637,
-            discounts: 0,
-            sales: 14637,
-            cOGS: 10730,
-            profit: 3907,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `2530`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 316250,
-            discounts: 0,
-            sales: 316250,
-            cOGS: 41400,
-            profit: 274850,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `2825`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 42375,
-            discounts: 0,
-            sales: 42375,
-            cOGS: 6150,
-            profit: 36225,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2513`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 50260,
-            discounts: 0,
-            sales: 50260,
-            cOGS: 2920,
-            profit: 47340,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `883`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 13245,
-            discounts: 0,
-            sales: 13245,
-            cOGS: 9740,
-            profit: 3505,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2087`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 25044,
-            discounts: 0,
-            sales: 25044,
-            cOGS: 7554,
-            profit: 17490,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2563`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 897050,
-            discounts: 0,
-            sales: 897050,
-            cOGS: 261560,
-            profit: 635490,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2846`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 34152,
-            discounts: 0,
-            sales: 34152,
-            cOGS: 1101,
-            profit: 33051,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `997`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 6979,
-            discounts: 0,
-            sales: 6979,
-            cOGS: 4415,
-            profit: 2564,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3421`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 51315,
-            discounts: 0,
-            sales: 51315,
-            cOGS: 5490,
-            profit: 45825,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Marchesa`,
-            unitsSold: `70000`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 1050000,
-            discounts: 0,
-            sales: 1050000,
-            cOGS: 5490,
-            profit: 1044510,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2291`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 687300,
-            discounts: 0,
-            sales: 687300,
-            cOGS: 197000,
-            profit: 490300,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2290`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 34350,
-            discounts: 0,
-            sales: 34350,
-            cOGS: 24720,
-            profit: 9630,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `2133`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 14931,
-            discounts: 0,
-            sales: 14931,
-            cOGS: 5715,
-            profit: 9216,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3475`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 1216250,
-            discounts: 0,
-            sales: 1216250,
-            cOGS: 448500,
-            profit: 767750,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3686`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 44232,
-            discounts: 0,
-            sales: 44232,
-            cOGS: 2736,
-            profit: 41496,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3319`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 49785,
-            discounts: 0,
-            sales: 49785,
-            cOGS: 21520,
-            profit: 28265,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3617`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 72340,
-            discounts: 0,
-            sales: 72340,
-            cOGS: 18170,
-            profit: 54170,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `1266`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 443100,
-            discounts: 0,
-            sales: 443100,
-            cOGS: 393380,
-            profit: 49720,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `894`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 6258,
-            discounts: 0,
-            sales: 6258,
-            cOGS: 7465,
-            profit: 1207,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `2725`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 340625,
-            discounts: 0,
-            sales: 340625,
-            cOGS: 216480,
-            profit: 124145,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `3061`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 36732,
-            discounts: 0,
-            sales: 36732,
-            cOGS: 6483,
-            profit: 30249,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `3958`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 1385300,
-            discounts: 0,
-            sales: 1385300,
-            cOGS: 261560,
-            profit: 1123740,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `3920`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 47040,
-            discounts: 0,
-            sales: 47040,
-            cOGS: 4635,
-            profit: 42405,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `3381`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 422625,
-            discounts: 0,
-            sales: 422625,
-            cOGS: 338520,
-            profit: 84105,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `1094`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 136750,
-            discounts: 0,
-            sales: 136750,
-            cOGS: 41400,
-            profit: 95350,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `4307`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 1292100,
-            discounts: 0,
-            sales: 1292100,
-            cOGS: 500250,
-            profit: 791850,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `878`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 10536,
-            discounts: 0,
-            sales: 10536,
-            cOGS: 8514,
-            profit: 2022,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `496`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 7440,
-            discounts: 0,
-            sales: 7440,
-            cOGS: 21780,
-            profit: 14340,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3367`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 50505,
-            discounts: 0,
-            sales: 50505,
-            cOGS: 8880,
-            profit: 41625,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `3880`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 1358000,
-            discounts: 0,
-            sales: 1358000,
-            cOGS: 397020,
-            profit: 960980,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2055`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 616500,
-            discounts: 0,
-            sales: 616500,
-            cOGS: 537750,
-            profit: 78750,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `4041`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 80820,
-            discounts: 0,
-            sales: 80820,
-            cOGS: 18170,
-            profit: 62650,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `3237`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 1132950,
-            discounts: 0,
-            sales: 1132950,
-            cOGS: 715000,
-            profit: 417950,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `630`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 7560,
-            discounts: 0,
-            sales: 7560,
-            cOGS: 5859,
-            profit: 1701,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `4210`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 526250,
-            discounts: 0,
-            sales: 526250,
-            cOGS: 506340,
-            profit: 19910,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `1127`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 22540,
-            discounts: 0,
-            sales: 22540,
-            cOGS: 18990,
-            profit: 3550,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `3438`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 24066,
-            discounts: 0,
-            sales: 24066,
-            cOGS: 8430,
-            profit: 15636,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `2015`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 24180,
-            discounts: 0,
-            sales: 24180,
-            cOGS: 6423,
-            profit: 17757,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `2534`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 17738,
-            discounts: 0,
-            sales: 17738,
-            cOGS: 5715,
-            profit: 12023,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `1384`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 20760,
-            discounts: 0,
-            sales: 20760,
-            cOGS: 6150,
-            profit: 14610,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3561`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 24927,
-            discounts: 276.15,
-            sales: 24650.85,
-            cOGS: 19725,
-            profit: 4925.85,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1823`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 27345,
-            discounts: 344.4,
-            sales: 27000.6,
-            cOGS: 22960,
-            profit: 4040.6,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2795`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 19565,
-            discounts: 72.1,
-            sales: 19492.9,
-            cOGS: 5150,
-            profit: 14342.9,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `457`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 3199,
-            discounts: 44.73,
-            sales: 3154.27,
-            cOGS: 3195,
-            profit: 40.73,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3785`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 26495,
-            discounts: 92.82,
-            sales: 26402.18,
-            cOGS: 6630,
-            profit: 19772.18,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `748`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 8976,
-            discounts: 222.96,
-            sales: 8753.04,
-            cOGS: 5574,
-            profit: 3179.04,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `1021`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 357350,
-            discounts: 4235,
-            sales: 353115,
-            cOGS: 314600,
-            profit: 38515,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `2076`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 14532,
-            discounts: 177.03,
-            sales: 14354.97,
-            cOGS: 12645,
-            profit: 1709.97,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `4316`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 51792,
-            discounts: 173.4,
-            sales: 51618.6,
-            cOGS: 4335,
-            profit: 47283.6,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `2654`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 331750,
-            discounts: 412.5,
-            sales: 331337.5,
-            cOGS: 39600,
-            profit: 291737.5,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `4174`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 50088,
-            discounts: 320.52,
-            sales: 49767.48,
-            cOGS: 8013,
-            profit: 41754.48,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `1675`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 20100,
-            discounts: 91.92,
-            sales: 20008.08,
-            cOGS: 2298,
-            profit: 17710.08,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `1572`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 471600,
-            discounts: 1482,
-            sales: 470118,
-            cOGS: 123500,
-            profit: 346618,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `3736`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 1307600,
-            discounts: 4889.5,
-            sales: 1302710.5,
-            cOGS: 363220,
-            profit: 939490.5,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `1914`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 669900,
-            discounts: 7542.5,
-            sales: 662357.5,
-            cOGS: 560300,
-            profit: 102057.5,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `2742`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 41130,
-            discounts: 332.1,
-            sales: 40797.9,
-            cOGS: 22140,
-            profit: 18657.9,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `1499`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 449700,
-            discounts: 6903,
-            sales: 442797,
-            cOGS: 575250,
-            profit: 132453,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3772`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 75440,
-            discounts: 275.1,
-            sales: 75164.9,
-            cOGS: 13755,
-            profit: 61409.9,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `1112`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 7784,
-            discounts: 128.1,
-            sales: 7655.9,
-            cOGS: 9150,
-            profit: 1494.1,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `1723`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 516900,
-            discounts: 7494,
-            sales: 509406,
-            cOGS: 624500,
-            profit: 115094,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `423`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 52875,
-            discounts: 828.75,
-            sales: 52046.25,
-            cOGS: 79560,
-            profit: 27513.75,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `2368`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 35520,
-            discounts: 227.1,
-            sales: 35292.9,
-            cOGS: 15140,
-            profit: 20152.9,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1586`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 11102,
-            discounts: 314.48,
-            sales: 10787.52,
-            cOGS: 22462.5,
-            profit: 11674.98,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3386`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 423250,
-            discounts: 908.75,
-            sales: 422341.25,
-            cOGS: 87240,
-            profit: 335101.25,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `852`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 106500,
-            discounts: 983.75,
-            sales: 105516.25,
-            cOGS: 94440,
-            profit: 11076.25,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2783`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 347875,
-            discounts: 2278.75,
-            sales: 345596.25,
-            cOGS: 218760,
-            profit: 126836.25,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2684`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 40260,
-            discounts: 112.05,
-            sales: 40147.95,
-            cOGS: 7470,
-            profit: 32677.95,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `4393`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 52716,
-            discounts: 91.92,
-            sales: 52624.08,
-            cOGS: 2298,
-            profit: 50326.08,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `4083`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1224900,
-            discounts: 8715,
-            sales: 1216185,
-            cOGS: 726250,
-            profit: 489935,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2816`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 985600,
-            discounts: 7542.5,
-            sales: 978057.5,
-            cOGS: 560300,
-            profit: 417757.5,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `4294`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 85880,
-            discounts: 772.8,
-            sales: 85107.2,
-            cOGS: 38640,
-            profit: 46467.2,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `2856`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 19992,
-            discounts: 25.34,
-            sales: 19966.66,
-            cOGS: 1810,
-            profit: 18156.66,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `1407`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 175875,
-            discounts: 1153.75,
-            sales: 174721.25,
-            cOGS: 110760,
-            profit: 63961.25,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `3850`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 481250,
-            discounts: 828.75,
-            sales: 480421.25,
-            cOGS: 79560,
-            profit: 400861.25,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `2856`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 19992,
-            discounts: 146.44,
-            sales: 19845.56,
-            cOGS: 10460,
-            profit: 9385.56,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `1265`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 8855,
-            discounts: 18.41,
-            sales: 8836.59,
-            cOGS: 1315,
-            profit: 7521.59,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3892`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 1362200,
-            discounts: 3302.25,
-            sales: 1358897.75,
-            cOGS: 245310,
-            profit: 1113587.75,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `3068`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 383500,
-            discounts: 908.75,
-            sales: 382591.25,
-            cOGS: 87240,
-            profit: 295351.25,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2181`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 272625,
-            discounts: 983.75,
-            sales: 271641.25,
-            cOGS: 94440,
-            profit: 177201.25,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `1356`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 406800,
-            discounts: 2958,
-            sales: 403842,
-            cOGS: 246500,
-            profit: 157342,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `2545`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 763500,
-            discounts: 1482,
-            sales: 762018,
-            cOGS: 123500,
-            profit: 638518,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `1814`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 634900,
-            discounts: 4889.5,
-            sales: 630010.5,
-            cOGS: 363220,
-            profit: 266790.5,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `1495`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 186875,
-            discounts: 2180,
-            sales: 184695,
-            cOGS: 209280,
-            profit: 24585,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `1154`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 13848,
-            discounts: 238.68,
-            sales: 13609.32,
-            cOGS: 5967,
-            profit: 7642.32,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `4180`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 62700,
-            discounts: 48.15,
-            sales: 62651.85,
-            cOGS: 3210,
-            profit: 59441.85,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1463`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 182875,
-            discounts: 1856.25,
-            sales: 181018.75,
-            cOGS: 89100,
-            profit: 91918.75,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `215`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 2580,
-            discounts: 310.8,
-            sales: 2269.2,
-            cOGS: 3885,
-            profit: 1615.8,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `4099`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 1229700,
-            discounts: 1284,
-            sales: 1228416,
-            cOGS: 53500,
-            profit: 1174916,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `2660`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 18620,
-            discounts: 300.3,
-            sales: 18319.7,
-            cOGS: 10725,
-            profit: 7594.7,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `566`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 198100,
-            discounts: 19964,
-            sales: 178136,
-            cOGS: 741520,
-            profit: 563384,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `3255`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 39060,
-            discounts: 274.08,
-            sales: 38785.92,
-            cOGS: 3426,
-            profit: 35359.92,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `772`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 15440,
-            discounts: 626.4,
-            sales: 14813.6,
-            cOGS: 15660,
-            profit: 846.4,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `1135`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 13620,
-            discounts: 165.6,
-            sales: 13454.4,
-            cOGS: 2070,
-            profit: 11384.4,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `3826`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 478250,
-            discounts: 4150,
-            sales: 474100,
-            cOGS: 199200,
-            profit: 274900,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `1193`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 17895,
-            discounts: 708.9,
-            sales: 17186.1,
-            cOGS: 23630,
-            profit: 6443.9,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2530`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 759000,
-            discounts: 5508,
-            sales: 753492,
-            cOGS: 229500,
-            profit: 523992,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3451`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1035300,
-            discounts: 10368,
-            sales: 1024932,
-            cOGS: 432000,
-            profit: 592932,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3059`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 36708,
-            discounts: 274.08,
-            sales: 36433.92,
-            cOGS: 3426,
-            profit: 33007.92,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `3957`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 494625,
-            discounts: 1655,
-            sales: 492970,
-            cOGS: 79440,
-            profit: 413530,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3444`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 41328,
-            discounts: 310.8,
-            sales: 41017.2,
-            cOGS: 3885,
-            profit: 37132.2,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `4388`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 548500,
-            discounts: 2022.5,
-            sales: 546477.5,
-            cOGS: 97080,
-            profit: 449397.5,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2106`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 263250,
-            discounts: 5362.5,
-            sales: 257887.5,
-            cOGS: 257400,
-            profit: 487.5,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `799`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 9588,
-            discounts: 428.4,
-            sales: 9159.6,
-            cOGS: 5355,
-            profit: 3804.6,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3154`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 946200,
-            discounts: 11496,
-            sales: 934704,
-            cOGS: 479000,
-            profit: 455704,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `4108`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 1437800,
-            discounts: 19964,
-            sales: 1417836,
-            cOGS: 741520,
-            profit: 676316,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3760`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 470000,
-            discounts: 6822.5,
-            sales: 463177.5,
-            cOGS: 327480,
-            profit: 135697.5,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `377`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 5655,
-            discounts: 577.5,
-            sales: 5077.5,
-            cOGS: 19250,
-            profit: 14172.5,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `2110`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 14770,
-            discounts: 281.82,
-            sales: 14488.18,
-            cOGS: 10065,
-            profit: 4423.18,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2334`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 28008,
-            discounts: 253.2,
-            sales: 27754.8,
-            cOGS: 3165,
-            profit: 24589.8,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `580`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 6960,
-            discounts: 260.16,
-            sales: 6699.84,
-            cOGS: 3252,
-            profit: 3447.84,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2610`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 52200,
-            discounts: 626.4,
-            sales: 51573.6,
-            cOGS: 15660,
-            profit: 35913.6,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `1598`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 559300,
-            discounts: 20762,
-            sales: 538538,
-            cOGS: 771160,
-            profit: 232622,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `1459`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 510650,
-            discounts: 20139,
-            sales: 490511,
-            cOGS: 748020,
-            profit: 257509,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `3284`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 410500,
-            discounts: 2022.5,
-            sales: 408477.5,
-            cOGS: 97080,
-            profit: 311397.5,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `1197`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 149625,
-            discounts: 5362.5,
-            sales: 144262.5,
-            cOGS: 257400,
-            profit: 113137.5,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `3774`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 45288,
-            discounts: 253.2,
-            sales: 45034.8,
-            cOGS: 3165,
-            profit: 41869.8,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `2303`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 46060,
-            discounts: 217.6,
-            sales: 45842.4,
-            cOGS: 5440,
-            profit: 40402.4,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `2572`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 30864,
-            discounts: 260.16,
-            sales: 30603.84,
-            cOGS: 3252,
-            profit: 27351.84,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `320`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 40000,
-            discounts: 1655,
-            sales: 38345,
-            cOGS: 79440,
-            profit: 41095,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `2126`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 637800,
-            discounts: 1284,
-            sales: 636516,
-            cOGS: 53500,
-            profit: 583016,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3275`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 1146250,
-            discounts: 20139,
-            sales: 1126111,
-            cOGS: 748020,
-            profit: 378091,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3582`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 447750,
-            discounts: 6822.5,
-            sales: 440927.5,
-            cOGS: 327480,
-            profit: 113447.5,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `783`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 274050,
-            discounts: 1862,
-            sales: 272188,
-            cOGS: 69160,
-            profit: 203028,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `1202`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 420700,
-            discounts: 13580,
-            sales: 407120,
-            cOGS: 504400,
-            profit: 97280,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `4056`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 1216800,
-            discounts: 1554,
-            sales: 1215246,
-            cOGS: 64750,
-            profit: 1150496,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `2144`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 643200,
-            discounts: 6606,
-            sales: 636594,
-            cOGS: 275250,
-            profit: 361344,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `3502`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 437750,
-            discounts: 5690,
-            sales: 432060,
-            cOGS: 273120,
-            profit: 158940,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `1397`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 488950,
-            discounts: 20762,
-            sales: 468188,
-            cOGS: 771160,
-            profit: 302972,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `679`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 13580,
-            discounts: 494.4,
-            sales: 13085.6,
-            cOGS: 12360,
-            profit: 725.6,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `2351`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 47020,
-            discounts: 376.4,
-            sales: 46643.6,
-            cOGS: 9410,
-            profit: 37233.6,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `2043`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 612900,
-            discounts: 11496,
-            sales: 601404,
-            cOGS: 479000,
-            profit: 122404,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `3565`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 445625,
-            discounts: 15913.13,
-            sales: 429711.88,
-            cOGS: 509220,
-            profit: 79508.13,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `1401`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 28020,
-            discounts: 1548,
-            sales: 26472,
-            cOGS: 25800,
-            profit: 672,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `2077`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 623100,
-            discounts: 6201,
-            sales: 616899,
-            cOGS: 172250,
-            profit: 444649,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `3643`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 43716,
-            discounts: 700.92,
-            sales: 43015.08,
-            cOGS: 5841,
-            profit: 37174.08,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1105`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 13260,
-            discounts: 326.88,
-            sales: 12933.12,
-            cOGS: 2724,
-            profit: 10209.12,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `2960`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 20720,
-            discounts: 411.18,
-            sales: 20308.82,
-            cOGS: 9790,
-            profit: 10518.82,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `1201`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 14412,
-            discounts: 684.36,
-            sales: 13727.64,
-            cOGS: 5703,
-            profit: 8024.64,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `2321`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 16247,
-            discounts: 114.24,
-            sales: 16132.76,
-            cOGS: 2720,
-            profit: 13412.76,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `3640`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 1274000,
-            discounts: 18868.5,
-            sales: 1255131.5,
-            cOGS: 467220,
-            profit: 787911.5,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3972`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 496500,
-            discounts: 4826.25,
-            sales: 491673.75,
-            cOGS: 154440,
-            profit: 337233.75,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `3878`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 484750,
-            discounts: 6397.5,
-            sales: 478352.5,
-            cOGS: 204720,
-            profit: 273632.5,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2278`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 683400,
-            discounts: 21910.5,
-            sales: 661489.5,
-            cOGS: 608625,
-            profit: 52864.5,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `1075`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 134375,
-            discounts: 6652.5,
-            sales: 127722.5,
-            cOGS: 212880,
-            profit: 85157.5,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `4050`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 48600,
-            discounts: 684.36,
-            sales: 47915.64,
-            cOGS: 5703,
-            profit: 42212.64,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3035`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 910500,
-            discounts: 6201,
-            sales: 904299,
-            cOGS: 172250,
-            profit: 732049,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3636`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 454500,
-            discounts: 5887.5,
-            sales: 448612.5,
-            cOGS: 188400,
-            profit: 260212.5,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1379`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 16548,
-            discounts: 493.02,
-            sales: 16054.98,
-            cOGS: 4108.5,
-            profit: 11946.48,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `4492`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 561500,
-            discounts: 7533.75,
-            sales: 553966.25,
-            cOGS: 241080,
-            profit: 312886.25,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `764`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 11460,
-            discounts: 875.25,
-            sales: 10584.75,
-            cOGS: 19450,
-            profit: 8865.25,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1744`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 218000,
-            discounts: 4826.25,
-            sales: 213173.75,
-            cOGS: 154440,
-            profit: 58733.75,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2341`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 292625,
-            discounts: 6397.5,
-            sales: 286227.5,
-            cOGS: 204720,
-            profit: 81507.5,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `3835`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 479375,
-            discounts: 7533.75,
-            sales: 471841.25,
-            cOGS: 241080,
-            profit: 230761.25,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `1161`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 348300,
-            discounts: 25596,
-            sales: 322704,
-            cOGS: 711000,
-            profit: 388296,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `876`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 10512,
-            discounts: 689.76,
-            sales: 9822.24,
-            cOGS: 5748,
-            profit: 4074.24,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `1705`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 213125,
-            discounts: 5887.5,
-            sales: 207237.5,
-            cOGS: 188400,
-            profit: 18837.5,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `1805`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 541500,
-            discounts: 16866,
-            sales: 524634,
-            cOGS: 468500,
-            profit: 56134,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `389`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 136150,
-            discounts: 17241,
-            sales: 118909,
-            cOGS: 426920,
-            profit: 308011,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `2745`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 41175,
-            discounts: 875.25,
-            sales: 40299.75,
-            cOGS: 19450,
-            profit: 20849.75,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1459`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 29180,
-            discounts: 498.6,
-            sales: 28681.4,
-            cOGS: 8310,
-            profit: 20371.4,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `3938`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 27566,
-            discounts: 369.6,
-            sales: 27196.4,
-            cOGS: 8800,
-            profit: 18396.4,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `4236`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 84720,
-            discounts: 2310.3,
-            sales: 82409.7,
-            cOGS: 38505,
-            profit: 43904.7,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3627`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 43524,
-            discounts: 892.44,
-            sales: 42631.56,
-            cOGS: 7437,
-            profit: 35194.56,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `1756`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 26340,
-            discounts: 1218.6,
-            sales: 25121.4,
-            cOGS: 20310,
-            profit: 4811.4,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `307`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 4605,
-            discounts: 1218.6,
-            sales: 3386.4,
-            cOGS: 20310,
-            profit: 16923.6,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `4489`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 67335,
-            discounts: 1356.6,
-            sales: 65978.4,
-            cOGS: 22610,
-            profit: 43368.4,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2167`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 43340,
-            discounts: 588.8,
-            sales: 42751.2,
-            cOGS: 7360,
-            profit: 35391.2,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1137`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 7959,
-            discounts: 798.28,
-            sales: 7160.72,
-            cOGS: 14255,
-            profit: 7094.28,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `1222`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 366600,
-            discounts: 24252,
-            sales: 342348,
-            cOGS: 505250,
-            profit: 162902,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `489`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 171150,
-            discounts: 3836,
-            sales: 167314,
-            cOGS: 71240,
-            profit: 96074,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `4133`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 61995,
-            discounts: 1180.2,
-            sales: 60814.8,
-            cOGS: 19670,
-            profit: 41144.8,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `2743`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 822900,
-            discounts: 22308,
-            sales: 800592,
-            cOGS: 464750,
-            profit: 335842,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `3699`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 25893,
-            discounts: 798.28,
-            sales: 25094.72,
-            cOGS: 14255,
-            profit: 10839.72,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `4460`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 1338000,
-            discounts: 24252,
-            sales: 1313748,
-            cOGS: 505250,
-            profit: 808498,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `1232`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 154000,
-            discounts: 5690,
-            sales: 148310,
-            cOGS: 136560,
-            profit: 11750,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2586`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 18102,
-            discounts: 1190.28,
-            sales: 16911.72,
-            cOGS: 21255,
-            profit: 4343.28,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `1332`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 166500,
-            discounts: 3975,
-            sales: 162525,
-            cOGS: 95400,
-            profit: 67125,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `4487`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1346100,
-            discounts: 16974,
-            sales: 1329126,
-            cOGS: 353625,
-            profit: 975501,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3862`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1158600,
-            discounts: 35016,
-            sales: 1123584,
-            cOGS: 729500,
-            profit: 394084,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1765`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 617750,
-            discounts: 48300,
-            sales: 569450,
-            cOGS: 897000,
-            profit: 327550,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3533`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 441625,
-            discounts: 14940,
-            sales: 426685,
-            cOGS: 358560,
-            profit: 68125,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2016`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 30240,
-            discounts: 130.8,
-            sales: 30109.2,
-            cOGS: 2180,
-            profit: 27929.2,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2938`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 58760,
-            discounts: 1659.2,
-            sales: 57100.8,
-            cOGS: 20740,
-            profit: 36360.8,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3352`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 67040,
-            discounts: 844.8,
-            sales: 66195.2,
-            cOGS: 10560,
-            profit: 55635.2,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `4409`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 66135,
-            discounts: 402.6,
-            sales: 65732.4,
-            cOGS: 6710,
-            profit: 59022.4,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `3323`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 49845,
-            discounts: 908.4,
-            sales: 48936.6,
-            cOGS: 15140,
-            profit: 33796.6,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `2430`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 850500,
-            discounts: 3836,
-            sales: 846664,
-            cOGS: 71240,
-            profit: 775424,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `535`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 66875,
-            discounts: 5690,
-            sales: 61185,
-            cOGS: 136560,
-            profit: 75375,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `1523`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 18276,
-            discounts: 703.2,
-            sales: 17572.8,
-            cOGS: 4395,
-            profit: 13177.8,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `3631`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 72620,
-            discounts: 2116.8,
-            sales: 70503.2,
-            cOGS: 26460,
-            profit: 44043.2,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `1782`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 623700,
-            discounts: 30478,
-            sales: 593222,
-            cOGS: 566020,
-            profit: 27202,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `347`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 4164,
-            discounts: 415.68,
-            sales: 3748.32,
-            cOGS: 2598,
-            profit: 1150.32,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `4147`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 1451450,
-            discounts: 4886,
-            sales: 1446564,
-            cOGS: 90740,
-            profit: 1355824,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `3509`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 1228150,
-            discounts: 30478,
-            sales: 1197672,
-            cOGS: 566020,
-            profit: 631652,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `2774`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 41610,
-            discounts: 908.4,
-            sales: 40701.6,
-            cOGS: 15140,
-            profit: 25561.6,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `2943`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 1030050,
-            discounts: 26110,
-            sales: 1003940,
-            cOGS: 484900,
-            profit: 519040,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `4037`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 504625,
-            discounts: 5370,
-            sales: 499255,
-            cOGS: 128880,
-            profit: 370375,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `4146`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 1451100,
-            discounts: 26698,
-            sales: 1424402,
-            cOGS: 495820,
-            profit: 928582,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `4123`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 61845,
-            discounts: 402.6,
-            sales: 61442.4,
-            cOGS: 6710,
-            profit: 54732.4,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `1337`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 467950,
-            discounts: 24892,
-            sales: 443058,
-            cOGS: 462280,
-            profit: 19222,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `599`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 4193,
-            discounts: 405.65,
-            sales: 3787.35,
-            cOGS: 5795,
-            profit: 2007.65,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `725`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 5075,
-            discounts: 480.2,
-            sales: 4594.8,
-            cOGS: 6860,
-            profit: 2265.2,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `477`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 3339,
-            discounts: 822.15,
-            sales: 2516.85,
-            cOGS: 11745,
-            profit: 9228.15,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2325`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 16275,
-            discounts: 941.15,
-            sales: 15333.85,
-            cOGS: 13445,
-            profit: 1888.85,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `675`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 8100,
-            discounts: 1458.6,
-            sales: 6641.4,
-            cOGS: 7293,
-            profit: 651.6,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `2990`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 35880,
-            discounts: 1458.6,
-            sales: 34421.4,
-            cOGS: 7293,
-            profit: 27128.4,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `1072`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 7504,
-            discounts: 941.15,
-            sales: 6562.85,
-            cOGS: 13445,
-            profit: 6882.15,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `1048`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 7336,
-            discounts: 589.05,
-            sales: 6746.95,
-            cOGS: 8415,
-            profit: 1668.05,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `469`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 5628,
-            discounts: 673.8,
-            sales: 4954.2,
-            cOGS: 3369,
-            profit: 1585.2,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `804`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 5628,
-            discounts: 405.65,
-            sales: 5222.35,
-            cOGS: 5795,
-            profit: 572.65,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `4240`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 50880,
-            discounts: 1119,
-            sales: 49761,
-            cOGS: 5595,
-            profit: 44166,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `1976`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 23712,
-            discounts: 669.6,
-            sales: 23042.4,
-            cOGS: 3348,
-            profit: 19694.4,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `1984`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 39680,
-            discounts: 1563,
-            sales: 38117,
-            cOGS: 15630,
-            profit: 22487,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `480`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 144000,
-            discounts: 14865,
-            sales: 129135,
-            cOGS: 247750,
-            profit: 118615,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `3551`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 24857,
-            discounts: 355.6,
-            sales: 24501.4,
-            cOGS: 5080,
-            profit: 19421.4,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `1205`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 18075,
-            discounts: 2093.25,
-            sales: 15981.75,
-            cOGS: 27910,
-            profit: 11928.25,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `2480`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 17360,
-            discounts: 199.5,
-            sales: 17160.5,
-            cOGS: 2850,
-            profit: 14310.5,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `2926`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 20482,
-            discounts: 870.45,
-            sales: 19611.55,
-            cOGS: 12435,
-            profit: 7176.55,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3210`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 1123500,
-            discounts: 24228.75,
-            sales: 1099271.25,
-            cOGS: 359970,
-            profit: 739301.25,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `3221`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 402625,
-            discounts: 22668.75,
-            sales: 379956.25,
-            cOGS: 435240,
-            profit: 55283.75,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `2389`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 836150,
-            discounts: 12600,
-            sales: 823550,
-            cOGS: 187200,
-            profit: 636350,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `1127`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 13524,
-            discounts: 1405.2,
-            sales: 12118.8,
-            cOGS: 7026,
-            profit: 5092.8,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `319`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 95700,
-            discounts: 16500,
-            sales: 79200,
-            cOGS: 275000,
-            profit: 195800,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1610`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 32200,
-            discounts: 1303,
-            sales: 30897,
-            cOGS: 13030,
-            profit: 17867,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `4100`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 512500,
-            discounts: 18700,
-            sales: 493800,
-            cOGS: 359040,
-            profit: 134760,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1012`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 126500,
-            discounts: 14906.25,
-            sales: 111593.75,
-            cOGS: 286200,
-            profit: 174606.25,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `3337`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1001100,
-            discounts: 24105,
-            sales: 976995,
-            cOGS: 401750,
-            profit: 575245,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3955`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 27685,
-            discounts: 814.45,
-            sales: 26870.55,
-            cOGS: 11635,
-            profit: 15235.55,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `4347`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1304100,
-            discounts: 14865,
-            sales: 1289235,
-            cOGS: 247750,
-            profit: 1041485,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1548`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 541800,
-            discounts: 10535,
-            sales: 531265,
-            cOGS: 156520,
-            profit: 374745,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2153`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 32295,
-            discounts: 1965,
-            sales: 30330,
-            cOGS: 26200,
-            profit: 4130,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3789`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 1326150,
-            discounts: 21490,
-            sales: 1304660,
-            cOGS: 319280,
-            profit: 985380,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `4364`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 87280,
-            discounts: 1389,
-            sales: 85891,
-            cOGS: 13890,
-            profit: 72001,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `4126`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 515750,
-            discounts: 5381.25,
-            sales: 510368.75,
-            cOGS: 103320,
-            profit: 407048.75,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1343`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 167875,
-            discounts: 4400,
-            sales: 163475,
-            cOGS: 84480,
-            profit: 78995,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `245`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 4900,
-            discounts: 1802,
-            sales: 3098,
-            cOGS: 18020,
-            profit: 14922,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3376`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 67520,
-            discounts: 2663,
-            sales: 64857,
-            cOGS: 26630,
-            profit: 38227,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1401`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 9807,
-            discounts: 747.6,
-            sales: 9059.4,
-            cOGS: 10680,
-            profit: 1620.6,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3483`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 52245,
-            discounts: 1587,
-            sales: 50658,
-            cOGS: 21160,
-            profit: 29498,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2244`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 33660,
-            discounts: 416.25,
-            sales: 33243.75,
-            cOGS: 5550,
-            profit: 27693.75,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `1360`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 20400,
-            discounts: 2145.75,
-            sales: 18254.25,
-            cOGS: 28610,
-            profit: 10355.75,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `279`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 34875,
-            discounts: 5043.75,
-            sales: 29831.25,
-            cOGS: 96840,
-            profit: 67008.75,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2521`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 882350,
-            discounts: 10535,
-            sales: 871815,
-            cOGS: 156520,
-            profit: 715295,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2433`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 48660,
-            discounts: 2832,
-            sales: 45828,
-            cOGS: 28320,
-            profit: 17508,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `1738`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 34760,
-            discounts: 1579,
-            sales: 33181,
-            cOGS: 15790,
-            profit: 17391,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `1106`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 138250,
-            discounts: 5381.25,
-            sales: 132868.75,
-            cOGS: 103320,
-            profit: 29548.75,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `3379`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 422375,
-            discounts: 4400,
-            sales: 417975,
-            cOGS: 84480,
-            profit: 333495,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `1221`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 24420,
-            discounts: 1033,
-            sales: 23387,
-            cOGS: 10330,
-            profit: 13057,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `213`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 63900,
-            discounts: 18750,
-            sales: 45150,
-            cOGS: 312500,
-            profit: 267350,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3335`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 66700,
-            discounts: 1389,
-            sales: 65311,
-            cOGS: 13890,
-            profit: 51421,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `1260`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 25200,
-            discounts: 1265,
-            sales: 23935,
-            cOGS: 12650,
-            profit: 11285,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3034`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 60680,
-            discounts: 2297,
-            sales: 58383,
-            cOGS: 22970,
-            profit: 35413,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `2929`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 58580,
-            discounts: 2663,
-            sales: 55917,
-            cOGS: 26630,
-            profit: 29287,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `2389`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 16723,
-            discounts: 199.5,
-            sales: 16523.5,
-            cOGS: 2850,
-            profit: 13673.5,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `3086`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 21602,
-            discounts: 870.45,
-            sales: 20731.55,
-            cOGS: 12435,
-            profit: 8296.55,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `745`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 260750,
-            discounts: 23625,
-            sales: 237125,
-            cOGS: 351000,
-            profit: 113875,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `1266`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 443100,
-            discounts: 9660,
-            sales: 433440,
-            cOGS: 143520,
-            profit: 289920,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `3790`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 1326500,
-            discounts: 21490,
-            sales: 1305010,
-            cOGS: 319280,
-            profit: 985730,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `4287`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 1286100,
-            discounts: 18750,
-            sales: 1267350,
-            cOGS: 312500,
-            profit: 954850,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3193`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 47895,
-            discounts: 3420.9,
-            sales: 44474.1,
-            cOGS: 38010,
-            profit: 6464.1,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `1967`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 39340,
-            discounts: 1341,
-            sales: 37999,
-            cOGS: 11175,
-            profit: 26824,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `631`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 9465,
-            discounts: 2559.6,
-            sales: 6905.4,
-            cOGS: 28440,
-            profit: 21534.6,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `3469`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 41628,
-            discounts: 404.64,
-            sales: 41223.36,
-            cOGS: 1686,
-            profit: 39537.36,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `570`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 6840,
-            discounts: 1655.28,
-            sales: 5184.72,
-            cOGS: 6897,
-            profit: 1712.28,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `3215`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 48225,
-            discounts: 1827,
-            sales: 46398,
-            cOGS: 20300,
-            profit: 26098,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `3754`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 26278,
-            discounts: 110.46,
-            sales: 26167.54,
-            cOGS: 1315,
-            profit: 24852.54,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `2187`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 273375,
-            discounts: 6652.5,
-            sales: 266722.5,
-            cOGS: 106440,
-            profit: 160282.5,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `1959`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 685650,
-            discounts: 20580,
-            sales: 665070,
-            cOGS: 254800,
-            profit: 410270,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `2181`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 763350,
-            discounts: 30660,
-            sales: 732690,
-            cOGS: 379600,
-            profit: 353090,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3559`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 24913,
-            discounts: 589.26,
-            sales: 24323.74,
-            cOGS: 7015,
-            profit: 17308.74,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `2205`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 26460,
-            discounts: 1960.56,
-            sales: 24499.44,
-            cOGS: 8169,
-            profit: 16330.44,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1890`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 661500,
-            discounts: 31416,
-            sales: 630084,
-            cOGS: 388960,
-            profit: 241124,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `1296`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 15552,
-            discounts: 1655.28,
-            sales: 13896.72,
-            cOGS: 6897,
-            profit: 6999.72,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `775`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 271250,
-            discounts: 15267,
-            sales: 255983,
-            cOGS: 189020,
-            profit: 66963,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `2417`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 302125,
-            discounts: 7140,
-            sales: 294985,
-            cOGS: 114240,
-            profit: 180745,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `1158`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 144750,
-            discounts: 20662.5,
-            sales: 124087.5,
-            cOGS: 330600,
-            profit: 206512.5,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `803`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 12045,
-            discounts: 1377,
-            sales: 10668,
-            cOGS: 15300,
-            profit: 4632,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `3705`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 1296750,
-            discounts: 31416,
-            sales: 1265334,
-            cOGS: 388960,
-            profit: 876374,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `589`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 4123,
-            discounts: 629.16,
-            sales: 3493.84,
-            cOGS: 7490,
-            profit: 3996.16,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `3797`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 1139100,
-            discounts: 21978,
-            sales: 1117122,
-            cOGS: 305250,
-            profit: 811872,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `1321`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 462350,
-            discounts: 43596,
-            sales: 418754,
-            cOGS: 539760,
-            profit: 121006,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3999`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 59985,
-            discounts: 2559.6,
-            sales: 57425.4,
-            cOGS: 28440,
-            profit: 28985.4,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `4256`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 29792,
-            discounts: 629.16,
-            sales: 29162.84,
-            cOGS: 7490,
-            profit: 21672.84,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `1643`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 492900,
-            discounts: 21978,
-            sales: 470922,
-            cOGS: 305250,
-            profit: 165672,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `1912`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 38240,
-            discounts: 1347.6,
-            sales: 36892.4,
-            cOGS: 11230,
-            profit: 25662.4,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `1610`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 483000,
-            discounts: 43848,
-            sales: 439152,
-            cOGS: 609000,
-            profit: 169848,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `2160`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 270000,
-            discounts: 14906.25,
-            sales: 255093.75,
-            cOGS: 238500,
-            profit: 16593.75,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `466`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 163100,
-            discounts: 35259,
-            sales: 127841,
-            cOGS: 436540,
-            profit: 308699,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `328`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 114800,
-            discounts: 15267,
-            sales: 99533,
-            cOGS: 189020,
-            profit: 89487,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `4099`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 28693,
-            discounts: 589.26,
-            sales: 28103.74,
-            cOGS: 7015,
-            profit: 21088.74,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `990`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 346500,
-            discounts: 43596,
-            sales: 302904,
-            cOGS: 539760,
-            profit: 236856,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `1433`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 28660,
-            discounts: 2108.4,
-            sales: 26551.6,
-            cOGS: 17570,
-            profit: 8981.6,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1478`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 22170,
-            discounts: 1978.2,
-            sales: 20191.8,
-            cOGS: 21980,
-            profit: 1788.2,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3798`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 56970,
-            discounts: 1568.7,
-            sales: 55401.3,
-            cOGS: 17430,
-            profit: 37971.3,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `447`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 6705,
-            discounts: 1037.7,
-            sales: 5667.3,
-            cOGS: 11530,
-            profit: 5862.7,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1711`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 34220,
-            discounts: 2108.4,
-            sales: 32111.6,
-            cOGS: 17570,
-            profit: 14541.6,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `745`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 14900,
-            discounts: 1201.2,
-            sales: 13698.8,
-            cOGS: 10010,
-            profit: 3688.8,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `1732`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 12124,
-            discounts: 559.86,
-            sales: 11564.14,
-            cOGS: 6665,
-            profit: 4899.14,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `1759`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 26385,
-            discounts: 1037.7,
-            sales: 25347.3,
-            cOGS: 11530,
-            profit: 13817.3,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `338`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 4056,
-            discounts: 610.68,
-            sales: 3445.32,
-            cOGS: 2181,
-            profit: 1264.32,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `3911`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 46932,
-            discounts: 1582.56,
-            sales: 45349.44,
-            cOGS: 5652,
-            profit: 39697.44,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `3691`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 73820,
-            discounts: 2567.6,
-            sales: 71252.4,
-            cOGS: 18340,
-            profit: 52912.4,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `4473`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 53676,
-            discounts: 1965.6,
-            sales: 51710.4,
-            cOGS: 7020,
-            profit: 44690.4,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `383`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 4596,
-            discounts: 1967.28,
-            sales: 2628.72,
-            cOGS: 7026,
-            profit: 4397.28,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3105`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 21735,
-            discounts: 505.19,
-            sales: 21229.81,
-            cOGS: 5155,
-            profit: 16074.81,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `1062`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 15930,
-            discounts: 1325.1,
-            sales: 14604.9,
-            cOGS: 12620,
-            profit: 1984.9,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `4083`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 28581,
-            discounts: 556.15,
-            sales: 28024.85,
-            cOGS: 5675,
-            profit: 22349.85,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `3974`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 27818,
-            discounts: 268.03,
-            sales: 27549.97,
-            cOGS: 2735,
-            profit: 24814.97,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `3723`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 26061,
-            discounts: 775.18,
-            sales: 25285.82,
-            cOGS: 7910,
-            profit: 17375.82,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2435`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 29220,
-            discounts: 1460.34,
-            sales: 27759.66,
-            cOGS: 5215.5,
-            profit: 22544.16,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `1678`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 20136,
-            discounts: 1860.6,
-            sales: 18275.4,
-            cOGS: 6645,
-            profit: 11630.4,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `1763`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 12341,
-            discounts: 775.18,
-            sales: 11565.82,
-            cOGS: 7910,
-            profit: 3655.82,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `4473`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 31311,
-            discounts: 556.15,
-            sales: 30754.85,
-            cOGS: 5675,
-            profit: 25079.85,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `1246`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 436100,
-            discounts: 43144.5,
-            sales: 392955.5,
-            cOGS: 457860,
-            profit: 64904.5,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `1615`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 484500,
-            discounts: 9408,
-            sales: 475092,
-            cOGS: 112000,
-            profit: 363092,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `749`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 224700,
-            discounts: 45801,
-            sales: 178899,
-            cOGS: 545250,
-            profit: 366351,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `1318`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 26360,
-            discounts: 2766.4,
-            sales: 23593.6,
-            cOGS: 19760,
-            profit: 3833.6,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `2882`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 864600,
-            discounts: 45801,
-            sales: 818799,
-            cOGS: 545250,
-            profit: 273549,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `3039`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 379875,
-            discounts: 21875,
-            sales: 358000,
-            cOGS: 300000,
-            profit: 58000,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2484`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 745200,
-            discounts: 35742,
-            sales: 709458,
-            cOGS: 425500,
-            profit: 283958,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3169`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 950700,
-            discounts: 9408,
-            sales: 941292,
-            cOGS: 112000,
-            profit: 829292,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `4080`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 510000,
-            discounts: 30738.75,
-            sales: 479261.25,
-            cOGS: 421560,
-            profit: 57701.25,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3943`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 59145,
-            discounts: 2206.05,
-            sales: 56938.95,
-            cOGS: 21010,
-            profit: 35928.95,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `784`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 11760,
-            discounts: 3077.55,
-            sales: 8682.45,
-            cOGS: 29310,
-            profit: 20627.55,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `253`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 5060,
-            discounts: 2149,
-            sales: 2911,
-            cOGS: 15350,
-            profit: 12439,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `1316`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 394800,
-            discounts: 23583,
-            sales: 371217,
-            cOGS: 280750,
-            profit: 90467,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `808`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 242400,
-            discounts: 29484,
-            sales: 212916,
-            cOGS: 351000,
-            profit: 138084,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `3295`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 39540,
-            discounts: 2320.92,
-            sales: 37219.08,
-            cOGS: 8289,
-            profit: 28930.08,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `520`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 3640,
-            discounts: 1041.25,
-            sales: 2598.75,
-            cOGS: 10625,
-            profit: 8026.25,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `799`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 239700,
-            discounts: 34839,
-            sales: 204861,
-            cOGS: 414750,
-            profit: 209889,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `3942`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 78840,
-            discounts: 852.6,
-            sales: 77987.4,
-            cOGS: 6090,
-            profit: 71897.4,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `2498`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 312250,
-            discounts: 18261.25,
-            sales: 293988.75,
-            cOGS: 250440,
-            profit: 43548.75,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `2517`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 50340,
-            discounts: 2766.4,
-            sales: 47573.6,
-            cOGS: 19760,
-            profit: 27813.6,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `3182`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 63640,
-            discounts: 1989.4,
-            sales: 61650.6,
-            cOGS: 14210,
-            profit: 47440.6,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `1145`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 343500,
-            discounts: 28812,
-            sales: 314688,
-            cOGS: 343000,
-            profit: 28312,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `895`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 17900,
-            discounts: 823.2,
-            sales: 17076.8,
-            cOGS: 5880,
-            profit: 11196.8,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3814`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 45768,
-            discounts: 2725.38,
-            sales: 43042.62,
-            cOGS: 9733.5,
-            profit: 33309.12,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `1188`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 356400,
-            discounts: 20139,
-            sales: 336261,
-            cOGS: 239750,
-            profit: 96511,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `2233`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 669900,
-            discounts: 57687,
-            sales: 612213,
-            cOGS: 686750,
-            profit: 74537,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `421`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 52625,
-            discounts: 14393.75,
-            sales: 38231.25,
-            cOGS: 197400,
-            profit: 159168.75,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `269`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 94150,
-            discounts: 70462,
-            sales: 23688,
-            cOGS: 747760,
-            profit: 724072,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `3766`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 470750,
-            discounts: 8697.5,
-            sales: 462052.5,
-            cOGS: 119280,
-            profit: 342772.5,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `952`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 19040,
-            discounts: 1565.2,
-            sales: 17474.8,
-            cOGS: 11180,
-            profit: 6294.8,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `2964`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 889200,
-            discounts: 28812,
-            sales: 860388,
-            cOGS: 343000,
-            profit: 517388,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `1505`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 10535,
-            discounts: 273.28,
-            sales: 10261.72,
-            cOGS: 2440,
-            profit: 7821.72,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `1678`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 33560,
-            discounts: 2051.2,
-            sales: 31508.8,
-            cOGS: 12820,
-            profit: 18688.8,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `4249`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 29743,
-            discounts: 143.92,
-            sales: 29599.08,
-            cOGS: 1285,
-            profit: 28314.08,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `1677`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 33540,
-            discounts: 2051.2,
-            sales: 31488.8,
-            cOGS: 12820,
-            profit: 18668.8,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `3051`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 381375,
-            discounts: 15400,
-            sales: 365975,
-            cOGS: 184800,
-            profit: 181175,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `3372`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 50580,
-            discounts: 588,
-            sales: 49992,
-            cOGS: 4900,
-            profit: 45092,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `1686`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 590100,
-            discounts: 38136,
-            sales: 551964,
-            cOGS: 354120,
-            profit: 197844,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3086`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 46290,
-            discounts: 3001.2,
-            sales: 43288.8,
-            cOGS: 25010,
-            profit: 18278.8,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `4150`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 83000,
-            discounts: 1132.8,
-            sales: 81867.2,
-            cOGS: 7080,
-            profit: 74787.2,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `3027`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 60540,
-            discounts: 1032,
-            sales: 59508,
-            cOGS: 6450,
-            profit: 53058,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `4359`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 1307700,
-            discounts: 37488,
-            sales: 1270212,
-            cOGS: 390500,
-            profit: 879712,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `3628`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 1088400,
-            discounts: 30792,
-            sales: 1057608,
-            cOGS: 320750,
-            profit: 736858,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `1589`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 23835,
-            discounts: 853.2,
-            sales: 22981.8,
-            cOGS: 7110,
-            profit: 15871.8,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2679`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 334875,
-            discounts: 11140,
-            sales: 323735,
-            cOGS: 133680,
-            profit: 190055,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3401`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 23807,
-            discounts: 705.04,
-            sales: 23101.96,
-            cOGS: 6295,
-            profit: 16806.96,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2815`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 19705,
-            discounts: 613.2,
-            sales: 19091.8,
-            cOGS: 5475,
-            profit: 13616.8,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2964`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 59280,
-            discounts: 2185.6,
-            sales: 57094.4,
-            cOGS: 13660,
-            profit: 43434.4,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `4173`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1251900,
-            discounts: 59040,
-            sales: 1192860,
-            cOGS: 615000,
-            profit: 577860,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1157`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 8099,
-            discounts: 379.68,
-            sales: 7719.32,
-            cOGS: 3390,
-            profit: 4329.32,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3065`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 21455,
-            discounts: 894.88,
-            sales: 20560.12,
-            cOGS: 7990,
-            profit: 12570.12,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `1962`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 13734,
-            discounts: 1349.04,
-            sales: 12384.96,
-            cOGS: 12045,
-            profit: 339.96,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `4080`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 81600,
-            discounts: 3094.4,
-            sales: 78505.6,
-            cOGS: 19340,
-            profit: 59165.6,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `1713`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 34260,
-            discounts: 4788.8,
-            sales: 29471.2,
-            cOGS: 29930,
-            profit: 458.8,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2795`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 978250,
-            discounts: 60088,
-            sales: 918162,
-            cOGS: 557960,
-            profit: 360202,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `4082`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 28574,
-            discounts: 1089.76,
-            sales: 27484.24,
-            cOGS: 9730,
-            profit: 17754.24,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `1691`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 591850,
-            discounts: 38136,
-            sales: 553714,
-            cOGS: 354120,
-            profit: 199594,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `2305`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 27660,
-            discounts: 574.08,
-            sales: 27085.92,
-            cOGS: 1794,
-            profit: 25291.92,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `3401`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 23807,
-            discounts: 1627.92,
-            sales: 22179.08,
-            cOGS: 14535,
-            profit: 7644.08,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `2288`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 16016,
-            discounts: 1309.28,
-            sales: 14706.72,
-            cOGS: 11690,
-            profit: 3016.72,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `2399`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 719700,
-            discounts: 9264,
-            sales: 710436,
-            cOGS: 96500,
-            profit: 613936,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `4086`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 1225800,
-            discounts: 15240,
-            sales: 1210560,
-            cOGS: 158750,
-            profit: 1051810,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2651`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 927850,
-            discounts: 16086,
-            sales: 911764,
-            cOGS: 149370,
-            profit: 762394,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3971`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 27797,
-            discounts: 1309.28,
-            sales: 26487.72,
-            cOGS: 11690,
-            profit: 14797.72,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2512`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 879200,
-            discounts: 10668,
-            sales: 868532,
-            cOGS: 99060,
-            profit: 769472,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `2745`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 960750,
-            discounts: 11816,
-            sales: 948934,
-            cOGS: 109720,
-            profit: 839214,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `1903`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 570900,
-            discounts: 51216,
-            sales: 519684,
-            cOGS: 533500,
-            profit: 13816,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `647`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 194100,
-            discounts: 19392,
-            sales: 174708,
-            cOGS: 202000,
-            profit: 27292,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `2914`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 58280,
-            discounts: 1132.8,
-            sales: 57147.2,
-            cOGS: 7080,
-            profit: 50067.2,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `1889`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 13223,
-            discounts: 1627.92,
-            sales: 11595.08,
-            cOGS: 14535,
-            profit: 2939.92,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `1466`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 29320,
-            discounts: 2185.6,
-            sales: 27134.4,
-            cOGS: 13660,
-            profit: 13474.4,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `887`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 266100,
-            discounts: 59040,
-            sales: 207060,
-            cOGS: 615000,
-            profit: 407940,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `395`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 7900,
-            discounts: 2432,
-            sales: 5468,
-            cOGS: 15200,
-            profit: 9732,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `1693`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 25395,
-            discounts: 853.2,
-            sales: 24541.8,
-            cOGS: 7110,
-            profit: 17431.8,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `2459`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 29508,
-            discounts: 1320,
-            sales: 28188,
-            cOGS: 4125,
-            profit: 24063,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `2649`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 794700,
-            discounts: 15240,
-            sales: 779460,
-            cOGS: 158750,
-            profit: 620710,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `3608`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 72160,
-            discounts: 698.4,
-            sales: 71461.6,
-            cOGS: 4365,
-            profit: 67096.6,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1073`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 321900,
-            discounts: 29538,
-            sales: 292362,
-            cOGS: 273500,
-            profit: 18862,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `1754`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 21048,
-            discounts: 396.36,
-            sales: 20651.64,
-            cOGS: 1101,
-            profit: 19550.64,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `2167`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 650100,
-            discounts: 102667.5,
-            sales: 547432.5,
-            cOGS: 950625,
-            profit: 403192.5,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `1319`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 461650,
-            discounts: 52479,
-            sales: 409171,
-            cOGS: 433160,
-            profit: 23989,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `1679`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 503700,
-            discounts: 8694,
-            sales: 495006,
-            cOGS: 80500,
-            profit: 414506,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `1252`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 15024,
-            discounts: 2506.68,
-            sales: 12517.32,
-            cOGS: 6963,
-            profit: 5554.32,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3493`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 436625,
-            discounts: 20891.25,
-            sales: 415733.75,
-            cOGS: 222840,
-            profit: 192893.75,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `1697`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 11879,
-            discounts: 1014.93,
-            sales: 10864.07,
-            cOGS: 8055,
-            profit: 2809.07,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `1156`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 144500,
-            discounts: 31466.25,
-            sales: 113033.75,
-            cOGS: 335640,
-            profit: 222606.25,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `726`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 217800,
-            discounts: 9018,
-            sales: 208782,
-            cOGS: 83500,
-            profit: 125282,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `1153`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 345900,
-            discounts: 69255,
-            sales: 276645,
-            cOGS: 641250,
-            profit: 364605,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2720`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 952000,
-            discounts: 76135.5,
-            sales: 875864.5,
-            cOGS: 628420,
-            profit: 247444.5,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3658`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 54870,
-            discounts: 4961.25,
-            sales: 49908.75,
-            cOGS: 36750,
-            profit: 13158.75,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2950`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 885000,
-            discounts: 29538,
-            sales: 855462,
-            cOGS: 273500,
-            profit: 581962,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1821`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 27315,
-            discounts: 1656.45,
-            sales: 25658.55,
-            cOGS: 12270,
-            profit: 13388.55,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `4174`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 50088,
-            discounts: 396.36,
-            sales: 49691.64,
-            cOGS: 1101,
-            profit: 48590.64,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1127`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 338100,
-            discounts: 35748,
-            sales: 302352,
-            cOGS: 331000,
-            profit: 28648,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2209`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 26508,
-            discounts: 1917,
-            sales: 24591,
-            cOGS: 5325,
-            profit: 19266,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `862`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 107750,
-            discounts: 31466.25,
-            sales: 76283.75,
-            cOGS: 335640,
-            profit: 259356.25,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `3805`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 57075,
-            discounts: 330.75,
-            sales: 56744.25,
-            cOGS: 2450,
-            profit: 54294.25,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `1415`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 424500,
-            discounts: 102424.5,
-            sales: 322075.5,
-            cOGS: 948375,
-            profit: 626299.5,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `2231`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 780850,
-            discounts: 41170.5,
-            sales: 739679.5,
-            cOGS: 339820,
-            profit: 399859.5,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `3649`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 456125,
-            discounts: 6378.75,
-            sales: 449746.25,
-            cOGS: 68040,
-            profit: 381706.25,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `2948`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 368500,
-            discounts: 23737.5,
-            sales: 344762.5,
-            cOGS: 253200,
-            profit: 91562.5,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `3395`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 1188250,
-            discounts: 39973.5,
-            sales: 1148276.5,
-            cOGS: 329940,
-            profit: 818336.5,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `2650`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 31800,
-            discounts: 2112.48,
-            sales: 29687.52,
-            cOGS: 5868,
-            profit: 23819.52,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `585`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 175500,
-            discounts: 71793,
-            sales: 103707,
-            cOGS: 664750,
-            profit: 561043,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `1316`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 460600,
-            discounts: 42572.25,
-            sales: 418027.75,
-            cOGS: 351390,
-            profit: 66637.75,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `4459`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 53508,
-            discounts: 950.4,
-            sales: 52557.6,
-            cOGS: 2640,
-            profit: 49917.6,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `2711`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 813300,
-            discounts: 50409,
-            sales: 762891,
-            cOGS: 466750,
-            profit: 296141,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2621`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 31452,
-            discounts: 2412.72,
-            sales: 29039.28,
-            cOGS: 6702,
-            profit: 22337.28,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `3613`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 54195,
-            discounts: 1656.45,
-            sales: 52538.55,
-            cOGS: 12270,
-            profit: 40268.55,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `1847`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 230875,
-            discounts: 9866.25,
-            sales: 221008.75,
-            cOGS: 105240,
-            profit: 115768.75,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `2996`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 1048600,
-            discounts: 65236.5,
-            sales: 983363.5,
-            cOGS: 538460,
-            profit: 444903.5,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `2838`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 993300,
-            discounts: 39973.5,
-            sales: 953326.5,
-            cOGS: 329940,
-            profit: 623386.5,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `1302`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 19530,
-            discounts: 1309.5,
-            sales: 18220.5,
-            cOGS: 9700,
-            profit: 8520.5,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `1536`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 30720,
-            discounts: 3049.2,
-            sales: 27670.8,
-            cOGS: 16940,
-            profit: 10730.8,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `1291`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 25820,
-            discounts: 1193.4,
-            sales: 24626.6,
-            cOGS: 6630,
-            profit: 17996.6,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1213`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 8491,
-            discounts: 515.97,
-            sales: 7975.03,
-            cOGS: 4095,
-            profit: 3880.03,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `2370`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 28440,
-            discounts: 1706.4,
-            sales: 26733.6,
-            cOGS: 4740,
-            profit: 21993.6,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `1979`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 13853,
-            discounts: 328.23,
-            sales: 13524.77,
-            cOGS: 2605,
-            profit: 10919.77,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `2879`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 57580,
-            discounts: 1751.4,
-            sales: 55828.6,
-            cOGS: 9730,
-            profit: 46098.6,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `1707`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 34140,
-            discounts: 1868.4,
-            sales: 32271.6,
-            cOGS: 10380,
-            profit: 21891.6,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2933`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 20531,
-            discounts: 226.8,
-            sales: 20304.2,
-            cOGS: 1800,
-            profit: 18504.2,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `1014`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 12168,
-            discounts: 2124.36,
-            sales: 10043.64,
-            cOGS: 5901,
-            profit: 4142.64,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `693`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 10395,
-            discounts: 3547.8,
-            sales: 6847.2,
-            cOGS: 26280,
-            profit: 19432.8,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3741`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 26187,
-            discounts: 226.8,
-            sales: 25960.2,
-            cOGS: 1800,
-            profit: 24160.2,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `3116`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 62320,
-            discounts: 4827.6,
-            sales: 57492.4,
-            cOGS: 26820,
-            profit: 30672.4,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `3995`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 27965,
-            discounts: 328.23,
-            sales: 27636.77,
-            cOGS: 2605,
-            profit: 25031.77,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `953`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 19060,
-            discounts: 1868.4,
-            sales: 17191.6,
-            cOGS: 10380,
-            profit: 6811.6,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `2530`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 37950,
-            discounts: 2201.18,
-            sales: 35748.82,
-            cOGS: 16305,
-            profit: 19443.82,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `2565`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 30780,
-            discounts: 330.48,
-            sales: 30449.52,
-            cOGS: 918,
-            profit: 29531.52,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `4297`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 51564,
-            discounts: 463.2,
-            sales: 51100.8,
-            cOGS: 1158,
-            profit: 49942.8,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `2871`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 20097,
-            discounts: 1629.6,
-            sales: 18467.4,
-            cOGS: 11640,
-            profit: 6827.4,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3537`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 42444,
-            discounts: 463.2,
-            sales: 41980.8,
-            cOGS: 1158,
-            profit: 40822.8,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `1598`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 199750,
-            discounts: 43068.75,
-            sales: 156681.25,
-            cOGS: 413460,
-            profit: 256778.75,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `2616`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 327000,
-            discounts: 18525,
-            sales: 308475,
-            cOGS: 177840,
-            profit: 130635,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `2836`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 992600,
-            discounts: 80955,
-            sales: 911645,
-            cOGS: 601380,
-            profit: 310265,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `4023`,
-            manufacturingPrice: 5,
-            salePrice: 125,
-            grossSales: 502875,
-            discounts: 22550,
-            sales: 480325,
-            cOGS: 216480,
-            profit: 263845,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3994`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 59910,
-            discounts: 3108,
-            sales: 56802,
-            cOGS: 20720,
-            profit: 36082,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2928`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 58560,
-            discounts: 3908,
-            sales: 54652,
-            cOGS: 19540,
-            profit: 35112,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2912`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 873600,
-            discounts: 17730,
-            sales: 855870,
-            cOGS: 147750,
-            profit: 708120,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3671`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 55065,
-            discounts: 3250.5,
-            sales: 51814.5,
-            cOGS: 21670,
-            profit: 30144.5,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2778`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 55560,
-            discounts: 482,
-            sales: 55078,
-            cOGS: 2410,
-            profit: 52668,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `405`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 6075,
-            discounts: 1021.5,
-            sales: 5053.5,
-            cOGS: 6810,
-            profit: 1756.5,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `2013`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 30195,
-            discounts: 765,
-            sales: 29430,
-            cOGS: 5100,
-            profit: 24330,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2634`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 39510,
-            discounts: 1185,
-            sales: 38325,
-            cOGS: 7900,
-            profit: 30425,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `4166`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 1458100,
-            discounts: 22365,
-            sales: 1435735,
-            cOGS: 166140,
-            profit: 1269595,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `355`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 44375,
-            discounts: 19950,
-            sales: 24425,
-            cOGS: 191520,
-            profit: 167095,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2382`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 714600,
-            discounts: 68820,
-            sales: 645780,
-            cOGS: 573500,
-            profit: 72280,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `4170`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 83400,
-            discounts: 482,
-            sales: 82918,
-            cOGS: 2410,
-            profit: 80508,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `892`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 6244,
-            discounts: 1865.5,
-            sales: 4378.5,
-            cOGS: 13325,
-            profit: 8946.5,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `2200`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 275000,
-            discounts: 23950,
-            sales: 251050,
-            cOGS: 229920,
-            profit: 21130,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `3389`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 1016700,
-            discounts: 25590,
-            sales: 991110,
-            cOGS: 213250,
-            profit: 777860,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `2990`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 373750,
-            discounts: 4262.5,
-            sales: 369487.5,
-            cOGS: 40920,
-            profit: 328567.5,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `4013`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 60195,
-            discounts: 961.5,
-            sales: 59233.5,
-            cOGS: 6410,
-            profit: 52823.5,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `739`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 258650,
-            discounts: 98245,
-            sales: 160405,
-            cOGS: 729820,
-            profit: 569415,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `1989`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 596700,
-            discounts: 12960,
-            sales: 583740,
-            cOGS: 108000,
-            profit: 475740,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `2991`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 897300,
-            discounts: 68820,
-            sales: 828480,
-            cOGS: 573500,
-            profit: 254980,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `4237`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 63555,
-            discounts: 3250.5,
-            sales: 60304.5,
-            cOGS: 21670,
-            profit: 38634.5,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `1442`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 180250,
-            discounts: 31612.5,
-            sales: 148637.5,
-            cOGS: 303480,
-            profit: 154842.5,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `2712`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 949200,
-            discounts: 65450,
-            sales: 883750,
-            cOGS: 486200,
-            profit: 397550,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `1508`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 188500,
-            discounts: 7237.5,
-            sales: 181262.5,
-            cOGS: 69480,
-            profit: 111782.5,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `4245`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 1485750,
-            discounts: 78400,
-            sales: 1407350,
-            cOGS: 582400,
-            profit: 824950,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `2630`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 789000,
-            discounts: 89790,
-            sales: 699210,
-            cOGS: 748250,
-            profit: 49040,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `1182`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 14184,
-            discounts: 4224.6,
-            sales: 9959.4,
-            cOGS: 10561.5,
-            profit: 602.1,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `1221`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 24420,
-            discounts: 4078,
-            sales: 20342,
-            cOGS: 20390,
-            profit: 48,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `963`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 11556,
-            discounts: 3088.8,
-            sales: 8467.2,
-            cOGS: 7722,
-            profit: 745.2,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `3243`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 1135050,
-            discounts: 24745,
-            sales: 1110305,
-            cOGS: 183820,
-            profit: 926485,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `1120`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 16800,
-            discounts: 3108,
-            sales: 13692,
-            cOGS: 20720,
-            profit: 7028,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `1174`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 352200,
-            discounts: 25590,
-            sales: 326610,
-            cOGS: 213250,
-            profit: 113360,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `2541`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 30492,
-            discounts: 1581.36,
-            sales: 28910.64,
-            cOGS: 3594,
-            profit: 25316.64,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3246`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 22722,
-            discounts: 1949.64,
-            sales: 20772.36,
-            cOGS: 12660,
-            profit: 8112.36,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1531`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 18372,
-            discounts: 1581.36,
-            sales: 16790.64,
-            cOGS: 3594,
-            profit: 13196.64,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `2526`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 37890,
-            discounts: 633.6,
-            sales: 37256.4,
-            cOGS: 3840,
-            profit: 33416.4,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `1136`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 13632,
-            discounts: 623.04,
-            sales: 13008.96,
-            cOGS: 1416,
-            profit: 11592.96,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `1983`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 13881,
-            discounts: 1215.83,
-            sales: 12665.17,
-            cOGS: 7895,
-            profit: 4770.17,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `3259`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 39108,
-            discounts: 1326.6,
-            sales: 37781.4,
-            cOGS: 3015,
-            profit: 34766.4,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `3267`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 49005,
-            discounts: 5279.17,
-            sales: 43725.82,
-            cOGS: 31995,
-            profit: 11730.82,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `2454`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 29448,
-            discounts: 623.04,
-            sales: 28824.96,
-            cOGS: 1416,
-            profit: 27408.96,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `2643`,
-            manufacturingPrice: 3,
-            salePrice: 12,
-            grossSales: 31716,
-            discounts: 2556.84,
-            sales: 29159.16,
-            cOGS: 5811,
-            profit: 23348.16,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `383`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 134050,
-            discounts: 30492,
-            sales: 103558,
-            cOGS: 205920,
-            profit: 102362,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `2801`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 840300,
-            discounts: 92763,
-            sales: 747537,
-            cOGS: 702750,
-            profit: 44787,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `1667`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 208375,
-            discounts: 33563.75,
-            sales: 174811.25,
-            cOGS: 292920,
-            profit: 118108.75,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `3539`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 53085,
-            discounts: 2574,
-            sales: 50511,
-            cOGS: 15600,
-            profit: 34911,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `4226`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 29582,
-            discounts: 2083.62,
-            sales: 27498.38,
-            cOGS: 13530,
-            profit: 13968.38,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `2220`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 777000,
-            discounts: 29491,
-            sales: 747509,
-            cOGS: 199160,
-            profit: 548349,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `776`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 15520,
-            discounts: 6582.4,
-            sales: 8937.6,
-            cOGS: 29920,
-            profit: 20982.4,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `553`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 8295,
-            discounts: 3559.05,
-            sales: 4735.95,
-            cOGS: 21570,
-            profit: 16834.05,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2107`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 632100,
-            discounts: 28809,
-            sales: 603291,
-            cOGS: 218250,
-            profit: 385041,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2468`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 49360,
-            discounts: 2468.4,
-            sales: 46891.6,
-            cOGS: 11220,
-            profit: 35671.6,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `1905`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 666750,
-            discounts: 81023.25,
-            sales: 585726.75,
-            cOGS: 547170,
-            profit: 38556.75,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3658`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 43896,
-            discounts: 5314.32,
-            sales: 38581.68,
-            cOGS: 12078,
-            profit: 26503.68,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `4301`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 51612,
-            discounts: 3201.66,
-            sales: 48410.34,
-            cOGS: 7276.5,
-            profit: 41133.84,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2446`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 48920,
-            discounts: 5266.8,
-            sales: 43653.2,
-            cOGS: 23940,
-            profit: 19713.2,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `4209`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 63135,
-            discounts: 3273.6,
-            sales: 59861.4,
-            cOGS: 19840,
-            profit: 40021.4,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3353`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 419125,
-            discounts: 33563.75,
-            sales: 385561.25,
-            cOGS: 292920,
-            profit: 92641.25,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `1401`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 28020,
-            discounts: 6582.4,
-            sales: 21437.6,
-            cOGS: 29920,
-            profit: 8482.4,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `1865`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 559500,
-            discounts: 45078,
-            sales: 514422,
-            cOGS: 341500,
-            profit: 172922,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `463`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 9260,
-            discounts: 6171,
-            sales: 3089,
-            cOGS: 28050,
-            profit: 24961,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `4177`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 62655,
-            discounts: 1080.75,
-            sales: 61574.25,
-            cOGS: 6550,
-            profit: 55024.25,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `2523`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 883050,
-            discounts: 13244,
-            sales: 869806,
-            cOGS: 89440,
-            profit: 780366,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `1930`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 13510,
-            discounts: 1392.16,
-            sales: 12117.84,
-            cOGS: 9040,
-            profit: 3077.84,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `1301`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 15612,
-            discounts: 2288.88,
-            sales: 13323.12,
-            cOGS: 5202,
-            profit: 8121.12,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `4125`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 515625,
-            discounts: 7617.5,
-            sales: 508007.5,
-            cOGS: 66480,
-            profit: 441527.5,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `607`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 12140,
-            discounts: 6457,
-            sales: 5683,
-            cOGS: 29350,
-            profit: 23667,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `478`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 59750,
-            discounts: 43518.75,
-            sales: 16231.25,
-            cOGS: 379800,
-            profit: 363568.75,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `4489`,
-            manufacturingPrice: 260,
-            salePrice: 20,
-            grossSales: 89780,
-            discounts: 5783.8,
-            sales: 83996.2,
-            cOGS: 26290,
-            profit: 57706.2,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `1504`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 188000,
-            discounts: 19703.75,
-            sales: 168296.25,
-            cOGS: 171960,
-            profit: 3663.75,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `3763`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 470375,
-            discounts: 13021.25,
-            sales: 457353.75,
-            cOGS: 113640,
-            profit: 343713.75,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `2412`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 844200,
-            discounts: 13244,
-            sales: 830956,
-            cOGS: 89440,
-            profit: 741516,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `2342`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 35130,
-            discounts: 3559.05,
-            sales: 31570.95,
-            cOGS: 21570,
-            profit: 10000.95,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `4451`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 31157,
-            discounts: 292.6,
-            sales: 30864.4,
-            cOGS: 1900,
-            profit: 28964.4,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `3796`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 1328600,
-            discounts: 37212,
-            sales: 1291388,
-            cOGS: 230360,
-            profit: 1061028,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `2286`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 285750,
-            discounts: 36240,
-            sales: 249510,
-            cOGS: 289920,
-            profit: 40410,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `3614`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 451750,
-            discounts: 32340,
-            sales: 419410,
-            cOGS: 258720,
-            profit: 160690,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1716`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 25740,
-            discounts: 4840.2,
-            sales: 20899.8,
-            cOGS: 26890,
-            profit: 5990.2,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `1301`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 19515,
-            discounts: 1218.6,
-            sales: 18296.4,
-            cOGS: 6770,
-            profit: 11526.4,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `4175`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 1252500,
-            discounts: 63828,
-            sales: 1188672,
-            cOGS: 443250,
-            profit: 745422,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `975`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 6825,
-            discounts: 2032.8,
-            sales: 4792.2,
-            cOGS: 12100,
-            profit: 7307.8,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `1154`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 8078,
-            discounts: 2296.56,
-            sales: 5781.44,
-            cOGS: 13670,
-            profit: 7888.56,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `1873`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 37460,
-            discounts: 4116,
-            sales: 33344,
-            cOGS: 17150,
-            profit: 16194,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `3766`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 1129800,
-            discounts: 42696,
-            sales: 1087104,
-            cOGS: 296500,
-            profit: 790604,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3558`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1067400,
-            discounts: 125820,
-            sales: 941580,
-            cOGS: 873750,
-            profit: 67830,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `3156`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 1104600,
-            discounts: 37212,
-            sales: 1067388,
-            cOGS: 230360,
-            profit: 837028,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2994`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 374250,
-            discounts: 32340,
-            sales: 341910,
-            cOGS: 258720,
-            profit: 83190,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2087`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 41740,
-            discounts: 2172,
-            sales: 39568,
-            cOGS: 9050,
-            profit: 30518,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `1056`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 21120,
-            discounts: 4116,
-            sales: 17004,
-            cOGS: 17150,
-            profit: 146,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1353`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 473550,
-            discounts: 66948,
-            sales: 406602,
-            cOGS: 414440,
-            profit: 7838,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `416`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 124800,
-            discounts: 48924,
-            sales: 75876,
-            cOGS: 339750,
-            profit: 263874,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `3880`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1164000,
-            discounts: 77400,
-            sales: 1086600,
-            cOGS: 537500,
-            profit: 549100,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `809`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 283150,
-            discounts: 50274,
-            sales: 232876,
-            cOGS: 311220,
-            profit: 78344,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `1892`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 28380,
-            discounts: 684,
-            sales: 27696,
-            cOGS: 3800,
-            profit: 23896,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2072`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 41440,
-            discounts: 2959.2,
-            sales: 38480.8,
-            cOGS: 12330,
-            profit: 26150.8,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `3052`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 1068200,
-            discounts: 58590,
-            sales: 1009610,
-            cOGS: 362700,
-            profit: 646910,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `3121`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 1092350,
-            discounts: 41412,
-            sales: 1050938,
-            cOGS: 256360,
-            profit: 794578,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `2059`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 41180,
-            discounts: 2172,
-            sales: 39008,
-            cOGS: 9050,
-            profit: 29958,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `4254`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 51048,
-            discounts: 3036.96,
-            sales: 48011.04,
-            cOGS: 6327,
-            profit: 41684.04,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `1293`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 19395,
-            discounts: 6974.1,
-            sales: 12420.9,
-            cOGS: 38745,
-            profit: 26324.1,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `1293`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 452550,
-            discounts: 26166,
-            sales: 426384,
-            cOGS: 161980,
-            profit: 264404,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `230`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 80500,
-            discounts: 41412,
-            sales: 39088,
-            cOGS: 256360,
-            profit: 217272,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `1723`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 215375,
-            discounts: 35805,
-            sales: 179570,
-            cOGS: 286440,
-            profit: 106870,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `240`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 4800,
-            discounts: 2959.2,
-            sales: 1840.8,
-            cOGS: 12330,
-            profit: 10489.2,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `2571`,
-            manufacturingPrice: 260,
-            salePrice: 350,
-            grossSales: 899850,
-            discounts: 11340,
-            sales: 888510,
-            cOGS: 70200,
-            profit: 818310,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `1661`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 11627,
-            discounts: 2874.06,
-            sales: 8752.94,
-            cOGS: 17107.5,
-            profit: 8354.56,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `4474`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 31318,
-            discounts: 2296.56,
-            sales: 29021.44,
-            cOGS: 13670,
-            profit: 15351.44,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `833`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 12495,
-            discounts: 4586.4,
-            sales: 7908.6,
-            cOGS: 25480,
-            profit: 17571.4,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `674`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 13480,
-            discounts: 6051.6,
-            sales: 7428.4,
-            cOGS: 25215,
-            profit: 17786.6,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `778`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 9336,
-            discounts: 3831.84,
-            sales: 5504.16,
-            cOGS: 7983,
-            profit: 2478.84,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `1457`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 29140,
-            discounts: 3674.4,
-            sales: 25465.6,
-            cOGS: 15310,
-            profit: 10155.6,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `3158`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 22106,
-            discounts: 1252.44,
-            sales: 20853.56,
-            cOGS: 7455,
-            profit: 13398.56,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `4095`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 81900,
-            discounts: 3674.4,
-            sales: 78225.6,
-            cOGS: 15310,
-            profit: 62915.6,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `3170`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 38040,
-            discounts: 3975.84,
-            sales: 34064.16,
-            cOGS: 8283,
-            profit: 25781.16,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `493`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 7395,
-            discounts: 5005.65,
-            sales: 2389.35,
-            cOGS: 25670,
-            profit: 23280.65,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `3286`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 49290,
-            discounts: 5005.65,
-            sales: 44284.35,
-            cOGS: 25670,
-            profit: 18614.35,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `3563`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 1247050,
-            discounts: 41996.5,
-            sales: 1205053.5,
-            cOGS: 239980,
-            profit: 965073.5,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `4109`,
-            manufacturingPrice: 3,
-            salePrice: 350,
-            grossSales: 1438150,
-            discounts: 81445,
-            sales: 1356705,
-            cOGS: 465400,
-            profit: 891305,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `3653`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 73060,
-            discounts: 1149.2,
-            sales: 71910.8,
-            cOGS: 4420,
-            profit: 67490.8,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `2203`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 771050,
-            discounts: 44703.75,
-            sales: 726346.25,
-            cOGS: 255450,
-            profit: 470896.25,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `2924`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 20468,
-            discounts: 1181.18,
-            sales: 19286.82,
-            cOGS: 6490,
-            profit: 12796.82,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `2650`,
-            manufacturingPrice: 5,
-            salePrice: 12,
-            grossSales: 31800,
-            discounts: 942.24,
-            sales: 30857.76,
-            cOGS: 1812,
-            profit: 29045.76,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `1194`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 23880,
-            discounts: 5863,
-            sales: 18017,
-            cOGS: 22550,
-            profit: 4533,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `3366`,
-            manufacturingPrice: 5,
-            salePrice: 20,
-            grossSales: 67320,
-            discounts: 3247.4,
-            sales: 64072.6,
-            cOGS: 12490,
-            profit: 51582.6,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1325`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 9275,
-            discounts: 1309.04,
-            sales: 7965.97,
-            cOGS: 7192.5,
-            profit: 773.47,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `4243`,
-            manufacturingPrice: 10,
-            salePrice: 300,
-            grossSales: 1272900,
-            discounts: 31473,
-            sales: 1241427,
-            cOGS: 201750,
-            profit: 1039677,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `2887`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 57740,
-            discounts: 6866.6,
-            sales: 50873.4,
-            cOGS: 26410,
-            profit: 24463.4,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3839`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 76780,
-            discounts: 7040.8,
-            sales: 69739.2,
-            cOGS: 27080,
-            profit: 42659.2,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `1863`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 652050,
-            discounts: 119756,
-            sales: 532294,
-            cOGS: 684320,
-            profit: 152026,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2858`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 357250,
-            discounts: 25723.75,
-            sales: 331526.25,
-            cOGS: 189960,
-            profit: 141566.25,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2868`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 34416,
-            discounts: 890.76,
-            sales: 33525.24,
-            cOGS: 1713,
-            profit: 31812.24,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `3805`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 26635,
-            discounts: 2453.36,
-            sales: 24181.64,
-            cOGS: 13480,
-            profit: 10701.64,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3914`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 58710,
-            discounts: 3051.75,
-            sales: 55658.25,
-            cOGS: 15650,
-            profit: 40008.25,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `524`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 10480,
-            discounts: 3247.4,
-            sales: 7232.6,
-            cOGS: 12490,
-            profit: 5257.4,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `3095`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 1083250,
-            discounts: 16243.5,
-            sales: 1067006.5,
-            cOGS: 92820,
-            profit: 974186.5,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2410`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 28920,
-            discounts: 1580.28,
-            sales: 27339.72,
-            cOGS: 3039,
-            profit: 24300.72,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `4263`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 63945,
-            discounts: 7795.13,
-            sales: 56149.88,
-            cOGS: 39975,
-            profit: 16174.88,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `2239`,
-            manufacturingPrice: 120,
-            salePrice: 350,
-            grossSales: 783650,
-            discounts: 119756,
-            sales: 663894,
-            cOGS: 684320,
-            profit: 20426,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `569`,
-            manufacturingPrice: 120,
-            salePrice: 7,
-            grossSales: 3983,
-            discounts: 1082.9,
-            sales: 2900.1,
-            cOGS: 5950,
-            profit: 3049.9,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `3889`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 46668,
-            discounts: 942.24,
-            sales: 45725.76,
-            cOGS: 1812,
-            profit: 43913.76,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `1378`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 20670,
-            discounts: 1287,
-            sales: 19383,
-            cOGS: 6600,
-            profit: 12783,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `2253`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 27036,
-            discounts: 639.6,
-            sales: 26396.4,
-            cOGS: 1230,
-            profit: 25166.4,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `3202`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 960600,
-            discounts: 101595,
-            sales: 859005,
-            cOGS: 651250,
-            profit: 207755,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `3835`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 46020,
-            discounts: 1580.28,
-            sales: 44439.72,
-            cOGS: 3039,
-            profit: 41400.72,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `2487`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 310875,
-            discounts: 25723.75,
-            sales: 285151.25,
-            cOGS: 189960,
-            profit: 95191.25,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `4428`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 66420,
-            discounts: 3051.75,
-            sales: 63368.25,
-            cOGS: 15650,
-            profit: 47718.25,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `1200`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 150000,
-            discounts: 26958.75,
-            sales: 123041.25,
-            cOGS: 199080,
-            profit: 76038.75,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `2953`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 20671,
-            discounts: 1082.9,
-            sales: 19588.1,
-            cOGS: 5950,
-            profit: 13638.1,
-            date: `6/1/19`,
-            monthName: `June`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `1453`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 17436,
-            discounts: 639.6,
-            sales: 16796.4,
-            cOGS: 1230,
-            profit: 15566.4,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Luxe`,
-            unitsSold: `865`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 10380,
-            discounts: 2761.2,
-            sales: 7618.8,
-            cOGS: 5310,
-            profit: 2308.8,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `1072`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 21440,
-            discounts: 7221.2,
-            sales: 14218.8,
-            cOGS: 25790,
-            profit: 11571.2,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `1737`,
-            manufacturingPrice: 3,
-            salePrice: 20,
-            grossSales: 34740,
-            discounts: 4880.4,
-            sales: 29859.6,
-            cOGS: 17430,
-            profit: 12429.6,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `1535`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 10745,
-            discounts: 2936.08,
-            sales: 7808.92,
-            cOGS: 14980,
-            profit: 7171.08,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `2532`,
-            manufacturingPrice: 3,
-            salePrice: 7,
-            grossSales: 17724,
-            discounts: 274.4,
-            sales: 17449.6,
-            cOGS: 1400,
-            profit: 16049.6,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Royal Oak`,
-            unitsSold: `1765`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 12355,
-            discounts: 287.14,
-            sales: 12067.86,
-            cOGS: 1465,
-            profit: 10602.86,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Royal Oak`,
-            unitsSold: `1567`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 10969,
-            discounts: 2936.08,
-            sales: 8032.92,
-            cOGS: 14980,
-            profit: 6947.08,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2640`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 39600,
-            discounts: 583.8,
-            sales: 39016.2,
-            cOGS: 2780,
-            profit: 36236.2,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3079`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 61580,
-            discounts: 6798.4,
-            sales: 54781.6,
-            cOGS: 24280,
-            profit: 30501.6,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `4130`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 61950,
-            discounts: 3710.7,
-            sales: 58239.3,
-            cOGS: 17670,
-            profit: 40569.3,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2938`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 35256,
-            discounts: 2340.24,
-            sales: 32915.76,
-            cOGS: 4179,
-            profit: 28736.76,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `3080`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 21560,
-            discounts: 274.4,
-            sales: 21285.6,
-            cOGS: 1400,
-            profit: 19885.6,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `1530`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 18360,
-            discounts: 2340.24,
-            sales: 16019.76,
-            cOGS: 4179,
-            profit: 11840.76,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `3537`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 42444,
-            discounts: 3385.2,
-            sales: 39058.8,
-            cOGS: 6045,
-            profit: 33013.8,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `2021`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 606300,
-            discounts: 33642,
-            sales: 572658,
-            cOGS: 200250,
-            profit: 372408,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `1804`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 225500,
-            discounts: 17902.5,
-            sales: 207597.5,
-            cOGS: 122760,
-            profit: 84837.5,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1014`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 304200,
-            discounts: 62832,
-            sales: 241368,
-            cOGS: 374000,
-            profit: 132632,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Kensington`,
-            unitsSold: `2913`,
-            manufacturingPrice: 3,
-            salePrice: 300,
-            grossSales: 873900,
-            discounts: 42420,
-            sales: 831480,
-            cOGS: 252500,
-            profit: 578980,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `763`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 11445,
-            discounts: 3177.3,
-            sales: 8267.7,
-            cOGS: 15130,
-            profit: 6862.3,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Kensington`,
-            unitsSold: `1425`,
-            manufacturingPrice: 3,
-            salePrice: 15,
-            grossSales: 21375,
-            discounts: 4830,
-            sales: 16545,
-            cOGS: 23000,
-            profit: 6455,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Kensington`,
-            unitsSold: `4357`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 544625,
-            discounts: 49367.5,
-            sales: 495257.5,
-            cOGS: 338520,
-            profit: 156737.5,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `2138`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 748300,
-            discounts: 109147.5,
-            sales: 639152.5,
-            cOGS: 579150,
-            profit: 60002.5,
-            date: `1/1/19`,
-            monthName: `January`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Royal Oak`,
-            unitsSold: `3825`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 1338750,
-            discounts: 58751,
-            sales: 1279999,
-            cOGS: 311740,
-            profit: 968259,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `3393`,
-            manufacturingPrice: 5,
-            salePrice: 350,
-            grossSales: 1187550,
-            discounts: 9800,
-            sales: 1177750,
-            cOGS: 52000,
-            profit: 1125750,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `2215`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 15505,
-            discounts: 380.24,
-            sales: 15124.76,
-            cOGS: 1940,
-            profit: 13184.76,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `2278`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 15946,
-            discounts: 1692.46,
-            sales: 14253.54,
-            cOGS: 8635,
-            profit: 5618.54,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Royal Oak`,
-            unitsSold: `403`,
-            manufacturingPrice: 5,
-            salePrice: 15,
-            grossSales: 6045,
-            discounts: 4830,
-            sales: 1215,
-            cOGS: 23000,
-            profit: 21785,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `289`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 5780,
-            discounts: 728,
-            sales: 5052,
-            cOGS: 2600,
-            profit: 2452,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `749`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 11235,
-            discounts: 5187,
-            sales: 6048,
-            cOGS: 24700,
-            profit: 18652,
-            date: `9/1/18`,
-            monthName: `September`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `372`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 5580,
-            discounts: 3660.3,
-            sales: 1919.7,
-            cOGS: 17430,
-            profit: 15510.3,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3781`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 45372,
-            discounts: 4895.52,
-            sales: 40476.48,
-            cOGS: 8742,
-            profit: 31734.48,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1785`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 12495,
-            discounts: 1696.38,
-            sales: 10798.62,
-            cOGS: 8655,
-            profit: 2143.62,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `4029`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 1410150,
-            discounts: 34300,
-            sales: 1375850,
-            cOGS: 182000,
-            profit: 1193850,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2813`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 33756,
-            discounts: 3732.96,
-            sales: 30023.04,
-            cOGS: 6666,
-            profit: 23357.04,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `2150`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 752500,
-            discounts: 57673,
-            sales: 694827,
-            cOGS: 306020,
-            profit: 388807,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `2093`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 732550,
-            discounts: 94178,
-            sales: 638372,
-            cOGS: 499720,
-            profit: 138652,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `4391`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 548875,
-            discounts: 27562.5,
-            sales: 521312.5,
-            cOGS: 189000,
-            profit: 332312.5,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2695`,
-            manufacturingPrice: 120,
-            salePrice: 20,
-            grossSales: 53900,
-            discounts: 1696.8,
-            sales: 52203.2,
-            cOGS: 6060,
-            profit: 46143.2,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `1337`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 401100,
-            discounts: 103320,
-            sales: 297780,
-            cOGS: 615000,
-            profit: 317220,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Burlington`,
-            unitsSold: `2621`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 786300,
-            discounts: 11298,
-            sales: 775002,
-            cOGS: 67250,
-            profit: 707752,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Burlington`,
-            unitsSold: `3735`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 1120500,
-            discounts: 106512,
-            sales: 1013988,
-            cOGS: 634000,
-            profit: 379988,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Mandarin`,
-            unitsSold: `4320`,
-            manufacturingPrice: 250,
-            salePrice: 7,
-            grossSales: 30240,
-            discounts: 2844.94,
-            sales: 27395.06,
-            cOGS: 14515,
-            profit: 12880.06,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `2828`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 848400,
-            discounts: 106722,
-            sales: 741678,
-            cOGS: 635250,
-            profit: 106428,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `2586`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 775800,
-            discounts: 11298,
-            sales: 764502,
-            cOGS: 67250,
-            profit: 697252,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `1248`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 374400,
-            discounts: 62832,
-            sales: 311568,
-            cOGS: 374000,
-            profit: 62432,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `4035`,
-            manufacturingPrice: 250,
-            salePrice: 300,
-            grossSales: 1210500,
-            discounts: 42420,
-            sales: 1168080,
-            cOGS: 252500,
-            profit: 915580,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `359`,
-            manufacturingPrice: 250,
-            salePrice: 350,
-            grossSales: 125650,
-            discounts: 62769,
-            sales: 62881,
-            cOGS: 333060,
-            profit: 270179,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `3926`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 1177800,
-            discounts: 37296,
-            sales: 1140504,
-            cOGS: 222000,
-            profit: 918504,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `4247`,
-            manufacturingPrice: 260,
-            salePrice: 125,
-            grossSales: 530875,
-            discounts: 49770,
-            sales: 481105,
-            cOGS: 341280,
-            profit: 139825,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `2695`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 32340,
-            discounts: 4158,
-            sales: 28182,
-            cOGS: 7425,
-            profit: 20757,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Luxe`,
-            unitsSold: `1104`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 16560,
-            discounts: 3660.3,
-            sales: 12899.7,
-            cOGS: 17430,
-            profit: 4530.3,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Luxe`,
-            unitsSold: `1449`,
-            manufacturingPrice: 260,
-            salePrice: 12,
-            grossSales: 17388,
-            discounts: 4895.52,
-            sales: 12492.48,
-            cOGS: 8742,
-            profit: 3750.48,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `1131`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 7917,
-            discounts: 1696.38,
-            sales: 6220.62,
-            cOGS: 8655,
-            profit: 2434.38,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `1468`,
-            manufacturingPrice: 260,
-            salePrice: 7,
-            grossSales: 10276,
-            discounts: 1692.46,
-            sales: 8583.54,
-            cOGS: 8635,
-            profit: 51.46,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `1272`,
-            manufacturingPrice: 260,
-            salePrice: 15,
-            grossSales: 19080,
-            discounts: 3927,
-            sales: 15153,
-            cOGS: 18700,
-            profit: 3547,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Kensington`,
-            unitsSold: `1403`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 175375,
-            discounts: 22012.5,
-            sales: 153362.5,
-            cOGS: 140880,
-            profit: 12482.5,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `2161`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 270125,
-            discounts: 51881.25,
-            sales: 218243.75,
-            cOGS: 332040,
-            profit: 113796.25,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Kensington`,
-            unitsSold: `1937`,
-            manufacturingPrice: 3,
-            salePrice: 125,
-            grossSales: 242125,
-            discounts: 20343.75,
-            sales: 221781.25,
-            cOGS: 130200,
-            profit: 91581.25,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `2879`,
-            manufacturingPrice: 5,
-            salePrice: 300,
-            grossSales: 863700,
-            discounts: 24570,
-            sales: 839130,
-            cOGS: 136500,
-            profit: 702630,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `1330`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 26600,
-            discounts: 3474,
-            sales: 23126,
-            cOGS: 11580,
-            profit: 11546,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `2426`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 36390,
-            discounts: 3631.5,
-            sales: 32758.5,
-            cOGS: 16140,
-            profit: 16618.5,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2033`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 14231,
-            discounts: 2661.75,
-            sales: 11569.25,
-            cOGS: 12675,
-            profit: 1105.75,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `2029`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 710150,
-            discounts: 149677.5,
-            sales: 560472.5,
-            cOGS: 741260,
-            profit: 180787.5,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `1049`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 15735,
-            discounts: 5757.75,
-            sales: 9977.25,
-            cOGS: 25590,
-            profit: 15612.75,
-            date: `8/1/19`,
-            monthName: `August`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `1062`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 21240,
-            discounts: 801,
-            sales: 20439,
-            cOGS: 2670,
-            profit: 17769,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `2509`,
-            manufacturingPrice: 10,
-            salePrice: 125,
-            grossSales: 313625,
-            discounts: 20343.75,
-            sales: 293281.25,
-            cOGS: 130200,
-            profit: 163081.25,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Vermont`,
-            unitsSold: `1743`,
-            manufacturingPrice: 10,
-            salePrice: 15,
-            grossSales: 26145,
-            discounts: 2643.75,
-            sales: 23501.25,
-            cOGS: 11750,
-            profit: 11751.25,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3418`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 1196300,
-            discounts: 105367.5,
-            sales: 1090932.5,
-            cOGS: 521820,
-            profit: 569112.5,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Vermont`,
-            unitsSold: `1751`,
-            manufacturingPrice: 10,
-            salePrice: 350,
-            grossSales: 612850,
-            discounts: 112927.5,
-            sales: 499922.5,
-            cOGS: 559260,
-            profit: 59337.5,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Vermont`,
-            unitsSold: `3228`,
-            manufacturingPrice: 10,
-            salePrice: 12,
-            grossSales: 38736,
-            discounts: 1645.2,
-            sales: 37090.8,
-            cOGS: 2742,
-            profit: 34348.8,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Vermont`,
-            unitsSold: `1105`,
-            manufacturingPrice: 10,
-            salePrice: 20,
-            grossSales: 22100,
-            discounts: 879,
-            sales: 21221,
-            cOGS: 2930,
-            profit: 18291,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Burlington`,
-            unitsSold: `2778`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 33336,
-            discounts: 900,
-            sales: 32436,
-            cOGS: 1500,
-            profit: 30936,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `1173`,
-            manufacturingPrice: 120,
-            salePrice: 15,
-            grossSales: 17595,
-            discounts: 6358.5,
-            sales: 11236.5,
-            cOGS: 28260,
-            profit: 17023.5,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Burlington`,
-            unitsSold: `3160`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 395000,
-            discounts: 12431.25,
-            sales: 382568.75,
-            cOGS: 79560,
-            profit: 303008.75,
-            date: `9/1/19`,
-            monthName: `September`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `4322`,
-            manufacturingPrice: 120,
-            salePrice: 300,
-            grossSales: 1296600,
-            discounts: 115830,
-            sales: 1180770,
-            cOGS: 643500,
-            profit: 537270,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `1901`,
-            manufacturingPrice: 120,
-            salePrice: 125,
-            grossSales: 237625,
-            discounts: 45712.5,
-            sales: 191912.5,
-            cOGS: 292560,
-            profit: 100647.5,
-            date: `12/1/18`,
-            monthName: `December`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Burlington`,
-            unitsSold: `2980`,
-            manufacturingPrice: 120,
-            salePrice: 12,
-            grossSales: 35760,
-            discounts: 1645.2,
-            sales: 34114.8,
-            cOGS: 2742,
-            profit: 31372.8,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `4068`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 81360,
-            discounts: 2596.5,
-            sales: 78763.5,
-            cOGS: 8655,
-            profit: 70108.5,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `2105`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 31575,
-            discounts: 1107,
-            sales: 30468,
-            cOGS: 4920,
-            profit: 25548,
-            date: `7/1/19`,
-            monthName: `July`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `1647`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 32940,
-            discounts: 801,
-            sales: 32139,
-            cOGS: 2670,
-            profit: 29469,
-            date: `10/1/18`,
-            monthName: `October`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `235`,
-            manufacturingPrice: 250,
-            salePrice: 15,
-            grossSales: 3525,
-            discounts: 2643.75,
-            sales: 881.25,
-            cOGS: 11750,
-            profit: 10868.75,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Mandarin`,
-            unitsSold: `3617`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 452125,
-            discounts: 55387.5,
-            sales: 396737.5,
-            cOGS: 354480,
-            profit: 42257.5,
-            date: `11/1/18`,
-            monthName: `November`,
-            year: `2018`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `India`,
-            product: `Mandarin`,
-            unitsSold: `2106`,
-            manufacturingPrice: 250,
-            salePrice: 125,
-            grossSales: 263250,
-            discounts: 10350,
-            sales: 252900,
-            cOGS: 66240,
-            profit: 186660,
-            date: `11/1/19`,
-            monthName: `November`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Mandarin`,
-            unitsSold: `2351`,
-            manufacturingPrice: 250,
-            salePrice: 20,
-            grossSales: 47020,
-            discounts: 879,
-            sales: 46141,
-            cOGS: 2930,
-            profit: 43211,
-            date: `12/1/19`,
-            monthName: `December`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `UK`,
-            product: `Luxe`,
-            unitsSold: `1897`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 569100,
-            discounts: 111375,
-            sales: 457725,
-            cOGS: 618750,
-            profit: 161025,
-            date: `3/1/19`,
-            monthName: `March`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Luxe`,
-            unitsSold: `647`,
-            manufacturingPrice: 260,
-            salePrice: 300,
-            grossSales: 194100,
-            discounts: 24570,
-            sales: 169530,
-            cOGS: 136500,
-            profit: 33030,
-            date: `10/1/19`,
-            monthName: `October`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Brazil`,
-            product: `Royal Oak`,
-            unitsSold: `3621`,
-            manufacturingPrice: 5,
-            salePrice: 7,
-            grossSales: 25347,
-            discounts: 1436.4,
-            sales: 23910.6,
-            cOGS: 6840,
-            profit: 17070.6,
-            date: `2/1/19`,
-            monthName: `February`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `Japan`,
-            product: `Vermont`,
-            unitsSold: `3221`,
-            manufacturingPrice: 10,
-            salePrice: 7,
-            grossSales: 22547,
-            discounts: 759.15,
-            sales: 21787.85,
-            cOGS: 3615,
-            profit: 18172.85,
-            date: `4/1/19`,
-            monthName: `April`,
-            year: `2019`
-        }));
-        this.push(new SalesDataItem(
-        {
-            country: `USA`,
-            product: `Mandarin`,
-            unitsSold: `493`,
-            manufacturingPrice: 250,
-            salePrice: 12,
-            grossSales: 5916,
-            discounts: 3250.8,
-            sales: 2665.2,
-            cOGS: 5418,
-            profit: 2752.8,
-            date: `5/1/19`,
-            monthName: `May`,
-            year: `2019`
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `501`,
+            ManufacturingPrice: 15,
+            SalePrice: 23,
+            GrossSales: 26440,
+            Discounts: 0,
+            Sales: 26440,
+            COGS: 16185,
+            Profit: 11255,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1372`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 27440,
+            Discounts: 0,
+            Sales: 27440,
+            COGS: 16185,
+            Profit: 11255,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `2762`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 55240,
+            Discounts: 0,
+            Sales: 55240,
+            COGS: 13210,
+            Profit: 42030,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `1464`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 21960,
+            Discounts: 0,
+            Sales: 21960,
+            COGS: 21780,
+            Profit: 180,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `719`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 10785,
+            Discounts: 0,
+            Sales: 10785,
+            COGS: 8880,
+            Profit: 1905,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `3576`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 53640,
+            Discounts: 0,
+            Sales: 53640,
+            COGS: 24700,
+            Profit: 28940,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `4422`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 1547700,
+            Discounts: 0,
+            Sales: 1547700,
+            COGS: 393380,
+            Profit: 1154320,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `3649`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 54735,
+            Discounts: 0,
+            Sales: 54735,
+            COGS: 9210,
+            Profit: 45525,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `4172`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 50064,
+            Discounts: 0,
+            Sales: 50064,
+            COGS: 7554,
+            Profit: 42510,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3841`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 76820,
+            Discounts: 0,
+            Sales: 76820,
+            COGS: 18990,
+            Profit: 57830,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `3726`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 44712,
+            Discounts: 0,
+            Sales: 44712,
+            COGS: 4635,
+            Profit: 40077,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `2625`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 39375,
+            Discounts: 0,
+            Sales: 39375,
+            COGS: 24700,
+            Profit: 14675,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `1958`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 244750,
+            Discounts: 0,
+            Sales: 244750,
+            COGS: 319860,
+            Profit: 75110,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `3271`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 981300,
+            Discounts: 0,
+            Sales: 981300,
+            COGS: 239500,
+            Profit: 741800,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `2091`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 14637,
+            Discounts: 0,
+            Sales: 14637,
+            COGS: 10730,
+            Profit: 3907,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `2825`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 42375,
+            Discounts: 0,
+            Sales: 42375,
+            COGS: 6150,
+            Profit: 36225,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2513`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 50260,
+            Discounts: 0,
+            Sales: 50260,
+            COGS: 2920,
+            Profit: 47340,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `883`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 13245,
+            Discounts: 0,
+            Sales: 13245,
+            COGS: 9740,
+            Profit: 3505,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2087`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 25044,
+            Discounts: 0,
+            Sales: 25044,
+            COGS: 7554,
+            Profit: 17490,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2563`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 897050,
+            Discounts: 0,
+            Sales: 897050,
+            COGS: 261560,
+            Profit: 635490,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2846`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 34152,
+            Discounts: 0,
+            Sales: 34152,
+            COGS: 1101,
+            Profit: 33051,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `997`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 6979,
+            Discounts: 0,
+            Sales: 6979,
+            COGS: 4415,
+            Profit: 2564,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2290`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 34350,
+            Discounts: 0,
+            Sales: 34350,
+            COGS: 24720,
+            Profit: 9630,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `2133`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 14931,
+            Discounts: 0,
+            Sales: 14931,
+            COGS: 5715,
+            Profit: 9216,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3617`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 72340,
+            Discounts: 0,
+            Sales: 72340,
+            COGS: 18170,
+            Profit: 54170,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `1266`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 443100,
+            Discounts: 0,
+            Sales: 443100,
+            COGS: 393380,
+            Profit: 49720,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `894`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 6258,
+            Discounts: 0,
+            Sales: 6258,
+            COGS: 7465,
+            Profit: 1207,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `2725`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 340625,
+            Discounts: 0,
+            Sales: 340625,
+            COGS: 216480,
+            Profit: 124145,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `3061`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 36732,
+            Discounts: 0,
+            Sales: 36732,
+            COGS: 6483,
+            Profit: 30249,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `3958`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 1385300,
+            Discounts: 0,
+            Sales: 1385300,
+            COGS: 261560,
+            Profit: 1123740,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `3920`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 47040,
+            Discounts: 0,
+            Sales: 47040,
+            COGS: 4635,
+            Profit: 42405,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `3381`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 422625,
+            Discounts: 0,
+            Sales: 422625,
+            COGS: 338520,
+            Profit: 84105,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `4307`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 1292100,
+            Discounts: 0,
+            Sales: 1292100,
+            COGS: 500250,
+            Profit: 791850,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `878`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 10536,
+            Discounts: 0,
+            Sales: 10536,
+            COGS: 8514,
+            Profit: 2022,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `496`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 7440,
+            Discounts: 0,
+            Sales: 7440,
+            COGS: 21780,
+            Profit: 14340,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3367`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 50505,
+            Discounts: 0,
+            Sales: 50505,
+            COGS: 8880,
+            Profit: 41625,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2055`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 616500,
+            Discounts: 0,
+            Sales: 616500,
+            COGS: 537750,
+            Profit: 78750,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `4041`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 80820,
+            Discounts: 0,
+            Sales: 80820,
+            COGS: 18170,
+            Profit: 62650,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `3237`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 1132950,
+            Discounts: 0,
+            Sales: 1132950,
+            COGS: 715000,
+            Profit: 417950,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `630`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 7560,
+            Discounts: 0,
+            Sales: 7560,
+            COGS: 5859,
+            Profit: 1701,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `4210`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 526250,
+            Discounts: 0,
+            Sales: 526250,
+            COGS: 506340,
+            Profit: 19910,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `1127`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 22540,
+            Discounts: 0,
+            Sales: 22540,
+            COGS: 18990,
+            Profit: 3550,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `3438`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 24066,
+            Discounts: 0,
+            Sales: 24066,
+            COGS: 8430,
+            Profit: 15636,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `2015`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 24180,
+            Discounts: 0,
+            Sales: 24180,
+            COGS: 6423,
+            Profit: 17757,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `2534`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 17738,
+            Discounts: 0,
+            Sales: 17738,
+            COGS: 5715,
+            Profit: 12023,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `1384`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 20760,
+            Discounts: 0,
+            Sales: 20760,
+            COGS: 6150,
+            Profit: 14610,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3561`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 24927,
+            Discounts: 276.15,
+            Sales: 24650.85,
+            COGS: 19725,
+            Profit: 4925.85,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1823`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 27345,
+            Discounts: 344.4,
+            Sales: 27000.6,
+            COGS: 22960,
+            Profit: 4040.6,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2795`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 19565,
+            Discounts: 72.1,
+            Sales: 19492.9,
+            COGS: 5150,
+            Profit: 14342.9,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `457`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 3199,
+            Discounts: 44.73,
+            Sales: 3154.27,
+            COGS: 3195,
+            Profit: 40.73,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3785`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 26495,
+            Discounts: 92.82,
+            Sales: 26402.18,
+            COGS: 6630,
+            Profit: 19772.18,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `748`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 8976,
+            Discounts: 222.96,
+            Sales: 8753.04,
+            COGS: 5574,
+            Profit: 3179.04,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `1021`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 357350,
+            Discounts: 4235,
+            Sales: 353115,
+            COGS: 314600,
+            Profit: 38515,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `2076`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 14532,
+            Discounts: 177.03,
+            Sales: 14354.97,
+            COGS: 12645,
+            Profit: 1709.97,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `4316`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 51792,
+            Discounts: 173.4,
+            Sales: 51618.6,
+            COGS: 4335,
+            Profit: 47283.6,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `4174`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 50088,
+            Discounts: 320.52,
+            Sales: 49767.48,
+            COGS: 8013,
+            Profit: 41754.48,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `3736`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 1307600,
+            Discounts: 4889.5,
+            Sales: 1302710.5,
+            COGS: 363220,
+            Profit: 939490.5,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `1914`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 669900,
+            Discounts: 7542.5,
+            Sales: 662357.5,
+            COGS: 560300,
+            Profit: 102057.5,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `2742`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 41130,
+            Discounts: 332.1,
+            Sales: 40797.9,
+            COGS: 22140,
+            Profit: 18657.9,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `1499`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 449700,
+            Discounts: 6903,
+            Sales: 442797,
+            COGS: 575250,
+            Profit: 132453,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3772`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 75440,
+            Discounts: 275.1,
+            Sales: 75164.9,
+            COGS: 13755,
+            Profit: 61409.9,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `1112`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 7784,
+            Discounts: 128.1,
+            Sales: 7655.9,
+            COGS: 9150,
+            Profit: 1494.1,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `2368`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 35520,
+            Discounts: 227.1,
+            Sales: 35292.9,
+            COGS: 15140,
+            Profit: 20152.9,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1586`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 11102,
+            Discounts: 314.48,
+            Sales: 10787.52,
+            COGS: 22462.5,
+            Profit: 11674.98,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3386`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 423250,
+            Discounts: 908.75,
+            Sales: 422341.25,
+            COGS: 87240,
+            Profit: 335101.25,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `852`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 106500,
+            Discounts: 983.75,
+            Sales: 105516.25,
+            COGS: 94440,
+            Profit: 11076.25,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2783`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 347875,
+            Discounts: 2278.75,
+            Sales: 345596.25,
+            COGS: 218760,
+            Profit: 126836.25,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2684`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 40260,
+            Discounts: 112.05,
+            Sales: 40147.95,
+            COGS: 7470,
+            Profit: 32677.95,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `4083`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1224900,
+            Discounts: 8715,
+            Sales: 1216185,
+            COGS: 726250,
+            Profit: 489935,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2816`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 985600,
+            Discounts: 7542.5,
+            Sales: 978057.5,
+            COGS: 560300,
+            Profit: 417757.5,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `4294`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 85880,
+            Discounts: 772.8,
+            Sales: 85107.2,
+            COGS: 38640,
+            Profit: 46467.2,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `2856`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 19992,
+            Discounts: 25.34,
+            Sales: 19966.66,
+            COGS: 1810,
+            Profit: 18156.66,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `1407`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 175875,
+            Discounts: 1153.75,
+            Sales: 174721.25,
+            COGS: 110760,
+            Profit: 63961.25,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `1265`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 8855,
+            Discounts: 18.41,
+            Sales: 8836.59,
+            COGS: 1315,
+            Profit: 7521.59,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3892`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 1362200,
+            Discounts: 3302.25,
+            Sales: 1358897.75,
+            COGS: 245310,
+            Profit: 1113587.75,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `3068`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 383500,
+            Discounts: 908.75,
+            Sales: 382591.25,
+            COGS: 87240,
+            Profit: 295351.25,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2181`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 272625,
+            Discounts: 983.75,
+            Sales: 271641.25,
+            COGS: 94440,
+            Profit: 177201.25,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `1356`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 406800,
+            Discounts: 2958,
+            Sales: 403842,
+            COGS: 246500,
+            Profit: 177201.25,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `1814`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 634900,
+            Discounts: 4889.5,
+            Sales: 630010.5,
+            COGS: 363220,
+            Profit: 266790.5,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `1495`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 186875,
+            Discounts: 2180,
+            Sales: 184695,
+            COGS: 209280,
+            Profit: 24585,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1463`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 182875,
+            Discounts: 1856.25,
+            Sales: 181018.75,
+            COGS: 89100,
+            Profit: 91918.75,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `215`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 2580,
+            Discounts: 310.8,
+            Sales: 2269.2,
+            COGS: 3885,
+            Profit: 1615.8,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `566`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 198100,
+            Discounts: 19964,
+            Sales: 178136,
+            COGS: 741520,
+            Profit: 563384,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `3255`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 39060,
+            Discounts: 274.08,
+            Sales: 38785.92,
+            COGS: 3426,
+            Profit: 35359.92,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `772`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 15440,
+            Discounts: 626.4,
+            Sales: 14813.6,
+            COGS: 15660,
+            Profit: 846.4,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `1135`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 13620,
+            Discounts: 165.6,
+            Sales: 13454.4,
+            COGS: 2070,
+            Profit: 11384.4,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `1193`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 17895,
+            Discounts: 708.9,
+            Sales: 17186.1,
+            COGS: 23630,
+            Profit: 6443.9,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2530`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 759000,
+            Discounts: 5508,
+            Sales: 753492,
+            COGS: 229500,
+            Profit: 523992,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3451`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1035300,
+            Discounts: 10368,
+            Sales: 1024932,
+            COGS: 432000,
+            Profit: 592932,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3059`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 36708,
+            Discounts: 274.08,
+            Sales: 36433.92,
+            COGS: 3426,
+            Profit: 33007.92,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `3957`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 494625,
+            Discounts: 1655,
+            Sales: 492970,
+            COGS: 79440,
+            Profit: 413530,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3444`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 41328,
+            Discounts: 310.8,
+            Sales: 41017.2,
+            COGS: 3885,
+            Profit: 37132.2,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3154`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 946200,
+            Discounts: 11496,
+            Sales: 934704,
+            COGS: 479000,
+            Profit: 455704,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `4108`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 1437800,
+            Discounts: 19964,
+            Sales: 1417836,
+            COGS: 741520,
+            Profit: 676316,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3760`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 470000,
+            Discounts: 6822.5,
+            Sales: 463177.5,
+            COGS: 327480,
+            Profit: 135697.5,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2334`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 28008,
+            Discounts: 253.2,
+            Sales: 27754.8,
+            COGS: 3165,
+            Profit: 24589.8,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `580`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 6960,
+            Discounts: 260.16,
+            Sales: 6699.84,
+            COGS: 3252,
+            Profit: 3447.84,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2610`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 52200,
+            Discounts: 626.4,
+            Sales: 51573.6,
+            COGS: 15660,
+            Profit: 35913.6,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `1459`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 510650,
+            Discounts: 20139,
+            Sales: 490511,
+            COGS: 748020,
+            Profit: 257509,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `3774`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 45288,
+            Discounts: 253.2,
+            Sales: 45034.8,
+            COGS: 3165,
+            Profit: 41869.8,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `2572`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 30864,
+            Discounts: 260.16,
+            Sales: 30603.84,
+            COGS: 3252,
+            Profit: 27351.84,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `320`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 40000,
+            Discounts: 1655,
+            Sales: 38345,
+            COGS: 79440,
+            Profit: 41095,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3275`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 1146250,
+            Discounts: 20139,
+            Sales: 1126111,
+            COGS: 748020,
+            Profit: 378091,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3582`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 447750,
+            Discounts: 6822.5,
+            Sales: 440927.5,
+            COGS: 327480,
+            Profit: 113447.5,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `4056`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 1216800,
+            Discounts: 1554,
+            Sales: 1215246,
+            COGS: 64750,
+            Profit: 1150496,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `2144`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 643200,
+            Discounts: 6606,
+            Sales: 636594,
+            COGS: 275250,
+            Profit: 361344,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `3502`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 437750,
+            Discounts: 5690,
+            Sales: 432060,
+            COGS: 273120,
+            Profit: 158940,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `679`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 13580,
+            Discounts: 494.4,
+            Sales: 13085.6,
+            COGS: 12360,
+            Profit: 725.6,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `2351`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 47020,
+            Discounts: 376.4,
+            Sales: 46643.6,
+            COGS: 9410,
+            Profit: 37233.6,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `2043`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 612900,
+            Discounts: 11496,
+            Sales: 601404,
+            COGS: 479000,
+            Profit: 122404,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `3565`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 445625,
+            Discounts: 15913.13,
+            Sales: 429711.88,
+            COGS: 509220,
+            Profit: 79508.13,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `1401`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 28020,
+            Discounts: 1548,
+            Sales: 26472,
+            COGS: 25800,
+            Profit: 672,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `2077`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 623100,
+            Discounts: 6201,
+            Sales: 616899,
+            COGS: 172250,
+            Profit: 444649,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `3643`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 43716,
+            Discounts: 700.92,
+            Sales: 43015.08,
+            COGS: 5841,
+            Profit: 37174.08,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `2960`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 20720,
+            Discounts: 411.18,
+            Sales: 20308.82,
+            COGS: 9790,
+            Profit: 10518.82,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `1201`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 14412,
+            Discounts: 684.36,
+            Sales: 13727.64,
+            COGS: 5703,
+            Profit: 8024.64,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `2321`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 16247,
+            Discounts: 114.24,
+            Sales: 16132.76,
+            COGS: 2720,
+            Profit: 13412.76,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3972`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 496500,
+            Discounts: 4826.25,
+            Sales: 491673.75,
+            COGS: 154440,
+            Profit: 337233.75,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `3878`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 484750,
+            Discounts: 6397.5,
+            Sales: 478352.5,
+            COGS: 204720,
+            Profit: 273632.5,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2278`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 683400,
+            Discounts: 21910.5,
+            Sales: 661489.5,
+            COGS: 608625,
+            Profit: 52864.5,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `1075`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 134375,
+            Discounts: 6652.5,
+            Sales: 127722.5,
+            COGS: 212880,
+            Profit: 85157.5,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `4050`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 48600,
+            Discounts: 684.36,
+            Sales: 47915.64,
+            COGS: 5703,
+            Profit: 42212.64,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3035`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 910500,
+            Discounts: 6201,
+            Sales: 904299,
+            COGS: 172250,
+            Profit: 732049,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3636`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 454500,
+            Discounts: 5887.5,
+            Sales: 448612.5,
+            COGS: 188400,
+            Profit: 260212.5,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1379`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 16548,
+            Discounts: 493.02,
+            Sales: 16054.98,
+            COGS: 4108.5,
+            Profit: 11946.48,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `4492`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 561500,
+            Discounts: 7533.75,
+            Sales: 553966.25,
+            COGS: 241080,
+            Profit: 312886.25,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1744`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 218000,
+            Discounts: 4826.25,
+            Sales: 213173.75,
+            COGS: 154440,
+            Profit: 58733.75,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2341`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 292625,
+            Discounts: 6397.5,
+            Sales: 286227.5,
+            COGS: 204720,
+            Profit: 81507.5,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `3835`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 479375,
+            Discounts: 7533.75,
+            Sales: 471841.25,
+            COGS: 241080,
+            Profit: 230761.25,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `1161`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 348300,
+            Discounts: 25596,
+            Sales: 322704,
+            COGS: 711000,
+            Profit: 388296,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `876`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 10512,
+            Discounts: 689.76,
+            Sales: 9822.24,
+            COGS: 5748,
+            Profit: 4074.24,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `1705`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 213125,
+            Discounts: 5887.5,
+            Sales: 207237.5,
+            COGS: 188400,
+            Profit: 18837.5,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `1805`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 541500,
+            Discounts: 16866,
+            Sales: 524634,
+            COGS: 468500,
+            Profit: 56134,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `389`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 136150,
+            Discounts: 17241,
+            Sales: 118909,
+            COGS: 426920,
+            Profit: 308011,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1459`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 29180,
+            Discounts: 498.6,
+            Sales: 28681.4,
+            COGS: 8310,
+            Profit: 20371.4,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `4236`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 84720,
+            Discounts: 2310.3,
+            Sales: 82409.7,
+            COGS: 38505,
+            Profit: 43904.7,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3627`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 43524,
+            Discounts: 892.44,
+            Sales: 42631.56,
+            COGS: 7437,
+            Profit: 35194.56,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `1756`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 26340,
+            Discounts: 1218.6,
+            Sales: 25121.4,
+            COGS: 20310,
+            Profit: 4811.4,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `307`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 4605,
+            Discounts: 1218.6,
+            Sales: 3386.4,
+            COGS: 20310,
+            Profit: 16923.6,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `1222`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 366600,
+            Discounts: 24252,
+            Sales: 342348,
+            COGS: 505250,
+            Profit: 162902,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `489`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 171150,
+            Discounts: 3836,
+            Sales: 167314,
+            COGS: 71240,
+            Profit: 96074,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `4133`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 61995,
+            Discounts: 1180.2,
+            Sales: 60814.8,
+            COGS: 19670,
+            Profit: 41144.8,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `2743`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 822900,
+            Discounts: 22308,
+            Sales: 800592,
+            COGS: 464750,
+            Profit: 335842,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `4460`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 1338000,
+            Discounts: 24252,
+            Sales: 1313748,
+            COGS: 505250,
+            Profit: 808498,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `1232`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 154000,
+            Discounts: 5690,
+            Sales: 148310,
+            COGS: 136560,
+            Profit: 11750,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2586`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 18102,
+            Discounts: 1190.28,
+            Sales: 16911.72,
+            COGS: 21255,
+            Profit: 4343.28,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `1332`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 166500,
+            Discounts: 3975,
+            Sales: 162525,
+            COGS: 95400,
+            Profit: 67125,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `4487`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1346100,
+            Discounts: 16974,
+            Sales: 1329126,
+            COGS: 353625,
+            Profit: 975501,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3862`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1158600,
+            Discounts: 35016,
+            Sales: 1123584,
+            COGS: 729500,
+            Profit: 394084,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1765`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 617750,
+            Discounts: 48300,
+            Sales: 569450,
+            COGS: 897000,
+            Profit: 327550,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3533`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 441625,
+            Discounts: 14940,
+            Sales: 426685,
+            COGS: 358560,
+            Profit: 68125,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2016`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 30240,
+            Discounts: 130.8,
+            Sales: 30109.2,
+            COGS: 2180,
+            Profit: 27929.2,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2938`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 58760,
+            Discounts: 1659.2,
+            Sales: 57100.8,
+            COGS: 20740,
+            Profit: 36360.8,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3352`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 67040,
+            Discounts: 844.8,
+            Sales: 66195.2,
+            COGS: 10560,
+            Profit: 55635.2,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `2430`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 850500,
+            Discounts: 3836,
+            Sales: 846664,
+            COGS: 71240,
+            Profit: 775424,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `535`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 66875,
+            Discounts: 5690,
+            Sales: 61185,
+            COGS: 136560,
+            Profit: 75375,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `1523`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 18276,
+            Discounts: 703.2,
+            Sales: 17572.8,
+            COGS: 4395,
+            Profit: 13177.8,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `1782`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 623700,
+            Discounts: 30478,
+            Sales: 593222,
+            COGS: 566020,
+            Profit: 27202,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `347`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 4164,
+            Discounts: 415.68,
+            Sales: 3748.32,
+            COGS: 2598,
+            Profit: 1150.32,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `3509`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 1228150,
+            Discounts: 30478,
+            Sales: 1197672,
+            COGS: 566020,
+            Profit: 631652,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `2943`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 1030050,
+            Discounts: 26110,
+            Sales: 1003940,
+            COGS: 484900,
+            Profit: 519040,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `4037`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 504625,
+            Discounts: 5370,
+            Sales: 499255,
+            COGS: 128880,
+            Profit: 370375,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `4146`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 1451100,
+            Discounts: 26698,
+            Sales: 1424402,
+            COGS: 495820,
+            Profit: 928582,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `725`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 5075,
+            Discounts: 480.2,
+            Sales: 4594.8,
+            COGS: 6860,
+            Profit: 2265.2,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2325`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 16275,
+            Discounts: 941.15,
+            Sales: 15333.85,
+            COGS: 13445,
+            Profit: 1888.85,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `675`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 8100,
+            Discounts: 1458.6,
+            Sales: 6641.4,
+            COGS: 7293,
+            Profit: 651.6,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `2990`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 35880,
+            Discounts: 1458.6,
+            Sales: 34421.4,
+            COGS: 7293,
+            Profit: 27128.4,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `1072`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 7504,
+            Discounts: 941.15,
+            Sales: 6562.85,
+            COGS: 13445,
+            Profit: 6882.15,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `1048`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 7336,
+            Discounts: 589.05,
+            Sales: 6746.95,
+            COGS: 8415,
+            Profit: 1668.05,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `469`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 5628,
+            Discounts: 673.8,
+            Sales: 4954.2,
+            COGS: 3369,
+            Profit: 1585.2,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `4240`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 50880,
+            Discounts: 1119,
+            Sales: 49761,
+            COGS: 5595,
+            Profit: 44166,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `1976`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 23712,
+            Discounts: 669.6,
+            Sales: 23042.4,
+            COGS: 3348,
+            Profit: 19694.4,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `1984`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 39680,
+            Discounts: 1563,
+            Sales: 38117,
+            COGS: 15630,
+            Profit: 22487,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `480`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 144000,
+            Discounts: 14865,
+            Sales: 129135,
+            COGS: 247750,
+            Profit: 118615,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `1205`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 18075,
+            Discounts: 2093.25,
+            Sales: 15981.75,
+            COGS: 27910,
+            Profit: 11928.25,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `2480`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 17360,
+            Discounts: 199.5,
+            Sales: 17160.5,
+            COGS: 2850,
+            Profit: 14310.5,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `2926`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 20482,
+            Discounts: 870.45,
+            Sales: 19611.55,
+            COGS: 12435,
+            Profit: 7176.55,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3210`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 1123500,
+            Discounts: 24228.75,
+            Sales: 1099271.25,
+            COGS: 359970,
+            Profit: 739301.25,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `3221`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 402625,
+            Discounts: 22668.75,
+            Sales: 379956.25,
+            COGS: 435240,
+            Profit: 55283.75,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `1127`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 13524,
+            Discounts: 1405.2,
+            Sales: 12118.8,
+            COGS: 7026,
+            Profit: 5092.8,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1610`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 32200,
+            Discounts: 1303,
+            Sales: 30897,
+            COGS: 13030,
+            Profit: 17867,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `4100`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 512500,
+            Discounts: 18700,
+            Sales: 493800,
+            COGS: 359040,
+            Profit: 134760,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1012`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 126500,
+            Discounts: 14906.25,
+            Sales: 111593.75,
+            COGS: 286200,
+            Profit: 174606.25,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `3337`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1001100,
+            Discounts: 24105,
+            Sales: 976995,
+            COGS: 401750,
+            Profit: 575245,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3955`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 27685,
+            Discounts: 814.45,
+            Sales: 26870.55,
+            COGS: 11635,
+            Profit: 15235.55,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `4347`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1304100,
+            Discounts: 14865,
+            Sales: 1289235,
+            COGS: 247750,
+            Profit: 1041485,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1548`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 541800,
+            Discounts: 10535,
+            Sales: 531265,
+            COGS: 156520,
+            Profit: 374745,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2153`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 32295,
+            Discounts: 1965,
+            Sales: 30330,
+            COGS: 26200,
+            Profit: 4130,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `4126`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 515750,
+            Discounts: 5381.25,
+            Sales: 510368.75,
+            COGS: 103320,
+            Profit: 407048.75,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3376`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 67520,
+            Discounts: 2663,
+            Sales: 64857,
+            COGS: 26630,
+            Profit: 38227,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2244`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 33660,
+            Discounts: 416.25,
+            Sales: 33243.75,
+            COGS: 5550,
+            Profit: 27693.75,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `1360`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 20400,
+            Discounts: 2145.75,
+            Sales: 18254.25,
+            COGS: 28610,
+            Profit: 10355.75,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `279`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 34875,
+            Discounts: 5043.75,
+            Sales: 29831.25,
+            COGS: 96840,
+            Profit: 67008.75,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2521`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 882350,
+            Discounts: 10535,
+            Sales: 871815,
+            COGS: 156520,
+            Profit: 715295,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2433`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 48660,
+            Discounts: 2832,
+            Sales: 45828,
+            COGS: 28320,
+            Profit: 17508,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `1738`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 34760,
+            Discounts: 1579,
+            Sales: 33181,
+            COGS: 15790,
+            Profit: 17391,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `1106`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 138250,
+            Discounts: 5381.25,
+            Sales: 132868.75,
+            COGS: 103320,
+            Profit: 29548.75,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `213`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 63900,
+            Discounts: 18750,
+            Sales: 45150,
+            COGS: 312500,
+            Profit: 267350,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `2929`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 58580,
+            Discounts: 2663,
+            Sales: 55917,
+            COGS: 26630,
+            Profit: 29287,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `2389`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 16723,
+            Discounts: 199.5,
+            Sales: 16523.5,
+            COGS: 2850,
+            Profit: 13673.5,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `3086`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 21602,
+            Discounts: 870.45,
+            Sales: 20731.55,
+            COGS: 12435,
+            Profit: 8296.55,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `745`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 260750,
+            Discounts: 23625,
+            Sales: 237125,
+            COGS: 351000,
+            Profit: 113875,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `1266`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 443100,
+            Discounts: 9660,
+            Sales: 433440,
+            COGS: 143520,
+            Profit: 289920,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `4287`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 1286100,
+            Discounts: 18750,
+            Sales: 1267350,
+            COGS: 312500,
+            Profit: 954850,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3193`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 47895,
+            Discounts: 3420.9,
+            Sales: 44474.1,
+            COGS: 38010,
+            Profit: 6464.1,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `1967`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 39340,
+            Discounts: 1341,
+            Sales: 37999,
+            COGS: 11175,
+            Profit: 26824,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `631`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 9465,
+            Discounts: 2559.6,
+            Sales: 6905.4,
+            COGS: 28440,
+            Profit: 21534.6,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `3469`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 41628,
+            Discounts: 404.64,
+            Sales: 41223.36,
+            COGS: 1686,
+            Profit: 39537.36,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `3215`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 48225,
+            Discounts: 1827,
+            Sales: 46398,
+            COGS: 20300,
+            Profit: 26098,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `1959`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 685650,
+            Discounts: 20580,
+            Sales: 665070,
+            COGS: 254800,
+            Profit: 410270,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `2181`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 763350,
+            Discounts: 30660,
+            Sales: 732690,
+            COGS: 379600,
+            Profit: 353090,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `2205`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 26460,
+            Discounts: 1960.56,
+            Sales: 24499.44,
+            COGS: 8169,
+            Profit: 16330.44,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1890`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 661500,
+            Discounts: 31416,
+            Sales: 630084,
+            COGS: 388960,
+            Profit: 241124,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `2417`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 302125,
+            Discounts: 7140,
+            Sales: 294985,
+            COGS: 114240,
+            Profit: 180745,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `1158`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 144750,
+            Discounts: 20662.5,
+            Sales: 124087.5,
+            COGS: 330600,
+            Profit: 206512.5,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `803`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 12045,
+            Discounts: 1377,
+            Sales: 10668,
+            COGS: 15300,
+            Profit: 4632,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `3705`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 1296750,
+            Discounts: 31416,
+            Sales: 1265334,
+            COGS: 388960,
+            Profit: 876374,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `589`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 4123,
+            Discounts: 629.16,
+            Sales: 3493.84,
+            COGS: 7490,
+            Profit: 3996.16,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3999`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 59985,
+            Discounts: 2559.6,
+            Sales: 57425.4,
+            COGS: 28440,
+            Profit: 28985.4,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `4256`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 29792,
+            Discounts: 629.16,
+            Sales: 29162.84,
+            COGS: 7490,
+            Profit: 21672.84,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `2160`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 270000,
+            Discounts: 14906.25,
+            Sales: 255093.75,
+            COGS: 238500,
+            Profit: 16593.75,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `466`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 163100,
+            Discounts: 35259,
+            Sales: 127841,
+            COGS: 436540,
+            Profit: 308699,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1478`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 22170,
+            Discounts: 1978.2,
+            Sales: 20191.8,
+            COGS: 21980,
+            Profit: 1788.2,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3798`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 56970,
+            Discounts: 1568.7,
+            Sales: 55401.3,
+            COGS: 17430,
+            Profit: 37971.3,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `447`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 6705,
+            Discounts: 1037.7,
+            Sales: 5667.3,
+            COGS: 11530,
+            Profit: 5862.7,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `745`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 14900,
+            Discounts: 1201.2,
+            Sales: 13698.8,
+            COGS: 10010,
+            Profit: 3688.8,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `1732`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 12124,
+            Discounts: 559.86,
+            Sales: 11564.14,
+            COGS: 6665,
+            Profit: 4899.14,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `1759`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 26385,
+            Discounts: 1037.7,
+            Sales: 25347.3,
+            COGS: 11530,
+            Profit: 13817.3,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `338`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 4056,
+            Discounts: 610.68,
+            Sales: 3445.32,
+            COGS: 2181,
+            Profit: 1264.32,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `3911`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 46932,
+            Discounts: 1582.56,
+            Sales: 45349.44,
+            COGS: 5652,
+            Profit: 39697.44,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `4473`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 53676,
+            Discounts: 1965.6,
+            Sales: 51710.4,
+            COGS: 7020,
+            Profit: 44690.4,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `383`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 4596,
+            Discounts: 1967.28,
+            Sales: 2628.72,
+            COGS: 7026,
+            Profit: 4397.28,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `1062`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 15930,
+            Discounts: 1325.1,
+            Sales: 14604.9,
+            COGS: 12620,
+            Profit: 1984.9,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `4083`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 28581,
+            Discounts: 556.15,
+            Sales: 28024.85,
+            COGS: 5675,
+            Profit: 22349.85,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `3974`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 27818,
+            Discounts: 268.03,
+            Sales: 27549.97,
+            COGS: 2735,
+            Profit: 24814.97,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `3723`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 26061,
+            Discounts: 775.18,
+            Sales: 25285.82,
+            COGS: 7910,
+            Profit: 17375.82,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2435`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 29220,
+            Discounts: 1460.34,
+            Sales: 27759.66,
+            COGS: 5215.5,
+            Profit: 22544.16,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `1763`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 12341,
+            Discounts: 775.18,
+            Sales: 11565.82,
+            COGS: 7910,
+            Profit: 3655.82,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `4473`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 31311,
+            Discounts: 556.15,
+            Sales: 30754.85,
+            COGS: 5675,
+            Profit: 25079.85,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `1246`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 436100,
+            Discounts: 43144.5,
+            Sales: 392955.5,
+            COGS: 457860,
+            Profit: 64904.5,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `1615`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 484500,
+            Discounts: 9408,
+            Sales: 475092,
+            COGS: 112000,
+            Profit: 363092,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `749`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 224700,
+            Discounts: 45801,
+            Sales: 178899,
+            COGS: 545250,
+            Profit: 366351,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `1318`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 26360,
+            Discounts: 2766.4,
+            Sales: 23593.6,
+            COGS: 19760,
+            Profit: 3833.6,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `2882`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 864600,
+            Discounts: 45801,
+            Sales: 818799,
+            COGS: 545250,
+            Profit: 273549,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2484`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 745200,
+            Discounts: 35742,
+            Sales: 709458,
+            COGS: 425500,
+            Profit: 283958,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3169`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 950700,
+            Discounts: 9408,
+            Sales: 941292,
+            COGS: 112000,
+            Profit: 829292,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `4080`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 510000,
+            Discounts: 30738.75,
+            Sales: 479261.25,
+            COGS: 421560,
+            Profit: 57701.25,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3943`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 59145,
+            Discounts: 2206.05,
+            Sales: 56938.95,
+            COGS: 21010,
+            Profit: 35928.95,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `253`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 5060,
+            Discounts: 2149,
+            Sales: 2911,
+            COGS: 15350,
+            Profit: 12439,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `799`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 239700,
+            Discounts: 34839,
+            Sales: 204861,
+            COGS: 414750,
+            Profit: 209889,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `3942`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 78840,
+            Discounts: 852.6,
+            Sales: 77987.4,
+            COGS: 6090,
+            Profit: 71897.4,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `2498`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 312250,
+            Discounts: 18261.25,
+            Sales: 293988.75,
+            COGS: 250440,
+            Profit: 43548.75,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `2517`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 50340,
+            Discounts: 2766.4,
+            Sales: 47573.6,
+            COGS: 19760,
+            Profit: 27813.6,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `1145`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 343500,
+            Discounts: 28812,
+            Sales: 314688,
+            COGS: 343000,
+            Profit: 28312,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3814`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 45768,
+            Discounts: 2725.38,
+            Sales: 43042.62,
+            COGS: 9733.5,
+            Profit: 33309.12,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `1188`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 356400,
+            Discounts: 20139,
+            Sales: 336261,
+            COGS: 239750,
+            Profit: 96511,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `2233`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 669900,
+            Discounts: 57687,
+            Sales: 612213,
+            COGS: 686750,
+            Profit: 74537,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `421`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 52625,
+            Discounts: 14393.75,
+            Sales: 38231.25,
+            COGS: 197400,
+            Profit: 159168.75,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `269`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 94150,
+            Discounts: 70462,
+            Sales: 23688,
+            COGS: 747760,
+            Profit: 724072,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `952`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 19040,
+            Discounts: 1565.2,
+            Sales: 17474.8,
+            COGS: 11180,
+            Profit: 6294.8,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `2964`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 889200,
+            Discounts: 28812,
+            Sales: 860388,
+            COGS: 343000,
+            Profit: 517388,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `1505`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 10535,
+            Discounts: 273.28,
+            Sales: 10261.72,
+            COGS: 2440,
+            Profit: 7821.72,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `1678`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 33560,
+            Discounts: 2051.2,
+            Sales: 31508.8,
+            COGS: 12820,
+            Profit: 18688.8,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `4249`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 29743,
+            Discounts: 143.92,
+            Sales: 29599.08,
+            COGS: 1285,
+            Profit: 28314.08,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `1677`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 33540,
+            Discounts: 2051.2,
+            Sales: 31488.8,
+            COGS: 12820,
+            Profit: 18668.8,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `3051`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 381375,
+            Discounts: 15400,
+            Sales: 365975,
+            COGS: 184800,
+            Profit: 181175,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `3372`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 50580,
+            Discounts: 588,
+            Sales: 49992,
+            COGS: 4900,
+            Profit: 45092,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `1686`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 590100,
+            Discounts: 38136,
+            Sales: 551964,
+            COGS: 354120,
+            Profit: 197844,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3086`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 46290,
+            Discounts: 3001.2,
+            Sales: 43288.8,
+            COGS: 25010,
+            Profit: 18278.8,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `4150`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 83000,
+            Discounts: 1132.8,
+            Sales: 81867.2,
+            COGS: 7080,
+            Profit: 74787.2,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `3027`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 60540,
+            Discounts: 1032,
+            Sales: 59508,
+            COGS: 6450,
+            Profit: 53058,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `4359`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 1307700,
+            Discounts: 37488,
+            Sales: 1270212,
+            COGS: 390500,
+            Profit: 879712,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `1589`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 23835,
+            Discounts: 853.2,
+            Sales: 22981.8,
+            COGS: 7110,
+            Profit: 15871.8,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2679`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 334875,
+            Discounts: 11140,
+            Sales: 323735,
+            COGS: 133680,
+            Profit: 190055,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3401`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 23807,
+            Discounts: 705.04,
+            Sales: 23101.96,
+            COGS: 6295,
+            Profit: 16806.96,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2815`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 19705,
+            Discounts: 613.2,
+            Sales: 19091.8,
+            COGS: 5475,
+            Profit: 13616.8,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2964`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 59280,
+            Discounts: 2185.6,
+            Sales: 57094.4,
+            COGS: 13660,
+            Profit: 43434.4,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `4173`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1251900,
+            Discounts: 59040,
+            Sales: 1192860,
+            COGS: 615000,
+            Profit: 577860,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1157`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 8099,
+            Discounts: 379.68,
+            Sales: 7719.32,
+            COGS: 3390,
+            Profit: 4329.32,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3065`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 21455,
+            Discounts: 894.88,
+            Sales: 20560.12,
+            COGS: 7990,
+            Profit: 12570.12,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `4080`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 81600,
+            Discounts: 3094.4,
+            Sales: 78505.6,
+            COGS: 19340,
+            Profit: 59165.6,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `1713`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 34260,
+            Discounts: 4788.8,
+            Sales: 29471.2,
+            COGS: 29930,
+            Profit: 458.8,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `1691`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 591850,
+            Discounts: 38136,
+            Sales: 553714,
+            COGS: 354120,
+            Profit: 199594,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `2305`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 27660,
+            Discounts: 574.08,
+            Sales: 27085.92,
+            COGS: 1794,
+            Profit: 25291.92,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `3401`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 23807,
+            Discounts: 1627.92,
+            Sales: 22179.08,
+            COGS: 14535,
+            Profit: 7644.08,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `2288`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 16016,
+            Discounts: 1309.28,
+            Sales: 14706.72,
+            COGS: 11690,
+            Profit: 3016.72,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `4086`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 1225800,
+            Discounts: 15240,
+            Sales: 1210560,
+            COGS: 158750,
+            Profit: 1051810,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2651`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 927850,
+            Discounts: 16086,
+            Sales: 911764,
+            COGS: 149370,
+            Profit: 762394,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3971`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 27797,
+            Discounts: 1309.28,
+            Sales: 26487.72,
+            COGS: 11690,
+            Profit: 14797.72,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2512`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 879200,
+            Discounts: 10668,
+            Sales: 868532,
+            COGS: 99060,
+            Profit: 769472,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `2745`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 960750,
+            Discounts: 11816,
+            Sales: 948934,
+            COGS: 109720,
+            Profit: 839214,
+            Date: `8/1/20`,
+            MonthName: `August`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `1903`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 570900,
+            Discounts: 51216,
+            Sales: 519684,
+            COGS: 533500,
+            Profit: 13816,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `2914`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 58280,
+            Discounts: 1132.8,
+            Sales: 57147.2,
+            COGS: 7080,
+            Profit: 50067.2,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `1889`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 13223,
+            Discounts: 1627.92,
+            Sales: 11595.08,
+            COGS: 14535,
+            Profit: 2939.92,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `1466`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 29320,
+            Discounts: 2185.6,
+            Sales: 27134.4,
+            COGS: 13660,
+            Profit: 13474.4,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `887`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 266100,
+            Discounts: 59040,
+            Sales: 207060,
+            COGS: 615000,
+            Profit: 407940,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `395`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 7900,
+            Discounts: 2432,
+            Sales: 5468,
+            COGS: 15200,
+            Profit: 9732,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `1693`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 25395,
+            Discounts: 853.2,
+            Sales: 24541.8,
+            COGS: 7110,
+            Profit: 17431.8,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `2649`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 794700,
+            Discounts: 15240,
+            Sales: 779460,
+            COGS: 158750,
+            Profit: 620710,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `3608`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 72160,
+            Discounts: 698.4,
+            Sales: 71461.6,
+            COGS: 4365,
+            Profit: 67096.6,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1073`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 321900,
+            Discounts: 29538,
+            Sales: 292362,
+            COGS: 273500,
+            Profit: 18862,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `2167`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 650100,
+            Discounts: 102667.5,
+            Sales: 547432.5,
+            COGS: 950625,
+            Profit: 403192.5,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `1319`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 461650,
+            Discounts: 52479,
+            Sales: 409171,
+            COGS: 433160,
+            Profit: 23989,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `1252`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 15024,
+            Discounts: 2506.68,
+            Sales: 12517.32,
+            COGS: 6963,
+            Profit: 5554.32,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `1156`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 144500,
+            Discounts: 31466.25,
+            Sales: 113033.75,
+            COGS: 335640,
+            Profit: 222606.25,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `1153`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 345900,
+            Discounts: 69255,
+            Sales: 276645,
+            COGS: 641250,
+            Profit: 364605,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2720`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 952000,
+            Discounts: 76135.5,
+            Sales: 875864.5,
+            COGS: 628420,
+            Profit: 247444.5,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3658`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 54870,
+            Discounts: 4961.25,
+            Sales: 49908.75,
+            COGS: 36750,
+            Profit: 13158.75,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2950`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 885000,
+            Discounts: 29538,
+            Sales: 855462,
+            COGS: 273500,
+            Profit: 581962,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1821`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 27315,
+            Discounts: 1656.45,
+            Sales: 25658.55,
+            COGS: 12270,
+            Profit: 13388.55,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1127`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 338100,
+            Discounts: 35748,
+            Sales: 302352,
+            COGS: 331000,
+            Profit: 28648,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `862`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 107750,
+            Discounts: 31466.25,
+            Sales: 76283.75,
+            COGS: 335640,
+            Profit: 259356.25,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `3805`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 57075,
+            Discounts: 330.75,
+            Sales: 56744.25,
+            COGS: 2450,
+            Profit: 54294.25,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `1415`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 424500,
+            Discounts: 102424.5,
+            Sales: 322075.5,
+            COGS: 948375,
+            Profit: 626299.5,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `2231`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 780850,
+            Discounts: 41170.5,
+            Sales: 739679.5,
+            COGS: 339820,
+            Profit: 399859.5,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `3649`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 456125,
+            Discounts: 6378.75,
+            Sales: 449746.25,
+            COGS: 68040,
+            Profit: 381706.25,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `2948`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 368500,
+            Discounts: 23737.5,
+            Sales: 344762.5,
+            COGS: 253200,
+            Profit: 91562.5,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `3395`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 1188250,
+            Discounts: 39973.5,
+            Sales: 1148276.5,
+            COGS: 329940,
+            Profit: 818336.5,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `2650`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 31800,
+            Discounts: 2112.48,
+            Sales: 29687.52,
+            COGS: 5868,
+            Profit: 23819.52,
+            Date: `1/1/20`,
+            MonthName: `January`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `585`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 175500,
+            Discounts: 71793,
+            Sales: 103707,
+            COGS: 664750,
+            Profit: 561043,
+            Date: `2/1/20`,
+            MonthName: `February`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `1316`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 460600,
+            Discounts: 42572.25,
+            Sales: 418027.75,
+            COGS: 351390,
+            Profit: 66637.75,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `4459`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 53508,
+            Discounts: 950.4,
+            Sales: 52557.6,
+            COGS: 2640,
+            Profit: 49917.6,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `2711`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 813300,
+            Discounts: 50409,
+            Sales: 762891,
+            COGS: 466750,
+            Profit: 296141,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `3613`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 54195,
+            Discounts: 1656.45,
+            Sales: 52538.55,
+            COGS: 12270,
+            Profit: 40268.55,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `1847`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 230875,
+            Discounts: 9866.25,
+            Sales: 221008.75,
+            COGS: 105240,
+            Profit: 115768.75,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `2996`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 1048600,
+            Discounts: 65236.5,
+            Sales: 983363.5,
+            COGS: 538460,
+            Profit: 444903.5,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `2838`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 993300,
+            Discounts: 39973.5,
+            Sales: 953326.5,
+            COGS: 329940,
+            Profit: 623386.5,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `1536`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 30720,
+            Discounts: 3049.2,
+            Sales: 27670.8,
+            COGS: 16940,
+            Profit: 10730.8,
+            Date: `11/1/20`,
+            MonthName: `November`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `1291`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 25820,
+            Discounts: 1193.4,
+            Sales: 24626.6,
+            COGS: 6630,
+            Profit: 17996.6,
+            Date: `5/1/20`,
+            MonthName: `May`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1213`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 8491,
+            Discounts: 515.97,
+            Sales: 7975.03,
+            COGS: 4095,
+            Profit: 3880.03,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `2370`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 28440,
+            Discounts: 1706.4,
+            Sales: 26733.6,
+            COGS: 4740,
+            Profit: 21993.6,
+            Date: `9/1/20`,
+            MonthName: `September`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `1979`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 13853,
+            Discounts: 328.23,
+            Sales: 13524.77,
+            COGS: 2605,
+            Profit: 10919.77,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `2879`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 57580,
+            Discounts: 1751.4,
+            Sales: 55828.6,
+            COGS: 9730,
+            Profit: 46098.6,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `1707`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 34140,
+            Discounts: 1868.4,
+            Sales: 32271.6,
+            COGS: 10380,
+            Profit: 21891.6,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2933`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 20531,
+            Discounts: 226.8,
+            Sales: 20304.2,
+            COGS: 1800,
+            Profit: 18504.2,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `1014`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 12168,
+            Discounts: 2124.36,
+            Sales: 10043.64,
+            COGS: 5901,
+            Profit: 4142.64,
+            Date: `3/1/20`,
+            MonthName: `March`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `693`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 10395,
+            Discounts: 3547.8,
+            Sales: 6847.2,
+            COGS: 26280,
+            Profit: 19432.8,
+            Date: `4/1/20`,
+            MonthName: `April`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3741`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 26187,
+            Discounts: 226.8,
+            Sales: 25960.2,
+            COGS: 1800,
+            Profit: 24160.2,
+            Date: `10/1/20`,
+            MonthName: `October`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `3995`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 27965,
+            Discounts: 328.23,
+            Sales: 27636.77,
+            COGS: 2605,
+            Profit: 25031.77,
+            Date: `12/1/20`,
+            MonthName: `December`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `953`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 19060,
+            Discounts: 1868.4,
+            Sales: 17191.6,
+            COGS: 10380,
+            Profit: 6811.6,
+            Date: `6/1/20`,
+            MonthName: `June`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `2530`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 37950,
+            Discounts: 2201.18,
+            Sales: 35748.82,
+            COGS: 16305,
+            Profit: 19443.82,
+            Date: `7/1/20`,
+            MonthName: `July`,
+            Year: `2020`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1372`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 27440,
+            Discounts: 0,
+            Sales: 27440,
+            COGS: 16185,
+            Profit: 11255,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `2762`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 55240,
+            Discounts: 0,
+            Sales: 55240,
+            COGS: 13210,
+            Profit: 42030,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `1464`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 21960,
+            Discounts: 0,
+            Sales: 21960,
+            COGS: 21780,
+            Profit: 180,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `719`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 10785,
+            Discounts: 0,
+            Sales: 10785,
+            COGS: 8880,
+            Profit: 1905,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `3576`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 53640,
+            Discounts: 0,
+            Sales: 53640,
+            COGS: 24700,
+            Profit: 28940,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `4422`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 1547700,
+            Discounts: 0,
+            Sales: 1547700,
+            COGS: 393380,
+            Profit: 1154320,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `3649`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 54735,
+            Discounts: 0,
+            Sales: 54735,
+            COGS: 9210,
+            Profit: 45525,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `4172`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 50064,
+            Discounts: 0,
+            Sales: 50064,
+            COGS: 7554,
+            Profit: 42510,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3841`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 76820,
+            Discounts: 0,
+            Sales: 76820,
+            COGS: 18990,
+            Profit: 57830,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `3726`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 44712,
+            Discounts: 0,
+            Sales: 44712,
+            COGS: 4635,
+            Profit: 40077,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `2625`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 39375,
+            Discounts: 0,
+            Sales: 39375,
+            COGS: 24700,
+            Profit: 14675,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `1958`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 244750,
+            Discounts: 0,
+            Sales: 244750,
+            COGS: 319860,
+            Profit: 75110,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `3271`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 981300,
+            Discounts: 0,
+            Sales: 981300,
+            COGS: 239500,
+            Profit: 741800,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `2091`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 14637,
+            Discounts: 0,
+            Sales: 14637,
+            COGS: 10730,
+            Profit: 3907,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `2530`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 316250,
+            Discounts: 0,
+            Sales: 316250,
+            COGS: 41400,
+            Profit: 274850,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `2825`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 42375,
+            Discounts: 0,
+            Sales: 42375,
+            COGS: 6150,
+            Profit: 36225,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2513`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 50260,
+            Discounts: 0,
+            Sales: 50260,
+            COGS: 2920,
+            Profit: 47340,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `883`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 13245,
+            Discounts: 0,
+            Sales: 13245,
+            COGS: 9740,
+            Profit: 3505,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2087`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 25044,
+            Discounts: 0,
+            Sales: 25044,
+            COGS: 7554,
+            Profit: 17490,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2563`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 897050,
+            Discounts: 0,
+            Sales: 897050,
+            COGS: 261560,
+            Profit: 635490,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2846`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 34152,
+            Discounts: 0,
+            Sales: 34152,
+            COGS: 1101,
+            Profit: 33051,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `997`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 6979,
+            Discounts: 0,
+            Sales: 6979,
+            COGS: 4415,
+            Profit: 2564,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3421`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 51315,
+            Discounts: 0,
+            Sales: 51315,
+            COGS: 5490,
+            Profit: 45825,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Marchesa`,
+            UnitsSold: `70000`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 1050000,
+            Discounts: 0,
+            Sales: 1050000,
+            COGS: 5490,
+            Profit: 1044510,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2291`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 687300,
+            Discounts: 0,
+            Sales: 687300,
+            COGS: 197000,
+            Profit: 490300,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2290`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 34350,
+            Discounts: 0,
+            Sales: 34350,
+            COGS: 24720,
+            Profit: 9630,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `2133`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 14931,
+            Discounts: 0,
+            Sales: 14931,
+            COGS: 5715,
+            Profit: 9216,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3475`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 1216250,
+            Discounts: 0,
+            Sales: 1216250,
+            COGS: 448500,
+            Profit: 767750,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3686`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 44232,
+            Discounts: 0,
+            Sales: 44232,
+            COGS: 2736,
+            Profit: 41496,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3319`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 49785,
+            Discounts: 0,
+            Sales: 49785,
+            COGS: 21520,
+            Profit: 28265,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3617`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 72340,
+            Discounts: 0,
+            Sales: 72340,
+            COGS: 18170,
+            Profit: 54170,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `1266`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 443100,
+            Discounts: 0,
+            Sales: 443100,
+            COGS: 393380,
+            Profit: 49720,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `894`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 6258,
+            Discounts: 0,
+            Sales: 6258,
+            COGS: 7465,
+            Profit: 1207,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `2725`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 340625,
+            Discounts: 0,
+            Sales: 340625,
+            COGS: 216480,
+            Profit: 124145,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `3061`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 36732,
+            Discounts: 0,
+            Sales: 36732,
+            COGS: 6483,
+            Profit: 30249,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `3958`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 1385300,
+            Discounts: 0,
+            Sales: 1385300,
+            COGS: 261560,
+            Profit: 1123740,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `3920`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 47040,
+            Discounts: 0,
+            Sales: 47040,
+            COGS: 4635,
+            Profit: 42405,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `3381`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 422625,
+            Discounts: 0,
+            Sales: 422625,
+            COGS: 338520,
+            Profit: 84105,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `1094`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 136750,
+            Discounts: 0,
+            Sales: 136750,
+            COGS: 41400,
+            Profit: 95350,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `4307`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 1292100,
+            Discounts: 0,
+            Sales: 1292100,
+            COGS: 500250,
+            Profit: 791850,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `878`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 10536,
+            Discounts: 0,
+            Sales: 10536,
+            COGS: 8514,
+            Profit: 2022,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `496`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 7440,
+            Discounts: 0,
+            Sales: 7440,
+            COGS: 21780,
+            Profit: 14340,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3367`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 50505,
+            Discounts: 0,
+            Sales: 50505,
+            COGS: 8880,
+            Profit: 41625,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `3880`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 1358000,
+            Discounts: 0,
+            Sales: 1358000,
+            COGS: 397020,
+            Profit: 960980,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2055`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 616500,
+            Discounts: 0,
+            Sales: 616500,
+            COGS: 537750,
+            Profit: 78750,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `4041`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 80820,
+            Discounts: 0,
+            Sales: 80820,
+            COGS: 18170,
+            Profit: 62650,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `3237`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 1132950,
+            Discounts: 0,
+            Sales: 1132950,
+            COGS: 715000,
+            Profit: 417950,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `630`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 7560,
+            Discounts: 0,
+            Sales: 7560,
+            COGS: 5859,
+            Profit: 1701,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `4210`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 526250,
+            Discounts: 0,
+            Sales: 526250,
+            COGS: 506340,
+            Profit: 19910,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `1127`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 22540,
+            Discounts: 0,
+            Sales: 22540,
+            COGS: 18990,
+            Profit: 3550,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `3438`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 24066,
+            Discounts: 0,
+            Sales: 24066,
+            COGS: 8430,
+            Profit: 15636,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `2015`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 24180,
+            Discounts: 0,
+            Sales: 24180,
+            COGS: 6423,
+            Profit: 17757,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `2534`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 17738,
+            Discounts: 0,
+            Sales: 17738,
+            COGS: 5715,
+            Profit: 12023,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `1384`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 20760,
+            Discounts: 0,
+            Sales: 20760,
+            COGS: 6150,
+            Profit: 14610,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3561`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 24927,
+            Discounts: 276.15,
+            Sales: 24650.85,
+            COGS: 19725,
+            Profit: 4925.85,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1823`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 27345,
+            Discounts: 344.4,
+            Sales: 27000.6,
+            COGS: 22960,
+            Profit: 4040.6,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2795`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 19565,
+            Discounts: 72.1,
+            Sales: 19492.9,
+            COGS: 5150,
+            Profit: 14342.9,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `457`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 3199,
+            Discounts: 44.73,
+            Sales: 3154.27,
+            COGS: 3195,
+            Profit: 40.73,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3785`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 26495,
+            Discounts: 92.82,
+            Sales: 26402.18,
+            COGS: 6630,
+            Profit: 19772.18,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `748`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 8976,
+            Discounts: 222.96,
+            Sales: 8753.04,
+            COGS: 5574,
+            Profit: 3179.04,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `1021`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 357350,
+            Discounts: 4235,
+            Sales: 353115,
+            COGS: 314600,
+            Profit: 38515,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `2076`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 14532,
+            Discounts: 177.03,
+            Sales: 14354.97,
+            COGS: 12645,
+            Profit: 1709.97,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `4316`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 51792,
+            Discounts: 173.4,
+            Sales: 51618.6,
+            COGS: 4335,
+            Profit: 47283.6,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `2654`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 331750,
+            Discounts: 412.5,
+            Sales: 331337.5,
+            COGS: 39600,
+            Profit: 291737.5,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `4174`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 50088,
+            Discounts: 320.52,
+            Sales: 49767.48,
+            COGS: 8013,
+            Profit: 41754.48,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `1675`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 20100,
+            Discounts: 91.92,
+            Sales: 20008.08,
+            COGS: 2298,
+            Profit: 17710.08,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `1572`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 471600,
+            Discounts: 1482,
+            Sales: 470118,
+            COGS: 123500,
+            Profit: 346618,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `3736`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 1307600,
+            Discounts: 4889.5,
+            Sales: 1302710.5,
+            COGS: 363220,
+            Profit: 939490.5,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `1914`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 669900,
+            Discounts: 7542.5,
+            Sales: 662357.5,
+            COGS: 560300,
+            Profit: 102057.5,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `2742`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 41130,
+            Discounts: 332.1,
+            Sales: 40797.9,
+            COGS: 22140,
+            Profit: 18657.9,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `1499`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 449700,
+            Discounts: 6903,
+            Sales: 442797,
+            COGS: 575250,
+            Profit: 132453,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3772`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 75440,
+            Discounts: 275.1,
+            Sales: 75164.9,
+            COGS: 13755,
+            Profit: 61409.9,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `1112`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 7784,
+            Discounts: 128.1,
+            Sales: 7655.9,
+            COGS: 9150,
+            Profit: 1494.1,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `1723`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 516900,
+            Discounts: 7494,
+            Sales: 509406,
+            COGS: 624500,
+            Profit: 115094,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `423`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 52875,
+            Discounts: 828.75,
+            Sales: 52046.25,
+            COGS: 79560,
+            Profit: 27513.75,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `2368`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 35520,
+            Discounts: 227.1,
+            Sales: 35292.9,
+            COGS: 15140,
+            Profit: 20152.9,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1586`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 11102,
+            Discounts: 314.48,
+            Sales: 10787.52,
+            COGS: 22462.5,
+            Profit: 11674.98,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3386`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 423250,
+            Discounts: 908.75,
+            Sales: 422341.25,
+            COGS: 87240,
+            Profit: 335101.25,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `852`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 106500,
+            Discounts: 983.75,
+            Sales: 105516.25,
+            COGS: 94440,
+            Profit: 11076.25,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2783`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 347875,
+            Discounts: 2278.75,
+            Sales: 345596.25,
+            COGS: 218760,
+            Profit: 126836.25,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2684`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 40260,
+            Discounts: 112.05,
+            Sales: 40147.95,
+            COGS: 7470,
+            Profit: 32677.95,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `4393`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 52716,
+            Discounts: 91.92,
+            Sales: 52624.08,
+            COGS: 2298,
+            Profit: 50326.08,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `4083`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1224900,
+            Discounts: 8715,
+            Sales: 1216185,
+            COGS: 726250,
+            Profit: 489935,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2816`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 985600,
+            Discounts: 7542.5,
+            Sales: 978057.5,
+            COGS: 560300,
+            Profit: 417757.5,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `4294`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 85880,
+            Discounts: 772.8,
+            Sales: 85107.2,
+            COGS: 38640,
+            Profit: 46467.2,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `2856`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 19992,
+            Discounts: 25.34,
+            Sales: 19966.66,
+            COGS: 1810,
+            Profit: 18156.66,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `1407`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 175875,
+            Discounts: 1153.75,
+            Sales: 174721.25,
+            COGS: 110760,
+            Profit: 63961.25,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `3850`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 481250,
+            Discounts: 828.75,
+            Sales: 480421.25,
+            COGS: 79560,
+            Profit: 400861.25,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `2856`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 19992,
+            Discounts: 146.44,
+            Sales: 19845.56,
+            COGS: 10460,
+            Profit: 9385.56,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `1265`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 8855,
+            Discounts: 18.41,
+            Sales: 8836.59,
+            COGS: 1315,
+            Profit: 7521.59,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3892`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 1362200,
+            Discounts: 3302.25,
+            Sales: 1358897.75,
+            COGS: 245310,
+            Profit: 1113587.75,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `3068`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 383500,
+            Discounts: 908.75,
+            Sales: 382591.25,
+            COGS: 87240,
+            Profit: 295351.25,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2181`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 272625,
+            Discounts: 983.75,
+            Sales: 271641.25,
+            COGS: 94440,
+            Profit: 177201.25,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `1356`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 406800,
+            Discounts: 2958,
+            Sales: 403842,
+            COGS: 246500,
+            Profit: 157342,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `2545`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 763500,
+            Discounts: 1482,
+            Sales: 762018,
+            COGS: 123500,
+            Profit: 638518,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `1814`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 634900,
+            Discounts: 4889.5,
+            Sales: 630010.5,
+            COGS: 363220,
+            Profit: 266790.5,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `1495`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 186875,
+            Discounts: 2180,
+            Sales: 184695,
+            COGS: 209280,
+            Profit: 24585,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `1154`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 13848,
+            Discounts: 238.68,
+            Sales: 13609.32,
+            COGS: 5967,
+            Profit: 7642.32,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `4180`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 62700,
+            Discounts: 48.15,
+            Sales: 62651.85,
+            COGS: 3210,
+            Profit: 59441.85,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1463`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 182875,
+            Discounts: 1856.25,
+            Sales: 181018.75,
+            COGS: 89100,
+            Profit: 91918.75,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `215`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 2580,
+            Discounts: 310.8,
+            Sales: 2269.2,
+            COGS: 3885,
+            Profit: 1615.8,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `4099`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 1229700,
+            Discounts: 1284,
+            Sales: 1228416,
+            COGS: 53500,
+            Profit: 1174916,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `2660`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 18620,
+            Discounts: 300.3,
+            Sales: 18319.7,
+            COGS: 10725,
+            Profit: 7594.7,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `566`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 198100,
+            Discounts: 19964,
+            Sales: 178136,
+            COGS: 741520,
+            Profit: 563384,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `3255`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 39060,
+            Discounts: 274.08,
+            Sales: 38785.92,
+            COGS: 3426,
+            Profit: 35359.92,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `772`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 15440,
+            Discounts: 626.4,
+            Sales: 14813.6,
+            COGS: 15660,
+            Profit: 846.4,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `1135`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 13620,
+            Discounts: 165.6,
+            Sales: 13454.4,
+            COGS: 2070,
+            Profit: 11384.4,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `3826`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 478250,
+            Discounts: 4150,
+            Sales: 474100,
+            COGS: 199200,
+            Profit: 274900,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `1193`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 17895,
+            Discounts: 708.9,
+            Sales: 17186.1,
+            COGS: 23630,
+            Profit: 6443.9,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2530`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 759000,
+            Discounts: 5508,
+            Sales: 753492,
+            COGS: 229500,
+            Profit: 523992,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3451`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1035300,
+            Discounts: 10368,
+            Sales: 1024932,
+            COGS: 432000,
+            Profit: 592932,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3059`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 36708,
+            Discounts: 274.08,
+            Sales: 36433.92,
+            COGS: 3426,
+            Profit: 33007.92,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `3957`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 494625,
+            Discounts: 1655,
+            Sales: 492970,
+            COGS: 79440,
+            Profit: 413530,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3444`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 41328,
+            Discounts: 310.8,
+            Sales: 41017.2,
+            COGS: 3885,
+            Profit: 37132.2,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `4388`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 548500,
+            Discounts: 2022.5,
+            Sales: 546477.5,
+            COGS: 97080,
+            Profit: 449397.5,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2106`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 263250,
+            Discounts: 5362.5,
+            Sales: 257887.5,
+            COGS: 257400,
+            Profit: 487.5,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `799`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 9588,
+            Discounts: 428.4,
+            Sales: 9159.6,
+            COGS: 5355,
+            Profit: 3804.6,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3154`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 946200,
+            Discounts: 11496,
+            Sales: 934704,
+            COGS: 479000,
+            Profit: 455704,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `4108`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 1437800,
+            Discounts: 19964,
+            Sales: 1417836,
+            COGS: 741520,
+            Profit: 676316,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3760`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 470000,
+            Discounts: 6822.5,
+            Sales: 463177.5,
+            COGS: 327480,
+            Profit: 135697.5,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `377`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 5655,
+            Discounts: 577.5,
+            Sales: 5077.5,
+            COGS: 19250,
+            Profit: 14172.5,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `2110`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 14770,
+            Discounts: 281.82,
+            Sales: 14488.18,
+            COGS: 10065,
+            Profit: 4423.18,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2334`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 28008,
+            Discounts: 253.2,
+            Sales: 27754.8,
+            COGS: 3165,
+            Profit: 24589.8,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `580`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 6960,
+            Discounts: 260.16,
+            Sales: 6699.84,
+            COGS: 3252,
+            Profit: 3447.84,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2610`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 52200,
+            Discounts: 626.4,
+            Sales: 51573.6,
+            COGS: 15660,
+            Profit: 35913.6,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `1598`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 559300,
+            Discounts: 20762,
+            Sales: 538538,
+            COGS: 771160,
+            Profit: 232622,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `1459`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 510650,
+            Discounts: 20139,
+            Sales: 490511,
+            COGS: 748020,
+            Profit: 257509,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `3284`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 410500,
+            Discounts: 2022.5,
+            Sales: 408477.5,
+            COGS: 97080,
+            Profit: 311397.5,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `1197`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 149625,
+            Discounts: 5362.5,
+            Sales: 144262.5,
+            COGS: 257400,
+            Profit: 113137.5,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `3774`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 45288,
+            Discounts: 253.2,
+            Sales: 45034.8,
+            COGS: 3165,
+            Profit: 41869.8,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `2303`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 46060,
+            Discounts: 217.6,
+            Sales: 45842.4,
+            COGS: 5440,
+            Profit: 40402.4,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `2572`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 30864,
+            Discounts: 260.16,
+            Sales: 30603.84,
+            COGS: 3252,
+            Profit: 27351.84,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `320`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 40000,
+            Discounts: 1655,
+            Sales: 38345,
+            COGS: 79440,
+            Profit: 41095,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `2126`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 637800,
+            Discounts: 1284,
+            Sales: 636516,
+            COGS: 53500,
+            Profit: 583016,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3275`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 1146250,
+            Discounts: 20139,
+            Sales: 1126111,
+            COGS: 748020,
+            Profit: 378091,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3582`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 447750,
+            Discounts: 6822.5,
+            Sales: 440927.5,
+            COGS: 327480,
+            Profit: 113447.5,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `783`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 274050,
+            Discounts: 1862,
+            Sales: 272188,
+            COGS: 69160,
+            Profit: 203028,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `1202`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 420700,
+            Discounts: 13580,
+            Sales: 407120,
+            COGS: 504400,
+            Profit: 97280,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `4056`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 1216800,
+            Discounts: 1554,
+            Sales: 1215246,
+            COGS: 64750,
+            Profit: 1150496,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `2144`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 643200,
+            Discounts: 6606,
+            Sales: 636594,
+            COGS: 275250,
+            Profit: 361344,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `3502`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 437750,
+            Discounts: 5690,
+            Sales: 432060,
+            COGS: 273120,
+            Profit: 158940,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `1397`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 488950,
+            Discounts: 20762,
+            Sales: 468188,
+            COGS: 771160,
+            Profit: 302972,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `679`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 13580,
+            Discounts: 494.4,
+            Sales: 13085.6,
+            COGS: 12360,
+            Profit: 725.6,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `2351`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 47020,
+            Discounts: 376.4,
+            Sales: 46643.6,
+            COGS: 9410,
+            Profit: 37233.6,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `2043`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 612900,
+            Discounts: 11496,
+            Sales: 601404,
+            COGS: 479000,
+            Profit: 122404,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `3565`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 445625,
+            Discounts: 15913.13,
+            Sales: 429711.88,
+            COGS: 509220,
+            Profit: 79508.13,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `1401`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 28020,
+            Discounts: 1548,
+            Sales: 26472,
+            COGS: 25800,
+            Profit: 672,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `2077`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 623100,
+            Discounts: 6201,
+            Sales: 616899,
+            COGS: 172250,
+            Profit: 444649,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `3643`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 43716,
+            Discounts: 700.92,
+            Sales: 43015.08,
+            COGS: 5841,
+            Profit: 37174.08,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1105`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 13260,
+            Discounts: 326.88,
+            Sales: 12933.12,
+            COGS: 2724,
+            Profit: 10209.12,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `2960`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 20720,
+            Discounts: 411.18,
+            Sales: 20308.82,
+            COGS: 9790,
+            Profit: 10518.82,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `1201`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 14412,
+            Discounts: 684.36,
+            Sales: 13727.64,
+            COGS: 5703,
+            Profit: 8024.64,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `2321`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 16247,
+            Discounts: 114.24,
+            Sales: 16132.76,
+            COGS: 2720,
+            Profit: 13412.76,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `3640`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 1274000,
+            Discounts: 18868.5,
+            Sales: 1255131.5,
+            COGS: 467220,
+            Profit: 787911.5,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3972`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 496500,
+            Discounts: 4826.25,
+            Sales: 491673.75,
+            COGS: 154440,
+            Profit: 337233.75,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `3878`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 484750,
+            Discounts: 6397.5,
+            Sales: 478352.5,
+            COGS: 204720,
+            Profit: 273632.5,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2278`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 683400,
+            Discounts: 21910.5,
+            Sales: 661489.5,
+            COGS: 608625,
+            Profit: 52864.5,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `1075`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 134375,
+            Discounts: 6652.5,
+            Sales: 127722.5,
+            COGS: 212880,
+            Profit: 85157.5,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `4050`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 48600,
+            Discounts: 684.36,
+            Sales: 47915.64,
+            COGS: 5703,
+            Profit: 42212.64,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3035`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 910500,
+            Discounts: 6201,
+            Sales: 904299,
+            COGS: 172250,
+            Profit: 732049,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3636`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 454500,
+            Discounts: 5887.5,
+            Sales: 448612.5,
+            COGS: 188400,
+            Profit: 260212.5,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1379`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 16548,
+            Discounts: 493.02,
+            Sales: 16054.98,
+            COGS: 4108.5,
+            Profit: 11946.48,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `4492`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 561500,
+            Discounts: 7533.75,
+            Sales: 553966.25,
+            COGS: 241080,
+            Profit: 312886.25,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `764`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 11460,
+            Discounts: 875.25,
+            Sales: 10584.75,
+            COGS: 19450,
+            Profit: 8865.25,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1744`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 218000,
+            Discounts: 4826.25,
+            Sales: 213173.75,
+            COGS: 154440,
+            Profit: 58733.75,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2341`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 292625,
+            Discounts: 6397.5,
+            Sales: 286227.5,
+            COGS: 204720,
+            Profit: 81507.5,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `3835`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 479375,
+            Discounts: 7533.75,
+            Sales: 471841.25,
+            COGS: 241080,
+            Profit: 230761.25,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `1161`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 348300,
+            Discounts: 25596,
+            Sales: 322704,
+            COGS: 711000,
+            Profit: 388296,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `876`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 10512,
+            Discounts: 689.76,
+            Sales: 9822.24,
+            COGS: 5748,
+            Profit: 4074.24,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `1705`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 213125,
+            Discounts: 5887.5,
+            Sales: 207237.5,
+            COGS: 188400,
+            Profit: 18837.5,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `1805`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 541500,
+            Discounts: 16866,
+            Sales: 524634,
+            COGS: 468500,
+            Profit: 56134,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `389`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 136150,
+            Discounts: 17241,
+            Sales: 118909,
+            COGS: 426920,
+            Profit: 308011,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `2745`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 41175,
+            Discounts: 875.25,
+            Sales: 40299.75,
+            COGS: 19450,
+            Profit: 20849.75,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1459`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 29180,
+            Discounts: 498.6,
+            Sales: 28681.4,
+            COGS: 8310,
+            Profit: 20371.4,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `3938`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 27566,
+            Discounts: 369.6,
+            Sales: 27196.4,
+            COGS: 8800,
+            Profit: 18396.4,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `4236`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 84720,
+            Discounts: 2310.3,
+            Sales: 82409.7,
+            COGS: 38505,
+            Profit: 43904.7,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3627`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 43524,
+            Discounts: 892.44,
+            Sales: 42631.56,
+            COGS: 7437,
+            Profit: 35194.56,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `1756`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 26340,
+            Discounts: 1218.6,
+            Sales: 25121.4,
+            COGS: 20310,
+            Profit: 4811.4,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `307`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 4605,
+            Discounts: 1218.6,
+            Sales: 3386.4,
+            COGS: 20310,
+            Profit: 16923.6,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `4489`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 67335,
+            Discounts: 1356.6,
+            Sales: 65978.4,
+            COGS: 22610,
+            Profit: 43368.4,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2167`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 43340,
+            Discounts: 588.8,
+            Sales: 42751.2,
+            COGS: 7360,
+            Profit: 35391.2,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1137`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 7959,
+            Discounts: 798.28,
+            Sales: 7160.72,
+            COGS: 14255,
+            Profit: 7094.28,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `1222`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 366600,
+            Discounts: 24252,
+            Sales: 342348,
+            COGS: 505250,
+            Profit: 162902,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `489`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 171150,
+            Discounts: 3836,
+            Sales: 167314,
+            COGS: 71240,
+            Profit: 96074,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `4133`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 61995,
+            Discounts: 1180.2,
+            Sales: 60814.8,
+            COGS: 19670,
+            Profit: 41144.8,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `2743`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 822900,
+            Discounts: 22308,
+            Sales: 800592,
+            COGS: 464750,
+            Profit: 335842,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `3699`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 25893,
+            Discounts: 798.28,
+            Sales: 25094.72,
+            COGS: 14255,
+            Profit: 10839.72,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `4460`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 1338000,
+            Discounts: 24252,
+            Sales: 1313748,
+            COGS: 505250,
+            Profit: 808498,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `1232`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 154000,
+            Discounts: 5690,
+            Sales: 148310,
+            COGS: 136560,
+            Profit: 11750,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2586`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 18102,
+            Discounts: 1190.28,
+            Sales: 16911.72,
+            COGS: 21255,
+            Profit: 4343.28,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `1332`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 166500,
+            Discounts: 3975,
+            Sales: 162525,
+            COGS: 95400,
+            Profit: 67125,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `4487`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1346100,
+            Discounts: 16974,
+            Sales: 1329126,
+            COGS: 353625,
+            Profit: 975501,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3862`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1158600,
+            Discounts: 35016,
+            Sales: 1123584,
+            COGS: 729500,
+            Profit: 394084,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1765`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 617750,
+            Discounts: 48300,
+            Sales: 569450,
+            COGS: 897000,
+            Profit: 327550,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3533`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 441625,
+            Discounts: 14940,
+            Sales: 426685,
+            COGS: 358560,
+            Profit: 68125,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2016`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 30240,
+            Discounts: 130.8,
+            Sales: 30109.2,
+            COGS: 2180,
+            Profit: 27929.2,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2938`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 58760,
+            Discounts: 1659.2,
+            Sales: 57100.8,
+            COGS: 20740,
+            Profit: 36360.8,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3352`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 67040,
+            Discounts: 844.8,
+            Sales: 66195.2,
+            COGS: 10560,
+            Profit: 55635.2,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `4409`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 66135,
+            Discounts: 402.6,
+            Sales: 65732.4,
+            COGS: 6710,
+            Profit: 59022.4,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `3323`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 49845,
+            Discounts: 908.4,
+            Sales: 48936.6,
+            COGS: 15140,
+            Profit: 33796.6,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `2430`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 850500,
+            Discounts: 3836,
+            Sales: 846664,
+            COGS: 71240,
+            Profit: 775424,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `535`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 66875,
+            Discounts: 5690,
+            Sales: 61185,
+            COGS: 136560,
+            Profit: 75375,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `1523`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 18276,
+            Discounts: 703.2,
+            Sales: 17572.8,
+            COGS: 4395,
+            Profit: 13177.8,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `3631`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 72620,
+            Discounts: 2116.8,
+            Sales: 70503.2,
+            COGS: 26460,
+            Profit: 44043.2,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `1782`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 623700,
+            Discounts: 30478,
+            Sales: 593222,
+            COGS: 566020,
+            Profit: 27202,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `347`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 4164,
+            Discounts: 415.68,
+            Sales: 3748.32,
+            COGS: 2598,
+            Profit: 1150.32,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `4147`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 1451450,
+            Discounts: 4886,
+            Sales: 1446564,
+            COGS: 90740,
+            Profit: 1355824,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `3509`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 1228150,
+            Discounts: 30478,
+            Sales: 1197672,
+            COGS: 566020,
+            Profit: 631652,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `2774`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 41610,
+            Discounts: 908.4,
+            Sales: 40701.6,
+            COGS: 15140,
+            Profit: 25561.6,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `2943`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 1030050,
+            Discounts: 26110,
+            Sales: 1003940,
+            COGS: 484900,
+            Profit: 519040,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `4037`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 504625,
+            Discounts: 5370,
+            Sales: 499255,
+            COGS: 128880,
+            Profit: 370375,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `4146`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 1451100,
+            Discounts: 26698,
+            Sales: 1424402,
+            COGS: 495820,
+            Profit: 928582,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `4123`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 61845,
+            Discounts: 402.6,
+            Sales: 61442.4,
+            COGS: 6710,
+            Profit: 54732.4,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `1337`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 467950,
+            Discounts: 24892,
+            Sales: 443058,
+            COGS: 462280,
+            Profit: 19222,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `599`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 4193,
+            Discounts: 405.65,
+            Sales: 3787.35,
+            COGS: 5795,
+            Profit: 2007.65,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `725`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 5075,
+            Discounts: 480.2,
+            Sales: 4594.8,
+            COGS: 6860,
+            Profit: 2265.2,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `477`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 3339,
+            Discounts: 822.15,
+            Sales: 2516.85,
+            COGS: 11745,
+            Profit: 9228.15,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2325`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 16275,
+            Discounts: 941.15,
+            Sales: 15333.85,
+            COGS: 13445,
+            Profit: 1888.85,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `675`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 8100,
+            Discounts: 1458.6,
+            Sales: 6641.4,
+            COGS: 7293,
+            Profit: 651.6,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `2990`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 35880,
+            Discounts: 1458.6,
+            Sales: 34421.4,
+            COGS: 7293,
+            Profit: 27128.4,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `1072`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 7504,
+            Discounts: 941.15,
+            Sales: 6562.85,
+            COGS: 13445,
+            Profit: 6882.15,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `1048`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 7336,
+            Discounts: 589.05,
+            Sales: 6746.95,
+            COGS: 8415,
+            Profit: 1668.05,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `469`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 5628,
+            Discounts: 673.8,
+            Sales: 4954.2,
+            COGS: 3369,
+            Profit: 1585.2,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `804`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 5628,
+            Discounts: 405.65,
+            Sales: 5222.35,
+            COGS: 5795,
+            Profit: 572.65,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `4240`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 50880,
+            Discounts: 1119,
+            Sales: 49761,
+            COGS: 5595,
+            Profit: 44166,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `1976`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 23712,
+            Discounts: 669.6,
+            Sales: 23042.4,
+            COGS: 3348,
+            Profit: 19694.4,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `1984`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 39680,
+            Discounts: 1563,
+            Sales: 38117,
+            COGS: 15630,
+            Profit: 22487,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `480`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 144000,
+            Discounts: 14865,
+            Sales: 129135,
+            COGS: 247750,
+            Profit: 118615,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `3551`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 24857,
+            Discounts: 355.6,
+            Sales: 24501.4,
+            COGS: 5080,
+            Profit: 19421.4,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `1205`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 18075,
+            Discounts: 2093.25,
+            Sales: 15981.75,
+            COGS: 27910,
+            Profit: 11928.25,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `2480`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 17360,
+            Discounts: 199.5,
+            Sales: 17160.5,
+            COGS: 2850,
+            Profit: 14310.5,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `2926`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 20482,
+            Discounts: 870.45,
+            Sales: 19611.55,
+            COGS: 12435,
+            Profit: 7176.55,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3210`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 1123500,
+            Discounts: 24228.75,
+            Sales: 1099271.25,
+            COGS: 359970,
+            Profit: 739301.25,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `3221`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 402625,
+            Discounts: 22668.75,
+            Sales: 379956.25,
+            COGS: 435240,
+            Profit: 55283.75,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `2389`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 836150,
+            Discounts: 12600,
+            Sales: 823550,
+            COGS: 187200,
+            Profit: 636350,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `1127`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 13524,
+            Discounts: 1405.2,
+            Sales: 12118.8,
+            COGS: 7026,
+            Profit: 5092.8,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `319`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 95700,
+            Discounts: 16500,
+            Sales: 79200,
+            COGS: 275000,
+            Profit: 195800,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1610`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 32200,
+            Discounts: 1303,
+            Sales: 30897,
+            COGS: 13030,
+            Profit: 17867,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `4100`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 512500,
+            Discounts: 18700,
+            Sales: 493800,
+            COGS: 359040,
+            Profit: 134760,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1012`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 126500,
+            Discounts: 14906.25,
+            Sales: 111593.75,
+            COGS: 286200,
+            Profit: 174606.25,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `3337`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1001100,
+            Discounts: 24105,
+            Sales: 976995,
+            COGS: 401750,
+            Profit: 575245,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3955`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 27685,
+            Discounts: 814.45,
+            Sales: 26870.55,
+            COGS: 11635,
+            Profit: 15235.55,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `4347`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1304100,
+            Discounts: 14865,
+            Sales: 1289235,
+            COGS: 247750,
+            Profit: 1041485,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1548`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 541800,
+            Discounts: 10535,
+            Sales: 531265,
+            COGS: 156520,
+            Profit: 374745,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2153`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 32295,
+            Discounts: 1965,
+            Sales: 30330,
+            COGS: 26200,
+            Profit: 4130,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3789`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 1326150,
+            Discounts: 21490,
+            Sales: 1304660,
+            COGS: 319280,
+            Profit: 985380,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `4364`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 87280,
+            Discounts: 1389,
+            Sales: 85891,
+            COGS: 13890,
+            Profit: 72001,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `4126`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 515750,
+            Discounts: 5381.25,
+            Sales: 510368.75,
+            COGS: 103320,
+            Profit: 407048.75,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1343`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 167875,
+            Discounts: 4400,
+            Sales: 163475,
+            COGS: 84480,
+            Profit: 78995,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `245`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 4900,
+            Discounts: 1802,
+            Sales: 3098,
+            COGS: 18020,
+            Profit: 14922,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3376`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 67520,
+            Discounts: 2663,
+            Sales: 64857,
+            COGS: 26630,
+            Profit: 38227,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1401`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 9807,
+            Discounts: 747.6,
+            Sales: 9059.4,
+            COGS: 10680,
+            Profit: 1620.6,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3483`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 52245,
+            Discounts: 1587,
+            Sales: 50658,
+            COGS: 21160,
+            Profit: 29498,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2244`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 33660,
+            Discounts: 416.25,
+            Sales: 33243.75,
+            COGS: 5550,
+            Profit: 27693.75,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `1360`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 20400,
+            Discounts: 2145.75,
+            Sales: 18254.25,
+            COGS: 28610,
+            Profit: 10355.75,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `279`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 34875,
+            Discounts: 5043.75,
+            Sales: 29831.25,
+            COGS: 96840,
+            Profit: 67008.75,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2521`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 882350,
+            Discounts: 10535,
+            Sales: 871815,
+            COGS: 156520,
+            Profit: 715295,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2433`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 48660,
+            Discounts: 2832,
+            Sales: 45828,
+            COGS: 28320,
+            Profit: 17508,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `1738`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 34760,
+            Discounts: 1579,
+            Sales: 33181,
+            COGS: 15790,
+            Profit: 17391,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `1106`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 138250,
+            Discounts: 5381.25,
+            Sales: 132868.75,
+            COGS: 103320,
+            Profit: 29548.75,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `3379`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 422375,
+            Discounts: 4400,
+            Sales: 417975,
+            COGS: 84480,
+            Profit: 333495,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `1221`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 24420,
+            Discounts: 1033,
+            Sales: 23387,
+            COGS: 10330,
+            Profit: 13057,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `213`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 63900,
+            Discounts: 18750,
+            Sales: 45150,
+            COGS: 312500,
+            Profit: 267350,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3335`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 66700,
+            Discounts: 1389,
+            Sales: 65311,
+            COGS: 13890,
+            Profit: 51421,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `1260`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 25200,
+            Discounts: 1265,
+            Sales: 23935,
+            COGS: 12650,
+            Profit: 11285,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3034`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 60680,
+            Discounts: 2297,
+            Sales: 58383,
+            COGS: 22970,
+            Profit: 35413,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `2929`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 58580,
+            Discounts: 2663,
+            Sales: 55917,
+            COGS: 26630,
+            Profit: 29287,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `2389`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 16723,
+            Discounts: 199.5,
+            Sales: 16523.5,
+            COGS: 2850,
+            Profit: 13673.5,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `3086`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 21602,
+            Discounts: 870.45,
+            Sales: 20731.55,
+            COGS: 12435,
+            Profit: 8296.55,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `745`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 260750,
+            Discounts: 23625,
+            Sales: 237125,
+            COGS: 351000,
+            Profit: 113875,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `1266`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 443100,
+            Discounts: 9660,
+            Sales: 433440,
+            COGS: 143520,
+            Profit: 289920,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `3790`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 1326500,
+            Discounts: 21490,
+            Sales: 1305010,
+            COGS: 319280,
+            Profit: 985730,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `4287`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 1286100,
+            Discounts: 18750,
+            Sales: 1267350,
+            COGS: 312500,
+            Profit: 954850,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3193`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 47895,
+            Discounts: 3420.9,
+            Sales: 44474.1,
+            COGS: 38010,
+            Profit: 6464.1,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `1967`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 39340,
+            Discounts: 1341,
+            Sales: 37999,
+            COGS: 11175,
+            Profit: 26824,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `631`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 9465,
+            Discounts: 2559.6,
+            Sales: 6905.4,
+            COGS: 28440,
+            Profit: 21534.6,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `3469`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 41628,
+            Discounts: 404.64,
+            Sales: 41223.36,
+            COGS: 1686,
+            Profit: 39537.36,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `570`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 6840,
+            Discounts: 1655.28,
+            Sales: 5184.72,
+            COGS: 6897,
+            Profit: 1712.28,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `3215`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 48225,
+            Discounts: 1827,
+            Sales: 46398,
+            COGS: 20300,
+            Profit: 26098,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `3754`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 26278,
+            Discounts: 110.46,
+            Sales: 26167.54,
+            COGS: 1315,
+            Profit: 24852.54,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `2187`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 273375,
+            Discounts: 6652.5,
+            Sales: 266722.5,
+            COGS: 106440,
+            Profit: 160282.5,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `1959`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 685650,
+            Discounts: 20580,
+            Sales: 665070,
+            COGS: 254800,
+            Profit: 410270,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `2181`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 763350,
+            Discounts: 30660,
+            Sales: 732690,
+            COGS: 379600,
+            Profit: 353090,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3559`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 24913,
+            Discounts: 589.26,
+            Sales: 24323.74,
+            COGS: 7015,
+            Profit: 17308.74,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `2205`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 26460,
+            Discounts: 1960.56,
+            Sales: 24499.44,
+            COGS: 8169,
+            Profit: 16330.44,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1890`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 661500,
+            Discounts: 31416,
+            Sales: 630084,
+            COGS: 388960,
+            Profit: 241124,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `1296`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 15552,
+            Discounts: 1655.28,
+            Sales: 13896.72,
+            COGS: 6897,
+            Profit: 6999.72,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `775`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 271250,
+            Discounts: 15267,
+            Sales: 255983,
+            COGS: 189020,
+            Profit: 66963,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `2417`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 302125,
+            Discounts: 7140,
+            Sales: 294985,
+            COGS: 114240,
+            Profit: 180745,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `1158`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 144750,
+            Discounts: 20662.5,
+            Sales: 124087.5,
+            COGS: 330600,
+            Profit: 206512.5,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `803`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 12045,
+            Discounts: 1377,
+            Sales: 10668,
+            COGS: 15300,
+            Profit: 4632,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `3705`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 1296750,
+            Discounts: 31416,
+            Sales: 1265334,
+            COGS: 388960,
+            Profit: 876374,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `589`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 4123,
+            Discounts: 629.16,
+            Sales: 3493.84,
+            COGS: 7490,
+            Profit: 3996.16,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `3797`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 1139100,
+            Discounts: 21978,
+            Sales: 1117122,
+            COGS: 305250,
+            Profit: 811872,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `1321`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 462350,
+            Discounts: 43596,
+            Sales: 418754,
+            COGS: 539760,
+            Profit: 121006,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3999`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 59985,
+            Discounts: 2559.6,
+            Sales: 57425.4,
+            COGS: 28440,
+            Profit: 28985.4,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `4256`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 29792,
+            Discounts: 629.16,
+            Sales: 29162.84,
+            COGS: 7490,
+            Profit: 21672.84,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `1643`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 492900,
+            Discounts: 21978,
+            Sales: 470922,
+            COGS: 305250,
+            Profit: 165672,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `1912`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 38240,
+            Discounts: 1347.6,
+            Sales: 36892.4,
+            COGS: 11230,
+            Profit: 25662.4,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `1610`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 483000,
+            Discounts: 43848,
+            Sales: 439152,
+            COGS: 609000,
+            Profit: 169848,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `2160`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 270000,
+            Discounts: 14906.25,
+            Sales: 255093.75,
+            COGS: 238500,
+            Profit: 16593.75,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `466`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 163100,
+            Discounts: 35259,
+            Sales: 127841,
+            COGS: 436540,
+            Profit: 308699,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `328`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 114800,
+            Discounts: 15267,
+            Sales: 99533,
+            COGS: 189020,
+            Profit: 89487,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `4099`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 28693,
+            Discounts: 589.26,
+            Sales: 28103.74,
+            COGS: 7015,
+            Profit: 21088.74,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `990`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 346500,
+            Discounts: 43596,
+            Sales: 302904,
+            COGS: 539760,
+            Profit: 236856,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `1433`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 28660,
+            Discounts: 2108.4,
+            Sales: 26551.6,
+            COGS: 17570,
+            Profit: 8981.6,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1478`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 22170,
+            Discounts: 1978.2,
+            Sales: 20191.8,
+            COGS: 21980,
+            Profit: 1788.2,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3798`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 56970,
+            Discounts: 1568.7,
+            Sales: 55401.3,
+            COGS: 17430,
+            Profit: 37971.3,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `447`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 6705,
+            Discounts: 1037.7,
+            Sales: 5667.3,
+            COGS: 11530,
+            Profit: 5862.7,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1711`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 34220,
+            Discounts: 2108.4,
+            Sales: 32111.6,
+            COGS: 17570,
+            Profit: 14541.6,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `745`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 14900,
+            Discounts: 1201.2,
+            Sales: 13698.8,
+            COGS: 10010,
+            Profit: 3688.8,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `1732`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 12124,
+            Discounts: 559.86,
+            Sales: 11564.14,
+            COGS: 6665,
+            Profit: 4899.14,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `1759`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 26385,
+            Discounts: 1037.7,
+            Sales: 25347.3,
+            COGS: 11530,
+            Profit: 13817.3,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `338`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 4056,
+            Discounts: 610.68,
+            Sales: 3445.32,
+            COGS: 2181,
+            Profit: 1264.32,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `3911`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 46932,
+            Discounts: 1582.56,
+            Sales: 45349.44,
+            COGS: 5652,
+            Profit: 39697.44,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `3691`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 73820,
+            Discounts: 2567.6,
+            Sales: 71252.4,
+            COGS: 18340,
+            Profit: 52912.4,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `4473`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 53676,
+            Discounts: 1965.6,
+            Sales: 51710.4,
+            COGS: 7020,
+            Profit: 44690.4,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `383`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 4596,
+            Discounts: 1967.28,
+            Sales: 2628.72,
+            COGS: 7026,
+            Profit: 4397.28,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3105`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 21735,
+            Discounts: 505.19,
+            Sales: 21229.81,
+            COGS: 5155,
+            Profit: 16074.81,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `1062`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 15930,
+            Discounts: 1325.1,
+            Sales: 14604.9,
+            COGS: 12620,
+            Profit: 1984.9,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `4083`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 28581,
+            Discounts: 556.15,
+            Sales: 28024.85,
+            COGS: 5675,
+            Profit: 22349.85,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `3974`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 27818,
+            Discounts: 268.03,
+            Sales: 27549.97,
+            COGS: 2735,
+            Profit: 24814.97,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `3723`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 26061,
+            Discounts: 775.18,
+            Sales: 25285.82,
+            COGS: 7910,
+            Profit: 17375.82,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2435`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 29220,
+            Discounts: 1460.34,
+            Sales: 27759.66,
+            COGS: 5215.5,
+            Profit: 22544.16,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `1678`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 20136,
+            Discounts: 1860.6,
+            Sales: 18275.4,
+            COGS: 6645,
+            Profit: 11630.4,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `1763`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 12341,
+            Discounts: 775.18,
+            Sales: 11565.82,
+            COGS: 7910,
+            Profit: 3655.82,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `4473`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 31311,
+            Discounts: 556.15,
+            Sales: 30754.85,
+            COGS: 5675,
+            Profit: 25079.85,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `1246`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 436100,
+            Discounts: 43144.5,
+            Sales: 392955.5,
+            COGS: 457860,
+            Profit: 64904.5,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `1615`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 484500,
+            Discounts: 9408,
+            Sales: 475092,
+            COGS: 112000,
+            Profit: 363092,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `749`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 224700,
+            Discounts: 45801,
+            Sales: 178899,
+            COGS: 545250,
+            Profit: 366351,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `1318`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 26360,
+            Discounts: 2766.4,
+            Sales: 23593.6,
+            COGS: 19760,
+            Profit: 3833.6,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `2882`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 864600,
+            Discounts: 45801,
+            Sales: 818799,
+            COGS: 545250,
+            Profit: 273549,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `3039`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 379875,
+            Discounts: 21875,
+            Sales: 358000,
+            COGS: 300000,
+            Profit: 58000,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2484`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 745200,
+            Discounts: 35742,
+            Sales: 709458,
+            COGS: 425500,
+            Profit: 283958,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3169`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 950700,
+            Discounts: 9408,
+            Sales: 941292,
+            COGS: 112000,
+            Profit: 829292,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `4080`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 510000,
+            Discounts: 30738.75,
+            Sales: 479261.25,
+            COGS: 421560,
+            Profit: 57701.25,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3943`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 59145,
+            Discounts: 2206.05,
+            Sales: 56938.95,
+            COGS: 21010,
+            Profit: 35928.95,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `784`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 11760,
+            Discounts: 3077.55,
+            Sales: 8682.45,
+            COGS: 29310,
+            Profit: 20627.55,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `253`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 5060,
+            Discounts: 2149,
+            Sales: 2911,
+            COGS: 15350,
+            Profit: 12439,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `1316`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 394800,
+            Discounts: 23583,
+            Sales: 371217,
+            COGS: 280750,
+            Profit: 90467,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `808`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 242400,
+            Discounts: 29484,
+            Sales: 212916,
+            COGS: 351000,
+            Profit: 138084,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `3295`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 39540,
+            Discounts: 2320.92,
+            Sales: 37219.08,
+            COGS: 8289,
+            Profit: 28930.08,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `520`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 3640,
+            Discounts: 1041.25,
+            Sales: 2598.75,
+            COGS: 10625,
+            Profit: 8026.25,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `799`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 239700,
+            Discounts: 34839,
+            Sales: 204861,
+            COGS: 414750,
+            Profit: 209889,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `3942`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 78840,
+            Discounts: 852.6,
+            Sales: 77987.4,
+            COGS: 6090,
+            Profit: 71897.4,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `2498`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 312250,
+            Discounts: 18261.25,
+            Sales: 293988.75,
+            COGS: 250440,
+            Profit: 43548.75,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `2517`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 50340,
+            Discounts: 2766.4,
+            Sales: 47573.6,
+            COGS: 19760,
+            Profit: 27813.6,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `3182`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 63640,
+            Discounts: 1989.4,
+            Sales: 61650.6,
+            COGS: 14210,
+            Profit: 47440.6,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `1145`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 343500,
+            Discounts: 28812,
+            Sales: 314688,
+            COGS: 343000,
+            Profit: 28312,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `895`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 17900,
+            Discounts: 823.2,
+            Sales: 17076.8,
+            COGS: 5880,
+            Profit: 11196.8,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3814`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 45768,
+            Discounts: 2725.38,
+            Sales: 43042.62,
+            COGS: 9733.5,
+            Profit: 33309.12,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `1188`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 356400,
+            Discounts: 20139,
+            Sales: 336261,
+            COGS: 239750,
+            Profit: 96511,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `2233`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 669900,
+            Discounts: 57687,
+            Sales: 612213,
+            COGS: 686750,
+            Profit: 74537,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `421`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 52625,
+            Discounts: 14393.75,
+            Sales: 38231.25,
+            COGS: 197400,
+            Profit: 159168.75,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `269`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 94150,
+            Discounts: 70462,
+            Sales: 23688,
+            COGS: 747760,
+            Profit: 724072,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `3766`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 470750,
+            Discounts: 8697.5,
+            Sales: 462052.5,
+            COGS: 119280,
+            Profit: 342772.5,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `952`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 19040,
+            Discounts: 1565.2,
+            Sales: 17474.8,
+            COGS: 11180,
+            Profit: 6294.8,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `2964`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 889200,
+            Discounts: 28812,
+            Sales: 860388,
+            COGS: 343000,
+            Profit: 517388,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `1505`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 10535,
+            Discounts: 273.28,
+            Sales: 10261.72,
+            COGS: 2440,
+            Profit: 7821.72,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `1678`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 33560,
+            Discounts: 2051.2,
+            Sales: 31508.8,
+            COGS: 12820,
+            Profit: 18688.8,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `4249`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 29743,
+            Discounts: 143.92,
+            Sales: 29599.08,
+            COGS: 1285,
+            Profit: 28314.08,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `1677`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 33540,
+            Discounts: 2051.2,
+            Sales: 31488.8,
+            COGS: 12820,
+            Profit: 18668.8,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `3051`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 381375,
+            Discounts: 15400,
+            Sales: 365975,
+            COGS: 184800,
+            Profit: 181175,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `3372`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 50580,
+            Discounts: 588,
+            Sales: 49992,
+            COGS: 4900,
+            Profit: 45092,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `1686`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 590100,
+            Discounts: 38136,
+            Sales: 551964,
+            COGS: 354120,
+            Profit: 197844,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3086`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 46290,
+            Discounts: 3001.2,
+            Sales: 43288.8,
+            COGS: 25010,
+            Profit: 18278.8,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `4150`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 83000,
+            Discounts: 1132.8,
+            Sales: 81867.2,
+            COGS: 7080,
+            Profit: 74787.2,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `3027`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 60540,
+            Discounts: 1032,
+            Sales: 59508,
+            COGS: 6450,
+            Profit: 53058,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `4359`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 1307700,
+            Discounts: 37488,
+            Sales: 1270212,
+            COGS: 390500,
+            Profit: 879712,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `3628`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 1088400,
+            Discounts: 30792,
+            Sales: 1057608,
+            COGS: 320750,
+            Profit: 736858,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `1589`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 23835,
+            Discounts: 853.2,
+            Sales: 22981.8,
+            COGS: 7110,
+            Profit: 15871.8,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2679`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 334875,
+            Discounts: 11140,
+            Sales: 323735,
+            COGS: 133680,
+            Profit: 190055,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3401`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 23807,
+            Discounts: 705.04,
+            Sales: 23101.96,
+            COGS: 6295,
+            Profit: 16806.96,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2815`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 19705,
+            Discounts: 613.2,
+            Sales: 19091.8,
+            COGS: 5475,
+            Profit: 13616.8,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2964`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 59280,
+            Discounts: 2185.6,
+            Sales: 57094.4,
+            COGS: 13660,
+            Profit: 43434.4,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `4173`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1251900,
+            Discounts: 59040,
+            Sales: 1192860,
+            COGS: 615000,
+            Profit: 577860,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1157`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 8099,
+            Discounts: 379.68,
+            Sales: 7719.32,
+            COGS: 3390,
+            Profit: 4329.32,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3065`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 21455,
+            Discounts: 894.88,
+            Sales: 20560.12,
+            COGS: 7990,
+            Profit: 12570.12,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `1962`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 13734,
+            Discounts: 1349.04,
+            Sales: 12384.96,
+            COGS: 12045,
+            Profit: 339.96,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `4080`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 81600,
+            Discounts: 3094.4,
+            Sales: 78505.6,
+            COGS: 19340,
+            Profit: 59165.6,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `1713`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 34260,
+            Discounts: 4788.8,
+            Sales: 29471.2,
+            COGS: 29930,
+            Profit: 458.8,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2795`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 978250,
+            Discounts: 60088,
+            Sales: 918162,
+            COGS: 557960,
+            Profit: 360202,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `4082`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 28574,
+            Discounts: 1089.76,
+            Sales: 27484.24,
+            COGS: 9730,
+            Profit: 17754.24,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `1691`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 591850,
+            Discounts: 38136,
+            Sales: 553714,
+            COGS: 354120,
+            Profit: 199594,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `2305`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 27660,
+            Discounts: 574.08,
+            Sales: 27085.92,
+            COGS: 1794,
+            Profit: 25291.92,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `3401`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 23807,
+            Discounts: 1627.92,
+            Sales: 22179.08,
+            COGS: 14535,
+            Profit: 7644.08,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `2288`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 16016,
+            Discounts: 1309.28,
+            Sales: 14706.72,
+            COGS: 11690,
+            Profit: 3016.72,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `2399`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 719700,
+            Discounts: 9264,
+            Sales: 710436,
+            COGS: 96500,
+            Profit: 613936,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `4086`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 1225800,
+            Discounts: 15240,
+            Sales: 1210560,
+            COGS: 158750,
+            Profit: 1051810,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2651`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 927850,
+            Discounts: 16086,
+            Sales: 911764,
+            COGS: 149370,
+            Profit: 762394,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3971`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 27797,
+            Discounts: 1309.28,
+            Sales: 26487.72,
+            COGS: 11690,
+            Profit: 14797.72,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2512`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 879200,
+            Discounts: 10668,
+            Sales: 868532,
+            COGS: 99060,
+            Profit: 769472,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `2745`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 960750,
+            Discounts: 11816,
+            Sales: 948934,
+            COGS: 109720,
+            Profit: 839214,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `1903`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 570900,
+            Discounts: 51216,
+            Sales: 519684,
+            COGS: 533500,
+            Profit: 13816,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `647`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 194100,
+            Discounts: 19392,
+            Sales: 174708,
+            COGS: 202000,
+            Profit: 27292,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `2914`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 58280,
+            Discounts: 1132.8,
+            Sales: 57147.2,
+            COGS: 7080,
+            Profit: 50067.2,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `1889`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 13223,
+            Discounts: 1627.92,
+            Sales: 11595.08,
+            COGS: 14535,
+            Profit: 2939.92,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `1466`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 29320,
+            Discounts: 2185.6,
+            Sales: 27134.4,
+            COGS: 13660,
+            Profit: 13474.4,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `887`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 266100,
+            Discounts: 59040,
+            Sales: 207060,
+            COGS: 615000,
+            Profit: 407940,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `395`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 7900,
+            Discounts: 2432,
+            Sales: 5468,
+            COGS: 15200,
+            Profit: 9732,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `1693`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 25395,
+            Discounts: 853.2,
+            Sales: 24541.8,
+            COGS: 7110,
+            Profit: 17431.8,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `2459`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 29508,
+            Discounts: 1320,
+            Sales: 28188,
+            COGS: 4125,
+            Profit: 24063,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `2649`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 794700,
+            Discounts: 15240,
+            Sales: 779460,
+            COGS: 158750,
+            Profit: 620710,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `3608`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 72160,
+            Discounts: 698.4,
+            Sales: 71461.6,
+            COGS: 4365,
+            Profit: 67096.6,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1073`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 321900,
+            Discounts: 29538,
+            Sales: 292362,
+            COGS: 273500,
+            Profit: 18862,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `1754`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 21048,
+            Discounts: 396.36,
+            Sales: 20651.64,
+            COGS: 1101,
+            Profit: 19550.64,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `2167`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 650100,
+            Discounts: 102667.5,
+            Sales: 547432.5,
+            COGS: 950625,
+            Profit: 403192.5,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `1319`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 461650,
+            Discounts: 52479,
+            Sales: 409171,
+            COGS: 433160,
+            Profit: 23989,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `1679`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 503700,
+            Discounts: 8694,
+            Sales: 495006,
+            COGS: 80500,
+            Profit: 414506,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `1252`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 15024,
+            Discounts: 2506.68,
+            Sales: 12517.32,
+            COGS: 6963,
+            Profit: 5554.32,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3493`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 436625,
+            Discounts: 20891.25,
+            Sales: 415733.75,
+            COGS: 222840,
+            Profit: 192893.75,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `1697`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 11879,
+            Discounts: 1014.93,
+            Sales: 10864.07,
+            COGS: 8055,
+            Profit: 2809.07,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `1156`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 144500,
+            Discounts: 31466.25,
+            Sales: 113033.75,
+            COGS: 335640,
+            Profit: 222606.25,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `726`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 217800,
+            Discounts: 9018,
+            Sales: 208782,
+            COGS: 83500,
+            Profit: 125282,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `1153`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 345900,
+            Discounts: 69255,
+            Sales: 276645,
+            COGS: 641250,
+            Profit: 364605,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2720`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 952000,
+            Discounts: 76135.5,
+            Sales: 875864.5,
+            COGS: 628420,
+            Profit: 247444.5,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3658`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 54870,
+            Discounts: 4961.25,
+            Sales: 49908.75,
+            COGS: 36750,
+            Profit: 13158.75,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2950`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 885000,
+            Discounts: 29538,
+            Sales: 855462,
+            COGS: 273500,
+            Profit: 581962,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1821`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 27315,
+            Discounts: 1656.45,
+            Sales: 25658.55,
+            COGS: 12270,
+            Profit: 13388.55,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `4174`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 50088,
+            Discounts: 396.36,
+            Sales: 49691.64,
+            COGS: 1101,
+            Profit: 48590.64,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1127`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 338100,
+            Discounts: 35748,
+            Sales: 302352,
+            COGS: 331000,
+            Profit: 28648,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2209`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 26508,
+            Discounts: 1917,
+            Sales: 24591,
+            COGS: 5325,
+            Profit: 19266,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `862`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 107750,
+            Discounts: 31466.25,
+            Sales: 76283.75,
+            COGS: 335640,
+            Profit: 259356.25,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `3805`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 57075,
+            Discounts: 330.75,
+            Sales: 56744.25,
+            COGS: 2450,
+            Profit: 54294.25,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `1415`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 424500,
+            Discounts: 102424.5,
+            Sales: 322075.5,
+            COGS: 948375,
+            Profit: 626299.5,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `2231`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 780850,
+            Discounts: 41170.5,
+            Sales: 739679.5,
+            COGS: 339820,
+            Profit: 399859.5,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `3649`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 456125,
+            Discounts: 6378.75,
+            Sales: 449746.25,
+            COGS: 68040,
+            Profit: 381706.25,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `2948`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 368500,
+            Discounts: 23737.5,
+            Sales: 344762.5,
+            COGS: 253200,
+            Profit: 91562.5,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `3395`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 1188250,
+            Discounts: 39973.5,
+            Sales: 1148276.5,
+            COGS: 329940,
+            Profit: 818336.5,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `2650`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 31800,
+            Discounts: 2112.48,
+            Sales: 29687.52,
+            COGS: 5868,
+            Profit: 23819.52,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `585`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 175500,
+            Discounts: 71793,
+            Sales: 103707,
+            COGS: 664750,
+            Profit: 561043,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `1316`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 460600,
+            Discounts: 42572.25,
+            Sales: 418027.75,
+            COGS: 351390,
+            Profit: 66637.75,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `4459`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 53508,
+            Discounts: 950.4,
+            Sales: 52557.6,
+            COGS: 2640,
+            Profit: 49917.6,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `2711`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 813300,
+            Discounts: 50409,
+            Sales: 762891,
+            COGS: 466750,
+            Profit: 296141,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2621`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 31452,
+            Discounts: 2412.72,
+            Sales: 29039.28,
+            COGS: 6702,
+            Profit: 22337.28,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `3613`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 54195,
+            Discounts: 1656.45,
+            Sales: 52538.55,
+            COGS: 12270,
+            Profit: 40268.55,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `1847`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 230875,
+            Discounts: 9866.25,
+            Sales: 221008.75,
+            COGS: 105240,
+            Profit: 115768.75,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `2996`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 1048600,
+            Discounts: 65236.5,
+            Sales: 983363.5,
+            COGS: 538460,
+            Profit: 444903.5,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `2838`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 993300,
+            Discounts: 39973.5,
+            Sales: 953326.5,
+            COGS: 329940,
+            Profit: 623386.5,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `1302`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 19530,
+            Discounts: 1309.5,
+            Sales: 18220.5,
+            COGS: 9700,
+            Profit: 8520.5,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `1536`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 30720,
+            Discounts: 3049.2,
+            Sales: 27670.8,
+            COGS: 16940,
+            Profit: 10730.8,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `1291`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 25820,
+            Discounts: 1193.4,
+            Sales: 24626.6,
+            COGS: 6630,
+            Profit: 17996.6,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1213`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 8491,
+            Discounts: 515.97,
+            Sales: 7975.03,
+            COGS: 4095,
+            Profit: 3880.03,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `2370`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 28440,
+            Discounts: 1706.4,
+            Sales: 26733.6,
+            COGS: 4740,
+            Profit: 21993.6,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `1979`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 13853,
+            Discounts: 328.23,
+            Sales: 13524.77,
+            COGS: 2605,
+            Profit: 10919.77,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `2879`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 57580,
+            Discounts: 1751.4,
+            Sales: 55828.6,
+            COGS: 9730,
+            Profit: 46098.6,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `1707`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 34140,
+            Discounts: 1868.4,
+            Sales: 32271.6,
+            COGS: 10380,
+            Profit: 21891.6,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2933`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 20531,
+            Discounts: 226.8,
+            Sales: 20304.2,
+            COGS: 1800,
+            Profit: 18504.2,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `1014`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 12168,
+            Discounts: 2124.36,
+            Sales: 10043.64,
+            COGS: 5901,
+            Profit: 4142.64,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `693`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 10395,
+            Discounts: 3547.8,
+            Sales: 6847.2,
+            COGS: 26280,
+            Profit: 19432.8,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3741`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 26187,
+            Discounts: 226.8,
+            Sales: 25960.2,
+            COGS: 1800,
+            Profit: 24160.2,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `3116`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 62320,
+            Discounts: 4827.6,
+            Sales: 57492.4,
+            COGS: 26820,
+            Profit: 30672.4,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `3995`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 27965,
+            Discounts: 328.23,
+            Sales: 27636.77,
+            COGS: 2605,
+            Profit: 25031.77,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `953`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 19060,
+            Discounts: 1868.4,
+            Sales: 17191.6,
+            COGS: 10380,
+            Profit: 6811.6,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `2530`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 37950,
+            Discounts: 2201.18,
+            Sales: 35748.82,
+            COGS: 16305,
+            Profit: 19443.82,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `2565`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 30780,
+            Discounts: 330.48,
+            Sales: 30449.52,
+            COGS: 918,
+            Profit: 29531.52,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `4297`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 51564,
+            Discounts: 463.2,
+            Sales: 51100.8,
+            COGS: 1158,
+            Profit: 49942.8,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `2871`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 20097,
+            Discounts: 1629.6,
+            Sales: 18467.4,
+            COGS: 11640,
+            Profit: 6827.4,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3537`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 42444,
+            Discounts: 463.2,
+            Sales: 41980.8,
+            COGS: 1158,
+            Profit: 40822.8,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `1598`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 199750,
+            Discounts: 43068.75,
+            Sales: 156681.25,
+            COGS: 413460,
+            Profit: 256778.75,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `2616`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 327000,
+            Discounts: 18525,
+            Sales: 308475,
+            COGS: 177840,
+            Profit: 130635,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `2836`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 992600,
+            Discounts: 80955,
+            Sales: 911645,
+            COGS: 601380,
+            Profit: 310265,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `4023`,
+            ManufacturingPrice: 5,
+            SalePrice: 125,
+            GrossSales: 502875,
+            Discounts: 22550,
+            Sales: 480325,
+            COGS: 216480,
+            Profit: 263845,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3994`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 59910,
+            Discounts: 3108,
+            Sales: 56802,
+            COGS: 20720,
+            Profit: 36082,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2928`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 58560,
+            Discounts: 3908,
+            Sales: 54652,
+            COGS: 19540,
+            Profit: 35112,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2912`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 873600,
+            Discounts: 17730,
+            Sales: 855870,
+            COGS: 147750,
+            Profit: 708120,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3671`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 55065,
+            Discounts: 3250.5,
+            Sales: 51814.5,
+            COGS: 21670,
+            Profit: 30144.5,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2778`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 55560,
+            Discounts: 482,
+            Sales: 55078,
+            COGS: 2410,
+            Profit: 52668,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `405`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 6075,
+            Discounts: 1021.5,
+            Sales: 5053.5,
+            COGS: 6810,
+            Profit: 1756.5,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `2013`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 30195,
+            Discounts: 765,
+            Sales: 29430,
+            COGS: 5100,
+            Profit: 24330,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2634`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 39510,
+            Discounts: 1185,
+            Sales: 38325,
+            COGS: 7900,
+            Profit: 30425,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `4166`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 1458100,
+            Discounts: 22365,
+            Sales: 1435735,
+            COGS: 166140,
+            Profit: 1269595,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `355`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 44375,
+            Discounts: 19950,
+            Sales: 24425,
+            COGS: 191520,
+            Profit: 167095,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2382`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 714600,
+            Discounts: 68820,
+            Sales: 645780,
+            COGS: 573500,
+            Profit: 72280,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `4170`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 83400,
+            Discounts: 482,
+            Sales: 82918,
+            COGS: 2410,
+            Profit: 80508,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `892`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 6244,
+            Discounts: 1865.5,
+            Sales: 4378.5,
+            COGS: 13325,
+            Profit: 8946.5,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `2200`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 275000,
+            Discounts: 23950,
+            Sales: 251050,
+            COGS: 229920,
+            Profit: 21130,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `3389`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 1016700,
+            Discounts: 25590,
+            Sales: 991110,
+            COGS: 213250,
+            Profit: 777860,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `2990`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 373750,
+            Discounts: 4262.5,
+            Sales: 369487.5,
+            COGS: 40920,
+            Profit: 328567.5,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `4013`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 60195,
+            Discounts: 961.5,
+            Sales: 59233.5,
+            COGS: 6410,
+            Profit: 52823.5,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `739`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 258650,
+            Discounts: 98245,
+            Sales: 160405,
+            COGS: 729820,
+            Profit: 569415,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `1989`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 596700,
+            Discounts: 12960,
+            Sales: 583740,
+            COGS: 108000,
+            Profit: 475740,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `2991`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 897300,
+            Discounts: 68820,
+            Sales: 828480,
+            COGS: 573500,
+            Profit: 254980,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `4237`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 63555,
+            Discounts: 3250.5,
+            Sales: 60304.5,
+            COGS: 21670,
+            Profit: 38634.5,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `1442`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 180250,
+            Discounts: 31612.5,
+            Sales: 148637.5,
+            COGS: 303480,
+            Profit: 154842.5,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `2712`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 949200,
+            Discounts: 65450,
+            Sales: 883750,
+            COGS: 486200,
+            Profit: 397550,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `1508`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 188500,
+            Discounts: 7237.5,
+            Sales: 181262.5,
+            COGS: 69480,
+            Profit: 111782.5,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `4245`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 1485750,
+            Discounts: 78400,
+            Sales: 1407350,
+            COGS: 582400,
+            Profit: 824950,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `2630`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 789000,
+            Discounts: 89790,
+            Sales: 699210,
+            COGS: 748250,
+            Profit: 49040,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `1182`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 14184,
+            Discounts: 4224.6,
+            Sales: 9959.4,
+            COGS: 10561.5,
+            Profit: 602.1,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `1221`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 24420,
+            Discounts: 4078,
+            Sales: 20342,
+            COGS: 20390,
+            Profit: 48,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `963`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 11556,
+            Discounts: 3088.8,
+            Sales: 8467.2,
+            COGS: 7722,
+            Profit: 745.2,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `3243`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 1135050,
+            Discounts: 24745,
+            Sales: 1110305,
+            COGS: 183820,
+            Profit: 926485,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `1120`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 16800,
+            Discounts: 3108,
+            Sales: 13692,
+            COGS: 20720,
+            Profit: 7028,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `1174`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 352200,
+            Discounts: 25590,
+            Sales: 326610,
+            COGS: 213250,
+            Profit: 113360,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `2541`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 30492,
+            Discounts: 1581.36,
+            Sales: 28910.64,
+            COGS: 3594,
+            Profit: 25316.64,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3246`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 22722,
+            Discounts: 1949.64,
+            Sales: 20772.36,
+            COGS: 12660,
+            Profit: 8112.36,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1531`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 18372,
+            Discounts: 1581.36,
+            Sales: 16790.64,
+            COGS: 3594,
+            Profit: 13196.64,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `2526`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 37890,
+            Discounts: 633.6,
+            Sales: 37256.4,
+            COGS: 3840,
+            Profit: 33416.4,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `1136`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 13632,
+            Discounts: 623.04,
+            Sales: 13008.96,
+            COGS: 1416,
+            Profit: 11592.96,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `1983`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 13881,
+            Discounts: 1215.83,
+            Sales: 12665.17,
+            COGS: 7895,
+            Profit: 4770.17,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `3259`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 39108,
+            Discounts: 1326.6,
+            Sales: 37781.4,
+            COGS: 3015,
+            Profit: 34766.4,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `3267`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 49005,
+            Discounts: 5279.17,
+            Sales: 43725.82,
+            COGS: 31995,
+            Profit: 11730.82,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `2454`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 29448,
+            Discounts: 623.04,
+            Sales: 28824.96,
+            COGS: 1416,
+            Profit: 27408.96,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `2643`,
+            ManufacturingPrice: 3,
+            SalePrice: 12,
+            GrossSales: 31716,
+            Discounts: 2556.84,
+            Sales: 29159.16,
+            COGS: 5811,
+            Profit: 23348.16,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `383`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 134050,
+            Discounts: 30492,
+            Sales: 103558,
+            COGS: 205920,
+            Profit: 102362,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `2801`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 840300,
+            Discounts: 92763,
+            Sales: 747537,
+            COGS: 702750,
+            Profit: 44787,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `1667`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 208375,
+            Discounts: 33563.75,
+            Sales: 174811.25,
+            COGS: 292920,
+            Profit: 118108.75,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `3539`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 53085,
+            Discounts: 2574,
+            Sales: 50511,
+            COGS: 15600,
+            Profit: 34911,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `4226`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 29582,
+            Discounts: 2083.62,
+            Sales: 27498.38,
+            COGS: 13530,
+            Profit: 13968.38,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `2220`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 777000,
+            Discounts: 29491,
+            Sales: 747509,
+            COGS: 199160,
+            Profit: 548349,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `776`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 15520,
+            Discounts: 6582.4,
+            Sales: 8937.6,
+            COGS: 29920,
+            Profit: 20982.4,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `553`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 8295,
+            Discounts: 3559.05,
+            Sales: 4735.95,
+            COGS: 21570,
+            Profit: 16834.05,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2107`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 632100,
+            Discounts: 28809,
+            Sales: 603291,
+            COGS: 218250,
+            Profit: 385041,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2468`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 49360,
+            Discounts: 2468.4,
+            Sales: 46891.6,
+            COGS: 11220,
+            Profit: 35671.6,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `1905`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 666750,
+            Discounts: 81023.25,
+            Sales: 585726.75,
+            COGS: 547170,
+            Profit: 38556.75,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3658`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 43896,
+            Discounts: 5314.32,
+            Sales: 38581.68,
+            COGS: 12078,
+            Profit: 26503.68,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `4301`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 51612,
+            Discounts: 3201.66,
+            Sales: 48410.34,
+            COGS: 7276.5,
+            Profit: 41133.84,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2446`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 48920,
+            Discounts: 5266.8,
+            Sales: 43653.2,
+            COGS: 23940,
+            Profit: 19713.2,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `4209`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 63135,
+            Discounts: 3273.6,
+            Sales: 59861.4,
+            COGS: 19840,
+            Profit: 40021.4,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3353`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 419125,
+            Discounts: 33563.75,
+            Sales: 385561.25,
+            COGS: 292920,
+            Profit: 92641.25,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `1401`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 28020,
+            Discounts: 6582.4,
+            Sales: 21437.6,
+            COGS: 29920,
+            Profit: 8482.4,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `1865`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 559500,
+            Discounts: 45078,
+            Sales: 514422,
+            COGS: 341500,
+            Profit: 172922,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `463`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 9260,
+            Discounts: 6171,
+            Sales: 3089,
+            COGS: 28050,
+            Profit: 24961,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `4177`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 62655,
+            Discounts: 1080.75,
+            Sales: 61574.25,
+            COGS: 6550,
+            Profit: 55024.25,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `2523`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 883050,
+            Discounts: 13244,
+            Sales: 869806,
+            COGS: 89440,
+            Profit: 780366,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `1930`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 13510,
+            Discounts: 1392.16,
+            Sales: 12117.84,
+            COGS: 9040,
+            Profit: 3077.84,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `1301`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 15612,
+            Discounts: 2288.88,
+            Sales: 13323.12,
+            COGS: 5202,
+            Profit: 8121.12,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `4125`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 515625,
+            Discounts: 7617.5,
+            Sales: 508007.5,
+            COGS: 66480,
+            Profit: 441527.5,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `607`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 12140,
+            Discounts: 6457,
+            Sales: 5683,
+            COGS: 29350,
+            Profit: 23667,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `478`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 59750,
+            Discounts: 43518.75,
+            Sales: 16231.25,
+            COGS: 379800,
+            Profit: 363568.75,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `4489`,
+            ManufacturingPrice: 260,
+            SalePrice: 20,
+            GrossSales: 89780,
+            Discounts: 5783.8,
+            Sales: 83996.2,
+            COGS: 26290,
+            Profit: 57706.2,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `1504`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 188000,
+            Discounts: 19703.75,
+            Sales: 168296.25,
+            COGS: 171960,
+            Profit: 3663.75,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `3763`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 470375,
+            Discounts: 13021.25,
+            Sales: 457353.75,
+            COGS: 113640,
+            Profit: 343713.75,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `2412`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 844200,
+            Discounts: 13244,
+            Sales: 830956,
+            COGS: 89440,
+            Profit: 741516,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `2342`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 35130,
+            Discounts: 3559.05,
+            Sales: 31570.95,
+            COGS: 21570,
+            Profit: 10000.95,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `4451`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 31157,
+            Discounts: 292.6,
+            Sales: 30864.4,
+            COGS: 1900,
+            Profit: 28964.4,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `3796`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 1328600,
+            Discounts: 37212,
+            Sales: 1291388,
+            COGS: 230360,
+            Profit: 1061028,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `2286`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 285750,
+            Discounts: 36240,
+            Sales: 249510,
+            COGS: 289920,
+            Profit: 40410,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `3614`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 451750,
+            Discounts: 32340,
+            Sales: 419410,
+            COGS: 258720,
+            Profit: 160690,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1716`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 25740,
+            Discounts: 4840.2,
+            Sales: 20899.8,
+            COGS: 26890,
+            Profit: 5990.2,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `1301`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 19515,
+            Discounts: 1218.6,
+            Sales: 18296.4,
+            COGS: 6770,
+            Profit: 11526.4,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `4175`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 1252500,
+            Discounts: 63828,
+            Sales: 1188672,
+            COGS: 443250,
+            Profit: 745422,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `975`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 6825,
+            Discounts: 2032.8,
+            Sales: 4792.2,
+            COGS: 12100,
+            Profit: 7307.8,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `1154`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 8078,
+            Discounts: 2296.56,
+            Sales: 5781.44,
+            COGS: 13670,
+            Profit: 7888.56,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `1873`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 37460,
+            Discounts: 4116,
+            Sales: 33344,
+            COGS: 17150,
+            Profit: 16194,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `3766`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 1129800,
+            Discounts: 42696,
+            Sales: 1087104,
+            COGS: 296500,
+            Profit: 790604,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3558`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1067400,
+            Discounts: 125820,
+            Sales: 941580,
+            COGS: 873750,
+            Profit: 67830,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `3156`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 1104600,
+            Discounts: 37212,
+            Sales: 1067388,
+            COGS: 230360,
+            Profit: 837028,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2994`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 374250,
+            Discounts: 32340,
+            Sales: 341910,
+            COGS: 258720,
+            Profit: 83190,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2087`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 41740,
+            Discounts: 2172,
+            Sales: 39568,
+            COGS: 9050,
+            Profit: 30518,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `1056`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 21120,
+            Discounts: 4116,
+            Sales: 17004,
+            COGS: 17150,
+            Profit: 146,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1353`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 473550,
+            Discounts: 66948,
+            Sales: 406602,
+            COGS: 414440,
+            Profit: 7838,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `416`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 124800,
+            Discounts: 48924,
+            Sales: 75876,
+            COGS: 339750,
+            Profit: 263874,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `3880`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1164000,
+            Discounts: 77400,
+            Sales: 1086600,
+            COGS: 537500,
+            Profit: 549100,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `809`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 283150,
+            Discounts: 50274,
+            Sales: 232876,
+            COGS: 311220,
+            Profit: 78344,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `1892`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 28380,
+            Discounts: 684,
+            Sales: 27696,
+            COGS: 3800,
+            Profit: 23896,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2072`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 41440,
+            Discounts: 2959.2,
+            Sales: 38480.8,
+            COGS: 12330,
+            Profit: 26150.8,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `3052`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 1068200,
+            Discounts: 58590,
+            Sales: 1009610,
+            COGS: 362700,
+            Profit: 646910,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `3121`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 1092350,
+            Discounts: 41412,
+            Sales: 1050938,
+            COGS: 256360,
+            Profit: 794578,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `2059`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 41180,
+            Discounts: 2172,
+            Sales: 39008,
+            COGS: 9050,
+            Profit: 29958,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `4254`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 51048,
+            Discounts: 3036.96,
+            Sales: 48011.04,
+            COGS: 6327,
+            Profit: 41684.04,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `1293`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 19395,
+            Discounts: 6974.1,
+            Sales: 12420.9,
+            COGS: 38745,
+            Profit: 26324.1,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `1293`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 452550,
+            Discounts: 26166,
+            Sales: 426384,
+            COGS: 161980,
+            Profit: 264404,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `230`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 80500,
+            Discounts: 41412,
+            Sales: 39088,
+            COGS: 256360,
+            Profit: 217272,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `1723`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 215375,
+            Discounts: 35805,
+            Sales: 179570,
+            COGS: 286440,
+            Profit: 106870,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `240`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 4800,
+            Discounts: 2959.2,
+            Sales: 1840.8,
+            COGS: 12330,
+            Profit: 10489.2,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `2571`,
+            ManufacturingPrice: 260,
+            SalePrice: 350,
+            GrossSales: 899850,
+            Discounts: 11340,
+            Sales: 888510,
+            COGS: 70200,
+            Profit: 818310,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `1661`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 11627,
+            Discounts: 2874.06,
+            Sales: 8752.94,
+            COGS: 17107.5,
+            Profit: 8354.56,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `4474`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 31318,
+            Discounts: 2296.56,
+            Sales: 29021.44,
+            COGS: 13670,
+            Profit: 15351.44,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `833`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 12495,
+            Discounts: 4586.4,
+            Sales: 7908.6,
+            COGS: 25480,
+            Profit: 17571.4,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `674`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 13480,
+            Discounts: 6051.6,
+            Sales: 7428.4,
+            COGS: 25215,
+            Profit: 17786.6,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `778`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 9336,
+            Discounts: 3831.84,
+            Sales: 5504.16,
+            COGS: 7983,
+            Profit: 2478.84,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `1457`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 29140,
+            Discounts: 3674.4,
+            Sales: 25465.6,
+            COGS: 15310,
+            Profit: 10155.6,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `3158`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 22106,
+            Discounts: 1252.44,
+            Sales: 20853.56,
+            COGS: 7455,
+            Profit: 13398.56,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `4095`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 81900,
+            Discounts: 3674.4,
+            Sales: 78225.6,
+            COGS: 15310,
+            Profit: 62915.6,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `3170`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 38040,
+            Discounts: 3975.84,
+            Sales: 34064.16,
+            COGS: 8283,
+            Profit: 25781.16,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `493`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 7395,
+            Discounts: 5005.65,
+            Sales: 2389.35,
+            COGS: 25670,
+            Profit: 23280.65,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `3286`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 49290,
+            Discounts: 5005.65,
+            Sales: 44284.35,
+            COGS: 25670,
+            Profit: 18614.35,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `3563`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 1247050,
+            Discounts: 41996.5,
+            Sales: 1205053.5,
+            COGS: 239980,
+            Profit: 965073.5,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `4109`,
+            ManufacturingPrice: 3,
+            SalePrice: 350,
+            GrossSales: 1438150,
+            Discounts: 81445,
+            Sales: 1356705,
+            COGS: 465400,
+            Profit: 891305,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `3653`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 73060,
+            Discounts: 1149.2,
+            Sales: 71910.8,
+            COGS: 4420,
+            Profit: 67490.8,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `2203`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 771050,
+            Discounts: 44703.75,
+            Sales: 726346.25,
+            COGS: 255450,
+            Profit: 470896.25,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `2924`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 20468,
+            Discounts: 1181.18,
+            Sales: 19286.82,
+            COGS: 6490,
+            Profit: 12796.82,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `2650`,
+            ManufacturingPrice: 5,
+            SalePrice: 12,
+            GrossSales: 31800,
+            Discounts: 942.24,
+            Sales: 30857.76,
+            COGS: 1812,
+            Profit: 29045.76,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `1194`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 23880,
+            Discounts: 5863,
+            Sales: 18017,
+            COGS: 22550,
+            Profit: 4533,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `3366`,
+            ManufacturingPrice: 5,
+            SalePrice: 20,
+            GrossSales: 67320,
+            Discounts: 3247.4,
+            Sales: 64072.6,
+            COGS: 12490,
+            Profit: 51582.6,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1325`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 9275,
+            Discounts: 1309.04,
+            Sales: 7965.97,
+            COGS: 7192.5,
+            Profit: 773.47,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `4243`,
+            ManufacturingPrice: 10,
+            SalePrice: 300,
+            GrossSales: 1272900,
+            Discounts: 31473,
+            Sales: 1241427,
+            COGS: 201750,
+            Profit: 1039677,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `2887`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 57740,
+            Discounts: 6866.6,
+            Sales: 50873.4,
+            COGS: 26410,
+            Profit: 24463.4,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3839`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 76780,
+            Discounts: 7040.8,
+            Sales: 69739.2,
+            COGS: 27080,
+            Profit: 42659.2,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `1863`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 652050,
+            Discounts: 119756,
+            Sales: 532294,
+            COGS: 684320,
+            Profit: 152026,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2858`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 357250,
+            Discounts: 25723.75,
+            Sales: 331526.25,
+            COGS: 189960,
+            Profit: 141566.25,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2868`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 34416,
+            Discounts: 890.76,
+            Sales: 33525.24,
+            COGS: 1713,
+            Profit: 31812.24,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `3805`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 26635,
+            Discounts: 2453.36,
+            Sales: 24181.64,
+            COGS: 13480,
+            Profit: 10701.64,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3914`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 58710,
+            Discounts: 3051.75,
+            Sales: 55658.25,
+            COGS: 15650,
+            Profit: 40008.25,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `524`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 10480,
+            Discounts: 3247.4,
+            Sales: 7232.6,
+            COGS: 12490,
+            Profit: 5257.4,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `3095`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 1083250,
+            Discounts: 16243.5,
+            Sales: 1067006.5,
+            COGS: 92820,
+            Profit: 974186.5,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2410`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 28920,
+            Discounts: 1580.28,
+            Sales: 27339.72,
+            COGS: 3039,
+            Profit: 24300.72,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `4263`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 63945,
+            Discounts: 7795.13,
+            Sales: 56149.88,
+            COGS: 39975,
+            Profit: 16174.88,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `2239`,
+            ManufacturingPrice: 120,
+            SalePrice: 350,
+            GrossSales: 783650,
+            Discounts: 119756,
+            Sales: 663894,
+            COGS: 684320,
+            Profit: 20426,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `569`,
+            ManufacturingPrice: 120,
+            SalePrice: 7,
+            GrossSales: 3983,
+            Discounts: 1082.9,
+            Sales: 2900.1,
+            COGS: 5950,
+            Profit: 3049.9,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `3889`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 46668,
+            Discounts: 942.24,
+            Sales: 45725.76,
+            COGS: 1812,
+            Profit: 43913.76,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `1378`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 20670,
+            Discounts: 1287,
+            Sales: 19383,
+            COGS: 6600,
+            Profit: 12783,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `2253`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 27036,
+            Discounts: 639.6,
+            Sales: 26396.4,
+            COGS: 1230,
+            Profit: 25166.4,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `3202`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 960600,
+            Discounts: 101595,
+            Sales: 859005,
+            COGS: 651250,
+            Profit: 207755,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `3835`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 46020,
+            Discounts: 1580.28,
+            Sales: 44439.72,
+            COGS: 3039,
+            Profit: 41400.72,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `2487`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 310875,
+            Discounts: 25723.75,
+            Sales: 285151.25,
+            COGS: 189960,
+            Profit: 95191.25,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `4428`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 66420,
+            Discounts: 3051.75,
+            Sales: 63368.25,
+            COGS: 15650,
+            Profit: 47718.25,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `1200`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 150000,
+            Discounts: 26958.75,
+            Sales: 123041.25,
+            COGS: 199080,
+            Profit: 76038.75,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `2953`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 20671,
+            Discounts: 1082.9,
+            Sales: 19588.1,
+            COGS: 5950,
+            Profit: 13638.1,
+            Date: `6/1/19`,
+            MonthName: `June`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `1453`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 17436,
+            Discounts: 639.6,
+            Sales: 16796.4,
+            COGS: 1230,
+            Profit: 15566.4,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Luxe`,
+            UnitsSold: `865`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 10380,
+            Discounts: 2761.2,
+            Sales: 7618.8,
+            COGS: 5310,
+            Profit: 2308.8,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `1072`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 21440,
+            Discounts: 7221.2,
+            Sales: 14218.8,
+            COGS: 25790,
+            Profit: 11571.2,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `1737`,
+            ManufacturingPrice: 3,
+            SalePrice: 20,
+            GrossSales: 34740,
+            Discounts: 4880.4,
+            Sales: 29859.6,
+            COGS: 17430,
+            Profit: 12429.6,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `1535`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 10745,
+            Discounts: 2936.08,
+            Sales: 7808.92,
+            COGS: 14980,
+            Profit: 7171.08,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `2532`,
+            ManufacturingPrice: 3,
+            SalePrice: 7,
+            GrossSales: 17724,
+            Discounts: 274.4,
+            Sales: 17449.6,
+            COGS: 1400,
+            Profit: 16049.6,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Royal Oak`,
+            UnitsSold: `1765`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 12355,
+            Discounts: 287.14,
+            Sales: 12067.86,
+            COGS: 1465,
+            Profit: 10602.86,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Royal Oak`,
+            UnitsSold: `1567`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 10969,
+            Discounts: 2936.08,
+            Sales: 8032.92,
+            COGS: 14980,
+            Profit: 6947.08,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2640`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 39600,
+            Discounts: 583.8,
+            Sales: 39016.2,
+            COGS: 2780,
+            Profit: 36236.2,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3079`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 61580,
+            Discounts: 6798.4,
+            Sales: 54781.6,
+            COGS: 24280,
+            Profit: 30501.6,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `4130`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 61950,
+            Discounts: 3710.7,
+            Sales: 58239.3,
+            COGS: 17670,
+            Profit: 40569.3,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2938`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 35256,
+            Discounts: 2340.24,
+            Sales: 32915.76,
+            COGS: 4179,
+            Profit: 28736.76,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `3080`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 21560,
+            Discounts: 274.4,
+            Sales: 21285.6,
+            COGS: 1400,
+            Profit: 19885.6,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `1530`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 18360,
+            Discounts: 2340.24,
+            Sales: 16019.76,
+            COGS: 4179,
+            Profit: 11840.76,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `3537`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 42444,
+            Discounts: 3385.2,
+            Sales: 39058.8,
+            COGS: 6045,
+            Profit: 33013.8,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `2021`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 606300,
+            Discounts: 33642,
+            Sales: 572658,
+            COGS: 200250,
+            Profit: 372408,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `1804`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 225500,
+            Discounts: 17902.5,
+            Sales: 207597.5,
+            COGS: 122760,
+            Profit: 84837.5,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1014`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 304200,
+            Discounts: 62832,
+            Sales: 241368,
+            COGS: 374000,
+            Profit: 132632,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Kensington`,
+            UnitsSold: `2913`,
+            ManufacturingPrice: 3,
+            SalePrice: 300,
+            GrossSales: 873900,
+            Discounts: 42420,
+            Sales: 831480,
+            COGS: 252500,
+            Profit: 578980,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `763`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 11445,
+            Discounts: 3177.3,
+            Sales: 8267.7,
+            COGS: 15130,
+            Profit: 6862.3,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Kensington`,
+            UnitsSold: `1425`,
+            ManufacturingPrice: 3,
+            SalePrice: 15,
+            GrossSales: 21375,
+            Discounts: 4830,
+            Sales: 16545,
+            COGS: 23000,
+            Profit: 6455,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Kensington`,
+            UnitsSold: `4357`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 544625,
+            Discounts: 49367.5,
+            Sales: 495257.5,
+            COGS: 338520,
+            Profit: 156737.5,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `2138`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 748300,
+            Discounts: 109147.5,
+            Sales: 639152.5,
+            COGS: 579150,
+            Profit: 60002.5,
+            Date: `1/1/19`,
+            MonthName: `January`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Royal Oak`,
+            UnitsSold: `3825`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 1338750,
+            Discounts: 58751,
+            Sales: 1279999,
+            COGS: 311740,
+            Profit: 968259,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `3393`,
+            ManufacturingPrice: 5,
+            SalePrice: 350,
+            GrossSales: 1187550,
+            Discounts: 9800,
+            Sales: 1177750,
+            COGS: 52000,
+            Profit: 1125750,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `2215`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 15505,
+            Discounts: 380.24,
+            Sales: 15124.76,
+            COGS: 1940,
+            Profit: 13184.76,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `2278`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 15946,
+            Discounts: 1692.46,
+            Sales: 14253.54,
+            COGS: 8635,
+            Profit: 5618.54,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Royal Oak`,
+            UnitsSold: `403`,
+            ManufacturingPrice: 5,
+            SalePrice: 15,
+            GrossSales: 6045,
+            Discounts: 4830,
+            Sales: 1215,
+            COGS: 23000,
+            Profit: 21785,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `289`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 5780,
+            Discounts: 728,
+            Sales: 5052,
+            COGS: 2600,
+            Profit: 2452,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `749`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 11235,
+            Discounts: 5187,
+            Sales: 6048,
+            COGS: 24700,
+            Profit: 18652,
+            Date: `9/1/18`,
+            MonthName: `September`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `372`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 5580,
+            Discounts: 3660.3,
+            Sales: 1919.7,
+            COGS: 17430,
+            Profit: 15510.3,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3781`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 45372,
+            Discounts: 4895.52,
+            Sales: 40476.48,
+            COGS: 8742,
+            Profit: 31734.48,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1785`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 12495,
+            Discounts: 1696.38,
+            Sales: 10798.62,
+            COGS: 8655,
+            Profit: 2143.62,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `4029`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 1410150,
+            Discounts: 34300,
+            Sales: 1375850,
+            COGS: 182000,
+            Profit: 1193850,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2813`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 33756,
+            Discounts: 3732.96,
+            Sales: 30023.04,
+            COGS: 6666,
+            Profit: 23357.04,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `2150`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 752500,
+            Discounts: 57673,
+            Sales: 694827,
+            COGS: 306020,
+            Profit: 388807,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `2093`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 732550,
+            Discounts: 94178,
+            Sales: 638372,
+            COGS: 499720,
+            Profit: 138652,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `4391`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 548875,
+            Discounts: 27562.5,
+            Sales: 521312.5,
+            COGS: 189000,
+            Profit: 332312.5,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2695`,
+            ManufacturingPrice: 120,
+            SalePrice: 20,
+            GrossSales: 53900,
+            Discounts: 1696.8,
+            Sales: 52203.2,
+            COGS: 6060,
+            Profit: 46143.2,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `1337`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 401100,
+            Discounts: 103320,
+            Sales: 297780,
+            COGS: 615000,
+            Profit: 317220,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Burlington`,
+            UnitsSold: `2621`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 786300,
+            Discounts: 11298,
+            Sales: 775002,
+            COGS: 67250,
+            Profit: 707752,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Burlington`,
+            UnitsSold: `3735`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 1120500,
+            Discounts: 106512,
+            Sales: 1013988,
+            COGS: 634000,
+            Profit: 379988,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Mandarin`,
+            UnitsSold: `4320`,
+            ManufacturingPrice: 250,
+            SalePrice: 7,
+            GrossSales: 30240,
+            Discounts: 2844.94,
+            Sales: 27395.06,
+            COGS: 14515,
+            Profit: 12880.06,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `2828`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 848400,
+            Discounts: 106722,
+            Sales: 741678,
+            COGS: 635250,
+            Profit: 106428,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `2586`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 775800,
+            Discounts: 11298,
+            Sales: 764502,
+            COGS: 67250,
+            Profit: 697252,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `1248`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 374400,
+            Discounts: 62832,
+            Sales: 311568,
+            COGS: 374000,
+            Profit: 62432,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `4035`,
+            ManufacturingPrice: 250,
+            SalePrice: 300,
+            GrossSales: 1210500,
+            Discounts: 42420,
+            Sales: 1168080,
+            COGS: 252500,
+            Profit: 915580,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `359`,
+            ManufacturingPrice: 250,
+            SalePrice: 350,
+            GrossSales: 125650,
+            Discounts: 62769,
+            Sales: 62881,
+            COGS: 333060,
+            Profit: 270179,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `3926`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 1177800,
+            Discounts: 37296,
+            Sales: 1140504,
+            COGS: 222000,
+            Profit: 918504,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `4247`,
+            ManufacturingPrice: 260,
+            SalePrice: 125,
+            GrossSales: 530875,
+            Discounts: 49770,
+            Sales: 481105,
+            COGS: 341280,
+            Profit: 139825,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `2695`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 32340,
+            Discounts: 4158,
+            Sales: 28182,
+            COGS: 7425,
+            Profit: 20757,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Luxe`,
+            UnitsSold: `1104`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 16560,
+            Discounts: 3660.3,
+            Sales: 12899.7,
+            COGS: 17430,
+            Profit: 4530.3,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Luxe`,
+            UnitsSold: `1449`,
+            ManufacturingPrice: 260,
+            SalePrice: 12,
+            GrossSales: 17388,
+            Discounts: 4895.52,
+            Sales: 12492.48,
+            COGS: 8742,
+            Profit: 3750.48,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `1131`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 7917,
+            Discounts: 1696.38,
+            Sales: 6220.62,
+            COGS: 8655,
+            Profit: 2434.38,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `1468`,
+            ManufacturingPrice: 260,
+            SalePrice: 7,
+            GrossSales: 10276,
+            Discounts: 1692.46,
+            Sales: 8583.54,
+            COGS: 8635,
+            Profit: 51.46,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `1272`,
+            ManufacturingPrice: 260,
+            SalePrice: 15,
+            GrossSales: 19080,
+            Discounts: 3927,
+            Sales: 15153,
+            COGS: 18700,
+            Profit: 3547,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Kensington`,
+            UnitsSold: `1403`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 175375,
+            Discounts: 22012.5,
+            Sales: 153362.5,
+            COGS: 140880,
+            Profit: 12482.5,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `2161`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 270125,
+            Discounts: 51881.25,
+            Sales: 218243.75,
+            COGS: 332040,
+            Profit: 113796.25,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Kensington`,
+            UnitsSold: `1937`,
+            ManufacturingPrice: 3,
+            SalePrice: 125,
+            GrossSales: 242125,
+            Discounts: 20343.75,
+            Sales: 221781.25,
+            COGS: 130200,
+            Profit: 91581.25,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `2879`,
+            ManufacturingPrice: 5,
+            SalePrice: 300,
+            GrossSales: 863700,
+            Discounts: 24570,
+            Sales: 839130,
+            COGS: 136500,
+            Profit: 702630,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `1330`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 26600,
+            Discounts: 3474,
+            Sales: 23126,
+            COGS: 11580,
+            Profit: 11546,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `2426`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 36390,
+            Discounts: 3631.5,
+            Sales: 32758.5,
+            COGS: 16140,
+            Profit: 16618.5,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2033`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 14231,
+            Discounts: 2661.75,
+            Sales: 11569.25,
+            COGS: 12675,
+            Profit: 1105.75,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `2029`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 710150,
+            Discounts: 149677.5,
+            Sales: 560472.5,
+            COGS: 741260,
+            Profit: 180787.5,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `1049`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 15735,
+            Discounts: 5757.75,
+            Sales: 9977.25,
+            COGS: 25590,
+            Profit: 15612.75,
+            Date: `8/1/19`,
+            MonthName: `August`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `1062`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 21240,
+            Discounts: 801,
+            Sales: 20439,
+            COGS: 2670,
+            Profit: 17769,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `2509`,
+            ManufacturingPrice: 10,
+            SalePrice: 125,
+            GrossSales: 313625,
+            Discounts: 20343.75,
+            Sales: 293281.25,
+            COGS: 130200,
+            Profit: 163081.25,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Vermont`,
+            UnitsSold: `1743`,
+            ManufacturingPrice: 10,
+            SalePrice: 15,
+            GrossSales: 26145,
+            Discounts: 2643.75,
+            Sales: 23501.25,
+            COGS: 11750,
+            Profit: 11751.25,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3418`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 1196300,
+            Discounts: 105367.5,
+            Sales: 1090932.5,
+            COGS: 521820,
+            Profit: 569112.5,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Vermont`,
+            UnitsSold: `1751`,
+            ManufacturingPrice: 10,
+            SalePrice: 350,
+            GrossSales: 612850,
+            Discounts: 112927.5,
+            Sales: 499922.5,
+            COGS: 559260,
+            Profit: 59337.5,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Vermont`,
+            UnitsSold: `3228`,
+            ManufacturingPrice: 10,
+            SalePrice: 12,
+            GrossSales: 38736,
+            Discounts: 1645.2,
+            Sales: 37090.8,
+            COGS: 2742,
+            Profit: 34348.8,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Vermont`,
+            UnitsSold: `1105`,
+            ManufacturingPrice: 10,
+            SalePrice: 20,
+            GrossSales: 22100,
+            Discounts: 879,
+            Sales: 21221,
+            COGS: 2930,
+            Profit: 18291,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Burlington`,
+            UnitsSold: `2778`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 33336,
+            Discounts: 900,
+            Sales: 32436,
+            COGS: 1500,
+            Profit: 30936,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `1173`,
+            ManufacturingPrice: 120,
+            SalePrice: 15,
+            GrossSales: 17595,
+            Discounts: 6358.5,
+            Sales: 11236.5,
+            COGS: 28260,
+            Profit: 17023.5,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Burlington`,
+            UnitsSold: `3160`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 395000,
+            Discounts: 12431.25,
+            Sales: 382568.75,
+            COGS: 79560,
+            Profit: 303008.75,
+            Date: `9/1/19`,
+            MonthName: `September`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `4322`,
+            ManufacturingPrice: 120,
+            SalePrice: 300,
+            GrossSales: 1296600,
+            Discounts: 115830,
+            Sales: 1180770,
+            COGS: 643500,
+            Profit: 537270,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `1901`,
+            ManufacturingPrice: 120,
+            SalePrice: 125,
+            GrossSales: 237625,
+            Discounts: 45712.5,
+            Sales: 191912.5,
+            COGS: 292560,
+            Profit: 100647.5,
+            Date: `12/1/18`,
+            MonthName: `December`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Burlington`,
+            UnitsSold: `2980`,
+            ManufacturingPrice: 120,
+            SalePrice: 12,
+            GrossSales: 35760,
+            Discounts: 1645.2,
+            Sales: 34114.8,
+            COGS: 2742,
+            Profit: 31372.8,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `4068`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 81360,
+            Discounts: 2596.5,
+            Sales: 78763.5,
+            COGS: 8655,
+            Profit: 70108.5,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `2105`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 31575,
+            Discounts: 1107,
+            Sales: 30468,
+            COGS: 4920,
+            Profit: 25548,
+            Date: `7/1/19`,
+            MonthName: `July`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `1647`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 32940,
+            Discounts: 801,
+            Sales: 32139,
+            COGS: 2670,
+            Profit: 29469,
+            Date: `10/1/18`,
+            MonthName: `October`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `235`,
+            ManufacturingPrice: 250,
+            SalePrice: 15,
+            GrossSales: 3525,
+            Discounts: 2643.75,
+            Sales: 881.25,
+            COGS: 11750,
+            Profit: 10868.75,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Mandarin`,
+            UnitsSold: `3617`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 452125,
+            Discounts: 55387.5,
+            Sales: 396737.5,
+            COGS: 354480,
+            Profit: 42257.5,
+            Date: `11/1/18`,
+            MonthName: `November`,
+            Year: `2018`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `India`,
+            Product: `Mandarin`,
+            UnitsSold: `2106`,
+            ManufacturingPrice: 250,
+            SalePrice: 125,
+            GrossSales: 263250,
+            Discounts: 10350,
+            Sales: 252900,
+            COGS: 66240,
+            Profit: 186660,
+            Date: `11/1/19`,
+            MonthName: `November`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Mandarin`,
+            UnitsSold: `2351`,
+            ManufacturingPrice: 250,
+            SalePrice: 20,
+            GrossSales: 47020,
+            Discounts: 879,
+            Sales: 46141,
+            COGS: 2930,
+            Profit: 43211,
+            Date: `12/1/19`,
+            MonthName: `December`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `UK`,
+            Product: `Luxe`,
+            UnitsSold: `1897`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 569100,
+            Discounts: 111375,
+            Sales: 457725,
+            COGS: 618750,
+            Profit: 161025,
+            Date: `3/1/19`,
+            MonthName: `March`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Luxe`,
+            UnitsSold: `647`,
+            ManufacturingPrice: 260,
+            SalePrice: 300,
+            GrossSales: 194100,
+            Discounts: 24570,
+            Sales: 169530,
+            COGS: 136500,
+            Profit: 33030,
+            Date: `10/1/19`,
+            MonthName: `October`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Brazil`,
+            Product: `Royal Oak`,
+            UnitsSold: `3621`,
+            ManufacturingPrice: 5,
+            SalePrice: 7,
+            GrossSales: 25347,
+            Discounts: 1436.4,
+            Sales: 23910.6,
+            COGS: 6840,
+            Profit: 17070.6,
+            Date: `2/1/19`,
+            MonthName: `February`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `Japan`,
+            Product: `Vermont`,
+            UnitsSold: `3221`,
+            ManufacturingPrice: 10,
+            SalePrice: 7,
+            GrossSales: 22547,
+            Discounts: 759.15,
+            Sales: 21787.85,
+            COGS: 3615,
+            Profit: 18172.85,
+            Date: `4/1/19`,
+            MonthName: `April`,
+            Year: `2019`
+        }));
+        this.push(new SalesDataItem(
+        {
+            Country: `USA`,
+            Product: `Mandarin`,
+            UnitsSold: `493`,
+            ManufacturingPrice: 250,
+            SalePrice: 12,
+            GrossSales: 5916,
+            Discounts: 3250.8,
+            Sales: 2665.2,
+            COGS: 5418,
+            Profit: 2752.8,
+            Date: `5/1/19`,
+            MonthName: `May`,
+            Year: `2019`
         }));
     }
 }
+
+export class SalesDataItem {
+    public constructor(init: Partial<SalesDataItem>) {
+        Object.assign(this, init);
+    }
+
+    public Country: string;
+    public Product: string;
+    public UnitsSold: string;
+    public ManufacturingPrice: number;
+    public SalePrice: number;
+    public GrossSales: number;
+    public Discounts: number;
+    public Sales: number;
+    public COGS: number;
+    public Profit: number;
+    public Date: string;
+    public MonthName: string;
+    public Year: string;
+
+}
+//end data

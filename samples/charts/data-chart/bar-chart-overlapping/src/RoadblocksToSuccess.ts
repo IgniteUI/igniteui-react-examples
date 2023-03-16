@@ -2,7 +2,7 @@ export class RoadblocksToSuccessItem {
     public constructor(init: Partial<RoadblocksToSuccessItem>) {
         Object.assign(this, init);
     }
-    
+
     public index: number;
     public firstChoice: number;
     public topChoices: number;

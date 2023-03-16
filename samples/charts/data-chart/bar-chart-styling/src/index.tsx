@@ -6,8 +6,6 @@ import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategor
 import { IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrCategoryHighlightLayer, IgrBarSeries, IgrCalloutLayer, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { OnlineShoppingSearchesItem, OnlineShoppingSearches } from './OnlineShoppingSearches';
 
-
-
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
@@ -46,7 +44,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Where Online Shoppers Start Their Search
             </div>
-
 
             <div className="container fill">
                 <IgrDataChart
@@ -112,11 +109,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._onlineShoppingSearches;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

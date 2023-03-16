@@ -6,8 +6,6 @@ import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrCategoryChartModule
@@ -34,7 +32,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Highest Grossing Movie Franchises
             </div>
-
 
             <div className="container fill">
                 <IgrCategoryChart
@@ -67,11 +64,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._highestGrossingMovies;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

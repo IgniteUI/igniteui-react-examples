@@ -2,7 +2,7 @@ export class TemperatureAverageDataLongLabelsItem {
     public constructor(init: Partial<TemperatureAverageDataLongLabelsItem>) {
         Object.assign(this, init);
     }
-    
+
     public month: string;
     public temperature: number;
 

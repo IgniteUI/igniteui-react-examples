@@ -7,8 +7,6 @@ import { IgrDataLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbl
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrNumberAbbreviatorModule,
@@ -81,13 +79,13 @@ export default class Sample extends React.Component<any, any> {
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
                         radiusMemberPath="population"
-                        radiusMemberAsLegendLabel="Population:"
+                        radiusMemberAsLegendLabel="Population: "
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
-                        xMemberAsLegendLabel="Death Rate:"
-                        yMemberAsLegendLabel="Birth Rate:"
+                        xMemberAsLegendLabel="Death Rate: "
+                        yMemberAsLegendLabel="Birth Rate: "
                         dataSource={this.countryDemographicAfrican}
                         title="Africa"
                         name="BubbleSeries1">
@@ -98,16 +96,16 @@ export default class Sample extends React.Component<any, any> {
                         </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
+                        radiusMemberPath="population"
+                        radiusMemberAsLegendLabel="Population: "
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        dataSource={this.countryDemographicEurope}
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
-                        radiusMemberPath="population"
+                        xMemberAsLegendLabel="Death Rate: "
+                        yMemberAsLegendLabel="Birth Rate: "
+                        dataSource={this.countryDemographicEurope}
                         title="Europe"
-                        radiusMemberAsLegendLabel="Population:"
-                        xMemberAsLegendLabel="Death Rate:"
-                        yMemberAsLegendLabel="Birth Rate:"
                         name="BubbleSeries2">
                         <IgrSizeScale
                             minimumValue="10"
@@ -132,7 +130,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryDemographicAfrican;
     }
-    
+
     private _countryDemographicEurope: CountryDemographicEurope = null;
     public get countryDemographicEurope(): CountryDemographicEurope {
         if (this._countryDemographicEurope == null)
@@ -141,11 +139,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryDemographicEurope;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

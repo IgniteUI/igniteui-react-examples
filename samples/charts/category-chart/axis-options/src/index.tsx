@@ -6,8 +6,6 @@ import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { OlympicMedalsTopCountriesItem, OlympicMedalsTopCountries } from './OlympicMedalsTopCountries';
 
-
-
 const mods: any[] = [
     IgrCategoryChartModule
 ];
@@ -33,7 +31,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Olympic Medals By Country
             </div>
-
 
             <div className="container fill">
                 <IgrCategoryChart
@@ -91,11 +88,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._olympicMedalsTopCountries;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

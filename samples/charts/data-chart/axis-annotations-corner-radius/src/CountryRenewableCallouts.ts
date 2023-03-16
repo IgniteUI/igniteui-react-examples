@@ -2,7 +2,7 @@ export class CountryRenewableCalloutsItem {
     public constructor(init: Partial<CountryRenewableCalloutsItem>) {
         Object.assign(this, init);
     }
-    
+
     public index: number;
     public label: string;
     public value: number;

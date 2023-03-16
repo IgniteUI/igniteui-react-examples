@@ -2,17 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrDataChartCoreModule, IgrDataChartRadialModule, IgrDataChartRadialCoreModule, IgrDataChartInteractivityModule, IgrLegendModule } from 'igniteui-react-charts';
+import { IgrDataChartCoreModule, IgrDataChartRadialModule, IgrDataChartRadialCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrLegendModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrCategoryAngleAxis, IgrNumericRadiusAxis, IgrRadialColumnSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { FootballPlayerStatsItem, FootballPlayerStats } from './FootballPlayerStats';
-
-
 
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartRadialModule,
     IgrDataChartRadialCoreModule,
     IgrDataChartInteractivityModule,
+    IgrDataChartAnnotationModule,
     IgrLegendModule
 ];
 mods.forEach((m) => m.register());
@@ -113,11 +112,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._footballPlayerStats;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

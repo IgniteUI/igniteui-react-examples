@@ -6,8 +6,6 @@ import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, Ig
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStacked100ColumnSeries, IgrStackedFragmentSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { OnlineTrafficByDeviceItem, OnlineTrafficByDevice } from './OnlineTrafficByDevice';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -91,13 +89,13 @@ export default class Sample extends React.Component<any, any> {
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s2"
-                            valueMemberPath="mobile"
-                            title="Mobile">
+                            title="Mobile"
+                            valueMemberPath="mobile">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s3"
-                            valueMemberPath="tablet"
-                            title="Tablet">
+                            title="Tablet"
+                            valueMemberPath="tablet">
                         </IgrStackedFragmentSeries>
                     </IgrStacked100ColumnSeries>
                     <IgrDataToolTipLayer
@@ -117,11 +115,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._onlineTrafficByDevice;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

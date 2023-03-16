@@ -56,20 +56,20 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorRef}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="DataToolTipGroupedPositionModeX"
-                        label="Grouped X Position:"
+                        label="Grouped X Position: "
                         primitiveValue="PinRight"
                         name="GroupedPositionXEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="DataToolTipGroupedPositionModeY"
                         primitiveValue="PinTop"
-                        label="Grouped Y Position:"
+                        label="Grouped Y Position: "
                         name="GroupedPositionYEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="DataToolTipGroupingMode"
                         primitiveValue="Grouped"
-                        label="Grouping Mode:"
+                        label="Grouping Mode: "
                         name="GroupingModeEditor">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
@@ -78,7 +78,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Highest Grossing Movie Franchises
             </div>
-
 
             <div className="container fill">
                 <IgrCategoryChart
@@ -109,7 +108,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._highestGrossingMovies;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -124,7 +122,6 @@ export default class Sample extends React.Component<any, any> {
     }
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -7,8 +7,6 @@ import { IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
 import { CalendarSeasonsItem, CalendarSeasons } from './CalendarSeasons';
 import { CalendarMonthsItem, CalendarMonths } from './CalendarMonths';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrDoughnutChartModule
@@ -37,7 +35,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Hierarchical Chart
             </div>
-
 
             <div className="container fill">
                 <IgrDoughnutChart
@@ -78,7 +75,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._calendarSeasons;
     }
-    
+
     private _calendarMonths: CalendarMonths = null;
     public get calendarMonths(): CalendarMonths {
         if (this._calendarMonths == null)
@@ -87,11 +84,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._calendarMonths;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

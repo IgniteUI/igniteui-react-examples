@@ -2,7 +2,7 @@ export class TemperatureRangeDataItem {
     public constructor(init: Partial<TemperatureRangeDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public month: string;
     public highNY: number;
     public lowNY: number;

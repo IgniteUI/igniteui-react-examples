@@ -2,7 +2,7 @@ export class CompanyIncomeDataItem {
     public constructor(init: Partial<CompanyIncomeDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public costs: number;
     public netIncome: number;
     public category: string;

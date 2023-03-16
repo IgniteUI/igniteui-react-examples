@@ -6,8 +6,6 @@ import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryCoreModule
 import { IgrLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrCategoryHighlightLayer, IgrBarSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -94,12 +92,12 @@ export default class Sample extends React.Component<any, any> {
                     <IgrBarSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        title="Highest Grossing Movie in Series"
                         valueMemberPath="highestGrossing"
-                        dataSource={this.highestGrossingMovies}
-                        showDefaultTooltip="true"
                         isTransitionInEnabled="true"
+                        dataSource={this.highestGrossingMovies}
                         isHighlightingEnabled="true"
+                        showDefaultTooltip="true"
+                        title="Highest Grossing Movie in Series"
                         name="BarSeries2">
                     </IgrBarSeries>
                     <IgrDataToolTipLayer
@@ -119,11 +117,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._highestGrossingMovies;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -2,7 +2,7 @@ export class SparklineUnknownDataItem {
     public constructor(init: Partial<SparklineUnknownDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public label: number;
     public value: number;
 

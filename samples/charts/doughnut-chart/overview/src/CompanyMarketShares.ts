@@ -2,7 +2,7 @@ export class CompanyMarketSharesItem {
     public constructor(init: Partial<CompanyMarketSharesItem>) {
         Object.assign(this, init);
     }
-    
+
     public value: number;
     public category: string;
     public summary: string;
