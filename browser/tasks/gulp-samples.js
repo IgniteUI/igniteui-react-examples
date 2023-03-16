@@ -843,8 +843,12 @@ function updateIG(cb) {
         { name: "react"             , version: "^18.2.0", },
         { name: "react-dom"         , version: "^18.2.0", },
         { name: "react-scripts"     , version: "^5.0.1", },
-        // { name: "tslib"             , version: "2.4.0", },
+        // { name: "tslib"             , version: "^2.4.0", },
         // { name: "lit-html"          , version: "^2.2.0", },
+
+        { name: "eslint"             , version: "^8.33.0", },
+        { name: "eslint-config-react", version: "^1.1.7", },
+        { name: "eslint-plugin-react", version: "^7.20.0", },
 
         { name: "@types/jest"       , version: "^29.2.0", },
         { name: "@types/node"       , version: "^18.11.7", },
