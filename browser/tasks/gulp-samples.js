@@ -850,8 +850,8 @@ function updateIG(cb) {
         { name: "@types/node"       , version: "^18.11.7", },
         { name: "@types/react"      , version: "^18.0.24", },
         { name: "@types/react-dom"  , version: "^18.0.8", },
-        // { name: "react-app-rewired" , version: "^2.2.1", },
-        // { name: "typescript"        , version: "^4.8.4", },
+        { name: "react-app-rewired" , version: "^2.2.1", },
+        { name: "typescript"        , version: "^4.8.4", },
     ];
 
     // NOTE you can comment out strings in this array to run these function only on a subset of samples
