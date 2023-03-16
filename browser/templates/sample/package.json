@@ -12,10 +12,10 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "react-scripts": "3.4.1",
-    "tslib": "1.10.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "tslib": "^2.4.0"
   },
   "dependenciesNote": "above dependencies are required dependencies by all samples and below dependencies are injected based on 'usage' and/or 'keywords' conditions",
   "dependenciesOptional": {

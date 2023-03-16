@@ -840,8 +840,8 @@ function updateIG(cb) {
         { name: "igniteui-webcomponents", version: "4.2.2" },
         { name: "igniteui-dockmanager",   version: "1.12.3" },
         // main react packages
-        // { name: "react"             , version: "^18.2.0", },
-        // { name: "react-dom"         , version: "^18.2.0", },
+        { name: "react"             , version: "^18.2.0", },
+        { name: "react-dom"         , version: "^18.2.0", },
         // { name: "react-scripts"     , version: "5.0.1", }
         // { name: "tslib"             , version: "2.4.0", },
         // { name: "lit-html"          , version: "^2.2.0", },
