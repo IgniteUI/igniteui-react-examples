@@ -2,7 +2,7 @@ export class CalendarSeasonsItem {
     public constructor(init: Partial<CalendarSeasonsItem>) {
         Object.assign(this, init);
     }
-    
+
     public value: number;
     public label: string;
 

@@ -2,7 +2,7 @@ export class EnergyGlobalDemandItem {
     public constructor(init: Partial<EnergyGlobalDemandItem>) {
         Object.assign(this, init);
     }
-    
+
     public value: number;
     public category: string;
     public summary: string;

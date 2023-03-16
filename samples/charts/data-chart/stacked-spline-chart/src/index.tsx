@@ -6,8 +6,6 @@ import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, Ig
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStackedSplineSeries, IgrStackedFragmentSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 
-
-
 const mods: any[] = [
     IgrLegendModule,
     IgrDataChartCoreModule,
@@ -65,14 +63,14 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
-                    legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         dataSource={this.continentsBirthRate}
-                        label="year"
                         gap="0.75"
+                        label="year"
                         name="xAxis">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
@@ -85,16 +83,16 @@ export default class Sample extends React.Component<any, any> {
                         name="yAxis">
                     </IgrNumericYAxis>
                     <IgrStackedSplineSeries
-                        dataSource={this.continentsBirthRate}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        showDefaultTooltip="false"
                         markerType="Circle"
+                        dataSource={this.continentsBirthRate}
+                        showDefaultTooltip="false"
                         name="StackedSplineSeries">
                         <IgrStackedFragmentSeries
                             name="s1"
-                            valueMemberPath="asia"
-                            title="Asia">
+                            title="Asia"
+                            valueMemberPath="asia">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s2"
@@ -134,11 +132,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._continentsBirthRate;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

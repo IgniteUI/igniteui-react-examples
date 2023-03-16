@@ -2,7 +2,7 @@ export class StockGoogleItem {
     public constructor(init: Partial<StockGoogleItem>) {
         Object.assign(this, init);
     }
-    
+
     public date: string;
     public open: number;
     public high: number;

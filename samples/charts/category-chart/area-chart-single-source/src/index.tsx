@@ -6,8 +6,6 @@ import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
-
-
 const mods: any[] = [
     IgrCategoryChartModule
 ];
@@ -33,7 +31,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Renewable Electricity Generated
             </div>
-
 
             <div className="container fill">
                 <IgrCategoryChart
@@ -62,11 +59,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryRenewableElectricity;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

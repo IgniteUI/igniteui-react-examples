@@ -2,7 +2,7 @@ export class FootballPlayerStatsItem {
     public constructor(init: Partial<FootballPlayerStatsItem>) {
         Object.assign(this, init);
     }
-    
+
     public attribute: string;
     public ronaldo: number;
     public messi: number;

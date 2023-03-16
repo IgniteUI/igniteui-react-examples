@@ -2,7 +2,7 @@ export class HighestGrossingMoviesItem {
     public constructor(init: Partial<HighestGrossingMoviesItem>) {
         Object.assign(this, init);
     }
-    
+
     public franchise: string;
     public totalRevenue: number;
     public highestGrossing: number;

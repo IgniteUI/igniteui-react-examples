@@ -2,19 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrDataChartCoreModule, IgrDataChartCategoryModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrRangeAreaSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrLegendModule } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrRangeAreaSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { TemperatureRangeDataItem, TemperatureRangeData } from './TemperatureRangeData';
-
-
 
 const mods: any[] = [
     IgrDataChartCoreModule,
-    IgrDataChartCategoryModule
+    IgrDataChartCategoryModule,
+    IgrDataChartInteractivityModule,
+    IgrDataChartAnnotationModule,
+    IgrLegendModule
 ];
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
+    private legend: IgrLegend
+    private legendRef(r: IgrLegend) {
+        this.legend = r;
+        this.setState({});
+    }
     private chart: IgrDataChart
     private chartRef(r: IgrDataChart) {
         this.chart = r;
@@ -29,6 +35,7 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
+        this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -37,14 +44,21 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
 
             <div className="legend-title">
-                Monthly Temperature Range in Los Angeles
+                Monthly Temperature Range in LA and NYC
             </div>
 
+            <div className="legend">
+                <IgrLegend
+                    orientation="Horizontal"
+                    ref={this.legendRef}>
+                </IgrLegend>
+            </div>
 
             <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    legend={this.legend}
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         interval="1"
@@ -54,7 +68,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         title="Temperature (in Celsius)"
-                        titleAngle="-90"
+                        titleAngle="90"
                         titleLeftMargin="10"
                         name="yAxis">
                     </IgrNumericYAxis>
@@ -95,11 +109,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._temperatureRangeData;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

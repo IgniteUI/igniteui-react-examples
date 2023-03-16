@@ -2,7 +2,7 @@ export class SparklineMixedDataItem {
     public constructor(init: Partial<SparklineMixedDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public label: string;
     public value: number;
 

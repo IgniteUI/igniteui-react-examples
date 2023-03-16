@@ -2,7 +2,7 @@ export class CalendarMonthsItem {
     public constructor(init: Partial<CalendarMonthsItem>) {
         Object.assign(this, init);
     }
-    
+
     public value: number;
     public label: string;
 

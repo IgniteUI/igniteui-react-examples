@@ -6,8 +6,6 @@ import { IgrDataChartCoreModule, IgrDataChartCategoryModule } from 'igniteui-rea
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrWaterfallSeries } from 'igniteui-react-charts';
 import { CompanyIncomeDataItem, CompanyIncomeData } from './CompanyIncomeData';
 
-
-
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule
@@ -38,7 +36,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Facebook Consolidated Statements of Income
             </div>
-
 
             <div className="container fill">
                 <IgrDataChart
@@ -96,11 +93,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._companyIncomeData;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -81,7 +81,6 @@ export default class Sample extends React.Component<any, any> {
                 Renewable Electricity Generated
             </div>
 
-
             <div className="container fill">
                 <IgrCategoryChart
                     chartType="Line"
@@ -103,7 +102,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryRenewableElectricity;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -117,17 +115,15 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    
     public editorChangeUpdateMarkerType(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
         var item = sender as IgrPropertyEditorPropertyDescription;
         var chart = this.chart;
-            
-        var markerVal = item.primitiveValue;
-        chart.markerTypes = markerVal;   
-    }
-        
-}
 
+        var markerVal = item.primitiveValue;
+        chart.markerTypes = markerVal;
+    }
+
+}
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

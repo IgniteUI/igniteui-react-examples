@@ -2,7 +2,7 @@ export class OlympicMedalsTopCountriesItem {
     public constructor(init: Partial<OlympicMedalsTopCountriesItem>) {
         Object.assign(this, init);
     }
-    
+
     public year: string;
     public america: number;
     public china: number;

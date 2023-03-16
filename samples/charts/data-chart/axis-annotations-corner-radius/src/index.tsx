@@ -7,8 +7,6 @@ import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCall
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
 
-
-
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
@@ -45,7 +43,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Renewable Electricity Generated
             </div>
-
 
             <div className="container fill">
                 <IgrDataChart
@@ -111,7 +108,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryRenewableElectricity;
     }
-    
+
     private _countryRenewableCallouts: CountryRenewableCallouts = null;
     public get countryRenewableCallouts(): CountryRenewableCallouts {
         if (this._countryRenewableCallouts == null)
@@ -120,11 +117,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryRenewableCallouts;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

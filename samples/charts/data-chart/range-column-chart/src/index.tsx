@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrLegendModule } from 'igniteui-react-charts';
+import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrLegendModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrRangeColumnSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { TemperatureRangeDataItem, TemperatureRangeData } from './TemperatureRangeData';
-
-
 
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
+    IgrDataChartInteractivityModule,
+    IgrDataChartAnnotationModule,
     IgrLegendModule
 ];
 mods.forEach((m) => m.register());
@@ -28,8 +28,8 @@ export default class Sample extends React.Component<any, any> {
     }
     private xAxis: IgrCategoryXAxis
     private yAxis: IgrNumericYAxis
-    private series1: IgrRangeColumnSeries
-    private series2: IgrRangeColumnSeries
+    private rangeColumnSeries1: IgrRangeColumnSeries
+    private rangeColumnSeries2: IgrRangeColumnSeries
     private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
@@ -80,17 +80,17 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.temperatureRangeData}
                         showDefaultTooltip="false"
                         title="Los Angeles"
-                        name="series1">
+                        name="RangeColumnSeries1">
                     </IgrRangeColumnSeries>
                     <IgrRangeColumnSeries
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        title="New York City"
+                        title="New York"
                         lowMemberPath="lowNY"
                         highMemberPath="highNY"
                         showDefaultTooltip="false"
                         dataSource={this.temperatureRangeData}
-                        name="series2">
+                        name="RangeColumnSeries2">
                     </IgrRangeColumnSeries>
                     <IgrDataToolTipLayer
                         name="DataToolTipLayer">
@@ -109,11 +109,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._temperatureRangeData;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -86,8 +86,6 @@ export default class Sample extends React.Component<any, any> {
                 </IgrPropertyEditorPanel>
             </div>
 
-
-
             <div className="container fill">
                 <IgrSparkline
                     normalRangeVisibility="Visible"
@@ -112,7 +110,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._sparklineMixedData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -126,7 +123,6 @@ export default class Sample extends React.Component<any, any> {
     }
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

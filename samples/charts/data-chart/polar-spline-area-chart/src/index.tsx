@@ -6,14 +6,12 @@ import { IgrDataChartCoreModule, IgrDataChartPolarModule, IgrDataChartPolarCoreM
 import { IgrDataChart, IgrNumericAngleAxis, IgrNumericRadiusAxis, IgrPolarSplineAreaSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
-
-
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartPolarModule,
     IgrDataChartPolarCoreModule,
     IgrDataChartInteractivityModule,
-	IgrDataChartAnnotationModule
+    IgrDataChartAnnotationModule
 ];
 mods.forEach((m) => m.register());
 
@@ -42,7 +40,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Wind Speed vs Boat Speed
             </div>
-
 
             <div className="container fill">
                 <IgrDataChart
@@ -78,16 +75,16 @@ export default class Sample extends React.Component<any, any> {
                         name="PolarSplineAreaSeries1">
                     </IgrPolarSplineAreaSeries>
                     <IgrPolarSplineAreaSeries
-                        angleMemberPath="direction"
-                        radiusMemberPath="boatSpeed"
+                        dataSource={this.boatSailingData}
                         angleAxisName="angleAxis"
                         radiusAxisName="radiusAxis"
-                        markerType="Circle"
-                        dataSource={this.boatSailingData}
-                        thickness="1"
-                        areaFillOpacity="0.8"
+                        angleMemberPath="direction"
+                        radiusMemberPath="boatSpeed"
                         showDefaultTooltip="false"
+                        areaFillOpacity="0.8"
+                        thickness="1"
                         title="Boat Speed"
+                        markerType="Circle"
                         name="PolarSplineAreaSeries2">
                     </IgrPolarSplineAreaSeries>
                     <IgrDataToolTipLayer
@@ -107,11 +104,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._boatSailingData;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

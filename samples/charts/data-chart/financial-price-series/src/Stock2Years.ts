@@ -2,7 +2,7 @@ export class Stock2YearsItem {
     public constructor(init: Partial<Stock2YearsItem>) {
         Object.assign(this, init);
     }
-    
+
     public month: string;
     public open: number;
     public high: number;

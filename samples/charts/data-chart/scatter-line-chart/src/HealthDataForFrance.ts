@@ -2,7 +2,7 @@ export class HealthDataForFranceItem {
     public constructor(init: Partial<HealthDataForFranceItem>) {
         Object.assign(this, init);
     }
-    
+
     public year: number;
     public healthExpense: number;
     public lifeExpectancy: number;

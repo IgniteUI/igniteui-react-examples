@@ -6,8 +6,6 @@ import { IgrItemLegendModule, IgrPieChartModule } from 'igniteui-react-charts';
 import { IgrItemLegend, IgrPieChart } from 'igniteui-react-charts';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
 
-
-
 const mods: any[] = [
     IgrItemLegendModule,
     IgrPieChartModule
@@ -53,7 +51,7 @@ export default class Sample extends React.Component<any, any> {
                     dataSource={this.energyGlobalDemand}
                     valueMemberPath="value"
                     labelMemberPath="summary"
-                    legendLabelMemberPath="summary"
+                    legendLabelMemberPath="category"
                     labelsPosition="OutsideEnd"
                     othersCategoryThreshold="10"
                     othersCategoryType="Number"
@@ -77,11 +75,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._energyGlobalDemand;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

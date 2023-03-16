@@ -65,7 +65,6 @@ export default class Sample extends React.Component<any, any> {
                 Average Temperature in Sedney
             </div>
 
-
             <div className="container fill">
                 <IgrCategoryChart
                     chartType="Column"
@@ -97,7 +96,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._temperatureAnnotatedData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -111,7 +109,6 @@ export default class Sample extends React.Component<any, any> {
     }
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

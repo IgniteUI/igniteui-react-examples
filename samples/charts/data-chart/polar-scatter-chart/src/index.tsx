@@ -6,8 +6,6 @@ import { IgrDataChartCoreModule, IgrDataChartPolarModule, IgrDataChartPolarCoreM
 import { IgrDataChart, IgrNumericAngleAxis, IgrNumericRadiusAxis, IgrPolarScatterSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { BoatSailingDataItem, BoatSailingData } from './BoatSailingData';
 
-
-
 const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartPolarModule,
@@ -42,7 +40,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Wind Speed vs Boat Speed
             </div>
-
 
             <div className="container fill">
                 <IgrDataChart
@@ -103,11 +100,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._boatSailingData;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

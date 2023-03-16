@@ -14,14 +14,14 @@
     "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
-    "igniteui-react-core": "18.1.2",
-    "igniteui-react-charts": "18.1.2",
-    "igniteui-react-layouts": "18.1.2",
+    "@infragistics/igniteui-react-core": "22.2.172",
+    "@infragistics/igniteui-react-charts": "22.2.172",
+    "@infragistics/igniteui-react-layouts": "22.2.172",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "tslib": "^2.4.0",
-    "igniteui-webcomponents": "3.4.0",
+    "igniteui-webcomponents": "4.2.2",
     "lit-html": "^2.2.0"
   },
   "devDependencies": {
@@ -29,7 +29,7 @@
     "@types/node": "^18.11.7",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
-    "eslint": "^6.6.0",
+    "eslint": "^8.33.0",
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-react": "^7.20.0",
     "react-app-rewired": "^2.2.1",

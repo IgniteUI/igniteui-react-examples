@@ -6,8 +6,6 @@ import { IgrSparklineModule } from 'igniteui-react-charts';
 import { IgrSparkline } from 'igniteui-react-charts';
 import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
 
-
-
 const mods: any[] = [
     IgrSparklineModule
 ];
@@ -30,8 +28,6 @@ export default class Sample extends React.Component<any, any> {
         return (
         <div className="container sample">
 
-
-
             <div className="container fill">
                 <IgrSparkline
                     dataSource={this.sparklineMixedData}
@@ -53,11 +49,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._sparklineMixedData;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

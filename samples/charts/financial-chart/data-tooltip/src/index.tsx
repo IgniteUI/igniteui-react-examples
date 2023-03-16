@@ -6,8 +6,6 @@ import { IgrFinancialChartModule, IgrDataChartInteractivityModule, IgrDataLegend
 import { IgrFinancialChart } from 'igniteui-react-charts';
 import { MultipleStocks } from './MultipleStocks';
 
-
-
 const mods: any[] = [
     IgrFinancialChartModule,
     IgrDataChartInteractivityModule,
@@ -31,8 +29,6 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
         <div className="container sample">
-
-
 
             <div className="container fill">
                 <IgrFinancialChart
@@ -61,11 +57,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._multipleStocks;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

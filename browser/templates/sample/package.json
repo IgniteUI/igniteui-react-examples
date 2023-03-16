@@ -12,10 +12,10 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "react-scripts": "3.4.1",
-    "tslib": "1.10.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "tslib": "^2.4.0"
   },
   "dependenciesNote": "above dependencies are required dependencies by all samples and below dependencies are injected based on 'usage' and/or 'keywords' conditions",
   "dependenciesOptional": {
@@ -37,10 +37,10 @@
     "igniteui-react-layouts":     { "version": "18.1.2", "usage": "detect" }
   },
   "devDependencies": {
-    "@types/jest": "^24.0.11",
-    "@types/node": "^11.11.8",
-    "@types/react": "^16.8.20",
-    "@types/react-dom": "^16.8.3",
+    "@types/jest": "^29.2.0",
+    "@types/node": "^18.11.7",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
     "typescript": "~3.7.2",
     "webpack": "^4.42.0",
     "worker-loader": "^2.0.0"

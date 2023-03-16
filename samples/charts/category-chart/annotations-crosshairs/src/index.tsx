@@ -54,7 +54,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorRef}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="CrosshairsDisplayMode"
-                        label="Crosshairs Display Mode:"
+                        label="Crosshairs Display Mode: "
                         primitiveValue="Both"
                         name="CrosshairsDisplayModeEditor">
                     </IgrPropertyEditorPropertyDescription>
@@ -71,7 +71,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend-title">
                 Average Temperature in Sedney
             </div>
-
 
             <div className="container fill">
                 <IgrCategoryChart
@@ -106,7 +105,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._temperatureAnnotatedData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -120,7 +118,6 @@ export default class Sample extends React.Component<any, any> {
     }
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

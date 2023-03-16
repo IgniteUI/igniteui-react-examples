@@ -2,12 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
+import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrScatterLineSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { HealthDataForGermanyItem, HealthDataForGermany } from './HealthDataForGermany';
 import { HealthDataForFranceItem, HealthDataForFrance } from './HealthDataForFrance';
-
-
 
 const mods: any[] = [
     IgrLegendModule,
@@ -16,7 +14,7 @@ const mods: any[] = [
     IgrDataChartScatterModule,
     IgrDataChartScatterCoreModule,
     IgrDataChartInteractivityModule,
-    IgrDataChartInteractivityModule
+    IgrDataChartAnnotationModule
 ];
 mods.forEach((m) => m.register());
 
@@ -117,7 +115,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._healthDataForGermany;
     }
-    
+
     private _healthDataForFrance: HealthDataForFrance = null;
     public get healthDataForFrance(): HealthDataForFrance {
         if (this._healthDataForFrance == null)
@@ -126,11 +124,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._healthDataForFrance;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

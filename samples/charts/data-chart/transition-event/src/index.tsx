@@ -73,7 +73,6 @@ export default class Sample extends React.Component<any, any> {
                 Facebook Consolidated Statements of Income
             </div>
 
-
             <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="false"
@@ -128,7 +127,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._companyIncomeData;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -142,16 +140,14 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    
     public editorButtonReplayTransitionIn(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         var series = this.chart.actualSeries;
         for (var i = 0; i < series.length; i++) {
             series[i].replayTransitionIn();
         }
     }
-        
-}
 
+}
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -2,7 +2,7 @@ export class CountryDemographicEuropeItem {
     public constructor(init: Partial<CountryDemographicEuropeItem>) {
         Object.assign(this, init);
     }
-    
+
     public population: number;
     public birthRate: number;
     public deathRate: number;
