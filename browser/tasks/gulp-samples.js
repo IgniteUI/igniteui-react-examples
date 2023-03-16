@@ -848,8 +848,8 @@ function updateIG(cb) {
 
         { name: "@types/jest"       , version: "^29.2.0", },
         { name: "@types/node"       , version: "^18.11.7", },
-        // { name: "@types/react"      , version: "^18.0.24", },
-        // { name: "@types/react-dom"  , version: "^18.0.8", },
+        { name: "@types/react"      , version: "^18.0.24", },
+        { name: "@types/react-dom"  , version: "^18.0.8", },
         // { name: "react-app-rewired" , version: "^2.2.1", },
         // { name: "typescript"        , version: "^4.8.4", },
     ];
