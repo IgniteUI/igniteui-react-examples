@@ -44,10 +44,11 @@ stages:
           customEndpoint: 'internal proget'
           verbose: ${{ parameters.isVerbose }}
 
-      - task: CmdLine@2
+      - task: PowerShell@2
         inputs:
+          targetType: 'inline'
           script: 'cat .npmrc'
-
+          
       # Until further notice we will use 'npm install' in order to avoid mixups when relying on latest dev versions of our packages
       - task: Npm@1
         displayName: 'npm install'
