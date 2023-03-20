@@ -35,14 +35,15 @@ stages:
           versionSource: 'spec'
           versionSpec: '16.x'
 
+      # Until further notice we will use 'npm install' in order to avoid mixups when relying on latest dev versions of our packages
       - task: Npm@1
-        displayName: 'npm ci'
+        displayName: 'npm install'
         inputs:
-          command: custom
+          command: 'custom'
           workingDir: '$(Build.SourcesDirectory)\browser'
+          customCommand: 'install'
           verbose: ${{ parameters.isVerbose }}
-          customCommand: ci
-          customEndpoint: 'public proget'
+          customEndpoint: 'internal proget'
 
       - task: Npm@1
         displayName: 'npm uninstall igniteui-dockmanager (trial)'
