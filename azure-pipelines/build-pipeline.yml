@@ -35,6 +35,15 @@ stages:
           versionSource: 'spec'
           versionSpec: '16.x'
 
+      - task: Npm@1
+        displayName: 'Register licensed npm registry in .npmrc'
+        inputs:
+          command: 'custom'
+          workingDir: '$(Build.SourcesDirectory)'
+          customCommand: 'config -L project set @infragistics:registry=$(IG_NPM_FEED)'
+          customEndpoint: 'internal proget'
+          verbose: ${{ parameters.isVerbose }}
+
       # Until further notice we will use 'npm install' in order to avoid mixups when relying on latest dev versions of our packages
       - task: Npm@1
         displayName: 'npm install'
@@ -43,7 +52,6 @@ stages:
           workingDir: '$(Build.SourcesDirectory)\browser'
           customCommand: 'install'
           verbose: ${{ parameters.isVerbose }}
-          customEndpoint: 'internal proget, public proget'
 
       - task: Npm@1
         displayName: 'npm uninstall igniteui-dockmanager (trial)'
