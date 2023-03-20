@@ -43,7 +43,7 @@ stages:
           workingDir: '$(Build.SourcesDirectory)\browser'
           customCommand: 'install'
           verbose: ${{ parameters.isVerbose }}
-          customEndpoint: 'internal proget'
+          customEndpoint: 'internal proget, public proget'
 
       - task: Npm@1
         displayName: 'npm uninstall igniteui-dockmanager (trial)'
