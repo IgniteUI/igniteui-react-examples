@@ -50,7 +50,8 @@ stages:
         inputs:
           command: 'custom'
           workingDir: '$(Build.SourcesDirectory)\browser'
-          customCommand: 'install --legacy-peer-deps'
+          customCommand: 'install'
+          customEndpoint: 'IG registry'
           verbose: ${{ parameters.isVerbose }}
 
       - task: Npm@1
