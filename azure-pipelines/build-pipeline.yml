@@ -41,13 +41,8 @@ stages:
           command: 'custom'
           workingDir: '$(Build.SourcesDirectory)'
           customCommand: 'config -L project set @infragistics:registry=$(IG_NPM_FEED)'
-          customEndpoint: 'internal proget'
+          customEndpoint: 'IG registry'
           verbose: ${{ parameters.isVerbose }}
-
-      - task: PowerShell@2
-        inputs:
-          targetType: 'inline'
-          script: 'copy-item .npmrc debug'
 
       # Until further notice we will use 'npm install' in order to avoid mixups when relying on latest dev versions of our packages
       - task: Npm@1
