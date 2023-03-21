@@ -68,17 +68,41 @@ stages:
           script: 'choco install jq -y'
           failOnStderr: true
 
-      - task: PowerShell@2
-        displayName: 'npm install igniteui-dockmanager (licensed)'
-        inputs:
-          targetType: 'inline'
-          # We are using a PowerShell script because the npm step doesn't allow for explicit use of variable expansion which is what we use here.
-          # The script below grabs the current version of the dockmanager and installs it separately (after we UNinstalled it in a previous step)
-          script: |
-            cd $(Build.SourcesDirectory)\browser
-            Write-Host npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
-            npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
+#      - task: PowerShell@2
+#        displayName: 'npm install igniteui-dockmanager (licensed)'
+#        inputs:
+#          targetType: 'inline'
+#          # We are using a PowerShell script because the npm step doesn't allow for explicit use of variable expansion which is what we use here.
+#          # The script below grabs the current version of the dockmanager and installs it separately (after we UNinstalled it in a previous step)
+#          script: |
+#            cd $(Build.SourcesDirectory)\browser
+#            Write-Host npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
+#            npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
 
+      - task: PowerShell@2
+        displayName: 'Uninstall all IG trial packages & re-install their licensed variations'
+        inputs:
+          failOnStderr: true
+          showWarnings: true
+          workingDirectory: '$(Build.SourcesDirectory)'
+          targetType: 'inline'
+          script: |
+            $packageJson = Get-Content -Raw .\package.json | ConvertFrom-Json
+            $npmUninstallPackages = "npm uninstall --save "
+            $npmInstallPackages = "npm install "
+
+            $packageJson.dependencies.PSObject.Properties | `
+                Where-Object { $_.Name.StartsWith("igniteui-dockmanager") } | `
+                ForEach-Object { `
+                    $npmUninstallPackages += $_.Name + " "
+                    $npmInstallPackages += "@infragistics/" + $_.Name + "@" + $_.Value + " "
+                }
+
+            Write-Host $npmUninstallPackages
+            Write-Host $npmInstallPackages
+
+            Invoke-Expression -Command “$npmUninstallPackages”
+            Invoke-Expression -Command “$npmInstallPackages”
       - task: Npm@1
         displayName: 'npm run build'
         inputs:
