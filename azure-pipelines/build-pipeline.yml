@@ -87,6 +87,7 @@ stages:
           workingDirectory: '$(Build.SourcesDirectory)'
           targetType: 'inline'
           script: |
+            cd $(Build.SourcesDirectory)\browser
             $packageJson = Get-Content -Raw .\package.json | ConvertFrom-Json
             $npmUninstallPackages = "npm uninstall --save "
             $npmInstallPackages = "npm install "
