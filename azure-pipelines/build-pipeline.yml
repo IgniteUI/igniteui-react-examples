@@ -76,6 +76,7 @@ stages:
           # The script below grabs the current version of the dockmanager and installs it separately (after we UNinstalled it in a previous step)
           script: |
             cd $(Build.SourcesDirectory)\browser
+            Write-Host npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
             npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
 
       - task: Npm@1
