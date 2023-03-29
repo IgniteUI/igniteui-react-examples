@@ -646,9 +646,9 @@ function logPackages(cb) {
         './node_modules/classnames/package.json',
         './node_modules/file-saver/package.json',
         './node_modules/igniteui*/package.json',
+        './node_modules/@infragistics/igniteui*/package.json',
         './node_modules/prop*/package.json',
         './node_modules/react*/package.json',
-
         './node_modules/typescript/package.json',
         './node_modules/webpack/package.json',
         './node_modules/worker-loader/package.json',
@@ -669,9 +669,11 @@ function logPackages(cb) {
             if (line.indexOf('"version":') >= 0) {
                 v = line.replace('"version":', '').replace(',', '').trim();
                 v = v.split('"').join('');
+                v = '"' + v + '",';
+                v = v.padEnd(Math.max(14, v.length), ' ');
             }
             if (n && v) {
-                fileNames.push({ version: v, name: n });
+                fileNames.push('{ "version": ' + v + ' "name": "' + n + '" }');
                 break;
             }
         }
@@ -680,12 +682,9 @@ function logPackages(cb) {
     }))
     .on("end", function() {
         const outputPath = "./src/navigation/BrowserInfo.json";
-        let outputContent = JSON.stringify(fileNames, null, ' ');
-        outputContent = outputContent.split('",\n  ').join('", ');
-        outputContent = outputContent.split('{\n  ').join('{ ');
-        outputContent = outputContent.split('\n }').join(' }');
+        // let outputContent = JSON.stringify(fileNames, null, ' ');
+        let outputContent = '[\n' + fileNames.join(',\n') + '\n]';
         fs.writeFileSync(outputPath, outputContent);
-
         console.log(">> using packages: ");
         console.log(outputContent);
         cb();
