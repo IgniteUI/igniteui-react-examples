@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
+import { IgrDataLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrDataLegend, IgrCategoryChart } from 'igniteui-react-charts';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
 const mods: any[] = [
-    IgrLegendModule,
+    IgrDataLegendModule,
     IgrCategoryChartModule
 ];
 mods.forEach((m) => m.register());
@@ -41,29 +41,29 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrDataLegend
-                    valueFormatMinFractions="1"
-                    valueFormatMode="Decimal"
+                    ref={this.legendRef}
                     target={this.chart}
-                    unitsText="B"
-                    ref={this.legendRef}>
+                    valueFormatMode="Decimal"
+                    valueFormatMinFractions="1"
+                    unitsText="B">
                 </IgrDataLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="Column"
+                    dataSource={this.highestGrossingMovies}
                     xAxisInterval="1"
-                    isCategoryHighlightingEnabled="true"
-                    yAxisLabelLeftMargin="0"
+                    yAxisTitle="Billions of U.S. Dollars"
                     yAxisTitleLeftMargin="10"
                     yAxisTitleRightMargin="5"
-                    yAxisTitle="Billions of U.S. Dollars"
-                    dataSource={this.highestGrossingMovies}
+                    yAxisLabelLeftMargin="0"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     toolTipType="None"
                     crosshairsDisplayMode="None"
-                    ref={this.chartRef}>
+                    isCategoryHighlightingEnabled="true">
                 </IgrCategoryChart>
             </div>
         </div>

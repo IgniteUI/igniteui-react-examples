@@ -52,42 +52,43 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
-                    legend={this.legend}
-                    ref={this.chartRef}>
+                    ref={this.chartRef}
+                    legend={this.legend}>
                     <IgrNumericXAxis
+                        name="xAxis"
+                        title="Life Expectancy (in years)"
                         minimumValue="72"
                         maximumValue="84"
-                        interval="2"
-                        title="Life Expectancy (in years)"
-                        name="xAxis">
+                        interval="2">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
+                        name="yAxis"
+                        title="Health Expenditure per Capita"
+                        abbreviateLargeNumbers="true"
                         minimumValue="1000"
                         maximumValue="6000"
-                        interval="1000"
-                        abbreviateLargeNumbers="true"
-                        title="Health Expenditure per Capita"
-                        name="yAxis">
+                        interval="1000">
                     </IgrNumericYAxis>
                     <IgrScatterSplineSeries
+                        name="ScatterSplineSeries1"
+                        title="Germany"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="lifeExpectancy"
                         yMemberPath="healthExpense"
-                        markerType="Circle"
                         dataSource={this.healthDataForGermany}
-                        showDefaultTooltip="true"
-                        title="Germany"
-                        name="ScatterSplineSeries1">
+                        markerType="Circle"
+                        showDefaultTooltip="true">
                     </IgrScatterSplineSeries>
                     <IgrScatterSplineSeries
+                        name="ScatterSplineSeries2"
                         title="France"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -95,8 +96,7 @@ export default class Sample extends React.Component<any, any> {
                         yMemberPath="healthExpense"
                         dataSource={this.healthDataForFrance}
                         markerType="Circle"
-                        showDefaultTooltip="true"
-                        name="ScatterSplineSeries2">
+                        showDefaultTooltip="true">
                     </IgrScatterSplineSeries>
                     <IgrDataToolTipLayer
                         name="DataToolTipLayer">

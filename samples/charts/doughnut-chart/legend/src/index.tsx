@@ -42,27 +42,27 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrItemLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrItemLegend>
             </div>
 
             <div className="container fill">
                 <IgrDoughnutChart
-                    allowSliceExplosion="true"
-                    ref={this.chartRef}>
+                    ref={this.chartRef}
+                    allowSliceExplosion="true">
                     <IgrRingSeries
-                        dataSource={this.energyGlobalDemand}
-                        valueMemberPath="value"
+                        name="series"
                         labelMemberPath="summary"
-                        legendLabelMemberPath="category"
                         labelsPosition="OutsideEnd"
-                        legend={this.legend}
                         labelExtent="30"
-                        startAngle="30"
+                        valueMemberPath="value"
+                        legendLabelMemberPath="category"
                         outlines="white"
                         radiusFactor="0.6"
-                        name="series">
+                        startAngle="30"
+                        dataSource={this.energyGlobalDemand}
+                        legend={this.legend}>
                     </IgrRingSeries>
                 </IgrDoughnutChart>
             </div>

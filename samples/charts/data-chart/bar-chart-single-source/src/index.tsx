@@ -44,35 +44,35 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
+                    ref={this.chartRef}
                     isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    ref={this.chartRef}>
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryYAxis
-                        dataSource={this.onlineShoppingSearches}
-                        gap="0.5"
-                        overlap="-0.1"
-                        isInverted="true"
+                        name="yAxis"
+                        label="shop"
                         useEnhancedIntervalManagement="true"
                         enhancedIntervalPreferMoreCategoryLabels="true"
-                        label="shop"
-                        name="yAxis">
+                        dataSource={this.onlineShoppingSearches}
+                        isInverted="true"
+                        gap="0.5"
+                        overlap="-0.1">
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
-                        labelFormat="{0}%"
-                        name="xAxis">
+                        name="xAxis"
+                        labelFormat="{0}%">
                     </IgrNumericXAxis>
                     <IgrCategoryHighlightLayer
                         name="CategoryHighlightLayer">
                     </IgrCategoryHighlightLayer>
                     <IgrBarSeries
+                        name="BarSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         valueMemberPath="percent"
-                        isTransitionInEnabled="true"
                         dataSource={this.onlineShoppingSearches}
-                        isHighlightingEnabled="true"
                         showDefaultTooltip="true"
-                        name="BarSeries1">
+                        isTransitionInEnabled="true"
+                        isHighlightingEnabled="true">
                     </IgrBarSeries>
                     <IgrDataToolTipLayer
                         name="Tooltips">

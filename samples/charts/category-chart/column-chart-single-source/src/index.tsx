@@ -34,19 +34,19 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="Column"
-                    isCategoryHighlightingEnabled="true"
-                    yAxisLabelLeftMargin="0"
+                    dataSource={this.temperatureAverageData}
+                    yAxisTitle="Temperature in Degrees Celsius"
                     yAxisTitleLeftMargin="10"
                     yAxisTitleRightMargin="5"
-                    yAxisTitle="Temperature in Degrees Celsius"
-                    dataSource={this.temperatureAverageData}
+                    yAxisLabelLeftMargin="0"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    isCategoryHighlightingEnabled="true"
                     highlightingMode="FadeOthersSpecific"
                     highlightingBehavior="NearestItemsAndSeries"
-                    crosshairsDisplayMode="None"
-                    ref={this.chartRef}>
+                    crosshairsDisplayMode="None">
                 </IgrCategoryChart>
             </div>
         </div>

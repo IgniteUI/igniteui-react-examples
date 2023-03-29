@@ -60,14 +60,14 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisOverlap"
+                        name="XAxisOverlap"
                         label="X Axis - Overlap"
-                        valueType="Slider"
                         shouldOverrideDefaultEditor="true"
-                        primitiveValue="0"
+                        valueType="Slider"
                         min="0"
                         max="1"
                         step="0.1"
-                        name="XAxisOverlap">
+                        primitiveValue="0">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -78,21 +78,21 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Column"
-                    xAxisInterval="1"
-                    xAxisOverlap="1"
+                    ref={this.chartRef}
                     dataSource={this.highestGrossingMovies}
+                    chartType="Column"
+                    crosshairsSnapToData="true"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    crosshairsSnapToData="true"
-                    ref={this.chartRef}>
+                    xAxisInterval="1"
+                    xAxisOverlap="1">
                 </IgrCategoryChart>
             </div>
         </div>

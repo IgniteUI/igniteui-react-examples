@@ -38,21 +38,21 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrDataLegend
-                    includedColumns={["Open", "Close", "High", "Low", "Change"]}
+                    ref={this.legendRef}
                     target={this.chart}
-                    ref={this.legendRef}>
+                    includedColumns={["Open", "Close", "High", "Low", "Change"]}>
                 </IgrDataLegend>
             </div>
 
             <div className="container fill">
                 <IgrFinancialChart
-                    isHorizontalZoomEnabled="true"
+                    ref={this.chartRef}
                     chartType="Candle"
-                    zoomSliderType="None"
                     isVerticalZoomEnabled="true"
-                    dataToolTipHeaderFormatTime="None"
+                    isHorizontalZoomEnabled="true"
                     dataSource={this.multipleStocks}
-                    ref={this.chartRef}>
+                    dataToolTipHeaderFormatTime="None"
+                    zoomSliderType="None">
                 </IgrFinancialChart>
             </div>
         </div>

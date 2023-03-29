@@ -42,19 +42,19 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="Line"
-                    yAxisTitle="TWh"
                     dataSource={this.countryRenewableElectricity}
                     legend={this.legend}
-                    computedPlotAreaMarginMode="Series"
-                    ref={this.chartRef}>
+                    yAxisTitle="TWh"
+                    computedPlotAreaMarginMode="Series">
                 </IgrCategoryChart>
             </div>
         </div>

@@ -55,47 +55,47 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="NormalRangeVisibility"
+                        name="NormalRangeVisibilityEditor"
                         label="Normal Range Visibility"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["Visible", "Collapsed"]}
                         dropDownValues={["Visible", "Collapsed"]}
-                        primitiveValue="Visible"
-                        name="NormalRangeVisibilityEditor">
+                        primitiveValue="Visible">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        dropDownValues={["0", "10", "15", "20", "25", "30"]}
-                        primitiveValue="25"
                         propertyPath="NormalRangeMinimum"
+                        name="NormalRangeMinimumEditor"
                         label="Normal Range Minimum"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["0", "10", "15", "20", "25", "30"]}
-                        name="NormalRangeMinimumEditor">
+                        dropDownValues={["0", "10", "15", "20", "25", "30"]}
+                        primitiveValue="25">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        dropDownValues={["0", "10", "15", "20", "25", "30"]}
-                        primitiveValue="25"
                         propertyPath="NormalRangeMaximum"
+                        name="NormalRangeMaximumEditor"
                         label="Normal Range Maximum"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["0", "10", "15", "20", "25", "30"]}
-                        name="NormalRangeMaximumEditor">
+                        dropDownValues={["0", "10", "15", "20", "25", "30"]}
+                        primitiveValue="25">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
 
             <div className="container fill">
                 <IgrSparkline
-                    normalRangeVisibility="Visible"
+                    ref={this.chartRef}
                     dataSource={this.sparklineMixedData}
-                    valueMemberPath="value"
-                    labelMemberPath="label"
-                    normalRangeMinimum="15"
-                    normalRangeMaximum="25"
                     displayType="Area"
-                    ref={this.chartRef}>
+                    labelMemberPath="label"
+                    valueMemberPath="value"
+                    normalRangeVisibility="Visible"
+                    normalRangeMinimum="15"
+                    normalRangeMaximum="25">
                 </IgrSparkline>
             </div>
         </div>

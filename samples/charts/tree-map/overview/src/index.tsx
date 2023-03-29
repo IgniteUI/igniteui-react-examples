@@ -34,25 +34,25 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreemap
-                    valueMemberPath="population"
-                    rootTitle="Countries"
-                    parentIdMemberPath="parent"
-                    labelMemberPath="name"
-                    idMemberPath="name"
+                    ref={this.treemapRef}
                     dataSource={this.countyHierarchicalData}
-                    fillBrushes="rgba(78, 98, 207, 1) rgba(138, 88, 214, 1)"
+                    parentIdMemberPath="parent"
+                    idMemberPath="name"
+                    labelMemberPath="name"
+                    valueMemberPath="population"
                     fillScaleMode="Value"
-                    isFillScaleLogarithmic="true"
                     fillScaleMinimumValue="0"
                     fillScaleMaximumValue="1500000000"
+                    fillBrushes="rgba(78, 98, 207, 1) rgba(138, 88, 214, 1)"
+                    isFillScaleLogarithmic="true"
+                    rootTitle="Countries"
                     headerDisplayMode="Overlay"
-                    parentNodeLeftPadding="0"
-                    parentNodeTopPadding="0"
-                    parentNodeRightPadding="0"
                     parentNodeBottomPadding="0"
+                    parentNodeLeftPadding="0"
+                    parentNodeRightPadding="0"
+                    parentNodeTopPadding="0"
                     outline="black"
-                    strokeThickness="1"
-                    ref={this.treemapRef}>
+                    strokeThickness="1">
                 </IgrTreemap>
             </div>
         </div>

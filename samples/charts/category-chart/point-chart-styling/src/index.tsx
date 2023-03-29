@@ -41,29 +41,29 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Point"
-                    yAxisLabelLeftMargin="0"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitle="TWh"
+                    ref={this.chartRef}
                     dataSource={this.countryRenewableElectricity}
+                    chartType="Point"
+                    legend={this.legend}
+                    markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
+                    markerBrushes="white"
                     brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
-                    legend={this.legend}
+                    yAxisTitle="TWh"
+                    yAxisTitleLeftMargin="10"
+                    yAxisLabelLeftMargin="0"
+                    thickness="2"
+                    computedPlotAreaMarginMode="Series"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    thickness="2"
-                    markerBrushes="white"
-                    markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
-                    computedPlotAreaMarginMode="Series"
-                    crosshairsSnapToData="true"
-                    ref={this.chartRef}>
+                    crosshairsSnapToData="true">
                 </IgrCategoryChart>
             </div>
         </div>

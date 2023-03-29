@@ -51,28 +51,28 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
+                    ref={this.propertyEditorRef}
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
                     isHorizontal="true"
-                    isWrappingEnabled="true"
-                    ref={this.propertyEditorRef}>
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="ChartType"
+                        name="ChartTypeEditor"
                         label="Chart Type"
-                        primitiveValue="Line"
-                        name="ChartTypeEditor">
+                        primitiveValue="Line">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
+                        propertyPath="MarkerTypeHandler"
+                        name="MarkerTypeEditor"
+                        label="Marker Type"
+                        shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
+                        dropDownValues={["Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None"]}
                         dropDownNames={["Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None"]}
                         primitiveValue="Circle"
-                        changed={this.editorChangeUpdateMarkerType}
-                        propertyPath="MarkerTypeHandler"
-                        label="Marker Type"
-                        valueType="EnumValue"
-                        shouldOverrideDefaultEditor="true"
-                        dropDownValues={["Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None"]}
-                        name="MarkerTypeEditor">
+                        changed={this.editorChangeUpdateMarkerType}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -83,11 +83,11 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
+                    isSeriesHighlightingEnabled="true"
                     chartType="Line"
                     dataSource={this.countryRenewableElectricity}
-                    isSeriesHighlightingEnabled="true"
-                    computedPlotAreaMarginMode="Series"
-                    ref={this.chartRef}>
+                    computedPlotAreaMarginMode="Series">
                 </IgrCategoryChart>
             </div>
         </div>

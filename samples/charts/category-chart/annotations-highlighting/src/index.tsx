@@ -46,46 +46,46 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
+                    ref={this.propertyEditorRef}
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
                     isHorizontal="true"
-                    isWrappingEnabled="true"
-                    ref={this.propertyEditorRef}>
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightingMode"
+                        name="HighlightingModeEditor"
                         label="Highlighting Mode: "
-                        primitiveValue="FadeOthersSpecific"
-                        name="HighlightingModeEditor">
+                        primitiveValue="FadeOthersSpecific">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightingBehavior"
+                        name="HighlightingBehaviorEditor"
                         label="Highlighting Behavior: "
-                        primitiveValue="NearestItemsAndSeries"
-                        name="HighlightingBehaviorEditor">
+                        primitiveValue="NearestItemsAndSeries">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
 
             <div className="legend-title">
-                Average Temperature in Sedney
+                Average Temperature in Sydney
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="Column"
-                    yAxisMaximumValue="35"
-                    isCategoryHighlightingEnabled="true"
-                    yAxisLabelLocation="OutsideRight"
-                    dataSource={this.temperatureAnnotatedData}
-                    includedProperties={["month", "temperature"]}
+                    computedPlotAreaMarginMode="Series"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    computedPlotAreaMarginMode="Series"
+                    includedProperties={["month", "temperature"]}
+                    dataSource={this.temperatureAnnotatedData}
+                    isCategoryHighlightingEnabled="true"
                     highlightingMode="FadeOthersSpecific"
                     highlightingBehavior="NearestItemsAndSeries"
                     crosshairsAnnotationYAxisPrecision="0"
-                    ref={this.chartRef}>
+                    yAxisMaximumValue="35"
+                    yAxisLabelLocation="OutsideRight">
                 </IgrCategoryChart>
             </div>
         </div>

@@ -41,25 +41,25 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrItemLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrItemLegend>
             </div>
 
             <div className="container fill">
                 <IgrPieChart
-                    dataSource={this.energyGlobalDemand}
+                    ref={this.chartRef}
+                    legendLabelMemberPath="category"
                     valueMemberPath="value"
                     labelMemberPath="summary"
-                    legendLabelMemberPath="category"
                     labelsPosition="OutsideEnd"
-                    radiusFactor="0.7"
-                    legend={this.legend}
                     labelExtent="30"
-                    startAngle="0"
                     brushes="rgba(247, 210, 98, 1) rgba(168, 168, 183, 1) rgba(224, 81, 169, 1) rgba(248, 161, 95, 1) rgba(115, 86, 86, 1)"
                     outlines="white"
-                    ref={this.chartRef}>
+                    radiusFactor="0.7"
+                    startAngle="0"
+                    dataSource={this.energyGlobalDemand}
+                    legend={this.legend}>
                 </IgrPieChart>
             </div>
         </div>

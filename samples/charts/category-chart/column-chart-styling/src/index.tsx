@@ -41,28 +41,28 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Column"
-                    xAxisGap="0.5"
-                    isCategoryHighlightingEnabled="true"
-                    xAxisMajorStroke="lightgray"
+                    ref={this.chartRef}
                     dataSource={this.energyRenewableConsumption}
-                    brushes="rgba(157, 231, 114, 1) rgba(139, 91, 177, 1) rgba(109, 177, 255, 1) rgba(238, 88, 121, 1) rgba(248, 161, 95, 1)"
-                    outlines="white"
+                    chartType="Column"
                     legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     isSeriesHighlightingEnabled="true"
-                    highlightingMode="FadeOthersSpecific"
-                    highlightingBehavior="NearestItemsAndSeries"
+                    brushes="rgba(157, 231, 114, 1) rgba(139, 91, 177, 1) rgba(109, 177, 255, 1) rgba(238, 88, 121, 1) rgba(248, 161, 95, 1)"
+                    outlines="white"
+                    xAxisMajorStroke="lightgray"
+                    xAxisGap="0.5"
                     crosshairsDisplayMode="None"
-                    ref={this.chartRef}>
+                    isCategoryHighlightingEnabled="true"
+                    highlightingMode="FadeOthersSpecific"
+                    highlightingBehavior="NearestItemsAndSeries">
                 </IgrCategoryChart>
             </div>
         </div>

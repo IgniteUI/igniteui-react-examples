@@ -49,48 +49,48 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
+                    ref={this.chartRef}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    legend={this.legend}
-                    ref={this.chartRef}>
+                    legend={this.legend}>
                     <IgrCategoryXAxis
-                        interval="1"
-                        dataSource={this.temperatureRangeData}
+                        name="xAxis"
                         label="month"
-                        name="xAxis">
+                        interval="1"
+                        dataSource={this.temperatureRangeData}>
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
+                        name="yAxis"
                         title="Temperature (in Celsius)"
                         titleAngle="90"
-                        titleLeftMargin="10"
-                        name="yAxis">
+                        titleLeftMargin="10">
                     </IgrNumericYAxis>
                     <IgrRangeAreaSeries
+                        name="RangeAreaSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
+                        title="Los Angeles"
                         lowMemberPath="lowLA"
                         highMemberPath="highLA"
-                        dataSource={this.temperatureRangeData}
                         showDefaultTooltip="false"
-                        title="Los Angeles"
-                        name="RangeAreaSeries1">
+                        dataSource={this.temperatureRangeData}>
                     </IgrRangeAreaSeries>
                     <IgrRangeAreaSeries
+                        name="RangeAreaSeries2"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         title="New York"
                         lowMemberPath="lowNY"
                         highMemberPath="highNY"
                         showDefaultTooltip="false"
-                        dataSource={this.temperatureRangeData}
-                        name="RangeAreaSeries2">
+                        dataSource={this.temperatureRangeData}>
                     </IgrRangeAreaSeries>
                     <IgrDataToolTipLayer
                         name="DataToolTipLayer">

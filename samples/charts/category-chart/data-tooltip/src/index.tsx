@@ -35,21 +35,21 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="Column"
+                    dataSource={this.highestGrossingMovies}
+                    toolTipType="Data"
                     xAxisInterval="1"
-                    isCategoryHighlightingEnabled="true"
-                    yAxisLabelLeftMargin="0"
+                    yAxisTitle="Billions of U.S. Dollars"
                     yAxisTitleLeftMargin="10"
                     yAxisTitleRightMargin="5"
-                    yAxisTitle="Billions of U.S. Dollars"
-                    dataSource={this.highestGrossingMovies}
+                    yAxisLabelLeftMargin="0"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    highlightingMode="FadeOthersSpecific"
-                    highlightingBehavior="NearestItemsAndSeries"
-                    toolTipType="Data"
                     crosshairsDisplayMode="None"
-                    ref={this.chartRef}>
+                    isCategoryHighlightingEnabled="true"
+                    highlightingMode="FadeOthersSpecific"
+                    highlightingBehavior="NearestItemsAndSeries">
                 </IgrCategoryChart>
             </div>
         </div>

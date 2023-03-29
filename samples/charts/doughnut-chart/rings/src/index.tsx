@@ -38,28 +38,28 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDoughnutChart
-                    allowSliceSelection="false"
+                    ref={this.chartRef}
                     allowSliceExplosion="false"
-                    ref={this.chartRef}>
+                    allowSliceSelection="false">
                     <IgrRingSeries
-                        dataSource={this.calendarSeasons}
-                        valueMemberPath="value"
+                        name="series1"
                         labelMemberPath="label"
+                        valueMemberPath="value"
                         labelsPosition="Center"
-                        brushes="rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1)"
-                        outlines="white"
                         radiusFactor="0.9"
-                        name="series1">
+                        outlines="white"
+                        brushes="rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1)"
+                        dataSource={this.calendarSeasons}>
                     </IgrRingSeries>
                     <IgrRingSeries
-                        brushes="rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1)"
-                        dataSource={this.calendarMonths}
-                        valueMemberPath="value"
+                        name="series2"
                         labelMemberPath="label"
+                        valueMemberPath="value"
                         labelsPosition="Center"
-                        outlines="white"
                         radiusFactor="0.9"
-                        name="series2">
+                        outlines="white"
+                        brushes="rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1)"
+                        dataSource={this.calendarMonths}>
                     </IgrRingSeries>
                 </IgrDoughnutChart>
             </div>

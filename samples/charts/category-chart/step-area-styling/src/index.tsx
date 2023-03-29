@@ -42,29 +42,29 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="StepArea"
-                    isTransitionInEnabled="true"
-                    isCategoryHighlightingEnabled="true"
-                    yAxisTitle="TWh"
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
-                    brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
-                    outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     legend={this.legend}
+                    ref={this.chartRef}
+                    chartType="StepArea"
+                    yAxisTitle="TWh"
+                    isCategoryHighlightingEnabled="true"
+                    isSeriesHighlightingEnabled="true"
+                    isTransitionInEnabled="true"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    isSeriesHighlightingEnabled="true"
                     markerBrushes="white"
                     markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
-                    crosshairsSnapToData="true"
-                    ref={this.chartRef}>
+                    brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
+                    outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
+                    crosshairsSnapToData="true">
                 </IgrCategoryChart>
             </div>
         </div>

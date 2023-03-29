@@ -35,15 +35,15 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="StepArea"
-                    isTransitionInEnabled="true"
-                    yAxisTitle="TWh"
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe"]}
+                    ref={this.chartRef}
+                    chartType="StepArea"
+                    isTransitionInEnabled="true"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    crosshairsSnapToData="true"
-                    ref={this.chartRef}>
+                    yAxisTitle="TWh"
+                    crosshairsSnapToData="true">
                 </IgrCategoryChart>
             </div>
         </div>

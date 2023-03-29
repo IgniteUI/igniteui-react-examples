@@ -75,43 +75,43 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
+                    ref={this.chartRef}
                     isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    ref={this.chartRef}>
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryXAxis
+                        name="xAxis"
+                        label="category"
                         interval="1"
                         dataSource={this.companyIncomeData}
-                        overlap="1"
-                        label="category"
-                        name="xAxis">
+                        overlap="1">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
-                        minimumValue="0"
-                        maximumValue="60"
+                        name="yAxis"
                         title="Millions of Dollars"
-                        titleAngle="-90"
                         titleLeftMargin="10"
-                        name="yAxis">
+                        titleAngle="-90"
+                        minimumValue="0"
+                        maximumValue="60">
                     </IgrNumericYAxis>
                     <IgrWaterfallSeries
+                        name="WaterfallSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        valueMemberPath="costs"
-                        isTransitionInEnabled="true"
                         dataSource={this.companyIncomeData}
+                        valueMemberPath="costs"
                         showDefaultTooltip="true"
-                        name="WaterfallSeries1">
+                        isTransitionInEnabled="true">
                     </IgrWaterfallSeries>
                     <IgrWaterfallSeries
+                        name="WaterfallSeries2"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.companyIncomeData}
-                        valueMemberPath="netIncome"
-                        showDefaultTooltip="true"
-                        isTransitionInEnabled="true"
                         brush="rgba(116, 70, 185, 1)"
                         outline="rgba(116, 70, 185, 1)"
-                        name="WaterfallSeries2">
+                        valueMemberPath="netIncome"
+                        showDefaultTooltip="true"
+                        isTransitionInEnabled="true">
                     </IgrWaterfallSeries>
                 </IgrDataChart>
             </div>

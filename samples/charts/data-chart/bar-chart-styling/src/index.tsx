@@ -47,50 +47,50 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
+                    ref={this.chartRef}
                     isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    ref={this.chartRef}>
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryYAxis
-                        dataSource={this.onlineShoppingSearches}
-                        gap="0.75"
-                        isInverted="true"
+                        name="yAxis"
                         label="shop"
-                        name="yAxis">
+                        dataSource={this.onlineShoppingSearches}
+                        isInverted="true"
+                        gap="0.75">
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
-                        minimumValue="0"
-                        maximumValue="80"
+                        name="xAxis"
                         interval="20"
-                        labelFormat="{0}%"
-                        name="xAxis">
+                        maximumValue="80"
+                        minimumValue="0"
+                        labelFormat="{0}%">
                     </IgrNumericXAxis>
                     <IgrCategoryHighlightLayer
                         name="CategoryHighlightLayer">
                     </IgrCategoryHighlightLayer>
                     <IgrBarSeries
+                        name="BarSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         valueMemberPath="percent"
-                        isTransitionInEnabled="true"
                         dataSource={this.onlineShoppingSearches}
+                        showDefaultTooltip="true"
+                        isTransitionInEnabled="true"
+                        isHighlightingEnabled="true"
                         brush="rgba(134, 6, 138, 0.654901960784314)"
                         outline="rgba(133, 6, 138, 1)"
                         thickness="2"
-                        isHighlightingEnabled="true"
-                        areaFillOpacity="0.5"
-                        showDefaultTooltip="true"
-                        name="BarSeries1">
+                        areaFillOpacity="0.5">
                     </IgrBarSeries>
                     <IgrCalloutLayer
-                        labelMemberPath="label"
+                        name="CalloutLayer1"
                         xMemberPath="x"
                         yMemberPath="y"
+                        labelMemberPath="label"
                         contentMemberPath="label"
                         calloutTextColor="rgba(133, 6, 138, 1)"
                         calloutBackground="rgba(0, 0, 0, 0)"
                         calloutLeaderBrush="rgba(0, 0, 0, 0)"
-                        dataSource={this.onlineShoppingSearches}
-                        name="CalloutLayer1">
+                        dataSource={this.onlineShoppingSearches}>
                     </IgrCalloutLayer>
                     <IgrDataToolTipLayer
                         name="Tooltips">

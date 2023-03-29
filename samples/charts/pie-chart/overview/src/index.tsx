@@ -41,21 +41,21 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrItemLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrItemLegend>
             </div>
 
             <div className="container fill">
                 <IgrPieChart
-                    dataSource={this.energyGlobalDemand}
-                    valueMemberPath="value"
-                    labelMemberPath="summary"
+                    ref={this.chartRef}
                     legendLabelMemberPath="category"
+                    labelMemberPath="summary"
                     labelsPosition="BestFit"
+                    valueMemberPath="value"
                     radiusFactor="0.7"
-                    legend={this.legend}
-                    ref={this.chartRef}>
+                    dataSource={this.energyGlobalDemand}
+                    legend={this.legend}>
                 </IgrPieChart>
             </div>
         </div>

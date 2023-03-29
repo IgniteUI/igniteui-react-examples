@@ -56,27 +56,27 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="LayoutType"
-                        label="Layout"
+                        name="LayoutTypeEditor"
                         primitiveValue="Squarified"
-                        name="LayoutTypeEditor">
+                        label="Layout">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="LayoutOrientation"
+                        name="LayoutOrientationEditor"
                         primitiveValue="Vertical"
-                        label="Orientation"
-                        name="LayoutOrientationEditor">
+                        label="Orientation">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HeaderDisplayMode"
+                        name="HeaderDisplayModeEditor"
                         primitiveValue="Overlay"
-                        label="Headers"
-                        name="HeaderDisplayModeEditor">
+                        label="Headers">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="LabelVerticalAlignment"
+                        name="LabelVerticalAlignmentEditor"
                         primitiveValue="Center"
-                        label="Labels"
-                        name="LabelVerticalAlignmentEditor">
+                        label="Labels">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -87,20 +87,20 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreemap
-                    valueMemberPath="population"
+                    ref={this.treemapRef}
+                    dataSource={this.countyHierarchicalData}
                     rootTitle="Countries"
                     parentIdMemberPath="parent"
-                    labelMemberPath="name"
                     idMemberPath="name"
-                    dataSource={this.countyHierarchicalData}
+                    labelMemberPath="name"
+                    valueMemberPath="population"
                     fillBrushes="rgba(41, 158, 65, 1) rgba(78, 98, 207, 1) rgba(94, 53, 156, 1)"
                     isFillScaleLogarithmic="true"
                     headerDisplayMode="Overlay"
-                    parentNodeLeftPadding="0"
-                    parentNodeTopPadding="0"
-                    parentNodeRightPadding="0"
                     parentNodeBottomPadding="0"
-                    ref={this.treemapRef}>
+                    parentNodeLeftPadding="0"
+                    parentNodeRightPadding="0"
+                    parentNodeTopPadding="0">
                 </IgrTreemap>
             </div>
         </div>

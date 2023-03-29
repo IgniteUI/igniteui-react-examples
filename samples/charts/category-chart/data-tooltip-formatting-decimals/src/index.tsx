@@ -35,22 +35,22 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="Column"
+                    dataSource={this.highestGrossingMovies}
+                    toolTipType="Data"
+                    dataToolTipUnitsText="B"
+                    dataToolTipValueFormatMode="Decimal"
+                    dataToolTipValueFormatMinFractions="2"
                     xAxisInterval="1"
-                    isCategoryHighlightingEnabled="true"
-                    yAxisLabelLeftMargin="0"
+                    yAxisTitle="Billions of U.S. Dollars"
                     yAxisTitleLeftMargin="10"
                     yAxisTitleRightMargin="5"
-                    yAxisTitle="Billions of U.S. Dollars"
-                    dataToolTipValueFormatMinFractions="2"
-                    dataToolTipValueFormatMode="Decimal"
-                    dataToolTipUnitsText="B"
-                    dataSource={this.highestGrossingMovies}
-                    highlightingMode="FadeOthersSpecific"
-                    highlightingBehavior="NearestItemsAndSeries"
-                    toolTipType="Data"
+                    yAxisLabelLeftMargin="0"
+                    isCategoryHighlightingEnabled="true"
                     crosshairsDisplayMode="None"
-                    ref={this.chartRef}>
+                    highlightingMode="FadeOthersSpecific"
+                    highlightingBehavior="NearestItemsAndSeries">
                 </IgrCategoryChart>
             </div>
         </div>

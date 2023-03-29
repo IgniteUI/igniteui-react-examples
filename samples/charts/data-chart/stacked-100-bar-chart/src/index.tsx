@@ -55,39 +55,39 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    ref={this.chartRef}
                     legend={this.legend}
-                    ref={this.chartRef}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryYAxis
+                        name="yAxis"
                         dataSource={this.energyRenewableConsumption}
-                        isInverted="true"
                         label="location"
-                        name="yAxis">
+                        isInverted="true">
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
+                        name="xAxis"
                         minimumValue="0"
-                        title="TWh"
-                        name="xAxis">
+                        title="TWh">
                     </IgrNumericXAxis>
                     <IgrStacked100BarSeries
+                        name="Stacked100BarSeries"
+                        dataSource={this.energyRenewableConsumption}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        dataSource={this.energyRenewableConsumption}
-                        areaFillOpacity="1"
                         showDefaultTooltip="true"
-                        name="Stacked100BarSeries">
+                        areaFillOpacity="1">
                         <IgrStackedFragmentSeries
                             name="s1"
-                            title="Hydro"
-                            valueMemberPath="hydro">
+                            valueMemberPath="hydro"
+                            title="Hydro">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s2"

@@ -56,21 +56,21 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="InitialGroups"
+                        name="InitialGroups"
                         label="Initial Groups"
-                        valueType="StringValue"
-                        name="InitialGroups">
+                        valueType="StringValue">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="InitialSummaries"
+                        name="InitialSummaries"
                         label="Initial Summaries"
-                        valueType="StringValue"
-                        name="InitialSummaries">
+                        valueType="StringValue">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="GroupSorts"
+                        name="GroupSorts"
                         label="Sort Groups"
-                        valueType="StringValue"
-                        name="GroupSorts">
+                        valueType="StringValue">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -81,15 +81,15 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Column"
-                    groupSorts="Sales Desc"
-                    initialGroups="Country"
-                    initialSummaries="Sum(Sales) as Sales"
+                    ref={this.chartRef}
                     dataSource={this.salesData}
+                    chartType="Column"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     crosshairsDisplayMode="None"
-                    ref={this.chartRef}>
+                    initialGroups="Country"
+                    initialSummaries="Sum(Sales) as Sales"
+                    groupSorts="Sales Desc">
                 </IgrCategoryChart>
             </div>
         </div>

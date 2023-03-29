@@ -61,23 +61,23 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="YAxisMinimumValue"
+                        name="YAxisMinimumValue"
                         label="Y Axis Minimum Value"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]}
                         dropDownValues={["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]}
-                        primitiveValue="0"
-                        name="YAxisMinimumValue">
+                        primitiveValue="0">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        dropDownValues={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}
-                        primitiveValue="150"
                         propertyPath="YAxisMaximumValue"
+                        name="YAxisMaximumValue"
                         label="Y Axis Maximum Value"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}
-                        name="YAxisMaximumValue">
+                        dropDownValues={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}
+                        primitiveValue="150">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -88,23 +88,23 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Line"
-                    yAxisMinimumValue="0"
-                    yAxisMaximumValue="150"
+                    ref={this.chartRef}
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
                     legend={this.legend}
+                    chartType="Line"
+                    computedPlotAreaMarginMode="Series"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    computedPlotAreaMarginMode="Series"
-                    ref={this.chartRef}>
+                    yAxisMinimumValue="0"
+                    yAxisMaximumValue="150">
                 </IgrCategoryChart>
             </div>
         </div>

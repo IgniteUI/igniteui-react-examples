@@ -52,17 +52,17 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
+                    ref={this.propertyEditorRef}
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
                     isHorizontal="true"
-                    isWrappingEnabled="true"
-                    ref={this.propertyEditorRef}>
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="ToolTipType"
+                        name="ToolTipTypeEditor"
                         label="ToolTip Type: "
-                        primitiveValue="Data"
-                        name="ToolTipTypeEditor">
+                        primitiveValue="Data">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -79,18 +79,18 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="Column"
+                    legend={this.legend}
+                    dataSource={this.highestGrossingMovies}
                     xAxisInterval="1"
-                    yAxisLabelLeftMargin="0"
+                    yAxisTitle="Billions of U.S. Dollars"
                     yAxisTitleLeftMargin="10"
                     yAxisTitleRightMargin="5"
-                    yAxisTitle="Billions of U.S. Dollars"
-                    dataSource={this.highestGrossingMovies}
-                    legend={this.legend}
+                    yAxisLabelLeftMargin="0"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    crosshairsSnapToData="true"
-                    ref={this.chartRef}>
+                    crosshairsSnapToData="true">
                 </IgrCategoryChart>
             </div>
         </div>

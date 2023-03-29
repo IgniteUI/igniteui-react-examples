@@ -49,51 +49,52 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
+                    ref={this.chartRef}
+                    legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
-                    outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
                     markerBrushes="white"
                     markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
-                    legend={this.legend}
-                    ref={this.chartRef}>
+                    brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
+                    outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)">
                     <IgrNumericAngleAxis
+                        name="angleAxis"
                         startAngleOffset="-90"
+                        interval="30"
                         minimumValue="0"
                         maximumValue="360"
-                        interval="30"
-                        labelTextStyle="normal bold 14px Verdana"
-                        name="angleAxis">
+                        labelTextStyle="normal bold 14px Verdana">
                     </IgrNumericAngleAxis>
                     <IgrNumericRadiusAxis
+                        name="radiusAxis"
                         radiusExtentScale="0.9"
                         innerRadiusExtentScale="0.1"
-                        minimumValue="0"
-                        maximumValue="100"
                         interval="25"
-                        name="radiusAxis">
+                        minimumValue="0"
+                        maximumValue="100">
                     </IgrNumericRadiusAxis>
                     <IgrPolarAreaSeries
-                        angleMemberPath="direction"
-                        radiusMemberPath="windSpeed"
+                        name="PolarAreaSeries1"
+                        dataSource={this.boatSailingData}
                         angleAxisName="angleAxis"
                         radiusAxisName="radiusAxis"
-                        markerType="Circle"
-                        dataSource={this.boatSailingData}
-                        thickness="1"
-                        areaFillOpacity="0.3"
+                        angleMemberPath="direction"
+                        radiusMemberPath="windSpeed"
                         showDefaultTooltip="true"
+                        areaFillOpacity="0.3"
+                        thickness="1"
                         title="Wind Speed"
-                        name="PolarAreaSeries1">
+                        markerType="Circle">
                     </IgrPolarAreaSeries>
                     <IgrPolarAreaSeries
+                        name="PolarAreaSeries2"
                         dataSource={this.boatSailingData}
                         angleAxisName="angleAxis"
                         radiusAxisName="radiusAxis"
@@ -103,8 +104,7 @@ export default class Sample extends React.Component<any, any> {
                         areaFillOpacity="0.3"
                         thickness="1"
                         title="Boat Speed"
-                        markerType="Circle"
-                        name="PolarAreaSeries2">
+                        markerType="Circle">
                     </IgrPolarAreaSeries>
                 </IgrDataChart>
             </div>

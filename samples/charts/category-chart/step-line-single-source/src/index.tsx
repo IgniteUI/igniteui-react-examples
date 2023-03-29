@@ -35,15 +35,15 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="StepLine"
-                    isCategoryHighlightingEnabled="true"
-                    yAxisTitle="TWh"
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe"]}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    crosshairsSnapToData="true"
-                    ref={this.chartRef}>
+                    yAxisTitle="TWh"
+                    isCategoryHighlightingEnabled="true"
+                    crosshairsSnapToData="true">
                 </IgrCategoryChart>
             </div>
         </div>

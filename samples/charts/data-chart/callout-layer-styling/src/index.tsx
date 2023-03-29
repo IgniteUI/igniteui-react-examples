@@ -47,33 +47,33 @@ export default class Sample extends React.Component<any, any> {
                     computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
+                        name="xAxis"
                         dataSource={this.countryRenewableElectricity}
-                        label="year"
-                        name="xAxis">
+                        label="year">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
+                        name="yAxis"
                         title="TWh"
-                        labelLocation="OutsideRight"
-                        name="yAxis">
+                        labelLocation="OutsideRight">
                     </IgrNumericYAxis>
                     <IgrLineSeries
+                        name="LineSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        valueMemberPath="america"
                         dataSource={this.countryRenewableElectricity}
-                        name="LineSeries1">
+                        valueMemberPath="america">
                     </IgrLineSeries>
                     <IgrCalloutLayer
-                        labelMemberPath="label"
+                        name="CalloutLayer1"
+                        dataSource={this.countryRenewableCallouts}
                         xMemberPath="index"
                         yMemberPath="value"
-                        calloutTextColor="black"
-                        calloutBackground="orange"
-                        calloutOutline="black"
+                        labelMemberPath="label"
                         calloutLeaderBrush="black"
-                        calloutStrokeThickness="2"
-                        dataSource={this.countryRenewableCallouts}
-                        name="CalloutLayer1">
+                        calloutOutline="black"
+                        calloutBackground="orange"
+                        calloutTextColor="black"
+                        calloutStrokeThickness="2">
                     </IgrCalloutLayer>
                 </IgrDataChart>
             </div>

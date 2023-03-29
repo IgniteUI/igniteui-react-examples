@@ -50,40 +50,41 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
-                    legend={this.legend}
-                    ref={this.chartRef}>
+                    ref={this.chartRef}
+                    legend={this.legend}>
                     <IgrNumericXAxis
-                        minimumValue="5"
-                        maximumValue="15"
+                        name="xAxis"
                         title="Death Rate (per 1,000 people)"
-                        name="xAxis">
+                        minimumValue="5"
+                        maximumValue="15">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
+                        name="yAxis"
+                        title="Birth Rate (per 1,000 people)"
                         minimumValue="0"
                         maximumValue="50"
-                        interval="10"
-                        title="Birth Rate (per 1,000 people)"
-                        name="yAxis">
+                        interval="10">
                     </IgrNumericYAxis>
                     <IgrScatterSeries
+                        name="ScatterSeries1"
+                        title="Europe"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
-                        markerType="Circle"
                         dataSource={this.countryDemographicEurope}
-                        showDefaultTooltip="true"
-                        title="Europe"
-                        name="ScatterSeries1">
+                        markerType="Circle"
+                        showDefaultTooltip="true">
                     </IgrScatterSeries>
                     <IgrScatterSeries
+                        name="ScatterSeries2"
                         title="Africa"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -91,8 +92,7 @@ export default class Sample extends React.Component<any, any> {
                         yMemberPath="birthRate"
                         dataSource={this.countryDemographicAfrican}
                         markerType="Circle"
-                        showDefaultTooltip="true"
-                        name="ScatterSeries2">
+                        showDefaultTooltip="true">
                     </IgrScatterSeries>
                 </IgrDataChart>
             </div>

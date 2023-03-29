@@ -41,30 +41,30 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Line"
-                    yAxisTitleLeftMargin="5"
-                    xAxisTitleTextColor="gray"
-                    yAxisTitleTextColor="gray"
-                    xAxisTitleTextStyle="10pt 'Titillium Web'"
-                    yAxisTitleTextStyle="10pt 'Titillium Web'"
-                    xAxisTitle="Year"
-                    yAxisTitle="Trillions of Watt-hours (Twh)"
-                    xAxisTitleAngle="0"
-                    yAxisTitleAngle="90"
+                    ref={this.chartRef}
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
+                    chartType="Line"
                     legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     computedPlotAreaMarginMode="Series"
-                    ref={this.chartRef}>
+                    xAxisTitle="Year"
+                    xAxisTitleTextColor="gray"
+                    xAxisTitleTextStyle="10pt 'Titillium Web'"
+                    xAxisTitleAngle="0"
+                    yAxisTitle="Trillions of Watt-hours (Twh)"
+                    yAxisTitleTextColor="gray"
+                    yAxisTitleTextStyle="10pt 'Titillium Web'"
+                    yAxisTitleAngle="90"
+                    yAxisTitleLeftMargin="5">
                 </IgrCategoryChart>
             </div>
         </div>

@@ -32,15 +32,15 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrFinancialChart
-                    isHorizontalZoomEnabled="true"
+                    ref={this.chartRef}
                     chartType="Candle"
-                    zoomSliderType="None"
                     isVerticalZoomEnabled="true"
-                    dataToolTipIncludedColumns={["Open", "Close", "High", "Low", "Change"]}
-                    dataToolTipHeaderFormatTime="None"
+                    isHorizontalZoomEnabled="true"
                     dataSource={this.multipleStocks}
                     toolTipType="Data"
-                    ref={this.chartRef}>
+                    dataToolTipIncludedColumns={["Open", "Close", "High", "Low", "Change"]}
+                    dataToolTipHeaderFormatTime="None"
+                    zoomSliderType="None">
                 </IgrFinancialChart>
             </div>
         </div>

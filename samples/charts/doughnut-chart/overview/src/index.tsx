@@ -38,12 +38,12 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDoughnutChart
                     ref={this.chartRef}>
                     <IgrRingSeries
-                        dataSource={this.companyMarketShares}
-                        valueMemberPath="value"
+                        name="series"
                         labelMemberPath="summary"
+                        valueMemberPath="value"
                         legendLabelMemberPath="category"
                         outlines="white"
-                        name="series">
+                        dataSource={this.companyMarketShares}>
                     </IgrRingSeries>
                 </IgrDoughnutChart>
             </div>

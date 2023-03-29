@@ -42,71 +42,71 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreemap
-                    valueMemberPath="population"
-                    rootTitle="Countries"
+                    ref={this.treemapRef}
+                    dataSource={this.countyHierarchicalData}
                     parentIdMemberPath="parent"
-                    labelMemberPath="name"
                     customValueMemberPath="parent"
                     idMemberPath="name"
-                    dataSource={this.countyHierarchicalData}
+                    labelMemberPath="name"
+                    valueMemberPath="population"
+                    rootTitle="Countries"
+                    headerDisplayMode="Overlay"
+                    overlayHeaderBackground="rgba(63, 64, 63, 1)"
                     headerHoverBackground="rgba(63, 64, 63, 1)"
                     headerBackground="rgba(63, 64, 63, 1)"
-                    overlayHeaderBackground="rgba(63, 64, 63, 1)"
-                    headerDisplayMode="Overlay"
-                    parentNodeLeftPadding="0"
-                    parentNodeTopPadding="0"
-                    parentNodeRightPadding="0"
                     parentNodeBottomPadding="0"
+                    parentNodeLeftPadding="0"
+                    parentNodeRightPadding="0"
+                    parentNodeTopPadding="0"
                     outline="black"
-                    strokeThickness="1"
-                    ref={this.treemapRef}>
+                    strokeThickness="1">
                     <IgrTreemapNodeStyleMapping
+                        name="styling1"
                         value="Africa"
-                        mappingMode="CustomValue"
                         fill="rgba(115, 86, 86, 1)"
-                        name="styling1">
+                        mappingMode="CustomValue">
                     </IgrTreemapNodeStyleMapping>
                     <IgrTreemapNodeStyleMapping
+                        name="styling2"
                         value="Europe"
                         fill="rgba(97, 171, 55, 1)"
-                        mappingMode="CustomValue"
-                        name="styling2">
+                        mappingMode="CustomValue">
                     </IgrTreemapNodeStyleMapping>
                     <IgrTreemapNodeStyleMapping
+                        name="styling3"
                         value="Asia"
                         fill="rgba(139, 91, 177, 1)"
-                        mappingMode="CustomValue"
-                        name="styling3">
+                        mappingMode="CustomValue">
                     </IgrTreemapNodeStyleMapping>
                     <IgrTreemapNodeStyleMapping
+                        name="styling4"
                         value="North America"
                         fill="rgba(95, 186, 172, 1)"
-                        mappingMode="CustomValue"
-                        name="styling4">
+                        mappingMode="CustomValue">
                     </IgrTreemapNodeStyleMapping>
                     <IgrTreemapNodeStyleMapping
+                        name="styling5"
                         value="South America"
                         fill="rgba(238, 88, 121, 1)"
-                        mappingMode="CustomValue"
-                        name="styling5">
+                        mappingMode="CustomValue">
                     </IgrTreemapNodeStyleMapping>
                     <IgrTreemapNodeStyleMapping
+                        name="styling6"
                         value="Middle East"
                         fill="rgba(109, 177, 255, 1)"
-                        mappingMode="CustomValue"
-                        name="styling6">
+                        mappingMode="CustomValue">
                     </IgrTreemapNodeStyleMapping>
                     <IgrTreemapNodeStyleMapping
+                        name="styling7"
                         value="Central America"
                         fill="rgba(247, 210, 98, 1)"
-                        mappingMode="CustomValue"
-                        name="styling7">
+                        mappingMode="CustomValue">
                     </IgrTreemapNodeStyleMapping>
                     <IgrTreemapNodeStyleMapping
+                        name="styling8"
                         value="Oceania"
                         fill="rgba(168, 168, 183, 1)"
-                        mappingMode="CustomValue"
-                        name="styling8">
+                        mappingMode="CustomValue">
                     </IgrTreemapNodeStyleMapping>
                 </IgrTreemap>
             </div>

@@ -38,28 +38,28 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrDataLegend
-                    includedColumns={["Open", "Close", "High", "Low", "Change"]}
-                    valueFormatMode="Currency"
-                    valueTextColor="rgba(0, 173, 3, 1)"
-                    valueTextStyle="normal bold 14px Verdana"
+                    ref={this.legendRef}
                     target={this.chart}
+                    includedColumns={["Open", "Close", "High", "Low", "Change"]}
+                    labelTextColor="rgba(74, 74, 74, 1)"
                     unitsText="K"
                     unitsTextColor="rgba(0, 173, 3, 1)"
                     unitsTextStyle="normal bold 14px Verdana"
-                    labelTextColor="rgba(74, 74, 74, 1)"
-                    ref={this.legendRef}>
+                    valueFormatMode="Currency"
+                    valueTextColor="rgba(0, 173, 3, 1)"
+                    valueTextStyle="normal bold 14px Verdana">
                 </IgrDataLegend>
             </div>
 
             <div className="container fill">
                 <IgrFinancialChart
-                    isHorizontalZoomEnabled="true"
-                    zoomSliderType="None"
+                    ref={this.chartRef}
                     isVerticalZoomEnabled="true"
-                    yAxisTitle="Thousands of Dollars ($)"
+                    isHorizontalZoomEnabled="true"
                     dataSource={this.stockGoogle}
                     toolTipType="None"
-                    ref={this.chartRef}>
+                    yAxisTitle="Thousands of Dollars ($)"
+                    zoomSliderType="None">
                 </IgrFinancialChart>
             </div>
         </div>

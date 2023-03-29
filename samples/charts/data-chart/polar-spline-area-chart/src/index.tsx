@@ -43,38 +43,39 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
+                    ref={this.chartRef}
                     isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    ref={this.chartRef}>
+                    isVerticalZoomEnabled="false">
                     <IgrNumericAngleAxis
+                        name="angleAxis"
                         startAngleOffset="-90"
-                        minimumValue="0"
-                        maximumValue="360"
                         interval="30"
-                        name="angleAxis">
+                        minimumValue="0"
+                        maximumValue="360">
                     </IgrNumericAngleAxis>
                     <IgrNumericRadiusAxis
+                        name="radiusAxis"
                         radiusExtentScale="0.9"
                         innerRadiusExtentScale="0.1"
-                        minimumValue="0"
-                        maximumValue="100"
                         interval="25"
-                        name="radiusAxis">
+                        minimumValue="0"
+                        maximumValue="100">
                     </IgrNumericRadiusAxis>
                     <IgrPolarSplineAreaSeries
-                        angleMemberPath="direction"
-                        radiusMemberPath="windSpeed"
+                        name="PolarSplineAreaSeries1"
+                        dataSource={this.boatSailingData}
                         angleAxisName="angleAxis"
                         radiusAxisName="radiusAxis"
-                        markerType="Circle"
-                        dataSource={this.boatSailingData}
-                        thickness="1"
-                        areaFillOpacity="0.8"
+                        angleMemberPath="direction"
+                        radiusMemberPath="windSpeed"
                         showDefaultTooltip="false"
+                        areaFillOpacity="0.8"
+                        thickness="1"
                         title="Wind Speed"
-                        name="PolarSplineAreaSeries1">
+                        markerType="Circle">
                     </IgrPolarSplineAreaSeries>
                     <IgrPolarSplineAreaSeries
+                        name="PolarSplineAreaSeries2"
                         dataSource={this.boatSailingData}
                         angleAxisName="angleAxis"
                         radiusAxisName="radiusAxis"
@@ -84,8 +85,7 @@ export default class Sample extends React.Component<any, any> {
                         areaFillOpacity="0.8"
                         thickness="1"
                         title="Boat Speed"
-                        markerType="Circle"
-                        name="PolarSplineAreaSeries2">
+                        markerType="Circle">
                     </IgrPolarSplineAreaSeries>
                     <IgrDataToolTipLayer
                         name="DataToolTipLayer">

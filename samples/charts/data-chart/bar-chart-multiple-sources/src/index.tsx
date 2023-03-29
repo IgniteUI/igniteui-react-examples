@@ -52,53 +52,53 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
-                    legend={this.legend}
-                    ref={this.chartRef}>
+                    ref={this.chartRef}
+                    legend={this.legend}>
                     <IgrCategoryYAxis
-                        dataSource={this.highestGrossingMovies}
-                        gap="0.5"
-                        overlap="-0.1"
-                        isInverted="true"
+                        name="yAxis"
+                        label="franchise"
                         useEnhancedIntervalManagement="true"
                         enhancedIntervalPreferMoreCategoryLabels="true"
-                        label="franchise"
-                        name="yAxis">
+                        dataSource={this.highestGrossingMovies}
+                        isInverted="true"
+                        gap="0.5"
+                        overlap="-0.1">
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
-                        title="Billions of U.S. Dollars"
-                        name="xAxis">
+                        name="xAxis"
+                        title="Billions of U.S. Dollars">
                     </IgrNumericXAxis>
                     <IgrCategoryHighlightLayer
                         name="CategoryHighlightLayer">
                     </IgrCategoryHighlightLayer>
                     <IgrBarSeries
+                        name="BarSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        valueMemberPath="totalRevenue"
-                        isTransitionInEnabled="true"
-                        dataSource={this.highestGrossingMovies}
-                        isHighlightingEnabled="true"
-                        showDefaultTooltip="true"
                         title="Total Revenue of Franchise"
-                        name="BarSeries1">
+                        valueMemberPath="totalRevenue"
+                        dataSource={this.highestGrossingMovies}
+                        showDefaultTooltip="true"
+                        isTransitionInEnabled="true"
+                        isHighlightingEnabled="true">
                     </IgrBarSeries>
                     <IgrBarSeries
+                        name="BarSeries2"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        valueMemberPath="highestGrossing"
-                        isTransitionInEnabled="true"
-                        dataSource={this.highestGrossingMovies}
-                        isHighlightingEnabled="true"
-                        showDefaultTooltip="true"
                         title="Highest Grossing Movie in Series"
-                        name="BarSeries2">
+                        valueMemberPath="highestGrossing"
+                        dataSource={this.highestGrossingMovies}
+                        showDefaultTooltip="true"
+                        isTransitionInEnabled="true"
+                        isHighlightingEnabled="true">
                     </IgrBarSeries>
                     <IgrDataToolTipLayer
                         name="Tooltips">

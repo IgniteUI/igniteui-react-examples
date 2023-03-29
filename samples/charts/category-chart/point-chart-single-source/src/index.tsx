@@ -34,18 +34,18 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="Point"
-                    yAxisLabelLeftMargin="0"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisTitle="TWh"
-                    dataSource={this.countryRenewableElectricity}
-                    includedProperties={["year", "europe"]}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
+                    dataSource={this.countryRenewableElectricity}
+                    includedProperties={["year", "europe"]}
+                    yAxisTitle="TWh"
+                    yAxisTitleLeftMargin="10"
+                    yAxisTitleRightMargin="5"
+                    yAxisLabelLeftMargin="0"
                     computedPlotAreaMarginMode="Series"
-                    crosshairsSnapToData="true"
-                    ref={this.chartRef}>
+                    crosshairsSnapToData="true">
                 </IgrCategoryChart>
             </div>
         </div>

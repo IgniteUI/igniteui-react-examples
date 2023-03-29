@@ -62,33 +62,33 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisLabelAngle"
+                        name="XAxisLabelAngleEditor"
                         label="X Axis Label Angle"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["0", "45", "90", "135", "180", "225", "270"]}
                         dropDownValues={["0", "45", "90", "135", "180", "225", "270"]}
-                        primitiveValue="0"
-                        name="XAxisLabelAngleEditor">
+                        primitiveValue="0">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        dropDownValues={["-90", "-45", "0", "45", "90"]}
-                        primitiveValue="0"
                         propertyPath="YAxisLabelAngle"
+                        name="YAxisLabelAngleEditor"
                         label="Y Axis Label Angle"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["-90", "-45", "0", "45", "90"]}
-                        name="YAxisLabelAngleEditor">
+                        dropDownValues={["-90", "-45", "0", "45", "90"]}
+                        primitiveValue="0">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        dropDownValues={["red", "green"]}
-                        primitiveValue="red"
                         propertyPath="XAxisLabelTextColor"
+                        name="XAxisLabelTextColorEditor"
                         label="Y Axis Label Color"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["red", "green"]}
-                        name="XAxisLabelTextColorEditor">
+                        dropDownValues={["red", "green"]}
+                        primitiveValue="red">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -99,32 +99,32 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Line"
-                    xAxisLabelTopMargin="5"
-                    yAxisLabelRightMargin="5"
-                    xAxisLabelTextColor="gray"
-                    yAxisLabelTextColor="gray"
-                    xAxisLabelTextStyle="10pt 'Titillium Web'"
-                    yAxisLabelTextStyle="10pt 'Titillium Web'"
-                    xAxisLabelAngle="0"
-                    yAxisLabelAngle="0"
-                    yAxisLabelLocation="OutsideRight"
-                    titleTopMargin="10"
-                    topMargin="20"
+                    ref={this.chartRef}
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
+                    chartType="Line"
+                    computedPlotAreaMarginMode="Series"
                     legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    computedPlotAreaMarginMode="Series"
-                    ref={this.chartRef}>
+                    topMargin="20"
+                    xAxisLabelAngle="0"
+                    xAxisLabelTextColor="gray"
+                    xAxisLabelTextStyle="10pt 'Titillium Web'"
+                    xAxisLabelTopMargin="5"
+                    yAxisLabelAngle="0"
+                    yAxisLabelTextColor="gray"
+                    yAxisLabelTextStyle="10pt 'Titillium Web'"
+                    yAxisLabelRightMargin="5"
+                    yAxisLabelLocation="OutsideRight"
+                    titleTopMargin="10">
                 </IgrCategoryChart>
             </div>
         </div>

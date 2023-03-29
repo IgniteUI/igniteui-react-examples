@@ -54,17 +54,17 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisInverted"
+                        name="XAxisInvertedEditor"
                         label="X Axis - Inverted"
                         shouldOverrideDefaultEditor="true"
-                        primitiveValue="True"
-                        name="XAxisInvertedEditor">
+                        primitiveValue="True">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="YAxisInverted"
+                        name="YAxisInvertedEditor"
                         label="Y Axis - Inverted"
                         shouldOverrideDefaultEditor="true"
-                        primitiveValue="True"
-                        name="YAxisInvertedEditor">
+                        primitiveValue="True">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -75,19 +75,19 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="Line"
-                    yAxisLabelLeftMargin="0"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisTitle="TWh"
-                    xAxisInverted="true"
-                    yAxisInverted="true"
-                    dataSource={this.countryRenewableElectricity}
-                    includedProperties={["year", "europe"]}
+                    computedPlotAreaMarginMode="Series"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    computedPlotAreaMarginMode="Series"
-                    ref={this.chartRef}>
+                    dataSource={this.countryRenewableElectricity}
+                    includedProperties={["year", "europe"]}
+                    yAxisTitle="TWh"
+                    yAxisTitleLeftMargin="10"
+                    yAxisTitleRightMargin="5"
+                    yAxisLabelLeftMargin="0"
+                    xAxisInverted="true"
+                    yAxisInverted="true">
                 </IgrCategoryChart>
             </div>
         </div>

@@ -42,25 +42,25 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
+                    legend={this.legend}
                     chartType="StepLine"
-                    xAxisInterval="1"
-                    isCategoryHighlightingEnabled="true"
-                    yAxisTitle="TWh"
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
-                    legend={this.legend}
+                    isCategoryHighlightingEnabled="true"
+                    isSeriesHighlightingEnabled="true"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    isSeriesHighlightingEnabled="true"
-                    crosshairsSnapToData="true"
-                    ref={this.chartRef}>
+                    xAxisInterval="1"
+                    yAxisTitle="TWh"
+                    crosshairsSnapToData="true">
                 </IgrCategoryChart>
             </div>
         </div>

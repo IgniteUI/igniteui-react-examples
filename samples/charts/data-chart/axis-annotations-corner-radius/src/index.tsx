@@ -48,48 +48,48 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
+                        name="xAxis"
                         dataSource={this.countryRenewableElectricity}
-                        label="year"
-                        name="xAxis">
+                        label="year">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
-                        title="TWh"
-                        name="yAxis">
+                        name="yAxis"
+                        title="TWh">
                     </IgrNumericYAxis>
                     <IgrLineSeries
+                        name="LineSeries1"
+                        title="Electricity"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        valueMemberPath="america"
                         dataSource={this.countryRenewableElectricity}
-                        title="Electricity"
-                        name="LineSeries1">
+                        valueMemberPath="america">
                     </IgrLineSeries>
                     <IgrCalloutLayer
-                        labelMemberPath="label"
+                        name="CalloutLayer1"
+                        dataSource={this.countryRenewableCallouts}
                         xMemberPath="index"
                         yMemberPath="value"
-                        calloutCornerRadius="5"
+                        labelMemberPath="label"
                         calloutPaddingLeft="20"
-                        calloutPaddingTop="10"
                         calloutPaddingRight="20"
                         calloutPaddingBottom="10"
-                        dataSource={this.countryRenewableCallouts}
-                        name="CalloutLayer1">
+                        calloutPaddingTop="10"
+                        calloutCornerRadius="5">
                     </IgrCalloutLayer>
                     <IgrFinalValueLayer
+                        name="FinalValueLayer"
                         axisAnnotationBackgroundCornerRadius="10"
-                        axisAnnotationPaddingLeft="10"
-                        axisAnnotationPaddingTop="10"
-                        axisAnnotationPaddingRight="10"
                         axisAnnotationPaddingBottom="10"
-                        name="FinalValueLayer">
+                        axisAnnotationPaddingTop="10"
+                        axisAnnotationPaddingLeft="10"
+                        axisAnnotationPaddingRight="10">
                     </IgrFinalValueLayer>
                     <IgrCrosshairLayer
+                        name="CrosshairLayer"
                         isAxisAnnotationEnabled="true"
-                        xAxisAnnotationBackgroundCornerRadius="10"
-                        yAxisAnnotationBackgroundCornerRadius="10"
                         yAxisAnnotationInterpolatedValuePrecision="0"
-                        name="CrosshairLayer">
+                        xAxisAnnotationBackgroundCornerRadius="10"
+                        yAxisAnnotationBackgroundCornerRadius="10">
                     </IgrCrosshairLayer>
                     <IgrDataToolTipLayer
                         name="Tooltips">

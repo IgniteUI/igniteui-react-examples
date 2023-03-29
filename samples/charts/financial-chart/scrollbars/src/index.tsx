@@ -32,15 +32,15 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrFinancialChart
-                    isHorizontalZoomEnabled="true"
+                    ref={this.chartRef}
                     isToolbarVisible="false"
-                    zoomSliderType="None"
                     isVerticalZoomEnabled="true"
+                    isHorizontalZoomEnabled="true"
                     dataSource={this.multipleStocks}
-                    windowRect="0, 0, 0.5, 1"
-                    horizontalViewScrollbarMode="Persistent"
                     verticalViewScrollbarMode="Fading"
-                    ref={this.chartRef}>
+                    horizontalViewScrollbarMode="Persistent"
+                    zoomSliderType="None"
+                    windowRect="0, 0, 0.5, 1">
                 </IgrFinancialChart>
             </div>
         </div>

@@ -55,24 +55,24 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisGap"
+                        name="XAxisGap"
                         label="X Axis - Gap"
-                        valueType="Slider"
                         shouldOverrideDefaultEditor="true"
+                        valueType="Slider"
                         primitiveValue="0.5"
                         min="0"
                         max="1.5"
-                        step="0.1"
-                        name="XAxisGap">
+                        step="0.1">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        dropDownValues={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
-                        primitiveValue="0.5"
                         propertyPath="XAxisMaximumGap"
+                        name="XAxisMaximumGap"
                         label="Maximum Gap"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
-                        name="XAxisMaximumGap">
+                        dropDownValues={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
+                        primitiveValue="0.5">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -83,17 +83,17 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Column"
-                    xAxisInterval="1"
-                    xAxisGap="0.5"
-                    xAxisMaximumGap="1.5"
-                    yAxisTitle="TWh"
+                    ref={this.chartRef}
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
+                    chartType="Column"
+                    crosshairsSnapToData="true"
+                    yAxisTitle="TWh"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    crosshairsSnapToData="true"
-                    ref={this.chartRef}>
+                    xAxisInterval="1"
+                    xAxisGap="0.5"
+                    xAxisMaximumGap="1.5">
                 </IgrCategoryChart>
             </div>
         </div>

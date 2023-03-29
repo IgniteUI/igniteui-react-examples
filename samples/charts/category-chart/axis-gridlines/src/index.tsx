@@ -62,33 +62,33 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="YAxisStroke"
+                        name="YAxisStroke"
                         label="Y Axis Stroke"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
                         dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
-                        primitiveValue="gray"
-                        name="YAxisStroke">
+                        primitiveValue="gray">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
-                        primitiveValue="darkslategray"
                         propertyPath="YAxisMajorStroke"
+                        name="YAxisMajorStroke"
                         label="Y Axis Major Stroke"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
-                        name="YAxisMajorStroke">
+                        dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
+                        primitiveValue="darkslategray">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
-                        primitiveValue="gray"
                         propertyPath="YAxisMinorStroke"
+                        name="YAxisMinorStroke"
                         label="Y Axis Minor Stroke"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
-                        name="YAxisMinorStroke">
+                        dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
+                        primitiveValue="gray">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -99,35 +99,35 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Line"
-                    xAxisInterval="1"
-                    yAxisInterval="20"
-                    yAxisMinorInterval="5"
-                    xAxisMajorStroke="rgba(71, 71, 71, 1)"
-                    yAxisMajorStroke="darkslategray"
-                    xAxisMajorStrokeThickness="0.5"
-                    yAxisMajorStrokeThickness="1"
-                    yAxisMinorStrokeThickness="0.5"
-                    xAxisStroke="rgba(145, 145, 145, 1)"
-                    yAxisStroke="gray"
-                    xAxisStrokeThickness="2"
-                    yAxisStrokeThickness="2"
-                    yAxisMinorStroke="gray"
+                    ref={this.chartRef}
+                    computedPlotAreaMarginMode="Series"
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
+                    chartType="Line"
                     legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    thickness="2"
-                    computedPlotAreaMarginMode="Series"
-                    ref={this.chartRef}>
+                    xAxisStroke="rgba(145, 145, 145, 1)"
+                    xAxisStrokeThickness="2"
+                    xAxisInterval="1"
+                    xAxisMajorStroke="rgba(71, 71, 71, 1)"
+                    xAxisMajorStrokeThickness="0.5"
+                    yAxisStroke="gray"
+                    yAxisStrokeThickness="2"
+                    yAxisInterval="20"
+                    yAxisMajorStroke="darkslategray"
+                    yAxisMajorStrokeThickness="1"
+                    yAxisMinorInterval="5"
+                    yAxisMinorStroke="gray"
+                    yAxisMinorStrokeThickness="0.5"
+                    thickness="2">
                 </IgrCategoryChart>
             </div>
         </div>

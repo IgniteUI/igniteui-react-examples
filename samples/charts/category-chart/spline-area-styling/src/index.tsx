@@ -42,28 +42,28 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="SplineArea"
-                    isTransitionInEnabled="true"
-                    yAxisTitle="TWh"
                     dataSource={this.countryRenewableElectricity}
-                    brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
-                    outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     legend={this.legend}
-                    isHorizontalZoomEnabled="false"
+                    yAxisTitle="TWh"
+                    isTransitionInEnabled="true"
                     isVerticalZoomEnabled="false"
+                    isHorizontalZoomEnabled="false"
                     markerBrushes="white"
                     markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
+                    brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
+                    outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     computedPlotAreaMarginMode="Series"
                     highlightingMode="FadeOthersSpecific"
-                    highlightingBehavior="NearestItemsAndSeries"
-                    ref={this.chartRef}>
+                    highlightingBehavior="NearestItemsAndSeries">
                 </IgrCategoryChart>
             </div>
         </div>

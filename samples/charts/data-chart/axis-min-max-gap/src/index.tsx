@@ -43,12 +43,12 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
-                        dataSource={this.temperatureAverageData}
-                        minimumGapSize="25"
+                        name="xAxis"
                         useEnhancedIntervalManagement="true"
                         enhancedIntervalPreferMoreCategoryLabels="true"
+                        dataSource={this.temperatureAverageData}
                         label="month"
-                        name="xAxis">
+                        minimumGapSize="25">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis">
@@ -57,11 +57,11 @@ export default class Sample extends React.Component<any, any> {
                         name="CategoryHighlightLayer">
                     </IgrCategoryHighlightLayer>
                     <IgrColumnSeries
+                        name="columnSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        valueMemberPath="temperature"
                         dataSource={this.temperatureAverageData}
-                        name="columnSeries1">
+                        valueMemberPath="temperature">
                     </IgrColumnSeries>
                     <IgrDataToolTipLayer
                         name="Tooltips">

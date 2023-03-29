@@ -50,41 +50,42 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    ref={this.chartRef}
                     legend={this.legend}
-                    ref={this.chartRef}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryAngleAxis
+                        name="angleAxis"
                         dataSource={this.footballPlayerStats}
-                        label="attribute"
-                        name="angleAxis">
+                        label="attribute">
                     </IgrCategoryAngleAxis>
                     <IgrNumericRadiusAxis
+                        name="radiusAxis"
                         innerRadiusExtentScale="0.1"
-                        minimumValue="0"
-                        maximumValue="10"
                         interval="2"
-                        name="radiusAxis">
+                        minimumValue="0"
+                        maximumValue="10">
                     </IgrNumericRadiusAxis>
                     <IgrRadialColumnSeries
-                        valueMemberPath="ronaldo"
+                        name="RadialColumnSeries1"
+                        dataSource={this.footballPlayerStats}
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
-                        dataSource={this.footballPlayerStats}
-                        thickness="3"
-                        areaFillOpacity="0.8"
+                        valueMemberPath="ronaldo"
                         showDefaultTooltip="false"
-                        title="Ronaldo"
-                        name="RadialColumnSeries1">
+                        areaFillOpacity="0.8"
+                        thickness="3"
+                        title="Ronaldo">
                     </IgrRadialColumnSeries>
                     <IgrRadialColumnSeries
+                        name="RadialColumnSeries2"
                         dataSource={this.footballPlayerStats}
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
@@ -92,8 +93,7 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="false"
                         areaFillOpacity="0.8"
                         thickness="3"
-                        title="Messi"
-                        name="RadialColumnSeries2">
+                        title="Messi">
                     </IgrRadialColumnSeries>
                     <IgrDataToolTipLayer
                         name="DataToolTipLayer">

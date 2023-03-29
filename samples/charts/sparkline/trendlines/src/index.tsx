@@ -53,25 +53,25 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="TrendLineType"
+                        name="TrendLineTypeEditor"
                         label="Trendline Type"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["CubicFit", "CumulativeAverage", "ExponentialAverage", "ExponentialFit", "LinearFit", "LogarithmicFit", "ModifiedAverage", "None", "PowerLawFit", "QuadraticFit", "QuarticFit", "QuinticFit", "SimpleAverage", "WeightedAverage"]}
                         dropDownValues={["CubicFit", "CumulativeAverage", "ExponentialAverage", "ExponentialFit", "LinearFit", "LogarithmicFit", "ModifiedAverage", "None", "PowerLawFit", "QuadraticFit", "QuarticFit", "QuinticFit", "SimpleAverage", "WeightedAverage"]}
-                        primitiveValue="CubicFit"
-                        name="TrendLineTypeEditor">
+                        primitiveValue="CubicFit">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
 
             <div className="container fill">
                 <IgrSparkline
+                    ref={this.chartRef}
                     dataSource={this.sparklineMixedData}
-                    valueMemberPath="value"
-                    labelMemberPath="label"
-                    trendLineType="CubicFit"
                     displayType="Area"
-                    ref={this.chartRef}>
+                    labelMemberPath="label"
+                    valueMemberPath="value"
+                    trendLineType="CubicFit">
                 </IgrSparkline>
             </div>
         </div>

@@ -41,30 +41,30 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Area"
-                    yAxisLabelLeftMargin="0"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitle="TWh"
+                    ref={this.chartRef}
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
-                    brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
-                    outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
+                    chartType="Area"
                     legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    thickness="2"
                     markerBrushes="white"
                     markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
-                    computedPlotAreaMarginMode="Series"
+                    brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
+                    outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
+                    yAxisTitle="TWh"
+                    yAxisTitleLeftMargin="10"
+                    yAxisLabelLeftMargin="0"
                     toolTipType="Category"
-                    ref={this.chartRef}>
+                    thickness="2"
+                    computedPlotAreaMarginMode="Series">
                 </IgrCategoryChart>
             </div>
         </div>

@@ -49,46 +49,47 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
+                    ref={this.chartRef}
+                    legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
-                    outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
                     markerBrushes="white"
                     markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
-                    legend={this.legend}
-                    ref={this.chartRef}>
+                    brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)"
+                    outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1)">
                     <IgrCategoryAngleAxis
+                        name="angleAxis"
                         dataSource={this.footballPlayerStats}
-                        label="attribute"
-                        name="angleAxis">
+                        label="attribute">
                     </IgrCategoryAngleAxis>
                     <IgrNumericRadiusAxis
+                        name="radiusAxis"
                         innerRadiusExtentScale="0.1"
-                        minimumValue="0"
-                        maximumValue="10"
                         interval="2"
-                        name="radiusAxis">
+                        minimumValue="0"
+                        maximumValue="10">
                     </IgrNumericRadiusAxis>
                     <IgrRadialAreaSeries
-                        valueMemberPath="ronaldo"
+                        name="RadialAreaSeries1"
+                        dataSource={this.footballPlayerStats}
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
-                        markerType="Circle"
-                        dataSource={this.footballPlayerStats}
-                        thickness="3"
-                        areaFillOpacity="0.5"
+                        valueMemberPath="ronaldo"
                         showDefaultTooltip="true"
+                        areaFillOpacity="0.5"
+                        thickness="3"
                         title="Ronaldo"
-                        name="RadialAreaSeries1">
+                        markerType="Circle">
                     </IgrRadialAreaSeries>
                     <IgrRadialAreaSeries
+                        name="RadialAreaSeries2"
                         dataSource={this.footballPlayerStats}
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
@@ -97,8 +98,7 @@ export default class Sample extends React.Component<any, any> {
                         areaFillOpacity="0.5"
                         thickness="3"
                         title="Messi"
-                        markerType="Circle"
-                        name="RadialAreaSeries2">
+                        markerType="Circle">
                     </IgrRadialAreaSeries>
                 </IgrDataChart>
             </div>

@@ -56,40 +56,40 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    ref={this.chartRef}
                     legend={this.legend}
-                    ref={this.chartRef}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryXAxis
+                        name="xAxis"
                         dataSource={this.continentsBirthRate}
-                        label="year"
-                        name="xAxis">
+                        label="year">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
+                        name="yAxis"
                         interval="20"
                         title="Millions of Births"
                         titleAngle="-90"
-                        labelFormat="{0}%"
-                        name="yAxis">
+                        labelFormat="{0}%">
                     </IgrNumericYAxis>
                     <IgrStacked100AreaSeries
+                        name="Stacked100AreaSeries"
+                        dataSource={this.continentsBirthRate}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        markerType="Circle"
-                        dataSource={this.continentsBirthRate}
                         showDefaultTooltip="false"
-                        name="Stacked100AreaSeries">
+                        markerType="Circle">
                         <IgrStackedFragmentSeries
                             name="s1"
-                            title="Asia"
-                            valueMemberPath="asia">
+                            valueMemberPath="asia"
+                            title="Asia">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s2"

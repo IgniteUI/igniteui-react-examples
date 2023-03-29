@@ -45,43 +45,43 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
+                    ref={this.propertyEditorRef}
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
                     isHorizontal="true"
-                    isWrappingEnabled="true"
-                    ref={this.propertyEditorRef}>
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="CalloutsVisible"
+                        name="CalloutsVisibleEditor"
                         label="Callouts Visible"
                         shouldOverrideDefaultEditor="true"
-                        primitiveValue="True"
-                        name="CalloutsVisibleEditor">
+                        primitiveValue="True">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
 
             <div className="legend-title">
-                Average Temperature in Sedney
+                Average Temperature in Sydney
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="Column"
-                    yAxisMaximumValue="35"
-                    yAxisLabelLocation="OutsideRight"
-                    dataSource={this.temperatureAnnotatedData}
-                    includedProperties={["month", "temperature"]}
+                    computedPlotAreaMarginMode="Series"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    computedPlotAreaMarginMode="Series"
-                    crosshairsAnnotationYAxisPrecision="0"
-                    calloutsVisible="true"
+                    includedProperties={["month", "temperature"]}
+                    dataSource={this.temperatureAnnotatedData}
                     calloutsDataSource={this.temperatureAnnotatedData}
+                    calloutsVisible="true"
                     calloutsXMemberPath="index"
                     calloutsYMemberPath="temperature"
                     calloutsLabelMemberPath="tempInfo"
-                    ref={this.chartRef}>
+                    crosshairsAnnotationYAxisPrecision="0"
+                    yAxisMaximumValue="35"
+                    yAxisLabelLocation="OutsideRight">
                 </IgrCategoryChart>
             </div>
         </div>

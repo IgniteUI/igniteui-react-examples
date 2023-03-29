@@ -56,54 +56,55 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
-                    legend={this.legend}
-                    ref={this.chartRef}>
+                    ref={this.chartRef}
+                    legend={this.legend}>
                     <IgrCategoryYAxis
+                        name="yAxis1"
+                        label="category"
                         dataSource={this.roadblocksToSuccess}
                         gap="0.25"
-                        labelExtent="0"
-                        label="category"
-                        name="yAxis1">
+                        labelExtent="0">
                     </IgrCategoryYAxis>
                     <IgrCategoryYAxis
+                        name="yAxis2"
                         label="category"
                         dataSource={this.roadblocksToSuccess}
                         gap="1"
-                        labelHorizontalAlignment="Right"
-                        name="yAxis2">
+                        labelHorizontalAlignment="Right">
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
+                        name="xAxis"
                         minimumValue="0"
                         maximumValue="50"
-                        stroke="gray"
-                        strokeThickness="2"
-                        tickLength="5"
                         useEnhancedIntervalManagement="true"
                         labelFormat="{0}%"
-                        name="xAxis">
+                        strokeThickness="2"
+                        stroke="gray"
+                        tickLength="5">
                     </IgrNumericXAxis>
                     <IgrCategoryHighlightLayer
                         name="CategoryHighlightLayer">
                     </IgrCategoryHighlightLayer>
                     <IgrBarSeries
+                        name="BarSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis1"
-                        valueMemberPath="topChoices"
-                        isTransitionInEnabled="true"
-                        dataSource={this.roadblocksToSuccess}
-                        isHighlightingEnabled="true"
-                        showDefaultTooltip="true"
                         title="Sum of Top 3 Choices"
-                        name="BarSeries1">
+                        valueMemberPath="topChoices"
+                        dataSource={this.roadblocksToSuccess}
+                        showDefaultTooltip="true"
+                        isTransitionInEnabled="true"
+                        isHighlightingEnabled="true">
                     </IgrBarSeries>
                     <IgrBarSeries
+                        name="BarSeries2"
                         xAxisName="xAxis"
                         yAxisName="yAxis2"
                         title="Top Choice"
@@ -111,24 +112,24 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.roadblocksToSuccess}
                         showDefaultTooltip="true"
                         isTransitionInEnabled="true"
-                        isHighlightingEnabled="true"
-                        name="BarSeries2">
+                        isHighlightingEnabled="true">
                     </IgrBarSeries>
                     <IgrCalloutLayer
-                        labelMemberPath="firstChoiceLabel"
-                        xMemberPath="firstChoice"
-                        yMemberPath="index"
-                        calloutTextColor="black"
-                        calloutBackground="rgba(0, 0, 0, 0)"
-                        calloutOutline="rgba(0, 0, 0, 0)"
-                        calloutLeaderBrush="rgba(0, 0, 0, 0)"
-                        calloutPaddingTop="0"
-                        calloutPositionPadding="0"
-                        calloutStrokeThickness="2"
+                        name="CalloutLayer1"
                         dataSource={this.roadblocksToSuccess}
-                        name="CalloutLayer1">
+                        yMemberPath="index"
+                        xMemberPath="firstChoice"
+                        labelMemberPath="firstChoiceLabel"
+                        calloutLeaderBrush="rgba(0, 0, 0, 0)"
+                        calloutOutline="rgba(0, 0, 0, 0)"
+                        calloutBackground="rgba(0, 0, 0, 0)"
+                        calloutTextColor="black"
+                        calloutStrokeThickness="2"
+                        calloutPaddingTop="0"
+                        calloutPositionPadding="0">
                     </IgrCalloutLayer>
                     <IgrCalloutLayer
+                        name="CalloutLayer2"
                         dataSource={this.roadblocksToSuccess}
                         yMemberPath="index"
                         xMemberPath="topChoices"
@@ -139,8 +140,7 @@ export default class Sample extends React.Component<any, any> {
                         calloutTextColor="black"
                         calloutStrokeThickness="2"
                         calloutPaddingTop="0"
-                        calloutPositionPadding="0"
-                        name="CalloutLayer2">
+                        calloutPositionPadding="0">
                     </IgrCalloutLayer>
                     <IgrDataToolTipLayer
                         name="Tooltips">

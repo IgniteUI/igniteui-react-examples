@@ -50,38 +50,39 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}>
                     <IgrNumericXAxis
-                        minimumValue="4"
-                        maximumValue="16"
-                        interval="1"
+                        name="xAxis"
                         title="Death Rate"
-                        name="xAxis">
+                        interval="1"
+                        minimumValue="4"
+                        maximumValue="16">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
-                        minimumValue="0"
-                        maximumValue="60"
-                        interval="10"
+                        name="yAxis"
                         title="Birth Rate"
-                        name="yAxis">
+                        interval="10"
+                        minimumValue="0"
+                        maximumValue="60">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
-                        radiusMemberPath="population"
-                        radiusMemberAsLegendLabel="Population: "
+                        name="BubbleSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
+                        dataSource={this.countryDemographicAfrican}
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
-                        xMemberAsLegendLabel="Death Rate: "
-                        yMemberAsLegendLabel="Birth Rate: "
-                        dataSource={this.countryDemographicAfrican}
+                        radiusMemberPath="population"
                         title="Africa"
-                        name="BubbleSeries1">
+                        radiusMemberAsLegendLabel="Population: "
+                        xMemberAsLegendLabel="Death Rate: "
+                        yMemberAsLegendLabel="Birth Rate: ">
                         <IgrSizeScale
+                            name="SizeScale1"
                             minimumValue="10"
-                            maximumValue="100"
-                            name="SizeScale1">
+                            maximumValue="100">
                         </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
+                        name="BubbleSeries2"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.countryDemographicEurope}
@@ -91,12 +92,11 @@ export default class Sample extends React.Component<any, any> {
                         title="Europe"
                         radiusMemberAsLegendLabel="Population: "
                         xMemberAsLegendLabel="Death Rate: "
-                        yMemberAsLegendLabel="Birth Rate: "
-                        name="BubbleSeries2">
+                        yMemberAsLegendLabel="Birth Rate: ">
                         <IgrSizeScale
+                            name="SizeScale2"
                             minimumValue="10"
-                            maximumValue="100"
-                            name="SizeScale2">
+                            maximumValue="100">
                         </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer

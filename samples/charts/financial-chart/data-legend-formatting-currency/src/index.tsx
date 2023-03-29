@@ -38,27 +38,27 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrDataLegend
+                    ref={this.legendRef}
+                    target={this.chart}
                     includedColumns={["Close", "Change", "Value"]}
                     excludedColumns={["High", "Low", "Open", "Volume"]}
-                    valueFormatMode="Currency"
-                    valueFormatCulture="en-GB"
-                    target={this.chart}
                     labelDisplayMode="Hidden"
-                    ref={this.legendRef}>
+                    valueFormatMode="Currency"
+                    valueFormatCulture="en-GB">
                 </IgrDataLegend>
             </div>
 
             <div className="container fill">
                 <IgrFinancialChart
+                    ref={this.chartRef}
                     chartType="Candle"
-                    zoomSliderType="None"
-                    dataToolTipIncludedColumns={["Close", "Change", "Value"]}
+                    dataSource={this.multipleStocks}
                     dataToolTipValueFormatMode="Currency"
                     dataToolTipValueFormatCulture="en-GB"
-                    dataToolTipHeaderFormatTime="None"
                     dataToolTipLabelDisplayMode="Hidden"
-                    dataSource={this.multipleStocks}
-                    ref={this.chartRef}>
+                    dataToolTipIncludedColumns={["Close", "Change", "Value"]}
+                    dataToolTipHeaderFormatTime="None"
+                    zoomSliderType="None">
                 </IgrFinancialChart>
             </div>
         </div>

@@ -60,13 +60,13 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisTickLength"
+                        name="XAxisTickLength"
                         label="X Axis Tick Length"
-                        valueType="Slider"
                         shouldOverrideDefaultEditor="true"
-                        primitiveValue="10"
+                        valueType="Slider"
                         min="0"
                         max="20"
-                        name="XAxisTickLength">
+                        primitiveValue="10">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -77,27 +77,27 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Line"
-                    xAxisTickLength="10"
-                    yAxisTickLength="0"
-                    xAxisTickStroke="gray"
-                    yAxisTickStroke="rgba(0, 0, 0, 0)"
-                    xAxisTickStrokeThickness="1"
-                    yAxisTickStrokeThickness="0"
+                    ref={this.chartRef}
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
                     legend={this.legend}
+                    chartType="Line"
+                    computedPlotAreaMarginMode="Series"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    computedPlotAreaMarginMode="Series"
-                    ref={this.chartRef}>
+                    xAxisTickLength="10"
+                    xAxisTickStrokeThickness="1"
+                    xAxisTickStroke="gray"
+                    yAxisTickLength="0"
+                    yAxisTickStrokeThickness="0"
+                    yAxisTickStroke="rgba(0, 0, 0, 0)">
                 </IgrCategoryChart>
             </div>
         </div>

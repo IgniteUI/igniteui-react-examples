@@ -32,22 +32,22 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrFinancialChart
-                    isHorizontalZoomEnabled="true"
-                    zoomSliderType="None"
+                    ref={this.chartRef}
                     isVerticalZoomEnabled="true"
-                    yAxisTitle="Thousands of Dollars ($)"
+                    isHorizontalZoomEnabled="true"
+                    dataSource={this.stockGoogle}
+                    toolTipType="Data"
                     dataToolTipIncludedColumns={["Open", "Close", "High", "Low", "Change"]}
+                    dataToolTipLabelTextColor="rgba(74, 74, 74, 1)"
+                    dataToolTipUnitsText="K"
+                    dataToolTipUnitsTextColor="rgba(0, 173, 3, 1)"
+                    dataToolTipUnitsTextStyle="normal bold 14px Verdana"
                     dataToolTipValueFormatMode="Currency"
                     dataToolTipValueTextColor="rgba(0, 173, 3, 1)"
                     dataToolTipValueTextStyle="normal bold 14px Verdana"
                     dataToolTipHeaderFormatTime="None"
-                    dataToolTipUnitsText="K"
-                    dataToolTipUnitsTextColor="rgba(0, 173, 3, 1)"
-                    dataToolTipUnitsTextStyle="normal bold 14px Verdana"
-                    dataToolTipLabelTextColor="rgba(74, 74, 74, 1)"
-                    dataSource={this.stockGoogle}
-                    toolTipType="Data"
-                    ref={this.chartRef}>
+                    yAxisTitle="Thousands of Dollars ($)"
+                    zoomSliderType="None">
                 </IgrFinancialChart>
             </div>
         </div>

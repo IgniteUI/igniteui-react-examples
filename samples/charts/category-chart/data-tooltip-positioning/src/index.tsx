@@ -48,29 +48,29 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
+                    ref={this.propertyEditorRef}
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
                     isHorizontal="true"
-                    isWrappingEnabled="true"
-                    ref={this.propertyEditorRef}>
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="DataToolTipGroupedPositionModeX"
-                        label="Grouped X Position: "
                         primitiveValue="PinRight"
-                        name="GroupedPositionXEditor">
+                        name="GroupedPositionXEditor"
+                        label="Grouped X Position: ">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="DataToolTipGroupedPositionModeY"
                         primitiveValue="PinTop"
-                        label="Grouped Y Position: "
-                        name="GroupedPositionYEditor">
+                        name="GroupedPositionYEditor"
+                        label="Grouped Y Position: ">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="DataToolTipGroupingMode"
                         primitiveValue="Grouped"
-                        label="Grouping Mode: "
-                        name="GroupingModeEditor">
+                        name="GroupingModeEditor"
+                        label="Grouping Mode: ">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -81,19 +81,19 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
+                    ref={this.chartRef}
                     chartType="Column"
-                    xAxisInterval="1"
-                    yAxisLabelLeftMargin="0"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisTitle="Billions of U.S. Dollars"
-                    dataToolTipGroupingMode="Grouped"
-                    dataToolTipGroupedPositionModeX="PinRight"
-                    dataToolTipGroupedPositionModeY="PinTop"
                     dataSource={this.highestGrossingMovies}
                     toolTipType="Data"
-                    crosshairsDisplayMode="None"
-                    ref={this.chartRef}>
+                    dataToolTipGroupedPositionModeX="PinRight"
+                    dataToolTipGroupedPositionModeY="PinTop"
+                    dataToolTipGroupingMode="Grouped"
+                    xAxisInterval="1"
+                    yAxisTitle="Billions of U.S. Dollars"
+                    yAxisTitleLeftMargin="10"
+                    yAxisTitleRightMargin="5"
+                    yAxisLabelLeftMargin="0"
+                    crosshairsDisplayMode="None">
                 </IgrCategoryChart>
             </div>
         </div>

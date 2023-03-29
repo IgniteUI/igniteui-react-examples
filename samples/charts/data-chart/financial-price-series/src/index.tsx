@@ -41,36 +41,36 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
-                    isHorizontalZoomEnabled="true"
-                    isVerticalZoomEnabled="true"
+                    ref={this.chartRef}
                     shouldAutoExpandMarginForInitialLabels="true"
                     computedPlotAreaMarginMode="Series"
-                    ref={this.chartRef}>
+                    isVerticalZoomEnabled="true"
+                    isHorizontalZoomEnabled="true">
                     <IgrCategoryXAxis
-                        interval="1"
+                        name="xAxis"
                         dataSource={this.stock2Years}
                         labelLocation="OutsideBottom"
-                        labelExtent="30"
                         label="month"
-                        name="xAxis">
+                        interval="1"
+                        labelExtent="30">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
-                        labelLocation="OutsideRight"
-                        name="yAxis">
+                        name="yAxis"
+                        labelLocation="OutsideRight">
                     </IgrNumericYAxis>
                     <IgrFinancialPriceSeries
+                        name="Series1"
+                        title="Stock Price"
                         displayType="Candlestick"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
+                        dataSource={this.stock2Years}
                         openMemberPath="open"
                         highMemberPath="high"
                         lowMemberPath="low"
                         closeMemberPath="close"
                         volumeMemberPath="volume"
-                        dataSource={this.stock2Years}
-                        showDefaultTooltip="true"
-                        title="Stock Price"
-                        name="Series1">
+                        showDefaultTooltip="true">
                     </IgrFinancialPriceSeries>
                     <IgrDataToolTipLayer
                         name="Tooltip">

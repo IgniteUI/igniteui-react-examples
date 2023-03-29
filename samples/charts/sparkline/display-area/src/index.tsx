@@ -30,11 +30,11 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrSparkline
+                    ref={this.chartRef}
                     dataSource={this.sparklineMixedData}
-                    valueMemberPath="value"
-                    labelMemberPath="label"
                     displayType="Area"
-                    ref={this.chartRef}>
+                    labelMemberPath="label"
+                    valueMemberPath="value">
                 </IgrSparkline>
             </div>
         </div>

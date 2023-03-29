@@ -53,25 +53,25 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="UnknownValuePlotting"
+                        name="UnknownValuePlottingEditor"
                         label="Unknown Value Plotting"
-                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
                         dropDownNames={["LinearInterpolate", "DontPlot"]}
                         dropDownValues={["LinearInterpolate", "DontPlot"]}
-                        primitiveValue="LinearInterpolate"
-                        name="UnknownValuePlottingEditor">
+                        primitiveValue="LinearInterpolate">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
 
             <div className="container fill">
                 <IgrSparkline
+                    ref={this.chartRef}
                     dataSource={this.sparklineUnknownData}
-                    valueMemberPath="value"
-                    labelMemberPath="label"
                     displayType="Area"
-                    unknownValuePlotting="LinearInterpolate"
-                    ref={this.chartRef}>
+                    labelMemberPath="label"
+                    valueMemberPath="value"
+                    unknownValuePlotting="LinearInterpolate">
                 </IgrSparkline>
             </div>
         </div>

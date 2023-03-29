@@ -60,9 +60,9 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="YAxisLabelLocation"
+                        name="YAxisLabelLocation"
                         label="Y Axis - Label Location"
-                        primitiveValue="OutsideRight"
-                        name="YAxisLabelLocation">
+                        primitiveValue="OutsideRight">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -73,24 +73,24 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
-                    chartType="Line"
-                    xAxisInterval="1"
-                    yAxisTitle="Labels Location"
-                    yAxisLabelLocation="OutsideRight"
+                    ref={this.chartRef}
+                    computedPlotAreaMarginMode="Series"
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
                     legend={this.legend}
+                    chartType="Line"
+                    yAxisTitle="Labels Location"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    computedPlotAreaMarginMode="Series"
-                    ref={this.chartRef}>
+                    xAxisInterval="1"
+                    yAxisLabelLocation="OutsideRight">
                 </IgrCategoryChart>
             </div>
         </div>

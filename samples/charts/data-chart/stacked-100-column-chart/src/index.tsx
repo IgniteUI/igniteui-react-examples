@@ -54,48 +54,48 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    ref={this.chartRef}
                     legend={this.legend}
-                    ref={this.chartRef}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryXAxis
+                        name="xAxis"
                         dataSource={this.onlineTrafficByDevice}
-                        gap="0.75"
                         label="category"
-                        name="xAxis">
+                        gap="0.75">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
-                        minimumValue="0"
-                        name="yAxis">
+                        name="yAxis"
+                        minimumValue="0">
                     </IgrNumericYAxis>
                     <IgrStacked100ColumnSeries
+                        name="Stacked100ColumnSeries"
+                        dataSource={this.onlineTrafficByDevice}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        dataSource={this.onlineTrafficByDevice}
-                        areaFillOpacity="1"
                         showDefaultTooltip="true"
-                        name="Stacked100ColumnSeries">
+                        areaFillOpacity="1">
                         <IgrStackedFragmentSeries
                             name="s1"
-                            title="Desktop"
-                            valueMemberPath="desktop">
+                            valueMemberPath="desktop"
+                            title="Desktop">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s2"
-                            title="Mobile"
-                            valueMemberPath="mobile">
+                            valueMemberPath="mobile"
+                            title="Mobile">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s3"
-                            title="Tablet"
-                            valueMemberPath="tablet">
+                            valueMemberPath="tablet"
+                            title="Tablet">
                         </IgrStackedFragmentSeries>
                     </IgrStacked100ColumnSeries>
                     <IgrDataToolTipLayer
