@@ -642,12 +642,12 @@ function updateCodeViewer(cb) {
 function logPackages(cb) {
     let fileNames = [];
     gulp.src([
-        './node_modules/@types/react*/package.json',
-        './node_modules/classnames/package.json',
-        './node_modules/file-saver/package.json',
         './node_modules/igniteui*/package.json',
         './node_modules/@infragistics/igniteui*/package.json',
-        './node_modules/prop*/package.json',
+        './node_modules/@types/react*/package.json',
+        // './node_modules/classnames/package.json',
+        // './node_modules/file-saver/package.json',
+        // './node_modules/prop*/package.json',
         './node_modules/react*/package.json',
         './node_modules/typescript/package.json',
         './node_modules/webpack/package.json',
