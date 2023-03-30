@@ -3,7 +3,6 @@ trigger:
     include:
     - vnext
     - master
-    - azure-pipelines
 
 pr:
   branches:
@@ -36,12 +35,12 @@ stages:
           versionSpec: '16.x'
 
       - task: Npm@1
-        displayName: 'npm ci'
+        displayName: 'npm install'
         inputs:
           command: custom
           workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
-          customCommand: ci
+          customCommand: 'install --legacy-peer-deps'
           customEndpoint: 'public proget'
 
       - task: Npm@1
