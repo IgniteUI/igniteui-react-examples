@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreemapModule } from 'igniteui-react-charts';
-import { IgrTreemap } from 'igniteui-react-charts';
-import { CountyHierarchicalDataItem, CountyHierarchicalData } from './CountyHierarchicalData';
+//insert bindingImports
+//end bindingImports
+
+
 
 const mods: any[] = [
     IgrTreemapModule
@@ -12,16 +14,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private treemap: IgrTreemap
-    private treemapRef(r: IgrTreemap) {
-        this.treemap = r;
-        this.setState({});
-    }
+    //insert bindingFields
+    //end bindingFields
 
     constructor(props: any) {
         super(props);
 
-        this.treemapRef = this.treemapRef.bind(this);
+        //insert bindingInit
+        //end bindingInit
+        //insert bindingCode
+        //end bindingCode
     }
 
     public render(): JSX.Element {
@@ -32,43 +34,19 @@ export default class Sample extends React.Component<any, any> {
                 Comparing Population of Countries
             </div>
 
+
             <div className="container fill">
-                <IgrTreemap
-                    ref={this.treemapRef}
-                    dataSource={this.countyHierarchicalData}
-                    parentIdMemberPath="parent"
-                    idMemberPath="name"
-                    labelMemberPath="name"
-                    valueMemberPath="population"
-                    fillScaleMode="Value"
-                    fillScaleMinimumValue="0"
-                    fillScaleMaximumValue="1500000000"
-                    fillBrushes="rgba(78, 98, 207, 1) rgba(138, 88, 214, 1)"
-                    isFillScaleLogarithmic="true"
-                    rootTitle="Countries"
-                    headerDisplayMode="Overlay"
-                    parentNodeBottomPadding="0"
-                    parentNodeLeftPadding="0"
-                    parentNodeRightPadding="0"
-                    parentNodeTopPadding="0"
-                    outline="black"
-                    strokeThickness="1">
-                </IgrTreemap>
+                //insert content
+                //end content
             </div>
         </div>
         );
     }
 
-    private _countyHierarchicalData: CountyHierarchicalData = null;
-    public get countyHierarchicalData(): CountyHierarchicalData {
-        if (this._countyHierarchicalData == null)
-        {
-            this._countyHierarchicalData = new CountyHierarchicalData();
-        }
-        return this._countyHierarchicalData;
-    }
+
 
 }
+
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

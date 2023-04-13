@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrCategoryChart } from 'igniteui-react-charts';
-import { TemperatureAverageDataItem, TemperatureAverageData } from './TemperatureAverageData';
+//insert bindingImports
+//end bindingImports
+
+
 
 const mods: any[] = [
     IgrCategoryChartModule
@@ -12,16 +14,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private chart: IgrCategoryChart
-    private chartRef(r: IgrCategoryChart) {
-        this.chart = r;
-        this.setState({});
-    }
+    //insert bindingFields
+    //end bindingFields
 
     constructor(props: any) {
         super(props);
 
-        this.chartRef = this.chartRef.bind(this);
+        //insert bindingInit
+        //end bindingInit
+        //insert bindingCode
+        //end bindingCode
     }
 
     public render(): JSX.Element {
@@ -32,37 +34,19 @@ export default class Sample extends React.Component<any, any> {
                 Average Temperature Range in New York
             </div>
 
+
             <div className="container fill">
-                <IgrCategoryChart
-                    ref={this.chartRef}
-                    chartType="Column"
-                    dataSource={this.temperatureAverageData}
-                    yAxisTitle="Temperature in Degrees Celsius"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisLabelLeftMargin="0"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    isCategoryHighlightingEnabled="true"
-                    highlightingMode="FadeOthersSpecific"
-                    highlightingBehavior="NearestItemsAndSeries"
-                    crosshairsDisplayMode="None">
-                </IgrCategoryChart>
+                //insert content
+                //end content
             </div>
         </div>
         );
     }
 
-    private _temperatureAverageData: TemperatureAverageData = null;
-    public get temperatureAverageData(): TemperatureAverageData {
-        if (this._temperatureAverageData == null)
-        {
-            this._temperatureAverageData = new TemperatureAverageData();
-        }
-        return this._temperatureAverageData;
-    }
+
 
 }
+
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -4,15 +4,11 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrCategoryChart } from 'igniteui-react-charts';
+//insert bindingImports
+//end bindingImports
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
-import { SalesData } from './SalesData';
 
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
 
-defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
@@ -22,88 +18,35 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private propertyEditorPanel1: IgrPropertyEditorPanel
-    private propertyEditorPanel1Ref(r: IgrPropertyEditorPanel) {
-        this.propertyEditorPanel1 = r;
-        this.setState({});
-    }
-    private initialGroups: IgrPropertyEditorPropertyDescription
-    private initialSummaries: IgrPropertyEditorPropertyDescription
-    private groupSorts: IgrPropertyEditorPropertyDescription
-    private chart: IgrCategoryChart
-    private chartRef(r: IgrCategoryChart) {
-        this.chart = r;
-        this.setState({});
-    }
+    //insert bindingFields
+    //end bindingFields
 
     constructor(props: any) {
         super(props);
 
-        this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
-        this.chartRef = this.chartRef.bind(this);
+        //insert bindingInit
+        //end bindingInit
+        //insert bindingCode
+        //end bindingCode
     }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            <div className="options vertical">
-                <IgrPropertyEditorPanel
-                    componentRenderer={this.renderer}
-                    target={this.chart}
-                    descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true"
-                    ref={this.propertyEditorPanel1Ref}>
-                    <IgrPropertyEditorPropertyDescription
-                        propertyPath="InitialGroups"
-                        name="InitialGroups"
-                        label="Initial Groups"
-                        valueType="StringValue">
-                    </IgrPropertyEditorPropertyDescription>
-                    <IgrPropertyEditorPropertyDescription
-                        propertyPath="InitialSummaries"
-                        name="InitialSummaries"
-                        label="Initial Summaries"
-                        valueType="StringValue">
-                    </IgrPropertyEditorPropertyDescription>
-                    <IgrPropertyEditorPropertyDescription
-                        propertyPath="GroupSorts"
-                        name="GroupSorts"
-                        label="Sort Groups"
-                        valueType="StringValue">
-                    </IgrPropertyEditorPropertyDescription>
-                </IgrPropertyEditorPanel>
-            </div>
 
             <div className="legend-title">
                 Renewable Electricity Generated
             </div>
 
+
             <div className="container fill">
-                <IgrCategoryChart
-                    ref={this.chartRef}
-                    dataSource={this.salesData}
-                    chartType="Column"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    crosshairsDisplayMode="None"
-                    initialGroups="Country"
-                    initialSummaries="Sum(Sales) as Sales"
-                    groupSorts="Sales Desc">
-                </IgrCategoryChart>
+                //insert content
+                //end content
             </div>
         </div>
         );
     }
 
-    private _salesData: SalesData = null;
-    public get salesData(): SalesData {
-        if (this._salesData == null)
-        {
-            this._salesData = new SalesData();
-        }
-        return this._salesData;
-    }
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -118,6 +61,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 }
+
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
