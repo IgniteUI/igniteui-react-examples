@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataChartStackedModule, IgrStackedFragmentSeriesModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrStacked100ColumnSeries, IgrStackedFragmentSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
-import { OnlineTrafficByDeviceItem, OnlineTrafficByDevice } from './OnlineTrafficByDevice';
+//insert bindingImports
+//end bindingImports
 
 const mods: any[] = [
     IgrLegendModule,
@@ -19,29 +19,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private legend: IgrLegend
-    private legendRef(r: IgrLegend) {
-        this.legend = r;
-        this.setState({});
-    }
-    private chart: IgrDataChart
-    private chartRef(r: IgrDataChart) {
-        this.chart = r;
-        this.setState({});
-    }
-    private xAxis: IgrCategoryXAxis
-    private yAxis: IgrNumericYAxis
-    private stacked100ColumnSeries: IgrStacked100ColumnSeries
-    private s1: IgrStackedFragmentSeries
-    private s2: IgrStackedFragmentSeries
-    private s3: IgrStackedFragmentSeries
-    private dataToolTipLayer: IgrDataToolTipLayer
+    //insert bindingFields
+    //end bindingFields
 
     constructor(props: any) {
         super(props);
 
-        this.legendRef = this.legendRef.bind(this);
-        this.chartRef = this.chartRef.bind(this);
+        //insert bindingInit
+        //end bindingInit
+        //insert bindingCode
+        //end bindingCode
     }
 
     public render(): JSX.Element {
@@ -52,68 +39,12 @@ export default class Sample extends React.Component<any, any> {
                 Distribution of Online Traffic Worldwide, by Device
             </div>
 
-            <div className="legend">
-                <IgrLegend
-                    ref={this.legendRef}
-                    orientation="Horizontal">
-                </IgrLegend>
-            </div>
-
             <div className="container fill">
-                <IgrDataChart
-                    ref={this.chartRef}
-                    legend={this.legend}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false">
-                    <IgrCategoryXAxis
-                        name="xAxis"
-                        dataSource={this.onlineTrafficByDevice}
-                        label="category"
-                        gap="0.75">
-                    </IgrCategoryXAxis>
-                    <IgrNumericYAxis
-                        name="yAxis"
-                        minimumValue="0">
-                    </IgrNumericYAxis>
-                    <IgrStacked100ColumnSeries
-                        name="Stacked100ColumnSeries"
-                        dataSource={this.onlineTrafficByDevice}
-                        xAxisName="xAxis"
-                        yAxisName="yAxis"
-                        showDefaultTooltip="true"
-                        areaFillOpacity="1">
-                        <IgrStackedFragmentSeries
-                            name="s1"
-                            valueMemberPath="desktop"
-                            title="Desktop">
-                        </IgrStackedFragmentSeries>
-                        <IgrStackedFragmentSeries
-                            name="s2"
-                            valueMemberPath="mobile"
-                            title="Mobile">
-                        </IgrStackedFragmentSeries>
-                        <IgrStackedFragmentSeries
-                            name="s3"
-                            valueMemberPath="tablet"
-                            title="Tablet">
-                        </IgrStackedFragmentSeries>
-                    </IgrStacked100ColumnSeries>
-                    <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
-                    </IgrDataToolTipLayer>
-                </IgrDataChart>
+                //insert content
+                //end content
             </div>
         </div>
         );
-    }
-
-    private _onlineTrafficByDevice: OnlineTrafficByDevice = null;
-    public get onlineTrafficByDevice(): OnlineTrafficByDevice {
-        if (this._onlineTrafficByDevice == null)
-        {
-            this._onlineTrafficByDevice = new OnlineTrafficByDevice();
-        }
-        return this._onlineTrafficByDevice;
     }
 
 }
