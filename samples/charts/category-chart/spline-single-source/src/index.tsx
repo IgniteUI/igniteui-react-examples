@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrCategoryChart } from 'igniteui-react-charts';
-import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+//insert bindingImports
+//end bindingImports
 
 const mods: any[] = [
     IgrCategoryChartModule
@@ -12,16 +12,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private chart: IgrCategoryChart
-    private chartRef(r: IgrCategoryChart) {
-        this.chart = r;
-        this.setState({});
-    }
+    //insert bindingFields
+    //end bindingFields
 
     constructor(props: any) {
         super(props);
 
-        this.chartRef = this.chartRef.bind(this);
+        //insert bindingInit
+        //end bindingInit
+        //insert bindingCode
+        //end bindingCode
     }
 
     public render(): JSX.Element {
@@ -33,32 +33,11 @@ export default class Sample extends React.Component<any, any> {
             </div>
 
             <div className="container fill">
-                <IgrCategoryChart
-                    ref={this.chartRef}
-                    chartType="Spline"
-                    dataSource={this.countryRenewableElectricity}
-                    includedProperties={["year", "europe"]}
-                    yAxisTitle="TWh"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisLabelLeftMargin="0"
-                    isTransitionInEnabled="true"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    computedPlotAreaMarginMode="Series">
-                </IgrCategoryChart>
+                //insert content
+                //end content
             </div>
         </div>
         );
-    }
-
-    private _countryRenewableElectricity: CountryRenewableElectricity = null;
-    public get countryRenewableElectricity(): CountryRenewableElectricity {
-        if (this._countryRenewableElectricity == null)
-        {
-            this._countryRenewableElectricity = new CountryRenewableElectricity();
-        }
-        return this._countryRenewableElectricity;
     }
 
 }

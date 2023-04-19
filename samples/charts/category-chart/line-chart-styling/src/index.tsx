@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
-import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+//insert bindingImports
+//end bindingImports
 
 const mods: any[] = [
     IgrLegendModule,
@@ -13,22 +13,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private legend: IgrLegend
-    private legendRef(r: IgrLegend) {
-        this.legend = r;
-        this.setState({});
-    }
-    private chart: IgrCategoryChart
-    private chartRef(r: IgrCategoryChart) {
-        this.chart = r;
-        this.setState({});
-    }
+    //insert bindingFields
+    //end bindingFields
 
     constructor(props: any) {
         super(props);
 
-        this.legendRef = this.legendRef.bind(this);
-        this.chartRef = this.chartRef.bind(this);
+        //insert bindingInit
+        //end bindingInit
+        //insert bindingCode
+        //end bindingCode
     }
 
     public render(): JSX.Element {
@@ -39,43 +33,12 @@ export default class Sample extends React.Component<any, any> {
                 Renewable Electricity Generated
             </div>
 
-            <div className="legend">
-                <IgrLegend
-                    ref={this.legendRef}
-                    orientation="Horizontal">
-                </IgrLegend>
-            </div>
-
             <div className="container fill">
-                <IgrCategoryChart
-                    ref={this.chartRef}
-                    dataSource={this.countryRenewableElectricity}
-                    chartType="Line"
-                    legend={this.legend}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    markerBrushes="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
-                    markerOutlines="white"
-                    brushes="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
-                    outlines="rgba(238, 88, 121, 1) rgba(196, 196, 196, 1) rgba(154, 242, 228, 1)"
-                    yAxisTitle="TWh"
-                    yAxisTitleLeftMargin="10"
-                    yAxisLabelLeftMargin="0"
-                    thickness="2"
-                    computedPlotAreaMarginMode="Series">
-                </IgrCategoryChart>
+                //insert content
+                //end content
             </div>
         </div>
         );
-    }
-
-    private _countryRenewableElectricity: CountryRenewableElectricity = null;
-    public get countryRenewableElectricity(): CountryRenewableElectricity {
-        if (this._countryRenewableElectricity == null)
-        {
-            this._countryRenewableElectricity = new CountryRenewableElectricity();
-        }
-        return this._countryRenewableElectricity;
     }
 
 }
