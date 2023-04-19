@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCalloutLayer, IgrFinalValueLayer, IgrCrosshairLayer, IgrDataToolTipLayer } from 'igniteui-react-charts';
-import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
-import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
+//insert bindingImports
+//end bindingImports
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -17,23 +16,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private chart: IgrDataChart
-    private chartRef(r: IgrDataChart) {
-        this.chart = r;
-        this.setState({});
-    }
-    private xAxis: IgrCategoryXAxis
-    private yAxis: IgrNumericYAxis
-    private lineSeries1: IgrLineSeries
-    private calloutLayer1: IgrCalloutLayer
-    private finalValueLayer: IgrFinalValueLayer
-    private crosshairLayer: IgrCrosshairLayer
-    private tooltips: IgrDataToolTipLayer
+    //insert bindingFields
+    //end bindingFields
 
     constructor(props: any) {
         super(props);
 
-        this.chartRef = this.chartRef.bind(this);
+        //insert bindingInit
+        //end bindingInit
+        //insert bindingCode
+        //end bindingCode
     }
 
     public render(): JSX.Element {
@@ -45,77 +37,11 @@ export default class Sample extends React.Component<any, any> {
             </div>
 
             <div className="container fill">
-                <IgrDataChart
-                    ref={this.chartRef}>
-                    <IgrCategoryXAxis
-                        name="xAxis"
-                        dataSource={this.countryRenewableElectricity}
-                        label="year">
-                    </IgrCategoryXAxis>
-                    <IgrNumericYAxis
-                        name="yAxis"
-                        title="TWh">
-                    </IgrNumericYAxis>
-                    <IgrLineSeries
-                        name="LineSeries1"
-                        title="Electricity"
-                        xAxisName="xAxis"
-                        yAxisName="yAxis"
-                        dataSource={this.countryRenewableElectricity}
-                        valueMemberPath="america">
-                    </IgrLineSeries>
-                    <IgrCalloutLayer
-                        name="CalloutLayer1"
-                        dataSource={this.countryRenewableCallouts}
-                        xMemberPath="index"
-                        yMemberPath="value"
-                        labelMemberPath="label"
-                        calloutPaddingLeft="20"
-                        calloutPaddingRight="20"
-                        calloutPaddingBottom="10"
-                        calloutPaddingTop="10"
-                        calloutCornerRadius="5">
-                    </IgrCalloutLayer>
-                    <IgrFinalValueLayer
-                        name="FinalValueLayer"
-                        axisAnnotationBackgroundCornerRadius="10"
-                        axisAnnotationPaddingBottom="10"
-                        axisAnnotationPaddingTop="10"
-                        axisAnnotationPaddingLeft="10"
-                        axisAnnotationPaddingRight="10">
-                    </IgrFinalValueLayer>
-                    <IgrCrosshairLayer
-                        name="CrosshairLayer"
-                        isAxisAnnotationEnabled="true"
-                        yAxisAnnotationInterpolatedValuePrecision="0"
-                        xAxisAnnotationBackgroundCornerRadius="10"
-                        yAxisAnnotationBackgroundCornerRadius="10">
-                    </IgrCrosshairLayer>
-                    <IgrDataToolTipLayer
-                        name="Tooltips">
-                    </IgrDataToolTipLayer>
-                </IgrDataChart>
+                //insert content
+                //end content
             </div>
         </div>
         );
-    }
-
-    private _countryRenewableElectricity: CountryRenewableElectricity = null;
-    public get countryRenewableElectricity(): CountryRenewableElectricity {
-        if (this._countryRenewableElectricity == null)
-        {
-            this._countryRenewableElectricity = new CountryRenewableElectricity();
-        }
-        return this._countryRenewableElectricity;
-    }
-
-    private _countryRenewableCallouts: CountryRenewableCallouts = null;
-    public get countryRenewableCallouts(): CountryRenewableCallouts {
-        if (this._countryRenewableCallouts == null)
-        {
-            this._countryRenewableCallouts = new CountryRenewableCallouts();
-        }
-        return this._countryRenewableCallouts;
     }
 
 }
