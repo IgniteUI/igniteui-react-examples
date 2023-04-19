@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrFinancialChartModule, IgrDataChartInteractivityModule, IgrLegendModule } from 'igniteui-react-charts';
-import { IgrFinancialChart } from 'igniteui-react-charts';
-import { MultipleStocks } from './MultipleStocks';
+//insert bindingImports
+//end bindingImports
 
 const mods: any[] = [
     IgrFinancialChartModule,
@@ -14,16 +14,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private chart: IgrFinancialChart
-    private chartRef(r: IgrFinancialChart) {
-        this.chart = r;
-        this.setState({});
-    }
+    //insert bindingFields
+    //end bindingFields
 
     constructor(props: any) {
         super(props);
 
-        this.chartRef = this.chartRef.bind(this);
+        //insert bindingInit
+        //end bindingInit
+        //insert bindingCode
+        //end bindingCode
     }
 
     public render(): JSX.Element {
@@ -31,31 +31,11 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
 
             <div className="container fill">
-                <IgrFinancialChart
-                    ref={this.chartRef}
-                    isToolbarVisible="false"
-                    isVerticalZoomEnabled="true"
-                    isHorizontalZoomEnabled="true"
-                    dataSource={this.multipleStocks}
-                    verticalViewScrollbarMode="Fading"
-                    horizontalViewScrollbarMode="Persistent"
-                    zoomSliderType="None"
-                    windowRect="0, 0, 0.5, 1">
-                </IgrFinancialChart>
+                //insert content
+                //end content
             </div>
         </div>
         );
-    }
-
-    private _multipleStocks: MultipleStocks = null;
-    private _multipleStocksFetching: boolean = false;
-    public get multipleStocks(): MultipleStocks {
-        if (this._multipleStocks == null && !this._multipleStocksFetching)
-        {
-            this._multipleStocksFetching = true;
-            ( async () => { this._multipleStocks = await (await MultipleStocks.fetch()); this.setState({});  })();
-        }
-        return this._multipleStocks;
     }
 
 }
