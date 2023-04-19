@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrDoughnutChartModule } from 'igniteui-react-charts';
-import { IgrDoughnutChart, IgrRingSeries } from 'igniteui-react-charts';
-import { CompanyMarketSharesItem, CompanyMarketShares } from './CompanyMarketShares';
+//insert bindingImports
+//end bindingImports
 
 const mods: any[] = [
     IgrLegendModule,
@@ -13,17 +13,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private chart: IgrDoughnutChart
-    private chartRef(r: IgrDoughnutChart) {
-        this.chart = r;
-        this.setState({});
-    }
-    private series: IgrRingSeries
+    //insert bindingFields
+    //end bindingFields
 
     constructor(props: any) {
         super(props);
 
-        this.chartRef = this.chartRef.bind(this);
+        //insert bindingInit
+        //end bindingInit
+        //insert bindingCode
+        //end bindingCode
     }
 
     public render(): JSX.Element {
@@ -35,29 +34,11 @@ export default class Sample extends React.Component<any, any> {
             </div>
 
             <div className="container fill">
-                <IgrDoughnutChart
-                    ref={this.chartRef}>
-                    <IgrRingSeries
-                        name="series"
-                        labelMemberPath="summary"
-                        valueMemberPath="value"
-                        legendLabelMemberPath="category"
-                        outlines="white"
-                        dataSource={this.companyMarketShares}>
-                    </IgrRingSeries>
-                </IgrDoughnutChart>
+                //insert content
+                //end content
             </div>
         </div>
         );
-    }
-
-    private _companyMarketShares: CompanyMarketShares = null;
-    public get companyMarketShares(): CompanyMarketShares {
-        if (this._companyMarketShares == null)
-        {
-            this._companyMarketShares = new CompanyMarketShares();
-        }
-        return this._companyMarketShares;
     }
 
 }
