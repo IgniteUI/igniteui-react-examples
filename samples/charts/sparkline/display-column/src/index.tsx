@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrSparklineModule } from 'igniteui-react-charts';
-import { IgrSparkline } from 'igniteui-react-charts';
-import { SparklineMixedDataItem, SparklineMixedData } from './SparklineMixedData';
+//insert bindingImports
+//end bindingImports
 
 const mods: any[] = [
     IgrSparklineModule
@@ -12,16 +12,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private chart: IgrSparkline
-    private chartRef(r: IgrSparkline) {
-        this.chart = r;
-        this.setState({});
-    }
+    //insert bindingFields
+    //end bindingFields
 
     constructor(props: any) {
         super(props);
 
-        this.chartRef = this.chartRef.bind(this);
+        //insert bindingInit
+        //end bindingInit
+        //insert bindingCode
+        //end bindingCode
     }
 
     public render(): JSX.Element {
@@ -29,25 +29,11 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
 
             <div className="container fill">
-                <IgrSparkline
-                    ref={this.chartRef}
-                    dataSource={this.sparklineMixedData}
-                    displayType="Column"
-                    labelMemberPath="label"
-                    valueMemberPath="value">
-                </IgrSparkline>
+                //insert content
+                //end content
             </div>
         </div>
         );
-    }
-
-    private _sparklineMixedData: SparklineMixedData = null;
-    public get sparklineMixedData(): SparklineMixedData {
-        if (this._sparklineMixedData == null)
-        {
-            this._sparklineMixedData = new SparklineMixedData();
-        }
-        return this._sparklineMixedData;
     }
 
 }
