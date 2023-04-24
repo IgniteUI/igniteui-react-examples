@@ -13,20 +13,20 @@ export default class SamplesCache {
         this.fetchMetadata()
         .then((cachedVersion) => {
           console.log('SB cache meta.json ver: ' + cachedVersion + ' vs SamplesBrowser.json ver: ' + browserVersion)
-        //   if (this.isObsolete(cachedVersion, browserVersion)) {
-        //     // console.log('SB cache clearing ...')
-        //     // if (caches) {
-        //     //   // Service worker cache should be cleared with caches.delete()
-        //     //   caches.keys().then(function(names) {
-        //     //     for (let name of names) caches.delete(name);
-        //     //   });
-        //     // }
-        //     // console.log('SB cache hard reloading...')
-        //     // delete browser cache and hard reload
-        //     // window.location.reload();
-        //   } else {
-        //     console.log(`SB cache no refresh.`);
-        //   }
+          if (this.isObsolete(cachedVersion, browserVersion)) {
+            console.log('SB cache clearing ...')
+            // if (caches) {
+            //   // Service worker cache should be cleared with caches.delete()
+            //   caches.keys().then(function(names) {
+            //     for (let name of names) caches.delete(name);
+            //   });
+            // }
+            // console.log('SB cache hard reloading...')
+            // delete browser cache and hard reload
+            // window.location.reload();
+          } else {
+            console.log(`SB cache no refresh.`);
+          }
         });
 
         // console.log('SB cache clearing ...')
