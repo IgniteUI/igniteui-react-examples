@@ -8,11 +8,11 @@ igc-card {
 }
 
 igc-card-content,
-igc-card-header::part(title) { 
+igc-card-header > *[slot="title"]{
     color: #FEFEFE;
 }
 
-igc-card-header::part(subtitle) {
+igc-card-header > *[slot="subtitle"] {
     color: #ECAA53;
     opacity: 0.9;
 }
