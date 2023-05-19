@@ -1,0 +1,49 @@
+.dockManagerContent {
+    padding: 0.5rem;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    display: flex;
+    flex-direction: column;
+    /* background: orange; */
+}
+
+igc-dockmanager::part(unpinned-tab-area) {
+    background: #bee9ec;
+}
+
+igc-dockmanager::part(unpinned-tab-area--left) {
+    border-right: 1px dashed #004d7a;
+}
+
+igc-dockmanager::part(unpinned-tab-area--bottom) {
+    border-top: 1px dashed #004d7a;
+}
+
+igc-dockmanager::part(tab-header-close-button),
+igc-dockmanager::part(pane-header-close-button) {
+    background-color: #e73c7e;
+}
+
+igc-dockmanager::part(context-menu-unpin-button),
+igc-dockmanager::part(pane-header-pin-button),
+igc-dockmanager::part(pane-header-unpin-button) {
+    background: rgb(218, 218, 218);
+    border: none;
+    width: 24px;
+    height: 24px;
+    color: #fff;
+}
+
+igc-dockmanager::part(tabs-maximize-button),
+igc-dockmanager::part(tabs-minimize-button),
+igc-dockmanager::part(pane-header-minimize-button),
+igc-dockmanager::part(pane-header-maximize-button) {
+    width: 24px;
+    height: 24px;
+    border: none;
+    transition: opacity 250ms ease-in-out;
+    opacity: 0.3;
+    margin-right: 15px;
+    margin-top: -5px;
+    margin-left: 0px;
+}
