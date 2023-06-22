@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "igniteui-dockmanager": "1.12.5",
-    "igniteui-react": "18.2.0-beta.1",
-    "igniteui-react-core": "18.2.0-beta.1",
+    "igniteui-react": "18.2.0-beta.2",
+    "igniteui-react-core": "18.2.0-beta.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
