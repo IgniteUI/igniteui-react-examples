@@ -66,8 +66,8 @@ export default class Sample extends React.Component<any, any> {
                         majorStrokeThickness="0.5"
                         stroke="rgba(145, 145, 145, 1)"
                         strokeThickness="2"
-                        strokeDashArray="["5", "5"]"
-                        majorStrokeDashArray="["5", "5"]"
+                        strokeDashArray="5, 5"
+                        majorStrokeDashArray="5, 5"
                         tickLength="0">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
@@ -80,9 +80,9 @@ export default class Sample extends React.Component<any, any> {
                         minorInterval="5"
                         minorStroke="gray"
                         minorStrokeThickness="0.5"
-                        strokeDashArray="["5", "5"]"
-                        majorStrokeDashArray="["5", "5"]"
-                        minorStrokeDashArray="["2.5", "2.5"]"
+                        strokeDashArray="5, 5"
+                        majorStrokeDashArray="5, 5"
+                        minorStrokeDashArray="2.5, 2.5"
                         tickLength="0">
                     </IgrNumericYAxis>
                     <IgrLineSeries

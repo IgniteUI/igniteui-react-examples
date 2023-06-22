@@ -3,19 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrToolbarModule } from 'igniteui-react-layouts';
-import { IgrDataChartToolbarModule, IgrNumberAbbreviatorModule, IgrDataChartCategoryModule, IgrDataChartCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrToolbar, IgrToolActionLabel } from 'igniteui-react-layouts';
+import { IgrDataChartToolbarModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule, IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
+import { IgrToolbar, IgrToolActionLabel, IgrToolActionIconMenu } from 'igniteui-react-layouts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries } from 'igniteui-react-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
 const mods: any[] = [
     IgrToolbarModule,
     IgrDataChartToolbarModule,
-    IgrNumberAbbreviatorModule,
-    IgrDataChartCategoryModule,
     IgrDataChartCoreModule,
+    IgrDataChartCategoryModule,
+    IgrDataChartAnnotationModule,
     IgrDataChartInteractivityModule,
-    IgrDataChartAnnotationModule
+    IgrAnnotationLayerProxyModule,
+    IgrDataChartCategoryTrendLineModule
 ];
 mods.forEach((m) => m.register());
 
@@ -25,7 +26,6 @@ export default class Sample extends React.Component<any, any> {
         this.toolbar = r;
         this.setState({});
     }
-    private toolActionLabel1: IgrToolActionLabel
     private chart: IgrDataChart
     private chartRef(r: IgrDataChart) {
         this.chart = r;
@@ -41,7 +41,6 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.toolbarRef = this.toolbarRef.bind(this);
-        this.myCustomAction = this.myCustomAction.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -55,23 +54,20 @@ export default class Sample extends React.Component<any, any> {
                     target={this.chart}
                     orientation="Horizontal">
                     <IgrToolActionLabel
-                        title="hide analyze menu"
-                        overlayId="AnalyzeMenu"
-                        visibility="Collapsed">
-                    </IgrToolActionLabel>
-                    <IgrToolActionLabel
-                        title="Reset"
                         overlayId="ZoomReset"
                         visibility="Collapsed">
                     </IgrToolActionLabel>
                     <IgrToolActionLabel
                         title="Reset"
                         afterId="ZoomOut"
-                        iconName="MyCustomIcon"
-                        iconCollectionName="MyCustomCollection"
-                        onCommand={this.myCustomAction}
-                        name="toolActionLabel1">
+                        iconName="reset"
+                        iconCollectionName="ChartToolbarIcons"
+                        commandId="ZoomReset">
                     </IgrToolActionLabel>
+                    <IgrToolActionIconMenu
+                        overlayId="AnalyzeMenu"
+                        visibility="Collapsed">
+                    </IgrToolActionIconMenu>
                 </IgrToolbar>
             </div>
 

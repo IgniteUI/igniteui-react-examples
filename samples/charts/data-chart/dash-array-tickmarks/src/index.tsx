@@ -41,14 +41,14 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.countryRenewableElectricity}
                         label="year"
                         tickLength="20"
-                        tickStrokeDashArray="["2", "2"]"
+                        tickStrokeDashArray="2, 2"
                         tickStroke="darkslategray"
                         interval="1">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
                         tickLength="20"
-                        tickStrokeDashArray="["2", "2"]"
+                        tickStrokeDashArray="2, 2"
                         tickStroke="darkslategray"
                         minimumValue="0">
                     </IgrNumericYAxis>

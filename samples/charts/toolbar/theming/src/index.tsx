@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule, IgrToolbarModule } from 'igniteui-react-layouts';
-import { IgrDataChartToolbarModule, IgrNumberAbbreviatorModule, IgrDataChartCategoryeModule, IgrDataChartCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
+import { IgrDataChartToolbarModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule, IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription, IgrToolbar } from 'igniteui-react-layouts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries } from 'igniteui-react-charts';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, ToolbarDescriptionModule, DataChartToolbarDescriptionModule, NumberAbbreviatorDescriptionModule, DataChartCategoryeDescriptionModule, DataChartCoreDescriptionModule, DataChartInteractivityDescriptionModule, DataChartAnnotationDescriptionModule } from 'igniteui-react-core';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, ToolbarDescriptionModule, DataChartToolbarDescriptionModule, DataChartCoreDescriptionModule, DataChartCategoryDescriptionModule, DataChartAnnotationDescriptionModule, DataChartInteractivityDescriptionModule, AnnotationLayerProxyDescriptionModule, DataChartCategoryTrendLineDescriptionModule } from 'igniteui-react-core';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -18,11 +18,12 @@ const mods: any[] = [
     IgrPropertyEditorPanelModule,
     IgrToolbarModule,
     IgrDataChartToolbarModule,
-    IgrNumberAbbreviatorModule,
-    IgrDataChartCategoryeModule,
     IgrDataChartCoreModule,
+    IgrDataChartCategoryModule,
+    IgrDataChartAnnotationModule,
     IgrDataChartInteractivityModule,
-    IgrDataChartAnnotationModule
+    IgrAnnotationLayerProxyModule,
+    IgrDataChartCategoryTrendLineModule
 ];
 mods.forEach((m) => m.register());
 
@@ -32,7 +33,6 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
-    private baseTheme: IgrPropertyEditorPropertyDescription
     private toolbar: IgrToolbar
     private toolbarRef(r: IgrToolbar) {
         this.toolbar = r;
@@ -68,7 +68,6 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="BaseTheme"
-                        name="BaseTheme"
                         label="Theme"
                         shouldOverrideDefaultEditor="true"
                         valueType="EnumValue"
@@ -130,11 +129,12 @@ export default class Sample extends React.Component<any, any> {
             PropertyEditorPanelDescriptionModule.register(context);
             ToolbarDescriptionModule.register(context);
             DataChartToolbarDescriptionModule.register(context);
-            NumberAbbreviatorDescriptionModule.register(context);
-            DataChartCategoryeDescriptionModule.register(context);
             DataChartCoreDescriptionModule.register(context);
-            DataChartInteractivityDescriptionModule.register(context);
+            DataChartCategoryDescriptionModule.register(context);
             DataChartAnnotationDescriptionModule.register(context);
+            DataChartInteractivityDescriptionModule.register(context);
+            AnnotationLayerProxyDescriptionModule.register(context);
+            DataChartCategoryTrendLineDescriptionModule.register(context);
         }
         return this._componentRenderer;
     }
