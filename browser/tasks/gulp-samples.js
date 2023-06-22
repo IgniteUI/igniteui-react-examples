@@ -118,9 +118,15 @@ function lintSamples(cb) {
     });
 } exports.lintSamples = lintSamples;
 
-let materialSamples = [
+let skipSamples = [
     // '../samples/grids/data-grid/binding-live-data',
     // '../samples/grids/data-grid/load-save-layout',
+
+    // skip samples with bugs in exporting CompanyMarketCapItemized with null values:
+    '../samples/charts/data-chart/itemized-bar-chart',
+    '../samples/charts/data-chart/itemized-column-chart',
+    '../samples/charts/data-chart/itemized-stacked-bar-chart',
+    '../samples/charts/data-chart/itemized-stacked-column-chart',
 ];
 
 function getSamples(cb) {
@@ -137,9 +143,9 @@ function getSamples(cb) {
 
         let sampleFolderName = Transformer.getRelative(samplePackage.dirname);
 
-        if (materialSamples.indexOf(sampleFolderName) >= 0) {
+        if (skipSamples.indexOf(sampleFolderName) >= 0) {
             // skip until material UI components are replaced in samples
-            log("skipping sample with material UI components " + sampleFolderName);
+            log("skipping sample: " + sampleFolderName);
             sampleCallback(null, samplePackage);
         } else {
             let sampleFiles = [];
