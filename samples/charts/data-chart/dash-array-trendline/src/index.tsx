@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
+import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartCategoryTrendLineModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries } from 'igniteui-react-charts';
 import { Stock2YearsItem, Stock2Years } from './Stock2Years';
 
@@ -10,6 +10,7 @@ const mods: any[] = [
     IgrDataChartCoreModule,
     IgrDataChartCategoryModule,
     IgrDataChartCategoryCoreModule,
+    IgrDataChartCategoryTrendLineModule,
     IgrDataChartFinancialCoreModule,
     IgrDataChartFinancialModule,
     IgrDataChartFinancialOverlaysModule,
@@ -72,7 +73,7 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true"
                         trendLineType="QuarticFit"
                         trendLineBrush="dodgerblue"
-                        trendLineDashArray="5, 5">
+                        trendLineDashArray="["5", "5"]">
                     </IgrFinancialPriceSeries>
                 </IgrDataChart>
             </div>
