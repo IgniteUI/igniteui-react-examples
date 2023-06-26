@@ -59,15 +59,18 @@ export default class Sample extends React.Component<any, any> {
                             orientation="Horizontal"
                             onCommand={this.toolbarToggleTooltip}>
                             <IgrToolActionCheckbox
+                                key="EnableTooltipsLabel"
                                 title="Enable Tooltips"
                                 beforeId="ZoomReset"
                                 commandId="EnableTooltips">
                             </IgrToolActionCheckbox>
                             <IgrToolActionLabel
+                                key="ZoomResetHidden"
                                 overlayId="ZoomReset"
                                 visibility="Collapsed">
                             </IgrToolActionLabel>
                             <IgrToolActionLabel
+                                key="ZoomResetLabel"
                                 title="Reset"
                                 afterId="ZoomOut"
                                 iconName="reset"
@@ -75,14 +78,11 @@ export default class Sample extends React.Component<any, any> {
                                 commandId="ZoomReset">
                             </IgrToolActionLabel>
                             <IgrToolActionIconMenu
+                                key="AnalyzeMenu"
                                 overlayId="AnalyzeMenu"
                                 visibility="Collapsed">
                             </IgrToolActionIconMenu>
                         </IgrToolbar>
-                    </div>
-                </div>
-                <div className="aboveContentRightContainer">
-                    <div>
                     </div>
                 </div>
             </div>
