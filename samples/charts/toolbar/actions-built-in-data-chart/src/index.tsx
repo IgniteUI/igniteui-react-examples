@@ -5,7 +5,7 @@ import './index.css';
 import { IgrToolbarModule } from 'igniteui-react-layouts';
 import { IgrDataChartToolbarModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule, IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
 import { IgrToolbar } from 'igniteui-react-layouts';
-import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries } from 'igniteui-react-charts';
+import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
 const mods: any[] = [
@@ -48,17 +48,29 @@ export default class Sample extends React.Component<any, any> {
         return (
         <div className="container sample">
 
-            <div className="aboveContent">
-                <IgrToolbar
-                    ref={this.toolbarRef}
-                    target={this.chart}
-                    orientation="Horizontal">
-                </IgrToolbar>
+            <div className="aboveContentSplit">
+                <div className="aboveContentLeftContainer">
+                    <div>
+                        <IgrToolbar
+                            ref={this.toolbarRef}
+                            target={this.chart}
+                            orientation="Horizontal">
+                        </IgrToolbar>
+                    </div>
+                </div>
+                <div className="aboveContentRightContainer">
+                    <div>
+                        //insert aboveContentRight
+                        //end aboveContentRight
+                    </div>
+                </div>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
                     isHorizontalZoomEnabled="true"
+                    isVerticalZoomEnabled="true"
+                    computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         name="xAxis"
@@ -93,6 +105,9 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.countryRenewableElectricity}
                         valueMemberPath="china">
                     </IgrLineSeries>
+                    <IgrDataToolTipLayer
+                    >
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

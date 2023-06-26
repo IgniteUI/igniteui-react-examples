@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrToolbarModule } from 'igniteui-react-layouts';
-import { IgrDataChartToolbarModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule, IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
-import { IgrToolbar, IgrToolActionLabel, IgrToolActionIconMenu } from 'igniteui-react-layouts';
+import { IgrDataChartToolbarModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
+import { IgrToolbar, IgrToolActionCheckbox, IgrToolActionLabel, IgrToolActionIconMenu } from 'igniteui-react-layouts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries } from 'igniteui-react-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+import { IgrToolCommandEventArgs } from 'igniteui-react-layouts';
+import { IgrSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 
 const mods: any[] = [
     IgrToolbarModule,
@@ -15,7 +17,6 @@ const mods: any[] = [
     IgrDataChartCategoryModule,
     IgrDataChartAnnotationModule,
     IgrDataChartInteractivityModule,
-    IgrAnnotationLayerProxyModule,
     IgrDataChartCategoryTrendLineModule
 ];
 mods.forEach((m) => m.register());
@@ -41,6 +42,7 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.toolbarRef = this.toolbarRef.bind(this);
+        this.toolbarToggleTooltip = this.toolbarToggleTooltip.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -48,32 +50,50 @@ export default class Sample extends React.Component<any, any> {
         return (
         <div className="container sample">
 
-            <div className="aboveContent">
-                <IgrToolbar
-                    ref={this.toolbarRef}
-                    target={this.chart}
-                    orientation="Horizontal">
-                    <IgrToolActionLabel
-                        overlayId="ZoomReset"
-                        visibility="Collapsed">
-                    </IgrToolActionLabel>
-                    <IgrToolActionLabel
-                        title="Reset"
-                        afterId="ZoomOut"
-                        iconName="reset"
-                        iconCollectionName="ChartToolbarIcons"
-                        commandId="ZoomReset">
-                    </IgrToolActionLabel>
-                    <IgrToolActionIconMenu
-                        overlayId="AnalyzeMenu"
-                        visibility="Collapsed">
-                    </IgrToolActionIconMenu>
-                </IgrToolbar>
+            <div className="aboveContentSplit">
+                <div className="aboveContentLeftContainer">
+                    <div>
+                        <IgrToolbar
+                            ref={this.toolbarRef}
+                            target={this.chart}
+                            orientation="Horizontal"
+                            onCommand={this.toolbarToggleTooltip}>
+                            <IgrToolActionCheckbox
+                                title="Enable Tooltips"
+                                beforeId="ZoomReset"
+                                commandId="EnableTooltips">
+                            </IgrToolActionCheckbox>
+                            <IgrToolActionLabel
+                                overlayId="ZoomReset"
+                                visibility="Collapsed">
+                            </IgrToolActionLabel>
+                            <IgrToolActionLabel
+                                title="Reset"
+                                afterId="ZoomOut"
+                                iconName="reset"
+                                iconCollectionName="ChartToolbarIcons"
+                                commandId="ZoomReset">
+                            </IgrToolActionLabel>
+                            <IgrToolActionIconMenu
+                                overlayId="AnalyzeMenu"
+                                visibility="Collapsed">
+                            </IgrToolActionIconMenu>
+                        </IgrToolbar>
+                    </div>
+                </div>
+                <div className="aboveContentRightContainer">
+                    <div>
+                        //insert aboveContentRight
+                        //end aboveContentRight
+                    </div>
+                </div>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
+                    computedPlotAreaMarginMode="Series"
                     isHorizontalZoomEnabled="true"
+                    isVerticalZoomEnabled="true"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         name="xAxis"
@@ -121,6 +141,36 @@ export default class Sample extends React.Component<any, any> {
             this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
         return this._countryRenewableElectricity;
+    }
+
+
+    public toolbarToggleTooltip(sender: any, args: IgrToolCommandEventArgs): void {
+        var target = this.chart;
+        switch (args.command.commandId)
+    	{
+    		case "EnableTooltips":
+    			var enable = args.command.argumentsList[0].value as boolean;
+    			if (enable)
+    			{
+    				target.series.add(new IgrDataToolTipLayer());
+    			}
+    			else
+    			{
+    				var toRemove = null;
+    				for (var i = 0; i < target.actualSeries.length; i++) {
+                        let s = target.actualSeries[i] as IgrSeries;
+    					if (s instanceof IgrDataToolTipLayer)
+    					{
+    						toRemove = s;
+    					}
+    				}
+    				if (toRemove != null)
+    				{
+    					target.series.remove(toRemove);
+    				}
+    			}
+    			break;
+    	}
     }
 
 }

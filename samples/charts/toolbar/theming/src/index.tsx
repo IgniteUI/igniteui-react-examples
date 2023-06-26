@@ -71,7 +71,7 @@ export default class Sample extends React.Component<any, any> {
                         label="Theme"
                         shouldOverrideDefaultEditor="true"
                         valueType="EnumValue"
-                        primitiveValue="SlingshotDark">
+                        primitiveValue="Default">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -81,12 +81,14 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.toolbarRef}
                     target={this.chart}
                     orientation="Horizontal"
-                    baseTheme="SlingshotDark">
+                    baseTheme="Default">
                 </IgrToolbar>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
+                    computedPlotAreaMarginMode="Series"
+                    isVerticalZoomEnabled="true"
                     isHorizontalZoomEnabled="true"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis

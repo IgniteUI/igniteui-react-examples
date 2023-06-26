@@ -73,7 +73,7 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true"
                         trendLineType="QuarticFit"
                         trendLineBrush="dodgerblue"
-                        trendLineDashArray="["5", "5"]">
+                        trendLineDashArray="5, 5">
                     </IgrFinancialPriceSeries>
                 </IgrDataChart>
             </div>

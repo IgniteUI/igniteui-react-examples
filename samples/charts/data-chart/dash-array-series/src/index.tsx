@@ -74,7 +74,7 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.countryRenewableElectricity}
                         valueMemberPath="europe"
                         showDefaultTooltip="true"
-                        dashArray="["2", "2"]">
+                        dashArray="2, 2">
                     </IgrLineSeries>
                     <IgrLineSeries
                         name="LineSeries2"
@@ -85,7 +85,7 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.countryRenewableElectricity}
                         valueMemberPath="china"
                         showDefaultTooltip="true"
-                        dashArray="["5", "5"]">
+                        dashArray="5, 5">
                     </IgrLineSeries>
                     <IgrLineSeries
                         name="LineSeries3"
@@ -96,7 +96,7 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.countryRenewableElectricity}
                         valueMemberPath="america"
                         showDefaultTooltip="true"
-                        dashArray="["10", "10"]">
+                        dashArray="10, 10">
                     </IgrLineSeries>
                 </IgrDataChart>
             </div>

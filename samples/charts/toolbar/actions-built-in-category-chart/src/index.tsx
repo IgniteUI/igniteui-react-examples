@@ -49,26 +49,32 @@ export default class Sample extends React.Component<any, any> {
                 Renewable Electricity Generated
             </div>
 
-            <div className="legend">
-                <IgrLegend
-                    ref={this.legendRef}
-                    orientation="Horizontal">
-                </IgrLegend>
-            </div>
-            <div className="aboveContent">
-                <IgrToolbar
-                    ref={this.toolbarRef}
-                    target={this.chart}
-                    orientation="Horizontal">
-                </IgrToolbar>
+            <div className="aboveContentSplit">
+                <div className="aboveContentLeftContainer">
+                    <div>
+                        <IgrToolbar
+                            ref={this.toolbarRef}
+                            target={this.chart}
+                            orientation="Horizontal">
+                        </IgrToolbar>
+                    </div>
+                </div>
+                <div className="aboveContentRightContainer">
+                    <div>
+                        <IgrLegend
+                            ref={this.legendRef}
+                            orientation="Horizontal">
+                        </IgrLegend>
+                    </div>
+                </div>
             </div>
 
             <div className="container fill">
                 <IgrCategoryChart
                     ref={this.chartRef}
                     chartType="Line"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isHorizontalZoomEnabled="true"
+                    isVerticalZoomEnabled="true"
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
                     legend={this.legend}
@@ -76,7 +82,7 @@ export default class Sample extends React.Component<any, any> {
                     yAxisTitleLeftMargin="10"
                     yAxisTitleRightMargin="5"
                     yAxisLabelLeftMargin="0"
-                    computedPlotAreaMarginMode="Series">
+                    isTransitionInEnabled="true">
                 </IgrCategoryChart>
             </div>
         </div>

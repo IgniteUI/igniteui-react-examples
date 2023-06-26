@@ -1,2 +1,18 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
+#aboveContentSplit {
+    display: flex;
+    flex-direction: row;
+}
+#aboveContentLeftContainer {
+    display: flex;
+    flex-grow: 1;
+    justify-content: start;
+    align-items: end;
+}
+#aboveContentRightContainer {
+    display: flex;
+    flex-grow: 1;
+    justify-content: end;
+    align-items: end;
+}
