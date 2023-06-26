@@ -100,7 +100,7 @@ export default class Sample extends React.Component<any, any> {
                         valueMemberPath="china">
                     </IgrLineSeries>
                     <IgrDataToolTipLayer
-                    >
+                        name="tooltipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
