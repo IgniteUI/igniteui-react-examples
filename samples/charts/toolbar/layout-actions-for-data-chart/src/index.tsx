@@ -83,8 +83,6 @@ export default class Sample extends React.Component<any, any> {
                 </div>
                 <div className="aboveContentRightContainer">
                     <div>
-                        //insert aboveContentRight
-                        //end aboveContentRight
                     </div>
                 </div>
             </div>
@@ -147,30 +145,30 @@ export default class Sample extends React.Component<any, any> {
     public toolbarToggleTooltip(sender: any, args: IgrToolCommandEventArgs): void {
         var target = this.chart;
         switch (args.command.commandId)
-    	{
-    		case "EnableTooltips":
-    			var enable = args.command.argumentsList[0].value as boolean;
-    			if (enable)
-    			{
-    				target.series.add(new IgrDataToolTipLayer());
-    			}
-    			else
-    			{
-    				var toRemove = null;
-    				for (var i = 0; i < target.actualSeries.length; i++) {
+        {
+            case "EnableTooltips":
+                var enable = args.command.argumentsList[0].value as boolean;
+                if (enable)
+                {
+                    target.series.add(new IgrDataToolTipLayer({ name: "tooltipLayer" }));
+                }
+                else
+                {
+                    var toRemove = null;
+                    for (var i = 0; i < target.actualSeries.length; i++) {
                         let s = target.actualSeries[i] as IgrSeries;
-    					if (s instanceof IgrDataToolTipLayer)
-    					{
-    						toRemove = s;
-    					}
-    				}
-    				if (toRemove != null)
-    				{
-    					target.series.remove(toRemove);
-    				}
-    			}
-    			break;
-    	}
+                        if (s instanceof IgrDataToolTipLayer)
+                        {
+                            toRemove = s;
+                        }
+                    }
+                    if (toRemove != null)
+                    {
+                        target.series.remove(toRemove);
+                    }
+                }
+                break;
+        }
     }
 
 }
