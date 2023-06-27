@@ -86,7 +86,7 @@ export default class ExcelLibraryWorkingWithCharts extends React.Component<any, 
         const data = new Array<any>();
         // generating excel data source
         for (const group of groups) {
-            const r = {};
+            const r: any = {};
             r[expanseKey] = group;
             let index = 0;
             for (const month of months) {
