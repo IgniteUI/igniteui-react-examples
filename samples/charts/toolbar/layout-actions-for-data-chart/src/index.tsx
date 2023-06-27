@@ -59,18 +59,18 @@ export default class Sample extends React.Component<any, any> {
                             orientation="Horizontal"
                             onCommand={this.toolbarToggleTooltip}>
                             <IgrToolActionCheckbox
-                                key="EnableTooltipsLabel"
+                                name="EnableTooltipsLabel"
                                 title="Enable Tooltips"
                                 beforeId="ZoomReset"
                                 commandId="EnableTooltips">
                             </IgrToolActionCheckbox>
                             <IgrToolActionLabel
-                                key="ZoomResetHidden"
+                                name="ZoomResetHidden"
                                 overlayId="ZoomReset"
                                 visibility="Collapsed">
                             </IgrToolActionLabel>
                             <IgrToolActionLabel
-                                key="ZoomResetLabel"
+                                name="ZoomResetLabel"
                                 title="Reset"
                                 afterId="ZoomOut"
                                 iconName="reset"
@@ -78,11 +78,16 @@ export default class Sample extends React.Component<any, any> {
                                 commandId="ZoomReset">
                             </IgrToolActionLabel>
                             <IgrToolActionIconMenu
-                                key="AnalyzeMenu"
+                                name="AnalyzeMenu"
                                 overlayId="AnalyzeMenu"
                                 visibility="Collapsed">
                             </IgrToolActionIconMenu>
                         </IgrToolbar>
+                    </div>
+                </div>
+                <div className="aboveContentRightContainer">
+                    <div>
+                        
                     </div>
                 </div>
             </div>
@@ -140,37 +145,35 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryRenewableElectricity;
     }
-
-
+    
     public toolbarToggleTooltip(sender: any, args: IgrToolCommandEventArgs): void {
         var target = this.chart;
         switch (args.command.commandId)
-        {
-            case "EnableTooltips":
-                var enable = args.command.argumentsList[0].value as boolean;
-                if (enable)
-                {
-                    target.series.add(new IgrDataToolTipLayer({ name: "tooltipLayer" }));
-                }
-                else
-                {
-                    var toRemove = null;
-                    for (var i = 0; i < target.actualSeries.length; i++) {
+    	{
+    		case "EnableTooltips":
+    			var enable = args.command.argumentsList[0].value as boolean;
+    			if (enable)
+    			{
+    				target.series.add(new IgrDataToolTipLayer({ name: "tooltipLayer" }));
+    			}
+    			else
+    			{
+    				var toRemove = null;
+    				for (var i = 0; i < target.actualSeries.length; i++) {
                         let s = target.actualSeries[i] as IgrSeries;
-                        if (s instanceof IgrDataToolTipLayer)
-                        {
-                            toRemove = s;
-                        }
-                    }
-                    if (toRemove != null)
-                    {
-                        target.series.remove(toRemove);
-                    }
-                }
-                break;
-        }
-    }
-
+    					if (s instanceof IgrDataToolTipLayer)
+    					{
+    						toRemove = s;
+    					}
+    				}
+    				if (toRemove != null)
+    				{
+    					target.series.remove(toRemove);
+    				}
+    			}
+    			break;
+    	}
+    }        
 }
 
 // rendering above component in the React DOM
