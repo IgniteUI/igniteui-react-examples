@@ -259,7 +259,7 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         this.geoLocationSeries.tooltipTemplate = this.createLocationMapTooltip;
 
         const tileSource = new IgrArcGISOnlineMapImagery();
-        tileSource.mapServerUri = "https://services.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer";
+        tileSource.mapServerUri = "https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer";
 
         this.geoLocationMap = this.map;
         this.geoLocationMap.height = "100%";
