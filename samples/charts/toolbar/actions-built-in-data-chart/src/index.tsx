@@ -58,6 +58,12 @@ export default class Sample extends React.Component<any, any> {
                         </IgrToolbar>
                     </div>
                 </div>
+                <div className="aboveContentRightContainer">
+                    <div>
+                        //insert aboveContentRight
+                        //end aboveContentRight
+                    </div>
+                </div>
             </div>
 
             <div className="container fill">
@@ -100,7 +106,7 @@ export default class Sample extends React.Component<any, any> {
                         valueMemberPath="china">
                     </IgrLineSeries>
                     <IgrDataToolTipLayer
-                        name="tooltipLayer">
+                    >
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

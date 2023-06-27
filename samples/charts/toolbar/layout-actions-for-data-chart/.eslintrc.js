@@ -28,7 +28,6 @@ module.exports = {
       "no-useless-concat": "off",
       "no-mixed-operators": "off",
       "no-prototype-builtins": "off",
-      "no-mixed-spaces-and-tabs": 0,
       "prefer-const": "off",
       "prefer-rest-params": "off",
       "jsx-a11y/alt-text": "off",
