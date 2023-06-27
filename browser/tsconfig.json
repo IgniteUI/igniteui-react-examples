@@ -24,7 +24,6 @@
     "noUnusedLocals": false,
     "strictNullChecks": false,
     "importHelpers": true,
-    "suppressImplicitAnyIndexErrors": true,
     "strict": false,
     "isolatedModules": true,
     "noEmit": true,
