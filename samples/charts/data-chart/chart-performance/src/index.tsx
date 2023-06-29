@@ -73,10 +73,15 @@ export default class DataChartPerformance extends React.Component<any, any> {
                     height="100%"
                     dataSource={this.data}
                     isHorizontalZoomEnabled={true}
-                    isVerticalZoomEnabled={true} >
+                    isVerticalZoomEnabled={true}
+                    shouldConsiderAutoRotationForInitialLabels="false"
+                    shouldAutoExpandMarginForInitialLabels="false"
+                    autoMarginAndAngleUpdateMode="None" >
 
-                    <IgrCategoryXAxis name="xAxis" label="Label"/>
                     <IgrNumericYAxis name="yAxis" />
+                    <IgrCategoryXAxis name="xAxis" label="Label"
+                    labelExtent={40} enhancedIntervalPreferMoreCategoryLabels="false"/>
+
 
                     <IgrLineSeries name="series1"
                                    valueMemberPath="Value"

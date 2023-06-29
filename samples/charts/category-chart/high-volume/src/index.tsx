@@ -41,11 +41,13 @@ export default class CategoryChartHighVolume extends React.Component<any, any> {
                     width="100%"
                     height="100%"
                     chartType="Line"
-                    markerTypes="None"
                     toolTipType="Default"
                     xAxisEnhancedIntervalPreferMoreCategoryLabels="false"
+                    shouldConsiderAutoRotationForInitialLabels="false"
                     shouldAutoExpandMarginForInitialLabels="false"
-                    crosshairsDisplayMode="None" 
+                    crosshairsDisplayMode="None"
+                    autoMarginAndAngleUpdateMode="None"
+                    markerTypes="None"
                     dataSource={this.state.dataSource}/>
             </div>
         </div>

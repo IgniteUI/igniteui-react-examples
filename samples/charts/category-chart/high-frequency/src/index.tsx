@@ -65,8 +65,10 @@ export default class CategoryChartHighFrequency extends React.Component<any, any
                         dataSource={this.state.dataSource}
                         yAxisExtent={40}
                         xAxisEnhancedIntervalPreferMoreCategoryLabels="false"
+                        shouldConsiderAutoRotationForInitialLabels="false"
                         shouldAutoExpandMarginForInitialLabels="false"
                         crosshairsDisplayMode="None"
+                        autoMarginAndAngleUpdateMode="None"
                         markerTypes="None" />
                 </div>
             </div>

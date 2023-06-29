@@ -35,6 +35,11 @@ var sampleSource = [
     // igConfig.SamplesCopyPath + '/maps/**/binding-data-model/package.json',
     // igConfig.SamplesCopyPath + '/charts/pie-chart/overview/package.json',
     // igConfig.SamplesCopyPath + '/layouts/expansion-panel/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/high-frequency/package.json',
+    // igConfig.SamplesCopyPath + '/charts/category-chart/high-volume/package.json',
+    // igConfig.SamplesCopyPath + '/charts/data-chart/chart-performance/package.json',
+    // igConfig.SamplesCopyPath + '/charts/financial-chart/high-frequency/package.json',
+    // igConfig.SamplesCopyPath + '/charts/financial-chart/high-volume/package.json',
 
     // including samples for specific components:
     // igConfig.SamplesCopyPath + '/charts/category-chart/**/package.json',
@@ -45,6 +50,7 @@ var sampleSource = [
     // igConfig.SamplesCopyPath + '/charts/sparkline/**/package.json',
     // igConfig.SamplesCopyPath + '/charts/tree-map/**/package.json',
     // igConfig.SamplesCopyPath + '/charts/zoomslider/**/package.json',
+    // igConfig.SamplesCopyPath + '/charts/toolbar/**/package.json',
     // igConfig.SamplesCopyPath + '/maps/**/package.json',
     // igConfig.SamplesCopyPath + '/excel/excel-library/**/package.json',
     // igConfig.SamplesCopyPath + '/excel/spreadsheet/**/package.json',
@@ -242,7 +248,7 @@ function copySamples(cb) {
 
         gulp.src([
               sample.SampleFolderPath + '/src/*.*',
-        '!' + sample.SampleFolderPath + '/src/index.css',
+        // '!' + sample.SampleFolderPath + '/src/index.css',
         '!' + sample.SampleFolderPath + '/src/*.d.ts',
         ])
         .pipe(es.map(function(file, fileCallback) {
@@ -262,8 +268,8 @@ function copySamples(cb) {
 
             code = code.replace("// rendering above class to the React DOM","");
             code = code.replace(/ReactDOM.*/g,"");
-            code = code.replace("import './index.css';","");
-            code = code.replace('import "./index.css";',"");
+            // code = code.replace("import './index.css';","");
+            // code = code.replace('import "./index.css";',"");
             code = code.replace("// rendering above component in the React DOM","");
             code = code.replace(" var "," let ");
             code = code.replace(", MarkerType_$type","");
