@@ -89,12 +89,6 @@ export default class Sample extends React.Component<any, any> {
                         </IgrToolbar>
                     </div>
                 </div>
-                <div className="aboveContentRightContainer">
-                    <div>
-                        //insert aboveContentRight
-                        //end aboveContentRight
-                    </div>
-                </div>
             </div>
 
             <div className="container fill">
