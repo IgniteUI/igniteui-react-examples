@@ -96,7 +96,10 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    crosshairsDisplayMode="None">
+                    crosshairsDisplayMode="None"
+                    isTransitionInEnabled="false"
+                    yAxisMinimumValue="0"
+                    yAxisMaximumValue="100">
                 </IgrCategoryChart>
             </div>
         </div>

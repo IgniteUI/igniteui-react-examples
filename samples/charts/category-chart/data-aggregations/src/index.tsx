@@ -58,19 +58,31 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="InitialGroups"
                         name="InitialGroups"
                         label="Initial Groups"
-                        valueType="StringValue">
+                        valueType="EnumValue"
+                        shouldOverrideDefaultEditor="true"
+                        dropDownNames={["Country", "Product", "MonthName", "Year"]}
+                        dropDownValues={["Country", "Product", "MonthName", "Year"]}
+                        primitiveValue="Country">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="InitialSummaries"
                         name="InitialSummaries"
                         label="Initial Summaries"
-                        valueType="StringValue">
+                        valueType="EnumValue"
+                        shouldOverrideDefaultEditor="true"
+                        dropDownNames={["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales"]}
+                        dropDownValues={["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales"]}
+                        primitiveValue="Sum(Sales) as Sales">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="GroupSorts"
                         name="GroupSorts"
                         label="Sort Groups"
-                        valueType="StringValue">
+                        valueType="EnumValue"
+                        shouldOverrideDefaultEditor="true"
+                        dropDownNames={["Sales Desc", "Sales Asc"]}
+                        dropDownValues={["Sales Desc", "Sales Asc"]}
+                        primitiveValue="Sales Desc">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
