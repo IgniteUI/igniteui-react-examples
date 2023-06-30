@@ -144,8 +144,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryRenewableElectricity;
     }
-
-
     public toolbarToggleTooltip(sender: any, args: IgrToolCommandEventArgs): void {
         var target = this.chart;
         switch (args.command.commandId)
@@ -154,7 +152,7 @@ export default class Sample extends React.Component<any, any> {
     			var enable = args.command.argumentsList[0].value as boolean;
     			if (enable)
     			{
-    				target.series.add(new IgrDataToolTipLayer());
+    				target.series.add(new IgrDataToolTipLayer({ name: "tooltipLayer" }));
     			}
     			else
     			{
