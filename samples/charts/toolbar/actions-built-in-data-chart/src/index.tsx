@@ -36,6 +36,7 @@ export default class Sample extends React.Component<any, any> {
     private lineSeries1: IgrLineSeries
     private lineSeries2: IgrLineSeries
     private lineSeries3: IgrLineSeries
+    private tooltipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -56,6 +57,12 @@ export default class Sample extends React.Component<any, any> {
                             target={this.chart}
                             orientation="Horizontal">
                         </IgrToolbar>
+                    </div>
+                </div>
+                <div className="aboveContentRightContainer">
+                    <div>
+                        //insert aboveContentRight
+                        //end aboveContentRight
                     </div>
                 </div>
             </div>
