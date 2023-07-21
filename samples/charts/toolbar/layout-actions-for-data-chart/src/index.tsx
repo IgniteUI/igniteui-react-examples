@@ -89,6 +89,12 @@ export default class Sample extends React.Component<any, any> {
                         </IgrToolbar>
                     </div>
                 </div>
+                <div className="aboveContentRightContainer">
+                    <div>
+                        //insert aboveContentRight
+                        //end aboveContentRight
+                    </div>
+                </div>
             </div>
 
             <div className="container fill">
@@ -144,6 +150,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryRenewableElectricity;
     }
+
+
     public toolbarToggleTooltip(sender: any, args: IgrToolCommandEventArgs): void {
         var target = this.chart;
         switch (args.command.commandId)
