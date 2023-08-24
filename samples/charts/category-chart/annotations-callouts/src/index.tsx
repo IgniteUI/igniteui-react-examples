@@ -52,7 +52,7 @@ export default class Sample extends React.Component<any, any> {
                     isHorizontal="true"
                     isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="CalloutsVisible"
+                        propertyPath="AutoCalloutsVisible"
                         name="CalloutsVisibleEditor"
                         label="Callouts Visible"
                         shouldOverrideDefaultEditor="true"
@@ -74,13 +74,10 @@ export default class Sample extends React.Component<any, any> {
                     isVerticalZoomEnabled="false"
                     includedProperties={["month", "temperature"]}
                     dataSource={this.temperatureAnnotatedData}
-                    calloutsDataSource={this.temperatureAnnotatedData}
-                    calloutsVisible="true"
-                    calloutsXMemberPath="index"
-                    calloutsYMemberPath="temperature"
-                    calloutsLabelMemberPath="tempInfo"
+                    autoCalloutsVisible="true"
                     crosshairsAnnotationYAxisPrecision="0"
                     yAxisMaximumValue="35"
+                    yAxisTitle="Degrees Celsius"
                     yAxisLabelLocation="OutsideRight">
                 </IgrCategoryChart>
             </div>

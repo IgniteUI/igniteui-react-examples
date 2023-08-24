@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCalloutLayer } from 'igniteui-react-charts';
+import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCalloutLayer, IgrFinalValueLayer, IgrCrosshairLayer, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
+import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -25,6 +26,9 @@ export default class Sample extends React.Component<any, any> {
     private yAxis: IgrNumericYAxis
     private lineSeries1: IgrLineSeries
     private calloutLayer1: IgrCalloutLayer
+    private finalValueLayer: IgrFinalValueLayer
+    private crosshairLayer: IgrCrosshairLayer
+    private tooltips: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -42,8 +46,6 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
-                    shouldAutoExpandMarginForInitialLabels="true"
-                    computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         name="xAxis"
@@ -51,30 +53,46 @@ export default class Sample extends React.Component<any, any> {
                         label="year">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
-                        name="yAxis"
-                        title="TWh"
-                        labelLocation="OutsideRight">
+                        name="yAxis">
                     </IgrNumericYAxis>
                     <IgrLineSeries
                         name="LineSeries1"
+                        title="Electricity"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.countryRenewableElectricity}
-                        valueMemberPath="america"
-                        brush="rgba(137, 97, 169, 1)"
-                        markerOutline="rgba(137, 97, 169, 1)"
-                        shouldHideAutoCallouts="false">
+                        valueMemberPath="america">
                     </IgrLineSeries>
                     <IgrCalloutLayer
                         name="CalloutLayer1"
-                        isAutoCalloutBehaviorEnabled="true"
-                        calloutLeaderBrush="rgba(137, 97, 169, 1)"
-                        calloutOutline="rgba(137, 97, 169, 1)"
-                        calloutBackground="white"
-                        calloutTextColor="rgba(137, 97, 169, 1)"
-                        calloutStrokeThickness="1"
-                        calloutCollisionMode="Greedy">
+                        dataSource={this.countryRenewableCallouts}
+                        xMemberPath="index"
+                        yMemberPath="value"
+                        labelMemberPath="label"
+                        calloutPaddingLeft="20"
+                        calloutPaddingRight="20"
+                        calloutPaddingBottom="10"
+                        calloutPaddingTop="10"
+                        calloutCornerRadius="5">
                     </IgrCalloutLayer>
+                    <IgrFinalValueLayer
+                        name="FinalValueLayer"
+                        axisAnnotationBackgroundCornerRadius="10"
+                        axisAnnotationPaddingBottom="10"
+                        axisAnnotationPaddingTop="10"
+                        axisAnnotationPaddingLeft="10"
+                        axisAnnotationPaddingRight="10">
+                    </IgrFinalValueLayer>
+                    <IgrCrosshairLayer
+                        name="CrosshairLayer"
+                        isAxisAnnotationEnabled="true"
+                        yAxisAnnotationInterpolatedValuePrecision="0"
+                        xAxisAnnotationBackgroundCornerRadius="10"
+                        yAxisAnnotationBackgroundCornerRadius="10">
+                    </IgrCrosshairLayer>
+                    <IgrDataToolTipLayer
+                        name="Tooltips">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>
@@ -88,6 +106,15 @@ export default class Sample extends React.Component<any, any> {
             this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
         return this._countryRenewableElectricity;
+    }
+
+    private _countryRenewableCallouts: CountryRenewableCallouts = null;
+    public get countryRenewableCallouts(): CountryRenewableCallouts {
+        if (this._countryRenewableCallouts == null)
+        {
+            this._countryRenewableCallouts = new CountryRenewableCallouts();
+        }
+        return this._countryRenewableCallouts;
     }
 
 }

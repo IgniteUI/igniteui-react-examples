@@ -5,7 +5,6 @@ import './index.css';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrCalloutLayer, IgrFinalValueLayer, IgrCrosshairLayer, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
-import { CountryRenewableCalloutsItem, CountryRenewableCallouts } from './CountryRenewableCallouts';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -66,10 +65,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrLineSeries>
                     <IgrCalloutLayer
                         name="CalloutLayer1"
-                        dataSource={this.countryRenewableCallouts}
-                        xMemberPath="index"
-                        yMemberPath="value"
-                        labelMemberPath="label"
+                        isAutoCalloutBehaviorEnabled="true"
                         calloutPaddingLeft="20"
                         calloutPaddingRight="20"
                         calloutPaddingBottom="10"
@@ -107,15 +103,6 @@ export default class Sample extends React.Component<any, any> {
             this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
         return this._countryRenewableElectricity;
-    }
-
-    private _countryRenewableCallouts: CountryRenewableCallouts = null;
-    public get countryRenewableCallouts(): CountryRenewableCallouts {
-        if (this._countryRenewableCallouts == null)
-        {
-            this._countryRenewableCallouts = new CountryRenewableCallouts();
-        }
-        return this._countryRenewableCallouts;
     }
 
 }

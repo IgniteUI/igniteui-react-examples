@@ -70,7 +70,7 @@ export default class Sample extends React.Component<any, any> {
                         label="Initial Summaries"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales"]}
+                        dropDownNames={["Sum(Sales)", "Avg(Sales)", "Min(Sales)", "Max(Sales)", "Count(Sales)"]}
                         dropDownValues={["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales"]}
                         primitiveValue="Sum(Sales) as Sales">
                     </IgrPropertyEditorPropertyDescription>
