@@ -101,7 +101,8 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.roadblocksToSuccess}
                         showDefaultTooltip="true"
                         isTransitionInEnabled="true"
-                        isHighlightingEnabled="true">
+                        isHighlightingEnabled="true"
+                        markerType="Hidden">
                     </IgrBarSeries>
                     <IgrBarSeries
                         name="BarSeries2"
@@ -112,14 +113,12 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.roadblocksToSuccess}
                         showDefaultTooltip="true"
                         isTransitionInEnabled="true"
-                        isHighlightingEnabled="true">
+                        isHighlightingEnabled="true"
+                        markerType="Hidden">
                     </IgrBarSeries>
                     <IgrCalloutLayer
                         name="CalloutLayer1"
-                        dataSource={this.roadblocksToSuccess}
-                        yMemberPath="index"
-                        xMemberPath="firstChoice"
-                        labelMemberPath="firstChoiceLabel"
+                        isAutoCalloutBehaviorEnabled="true"
                         calloutLeaderBrush="rgba(0, 0, 0, 0)"
                         calloutOutline="rgba(0, 0, 0, 0)"
                         calloutBackground="rgba(0, 0, 0, 0)"
@@ -130,10 +129,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCalloutLayer>
                     <IgrCalloutLayer
                         name="CalloutLayer2"
-                        dataSource={this.roadblocksToSuccess}
-                        yMemberPath="index"
-                        xMemberPath="topChoices"
-                        labelMemberPath="topChoicesLabel"
+                        isAutoCalloutBehaviorEnabled="true"
                         calloutLeaderBrush="rgba(0, 0, 0, 0)"
                         calloutOutline="rgba(0, 0, 0, 0)"
                         calloutBackground="rgba(0, 0, 0, 0)"

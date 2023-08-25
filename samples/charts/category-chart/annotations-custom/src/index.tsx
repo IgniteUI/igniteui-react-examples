@@ -26,10 +26,7 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditor = r;
         this.setState({});
     }
-    private crosshairsDisplayModeEditor: IgrPropertyEditorPropertyDescription
-    private highlightingModeEditor: IgrPropertyEditorPropertyDescription
     private calloutsVisibleEditor: IgrPropertyEditorPropertyDescription
-    private finalValueAnnotationsEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -55,28 +52,9 @@ export default class Sample extends React.Component<any, any> {
                     isHorizontal="true"
                     isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="CrosshairsDisplayMode"
-                        name="CrosshairsDisplayModeEditor"
-                        label="Crosshairs: "
-                        primitiveValue="Both">
-                    </IgrPropertyEditorPropertyDescription>
-                    <IgrPropertyEditorPropertyDescription
-                        propertyPath="HighlightingMode"
-                        name="HighlightingModeEditor"
-                        label="Highlighting: "
-                        primitiveValue="BrightenSpecific">
-                    </IgrPropertyEditorPropertyDescription>
-                    <IgrPropertyEditorPropertyDescription
-                        propertyPath="AutoCalloutsVisible"
+                        propertyPath="CalloutsVisible"
                         name="CalloutsVisibleEditor"
-                        label="Callouts: "
-                        shouldOverrideDefaultEditor="true"
-                        primitiveValue="True">
-                    </IgrPropertyEditorPropertyDescription>
-                    <IgrPropertyEditorPropertyDescription
-                        propertyPath="FinalValueAnnotationsVisible"
-                        name="FinalValueAnnotationsEditor"
-                        label="Final Value: "
+                        label="Callouts Visible"
                         shouldOverrideDefaultEditor="true"
                         primitiveValue="True">
                     </IgrPropertyEditorPropertyDescription>
@@ -96,17 +74,12 @@ export default class Sample extends React.Component<any, any> {
                     isVerticalZoomEnabled="false"
                     includedProperties={["month", "temperature"]}
                     dataSource={this.temperatureAnnotatedData}
-                    autoCalloutsVisible="true"
-                    isCategoryHighlightingEnabled="true"
-                    highlightingMode="BrightenSpecific"
-                    highlightingBehavior="NearestItemsAndSeries"
-                    crosshairsDisplayMode="Both"
                     crosshairsAnnotationYAxisPrecision="0"
-                    crosshairsAnnotationXAxisBackground="black"
-                    finalValueAnnotationsVisible="true"
-                    finalValueAnnotationsBackground="dodgerblue"
-                    finalValueAnnotationsTextColor="white"
-                    finalValueAnnotationsPrecision="0"
+                    calloutsDataSource={this.temperatureAnnotatedData}
+                    calloutsVisible="true"
+                    calloutsXMemberPath="index"
+                    calloutsYMemberPath="temperature"
+                    calloutsLabelMemberPath="tempInfo"
                     yAxisMaximumValue="35"
                     yAxisLabelLocation="OutsideRight">
                 </IgrCategoryChart>

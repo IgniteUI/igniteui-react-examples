@@ -79,14 +79,12 @@ export default class Sample extends React.Component<any, any> {
                         brush="rgba(134, 6, 138, 0.6470588235294118)"
                         outline="rgba(133, 6, 138, 1)"
                         thickness="2"
-                        areaFillOpacity="0.5">
+                        areaFillOpacity="0.5"
+                        markerType="Hidden">
                     </IgrBarSeries>
                     <IgrCalloutLayer
                         name="CalloutLayer1"
-                        xMemberPath="x"
-                        yMemberPath="y"
-                        labelMemberPath="label"
-                        contentMemberPath="label"
+                        isAutoCalloutBehaviorEnabled="true"
                         calloutTextColor="rgba(133, 6, 138, 1)"
                         calloutBackground="rgba(0, 0, 0, 0)"
                         calloutLeaderBrush="rgba(0, 0, 0, 0)"

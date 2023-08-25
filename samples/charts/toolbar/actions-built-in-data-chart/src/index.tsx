@@ -36,6 +36,7 @@ export default class Sample extends React.Component<any, any> {
     private lineSeries1: IgrLineSeries
     private lineSeries2: IgrLineSeries
     private lineSeries3: IgrLineSeries
+    private tooltipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
