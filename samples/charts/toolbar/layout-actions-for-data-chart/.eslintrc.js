@@ -26,7 +26,7 @@ module.exports = {
       "no-extend-native": "off",
       "no-throw-literal": "off",
       "no-useless-concat": "off",
-      "no-mixed-operators": "off",      
+      "no-mixed-operators": "off",
       "no-prototype-builtins": "off",
       "no-mixed-spaces-and-tabs": 0,
       "prefer-const": "off",
