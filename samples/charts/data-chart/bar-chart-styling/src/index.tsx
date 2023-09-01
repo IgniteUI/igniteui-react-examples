@@ -76,7 +76,7 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true"
                         isTransitionInEnabled="true"
                         isHighlightingEnabled="true"
-                        brush="rgba(134, 6, 138, 0.6470588235294118)"
+                        brush="rgba(134, 6, 138, 0.647058823529412)"
                         outline="rgba(133, 6, 138, 1)"
                         thickness="2"
                         areaFillOpacity="0.5"

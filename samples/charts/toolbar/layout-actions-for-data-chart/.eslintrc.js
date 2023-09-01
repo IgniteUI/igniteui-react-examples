@@ -21,6 +21,8 @@ module.exports = {
     rules: {
       // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
       "default-case": "off",
+      "jsx-a11y/alt-text": "off",
+      "jsx-a11y/iframe-has-title": "off",
       "no-undef": "off",
       "no-unused-vars": "off",
       "no-extend-native": "off",
@@ -28,11 +30,8 @@ module.exports = {
       "no-useless-concat": "off",
       "no-mixed-operators": "off",
       "no-prototype-builtins": "off",
-      "no-mixed-spaces-and-tabs": 0,
       "prefer-const": "off",
       "prefer-rest-params": "off",
-      "jsx-a11y/alt-text": "off",
-      "jsx-a11y/iframe-has-title": "off",
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-inferrable-types": "off",
@@ -49,6 +48,8 @@ module.exports = {
         "files": ["*.ts", "*.tsx"],
         "rules": {
             "default-case": "off",
+            "jsx-a11y/alt-text": "off",
+            "jsx-a11y/iframe-has-title": "off",
             "no-var": "off",
             "no-undef": "off",
             "no-unused-vars": "off",
@@ -59,8 +60,6 @@ module.exports = {
             "no-prototype-builtins": "off",
             "prefer-const": "off",
             "prefer-rest-params": "off",
-            "jsx-a11y/alt-text": "off",
-            "jsx-a11y/iframe-has-title": "off",
             "@typescript-eslint/no-unused-vars": "off",
             "@typescript-eslint/no-explicit-any": "off",
             "@typescript-eslint/no-inferrable-types": "off",
