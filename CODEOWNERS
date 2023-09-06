@@ -1,0 +1,7 @@
+# code owners must approve PRs
+* @HUSSAR-mtrela
+
+# *.md @HUSSAR-mtrela
+# *.js @HUSSAR-mtrela
+# *.ts @HUSSAR-mtrela
+# *.json @HUSSAR-mtrela
