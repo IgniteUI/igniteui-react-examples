@@ -60,8 +60,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
-                    ref={this.chartRef}
-                    legend={this.legend}>
+                    ref={this.chartRef}>
                     <IgrCategoryYAxis
                         name="yAxis"
                         label="franchise"
