@@ -53,7 +53,6 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrCategoryChart
-                    legend={this.legend}
                     ref={this.chartRef}
                     dataSource={this.highestGrossingMovies}
                     chartType="Column"
