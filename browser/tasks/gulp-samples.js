@@ -795,18 +795,18 @@ function updateIG(cb) {
     // { name:               "igniteui-webcomponents-charts", version: "16.16.2" },   // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-react-core"                     , version: "18.2.2-beta.0" },
-        { name: "igniteui-react-charts"                   , version: "18.2.2-beta.0" },
-        { name: "igniteui-react-excel"                    , version: "18.2.2-beta.0" },
-        { name: "igniteui-react-gauges"                   , version: "18.2.2-beta.0" },
-        { name: "igniteui-react-grids"                    , version: "18.2.2-beta.0" },
-        { name: "igniteui-react-inputs"                   , version: "18.2.2-beta.0" },
-        { name: "igniteui-react-layouts"                  , version: "18.2.2-beta.0" },
-        { name: "igniteui-react-maps"                     , version: "18.2.2-beta.0" },
-        { name: "igniteui-react-spreadsheet-chart-adapter", version: "18.2.2-beta.0" },
-        { name: "igniteui-react-spreadsheet"              , version: "18.2.2-beta.0" },
-        { name: "igniteui-react-datasources"              , version: "18.2.2-beta.0" },
-        { name: "igniteui-react"                          , version: "18.2.2-beta.0" },
+        { name: "@infragistics/igniteui-react-core"                     , version: "23.2.152" },
+        { name: "@infragistics/igniteui-react-charts"                   , version: "23.2.152" },
+        { name: "@infragistics/igniteui-react-excel"                    , version: "23.2.152" },
+        { name: "@infragistics/igniteui-react-gauges"                   , version: "23.2.152" },
+        { name: "@infragistics/igniteui-react-grids"                    , version: "23.2.152" },
+        { name: "@infragistics/igniteui-react-inputs"                   , version: "23.2.152" },
+        { name: "@infragistics/igniteui-react-layouts"                  , version: "23.2.152" },
+        { name: "@infragistics/igniteui-react-maps"                     , version: "23.2.152" },
+        { name: "@infragistics/igniteui-react-spreadsheet-chart-adapter", version: "23.2.152" },
+        { name: "@infragistics/igniteui-react-spreadsheet"              , version: "23.2.152" },
+        { name: "@infragistics/igniteui-react-datasources"              , version: "23.2.152" },
+        { name: "@infragistics/igniteui-react"                          , version: "23.2.152" },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "4.3.0-beta.0" },
         { name: "igniteui-dockmanager",   version: "1.13.0" },
@@ -833,24 +833,10 @@ function updateIG(cb) {
     var packagePaths = [
         './package.json', // browser
         '../samples/**/package.json',
-        // '../samples/charts/**/package.json',
-        // '../samples/editors/**/package.json',
-        // '../samples/excel/**/package.json',
-        // '../samples/gauges/**/package.json',
-        // '../samples/grids/**/package.json',
-        // '../samples/inputs/**/package.json',
-        // '../samples/layouts/**/package.json',
-        // '../samples/maps/**/package.json',
-        // '../samples/menus/**/package.json',
-        // '../samples/notifications/**/package.json',
-        // '../samples/scheduling/**/package.json',
-        // '../samples/layouts/**/overview/package.json',
-
-        // '../samples/charts/category-chart/**/package.json',
-        // '../samples/maps/geo-map/type-scatter-bubble-series/package.json',
-        '!../samples/**/node_modules/**/package.json',
-        '!../samples/**/node_modules/**',
-        '!../samples/**/node_modules',
+        // skip packages in node_modules folders
+       '!../samples/**/node_modules/**/package.json',
+       '!../samples/**/node_modules/**',
+       '!../samples/**/node_modules',
     ];
 
     // creating package mapping without proget prefix so we can upgrade to/from proget packages
