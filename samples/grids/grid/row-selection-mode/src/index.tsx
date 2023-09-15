@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrBadgeModule } from 'igniteui-react-webinputs';
+import { IgrBadgeModule } from 'igniteui-react';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
