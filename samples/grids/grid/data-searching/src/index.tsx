@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { KeyboardEvent, useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
@@ -80,11 +80,22 @@ export default function Sample() {
     gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
   }
 
+  function searchKeyDown(e: KeyboardEvent<HTMLElement>) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        gridRef.current.findPrev(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+    }
+  }
+
   return (
     <div className="container sample">
       <div className="container vertical">
-        <div style={{ marginBottom: "1rem" }}>
-          <IgrInput name="searchBox" value={searchText} inputOcurred={handleOnSearchChange}>
+        <div style={{ marginBottom: "1rem" }} onKeyDown={searchKeyDown}>
+                <IgrInput name="searchBox" value={searchText} inputOcurred={handleOnSearchChange}>
+
             <div slot="prefix" key="prefix">
               <IgrIconButton
                 key="clearIcon"
