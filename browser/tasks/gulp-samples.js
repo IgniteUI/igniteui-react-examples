@@ -789,10 +789,14 @@ function verifyBuild(cb) {
 
 function updateIG(cb) {
 
+    // cleanup packages to speedup this gulp script
+    // del.sync("./samples/**/node_modules/**/*.*", {force:true});
+    // del.sync("./samples/**/node_modules/**", {force:true});
+    // del.sync("./samples/**/node_modules", {force:true});
+
     // NOTE: change this array with new version of packages and optionally use "@infragistics/" proget prefix, e.g.
-    // "igniteui-angular-charts" instead of "igniteui-angular-charts" e.g.
-    // { name: "igniteui-webcomponents-charts", version: "22.1.62" }, // proget
-    // { name:               "igniteui-webcomponents-charts", version: "16.16.2" },   // npm
+    // { name: "@infragistics/igniteui-react-charts", version: "22.1.62" }, // proget
+    // { name:               "igniteui-react-charts", version: "16.16.2" }, // npm
     let packageUpgrades = [
         // these IG packages are often updated:
         { name: "@infragistics/igniteui-react-core"                     , version: "23.2.152" },
@@ -809,7 +813,7 @@ function updateIG(cb) {
         { name: "@infragistics/igniteui-react"                          , version: "23.2.152" },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "4.3.0-beta.0" },
-        { name: "igniteui-dockmanager",   version: "1.13.0" },
+        { name: "igniteui-dockmanager",   version: "1.14.2" },
         // main react packages
         { name: "react"             , version: "^18.2.0", },
         { name: "react-dom"         , version: "^18.2.0", },
@@ -833,6 +837,9 @@ function updateIG(cb) {
     var packagePaths = [
         './package.json', // browser
         '../samples/**/package.json',
+        // './samples/charts/**/package.json',
+        // './samples/gauges/**/package.json',
+
         // skip packages in node_modules folders
        '!../samples/**/node_modules/**/package.json',
        '!../samples/**/node_modules/**',
@@ -843,17 +850,14 @@ function updateIG(cb) {
     let packageMappings = {};
     for (const item of packageUpgrades) {
         item.id = item.name.replace("@infragistics/", "");
-        let name = item.name.replace("@infragistics/", "");
-        packageMappings[name] = item;
+        packageMappings[item.id] = item;
     }
-
-    // console.log(packageMappings);
 
     let updatedPackages = 0;
     // gulp all package.json files in samples/browser
     gulp.src(packagePaths, {allowEmpty: true})
     .pipe(es.map(function(file, fileCallback) {
-        let filePath = file.dirname + "/" + file.basename;
+        let filePath = file.dirname + "\\" + file.basename;
 
         var fileContent = file.contents.toString();
         var fileLines = fileContent.split('\n');
@@ -885,7 +889,7 @@ function updateIG(cb) {
         fileCallback(null, file);
     }))
     .on("end", function() {
-        log("updateIG... done = " + updatedPackages + " files");
+        log("updated: " + updatedPackages + " package files");
         cb();
     });
 
