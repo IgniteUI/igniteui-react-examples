@@ -311,14 +311,18 @@ function updateReadme(cb) {
         let readmePath = sampleOutputFolder + sample.SampleFolderPath + "/ReadMe.md";
         makeDirectoryFor(readmePath);
 
-        let readmeFileOld = fs.readFileSync(readmePath).toString();
-        let readmeFileNew = Transformer.updateReadme(sample, template);
-        readmeFileNew = readmeFileNew.replace("../samples", "./samples")
+        let readmeNewFile = Transformer.updateReadme(sample, template);
+        readmeNewFile = readmeNewFile.replace("../samples", "./samples")
 
-        if (readmeFileNew !== readmeFileOld) {
+        let readmeOldFile = ""; 
+        if (fs.existsSync(readmePath)) {
+            readmeOldFile = fs.readFileSync(readmePath).toString(); 
+        }
+
+        if (readmeNewFile !== readmeOldFile) {
             console.log('UPDATED: ' + readmePath)
             changeFilesCount++;
-            fs.writeFileSync(readmePath, readmeFileNew);
+            fs.writeFileSync(readmePath, readmeNewFile);
         }
     }
     if (changeFilesCount > 0) {
