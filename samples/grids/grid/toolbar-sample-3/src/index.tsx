@@ -6,7 +6,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { AthletesDataItem, AthletesData } from './AthletesData';
-import { IgrRowSelectionEventArgs, IgrGrid, IgrExporterOptionsBase } from 'igniteui-react-grids';
+import { IgrRowSelectionEventArgs, IgrGrid, IgrExporterOptionsBase } from 'igniteui-react-grids/grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';

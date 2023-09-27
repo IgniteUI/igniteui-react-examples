@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrAvatarModule } from 'igniteui-react';
+import { IgrAvatarModule } from 'igniteui-react-webinputs';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrPinningConfig, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarPinning, IgrColumn } from 'igniteui-react-grids';
 import { AthletesDataExtendedItem, AthletesDataExtended } from './AthletesDataExtended';

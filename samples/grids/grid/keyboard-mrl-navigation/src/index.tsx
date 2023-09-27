@@ -6,6 +6,7 @@ import { IgrGridModule, IgrColumnLayoutModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumnLayout, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebColumnLayoutDescriptionModule } from 'igniteui-react-core';
 import { CompanyDataItem, CompanyData } from './CompanyData';
+import { IgrGrid } from 'igniteui-react-grids/grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';

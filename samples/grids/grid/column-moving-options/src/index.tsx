@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrBadgeModule } from 'igniteui-react';
+import { IgrBadgeModule } from 'igniteui-react-webinputs';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';

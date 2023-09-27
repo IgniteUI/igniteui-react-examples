@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrComboModule } from 'igniteui-react';
+import { IgrComboModule } from 'igniteui-react-webinputs';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { WorldCitiesAbove500KItem, WorldCitiesAbove500K } from './WorldCitiesAbove500K';
-import { IgrGrid } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids/grids';
 import { IgrCombo, IgrLinearProgress } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
