@@ -41,7 +41,7 @@ stages:
           workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
           customCommand: 'install --legacy-peer-deps'
-          customEndpoint: 'internal proget'
+          customEndpoint: 'internal licensed proget'
 
       - task: Npm@1
         displayName: 'npm uninstall igniteui-dockmanager (trial)'
