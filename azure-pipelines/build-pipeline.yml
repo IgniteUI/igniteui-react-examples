@@ -17,6 +17,7 @@ parameters:
 
 name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
 
+
 stages:
 - stage: Build
   pool:
@@ -24,6 +25,9 @@ stages:
     demands: npm
   jobs:
   - job: BuildSamples
+    workspace:
+        clean: all
+
     steps:
       - checkout: 'self' 
         path: $(Build.Repository.Name)
@@ -43,12 +47,12 @@ stages:
           customEndpoint: 'internal proget'
 
       - task: Npm@1
-        displayName: 'npm install'
+        displayName: 'npm ci'
         inputs:
           command: custom
           workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
-          customCommand: 'install --legacy-peer-deps'
+          customCommand: 'ci --legacy-peer-deps'
           customEndpoint: 'internal proget'
 
       - task: Npm@1
