@@ -35,6 +35,14 @@ stages:
           versionSpec: '16.x'
 
       - task: Npm@1
+        displayName: 'Register IG npm registry in .npmrc'
+        inputs:
+          command: 'custom'
+          workingDir: '$(Build.SourcesDirectory)'
+          customCommand: 'config -L project set @infragistics:registry=http://proget.infragistics.local:81/npm/IgniteUI/'
+          customEndpoint: 'internal proget'
+          
+      - task: Npm@1
         displayName: 'npm install'
         inputs:
           command: custom
