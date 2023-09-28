@@ -38,10 +38,10 @@ stages:
         displayName: 'Register IG npm registry in .npmrc'
         inputs:
           command: 'custom'
-          workingDir: '$(Build.SourcesDirectory)'
+          workingDir: '$(Build.SourcesDirectory)\browser'
           customCommand: 'config -L project set @infragistics:registry=http://proget.infragistics.local:81/npm/IgniteUI/'
           customEndpoint: 'internal proget'
-          
+
       - task: Npm@1
         displayName: 'npm install'
         inputs:
@@ -69,7 +69,7 @@ stages:
         displayName: 'Register licensed npm registry in .npmrc'
         inputs:
           command: 'custom'
-          workingDir: '$(Build.SourcesDirectory)'
+          workingDir: '$(Build.SourcesDirectory)\browser'
           customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
           customEndpoint: 'public proget'
 
