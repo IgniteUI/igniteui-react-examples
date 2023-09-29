@@ -98,7 +98,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
-                        title="TWh">
+                        title="TWh"
+                        labelLocation="OutsideRight">
                     </IgrNumericYAxis>
                     <IgrLineSeries
                         name="LineSeries1"
