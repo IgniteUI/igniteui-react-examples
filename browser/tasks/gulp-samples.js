@@ -788,6 +788,17 @@ function verifyBuild(cb) {
     }
 } exports.verifyBuild = verifyBuild;
 
+function sortByKeys(dependencies)
+{
+    let keys = Object.keys(dependencies);
+    keys.sort();
+ 
+    var sorted = {};
+    for (const key of keys) {
+        sorted[key] = dependencies[key];
+    }
+    return sorted;
+}
 function updateIG(cb) {
 
     // cleanup packages to speedup this gulp script
@@ -838,8 +849,8 @@ function updateIG(cb) {
     var packagePaths = [
         './package.json', // browser
         '../samples/**/package.json',
-        // './samples/charts/**/package.json',
-        // './samples/gauges/**/package.json',
+        // '../samples/charts/**/package.json',
+        // '../samples/gauges/**/package.json',
 
         // skip packages in node_modules folders
        '!../samples/**/node_modules/**/package.json',
@@ -859,7 +870,6 @@ function updateIG(cb) {
     gulp.src(packagePaths, {allowEmpty: true})
     .pipe(es.map(function(file, fileCallback) {
         let filePath = file.dirname + "\\" + file.basename;
-
         var fileContent = file.contents.toString();
         var fileLines = fileContent.split('\n');
 
@@ -881,8 +891,14 @@ function updateIG(cb) {
             }
         }
 
-        if (fileChanged) {
-            let newContent = fileLines.join('\n'); // newContent !== fileContent
+        let newContent = fileLines.join('\n'); 
+        let jsonPackages = JSON.parse(fileContent);
+        // sort package dependencies by their names
+        jsonPackages.dependencies = sortByKeys(jsonPackages.dependencies);
+        jsonPackages.devDependencies = sortByKeys(jsonPackages.devDependencies); 
+        newContent = JSON.stringify(jsonPackages, null, '  ') + '\n';
+        
+        if (fileChanged || fileContent.trim() !== newContent.trim()) {
             updatedPackages++;
             fs.writeFileSync(filePath, newContent);
             log("updated: " + filePath);
