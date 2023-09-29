@@ -29,6 +29,29 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private paginator: IgrPaginator
+    private  _paginatorResourceStrings1: IgrPaginatorResourceStrings | null = null;
+    public get paginatorResourceStrings1(): IgrPaginatorResourceStrings {
+        if (this._paginatorResourceStrings1 == null)
+        {
+            var paginatorResourceStrings1 = new IgrPaginatorResourceStrings();
+            paginatorResourceStrings1.igx_paginator_label = "Records per page";
+
+            this._paginatorResourceStrings1 = paginatorResourceStrings1;
+        }
+        return this._paginatorResourceStrings1;
+    }
+    private column1: IgrColumn
+    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
+    public get columnPipeArgs1(): IgrColumnPipeArgs {
+        if (this._columnPipeArgs1 == null)
+        {
+            var columnPipeArgs1 = new IgrColumnPipeArgs();
+            columnPipeArgs1.digitsInfo = "1.1-5";
+
+            this._columnPipeArgs1 = columnPipeArgs1;
+        }
+        return this._columnPipeArgs1;
+    }
     private propertyEditor: IgrPropertyEditorPanel
     private propertyEditorRef(r: IgrPropertyEditorPanel) {
         this.propertyEditor = r;
@@ -71,10 +94,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrPaginator
                         name="paginator"
                         perPage="15"
-                        displayDensity="Cosy">
-                        <IgrPaginatorResourceStrings
-                            igx_paginator_label="Records per page">
-                        </IgrPaginatorResourceStrings>
+                        displayDensity="Cosy"
+                        resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
                     <IgrColumn
                         field="Id"
@@ -92,10 +113,9 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="TopSpeed"
                         header="Top Speed"
-                        dataType="Number">
-                        <IgrColumnPipeArgs
-                            digitsInfo="1.1-5">
-                        </IgrColumnPipeArgs>
+                        dataType="Number"
+                        pipeArgs={this.columnPipeArgs1}
+                        name="column1">
                     </IgrColumn>
                 </IgrGrid>
             </div>

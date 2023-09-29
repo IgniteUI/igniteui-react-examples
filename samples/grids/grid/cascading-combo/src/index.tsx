@@ -6,7 +6,6 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrComboModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { WorldCitiesAbove500KItem, WorldCitiesAbove500K } from './WorldCitiesAbove500K';
-import { IgrGrid } from 'igniteui-react-grids';
 import { IgrCombo, IgrLinearProgress } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';

@@ -23,7 +23,19 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private column1: IgrColumn
+    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
+    public get columnPipeArgs1(): IgrColumnPipeArgs {
+        if (this._columnPipeArgs1 == null)
+        {
+            var columnPipeArgs1 = new IgrColumnPipeArgs();
+            columnPipeArgs1.digitsInfo = "1.1-5";
+
+            this._columnPipeArgs1 = columnPipeArgs1;
+        }
+        return this._columnPipeArgs1;
+    }
     private column2: IgrColumn
+    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -60,22 +72,21 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="TopSpeed"
                         header="Top Speed"
-                        dataType="Number">
-                        <IgrColumnPipeArgs
-                            digitsInfo="1.1-5">
-                        </IgrColumnPipeArgs>
+                        dataType="Number"
+                        pipeArgs={this.columnPipeArgs1}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="TrackProgress"
                         header="Track Progress"
                         bodyTemplate={this.webGridProgressCellTemplate}
-                        name="column1">
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="CountryFlag"
                         header="Country Flag"
                         bodyTemplate={this.webGridImageCellTemplate}
-                        name="column2">
+                        name="column3">
                     </IgrColumn>
                 </IgrGrid>
             </div>

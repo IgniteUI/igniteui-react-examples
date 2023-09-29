@@ -6,6 +6,7 @@ import { IgrBadgeModule } from 'igniteui-react';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
+import { IgrColumnTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -25,8 +26,44 @@ export default class Sample extends React.Component<any, any> {
     private column1: IgrColumn
     private column2: IgrColumn
     private column3: IgrColumn
+    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
+    public get columnPipeArgs1(): IgrColumnPipeArgs {
+        if (this._columnPipeArgs1 == null)
+        {
+            var columnPipeArgs1 = new IgrColumnPipeArgs();
+            columnPipeArgs1.currencyCode = "USD";
+            columnPipeArgs1.digitsInfo = "1.2-2";
+
+            this._columnPipeArgs1 = columnPipeArgs1;
+        }
+        return this._columnPipeArgs1;
+    }
     private column4: IgrColumn
+    private  _columnPipeArgs2: IgrColumnPipeArgs | null = null;
+    public get columnPipeArgs2(): IgrColumnPipeArgs {
+        if (this._columnPipeArgs2 == null)
+        {
+            var columnPipeArgs2 = new IgrColumnPipeArgs();
+            columnPipeArgs2.currencyCode = "USD";
+            columnPipeArgs2.digitsInfo = "1.2-2";
+
+            this._columnPipeArgs2 = columnPipeArgs2;
+        }
+        return this._columnPipeArgs2;
+    }
     private column5: IgrColumn
+    private  _columnPipeArgs3: IgrColumnPipeArgs | null = null;
+    public get columnPipeArgs3(): IgrColumnPipeArgs {
+        if (this._columnPipeArgs3 == null)
+        {
+            var columnPipeArgs3 = new IgrColumnPipeArgs();
+            columnPipeArgs3.currencyCode = "USD";
+            columnPipeArgs3.digitsInfo = "1.2-2";
+
+            this._columnPipeArgs3 = columnPipeArgs3;
+        }
+        return this._columnPipeArgs3;
+    }
     private column6: IgrColumn
     private column7: IgrColumn
     private column8: IgrColumn
@@ -68,34 +105,25 @@ export default class Sample extends React.Component<any, any> {
                         header="Price"
                         field="Price"
                         dataType="Currency"
+                        pipeArgs={this.columnPipeArgs1}
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column3">
-                        <IgrColumnPipeArgs
-                            currencyCode="USD"
-                            digitsInfo="1.2-2">
-                        </IgrColumnPipeArgs>
                     </IgrColumn>
                     <IgrColumn
                         header="Buy"
                         field="Buy"
                         dataType="Currency"
+                        pipeArgs={this.columnPipeArgs2}
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column4">
-                        <IgrColumnPipeArgs
-                            currencyCode="USD"
-                            digitsInfo="1.2-2">
-                        </IgrColumnPipeArgs>
                     </IgrColumn>
                     <IgrColumn
                         header="Sell"
                         field="Sell"
                         dataType="Currency"
+                        pipeArgs={this.columnPipeArgs3}
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column5">
-                        <IgrColumnPipeArgs
-                            currencyCode="USD"
-                            digitsInfo="1.2-2">
-                        </IgrColumnPipeArgs>
                     </IgrColumn>
                     <IgrColumn
                         header="Spread"
@@ -143,6 +171,23 @@ export default class Sample extends React.Component<any, any> {
         return this._financialDataAll;
     }
 
+
+    public webGridPinHeaderTemplate = (props: {dataContext: IgrColumnTemplateContext}) => {
+        const column = (props.dataContext as any).column;
+        return (
+            <div>
+                <span style={{float: 'left'}}>{column.field}</span>
+                <span style={{float: 'right'}} onPointerDown={(e: any) => this.toggleColumnPin(column.field)}>📌</span>
+            </div>
+        );
+    }
+
+    public toggleColumnPin(field: string) {
+        var grid = this.grid;
+        var col = grid.getColumnByName(field);
+        col.pinned = !col.pinned;
+        grid.markForCheck();
+    }
 }
 
 // rendering above component in the React DOM

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
 import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
 import { IgrGroupByRowTemplateContext } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
@@ -21,6 +21,21 @@ export default class Sample extends React.Component<any, any> {
     private gridRef(r: IgrGrid) {
         this.grid = r;
         this.setState({});
+    }
+    private _groupingExpression1: IgrGroupingExpression[] | null = null;
+    public get groupingExpression1(): IgrGroupingExpression[] {
+        if (this._groupingExpression1 == null)
+        {
+            let groupingExpression1: IgrGroupingExpression[] = [];
+            var groupingExpression2 = new IgrGroupingExpression();
+            groupingExpression2.dir = SortingDirection.Asc;
+            groupingExpression2.fieldName = "ShipCountry";
+            groupingExpression2.ignoreCase = false;
+
+            groupingExpression1.push(groupingExpression2)
+            this._groupingExpression1 = groupingExpression1;
+        }
+        return this._groupingExpression1;
     }
 
     constructor(props: any) {
@@ -40,7 +55,7 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     data={this.invoicesWorldData}
                     rowSelection="Multiple"
-                    groupingExpressions={["Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
+                    groupingExpressions={this.groupingExpression1}
                     groupRowTemplate={this.webGridGroupByRowTemplate}>
                     <IgrPaginator
                         perPage="10">

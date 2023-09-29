@@ -5,6 +5,7 @@ import './index.css';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
+import { IgrGridMasterDetailContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -81,6 +82,24 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._customersData;
     }
+
+
+    public webGridMasterDetailTemplate = (props: {dataContext: IgrGridMasterDetailContext}) => {
+        const data = props.dataContext.implicit;
+
+        return (
+            <>
+            <div className="contact-container">
+                <span><strong>Name:</strong> {data.ContactName}</span>
+                <br />
+                <span><strong>Title:</strong> {data.ContactTitle}</span>
+                <br />
+                <span><strong>Company:</strong> {data.CompanyName}</span>
+                <br />
+            </div>
+            </>
+        );
+    };
 
 }
 
