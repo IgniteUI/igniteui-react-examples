@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@infragistics/igniteui-react": "23.2.152",
-    "@infragistics/igniteui-react-core": "23.2.152",
     "@infragistics/igniteui-react-charts": "23.2.152",
+    "@infragistics/igniteui-react-core": "23.2.152",
     "@infragistics/igniteui-react-grids": "23.2.152",
     "@infragistics/igniteui-react-inputs": "23.2.152",
     "@infragistics/igniteui-react-layouts": "23.2.152",

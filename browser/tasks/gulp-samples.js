@@ -892,11 +892,15 @@ function updateIG(cb) {
         }
 
         let newContent = fileLines.join('\n'); 
-        let jsonPackages = JSON.parse(fileContent);
+        let jsonPackages = JSON.parse(newContent);
         // sort package dependencies by their names
-        jsonPackages.dependencies = sortByKeys(jsonPackages.dependencies);
-        jsonPackages.devDependencies = sortByKeys(jsonPackages.devDependencies); 
-        newContent = JSON.stringify(jsonPackages, null, '  ') + '\n';
+        let sortPackages = sortByKeys(jsonPackages.dependencies);
+        if (JSON.stringify(sortPackages) !== JSON.stringify(jsonPackages.dependencies)) {
+            jsonPackages.dependencies = sortPackages;
+            jsonPackages.devDependencies = sortByKeys(jsonPackages.devDependencies); 
+            newContent = JSON.stringify(jsonPackages, null, '  ') + '\n';
+            fileChanged = true;
+        }
         
         if (fileChanged || fileContent.trim() !== newContent.trim()) {
             updatedPackages++;
