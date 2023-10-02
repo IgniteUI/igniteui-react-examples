@@ -7,6 +7,8 @@ import { IgrCheckboxModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebCheckboxDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
+import { IgrRowSelectorTemplateContext, IgrHeadSelectorTemplateContext } from 'igniteui-react-grids';
+import { IgrCheckbox } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -81,6 +83,31 @@ export default class Sample extends React.Component<any, any> {
             WebCheckboxDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+
+    public webGridRowSelectorTemplate = (e: {dataContext: IgrRowSelectorTemplateContext}) => {
+        const contextDetail = e.dataContext.implicit;
+        const containerStyle = {
+            justifyContent: 'space-evenly',
+            display: 'flex',
+            width: '70px'
+        };
+
+        return (
+            <div style={containerStyle}>
+                <span>{contextDetail.index}</span>
+                <IgrCheckbox checked={contextDetail.selected} key={`${contextDetail.selected}`}></IgrCheckbox>
+            </div>
+        );
+    }
+
+    public webGridHeaderRowSelectorTemplate = (e: {dataContext: IgrHeadSelectorTemplateContext }) => {
+        return (
+            <div style={{width: '70px', height: '60px', display: 'flex'}}>
+                <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/avatars/igLogo.png" className="header-image"/>
+            </div>
+        );
     }
 
 }
