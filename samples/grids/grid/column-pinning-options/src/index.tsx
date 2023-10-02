@@ -5,6 +5,7 @@ import './index.css';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
+import { IgrColumnTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -130,6 +131,23 @@ export default class Sample extends React.Component<any, any> {
         return this._customersData;
     }
 
+
+    public webGridPinHeaderTemplate = (props: {dataContext: IgrColumnTemplateContext}) => {
+        const column = (props.dataContext as any).column;
+        return (
+            <div>
+                <span style={{float: 'left'}}>{column.field}</span>
+                <span style={{float: 'right'}} onPointerDown={(e: any) => this.toggleColumnPin(column.field)}>📌</span>
+            </div>
+        );
+    }
+
+    public toggleColumnPin(field: string) {
+        var grid = this.grid;
+        var col = grid.getColumnByName(field);
+        col.pinned = !col.pinned;
+        grid.markForCheck();
+    }
 }
 
 // rendering above component in the React DOM

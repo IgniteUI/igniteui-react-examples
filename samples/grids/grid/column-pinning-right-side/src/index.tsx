@@ -6,6 +6,8 @@ import { IgrAvatarModule } from 'igniteui-react';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrPinningConfig, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarPinning, IgrColumn } from 'igniteui-react-grids';
 import { AthletesDataExtendedItem, AthletesDataExtended } from './AthletesDataExtended';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
+import { IgrAvatar } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -134,6 +136,30 @@ export default class Sample extends React.Component<any, any> {
             this._athletesDataExtended = new AthletesDataExtended();
         }
         return this._athletesDataExtended;
+    }
+
+
+    public webGridImageCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        return (
+            <div>
+                <img src={props.dataContext.cell.value}
+                 style={{
+                     border: '1px solid black',
+                     objectFit: 'fill',
+                     height: '2rem',
+                     width: '3rem'
+                 }} />
+            </div>
+        );
+    }
+
+    public webGridAvatarCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        return (
+            <div>
+                <IgrAvatar shape='circle' src={props.dataContext.cell.value}>
+                </IgrAvatar>
+            </div>
+        );
     }
 
 }

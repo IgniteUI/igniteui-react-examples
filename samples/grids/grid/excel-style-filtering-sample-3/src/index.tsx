@@ -7,6 +7,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { IgrGridHeaderTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -26,7 +27,29 @@ export default class Sample extends React.Component<any, any> {
     private productName: IgrColumn
     private quantityPerUnit: IgrColumn
     private unitPrice: IgrColumn
+    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
+    public get columnPipeArgs1(): IgrColumnPipeArgs {
+        if (this._columnPipeArgs1 == null)
+        {
+            var columnPipeArgs1 = new IgrColumnPipeArgs();
+            columnPipeArgs1.digitsInfo = "1.2-2";
+
+            this._columnPipeArgs1 = columnPipeArgs1;
+        }
+        return this._columnPipeArgs1;
+    }
     private orderDate: IgrColumn
+    private  _columnPipeArgs2: IgrColumnPipeArgs | null = null;
+    public get columnPipeArgs2(): IgrColumnPipeArgs {
+        if (this._columnPipeArgs2 == null)
+        {
+            var columnPipeArgs2 = new IgrColumnPipeArgs();
+            columnPipeArgs2.format = "MM/dd/YYYY";
+
+            this._columnPipeArgs2 = columnPipeArgs2;
+        }
+        return this._columnPipeArgs2;
+    }
     private discontinued: IgrColumn
 
     constructor(props: any) {
@@ -71,19 +94,15 @@ export default class Sample extends React.Component<any, any> {
                         name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="Currency">
-                        <IgrColumnPipeArgs
-                            digitsInfo="1.2-2">
-                        </IgrColumnPipeArgs>
+                        dataType="Currency"
+                        pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
                         name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date">
-                        <IgrColumnPipeArgs
-                            format="MM/dd/YYYY">
-                        </IgrColumnPipeArgs>
+                        dataType="Date"
+                        pipeArgs={this.columnPipeArgs2}>
                     </IgrColumn>
                     <IgrColumn
                         name="Discontinued"
@@ -115,6 +134,12 @@ export default class Sample extends React.Component<any, any> {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webGridFilterAltIconTemplate = (props: { dataContext: IgrGridHeaderTemplateContext }) => {
+        return (
+            <img height="15px" width="15px" src="http://static.infragistics.com/xplatform/images/grid/propeller-logo.svg" title="Continued" alt="Continued" />
+        );
     }
 
 }

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
 import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
 import { IgrGroupByRowTemplateContext } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
@@ -21,6 +21,21 @@ export default class Sample extends React.Component<any, any> {
     private gridRef(r: IgrGrid) {
         this.grid = r;
         this.setState({});
+    }
+    private _groupingExpression1: IgrGroupingExpression[] | null = null;
+    public get groupingExpression1(): IgrGroupingExpression[] {
+        if (this._groupingExpression1 == null)
+        {
+            let groupingExpression1: IgrGroupingExpression[] = [];
+            var groupingExpression2 = new IgrGroupingExpression();
+            groupingExpression2.dir = SortingDirection.Asc;
+            groupingExpression2.fieldName = "ShipCountry";
+            groupingExpression2.ignoreCase = false;
+
+            groupingExpression1.push(groupingExpression2)
+            this._groupingExpression1 = groupingExpression1;
+        }
+        return this._groupingExpression1;
     }
 
     constructor(props: any) {
@@ -40,7 +55,7 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     data={this.invoicesWorldData}
                     rowSelection="Multiple"
-                    groupingExpressions={["Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
+                    groupingExpressions={this.groupingExpression1}
                     groupRowTemplate={this.webGridGroupByRowTemplate}>
                     <IgrPaginator
                         perPage="10">
@@ -80,23 +95,24 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webGridGroupByRowTemplate = (ctx: IgrGroupByRowTemplateContext) => {
+    public webGridGroupByRowTemplate = (e: {dataContext: IgrGroupByRowTemplateContext}) => {
 
-        const groupRow: any = ctx["$implicit"];
+        const groupRow: any = e.dataContext.implicit;
         const values = groupRow.records;
 
         const startDate = new Date('1/1/2017');
         const endDate = new Date('12/31/2017');
-        var calc2017 = values.filter((x) => new Date(x.OrderDate) >= startDate && new Date(x.OrderDate) <= endDate).length;
-
+        const calc2017 = values.filter((x: any) => new Date(x.OrderDate) >= startDate && new Date(x.OrderDate) <= endDate).length;
+        const spanStyle = {
+            color: '#09f'
+          };
         return <><div>
-            <span style="color:#09f;">${groupRow.expression.fieldName} :</span>
+            <span style={spanStyle}>{groupRow.expression.fieldName} :</span>
             <span>${groupRow.value}</span>
-            <IgrBadge>${groupRow.records.length}</IgrBadge>
-            <span style="color:#09f;"> Ordered in 2017:</span><span>${calc2017}</span>
+            <IgrBadge><span key="content">{groupRow.records.length}</span></IgrBadge>
+            <span style={spanStyle}> Ordered in 2017:</span><span>${calc2017}</span>
         </div>
         </>;
-
     };
 
 }
