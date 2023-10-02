@@ -8,6 +8,8 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesDataItem, EmployeesData } from './EmployeesData';
+import { IgrAvatar } from 'igniteui-react';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -194,6 +196,15 @@ export default class Sample extends React.Component<any, any> {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webGridAvatarCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        return (
+            <div>
+                <IgrAvatar shape='circle' src={props.dataContext.cell.value}>
+                </IgrAvatar>
+            </div>
+        );
     }
 
 }

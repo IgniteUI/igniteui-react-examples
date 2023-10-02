@@ -95,23 +95,24 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webGridGroupByRowTemplate = (ctx: IgrGroupByRowTemplateContext) => {
+    public webGridGroupByRowTemplate = (e: {dataContext: IgrGroupByRowTemplateContext}) => {
 
-        const groupRow: any = ctx["$implicit"];
+        const groupRow: any = e.dataContext.implicit;
         const values = groupRow.records;
 
         const startDate = new Date('1/1/2017');
         const endDate = new Date('12/31/2017');
-        var calc2017 = values.filter((x) => new Date(x.OrderDate) >= startDate && new Date(x.OrderDate) <= endDate).length;
-
+        const calc2017 = values.filter((x: any) => new Date(x.OrderDate) >= startDate && new Date(x.OrderDate) <= endDate).length;
+        const spanStyle = {
+            color: '#09f'
+          };
         return <><div>
-            <span style="color:#09f;">${groupRow.expression.fieldName} :</span>
+            <span style={spanStyle}>{groupRow.expression.fieldName} :</span>
             <span>${groupRow.value}</span>
-            <IgrBadge>${groupRow.records.length}</IgrBadge>
-            <span style="color:#09f;"> Ordered in 2017:</span><span>${calc2017}</span>
+            <IgrBadge><span key="content">{groupRow.records.length}</span></IgrBadge>
+            <span style={spanStyle}> Ordered in 2017:</span><span>${calc2017}</span>
         </div>
         </>;
-
     };
 
 }
