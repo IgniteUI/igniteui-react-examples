@@ -7,6 +7,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrPaginator, IgrPaginatorResourceStrings, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
+import { IgrHeadSelectorTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -108,6 +109,15 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._componentRenderer;
     }
+
+    public webGridHeaderRowSelectorExcelTemplate = (e: { dataContext: IgrHeadSelectorTemplateContext }) => {
+        const ctx = e.dataContext;
+        if (ctx.implicit.selectedCount > 0 && ctx.implicit.selectedCount === ctx.implicit.totalCount) {
+            return <><span style={{display: "block", width:"30px"}}><i style={{color: "rgb(239, 184, 209)"}}>◢</i></span></>;
+        } else {
+            return <><span style={{display: "block", width:"30px"}}><i>◢</i></span></>;
+        }
+    };
 
 }
 
