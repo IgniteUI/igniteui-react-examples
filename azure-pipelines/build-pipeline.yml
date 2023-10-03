@@ -35,6 +35,7 @@ stages:
           versionSpec: '16.x'
 
       - task: RegexReplace@3
+        enabled: false
         displayName: 'Replace deps with scoped ones'
         inputs:
           InputSearchPattern: 'browser\package.json'
