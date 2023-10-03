@@ -25,17 +25,6 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private paginator: IgrPaginator
-    private  _paginatorResourceStrings1: IgrPaginatorResourceStrings | null = null;
-    public get paginatorResourceStrings1(): IgrPaginatorResourceStrings {
-        if (this._paginatorResourceStrings1 == null)
-        {
-            var paginatorResourceStrings1 = new IgrPaginatorResourceStrings();
-            paginatorResourceStrings1.igx_paginator_label = "Items per page";
-
-            this._paginatorResourceStrings1 = paginatorResourceStrings1;
-        }
-        return this._paginatorResourceStrings1;
-    }
 
     constructor(props: any) {
         super(props);
@@ -61,8 +50,10 @@ export default class Sample extends React.Component<any, any> {
                         name="paginator"
                         perPage="15"
                         displayDensity="Cosy"
-                        selectOptions={["5", "10", "15", "25", "50"]}
-                        resourceStrings={this.paginatorResourceStrings1}>
+                        selectOptions={["5", "10", "15", "25", "50"]}>
+                        <IgrPaginatorResourceStrings
+                            igx_paginator_label="Items per page">
+                        </IgrPaginatorResourceStrings>
                     </IgrPaginator>
                     <IgrColumn
                         field="ContactName"

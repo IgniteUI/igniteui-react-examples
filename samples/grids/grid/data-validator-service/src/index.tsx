@@ -42,17 +42,6 @@ export default class Sample extends React.Component<any, any> {
     private email: IgrColumn
     private fax: IgrColumn
     private createdOn: IgrColumn
-    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
-    public get columnPipeArgs1(): IgrColumnPipeArgs {
-        if (this._columnPipeArgs1 == null)
-        {
-            var columnPipeArgs1 = new IgrColumnPipeArgs();
-            columnPipeArgs1.format = "longDate";
-
-            this._columnPipeArgs1 = columnPipeArgs1;
-        }
-        return this._columnPipeArgs1;
-    }
     private lastActivity: IgrColumn
     private estimatedSales: IgrColumn
     private dealsLost: IgrColumn
@@ -133,8 +122,10 @@ export default class Sample extends React.Component<any, any> {
                         header="Date of Registration"
                         width="170px"
                         dataType="Date"
-                        editable="true"
-                        pipeArgs={this.columnPipeArgs1}>
+                        editable="true">
+                        <IgrColumnPipeArgs
+                            format="longDate">
+                        </IgrColumnPipeArgs>
                     </IgrColumn>
                     <IgrColumn
                         name="LastActivity"

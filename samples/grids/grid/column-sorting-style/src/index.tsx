@@ -34,19 +34,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
-    public get columnPipeArgs1(): IgrColumnPipeArgs {
-        if (this._columnPipeArgs1 == null)
-        {
-            var columnPipeArgs1 = new IgrColumnPipeArgs();
-            columnPipeArgs1.currencyCode = "USD";
-            columnPipeArgs1.digitsInfo = "1.2-2";
-
-            this._columnPipeArgs1 = columnPipeArgs1;
-        }
-        return this._columnPipeArgs1;
-    }
 
     constructor(props: any) {
         super(props);
@@ -111,9 +98,11 @@ export default class Sample extends React.Component<any, any> {
                         header="Sale Amount"
                         dataType="Currency"
                         groupable="true"
-                        sortable="true"
-                        pipeArgs={this.columnPipeArgs1}
-                        name="column1">
+                        sortable="true">
+                        <IgrColumnPipeArgs
+                            currencyCode="USD"
+                            digitsInfo="1.2-2">
+                        </IgrColumnPipeArgs>
                     </IgrColumn>
                     <IgrColumn
                         field="ShippedDate"

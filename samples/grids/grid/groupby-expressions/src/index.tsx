@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
-import { IgrGroupByRowTemplateContext } from 'igniteui-react-grids';
+import { IgrGroupByRowTemplateContext, IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
@@ -21,27 +21,6 @@ export default class Sample extends React.Component<any, any> {
     private gridRef(r: IgrGrid) {
         this.grid = r;
         this.setState({});
-    }
-    private _groupingExpression1: IgrGroupingExpression[] | null = null;
-    public get groupingExpression1(): IgrGroupingExpression[] {
-        if (this._groupingExpression1 == null)
-        {
-            let groupingExpression1: IgrGroupingExpression[] = [];
-            var groupingExpression2 = new IgrGroupingExpression();
-            groupingExpression2.fieldName = "ShipCountry";
-            groupingExpression2.ignoreCase = false;
-            groupingExpression2.dir = SortingDirection.Asc;
-
-            groupingExpression1.push(groupingExpression2)
-            var groupingExpression3 = new IgrGroupingExpression();
-            groupingExpression3.fieldName = "ShipCity";
-            groupingExpression3.ignoreCase = false;
-            groupingExpression3.dir = SortingDirection.Asc;
-
-            groupingExpression1.push(groupingExpression3)
-            this._groupingExpression1 = groupingExpression1;
-        }
-        return this._groupingExpression1;
     }
     private column1: IgrColumn
 
@@ -61,7 +40,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.invoicesWorldData}
                     ref={this.gridRef}
                     id="grid"
-                    groupingExpressions={this.groupingExpression1}
+                    groupingExpressions={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
                     groupRowTemplate={this.webGridGroupByRowTemplate}>
                     <IgrColumn
                         field="OrderID"
@@ -164,6 +143,18 @@ export default class Sample extends React.Component<any, any> {
         </div>
         </>;
     };
+
+    public webGridBooleanCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        if (props.dataContext.cell.value) {
+            return (
+                <img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/active.png" title="Continued" alt="Continued" />
+            );
+        } else {
+            return (
+                <img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/expired.png" title="Discontinued" alt="Discontinued" />
+            );
+        }
+    }
 
 }
 
