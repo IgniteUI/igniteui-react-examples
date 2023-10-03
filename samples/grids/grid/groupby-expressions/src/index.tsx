@@ -5,7 +5,7 @@ import './index.css';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrColumn } from 'igniteui-react-grids';
 import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
-import { IgrGroupByRowTemplateContext } from 'igniteui-react-grids';
+import { IgrGroupByRowTemplateContext, IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
@@ -164,6 +164,18 @@ export default class Sample extends React.Component<any, any> {
         </div>
         </>;
     };
+
+    public webGridBooleanCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        if (props.dataContext.cell.value) {
+            return (
+                <img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/active.png" title="Continued" alt="Continued" />
+            );
+        } else {
+            return (
+                <img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/expired.png" title="Discontinued" alt="Discontinued" />
+            );
+        }
+    }
 
 }
 
