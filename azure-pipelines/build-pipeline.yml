@@ -34,6 +34,15 @@ stages:
           versionSource: 'spec'
           versionSpec: '16.x'
 
+      - task: RegexReplace@3
+        displayName: 'Replace deps with scoped ones'
+        inputs:
+          InputSearchPattern: 'browser\package.json'
+          FindRegex: 'igniteui-react-[a-z]+'
+          ReplaceRegex: '@infragistics/$1'
+          UseUTF8: true
+          UseRAW: true
+
       - task: Npm@1
         displayName: 'npm install'
         inputs:
@@ -41,7 +50,6 @@ stages:
           workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
           customCommand: 'install --legacy-peer-deps'
-          customEndpoint: 'public proget'
 
       - task: Npm@1
         displayName: 'npm uninstall igniteui-dockmanager (trial)'
