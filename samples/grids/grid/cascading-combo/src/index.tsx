@@ -7,6 +7,7 @@ import { IgrComboModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { WorldCitiesAbove500KItem, WorldCitiesAbove500K } from './WorldCitiesAbove500K';
 import { IgrCombo, IgrLinearProgress } from 'igniteui-react';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -185,6 +186,57 @@ export default class Sample extends React.Component<any, any> {
             const value = e.detail.newValue[0];
             cell.update(value);
         });
+    }
+
+    public webGridCountryDropDownTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        var cell = props.dataContext.cell as any;
+        if (cell === undefined) {
+            return <></>;
+        }
+
+        return (
+        <>
+            <IgrCombo placeholder="Choose Country..." valueKey="Country" displayKey="Country" singleSelect="true" id="${comboId}"></IgrCombo>
+        </>
+        );
+    }
+
+    public webGridRegionDropDownTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        var cell = props.dataContext.cell as any;
+        if (cell === undefined) {
+            return <></>;
+        }
+        const id = cell.id.rowID;
+        const comboId = "region_" + id;
+        return (
+        <>
+            <div style={{display: "flex", flexDirection: "column"}}>
+                <IgrCombo placeholder="Choose Region..." disabled="true" valueKey="Region"  displayKey="Region" singleSelect="true" id={comboId}>
+                </IgrCombo>
+                <IgrLinearProgress style={{display: "none"}} indeterminate>
+                </IgrLinearProgress>
+            </div>
+        </>
+        );
+    }
+
+    public webGridCityDropDownTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        var cell = props.dataContext.cell as any;
+        if (cell === undefined) {
+            return <></>;
+        }
+        const id = cell.id.rowID;
+        const comboId = "city_" + id;
+        return (
+        <>
+            <div style={{display: "flex", flexDirection: "column"}}>
+                <IgrCombo placeholder="Choose City..." disabled="true" valueKey="Name"  displayKey="Name" id={comboId} singleSelect="true">
+                </IgrCombo>
+                <IgrLinearProgress style={{display: "none"}} indeterminate>
+                </IgrLinearProgress>
+            </div>
+        </>
+        );
     }
 
 }

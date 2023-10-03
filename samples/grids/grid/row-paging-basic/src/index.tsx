@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrLinearProgressModule } from 'igniteui-react-inputs';
+import { IgrLinearProgressModule } from 'igniteui-react';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrPaginator, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
+import { IgrLinearProgress } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -104,6 +105,15 @@ export default class Sample extends React.Component<any, any> {
         return this._athletesData;
     }
 
+
+    public webGridProgressCellTemplate = (e: { dataContext: IgrCellTemplateContext }) => {
+        const value = e.dataContext.cell.value;
+        return (
+            <div style={{width: '4rem'}}>
+                <IgrLinearProgress value={value}></IgrLinearProgress>
+            </div>
+        );
+    };
 
     public webGridImageCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
         return (
