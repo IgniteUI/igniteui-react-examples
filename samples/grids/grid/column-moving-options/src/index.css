@@ -1,2 +1,15 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
+.up {
+    color: green;
+}
+.down {
+    color: red;
+}
+.currency-badge-container {
+    width: 80px;
+    float: right;
+}
+.badge-left {
+    float: left;
+}
