@@ -94,7 +94,7 @@ export default class Sample extends React.Component<any, any> {
     public regions = [...this.worldCitiesAbove500K].filter((value, index, array) => array.findIndex(x => x.Region === value.Region) === index);
     public cities = [...this.worldCitiesAbove500K].filter((value, index, array) => array.findIndex(x => x.Name === value.Name) === index);
     public webGridWithComboRendered(args:any): void {
-        const grid = document.getElementsByTagName("igc-grid")[0] as IgrGrid;
+        const grid = CodeGenHelper.getDescription<IgrGrid>("content");
         grid.data = [
             {
               ID: 1,
