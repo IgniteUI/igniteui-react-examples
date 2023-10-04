@@ -7,6 +7,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -104,6 +105,16 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
+    public webGridRowPinCellTemplate = (e: {dataContext: IgrCellTemplateContext}) => {
+        const index = e.dataContext.cell.row.index;
+        return (
+            <span onPointerDown={(e: any) => this.toggleRowPin(index)} style={{ cursor: 'pointer'}}>📌</span>
+        );
+    }
+
+    public toggleRowPin(index: number) {
+        this.grid.getRowByIndex(index).pinned = !this.grid.getRowByIndex(index).pinned;
+    }
 }
 
 // rendering above component in the React DOM

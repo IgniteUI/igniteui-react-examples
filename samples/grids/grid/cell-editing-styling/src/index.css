@@ -1,0 +1,9 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+    #grid {
+        --ig-grid-edit-mode-color: #FFA500;
+        --ig-grid-cell-active-border-color: #FFA500;
+        --ig-grid-cell-editing-background: #add8e6;
+    }
+

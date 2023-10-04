@@ -6,7 +6,8 @@ import { IgrBadgeModule } from 'igniteui-react';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
-import { IgrColumnTemplateContext } from 'igniteui-react-grids';
+import { IgrColumnTemplateContext, IgrCellTemplateContext } from 'igniteui-react-grids';
+import { IgrBadge } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -180,6 +181,28 @@ export default class Sample extends React.Component<any, any> {
                 <span style={{float: 'right'}} onPointerDown={(e: any) => this.toggleColumnPin(column.field)}>📌</span>
             </div>
         );
+    }
+
+    public webGridCurrencyCellTemplate = (props: { dataContext: IgrCellTemplateContext }) => {
+        if (props.dataContext.cell.value > 0) {
+            return (
+                <div className="currency-badge-container">
+                    <div className="badge-left">
+                        <IgrBadge variant="success"><span>▲</span></IgrBadge>
+                    </div>
+                    <span className="up">{ props.dataContext.cell.value.toFixed(2) }</span>
+                </div>
+            );
+        } else {
+            return (
+                <div className="currency-badge-container">
+                    <div className="badge-left">
+                        <IgrBadge variant="danger"><span>▼</span></IgrBadge>
+                    </div>
+                    <span className="down">{ props.dataContext.cell.value.toFixed(2) }</span>
+                </div>
+            );
+        }
     }
 
     public toggleColumnPin(field: string) {

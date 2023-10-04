@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrPinningConfig, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
 
@@ -23,17 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private  _pinningConfig1: IgrPinningConfig | null = null;
-    public get pinningConfig1(): IgrPinningConfig {
-        if (this._pinningConfig1 == null)
-        {
-            var pinningConfig1 = new IgrPinningConfig();
-            pinningConfig1.rows = RowPinningPosition.Top;
-
-            this._pinningConfig1 = pinningConfig1;
-        }
-        return this._pinningConfig1;
-    }
 
     constructor(props: any) {
         super(props);
@@ -51,9 +40,11 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     data={this.customersDataLocal}
                     rowDraggable="true"
-                    pinning={this.pinningConfig1}
                     cellSelection="None"
                     primaryKey="ID">
+                    <IgrPinningConfig
+                        rows="Top">
+                    </IgrPinningConfig>
                     <IgrColumn
                         field="CompanyName"
                         header="Company">

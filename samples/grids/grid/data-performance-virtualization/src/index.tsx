@@ -6,6 +6,8 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrBadgeModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
+import { IgrBadge } from 'igniteui-react';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -146,6 +148,29 @@ export default class Sample extends React.Component<any, any> {
             this._financialDataAll = new FinancialDataAll();
         }
         return this._financialDataAll;
+    }
+
+
+    public webGridCurrencyCellTemplate = (props: { dataContext: IgrCellTemplateContext }) => {
+        if (props.dataContext.cell.value > 0) {
+            return (
+                <div className="currency-badge-container">
+                    <div className="badge-left">
+                        <IgrBadge variant="success"><span>▲</span></IgrBadge>
+                    </div>
+                    <span className="up">{ props.dataContext.cell.value.toFixed(2) }</span>
+                </div>
+            );
+        } else {
+            return (
+                <div className="currency-badge-container">
+                    <div className="badge-left">
+                        <IgrBadge variant="danger"><span>▼</span></IgrBadge>
+                    </div>
+                    <span className="down">{ props.dataContext.cell.value.toFixed(2) }</span>
+                </div>
+            );
+        }
     }
 
 }
