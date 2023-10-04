@@ -186,7 +186,7 @@ export default class Sample extends React.Component<any, any> {
 
     public webGridMRLCustomNavigationEvent(args: any): void {
         const target = args.detail.target;
-        const grid = document.getElementsByTagName("igc-grid")[0] as any;
+        const grid: IgrGrid = this.grid;
         if (args.detail.event.key.toLowerCase() === 'enter') {
            args.detail.event.preventDefault();
            args.detail.cancel = true;
