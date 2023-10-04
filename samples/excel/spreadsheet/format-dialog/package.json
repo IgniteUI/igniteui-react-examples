@@ -14,9 +14,9 @@
   "dependencies": {
     "@types/file-saver": "^3.0.8",
     "file-saver": "^1.3.8",
-    "igniteui-react-core": "18.3.0-beta.1",
-    "igniteui-react-excel": "18.3.0-beta.1",
-    "igniteui-react-spreadsheet": "18.3.0-beta.1",
+    "igniteui-react-core": "18.3.0-beta.6",
+    "igniteui-react-excel": "18.3.0-beta.6",
+    "igniteui-react-spreadsheet": "18.3.0-beta.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
