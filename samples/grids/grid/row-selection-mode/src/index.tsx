@@ -9,6 +9,8 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, PropertyEditorPanelDescriptionModule } from 'igniteui-react-core';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
+import { IgrBadge } from 'igniteui-react';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -183,6 +185,28 @@ export default class Sample extends React.Component<any, any> {
             PropertyEditorPanelDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webGridCurrencyCellTemplate = (props: { dataContext: IgrCellTemplateContext }) => {
+        if (props.dataContext.cell.value > 0) {
+            return (
+                <div className="currency-badge-container">
+                    <div className="badge-left">
+                        <IgrBadge variant="success"><span>▲</span></IgrBadge>
+                    </div>
+                    <span className="up">{ props.dataContext.cell.value.toFixed(2) }</span>
+                </div>
+            );
+        } else {
+            return (
+                <div className="currency-badge-container">
+                    <div className="badge-left">
+                        <IgrBadge variant="danger"><span>▼</span></IgrBadge>
+                    </div>
+                    <span className="down">{ props.dataContext.cell.value.toFixed(2) }</span>
+                </div>
+            );
+        }
     }
 
 }
