@@ -8,6 +8,7 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -161,6 +162,12 @@ export default class Sample extends React.Component<any, any> {
 
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
+    }
+
+    public webGridOrderDateSummaryTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        console.log("TODO");
+        //TODO
+        return (<></>);
     }
 
 }

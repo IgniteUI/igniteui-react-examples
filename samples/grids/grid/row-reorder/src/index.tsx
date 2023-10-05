@@ -102,10 +102,10 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridReorderRowHandler(args: CustomEvent<IgrRowDragEndEventArgs>): void {
+    public webGridReorderRowHandler(sender: IgrGrid, args: IgrRowDragEndEventArgs): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
         const dragElementPos = ghostElement.getBoundingClientRect();
-        const grid = document.getElementsByTagName("igc-grid")[0] as any;
+        const grid = this.grid;
         const rows = Array.prototype.slice.call(document.getElementsByTagName("igx-grid-row"));
         const currRowIndex = this.getCurrentRowIndex(rows,
         { x: dragElementPos.x, y: dragElementPos.y });
@@ -115,7 +115,7 @@ export default class Sample extends React.Component<any, any> {
         grid.data.splice(currRowIndex, 0, args.detail.dragData.data);
     }
 
-    public getCurrentRowIndex(rowList: any[], cursorPosition) {
+    public getCurrentRowIndex(rowList: any[], cursorPosition: any) {
         for (const row of rowList) {
             const rowRect = row.getBoundingClientRect();
             if (cursorPosition.y > rowRect.top + window.scrollY && cursorPosition.y < rowRect.bottom + window.scrollY &&

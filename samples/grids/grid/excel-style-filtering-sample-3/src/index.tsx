@@ -31,7 +31,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1 = new IgrColumnPipeArgs();
+            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.2-2";
 
             this._columnPipeArgs1 = columnPipeArgs1;
@@ -43,7 +43,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs2(): IgrColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
         {
-            var columnPipeArgs2 = new IgrColumnPipeArgs();
+            var columnPipeArgs2: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs2.format = "MM/dd/YYYY";
 
             this._columnPipeArgs2 = columnPipeArgs2;

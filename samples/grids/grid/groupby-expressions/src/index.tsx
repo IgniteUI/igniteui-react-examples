@@ -27,13 +27,13 @@ export default class Sample extends React.Component<any, any> {
         if (this._groupingExpression1 == null)
         {
             let groupingExpression1: IgrGroupingExpression[] = [];
-            var groupingExpression2 = new IgrGroupingExpression();
+            var groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
             groupingExpression2.fieldName = "ShipCountry";
             groupingExpression2.ignoreCase = false;
             groupingExpression2.dir = SortingDirection.Asc;
 
             groupingExpression1.push(groupingExpression2)
-            var groupingExpression3 = new IgrGroupingExpression();
+            var groupingExpression3: IgrGroupingExpression = {} as IgrGroupingExpression;
             groupingExpression3.fieldName = "ShipCity";
             groupingExpression3.ignoreCase = false;
             groupingExpression3.dir = SortingDirection.Asc;
