@@ -29,7 +29,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1 = new IgrColumnPipeArgs();
+            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.1-5";
 
             this._columnPipeArgs1 = columnPipeArgs1;

@@ -33,7 +33,7 @@ export default class Sample extends React.Component<any, any> {
     public get paginatorResourceStrings1(): IgrPaginatorResourceStrings {
         if (this._paginatorResourceStrings1 == null)
         {
-            var paginatorResourceStrings1 = new IgrPaginatorResourceStrings();
+            var paginatorResourceStrings1: IgrPaginatorResourceStrings = {} as IgrPaginatorResourceStrings;
             paginatorResourceStrings1.igx_paginator_label = "Records per page";
 
             this._paginatorResourceStrings1 = paginatorResourceStrings1;
@@ -45,7 +45,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1 = new IgrColumnPipeArgs();
+            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.1-5";
 
             this._columnPipeArgs1 = columnPipeArgs1;

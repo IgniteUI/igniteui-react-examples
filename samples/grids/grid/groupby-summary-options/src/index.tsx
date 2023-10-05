@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._groupingExpression1 == null)
         {
             let groupingExpression1: IgrGroupingExpression[] = [];
-            var groupingExpression2 = new IgrGroupingExpression();
+            var groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
             groupingExpression2.fieldName = "ShipCountry";
             groupingExpression2.ignoreCase = false;
             groupingExpression2.dir = SortingDirection.Asc;
@@ -56,7 +56,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1 = new IgrColumnPipeArgs();
+            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.currencyCode = "USD";
             columnPipeArgs1.digitsInfo = "1.2-2";
 

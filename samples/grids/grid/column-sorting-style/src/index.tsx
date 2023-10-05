@@ -26,7 +26,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._sortingExpression1 == null)
         {
             let sortingExpression1: IgrSortingExpression[] = [];
-            var sortingExpression2 = new IgrSortingExpression();
+            var sortingExpression2: IgrSortingExpression = {} as IgrSortingExpression;
             sortingExpression2.fieldName = "CategoryName";
             sortingExpression2.dir = SortingDirection.Asc;
             sortingExpression2.ignoreCase = true;
@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1 = new IgrColumnPipeArgs();
+            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.currencyCode = "USD";
             columnPipeArgs1.digitsInfo = "1.2-2";
 

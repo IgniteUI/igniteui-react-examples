@@ -27,7 +27,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._groupingExpression1 == null)
         {
             let groupingExpression1: IgrGroupingExpression[] = [];
-            var groupingExpression2 = new IgrGroupingExpression();
+            var groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
             groupingExpression2.dir = SortingDirection.Asc;
             groupingExpression2.fieldName = "ShipCountry";
             groupingExpression2.ignoreCase = false;

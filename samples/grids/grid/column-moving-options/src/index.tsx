@@ -31,7 +31,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1 = new IgrColumnPipeArgs();
+            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.currencyCode = "USD";
             columnPipeArgs1.digitsInfo = "1.2-2";
 
@@ -44,7 +44,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs2(): IgrColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
         {
-            var columnPipeArgs2 = new IgrColumnPipeArgs();
+            var columnPipeArgs2: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs2.currencyCode = "USD";
             columnPipeArgs2.digitsInfo = "1.2-2";
 
@@ -57,7 +57,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs3(): IgrColumnPipeArgs {
         if (this._columnPipeArgs3 == null)
         {
-            var columnPipeArgs3 = new IgrColumnPipeArgs();
+            var columnPipeArgs3: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs3.currencyCode = "USD";
             columnPipeArgs3.digitsInfo = "1.2-2";
 

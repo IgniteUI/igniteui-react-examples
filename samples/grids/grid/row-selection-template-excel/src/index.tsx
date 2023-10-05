@@ -7,7 +7,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrPaginator, IgrPaginatorResourceStrings, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
-import { IgrHeadSelectorTemplateContext } from 'igniteui-react-grids';
+import { IgrRowSelectorTemplateContext, IgrHeadSelectorTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -29,7 +29,7 @@ export default class Sample extends React.Component<any, any> {
     public get paginatorResourceStrings1(): IgrPaginatorResourceStrings {
         if (this._paginatorResourceStrings1 == null)
         {
-            var paginatorResourceStrings1 = new IgrPaginatorResourceStrings();
+            var paginatorResourceStrings1: IgrPaginatorResourceStrings = {} as IgrPaginatorResourceStrings;
             paginatorResourceStrings1.igx_paginator_label = "Items per page";
 
             this._paginatorResourceStrings1 = paginatorResourceStrings1;
@@ -61,7 +61,7 @@ export default class Sample extends React.Component<any, any> {
                         name="paginator"
                         perPage="15"
                         displayDensity="Cosy"
-                        selectOptions={["5", "10", "15", "25", "50"]}
+                        selectOptions={[5, 10, 15, 25, 50]}
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
                     <IgrColumn
@@ -108,6 +108,10 @@ export default class Sample extends React.Component<any, any> {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webGridRowSelectorExcelTemplate = (e : { dataContext: IgrRowSelectorTemplateContext}) => {
+        return <><span style={{display: "block", width:"30px"}}> {e.dataContext.implicit.index}</span></>;
     }
 
     public webGridHeaderRowSelectorExcelTemplate = (e: { dataContext: IgrHeadSelectorTemplateContext }) => {
