@@ -24,6 +24,7 @@ module.exports = {
       "no-undef": "off",
       "camelcase": "off",
       "no-unused-vars": "off",
+      "no-extra-semi": "off",
       "no-extend-native": "off",
       "no-throw-literal": "off",
       "no-useless-concat": "off",
