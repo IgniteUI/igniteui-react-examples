@@ -12,10 +12,10 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-react-core": "18.3.0-beta.6",
-    "igniteui-react-grids": "18.3.0-beta.6",
-    "igniteui-react-inputs": "18.3.0-beta.6",
-    "igniteui-react-layouts": "18.3.0-beta.6",
+    "igniteui-react-core": "18.3.0-beta.7",
+    "igniteui-react-grids": "18.3.0-beta.7",
+    "igniteui-react-inputs": "18.3.0-beta.7",
+    "igniteui-react-layouts": "18.3.0-beta.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
