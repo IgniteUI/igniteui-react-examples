@@ -158,3 +158,22 @@ NOTE this will re-generate the Readme.md file in the new sample
 ## Learn More
 
 To learn more about **Ignite UI for React** components, check out the [React documentation](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html).
+
+
+# Updating Version of IgniteUI Packages
+
+Perform these steps to update version of **Ignite UI for React** packages in all samples. NOTE that the order of these steps is very important.
+
+- open this repo in VS Code
+- open [gulp-samples.js](./browser/tasks/gulp-samples.js) file
+- navigate to the `updateIG` function
+- change version of **Ignite UI for React** packages in the `packageUpgrades` array
+- open terminal window
+- run `cd browser` command
+- run `gulp updateIG` command
+- run `npm install --legacy-peer-deps` command
+- create pull request with your changes
+- open the [Igniteui-xplat-example](https://github.com/IgniteUI/igniteui-xplat-examples) repo in VS Code
+- update version of **Ignite UI for React** packages in [React template](https://github.com/IgniteUI/igniteui-xplat-examples/blob/23.2.x/editor-templates/React/main-template/package.json)
+- create pull request with your changes in [Igniteui-xplat-example](https://github.com/IgniteUI/igniteui-xplat-examples) repo
+
