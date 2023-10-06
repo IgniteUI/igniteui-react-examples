@@ -30,6 +30,22 @@ export default class Sample extends React.Component<any, any> {
     }
     private yAxis: IgrCategoryYAxis
     private xAxis: IgrNumericXAxis
+    private _numberFormatSpecifier1: IgrNumberFormatSpecifier[] | null = null;
+    public get numberFormatSpecifier1(): IgrNumberFormatSpecifier[] {
+        if (this._numberFormatSpecifier1 == null)
+        {
+            let numberFormatSpecifier1: IgrNumberFormatSpecifier[] = [];
+            var numberFormatSpecifier2 = new IgrNumberFormatSpecifier();
+            numberFormatSpecifier2.style = "currency";
+            numberFormatSpecifier2.currency = "USD";
+            numberFormatSpecifier2.currencyDisplay = "symbol";
+            numberFormatSpecifier2.minimumFractionDigits = 0;
+
+            numberFormatSpecifier1.push(numberFormatSpecifier2)
+            this._numberFormatSpecifier1 = numberFormatSpecifier1;
+        }
+        return this._numberFormatSpecifier1;
+    }
     private barSeries1: IgrBarSeries
     private barSeries2: IgrBarSeries
     private tooltips: IgrDataToolTipLayer
@@ -75,13 +91,8 @@ export default class Sample extends React.Component<any, any> {
                         name="xAxis"
                         title="Billions of U.S. Dollars"
                         labelFormat="{0}B"
-                        abbreviateLargeNumbers="false">
-                        <IgrNumberFormatSpecifier
-                            style="currency"
-                            currency="USD"
-                            currencyDisplay="symbol"
-                            minimumFractionDigits="0">
-                        </IgrNumberFormatSpecifier>
+                        abbreviateLargeNumbers="false"
+                        labelFormatSpecifiers={this.numberFormatSpecifier1}>
                     </IgrNumericXAxis>
                     <IgrBarSeries
                         name="BarSeries1"

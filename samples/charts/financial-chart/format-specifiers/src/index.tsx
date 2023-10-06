@@ -24,6 +24,36 @@ export default class Sample extends React.Component<any, any> {
         this.chart = r;
         this.setState({});
     }
+    private _numberFormatSpecifier1: IgrNumberFormatSpecifier[] | null = null;
+    public get numberFormatSpecifier1(): IgrNumberFormatSpecifier[] {
+        if (this._numberFormatSpecifier1 == null)
+        {
+            let numberFormatSpecifier1: IgrNumberFormatSpecifier[] = [];
+            var numberFormatSpecifier2 = new IgrNumberFormatSpecifier();
+            numberFormatSpecifier2.currency = "EUR";
+            numberFormatSpecifier2.style = "currency";
+            numberFormatSpecifier2.locale = "en-GB";
+            numberFormatSpecifier2.minimumFractionDigits = 0;
+
+            numberFormatSpecifier1.push(numberFormatSpecifier2)
+            this._numberFormatSpecifier1 = numberFormatSpecifier1;
+        }
+        return this._numberFormatSpecifier1;
+    }
+    private _dateTimeFormatSpecifier1: IgrDateTimeFormatSpecifier[] | null = null;
+    public get dateTimeFormatSpecifier1(): IgrDateTimeFormatSpecifier[] {
+        if (this._dateTimeFormatSpecifier1 == null)
+        {
+            let dateTimeFormatSpecifier1: IgrDateTimeFormatSpecifier[] = [];
+            var dateTimeFormatSpecifier2 = new IgrDateTimeFormatSpecifier();
+            dateTimeFormatSpecifier2.locale = "en-GB";
+            dateTimeFormatSpecifier2.dateStyle = "long";
+
+            dateTimeFormatSpecifier1.push(dateTimeFormatSpecifier2)
+            this._dateTimeFormatSpecifier1 = dateTimeFormatSpecifier1;
+        }
+        return this._dateTimeFormatSpecifier1;
+    }
 
     constructor(props: any) {
         super(props);
@@ -60,17 +90,9 @@ export default class Sample extends React.Component<any, any> {
                     dataToolTipHeaderFormatTime="None"
                     zoomSliderType="None"
                     yAxisLabelFormat="{0}"
-                    xAxisLabelFormat="{0}">
-                    <IgrNumberFormatSpecifier
-                        currency="EUR"
-                        style="currency"
-                        locale="en-GB"
-                        minimumFractionDigits="0">
-                    </IgrNumberFormatSpecifier>
-                    <IgrDateTimeFormatSpecifier
-                        locale="en-GB"
-                        dateStyle="long">
-                    </IgrDateTimeFormatSpecifier>
+                    yAxisLabelFormatSpecifiers={this.numberFormatSpecifier1}
+                    xAxisLabelFormat="{0}"
+                    xAxisLabelFormatSpecifiers={this.dateTimeFormatSpecifier1}>
                 </IgrFinancialChart>
             </div>
         </div>

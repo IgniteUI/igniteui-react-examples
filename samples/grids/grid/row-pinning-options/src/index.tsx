@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
+import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
 
@@ -45,7 +45,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private actionStrip: IgrActionStrip
 
     constructor(props: any) {
         super(props);
@@ -56,7 +55,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
@@ -115,12 +114,6 @@ export default class Sample extends React.Component<any, any> {
                         field="Fax"
                         header="Fax">
                     </IgrColumn>
-                    <IgrActionStrip
-                        name="actionStrip">
-                        <IgrGridPinningActions
-                        >
-                        </IgrGridPinningActions>
-                    </IgrActionStrip>
                 </IgrGrid>
             </div>
         </div>
