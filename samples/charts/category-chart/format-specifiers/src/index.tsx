@@ -4,7 +4,8 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrDataLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrDataLegend, IgrCategoryChart, IgrNumberFormatSpecifier } from 'igniteui-react-charts';
+import { IgrDataLegend, IgrCategoryChart } from 'igniteui-react-charts';
+import { IgrNumberFormatSpecifier } from 'igniteui-react-core';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataLegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
@@ -25,6 +26,22 @@ export default class Sample extends React.Component<any, any> {
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
         this.setState({});
+    }
+    private _numberFormatSpecifier1: IgrNumberFormatSpecifier[] | null = null;
+    public get numberFormatSpecifier1(): IgrNumberFormatSpecifier[] {
+        if (this._numberFormatSpecifier1 == null)
+        {
+            let numberFormatSpecifier1: IgrNumberFormatSpecifier[] = [];
+            var numberFormatSpecifier2 = new IgrNumberFormatSpecifier();
+            numberFormatSpecifier2.style = "currency";
+            numberFormatSpecifier2.currency = "USD";
+            numberFormatSpecifier2.currencyDisplay = "symbol";
+            numberFormatSpecifier2.minimumFractionDigits = 0;
+
+            numberFormatSpecifier1.push(numberFormatSpecifier2)
+            this._numberFormatSpecifier1 = numberFormatSpecifier1;
+        }
+        return this._numberFormatSpecifier1;
     }
 
     constructor(props: any) {
@@ -60,13 +77,8 @@ export default class Sample extends React.Component<any, any> {
                     isVerticalZoomEnabled="false"
                     dataToolTipValueFormatMode="Currency"
                     dataToolTipValueFormatString="${0} Billion"
-                    yAxisLabelFormat="{0}B">
-                    <IgrNumberFormatSpecifier
-                        style="currency"
-                        currency="USD"
-                        currencyDisplay="symbol"
-                        minimumFractionDigits="0">
-                    </IgrNumberFormatSpecifier>
+                    yAxisLabelFormat="{0}B"
+                    yAxisLabelFormatSpecifiers={this.numberFormatSpecifier1}>
                 </IgrCategoryChart>
             </div>
         </div>
