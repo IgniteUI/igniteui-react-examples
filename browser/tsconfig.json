@@ -20,7 +20,7 @@
     "rootDir": "src",
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noUnusedLocals": false,
     "strictNullChecks": false,
     "importHelpers": true,

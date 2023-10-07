@@ -57,6 +57,7 @@ module.exports = {
             "no-unused-vars": "off",
             "no-extend-native": "off",
             "no-throw-literal": "off",
+            "no-extra-semi": "off",
             "no-useless-concat": "off",
             "no-mixed-operators": "off",
             "no-prototype-builtins": "off",

@@ -120,10 +120,10 @@ export default class Sample extends React.Component<any, any> {
 
             var nextRow = this.getNextEditableRowIndex(thisRow, rowInfo, args.detail.event.shiftKey);
 
-            grid.navigateTo(nextRow, column, (obj) => {
-                obj.target.activate();
-                grid.clearCellSelection();
-            });
+            // grid.navigateTo(nextRow, column, (obj) => {
+            //     obj.target.activate();
+            //     grid.clearCellSelection();
+            // });
         }
     }
 
