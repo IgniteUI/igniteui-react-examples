@@ -94,7 +94,7 @@ export default class Sample extends React.Component<any, any> {
     public regions = [...this.worldCitiesAbove500K].filter((value, index, array) => array.findIndex(x => x.Region === value.Region) === index);
     public cities = [...this.worldCitiesAbove500K].filter((value, index, array) => array.findIndex(x => x.Name === value.Name) === index);
     public webGridWithComboRendered(args:any): void {
-        const grid = CodeGenHelper.getDescription<IgrGrid>("content");
+        const grid = this.grid1;
         grid.data = [
             {
               ID: 1,
@@ -128,12 +128,12 @@ export default class Sample extends React.Component<any, any> {
 
     public bindEventsCountryCombo(rowId: any, cell: any) {
         const comboId = "country_" + rowId;
-        var combo = document.getElementById(comboId) as IgrCombo<any>;
+        var combo = document.getElementById(comboId) as any;
         combo?.addEventListener("igcChange", (e:any) => {
             const value = e.detail.newValue[0];
             cell.update(value);
-            const nextCombo = document.getElementById("region_" + cell.id.rowID) as IgrCombo<any>;
-            const nextProgress = document.getElementById("progress_region_" + cell.id.rowID) as IgrLinearProgress;
+            const nextCombo = document.getElementById("region_" + cell.id.rowID) as any;
+            const nextProgress = document.getElementById("progress_region_" + cell.id.rowID) as any;
             if (value === "") {
                 nextCombo.deselect(nextCombo.value);
                 nextCombo.disabled = true;
@@ -152,18 +152,18 @@ export default class Sample extends React.Component<any, any> {
             var currCombo = e.target;
             if (currCombo.data.length === 0) {
                 combo.data = this.countries;
-            };
+            }
         });
     }
 
     public bindEventsRegionCombo(rowId: any, cell: any) {
         const comboId = "region_" + rowId;
-        var combo = document.getElementById(comboId) as IgrCombo<any>;
+        var combo = document.getElementById(comboId) as any;
         combo?.addEventListener("igcChange", (e:any) => {
             const value = e.detail.newValue[0];
             cell.update(value);
-            const nextCombo = document.getElementById("city_" + cell.id.rowID) as IgrCombo<any>;
-            const nextProgress = document.getElementById("progress_city_" + cell.id.rowID) as IgrLinearProgress;
+            const nextCombo = document.getElementById("city_" + cell.id.rowID) as any;
+            const nextProgress = document.getElementById("progress_city_" + cell.id.rowID) as any;
             if (value === "") {
                 nextCombo.deselect(nextCombo.value);
                 nextCombo.disabled = true;
@@ -181,7 +181,7 @@ export default class Sample extends React.Component<any, any> {
 
     public bindEventsCityCombo(rowId: any, cell: any) {
         const comboId = "city_" + rowId;
-        var combo = document.getElementById(comboId) as IgrCombo<any>;
+        var combo = document.getElementById(comboId) as any;
         combo?.addEventListener("igcChange", (e:any) => {
             const value = e.detail.newValue[0];
             cell.update(value);

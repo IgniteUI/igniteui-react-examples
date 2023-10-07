@@ -191,10 +191,10 @@ export default class Sample extends React.Component<any, any> {
            args.detail.event.preventDefault();
            args.detail.cancel = true;
            const rowIndex = target.row.index === undefined ? target.index : target.row.index;
-           grid.navigateTo(args.detail.event.shiftKey ? rowIndex - 1 : rowIndex + 1, target.column.visibleIndex,
-                (obj: any) => {
-                   obj.target.activate();
-               });
+        //    grid.navigateTo(args.detail.event.shiftKey ? rowIndex - 1 : rowIndex + 1, target.column.visibleIndex,
+        //         (obj: any) => {
+        //            obj.target.activate();
+        //        });
         }
     }
 
