@@ -91,7 +91,7 @@ export default class Sample extends React.Component<any, any> {
 
 
     public webGridSummaryFormatter(summary: IgrSummaryResult, summaryOperand: IgrSummaryOperand): string {
-        const result = (summary as any).summaryResult;
+        const result = summary.summaryResult;
         if (summaryOperand instanceof IgrDateSummaryOperand && summary.key !== "count" && result !== null && result !== undefined) {
             const format = new Intl.DateTimeFormat("en", { year: "numeric" });
             return format.format(new Date(result));
