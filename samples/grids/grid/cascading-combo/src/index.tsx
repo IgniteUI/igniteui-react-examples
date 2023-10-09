@@ -6,7 +6,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrComboModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { WorldCitiesAbove500KItem, WorldCitiesAbove500K } from './WorldCitiesAbove500K';
-import { IgrCombo, IgrLinearProgress } from 'igniteui-react';
+import { IgrCombo } from 'igniteui-react';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
@@ -85,6 +85,9 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
+    public webGridWithComboRendered(args: any) {
+        console.log(args);
+    }
     public countryNames = [
         'United States',
         'Japan',
@@ -93,99 +96,47 @@ export default class Sample extends React.Component<any, any> {
     public countries = [...this.worldCitiesAbove500K].filter(x => this.countryNames.indexOf(x.Country) !== -1).filter((value, index, array) => array.findIndex(x => x.Country === value.Country) === index);
     public regions = [...this.worldCitiesAbove500K].filter((value, index, array) => array.findIndex(x => x.Region === value.Region) === index);
     public cities = [...this.worldCitiesAbove500K].filter((value, index, array) => array.findIndex(x => x.Name === value.Name) === index);
-    public webGridWithComboRendered(args:any): void {
-        const grid = this.grid1;
-        grid.data = [
-            {
-              ID: 1,
-              Country: '',
-              Region: '',
-              City: ''
-            },
-            {
-              ID: 2,
-              Country: '',
-              Region: '',
-              City: ''
-            },
-            {
-              ID: 3,
-              Country: '',
-              Region: '',
-              City: ''
-            }
-        ];
-
-        setTimeout(() => {
-            for (let index = 0; index < grid.data.length; index++) {
-                const rowId = grid.data[index].ID;
-                this.bindEventsCountryCombo(rowId, grid.getCellByKey(rowId , "Country"));
-                this.bindEventsRegionCombo(rowId, grid.getCellByKey(rowId , "Region"));
-                this.bindEventsCityCombo(rowId, grid.getCellByKey(rowId , "City"));
-            }
-        }, 100);
+    private comboRefCollection = new Map<string, IgrCombo>();
+    private comboRefs(r: IgrCombo) {
+        if (this && r && !this.comboRefCollection.get((r as any).props.name)) {
+            this.comboRefCollection.set((r as any).props.name, r);
+        }
     }
 
-    public bindEventsCountryCombo(rowId: any, cell: any) {
-        const comboId = "country_" + rowId;
-        var combo = document.getElementById(comboId) as any;
-        combo?.addEventListener("igcChange", (e:any) => {
-            const value = e.detail.newValue[0];
-            cell.update(value);
-            const nextCombo = document.getElementById("region_" + cell.id.rowID) as any;
-            const nextProgress = document.getElementById("progress_region_" + cell.id.rowID) as any;
-            if (value === "") {
-                nextCombo.deselect(nextCombo.value);
-                nextCombo.disabled = true;
-                nextCombo.data = [];
+    public onCountryChange( rowId: string, cmp: any, args:any) {
+        // find next combo
+        // args incomplete, so gte value from component on timeout as workaround.
+        const regionCombo = this.comboRefCollection.get("region_" + rowId);
+        const regions = this.regions;
+       setTimeout(() => {
+            const newValue = cmp.value[0];
+            if (newValue === undefined) {
+                regionCombo.deselect(regionCombo.value);
+                regionCombo.disabled = true;
+                regionCombo.data = [];
             } else {
-                nextProgress.style.display = "block";
-                setTimeout(() => {
-                    nextProgress.style.display = "none";
-                    nextCombo.disabled = false;
-                    nextCombo.data = this.regions.filter(x => x.Country === value);
-                }, 2000);
-
+                regionCombo.disabled = false;
+                regionCombo.data = regions.filter(x => x.Country === newValue);
             }
-        });
-        combo?.addEventListener("igcOpening", (e:any) => {
-            var currCombo = e.target;
-            if (currCombo.data.length === 0) {
-                combo.data = this.countries;
-            }
-        });
+       });
     }
 
-    public bindEventsRegionCombo(rowId: any, cell: any) {
-        const comboId = "region_" + rowId;
-        var combo = document.getElementById(comboId) as any;
-        combo?.addEventListener("igcChange", (e:any) => {
-            const value = e.detail.newValue[0];
-            cell.update(value);
-            const nextCombo = document.getElementById("city_" + cell.id.rowID) as any;
-            const nextProgress = document.getElementById("progress_city_" + cell.id.rowID) as any;
-            if (value === "") {
-                nextCombo.deselect(nextCombo.value);
-                nextCombo.disabled = true;
-                nextCombo.data = [];
+    public onRegionChange( rowId: string, cmp: any, args:any) {
+        // find next combo
+        // args incomplete
+        const cityCombo = this.comboRefCollection.get("city_" + rowId);
+        const cities = this.cities;
+       setTimeout(() => {
+            const newValue = cmp.value[0];
+            if (newValue === undefined) {
+                cityCombo.deselect(cityCombo.value);
+                cityCombo.disabled = true;
+                cityCombo.data = [];
             } else {
-                nextProgress.style.display = "block";
-                setTimeout(() => {
-                    nextProgress.style.display = "none";
-                    nextCombo.disabled = false;
-                    nextCombo.data = this.cities.filter(x => x.Region === value);
-                }, 2000);
+                cityCombo.disabled = false;
+                cityCombo.data = cities.filter(x => x.Region === newValue);
             }
-        });
-    }
-
-    public bindEventsCityCombo(rowId: any, cell: any) {
-        const comboId = "city_" + rowId;
-        var combo = document.getElementById(comboId) as any;
-        combo?.addEventListener("igcChange", (e:any) => {
-            const value = e.detail.newValue[0];
-            cell.update(value);
-        });
+       });
     }
 
     public webGridCountryDropDownTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
@@ -193,10 +144,12 @@ export default class Sample extends React.Component<any, any> {
         if (cell === undefined) {
             return <></>;
         }
-
+        this.comboRefs = this.comboRefs.bind(this);
+        const id = cell.id.rowID;
+        const comboId = "country" + id;
         return (
         <>
-            <IgrCombo placeholder="Choose Country..." valueKey="Country" displayKey="Country" singleSelect="true" id="${comboId}"></IgrCombo>
+            <IgrCombo data={this.countries} ref={this.comboRefs} change={(x: any, args: any) => { this.onCountryChange(id, x, args) }} placeholder="Choose Country..." valueKey="Country" displayKey="Country" singleSelect="true" name={comboId}></IgrCombo>
         </>
         );
     }
@@ -208,13 +161,12 @@ export default class Sample extends React.Component<any, any> {
         }
         const id = cell.id.rowID;
         const comboId = "region_" + id;
+        this.comboRefs = this.comboRefs.bind(this);
         return (
         <>
             <div style={{display: "flex", flexDirection: "column"}}>
-                <IgrCombo placeholder="Choose Region..." disabled="true" valueKey="Region"  displayKey="Region" singleSelect="true" id={comboId}>
+                <IgrCombo ref={this.comboRefs} change={(x: any, args: any) => { this.onRegionChange(id, x, args) }} placeholder="Choose Region..." disabled="true" valueKey="Region"  displayKey="Region" singleSelect="true" name={comboId}>
                 </IgrCombo>
-                <IgrLinearProgress style={{display: "none"}} indeterminate>
-                </IgrLinearProgress>
             </div>
         </>
         );
@@ -227,13 +179,12 @@ export default class Sample extends React.Component<any, any> {
         }
         const id = cell.id.rowID;
         const comboId = "city_" + id;
+        this.comboRefs = this.comboRefs.bind(this);
         return (
         <>
             <div style={{display: "flex", flexDirection: "column"}}>
-                <IgrCombo placeholder="Choose City..." disabled="true" valueKey="Name"  displayKey="Name" id={comboId} singleSelect="true">
+                <IgrCombo ref={this.comboRefs} placeholder="Choose City..." disabled="true" valueKey="Name"  displayKey="Name" name={comboId} singleSelect="true">
                 </IgrCombo>
-                <IgrLinearProgress style={{display: "none"}} indeterminate>
-                </IgrLinearProgress>
             </div>
         </>
         );

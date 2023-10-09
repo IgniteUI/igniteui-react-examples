@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrDataLegendModule, IgrDataChartCoreModule, IgrDataChartCategoryCoreModule, IgrDataChartCategoryModule, IgrDataChartInteractivityModule, IgrDataChartVerticalCategoryModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrDataLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrBarSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
-import { IgrNumberFormatSpecifier } from 'igniteui-react-core';
+import { IgrDataLegend, IgrDataChart, IgrCategoryYAxis, IgrNumericXAxis, IgrNumberFormatSpecifier, IgrBarSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
 const mods: any[] = [

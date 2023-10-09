@@ -5,7 +5,7 @@ import './index.css';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-import { IgrRowSelectionEventArgs } from 'igniteui-react-grids';
+import { IgrRowSelectionEventArgs, IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -103,7 +103,7 @@ export default class Sample extends React.Component<any, any> {
         container.appendChild(title);
     }
 
-    public webGridRowEditEnter(args: any): void {
+    public webGridRowEditEnter(sender: IgrGrid, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.detail.rowID;
@@ -117,14 +117,14 @@ export default class Sample extends React.Component<any, any> {
         container.appendChild(message);
     }
 
-    public webGridRowEditDone(args: any): void {
+    public webGridRowEditDone(sender: IgrGrid, args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditDone'`;
         container.appendChild(message);
     }
 
-    public webGridRowEditExit(args: any): void {
+    public webGridRowEditExit(sender: IgrGrid, args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditExit'  << End of cycle >>`;
@@ -138,7 +138,7 @@ export default class Sample extends React.Component<any, any> {
         container.appendChild(message);
     }
 
-    public webGridCellEdit(args: any): void {
+    public webGridCellEdit(sender: IgrGrid, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEdit' with 'newValue':` + args.detail.newValue, args.detail.cancel;
