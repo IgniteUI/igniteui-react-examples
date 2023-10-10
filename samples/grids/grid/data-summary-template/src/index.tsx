@@ -8,14 +8,12 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
@@ -154,11 +152,11 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridHasSummariesChange(args: any): void {
-        let newValue = args.primitiveValue as boolean;
-
-        var column1 = this.grid.columns[3];
-        var column2 = this.grid.columns[5];
+    public webGridHasSummariesChange(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        let newValue = sender.primitiveValue as boolean;
+        const grid = this.grid;
+        var column1 = grid.getColumnByName("UnitsInStock");
+        var column2 = grid.getColumnByName("OrderDate");
 
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
