@@ -27,14 +27,14 @@ export default class NavDrawerAddMini extends React.Component<any, any> {
                     <IgrNavDrawer ref={this.onNavDrawerRef}>
                         <IgrNavDrawerItem>
                             <div slot="icon">
-                                <IgrIcon ref={this.iconRef} iconName="home" collection="material" />
+                                <IgrIcon ref={this.iconRef} name="home" collection="material" />
                             </div>
                             <span slot="content">Home</span>
                         </IgrNavDrawerItem>
 
                         <IgrNavDrawerItem>
                             <div slot="icon">
-                                <IgrIcon iconName="search" collection="material"/>
+                                <IgrIcon name="search" collection="material"/>
                             </div>
                             <span slot="content">Search</span>
                         </IgrNavDrawerItem>
@@ -42,13 +42,13 @@ export default class NavDrawerAddMini extends React.Component<any, any> {
                         <div slot="mini">
                             <IgrNavDrawerItem>
                                 <div slot="icon">
-                                    <IgrIcon iconName="home" collection="material"/>
+                                    <IgrIcon name="home" collection="material"/>
                                 </div>                                
                             </IgrNavDrawerItem>
 
                             <IgrNavDrawerItem>
                                 <div slot="icon">
-                                    <IgrIcon iconName="search" collection="material" />
+                                    <IgrIcon name="search" collection="material" />
                                 </div>                                
                             </IgrNavDrawerItem>
                         </div>

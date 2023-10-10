@@ -19,9 +19,9 @@ export default class InputPrefixSuffix extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="sample">
-                <IgrInput displayType="tel" label="Phone" placeholder="888 123456">
+                <IgrInput type="tel" label="Phone" placeholder="888 123456">
                     <span slot="prefix">+359</span>
-                    <IgrIcon ref={this.iconRef} iconName="phone" />                    
+                    <IgrIcon ref={this.iconRef} name="phone" />                    
                     <span slot="suffix"></span>
                 </IgrInput>
             </div>

@@ -47,10 +47,10 @@ export default class CardOverview extends React.Component<any, any> {
                                 <IgrRipple key="btnRipple" />
                             </IgrButton>
                             <div slot="end" key="endSlot">
-                                <IgrIconButton key="twitterIcon" ref={this.iconRef} style={{marginRight: "10px"}} iconName="twitter" collection="material">
+                                <IgrIconButton key="twitterIcon" ref={this.iconRef} style={{marginRight: "10px"}} name="twitter" collection="material">
                                     <IgrRipple key="twitterRipple"/>
                                 </IgrIconButton>
-                                <IgrIconButton key="fbIcon" iconName="facebook" collection="material">
+                                <IgrIconButton key="fbIcon" name="facebook" collection="material">
                                     <IgrRipple key="fbRipple"/>
                                 </IgrIconButton>
                             </div>

@@ -20,7 +20,7 @@ export default class IconButtonStyling extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrIconButton style={{margin: "10px"}} ref={this.iconRef} 
-                    iconName="thumb-up" 
+                    name="thumb-up" 
                     collection="material"
                     variant="contained" 
                     size="small">

@@ -31,29 +31,29 @@ export default class ChipMultiple extends React.Component<any, any> {
                 <div className="container" style={{flexDirection: "row", gap: "8px"}}>
                     <IgrChip selectable="true" removable="true" >
                         <span slot="select">
-                            <IgrIcon ref={this.customSelectRef} iconName="custom-select" collection="material"></IgrIcon>
+                            <IgrIcon ref={this.customSelectRef} name="custom-select" collection="material"></IgrIcon>
                         </span>
                         <span>Custom Icons</span>
                         <span slot="remove">
-                            <IgrIcon ref={this.customRemoveRef} iconName="custom-remove" collection="material"></IgrIcon>
+                            <IgrIcon ref={this.customRemoveRef} name="custom-remove" collection="material"></IgrIcon>
                         </span>
                     </IgrChip>
                     <IgrChip removable="true">
                         <span slot="start">
-                            <IgrIcon ref={this.brushRef} iconName="brush" collection="material"></IgrIcon>
+                            <IgrIcon ref={this.brushRef} name="brush" collection="material"></IgrIcon>
                         </span>
                         <span>Start Slot</span>
                     </IgrChip>
                     <IgrChip selectable="true">
                         <span>End Slot</span>
                         <span slot="end">
-                            <IgrIcon ref={this.brickRef} iconName="brick-wall" collection="material"></IgrIcon>
+                            <IgrIcon ref={this.brickRef} name="brick-wall" collection="material"></IgrIcon>
                         </span>
                     </IgrChip>
                     <IgrChip disabled="true">
                         <span>Disabled Chip</span>
                         <span slot="end">
-                            <IgrIcon ref={this.dogRef} iconName="dog-icon" collection="material"></IgrIcon>
+                            <IgrIcon ref={this.dogRef} name="dog-icon" collection="material"></IgrIcon>
                         </span>
                     </IgrChip>
                 </div>

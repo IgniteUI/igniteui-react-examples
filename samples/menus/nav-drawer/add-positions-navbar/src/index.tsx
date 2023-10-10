@@ -37,14 +37,14 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
 
                         <IgrNavDrawerItem>
                             <div slot="icon">
-                                <IgrIcon ref={this.iconRef} iconName="home" collection="material" />
+                                <IgrIcon ref={this.iconRef} name="home" collection="material" />
                             </div>
                             <span slot="content">Home</span>
                         </IgrNavDrawerItem>
 
                         <IgrNavDrawerItem>
                             <div slot="icon">
-                                <IgrIcon iconName="search" collection="material" />
+                                <IgrIcon name="search" collection="material" />
                             </div>
                             <span slot="content">Search</span>
                         </IgrNavDrawerItem>
@@ -68,7 +68,7 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
                     
                     <IgrNavbar>
                         <div slot="start" onClick={this.onMenuIconClick}>
-                            <IgrIcon iconName="menu" collection="material"/>
+                            <IgrIcon name="menu" collection="material"/>
                         </div>
                         <h2>Home</h2>
                     </IgrNavbar>
