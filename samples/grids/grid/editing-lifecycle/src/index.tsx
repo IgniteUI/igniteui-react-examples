@@ -110,7 +110,7 @@ export default class Sample extends React.Component<any, any> {
         container.appendChild(message);
     }
 
-    public webGridRowEdit(args: any): void {
+    public webGridRowEdit(sender: IgrGrid, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEdit'`;
@@ -131,7 +131,7 @@ export default class Sample extends React.Component<any, any> {
         container.appendChild(message);
     }
 
-    public webGridCellEditEnter(args: any): void {
+    public webGridCellEditEnter(sender: IgrGrid, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditEnter' with 'value':` + args.detail.oldValue, args.detail.cancel;
@@ -145,14 +145,14 @@ export default class Sample extends React.Component<any, any> {
         container.appendChild(message);
     }
 
-    public webGridCellEditDone(args: any): void {
+    public webGridCellEditDone(sender: IgrGrid, args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditDone'`;
         container.appendChild(message);
     }
 
-    public webGridCellEditExit(args: any): void {
+    public webGridCellEditExit(sender: IgrGrid, args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditExit'`;

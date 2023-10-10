@@ -10,9 +10,6 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, SparklineDescr
 import { SparklineUnknownDataItem, SparklineUnknownData } from './SparklineUnknownData';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
