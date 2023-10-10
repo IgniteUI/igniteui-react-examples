@@ -101,7 +101,7 @@ export default function Sample() {
                 key="clearIcon"
                 ref={clearIconRef}
                 variant="flat"
-                iconName="clear"
+                name="clear"
                 collection="material"
                 clicked={clearSearch}
               ></IgrIconButton>
@@ -119,7 +119,7 @@ export default function Sample() {
                 key="prevIconButton"
                 ref={iconButtonPrevRef}
                 variant="flat"
-                iconName="prev"
+                name="prev"
                 collection="material"
                 clicked={prevSearch}
               ></IgrIconButton>
@@ -127,7 +127,7 @@ export default function Sample() {
                 key="nextIconButton"
                 ref={iconButtonNextRef}
                 variant="flat"
-                iconName="next"
+                name="next"
                 collection="material"
                 clicked={nextSearch}
               ></IgrIconButton>
