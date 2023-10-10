@@ -14,12 +14,12 @@
     "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
-    "@infragistics/igniteui-react": "23.2.0-dev.12",
-    "@infragistics/igniteui-react-core": "23.2.0-dev.12",
-    "@infragistics/igniteui-react-datasources": "23.2.0-dev.12",
-    "@infragistics/igniteui-react-grids": "23.2.0-dev.12",
-    "@infragistics/igniteui-react-inputs": "23.2.0-dev.12",
-    "@infragistics/igniteui-react-layouts": "23.2.0-dev.12",
+    "igniteui-react": "18.3.0-beta.8",
+    "igniteui-react-core": "18.3.0-beta.8",
+    "igniteui-react-datasources": "18.3.0-beta.8",
+    "igniteui-react-grids": "18.3.0-beta.8",
+    "igniteui-react-inputs": "18.3.0-beta.8",
+    "igniteui-react-layouts": "18.3.0-beta.8",
     "igniteui-dockmanager": "^1.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

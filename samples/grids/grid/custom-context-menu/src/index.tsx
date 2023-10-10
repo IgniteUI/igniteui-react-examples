@@ -119,14 +119,14 @@ export default function App() {
             </div>
             <div style={{display: "none"}} className="contextmenu" ref={contextMenuRef}>
                 <span className="item" onClick={copySelectedCellData}>
-                    <IgrIcon ref={iconRef} collection='material' iconName="content_copy"></IgrIcon>Copy Cell Data
+                    <IgrIcon ref={iconRef} collection='material' name="content_copy"></IgrIcon>Copy Cell Data
                 </span>
                 <span className="item" onClick={copySelectedRowData}>
-                    <IgrIcon collection='material' iconName="content_copy"></IgrIcon>Copy Row Data
+                    <IgrIcon collection='material' name="content_copy"></IgrIcon>Copy Row Data
                 </span>
                 {isCellWithinRange && (
                 <span className="item" onClick={copySelectedData}>
-                    <IgrIcon collection='material' iconName="content_copy"></IgrIcon>Copy Cells Data
+                    <IgrIcon collection='material' name="content_copy"></IgrIcon>Copy Cells Data
                 </span>)}
             </div>
         </>
