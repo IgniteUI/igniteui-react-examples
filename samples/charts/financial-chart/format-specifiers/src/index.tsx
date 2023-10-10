@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrFinancialChartModule, IgrDataChartInteractivityModule, IgrDataLegendModule } from 'igniteui-react-charts';
-import { IgrDataLegend, IgrFinancialChart } from 'igniteui-react-charts';
-import { IgrNumberFormatSpecifier, IgrDateTimeFormatSpecifier } from 'igniteui-react-core';
+import { IgrDataLegend, IgrFinancialChart, IgrNumberFormatSpecifier, IgrDateTimeFormatSpecifier } from 'igniteui-react-charts';
 import { MultipleStocks } from './MultipleStocks';
 
 const mods: any[] = [
