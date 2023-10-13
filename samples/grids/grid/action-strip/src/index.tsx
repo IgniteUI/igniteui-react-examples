@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrActionStrip, IgrGridPinningActions, IgrGridEditingActions, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 
@@ -34,6 +34,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
+    private actionStrip: IgrActionStrip
     private productName: IgrColumn
     private unitPrice: IgrColumn
     private unitsOnOrder: IgrColumn
@@ -61,6 +62,16 @@ export default class Sample extends React.Component<any, any> {
                     allowFiltering="true"
                     pinning={this.pinningConfig1}
                     primaryKey="ProductID">
+                    <IgrActionStrip
+                        name="actionStrip">
+                        <IgrGridPinningActions
+                        >
+                        </IgrGridPinningActions>
+                        <IgrGridEditingActions
+                            editRow="true"
+                            deleteRow="false">
+                        </IgrGridEditingActions>
+                    </IgrActionStrip>
                     <IgrColumn
                         name="ProductName"
                         field="ProductName"

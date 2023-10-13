@@ -15,9 +15,6 @@ import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrBadgeModule,
@@ -187,26 +184,23 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridCurrencyCellTemplate = (props: { dataContext: IgrCellTemplateContext }) => {
-        if (props.dataContext.cell.value > 0) {
-            return (
-                <div className="currency-badge-container">
-                    <div className="badge-left">
-                        <IgrBadge variant="success"><span>▲</span></IgrBadge>
-                    </div>
-                    <span className="up">{ props.dataContext.cell.value.toFixed(2) }</span>
-                </div>
+    public webGridCurrencyCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        var cell = props.dataContext.cell as any;
+        if (cell.value > 0) {
+            return(
+            <div style={{width: '80px', float: 'right'}}>
+                <IgrBadge variant="success" style={{float: 'left'}}><span>▲</span></IgrBadge>
+                 <span style={{color:'green',float: 'right'}}>${cell.value.toFixed(2)}</span>
+            </div>
             );
         } else {
-            return (
-                <div className="currency-badge-container">
-                    <div className="badge-left">
-                        <IgrBadge variant="danger"><span>▼</span></IgrBadge>
-                    </div>
-                    <span className="down">{ props.dataContext.cell.value.toFixed(2) }</span>
-                </div>
+            return(
+            <div style={{width: '80px', float: 'right'}}>
+                <IgrBadge variant="danger" style={{float: 'left'}}><span>▼</span></IgrBadge>
+                <span style={{color:'red',float: 'right'}}>${cell.value.toFixed(2)}</span>
+            </div>
             );
-        }
+        };
     }
 
 }

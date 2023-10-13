@@ -10,9 +10,6 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescript
 import { SalesData } from './SalesData';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
