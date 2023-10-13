@@ -6,7 +6,7 @@
       "node_modules/**/*.ts",
       "coverage/lcov-report/*.js",
       "**/odatajs-4.0.0.js",
-      "src/samples/*.*",
+      "src/samples/**/*.*",
       "src/images/*.*",
       "src/navigation/*.tsx",
       "src/navigation/*.ts",
