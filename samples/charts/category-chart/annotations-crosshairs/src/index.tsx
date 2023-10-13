@@ -10,9 +10,6 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, CategoryChartD
 import { TemperatureAnnotatedDataItem, TemperatureAnnotatedData } from './TemperatureAnnotatedData';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,

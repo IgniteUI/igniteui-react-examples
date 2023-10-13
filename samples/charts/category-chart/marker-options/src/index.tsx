@@ -13,9 +13,6 @@ import { MarkerType, MarkerType_$type } from 'igniteui-react-charts';
 import { EnumUtil } from 'igniteui-react-core';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,

@@ -4,7 +4,8 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrDataLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrDataLegend, IgrCategoryChart, IgrNumberFormatSpecifier } from 'igniteui-react-charts';
+import { IgrDataLegend, IgrCategoryChart } from 'igniteui-react-charts';
+import { IgrNumberFormatSpecifier } from 'igniteui-react-core';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataLegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 

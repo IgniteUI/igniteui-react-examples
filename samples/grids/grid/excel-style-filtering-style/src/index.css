@@ -1,0 +1,8 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+    #grid {
+        --ig-grid-filtering-row-background: #ffcd0f;
+        --ig-list-item-background: #ffcd0f;
+    }
+

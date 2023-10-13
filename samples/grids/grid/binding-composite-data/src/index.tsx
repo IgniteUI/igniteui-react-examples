@@ -122,27 +122,33 @@ export default class Sample extends React.Component<any, any> {
             return <></>
         }
 
-        function keyUpHandler(event: any, ctx: IgrCellTemplateContext) {
-            var cell = ctx.cell as any;
-            if (cell !== undefined && cell.row !== undefined && cell.row.data !== undefined) {
-                cell.row.data[event.target.id] = event.target.value;
-            }
-        }
-
         return (
             <>
                 <div className="contact-container--edit" style={{display: "inline-grid"}}>
                     <div>
                         <strong>Name:</strong>
-                        <input id='ContactName' onKeyUp={(e: any) => keyUpHandler(e, props.dataContext)} value={cell.row.data.ContactName}></input>
+                        <input id='ContactName' onChange={(e: any) =>
+                            {
+                                cell.row.data.ContactName = e.target.value;
+                                this.forceUpdate();
+                            }
+                            } value={cell.row.data.ContactName}></input>
                     </div>
                     <div>
                         <strong>Title:</strong>
-                        <input id='ContactTitle' onKeyUp={(e: any) => keyUpHandler(e, props.dataContext)} value={cell.row.data.ContactTitle}></input>
+                        <input id='ContactTitle' onChange={(e: any) =>
+                            {
+                                cell.row.data.ContactTitle = e.target.value;
+                                this.forceUpdate();
+                            }} value={cell.row.data.ContactTitle}></input>
                     </div>
                     <div>
                         <strong>Company:</strong>
-                        <input id='CompanyName' onKeyUp={(e: any) => keyUpHandler(e, props.dataContext)} value={cell.row.data.CompanyName}></input>
+                        <input id='CompanyName' onChange={(e: any) =>
+                            {
+                                cell.row.data.CompanyName = e.target.value;
+                                this.forceUpdate();
+                            }} value={cell.row.data.CompanyName}></input>
                     </div>
                 </div>
             </>
@@ -177,33 +183,43 @@ export default class Sample extends React.Component<any, any> {
     public webGridCompositeAddressEditCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
 
         var cell = props.dataContext.cell as any;
+        var grid = this.grid;
         if (cell === undefined || cell.row === undefined || cell.row.data === undefined) {
             return <></>;
         }
-
-        function keyUpHandler(event: any, ctx: IgrCellTemplateContext) {
-            var cell = ctx.cell as any;
-            if (cell !== undefined && cell.row !== undefined && cell.row.data !== undefined) {
-                cell.row.data[event.target.id] = event.target.value;
-            }
-         }
 
         return (
             <>
                 <div className="address-container--edit" style={{display: "inline-grid"}}>
                     <div>
                         <span><strong>Country:</strong></span>
-                        <input id='Country' onKeyUp={(e: any) => keyUpHandler(e, props.dataContext)} value={cell.row.data.Country}></input>
+                        <input id='Country' onChange={(e: any) =>
+                            {
+                                cell.row.data.Country = e.target.value;
+                                grid.markForCheck();
+                            }} value={cell.row.data.Country}></input>
                         <br/>
                         <span><strong>City:</strong></span>
-                        <input id='City' onKeyUp={(e: any) => keyUpHandler(e, props.dataContext)} value={cell.row.data.City}></input>
+                        <input id='City' onChange={(e: any) =>
+                            {
+                                cell.row.data.City = e.target.value;
+                                grid.markForCheck();
+                            }} value={cell.row.data.City}></input>
                     </div>
                     <div>
                         <span><strong>Postal Code:</strong></span>
-                        <input id='PostalCode' onKeyUp={(e: any) => keyUpHandler(e, props.dataContext)} value={cell.row.data.PostalCode}></input>
+                        <input id='PostalCode' onChange={(e: any) =>
+                            {
+                                cell.row.data.PostalCode = e.target.value;
+                                grid.markForCheck();
+                            }} value={cell.row.data.PostalCode}></input>
                         <br/>
                         <span><strong>Selected:</strong></span>
-                        <input id='Phone' onKeyUp={(e: any) => keyUpHandler(e, props.dataContext)} value={cell.row.data.Phone}></input>
+                        <input id='Phone' onChange={(e: any) =>
+                            {
+                                cell.row.data.Phone = e.target.value;
+                                grid.markForCheck();
+                            }} value={cell.row.data.Phone}></input>
                     </div>
                     <br/>
                 </div>
