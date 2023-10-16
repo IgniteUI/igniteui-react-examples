@@ -6,6 +6,7 @@ import { IgrGridModule, IgrColumnLayoutModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumnLayout, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebColumnLayoutDescriptionModule } from 'igniteui-react-core';
 import { CompanyDataItem, CompanyData } from './CompanyData';
+import { IgrGridKeydownEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -184,14 +185,14 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridMRLCustomNavigationEvent(args: any): void {
+    public webGridMRLCustomNavigationEvent(sender: IgrGrid, args: IgrGridKeydownEventArgs): void {
         const target = args.detail.target;
         const grid: IgrGrid = this.grid;
         if (args.detail.event.key.toLowerCase() === 'enter') {
            args.detail.event.preventDefault();
            args.detail.cancel = true;
            const rowIndex = target.row.index === undefined ? target.index : target.row.index;
-           grid.navigateTo(args.detail.event.shiftKey ? rowIndex - 1 : rowIndex + 1, target.column.visibleIndex,
+           (grid as any).navigateTo(args.detail.event.shiftKey ? rowIndex - 1 : rowIndex + 1, target.column.visibleIndex,
                 (obj: any) => {
                    obj.target.activate();
                });

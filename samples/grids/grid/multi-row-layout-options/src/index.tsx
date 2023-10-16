@@ -2,17 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrColumnLayout, IgrColumn } from 'igniteui-react-grids';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
+import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarPinning, IgrGridToolbarHiding, IgrColumnLayout, IgrColumn } from 'igniteui-react-grids';
+import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
     IgrGridModule
 ];
 mods.forEach((m) => m.register());
@@ -58,8 +56,22 @@ export default class Sample extends React.Component<any, any> {
                     filterMode="ExcelStyleFilter"
                     primaryKey="CompanyName"
                     groupingExpressions={this.groupingExpression1}>
+                    <IgrGridToolbar
+                    >
+                        <IgrGridToolbarTitle
+                        >
+                        </IgrGridToolbarTitle>
+                        <IgrGridToolbarActions
+                        >
+                            <IgrGridToolbarPinning
+                            >
+                            </IgrGridToolbarPinning>
+                            <IgrGridToolbarHiding
+                            >
+                            </IgrGridToolbarHiding>
+                        </IgrGridToolbarActions>
+                    </IgrGridToolbar>
                     <IgrColumnLayout
-                        hidden="true"
                         header="ID">
                         <IgrColumn
                             field="ID"
@@ -185,7 +197,6 @@ export default class Sample extends React.Component<any, any> {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorPanelDescriptionModule.register(context);
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
