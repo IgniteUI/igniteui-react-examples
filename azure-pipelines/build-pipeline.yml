@@ -32,7 +32,7 @@ stages:
         displayName: 'Install Node'
         inputs:
           versionSource: 'spec'
-          versionSpec: '16.18.0'
+          versionSpec: '16.x'
 
       - task: RegexReplace@3
         enabled: false
