@@ -200,7 +200,7 @@ export default class Sample extends React.Component<any, any> {
                 <span style={{color:'red',float: 'right'}}>${cell.value.toFixed(2)}</span>
             </div>
             );
-        };
+        }
     }
 
 }

@@ -27,8 +27,8 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
-    private summaryHeightEditor: IgrPropertyEditorPropertyDescription
-    private toggleSummaryEditor: IgrPropertyEditorPropertyDescription
+    private summaryRowHeightEditor: IgrPropertyEditorPropertyDescription
+    private toggleSummariesEditor: IgrPropertyEditorPropertyDescription
     private displayDensityEditor: IgrPropertyEditorPropertyDescription
     private grid: IgrGrid
     private gridRef(r: IgrGrid) {
@@ -61,14 +61,14 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="SummaryRowHeight"
                         label="Summary Row Height"
                         valueType="Number"
-                        name="SummaryHeightEditor">
+                        name="SummaryRowHeightEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         label="Toggle Summaries"
                         valueType="Boolean1"
                         primitiveValue="True"
                         changed={this.webGridHasSummariesChange}
-                        name="ToggleSummaryEditor">
+                        name="ToggleSummariesEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="DisplayDensity"
