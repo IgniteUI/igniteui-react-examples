@@ -100,6 +100,10 @@ const iconForUpdate = useRef<IgrIcon>(null);
 const iconForStop = useRef<IgrIcon>(null);
 const iconForChart = useRef<IgrIcon>(null);
 
+const startButton = useRef<IgrButton>(null);
+const stopButton = useRef<IgrButton>(null);
+const chartButton = useRef<IgrButton>(null);
+
 useEffect(() => {
   if (iconForUpdate?.current) {
     iconForUpdate.current.registerIconFromText(
@@ -127,42 +131,72 @@ useEffect(() => {
 
 const groupingEnabled = true;
 const toolbarEnabled = true;
-const recordsCount = 1000;
-const frequency = 500;
+const [recordsCount, setRecordsCount] = useState(1000)
+const [frequency, setFrequency] = useState(500);
+let _timer:any;
+
+function startUpdate() {
+  _timer = setInterval(() => {
+      gridRef.current.data = FinancialData.updateAllPrices(data);
+  }, frequency);
+  startButton.current.disabled = true;
+  stopButton.current.disabled = false;
+  chartButton.current.disabled = true;
+}
+
+function stopUpdate() {
+  clearInterval(_timer);
+  startButton.current.disabled = false;
+  chartButton.current.disabled = false;
+  stopButton.current.disabled = true;
+}
 
   return (
     <div className="container sample">
         <div className="controls-holder">
         <div className="switches">
           <div className="switch-control-item">
-            <IgrSwitch checked={groupingEnabled}><span key="switch">Grouped</span></IgrSwitch>
+            <IgrSwitch checked={groupingEnabled} change={e => {
+              if (e.checked) {
+                gridRef.current.groupingExpressions = groupingExpressions;
+              } else {
+                gridRef.current.groupingExpressions = [];
+              }
+            }}><span key="switch">Grouped</span></IgrSwitch>
           </div>
           <div className="switch-control-item">
-            <IgrSwitch checked={toolbarEnabled}><span key="switch2">Toolbar</span></IgrSwitch>
+            <IgrSwitch checked={toolbarEnabled} change={e => {
+              const tbar = document.getElementsByTagName("igc-grid-toolbar")[0];
+              (tbar as any).hidden = !e.checked;
+            }}><span key="switch2">Toolbar</span></IgrSwitch>
           </div>
           <div className="control-item">
             <label id="recordsLabel">Records: <span>{recordsCount}</span></label>
-            <IgrSlider className="finjs-slider" value="1000" min="0" max="10000" step="100"></IgrSlider>
+            <IgrSlider className="finjs-slider" value="1000" min="0" max="10000" step="100" change={x => {
+              setRecordsCount(x.value);
+            }}></IgrSlider>
           </div>
           <div className="control-item">
             <label id="frequencyLabel" >Frequency:<span id="slider-freq-value">{frequency}</span></label>
-            <IgrSlider className="finjs-slider" value="500" min="100" max="3000" step="10"></IgrSlider>
+            <IgrSlider className="finjs-slider" value="500" min="100" max="3000" step="10"  change={x => {
+              setFrequency(x.value);
+            }}></IgrSlider>
           </div>
         </div>
         <div className="control-item finjs-play-controls">
-          <IgrButton variant="outlined">
+          <IgrButton variant="outlined" ref={startButton} clicked={e => startUpdate()}>
             <span key='content'>
             <IgrIcon name="update" ref={iconForUpdate} collection="material"></IgrIcon>
             LIVE ALL PRICES
             </span>
           </IgrButton>
-          <IgrButton variant="outlined" disabled="true">
+          <IgrButton variant="outlined" disabled="true" ref={stopButton} clicked={e => stopUpdate()}>
             <span key='content2'>
             <IgrIcon name="stop" ref={iconForStop} collection="material"></IgrIcon>
             Stop
             </span>
           </IgrButton>
-          <IgrButton variant="outlined">
+          <IgrButton variant="outlined" ref={chartButton}>
             <span key='content3'>
             <IgrIcon name="insert_chart" ref={iconForChart}  collection="material"></IgrIcon>
             Chart
