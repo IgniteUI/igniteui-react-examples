@@ -2,64 +2,169 @@ import React, { KeyboardEvent, useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { IgrGridModule, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrGridToolbarHiding, IgrGridToolbarPinning } from "igniteui-react-grids";
+import { IgrCellTemplateContext, IgrGridModule, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrGridToolbarHiding, IgrGridToolbarPinning, IgrGroupingExpression, SortingDirection } from "igniteui-react-grids";
 import { IgrGrid, IgrColumn } from "igniteui-react-grids";
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
+import { IgrCategoryChart } from 'igniteui-react-charts';
 import {
   IgrButton,
   IgrChip,
   IgrChipModule,
   IgrComponentValueChangedEventArgs,
+  IgrDialog,
   IgrIcon,
   IgrIconButton,
+  IgrIconModule,
   IgrInput,
   IgrSlider,
   IgrSwitch,
+  IgrToast,
 } from "igniteui-react";
 import { FinancialData } from "./FinancialData";
 
-const mods: any[] = [IgrGridModule];
+const mods: any[] = [IgrGridModule, IgrIconModule];
 mods.forEach((m) => m.register());
 const data = FinancialData.generateData(1000);
+const groupingExpressions = [
+  {
+      dir: SortingDirection.Desc,
+      fieldName: 'category',
+      ignoreCase: false
+  },
+  {
+      dir: SortingDirection.Desc,
+      fieldName: 'type',
+      ignoreCase: false
+  },
+  {
+      dir: SortingDirection.Desc,
+      fieldName: 'contract',
+      ignoreCase: false
+  }
+] as any;
 
+var trendUp = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="m123-240-43-43 292-291 167 167 241-241H653v-60h227v227h-59v-123L538-321 371-488 123-240Z"/></svg>`;
+var trendDown = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M653-240v-60h127L539-541 372-374 80-665l43-43 248 248 167-167 283 283v-123h59v227H653Z"/></svg>`;
+var chartIcon = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M284-277h60v-275h-60v275Zm166 0h60v-406h-60v406Zm166 0h60v-148h-60v148ZM180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm0-600v600-600Z"/></svg>`;
+var stopIcon = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M300-660v360-360Zm-60 420v-480h480v480H240Zm60-60h360v-360H300v360Z"/></svg>`;
+var updateIcon = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M483-120q-75 0-141-28.5T226.5-226q-49.5-49-78-115T120-482q0-75 28.5-140t78-113.5Q276-784 342-812t141-28q80 0 151.5 35T758-709v-106h60v208H609v-60h105q-44-51-103.5-82T483-780q-125 0-214 85.5T180-485q0 127 88 216t215 89q125 0 211-88t86-213h60q0 150-104 255.5T483-120Zm122-197L451-469v-214h60v189l137 134-43 43Z"/></svg>`;
+
+
+const negative = (rowData: any): boolean => rowData['changeP'] < 0;
+const positive = (rowData: any): boolean => rowData['changeP'] > 0;
+const changeNegative = (rowData: any): boolean => rowData['changeP'] < 0 && rowData['changeP'] > -1;
+const changePositive = (rowData: any): boolean => rowData['changeP'] > 0 && rowData['changeP'] < 1;
+const strongPositive = (rowData: any): boolean => rowData['changeP'] >= 1;
+const strongNegative = (rowData: any): boolean => rowData['changeP'] <= -1;
+const trends = {
+  changeNeg: changeNegative,
+  changePos: changePositive,
+  negative: negative,
+  positive: positive,
+  strongNegative: strongNegative,
+  strongPositive: strongPositive
+};
+
+const trendsChange = {
+  changeNeg2: changeNegative,
+  changePos2: changePositive,
+  strongNegative2: strongNegative,
+  strongPositive2: strongPositive
+};
 export default function Sample() {
   const gridRef = useRef<IgrGrid>(null);
+
+function priceTemplate(ctx: {dataContext: IgrCellTemplateContext}) {
+  const cell = ctx.dataContext.cell;
+  const rowData = gridRef.current.getRowData(cell.id.rowID);
+  const icon = trends.positive(rowData) ? "trending_up" : "trending_down";
+  const value = cell.value.toFixed(4);
+  return <>
+  <div className="finjs-icons">
+  <span>${value}</span>
+  <IgrIcon name={icon} collection="material"></IgrIcon>
+  </div>
+  </>
+}
+
+function chartBtnTemplate(ctx: {dataContext: IgrCellTemplateContext}) {
+  const cell = ctx.dataContext.cell;
+  const rowData = gridRef.current.getRowData(cell.id.rowID);
+  return<> <IgrIcon name="insert_chart" collection="material" variant="contained" size="small">
+  </IgrIcon>
+  </>
+}
+
+const iconForUpdate = useRef<IgrIcon>(null);
+const iconForStop = useRef<IgrIcon>(null);
+const iconForChart = useRef<IgrIcon>(null);
+
+useEffect(() => {
+  if (iconForUpdate?.current) {
+    iconForUpdate.current.registerIconFromText(
+      "update",
+      updateIcon,
+      "material"
+    );
+  }
+  if (iconForStop?.current) {
+    iconForStop.current.registerIconFromText(
+      "stop",
+      stopIcon,
+      "material"
+    );
+  }
+  if (iconForChart?.current) {
+    iconForChart.current.registerIconFromText(
+      "insert_chart",
+      chartIcon,
+      "material"
+    );
+  }
+}, []);
+
+
+const groupingEnabled = true;
+const toolbarEnabled = true;
+const recordsCount = 1000;
+const frequency = 500;
+
   return (
     <div className="container sample">
         <div className="controls-holder">
         <div className="switches">
           <div className="switch-control-item">
-            <IgrSwitch checked="true"><span key="switch">Grouped</span></IgrSwitch>
+            <IgrSwitch checked={groupingEnabled}><span key="switch">Grouped</span></IgrSwitch>
           </div>
           <div className="switch-control-item">
-            <IgrSwitch checked="true"><span key="switch2">Toolbar</span></IgrSwitch>
+            <IgrSwitch checked={toolbarEnabled}><span key="switch2">Toolbar</span></IgrSwitch>
           </div>
           <div className="control-item">
-            <label id="recordsLabel">Records: <span id="slider-rec-value">1000</span></label>
+            <label id="recordsLabel">Records: <span>{recordsCount}</span></label>
             <IgrSlider className="finjs-slider" value="1000" min="0" max="10000" step="100"></IgrSlider>
           </div>
           <div className="control-item">
-            <label id="frequencyLabel" >Frequency:<span id="slider-freq-value">500</span></label>
+            <label id="frequencyLabel" >Frequency:<span id="slider-freq-value">{frequency}</span></label>
             <IgrSlider className="finjs-slider" value="500" min="100" max="3000" step="10"></IgrSlider>
           </div>
         </div>
         <div className="control-item finjs-play-controls">
           <IgrButton variant="outlined">
             <span key='content'>
-            <IgrIcon name="update" collection="material"></IgrIcon>
+            <IgrIcon name="update" ref={iconForUpdate} collection="material"></IgrIcon>
             LIVE ALL PRICES
             </span>
           </IgrButton>
           <IgrButton variant="outlined" disabled="true">
             <span key='content2'>
-            <IgrIcon name="stop" collection="material"></IgrIcon>
+            <IgrIcon name="stop" ref={iconForStop} collection="material"></IgrIcon>
             Stop
             </span>
           </IgrButton>
           <IgrButton variant="outlined">
             <span key='content3'>
-            <IgrIcon name="insert_chart" collection="material"></IgrIcon>
+            <IgrIcon name="insert_chart" ref={iconForChart}  collection="material"></IgrIcon>
             Chart
             </span>
           </IgrButton>
@@ -67,7 +172,7 @@ export default function Sample() {
       </div>
       <div className="container vertical">
         <IgrGrid ref={gridRef} autoGenerate="false" data={data} rowSelection="multiple" primaryKey="id" displayDensity="cosy" hideGroupedColumns="true"
-          allowFiltering="true" filterMode="excelStyleFilter">
+          allowFiltering="true" filterMode="excelStyleFilter" groupingExpressions={groupingExpressions}>
         <IgrGridToolbar>
             <IgrGridToolbarActions>
               <IgrGridToolbarHiding></IgrGridToolbarHiding>
@@ -101,15 +206,15 @@ export default function Sample() {
             editable="true" filterable="true">
           </IgrColumn>
           <IgrColumn field="price" id="price" header="Price" width="120px" dataType="currency" sortable="true"
-            editable="true" filterable="true">
+            editable="true" filterable="true" bodyTemplate={priceTemplate} cellClasses={trends}>
           </IgrColumn>
-          <IgrColumn id="chart" field="Chart" header="Chart" width="60px">
+          <IgrColumn id="chart" field="Chart" header="Chart" width="60px" bodyTemplate={chartBtnTemplate}>
           </IgrColumn>
           <IgrColumn field="change" id="change" header="Change" width="120px" dataType="number" sortable="true"
-            editable="true" filterable="true">
+            editable="true" filterable="true" cellClasses={trendsChange}>
           </IgrColumn>
           <IgrColumn field="changeP" id="changeP" header="Change %" width="120px" dataType="percent" sortable="true"
-            editable="true" filterable="true">
+            editable="true" filterable="true" cellClasses={trendsChange}>
           </IgrColumn>
           <IgrColumn field="buy" header="Buy" width="110px" dataType="currency" sortable="true" filterable="true">
           </IgrColumn>
@@ -172,6 +277,12 @@ export default function Sample() {
           </IgrColumn>
         </IgrGrid>
       </div>
+      <IgrDialog title="Chart">
+      <IgrCategoryChart key="chart" width="500px" chartType="column" xAxisInterval="20" xAxisLabelAngle="90"
+        height="400px">
+      </IgrCategoryChart>
+    </IgrDialog>
+    <IgrToast className="toast"><span key="toast">Please select some rows first!</span></IgrToast>
     </div>
   );
 }
