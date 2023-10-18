@@ -89,17 +89,17 @@ stages:
           customCommand: 'install --legacy-peer-deps'
           customEndpoint: 'public proget'
 
-      - task: PowerShell@2
-        displayName: 'Replace references to IG trial packages with licensed ones in TSX files'
-        inputs:
-          failOnStderr: true
-          showWarnings: true
-          workingDirectory: '$(Build.SourcesDirectory)'
-          targetType: 'inline'
-          script: |
-            Get-ChildItem -Include "*.tsx","*.ts" -Recurse | `
-            ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace '([from|import])\s?[''"](igniteui-[react|dockmanager].*)[''"]', '$1 "@infragistics/$2"') }) | `
-            Set-Content $_.PSPath }
+      # - task: PowerShell@2
+      #   displayName: 'Replace references to IG trial packages with licensed ones in TSX files'
+      #   inputs:
+      #     failOnStderr: true
+      #     showWarnings: true
+      #     workingDirectory: '$(Build.SourcesDirectory)'
+      #     targetType: 'inline'
+      #     script: |
+      #       Get-ChildItem -Include "*.tsx","*.ts" -Recurse | `
+      #       ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace '([from|import])\s?[''"](igniteui-[react|dockmanager].*)[''"]', '$1 "@infragistics/$2"') }) | `
+      #       Set-Content $_.PSPath }
 
       - task: PowerShell@2
         displayName: 'Extra temporary replace for the dockmanager trial->licensed'
