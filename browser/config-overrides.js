@@ -1,10 +1,61 @@
+const path = require('path');
+let pathsConfig = require("./tsconfig.paths.json");
+const {alias, configPaths, expandResolveAlias, expandRulesInclude, expandPluginsScope} = require('react-app-rewire-alias')
+
+//this works around the fact that alias doesn't support multiple paths
+function aliasMultiple(aliasMap) {
+    const alias0 = Object.keys(aliasMap).reduce( (a,i) => {
+      a[i] = aliasMap[i][0]
+      return a
+    }, {});
+    const alias1 = Object.keys(aliasMap).reduce( (a,i) => {
+        a[i] = aliasMap[i][1]
+        return a
+      }, {});
+    return function(config) {
+      expandResolveAlias(config.resolve, aliasMap);
+      expandRulesInclude(config.module.rules, Object.values(alias0));
+      expandRulesInclude(config.module.rules, Object.values(alias1));
+      expandPluginsScope(config.resolve.plugins, Object.values(alias0), Object.values(alias0));
+      expandPluginsScope(config.resolve.plugins, Object.values(alias1), Object.values(alias1));
+      return config;
+    }
+  }
+
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 module.exports = function override(config, env) {
     console.log("config-overrides.js started");
     const paths = require('./node_modules/react-scripts/config/paths');
     // console.log("config-overrides.js paths");
-    // console.log(paths);
+    console.log(paths);
+
+    console.log(pathsConfig);
+    let tspaths = pathsConfig.compilerOptions.paths;
+    tspaths = Object.keys(tspaths).reduce((a, p) => {
+        let target = tspaths[p];
+        a[p.replace(/\/\*$/,'')] = Array.isArray(target) ? target.map((t) => t.replace(/\/\*$/,'')) : target.replace(/\/\*$/,'');
+        return a;
+    }, {});
+    console.log(tspaths);
+    tspaths = Object.keys(tspaths).reduce((a, p) => {
+        let target = tspaths[p];
+        a[p.replace(/\/\*$/,'')] = Array.isArray(target) ? target.map((t) => path.resolve(__dirname, t)) : path.resolve(__dirname, target);
+        
+        return a;
+    }, {});
+    console.log(tspaths);
+
+    // config.resolve = {
+    //     ...config.resolve,
+    //     alias: {
+    //       ...config.alias,
+    //       ...tspaths
+    //     },
+    // };
+
+    //console.log(config.resolve);
+
     let rules = config.module.rules;
     //let paths = config._paths;
     let oneOf = null; // rules[1].oneOf;
@@ -112,5 +163,10 @@ module.exports = function override(config, env) {
     }
 
     console.log("\n\n\n\n");
-    return config;
+    //let newConfig = alias(configPathsMultiple('./tsconfig.paths.json'))(config);
+    //console.log(newConfig);
+
+    let newConfig = aliasMultiple(tspaths)(config);
+    console.log(newConfig);
+    return newConfig;
 }
