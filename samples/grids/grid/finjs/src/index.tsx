@@ -6,7 +6,7 @@ import { IgrCellTemplateContext, IgrGridModule, IgrGridToolbar, IgrGridToolbarAc
 import { IgrGrid, IgrColumn } from "igniteui-react-grids";
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
-import { IgrCategoryChart } from 'igniteui-react-charts';
+import { IgrCategoryChart, IgrCategoryChartModule } from 'igniteui-react-charts';
 import {
   IgrButton,
   IgrChip,
@@ -20,10 +20,11 @@ import {
   IgrSlider,
   IgrSwitch,
   IgrToast,
+  IgrToastModule,
 } from "igniteui-react";
 import { FinancialData } from "./FinancialData";
 
-const mods: any[] = [IgrGridModule, IgrIconModule];
+const mods: any[] = [IgrGridModule, IgrIconModule, IgrToastModule, IgrCategoryChartModule];
 mods.forEach((m) => m.register());
 const data = FinancialData.generateData(1000);
 const groupingExpressions = [
@@ -91,8 +92,8 @@ function priceTemplate(ctx: {dataContext: IgrCellTemplateContext}) {
 function chartBtnTemplate(ctx: {dataContext: IgrCellTemplateContext}) {
   const cell = ctx.dataContext.cell;
   const rowData = gridRef.current.getRowData(cell.id.rowID);
-  return<> <IgrIcon name="insert_chart" collection="material" variant="contained" size="small">
-  </IgrIcon>
+  return<> <span onClick={e => openDialogForRow(e, rowData)}><IgrIcon name="insert_chart" collection="material" variant="contained" size="small">
+  </IgrIcon></span>
   </>
 }
 
@@ -103,6 +104,10 @@ const iconForChart = useRef<IgrIcon>(null);
 const startButton = useRef<IgrButton>(null);
 const stopButton = useRef<IgrButton>(null);
 const chartButton = useRef<IgrButton>(null);
+
+const chartRef = useRef<IgrCategoryChart>(null);
+const dialogRef = useRef<IgrDialog>(null);
+const toastRef = useRef<IgrToast>(null);
 
 useEffect(() => {
   if (iconForUpdate?.current) {
@@ -151,6 +156,75 @@ function stopUpdate() {
   stopButton.current.disabled = true;
 }
 
+function openDialogForSelected() {
+  const chart =  chartRef.current;
+  const chartData = gridRef.current.selectedRows.map(x => gridRef.current.getRowData(x));
+  if (chartData && chartData.length > 0) {
+      chart.dataSource = chartData;
+      chart.includedProperties = ['price', 'country'];
+      setLabelIntervalAndAngle();
+      setChartConfig('Countries', 'Prices (USD)', 'Data Chart with prices by Category and Country');
+      const chartDialog = dialogRef.current;
+      chartDialog.show();
+      chart.dataSource = chartData;
+  } else {
+      const toast = toastRef.current;
+      toast.show();
+  }
+}
+
+function setChartConfig(xAsis: string, yAxis: string, title: string): void {
+  // update label interval and angle based on data
+  setLabelIntervalAndAngle();
+  const chart =  chartRef.current;
+  chart.xAxisTitle = xAsis;
+  chart.yAxisTitle = yAxis;
+  chart.chartTitle = title;
+}
+
+function setLabelIntervalAndAngle(): void {
+  const chart =  chartRef.current;
+  const intervalSet = chart.dataSource.length;
+  if (intervalSet < 10) {
+      chart.xAxisLabelAngle = 0;
+      chart.xAxisInterval = 1;
+  } else if (intervalSet < 15) {
+      chart.xAxisLabelAngle = 30;
+      chart.xAxisInterval = 1;
+  } else if (intervalSet < 40) {
+      chart.xAxisLabelAngle = 90;
+      chart.xAxisInterval = 1;
+  } else if (intervalSet < 100) {
+      chart.xAxisLabelAngle = 90;
+      chart.xAxisInterval = 3;
+  } else if (intervalSet < 200) {
+     chart.xAxisLabelAngle = 90;
+      chart.xAxisInterval = 5;
+  } else if (intervalSet < 400) {
+      chart.xAxisLabelAngle = 90;
+      chart.xAxisInterval = 7;
+  } else if (intervalSet > 400) {
+      chart.xAxisLabelAngle = 90;
+      chart.xAxisInterval = 10;
+  }
+  chart.yAxisAbbreviateLargeNumbers = true;
+}
+
+
+function openDialogForRow(e: any, rowData: any) {
+  const chart =  chartRef.current;
+  const chartData = gridRef.current.data.filter(item => item.region === rowData.region &&
+      item.category === rowData.category);
+  chart.chartTitle = 'Data Chart with prices of ' + rowData.category + ' in ' + rowData.region + ' Region';
+
+  chart.dataSource = chartData;
+  chart.includedProperties = ['price', 'country'];
+  setLabelIntervalAndAngle();
+  setChartConfig('Countries', 'Prices (USD)', 'Data Chart with prices of ' + rowData.category + ' in ' + rowData.region + ' Region');
+  const chartDialog = dialogRef.current;
+  chartDialog.show();
+}
+
   return (
     <div className="container sample">
         <div className="controls-holder">
@@ -196,7 +270,7 @@ function stopUpdate() {
             Stop
             </span>
           </IgrButton>
-          <IgrButton variant="outlined" ref={chartButton}>
+          <IgrButton variant="outlined" ref={chartButton} clicked={e => openDialogForSelected()}>
             <span key='content3'>
             <IgrIcon name="insert_chart" ref={iconForChart}  collection="material"></IgrIcon>
             Chart
@@ -311,12 +385,12 @@ function stopUpdate() {
           </IgrColumn>
         </IgrGrid>
       </div>
-      <IgrDialog title="Chart">
-      <IgrCategoryChart key="chart" width="500px" chartType="column" xAxisInterval="20" xAxisLabelAngle="90"
+      <IgrDialog title="Chart" ref={dialogRef}>
+      <IgrCategoryChart ref={chartRef} key="chart" width="500px" chartType="column" xAxisInterval="20" xAxisLabelAngle="90"
         height="400px">
       </IgrCategoryChart>
     </IgrDialog>
-    <IgrToast className="toast"><span key="toast">Please select some rows first!</span></IgrToast>
+    <IgrToast ref={toastRef} className="toast"><span key="toast">Please select some rows first!</span></IgrToast>
     </div>
   );
 }
