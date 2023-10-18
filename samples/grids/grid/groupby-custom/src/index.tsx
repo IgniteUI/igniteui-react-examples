@@ -81,7 +81,7 @@ function groupByRowTemplate(ctx: { dataContext: IgrGroupByRowTemplateContext}) {
 
     const value = (dateTypes as any)[groupByMode];
     return <><div>
-        <span style={{color:"#09f"}}>{groupRow.expression.fieldName} :</span>
+        <span style={{color:"#09f"}}>OrderDate:</span>
         <span>{value}</span>
         <IgrBadge><span key="badge">{groupRow.records.length}</span></IgrBadge>
         </div></>;
