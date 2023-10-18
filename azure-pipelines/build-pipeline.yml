@@ -101,18 +101,18 @@ stages:
             ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace '([from|import])\s?[''"](igniteui-[react|dockmanager].*)[''"]', '$1 "@infragistics/$2"') }) | `
             Set-Content $_.PSPath }
 
-      - task: PowerShell@2
-        displayName: 'Extra temporary replace for the dockmanager trial->licensed'
-        inputs:
-          failOnStderr: true
-          showWarnings: true
-          workingDirectory: '$(Build.SourcesDirectory)\browser\node_modules\@infragistics\igniteui-react'
-          targetType: 'inline'
-          script: |
-            Write-Output "$(Build.SourcesDirectory)\browser\node_modules\@infragistics\igniteui-react"
-            Get-ChildItem -Include "*.js" -Recurse | `
-            ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace 'igniteui-dockmanager', '@infragistics/igniteui-dockmanager') }) | `
-            Set-Content $_.PSPath }
+      # - task: PowerShell@2
+      #   displayName: 'Extra temporary replace for the dockmanager trial->licensed'
+      #   inputs:
+      #     failOnStderr: true
+      #     showWarnings: true
+      #     workingDirectory: '$(Build.SourcesDirectory)\browser\node_modules\@infragistics\igniteui-react'
+      #     targetType: 'inline'
+      #     script: |
+      #       Write-Output "$(Build.SourcesDirectory)\browser\node_modules\@infragistics\igniteui-react"
+      #       Get-ChildItem -Include "*.js" -Recurse | `
+      #       ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace 'igniteui-dockmanager', '@infragistics/igniteui-dockmanager') }) | `
+      #       Set-Content $_.PSPath }
       - task: Npm@1
         displayName: 'npm run build'
         inputs:
