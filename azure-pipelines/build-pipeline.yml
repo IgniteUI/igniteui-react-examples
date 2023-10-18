@@ -4,10 +4,7 @@ trigger:
     - vnext
     - master
 
-pr:
-  branches:
-    exclude:
-    - '*'  # must quote since "*" is a YAML reserved character; we want a string
+pr: none
 
 parameters:
 - name: isVerbose
