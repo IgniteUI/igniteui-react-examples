@@ -98,6 +98,20 @@ stages:
             ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace '([from|import])\s?[''"](igniteui-[react|dockmanager].*)[''"]', '$1 "@infragistics/$2"') }) | `
             Set-Content $_.PSPath }
 
+      - task: Npm@1
+        displayName: 'npm uninstall igniteui-dockmanager (trial)'
+        inputs:
+          command: custom
+          workingDir: '$(Build.SourcesDirectory)\browser'
+          verbose: ${{ parameters.isVerbose }}
+          customCommand: 'uninstall igniteui-dockmanager --no-save'
+
+      - task: CmdLine@2
+        displayName: 'Install jq - using choco.'
+        inputs:
+          script: 'choco install jq -y'
+          failOnStderr: true
+
       - task: PowerShell@2
         displayName: 'npm install igniteui-dockmanager (licensed)'
         inputs:
