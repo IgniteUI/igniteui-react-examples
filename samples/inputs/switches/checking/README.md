@@ -38,7 +38,7 @@ code .
 
 In terminal window, run:
 ```
-npm install
+npm install --legacy-peer-deps
 npm run-script start
 ```
 

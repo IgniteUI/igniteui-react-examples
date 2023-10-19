@@ -9,14 +9,13 @@ function log(msg) {
 
 var sb = require('./tasks/gulp-samples.js')
 
-exports.updateSamples = updateSamples = gulp.series(
-    sb.lintSamples,
-    sb.getSamples,
-    sb.updateReadme,
-    // sb.updatePackages,
-    // sb.updateIndex,
-    sb.updateSharedFiles,
-);
+// exports.updateSamples = updateSamples = gulp.series(
+//     sb.lintSamples,
+//     sb.getSamples,
+//     sb.updateReadme,
+//     // sb.updateIndex,
+//     sb.updateSharedFiles,
+// );
 
 exports.updateReadme = updateReadme = gulp.series(
     sb.getSamples,
@@ -30,11 +29,6 @@ exports.getSamples = getSamples = gulp.series(
 exports.simplifySamples = simplifySamples = gulp.series(
     sb.getSamples,
     sb.simplifySamples,
-);
-
-exports.updatePackages = updatePackages = gulp.series(
-    sb.getSamples,
-    sb.updatePackages,
 );
 
 exports.updateSharedFiles = updateSharedFiles = gulp.series(
@@ -81,3 +75,4 @@ exports.updateCodeViewer = updateCodeViewer = gulp.series(
 
 exports.updateIG = updateIG = sb.updateIG
 
+exports.cleanupSamples = cleanupSamples = sb.cleanupSamples
