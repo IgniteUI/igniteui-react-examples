@@ -114,6 +114,7 @@ stages:
 
       - task: PowerShell@2
         displayName: 'npm install igniteui-dockmanager (licensed)'
+        enabled: false # Disable this extra step because we are already going for the licensed version in the package.json - 2 steps above
         inputs:
           targetType: 'inline'
           # We are using a PowerShell script because the npm step doesn't allow for explicit use of variable expansion which is what we use here.
