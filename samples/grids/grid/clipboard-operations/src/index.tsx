@@ -25,20 +25,20 @@ export default function App() {
         column.header = "🎉" + column.field;
     }
 
-    const changeCopySeparator = (inputComponent: IgrInput, e: IgrComponentValueChangedEventArgs): void => {
-        gridRef.current.clipboardOptions.separator = e.detail;
+    const changeCopySeparator = (inputComponent: IgrInput, args: IgrComponentValueChangedEventArgs): void => {
+        gridRef.current.clipboardOptions.separator = args.detail;
     }
 
-    const changeGridCopyBehavior = (switchComponent: any, result: IgrComponentBoolValueChangedEventArgs): void => {
-        gridRef.current.clipboardOptions.enabled = result.detail;
+    const changeGridCopyBehavior = (switchComponent: any, args: IgrComponentBoolValueChangedEventArgs): void => {
+        gridRef.current.clipboardOptions.enabled = args.detail;
     }
 
-    const changeGridCopyHeadersBehavior = (switchComponent: any, result: IgrComponentBoolValueChangedEventArgs): void => {
-        gridRef.current.clipboardOptions.copyHeaders = result.detail;
+    const changeGridCopyHeadersBehavior = (switchComponent: any, args: IgrComponentBoolValueChangedEventArgs): void => {
+        gridRef.current.clipboardOptions.copyHeaders = args.detail;
     }
 
-    const changeGridCopyFormattersBehavior = (switchComponent: any, result: IgrComponentBoolValueChangedEventArgs): void => {
-        gridRef.current.clipboardOptions.copyFormatters = result.detail;
+    const changeGridCopyFormattersBehavior = (switchComponent: any, args: IgrComponentBoolValueChangedEventArgs): void => {
+        gridRef.current.clipboardOptions.copyFormatters = args.detail;
     }
 
     const clearSelection = () => {
