@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrPinningConfig, IgrActionStrip, IgrGridPinningActions, IgrGridEditingActions, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrActionStrip, IgrGridPinningActions, IgrGridEditingActions, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 
@@ -23,6 +23,17 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private  _pinningConfig1: IgrPinningConfig | null = null;
+    public get pinningConfig1(): IgrPinningConfig {
+        if (this._pinningConfig1 == null)
+        {
+            var pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
+            pinningConfig1.rows = RowPinningPosition.Top;
+
+            this._pinningConfig1 = pinningConfig1;
+        }
+        return this._pinningConfig1;
+    }
     private actionStrip: IgrActionStrip
     private productName: IgrColumn
     private unitPrice: IgrColumn
@@ -40,7 +51,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
 
             <div className="container fill">
                 <IgrGrid
@@ -49,10 +60,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.nwindData}
                     rowEditable="true"
                     allowFiltering="true"
+                    pinning={this.pinningConfig1}
                     primaryKey="ProductID">
-                    <IgrPinningConfig
-                        rows="Top">
-                    </IgrPinningConfig>
                     <IgrActionStrip
                         name="actionStrip">
                         <IgrGridPinningActions

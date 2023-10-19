@@ -8,13 +8,12 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesDataItem, EmployeesData } from './EmployeesData';
+import { IgrAvatar } from 'igniteui-react';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
@@ -40,6 +39,17 @@ export default class Sample extends React.Component<any, any> {
     private email: IgrColumn
     private fax: IgrColumn
     private createdOn: IgrColumn
+    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
+    public get columnPipeArgs1(): IgrColumnPipeArgs {
+        if (this._columnPipeArgs1 == null)
+        {
+            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            columnPipeArgs1.format = "longDate";
+
+            this._columnPipeArgs1 = columnPipeArgs1;
+        }
+        return this._columnPipeArgs1;
+    }
     private lastActivity: IgrColumn
     private estimatedSales: IgrColumn
     private dealsLost: IgrColumn
@@ -55,7 +65,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
                     ref={this.propertyEditorRef}
@@ -120,10 +130,8 @@ export default class Sample extends React.Component<any, any> {
                         header="Date of Registration"
                         width="170px"
                         dataType="Date"
-                        editable="true">
-                        <IgrColumnPipeArgs
-                            format="longDate">
-                        </IgrColumnPipeArgs>
+                        editable="true"
+                        pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
                         name="LastActivity"
@@ -185,6 +193,15 @@ export default class Sample extends React.Component<any, any> {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webGridAvatarCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        return (
+            <div>
+                <IgrAvatar shape='circle' src={props.dataContext.cell.value}>
+                </IgrAvatar>
+            </div>
+        );
     }
 
 }

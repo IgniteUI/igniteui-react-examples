@@ -32,7 +32,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
 
             <div className="container fill">
                 <IgrGrid

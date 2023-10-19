@@ -8,14 +8,12 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-import { IgrGrid } from 'igniteui-react-grids/grids';
+import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
+import { IgrSummaryTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
@@ -29,7 +27,8 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
-    private propertyEditorPropertyDescription1: IgrPropertyEditorPropertyDescription
+    private summaryRowHeightEditor: IgrPropertyEditorPropertyDescription
+    private toggleSummariesEditor: IgrPropertyEditorPropertyDescription
     private displayDensityEditor: IgrPropertyEditorPropertyDescription
     private grid: IgrGrid
     private gridRef(r: IgrGrid) {
@@ -37,6 +36,7 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private column1: IgrColumn
+    private column2: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -48,7 +48,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
@@ -60,14 +60,15 @@ export default class Sample extends React.Component<any, any> {
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="SummaryRowHeight"
                         label="Summary Row Height"
-                        valueType="Number">
+                        valueType="Number"
+                        name="SummaryRowHeightEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         label="Toggle Summaries"
                         valueType="Boolean1"
                         primitiveValue="True"
                         changed={this.webGridHasSummariesChange}
-                        name="propertyEditorPropertyDescription1">
+                        name="ToggleSummariesEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="DisplayDensity"
@@ -109,7 +110,9 @@ export default class Sample extends React.Component<any, any> {
                         dataType="Number"
                         editable="true"
                         groupable="true"
-                        hasSummary="true">
+                        hasSummary="true"
+                        summaries={this.discontinuedSummary}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
@@ -126,7 +129,7 @@ export default class Sample extends React.Component<any, any> {
                         groupable="true"
                         hasSummary="true"
                         summaryTemplate={this.webGridOrderDateSummaryTemplate}
-                        name="column1">
+                        name="column2">
                     </IgrColumn>
                 </IgrGrid>
             </div>
@@ -154,16 +157,55 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridHasSummariesChange(args: any): void {
-        let newValue = args.primitiveValue as boolean;
-
-        var column1 = this.grid.columns[3];
-        var column2 = this.grid.columns[5];
+    public webGridHasSummariesChange(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        let newValue = sender.primitiveValue as boolean;
+        const grid = this.grid;
+        var column1 = grid.getColumnByName("UnitsInStock");
+        var column2 = grid.getColumnByName("OrderDate");
 
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
     }
 
+    public webGridOrderDateSummaryTemplate = (e: { dataContext: IgrSummaryTemplateContext }) => {
+        const summaryResults = e.dataContext.implicit;
+        return (
+            <div className="summary-temp">
+                <span><strong>{ summaryResults[0].label }</strong><span>{ (summaryResults[0] as any).summaryResult }</span></span>
+                <span><strong>{ summaryResults[1].label }</strong><span>{ (summaryResults[1] as any).summaryResult }</span></span>
+            </div>
+        );
+    }
+
+    private discontinuedSummary = {
+        sum(data: any[] = []): number {
+            return data.length && data.filter((el) => el === 0 || Boolean(el)).length ? data.filter((el) => el === 0 || Boolean(el)).reduce((a, b) => +a + +b) : 0;
+        },
+        operate(data?: any[], allData: any[] = [], fieldName = ''): any[] {
+            const result = [] as any[];
+            result.push({
+                key: 'products',
+                label: 'Producs',
+                summaryResult: data?.length
+            });
+            result.push({
+                key: 'total',
+                label: 'Total Items',
+                summaryResult: this.sum(data)
+            });
+            result.push({
+                key: 'discontinued',
+                label: 'Discontinued Producs',
+                summaryResult: allData.map(r => r['Discontinued']).filter((rec) => rec).length
+            } );
+            result.push({
+                key: 'totalDiscontinued',
+                label: 'Total Discontinued Items',
+                summaryResult: this.sum(allData.filter((rec) => rec['Discontinued']).map(r => r[fieldName]))
+            } );
+            return result;
+        }
+    }
 }
 
 // rendering above component in the React DOM

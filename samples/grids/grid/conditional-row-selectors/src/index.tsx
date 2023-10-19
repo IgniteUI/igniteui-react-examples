@@ -6,7 +6,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
-import { IgrRowSelectionEventArgs, IgrGrid } from 'igniteui-react-grids/grids';
+import { IgrRowSelectionEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -32,7 +32,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
 
             <div className="container fill">
                 <IgrGrid
@@ -91,7 +91,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridRowSelectionConditional(eventArgs: any): void {
+    public webGridRowSelectionConditional(sender: IgrGrid, eventArgs: IgrRowSelectionEventArgs): void {
         const event = eventArgs.detail;
         if (!event.added.length && event.removed.length) {
             // ignore de-select
@@ -101,11 +101,11 @@ export default class Sample extends React.Component<any, any> {
         const originalAddedLength = event.added.length;
 
         // only allow selection of items that contain 'A'
-        event.newSelection = event.newSelection.filter(x => x.indexOf('A') !== -1);
+        event.newSelection = event.newSelection.filter((x: any) => x.ID.indexOf('A') !== -1);
 
         // cleanup selection if all conditionally selectable rows are already selected
         if (event.newSelection.length
-            && !event.newSelection.filter(x => event.oldSelection.indexOf(x) === -1).length
+            && !event.newSelection.filter((x: any) => event.oldSelection.indexOf(x) === -1).length
             && originalAddedLength > 1) {
                 // all selected from header, de-select instead
                 event.newSelection = [];

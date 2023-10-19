@@ -5,16 +5,13 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
+import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
@@ -35,6 +32,34 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private _groupingExpression1: IgrGroupingExpression[] | null = null;
+    public get groupingExpression1(): IgrGroupingExpression[] {
+        if (this._groupingExpression1 == null)
+        {
+            let groupingExpression1: IgrGroupingExpression[] = [];
+            var groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
+            groupingExpression2.dir = SortingDirection.Asc;
+            groupingExpression2.fieldName = "ShipCountry";
+            groupingExpression2.ignoreCase = false;
+
+            groupingExpression1.push(groupingExpression2)
+            this._groupingExpression1 = groupingExpression1;
+        }
+        return this._groupingExpression1;
+    }
+    private column1: IgrColumn
+    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
+    public get columnPipeArgs1(): IgrColumnPipeArgs {
+        if (this._columnPipeArgs1 == null)
+        {
+            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            columnPipeArgs1.currencyCode = "USD";
+            columnPipeArgs1.digitsInfo = "1.2-2";
+
+            this._columnPipeArgs1 = columnPipeArgs1;
+        }
+        return this._columnPipeArgs1;
+    }
 
     constructor(props: any) {
         super(props);
@@ -45,7 +70,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
                     ref={this.propertyEditorRef}
@@ -71,7 +96,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.invoicesData}
-                    groupingExpressions={["Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
+                    groupingExpressions={this.groupingExpression1}>
                     <IgrColumn
                         field="ShipCountry"
                         header="Ship Country"
@@ -90,11 +115,9 @@ export default class Sample extends React.Component<any, any> {
                         width="150px"
                         dataType="Currency"
                         groupable="true"
-                        hasSummary="true">
-                        <IgrColumnPipeArgs
-                            currencyCode="USD"
-                            digitsInfo="1.2-2">
-                        </IgrColumnPipeArgs>
+                        hasSummary="true"
+                        pipeArgs={this.columnPipeArgs1}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Quantity"

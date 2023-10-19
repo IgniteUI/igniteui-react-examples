@@ -2,35 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule, IgrGridToolbarModule } from 'igniteui-react-grids';
-import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding, IgrGridToolbarPinning, IgrGridToolbarExporter, IgrColumn, IgrColumnGroup } from 'igniteui-react-grids';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule, WebGridToolbarDescriptionModule } from 'igniteui-react-core';
+import { ComponentRenderer, WebGridDescriptionModule, WebGridToolbarDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
-import { IgrGrid } from 'igniteui-react-grids/grids';
+import { IgrExporterEventEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
     IgrGridModule,
     IgrGridToolbarModule
 ];
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private propertyEditor: IgrPropertyEditorPanel
-    private propertyEditorRef(r: IgrPropertyEditorPanel) {
-        this.propertyEditor = r;
-        this.setState({});
-    }
-    private exportHeaders: IgrPropertyEditorPropertyDescription
     private grid: IgrGrid
     private gridRef(r: IgrGrid) {
         this.grid = r;
@@ -57,31 +44,13 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.propertyEditorRef = this.propertyEditorRef.bind(this);
         this.gridRef = this.gridRef.bind(this);
         this.webGridExportEventMultiColumnHeaders = this.webGridExportEventMultiColumnHeaders.bind(this);
     }
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
-            <div className="options vertical">
-                <IgrPropertyEditorPanel
-                    ref={this.propertyEditorRef}
-                    componentRenderer={this.renderer}
-                    target={this.grid}
-                    descriptionType="WebGrid"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
-                    <IgrPropertyEditorPropertyDescription
-                        valueType="Boolean1"
-                        shouldOverrideDefaultEditor="true"
-                        label="Export Multi-Column Headers"
-                        primitiveValue="True"
-                        name="exportHeaders">
-                    </IgrPropertyEditorPropertyDescription>
-                </IgrPropertyEditorPanel>
-            </div>
+        <div className="container sample ig-typography">
 
             <div className="container fill">
                 <IgrGrid
@@ -121,12 +90,13 @@ export default class Sample extends React.Component<any, any> {
                         header="General Information">
                         <IgrColumn
                             name="CompanyName"
+                            field="CompanyName"
                             visibleWhenCollapsed="true">
                         </IgrColumn>
                         <IgrColumnGroup
                             name="PersonalDetails"
                             header="Personal Details"
-                            visibleWhenCollapsed="true">
+                            visibleWhenCollapsed="false">
                             <IgrColumn
                                 name="ContactName"
                                 field="ContactName">
@@ -206,15 +176,16 @@ export default class Sample extends React.Component<any, any> {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            PropertyEditorPanelDescriptionModule.register(context);
             WebGridDescriptionModule.register(context);
             WebGridToolbarDescriptionModule.register(context);
         }
         return this._componentRenderer;
     }
 
-    public webGridExportEventMultiColumnHeaders(args: any): void {
-        args.detail.options.ignoreMultiColumnHeaders = false;
+    public webGridExportEventMultiColumnHeaders(sender: IgrGridToolbarExporter, args: IgrExporterEventEventArgs): void {
+        if (args.detail.options) {
+            args.detail.options.ignoreMultiColumnHeaders = false;
+        }
     }
 
 }

@@ -9,14 +9,12 @@ import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
-import { IgrGrid } from 'igniteui-react-grids/grids';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
+import { IgrButton } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
@@ -64,7 +62,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
@@ -248,6 +246,12 @@ export default class Sample extends React.Component<any, any> {
         //dialog.close();
 
         console.log("test");
+    }
+
+    public webGridDeleteCellTemplate = (e: {dataContext: IgrCellTemplateContext}) => {
+        var grid = this.grid;
+        const id = e.dataContext.cell.id.rowID;
+        return<><div onClick={(e: any) => grid.deleteRow(id)}><IgrButton><span key="btnText">Delete</span></IgrButton></div></>;
     }
 
 }

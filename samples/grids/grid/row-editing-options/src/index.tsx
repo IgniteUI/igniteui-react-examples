@@ -20,6 +20,18 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
+    public get columnPipeArgs1(): IgrColumnPipeArgs {
+        if (this._columnPipeArgs1 == null)
+        {
+            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            columnPipeArgs1.format = "mediumDate";
+
+            this._columnPipeArgs1 = columnPipeArgs1;
+        }
+        return this._columnPipeArgs1;
+    }
 
     constructor(props: any) {
         super(props);
@@ -29,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
 
             <div className="container fill">
                 <IgrGrid
@@ -63,10 +75,9 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date">
-                        <IgrColumnPipeArgs
-                            format="mediumDate">
-                        </IgrColumnPipeArgs>
+                        dataType="Date"
+                        pipeArgs={this.columnPipeArgs1}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"

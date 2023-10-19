@@ -18,7 +18,7 @@ export default class AvatarShape extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrAvatar shape="rounded">
-                    <IgrIcon key="icon" ref={this.iconRef} iconName="home" collection="material" />
+                    <IgrIcon key="icon" ref={this.iconRef} name="home" collection="material" />
                 </IgrAvatar>
             </div>
         );

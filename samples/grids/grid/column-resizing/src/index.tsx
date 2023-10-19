@@ -5,7 +5,7 @@ import './index.css';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
-import { IgrRowSelectionEventArgs } from 'igniteui-react-grids/grids';
+import { IgrGridBaseDirective, IgrColumnResizeEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
 
             <div className="container fill">
                 <IgrGrid
@@ -126,10 +126,10 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webGridColumnResized(args: CustomEvent<IgrRowSelectionEventArgs>): void {
-        //var col = args.detail.column;
-        //var pWidth = args.detail.prevWidth;
-        //var nWidth = args.detail.newWidth;
+    public webGridColumnResized(grid: IgrGridBaseDirective, args: IgrColumnResizeEventArgs): void {
+        var col = args.detail.column;
+        var pWidth = args.detail.prevWidth;
+        var nWidth = args.detail.newWidth;
     }
 
 }

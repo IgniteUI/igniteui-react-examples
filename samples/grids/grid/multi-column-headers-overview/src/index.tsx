@@ -8,14 +8,11 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrGrid, IgrColumn, IgrColumnGroup } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebColumnGroupDescriptionModule, PropertyEditorPanelDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
-import { IgrGrid } from 'igniteui-react-grids/grids';
+import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrGridModule,
@@ -49,7 +46,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
                     ref={this.propertyEditorRef}
@@ -175,16 +172,16 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridPinFirstGroupToggle(args: any): void {
-        const grid = document.getElementsByTagName("igc-grid")[0] as IgrGrid;
-        const firstColumnGroup = grid.columns.filter(c => c.header === 'General Information')[0];
+    public webGridPinFirstGroupToggle(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
+        const grid: IgrGrid = this.grid
+        const firstColumnGroup = grid.getColumnByName("CompanyName").parent;
         firstColumnGroup.pinned = !firstColumnGroup.pinned;
         grid.markForCheck();
     }
 
-    public webGridHideFirstGroupToggle(args: any): void {
-        const grid = document.getElementsByTagName("igc-grid")[0] as IgrGrid;
-        const firstColumnGroup = grid.columns.filter(c => c.header === 'General Information')[0];
+    public webGridHideFirstGroupToggle(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
+        const grid: IgrGrid = this.grid;
+        const firstColumnGroup = grid.getColumnByName("CompanyName").parent;
         firstColumnGroup.hidden = !firstColumnGroup.hidden;
         grid.markForCheck();
     }

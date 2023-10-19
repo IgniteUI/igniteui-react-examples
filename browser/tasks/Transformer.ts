@@ -196,8 +196,8 @@ class Transformer {
             for (const filePath of info.SampleFilePaths) {
                 // console.log(filePath);
                 fileFound.push(filePath);
-                if (Strings.includes(filePath, igConfig.SamplesFileExtension) &&
-                    Strings.excludes(filePath, igConfig.SamplesFileExclusions, true)) {
+                if (Strings.includes(filePath, igConfig.SampleFileExtension) &&
+                    Strings.excludes(filePath, igConfig.SampleFileExclusions, true)) {
                         fileNames.push(filePath);
                 }
             }
@@ -205,12 +205,12 @@ class Transformer {
             // console.log("Transformer fileNames= " + fileNames.length);
 
             if (fileNames.length === 0) {
-                console.log("WARNING Transformer cannot match any " + igConfig.SamplesFileExtension + " files in " + info.SampleFolderPath + " sample:");
+                console.log("WARNING Transformer cannot match any " + igConfig.SampleFileExtension + " files in " + info.SampleFolderPath + " sample:");
                 for (const name of fileFound) {
                     console.log('- ' + name);
                 }
             } else if (fileNames.length > 1) {
-                console.log("WARNING Transformer cannot decide which " + igConfig.SamplesFileExtension + " file to use for sample name: ");
+                console.log("WARNING Transformer cannot decide which " + igConfig.SampleFileExtension + " file to use for sample name: ");
                 console.log(" - " + fileNames.join("\n - "));
             } else { // only one .tsx file per sample
                 // console.log("Transformer fileNames[0]= " +  fileNames[0]);
@@ -257,7 +257,7 @@ class Transformer {
                 // console.log("Transformer SampleDisplayName ...");
                 info.SampleDisplayName = Strings.splitCamel(info.SampleFileSourceClass);
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, info.ComponentName, "");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SamplesFileExtension, "");
+                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SampleFileExtension, "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Type ", "");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Binding ", "Binding ");
                 info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Display ", "Display ");

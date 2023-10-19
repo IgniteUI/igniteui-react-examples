@@ -7,7 +7,7 @@ import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
-import { IgrGrid, IgrRowType } from 'igniteui-react-grids/grids';
+import { IgrRowType } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -37,7 +37,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
 
             <div className="container fill">
                 <IgrGrid
@@ -96,8 +96,8 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridCellStylesHandler = {
-        background: (rowData, columnKey, cellValue, rowIndex) => rowIndex % 2 === 0 ? "#EFF4FD" : null,
-        color: (rowData, columnKey, cellValue, rowIndex) => {
+        background: (rowData: any, columnKey: any, cellValue: any, rowIndex: any) => rowIndex % 2 === 0 ? "#EFF4FD" : null,
+        color: (rowData: any, columnKey: any, cellValue: any, rowIndex: any) => {
             if (columnKey === "Position") {
                 switch (cellValue) {
                     case "up": return "#28a745";
@@ -105,6 +105,7 @@ export default class Sample extends React.Component<any, any> {
                     case "current": return "#17a2b8"
                 }
             }
+            return undefined;
         }
     };
 

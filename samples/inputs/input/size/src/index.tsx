@@ -32,9 +32,9 @@ export default class InputSize extends React.Component<any, any> {
                         <IgrRadio name="size" value="large" labelPosition="after" change={this.onRadioChange}><span>Large</span></IgrRadio>
                     </IgrRadioGroup>
                 </div>
-                <IgrInput ref={this.inputRequiredRef} displayType="text" label="Required" value="This input is required" required="true" />                
-                <IgrInput ref={this.inputDisabledRef} displayType="text" label="Disabled" value="This input is disabled" disabled="true" />                
-                <IgrInput ref={this.inputReadonlyRef} displayType="text" label="Readonly" value="This input is readonly" readonly="true" />                
+                <IgrInput ref={this.inputRequiredRef} type="text" label="Required" value="This input is required" required="true" />                
+                <IgrInput ref={this.inputDisabledRef} type="text" label="Disabled" value="This input is disabled" disabled="true" />                
+                <IgrInput ref={this.inputReadonlyRef} type="text" label="Readonly" value="This input is readonly" readonly="true" />                
             </div>
         );
     }

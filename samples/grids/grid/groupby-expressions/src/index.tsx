@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrColumn } from 'igniteui-react-grids';
 import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
-import { IgrGroupByRowTemplateContext } from 'igniteui-react-grids';
+import { IgrGroupByRowTemplateContext, IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
@@ -22,6 +22,27 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private _groupingExpression1: IgrGroupingExpression[] | null = null;
+    public get groupingExpression1(): IgrGroupingExpression[] {
+        if (this._groupingExpression1 == null)
+        {
+            let groupingExpression1: IgrGroupingExpression[] = [];
+            var groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
+            groupingExpression2.fieldName = "ShipCountry";
+            groupingExpression2.ignoreCase = false;
+            groupingExpression2.dir = SortingDirection.Asc;
+
+            groupingExpression1.push(groupingExpression2)
+            var groupingExpression3: IgrGroupingExpression = {} as IgrGroupingExpression;
+            groupingExpression3.fieldName = "ShipCity";
+            groupingExpression3.ignoreCase = false;
+            groupingExpression3.dir = SortingDirection.Asc;
+
+            groupingExpression1.push(groupingExpression3)
+            this._groupingExpression1 = groupingExpression1;
+        }
+        return this._groupingExpression1;
+    }
     private column1: IgrColumn
 
     constructor(props: any) {
@@ -32,7 +53,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
 
             <div className="container fill">
                 <IgrGrid
@@ -40,7 +61,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.invoicesWorldData}
                     ref={this.gridRef}
                     id="grid"
-                    groupingExpressions={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
+                    groupingExpressions={this.groupingExpression1}
                     groupRowTemplate={this.webGridGroupByRowTemplate}>
                     <IgrColumn
                         field="OrderID"
@@ -124,24 +145,40 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webGridGroupByRowTemplate = (ctx: IgrGroupByRowTemplateContext) => {
+    public webGridGroupByRowTemplate = (e: {dataContext: IgrGroupByRowTemplateContext}) => {
 
-        const groupRow: any = ctx["$implicit"];
+        const groupRow: any = e.dataContext.implicit;
         const values = groupRow.records;
 
         const startDate = new Date('1/1/2017');
         const endDate = new Date('12/31/2017');
-        var calc2017 = values.filter((x) => new Date(x.OrderDate) >= startDate && new Date(x.OrderDate) <= endDate).length;
-
-        return <><div>
-            <span style="color:#09f;">${groupRow.expression.fieldName} :</span>
-            <span>${groupRow.value}</span>
-            <IgrBadge>${groupRow.records.length}</IgrBadge>
-            <span style="color:#09f;"> Ordered in 2017:</span><span>${calc2017}</span>
-        </div>
-        </>;
-
+        const calc2017 = values.filter((x: any) => new Date(x.OrderDate) >= startDate && new Date(x.OrderDate) <= endDate).length;
+        const spanStyle = {
+            color: '#09f'
+          };
+        return (
+            <>
+                <div>
+                    <span style={spanStyle}>{groupRow.expression.fieldName}: </span>
+                    <span>{groupRow.value instanceof Date ? groupRow.value.toLocaleDateString() : groupRow.value} </span>
+                    <IgrBadge><span key="content">{groupRow.records.length}</span></IgrBadge>
+                    <span style={spanStyle}> Ordered in 2017: </span><span>{calc2017}</span>
+                </div>
+            </>
+        );
     };
+
+    public webGridBooleanCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        if (props.dataContext.cell.value) {
+            return (
+                <img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/active.png" title="Continued" alt="Continued" />
+            );
+        } else {
+            return (
+                <img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/expired.png" title="Discontinued" alt="Discontinued" />
+            );
+        }
+    }
 
 }
 

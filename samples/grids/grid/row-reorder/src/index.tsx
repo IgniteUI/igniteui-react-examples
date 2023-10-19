@@ -7,7 +7,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
-import { IgrRowDragEndEventArgs } from 'igniteui-react-grids/grids';
+import { IgrRowDragEndEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -34,7 +34,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
 
             <div className="container fill">
                 <IgrGrid
@@ -102,10 +102,10 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridReorderRowHandler(args: CustomEvent<IgrRowDragEndEventArgs>): void {
+    public webGridReorderRowHandler(sender: IgrGrid, args: IgrRowDragEndEventArgs): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
         const dragElementPos = ghostElement.getBoundingClientRect();
-        const grid = document.getElementsByTagName("igc-grid")[0] as any;
+        const grid = this.grid;
         const rows = Array.prototype.slice.call(document.getElementsByTagName("igx-grid-row"));
         const currRowIndex = this.getCurrentRowIndex(rows,
         { x: dragElementPos.x, y: dragElementPos.y });
@@ -115,7 +115,7 @@ export default class Sample extends React.Component<any, any> {
         grid.data.splice(currRowIndex, 0, args.detail.dragData.data);
     }
 
-    public getCurrentRowIndex(rowList: any[], cursorPosition) {
+    public getCurrentRowIndex(rowList: any[], cursorPosition: any) {
         for (const row of rowList) {
             const rowRect = row.getBoundingClientRect();
             if (cursorPosition.y > rowRect.top + window.scrollY && cursorPosition.y < rowRect.bottom + window.scrollY &&

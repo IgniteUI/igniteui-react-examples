@@ -47,7 +47,8 @@ exports.updateBrowser = updateBrowser = gulp.series(
     sb.updateVersion,
     sb.getSamples,
     sb.copySamples,
-    sb.updateCodeViewer
+    sb.updateCodeViewer,
+    sb.updateReadme,
     // sb.copyPackageJson,
 );
 

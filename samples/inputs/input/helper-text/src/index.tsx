@@ -19,9 +19,9 @@ export default class InputHelperText extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="sample">
-                <IgrInput displayType="tel" label="Phone">
+                <IgrInput type="tel" label="Phone">
                     <span slot="prefix">+359</span>
-                    <IgrIcon ref={this.iconRef} iconName="phone" />
+                    <IgrIcon ref={this.iconRef} name="phone" />
                     <span slot="helper-text">Ex.: +359 888 123 456</span>
                 </IgrInput>
             </div>

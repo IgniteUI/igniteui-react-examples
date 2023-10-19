@@ -5,18 +5,14 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
+import { IgrGrid, IgrSortingExpression, SortingDirection, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { ProductSalesItem, ProductSales } from './ProductSales';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
-import { IgrGrid } from 'igniteui-react-grids/grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-import { defineAllComponents } from 'igniteui-webcomponents';
-
-defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
@@ -38,6 +34,34 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private _sortingExpression1: IgrSortingExpression[] | null = null;
+    public get sortingExpression1(): IgrSortingExpression[] {
+        if (this._sortingExpression1 == null)
+        {
+            let sortingExpression1: IgrSortingExpression[] = [];
+            var sortingExpression2: IgrSortingExpression = {} as IgrSortingExpression;
+            sortingExpression2.fieldName = "CategoryName";
+            sortingExpression2.dir = SortingDirection.Asc;
+            sortingExpression2.ignoreCase = true;
+
+            sortingExpression1.push(sortingExpression2)
+            this._sortingExpression1 = sortingExpression1;
+        }
+        return this._sortingExpression1;
+    }
+    private column1: IgrColumn
+    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
+    public get columnPipeArgs1(): IgrColumnPipeArgs {
+        if (this._columnPipeArgs1 == null)
+        {
+            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            columnPipeArgs1.currencyCode = "USD";
+            columnPipeArgs1.digitsInfo = "1.2-2";
+
+            this._columnPipeArgs1 = columnPipeArgs1;
+        }
+        return this._columnPipeArgs1;
+    }
 
     constructor(props: any) {
         super(props);
@@ -50,7 +74,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
                     ref={this.propertyEditorRef}
@@ -83,7 +107,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     data={this.productSales}
                     ref={this.gridRef}
-                    sortingExpressions={["Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
+                    sortingExpressions={this.sortingExpression1}>
                     <IgrColumn
                         field="OrderID"
                         header="Order ID"
@@ -116,11 +140,9 @@ export default class Sample extends React.Component<any, any> {
                         header="Sale Amount"
                         dataType="Currency"
                         groupable="true"
-                        sortable="true">
-                        <IgrColumnPipeArgs
-                            currencyCode="USD"
-                            digitsInfo="1.2-2">
-                        </IgrColumnPipeArgs>
+                        sortable="true"
+                        pipeArgs={this.columnPipeArgs1}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="ShippedDate"

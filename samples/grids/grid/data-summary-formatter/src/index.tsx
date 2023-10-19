@@ -5,7 +5,7 @@ import './index.css';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
-import { IgrGrid, IgrDateSummaryOperand, IgrSummaryResult, IgrSummaryOperand } from 'igniteui-react-grids/grids';
+import { IgrSummaryResult, IgrSummaryOperand } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -32,7 +32,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
 
             <div className="container fill">
                 <IgrGrid
@@ -92,7 +92,7 @@ export default class Sample extends React.Component<any, any> {
 
     public webGridSummaryFormatter(summary: IgrSummaryResult, summaryOperand: IgrSummaryOperand): string {
         const result = summary.summaryResult;
-        if (summaryOperand instanceof IgrDateSummaryOperand && summary.key !== "count" && result !== null && result !== undefined) {
+        if (summary.key !== "count" && result !== null && result !== undefined) {
             const format = new Intl.DateTimeFormat("en", { year: "numeric" });
             return format.format(new Date(result));
         }

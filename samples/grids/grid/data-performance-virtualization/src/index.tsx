@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrBadgeModule } from 'igniteui-react-webinputs';
+import { IgrBadgeModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
+import { IgrBadge } from 'igniteui-react';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -34,7 +36,7 @@ export default class Sample extends React.Component<any, any> {
 
     public render(): JSX.Element {
         return (
-        <div className="container sample">
+        <div className="container sample ig-typography">
 
             <div className="container fill">
                 <IgrGrid
@@ -146,6 +148,26 @@ export default class Sample extends React.Component<any, any> {
             this._financialDataAll = new FinancialDataAll();
         }
         return this._financialDataAll;
+    }
+
+
+    public webGridCurrencyCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
+        var cell = props.dataContext.cell as any;
+        if (cell.value > 0) {
+            return(
+            <div style={{width: '80px', float: 'right'}}>
+                <IgrBadge variant="success" style={{float: 'left'}}><span>▲</span></IgrBadge>
+                 <span style={{color:'green',float: 'right'}}>${cell.value.toFixed(2)}</span>
+            </div>
+            );
+        } else {
+            return(
+            <div style={{width: '80px', float: 'right'}}>
+                <IgrBadge variant="danger" style={{float: 'left'}}><span>▼</span></IgrBadge>
+                <span style={{color:'red',float: 'right'}}>${cell.value.toFixed(2)}</span>
+            </div>
+            );
+        }
     }
 
 }

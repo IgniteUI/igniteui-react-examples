@@ -181,7 +181,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                             </div>
                         </div>
                         <div className="toolAreaRow" style={{paddingTop: "25px"}}>
-                            <IgrInput inputOcurred={this.onGridSearchChanged} placeholder="Search" displayType="text" />
+                            <IgrInput inputOcurred={this.onGridSearchChanged} placeholder="Search" type="text" />
                         </div>
                     </div>
                 </div>
