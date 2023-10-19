@@ -335,25 +335,26 @@ function updateReadme(cb) {
     cb();
 } exports.updateReadme = updateReadme;
 
+// TODO modify and move this logic to updateIG function
 // updating package.json files for all sample using a template
-function updatePackages(cb) {
-    // getting content of package.json file from templates
-    let templatePackageFile = fs.readFileSync("./templates/sample/package.json");
-    let templatePackageJson = JSON.parse(templatePackageFile.toString());
+// function updatePackages(cb) {
+//     // getting content of package.json file from templates
+//     let templatePackageFile = fs.readFileSync("./templates/sample/package.json");
+//     let templatePackageJson = JSON.parse(templatePackageFile.toString());
 
-    for (const sample of samplesList) {
-        let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
-        let oldPackageFile = fs.readFileSync(outputPath).toString();
+//     for (const sample of samplesList) {
+//         let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
+//         let oldPackageFile = fs.readFileSync(outputPath).toString();
 
-        makeDirectoryFor(outputPath);
-        let newPackageFile = Transformer.getPackage(sample, templatePackageJson);
-        if (newPackageFile !== oldPackageFile) {
-            // log('updated: ' + outputPath);
-            fs.writeFileSync(outputPath, newPackageFile);
-        }
-    }
-    cb();
-} exports.updatePackages = updatePackages;
+//         makeDirectoryFor(outputPath);
+//         let newPackageFile = Transformer.getPackage(sample, templatePackageJson);
+//         if (newPackageFile !== oldPackageFile) {
+//             // log('updated: ' + outputPath);
+//             fs.writeFileSync(outputPath, newPackageFile);
+//         }
+//     }
+//     cb();
+// } exports.updatePackages = updatePackages;
 
 // updating browser's package.json file using template's package.json
 function copyPackageJson(cb) {

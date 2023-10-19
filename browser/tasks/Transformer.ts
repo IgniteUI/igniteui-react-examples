@@ -348,82 +348,83 @@ class Transformer {
         return JSON.stringify(browsersPackage, null, '  ');
     }
 
+    // TODO modify and move this logic to updateIG function
     // gets updated package.json file for a sample using a template
-    public static getPackage(sample: SampleInfo, tempPackage: PackageJson): string {
+    // public static getPackage(sample: SampleInfo, tempPackage: PackageJson): string {
 
-        let title = tempPackage.name;
-        title = Strings.replace(title, 'platform-name', igConfig.PlatformName);
-        title = Strings.replace(title, 'component-name', sample.ComponentName);
-        title = Strings.replace(title, 'sample-name', sample.SampleDisplayName);
-        title = Strings.replace(title, ' ', '-');
-        title = title.toLowerCase();
+    //     let title = tempPackage.name;
+    //     title = Strings.replace(title, 'platform-name', igConfig.PlatformName);
+    //     title = Strings.replace(title, 'component-name', sample.ComponentName);
+    //     title = Strings.replace(title, 'sample-name', sample.SampleDisplayName);
+    //     title = Strings.replace(title, ' ', '-');
+    //     title = title.toLowerCase();
 
-        let descr = tempPackage.description;
-        descr = Strings.replace(descr, 'platform-name', igConfig.PlatformName);
-        descr = Strings.replace(descr, 'component-name', sample.ComponentName);
-        descr = Strings.replace(descr, 'sample-name', sample.SampleDisplayName);
+    //     let descr = tempPackage.description;
+    //     descr = Strings.replace(descr, 'platform-name', igConfig.PlatformName);
+    //     descr = Strings.replace(descr, 'component-name', sample.ComponentName);
+    //     descr = Strings.replace(descr, 'sample-name', sample.SampleDisplayName);
 
-        let samplePackage = sample.PackageFileContent;
-        samplePackage.name = title;
-        samplePackage.description = descr;
-        samplePackage.author = tempPackage.author;
-        samplePackage.homepage = tempPackage.homepage;
-        samplePackage.version = tempPackage.version;
-        samplePackage.private = tempPackage.private;
-        samplePackage.browserslist = tempPackage.browserslist;
-        samplePackage.scripts = tempPackage.scripts;
+    //     let samplePackage = sample.PackageFileContent;
+    //     samplePackage.name = title;
+    //     samplePackage.description = descr;
+    //     samplePackage.author = tempPackage.author;
+    //     samplePackage.homepage = tempPackage.homepage;
+    //     samplePackage.version = tempPackage.version;
+    //     samplePackage.private = tempPackage.private;
+    //     samplePackage.browserslist = tempPackage.browserslist;
+    //     samplePackage.scripts = tempPackage.scripts;
 
-        // updating scripts in a sample using scripts from the template
-        // for (let name in tempPackage.scripts) {
-        //     if (tempPackage.scripts.hasOwnProperty(name) &&
-        //         samplePackage.scripts.hasOwnProperty(name)) {
-        //         samplePackage.scripts[name] = tempPackage.scripts[name]
-        //     }
-        // }
+    //     // updating scripts in a sample using scripts from the template
+    //     // for (let name in tempPackage.scripts) {
+    //     //     if (tempPackage.scripts.hasOwnProperty(name) &&
+    //     //         samplePackage.scripts.hasOwnProperty(name)) {
+    //     //         samplePackage.scripts[name] = tempPackage.scripts[name]
+    //     //     }
+    //     // }
 
-        // updating devDependencies in a sample using devDependencies from the template
-        for (let name in tempPackage.devDependencies) {
-            if (tempPackage.devDependencies.hasOwnProperty(name) &&
-                samplePackage.devDependencies.hasOwnProperty(name)) {
-                samplePackage.devDependencies[name] = tempPackage.devDependencies[name]
-            }
-        }
+    //     // updating devDependencies in a sample using devDependencies from the template
+    //     for (let name in tempPackage.devDependencies) {
+    //         if (tempPackage.devDependencies.hasOwnProperty(name) &&
+    //             samplePackage.devDependencies.hasOwnProperty(name)) {
+    //             samplePackage.devDependencies[name] = tempPackage.devDependencies[name]
+    //         }
+    //     }
 
-        // overriding sample dependencies
-        samplePackage.dependencies = {};
+    //     // overriding sample dependencies
+    //     samplePackage.dependencies = {};
 
-        // updating dependencies in sa sample by checking against OPTIONAL dependencies in the template
-        for (let name in tempPackage.dependenciesOptional) {
+    //     // updating dependencies in sa sample by checking against OPTIONAL dependencies in the template
+    //     for (let name in tempPackage.dependenciesOptional) {
 
-            let dependency = tempPackage.dependenciesOptional[name];
-            if (dependency.usage === "always") {
-                samplePackage.dependencies[name] = dependency.version;
-            } else if (dependency.usage === "detect") {
-                let isDependencyImported = sample.SampleFileSourceCode.indexOf(name) >= 0;
-                if (isDependencyImported) {
-                    samplePackage.dependencies[name] = dependency.version;
-                // using keywords to check if the dependency is used by some other file, e.g. ExcelUtility.ts
-                } else if (dependency.keywords !== undefined && dependency.keywords.length > 0) {
-                    for (let keyword of dependency.keywords) {
-                        let isDependencyUsed = sample.SampleFileSourceCode.indexOf(keyword) >= 0;
-                        if (isDependencyUsed) {
-                            samplePackage.dependencies[name] = dependency.version;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
+    //         let dependency = tempPackage.dependenciesOptional[name];
+    //         if (dependency.usage === "always") {
+    //             samplePackage.dependencies[name] = dependency.version;
+    //         } else if (dependency.usage === "detect") {
+    //             let isDependencyImported = sample.SampleFileSourceCode.indexOf(name) >= 0;
+    //             if (isDependencyImported) {
+    //                 samplePackage.dependencies[name] = dependency.version;
+    //             // using keywords to check if the dependency is used by some other file, e.g. ExcelUtility.ts
+    //             } else if (dependency.keywords !== undefined && dependency.keywords.length > 0) {
+    //                 for (let keyword of dependency.keywords) {
+    //                     let isDependencyUsed = sample.SampleFileSourceCode.indexOf(keyword) >= 0;
+    //                     if (isDependencyUsed) {
+    //                         samplePackage.dependencies[name] = dependency.version;
+    //                         break;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
 
-        // updating dependencies in sa sample by checking against REQUIRED dependencies in the template
-        for (let name in tempPackage.dependencies) {
-            samplePackage.dependencies[name] = tempPackage.dependencies[name];
-        }
-        // console.log("sample: " + sample.SampleFolderPath);
-        // console.log("dependencies \n" + JSON.stringify(samplePackage.dependencies, null, '  '));
+    //     // updating dependencies in sa sample by checking against REQUIRED dependencies in the template
+    //     for (let name in tempPackage.dependencies) {
+    //         samplePackage.dependencies[name] = tempPackage.dependencies[name];
+    //     }
+    //     // console.log("sample: " + sample.SampleFolderPath);
+    //     // console.log("dependencies \n" + JSON.stringify(samplePackage.dependencies, null, '  '));
 
-        return JSON.stringify(samplePackage, null, '  ');
-    }
+    //     return JSON.stringify(samplePackage, null, '  ');
+    // }
 
     public static getSampleInfo(samplePackageFile: any, sampleFilePaths?: string[]): SampleInfo {
 
