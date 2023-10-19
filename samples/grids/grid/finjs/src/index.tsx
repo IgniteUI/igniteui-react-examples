@@ -81,20 +81,17 @@ function priceTemplate(ctx: {dataContext: IgrCellTemplateContext}) {
   const rowData = gridRef.current.getRowData(cell.id.rowID);
   const icon = trends.positive(rowData) ? "trending_up" : "trending_down";
   const value = cell.value.toFixed(4);
-  return <>
-  <div className="finjs-icons">
+  return <div className="finjs-icons">
   <span>${value}</span>
   <IgrIcon name={icon} collection="material"></IgrIcon>
   </div>
-  </>
 }
 
 function chartBtnTemplate(ctx: {dataContext: IgrCellTemplateContext}) {
   const cell = ctx.dataContext.cell;
   const rowData = gridRef.current.getRowData(cell.id.rowID);
-  return<> <span onClick={e => openDialogForRow(e, rowData)}><IgrIcon name="insert_chart" collection="material" variant="contained" size="small">
+  return <span onClick={e => openDialogForRow(e, rowData)}><IgrIcon name="insert_chart" collection="material" variant="contained" size="small">
   </IgrIcon></span>
-  </>
 }
 
 const iconForUpdate = useRef<IgrIcon>(null);
@@ -130,6 +127,18 @@ useEffect(() => {
       chartIcon,
       "material"
     );
+
+    iconForChart.current.registerIconFromText(
+      "trending_up",
+      trendUp,
+      "material"
+    );
+
+    iconForChart.current.registerIconFromText(
+      "trending_down",
+      trendDown,
+      "material"
+    );
   }
 }, []);
 
@@ -138,19 +147,20 @@ const groupingEnabled = true;
 const toolbarEnabled = true;
 const [recordsCount, setRecordsCount] = useState(1000)
 const [frequency, setFrequency] = useState(500);
-let _timer:any;
+const [timer, setTimer] = useState(null);
 
 function startUpdate() {
-  _timer = setInterval(() => {
+  const timer = setInterval(() => {
       gridRef.current.data = FinancialData.updateAllPrices(data);
   }, frequency);
+  setTimer(timer);
   startButton.current.disabled = true;
   stopButton.current.disabled = false;
   chartButton.current.disabled = true;
 }
 
 function stopUpdate() {
-  clearInterval(_timer);
+  clearInterval(timer);
   startButton.current.disabled = false;
   chartButton.current.disabled = false;
   stopButton.current.disabled = true;
