@@ -87,7 +87,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumnGroup
                         name="GeneralInformation"
-                        header="General Information">
+                        header="General Information"
+                        collapsible="true">
                         <IgrColumn
                             name="CompanyName"
                             field="CompanyName"
@@ -96,6 +97,7 @@ export default class Sample extends React.Component<any, any> {
                         <IgrColumnGroup
                             name="PersonalDetails"
                             header="Personal Details"
+                            collapsible="true"
                             visibleWhenCollapsed="false">
                             <IgrColumn
                                 name="ContactName"
@@ -113,6 +115,7 @@ export default class Sample extends React.Component<any, any> {
                         <IgrColumnGroup
                             name="Location"
                             header="Location"
+                            collapsible="true"
                             visibleWhenCollapsed="true">
                             <IgrColumn
                                 name="Country"
