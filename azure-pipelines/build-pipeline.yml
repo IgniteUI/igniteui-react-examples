@@ -99,17 +99,15 @@ stages:
             Set-Content $_.PSPath }
 
       - task: PowerShell@2
-        displayName: 'Extra temporary replace for the dockmanager trial->licensed'
+        displayName: 'npm install igniteui-dockmanager (licensed)'
         inputs:
-          failOnStderr: true
-          showWarnings: true
-          workingDirectory: '$(Build.SourcesDirectory)\browser\node_modules\@infragistics\igniteui-react'
           targetType: 'inline'
+          # We are using a PowerShell script because the npm step doesn't allow for explicit use of variable expansion which is what we use here.
+          # The script below grabs the current version of the dockmanager and installs it separately (after we UNinstalled it in a previous step)
           script: |
-            Write-Output "$(Build.SourcesDirectory)\browser\node_modules\@infragistics\igniteui-react"
-            Get-ChildItem -Include "*.js" -Recurse | `
-            ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace 'igniteui-dockmanager', '@infragistics/igniteui-dockmanager') }) | `
-            Set-Content $_.PSPath }
+            cd $(Build.SourcesDirectory)\browser
+            npm install igniteui-dockmanager@npm:@infragistics/igniteui-dockmanager@$($(jq '.dependencies.\"igniteui-dockmanager\"' .\package.json).Trim('"'))
+
       - task: Npm@1
         displayName: 'npm run build'
         inputs:
