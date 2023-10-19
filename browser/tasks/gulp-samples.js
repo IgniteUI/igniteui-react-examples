@@ -804,12 +804,20 @@ function sortByKeys(dependencies)
     }
     return sorted;
 }
+
+// cleanup individual samples if they have node_modules installed
+function cleanupSamples(cb) {
+    console.log("removing ./samples/**/node_modules/**/*.* files")
+    del.sync("./samples/**/node_modules/**/*.*", {force:true});
+    del.sync("./samples/**/node_modules/**", {force:true});
+    del.sync("./samples/**/node_modules", {force:true});
+    cb();
+}
+exports.cleanupSamples = cleanupSamples;
+
 function updateIG(cb) {
 
     // cleanup packages to speedup this gulp script
-    // del.sync("./samples/**/node_modules/**/*.*", {force:true});
-    // del.sync("./samples/**/node_modules/**", {force:true});
-    // del.sync("./samples/**/node_modules", {force:true});
 
     // NOTE: change this array with new version of packages and optionally use "@infragistics/" proget prefix, e.g.
     // { name: "@infragistics/igniteui-react-charts", version: "22.1.62" }, // proget

@@ -75,3 +75,4 @@ exports.updateCodeViewer = updateCodeViewer = gulp.series(
 
 exports.updateIG = updateIG = sb.updateIG
 
+exports.cleanupSamples = cleanupSamples = sb.cleanupSamples
