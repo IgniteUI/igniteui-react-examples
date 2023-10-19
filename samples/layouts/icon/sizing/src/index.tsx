@@ -18,9 +18,9 @@ export default class IconSizing extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <div className="horizontal-border-container">
-                    <IgrIcon ref={this.iconRef} size="small" iconName="build" collection="material" />
-                    <IgrIcon size="medium" iconName="build" collection="material" />
-                    <IgrIcon size="large" iconName="build" collection="material" />
+                    <IgrIcon ref={this.iconRef} size="small" name="build" collection="material" />
+                    <IgrIcon size="medium" name="build" collection="material" />
+                    <IgrIcon size="large" name="build" collection="material" />
                 </div>
             </div>
         );

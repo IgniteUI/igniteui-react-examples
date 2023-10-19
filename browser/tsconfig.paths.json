@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "igniteui-react-core": ["node_modules/igniteui-react-core", "node_modules/@infragistics/igniteui-react-core"],
+        "igniteui-react-charts": ["node_modules/igniteui-react-charts", "node_modules/@infragistics/igniteui-react-charts"],
+        "igniteui-react-grids": ["node_modules/igniteui-react-grids", "node_modules/@infragistics/igniteui-react-grids"],
+        "igniteui-react-grids/grids": ["node_modules/igniteui-react-grids/grids", "node_modules/@infragistics/igniteui-react-grids/grids"],
+        "igniteui-react-gauges": ["node_modules/igniteui-react-gauges", "node_modules/@infragistics/igniteui-react-gauges"],
+        "igniteui-react-inputs": ["node_modules/igniteui-react-inputs", "node_modules/@infragistics/igniteui-react-inputs"],
+        "igniteui-react-layouts": ["node_modules/igniteui-react-layouts", "node_modules/@infragistics/igniteui-react-layouts"],
+        "igniteui-react-maps": ["node_modules/igniteui-react-maps", "node_modules/@infragistics/igniteui-react-maps"],
+        "igniteui-react": ["node_modules/igniteui-react", "node_modules/@infragistics/igniteui-react"],
+        "igniteui-react-excel": ["node_modules/igniteui-react-excel", "node_modules/@infragistics/igniteui-react-excel"],
+        "igniteui-react-datasources": ["node_modules/igniteui-react-datasources", "node_modules/@infragistics/igniteui-react-datasources"],
+        "igniteui-react-spreadsheet": ["node_modules/igniteui-react-spreadsheet", "node_modules/@infragistics/igniteui-react-spreadsheet"],
+        "igniteui-react-spreadsheet-chart-adapter": ["node_modules/igniteui-react-spreadsheet-chart-adapter", "node_modules/@infragistics/igniteui-react-spreadsheet-chart-adapter"],
+        "igniteui-webcomponents": ["node_modules/igniteui-webcomponents", "node_modules/@infragistics/igniteui-webcomponents"],
+        "igniteui-dockmanager": ["node_modules/igniteui-dockmanager", "node_modules/@infragisics/igniteui-dockmanager"],
+        "igniteui-dockmanager/loader": ["node_modules/igniteui-dockmanager/loader", "node_modules/@infragistics/igniteui-dockmanager/loader"]
+      }
+    }
+  }

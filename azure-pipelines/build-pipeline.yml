@@ -4,10 +4,7 @@ trigger:
     - vnext
     - master
 
-pr:
-  branches:
-    exclude:
-    - '*'  # must quote since "*" is a YAML reserved character; we want a string
+pr: none
 
 parameters:
 - name: isVerbose
@@ -34,6 +31,52 @@ stages:
           versionSource: 'spec'
           versionSpec: '16.x'
 
+      - task: RegexReplace@3
+        enabled: false
+        displayName: 'Replace deps with scoped ones'
+        inputs:
+          InputSearchPattern: 'browser\package.json'
+          FindRegex: 'igniteui-react-[a-z]+'
+          ReplaceRegex: '@infragistics/$1'
+          UseUTF8: true
+          UseRAW: true
+
+      - task: Npm@1
+        displayName: 'Register licensed npm registry in .npmrc'
+        inputs:
+          command: 'custom'
+          workingDir: '$(Build.SourcesDirectory)\browser'
+          customCommand: 'config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/'
+          customEndpoint: 'internal proget'
+
+      - task: PowerShell@2
+        displayName: 'Replace references to IG trial packages with licensed ones'
+        inputs:
+          failOnStderr: true
+          showWarnings: true
+          workingDirectory: '$(Build.SourcesDirectory)\browser'
+          targetType: 'inline'
+          script: |
+            $packageJson = Get-Content -Raw .\package.json | ConvertFrom-Json
+            $properties = $packageJson.dependencies.PSObject.Properties `
+                | where-object { $_.Name.StartsWith("igniteui-react") -or $_.Name.StartsWith("igniteui-dockmanager") }
+
+            foreach( $property in $properties )
+            {
+                $oldName = $property.Name;
+                $newName = "@infragistics/" + $oldName
+
+                # remember the current value of the old property
+                $value = $property.Value;
+
+                # remove reference to the trial package reference
+                $packageJson.dependencies.psobject.Properties.Remove($oldName);
+
+                # add reference to the licensed package reference
+                $packageJson.dependencies | Add-Member -NotePropertyName $newName -NotePropertyValue $value;
+            }
+
+            ConvertTo-Json -InputObject $packageJson | Set-Content -Path .\package.json
       - task: Npm@1
         displayName: 'npm install'
         inputs:
@@ -43,22 +86,21 @@ stages:
           customCommand: 'install --legacy-peer-deps'
           customEndpoint: 'public proget'
 
-      - task: Npm@1
-        displayName: 'npm uninstall igniteui-dockmanager (trial)'
+      - task: PowerShell@2
+        displayName: 'Replace references to IG trial packages with licensed ones in TSX files'
         inputs:
-          command: custom
-          workingDir: '$(Build.SourcesDirectory)\browser'
-          verbose: ${{ parameters.isVerbose }}
-          customCommand: 'uninstall igniteui-dockmanager --no-save'
-
-      - task: CmdLine@2
-        displayName: 'Install jq - using choco.'
-        inputs:
-          script: 'choco install jq -y'
           failOnStderr: true
+          showWarnings: true
+          workingDirectory: '$(Build.SourcesDirectory)'
+          targetType: 'inline'
+          script: |
+            Get-ChildItem -Include "*.tsx","*.ts" -Recurse | `
+            ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace '([from|import])\s?[''"](igniteui-[react|dockmanager].*)[''"]', '$1 "@infragistics/$2"') }) | `
+            Set-Content $_.PSPath }
 
       - task: PowerShell@2
         displayName: 'npm install igniteui-dockmanager (licensed)'
+        enabled: false # Disable this extra step because we are already going for the licensed version in the package.json - 2 steps above
         inputs:
           targetType: 'inline'
           # We are using a PowerShell script because the npm step doesn't allow for explicit use of variable expansion which is what we use here.

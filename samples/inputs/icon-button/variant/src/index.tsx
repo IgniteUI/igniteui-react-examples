@@ -24,17 +24,17 @@ export default class IconButtonVariant extends React.Component<any, any> {
             <div className="container sample">
                 <div className="options horizontal">
                     <IgrIconButton style={{margin: "10px"}} ref={this.smallRef} 
-                        iconName="thumb-up" 
+                        name="thumb-up" 
                         collection="material"
                         variant="flat">
                     </IgrIconButton>
                     <IgrIconButton style={{margin: "10px"}} ref={this.mediumRef} 
-                        iconName="thumb-up" 
+                        name="thumb-up" 
                         collection="material" 
                         variant="contained">
                     </IgrIconButton>
                     <IgrIconButton style={{margin: "10px"}} ref={this.largeRef} 
-                        iconName="thumb-up" 
+                        name="thumb-up" 
                         collection="material" 
                         variant="outlined">
                     </IgrIconButton>

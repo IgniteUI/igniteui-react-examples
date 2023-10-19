@@ -18,7 +18,7 @@ export default class IconStyling extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <div className="horizontal-border-container">
-                    <IgrIcon ref={this.iconRef} iconName="search" collection="material" />                    
+                    <IgrIcon ref={this.iconRef} name="search" collection="material" />                    
                 </div>
             </div>
         );

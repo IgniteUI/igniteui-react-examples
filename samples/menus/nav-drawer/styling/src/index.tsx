@@ -27,14 +27,14 @@ export default class NavDrawerStyling extends React.Component<any, any> {
 
                         <IgrNavDrawerItem>
                             <div slot="icon">
-                                <IgrIcon ref={this.iconRef} iconName="home" collection="material" />
+                                <IgrIcon ref={this.iconRef} name="home" collection="material" />
                             </div>
                             <span slot="content">Home</span>
                         </IgrNavDrawerItem>
 
                         <IgrNavDrawerItem>
                             <div slot="icon">
-                                <IgrIcon iconName="search" collection="material" />
+                                <IgrIcon name="search" collection="material" />
                             </div>
                             <span slot="content">Search</span>
                         </IgrNavDrawerItem>

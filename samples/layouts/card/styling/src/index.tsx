@@ -40,15 +40,15 @@ export default class CardStyling extends React.Component<any, any> {
 
                         <IgrCardActions key="actions">
                             <div key="actionsEndSlot" slot="end">
-                                <IgrIconButton ref={this.iconRef} key="twitterBtn" iconName="twitter" collection="material">
+                                <IgrIconButton ref={this.iconRef} key="twitterBtn" name="twitter" collection="material">
                                     <IgrRipple key="twitterRipple"/>
                                 </IgrIconButton>
 
-                                <IgrIconButton key="fbButton" iconName="facebook" collection="material">
+                                <IgrIconButton key="fbButton" name="facebook" collection="material">
                                     <IgrRipple key="fbRipple"/>
                                 </IgrIconButton>
 
-                                <IgrIconButton key="instaBtn" iconName="instagram" collection="material">
+                                <IgrIconButton key="instaBtn" name="instagram" collection="material">
                                     <IgrRipple key="instaRipple"/>
                                 </IgrIconButton>
                             </div>

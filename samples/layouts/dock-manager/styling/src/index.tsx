@@ -62,7 +62,7 @@ export default class DockManagerStyling extends React.Component {
                     <div slot="accountFloatingHeader" className="floatingHeader">
                         <span>ACCOUNTS</span>
                         <button id="close" className="closeButton">
-                            <IgrIcon ref={this.iconRef} iconName="close" />
+                            <IgrIcon ref={this.iconRef} name="close" />
                         </button>
                     </div>
                     <div className="dockManagerFull" slot="content1">
@@ -104,7 +104,7 @@ export default class DockManagerStyling extends React.Component {
                     <div slot="todayTopMoversFloatingHeader" className="floatingHeader">
                         <span>TODAY&apos;S TOP MOVERS </span>
                         <button id="close" className="closeButton">
-                            <IgrIcon iconName="close" />
+                            <IgrIcon name="close" />
                         </button>
                     </div>
                     <div className="dockManagerFull" style={{overflowY: "scroll"}} slot="content2">
@@ -114,56 +114,56 @@ export default class DockManagerStyling extends React.Component {
                                     <span>TSLA</span>
                                 </IgrAvatar>
                                 <span>1017,08$</span>
-                                <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>12,54%</div>
+                                <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>12,54%</div>
                             </div>
                             <div className="top-move-stock-item">
                                 <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/amc.png" size="large" shape="circle">
                                     <span>AMC</span>
                                 </IgrAvatar>
                                 <span>39,33$</span>
-                                <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>12,72%</div>
+                                <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>12,72%</div>
                             </div>
                             <div className="top-move-stock-item">
                                 <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/canoo.png" size="large" shape="circle">
                                     <span>GOEV</span>
                                 </IgrAvatar>
                                 <span>12,33$</span>
-                                <div className="stock-item-movement-up"><IgrIcon iconName="arrow-up" collection="material"></IgrIcon>45,92%</div>
+                                <div className="stock-item-movement-up"><IgrIcon name="arrow-up" collection="material"></IgrIcon>45,92%</div>
                             </div>
                             <div className="top-move-stock-item">
                                 <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/lucid.png" size="large" shape="circle">
                                     <span>LCID</span>
                                 </IgrAvatar>
                                 <span>58,14$</span>
-                                <div className="stock-item-movement-up"><IgrIcon iconName="arrow-up" collection="material"></IgrIcon>29,42%</div>
+                                <div className="stock-item-movement-up"><IgrIcon name="arrow-up" collection="material"></IgrIcon>29,42%</div>
                             </div>
                             <div className="top-move-stock-item">
                                 <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/nio.png" size="large" shape="circle">
                                     <span>NIO</span>
                                 </IgrAvatar>
                                 <span>21,67$</span>
-                                <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>7,25%</div>
+                                <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>7,25%</div>
                             </div>
                             <div className="top-move-stock-item">
                                 <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/stoneco.png" size="large" shape="circle">
                                     <span>STNE</span>
                                 </IgrAvatar>
                                 <span>22,48$</span>
-                                <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>28,68%</div>
+                                <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>28,68%</div>
                             </div>
                             <div className="top-move-stock-item">
                                 <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/roku.png" size="large" shape="circle">
                                     <span>ROKU</span>
                                 </IgrAvatar>
                                 <span>249,35$</span>
-                                <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>9,5%</div>
+                                <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>9,5%</div>
                             </div>
                             <div className="top-move-stock-item">
                                 <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/maxar.png" size="large" shape="circle">
                                     <span>MAXR</span>
                                 </IgrAvatar>
                                 <span>33,14$</span>
-                                <div className="stock-item-movement-up"><IgrIcon iconName="arrow-up" collection="material"></IgrIcon>8,12%</div>
+                                <div className="stock-item-movement-up"><IgrIcon name="arrow-up" collection="material"></IgrIcon>8,12%</div>
                             </div>
                         </div>
                     </div>
@@ -174,7 +174,7 @@ export default class DockManagerStyling extends React.Component {
                     <div slot="transactionsFloatingHeader" className="floatingHeader">
                         <span>TRANSACTIONS</span>
                         <button id="close" className="closeButton">
-                            <IgrIcon iconName="close" />
+                            <IgrIcon name="close" />
                         </button>
                     </div>
                     <div className="dockManagerFull" slot="content3" >
@@ -287,7 +287,7 @@ export default class DockManagerStyling extends React.Component {
                     <div slot="popularStocksFloatingHeader" className="floatingHeader">
                         <span>POPULAR STOCKS</span>
                         <button id="close" className="closeButton">
-                            <IgrIcon iconName="close" />
+                            <IgrIcon name="close" />
                         </button>
                     </div>
                     <div className="dockManagerFull" slot="content4">
@@ -302,7 +302,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">TSLA - Electric Vehicles</span>
                                 <div slot="end" className="stock-price">
                                     <span>1017,08 $</span>
-                                    <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>12,54%</div>
+                                    <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>12,54%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -315,7 +315,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">APPL - iPhones and Macs</span>
                                 <div slot="end" className="stock-price">
                                     <span>150,47 $</span>
-                                    <div className="stock-item-movement-up"><IgrIcon iconName="arrow-up" collection="material"></IgrIcon>0,2%</div>
+                                    <div className="stock-item-movement-up"><IgrIcon name="arrow-up" collection="material"></IgrIcon>0,2%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -328,7 +328,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">NIO - Electric Vehicles</span>
                                 <div slot="end" className="stock-price">
                                     <span>40,07 $</span>
-                                    <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>7,25%</div>
+                                    <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>7,25%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -341,7 +341,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">AMZN - E-Commerce</span>
                                 <div slot="end" className="stock-price">
                                     <span>3582,32 $</span>
-                                    <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>2,68%</div>
+                                    <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>2,68%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -354,7 +354,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">GME - Video Games Retail</span>
                                 <div slot="end" className="stock-price">
                                     <span>205,60 $</span>
-                                    <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>5,96%</div>
+                                    <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>5,96%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -367,7 +367,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">AMC - Entertainment</span>
                                 <div slot="end" className="stock-price">
                                     <span>39,33 $</span>
-                                    <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>12,72%</div>
+                                    <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>12,72%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -380,7 +380,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">MSFT - Tech Giant</span>
                                 <div slot="end" className="stock-price">
                                     <span>335,66 $</span>
-                                    <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>0,39%</div>
+                                    <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>0,39%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -393,7 +393,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">SPCE - Space Tourism</span>
                                 <div slot="end" className="stock-price">
                                     <span>18,90 $</span>
-                                    <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>1,66%</div>
+                                    <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>1,66%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -406,7 +406,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">PFE - Pharmaceuticals</span>
                                 <div slot="end" className="stock-price">
                                     <span>49,43 $</span>
-                                    <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>0,60%</div>
+                                    <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>0,60%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -419,7 +419,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">GOOGL - Tech Giant</span>
                                 <div slot="end" className="stock-price">
                                     <span>2972,88 $</span>
-                                    <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>0,02%</div>
+                                    <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>0,02%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -432,7 +432,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">FB - Tech Giant</span>
                                 <div slot="end" className="stock-price">
                                     <span>347,86 $</span>
-                                    <div className="stock-item-movement-up"><IgrIcon iconName="arrow-up" collection="material"></IgrIcon>2,04%</div>
+                                    <div className="stock-item-movement-up"><IgrIcon name="arrow-up" collection="material"></IgrIcon>2,04%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -445,7 +445,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">PLTR - Data Analytics</span>
                                 <div slot="end" className="stock-price">
                                     <span>23,30 $</span>
-                                    <div className="stock-item-movement-up"><IgrIcon iconName="arrow-up" collection="material"></IgrIcon>2,06%</div>
+                                    <div className="stock-item-movement-up"><IgrIcon name="arrow-up" collection="material"></IgrIcon>2,06%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -458,7 +458,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">AAL - Airline Service</span>
                                 <div slot="end" className="stock-price">
                                     <span>20,45 $</span>
-                                    <div className="stock-item-movement-up"><IgrIcon iconName="arrow-up" collection="material"></IgrIcon>0.79%</div>
+                                    <div className="stock-item-movement-up"><IgrIcon name="arrow-up" collection="material"></IgrIcon>0.79%</div>
                                 </div>
                             </IgrListItem>
                             <IgrListItem>
@@ -471,7 +471,7 @@ export default class DockManagerStyling extends React.Component {
                                 <span slot="subtitle">NFLX - TV Streaming</span>
                                 <div slot="end" className="stock-price">
                                     <span>679,39 $</span>
-                                    <div className="stock-item-movement-down"><IgrIcon iconName="arrow-down" collection="material"></IgrIcon>0,47%</div>
+                                    <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>0,47%</div>
                                 </div>
                             </IgrListItem>
                         </IgrList>
@@ -484,7 +484,7 @@ export default class DockManagerStyling extends React.Component {
                     <div slot="cardsFloatingHeader" className="floatingHeader">
                         <span>TODAY&apos;S TOP MOVERS</span>
                         <button id="close" className="closeButton">
-                            <IgrIcon iconName="close" />
+                            <IgrIcon name="close" />
                         </button>
                     </div>
                     <div className="dockManagerFull" slot="content5">

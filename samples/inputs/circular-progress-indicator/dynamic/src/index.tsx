@@ -36,9 +36,9 @@ export default class DynamicCircularProgress extends React.Component<any, any> {
                     </IgrCircularGradient>
                 </IgrCircularProgress>
                 <div style={{display: "flex", justifyContent: "space evenly", marginTop: "20px"}} onClick={this.onIconClick}>
-                    <IgrIconButton ref={this.removeIconRef} className="removeIcon" iconName="remove" collection="material">
+                    <IgrIconButton ref={this.removeIconRef} className="removeIcon" name="remove" collection="material">
                     </IgrIconButton>
-                    <IgrIconButton ref={this.addIconRef} className="addIcon" iconName="add" collection="material">
+                    <IgrIconButton ref={this.addIconRef} className="addIcon" name="add" collection="material">
                     </IgrIconButton>
                 </div>
             </div>

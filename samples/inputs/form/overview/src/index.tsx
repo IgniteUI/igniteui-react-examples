@@ -21,12 +21,12 @@ export default class FormOverview extends React.Component<any, any> {
                 <IgrForm className="form">
                     <div>Subscribe</div>
 
-                    <IgrInput required="true" name="name" displayType="text" label="Your Name"></IgrInput>
-                    <IgrInput required="true" name="email" displayType="email" label="Your E-mail"></IgrInput>
+                    <IgrInput required="true" name="name" type="text" label="Your Name"></IgrInput>
+                    <IgrInput required="true" name="email" type="email" label="Your E-mail"></IgrInput>
                     <IgrCheckbox name="agreement"><span>I accept the license agreement</span></IgrCheckbox>
                     <br />
-                    <IgrButton displayType="reset"><span>Reset</span></IgrButton>
-                    <IgrButton displayType="submit"><span>Submit</span></IgrButton>
+                    <IgrButton type="reset"><span>Reset</span></IgrButton>
+                    <IgrButton type="submit"><span>Submit</span></IgrButton>
                 </IgrForm>
             </div>
         );

@@ -1,0 +1,32 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+.cellAlignStyle {
+    text-align: right;
+    float:right;
+}
+.cellAlignStyle > span {
+    float:right;
+}
+.up {
+    color: green;
+}
+.down {
+    color: red;
+}
+.grid__wrapper {
+  padding: 16px;
+}
+.currency-badge-container {
+    width: 80px;
+    float: right;
+}
+.badge-left {
+    float: left;
+}
+
+#grid {
+    --ig-grid-ghost-header-text-color: #f4d45c;
+    --ig-grid-ghost-header-background: #ad9d9d;
+    --ig-grid-ghost-header-icon-color: #f4d45c;
+}
+
