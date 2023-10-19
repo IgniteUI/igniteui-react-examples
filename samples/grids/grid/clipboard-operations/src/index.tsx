@@ -2,15 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridBaseDirective, IgrGridToolbar, IgrGridModule } from 'igniteui-react-grids';
+import { IgrButton, IgrInput, IgrSwitch, IgrComponentBoolValueChangedEventArgs, IgrComponentValueChangedEventArgs } from 'igniteui-react';
+import { IgrGridBaseDirective, IgrGridModule, IgrColumnComponentEventArgs } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { NwindData } from './NwindData';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
-import { IgrButton, IgrInput, IgrSwitch } from 'igniteui-react';
-import { IgrComponentBoolValueChangedEventArgs } from '@infragistics/igniteui-react';
-import { IgrColumnComponentEventArgs } from '@infragistics/igniteui-react-grids';
 
 const mods: any[] = [
     IgrGridModule
@@ -19,12 +17,16 @@ mods.forEach((m) => m.register());
 
 export default function App() {
     const data = new NwindData();
-    const gridRef = useRef(null);
+    const gridRef = useRef<IgrGrid>(null);
 
     const onColumnInit = (grid: IgrGridBaseDirective, args: IgrColumnComponentEventArgs) => {
         let column = args.detail;
         column.formatter = (val: any) => "** " + val + " **"
         column.header = "🎉" + column.field;
+    }
+
+    const changeCopySeparator = (inputComponent: IgrInput, e: IgrComponentValueChangedEventArgs): void => {
+        gridRef.current.clipboardOptions.separator = e.detail;
     }
 
     const changeGridCopyBehavior = (switchComponent: any, result: IgrComponentBoolValueChangedEventArgs): void => {
@@ -47,7 +49,7 @@ export default function App() {
         <>
             <div className="container sample">      
                 <div className="options horizontal" style={{gap: "1rem", alignItems: "center", margin: "1rem"}}>
-                    <IgrInput placeholder='The default value is a single tabulation' style={{flex: "1 0 auto"}}>
+                    <IgrInput placeholder='The default value is a single tabulation' style={{flex: "1 0 auto"}} change={changeCopySeparator}>
                         <span key="prefix" slot="prefix">Change copy separator:</span>
                     </IgrInput>
                     <IgrSwitch labelPosition="before" checked change={changeGridCopyBehavior}>
