@@ -38,7 +38,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid">
                     <IgrColumnGroup
-                        header="Customer Information">
+                        header="Customer Information"
+                        collapsible="true">
                         <IgrColumn
                             field="CustomerName"
                             header="Customer Name"
@@ -60,7 +61,8 @@ export default class Sample extends React.Component<any, any> {
                             visibleWhenCollapsed="false">
                         </IgrColumn>
                         <IgrColumnGroup
-                            header="Customer Address">
+                            header="Customer Address"
+                            collapsible="true">
                             <IgrColumn
                                 field="CustomerAddress"
                                 header="Full Address"
@@ -95,7 +97,8 @@ export default class Sample extends React.Component<any, any> {
                         header="Order Date">
                     </IgrColumn>
                     <IgrColumnGroup
-                        header="Product Details">
+                        header="Product Details"
+                        collapsible="true">
                         <IgrColumn
                             field="ProductName"
                             header="Name"
