@@ -41,6 +41,7 @@ export class SamplesBrowser extends React.Component<any, any>
     public navRoutes: any[] = [];
     public navLookup: Map<string, SampleInfo> = new Map();
     public igrVersion: string = "";
+    public sbContent: any;
 
     public styles: any = {
         toolbarIcon: { display: "inline-block", fontSize: "1rem",},
@@ -55,9 +56,13 @@ export class SamplesBrowser extends React.Component<any, any>
         iconStyle: {fontSize: "1rem", verticalAlign: "middle" },
     }
 
+    private sbContentRef(r: any) {
+        this.sbContent = r;
+    }
+
     constructor(props: any) {
         super(props);
-
+        this.sbContentRef = this.sbContentRef.bind(this);
         // clearing browser cache
         SamplesCache.clear();
 
@@ -191,13 +196,13 @@ export class SamplesBrowser extends React.Component<any, any>
             //             // window.localStorage.setItem("sb-reloads", "true");
             //         }
                     return (
-                        <div className="sbRoot" >
+                        <div className="sbRoot">
                             <div className="sbSidebar" style={sbSidebarStyle}>
                                 {/*  <Link to={`/samples`}>Samples home</Link> */}
                                 {this.navLinks}
                             </div>
 
-                            <div className="sbContent" style={sbContentStyle}>
+                            <div className="sbContent" style={sbContentStyle} ref={this.sbContentRef}>
                                 <div className="sbToolbar" style={sbToolbarStyle}>
 
                                     <div className="sbToolbarMenu" onClick={this.onSidebarVisibleClick}>&#x2630;</div>
@@ -245,6 +250,11 @@ export class SamplesBrowser extends React.Component<any, any>
 
     public componentDidMount() {
         this.updateToolbar();
+        this.sbContent.addEventListener('wheel', this.preventDocumentScroll, { passive: false});
+    }
+
+    public componentWillUnmount() {
+        this.sbContent.removeEventListener('wheel', this.preventDocumentScroll);
     }
 
     public componentDidUpdate(prevProps: any) {
@@ -273,6 +283,12 @@ export class SamplesBrowser extends React.Component<any, any>
             SidebarVisible: !this.state.SidebarVisible,
         });
     };
+    
+    private preventDocumentScroll(event:any) {
+        if (event.target.outerHTML.toLowerCase().includes('igx')) {
+            event.preventDefault();
+        }
+    }
 }
 
 export default withRouter(SamplesBrowser);
