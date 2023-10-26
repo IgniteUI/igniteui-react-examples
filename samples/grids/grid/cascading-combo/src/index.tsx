@@ -19,9 +19,9 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid1: IgrGrid
-    private grid1Ref(r: IgrGrid) {
-        this.grid1 = r;
+    private grid: IgrGrid
+    private gridRef(r: IgrGrid) {
+        this.grid = r;
         this.setState({});
     }
     private column1: IgrColumn
@@ -31,7 +31,7 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.grid1Ref = this.grid1Ref.bind(this);
+        this.gridRef = this.gridRef.bind(this);
         this.webGridWithComboRendered = this.webGridWithComboRendered.bind(this);
     }
 
@@ -44,8 +44,8 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     data={this.worldCitiesAbove500K}
                     primaryKey="ID"
-                    rendered={this.webGridWithComboRendered}
-                    ref={this.grid1Ref}>
+                    ref={this.gridRef}
+                    rendered={this.webGridWithComboRendered}>
                     <IgrColumn
                         field="ID"
                         header="ID"
