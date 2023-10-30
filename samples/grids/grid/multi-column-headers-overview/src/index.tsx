@@ -173,7 +173,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridPinFirstGroupToggle(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
-        const grid: IgrGrid = this.grid
+        const grid: IgrGrid = this.grid;
         const firstColumnGroup = grid.getColumnByName("CompanyName").parent;
         firstColumnGroup.pinned = !firstColumnGroup.pinned;
         grid.markForCheck();

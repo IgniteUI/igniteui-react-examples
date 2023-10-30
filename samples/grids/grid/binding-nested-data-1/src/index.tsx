@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
+import { IgrInputModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
-import { IgrExpansionPanel } from 'igniteui-react';
+import { IgrExpansionPanel, IgrInput } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrGridModule
+    IgrGridModule,
+    IgrInputModule
 ];
 mods.forEach((m) => m.register());
 
@@ -59,7 +61,7 @@ export default class Sample extends React.Component<any, any> {
                         field="Employees"
                         header="Employees"
                         bodyTemplate={this.webGridNestedDataCellTemplate}
-                        width="30%"
+                        width="20%"
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
@@ -110,20 +112,14 @@ export default class Sample extends React.Component<any, any> {
                 {value.Name}
                 </div>
                 <div className="description">
-                    <div style={{display: "flex", alignItems: "center"}}>
-                        <label htmlFor="title" style={{width: "2rem", margin: "0rem"}}>Title</label>
-                        <input id='Title' type="text" name="title" value={value.Title} onChange={(e: any) => {
-                             props.dataContext.cell.value[0][e.target.id] = e.target.value;
-                             grid.markForCheck();
-                            }} style={{textOverflow: "ellipsis"}} />
-                    </div>
-                    <div style={{display: "flex", alignItems: "center"}}>
-                        <label htmlFor="age" style={{width: "2rem", margin: "0rem"}}>Age</label>
-                        <input id='Age' type="number" name="title" value={value.Age} onChange={(e: any) => {
-                                props.dataContext.cell.value[0][e.target.id] = e.target.value;
-                                grid.markForCheck();
-                            }} style={{textOverflow: "ellipsis"}} />
-                    </div>
+                    <IgrInput type="text" label="Title" name="title" value={value.Title} change={(s:any, e: any) => {
+                            props.dataContext.cell.value[0][s.label] = e.detail;
+                            grid.markForCheck();
+                        }} style={{textOverflow: "ellipsis"}} />
+                    <IgrInput type="number" label="Age" name="title" value={value.Age} inputOcurred={(s:any, e: any) => {
+                            props.dataContext.cell.value[0][s.label] = e.detail;
+                            grid.markForCheck();
+                        }} style={{textOverflow: "ellipsis"}} />
                 </div>
             </IgrExpansionPanel>
         </>);
