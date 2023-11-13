@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
+import { IgrInputModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
+import { IgrInput } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrGridModule
+    IgrGridModule,
+    IgrInputModule
 ];
 mods.forEach((m) => m.register());
 
@@ -106,6 +109,7 @@ export default class Sample extends React.Component<any, any> {
         <>
             <div className="contact-container">
                 <span><strong>Name:</strong> {cell.row.data.ContactName}</span>
+                <br />
                 <span><strong>Title:</strong> {cell.row.data.ContactTitle}</span>
                 <br />
                 <span><strong>Company:</strong> {cell.row.data.CompanyName}</span>
@@ -124,32 +128,25 @@ export default class Sample extends React.Component<any, any> {
 
         return (
             <>
-                <div className="contact-container--edit" style={{display: "inline-grid"}}>
-                    <div>
-                        <strong>Name:</strong>
-                        <input id='ContactName' onChange={(e: any) =>
-                            {
-                                cell.row.data.ContactName = e.target.value;
-                                this.forceUpdate();
-                            }
-                            } value={cell.row.data.ContactName}></input>
-                    </div>
-                    <div>
-                        <strong>Title:</strong>
-                        <input id='ContactTitle' onChange={(e: any) =>
-                            {
-                                cell.row.data.ContactTitle = e.target.value;
-                                this.forceUpdate();
-                            }} value={cell.row.data.ContactTitle}></input>
-                    </div>
-                    <div>
-                        <strong>Company:</strong>
-                        <input id='CompanyName' onChange={(e: any) =>
-                            {
-                                cell.row.data.CompanyName = e.target.value;
-                                this.forceUpdate();
-                            }} value={cell.row.data.CompanyName}></input>
-                    </div>
+                <div className="contact-container--edit" style={{padding: "1rem"}}>
+                    <IgrInput label='Name' inputOcurred={(input: any, e: any) =>
+                        {
+                            cell.row.data.ContactName = e.detail;
+                            this.forceUpdate();
+                        }
+                        } value={cell.row.data.ContactName}></IgrInput>
+                    <IgrInput label='Title' inputOcurred={(input: any, e: any) =>
+                        {
+                            cell.row.data.ContactTitle = e.detail;
+                            this.forceUpdate();
+                        }
+                        } value={cell.row.data.ContactTitle}></IgrInput>
+                    <IgrInput label='Company' inputOcurred={(input: any, e: any) =>
+                        {
+                            cell.row.data.CompanyName = e.detail;
+                            this.forceUpdate();
+                        }
+                        } value={cell.row.data.CompanyName}></IgrInput>
                 </div>
             </>
         );
@@ -190,38 +187,31 @@ export default class Sample extends React.Component<any, any> {
 
         return (
             <>
-                <div className="address-container--edit" style={{display: "inline-grid"}}>
-                    <div>
-                        <span><strong>Country:</strong></span>
-                        <input id='Country' onChange={(e: any) =>
-                            {
-                                cell.row.data.Country = e.target.value;
-                                grid.markForCheck();
-                            }} value={cell.row.data.Country}></input>
-                        <br/>
-                        <span><strong>City:</strong></span>
-                        <input id='City' onChange={(e: any) =>
-                            {
-                                cell.row.data.City = e.target.value;
-                                grid.markForCheck();
-                            }} value={cell.row.data.City}></input>
-                    </div>
-                    <div>
-                        <span><strong>Postal Code:</strong></span>
-                        <input id='PostalCode' onChange={(e: any) =>
-                            {
-                                cell.row.data.PostalCode = e.target.value;
-                                grid.markForCheck();
-                            }} value={cell.row.data.PostalCode}></input>
-                        <br/>
-                        <span><strong>Selected:</strong></span>
-                        <input id='Phone' onChange={(e: any) =>
-                            {
-                                cell.row.data.Phone = e.target.value;
-                                grid.markForCheck();
-                            }} value={cell.row.data.Phone}></input>
-                    </div>
-                    <br/>
+                <div className="contact-container--edit" style={{padding: "1rem"}}>
+                    <IgrInput label='Country' inputOcurred={(input: any, e: any) =>
+                        {
+                            cell.row.data.Country = e.detail;
+                            this.forceUpdate();
+                        }
+                        } value={cell.row.data.Country}></IgrInput>
+                    <IgrInput label='City' inputOcurred={(input: any, e: any) =>
+                        {
+                            cell.row.data.City = e.detail;
+                            this.forceUpdate();
+                        }
+                        } value={cell.row.data.City}></IgrInput>
+                    <IgrInput label='Postal Code' inputOcurred={(input: any, e: any) =>
+                        {
+                            cell.row.data.PostalCode = e.detail;
+                            this.forceUpdate();
+                        }
+                        } value={cell.row.data.PostalCode}></IgrInput>
+                    <IgrInput label='Phone' inputOcurred={(input: any, e: any) =>
+                        {
+                            cell.row.data.Phone = e.detail;
+                            this.forceUpdate();
+                        }
+                        } value={cell.row.data.Phone}></IgrInput>
                 </div>
             </>
         );
