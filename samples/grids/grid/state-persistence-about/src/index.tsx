@@ -15,7 +15,7 @@ export default function App() {
             <div className="container sample">
                 <div style={{ textAlign: "center", width: "900px"}}>
                     <br />
-                    <span>Usually navigating to the previous page, components will reinitialize as per their initial configuration, therefore the IgrGrid will lose its state.</span>
+                    <span>By default navigating to the previous page, components will reinitialize as per their initial configuration, therefore the IgrGrid will lose its state.</span>
                     <br />
                     <span>What our App Component does is reading the state from the window.localStorage object and applying the corresponding state in the `useEffect`` hook.</span><br />
                     <IgrButton clicked={onBackClicked} variant={ButtonVariant.Contained}><span>Go Back</span></IgrButton>
