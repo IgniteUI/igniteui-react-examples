@@ -15,9 +15,9 @@ export default function App() {
             <div className="container sample">
                 <div style={{ textAlign: "center", width: "900px"}}>
                     <br />
-                    <span>Navigating to the previous page, components will reinitialize as per their initial configuration, therefore the igxGrid will lose its state.</span>
+                    <span>Usually navigating to the previous page, components will reinitialize as per their initial configuration, therefore the IgrGrid will lose its state.</span>
                     <br />
-                    <span>What our GridSaveStateComponent does is reading the state from the window.localStorage object and applying the corresponding state in the AfterViewInit lifecycle.</span><br />
+                    <span>What our App Component does is reading the state from the window.localStorage object and applying the corresponding state in the `useEffect`` hook.</span><br />
                     <IgrButton clicked={onBackClicked} variant={ButtonVariant.Contained}><span>Go Back</span></IgrButton>
                 </div>
             </div>

@@ -77,21 +77,23 @@ export default function App() {
         registerIconFromText("forward", forwardIcon, "material");
         registerIconFromText("delete", deleteIcon, "material");
         registerIconFromText("refresh", refreshIcon, "material");
+        restoreGridState();
+        
+        window.addEventListener("beforeunload", saveGridState);
+        return () => {
+            window.removeEventListener("beforeunload", saveGridState);
+        };
     });
 
     function saveGridState() {
-        const state = gridState.getState(true, null);
-        if (typeof state === 'string') {
-            window.localStorage.setItem(stateKey, state);
-        } else {
-            window.localStorage.setItem(stateKey, JSON.stringify(state));
-        }
+        const state = gridState.getStateAsString([]);
+        window.localStorage.setItem(stateKey, state);
     }
 
     function restoreGridState() {
         const state = window.localStorage.getItem(stateKey);
         if (state) {
-            gridState.applyState(JSON.parse(state), null);
+            gridState.applyStateFromString(state, []);
         }
     }
 
