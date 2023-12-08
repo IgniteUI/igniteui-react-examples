@@ -110,7 +110,6 @@ export default class Sample extends React.Component<any, any> {
                 // all selected from header, de-select instead
                 event.newSelection = [];
         }
-        grid.markForCheck();
     }
 
 }
