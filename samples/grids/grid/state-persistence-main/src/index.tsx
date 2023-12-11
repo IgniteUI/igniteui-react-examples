@@ -146,7 +146,7 @@ export default function App() {
     }
 
     return (
-        <div className="sampleContainer">
+        <div className="vertical sampleContainer">
             <div className="container horizontal">
                 <IgrButton clicked={restoreGridState}>
                     <IgrIcon name="restore" collection="material"></IgrIcon>
