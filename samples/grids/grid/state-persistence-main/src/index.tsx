@@ -14,7 +14,8 @@ import {
     IgrGridToolbarPinning,
     IgrPaginator,
     IgrGridState,
-    IgrGridStateOptions
+    IgrGridStateOptions,
+    GridSelectionMode
 } from 'igniteui-react-grids';
 import { IgrButton, IgrCheckbox, IgrCheckboxModule, IgrComponentBoolValueChangedEventArgs, IgrIcon, IgrIconModule } from 'igniteui-react';
 import { registerIconFromText } from 'igniteui-webcomponents';
@@ -194,8 +195,8 @@ export default function App() {
                 <IgrCheckbox name="sorting" change={onChange} checked={options.sorting}><span>Sorting</span></IgrCheckbox>
                 <IgrCheckbox name="groupBy" change={onChange} checked={options.groupBy}><span>Group By</span></IgrCheckbox>
             </div>
-            <IgrGrid ref={gridRef} data={gridData} width="95%" height="500px" autoGenerate="false" moving="true" allowFiltering="true"
-                allowAdvancedFiltering="true" filterMode={FilterMode.ExcelStyleFilter}>
+            <IgrGrid ref={gridRef} data={gridData} primaryKey="ID" width="95%" height="500px" autoGenerate="false" moving="true" allowFiltering="true"
+                allowAdvancedFiltering="true" filterMode={FilterMode.ExcelStyleFilter} columnSelection={GridSelectionMode.Multiple} rowSelection={GridSelectionMode.Multiple}>
                 <IgrGridState ref={gridStateRef}></IgrGridState>
                 <IgrGridToolbar>
                     <IgrGridToolbarActions>
