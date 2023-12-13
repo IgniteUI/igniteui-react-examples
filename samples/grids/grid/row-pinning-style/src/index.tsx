@@ -134,7 +134,6 @@ export default class Sample extends React.Component<any, any> {
 
     public webGridPinRowOnRendered(args: any): void {
         var grid = this.grid as any;
-        grid.data = [...grid.data];
         grid.pinRow("ALFKI");
         grid.pinRow("AROUT");
     }
