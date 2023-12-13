@@ -48,12 +48,12 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Fun-Tasty Co.`,
-                    LastInventory: `06/12/2018`
+                    LastInventory: `2018-06-12`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Farmer Market`,
-                    LastInventory: `04/04/2018`
+                    LastInventory: `2018-04-04`
                 })]
 
         }));
@@ -75,7 +75,7 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Super Market`,
-                    LastInventory: `09/09/2018`
+                    LastInventory: `2018-09-09`
                 })]
 
         }));
@@ -97,17 +97,17 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Farmer Market`,
-                    LastInventory: `04/04/2018`
+                    LastInventory: `2018-04-04`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Street Market`,
-                    LastInventory: `12/12/2018`
+                    LastInventory: `2018-12-12`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `24/7 Market`,
-                    LastInventory: `11/11/2018`
+                    LastInventory: `2018-11-11`
                 })]
 
         }));
@@ -129,17 +129,17 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Fun-Tasty Co.`,
-                    LastInventory: `06/12/2018`
+                    LastInventory: `2018-06-12`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Farmer Market`,
-                    LastInventory: `04/04/2018`
+                    LastInventory: `2018-04-04`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Street Market`,
-                    LastInventory: `12/12/2018`
+                    LastInventory: `2018-12-12`
                 })]
 
         }));
@@ -161,7 +161,7 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Super Market`,
-                    LastInventory: `09/09/2018`
+                    LastInventory: `2018-09-09`
                 })]
 
         }));
@@ -183,7 +183,7 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Super Market`,
-                    LastInventory: `09/09/2018`
+                    LastInventory: `2018-09-09`
                 })]
 
         }));
@@ -205,17 +205,17 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Fun-Tasty Co.`,
-                    LastInventory: `06/12/2018`
+                    LastInventory: `2018-06-12`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Farmer Market`,
-                    LastInventory: `04/04/2018`
+                    LastInventory: `2018-04-04`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Street Market`,
-                    LastInventory: `12/12/2018`
+                    LastInventory: `2018-12-12`
                 })]
 
         }));
@@ -237,12 +237,12 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Fun-Tasty Co.`,
-                    LastInventory: `06/12/2018`
+                    LastInventory: `2018-06-12`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Farmer Market`,
-                    LastInventory: `04/04/2018`
+                    LastInventory: `2018-04-04`
                 })]
 
         }));
@@ -264,7 +264,7 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Farmer Market`,
-                    LastInventory: `04/04/2018`
+                    LastInventory: `2018-04-04`
                 })]
 
         }));
@@ -286,7 +286,7 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Wall Market`,
-                    LastInventory: `12/06/2018`
+                    LastInventory: `2018-12-06`
                 })]
 
         }));
@@ -308,12 +308,12 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Fun-Tasty Co.`,
-                    LastInventory: `06/12/2018`
+                    LastInventory: `2018-06-12`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Farmer Market`,
-                    LastInventory: `04/04/2018`
+                    LastInventory: `2018-04-04`
                 })]
 
         }));
@@ -335,7 +335,7 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Farmer Market`,
-                    LastInventory: `04/04/2018`
+                    LastInventory: `2018-04-04`
                 })]
 
         }));
@@ -357,7 +357,7 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Super Market`,
-                    LastInventory: `09/09/2018`
+                    LastInventory: `2018-09-09`
                 })]
 
         }));
@@ -379,12 +379,12 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Farmer Market`,
-                    LastInventory: `04/04/2018`
+                    LastInventory: `2018-04-04`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Street Market`,
-                    LastInventory: `12/12/2018`
+                    LastInventory: `2018-12-12`
                 })]
 
         }));
@@ -406,12 +406,12 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Local Market`,
-                    LastInventory: `07/03/2018`
+                    LastInventory: `2018-07-03`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Wall Market`,
-                    LastInventory: `12/06/2018`
+                    LastInventory: `2018-12-06`
                 })]
 
         }));
@@ -433,17 +433,17 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Farmer Market`,
-                    LastInventory: `04/04/2018`
+                    LastInventory: `2018-04-04`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Street Market`,
-                    LastInventory: `12/12/2018`
+                    LastInventory: `2018-12-12`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `24/7 Market`,
-                    LastInventory: `11/11/2018`
+                    LastInventory: `2018-11-11`
                 })]
 
         }));
@@ -465,7 +465,7 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Farmer Market`,
-                    LastInventory: `04/04/2018`
+                    LastInventory: `2018-04-04`
                 })]
 
         }));
@@ -487,12 +487,12 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `24/7 Market`,
-                    LastInventory: `11/11/2018`
+                    LastInventory: `2018-11-11`
                 }),
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Super Market`,
-                    LastInventory: `09/09/2018`
+                    LastInventory: `2018-09-09`
                 })]
 
         }));
@@ -514,7 +514,7 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Local Market`,
-                    LastInventory: `07/03/2018`
+                    LastInventory: `2018-07-03`
                 })]
 
         }));
@@ -536,7 +536,7 @@ export class NwindData extends Array<NwindDataItem> {
                 new NwindDataItem_LocationsItem(
                 {
                     Shop: `Super Market`,
-                    LastInventory: `09/09/2018`
+                    LastInventory: `2018-09-09`
                 })]
 
         }));
