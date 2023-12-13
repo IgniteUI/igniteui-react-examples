@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 
 import {
@@ -60,16 +60,9 @@ export default function App() {
     function gridRef(ref: IgrGrid) {
         grid = ref;
     }
-    let paginator: IgrPaginator;
-    function paginatorRef(ref: IgrPaginator) {
-        paginator = ref;
-    }
-
+    let paginatorRef = useRef<IgrPaginator>(null);
     const stateKey = "grid-state";
-    let gridState: IgrGridState;
-    function gridStateRef(ref: IgrGridState) {
-        gridState = ref;
-    }
+    let gridStateRef = useRef<IgrGridState>(null);
 
     useEffect(() => {
         registerIconFromText("restore", restoreIcon, "material");
@@ -87,21 +80,21 @@ export default function App() {
     });
 
     function saveGridState() {
-        const state = gridState.getStateAsString([]);
+        const state = gridStateRef.current.getStateAsString([]);
         window.localStorage.setItem(stateKey, state);
     }
 
     function restoreGridState() {
         const state = window.localStorage.getItem(stateKey);
         if (state) {
-            gridState.applyStateFromString(state, []);
+            gridStateRef.current.applyStateFromString(state, []);
         }
     }
 
     function resetGridState() {
-        paginator.page = 0;
-        paginator.perPage = 15;
-        paginator.totalRecords = gridData.length;
+        paginatorRef.current.page = 0;
+        paginatorRef.current.perPage = 15;
+        paginatorRef.current.totalRecords = gridData.length;
         grid.clearFilter(null);
         grid.sortingExpressions = [];
         grid.groupingExpressions = [];
@@ -126,10 +119,10 @@ export default function App() {
                 columnSelection: e.detail
             });
             for (const key of Object.keys(options)) {
-                gridState.options[key] = e.detail;
+                gridStateRef.current.options[key] = e.detail;
             }
         } else {
-            gridState.options[s.name] = e.detail;
+            gridStateRef.current.options[s.name] = e.detail;
         }
     }
 
