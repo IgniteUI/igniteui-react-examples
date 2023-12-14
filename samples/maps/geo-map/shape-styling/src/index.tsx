@@ -129,7 +129,6 @@ export default class MapShapeStyling extends React.Component<any, any> {
         if (!geoMap) { return; }
 
         this.geoMap = geoMap;
-        this.geoMap.backgroundContent = undefined;
 
         // loading a shapefile with geographic polygons
         const sds = new IgrShapeDataSource();

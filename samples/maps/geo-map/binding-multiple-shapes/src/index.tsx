@@ -75,7 +75,6 @@ export default class MapBindingMultipleShapes extends React.Component<any, any> 
         if (!geoMap) { return; }
 
         this.geoMap = geoMap;
-        this.geoMap.backgroundContent = undefined;
         this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
 
         // console.log("series.count " + this.geoMap.series.count);
