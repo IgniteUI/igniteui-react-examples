@@ -335,25 +335,26 @@ function updateReadme(cb) {
     cb();
 } exports.updateReadme = updateReadme;
 
+// TODO modify and move this logic to updateIG function
 // updating package.json files for all sample using a template
-function updatePackages(cb) {
-    // getting content of package.json file from templates
-    let templatePackageFile = fs.readFileSync("./templates/sample/package.json");
-    let templatePackageJson = JSON.parse(templatePackageFile.toString());
+// function updatePackages(cb) {
+//     // getting content of package.json file from templates
+//     let templatePackageFile = fs.readFileSync("./templates/sample/package.json");
+//     let templatePackageJson = JSON.parse(templatePackageFile.toString());
 
-    for (const sample of samplesList) {
-        let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
-        let oldPackageFile = fs.readFileSync(outputPath).toString();
+//     for (const sample of samplesList) {
+//         let outputPath = sampleOutputFolder + sample.SampleFolderPath + "/package.json";
+//         let oldPackageFile = fs.readFileSync(outputPath).toString();
 
-        makeDirectoryFor(outputPath);
-        let newPackageFile = Transformer.getPackage(sample, templatePackageJson);
-        if (newPackageFile !== oldPackageFile) {
-            // log('updated: ' + outputPath);
-            fs.writeFileSync(outputPath, newPackageFile);
-        }
-    }
-    cb();
-} exports.updatePackages = updatePackages;
+//         makeDirectoryFor(outputPath);
+//         let newPackageFile = Transformer.getPackage(sample, templatePackageJson);
+//         if (newPackageFile !== oldPackageFile) {
+//             // log('updated: ' + outputPath);
+//             fs.writeFileSync(outputPath, newPackageFile);
+//         }
+//     }
+//     cb();
+// } exports.updatePackages = updatePackages;
 
 // updating browser's package.json file using template's package.json
 function copyPackageJson(cb) {
@@ -803,30 +804,38 @@ function sortByKeys(dependencies)
     }
     return sorted;
 }
+
+// cleanup individual samples if they have node_modules installed
+function cleanupSamples(cb) {
+    console.log("removing ./samples/**/node_modules/**/*.* files")
+    del.sync("./samples/**/node_modules/**/*.*", {force:true});
+    del.sync("./samples/**/node_modules/**", {force:true});
+    del.sync("./samples/**/node_modules", {force:true});
+    cb();
+}
+exports.cleanupSamples = cleanupSamples;
+
 function updateIG(cb) {
 
     // cleanup packages to speedup this gulp script
-    // del.sync("./samples/**/node_modules/**/*.*", {force:true});
-    // del.sync("./samples/**/node_modules/**", {force:true});
-    // del.sync("./samples/**/node_modules", {force:true});
 
     // NOTE: change this array with new version of packages and optionally use "@infragistics/" proget prefix, e.g.
     // { name: "@infragistics/igniteui-react-charts", version: "22.1.62" }, // proget
     // { name:               "igniteui-react-charts", version: "16.16.2" }, // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-react-core"                     , version: "18.3.0-beta.10" },
-        { name: "igniteui-react-charts"                   , version: "18.3.0-beta.10" },
-        { name: "igniteui-react-excel"                    , version: "18.3.0-beta.10" },
-        { name: "igniteui-react-gauges"                   , version: "18.3.0-beta.10" },
-        { name: "igniteui-react-grids"                    , version: "18.3.0-beta.10" },
-        { name: "igniteui-react-inputs"                   , version: "18.3.0-beta.10" },
-        { name: "igniteui-react-layouts"                  , version: "18.3.0-beta.10" },
-        { name: "igniteui-react-maps"                     , version: "18.3.0-beta.10" },
-        { name: "igniteui-react-spreadsheet-chart-adapter", version: "18.3.0-beta.10" },
-        { name: "igniteui-react-spreadsheet"              , version: "18.3.0-beta.10" },
-        { name: "igniteui-react-datasources"              , version: "18.3.0-beta.10" },
-        { name: "igniteui-react"                          , version: "18.3.0-beta.10" },
+        { name: "igniteui-react-core"                     , version: "18.4.0" },
+        { name: "igniteui-react-charts"                   , version: "18.4.0" },
+        { name: "igniteui-react-excel"                    , version: "18.4.0" },
+        { name: "igniteui-react-gauges"                   , version: "18.4.0" },
+        { name: "igniteui-react-grids"                    , version: "18.4.0" },
+        { name: "igniteui-react-inputs"                   , version: "18.4.0" },
+        { name: "igniteui-react-layouts"                  , version: "18.4.0" },
+        { name: "igniteui-react-maps"                     , version: "18.4.0" },
+        { name: "igniteui-react-spreadsheet-chart-adapter", version: "18.4.0" },
+        { name: "igniteui-react-spreadsheet"              , version: "18.4.0" },
+        { name: "igniteui-react-datasources"              , version: "18.4.0" },
+        { name: "igniteui-react"                          , version: "18.4.0" },
         // these IG packages are sometimes updated:
         { name: "igniteui-webcomponents", version: "4.5.0" },
         { name: "igniteui-dockmanager",   version: "1.14.2" },

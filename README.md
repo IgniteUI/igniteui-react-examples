@@ -30,9 +30,12 @@ This repository contains over 240 examples on how to use [Ignite UI for React](h
 [Bullet Graph](https://www.infragistics.com/products/ignite-ui-react/react/components/bullet-graph),
 [Linear Gauge](https://www.infragistics.com/products/ignite-ui-react/react/components/linear-gauge.html),
 [Radial Gauges](https://www.infragistics.com/products/ignite-ui-react/react/components/radial-gauge.html)
-- Grids:
+- Grids & Lists:
+[Grid](https://www.infragistics.com/products/ignite-ui-react/react/components/grids/data-grid), 
+[List](https://www.infragistics.com/products/ignite-ui-react/react/components/grids/list), 
+[Tree](https://www.infragistics.com/products/ignite-ui-react/react/components/grids/tree), 
 [Table / Grid](https://www.infragistics.com/products/ignite-ui-react/react/components/data-grid.html),
-[Excel Library](https://www.infragistics.com/products/ignite-ui-react/react/components/excel_library_using_workbooks.html)
+[Spreadsheet](https://www.infragistics.com/products/ignite-ui-react/react/components/spreadsheet-overview)
 - Other:
 [Dock Manager](https://www.infragistics.com/products/ignite-ui-react/react/components/dock-manager),
 [Date Picker](https://www.infragistics.com/products/ignite-ui-react/react/components/editors/date-picker),
@@ -60,7 +63,7 @@ git clone https://github.com/IgniteUI/igniteui-react-examples.git
 ```
 ./samples/charts/category-chart/axis-options/
 ```
-- type `npm install` command in terminal window
+- type `npm install --legacy-peer-deps` command in terminal window
 - type `npm run start` command in terminal window
 
 - Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser.
@@ -74,7 +77,7 @@ At this point, you should see a website hosted example of [Ignite UI for React](
 - open the browser folder in this repository, e.g. `C:\GitHub\igniteui-react-examples\browser`
 - select **View** - **Terminal** menu item
 
-- type `npm install` command in terminal window
+- type `npm install --legacy-peer-deps` command in terminal window
 
 This will install required packages and [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) packages
 
@@ -113,7 +116,7 @@ Wait until the build is completed and then open [http://localhost:4200](http://l
 
 - rename class to the name of .tsx file
 
-- type `npm install` command in terminal window
+- type `npm install --legacy-peer-deps` command in terminal window
 
 - type `npm run start` command in terminal window
 

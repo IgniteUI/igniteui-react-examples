@@ -69,7 +69,8 @@ export default class Sample extends React.Component<any, any> {
                         </IgrGridPinningActions>
                         <IgrGridEditingActions
                             editRow="true"
-                            deleteRow="false">
+                            deleteRow="true"
+                            addRow="true">
                         </IgrGridEditingActions>
                     </IgrActionStrip>
                     <IgrColumn

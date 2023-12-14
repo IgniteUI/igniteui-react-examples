@@ -110,12 +110,11 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridCustomKBNav(sender: IgrGrid, evtArgs: IgrGridKeydownEventArgs): void {
-        const args = evtArgs.detail;
+    public webGridCustomKBNav(grid: IgrGrid, eventArgs: IgrGridKeydownEventArgs): void {
+        const args = eventArgs.detail;
         const target = args.target;
         const evt = args.event;
         const type = args.targetType;
-        var grid = this.grid as any;
 
         if (type === GridKeydownTargetType.DataCell && target.editMode && evt.key.toLowerCase() === 'tab') {
             // Value validation for number column.

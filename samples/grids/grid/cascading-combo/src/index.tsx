@@ -19,9 +19,9 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid1: IgrGrid
-    private grid1Ref(r: IgrGrid) {
-        this.grid1 = r;
+    private grid: IgrGrid
+    private gridRef(r: IgrGrid) {
+        this.grid = r;
         this.setState({});
     }
     private column1: IgrColumn
@@ -31,7 +31,7 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.grid1Ref = this.grid1Ref.bind(this);
+        this.gridRef = this.gridRef.bind(this);
         this.webGridWithComboRendered = this.webGridWithComboRendered.bind(this);
     }
 
@@ -44,8 +44,8 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     data={this.worldCitiesAbove500K}
                     primaryKey="ID"
-                    rendered={this.webGridWithComboRendered}
-                    ref={this.grid1Ref}>
+                    ref={this.gridRef}
+                    rendered={this.webGridWithComboRendered}>
                     <IgrColumn
                         field="ID"
                         header="ID"
@@ -107,6 +107,7 @@ export default class Sample extends React.Component<any, any> {
         // find next combo
         // args incomplete, so gte value from component on timeout as workaround.
         const regionCombo = this.comboRefCollection.get("region_" + rowId);
+        const cityCombo = this.comboRefCollection.get("city_" + rowId);
         const regions = this.regions;
        setTimeout(() => {
             const newValue = cmp.value[0];
@@ -114,9 +115,17 @@ export default class Sample extends React.Component<any, any> {
                 regionCombo.deselect(regionCombo.value);
                 regionCombo.disabled = true;
                 regionCombo.data = [];
+
+                cityCombo.deselect(regionCombo.value);
+                cityCombo.disabled = true;
+                cityCombo.data = [];
             } else {
                 regionCombo.disabled = false;
                 regionCombo.data = regions.filter(x => x.Country === newValue);
+
+                cityCombo.deselect(cityCombo.value);
+                cityCombo.disabled = true;
+                cityCombo.data = [];
             }
        });
     }
