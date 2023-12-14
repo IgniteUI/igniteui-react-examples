@@ -159,6 +159,12 @@ export default class MapNavigation extends React.Component<any, any> {
 
         this.geoMap = geoMap;
         this.geoMap.zoomToGeographic({ left:-134.5, top:16.5, width:70.0, height:37.0 });
+
+        // optional imagery background that provides context for map regions with oceans
+        const tileSource = new IgrArcGISOnlineMapImagery();
+        tileSource.mapServerUri = "https://services.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer";
+        this.geoMap.backgroundContent = tileSource;
+
         this.geoMap.windowPositionHorizontal = 0.1;
         this.geoMap.windowPositionVertical = 0.1;
         this.geoMap.windowScale = 0.1;

@@ -42,6 +42,7 @@ export default class MapBindingShapefilePolygons extends React.Component<any, an
         if (!geoMap) { return; }
 
         this.geoMap = geoMap;
+        // this.geoMap.backgroundContent = undefined;
         this.geoMap.updateZoomWindow({ left: 0.2, top: 0.1, width: 0.6, height: 0.6 });
 
         // loading a shapefile with geographic polygons
