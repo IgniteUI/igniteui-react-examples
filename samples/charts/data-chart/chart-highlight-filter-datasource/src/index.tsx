@@ -8,6 +8,7 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrColumnSeries } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataChartCoreDescriptionModule, DataChartCategoryDescriptionModule, DataChartInteractivityDescriptionModule } from 'igniteui-react-core';
 import { OnlineTrafficHighlightTotalsItem, OnlineTrafficHighlightTotals } from './OnlineTrafficHighlightTotals';
+import { OnlineTrafficHighlightDesktopOnlyItem, OnlineTrafficHighlightDesktopOnly } from './OnlineTrafficHighlightDesktopOnly';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -37,7 +38,7 @@ export default class Sample extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
-
+        
         this.propertyEditorRef = this.propertyEditorRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
@@ -62,10 +63,13 @@ export default class Sample extends React.Component<any, any> {
                 </IgrPropertyEditorPanel>
             </div>
 
+
+
             <div className="container fill">
                 <IgrDataChart
                     shouldAutoExpandMarginForInitialLabels="true"
                     computedPlotAreaMarginMode="Series"
+                    highlightedValuesDisplayMode="Hidden"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         name="xAxis"
@@ -82,7 +86,8 @@ export default class Sample extends React.Component<any, any> {
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.onlineTrafficHighlightTotals}
-                        valueMemberPath="value">
+                        valueMemberPath="value"
+                        highlightedDataSource={this.onlineTrafficHighlightDesktopOnly}>
                     </IgrColumnSeries>
                 </IgrDataChart>
             </div>
@@ -97,6 +102,29 @@ export default class Sample extends React.Component<any, any> {
             this._onlineTrafficHighlightTotals = new OnlineTrafficHighlightTotals();
         }
         return this._onlineTrafficHighlightTotals;
+    }
+    
+    private _onlineTrafficHighlightDesktopOnly: OnlineTrafficHighlightDesktopOnly = null;
+    public get onlineTrafficHighlightDesktopOnly(): OnlineTrafficHighlightDesktopOnly {
+        if (this._onlineTrafficHighlightDesktopOnly == null)
+        {
+            this._onlineTrafficHighlightDesktopOnly = new OnlineTrafficHighlightDesktopOnly();
+        }
+        return this._onlineTrafficHighlightDesktopOnly;
+    }
+    
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            DataChartCoreDescriptionModule.register(context);
+            DataChartCategoryDescriptionModule.register(context);
+            DataChartInteractivityDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
     }
 
     private _componentRenderer: ComponentRenderer = null;
@@ -113,6 +141,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 }
+
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
