@@ -6,6 +6,7 @@ import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrColumnSeries } from 'igniteui-react-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataChartCoreDescriptionModule, DataChartCategoryDescriptionModule, DataChartInteractivityDescriptionModule } from 'igniteui-react-core';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -110,6 +111,19 @@ export default class Sample extends React.Component<any, any> {
             this._countryRenewableElectricity = new CountryRenewableElectricity();
         }
         return this._countryRenewableElectricity;
+    }
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            DataChartCoreDescriptionModule.register(context);
+            DataChartCategoryDescriptionModule.register(context);
+            DataChartInteractivityDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
     }
 
 }
