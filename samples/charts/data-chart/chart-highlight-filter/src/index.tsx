@@ -6,6 +6,7 @@ import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrColumnSeries } from 'igniteui-react-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataChartCoreDescriptionModule, DataChartCategoryDescriptionModule, DataChartInteractivityDescriptionModule } from 'igniteui-react-core';
 import { OlympicMedalsTopCountriesWithTotalsItem, OlympicMedalsTopCountriesWithTotals } from './OlympicMedalsTopCountriesWithTotals';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -36,7 +37,7 @@ export default class Sample extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
-
+        
         this.propertyEditorRef = this.propertyEditorRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
@@ -61,10 +62,13 @@ export default class Sample extends React.Component<any, any> {
                 </IgrPropertyEditorPanel>
             </div>
 
+
+
             <div className="container fill">
                 <IgrDataChart
                     shouldAutoExpandMarginForInitialLabels="true"
                     computedPlotAreaMarginMode="Series"
+                    highlightedValuesDisplayMode="Hidden"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         name="xAxis"
@@ -81,7 +85,8 @@ export default class Sample extends React.Component<any, any> {
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.olympicMedalsTopCountriesWithTotals}
-                        valueMemberPath="total">
+                        valueMemberPath="total"
+                        highlightedValueMemberPath="america">
                     </IgrColumnSeries>
                 </IgrDataChart>
             </div>
@@ -97,8 +102,23 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._olympicMedalsTopCountriesWithTotals;
     }
+    
+
+    private _componentRenderer: ComponentRenderer = null;
+    public get renderer(): ComponentRenderer {
+        if (this._componentRenderer == null) {
+            this._componentRenderer = new ComponentRenderer();
+            var context = this._componentRenderer.context;
+            PropertyEditorPanelDescriptionModule.register(context);
+            DataChartCoreDescriptionModule.register(context);
+            DataChartCategoryDescriptionModule.register(context);
+            DataChartInteractivityDescriptionModule.register(context);
+        }
+        return this._componentRenderer;
+    }
 
 }
+
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
