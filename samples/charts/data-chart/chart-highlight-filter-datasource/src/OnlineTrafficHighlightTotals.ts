@@ -2,7 +2,7 @@ export class OnlineTrafficHighlightTotalsItem {
     public constructor(init: Partial<OnlineTrafficHighlightTotalsItem>) {
         Object.assign(this, init);
     }
-    
+
     public category: string;
     public value: number;
 
