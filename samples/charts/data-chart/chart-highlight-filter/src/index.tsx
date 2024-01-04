@@ -117,19 +117,6 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    private _componentRenderer: ComponentRenderer = null;
-    public get renderer(): ComponentRenderer {
-        if (this._componentRenderer == null) {
-            this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
-            PropertyEditorPanelDescriptionModule.register(context);
-            DataChartCoreDescriptionModule.register(context);
-            DataChartCategoryDescriptionModule.register(context);
-            DataChartInteractivityDescriptionModule.register(context);
-        }
-        return this._componentRenderer;
-    }
-
 }
 
 
