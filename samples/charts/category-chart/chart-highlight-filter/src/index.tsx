@@ -62,7 +62,9 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     chartType="Column"
                     dataSource={this.salesData}
-                    initialGroups="MonthName">
+                    initialGroups="MonthName"
+                    initialHighlightFilter="Country ne 'UK'"
+                    highlightedValuesDisplayMode="Hidden">
                 </IgrCategoryChart>
             </div>
         </div>
