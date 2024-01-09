@@ -2,7 +2,7 @@ export class CountryRenewableElectricityItem {
     public constructor(init: Partial<CountryRenewableElectricityItem>) {
         Object.assign(this, init);
     }
-    
+
     public year: string;
     public europe: number;
     public china: number;
