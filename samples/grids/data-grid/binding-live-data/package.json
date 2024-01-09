@@ -12,7 +12,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-dockmanager": "1.14.2",
+    "igniteui-dockmanager": "1.14.3",
     "igniteui-react": "18.5.0",
     "igniteui-react-charts": "18.5.0",
     "igniteui-react-core": "18.5.0",
