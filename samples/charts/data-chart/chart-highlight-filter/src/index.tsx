@@ -37,7 +37,7 @@ export default class Sample extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);
-        
+
         this.propertyEditorRef = this.propertyEditorRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
@@ -61,8 +61,6 @@ export default class Sample extends React.Component<any, any> {
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
-
-
 
             <div className="container fill">
                 <IgrDataChart
@@ -102,7 +100,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._olympicMedalsTopCountriesWithTotals;
     }
-    
 
     private _componentRenderer: ComponentRenderer = null;
     public get renderer(): ComponentRenderer {
@@ -118,7 +115,6 @@ export default class Sample extends React.Component<any, any> {
     }
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));

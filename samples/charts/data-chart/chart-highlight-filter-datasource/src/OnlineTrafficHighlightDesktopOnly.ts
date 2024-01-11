@@ -2,7 +2,7 @@ export class OnlineTrafficHighlightDesktopOnlyItem {
     public constructor(init: Partial<OnlineTrafficHighlightDesktopOnlyItem>) {
         Object.assign(this, init);
     }
-    
+
     public category: string;
     public value: number;
 
