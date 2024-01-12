@@ -52,7 +52,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="HighlightedValuesDisplayMode"
                         name="HighlightedValuesDisplayModeEditor"
                         label="Highlight Display Mode: "
-                        primitiveValue="Hidden">
+                        primitiveValue="Overlay">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -64,7 +64,7 @@ export default class Sample extends React.Component<any, any> {
                     dataSource={this.salesData}
                     initialGroups="MonthName"
                     initialHighlightFilter="Country ne 'UK'"
-                    highlightedValuesDisplayMode="Hidden">
+                    highlightedValuesDisplayMode="Overlay">
                 </IgrCategoryChart>
             </div>
         </div>
