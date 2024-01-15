@@ -16,37 +16,37 @@ export class OnlineTrafficHighlightTotals extends Array<OnlineTrafficHighlightTo
                 new OnlineTrafficHighlightTotalsItem(
                 {
                     category: `Apparel`,
-                    value: 100
+                    value: 56
                 }),
                 new OnlineTrafficHighlightTotalsItem(
                 {
                     category: `Beauty`,
-                    value: 100
+                    value: 67
                 }),
                 new OnlineTrafficHighlightTotalsItem(
                 {
                     category: `Travel`,
-                    value: 100
+                    value: 80
                 }),
                 new OnlineTrafficHighlightTotalsItem(
                 {
                     category: `Grocery`,
-                    value: 100
+                    value: 62
                 }),
                 new OnlineTrafficHighlightTotalsItem(
                 {
                     category: `Energy`,
-                    value: 100
+                    value: 74
                 }),
                 new OnlineTrafficHighlightTotalsItem(
                 {
                     category: `Home Supply`,
-                    value: 100
+                    value: 65
                 }),
                 new OnlineTrafficHighlightTotalsItem(
                 {
                     category: `Financial`,
-                    value: 100
+                    value: 88
                 }),
             ];
             super(...(newItems.slice(0, items)));
