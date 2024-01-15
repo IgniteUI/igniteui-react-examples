@@ -60,7 +60,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="HighlightedValuesDisplayMode"
                         name="HighlightedValuesDisplayModeEditor"
                         label="Highlight Display Mode: "
-                        primitiveValue="Overlay">
+                        primitiveValue="Hidden">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -70,7 +70,7 @@ export default class Sample extends React.Component<any, any> {
                     shouldAutoExpandMarginForInitialLabels="true"
                     computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}
-                    highlightedValuesDisplayMode="Overlay">
+                    highlightedValuesDisplayMode="Hidden">
                     <IgrCategoryXAxis
                         name="xAxis"
                         dataSource={this.countryRenewableElectricity}
