@@ -38,7 +38,13 @@ This folder contains source code for a React app that combines examples implemen
 [Date Picker](https://www.infragistics.com/products/ignite-ui-react/react/components/editors/date-picker),
 [Multi-Column Combobox](https://www.infragistics.com/products/ignite-ui-react/react/components/editors/multi-column-combobox)
 
-## Setup
+## Branches
+
+> **_NOTE:_** You should use [master](https://github.com/IgniteUI/igniteui-react-examples/tree/master) branch of this repository if you want to run samples on your computer. Use the [vnext](https://github.com/IgniteUI/igniteui-react-examples/tree/vnext) branch only when you want to contribute new samples to this repository.
+
+## Instructions
+
+Follow these instructions to run and browse all samples:
 
 - in VS Code, open the browser folder
 `C:\GitHub\igniteui-react-examples\browser`

@@ -21,12 +21,18 @@ This folder contains implementation of React application with example of Disable
     </body>
 </html>
 
+## Branches
+
+> **_NOTE:_** You should use [master](https://github.com/IgniteUI/igniteui-react-examples/tree/master) branch of this repository if you want to run samples on your computer. Use the [vnext](https://github.com/IgniteUI/igniteui-react-examples/tree/vnext) branch only when you want to contribute new samples to this repository.
+
 ## Instructions
 
-To set up this project locally, execute these commands:
+Follow these instructions to run this example:
+
 
 ```
 git clone https://github.com/IgniteUI/igniteui-react-examples.git
+git checkout master
 cd ./igniteui-react-examples
 cd ./samples/inputs/checkbox/disabled
 ```
