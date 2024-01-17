@@ -8,6 +8,9 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
 import { SalesData } from './SalesData';
+import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
+import { MarkerType, MarkerType_$type } from 'igniteui-react-charts';
+import { EnumUtil } from 'igniteui-react-core';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -37,6 +40,9 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
+        this.editorChangeUpdateInitialGroups = this.editorChangeUpdateInitialGroups.bind(this);
+        this.editorChangeUpdateInitialSummaries = this.editorChangeUpdateInitialSummaries.bind(this);
+        this.editorChangeUpdateGroupSorts = this.editorChangeUpdateGroupSorts.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -52,34 +58,37 @@ export default class Sample extends React.Component<any, any> {
                     isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="InitialGroups"
+                        propertyPath="InitialGroupsHandler"
                         name="InitialGroups"
                         label="Initial Groups"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["Country", "Product", "MonthName", "Year"]}
                         dropDownValues={["Country", "Product", "MonthName", "Year"]}
-                        primitiveValue="Country">
+                        primitiveValue="Country"
+                        changed={this.editorChangeUpdateInitialGroups}>
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="InitialSummaries"
+                        propertyPath="InitialSummariesHandler"
                         name="InitialSummaries"
                         label="Initial Summaries"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["Sum(Sales)", "Avg(Sales)", "Min(Sales)", "Max(Sales)", "Count(Sales)"]}
+                        dropDownNames={["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales"]}
                         dropDownValues={["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales"]}
-                        primitiveValue="Sum(Sales) as Sales">
+                        primitiveValue="Sum(Sales) as Sales"
+                        changed={this.editorChangeUpdateInitialSummaries}>
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="GroupSorts"
+                        propertyPath="GroupSortsHandler"
                         name="GroupSorts"
                         label="Sort Groups"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["Sales Desc", "Sales Asc"]}
                         dropDownValues={["Sales Desc", "Sales Asc"]}
-                        primitiveValue="Sales Desc">
+                        primitiveValue="Sales Desc"
+                        changed={this.editorChangeUpdateGroupSorts}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -124,6 +133,24 @@ export default class Sample extends React.Component<any, any> {
             CategoryChartDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public editorChangeUpdateInitialGroups(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+
+        var intialGroupVal = args.newValue.toString();
+        chart.initialGroups = intialGroupVal;
+    }
+
+    public editorChangeUpdateInitialSummaries(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+
+        var intialSummaryVal = args.newValue.toString();
+        chart.initialSummaries = intialSummaryVal;
+    }
+
+    public editorChangeUpdateGroupSorts(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+
+        var groupSortsVal = args.newValue.toString();
+        chart.groupSorts = groupSortsVal;
     }
 
 }
