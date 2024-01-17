@@ -24,13 +24,6 @@ export default class Sample extends React.Component<any, any> {
         this.legend = r;
         this.setState({});
     }
-    private chart: IgrDataChart
-    private chartRef(r: IgrDataChart) {
-        this.chart = r;
-        this.setState({});
-    }
-    private yAxis: IgrCategoryYAxis
-    private xAxis: IgrNumericXAxis
     private _numberFormatSpecifier1: IgrNumberFormatSpecifier[] | null = null;
     public get numberFormatSpecifier1(): IgrNumberFormatSpecifier[] {
         if (this._numberFormatSpecifier1 == null)
@@ -40,16 +33,57 @@ export default class Sample extends React.Component<any, any> {
             numberFormatSpecifier2.style = "currency";
             numberFormatSpecifier2.currency = "USD";
             numberFormatSpecifier2.currencyDisplay = "symbol";
-            numberFormatSpecifier2.minimumFractionDigits = 0;
+            numberFormatSpecifier2.minimumFractionDigits = 2;
+            numberFormatSpecifier2.maximumFractionDigits = 2;
 
             numberFormatSpecifier1.push(numberFormatSpecifier2)
             this._numberFormatSpecifier1 = numberFormatSpecifier1;
         }
         return this._numberFormatSpecifier1;
     }
+    private chart: IgrDataChart
+    private chartRef(r: IgrDataChart) {
+        this.chart = r;
+        this.setState({});
+    }
+    private yAxis: IgrCategoryYAxis
+    private xAxis: IgrNumericXAxis
+    private _numberFormatSpecifier3: IgrNumberFormatSpecifier[] | null = null;
+    public get numberFormatSpecifier3(): IgrNumberFormatSpecifier[] {
+        if (this._numberFormatSpecifier3 == null)
+        {
+            let numberFormatSpecifier3: IgrNumberFormatSpecifier[] = [];
+            var numberFormatSpecifier4 = new IgrNumberFormatSpecifier();
+            numberFormatSpecifier4.style = "currency";
+            numberFormatSpecifier4.currency = "USD";
+            numberFormatSpecifier4.currencyDisplay = "symbol";
+            numberFormatSpecifier4.minimumFractionDigits = 0;
+
+            numberFormatSpecifier3.push(numberFormatSpecifier4)
+            this._numberFormatSpecifier3 = numberFormatSpecifier3;
+        }
+        return this._numberFormatSpecifier3;
+    }
     private barSeries1: IgrBarSeries
     private barSeries2: IgrBarSeries
     private tooltips: IgrDataToolTipLayer
+    private _numberFormatSpecifier5: IgrNumberFormatSpecifier[] | null = null;
+    public get numberFormatSpecifier5(): IgrNumberFormatSpecifier[] {
+        if (this._numberFormatSpecifier5 == null)
+        {
+            let numberFormatSpecifier5: IgrNumberFormatSpecifier[] = [];
+            var numberFormatSpecifier6 = new IgrNumberFormatSpecifier();
+            numberFormatSpecifier6.style = "currency";
+            numberFormatSpecifier6.currency = "USD";
+            numberFormatSpecifier6.currencyDisplay = "symbol";
+            numberFormatSpecifier6.minimumFractionDigits = 2;
+            numberFormatSpecifier6.maximumFractionDigits = 2;
+
+            numberFormatSpecifier5.push(numberFormatSpecifier6)
+            this._numberFormatSpecifier5 = numberFormatSpecifier5;
+        }
+        return this._numberFormatSpecifier5;
+    }
 
     constructor(props: any) {
         super(props);
@@ -70,8 +104,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataLegend
                     ref={this.legendRef}
                     target={this.chart}
-                    valueFormatMode="Currency"
-                    valueFormatString="${0} Billion">
+                    valueFormatString="{0} Billion"
+                    valueFormatSpecifiers={this.numberFormatSpecifier1}>
                 </IgrDataLegend>
             </div>
 
@@ -93,7 +127,7 @@ export default class Sample extends React.Component<any, any> {
                         title="Billions of U.S. Dollars"
                         labelFormat="{0}B"
                         abbreviateLargeNumbers="false"
-                        labelFormatSpecifiers={this.numberFormatSpecifier1}>
+                        labelFormatSpecifiers={this.numberFormatSpecifier3}>
                     </IgrNumericXAxis>
                     <IgrBarSeries
                         name="BarSeries1"
@@ -115,8 +149,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrBarSeries>
                     <IgrDataToolTipLayer
                         name="Tooltips"
-                        valueFormatMode="Currency"
-                        valueFormatString="${0} Billion">
+                        valueFormatString="{0} Billion"
+                        valueFormatSpecifiers={this.numberFormatSpecifier5}>
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
