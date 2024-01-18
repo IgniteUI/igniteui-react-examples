@@ -138,19 +138,19 @@ export default class Sample extends React.Component<any, any> {
     public editorChangeUpdateInitialGroups(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
 
         var intialGroupVal = args.newValue.toString();
-        chart.initialGroups = intialGroupVal;
+        this.chart.initialGroups = intialGroupVal;
     }
 
     public editorChangeUpdateInitialSummaries(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
 
         var intialSummaryVal = args.newValue.toString();
-        chart.initialSummaries = intialSummaryVal;
+        this.chart.initialSummaries = intialSummaryVal;
     }
 
     public editorChangeUpdateGroupSorts(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
 
         var groupSortsVal = args.newValue.toString();
-        chart.groupSorts = groupSortsVal;
+        this.chart.groupSorts = groupSortsVal;
     }
 
 }
