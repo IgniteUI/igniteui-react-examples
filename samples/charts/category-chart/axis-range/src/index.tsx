@@ -69,6 +69,7 @@ export default class Sample extends React.Component<any, any> {
                         valueType="EnumValue"
                         dropDownNames={["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]}
                         dropDownValues={["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]}
+                        primitiveValue="0"
                         changed={this.editorChangeUpdateYAxisMinimumValue}>
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
@@ -79,6 +80,7 @@ export default class Sample extends React.Component<any, any> {
                         valueType="EnumValue"
                         dropDownNames={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}
                         dropDownValues={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}
+                        primitiveValue="150"
                         changed={this.editorChangeUpdateYAxisMaximumValue}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
