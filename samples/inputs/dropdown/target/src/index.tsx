@@ -21,12 +21,10 @@ export default class DropDownTarget extends React.Component<any, any> {
         return (
             <div className="container sample center">
                 <div className="options horizontal">
-                    <IgrButton clicked={()=>this.onClick()}><span>Toggle Dropdown</span></IgrButton>
+                    <IgrButton clicked={(e)=>this.onClick(e)}><span>First Target</span></IgrButton>
+                    <IgrButton clicked={(e)=>this.onClick(e)} style={{marginLeft: "20px"}}><span>Second Target</span></IgrButton>
 
-                    <IgrDropdown ref={this.onDropDownRef} keepOpenOnOutsideClick="true" positionStrategy="fixed">
-                        <div slot="target" style={{marginLeft: "20px"}}>
-                            <IgrButton><span>Dropdown</span></IgrButton>
-                        </div>
+                    <IgrDropdown ref={this.onDropDownRef} sameWidth="true">
                         <IgrDropdownItem><span>Option 1</span></IgrDropdownItem>
                         <IgrDropdownItem><span>Option 2</span></IgrDropdownItem>
                         <IgrDropdownItem><span>Option 3</span></IgrDropdownItem>
@@ -39,12 +37,11 @@ export default class DropDownTarget extends React.Component<any, any> {
     public onDropDownRef(dropdown: IgrDropdown){
         if (!dropdown) { return; }
         this.dropdownRef = dropdown;
-        this.setState({});
     }
 
-    public onClick() {
+    public onClick(event: any) {
         if(this.dropdownRef){
-            this.dropdownRef.toggle();
+            this.dropdownRef.toggleTarget(event.i.nativeElement);
         }
     }
 }
