@@ -25,17 +25,17 @@ export default class DropDownPosition extends React.Component<any, any> {
                         <IgrButton><span>Options</span></IgrButton>
                     </div>
                     <IgrDropdownItem><span>top</span></IgrDropdownItem>
-                    <IgrDropdownItem><span>top-start</span></IgrDropdownItem>
-                    <IgrDropdownItem><span>top-end</span></IgrDropdownItem>
+                    <IgrDropdownItem><span>topstart</span></IgrDropdownItem>
+                    <IgrDropdownItem><span>topend</span></IgrDropdownItem>
                     <IgrDropdownItem selected><span>bottom</span></IgrDropdownItem>
-                    <IgrDropdownItem><span>bottom-start</span></IgrDropdownItem>
-                    <IgrDropdownItem><span>bottom-end</span></IgrDropdownItem>
+                    <IgrDropdownItem><span>bottomstart</span></IgrDropdownItem>
+                    <IgrDropdownItem><span>bottomend</span></IgrDropdownItem>
                     <IgrDropdownItem><span>right</span></IgrDropdownItem>
-                    <IgrDropdownItem><span>right-start</span></IgrDropdownItem>
-                    <IgrDropdownItem><span>right-end</span></IgrDropdownItem>
+                    <IgrDropdownItem><span>rightstart</span></IgrDropdownItem>
+                    <IgrDropdownItem><span>rightend</span></IgrDropdownItem>
                     <IgrDropdownItem><span>left</span></IgrDropdownItem>
-                    <IgrDropdownItem><span>left-start</span></IgrDropdownItem>
-                    <IgrDropdownItem><span>left-end</span></IgrDropdownItem>
+                    <IgrDropdownItem><span>leftstart</span></IgrDropdownItem>
+                    <IgrDropdownItem><span>leftend</span></IgrDropdownItem>
                 </IgrDropdown>
             </div>
         );
@@ -44,7 +44,6 @@ export default class DropDownPosition extends React.Component<any, any> {
     public onDropDownRef(dropdown: IgrDropdown){
         if (!dropdown) { return; }
         this.dropdownRef = dropdown;
-        this.setState({});
     }
 
     public onChange(event: any): void {
