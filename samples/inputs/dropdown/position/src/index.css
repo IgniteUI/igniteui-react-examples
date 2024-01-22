@@ -1,0 +1,11 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+igc-dropdown::part(list) {
+  height: 200px;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
