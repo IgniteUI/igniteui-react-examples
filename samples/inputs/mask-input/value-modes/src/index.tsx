@@ -24,7 +24,7 @@ export default class MaskInputValueModes extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample center">
-                <IgrMaskInput ref={this.onMaskRef}>
+                <IgrMaskInput ref={this.onMaskRef} inputOcurred={(e)=>this.onInputChange(e)}>
                     <span slot="prefix">
                         <IgrIcon ref={this.iconFileRef} name="file" collection="material"></IgrIcon>
                     </span>
@@ -45,7 +45,13 @@ export default class MaskInputValueModes extends React.Component<any, any> {
     public onMaskRef(mask: IgrMaskInput){
         if (!mask) { return; }
         this.maskRef = mask;
-        this.setState({value: this.maskRef.value})
+    }
+
+    public onInputChange(event: any) {
+        console.log(event)
+        if (this.maskRef) {
+            this.setState({value: this.maskRef.value})
+        }
     }
 
     public onRadioChange(event: any) {
