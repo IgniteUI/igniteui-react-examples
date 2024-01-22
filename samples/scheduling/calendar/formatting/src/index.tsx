@@ -25,19 +25,19 @@ export default class CalendarFormatting extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrRadioGroup alignment="horizontal" style={{marginBottom: '10px'}}>
-                    <IgrRadio value="en" checked={true} change={this.onRadioChange}>
+                    <IgrRadio name="lang" value="en" checked={true} change={this.onRadioChange}>
                         <span>EN</span>
                     </IgrRadio>
-                    <IgrRadio value="de" change={this.onRadioChange}>
+                    <IgrRadio name="lang" value="de" change={this.onRadioChange}>
                         <span>DE</span>
                     </IgrRadio>
-                    <IgrRadio value="fr" change={this.onRadioChange}>
+                    <IgrRadio name="lang" value="fr" change={this.onRadioChange}>
                         <span>FR</span>
                     </IgrRadio>
-                    <IgrRadio value="ar" change={this.onRadioChange}>
+                    <IgrRadio name="lang" value="ar" change={this.onRadioChange}>
                         <span>AR</span>
                     </IgrRadio>
-                    <IgrRadio value="ja" change={this.onRadioChange}>
+                    <IgrRadio name="lang" value="ja" change={this.onRadioChange}>
                         <span>JA</span>
                     </IgrRadio>                    
                 </IgrRadioGroup>
