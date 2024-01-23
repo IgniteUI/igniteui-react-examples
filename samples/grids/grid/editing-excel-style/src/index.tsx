@@ -29,6 +29,9 @@ export default class Sample extends React.Component<any, any> {
         this.webGridEditingExcelStyle = this.webGridEditingExcelStyle.bind(this);
     }
 
+    public componentDidMount() {
+    }
+
     public render(): JSX.Element {
         return (
         <div className="container sample ig-typography">

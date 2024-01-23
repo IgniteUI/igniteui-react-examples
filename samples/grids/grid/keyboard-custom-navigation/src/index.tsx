@@ -38,6 +38,9 @@ export default class Sample extends React.Component<any, any> {
         this.webGridCustomKBNav = this.webGridCustomKBNav.bind(this);
     }
 
+    public componentDidMount() {
+    }
+
     public render(): JSX.Element {
         return (
         <div className="container sample ig-typography">

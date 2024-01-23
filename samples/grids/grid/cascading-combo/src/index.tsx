@@ -35,6 +35,9 @@ export default class Sample extends React.Component<any, any> {
         this.webGridWithComboRendered = this.webGridWithComboRendered.bind(this);
     }
 
+    public componentDidMount() {
+    }
+
     public render(): JSX.Element {
         return (
         <div className="container sample ig-typography">
