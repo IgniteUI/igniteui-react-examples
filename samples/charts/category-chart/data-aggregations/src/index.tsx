@@ -8,7 +8,7 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
 import { SalesData } from './SalesData';
-import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
+import { PropertyEditorValueType, IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { MarkerType, MarkerType_$type } from 'igniteui-react-charts';
 import { EnumUtil } from 'igniteui-react-core';
 
@@ -28,8 +28,6 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private initialGroups: IgrPropertyEditorPropertyDescription
-    private initialSummaries: IgrPropertyEditorPropertyDescription
-    private groupSorts: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -41,9 +39,9 @@ export default class Sample extends React.Component<any, any> {
 
         this.editorRef = this.editorRef.bind(this);
         this.editorChangeUpdateInitialGroups = this.editorChangeUpdateInitialGroups.bind(this);
-        this.editorChangeUpdateInitialSummaries = this.editorChangeUpdateInitialSummaries.bind(this);
-        this.editorChangeUpdateGroupSorts = this.editorChangeUpdateGroupSorts.bind(this);
         this.chartRef = this.chartRef.bind(this);
+    }
+    public componentDidMount() {
         this.propertyEditorInitAggregationsOnViewInit();
     }
 
@@ -68,24 +66,6 @@ export default class Sample extends React.Component<any, any> {
                         dropDownValues={["Country", "Product", "MonthName", "Year"]}
                         primitiveValue="Country"
                         changed={this.editorChangeUpdateInitialGroups}>
-                    </IgrPropertyEditorPropertyDescription>
-                    <IgrPropertyEditorPropertyDescription
-                        propertyPath="InitialSummariesHandler"
-                        name="InitialSummaries"
-                        label="Initial Summaries"
-                        valueType="EnumValue"
-                        shouldOverrideDefaultEditor="true"
-                        primitiveValue="Sum(Sales) as Sales"
-                        changed={this.editorChangeUpdateInitialSummaries}>
-                    </IgrPropertyEditorPropertyDescription>
-                    <IgrPropertyEditorPropertyDescription
-                        propertyPath="GroupSortsHandler"
-                        name="GroupSorts"
-                        label="Sort Groups"
-                        valueType="EnumValue"
-                        shouldOverrideDefaultEditor="true"
-                        primitiveValue="Sales Desc"
-                        changed={this.editorChangeUpdateGroupSorts}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -135,20 +115,28 @@ export default class Sample extends React.Component<any, any> {
     public propertyEditorInitAggregationsOnViewInit(): void {
 
         var editor = this.editor;
-        var initialSummaries = editor.actualProperties.filter((p) => p.label == "Initial Summaries")[0];
-        initialSummaries.dropDownNames = ["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales" ];
-        initialSummaries.dropDownValues = ["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales" ];
+        var initialSummariesDropdown = new IgrPropertyEditorPropertyDescription({});
+        var sortGroupsDropdown = new IgrPropertyEditorPropertyDescription({});
 
-        var groupSorts = editor.actualProperties.filter((p) => p.label == "Sort Groups")[0];
-        groupSorts.dropDownNames = ["Sales Desc", "Sales Asc"];
-        groupSorts.dropDownValues = ["Sales Desc", "Sales Asc"];
-    }
+        initialSummariesDropdown.label = "Initial Summaries";
+        initialSummariesDropdown.valueType = PropertyEditorValueType.EnumValue;
+        initialSummariesDropdown.shouldOverrideDefaultEditor = true;
+        initialSummariesDropdown.dropDownNames = ["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales" ];
+        initialSummariesDropdown.dropDownValues = ["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales" ];
 
-    public editorChangeUpdateInitialGroups(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        sortGroupsDropdown.label = "Sort Groups"
+        sortGroupsDropdown.valueType = PropertyEditorValueType.EnumValue;
+        sortGroupsDropdown.shouldOverrideDefaultEditor = true;
+        sortGroupsDropdown.dropDownNames = ["Sales Asc", "Sales Desc"];
+        sortGroupsDropdown.dropDownValues = ["Sales Asc","Sales Desc"];
 
-        var chart = this.chart;
-        var intialGroupVal = args.newValue.toString();
-        chart.initialGroups = intialGroupVal;
+        editor.properties.add(initialSummariesDropdown);
+        editor.properties.add(sortGroupsDropdown);
+
+        this.editorChangeUpdateInitialSummaries = this.editorChangeUpdateInitialSummaries.bind(this);
+        this.editorChangeUpdateGroupSorts = this.editorChangeUpdateGroupSorts.bind(this);
+        initialSummariesDropdown.changed = this.editorChangeUpdateInitialSummaries;
+        sortGroupsDropdown.changed = this.editorChangeUpdateGroupSorts;
     }
 
     public editorChangeUpdateInitialSummaries(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
@@ -162,6 +150,11 @@ export default class Sample extends React.Component<any, any> {
         var chart = this.chart;
         var groupSortsVal = args.newValue.toString();
         chart.groupSorts = groupSortsVal;
+    }
+
+    public editorChangeUpdateInitialGroups(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var chart = this.chart;
+        chart.initialGroups = args.newValue.toString();
     }
 
 }
