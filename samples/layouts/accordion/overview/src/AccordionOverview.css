@@ -1,0 +1,17 @@
+igc-accordion {
+    width: 100%;
+}
+
+.sample-wrapper {
+    overflow-y: auto;
+    max-height: 380px;
+    margin: 8px;
+}
+
+igc-switch {
+    padding: 16px;
+}
+
+igc-expansion-panel {
+    border: 1px solid rgba(174, 174, 174, 0.25);
+}

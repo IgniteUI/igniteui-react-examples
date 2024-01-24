@@ -52,16 +52,16 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
                 </div>
                 <div>
                     <IgrRadioGroup alignment="horizontal" style={{marginBottom: '10px'}}>
-                        <IgrRadio value="start" labelPosition="after" checked={true} change={this.onRadioChange}>
+                        <IgrRadio name="position" value="start" labelPosition="after" checked={true} change={this.onRadioChange}>
                             <span>Start</span>
                         </IgrRadio>
-                        <IgrRadio value="end" labelPosition="after" change={this.onRadioChange}>
+                        <IgrRadio name="position" value="end" labelPosition="after" change={this.onRadioChange}>
                             <span>End</span>
                         </IgrRadio>
-                        <IgrRadio value="top" labelPosition="after" change={this.onRadioChange}>
+                        <IgrRadio name="position" value="top" labelPosition="after" change={this.onRadioChange}>
                             <span>Top</span>
                         </IgrRadio>
-                        <IgrRadio value="bottom" labelPosition="after" change={this.onRadioChange}>
+                        <IgrRadio name="position" value="bottom" labelPosition="after" change={this.onRadioChange}>
                             <span>Bottom</span>
                         </IgrRadio>
                     </IgrRadioGroup>

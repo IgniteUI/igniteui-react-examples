@@ -20,13 +20,13 @@ export default class CalendarSize extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrRadioGroup alignment="horizontal" style={{ marginBottom: '10px' }}>
-                    <IgrRadio value="small" change={this.onRadioChange}>
+                    <IgrRadio name="size" value="small" change={this.onRadioChange}>
                         <span>Small</span>
                     </IgrRadio>
-                    <IgrRadio value="medium" change={this.onRadioChange}>
+                    <IgrRadio name="size" value="medium" change={this.onRadioChange}>
                         <span>Medium</span>
                     </IgrRadio>
-                    <IgrRadio value="large" checked={true} change={this.onRadioChange}>
+                    <IgrRadio name="size" value="large" checked={true} change={this.onRadioChange}>
                         <span>Large</span>
                     </IgrRadio>
                 </IgrRadioGroup>
