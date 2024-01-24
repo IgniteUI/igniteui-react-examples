@@ -256,7 +256,7 @@ function copySamples(cb) {
         .pipe(es.map(function(file, fileCallback) {
             let code = file.contents.toString();
 
-            code = code.replace("const root = ReactDOM.createRoot(document.getElementById('root'));", "");
+            code = code.replace(/(const root = ReactDOM.createRoot\(document.getElementById\(['"]root['"]\)\);)/g, "");
             code = code.replace("root.render(<" + sample.SampleImportName + "/>);", "");
             code = code.replace(/root.render(.*(?<![^a-z]))((?![^a-z]).*)/g, "");
             code = code.replace("root.render(<Sample/>);", "");
