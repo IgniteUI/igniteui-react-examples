@@ -35,7 +35,7 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
                             <span key="sHeader">Sample Drawer</span>
                         </IgrNavDrawerHeaderItem>
 
-                        <IgrNavDrawerItem key="home">
+                        <IgrNavDrawerItem key="home" active>
                             <div slot="icon" key="iHome">
                                 <IgrIcon ref={this.iconRef} name="home" collection="material" />
                             </div>
