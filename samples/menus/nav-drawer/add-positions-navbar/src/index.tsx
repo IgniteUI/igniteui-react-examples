@@ -17,7 +17,7 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
     constructor(props: any) {
         super(props);
 
-        this.state = { drawerPosition: "start" };
+        this.state = { drawerPosition: "start", title: "Home" };
 
         this.iconRef = this.iconRef.bind(this);
         this.navDrawerRef = this.navDrawerRef.bind(this);
@@ -69,7 +69,7 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
                         <div slot="start" onClick={this.onMenuIconClick} key="start">
                             <IgrIcon name="menu" collection="material" />
                         </div>
-                        <h2 key="navHome">Home</h2>
+                        <h2 key="navHome">{this.state.title}</h2>
                     </IgrNavbar>
                 </div>
             </div>
@@ -106,6 +106,8 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
         Array.from(navDrawer.querySelectorAll('igc-nav-drawer-item'))
              .filter((item: any) => item !== drawerItem)
              .forEach((child: any) => child.active = false);
+
+        this.setState({ title: drawerItem.textContent });
     }
 
     public navDrawerRef(navDrawer: IgrNavDrawer) {
