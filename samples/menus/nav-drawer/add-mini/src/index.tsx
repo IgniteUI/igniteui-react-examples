@@ -89,6 +89,20 @@ export default class NavDrawerAddMini extends React.Component<any, any> {
         Array.from(navDrawer.querySelectorAll('igc-nav-drawer-item'))
              .filter((item: any) => item !== drawerItem)
              .forEach((child: any) => child.active = false);
+
+        const iconName = drawerItem.querySelector('igc-icon')!.name;
+        const icons = document.querySelectorAll(`igc-icon`);
+
+        icons.forEach((icon: any) => {
+            const parentItem = icon.parentElement!.closest('igc-nav-drawer-item') as IgrNavDrawerItem;
+            if (!parentItem) { return; }
+
+            if (icon.name === iconName) {
+                parentItem.active = true;
+            } else {
+                parentItem.active = false;
+            }
+        });
     }
 
     public onButtonClick() {
