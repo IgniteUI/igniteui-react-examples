@@ -5,7 +5,7 @@
 
 # Examples of Ignite UI for React Components
 
-This repository contains over 240 examples on how to use [Ignite UI for React](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) components:
+This repository contains over 500 examples on how to use [Ignite UI for React](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) components:
 
 - Charts:
 [Area](https://www.infragistics.com/products/ignite-ui-react/react/components/charts/types/area-chart),
@@ -41,6 +41,10 @@ This repository contains over 240 examples on how to use [Ignite UI for React](h
 [Date Picker](https://www.infragistics.com/products/ignite-ui-react/react/components/editors/date-picker),
 [Multi-Column Combobox](https://www.infragistics.com/products/ignite-ui-react/react/components/editors/multi-column-combobox)
 
+## Branches
+
+> **_NOTE:_** You should use [master](https://github.com/IgniteUI/igniteui-react-examples/tree/master) branch of this repository if you want to run samples on your computer. Use the [vnext](https://github.com/IgniteUI/igniteui-react-examples/tree/vnext) branch only when you want to contribute new samples to this repository.
+
 ## Preview
 
 You can preview and browse all samples in this repository by opening our [React Samples Browser](https://www.infragistics.com/react-demos/samples/). Alternatively, you you can view these samples with detailed information in our [React Help Documentation](https://infragistics.com/reactsite/components/general-getting-started.html).
@@ -59,11 +63,15 @@ git clone https://github.com/IgniteUI/igniteui-react-examples.git
 
 ## Running Individual Sample
 
+- check out the **master** branch
+
 - in VS Code, open a folder with existing sample, e.g.
-```
+```CMD
 ./samples/charts/category-chart/axis-options/
 ```
+
 - type `npm install --legacy-peer-deps` command in terminal window
+
 - type `npm run start` command in terminal window
 
 - Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser.
@@ -73,8 +81,12 @@ At this point, you should see a website hosted example of [Ignite UI for React](
 
 ## Running All Samples
 
+- check out the **master** branch
+
 - open VS Code as Administrator
+
 - open the browser folder in this repository, e.g. `C:\GitHub\igniteui-react-examples\browser`
+
 - select **View** - **Terminal** menu item
 
 - type `npm install --legacy-peer-deps` command in terminal window

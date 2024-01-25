@@ -174,7 +174,7 @@ export default class DataChartTypeRadialSeries extends React.Component<any, any>
         this.chart = chart;
         if (this.legend) {
             this.chart.legend = this.legend;
-            this.setSeries("Pie");
+            this.setSeries("Radial Pie Chart");
         }
     }
 

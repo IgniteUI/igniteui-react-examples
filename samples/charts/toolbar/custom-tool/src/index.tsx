@@ -21,8 +21,10 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.toolbarCustomIconOnViewInit();
         this.toolbarRef = this.toolbarRef.bind(this);
+    }
+    public componentDidMount() {
+        this.toolbarCustomIconOnViewInit();
     }
 
     public render(): JSX.Element {

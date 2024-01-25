@@ -8,6 +8,9 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
 import { SalesData } from './SalesData';
+import { PropertyEditorValueType, IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
+import { MarkerType, MarkerType_$type } from 'igniteui-react-charts';
+import { EnumUtil } from 'igniteui-react-core';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -19,14 +22,12 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private propertyEditorPanel1: IgrPropertyEditorPanel
-    private propertyEditorPanel1Ref(r: IgrPropertyEditorPanel) {
-        this.propertyEditorPanel1 = r;
+    private editor: IgrPropertyEditorPanel
+    private editorRef(r: IgrPropertyEditorPanel) {
+        this.editor = r;
         this.setState({});
     }
     private initialGroups: IgrPropertyEditorPropertyDescription
-    private initialSummaries: IgrPropertyEditorPropertyDescription
-    private groupSorts: IgrPropertyEditorPropertyDescription
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -36,8 +37,12 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
+        this.editorRef = this.editorRef.bind(this);
+        this.editorChangeUpdateInitialGroups = this.editorChangeUpdateInitialGroups.bind(this);
         this.chartRef = this.chartRef.bind(this);
+    }
+    public componentDidMount() {
+        this.propertyEditorInitAggregationsOnViewInit();
     }
 
     public render(): JSX.Element {
@@ -45,47 +50,28 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
             <div className="options vertical">
                 <IgrPropertyEditorPanel
+                    ref={this.editorRef}
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
                     isHorizontal="true"
-                    isWrappingEnabled="true"
-                    ref={this.propertyEditorPanel1Ref}>
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="InitialGroups"
+                        propertyPath="InitialGroupsHandler"
                         name="InitialGroups"
                         label="Initial Groups"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["Country", "Product", "MonthName", "Year"]}
                         dropDownValues={["Country", "Product", "MonthName", "Year"]}
-                        primitiveValue="Country">
-                    </IgrPropertyEditorPropertyDescription>
-                    <IgrPropertyEditorPropertyDescription
-                        propertyPath="InitialSummaries"
-                        name="InitialSummaries"
-                        label="Initial Summaries"
-                        valueType="EnumValue"
-                        shouldOverrideDefaultEditor="true"
-                        dropDownNames={["Sum(Sales)", "Avg(Sales)", "Min(Sales)", "Max(Sales)", "Count(Sales)"]}
-                        dropDownValues={["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales"]}
-                        primitiveValue="Sum(Sales) as Sales">
-                    </IgrPropertyEditorPropertyDescription>
-                    <IgrPropertyEditorPropertyDescription
-                        propertyPath="GroupSorts"
-                        name="GroupSorts"
-                        label="Sort Groups"
-                        valueType="EnumValue"
-                        shouldOverrideDefaultEditor="true"
-                        dropDownNames={["Sales Desc", "Sales Asc"]}
-                        dropDownValues={["Sales Desc", "Sales Asc"]}
-                        primitiveValue="Sales Desc">
+                        primitiveValue="Country"
+                        changed={this.editorChangeUpdateInitialGroups}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
 
             <div className="legend-title">
-                Renewable Electricity Generated
+                Sales Aggregated by Country and Product
             </div>
 
             <div className="container fill">
@@ -124,6 +110,51 @@ export default class Sample extends React.Component<any, any> {
             CategoryChartDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public propertyEditorInitAggregationsOnViewInit(): void {
+
+        var editor = this.editor;
+        var initialSummariesDropdown = new IgrPropertyEditorPropertyDescription({});
+        var sortGroupsDropdown = new IgrPropertyEditorPropertyDescription({});
+
+        initialSummariesDropdown.label = "Initial Summaries";
+        initialSummariesDropdown.valueType = PropertyEditorValueType.EnumValue;
+        initialSummariesDropdown.shouldOverrideDefaultEditor = true;
+        initialSummariesDropdown.dropDownNames = ["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales" ];
+        initialSummariesDropdown.dropDownValues = ["Sum(Sales) as Sales", "Avg(Sales) as Sales", "Min(Sales) as Sales", "Max(Sales) as Sales", "Count(Sales) as Sales" ];
+
+        sortGroupsDropdown.label = "Sort Groups"
+        sortGroupsDropdown.valueType = PropertyEditorValueType.EnumValue;
+        sortGroupsDropdown.shouldOverrideDefaultEditor = true;
+        sortGroupsDropdown.dropDownNames = ["Sales Asc", "Sales Desc"];
+        sortGroupsDropdown.dropDownValues = ["Sales Asc","Sales Desc"];
+
+        editor.properties.add(initialSummariesDropdown);
+        editor.properties.add(sortGroupsDropdown);
+
+        this.editorChangeUpdateInitialSummaries = this.editorChangeUpdateInitialSummaries.bind(this);
+        this.editorChangeUpdateGroupSorts = this.editorChangeUpdateGroupSorts.bind(this);
+        initialSummariesDropdown.changed = this.editorChangeUpdateInitialSummaries;
+        sortGroupsDropdown.changed = this.editorChangeUpdateGroupSorts;
+    }
+
+    public editorChangeUpdateInitialSummaries(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+
+        var chart = this.chart;
+        var intialSummaryVal = args.newValue.toString();
+        chart.initialSummaries = intialSummaryVal;
+    }
+
+    public editorChangeUpdateGroupSorts(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var chart = this.chart;
+        var groupSortsVal = args.newValue.toString();
+        chart.groupSorts = groupSortsVal;
+    }
+
+    public editorChangeUpdateInitialGroups(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var chart = this.chart;
+        chart.initialGroups = args.newValue.toString();
     }
 
 }

@@ -39,13 +39,20 @@ In this folder, you will find individual *samples** on how to use [Ignite UI for
 [Multi-Column Combobox](https://www.infragistics.com/products/ignite-ui-react/react/components/editors/multi-column-combobox)
 
 
-## Setup
+## Branches
+
+> **_NOTE:_** You should use [master](https://github.com/IgniteUI/igniteui-react-examples/tree/master) branch of this repository if you want to run samples on your computer. Use the [vnext](https://github.com/IgniteUI/igniteui-react-examples/tree/vnext) branch only when you want to contribute new samples to this repository.
+
+## Instructions
+
+Follow these instructions to run an individual sample:
 
 - in VS Code, open a folder with existing sample, e.g.
 ```
 ./samples/charts/category-chart/axis-options/
 ```
 - type `npm install` command in terminal window
+
 - type `npm run start` command in terminal window
 
 - Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser.
