@@ -91,7 +91,7 @@ export default class Sample extends React.Component<any, any> {
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     crosshairsDisplayMode="None"
-                    includedProperties={["date", "grossSales", "profit", "sales"]}
+                    includedProperties={["Date", "GrossSales", "Profit", "Sales"]}
                     initialFilter="(startswith(Country, 'B') and endswith(Country, 'l') and contains(Product, 'Royal Oak') and contains(Date, '3/1/20'))">
                 </IgrCategoryChart>
             </div>
