@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrButton, IgrDialog, IgrInput, IgrIcon, IgrForm, IgrButtonModule, IgrDialogModule, IgrInputModule, IgrIconModule, IgrFormModule } from 'igniteui-react';
+import { IgrButton, IgrDialog, IgrInput, IgrIcon, IgrButtonModule, IgrDialogModule, IgrInputModule, IgrIconModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrButtonModule.register();
 IgrDialogModule.register();
 IgrInputModule.register();
 IgrIconModule.register();
-IgrFormModule.register();
 
 export default class DialogForm extends React.Component<any, any> {
 
@@ -32,7 +31,7 @@ export default class DialogForm extends React.Component<any, any> {
                 </IgrButton>
 
                 <IgrDialog title="Login" ref={this.onDialogRef}>
-                    <IgrForm method="dialog">
+                    <form>
                         <IgrInput label="Username">
                             <span slot="prefix">
                                 <IgrIcon ref={this.iconUsernameRef} name="username" collection="material"/>
@@ -49,7 +48,7 @@ export default class DialogForm extends React.Component<any, any> {
                             <IgrButton type="reset" variant="flat"><span>Reset</span></IgrButton>
                             <IgrButton type="submit" variant="flat"><span>Submit</span></IgrButton>
                         </div>
-                    </IgrForm>
+                    </form>
 
 
                     <div slot="footer">
