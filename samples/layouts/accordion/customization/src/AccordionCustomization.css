@@ -1,0 +1,31 @@
+igc-accordion {
+    width: 100%;
+}
+
+.sample-wrapper {
+    overflow-y: auto;
+    max-height: 530px;
+    margin: 8px;
+}
+
+igc-range-slider {
+    margin: 24px;
+}
+
+.categories-container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+igc-checkbox,
+igc-radio {
+    margin: 4px 0;
+}
+
+igc-expansion-panel {
+    border: 1px solid rgba(174, 174, 174, 0.25);
+}
+
+igc-rating {
+    flex-direction: row;
+}
