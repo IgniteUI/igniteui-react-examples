@@ -1,0 +1,13 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+igc-dialog::part(content) {
+    background: #011627;
+    color: white;
+}
+
+igc-dialog::part(title),
+igc-dialog::part(footer) {
+    background: #011627;
+    color: #ECAA53;
+}
