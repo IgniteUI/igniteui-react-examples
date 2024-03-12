@@ -1,6 +1,6 @@
 {
-  "name": "react-radial-gauge-animation",
-  "description": "This project provides example of Radial Gauge Animation using Infragistics React components",
+  "name": "react-radial-gauge-labels",
+  "description": "This project provides example of Radial Gauge Labels using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
