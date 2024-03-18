@@ -837,7 +837,7 @@ function updateIG(cb) {
         { name: "igniteui-react-datasources"              , version: "18.5.2-beta.1" },
         { name: "igniteui-react"                          , version: "18.5.2-beta.1" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "4.5.0" },
+        { name: "igniteui-webcomponents", version: "4.7.0" },
         { name: "igniteui-dockmanager",   version: "1.14.2" },
         // main react packages
         { name: "react"             , version: "^18.2.0", },
