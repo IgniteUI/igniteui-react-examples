@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
-import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
-
-
+import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { WorldDebtAndPopulationItem, WorldDebtAndPopulation } from './WorldDebtAndPopulation';
 
 const mods: any[] = [
     IgrNumberAbbreviatorModule,
@@ -39,37 +37,40 @@ export default class Sample extends React.Component<any, any> {
         return (
         <div className="container sample">
 
-            <div className="legend-title">
-                GDP per Capita vs Population
-            </div>
-
-
             <div className="container fill">
                 <IgrDataChart
-                    ref={this.chartRef}>
+                    ref={this.chartRef}
+                    chartTitle="Public Debt vs. Population"
+                    subtitle="GDP per Capita">
                     <IgrNumericXAxis
-                        isLogarithmic="true"
-                        abbreviateLargeNumbers="true"
+                        name="xAxis"
                         title="Population"
-                        name="xAxis">
+                        isLogarithmic="true"
+                        abbreviateLargeNumbers="true">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
+                        name="yAxis"
+                        title="Public Debt"
                         isLogarithmic="false"
                         abbreviateLargeNumbers="true"
-                        title="GDP per Capita"
-                        name="yAxis">
+                        maximumValue="120">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
-                        radiusMemberPath="population"
+                        name="BubbleSeries1"
+                        xMemberPath="population"
+                        yMemberPath="publicDebt"
+                        radiusMemberPath="gdpPerCapita"
+                        fillMemberPath="gdpPerCapita"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        xMemberPath="population"
-                        yMemberPath="gDP"
+                        dataSource={this.worldDebtAndPopulation}
                         markerType="Circle"
-                        dataSource={this.countryStatsEurope}
-                        showDefaultTooltip="true"
-                        title="European Countries"
-                        name="BubbleSeries1">
+                        showDefaultTooltip="true">
+                        <IgrSizeScale
+                            isLogarithmic="false"
+                            minimumValue="5"
+                            maximumValue="40">
+                        </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
                         name="DataToolTipLayer">
@@ -80,19 +81,16 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _countryStatsEurope: CountryStatsEurope = null;
-    public get countryStatsEurope(): CountryStatsEurope {
-        if (this._countryStatsEurope == null)
+    private _worldDebtAndPopulation: WorldDebtAndPopulation = null;
+    public get worldDebtAndPopulation(): WorldDebtAndPopulation {
+        if (this._worldDebtAndPopulation == null)
         {
-            this._countryStatsEurope = new CountryStatsEurope();
+            this._worldDebtAndPopulation = new WorldDebtAndPopulation();
         }
-        return this._countryStatsEurope;
+        return this._worldDebtAndPopulation;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
