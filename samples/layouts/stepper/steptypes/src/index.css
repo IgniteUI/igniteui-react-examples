@@ -1,0 +1,9 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.radio-group-container {
+    width: fit-content;
+    padding: 0.5rem;
+    border: 1px solid gainsboro;
+    margin-bottom: 1rem;
+}
