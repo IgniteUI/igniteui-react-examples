@@ -31,19 +31,20 @@ export default class RadialGaugeOpticalScaling extends React.Component<any, any>
                     <label className="options-label">Optical Scaling: </label>
                     <label className="options-label"><input type="checkbox"
                     checked={this.state.crosshairsVisible}
-                    onChange={this.onOpticalScalingChanged}/> Scaling Size: </label>
-                    <input className="options-slider" type="range" min="100" max="2000" step="100"
-                        value={this.state.dataPoints}
-                        onChange={this.onOpticalSizeChanged} />
+                    onChange={this.onOpticalScalingChanged}/> Resize Gauge: </label>
+                    <input className="options-slider" type="range" min="20" max="100" step="10" value="100"
+                        onChange={this.onGaugeSizeChanged} />
                 </div>
                 
             <IgrRadialGauge
                     height="100%"
                     width="100%"
-                    titleText="Optical Scaling"
-                    subtitleText="Enabled"       
+                    titleDisplaysValue= "true"
+                    subtitleText="MPG"       
                     minimumValue="0" value="50"
                     maximumValue="80" interval="10"
+                    titleExtent={0.5}
+                    subtitleExtent={0.65}
                     opticalScalingEnabled="true" 
                     opticalScalingSize="400" />
             </div>
@@ -56,19 +57,17 @@ export default class RadialGaugeOpticalScaling extends React.Component<any, any>
 
         if (isEnabled) {
             this.gauge.opticalScalingEnabled = true;
-            this.gauge.subtitleText = "Enabled";
         }
         else {
             this.gauge.opticalScalingEnabled = false;
-            this.gauge.subtitleText = "Disabled";
         }
     }
 
-    public onOpticalSizeChanged = (e: any) => {
+    public onGaugeSizeChanged = (e: any) => {
 
-        let num: number = parseInt(e.target.value, 10);
-
-        this.gauge.opticalScalingSize = num;
+        let num: number = parseInt(e.target.value);
+        this.gauge.width = num.toString() + "%";
+        this.gauge.height = num.toString() + "%";
     }
 }
 
