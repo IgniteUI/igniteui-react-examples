@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale } from 'igniteui-react-charts';
 import { CountryStatsAfricaItem, CountryStatsAfrica } from './CountryStatsAfrica';
 import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
-
-
 
 const mods: any[] = [
     IgrLegendModule,
@@ -52,50 +50,60 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
-                    legend={this.legend}
-                    ref={this.chartRef}>
+                    ref={this.chartRef}
+                    legend={this.legend}>
                     <IgrNumericXAxis
+                        name="xAxis"
                         isLogarithmic="true"
                         abbreviateLargeNumbers="true"
-                        title="Population"
-                        name="xAxis">
+                        title="Population">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
-                        isLogarithmic="true"
-                        abbreviateLargeNumbers="true"
+                        name="yAxis"
                         title="GDP per Capita"
-                        name="yAxis">
+                        isLogarithmic="true"
+                        abbreviateLargeNumbers="true">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
-                        radiusMemberPath="population"
+                        name="BubbleSeries1"
+                        title="African Countries"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="population"
                         yMemberPath="gDP"
-                        markerType="Circle"
+                        radiusMemberPath="population"
                         dataSource={this.countryStatsAfrica}
-                        showDefaultTooltip="true"
-                        title="African Countries"
-                        name="BubbleSeries1">
+                        markerType="Circle"
+                        showDefaultTooltip="true">
+                        <IgrSizeScale
+                            isLogarithmic="false"
+                            minimumValue="20"
+                            maximumValue="40">
+                        </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
-                        radiusMemberPath="population"
+                        name="BubbleSeries2"
+                        title="European Countries"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="population"
                         yMemberPath="gDP"
-                        markerType="Circle"
+                        radiusMemberPath="population"
                         dataSource={this.countryStatsEurope}
-                        showDefaultTooltip="true"
-                        title="European Countries"
-                        name="BubbleSeries2">
+                        markerType="Circle"
+                        showDefaultTooltip="true">
+                        <IgrSizeScale
+                            isLogarithmic="false"
+                            minimumValue="20"
+                            maximumValue="40">
+                        </IgrSizeScale>
                     </IgrBubbleSeries>
                 </IgrDataChart>
             </div>
@@ -111,7 +119,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryStatsAfrica;
     }
-    
+
     private _countryStatsEurope: CountryStatsEurope = null;
     public get countryStatsEurope(): CountryStatsEurope {
         if (this._countryStatsEurope == null)
@@ -120,11 +128,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryStatsEurope;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
