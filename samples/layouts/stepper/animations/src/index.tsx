@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import {
     IgrStepper, IgrStep, IgrStepperModule, IgrRadio, IgrRadioGroup, IgrRadioModule, IgrRadioGroupModule,
-    IgrButton, IgrButtonModule, IgrInput, IgrInputModule, IgrSelect, IgrSelectItem, IgrSelectModule, IgrDropdown,
-    IgrDropdownItemComponentEventArgs, IgrComponentValueChangedEventArgs, IgrSelectItemComponentEventArgs
+    IgrButton, IgrButtonModule, IgrInput, IgrInputModule, IgrSelect, IgrSelectItem, IgrSelectModule,
+    IgrSelectItemComponentEventArgs, IgrComponentValueChangedEventArgs
 } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
