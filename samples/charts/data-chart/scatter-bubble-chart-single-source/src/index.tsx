@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { WorldDebtAndPopulationItem, WorldDebtAndPopulation } from './WorldDebtAndPopulation';
 
 const mods: any[] = [
@@ -66,11 +66,6 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.worldDebtAndPopulation}
                         markerType="Circle"
                         showDefaultTooltip="true">
-                        <IgrSizeScale
-                            isLogarithmic="false"
-                            minimumValue="5"
-                            maximumValue="40">
-                        </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
                         name="DataToolTipLayer">
