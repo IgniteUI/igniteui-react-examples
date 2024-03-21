@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import {
     IgrStepper, IgrStep, IgrStepperModule, IgrRadio, IgrRadioGroup, IgrRadioModule, IgrRadioGroupModule,
-    IgrButton, IgrButtonModule, IgrInput, IgrInputModule, IgrSelect, IgrSelectItem, IgrSelectModule, IgrDropdown,
-    IgrDropdownItemComponentEventArgs, IgrComponentValueChangedEventArgs
+    IgrButton, IgrButtonModule, IgrInput, IgrInputModule, IgrSelect, IgrSelectItem, IgrSelectModule,
+    IgrSelectItemComponentEventArgs, IgrComponentValueChangedEventArgs
 } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -93,15 +93,15 @@ export default class StepperAnimations extends React.Component<any, any> {
         );
     }
 
-    public orientationChange(s: IgrDropdown, e: IgrDropdownItemComponentEventArgs){
+    public orientationChange(s: IgrSelect, e: IgrSelectItemComponentEventArgs){
         const selectedValue = e.detail.value;
         this.setState({orientation: selectedValue});
     }
-    public horizontalAnimationChange(s: IgrDropdown, e: IgrDropdownItemComponentEventArgs){
+    public horizontalAnimationChange(s: IgrSelect, e: IgrSelectItemComponentEventArgs){
         const selectedValue = e.detail.value;
         this.setState({horizontalAnimation: selectedValue});
     }
-    public verticalAnimationChange(s: IgrDropdown, e: IgrDropdownItemComponentEventArgs){
+    public verticalAnimationChange(s: IgrSelect, e: IgrSelectItemComponentEventArgs){
         const selectedValue = e.detail.value;
         this.setState({verticalAnimation: selectedValue});
     }
