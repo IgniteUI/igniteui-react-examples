@@ -1,4 +1,4 @@
-{
+ {
   "name": "example-ignite-ui-react",
   "description": "This project provides example of using Ignite UI for React components",
   "author": "Infragistics",
@@ -14,7 +14,7 @@
     "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
-    "igniteui-dockmanager": "1.14.2",
+    "igniteui-dockmanager": "1.14.3",
     "igniteui-react": "18.5.2-beta.2",
     "igniteui-react-core": "18.5.2-beta.2",
     "igniteui-react-datasources": "18.5.2-beta.2",
