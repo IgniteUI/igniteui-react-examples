@@ -19,6 +19,7 @@ export default class LinearStepper extends React.Component<any, any> {
     private stepperRef = React.createRef<IgrStepper>();
     private InfoForm = React.createRef<any>();
     private AddressForm = React.createRef<any>();
+    private activeStepIndex = 0;
 
     constructor(props: any) {
         super(props);
@@ -34,7 +35,7 @@ export default class LinearStepper extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrSwitch change={this.OnSwitchChange}></IgrSwitch>
+                <IgrSwitch change={this.OnSwitchChange}><span key="liner-switch">Linear</span></IgrSwitch>
 
                 <IgrStepper ref={this.stepperRef} linear={this.state.linear} >
                     <IgrStep key="info-step" invalid={this.state.linear && this.state.firstStepInvalid}>
@@ -89,24 +90,24 @@ export default class LinearStepper extends React.Component<any, any> {
     public OnSwitchChange(s: IgrCheckboxBase, e: IgrComponentBoolValueChangedEventArgs) {
         this.setState({ linear: s.checked });
         if(s.checked){
-            this.checkAtiveStepValidity();
+           this.checkActiveStepValidity();
         }
     }
 
     public onInput(s: IgrInput, e: IgrComponentValueChangedEventArgs) {
         if(!this.state.linear) return;
 
-        this.checkAtiveStepValidity();       
+        this.checkActiveStepValidity();       
     }
 
-    private checkAtiveStepValidity(){
+    private checkActiveStepValidity(){
         const activeStep = this.activeStep;
 
-        if (activeStep?.index === 0) {
+        if (activeStep && this.activeStepIndex === 0) {
             const isInvalidForm = this.checkFormValidity(this.InfoForm);
             this.setState({firstStepInvalid: isInvalidForm});
         }
-        if (activeStep?.index === 1) {
+        if (activeStep && this.activeStepIndex === 1) {
             const isInvalidForm = this.checkFormValidity(this.AddressForm);
             this.setState({ secondStepInvalid: isInvalidForm });
         }
@@ -129,7 +130,10 @@ export default class LinearStepper extends React.Component<any, any> {
     }
 
     private get activeStep(): IgrStep | undefined {
-        return this.stepperRef.current.steps.find((step: IgrStep) => step.active);
+        return this.stepperRef.current.steps.find((step: IgrStep, index: number) => {
+            this.activeStepIndex = index;
+            return step.active;
+        });
     }
 }
 
