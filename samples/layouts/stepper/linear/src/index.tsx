@@ -102,7 +102,6 @@ export default class LinearStepper extends React.Component<any, any> {
 
     private checkActiveStepValidity(){
         const activeStep = this.activeStep;
-
         if (activeStep && this.activeStepIndex === 0) {
             const isInvalidForm = this.checkFormValidity(this.InfoForm);
             this.setState({firstStepInvalid: isInvalidForm});
