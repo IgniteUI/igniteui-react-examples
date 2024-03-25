@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { CountryStatsAfricaItem, CountryStatsAfrica } from './CountryStatsAfrica';
 import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
 
@@ -88,11 +88,6 @@ export default class Sample extends React.Component<any, any> {
                         markerFillOpacity="0.5"
                         markerThickness="2"
                         showDefaultTooltip="true">
-                        <IgrSizeScale
-                            isLogarithmic="false"
-                            minimumValue="20"
-                            maximumValue="40">
-                        </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
                         name="BubbleSeries2"
@@ -109,11 +104,6 @@ export default class Sample extends React.Component<any, any> {
                         markerFillOpacity="0.5"
                         markerThickness="2"
                         showDefaultTooltip="true">
-                        <IgrSizeScale
-                            isLogarithmic="false"
-                            minimumValue="20"
-                            maximumValue="40">
-                        </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
                         name="DataToolTipLayer">
