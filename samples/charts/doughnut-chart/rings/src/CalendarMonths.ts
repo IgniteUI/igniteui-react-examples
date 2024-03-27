@@ -8,73 +8,67 @@ export class CalendarMonthsItem {
 
 }
 export class CalendarMonths extends Array<CalendarMonthsItem> {
-    public constructor(items: Array<CalendarMonthsItem> | number = -1) {
-        if (Array.isArray(items)) {
-            super(...items);
-        } else {
-            const newItems = [
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `December`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `January`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `February`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `March`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `April`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `May`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `June`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `July`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `August`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `September`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `October`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `November`
-                }),
-            ];
-            super(...(newItems.slice(0, items)));
-        }
+    public constructor() {
+        super();
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `December`
+        }));
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `January`
+        }));
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `February`
+        }));
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `March`
+        }));
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `April`
+        }));
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `May`
+        }));
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `June`
+        }));
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `July`
+        }));
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `August`
+        }));
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `September`
+        }));
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `October`
+        }));
+        this.push(new CalendarMonthsItem(
+        {
+            value: 1,
+            label: `November`
+        }));
     }
 }

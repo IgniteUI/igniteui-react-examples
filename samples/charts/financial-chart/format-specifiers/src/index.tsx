@@ -3,17 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrFinancialChartModule, IgrDataChartInteractivityModule, IgrDataLegendModule } from 'igniteui-react-charts';
-import { IgrNumberFormatSpecifierModule, IgrDateTimeFormatSpecifierModule } from 'igniteui-react-core';
-import { IgrDataLegend, IgrFinancialChart } from 'igniteui-react-charts';
-import { IgrNumberFormatSpecifier, IgrDateTimeFormatSpecifier } from 'igniteui-react-core';
+import { IgrDataLegend, IgrFinancialChart, IgrNumberFormatSpecifier, IgrDateTimeFormatSpecifier } from 'igniteui-react-charts';
 import { MultipleStocks } from './MultipleStocks';
 
 const mods: any[] = [
     IgrFinancialChartModule,
     IgrDataChartInteractivityModule,
-    IgrDataLegendModule,
-    IgrNumberFormatSpecifierModule,
-    IgrDateTimeFormatSpecifierModule
+    IgrDataLegendModule
 ];
 mods.forEach((m) => m.register());
 
@@ -23,74 +19,10 @@ export default class Sample extends React.Component<any, any> {
         this.legend = r;
         this.setState({});
     }
-    private _numberFormatSpecifier1: IgrNumberFormatSpecifier[] | null = null;
-    public get numberFormatSpecifier1(): IgrNumberFormatSpecifier[] {
-        if (this._numberFormatSpecifier1 == null)
-        {
-            let numberFormatSpecifier1: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier2 = new IgrNumberFormatSpecifier();
-            numberFormatSpecifier2.currency = "EUR";
-            numberFormatSpecifier2.style = "currency";
-            numberFormatSpecifier2.locale = "en-GB";
-            numberFormatSpecifier2.minimumFractionDigits = 2;
-            numberFormatSpecifier2.maximumFractionDigits = 2;
-
-            numberFormatSpecifier1.push(numberFormatSpecifier2)
-            this._numberFormatSpecifier1 = numberFormatSpecifier1;
-        }
-        return this._numberFormatSpecifier1;
-    }
     private chart: IgrFinancialChart
     private chartRef(r: IgrFinancialChart) {
         this.chart = r;
         this.setState({});
-    }
-    private _numberFormatSpecifier3: IgrNumberFormatSpecifier[] | null = null;
-    public get numberFormatSpecifier3(): IgrNumberFormatSpecifier[] {
-        if (this._numberFormatSpecifier3 == null)
-        {
-            let numberFormatSpecifier3: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier4 = new IgrNumberFormatSpecifier();
-            numberFormatSpecifier4.currency = "EUR";
-            numberFormatSpecifier4.style = "currency";
-            numberFormatSpecifier4.locale = "en-GB";
-            numberFormatSpecifier4.minimumFractionDigits = 2;
-            numberFormatSpecifier4.maximumFractionDigits = 2;
-
-            numberFormatSpecifier3.push(numberFormatSpecifier4)
-            this._numberFormatSpecifier3 = numberFormatSpecifier3;
-        }
-        return this._numberFormatSpecifier3;
-    }
-    private _numberFormatSpecifier5: IgrNumberFormatSpecifier[] | null = null;
-    public get numberFormatSpecifier5(): IgrNumberFormatSpecifier[] {
-        if (this._numberFormatSpecifier5 == null)
-        {
-            let numberFormatSpecifier5: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier6 = new IgrNumberFormatSpecifier();
-            numberFormatSpecifier6.currency = "EUR";
-            numberFormatSpecifier6.style = "currency";
-            numberFormatSpecifier6.locale = "en-GB";
-            numberFormatSpecifier6.minimumFractionDigits = 0;
-
-            numberFormatSpecifier5.push(numberFormatSpecifier6)
-            this._numberFormatSpecifier5 = numberFormatSpecifier5;
-        }
-        return this._numberFormatSpecifier5;
-    }
-    private _dateTimeFormatSpecifier1: IgrDateTimeFormatSpecifier[] | null = null;
-    public get dateTimeFormatSpecifier1(): IgrDateTimeFormatSpecifier[] {
-        if (this._dateTimeFormatSpecifier1 == null)
-        {
-            let dateTimeFormatSpecifier1: IgrDateTimeFormatSpecifier[] = [];
-            var dateTimeFormatSpecifier2 = new IgrDateTimeFormatSpecifier();
-            dateTimeFormatSpecifier2.locale = "en-GB";
-            dateTimeFormatSpecifier2.dateStyle = "long";
-
-            dateTimeFormatSpecifier1.push(dateTimeFormatSpecifier2)
-            this._dateTimeFormatSpecifier1 = dateTimeFormatSpecifier1;
-        }
-        return this._dateTimeFormatSpecifier1;
     }
 
     constructor(props: any) {
@@ -111,8 +43,8 @@ export default class Sample extends React.Component<any, any> {
                     includedColumns={["Close", "Change", "Value"]}
                     excludedColumns={["High", "Low", "Open", "Volume"]}
                     labelDisplayMode="Hidden"
-                    valueFormatString="{0}"
-                    valueFormatSpecifiers={this.numberFormatSpecifier1}>
+                    valueFormatMode="Currency"
+                    valueFormatCulture="en-GB">
                 </IgrDataLegend>
             </div>
 
@@ -121,16 +53,24 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     chartType="Candle"
                     dataSource={this.multipleStocks}
-                    dataToolTipValueFormatString="{0}"
-                    dataToolTipValueFormatSpecifiers={this.numberFormatSpecifier3}
+                    dataToolTipValueFormatMode="Currency"
+                    dataToolTipValueFormatCulture="en-GB"
+                    dataToolTipLabelDisplayMode="Hidden"
                     dataToolTipIncludedColumns={["Close", "Change", "Value"]}
                     dataToolTipHeaderFormatTime="None"
                     zoomSliderType="None"
-                    yAxisAbbreviateLargeNumbers="false"
                     yAxisLabelFormat="{0}"
-                    yAxisLabelFormatSpecifiers={this.numberFormatSpecifier5}
-                    xAxisLabelFormat="{0}"
-                    xAxisLabelFormatSpecifiers={this.dateTimeFormatSpecifier1}>
+                    xAxisLabelFormat="{0}">
+                    <IgrNumberFormatSpecifier
+                        currency="EUR"
+                        style="currency"
+                        locale="en-GB"
+                        minimumFractionDigits="0">
+                    </IgrNumberFormatSpecifier>
+                    <IgrDateTimeFormatSpecifier
+                        locale="en-GB"
+                        dateStyle="long">
+                    </IgrDateTimeFormatSpecifier>
                 </IgrFinancialChart>
             </div>
         </div>

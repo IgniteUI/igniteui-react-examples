@@ -9,61 +9,55 @@ export class FootballPlayerStatsItem {
 
 }
 export class FootballPlayerStats extends Array<FootballPlayerStatsItem> {
-    public constructor(items: Array<FootballPlayerStatsItem> | number = -1) {
-        if (Array.isArray(items)) {
-            super(...items);
-        } else {
-            const newItems = [
-                new FootballPlayerStatsItem(
-                {
-                    attribute: `Dribbling`,
-                    ronaldo: 8,
-                    messi: 10
-                }),
-                new FootballPlayerStatsItem(
-                {
-                    attribute: `Passing`,
-                    ronaldo: 8,
-                    messi: 10
-                }),
-                new FootballPlayerStatsItem(
-                {
-                    attribute: `Finishing`,
-                    ronaldo: 10,
-                    messi: 10
-                }),
-                new FootballPlayerStatsItem(
-                {
-                    attribute: `Free Kicks`,
-                    ronaldo: 8,
-                    messi: 9
-                }),
-                new FootballPlayerStatsItem(
-                {
-                    attribute: `Penalties`,
-                    ronaldo: 9,
-                    messi: 7
-                }),
-                new FootballPlayerStatsItem(
-                {
-                    attribute: `Physical`,
-                    ronaldo: 10,
-                    messi: 7
-                }),
-                new FootballPlayerStatsItem(
-                {
-                    attribute: `Team Play`,
-                    ronaldo: 7,
-                    messi: 9
-                }),
-                new FootballPlayerStatsItem(
-                {
-                    attribute: `Heading`,
-                    ronaldo: 9,
-                    messi: 6
-                }),
-            ];
-            super(...(newItems.slice(0, items)));
-        }
+    public constructor() {
+        super();
+        this.push(new FootballPlayerStatsItem(
+        {
+            attribute: `Dribbling`,
+            ronaldo: 8,
+            messi: 10
+        }));
+        this.push(new FootballPlayerStatsItem(
+        {
+            attribute: `Passing`,
+            ronaldo: 8,
+            messi: 10
+        }));
+        this.push(new FootballPlayerStatsItem(
+        {
+            attribute: `Finishing`,
+            ronaldo: 10,
+            messi: 10
+        }));
+        this.push(new FootballPlayerStatsItem(
+        {
+            attribute: `Free Kicks`,
+            ronaldo: 8,
+            messi: 9
+        }));
+        this.push(new FootballPlayerStatsItem(
+        {
+            attribute: `Penalties`,
+            ronaldo: 9,
+            messi: 7
+        }));
+        this.push(new FootballPlayerStatsItem(
+        {
+            attribute: `Physical`,
+            ronaldo: 10,
+            messi: 7
+        }));
+        this.push(new FootballPlayerStatsItem(
+        {
+            attribute: `Team Play`,
+            ronaldo: 7,
+            messi: 9
+        }));
+        this.push(new FootballPlayerStatsItem(
+        {
+            attribute: `Heading`,
+            ronaldo: 9,
+            messi: 6
+        }));
     }
 }

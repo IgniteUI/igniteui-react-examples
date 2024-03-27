@@ -4,17 +4,14 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrDataLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
-import { IgrNumberFormatSpecifierModule } from 'igniteui-react-core';
-import { IgrDataLegend, IgrCategoryChart } from 'igniteui-react-charts';
-import { IgrNumberFormatSpecifier } from 'igniteui-react-core';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataLegendDescriptionModule, CategoryChartDescriptionModule, NumberFormatSpecifierDescriptionModule } from 'igniteui-react-core';
+import { IgrDataLegend, IgrCategoryChart, IgrNumberFormatSpecifier } from 'igniteui-react-charts';
+import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataLegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
     IgrDataLegendModule,
-    IgrCategoryChartModule,
-    IgrNumberFormatSpecifierModule
+    IgrCategoryChartModule
 ];
 mods.forEach((m) => m.register());
 
@@ -24,60 +21,10 @@ export default class Sample extends React.Component<any, any> {
         this.legend = r;
         this.setState({});
     }
-    private _numberFormatSpecifier1: IgrNumberFormatSpecifier[] | null = null;
-    public get numberFormatSpecifier1(): IgrNumberFormatSpecifier[] {
-        if (this._numberFormatSpecifier1 == null)
-        {
-            let numberFormatSpecifier1: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier2 = new IgrNumberFormatSpecifier();
-            numberFormatSpecifier2.style = "currency";
-            numberFormatSpecifier2.currency = "USD";
-            numberFormatSpecifier2.currencyDisplay = "symbol";
-            numberFormatSpecifier2.maximumFractionDigits = 2;
-            numberFormatSpecifier2.minimumFractionDigits = 2;
-
-            numberFormatSpecifier1.push(numberFormatSpecifier2)
-            this._numberFormatSpecifier1 = numberFormatSpecifier1;
-        }
-        return this._numberFormatSpecifier1;
-    }
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
         this.setState({});
-    }
-    private _numberFormatSpecifier3: IgrNumberFormatSpecifier[] | null = null;
-    public get numberFormatSpecifier3(): IgrNumberFormatSpecifier[] {
-        if (this._numberFormatSpecifier3 == null)
-        {
-            let numberFormatSpecifier3: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier4 = new IgrNumberFormatSpecifier();
-            numberFormatSpecifier4.style = "currency";
-            numberFormatSpecifier4.currency = "USD";
-            numberFormatSpecifier4.currencyDisplay = "symbol";
-            numberFormatSpecifier4.maximumFractionDigits = 2;
-            numberFormatSpecifier4.minimumFractionDigits = 2;
-
-            numberFormatSpecifier3.push(numberFormatSpecifier4)
-            this._numberFormatSpecifier3 = numberFormatSpecifier3;
-        }
-        return this._numberFormatSpecifier3;
-    }
-    private _numberFormatSpecifier5: IgrNumberFormatSpecifier[] | null = null;
-    public get numberFormatSpecifier5(): IgrNumberFormatSpecifier[] {
-        if (this._numberFormatSpecifier5 == null)
-        {
-            let numberFormatSpecifier5: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier6 = new IgrNumberFormatSpecifier();
-            numberFormatSpecifier6.style = "currency";
-            numberFormatSpecifier6.currency = "USD";
-            numberFormatSpecifier6.currencyDisplay = "symbol";
-            numberFormatSpecifier6.minimumFractionDigits = 0;
-
-            numberFormatSpecifier5.push(numberFormatSpecifier6)
-            this._numberFormatSpecifier5 = numberFormatSpecifier5;
-        }
-        return this._numberFormatSpecifier5;
     }
 
     constructor(props: any) {
@@ -97,10 +44,10 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrDataLegend
-                    ref={this.legendRef}
                     target={this.chart}
-                    valueFormatString="{0} Billion"
-                    valueFormatSpecifiers={this.numberFormatSpecifier1}>
+                    valueFormatMode="Currency"
+                    valueFormatString="${0} Billion"
+                    ref={this.legendRef}>
                 </IgrDataLegend>
             </div>
 
@@ -111,11 +58,15 @@ export default class Sample extends React.Component<any, any> {
                     chartType="Column"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    finalValueAnnotationsPrecision="2"
-                    dataToolTipValueFormatString="{0} Billion"
-                    dataToolTipValueFormatSpecifiers={this.numberFormatSpecifier3}
-                    yAxisLabelFormat="{0}B"
-                    yAxisLabelFormatSpecifiers={this.numberFormatSpecifier5}>
+                    dataToolTipValueFormatMode="Currency"
+                    dataToolTipValueFormatString="${0} Billion"
+                    yAxisLabelFormat="{0}B">
+                    <IgrNumberFormatSpecifier
+                        style="currency"
+                        currency="USD"
+                        currencyDisplay="symbol"
+                        minimumFractionDigits="0">
+                    </IgrNumberFormatSpecifier>
                 </IgrCategoryChart>
             </div>
         </div>
@@ -139,7 +90,6 @@ export default class Sample extends React.Component<any, any> {
             PropertyEditorPanelDescriptionModule.register(context);
             DataLegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
-            NumberFormatSpecifierDescriptionModule.register(context);
         }
         return this._componentRenderer;
     }

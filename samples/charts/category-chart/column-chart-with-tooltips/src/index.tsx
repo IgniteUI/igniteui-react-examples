@@ -10,6 +10,9 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescript
 import { HighestGrossingMoviesItem, HighestGrossingMovies } from './HighestGrossingMovies';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+
+defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,

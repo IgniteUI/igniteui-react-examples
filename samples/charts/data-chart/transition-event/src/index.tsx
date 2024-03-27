@@ -11,6 +11,9 @@ import { CompanyIncomeDataItem, CompanyIncomeData } from './CompanyIncomeData';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+
+defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,

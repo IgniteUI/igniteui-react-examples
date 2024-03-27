@@ -10,6 +10,9 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataChartCateg
 import { TemperatureAverageDataLongLabelsItem, TemperatureAverageDataLongLabels } from './TemperatureAverageDataLongLabels';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+
+defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,

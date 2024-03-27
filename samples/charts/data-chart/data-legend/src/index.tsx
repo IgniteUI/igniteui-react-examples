@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataLegendModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrDataLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrCrosshairLayer } from 'igniteui-react-charts';
+import { IgrDataLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrCrosshairLayer } from 'igniteui-react-charts';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 
@@ -33,7 +33,9 @@ export default class Sample extends React.Component<any, any> {
     private xAxis: IgrNumericXAxis
     private yAxis: IgrNumericYAxis
     private bubbleSeries1: IgrBubbleSeries
+    private sizeScale1: IgrSizeScale
     private bubbleSeries2: IgrBubbleSeries
+    private sizeScale2: IgrSizeScale
     private crosshairLayer: IgrCrosshairLayer
 
     constructor(props: any) {
@@ -87,6 +89,11 @@ export default class Sample extends React.Component<any, any> {
                         radiusMemberAsLegendLabel="Population: "
                         xMemberAsLegendLabel="Death Rate: "
                         yMemberAsLegendLabel="Birth Rate: ">
+                        <IgrSizeScale
+                            name="SizeScale1"
+                            minimumValue="10"
+                            maximumValue="100">
+                        </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
                         name="BubbleSeries2"
@@ -100,6 +107,11 @@ export default class Sample extends React.Component<any, any> {
                         radiusMemberAsLegendLabel="Population: "
                         xMemberAsLegendLabel="Death Rate: "
                         yMemberAsLegendLabel="Birth Rate: ">
+                        <IgrSizeScale
+                            name="SizeScale2"
+                            minimumValue="10"
+                            maximumValue="100">
+                        </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrCrosshairLayer
                         name="CrosshairLayer">

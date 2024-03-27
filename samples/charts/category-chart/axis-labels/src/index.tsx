@@ -10,6 +10,9 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescript
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+
+defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,

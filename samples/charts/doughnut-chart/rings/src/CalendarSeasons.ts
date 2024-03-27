@@ -8,33 +8,27 @@ export class CalendarSeasonsItem {
 
 }
 export class CalendarSeasons extends Array<CalendarSeasonsItem> {
-    public constructor(items: Array<CalendarSeasonsItem> | number = -1) {
-        if (Array.isArray(items)) {
-            super(...items);
-        } else {
-            const newItems = [
-                new CalendarSeasonsItem(
-                {
-                    value: 4,
-                    label: `Winter`
-                }),
-                new CalendarSeasonsItem(
-                {
-                    value: 4,
-                    label: `Spring`
-                }),
-                new CalendarSeasonsItem(
-                {
-                    value: 4,
-                    label: `Summer`
-                }),
-                new CalendarSeasonsItem(
-                {
-                    value: 4,
-                    label: `Fall`
-                }),
-            ];
-            super(...(newItems.slice(0, items)));
-        }
+    public constructor() {
+        super();
+        this.push(new CalendarSeasonsItem(
+        {
+            value: 4,
+            label: `Winter`
+        }));
+        this.push(new CalendarSeasonsItem(
+        {
+            value: 4,
+            label: `Spring`
+        }));
+        this.push(new CalendarSeasonsItem(
+        {
+            value: 4,
+            label: `Summer`
+        }));
+        this.push(new CalendarSeasonsItem(
+        {
+            value: 4,
+            label: `Fall`
+        }));
     }
 }

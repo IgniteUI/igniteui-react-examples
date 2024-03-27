@@ -10,6 +10,9 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, ToolbarDescrip
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { defineAllComponents } from 'igniteui-webcomponents';
+
+defineAllComponents();
 
 const mods: any[] = [
     IgrPropertyEditorPanelModule,
@@ -95,8 +98,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
-                        title="TWh"
-                        labelLocation="OutsideRight">
+                        title="TWh">
                     </IgrNumericYAxis>
                     <IgrLineSeries
                         name="LineSeries1"
