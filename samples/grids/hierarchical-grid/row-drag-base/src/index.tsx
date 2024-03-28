@@ -174,7 +174,13 @@ export default class Sample extends React.Component<any, any> {
                             header="Artist"
                             dataType="String"
                             width="100px">
-                        </IgrColumn>                        
+                        </IgrColumn>  
+                        <IgrColumn
+                            field="Photo"
+                            header="Photo"
+                            dataType="Image"
+                            width="100px">
+                         </IgrColumn>                      
                         <IgrColumn
                             field="Debut"
                             header="Debut"
@@ -292,8 +298,7 @@ export default class Sample extends React.Component<any, any> {
             
             const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
             const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
-            if (withinXBounds && withinYBounds) {
-                console.log(this.hierarchicalGrid2.data);
+            if (withinXBounds && withinYBounds) {                
                 const newData = [...this.hierarchicalGrid2.data];
                 newData.push(evt.detail.dragData.data);
                 this.hierarchicalGrid2.data = newData;               
