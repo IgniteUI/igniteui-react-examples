@@ -18,3 +18,11 @@ igc-nav-drawer-item[active]::part(base) {
 igc-nav-drawer-header-item {
     color: #f3c03e
 }
+
+igc-icon-button::part(base) {
+    background: #2d313a;
+}
+
+igc-icon-button::part(icon) {
+    color: #f3c03e
+}

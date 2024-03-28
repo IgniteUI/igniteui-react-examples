@@ -12,72 +12,71 @@ IgrRadioModule.register();
 
 export default class NavDrawerAddPositionsNavbar extends React.Component<any, any> {
 
-    public navDrawerRef: IgrNavDrawer;
+    public navDrawer: IgrNavDrawer;
 
     constructor(props: any) {
-        super(props);        
+        super(props);
 
-        this.state = { drawerPosition: "start" };
+        this.state = { drawerPosition: "start", title: "Home" };
 
         this.iconRef = this.iconRef.bind(this);
-        this.onNavDrawerRef = this.onNavDrawerRef.bind(this);
+        this.navDrawerRef = this.navDrawerRef.bind(this);
         this.onMenuIconClick = this.onMenuIconClick.bind(this);
-        this.onNavDrawerClick = this.onNavDrawerClick.bind(this);    
-        this.onRadioChange = this.onRadioChange.bind(this);    
+        this.onNavDrawerClick = this.onNavDrawerClick.bind(this);
+        this.onRadioChange = this.onRadioChange.bind(this);
     }
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
                 <div onClick={this.onNavDrawerClick}>
-                    <IgrNavDrawer ref={this.onNavDrawerRef} position={this.state.drawerPosition}>
-                        <IgrNavDrawerHeaderItem>
-                            <span>Sample Drawer</span>
+                    <IgrNavDrawer ref={this.navDrawerRef} position={this.state.drawerPosition}>
+                        <IgrNavDrawerHeaderItem key="header">
+                            <span key="sHeader">Sample Drawer</span>
                         </IgrNavDrawerHeaderItem>
 
-                        <IgrNavDrawerItem>
-                            <div slot="icon">
+                        <IgrNavDrawerItem key="home" active>
+                            <div slot="icon" key="iHome">
                                 <IgrIcon ref={this.iconRef} name="home" collection="material" />
                             </div>
-                            <span slot="content">Home</span>
+                            <span slot="content" key="sHome">Home</span>
                         </IgrNavDrawerItem>
 
-                        <IgrNavDrawerItem>
-                            <div slot="icon">
+                        <IgrNavDrawerItem key="search">
+                            <div slot="icon" key="iSearch">
                                 <IgrIcon name="search" collection="material" />
                             </div>
-                            <span slot="content">Search</span>
+                            <span slot="content" key="sSearch">Search</span>
                         </IgrNavDrawerItem>
                     </IgrNavDrawer>
                 </div>
                 <div>
-                    <IgrRadioGroup alignment="horizontal" style={{marginBottom: '10px'}}>
-                        <IgrRadio name="position" value="start" labelPosition="after" checked={true} change={this.onRadioChange}>
-                            <span>Start</span>
+                    <IgrRadioGroup alignment="horizontal" style={{ marginBottom: '10px' }}>
+                        <IgrRadio name="position" value="start" labelPosition="after" checked={true} change={this.onRadioChange} key="start">
+                            <span key="sStart">Start</span>
                         </IgrRadio>
-                        <IgrRadio name="position" value="end" labelPosition="after" change={this.onRadioChange}>
-                            <span>End</span>
+                        <IgrRadio name="position" value="end" labelPosition="after" change={this.onRadioChange} key="end">
+                            <span key="sEnd">End</span>
                         </IgrRadio>
-                        <IgrRadio name="position" value="top" labelPosition="after" change={this.onRadioChange}>
-                            <span>Top</span>
+                        <IgrRadio name="position" value="top" labelPosition="after" change={this.onRadioChange} key="top">
+                            <span key="sTop">Top</span>
                         </IgrRadio>
-                        <IgrRadio name="position" value="bottom" labelPosition="after" change={this.onRadioChange}>
-                            <span>Bottom</span>
+                        <IgrRadio name="position" value="bottom" labelPosition="after" change={this.onRadioChange} key="bottom">
+                            <span key="sBottom">Bottom</span>
                         </IgrRadio>
                     </IgrRadioGroup>
-                    
                     <IgrNavbar>
-                        <div slot="start" onClick={this.onMenuIconClick}>
-                            <IgrIcon name="menu" collection="material"/>
+                        <div slot="start" onClick={this.onMenuIconClick} key="start">
+                            <IgrIcon name="menu" collection="material" />
                         </div>
-                        <h2>Home</h2>
+                        <h2 key="navHome">{this.state.title}</h2>
                     </IgrNavbar>
                 </div>
             </div>
         );
     }
 
-    public iconRef(icon: IgrIcon){
+    public iconRef(icon: IgrIcon) {
         if (!icon) { return; }
 
         const searchIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>';
@@ -90,24 +89,30 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
     }
 
     public onMenuIconClick() {
-        if (this.navDrawerRef) {
-            this.navDrawerRef.show();
+        if (this.navDrawer) {
+            this.navDrawer.show();
         }
     }
 
-    public onNavDrawerClick(e: any){
-        const target = e.target as HTMLElement;
-        const drawerItem: any = target.closest('igc-nav-drawer-item');
+    public onNavDrawerClick(e: any) {
+        const drawerItem: any = e.target.closest('igc-nav-drawer-item') ??
+                                (e.target.parentElement?.closest('igc-nav-drawer-item') ??
+                                null)
 
-        if(drawerItem){
-            drawerItem.active = !drawerItem.active;
-        }
+        if (!drawerItem) { return; }
+
+        drawerItem.active = true;
+        const navDrawer = drawerItem.parentElement;
+        Array.from(navDrawer.querySelectorAll('igc-nav-drawer-item'))
+             .filter((item: any) => item !== drawerItem)
+             .forEach((child: any) => child.active = false);
+
+        this.setState({ title: drawerItem.textContent });
     }
 
-    public onNavDrawerRef(navDrawer: IgrNavDrawer) {
+    public navDrawerRef(navDrawer: IgrNavDrawer) {
         if (!navDrawer) { return; }
-
-        this.navDrawerRef = navDrawer;
+        this.navDrawer = navDrawer;
     }
 
     public onRadioChange(e: any) {
@@ -119,4 +124,4 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<NavDrawerAddPositionsNavbar/>);
+root.render(<NavDrawerAddPositionsNavbar />);

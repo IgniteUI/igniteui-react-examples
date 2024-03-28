@@ -1,0 +1,13 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.settings {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.125rem;
+    background: hsl(var(--ig-gray-100));
+    padding: 1.125rem;
+    border: 1px solid hsl(var(--ig-gray-300));
+    border-radius: .25rem;
+    margin-bottom: 2rem;
+}

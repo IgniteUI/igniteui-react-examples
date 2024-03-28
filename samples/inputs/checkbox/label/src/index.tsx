@@ -18,7 +18,7 @@ export default class CheckboxLabel extends React.Component<any, any> {
             <div className="sample">
                 <div className="wrapper">
                     <span id="checkbox-label">Label</span>
-                    <IgrCheckbox ariaLabelledby="checkbox-label" labelPosition="before"></IgrCheckbox>
+                    <IgrCheckbox aria-labelledby="checkbox-label" labelPosition="before"></IgrCheckbox>
                 </div>
             </div>
         );
