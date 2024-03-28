@@ -91,15 +91,17 @@ export default function Sample() {
   return (
     <div className="container sample ig-typography">
       <div style={{ alignSelf: "flex-end" }} className="fill">
-        <IgrButton key="btn"><span key="content" onClick={x => { dropDownRef.current.toggle() }}>Group By Options</span></IgrButton>
-        <span onClick={e => setMode(e)}>
           <IgrDropdown ref={dropDownRef}>
-            <IgrDropdownItem key="day"><span key="contentDay">Day</span></IgrDropdownItem>
-            <IgrDropdownItem key="week"><span key="contentWeek">Week</span></IgrDropdownItem>
-            <IgrDropdownItem key="month" selected="true"><span key="contentMonth">Month</span></IgrDropdownItem>
-            <IgrDropdownItem key="year"><span key="contentYear">Year</span></IgrDropdownItem>
+            <div slot="target">
+              <IgrButton key="btn"><span key="content">Group By Options</span></IgrButton>
+            </div>
+            <span onClick={e => setMode(e)}>
+              <IgrDropdownItem key="day"><span key="contentDay">Day</span></IgrDropdownItem>
+              <IgrDropdownItem key="week"><span key="contentWeek">Week</span></IgrDropdownItem>
+              <IgrDropdownItem key="month" selected="true"><span key="contentMonth">Month</span></IgrDropdownItem>
+              <IgrDropdownItem key="year"><span key="contentYear">Year</span></IgrDropdownItem>
+            </span>
           </IgrDropdown>
-        </span>
       </div>
       <div className="container fill">
         <IgrGrid
