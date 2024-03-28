@@ -57,6 +57,10 @@ export default class Sample extends React.Component<any, any> {
                 </IgrPropertyEditorPanel>
             </div>
 
+            <div className="legend-title">
+                Sales Filtered by Country
+            </div>
+
             <div className="container fill">
                 <IgrCategoryChart
                     ref={this.chartRef}

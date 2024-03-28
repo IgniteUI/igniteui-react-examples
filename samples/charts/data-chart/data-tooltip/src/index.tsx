@@ -27,9 +27,33 @@ export default class Sample extends React.Component<any, any> {
     private xAxis: IgrNumericXAxis
     private yAxis: IgrNumericYAxis
     private bubbleSeries1: IgrBubbleSeries
-    private sizeScale1: IgrSizeScale
+    private  _sizeScale1: IgrSizeScale | null = null;
+    public get sizeScale1(): IgrSizeScale {
+        if (this._sizeScale1 == null)
+        {
+            var SizeScale1 = new IgrSizeScale({});
+
+            SizeScale1.minimumValue = 10;
+            SizeScale1.maximumValue = 50;
+
+            this._sizeScale1 = SizeScale1;
+        }
+        return this._sizeScale1;
+    }
     private bubbleSeries2: IgrBubbleSeries
-    private sizeScale2: IgrSizeScale
+    private  _sizeScale2: IgrSizeScale | null = null;
+    public get sizeScale2(): IgrSizeScale {
+        if (this._sizeScale2 == null)
+        {
+            var SizeScale2 = new IgrSizeScale({});
+
+            SizeScale2.minimumValue = 10;
+            SizeScale2.maximumValue = 50;
+
+            this._sizeScale2 = SizeScale2;
+        }
+        return this._sizeScale2;
+    }
     private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
@@ -71,15 +95,11 @@ export default class Sample extends React.Component<any, any> {
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
                         radiusMemberPath="population"
+                        radiusScale={this.sizeScale1}
                         title="Africa"
                         radiusMemberAsLegendLabel="Population: "
                         xMemberAsLegendLabel="Death Rate: "
                         yMemberAsLegendLabel="Birth Rate: ">
-                        <IgrSizeScale
-                            name="SizeScale1"
-                            minimumValue="10"
-                            maximumValue="100">
-                        </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
                         name="BubbleSeries2"
@@ -89,15 +109,11 @@ export default class Sample extends React.Component<any, any> {
                         xMemberPath="deathRate"
                         yMemberPath="birthRate"
                         radiusMemberPath="population"
+                        radiusScale={this.sizeScale2}
                         title="Europe"
                         radiusMemberAsLegendLabel="Population: "
                         xMemberAsLegendLabel="Death Rate: "
                         yMemberAsLegendLabel="Birth Rate: ">
-                        <IgrSizeScale
-                            name="SizeScale2"
-                            minimumValue="10"
-                            maximumValue="100">
-                        </IgrSizeScale>
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
                         name="DataToolTipLayer">

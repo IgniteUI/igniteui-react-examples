@@ -1,41 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrNavDrawer, IgrNavDrawerHeaderItem, IgrNavDrawerItem, IgrIcon, IgrNavDrawerModule, IgrIconModule } from 'igniteui-react';
+import { IgrNavDrawer, IgrNavDrawerHeaderItem, IgrNavDrawerItem, IgrIcon, IgrNavDrawerModule, IgrIconModule,
+         IgrIconButton, IgrIconButtonModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrNavDrawerModule.register();
 IgrIconModule.register();
+IgrIconButtonModule.register();
 
 export default class NavDrawerAddDrawerItems extends React.Component<any, any> {
+    private navDrawer: IgrNavDrawer;
 
     constructor(props: any) {
         super(props);        
         this.iconRef = this.iconRef.bind(this);
         this.onNavDrawerClick = this.onNavDrawerClick.bind(this);
+        this.toggleDrawer = this.toggleDrawer.bind(this);
+        this.navDrawerRef = this.navDrawerRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
+                  <IgrIconButton style={{margin: "10px"}} ref={this.iconButtonRef} 
+                        clicked={this.toggleDrawer}
+                        name="menu" 
+                        collection="material"
+                        variant="flat">
+                    </IgrIconButton>
                 <div onClick={this.onNavDrawerClick}>
-                    <IgrNavDrawer open={true}>
-                        <IgrNavDrawerHeaderItem>
-                            <span>Sample Drawer</span>
+                    <IgrNavDrawer open={true} ref={this.navDrawerRef}>
+                        <IgrNavDrawerHeaderItem key="header">
+                            <span key="sHeader">Sample Drawer</span>
                         </IgrNavDrawerHeaderItem>
 
-                        <IgrNavDrawerItem>
-                            <div slot="icon">
+                        <IgrNavDrawerItem key="home">
+                            <div slot="icon" key="iHome">
                                 <IgrIcon ref={this.iconRef} name="home" collection="material" />
                             </div>
-                            <span slot="content">Home</span>
+                            <span slot="content" key="sHome">Home</span>
                         </IgrNavDrawerItem>
 
-                        <IgrNavDrawerItem>
-                            <div slot="icon">
+                        <IgrNavDrawerItem key="search">
+                            <div slot="icon" key="iSearch">
                                 <IgrIcon name="search" collection="material" />
                             </div>
-                            <span slot="content">Search</span>
+                            <span slot="content" key="sSearch">Search</span>
                         </IgrNavDrawerItem>
                     </IgrNavDrawer>
                 </div>
@@ -53,14 +64,37 @@ export default class NavDrawerAddDrawerItems extends React.Component<any, any> {
         icon.registerIconFromText("search", searchIcon, "material");        
     }
 
-    public onNavDrawerClick(e: any){
-        const target = e.target as HTMLElement;
-        const drawerItem: any = target.closest('igc-nav-drawer-item');
+    public iconButtonRef(iconButton: IgrIconButton){
+        if (!iconButton) { return; }
+        const menuIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>';
+        iconButton.registerIconFromText("menu", menuIcon, "material");     
+    }
 
-        if(drawerItem){
-            drawerItem.active = !drawerItem.active;
+    public navDrawerRef(navDrawer: IgrNavDrawer){
+        if (!navDrawer) { return; }
+        this.navDrawer = navDrawer;
+    }
+
+    public toggleDrawer() {
+        if (this.navDrawer) {
+            this.navDrawer.toggle();
         }
     }
+
+    public onNavDrawerClick(e: any) {
+        const drawerItem: any = e.target.closest('igc-nav-drawer-item') ??
+                                (e.target.parentElement?.closest('igc-nav-drawer-item') ?? 
+                                null)
+
+        if (!drawerItem) { return; }
+
+        drawerItem.active = true;
+        const navDrawer = drawerItem.parentElement;
+        Array.from(navDrawer.querySelectorAll('igc-nav-drawer-item'))
+             .filter((item: any) => item !== drawerItem)
+             .forEach((child: any) => child.active = false);
+    }
+
 }
 
 // rendering above class to the React DOM

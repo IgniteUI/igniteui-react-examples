@@ -71,7 +71,7 @@ export default class Sample extends React.Component<any, any> {
             </div>
 
             <div className="legend-title">
-                Renewable Electricity Generated
+                Sales Aggregated by Country and Product
             </div>
 
             <div className="container fill">
