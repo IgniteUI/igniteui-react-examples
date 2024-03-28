@@ -1,0 +1,8 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.button-container {
+    display: flex;
+    margin-top: 16px;
+    gap: 8px;
+}

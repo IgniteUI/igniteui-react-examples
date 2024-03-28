@@ -1,0 +1,34 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+igc-combo::part(label),
+igc-combo::part(empty),
+igc-combo::part(group-header) {
+  color: #2b3a55;
+}
+
+igc-combo::part(native-input),
+igc-combo::part(list-wrapper) {
+  background-color: #f2e5e5;
+}
+
+igc-combo::part(item selected) {
+  background: #e8c4c4;
+}
+
+igc-combo::part(item selected active),
+igc-combo::part(item selected):hover {
+  background: #ce7777;
+}
+
+igc-combo::part(prefix),
+igc-combo::part(suffix),
+igc-combo::part(case-icon) {
+  color: #f2e5e5;
+  background-color: #2b3a55;
+}
+
+igc-combo::part(checkbox checked)::after {
+  background: #2b3a55;
+  box-shadow: none;
+}
