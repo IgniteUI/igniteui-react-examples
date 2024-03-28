@@ -1,0 +1,7 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.wrapper {
+    justify-content: space-evenly;
+    margin: 1rem;
+}
