@@ -2,8 +2,12 @@ igc-slider {
     padding: 30px 30px  0px 30px;
 }
 
+igc-range-slider {
+    padding: 30px 30px  0px 30px;
+}
+
 igc-slider::part(thumb) {
-    background: #28a745;
+background: #28a745;
 }
 
 igc-slider::part(thumb):focus {
@@ -14,4 +18,22 @@ igc-slider::part(thumb):focus {
 igc-slider::part(fill) {
     display: block;
     background: #28a745;
+}
+
+igc-range-slider::part(thumb) {
+    background: orange;
+}
+
+igc-range-slider::part(thumb):focus {
+    background: navy;
+    box-shadow: 0 0 0 2px orange;
+}
+
+igc-range-slider::part(track) {
+    display: block;
+    background: navy;
+}
+
+igc-range-slider::part(thumb-label-inner) {
+    background: navy;
 }
