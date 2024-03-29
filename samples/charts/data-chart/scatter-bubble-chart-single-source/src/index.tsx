@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
-import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
-
-
+import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { WorldDebtAndPopulationItem, WorldDebtAndPopulation } from './WorldDebtAndPopulation';
 
 const mods: any[] = [
     IgrNumberAbbreviatorModule,
@@ -27,6 +25,19 @@ export default class Sample extends React.Component<any, any> {
     private xAxis: IgrNumericXAxis
     private yAxis: IgrNumericYAxis
     private bubbleSeries1: IgrBubbleSeries
+    private  _sizeScale1: IgrSizeScale | null = null;
+    public get sizeScale1(): IgrSizeScale {
+        if (this._sizeScale1 == null)
+        {
+            var sizeScale1 = new IgrSizeScale({});
+            sizeScale1.isLogarithmic = false;
+            sizeScale1.minimumValue = 10;
+            sizeScale1.maximumValue = 50;
+
+            this._sizeScale1 = sizeScale1;
+        }
+        return this._sizeScale1;
+    }
     private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
@@ -40,36 +51,37 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
 
             <div className="legend-title">
-                GDP per Capita vs Population
+                Total Population of Selected Countries
             </div>
-
 
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}>
                     <IgrNumericXAxis
-                        isLogarithmic="true"
-                        abbreviateLargeNumbers="true"
+                        name="xAxis"
                         title="Population"
-                        name="xAxis">
+                        isLogarithmic="true"
+                        abbreviateLargeNumbers="true">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
+                        name="yAxis"
+                        title="Public Debt"
                         isLogarithmic="false"
                         abbreviateLargeNumbers="true"
-                        title="GDP per Capita"
-                        name="yAxis">
+                        maximumValue="120">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
-                        radiusMemberPath="population"
+                        name="BubbleSeries1"
+                        xMemberPath="population"
+                        yMemberPath="publicDebt"
+                        radiusMemberPath="gdpPerCapita"
+                        radiusScale={this.sizeScale1}
+                        fillMemberPath="gdpPerCapita"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        xMemberPath="population"
-                        yMemberPath="gDP"
+                        dataSource={this.worldDebtAndPopulation}
                         markerType="Circle"
-                        dataSource={this.countryStatsEurope}
-                        showDefaultTooltip="true"
-                        title="European Countries"
-                        name="BubbleSeries1">
+                        showDefaultTooltip="true">
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
                         name="DataToolTipLayer">
@@ -80,19 +92,16 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _countryStatsEurope: CountryStatsEurope = null;
-    public get countryStatsEurope(): CountryStatsEurope {
-        if (this._countryStatsEurope == null)
+    private _worldDebtAndPopulation: WorldDebtAndPopulation = null;
+    public get worldDebtAndPopulation(): WorldDebtAndPopulation {
+        if (this._worldDebtAndPopulation == null)
         {
-            this._countryStatsEurope = new CountryStatsEurope();
+            this._worldDebtAndPopulation = new WorldDebtAndPopulation();
         }
-        return this._countryStatsEurope;
+        return this._worldDebtAndPopulation;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
