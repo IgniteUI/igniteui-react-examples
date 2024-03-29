@@ -19,14 +19,14 @@ export default class DateTimeInputMinMaxValue extends React.Component<any, any> 
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrDateTimeInput ref={this.dateTimeInputRef} maxValue={new Date(2024, 6, 25)}>
+                <IgrDateTimeInput ref={this.dateTimeInputRef} max={new Date(2024, 6, 25)}>
                     <span slot="prefix" key="prefix" onClick={() => this.dateTimeInput.clear()}>
                     <IgrIcon ref={this.iconRef} name="clear" collection="material" />
                     </span>
-                    <span slot="suffix" key="upSuffix" onClick={() => this.dateTimeInput.stepUp(DatePart.Month, 1)}>
+                    <span slot="suffix" key="upSuffix" onClick={() => this.dateTimeInput.stepUp(DatePart.Month)}>
                     <IgrIcon ref={this.iconRef} name="up" collection="material" />
                     </span>
-                    <span slot='suffix' key="downSuffix" onClick={() => this.dateTimeInput.stepDown(DatePart.Month, 1)}>
+                    <span slot='suffix' key="downSuffix" onClick={() => this.dateTimeInput.stepDown(DatePart.Month)}>
                     <IgrIcon ref={this.iconRef} name="down" collection="material" />
                     </span> 
                 </IgrDateTimeInput>
@@ -36,7 +36,7 @@ export default class DateTimeInputMinMaxValue extends React.Component<any, any> 
 
     public dateTimeInputRef(input: IgrDateTimeInput) {
         if (!input) { return; }
-        input.minValue = new Date(2021, 0, 1);
+        input.min = new Date(2021, 0, 1);
         this.dateTimeInput = input;
     }
 

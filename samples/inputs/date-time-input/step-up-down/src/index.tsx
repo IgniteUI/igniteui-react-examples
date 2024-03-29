@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrIcon, IgrIconModule, IgrDateTimeInput, IgrDateTimeInputModule, DatePart, IgrDatePartDeltas, DatePartDeltas } from 'igniteui-react';
+import { IgrIcon, IgrIconModule, IgrDateTimeInput, IgrDateTimeInputModule, DatePart } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrIconModule.register();
@@ -10,18 +10,9 @@ IgrDateTimeInputModule.register();
 export default class DateTimeInputStepUpDown extends React.Component<any, any> {
 
     private dateTimeInput: IgrDateTimeInput;
-    private spinDelta: IgrDatePartDeltas = new IgrDatePartDeltas();
-    // private spinDelta: IgrDatePartDeltas = {
-    //     date: 2,
-    //     month: 3,
-    //     year: 10,
-    // };
-        
+      
     constructor(props: any) {
         super(props);
-        this.spinDelta.date = 2;
-        this.spinDelta.month = 3;
-        this.spinDelta.year = 10;
         this.iconRef = this.iconRef.bind(this);     
         this.dateTimeInputRef = this.dateTimeInputRef.bind(this);
     }
@@ -33,10 +24,10 @@ export default class DateTimeInputStepUpDown extends React.Component<any, any> {
                     <span slot="prefix" key="prefix" onClick={() => this.dateTimeInput.clear()}>
                     <IgrIcon ref={this.iconRef} name="clear" collection="material" />
                     </span>
-                    <span slot="suffix" key="upSuffix" onClick={() => this.dateTimeInput.stepUp(DatePart.Month, undefined)}>
+                    <span slot="suffix" key="upSuffix" onClick={() => this.dateTimeInput.stepUp(DatePart.Month, 3)}>
                     <IgrIcon ref={this.iconRef} name="up" collection="material" />
                     </span>
-                    <span slot='suffix' key="downSuffix" onClick={() => this.dateTimeInput.stepDown(DatePart.Date, undefined)}>
+                    <span slot='suffix' key="downSuffix" onClick={() => this.dateTimeInput.stepDown(DatePart.Date, 2)}>
                     <IgrIcon ref={this.iconRef} name="down" collection="material" />
                     </span> 
                 </IgrDateTimeInput>
@@ -46,7 +37,6 @@ export default class DateTimeInputStepUpDown extends React.Component<any, any> {
 
     public dateTimeInputRef(input: IgrDateTimeInput) {
         if (!input) { return; }
-        input.spinDelta = this.spinDelta;
         this.dateTimeInput = input;
     }
 

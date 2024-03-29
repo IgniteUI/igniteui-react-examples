@@ -23,10 +23,10 @@ export default class DateTimeInputOverview extends React.Component<any, any> {
                     <span slot="prefix" key="prefix" onClick={() => this.dateTimeInput.clear()}>
                     <IgrIcon ref={this.iconRef} name="clear" collection="material" />
                     </span>
-                    <span slot="suffix" key="upSuffix" onClick={() => this.dateTimeInput.stepUp(DatePart.Month, 1)}>
+                    <span slot="suffix" key="upSuffix" onClick={() => this.dateTimeInput.stepUp(DatePart.Month)}>
                     <IgrIcon ref={this.iconRef} name="up" collection="material" />
                     </span>
-                    <span slot='suffix' key="downSuffix" onClick={() => this.dateTimeInput.stepDown(DatePart.Month, 1)}>
+                    <span slot='suffix' key="downSuffix" onClick={() => this.dateTimeInput.stepDown(DatePart.Month)}>
                     <IgrIcon ref={this.iconRef} name="down" collection="material" />
                     </span> 
                 </IgrDateTimeInput>
