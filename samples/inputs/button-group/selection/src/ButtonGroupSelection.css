@@ -1,0 +1,16 @@
+.radio-group-container {
+    width: 400px;
+    margin-bottom: 1rem;
+}
+
+igc-radio-group {
+    padding: 0.5rem;
+}
+
+igc-button-group {
+    width: 200px;
+}
+
+igc-ripple {
+    --color: gray;
+}
