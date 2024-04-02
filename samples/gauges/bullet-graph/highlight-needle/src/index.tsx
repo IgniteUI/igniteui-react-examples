@@ -6,7 +6,7 @@ import { IgrBulletGraphModule } from 'igniteui-react-gauges';
 
 IgrBulletGraphModule.register();
 
-export default class BulletGraphLabels extends React.Component {
+export default class BulletGraphHighlightNeedle extends React.Component {
 
     public render(): JSX.Element {
         return (
@@ -32,4 +32,4 @@ export default class BulletGraphLabels extends React.Component {
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<BulletGraphLabels/>);
+root.render(<BulletGraphHighlightNeedle/>);
