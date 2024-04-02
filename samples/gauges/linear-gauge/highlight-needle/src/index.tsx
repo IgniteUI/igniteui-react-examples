@@ -6,7 +6,7 @@ import { IgrLinearGaugeModule } from 'igniteui-react-gauges';
 
 IgrLinearGaugeModule.register();
 
-export default class LinearGaugeLabels extends React.Component {
+export default class LinearGaugeHighlightNeedle extends React.Component {
 
     public render(): JSX.Element {
         return (
@@ -34,4 +34,4 @@ export default class LinearGaugeLabels extends React.Component {
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<LinearGaugeLabels/>);
+root.render(<LinearGaugeHighlightNeedle/>);
