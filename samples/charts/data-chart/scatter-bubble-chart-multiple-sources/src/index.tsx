@@ -31,7 +31,33 @@ export default class Sample extends React.Component<any, any> {
     private xAxis: IgrNumericXAxis
     private yAxis: IgrNumericYAxis
     private bubbleSeries1: IgrBubbleSeries
+    private  _sizeScale1: IgrSizeScale | null = null;
+    public get sizeScale1(): IgrSizeScale {
+        if (this._sizeScale1 == null)
+        {
+            var sizeScale1 = new IgrSizeScale({});
+            sizeScale1.isLogarithmic = false;
+            sizeScale1.minimumValue = 10;
+            sizeScale1.maximumValue = 50;
+
+            this._sizeScale1 = sizeScale1;
+        }
+        return this._sizeScale1;
+    }
     private bubbleSeries2: IgrBubbleSeries
+    private  _sizeScale2: IgrSizeScale | null = null;
+    public get sizeScale2(): IgrSizeScale {
+        if (this._sizeScale2 == null)
+        {
+            var sizeScale2 = new IgrSizeScale({});
+            sizeScale2.isLogarithmic = false;
+            sizeScale2.minimumValue = 10;
+            sizeScale2.maximumValue = 50;
+
+            this._sizeScale2 = sizeScale2;
+        }
+        return this._sizeScale2;
+    }
 
     constructor(props: any) {
         super(props);
@@ -81,12 +107,8 @@ export default class Sample extends React.Component<any, any> {
                         radiusMemberPath="population"
                         dataSource={this.countryStatsAfrica}
                         markerType="Circle"
-                        showDefaultTooltip="true">
-                        <IgrSizeScale
-                            isLogarithmic="false"
-                            minimumValue="20"
-                            maximumValue="40">
-                        </IgrSizeScale>
+                        showDefaultTooltip="true"
+                        radiusScale={this.sizeScale1}>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
                         name="BubbleSeries2"
@@ -98,12 +120,8 @@ export default class Sample extends React.Component<any, any> {
                         radiusMemberPath="population"
                         dataSource={this.countryStatsEurope}
                         markerType="Circle"
-                        showDefaultTooltip="true">
-                        <IgrSizeScale
-                            isLogarithmic="false"
-                            minimumValue="20"
-                            maximumValue="40">
-                        </IgrSizeScale>
+                        showDefaultTooltip="true"
+                        radiusScale={this.sizeScale2}>
                     </IgrBubbleSeries>
                 </IgrDataChart>
             </div>

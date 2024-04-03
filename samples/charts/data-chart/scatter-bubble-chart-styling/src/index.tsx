@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { CountryStatsAfricaItem, CountryStatsAfrica } from './CountryStatsAfrica';
 import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
 
@@ -32,7 +32,33 @@ export default class Sample extends React.Component<any, any> {
     private xAxis: IgrNumericXAxis
     private yAxis: IgrNumericYAxis
     private bubbleSeries1: IgrBubbleSeries
+    private  _sizeScale1: IgrSizeScale | null = null;
+    public get sizeScale1(): IgrSizeScale {
+        if (this._sizeScale1 == null)
+        {
+            var sizeScale1 = new IgrSizeScale({});
+            sizeScale1.isLogarithmic = false;
+            sizeScale1.minimumValue = 10;
+            sizeScale1.maximumValue = 50;
+
+            this._sizeScale1 = sizeScale1;
+        }
+        return this._sizeScale1;
+    }
     private bubbleSeries2: IgrBubbleSeries
+    private  _sizeScale2: IgrSizeScale | null = null;
+    public get sizeScale2(): IgrSizeScale {
+        if (this._sizeScale2 == null)
+        {
+            var sizeScale2 = new IgrSizeScale({});
+            sizeScale2.isLogarithmic = false;
+            sizeScale2.minimumValue = 10;
+            sizeScale2.maximumValue = 50;
+
+            this._sizeScale2 = sizeScale2;
+        }
+        return this._sizeScale2;
+    }
     private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
@@ -87,7 +113,8 @@ export default class Sample extends React.Component<any, any> {
                         markerBrush="rgba(69, 179, 224, 1)"
                         markerFillOpacity="0.5"
                         markerThickness="2"
-                        showDefaultTooltip="true">
+                        showDefaultTooltip="true"
+                        radiusScale={this.sizeScale1}>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
                         name="BubbleSeries2"
@@ -103,7 +130,8 @@ export default class Sample extends React.Component<any, any> {
                         markerBrush="rgba(135, 156, 235, 1)"
                         markerFillOpacity="0.5"
                         markerThickness="2"
-                        showDefaultTooltip="true">
+                        showDefaultTooltip="true"
+                        radiusScale={this.sizeScale2}>
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
                         name="DataToolTipLayer">
