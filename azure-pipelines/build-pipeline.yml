@@ -11,6 +11,10 @@ parameters:
   displayName: 'Get verbose output from steps - where configurable'
   type: boolean
   default: false
+- name: shouldCleanPostExectuion
+  displayName: 'Clean all pipeline dirs after the pipeline finishes?'
+  type: boolean
+  default: true
 
 name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
 
@@ -133,3 +137,6 @@ stages:
         inputs:
           targetPath: '$(Build.ArtifactStagingDirectory)/ReactSamples.zip'
           artifact: 'ReactSamplesBrowser'
+
+      - ${{ if eq(parameters.shouldCleanPostExectuion, true) }}:
+        - task: PostBuildCleanup@4
