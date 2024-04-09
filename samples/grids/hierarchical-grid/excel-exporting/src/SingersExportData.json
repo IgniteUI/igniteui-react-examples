@@ -1,0 +1,236 @@
+[
+	{
+		"ID": 0,
+		"Artist": "Naomí Yepes",
+		"Debut": 2011,
+		"GrammyNominations": 6,
+		"GrammyAwards": 0,
+		"HasGrammyAward": false,
+		"Tours": [
+			{
+				"Tour": "Faithful Tour",
+				"StartedOn": "Sep 12",
+				"Location": "Worldwide",
+				"Headliner": "NO",
+				"TouredBy": "Naomí Yepes",
+				"TourData": [
+					{
+						"Country": "Belgium",
+						"TicketsSold": 10000,
+						"Attendants": 10000
+					},
+					{
+						"Country": "USA",
+						"TicketsSold": 192300,
+						"Attendants": 186523
+					}
+				]
+			},
+			{
+				"Tour": "Faithful Tour",
+				"StartedOn": "Sep 12",
+				"Location": "Worldwide",
+				"Headliner": "NO",
+				"TouredBy": "Naomí Yepes"
+			},
+			{
+				"Tour": "Faithful Tour",
+				"StartedOn": "Sep 12",
+				"Location": "Worldwide",
+				"Headliner": "NO",
+				"TouredBy": "Naomí Yepes"
+			},
+			{
+				"Tour": "Faithful Tour",
+				"StartedOn": "Sep 12",
+				"Location": "Worldwide",
+				"Headliner": "NO",
+				"TouredBy": "Naomí Yepes"
+			}
+		],
+		"Albums": [
+			{
+				"Album": "Pushing up daisies",
+				"LaunchDate": "2020-05-31T00:00:00.000Z",
+				"BillboardReview": 86,
+				"USBillboard200": 42,
+				"Artist": "Naomí Yepes",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Wood Shavings Forever",
+						"Released": "2019-06-09T00:00:00.000Z",
+						"Genre": "Punk",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 2,
+						"Title": "Forever",
+						"Released": "2019-12-23T00:00:00.000Z",
+						"Genre": "Punk",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 3,
+						"Title": "Forever - Remix",
+						"Released": "2019-06-07T00:00:00.000Z",
+						"Genre": "Punk",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 4,
+						"Title": "Pushing up daisies",
+						"Released": "2019-03-19T00:00:00.000Z",
+						"Genre": "Punk",
+						"Album": "Pushing up daisies"
+					}
+				]
+			},
+			{
+				"Album": "Pushing up daisies - Deluxe",
+				"LaunchDate": "2001-05-31T00:00:00.000Z",
+				"BillboardReview": 12,
+				"USBillboard200": 2,
+				"Artist": "Naomí Yepes",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Wood Shavings Forever - Remix",
+						"Released": "2020-06-09T00:00:00.000Z",
+						"Genre": "Punk",
+						"Album": "Pushing up daisies"
+					}
+				]
+			},
+			{
+				"Album": "Utopia",
+				"LaunchDate": "2021-12-19T00:00:00.000Z",
+				"BillboardReview": 1,
+				"USBillboard200": 1,
+				"Artist": "Naomí Yepes",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "SANTORINI",
+						"Released": "2021-12-19T00:00:00.000Z",
+						"Genre": "Hip-Hop",
+						"Album": "Utopia"
+					},
+					{
+						"Number": 2,
+						"Title": "HEARTBEAT",
+						"Released": "2021-12-19T00:00:00.000Z",
+						"Genre": "Hip-Hop",
+						"Album": "Utopia"
+					},
+					{
+						"Number": 3,
+						"Title": "OVERSEAS",
+						"Released": "2021-12-19T00:00:00.000Z",
+						"Genre": "Hip-Hop",
+						"Album": "Utopia"
+					}
+				]
+			},
+			{
+				"Album": "Wish You Were Here",
+				"LaunchDate": "2020-07-17T00:00:00.000Z",
+				"BillboardReview": 5,
+				"USBillboard200": 3,
+				"Artist": "Naomí Yepes",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Zoom",
+						"Released": "2020-07-17T00:00:00.000Z",
+						"Genre": "Hip-Hop",
+						"Album": "Wish You Were Here"
+					},
+					{
+						"Number": 2,
+						"Title": "Do You?",
+						"Released": "2020-07-17T00:00:00.000Z",
+						"Genre": "Hip-Hop",
+						"Album": "Wish You Were Here"
+					},
+					{
+						"Number": 3,
+						"Title": "No Photos",
+						"Released": "2020-07-17T00:00:00.000Z",
+						"Genre": "Hip-Hop",
+						"Album": "Wish You Were Here"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 1,
+		"Artist": "Babila Ebwélé",
+		"Debut": 2009,
+		"GrammyNominations": 0,
+		"GrammyAwards": 11,
+		"HasGrammyAward": true,
+		"Albums": [
+			{
+				"Album": "Fahrenheit",
+				"LaunchDate": "2000-05-31T00:00:00.000Z",
+				"BillboardReview": 86,
+				"USBillboard200": 42,
+				"Artist": "Babila Ebwélé",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Show Out",
+						"Released": "2020-07-17T00:00:00.000Z",
+						"Genre": "Hip-Hop",
+						"Album": "Fahrenheit"
+					},
+					{
+						"Number": 2,
+						"Title": "Mood Swings",
+						"Released": "2020-07-17T00:00:00.000Z",
+						"Genre": "Hip-Hop",
+						"Album": "Fahrenheit"
+					},
+					{
+						"Number": 3,
+						"Title": "Scenario",
+						"Released": "2020-07-17T00:00:00.000Z",
+						"Genre": "Hip-Hop",
+						"Album": "Fahrenheit"
+					}
+				]
+			}
+		],
+		"Tours": [
+			{
+				"Tour": "Astroworld",
+				"StartedOn": "Jul 21",
+				"Location": "Worldwide",
+				"Headliner": "NO",
+				"TouredBy": "Babila Ebwélé",
+				"TourData": [
+					{
+						"Country": "Bulgaria",
+						"TicketsSold": 25000,
+						"Attendants": 19822
+					},
+					{
+						"Country": "Romania",
+						"TicketsSold": 65021,
+						"Attendants": 63320
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 3,
+		"Artist": "Chloe",
+		"Debut": 2015,
+		"GrammyNominations": 3,
+		"GrammyAwards": 1,
+		"HasGrammyAward": true
+	}
+]
