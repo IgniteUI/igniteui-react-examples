@@ -1,23 +1,16 @@
-const URL = `https://services.odata.org/V4/Northwind/Northwind.svc/`;
+import { DATA } from "./data";
 
-export function getData(dataState?: any): any {
-    return fetch(buildUrl(dataState))
-        .then((result) => result.json())
-        .then((data) => data["value"]);
-}
+export async function getData(dataState?: any): Promise<any[]> {
+    const key = dataState.key as "Customers" | "Orders" | "Order_Details";
+    let resultData: any[] = DATA[key];
 
-function buildUrl(dataState: any) {
-    let qS = "";
-    if (dataState) {
-        qS += `${dataState.key}?`;
+    if (!dataState.rootLevel) {
+        resultData = resultData.filter((record: any) => record[dataState.parentKey] === dataState.parentID);
+    } 
 
-        if (!dataState.rootLevel) {
-            if (typeof dataState.parentID === "string") {
-                qS += `$filter=${dataState.parentKey} eq '${dataState.parentID}'`;
-            } else {
-                qS += `$filter=${dataState.parentKey} eq ${dataState.parentID}`;
-            }
-        }
-    }
-    return `${URL}${qS}`;
+    return new Promise<any[]>((resolve) => {
+        setTimeout(() => {
+            resolve(resultData);
+        }, 1000);
+    });
 }
