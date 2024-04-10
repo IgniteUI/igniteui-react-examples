@@ -1,0 +1,11 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.upFont {
+    color: green !important;
+}
+
+.downFont {
+    color: red !important;
+}
+

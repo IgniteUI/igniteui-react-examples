@@ -8,6 +8,7 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
+import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -48,6 +49,7 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
+        this.webGridSetRowPinning = this.webGridSetRowPinning.bind(this);
         this.gridRef = this.gridRef.bind(this);
     }
 
@@ -63,9 +65,12 @@ export default class Sample extends React.Component<any, any> {
                     isWrappingEnabled="false"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="Pinning.Rows"
                         name="rowPinningEditor"
-                        label="Row Pinning toggle">
+                        valueType="EnumValue"
+                        label="Row Pinning toggle"
+                        dropDownNames={["Top", "Bottom"]}
+                        dropDownValues={["Top", "Bottom"]}
+                        changed={this.webGridSetRowPinning}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -74,6 +79,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate="false"
                     ref={this.gridRef}
+                    id="grid"
                     data={this.customersDataLocal}
                     pinning={this.pinningConfig1}
                     primaryKey="ID"
@@ -138,6 +144,13 @@ export default class Sample extends React.Component<any, any> {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webGridSetRowPinning(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var item = sender as IgrPropertyEditorPropertyDescription;
+        var newVal = item.primitiveValue;
+        var grid = this.grid;
+        grid.pinning.rows = newVal === "Top" ? RowPinningPosition.Top : RowPinningPosition.Bottom;
     }
 
 }
