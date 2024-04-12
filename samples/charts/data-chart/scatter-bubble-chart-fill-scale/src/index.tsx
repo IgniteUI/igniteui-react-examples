@@ -40,6 +40,33 @@ export default class Sample extends React.Component<any, any> {
     private xAxis: IgrNumericXAxis
     private yAxis: IgrNumericYAxis
     private bubbleSeries1: IgrBubbleSeries
+    private  _sizeScale1: IgrSizeScale | null = null;
+    public get sizeScale1(): IgrSizeScale {
+        if (this._sizeScale1 == null)
+        {
+            var sizeScale1 = new IgrSizeScale({});
+            sizeScale1.isLogarithmic = false;
+            sizeScale1.minimumValue = 10;
+            sizeScale1.maximumValue = 120;
+
+            this._sizeScale1 = sizeScale1;
+        }
+        return this._sizeScale1;
+    }
+    private  _valueBrushScale1: IgrValueBrushScale | null = null;
+    public get valueBrushScale1(): IgrValueBrushScale {
+        if (this._valueBrushScale1 == null)
+        {
+            var valueBrushScale1 = new IgrValueBrushScale({});
+            valueBrushScale1.isLogarithmic = false;
+            valueBrushScale1.minimumValue = 0;
+            valueBrushScale1.maximumValue = 100000;
+            valueBrushScale1.brushes = "rgba(26, 161, 226, 1) rgba(24, 154, 217, 1) rgba(22, 146, 206, 1) rgba(19, 133, 188, 1) rgba(15, 121, 171, 1) rgba(12, 107, 153, 1) rgba(9, 94, 136, 1) rgba(5, 82, 119, 1) rgba(2, 70, 105, 1) rgba(0, 63, 94, 1)";
+
+            this._valueBrushScale1 = valueBrushScale1;
+        }
+        return this._valueBrushScale1;
+    }
 
     constructor(props: any) {
         super(props);
@@ -106,24 +133,15 @@ export default class Sample extends React.Component<any, any> {
                         xMemberPath="population"
                         yMemberPath="publicDebt"
                         radiusMemberPath="gdpPerCapita"
+                        radiusScale={this.sizeScale1}
                         fillMemberPath="gdpPerCapita"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.worldDebtAndPopulation}
                         markerType="Circle"
                         markerOutline="black"
-                        showDefaultTooltip="true">
-                        <IgrSizeScale
-                            isLogarithmic="false"
-                            minimumValue="10"
-                            maximumValue="120">
-                        </IgrSizeScale>
-                        <IgrValueBrushScale
-                            isLogarithmic="false"
-                            minimumValue="0"
-                            maximumValue="100000"
-                            brushes="rgba(26, 161, 226, 1) rgba(24, 154, 217, 1) rgba(22, 146, 206, 1) rgba(19, 133, 188, 1) rgba(15, 121, 171, 1) rgba(12, 107, 153, 1) rgba(9, 94, 136, 1) rgba(5, 82, 119, 1) rgba(2, 70, 105, 1) rgba(0, 63, 94, 1)">
-                        </IgrValueBrushScale>
+                        showDefaultTooltip="true"
+                        fillScale={this.valueBrushScale1}>
                     </IgrBubbleSeries>
                 </IgrDataChart>
             </div>
