@@ -78,10 +78,7 @@
 				"LaunchDate": "September 3, 2013",
 				"BillboardReview": 86,
 				"USBillboard200": 1,
-				"Artist": "Naomí Yepes",
-				"Songs": [
-
-				]
+				"Artist": "Naomí Yepes"
 			},
 			{
 				"Album": "Dream Driven",
@@ -93,7 +90,7 @@
 					{
 						"Number": 1,
 						"Title": "Intro",
-						"Released": "29 Apr 2021",
+						"Released": false,
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
@@ -114,7 +111,7 @@
 					{
 						"Number": 4,
 						"Title": "Future past",
-						"Released": "14 Jul 2021",
+						"Released": false,
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
@@ -135,14 +132,14 @@
 					{
 						"Number": 7,
 						"Title": "Stay where you are",
-						"Released": "14 Aug 1998",
+						"Released": false,
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
 					{
 						"Number": 8,
 						"Title": "Imaginarium",
-						"Released": "15 Sep 2013",
+						"Released": false,
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
@@ -156,21 +153,21 @@
 					{
 						"Number": 10,
 						"Title": "Shredded into pieces",
-						"Released": "2 Sep 2011",
+						"Released": false,
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
 					{
 						"Number": 11,
 						"Title": "Capture this moment",
-						"Released": "5 Jan 2011",
+						"Released": false,
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
 					{
 						"Number": 12,
 						"Title": "Dream Driven",
-						"Released": "12 Dec 1999",
+						"Released": false,
 						"Genre": "*",
 						"Album": "Dream Driven"
 					}
