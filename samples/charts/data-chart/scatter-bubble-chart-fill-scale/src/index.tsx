@@ -44,7 +44,7 @@ export default class Sample extends React.Component<any, any> {
     public get sizeScale1(): IgrSizeScale {
         if (this._sizeScale1 == null)
         {
-            var sizeScale1 = new IgrSizeScale();
+            var sizeScale1 = new IgrSizeScale({});
             sizeScale1.isLogarithmic = false;
             sizeScale1.minimumValue = 10;
             sizeScale1.maximumValue = 120;
@@ -57,7 +57,7 @@ export default class Sample extends React.Component<any, any> {
     public get valueBrushScale1(): IgrValueBrushScale {
         if (this._valueBrushScale1 == null)
         {
-            var valueBrushScale1 = new IgrValueBrushScale();
+            var valueBrushScale1 = new IgrValueBrushScale({});
             valueBrushScale1.isLogarithmic = false;
             valueBrushScale1.minimumValue = 0;
             valueBrushScale1.maximumValue = 100000;

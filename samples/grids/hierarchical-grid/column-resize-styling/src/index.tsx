@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
-import { SingersDataItem, SingersDataItem_ToursItem, SingersDataItem_AlbumsItem, SingersDataItem_AlbumsItem_SongsItem, SingersData } from './SingersData';
+import SingersData from './SingersData.json';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -161,12 +161,8 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _singersData: SingersData = null;
-    public get singersData(): SingersData {
-        if (this._singersData == null)
-        {
-            this._singersData = new SingersData();
-        }
+    private _singersData: any[] = SingersData;
+    public get singersData(): any[] {
         return this._singersData;
     }
 

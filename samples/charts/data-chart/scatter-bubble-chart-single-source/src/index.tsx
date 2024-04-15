@@ -29,7 +29,7 @@ export default class Sample extends React.Component<any, any> {
     public get sizeScale1(): IgrSizeScale {
         if (this._sizeScale1 == null)
         {
-            var sizeScale1 = new IgrSizeScale();
+            var sizeScale1 = new IgrSizeScale({});
             sizeScale1.isLogarithmic = false;
             sizeScale1.minimumValue = 10;
             sizeScale1.maximumValue = 50;
