@@ -61,7 +61,7 @@ export default class Sample extends React.Component<any, any> {
             valueBrushScale1.isLogarithmic = false;
             valueBrushScale1.minimumValue = 0;
             valueBrushScale1.maximumValue = 100000;
-            valueBrushScale1.brushes = "rgba(26, 161, 226, 1) rgba(24, 154, 217, 1) rgba(22, 146, 206, 1) rgba(19, 133, 188, 1) rgba(15, 121, 171, 1) rgba(12, 107, 153, 1) rgba(9, 94, 136, 1) rgba(5, 82, 119, 1) rgba(2, 70, 105, 1) rgba(0, 63, 94, 1)";
+            valueBrushScale1.brushes = ["rgba(26, 161, 226, 1)", "rgba(24, 154, 217, 1)", "rgba(22, 146, 206, 1)", "rgba(19, 133, 188, 1)", "rgba(15, 121, 171, 1)", "rgba(12, 107, 153, 1)", "rgba(9, 94, 136, 1)", "rgba(5, 82, 119, 1)", "rgba(2, 70, 105, 1)", "rgba(0, 63, 94, 1)"];
 
             this._valueBrushScale1 = valueBrushScale1;
         }
