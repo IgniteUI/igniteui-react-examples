@@ -61,6 +61,8 @@ module.exports = {
             "no-useless-concat": "off",
             "no-mixed-operators": "off",
             "no-prototype-builtins": "off",
+            "no-empty-function": "off",
+            "@typescript-eslint/no-empty-function": "error",
             "prefer-const": "off",
             "prefer-rest-params": "off",
             "jsx-a11y/alt-text": "off",
