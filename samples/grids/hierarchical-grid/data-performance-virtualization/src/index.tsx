@@ -54,42 +54,42 @@ export default function App() {
 
         <IgrHierarchicalGrid
           ref={hierarchicalGrid}
-          primaryKey="CustomerID"
+          primaryKey="customerId"
           height="600px"
         >
-          <IgrColumn field="CustomerID" hidden={true}></IgrColumn>
-          <IgrColumn field="CompanyName" header="Company Name"></IgrColumn>
-          <IgrColumn field="ContactName" header="Contact Name"></IgrColumn>
-          <IgrColumn field="ContactTitle" header="Contact Title"></IgrColumn>
-          <IgrColumn field="Country"></IgrColumn>
-          <IgrColumn field="Phone"></IgrColumn>
+          <IgrColumn field="customerId" hidden={true}></IgrColumn>
+          <IgrColumn field="companyName" header="Company Name"></IgrColumn>
+          <IgrColumn field="contactName" header="Contact Name"></IgrColumn>
+          <IgrColumn field="contactTitle" header="Contact Title"></IgrColumn>
+          <IgrColumn field="address.country" header="Country"></IgrColumn>
+          <IgrColumn field="address.phone" header="Phone"></IgrColumn>
 
           <IgrRowIsland
             childDataKey="Orders"
-            primaryKey="OrderID"
+            primaryKey="orderId"
             gridCreated={(
               rowIsland: IgrRowIsland,
               e: IgrGridCreatedEventArgs
-            ) => gridCreated(rowIsland, e, "CustomerID")}
+            ) => gridCreated(rowIsland, e, "Customers")}
           >
-            <IgrColumn field="OrderID" hidden={true}></IgrColumn>
-            <IgrColumn field="ShipCountry" header="Ship Country"></IgrColumn>
-            <IgrColumn field="ShipCity" header="Ship City"></IgrColumn>
-            <IgrColumn field="ShipAddress" header="Ship Address"></IgrColumn>
-            <IgrColumn field="OrderDate" header="Order Date" dataType="date"></IgrColumn>
+            <IgrColumn field="orderId" hidden={true}></IgrColumn>
+            <IgrColumn field="shipAddress.country" header="Ship Country"></IgrColumn>
+            <IgrColumn field="shipAddress.city" header="Ship City"></IgrColumn>
+            <IgrColumn field="shipAddress.street" header="Ship Address"></IgrColumn>
+            <IgrColumn field="orderDate" header="Order Date" dataType="date"></IgrColumn>
 
             <IgrRowIsland
-              childDataKey="Order_Details"
-              primaryKey="ProductID"
+              childDataKey="Details"
+              primaryKey="productId"
               gridCreated={(
                 rowIsland: IgrRowIsland,
                 e: IgrGridCreatedEventArgs
-              ) => gridCreated(rowIsland, e, "OrderID")}
+              ) => gridCreated(rowIsland, e, "Orders")}
             >
-              <IgrColumn field="ProductID" hidden={true}></IgrColumn>
-              <IgrColumn field="Quantity"></IgrColumn>
-              <IgrColumn field="UnitPrice" header="Unit Price"></IgrColumn>
-              <IgrColumn field="Discount"></IgrColumn>
+              <IgrColumn field="productId" hidden={true}></IgrColumn>
+              <IgrColumn field="quantity" header="Quantity"></IgrColumn>
+              <IgrColumn field="unitPrice" header="Unit Price"></IgrColumn>
+              <IgrColumn field="discount" header="Discount"></IgrColumn>
             </IgrRowIsland>
           </IgrRowIsland>
         </IgrHierarchicalGrid>

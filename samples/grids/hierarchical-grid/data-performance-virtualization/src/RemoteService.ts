@@ -1,16 +1,18 @@
-import { DATA } from "./data";
+const URL = `https://data-northwind.indigo.design/`;
 
-export async function getData(dataState?: any): Promise<any[]> {
-    const key = dataState.key as "Customers" | "Orders" | "Order_Details";
-    let resultData: any[] = DATA[key];
+export function getData(dataState: any): any {
+    return fetch(buildUrl(dataState))
+        .then((result) => result.json());
+}
 
-    if (!dataState.rootLevel) {
-        resultData = resultData.filter((record: any) => record[dataState.parentKey] === dataState.parentID);
-    } 
-
-    return new Promise<any[]>((resolve) => {
-        setTimeout(() => {
-            resolve(resultData);
-        }, 1000);
-    });
+function buildUrl(dataState: any) {
+    let qS = "";
+    if (dataState) {
+        if (dataState.rootLevel) {
+            qS += `${dataState.key}`;
+        } else {
+            qS += `${dataState.parentKey}/${dataState.parentID}/${dataState.key}`;
+        }
+    }
+    return `${URL}${qS}`;
 }
