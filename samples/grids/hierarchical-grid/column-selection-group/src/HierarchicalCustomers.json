@@ -245,6 +245,7 @@
 		"PostalCode": "3012",
 		"Country": "Switzerland",
 		"Phone": "0452-076545",
+		"Fax": "0452-076546",
 		"Orders": [
 			{
 				"OrderID": 10254,
@@ -292,6 +293,7 @@
 		"PostalCode": "1203",
 		"Country": "Switzerland",
 		"Phone": "0897-034214",
+		"Fax": "0897-034215",
 		"Orders": [
 			{
 				"OrderID": 10255,
@@ -346,6 +348,7 @@
 		"PostalCode": "08737-363",
 		"Country": "Brazil",
 		"Phone": "(14) 555-8122",
+		"Fax": "(14) 555-8123",
 		"Orders": [
 			{
 				"OrderID": 10256,
@@ -730,6 +733,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10264,
@@ -1115,6 +1119,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10273,
@@ -1258,6 +1263,7 @@
 		"PostalCode": "05033",
 		"Country": "Mexico",
 		"Phone": "(5) 555-2933",
+		"Fax": "(5) 555-2934",
 		"Orders": [
 			{
 				"OrderID": 10276,
@@ -1299,6 +1305,7 @@
 		"PostalCode": "04179",
 		"Country": "Germany",
 		"Phone": "0342-023176",
+		"Fax": "0342-023177",
 		"Orders": [
 			{
 				"OrderID": 10277,
@@ -1664,6 +1671,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10285,
@@ -1740,6 +1748,7 @@
 		"PostalCode": "02389-890",
 		"Country": "Brazil",
 		"Phone": "(21) 555-3412",
+		"Fax": "(21) 555-3413",
 		"Orders": [
 			{
 				"OrderID": 10287,
@@ -1859,7 +1868,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(171) 555-1212"
 	},
 	{
 		"CustomerID": "COMMI",
@@ -1914,7 +1924,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-7647"
 	},
 	{
 		"CustomerID": "QUEDE",
@@ -2014,6 +2025,7 @@
 		"PostalCode": "05033",
 		"Country": "Mexico",
 		"Phone": "(5) 555-2933",
+		"Fax": "(5) 555-2934",
 		"Orders": [
 			{
 				"OrderID": 10293,
@@ -2254,6 +2266,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -2270,6 +2283,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -2312,6 +2326,7 @@
 		"PostalCode": "02389-890",
 		"Country": "Brazil",
 		"Phone": "(21) 555-3412",
+		"Fax": "(21) 555-3413",
 		"Orders": [
 			{
 				"OrderID": 10299,
@@ -2481,7 +2496,7 @@
 		"CompanyName": "Godos Cocina Típica",
 		"ContactName": "José Pedro Freyre",
 		"ContactTitle": "Sales Manager",
-		"Address": "C\\/ Romero, 33",
+		"Address": "C/ Romero, 33",
 		"City": "Sevilla",
 		"PostalCode": "41101",
 		"Country": "Spain",
@@ -2496,7 +2511,7 @@
 				"ShipVia": 2,
 				"Freight": 107.83,
 				"ShipName": "Godos Cocina Típica",
-				"ShipAddress": "C\\/ Romero, 33",
+				"ShipAddress": "C/ Romero, 33",
 				"ShipCity": "Sevilla",
 				"ShipPostalCode": "41101",
 				"ShipCountry": "Spain",
@@ -2521,7 +2536,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(95) 555 82 82"
 	},
 	{
 		"CustomerID": "TORTU",
@@ -2533,6 +2549,7 @@
 		"PostalCode": "05033",
 		"Country": "Mexico",
 		"Phone": "(5) 555-2933",
+		"Fax": "(5) 555-2934",
 		"Orders": [
 			{
 				"OrderID": 10304,
@@ -2761,6 +2778,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -2777,6 +2795,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -2855,7 +2874,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-3612"
 	},
 	{
 		"CustomerID": "DUMON",
@@ -2963,6 +2983,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10313,
@@ -3079,7 +3100,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(198) 555-8888"
 	},
 	{
 		"CustomerID": "RATTC",
@@ -3204,7 +3226,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(198) 555-8888"
 	},
 	{
 		"CustomerID": "TORTU",
@@ -3216,6 +3239,7 @@
 		"PostalCode": "05033",
 		"Country": "Mexico",
 		"Phone": "(5) 555-2933",
+		"Fax": "(5) 555-2934",
 		"Orders": [
 			{
 				"OrderID": 10319,
@@ -3324,7 +3348,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(198) 555-8888"
 	},
 	{
 		"CustomerID": "PERIC",
@@ -3407,7 +3432,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "SAVEA",
@@ -3468,7 +3494,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "KOENE",
@@ -3527,14 +3554,15 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "BOLID",
 		"CompanyName": "Bólido Comidas preparadas",
 		"ContactName": "Martín Sommer",
 		"ContactTitle": "Owner",
-		"Address": "C\\/ Araquil, 67",
+		"Address": "C/ Araquil, 67",
 		"City": "Madrid",
 		"PostalCode": "28023",
 		"Country": "Spain",
@@ -3550,7 +3578,7 @@
 				"ShipVia": 2,
 				"Freight": 77.92,
 				"ShipName": "Bólido Comidas preparadas",
-				"ShipAddress": "C\\/ Araquil, 67",
+				"ShipAddress": "C/ Araquil, 67",
 				"ShipCity": "Madrid",
 				"ShipPostalCode": "28023",
 				"ShipCountry": "Spain",
@@ -3587,6 +3615,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10327,
@@ -3961,6 +3990,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -3977,6 +4007,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -4041,7 +4072,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(1) 356-5634"
 	},
 	{
 		"CustomerID": "FRANK",
@@ -4443,6 +4475,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10345,
@@ -4577,7 +4610,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9857"
 	},
 	{
 		"CustomerID": "WANDK",
@@ -5188,6 +5222,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10361,
@@ -5390,7 +5425,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(5) 555-3932"
 	},
 	{
 		"CustomerID": "GALED",
@@ -5631,7 +5667,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0452-076545"
 	},
 	{
 		"CustomerID": "LAMAI",
@@ -5722,7 +5759,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "HUNGO",
@@ -5731,6 +5769,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -5747,6 +5786,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -5942,6 +5982,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10378,
@@ -6024,6 +6065,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -6040,6 +6082,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -6351,7 +6394,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9857"
 	},
 	{
 		"CustomerID": "SANTG",
@@ -6696,7 +6740,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "HUNGC",
@@ -6879,7 +6924,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(1) 356-5634"
 	},
 	{
 		"CustomerID": "SAVEA",
@@ -6922,7 +6968,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "VAFFE",
@@ -7297,7 +7344,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "OTTIK",
@@ -7641,7 +7689,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9857"
 	},
 	{
 		"CustomerID": "HUNGC",
@@ -7799,6 +7848,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10418,
@@ -7852,6 +7902,7 @@
 		"PostalCode": "1203",
 		"Country": "Switzerland",
 		"Phone": "0897-034214",
+		"Fax": "0897-034215",
 		"Orders": [
 			{
 				"OrderID": 10419,
@@ -7894,6 +7945,7 @@
 		"PostalCode": "08737-363",
 		"Country": "Brazil",
 		"Phone": "(14) 555-8122",
+		"Fax": "(14) 555-8123",
 		"Orders": [
 			{
 				"OrderID": 10420,
@@ -8071,7 +8123,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9482"
 	},
 	{
 		"CustomerID": "MEREP",
@@ -8286,6 +8339,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -8302,6 +8356,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -8502,7 +8557,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(1) 356-5634"
 	},
 	{
 		"CustomerID": "FOLKO",
@@ -8514,6 +8570,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10434,
@@ -8840,7 +8897,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "OLDWO",
@@ -9117,6 +9175,7 @@
 		"PostalCode": "02389-890",
 		"Country": "Brazil",
 		"Phone": "(21) 555-3412",
+		"Fax": "(21) 555-3413",
 		"Orders": [
 			{
 				"OrderID": 10447,
@@ -9297,6 +9356,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10451,
@@ -9381,7 +9441,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "AROUT",
@@ -9589,7 +9650,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "SUPRD",
@@ -9709,6 +9771,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10460,
@@ -10029,7 +10092,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-7647"
 	},
 	{
 		"CustomerID": "MAGAA",
@@ -10112,7 +10176,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "WHITC",
@@ -10251,7 +10316,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(171) 555-1212"
 	},
 	{
 		"CustomerID": "SEVES",
@@ -10336,7 +10402,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(198) 555-8888"
 	},
 	{
 		"CustomerID": "PERIC",
@@ -10529,7 +10596,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(1) 356-5634"
 	},
 	{
 		"CustomerID": "VICTE",
@@ -10676,6 +10744,7 @@
 		"PostalCode": "02389-890",
 		"Country": "Brazil",
 		"Phone": "(21) 555-3412",
+		"Fax": "(21) 555-3413",
 		"Orders": [
 			{
 				"OrderID": 10481,
@@ -10835,7 +10904,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(171) 555-1212"
 	},
 	{
 		"CustomerID": "LINOD",
@@ -10990,7 +11060,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "FRANK",
@@ -11295,7 +11366,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-7647"
 	},
 	{
 		"CustomerID": "LAUGB",
@@ -11660,6 +11732,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -11676,6 +11749,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -11828,7 +11902,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "ANTON",
@@ -11869,7 +11944,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(5) 555-3932"
 	},
 	{
 		"CustomerID": "OTTIK",
@@ -11990,7 +12066,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "BONAP",
@@ -12093,7 +12170,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9857"
 	},
 	{
 		"CustomerID": "WANDK",
@@ -12213,6 +12291,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10515,
@@ -12269,6 +12348,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -12285,6 +12365,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -12312,7 +12393,7 @@
 	},
 	{
 		"CustomerID": "NORTS",
-		"CompanyName": "North\\/South",
+		"CompanyName": "North/South",
 		"ContactName": "Simon Crowther",
 		"ContactTitle": "Sales Associate",
 		"Address": "South House 300 Queensbridge",
@@ -12330,7 +12411,7 @@
 				"ShippedDate": "1997-04-29T00:00:00",
 				"ShipVia": 3,
 				"Freight": 32.07,
-				"ShipName": "North\\/South",
+				"ShipName": "North/South",
 				"ShipAddress": "South House 300 Queensbridge",
 				"ShipCity": "London",
 				"ShipPostalCode": "SW7 1RZ",
@@ -12368,6 +12449,7 @@
 		"PostalCode": "05033",
 		"Country": "Mexico",
 		"Phone": "(5) 555-2933",
+		"Fax": "(5) 555-2934",
 		"Orders": [
 			{
 				"OrderID": 10518,
@@ -12450,7 +12532,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0452-076545"
 	},
 	{
 		"CustomerID": "SANTG",
@@ -12804,6 +12887,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10527,
@@ -12882,7 +12966,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-7555"
 	},
 	{
 		"CustomerID": "MAISD",
@@ -13074,6 +13159,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10533,
@@ -13210,7 +13296,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(5) 555-3932"
 	},
 	{
 		"CustomerID": "LEHMS",
@@ -13276,6 +13363,7 @@
 		"PostalCode": "1203",
 		"Country": "Switzerland",
 		"Phone": "0897-034214",
+		"Fax": "0897-034215",
 		"Orders": [
 			{
 				"OrderID": 10537,
@@ -13404,7 +13492,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(171) 555-1212"
 	},
 	{
 		"CustomerID": "QUICK",
@@ -13416,6 +13505,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10540,
@@ -13554,7 +13644,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "LILAS",
@@ -13824,6 +13915,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10549,
@@ -13866,7 +13958,7 @@
 		"CompanyName": "Godos Cocina Típica",
 		"ContactName": "José Pedro Freyre",
 		"ContactTitle": "Sales Manager",
-		"Address": "C\\/ Romero, 33",
+		"Address": "C/ Romero, 33",
 		"City": "Sevilla",
 		"PostalCode": "41101",
 		"Country": "Spain",
@@ -13881,7 +13973,7 @@
 				"ShipVia": 3,
 				"Freight": 4.32,
 				"ShipName": "Godos Cocina Típica",
-				"ShipAddress": "C\\/ Romero, 33",
+				"ShipAddress": "C/ Romero, 33",
 				"ShipCity": "Sevilla",
 				"ShipPostalCode": "41101",
 				"ShipCountry": "Spain",
@@ -13912,7 +14004,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(95) 555 82 82"
 	},
 	{
 		"CustomerID": "FURIB",
@@ -14179,7 +14272,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "SIMOB",
@@ -14414,6 +14508,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10561,
@@ -14498,6 +14593,7 @@
 		"PostalCode": "02389-890",
 		"Country": "Brazil",
 		"Phone": "(21) 555-3412",
+		"Fax": "(21) 555-3413",
 		"Orders": [
 			{
 				"OrderID": 10563,
@@ -14679,6 +14775,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -14695,6 +14792,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -14985,7 +15083,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(5) 555-3932"
 	},
 	{
 		"CustomerID": "TRAIH",
@@ -15094,7 +15193,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0342-023176"
 	},
 	{
 		"CustomerID": "TORTU",
@@ -15106,6 +15206,7 @@
 		"PostalCode": "05033",
 		"Country": "Mexico",
 		"Phone": "(5) 555-2933",
+		"Fax": "(5) 555-2934",
 		"Orders": [
 			{
 				"OrderID": 10576,
@@ -15232,7 +15333,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(171) 555-1212"
 	},
 	{
 		"CustomerID": "LETSS",
@@ -15275,7 +15377,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(415) 555-5938"
 	},
 	{
 		"CustomerID": "OTTIK",
@@ -15360,7 +15463,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9857"
 	},
 	{
 		"CustomerID": "BLAUS",
@@ -15499,6 +15603,7 @@
 		"PostalCode": "08737-363",
 		"Country": "Brazil",
 		"Phone": "(14) 555-8122",
+		"Fax": "(14) 555-8123",
 		"Orders": [
 			{
 				"OrderID": 10585,
@@ -15621,6 +15726,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10588,
@@ -15687,7 +15793,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-7555"
 	},
 	{
 		"CustomerID": "MEREP",
@@ -16124,7 +16231,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(171) 555-1212"
 	},
 	{
 		"CustomerID": "HUNGC",
@@ -16291,7 +16399,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "FURIB",
@@ -16500,7 +16609,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "TOMSP",
@@ -16729,7 +16839,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "HILAA",
@@ -16827,7 +16938,7 @@
 		"CustomerID": "WILMK",
 		"CompanyName": "Wilman Kala",
 		"ContactName": "Matti Karttunen",
-		"ContactTitle": "Owner\\/Marketing Assistant",
+		"ContactTitle": "Owner/Marketing Assistant",
 		"Address": "Keskuskatu 45",
 		"City": "Helsinki",
 		"PostalCode": "21240",
@@ -16935,7 +17046,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-7555"
 	},
 	{
 		"CustomerID": "MEREP",
@@ -17113,7 +17225,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(198) 555-8888"
 	},
 	{
 		"CustomerID": "RICAR",
@@ -17126,6 +17239,7 @@
 		"PostalCode": "02389-890",
 		"Country": "Brazil",
 		"Phone": "(21) 555-3412",
+		"Fax": "(21) 555-3413",
 		"Orders": [
 			{
 				"OrderID": 10622,
@@ -17405,7 +17519,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "BLONP",
@@ -17448,7 +17563,7 @@
 		"CompanyName": "Godos Cocina Típica",
 		"ContactName": "José Pedro Freyre",
 		"ContactTitle": "Sales Manager",
-		"Address": "C\\/ Romero, 33",
+		"Address": "C/ Romero, 33",
 		"City": "Sevilla",
 		"PostalCode": "41101",
 		"Country": "Spain",
@@ -17463,7 +17578,7 @@
 				"ShipVia": 3,
 				"Freight": 85.46,
 				"ShipName": "Godos Cocina Típica",
-				"ShipAddress": "C\\/ Romero, 33",
+				"ShipAddress": "C/ Romero, 33",
 				"ShipCity": "Sevilla",
 				"ShipPostalCode": "41101",
 				"ShipCountry": "Spain",
@@ -17482,7 +17597,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(95) 555 82 82"
 	},
 	{
 		"CustomerID": "KOENE",
@@ -17523,7 +17639,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "LAMAI",
@@ -17848,7 +17965,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "LINOD",
@@ -18123,6 +18241,7 @@
 		"PostalCode": "08737-363",
 		"Country": "Brazil",
 		"Phone": "(14) 555-8122",
+		"Fax": "(14) 555-8123",
 		"Orders": [
 			{
 				"OrderID": 10644,
@@ -18212,6 +18331,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -18228,6 +18348,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -18314,6 +18435,7 @@
 		"PostalCode": "02389-890",
 		"Country": "Brazil",
 		"Phone": "(21) 555-3412",
+		"Fax": "(21) 555-3413",
 		"Orders": [
 			{
 				"OrderID": 10648,
@@ -18435,7 +18557,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9857"
 	},
 	{
 		"CustomerID": "WANDK",
@@ -18520,7 +18643,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9482"
 	},
 	{
 		"CustomerID": "FRANK",
@@ -18695,7 +18819,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-7555"
 	},
 	{
 		"CustomerID": "SAVEA",
@@ -18762,7 +18887,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "QUICK",
@@ -18774,6 +18900,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10658,
@@ -18864,7 +18991,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "HUNGC",
@@ -18911,6 +19039,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -18927,6 +19056,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -19140,6 +19270,7 @@
 		"PostalCode": "1203",
 		"Country": "Switzerland",
 		"Phone": "0897-034214",
+		"Fax": "0897-034215",
 		"Orders": [
 			{
 				"OrderID": 10666,
@@ -19451,7 +19582,7 @@
 		"CustomerID": "WILMK",
 		"CompanyName": "Wilman Kala",
 		"ContactName": "Matti Karttunen",
-		"ContactTitle": "Owner\\/Marketing Assistant",
+		"ContactTitle": "Owner/Marketing Assistant",
 		"Address": "Keskuskatu 45",
 		"City": "Helsinki",
 		"PostalCode": "21240",
@@ -19530,7 +19661,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(198) 555-8888"
 	},
 	{
 		"CustomerID": "FRANK",
@@ -19590,6 +19722,7 @@
 		"PostalCode": "05033",
 		"Country": "Mexico",
 		"Phone": "(5) 555-2933",
+		"Fax": "(5) 555-2934",
 		"Orders": [
 			{
 				"OrderID": 10676,
@@ -19666,7 +19799,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(5) 555-3932"
 	},
 	{
 		"CustomerID": "SAVEA",
@@ -19721,7 +19855,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "BLONP",
@@ -19856,7 +19991,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-7555"
 	},
 	{
 		"CustomerID": "ANTON",
@@ -19903,7 +20039,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(5) 555-3932"
 	},
 	{
 		"CustomerID": "DUMON",
@@ -20036,7 +20173,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9482"
 	},
 	{
 		"CustomerID": "PICCO",
@@ -20087,6 +20225,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -20103,6 +20242,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -20266,6 +20406,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10691,
@@ -20417,6 +20558,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10694,
@@ -20458,7 +20600,7 @@
 		"CustomerID": "WILMK",
 		"CompanyName": "Wilman Kala",
 		"ContactName": "Matti Karttunen",
-		"ContactTitle": "Owner\\/Marketing Assistant",
+		"ContactTitle": "Owner/Marketing Assistant",
 		"Address": "Keskuskatu 45",
 		"City": "Helsinki",
 		"PostalCode": "21240",
@@ -20695,7 +20837,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0342-023176"
 	},
 	{
 		"CustomerID": "SAVEA",
@@ -20750,7 +20893,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "HUNGO",
@@ -20759,6 +20903,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -20775,6 +20920,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -20852,6 +20998,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10703,
@@ -20936,7 +21083,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "HILAA",
@@ -21122,7 +21270,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-3612"
 	},
 	{
 		"CustomerID": "GOURL",
@@ -21171,7 +21320,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9482"
 	},
 	{
 		"CustomerID": "FRANS",
@@ -21262,7 +21412,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "HUNGO",
@@ -21271,6 +21422,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -21287,6 +21439,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -21406,7 +21559,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "BONAP",
@@ -21597,7 +21751,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "LETSS",
@@ -21646,7 +21801,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(415) 555-5938"
 	},
 	{
 		"CustomerID": "QUEDE",
@@ -21702,6 +21858,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10721,
@@ -21780,7 +21937,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "WHITC",
@@ -21911,7 +22069,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9857"
 	},
 	{
 		"CustomerID": "EASTC",
@@ -22056,7 +22215,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "LINOD",
@@ -22195,7 +22355,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0452-076545"
 	},
 	{
 		"CustomerID": "BONAP",
@@ -22328,7 +22489,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9482"
 	},
 	{
 		"CustomerID": "LETSS",
@@ -22371,7 +22533,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(415) 555-5938"
 	},
 	{
 		"CustomerID": "HUNGO",
@@ -22380,6 +22543,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -22396,6 +22560,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -22761,6 +22926,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10745,
@@ -22855,7 +23021,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0452-076545"
 	},
 	{
 		"CustomerID": "PICCO",
@@ -22958,7 +23125,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "ISLAT",
@@ -23007,7 +23175,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(198) 555-8888"
 	},
 	{
 		"CustomerID": "WARTH",
@@ -23067,6 +23236,7 @@
 		"PostalCode": "1203",
 		"Country": "Switzerland",
 		"Phone": "0897-034214",
+		"Fax": "0897-034215",
 		"Orders": [
 			{
 				"OrderID": 10751,
@@ -23112,7 +23282,7 @@
 	},
 	{
 		"CustomerID": "NORTS",
-		"CompanyName": "North\\/South",
+		"CompanyName": "North/South",
 		"ContactName": "Simon Crowther",
 		"ContactTitle": "Sales Associate",
 		"Address": "South House 300 Queensbridge",
@@ -23130,7 +23300,7 @@
 				"ShippedDate": "1997-11-28T00:00:00",
 				"ShipVia": 3,
 				"Freight": 1.39,
-				"ShipName": "North\\/South",
+				"ShipName": "North/South",
 				"ShipAddress": "South House 300 Queensbridge",
 				"ShipCity": "London",
 				"ShipPostalCode": "SW7 1RZ",
@@ -23393,7 +23563,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "RICSU",
@@ -23405,6 +23576,7 @@
 		"PostalCode": "1203",
 		"Country": "Switzerland",
 		"Phone": "0897-034214",
+		"Fax": "0897-034215",
 		"Orders": [
 			{
 				"OrderID": 10758,
@@ -23580,6 +23752,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10762,
@@ -23723,6 +23896,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10765,
@@ -24115,6 +24289,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10774,
@@ -24279,7 +24454,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9482"
 	},
 	{
 		"CustomerID": "BERGS",
@@ -24356,7 +24532,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0342-023176"
 	},
 	{
 		"CustomerID": "LILAS",
@@ -24669,7 +24846,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "LAMAI",
@@ -24723,6 +24901,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10788,
@@ -24849,7 +25028,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9482"
 	},
 	{
 		"CustomerID": "FRANK",
@@ -25203,7 +25383,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(198) 555-8888"
 	},
 	{
 		"CustomerID": "KOENE",
@@ -25250,7 +25431,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "SEVES",
@@ -25305,7 +25487,7 @@
 		"CompanyName": "Bólido Comidas preparadas",
 		"ContactName": "Martín Sommer",
 		"ContactTitle": "Owner",
-		"Address": "C\\/ Araquil, 67",
+		"Address": "C/ Araquil, 67",
 		"City": "Madrid",
 		"PostalCode": "28023",
 		"Country": "Spain",
@@ -25321,7 +25503,7 @@
 				"ShipVia": 2,
 				"Freight": 97.09,
 				"ShipName": "Bólido Comidas preparadas",
-				"ShipAddress": "C\\/ Araquil, 67",
+				"ShipAddress": "C/ Araquil, 67",
 				"ShipCity": "Madrid",
 				"ShipPostalCode": "28023",
 				"ShipCountry": "Spain",
@@ -25407,6 +25589,7 @@
 		"PostalCode": "08737-363",
 		"Country": "Brazil",
 		"Phone": "(14) 555-8122",
+		"Fax": "(14) 555-8123",
 		"Orders": [
 			{
 				"OrderID": 10803,
@@ -25534,7 +25717,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-3612"
 	},
 	{
 		"CustomerID": "VICTE",
@@ -25675,6 +25859,7 @@
 		"PostalCode": "08737-363",
 		"Country": "Brazil",
 		"Phone": "(14) 555-8122",
+		"Fax": "(14) 555-8123",
 		"Orders": [
 			{
 				"OrderID": 10809,
@@ -25860,6 +26045,7 @@
 		"PostalCode": "02389-890",
 		"Country": "Brazil",
 		"Phone": "(21) 555-3412",
+		"Fax": "(21) 555-3413",
 		"Orders": [
 			{
 				"OrderID": 10813,
@@ -25981,7 +26167,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "GREAL",
@@ -26024,7 +26211,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-7555"
 	},
 	{
 		"CustomerID": "KOENE",
@@ -26077,7 +26265,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "MAGAA",
@@ -26355,6 +26544,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10824,
@@ -26607,7 +26797,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(198) 555-8888"
 	},
 	{
 		"CustomerID": "TRADH",
@@ -27223,6 +27414,7 @@
 		"PostalCode": "05033",
 		"Country": "Mexico",
 		"Phone": "(5) 555-2933",
+		"Fax": "(5) 555-2934",
 		"Orders": [
 			{
 				"OrderID": 10842,
@@ -27348,6 +27540,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10845,
@@ -27510,7 +27703,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "CONSH",
@@ -27593,7 +27787,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "VICTE",
@@ -27654,6 +27849,7 @@
 		"PostalCode": "02389-890",
 		"Country": "Brazil",
 		"Phone": "(21) 555-3412",
+		"Fax": "(21) 555-3413",
 		"Orders": [
 			{
 				"OrderID": 10851,
@@ -27921,7 +28117,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(5) 555-3932"
 	},
 	{
 		"CustomerID": "BERGS",
@@ -28310,6 +28507,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10865,
@@ -28474,7 +28672,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "SEVES",
@@ -28625,7 +28824,7 @@
 		"CompanyName": "Godos Cocina Típica",
 		"ContactName": "José Pedro Freyre",
 		"ContactTitle": "Sales Manager",
-		"Address": "C\\/ Romero, 33",
+		"Address": "C/ Romero, 33",
 		"City": "Sevilla",
 		"PostalCode": "41101",
 		"Country": "Spain",
@@ -28640,7 +28839,7 @@
 				"ShipVia": 2,
 				"Freight": 175.32,
 				"ShipName": "Godos Cocina Típica",
-				"ShipAddress": "C\\/ Romero, 33",
+				"ShipAddress": "C/ Romero, 33",
 				"ShipCity": "Sevilla",
 				"ShipPostalCode": "41101",
 				"ShipCountry": "Spain",
@@ -28671,13 +28870,14 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(95) 555 82 82"
 	},
 	{
 		"CustomerID": "WILMK",
 		"CompanyName": "Wilman Kala",
 		"ContactName": "Matti Karttunen",
-		"ContactTitle": "Owner\\/Marketing Assistant",
+		"ContactTitle": "Owner/Marketing Assistant",
 		"Address": "Keskuskatu 45",
 		"City": "Helsinki",
 		"PostalCode": "21240",
@@ -28720,7 +28920,7 @@
 		"CompanyName": "Godos Cocina Típica",
 		"ContactName": "José Pedro Freyre",
 		"ContactTitle": "Sales Manager",
-		"Address": "C\\/ Romero, 33",
+		"Address": "C/ Romero, 33",
 		"City": "Sevilla",
 		"PostalCode": "41101",
 		"Country": "Spain",
@@ -28735,7 +28935,7 @@
 				"ShipVia": 2,
 				"Freight": 19.58,
 				"ShipName": "Godos Cocina Típica",
-				"ShipAddress": "C\\/ Romero, 33",
+				"ShipAddress": "C/ Romero, 33",
 				"ShipCity": "Sevilla",
 				"ShipPostalCode": "41101",
 				"ShipCountry": "Spain",
@@ -28748,7 +28948,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(95) 555 82 82"
 	},
 	{
 		"CustomerID": "BERGS",
@@ -28851,6 +29052,7 @@
 		"PostalCode": "02389-890",
 		"Country": "Brazil",
 		"Phone": "(21) 555-3412",
+		"Fax": "(21) 555-3413",
 		"Orders": [
 			{
 				"OrderID": 10877,
@@ -28893,6 +29095,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10878,
@@ -28922,7 +29125,7 @@
 		"CustomerID": "WILMK",
 		"CompanyName": "Wilman Kala",
 		"ContactName": "Matti Karttunen",
-		"ContactTitle": "Owner\\/Marketing Assistant",
+		"ContactTitle": "Owner/Marketing Assistant",
 		"Address": "Keskuskatu 45",
 		"City": "Helsinki",
 		"PostalCode": "21240",
@@ -28976,6 +29179,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10880,
@@ -29096,7 +29300,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "LONEP",
@@ -29183,7 +29388,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(415) 555-5938"
 	},
 	{
 		"CustomerID": "SUPRD",
@@ -29330,7 +29536,7 @@
 		"CompanyName": "Godos Cocina Típica",
 		"ContactName": "José Pedro Freyre",
 		"ContactTitle": "Sales Manager",
-		"Address": "C\\/ Romero, 33",
+		"Address": "C/ Romero, 33",
 		"City": "Sevilla",
 		"PostalCode": "41101",
 		"Country": "Spain",
@@ -29345,7 +29551,7 @@
 				"ShipVia": 2,
 				"Freight": 51.87,
 				"ShipName": "Godos Cocina Típica",
-				"ShipAddress": "C\\/ Romero, 33",
+				"ShipAddress": "C/ Romero, 33",
 				"ShipCity": "Sevilla",
 				"ShipPostalCode": "41101",
 				"ShipCountry": "Spain",
@@ -29364,7 +29570,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(95) 555 82 82"
 	},
 	{
 		"CustomerID": "RATTC",
@@ -29587,7 +29794,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "SAVEA",
@@ -29636,7 +29844,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "ERNSH",
@@ -29741,6 +29950,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -29757,6 +29967,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -29861,6 +30072,7 @@
 		"PostalCode": "08737-363",
 		"Country": "Brazil",
 		"Phone": "(14) 555-8122",
+		"Fax": "(14) 555-8123",
 		"Orders": [
 			{
 				"OrderID": 10900,
@@ -29941,6 +30153,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10902,
@@ -30077,6 +30290,7 @@
 		"PostalCode": "08737-363",
 		"Country": "Brazil",
 		"Phone": "(14) 555-8122",
+		"Fax": "(14) 555-8123",
 		"Orders": [
 			{
 				"OrderID": 10905,
@@ -30269,7 +30483,7 @@
 		"CustomerID": "WILMK",
 		"CompanyName": "Wilman Kala",
 		"ContactName": "Matti Karttunen",
-		"ContactTitle": "Owner\\/Marketing Assistant",
+		"ContactTitle": "Owner/Marketing Assistant",
 		"Address": "Keskuskatu 45",
 		"City": "Helsinki",
 		"PostalCode": "21240",
@@ -30318,7 +30532,7 @@
 		"CompanyName": "Godos Cocina Típica",
 		"ContactName": "José Pedro Freyre",
 		"ContactTitle": "Sales Manager",
-		"Address": "C\\/ Romero, 33",
+		"Address": "C/ Romero, 33",
 		"City": "Sevilla",
 		"PostalCode": "41101",
 		"Country": "Spain",
@@ -30333,7 +30547,7 @@
 				"ShipVia": 1,
 				"Freight": 38.19,
 				"ShipName": "Godos Cocina Típica",
-				"ShipAddress": "C\\/ Romero, 33",
+				"ShipAddress": "C/ Romero, 33",
 				"ShipCity": "Sevilla",
 				"ShipPostalCode": "41101",
 				"ShipCountry": "Spain",
@@ -30358,7 +30572,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(95) 555 82 82"
 	},
 	{
 		"CustomerID": "HUNGO",
@@ -30367,6 +30582,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -30383,6 +30599,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -30472,7 +30689,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "TORTU",
@@ -30484,6 +30702,7 @@
 		"PostalCode": "05033",
 		"Country": "Mexico",
 		"Phone": "(5) 555-2933",
+		"Fax": "(5) 555-2934",
 		"Orders": [
 			{
 				"OrderID": 10915,
@@ -31224,6 +31443,7 @@
 		"PostalCode": "1203",
 		"Country": "Switzerland",
 		"Phone": "0897-034214",
+		"Fax": "0897-034215",
 		"Orders": [
 			{
 				"OrderID": 10931,
@@ -31350,7 +31570,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(198) 555-8888"
 	},
 	{
 		"CustomerID": "LEHMS",
@@ -31399,6 +31620,7 @@
 		"PostalCode": "08737-363",
 		"Country": "Brazil",
 		"Phone": "(14) 555-8122",
+		"Fax": "(14) 555-8123",
 		"Orders": [
 			{
 				"OrderID": 10935,
@@ -31472,7 +31694,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-7555"
 	},
 	{
 		"CustomerID": "CACTU",
@@ -31526,6 +31749,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10938,
@@ -31706,7 +31930,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "REGGC",
@@ -31789,7 +32014,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(171) 555-1212"
 	},
 	{
 		"CustomerID": "BOTTM",
@@ -31880,7 +32106,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0342-023176"
 	},
 	{
 		"CustomerID": "VAFFE",
@@ -31963,14 +32190,15 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(171) 555-1212"
 	},
 	{
 		"CustomerID": "GODOS",
 		"CompanyName": "Godos Cocina Típica",
 		"ContactName": "José Pedro Freyre",
 		"ContactTitle": "Sales Manager",
-		"Address": "C\\/ Romero, 33",
+		"Address": "C/ Romero, 33",
 		"City": "Sevilla",
 		"PostalCode": "41101",
 		"Country": "Spain",
@@ -31985,7 +32213,7 @@
 				"ShipVia": 3,
 				"Freight": 23.39,
 				"ShipName": "Godos Cocina Típica",
-				"ShipAddress": "C\\/ Romero, 33",
+				"ShipAddress": "C/ Romero, 33",
 				"ShipCity": "Sevilla",
 				"ShipPostalCode": "41101",
 				"ShipCountry": "Spain",
@@ -32010,7 +32238,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(95) 555 82 82"
 	},
 	{
 		"CustomerID": "BOTTM",
@@ -32114,6 +32343,7 @@
 		"PostalCode": "1203",
 		"Country": "Switzerland",
 		"Phone": "0897-034214",
+		"Fax": "0897-034215",
 		"Orders": [
 			{
 				"OrderID": 10951,
@@ -32302,6 +32532,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10955,
@@ -32508,7 +32739,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9482"
 	},
 	{
 		"CustomerID": "HILAA",
@@ -32595,7 +32827,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "QUICK",
@@ -32607,6 +32840,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10962,
@@ -32823,7 +33057,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0452-076545"
 	},
 	{
 		"CustomerID": "TOMSP",
@@ -32950,14 +33185,15 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-7647"
 	},
 	{
 		"CustomerID": "BOLID",
 		"CompanyName": "Bólido Comidas preparadas",
 		"ContactName": "Martín Sommer",
 		"ContactTitle": "Owner",
-		"Address": "C\\/ Araquil, 67",
+		"Address": "C/ Araquil, 67",
 		"City": "Madrid",
 		"PostalCode": "28023",
 		"Country": "Spain",
@@ -32973,7 +33209,7 @@
 				"ShipVia": 1,
 				"Freight": 16.16,
 				"ShipName": "Bólido Comidas preparadas",
-				"ShipAddress": "C\\/ Araquil, 67",
+				"ShipAddress": "C/ Araquil, 67",
 				"ShipCity": "Madrid",
 				"ShipPostalCode": "28023",
 				"ShipCountry": "Spain",
@@ -33230,6 +33466,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10977,
@@ -33403,6 +33640,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10980,
@@ -33586,7 +33824,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "HUNGO",
@@ -33595,6 +33834,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -33611,6 +33851,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -33896,6 +34137,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10991,
@@ -33968,7 +34210,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-3612"
 	},
 	{
 		"CustomerID": "FOLKO",
@@ -33980,6 +34223,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 10993,
@@ -34099,6 +34343,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 10996,
@@ -34336,6 +34581,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 11001,
@@ -34432,7 +34678,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "THECR",
@@ -34530,7 +34777,7 @@
 		"CustomerID": "WILMK",
 		"CompanyName": "Wilman Kala",
 		"ContactName": "Matti Karttunen",
-		"ContactTitle": "Owner\\/Marketing Assistant",
+		"ContactTitle": "Owner/Marketing Assistant",
 		"Address": "Keskuskatu 45",
 		"City": "Helsinki",
 		"PostalCode": "21240",
@@ -34609,7 +34856,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-7555"
 	},
 	{
 		"CustomerID": "PRINI",
@@ -34656,7 +34904,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(1) 356-5634"
 	},
 	{
 		"CustomerID": "ERNSH",
@@ -34675,6 +34924,7 @@
 				"EmployeeID": 7,
 				"OrderDate": "1998-04-08T00:00:00",
 				"RequiredDate": "1998-05-06T00:00:00",
+				"ShippedDate": "1998-05-09T00:00:00",
 				"ShipVia": 3,
 				"Freight": 79.46,
 				"ShipName": "Ernst Handel",
@@ -34710,7 +34960,7 @@
 		"CompanyName": "Godos Cocina Típica",
 		"ContactName": "José Pedro Freyre",
 		"ContactTitle": "Sales Manager",
-		"Address": "C\\/ Romero, 33",
+		"Address": "C/ Romero, 33",
 		"City": "Sevilla",
 		"PostalCode": "41101",
 		"Country": "Spain",
@@ -34725,7 +34975,7 @@
 				"ShipVia": 1,
 				"Freight": 59.11,
 				"ShipName": "Godos Cocina Típica",
-				"ShipAddress": "C\\/ Romero, 33",
+				"ShipAddress": "C/ Romero, 33",
 				"ShipCity": "Sevilla",
 				"ShipPostalCode": "41101",
 				"ShipCountry": "Spain",
@@ -34750,7 +35000,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(95) 555 82 82"
 	},
 	{
 		"CustomerID": "REGGC",
@@ -35176,6 +35427,7 @@
 				"EmployeeID": 6,
 				"OrderDate": "1998-04-13T00:00:00",
 				"RequiredDate": "1998-05-11T00:00:00",
+				"ShippedDate": "1998-05-11T00:00:00",
 				"ShipVia": 3,
 				"Freight": 3.17,
 				"ShipName": "Rancho grande",
@@ -35246,6 +35498,7 @@
 		"PostalCode": "01307",
 		"Country": "Germany",
 		"Phone": "0372-035188",
+		"Fax": "0372-035189",
 		"Orders": [
 			{
 				"OrderID": 11021,
@@ -35378,7 +35631,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(171) 555-1212"
 	},
 	{
 		"CustomerID": "EASTC",
@@ -35601,7 +35855,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0555-09876"
 	},
 	{
 		"CustomerID": "CHOPS",
@@ -35642,7 +35897,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0452-076545"
 	},
 	{
 		"CustomerID": "SAVEA",
@@ -35744,7 +36000,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "WHITC",
@@ -35806,6 +36063,7 @@
 		"PostalCode": "1203",
 		"Country": "Switzerland",
 		"Phone": "0897-034214",
+		"Fax": "0897-034215",
 		"Orders": [
 			{
 				"OrderID": 11033,
@@ -35988,7 +36246,7 @@
 		"CompanyName": "Godos Cocina Típica",
 		"ContactName": "José Pedro Freyre",
 		"ContactTitle": "Sales Manager",
-		"Address": "C\\/ Romero, 33",
+		"Address": "C/ Romero, 33",
 		"City": "Sevilla",
 		"PostalCode": "41101",
 		"Country": "Spain",
@@ -36003,7 +36261,7 @@
 				"ShipVia": 1,
 				"Freight": 3.2,
 				"ShipName": "Godos Cocina Típica",
-				"ShipAddress": "C\\/ Romero, 33",
+				"ShipAddress": "C/ Romero, 33",
 				"ShipCity": "Sevilla",
 				"ShipPostalCode": "41101",
 				"ShipCountry": "Spain",
@@ -36016,7 +36274,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(95) 555 82 82"
 	},
 	{
 		"CustomerID": "SUPRD",
@@ -36084,6 +36343,7 @@
 				"EmployeeID": 1,
 				"OrderDate": "1998-04-21T00:00:00",
 				"RequiredDate": "1998-05-19T00:00:00",
+				"ShippedDate": "1998-05-25T00:00:00",
 				"ShipVia": 2,
 				"Freight": 65,
 				"ShipName": "LINO-Delicateses",
@@ -36138,6 +36398,7 @@
 				"EmployeeID": 4,
 				"OrderDate": "1998-04-22T00:00:00",
 				"RequiredDate": "1998-05-20T00:00:00",
+				"ShippedDate": "1998-05-20T00:00:00",
 				"ShipVia": 3,
 				"Freight": 18.84,
 				"ShipName": "Great Lakes Food Market",
@@ -36155,7 +36416,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-7555"
 	},
 	{
 		"CustomerID": "CHOPS",
@@ -36196,7 +36458,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "0452-076545"
 	},
 	{
 		"CustomerID": "COMMI",
@@ -36239,7 +36502,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-7647"
 	},
 	{
 		"CustomerID": "SPECD",
@@ -36331,6 +36595,7 @@
 				"EmployeeID": 6,
 				"OrderDate": "1998-04-23T00:00:00",
 				"RequiredDate": "1998-05-21T00:00:00",
+				"ShippedDate": "1998-05-23T00:00:00",
 				"ShipVia": 2,
 				"Freight": 70.58,
 				"ShipName": "Bottom-Dollar Markets",
@@ -36525,7 +36790,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-9482"
 	},
 	{
 		"CustomerID": "FOLKO",
@@ -36537,6 +36803,7 @@
 		"PostalCode": "S-844 67",
 		"Country": "Sweden",
 		"Phone": "0695-34 67 21",
+		"Fax": "0695-34 67 22",
 		"Orders": [
 			{
 				"OrderID": 11050,
@@ -36579,6 +36846,7 @@
 				"EmployeeID": 7,
 				"OrderDate": "1998-04-27T00:00:00",
 				"RequiredDate": "1998-05-25T00:00:00",
+				"ShippedDate": "1998-09-25T00:00:00",
 				"ShipVia": 3,
 				"Freight": 2.79,
 				"ShipName": "La maison de Asie",
@@ -36706,6 +36974,7 @@
 				"EmployeeID": 8,
 				"OrderDate": "1998-04-28T00:00:00",
 				"RequiredDate": "1998-05-26T00:00:00",
+				"ShippedDate": "1998-05-26T00:00:00",
 				"ShipVia": 1,
 				"Freight": 0.33,
 				"ShipName": "Cactus Comidas para llevar",
@@ -36836,7 +37105,7 @@
 	},
 	{
 		"CustomerID": "NORTS",
-		"CompanyName": "North\\/South",
+		"CompanyName": "North/South",
 		"ContactName": "Simon Crowther",
 		"ContactTitle": "Sales Associate",
 		"Address": "South House 300 Queensbridge",
@@ -36854,7 +37123,7 @@
 				"ShippedDate": "1998-05-01T00:00:00",
 				"ShipVia": 3,
 				"Freight": 4.13,
-				"ShipName": "North\\/South",
+				"ShipName": "North/South",
 				"ShipAddress": "South House 300 Queensbridge",
 				"ShipCity": "London",
 				"ShipPostalCode": "SW7 1RZ",
@@ -36887,6 +37156,7 @@
 				"EmployeeID": 9,
 				"OrderDate": "1998-04-29T00:00:00",
 				"RequiredDate": "1998-05-27T00:00:00",
+				"ShippedDate": "1998-08-27T00:00:00",
 				"ShipVia": 3,
 				"Freight": 31.14,
 				"ShipName": "Blauer See Delikatessen",
@@ -36928,12 +37198,14 @@
 		"PostalCode": "02389-890",
 		"Country": "Brazil",
 		"Phone": "(21) 555-3412",
+		"Fax": "(21) 555-3413",
 		"Orders": [
 			{
 				"OrderID": 11059,
 				"EmployeeID": 2,
 				"OrderDate": "1998-04-29T00:00:00",
 				"RequiredDate": "1998-06-10T00:00:00",
+				"ShippedDate": "1998-06-15T00:00:00",
 				"ShipVia": 2,
 				"Freight": 85.8,
 				"ShipName": "Ricardo Adocicados",
@@ -37024,6 +37296,7 @@
 				"EmployeeID": 4,
 				"OrderDate": "1998-04-30T00:00:00",
 				"RequiredDate": "1998-06-11T00:00:00",
+				"ShippedDate": "1998-06-11T00:00:00",
 				"ShipVia": 3,
 				"Freight": 14.01,
 				"ShipName": "Great Lakes Food Market",
@@ -37041,7 +37314,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(503) 555-7555"
 	},
 	{
 		"CustomerID": "REGGC",
@@ -37060,6 +37334,7 @@
 				"EmployeeID": 4,
 				"OrderDate": "1998-04-30T00:00:00",
 				"RequiredDate": "1998-05-28T00:00:00",
+				"ShippedDate": "1998-06-28T00:00:00",
 				"ShipVia": 2,
 				"Freight": 29.93,
 				"ShipName": "Reggiani Caseifici",
@@ -37091,6 +37366,7 @@
 		"ContactTitle": "Sales Associate",
 		"Address": "8 Johnstown Road",
 		"City": "Cork",
+		"PostalCode": "48637",
 		"Region": "Co. Cork",
 		"Country": "Ireland",
 		"Phone": "2967 542",
@@ -37107,6 +37383,7 @@
 				"ShipName": "Hungry Owl All-Night Grocers",
 				"ShipAddress": "8 Johnstown Road",
 				"ShipCity": "Cork",
+				"ShipPostalCode": "48637",
 				"ShipRegion": "Co. Cork",
 				"ShipCountry": "Ireland",
 				"OrderDetails": [
@@ -37191,7 +37468,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(208) 555-8097"
 	},
 	{
 		"CustomerID": "LILAS",
@@ -37211,6 +37489,7 @@
 				"EmployeeID": 8,
 				"OrderDate": "1998-05-01T00:00:00",
 				"RequiredDate": "1998-05-29T00:00:00",
+				"ShippedDate": "1998-05-29T00:00:00",
 				"ShipVia": 1,
 				"Freight": 12.91,
 				"ShipName": "LILA-Supermercado",
@@ -37339,6 +37618,7 @@
 				"EmployeeID": 8,
 				"OrderDate": "1998-05-04T00:00:00",
 				"RequiredDate": "1998-06-01T00:00:00",
+				"ShippedDate": "1998-11-01T00:00:00",
 				"ShipVia": 2,
 				"Freight": 81.75,
 				"ShipName": "Queen Cozinha",
@@ -37368,7 +37648,8 @@
 					}
 				]
 			}
-		]
+		],
+		"Fax": "(11) 555-1189"
 	},
 	{
 		"CustomerID": "TORTU",
@@ -37380,6 +37661,7 @@
 		"PostalCode": "05033",
 		"Country": "Mexico",
 		"Phone": "(5) 555-2933",
+		"Fax": "(5) 555-2934",
 		"Orders": [
 			{
 				"OrderID": 11069,
@@ -37422,6 +37704,7 @@
 				"EmployeeID": 2,
 				"OrderDate": "1998-05-05T00:00:00",
 				"RequiredDate": "1998-06-02T00:00:00",
+				"ShippedDate": "1998-06-02T00:00:00",
 				"ShipVia": 1,
 				"Freight": 136,
 				"ShipName": "Lehmanns Marktstand",
@@ -37476,6 +37759,7 @@
 				"EmployeeID": 1,
 				"OrderDate": "1998-05-05T00:00:00",
 				"RequiredDate": "1998-06-02T00:00:00",
+				"ShippedDate": "1998-06-10T00:00:00",
 				"ShipVia": 1,
 				"Freight": 0.93,
 				"ShipName": "LILA-Supermercado",
@@ -37518,6 +37802,7 @@
 				"EmployeeID": 4,
 				"OrderDate": "1998-05-05T00:00:00",
 				"RequiredDate": "1998-06-02T00:00:00",
+				"ShippedDate": "1998-08-02T00:00:00",
 				"ShipVia": 2,
 				"Freight": 258.64,
 				"ShipName": "Ernst Handel",
@@ -37571,6 +37856,7 @@
 				"EmployeeID": 2,
 				"OrderDate": "1998-05-05T00:00:00",
 				"RequiredDate": "1998-06-02T00:00:00",
+				"ShippedDate": "1998-06-15T00:00:00",
 				"ShipVia": 2,
 				"Freight": 24.95,
 				"ShipName": "Pericles Comidas clásicas",
@@ -37612,6 +37898,7 @@
 				"EmployeeID": 7,
 				"OrderDate": "1998-05-06T00:00:00",
 				"RequiredDate": "1998-06-03T00:00:00",
+				"ShippedDate": "1998-06-03T00:00:00",
 				"ShipVia": 2,
 				"Freight": 18.44,
 				"ShipName": "Simons bistro",
@@ -37640,12 +37927,14 @@
 		"PostalCode": "1203",
 		"Country": "Switzerland",
 		"Phone": "0897-034214",
+		"Fax": "0897-034215",
 		"Orders": [
 			{
 				"OrderID": 11075,
 				"EmployeeID": 8,
 				"OrderDate": "1998-05-06T00:00:00",
 				"RequiredDate": "1998-06-03T00:00:00",
+				"ShippedDate": "1998-05-03T00:00:00",
 				"ShipVia": 2,
 				"Freight": 6.19,
 				"ShipName": "Richter Supermarkt",
@@ -37693,6 +37982,7 @@
 				"EmployeeID": 4,
 				"OrderDate": "1998-05-06T00:00:00",
 				"RequiredDate": "1998-06-03T00:00:00",
+				"ShippedDate": "1998-06-08T00:00:00",
 				"ShipVia": 2,
 				"Freight": 38.28,
 				"ShipName": "Bon app",
@@ -37741,6 +38031,7 @@
 				"EmployeeID": 1,
 				"OrderDate": "1998-05-06T00:00:00",
 				"RequiredDate": "1998-06-03T00:00:00",
+				"ShippedDate": "1998-07-03T00:00:00",
 				"ShipVia": 2,
 				"Freight": 8.53,
 				"ShipName": "Rattlesnake Canyon Grocery",
