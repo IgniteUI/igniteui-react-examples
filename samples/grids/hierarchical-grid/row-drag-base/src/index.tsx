@@ -24,7 +24,6 @@ export default function App() {
 
   function RowDragEnd(grid: IgrHierarchicalGrid, evt: any){    
     const grid2 = hierarchicalGridRef2.current;
-    console.log(evt.detail);
     const ghostElement = evt.detail.dragDirective.ghostElement;
         if (ghostElement != null) {
             const dragElementPos = ghostElement.getBoundingClientRect();
@@ -38,9 +37,6 @@ export default function App() {
                 grid2.data = newData;               
             }            
         }
-
-    //console.log(hierarchicalGridRef.current);
-    //console.log(hierarchicalGridRef2.current);
   }
   
   return (
