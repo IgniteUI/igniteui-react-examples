@@ -10,13 +10,12 @@ on:
     branches: [ "vnext" ]
 
 jobs:
-  defaults:
-    run:
-      working-directory: ./browser
-  
   build:
-
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./browser
 
     strategy:
       matrix:
