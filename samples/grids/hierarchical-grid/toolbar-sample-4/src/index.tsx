@@ -4,6 +4,8 @@ import "./index.css";
 
 import {
   IgrGridToolbar,
+  IgrGridToolbarActions,
+  IgrGridToolbarHiding,
   IgrGridToolbarTitle,
   IgrHierarchicalGridModule,
 } from "igniteui-react-grids";
@@ -47,8 +49,8 @@ export default function App() {
           primaryKey="ID"
           ref={hierarchicalGridRef}
         >
-          <IgrGridToolbar>
-            <IgrGridToolbarTitle>
+          <IgrGridToolbar key="toolbar">
+            <IgrGridToolbarTitle key="toolbarTitle">
               <span key="singers">Singers</span>
             </IgrGridToolbarTitle>
             <IgrButton key="btn" clicked={clearSort}>
@@ -56,7 +58,10 @@ export default function App() {
                 <IgrIcon name="clear" ref={iconClear} collection="material"></IgrIcon>
               </span>
               <span key="clearSort">Clear Sort</span>
-            </IgrButton>  
+            </IgrButton>
+            <IgrGridToolbarActions key="toolbarActions">
+              <IgrGridToolbarHiding key="toolbarHiding"></IgrGridToolbarHiding>
+            </IgrGridToolbarActions>
           </IgrGridToolbar>
           <IgrColumn
             field="Artist"
