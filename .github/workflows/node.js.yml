@@ -10,8 +10,8 @@ on:
     branches: [ "vnext" ]
 
 defaults:
- run:
-  working-directory: ./browser
+  run:
+    working-directory: ./browser
 
 jobs:
   build:
