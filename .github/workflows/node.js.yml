@@ -9,11 +9,11 @@ on:
   pull_request:
     branches: [ "vnext" ]
 
-defaults:
-  run:
-    working-directory: ./browser
-
 jobs:
+  defaults:
+    run:
+      working-directory: ./browser
+  
   build:
 
     runs-on: ubuntu-latest
