@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ "vnext" ]
 
+defaults:
+ run:
+  working-directory: ./browser
+
 jobs:
   build:
 
@@ -40,8 +44,6 @@ jobs:
     #     echo "//packages.infragistics.com/npm/js-licensed/:always-auth=true" >> ~/.npmrc
 
     - name: npm install --legacy-peer-deps
-      working-directory: ./browser
       run: npm ci --legacy-peer-deps
     - name: Build
-      working-directory: ./browser
       run: npm run build
