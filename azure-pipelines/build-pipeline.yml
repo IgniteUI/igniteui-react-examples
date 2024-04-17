@@ -78,12 +78,12 @@ stages:
 
             ConvertTo-Json -InputObject $packageJson | Set-Content -Path .\package.json
       - task: Npm@1
-        displayName: 'npm install'
+        displayName: 'npm ci'
         inputs:
           command: custom
           workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
-          customCommand: 'install --legacy-peer-deps'
+          customCommand: 'ci'
           customEndpoint: 'public proget'
 
       - task: PowerShell@2
