@@ -444,7 +444,7 @@ class Transformer {
     }
 
     public static getRelative(sampleFullPath: string): string {
-       return pathModule.relative('', sampleFullPath);
+       return pathModule.relative('', sampleFullPath).replaceAll('\\', '/')
     }
 
     public static getFileName(relativePath: string): string {

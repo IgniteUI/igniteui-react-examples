@@ -148,8 +148,6 @@ function getSamples(cb) {
     // .pipe(gSort( { asc: false } ))
     .pipe(es.map(function(samplePackage, sampleCallback) {
         let sampleFolderName = Transformer.getRelative(samplePackage.dirname);
-        console.log('dir'); console.log(samplePackage.dirname);
-        console.log('transformer'); console.log(sampleFolderName);
 
         if (skipSamples.indexOf(sampleFolderName) >= 0) {
             // skip until material UI components are replaced in samples
