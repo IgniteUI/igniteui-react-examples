@@ -6,6 +6,10 @@ trigger:
 
 pr: none
 
+variables:
+- name: NODE_OPTIONS
+  value: 'max_old_space_size=24000'
+
 parameters:
 - name: isVerbose
   displayName: 'Get verbose output from steps - where configurable'
