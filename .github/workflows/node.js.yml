@@ -18,9 +18,9 @@ jobs:
         node-version: [18.x, 20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-    # defaults:
-    #  run:
-    #    working-directory: ./browser # The working directory path
+    defaults:
+      run:
+        working-directory: ./browser # The working directory path
 
     steps:
     - uses: actions/checkout@v3
@@ -38,7 +38,7 @@ jobs:
     #     echo "//packages.infragistics.com/npm/js-licensed/:_auth=${{ secrets.PROGET_TOKEN }}" >> ~/.npmrc
     #     echo "//packages.infragistics.com/npm/js-licensed/:always-auth=true" >> ~/.npmrc
 
-    - name: npm install
-      run: cd browser && npm install
+    - name: npm ci
+      run: npm ci
     - name: Build
-      run: cd browser && npm run build
+      run: npm run build

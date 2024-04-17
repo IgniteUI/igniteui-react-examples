@@ -10,7 +10,7 @@
     "lintBrowser": "eslint ./src/**/*.{ts,tsx} ./src/*.{ts,tsx}",
     "lintSamples": "eslint ../samples/**/**/**/*.{ts,tsx} ./templates/**/src/*.{ts,tsx} ",
     "start": "gulp updateBrowser && set PORT=4200 && react-app-rewired --max_old_space_size=10240 start",
-    "build": "gulp updateBrowser && react-app-rewired --max_old_space_size=10240 build",
+    "build": "gulp updateBrowser && react-app-rewired --max_old_space_size=14860 build",
     "host": "set PORT=4200 && react-app-rewired --max_old_space_size=10240 start",
     "postbuild": "node tasks/copyWebConfig.js && gulp verifyBuild",
     "test": "gulp updateBrowser && react-app-rewired test --env=jsdom",

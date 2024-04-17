@@ -144,9 +144,11 @@ function getSamples(cb) {
     cleanSamples();
 
     samplesList = [];
+
     gulp.src(sampleSource)
     // .pipe(gSort( { asc: false } ))
     .pipe(es.map(function(samplePackage, sampleCallback) {
+
         let sampleFolderName = Transformer.getRelative(samplePackage.dirname);
 
         if (skipSamples.indexOf(sampleFolderName) >= 0) {
@@ -178,10 +180,7 @@ function getSamples(cb) {
         // sampleCallback(null, sample);
     }))
     .on("end", function() {
-        console.log("end");
-        
         Transformer.sort(samplesList);
-       // console.log(samplesList);
         Transformer.process(samplesList);
         // Transformer.verify(samplesList);
         // Transformer.print(samplesList);
