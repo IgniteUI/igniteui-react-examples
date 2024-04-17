@@ -117,8 +117,6 @@ stages:
           verbose: ${{ parameters.isVerbose }}
           #customCommand: ci
           customCommand: 'run build'
-          env:
-            NODE_OPTIONS: 'max_old_space_size=24000'
 
       - task: ArchiveFiles@2
         displayName: 'Package samples browser'
