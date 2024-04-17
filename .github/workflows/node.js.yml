@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -38,7 +38,7 @@ jobs:
     #     echo "//packages.infragistics.com/npm/js-licensed/:_auth=${{ secrets.PROGET_TOKEN }}" >> ~/.npmrc
     #     echo "//packages.infragistics.com/npm/js-licensed/:always-auth=true" >> ~/.npmrc
     - name: set heap size
-      run: set NODE_OPTIONS=--max-old-space-size=24000
+      run: export NODE_OPTIONS=--max-old-space-size=24000
     - name: npm ci
       run: npm ci
     - name: Build
