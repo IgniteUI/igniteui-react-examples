@@ -444,17 +444,7 @@ class Transformer {
     }
 
     public static getRelative(sampleFullPath: string): string {
-        // let path = filePath;
-
-        if (sampleFullPath.indexOf(igConfig.RepositoryName) > -1) {
-            sampleFullPath = sampleFullPath.split(igConfig.RepositoryName)[1];
-            sampleFullPath = sampleFullPath.split(pathModule.sep).join("/");
-            return ".." + sampleFullPath;
-            // return sampleFullPath;
-        }
-
-        console.log("failed on getRelative " + sampleFullPath);
-        return sampleFullPath;
+       return pathModule.relative('', sampleFullPath);
     }
 
     public static getFileName(relativePath: string): string {
