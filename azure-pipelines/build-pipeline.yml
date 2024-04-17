@@ -78,12 +78,12 @@ stages:
 
             ConvertTo-Json -InputObject $packageJson | Set-Content -Path .\package.json
       - task: Npm@1
-        displayName: 'npm ci'
+        displayName: 'npm install'
         inputs:
           command: custom
           workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
-          customCommand: 'ci'
+          customCommand: 'install'
           customEndpoint: 'public proget'
 
       - task: PowerShell@2
