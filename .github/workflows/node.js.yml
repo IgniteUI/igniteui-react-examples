@@ -38,7 +38,7 @@ jobs:
     #     echo "//packages.infragistics.com/npm/js-licensed/:_auth=${{ secrets.PROGET_TOKEN }}" >> ~/.npmrc
     #     echo "//packages.infragistics.com/npm/js-licensed/:always-auth=true" >> ~/.npmrc
 
-    - name: npm install --legacy-peer-deps
+    - name: npm install
       run: cd browser && npm install
     - name: Build
       run: cd browser && npm run build

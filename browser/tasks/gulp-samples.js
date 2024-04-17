@@ -144,13 +144,12 @@ function getSamples(cb) {
     cleanSamples();
 
     samplesList = [];
-    console.log(sampleSource);
     gulp.src(sampleSource)
     // .pipe(gSort( { asc: false } ))
     .pipe(es.map(function(samplePackage, sampleCallback) {
-        console.log(samplePackage);
-        console.log(sampleCallback);
         let sampleFolderName = Transformer.getRelative(samplePackage.dirname);
+        console.log('dir'); console.log(samplePackage.dirname);
+        console.log('transformer'); console.log(sampleFolderName);
 
         if (skipSamples.indexOf(sampleFolderName) >= 0) {
             // skip until material UI components are replaced in samples
@@ -184,7 +183,7 @@ function getSamples(cb) {
         console.log("end");
         
         Transformer.sort(samplesList);
-        console.log(samplesList);
+       // console.log(samplesList);
         Transformer.process(samplesList);
         // Transformer.verify(samplesList);
         // Transformer.print(samplesList);
