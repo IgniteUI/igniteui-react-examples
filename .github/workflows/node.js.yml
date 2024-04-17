@@ -37,7 +37,8 @@ jobs:
     #     echo "@infragistics:registry=https://packages.infragistics.com/npm/js-licensed/" >> ~/.npmrc
     #     echo "//packages.infragistics.com/npm/js-licensed/:_auth=${{ secrets.PROGET_TOKEN }}" >> ~/.npmrc
     #     echo "//packages.infragistics.com/npm/js-licensed/:always-auth=true" >> ~/.npmrc
-
+    - name: set heap size
+      run: set NODE_OPTIONS=--max-old-space-size=16000
     - name: npm ci
       run: npm ci
     - name: Build
