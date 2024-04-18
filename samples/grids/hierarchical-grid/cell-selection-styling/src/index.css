@@ -1,9 +1,0 @@
-/* shared styles are loaded from: */
-/* https://static.infragistics.com/xplatform/css/samples */
-
-#hGrid {
-    --ig-grid--cell-selected-text-color: #FFFFFF;
-    --ig-grid--cell-active-border-color: #0578c4;
-    --ig-grid--cell-selected-background: #0578c4;
-}
-
