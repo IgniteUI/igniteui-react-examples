@@ -59,6 +59,8 @@ module.exports = {
             "prefer-rest-params": "off",
             "jsx-a11y/alt-text": "off",
             "jsx-a11y/iframe-has-title": "off",
+            "no-empty-function": "off",
+            "@typescript-eslint/no-empty-function": "error",
             "@typescript-eslint/no-unused-vars": "off",
             "@typescript-eslint/no-explicit-any": "off",
             "@typescript-eslint/no-inferrable-types": "off",
