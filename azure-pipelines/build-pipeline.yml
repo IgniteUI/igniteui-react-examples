@@ -83,7 +83,7 @@ stages:
           command: custom
           workingDir: '$(Build.SourcesDirectory)\browser'
           verbose: ${{ parameters.isVerbose }}
-          customCommand: 'install --legacy-peer-deps'
+          customCommand: 'install'
           customEndpoint: 'public proget'
 
       - task: PowerShell@2

@@ -6,6 +6,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import { IgrGridKeydownEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -98,7 +99,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridEditingExcelStyle(args: any): void {
+    public webGridEditingExcelStyle(sender: IgrGrid, args: IgrGridKeydownEventArgs): void {
         var key = args.detail.event.keyCode;
         var grid = args.detail.target.grid;
         var activeElem = grid.navigation.activeNode;
@@ -120,24 +121,24 @@ export default class Sample extends React.Component<any, any> {
 
             var nextRow = this.getNextEditableRowIndex(thisRow, rowInfo, args.detail.event.shiftKey);
 
-            grid.navigateTo(nextRow, column, (obj) => {
+            grid.navigateTo(nextRow, column, (obj: any) => {
                 obj.target.activate();
                 grid.clearCellSelection();
             });
         }
     }
 
-    public getNextEditableRowIndex(currentRowIndex, dataView, previous) {
+    public getNextEditableRowIndex(currentRowIndex: number, dataView: any, previous: boolean) {
         if (currentRowIndex < 0 || (currentRowIndex === 0 && previous) || (currentRowIndex >= dataView.length - 1 && !previous)) {
             return currentRowIndex;
         }
         if (previous) {
-            return dataView.findLastIndex((rec, index) => index < currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
+            return dataView.findLastIndex((rec: any, index: number) => index < currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
         }
-        return dataView.findIndex((rec, index) => index > currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
+        return dataView.findIndex((rec: any, index: number) => index > currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
     }
 
-    public isEditableDataRecordAtIndex(dataViewIndex, dataView) {
+    public isEditableDataRecordAtIndex(dataViewIndex: number, dataView: any) {
         const rec = dataView[dataViewIndex];
         return !rec.expression && !rec.summaries && !rec.childGridsData && !rec.detailsData;
     }

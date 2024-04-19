@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries } from 'igniteui-react-charts';
+import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale } from 'igniteui-react-charts';
 import { CountryStatsAfricaItem, CountryStatsAfrica } from './CountryStatsAfrica';
 import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
-
-
 
 const mods: any[] = [
     IgrLegendModule,
@@ -33,7 +31,33 @@ export default class Sample extends React.Component<any, any> {
     private xAxis: IgrNumericXAxis
     private yAxis: IgrNumericYAxis
     private bubbleSeries1: IgrBubbleSeries
+    private  _sizeScale1: IgrSizeScale | null = null;
+    public get sizeScale1(): IgrSizeScale {
+        if (this._sizeScale1 == null)
+        {
+            var sizeScale1 = new IgrSizeScale({});
+            sizeScale1.isLogarithmic = false;
+            sizeScale1.minimumValue = 10;
+            sizeScale1.maximumValue = 50;
+
+            this._sizeScale1 = sizeScale1;
+        }
+        return this._sizeScale1;
+    }
     private bubbleSeries2: IgrBubbleSeries
+    private  _sizeScale2: IgrSizeScale | null = null;
+    public get sizeScale2(): IgrSizeScale {
+        if (this._sizeScale2 == null)
+        {
+            var sizeScale2 = new IgrSizeScale({});
+            sizeScale2.isLogarithmic = false;
+            sizeScale2.minimumValue = 10;
+            sizeScale2.maximumValue = 50;
+
+            this._sizeScale2 = sizeScale2;
+        }
+        return this._sizeScale2;
+    }
 
     constructor(props: any) {
         super(props);
@@ -52,50 +76,52 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="legend">
                 <IgrLegend
-                    orientation="Horizontal"
-                    ref={this.legendRef}>
+                    ref={this.legendRef}
+                    orientation="Horizontal">
                 </IgrLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
-                    legend={this.legend}
-                    ref={this.chartRef}>
+                    ref={this.chartRef}
+                    legend={this.legend}>
                     <IgrNumericXAxis
+                        name="xAxis"
                         isLogarithmic="true"
                         abbreviateLargeNumbers="true"
-                        title="Population"
-                        name="xAxis">
+                        title="Population">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
-                        isLogarithmic="true"
-                        abbreviateLargeNumbers="true"
+                        name="yAxis"
                         title="GDP per Capita"
-                        name="yAxis">
+                        isLogarithmic="true"
+                        abbreviateLargeNumbers="true">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
-                        radiusMemberPath="population"
+                        name="BubbleSeries1"
+                        title="African Countries"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="population"
                         yMemberPath="gDP"
-                        markerType="Circle"
+                        radiusMemberPath="population"
                         dataSource={this.countryStatsAfrica}
+                        markerType="Circle"
                         showDefaultTooltip="true"
-                        title="African Countries"
-                        name="BubbleSeries1">
+                        radiusScale={this.sizeScale1}>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
-                        radiusMemberPath="population"
+                        name="BubbleSeries2"
+                        title="European Countries"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="population"
                         yMemberPath="gDP"
-                        markerType="Circle"
+                        radiusMemberPath="population"
                         dataSource={this.countryStatsEurope}
+                        markerType="Circle"
                         showDefaultTooltip="true"
-                        title="European Countries"
-                        name="BubbleSeries2">
+                        radiusScale={this.sizeScale2}>
                     </IgrBubbleSeries>
                 </IgrDataChart>
             </div>
@@ -111,7 +137,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryStatsAfrica;
     }
-    
+
     private _countryStatsEurope: CountryStatsEurope = null;
     public get countryStatsEurope(): CountryStatsEurope {
         if (this._countryStatsEurope == null)
@@ -120,11 +146,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._countryStatsEurope;
     }
-    
-
 
 }
-
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
