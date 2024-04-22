@@ -3,15 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrValueBrushScale } from 'igniteui-react-charts';
-import { ComponentRenderer, NumberAbbreviatorDescriptionModule, DataChartCoreDescriptionModule, DataChartScatterDescriptionModule, DataChartScatterCoreDescriptionModule, DataChartInteractivityDescriptionModule, DataChartAnnotationDescriptionModule, PropertyEditorPanelDescriptionModule } from 'igniteui-react-core';
+import { ComponentRenderer, NumberAbbreviatorDescriptionModule, DataChartCoreDescriptionModule, DataChartScatterDescriptionModule, DataChartScatterCoreDescriptionModule, DataChartInteractivityDescriptionModule, DataChartAnnotationDescriptionModule } from 'igniteui-react-core';
 import { WorldDebtAndPopulationItem, WorldDebtAndPopulation } from './WorldDebtAndPopulation';
-import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
-import { EnumUtil } from 'igniteui-react-core';
-
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const mods: any[] = [
     IgrNumberAbbreviatorModule,
@@ -19,19 +13,11 @@ const mods: any[] = [
     IgrDataChartScatterModule,
     IgrDataChartScatterCoreModule,
     IgrDataChartInteractivityModule,
-    IgrDataChartAnnotationModule,
-    IgrPropertyEditorPanelModule
+    IgrDataChartAnnotationModule
 ];
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private propertyEditor: IgrPropertyEditorPanel
-    private propertyEditorRef(r: IgrPropertyEditorPanel) {
-        this.propertyEditor = r;
-        this.setState({});
-    }
-    private fillScaleMinimumValueEditor: IgrPropertyEditorPropertyDescription
-    private fillScaleMaximumValueEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrDataChart
     private chartRef(r: IgrDataChart) {
         this.chart = r;
@@ -71,41 +57,12 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.propertyEditorRef = this.propertyEditorRef.bind(this);
-        this.scatterBubbleSeriesFillScaleSliderChanged = this.scatterBubbleSeriesFillScaleSliderChanged.bind(this);
-        this.scatterBubbleSeriesFillScaleSliderChanged = this.scatterBubbleSeriesFillScaleSliderChanged.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
     public render(): JSX.Element {
         return (
         <div className="container sample">
-            <div className="options vertical">
-                <IgrPropertyEditorPanel
-                    ref={this.propertyEditorRef}
-                    componentRenderer={this.renderer}
-                    target={this.chart}
-                    descriptionType="DataChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
-                    <IgrPropertyEditorPropertyDescription
-                        name="FillScaleMinimumValueEditor"
-                        label="MinimumValue: "
-                        valueType="Slider"
-                        min="0"
-                        max="20000"
-                        changed={this.scatterBubbleSeriesFillScaleSliderChanged}>
-                    </IgrPropertyEditorPropertyDescription>
-                    <IgrPropertyEditorPropertyDescription
-                        name="FillScaleMaximumValueEditor"
-                        label="MaximumValue: "
-                        valueType="Slider"
-                        min="25000"
-                        max="100000"
-                        changed={this.scatterBubbleSeriesFillScaleSliderChanged}>
-                    </IgrPropertyEditorPropertyDescription>
-                </IgrPropertyEditorPanel>
-            </div>
 
             <div className="container fill">
                 <IgrDataChart
@@ -169,22 +126,8 @@ export default class Sample extends React.Component<any, any> {
             DataChartScatterCoreDescriptionModule.register(context);
             DataChartInteractivityDescriptionModule.register(context);
             DataChartAnnotationDescriptionModule.register(context);
-            PropertyEditorPanelDescriptionModule.register(context);
         }
         return this._componentRenderer;
-    }
-
-    public scatterBubbleSeriesFillScaleSliderChanged(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        let series: IgrBubbleSeries = this.chart.actualSeries[0] as IgrBubbleSeries;
-
-        let fillScale = (series.fillScale as any);
-
-        if(args.newValue >= 25000){
-            fillScale.maximumValue = args.newValue;
-        }
-        else{
-            fillScale.minimumValue = args.newValue;
-        }
     }
 
 }
