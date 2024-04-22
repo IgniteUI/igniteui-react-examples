@@ -1,5 +1,5 @@
 const DATA_URL: string =
-  "https://services.odata.org/V4/Northwind/Northwind.svc/Products";
+  "https://services.odata.org/northwind/northwind.svc/Products";
 
 const cachedData = <any>[];
 let prevRequestChunk: number = 0;
