@@ -149,8 +149,8 @@ export default class Sample extends React.Component<any, any> {
                         name="column8">
                     </IgrColumn>
                     <IgrColumn
-                        field="AnnualChange"
-                        header="Annual Change"
+                        field="YearlyChange"
+                        header="Yearly Change"
                         dataType="Number"
                         width="150px"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
