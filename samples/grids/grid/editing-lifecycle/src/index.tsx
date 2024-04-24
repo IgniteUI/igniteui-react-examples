@@ -91,7 +91,9 @@ export default class Sample extends React.Component<any, any> {
 
     public webGridRendered(args:any): void {
         const grid = document.getElementById("grid");
+        grid.parentElement.className = "fill";
         grid.parentElement.style.display = "flex";
+        grid.parentElement.style.height = "100vh";
         const container = document.createElement("div");
         container.id = "container";
         container.style.height = "100vh";
@@ -99,7 +101,7 @@ export default class Sample extends React.Component<any, any> {
         container.style.overflow = "auto";
         grid.parentElement.appendChild(container);
         const title = document.createElement("span");
-        title.textContent = "Events execution sequence";
+        title.textContent = "Events execution sequence:";
         container.appendChild(title);
     }
 

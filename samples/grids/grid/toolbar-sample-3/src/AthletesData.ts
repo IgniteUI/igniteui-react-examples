@@ -636,7 +636,7 @@ export class AthletesData extends Array<AthletesDataItem> {
                     Registered: `2017-06-02T12:21:59-03:00`,
                     TrackProgress: 60,
                     CountryFlag: `https://static.infragistics.com/xplatform/images/flags/iso2/cz.png`,
-                    CountryName: `Czech Republic`
+                    CountryName: `Czechia`
                 }),
                 new AthletesDataItem(
                 {
