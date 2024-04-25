@@ -7,7 +7,7 @@ import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
-import { SalesData } from './SalesData';
+import { SalesDataItem, SalesData } from './SalesData';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { MarkerType, MarkerType_$type } from 'igniteui-react-charts';
 import { EnumUtil } from 'igniteui-react-core';
