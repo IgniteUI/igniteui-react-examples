@@ -13,7 +13,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
