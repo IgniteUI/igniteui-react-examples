@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrDataToolTipLayer } from 'igniteui-react-charts';
-import { WorldDebtAndPopulationItem, WorldDebtAndPopulation } from './WorldDebtAndPopulation';
+import { WorldStatsItem, WorldStats } from './WorldStats';
 
 const mods: any[] = [
     IgrNumberAbbreviatorModule,
@@ -74,12 +74,12 @@ export default class Sample extends React.Component<any, any> {
                         name="BubbleSeries1"
                         xMemberPath="population"
                         yMemberPath="publicDebt"
-                        radiusMemberPath="gdpPerCapita"
+                        radiusMemberPath="gdpPerPerson"
                         radiusScale={this.sizeScale1}
-                        fillMemberPath="gdpPerCapita"
+                        fillMemberPath="gdpPerPerson"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        dataSource={this.worldDebtAndPopulation}
+                        dataSource={this.worldStats}
                         markerType="Circle"
                         showDefaultTooltip="true">
                     </IgrBubbleSeries>
@@ -92,13 +92,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _worldDebtAndPopulation: WorldDebtAndPopulation = null;
-    public get worldDebtAndPopulation(): WorldDebtAndPopulation {
-        if (this._worldDebtAndPopulation == null)
+    private _worldStats: WorldStats = null;
+    public get worldStats(): WorldStats {
+        if (this._worldStats == null)
         {
-            this._worldDebtAndPopulation = new WorldDebtAndPopulation();
+            this._worldStats = new WorldStats();
         }
-        return this._worldDebtAndPopulation;
+        return this._worldStats;
     }
 
 }

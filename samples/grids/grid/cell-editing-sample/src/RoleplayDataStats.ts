@@ -1,5 +1,5 @@
-export class WebGridCellEditSampleRoleplayItem {
-    public constructor(init: Partial<WebGridCellEditSampleRoleplayItem>) {
+export class RoleplayDataStatsItem {
+    public constructor(init: Partial<RoleplayDataStatsItem>) {
         Object.assign(this, init);
     }
 
@@ -10,13 +10,13 @@ export class WebGridCellEditSampleRoleplayItem {
     public Class: string;
 
 }
-export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRoleplayItem> {
-    public constructor(items: Array<WebGridCellEditSampleRoleplayItem> | number = -1) {
+export class RoleplayDataStats extends Array<RoleplayDataStatsItem> {
+    public constructor(items: Array<RoleplayDataStatsItem> | number = -1) {
         if (Array.isArray(items)) {
             super(...items);
         } else {
             const newItems = [
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Stredo`,
                     Age: `244`,
@@ -24,7 +24,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `👩 Human`,
                     Class: `🎻 Bard`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Haluun`,
                     Age: `40`,
@@ -32,7 +32,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🧒🏻 Hafling`,
                     Class: `🙏🏻 Monk`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Ivellios`,
                     Age: `244`,
@@ -40,7 +40,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `👩 Human`,
                     Class: `⚔️ Paladin`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Tes`,
                     Age: `35`,
@@ -48,7 +48,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🎭 Changeling`,
                     Class: `🧙‍♂️ Wizard`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Kalla`,
                     Age: `47`,
@@ -56,7 +56,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🤖 Warforged`,
                     Class: `🦹‍♂️ Sorcerer`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Halimath Dundragon`,
                     Age: `149`,
@@ -64,7 +64,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🐲 Dragonborn`,
                     Class: `⚔️ Paladin`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Iriphawa`,
                     Age: `39`,
@@ -72,7 +72,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🧝🏻‍♂️ Half-Elf`,
                     Class: `🏹 Ranger`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Quaf`,
                     Age: `25`,
@@ -80,7 +80,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `👩 Human`,
                     Class: `🥊 Fighter`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Rat Scratch`,
                     Age: `15`,
@@ -88,7 +88,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🐡 Locathah`,
                     Class: `🍁 Druid`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Slicer`,
                     Age: `57`,
@@ -96,7 +96,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🐡 Locathah`,
                     Class: `💪 Barbarian`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Nereones Ahlorsath`,
                     Age: `95`,
@@ -104,7 +104,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `👩 Human`,
                     Class: `🥊 Fighter`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Nalvarti Stonecutter`,
                     Age: `118`,
@@ -112,7 +112,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🧝‍♀️ Elf`,
                     Class: `❤️‍ Cleric`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Errk`,
                     Age: `22`,
@@ -120,7 +120,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🧝🏻‍♂️ Half-Elf`,
                     Class: `🎻 Bard`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Seven Thundercloud`,
                     Age: `43`,
@@ -128,7 +128,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🐡 Locathah`,
                     Class: `⚔️ Paladin`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Navarra Chergoba`,
                     Age: `16`,
@@ -136,7 +136,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🐯 Tabaxi`,
                     Class: `❤️‍ Cleric`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Sail Snap`,
                     Age: `56`,
@@ -144,7 +144,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🌳 Arboren`,
                     Class: `💪 Barbarian`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Urreek`,
                     Age: `17`,
@@ -152,7 +152,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🧝🏻‍♂️ Half-Elf`,
                     Class: `🐉 Warlock`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Morkral Firetamer`,
                     Age: `24`,
@@ -160,7 +160,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🐲 Dragonborn`,
                     Class: `🙏🏻 Monk`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Vithka`,
                     Age: `53`,
@@ -168,7 +168,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🐡 Locathah`,
                     Class: `⚔️ Paladin`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Sandrue Avhoste`,
                     Age: `19`,
@@ -176,7 +176,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🐲 Dragonborn`,
                     Class: `🗡️ Rogue`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Hapah Moq`,
                     Age: `34`,
@@ -184,7 +184,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🎅🏽 Dwarf`,
                     Class: `🎻 Bard`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Kothar `,
                     Age: `55`,
@@ -192,7 +192,7 @@ export class WebGridCellEditSampleRoleplay extends Array<WebGridCellEditSampleRo
                     Race: `🧝🏻‍♂️ Half-Elf`,
                     Class: `🐉 Warlock`
                 }),
-                new WebGridCellEditSampleRoleplayItem(
+                new RoleplayDataStatsItem(
                 {
                     Name: `Senen`,
                     Age: `40`,
