@@ -12,12 +12,12 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@infragistics/igniteui-react": "23.2.628",
-    "@infragistics/igniteui-react-charts": "23.2.628",
-    "@infragistics/igniteui-react-core": "23.2.628",
-    "@infragistics/igniteui-react-grids": "23.2.628",
-    "@infragistics/igniteui-react-inputs": "23.2.628",
-    "@infragistics/igniteui-react-layouts": "23.2.628",
+    "@infragistics/igniteui-react": "23.2.630",
+    "@infragistics/igniteui-react-charts": "23.2.630",
+    "@infragistics/igniteui-react-core": "23.2.630",
+    "@infragistics/igniteui-react-grids": "23.2.630",
+    "@infragistics/igniteui-react-inputs": "23.2.630",
+    "@infragistics/igniteui-react-layouts": "23.2.630",
     "igniteui-dockmanager": "1.14.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

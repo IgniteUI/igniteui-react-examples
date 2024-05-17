@@ -14,8 +14,8 @@
     "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
-    "@infragistics/igniteui-react-charts": "23.2.628",
-    "@infragistics/igniteui-react-core": "23.2.628",
+    "@infragistics/igniteui-react-charts": "23.2.630",
+    "@infragistics/igniteui-react-core": "23.2.630",
     "igniteui-webcomponents": "4.9.0",
     "lit-html": "^2.2.0",
     "react": "^18.2.0",

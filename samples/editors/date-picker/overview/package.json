@@ -12,9 +12,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@infragistics/igniteui-react-core": "23.2.628",
-    "@infragistics/igniteui-react-inputs": "23.2.628",
-    "@infragistics/igniteui-react-layouts": "23.2.628",
+    "@infragistics/igniteui-react-core": "23.2.630",
+    "@infragistics/igniteui-react-inputs": "23.2.630",
+    "@infragistics/igniteui-react-layouts": "23.2.630",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
