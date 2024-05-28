@@ -6,7 +6,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrSelectModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebSelectDescriptionModule } from 'igniteui-react-core';
-import { WebGridCellEditSampleRoleplayItem, WebGridCellEditSampleRoleplay } from './WebGridCellEditSampleRoleplay';
+import { RoleplayDataStatsItem, RoleplayDataStats } from './RoleplayDataStats';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrSelect, IgrSelectItem } from 'igniteui-react';
 
@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate="false"
-                    data={this.webGridCellEditSampleRoleplay}
+                    data={this.roleplayDataStats}
                     primaryKey="Name"
                     ref={this.grid1Ref}>
                     <IgrColumn
@@ -86,13 +86,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _webGridCellEditSampleRoleplay: WebGridCellEditSampleRoleplay = null;
-    public get webGridCellEditSampleRoleplay(): WebGridCellEditSampleRoleplay {
-        if (this._webGridCellEditSampleRoleplay == null)
+    private _roleplayDataStats: RoleplayDataStats = null;
+    public get roleplayDataStats(): RoleplayDataStats {
+        if (this._roleplayDataStats == null)
         {
-            this._webGridCellEditSampleRoleplay = new WebGridCellEditSampleRoleplay();
+            this._roleplayDataStats = new RoleplayDataStats();
         }
-        return this._webGridCellEditSampleRoleplay;
+        return this._roleplayDataStats;
     }
 
     private _componentRenderer: ComponentRenderer = null;
@@ -114,7 +114,7 @@ export default class Sample extends React.Component<any, any> {
         const field: string = this.grid1.getColumnByVisibleIndex(colIndex).field;
         const key = field + "_" + cell.id.rowID;
         let index = 0;
-        for(const i of (this.webGridCellEditSampleRoleplay as any)){
+        for(const i of (this.roleplayDataStats as any)){
             if(uniqueValues.indexOf(i[field]) === -1 )
             {
                 cellValues.push(<><IgrSelectItem selected={e.dataContext.cell.value == i[field]}

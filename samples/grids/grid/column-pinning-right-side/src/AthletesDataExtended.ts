@@ -1032,7 +1032,7 @@ export class AthletesDataExtended extends Array<AthletesDataExtendedItem> {
                     Registered: `2017-06-02T12:21:59 -03:00`,
                     TrackProgress: 3,
                     CountryFlag: `https://www.infragistics.com/angular-demos-lob/assets/images/grid/flags/cz.png`,
-                    CountryName: `Czech Republic`,
+                    CountryName: `Czechia`,
                     FirstPlaces: 1,
                     SecondPlaces: 2,
                     ThirdPlaces: 0,

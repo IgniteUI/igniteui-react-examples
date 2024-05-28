@@ -1,0 +1,577 @@
+[
+	{
+		"Name": "Stredo",
+		"Age": "244",
+		"Alignment": "💜 Lawful evil",
+		"Race": "👩 Human",
+		"Class": "🎻 Bard",
+		"Skills": [
+			{
+				"Skill": "🎻 Bardic Inspiration",
+				"Level": "4"
+			},
+			{
+				"Skill": "🎻 Countercharm",
+				"Level": "4"
+			},
+			{
+				"Skill": "🎻 Jack of All Trades",
+				"Level": "4"
+			},
+			{
+				"Skill": "🎻 Song of Rest",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Haluun",
+		"Age": "40",
+		"Alignment": "🤍 Unaligned",
+		"Race": "🧒🏻 Hafling",
+		"Class": "🙏🏻 Monk",
+		"Skills": [
+			{
+				"Skill": "🙏🏻 Unarmored Defense",
+				"Level": "4"
+			},
+			{
+				"Skill": "🙏🏻 Martial Arts",
+				"Level": "4"
+			},
+			{
+				"Skill": "🙏🏻 Ki",
+				"Level": "4"
+			},
+			{
+				"Skill": "🙏🏻 Deflect Missiles",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Ivellios",
+		"Age": "244",
+		"Alignment": "🧡 Chaotic good",
+		"Race": "👩 Human",
+		"Class": "⚔️ Paladin",
+		"Skills": [
+			{
+				"Skill": "⚔️ Divine Sense",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Lay on Hands",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Divine Smite",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Aura of Protection",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Tes",
+		"Age": "35",
+		"Alignment": "💜 Lawful evil",
+		"Race": "🎭 Changeling",
+		"Class": "🧙‍♂️ Wizard",
+		"Skills": [
+			{
+				"Skill": "🧙‍♂️ Arcane Recovery",
+				"Level": "4"
+			},
+			{
+				"Skill": "🧙‍♂️ Arcane Tradition",
+				"Level": "4"
+			},
+			{
+				"Skill": "🧙‍♂️ Spell Mastery",
+				"Level": "4"
+			},
+			{
+				"Skill": "🧙‍♂️ Signature Spell",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Kalla",
+		"Age": "47",
+		"Alignment": "🤎 Neutral evil",
+		"Race": "🤖 Warforged",
+		"Class": "🦹‍♂️ Sorcerer",
+		"Skills": [
+			{
+				"Skill": "🦹‍♂️ Sorcerous Origin",
+				"Level": "4"
+			},
+			{
+				"Skill": "🦹‍♂️ Font of Magic",
+				"Level": "4"
+			},
+			{
+				"Skill": "🦹‍♂️ Metamagic",
+				"Level": "4"
+			},
+			{
+				"Skill": "🦹‍♂️ Sorcerous Restoration",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Halimath Dundragon",
+		"Age": "149",
+		"Alignment": "🤍 Unaligned",
+		"Race": "🐲 Dragonborn",
+		"Class": "⚔️ Paladin",
+		"Skills": [
+			{
+				"Skill": "⚔️ Divine Sense",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Lay on Hands",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Divine Smite",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Aura of Protection",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Iriphawa",
+		"Age": "39",
+		"Alignment": "💛 Lawful neutral",
+		"Race": "🧝🏻‍♂️ Half-Elf",
+		"Class": "🏹 Ranger",
+		"Skills": [
+			{
+				"Skill": "🏹 Favored Enemy",
+				"Level": "4"
+			},
+			{
+				"Skill": "🏹 Natural Explorer",
+				"Level": "4"
+			},
+			{
+				"Skill": "🏹 Primeval Awareness",
+				"Level": "4"
+			},
+			{
+				"Skill": "🏹 Land's Stride",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Quaf",
+		"Age": "25",
+		"Alignment": "💚 Neutral",
+		"Race": "👩 Human",
+		"Class": "🥊 Fighter",
+		"Skills": [
+			{
+				"Skill": "🥊 Second Wind",
+				"Level": "4"
+			},
+			{
+				"Skill": "🥊 Action Surge",
+				"Level": "4"
+			},
+			{
+				"Skill": "🥊 Martial Archetype",
+				"Level": "4"
+			},
+			{
+				"Skill": "🥊 Extra Attack",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Rat Scratch",
+		"Age": "15",
+		"Alignment": "🤎 Neutral evil",
+		"Race": "🐡 Locathah",
+		"Class": "🍁 Druid",
+		"Skills": [
+			{
+				"Skill": "🍁 Druidic",
+				"Level": "4"
+			},
+			{
+				"Skill": "🍁 Wild Shape",
+				"Level": "4"
+			},
+			{
+				"Skill": "🍁 Druid Circle",
+				"Level": "4"
+			},
+			{
+				"Skill": "🍁 Timeless Body",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Slicer",
+		"Age": "57",
+		"Alignment": "💜 Lawful evil",
+		"Race": "🐡 Locathah",
+		"Class": "💪 Barbarian",
+		"Skills": [
+			{
+				"Skill": "💪 Rage",
+				"Level": "4"
+			},
+			{
+				"Skill": "💪 Unarmored Defense",
+				"Level": "4"
+			},
+			{
+				"Skill": "💪 Reckless Attack",
+				"Level": "4"
+			},
+			{
+				"Skill": "💪 Danger Sense",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Nereones Ahlorsath",
+		"Age": "95",
+		"Alignment": "💛 Lawful neutral",
+		"Race": "👩 Human",
+		"Class": "🥊 Fighter",
+		"Skills": [
+			{
+				"Skill": "🥊 Second Wind",
+				"Level": "4"
+			},
+			{
+				"Skill": "🥊 Action Surge",
+				"Level": "4"
+			},
+			{
+				"Skill": "🥊 Martial Archetype",
+				"Level": "4"
+			},
+			{
+				"Skill": "🥊 Extra Attack",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Nalvarti Stonecutter",
+		"Age": "118",
+		"Alignment": "❤️ Neutral good",
+		"Race": "🧝‍♀️ Elf",
+		"Class": "❤️‍ Cleric",
+		"Skills": [
+			{
+				"Skill": "❤️‍ Divine Domain",
+				"Level": "4"
+			},
+			{
+				"Skill": "❤️‍ Channel Divinity",
+				"Level": "4"
+			},
+			{
+				"Skill": "❤️‍ Destroy Undead",
+				"Level": "4"
+			},
+			{
+				"Skill": "❤️‍ Divine Intervention",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Errk",
+		"Age": "22",
+		"Alignment": "🤎 Neutral evil",
+		"Race": "🧝🏻‍♂️ Half-Elf",
+		"Class": "🎻 Bard",
+		"Skills": [
+			{
+				"Skill": "🎻 Bardic Inspiration",
+				"Level": "4"
+			},
+			{
+				"Skill": "🎻 Countercharm",
+				"Level": "4"
+			},
+			{
+				"Skill": "🎻 Jack of All Trades",
+				"Level": "4"
+			},
+			{
+				"Skill": "🎻 Song of Rest",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Seven Thundercloud",
+		"Age": "43",
+		"Alignment": "💖 Lawful good",
+		"Race": "🐡 Locathah",
+		"Class": "⚔️ Paladin",
+		"Skills": [
+			{
+				"Skill": "⚔️ Divine Sense",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Lay on Hands",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Divine Smite",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Aura of Protection",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Navarra Chergoba",
+		"Age": "16",
+		"Alignment": "💜 Lawful evil",
+		"Race": "🐯 Tabaxi",
+		"Class": "❤️‍ Cleric",
+		"Skills": [
+			{
+				"Skill": "❤️‍ Divine Domain",
+				"Level": "4"
+			},
+			{
+				"Skill": "❤️‍ Channel Divinity",
+				"Level": "4"
+			},
+			{
+				"Skill": "❤️‍ Destroy Undead",
+				"Level": "4"
+			},
+			{
+				"Skill": "❤️‍ Divine Intervention",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Sail Snap",
+		"Age": "56",
+		"Alignment": "💖 Lawful good",
+		"Race": "🌳 Arboren",
+		"Class": "💪 Barbarian",
+		"Skills": [
+			{
+				"Skill": "💪 Rage",
+				"Level": "4"
+			},
+			{
+				"Skill": "💪 Unarmored Defense",
+				"Level": "4"
+			},
+			{
+				"Skill": "💪 Reckless Attack",
+				"Level": "4"
+			},
+			{
+				"Skill": "💪 Danger Sense",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Urreek",
+		"Age": "17",
+		"Alignment": "💜 Lawful evil",
+		"Race": "🧝🏻‍♂️ Half-Elf",
+		"Class": "🐉 Warlock",
+		"Skills": [
+			{
+				"Skill": "🐉 Otherworldly Patron",
+				"Level": "4"
+			},
+			{
+				"Skill": "🐉 Pact Magic",
+				"Level": "4"
+			},
+			{
+				"Skill": "🐉 Eldritch Invocations",
+				"Level": "4"
+			},
+			{
+				"Skill": "🐉 Mystic Arcanum",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Morkral Firetamer",
+		"Age": "24",
+		"Alignment": "🤎 Neutral evil",
+		"Race": "🐲 Dragonborn",
+		"Class": "🙏🏻 Monk",
+		"Skills": [
+			{
+				"Skill": "🙏🏻 Unarmored Defense",
+				"Level": "4"
+			},
+			{
+				"Skill": "🙏🏻 Martial Arts",
+				"Level": "4"
+			},
+			{
+				"Skill": "🙏🏻 Ki",
+				"Level": "4"
+			},
+			{
+				"Skill": "🙏🏻 Deflect Missiles",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Vithka",
+		"Age": "53",
+		"Alignment": "💜 Lawful evil",
+		"Race": "🐡 Locathah",
+		"Class": "⚔️ Paladin",
+		"Skills": [
+			{
+				"Skill": "⚔️ Divine Sense",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Lay on Hands",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Divine Smite",
+				"Level": "4"
+			},
+			{
+				"Skill": "⚔️ Aura of Protection",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Sandrue Avhoste",
+		"Age": "19",
+		"Alignment": "💙 Chaotic Neutral",
+		"Race": "🐲 Dragonborn",
+		"Class": "🗡️ Rogue",
+		"Skills": [
+			{
+				"Skill": "🗡️ Sneak Attack",
+				"Level": "4"
+			},
+			{
+				"Skill": "🗡️ Thieves' Cant",
+				"Level": "4"
+			},
+			{
+				"Skill": "🗡️ Cunning Action",
+				"Level": "4"
+			},
+			{
+				"Skill": "🗡️ Uncanny Dodge",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Hapah Moq",
+		"Age": "34",
+		"Alignment": "💜 Lawful evil",
+		"Race": "🎅🏽 Dwarf",
+		"Class": "🎻 Bard",
+		"Skills": [
+			{
+				"Skill": "🎻 Bardic Inspiration",
+				"Level": "4"
+			},
+			{
+				"Skill": "🎻 Countercharm",
+				"Level": "4"
+			},
+			{
+				"Skill": "🎻 Jack of All Trades",
+				"Level": "4"
+			},
+			{
+				"Skill": "🎻 Song of Rest",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Kothar ",
+		"Age": "55",
+		"Alignment": "🤍 Unaligned",
+		"Race": "🧝🏻‍♂️ Half-Elf",
+		"Class": "🐉 Warlock",
+		"Skills": [
+			{
+				"Skill": "🐉 Otherworldly Patron",
+				"Level": "4"
+			},
+			{
+				"Skill": "🐉 Pact Magic",
+				"Level": "4"
+			},
+			{
+				"Skill": "🐉 Eldritch Invocations",
+				"Level": "4"
+			},
+			{
+				"Skill": "🐉 Mystic Arcanum",
+				"Level": "4"
+			}
+		]
+	},
+	{
+		"Name": "Senen",
+		"Age": "40",
+		"Alignment": "💜 Lawful evil",
+		"Race": "🧒🏻 Hafling",
+		"Class": "🥊 Fighter",
+		"Skills": [
+			{
+				"Skill": "🥊 Second Wind",
+				"Level": "4"
+			},
+			{
+				"Skill": "🥊 Action Surge",
+				"Level": "4"
+			},
+			{
+				"Skill": "🥊 Martial Archetype",
+				"Level": "4"
+			},
+			{
+				"Skill": "🥊 Extra Attack",
+				"Level": "4"
+			}
+		]
+	}
+]
