@@ -38,7 +38,7 @@ const icons = [
     },
 ];
 
-export default function ButtonGroupSelectionSample() {
+export default function ButtonGroupSelection() {
     useEffect(() => {
         icons.forEach((icon) => {
             registerIconFromText(icon.name, icon.iconText, 'material');
@@ -97,4 +97,4 @@ export default function ButtonGroupSelectionSample() {
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<ButtonGroupSelectionSample/>);
+root.render(<ButtonGroupSelection/>);
