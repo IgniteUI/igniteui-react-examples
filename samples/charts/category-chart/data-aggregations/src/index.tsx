@@ -7,7 +7,7 @@ import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
-import { SalesData } from './SalesData';
+import { SalesDataItem, SalesData } from './SalesData';
 import { PropertyEditorValueType, IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { MarkerType, MarkerType_$type } from 'igniteui-react-charts';
 import { EnumUtil } from 'igniteui-react-core';
@@ -62,8 +62,8 @@ export default class Sample extends React.Component<any, any> {
                         label="Initial Groups"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        dropDownNames={["Country", "Product", "MonthName", "Year"]}
-                        dropDownValues={["Country", "Product", "MonthName", "Year"]}
+                        dropDownNames={["Country", "Product", "Month", "Year"]}
+                        dropDownValues={["Country", "Product", "Month", "Year"]}
                         primitiveValue="Country"
                         changed={this.editorChangeUpdateInitialGroups}>
                     </IgrPropertyEditorPropertyDescription>

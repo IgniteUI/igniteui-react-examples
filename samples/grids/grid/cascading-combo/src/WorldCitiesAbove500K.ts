@@ -1405,7 +1405,7 @@ export class WorldCitiesAbove500K extends Array<WorldCitiesAbove500KItem> {
                     ID: 10173,
                     Name: `Bucharest`,
                     Country: `Romania`,
-                    Region: `Bucuresti`,
+                    Region: `Bucharest`,
                     Population: 1877155
                 }),
                 new WorldCitiesAbove500KItem(
@@ -2956,7 +2956,7 @@ export class WorldCitiesAbove500K extends Array<WorldCitiesAbove500KItem> {
                 {
                     ID: 10367,
                     Name: `Prague`,
-                    Country: `Czech Republic`,
+                    Country: `Czechia`,
                     Region: `Hlavni mesto Praha`,
                     Population: 1165581
                 }),

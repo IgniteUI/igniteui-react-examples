@@ -1,6 +1,12 @@
 const path = require('path');
 let pathsConfig = require("./tsconfig.paths.json");
 const {alias, configPaths, expandResolveAlias, expandRulesInclude, expandPluginsScope} = require('react-app-rewire-alias')
+const resolve = require('resolve');
+const shouldUseSourceMap = false; // process.env.GENERATE_SOURCEMAP !== 'false';
+const ForkTsCheckerWebpackPlugin =
+  process.env.TSC_COMPILE_ON_ERROR === 'true'
+    ? require('react-dev-utils/ForkTsCheckerWarningWebpackPlugin')
+    : require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 
 //this works around the fact that alias doesn't support multiple paths
 function aliasMultiple(aliasMap) {
@@ -26,6 +32,15 @@ function aliasMultiple(aliasMap) {
 /* eslint-disable @typescript-eslint/no-var-requires */
 module.exports = function override(config, env) {
     console.log("config-overrides.js started");
+    console.log("env: " + env);
+    const isEnvDevelopment = env === 'development';
+    const isEnvProduction = env === 'production';
+
+    // Variable used for enabling profiling in Production
+    // passed into alias object. Uses a flag if passed into the build command
+    const isEnvProductionProfile =
+    isEnvProduction && process.argv.includes('--profile');
+
     const paths = require('./node_modules/react-scripts/config/paths');
     // console.log("config-overrides.js paths");
     console.log(paths);
@@ -165,6 +180,69 @@ module.exports = function override(config, env) {
     console.log("\n\n\n\n");
     //let newConfig = alias(configPathsMultiple('./tsconfig.paths.json'))(config);
     //console.log(newConfig);
+
+    if (!config.resolve) {
+        config.resolve = {};
+    }
+    config.resolve.mainFields = ["esm2015", "module", "main"];
+
+    let checkerInd = -1;
+    for (var i = 0; i < config.plugins.length; i++) {
+        if (config.plugins[i] instanceof ForkTsCheckerWebpackPlugin) {
+            checkerInd = i;
+            break;
+        }
+    }
+    if (checkerInd >= 0) {
+        let checker = new ForkTsCheckerWebpackPlugin({
+            async: isEnvDevelopment,
+            typescript: {
+              memoryLimit: 10240,
+              typescriptPath: resolve.sync('typescript', {
+                basedir: paths.appNodeModules,
+              }),
+              configOverwrite: {
+                compilerOptions: {
+                  sourceMap: isEnvProduction
+                    ? shouldUseSourceMap
+                    : isEnvDevelopment,
+                  skipLibCheck: true,
+                  inlineSourceMap: false,
+                  declarationMap: false,
+                  noEmit: true,
+                  incremental: true,
+                  tsBuildInfoFile: paths.appTsBuildInfoFile,
+                },
+              },
+              context: paths.appPath,
+              diagnosticOptions: {
+                syntactic: true,
+              },
+              mode: 'write-references',
+              // profile: true,
+            },
+            issue: {
+              // This one is specifically to match during CI tests,
+              // as micromatch doesn't match
+              // '../cra-template-typescript/template/src/App.tsx'
+              // otherwise.
+              include: [
+                { file: '../**/src/**/*.{ts,tsx}' },
+                { file: '**/src/**/*.{ts,tsx}' },
+              ],
+              exclude: [
+                { file: '**/src/**/__tests__/**' },
+                { file: '**/src/**/?(*.){spec|test}.*' },
+                { file: '**/src/setupProxy.*' },
+                { file: '**/src/setupTests.*' },
+              ],
+            },
+            logger: {
+              infrastructure: 'silent',
+            },
+          });
+        config.plugins[checkerInd] = checker;
+    }
 
     let newConfig = aliasMultiple(tspaths)(config);
     console.log(newConfig);

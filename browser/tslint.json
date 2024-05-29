@@ -54,9 +54,7 @@
     "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-useless-constructor": "off",
-    "@typescript-eslint/type-annotation-spacing": "off",
-    "no-empty-function": "off",
-    "@typescript-eslint/no-empty-function": "error"
+    "@typescript-eslint/type-annotation-spacing": "off"
   },
   "jsRules": {
     "curly": [false, "ignore-same-line"],
