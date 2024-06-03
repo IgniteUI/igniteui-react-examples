@@ -83,7 +83,7 @@ export class CountryDemographicEurope extends Array<CountryDemographicEuropeItem
                     population: 10601000,
                     birthRate: 10.5,
                     deathRate: 10.5,
-                    name: `Czech Republic`
+                    name: `Czechia`
                 }),
                 new CountryDemographicEuropeItem(
                 {
