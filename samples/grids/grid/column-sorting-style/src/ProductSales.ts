@@ -24,7 +24,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Berglunds snabbköp`,
                     ShipCountry: `France`,
-                    ShippedDate: `1997-05-07T00:00:00Z`
+                    ShippedDate: `1997-05-07T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -33,7 +33,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Berglunds snabbköp`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-09-26T00:00:00Z`
+                    ShippedDate: `1997-09-26T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -42,7 +42,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Bólido Comidas preparadas`,
                     ShipCountry: `Brazil`,
-                    ShippedDate: `1997-12-31T00:00:00Z`
+                    ShippedDate: `1997-12-31T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -51,7 +51,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Bon app'`,
                     ShipCountry: `France`,
-                    ShippedDate: `1997-04-21T00:00:00Z`
+                    ShippedDate: `1997-04-21T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -60,7 +60,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Bottom-Dollar Markets`,
                     ShipCountry: `Belgium`,
-                    ShippedDate: `1997-11-18T00:00:00Z`
+                    ShippedDate: `1997-11-18T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -69,7 +69,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Eastern Connection`,
                     ShipCountry: `Brazil`,
-                    ShippedDate: `1997-01-16T00:00:00Z`
+                    ShippedDate: `1997-01-16T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -78,7 +78,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Ernst Handel`,
                     ShipCountry: `Switzerland`,
-                    ShippedDate: `1997-01-10T00:00:00Z`
+                    ShippedDate: `1997-01-10T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -87,7 +87,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Ernst Handel`,
                     ShipCountry: `Switzerland`,
-                    ShippedDate: `1997-02-03T00:00:00Z`
+                    ShippedDate: `1997-02-03T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -96,7 +96,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Ernst Handel`,
                     ShipCountry: `Brazil`,
-                    ShippedDate: `1997-05-16T00:00:00Z`
+                    ShippedDate: `1997-05-16T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -105,7 +105,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Ernst Handel`,
                     ShipCountry: `Venezuela`,
-                    ShippedDate: `1997-07-14T00:00:00Z`
+                    ShippedDate: `1997-07-14T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -114,7 +114,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Ernst Handel`,
                     ShipCountry: `Austria`,
-                    ShippedDate: `1997-08-18T00:00:00Z`
+                    ShippedDate: `1997-08-18T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -123,7 +123,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Beverages`,
                     CompanyName: `Ernst Handel`,
                     ShipCountry: `Mexico`,
-                    ShippedDate: `1997-10-17T00:00:00Z`
+                    ShippedDate: `1997-10-17T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -132,7 +132,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `Ernst Handel`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-12-18T00:00:00Z`
+                    ShippedDate: `1997-12-18T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -141,7 +141,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `Folies gourmandes`,
                     ShipCountry: `Brazil`,
-                    ShippedDate: `1997-08-21T00:00:00Z`
+                    ShippedDate: `1997-08-21T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -150,7 +150,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `Folies gourmandes`,
                     ShipCountry: `USA`,
-                    ShippedDate: `1997-12-31T00:00:00Z`
+                    ShippedDate: `1997-12-31T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -159,7 +159,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `Folk och fä HB`,
                     ShipCountry: `Austria`,
-                    ShippedDate: `1997-06-09T00:00:00Z`
+                    ShippedDate: `1997-06-09T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -168,7 +168,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `Folk och fä HB`,
                     ShipCountry: `Sweden`,
-                    ShippedDate: `1997-10-20T00:00:00Z`
+                    ShippedDate: `1997-10-20T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -177,7 +177,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `Folk och fä HB`,
                     ShipCountry: `France`,
-                    ShippedDate: `1997-12-09T00:00:00Z`
+                    ShippedDate: `1997-12-09T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -186,7 +186,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `Godos Cocina Típica`,
                     ShipCountry: `Finland`,
-                    ShippedDate: `1997-08-20T00:00:00Z`
+                    ShippedDate: `1997-08-20T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -195,7 +195,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `Gourmet Lanchonetes`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-11-20T00:00:00Z`
+                    ShippedDate: `1997-11-20T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -204,7 +204,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `Great Lakes Food Market`,
                     ShipCountry: `Venezuela`,
-                    ShippedDate: `1997-08-05T00:00:00Z`
+                    ShippedDate: `1997-08-05T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -213,7 +213,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `HILARION-Abastos`,
                     ShipCountry: `USA`,
-                    ShippedDate: `1997-04-03T00:00:00Z`
+                    ShippedDate: `1997-04-03T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -222,7 +222,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `Hungry Owl All-Night Grocers`,
                     ShipCountry: `Finland`,
-                    ShippedDate: `1997-06-17T00:00:00Z`
+                    ShippedDate: `1997-06-17T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -231,7 +231,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Condiments`,
                     CompanyName: `Hungry Owl All-Night Grocers`,
                     ShipCountry: `USA`,
-                    ShippedDate: `1997-10-30T00:00:00Z`
+                    ShippedDate: `1997-10-30T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -240,7 +240,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `Hungry Owl All-Night Grocers`,
                     ShipCountry: `USA`,
-                    ShippedDate: `1997-10-15T00:00:00Z`
+                    ShippedDate: `1997-10-15T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -249,7 +249,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `Königlich Essen`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-10-29T00:00:00Z`
+                    ShippedDate: `1997-10-29T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -258,7 +258,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `La maison d'Asie`,
                     ShipCountry: `France`,
-                    ShippedDate: `1997-12-26T00:00:00Z`
+                    ShippedDate: `1997-12-26T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -267,7 +267,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `Lehmanns Marktstand`,
                     ShipCountry: `Italy`,
-                    ShippedDate: `1997-12-19T00:00:00Z`
+                    ShippedDate: `1997-12-19T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -276,7 +276,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `LINO-Delicateses`,
                     ShipCountry: `Mexico`,
-                    ShippedDate: `1997-09-01T00:00:00Z`
+                    ShippedDate: `1997-09-01T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -285,7 +285,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `Maison Dewey`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-12-10T00:00:00Z`
+                    ShippedDate: `1997-12-10T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -294,7 +294,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `Mère Paillarde`,
                     ShipCountry: `Sweden`,
-                    ShippedDate: `1997-01-27T00:00:00Z`
+                    ShippedDate: `1997-01-27T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -303,7 +303,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `Mère Paillarde`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-07-29T00:00:00Z`
+                    ShippedDate: `1997-07-29T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -312,7 +312,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `Mère Paillarde`,
                     ShipCountry: `Sweden`,
-                    ShippedDate: `1997-08-08T00:00:00Z`
+                    ShippedDate: `1997-08-08T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -321,7 +321,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `Piccolo und mehr`,
                     ShipCountry: `Spain`,
-                    ShippedDate: `1997-05-12T00:00:00Z`
+                    ShippedDate: `1997-05-12T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -330,7 +330,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `Queen Cozinha`,
                     ShipCountry: `Spain`,
-                    ShippedDate: `1997-08-26T00:00:00Z`
+                    ShippedDate: `1997-08-26T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -339,7 +339,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `QUICK-Stop`,
                     ShipCountry: `Venezuela`,
-                    ShippedDate: `1997-03-12T00:00:00Z`
+                    ShippedDate: `1997-03-12T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -348,7 +348,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Confections`,
                     CompanyName: `QUICK-Stop`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-05-23T00:00:00Z`
+                    ShippedDate: `1997-05-23T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -357,7 +357,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Dairy Product`,
                     CompanyName: `QUICK-Stop`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-06-13T00:00:00Z`
+                    ShippedDate: `1997-06-13T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -366,7 +366,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Dairy Product`,
                     CompanyName: `QUICK-Stop`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-05-30T00:00:00Z`
+                    ShippedDate: `1997-05-30T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -375,7 +375,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Dairy Product`,
                     CompanyName: `QUICK-Stop`,
                     ShipCountry: `Brazil`,
-                    ShippedDate: `1997-07-10T00:00:00Z`
+                    ShippedDate: `1997-07-10T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -384,7 +384,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Dairy Product`,
                     CompanyName: `QUICK-Stop`,
                     ShipCountry: `Italy`,
-                    ShippedDate: `1997-09-08T00:00:00Z`
+                    ShippedDate: `1997-09-08T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -393,7 +393,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Dairy Product`,
                     CompanyName: `QUICK-Stop`,
                     ShipCountry: `UK`,
-                    ShippedDate: `1997-10-22T00:00:00Z`
+                    ShippedDate: `1997-10-22T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -402,7 +402,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Dairy Product`,
                     CompanyName: `QUICK-Stop`,
                     ShipCountry: `Brazil`,
-                    ShippedDate: `1997-10-09T00:00:00Z`
+                    ShippedDate: `1997-10-09T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -411,7 +411,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Dairy Product`,
                     CompanyName: `QUICK-Stop`,
                     ShipCountry: `Brazil`,
-                    ShippedDate: `1997-11-27T00:00:00Z`
+                    ShippedDate: `1997-11-27T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -420,7 +420,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Dairy Product`,
                     CompanyName: `Rattlesnake Canyon Grocery`,
                     ShipCountry: `Brazil`,
-                    ShippedDate: `1997-01-10T00:00:00Z`
+                    ShippedDate: `1997-01-10T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -429,7 +429,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Dairy Product`,
                     CompanyName: `Rattlesnake Canyon Grocery`,
                     ShipCountry: `Mexico`,
-                    ShippedDate: `1997-03-21T00:00:00Z`
+                    ShippedDate: `1997-03-21T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -438,7 +438,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Dairy Product`,
                     CompanyName: `Richter Supermarkt`,
                     ShipCountry: `USA`,
-                    ShippedDate: `1997-09-22T00:00:00Z`
+                    ShippedDate: `1997-09-22T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -447,7 +447,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Grains/Cereal`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `France`,
-                    ShippedDate: `1997-01-03T00:00:00Z`
+                    ShippedDate: `1997-01-03T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -456,7 +456,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Grains/Cereal`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `Venezuela`,
-                    ShippedDate: `1997-01-09T00:00:00Z`
+                    ShippedDate: `1997-01-09T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -465,7 +465,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Grains/Cereal`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `France`,
-                    ShippedDate: `1997-02-28T00:00:00Z`
+                    ShippedDate: `1997-02-28T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -474,7 +474,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Grains/Cereal`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `Ireland`,
-                    ShippedDate: `1997-04-28T00:00:00Z`
+                    ShippedDate: `1997-04-28T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -483,7 +483,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Grains/Cereal`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `Brazil`,
-                    ShippedDate: `1997-06-04T00:00:00Z`
+                    ShippedDate: `1997-06-04T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -492,7 +492,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Grains/Cereal`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `Italy`,
-                    ShippedDate: `1997-07-25T00:00:00Z`
+                    ShippedDate: `1997-07-25T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -501,7 +501,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Grains/Cereal`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-08-01T00:00:00Z`
+                    ShippedDate: `1997-08-01T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -510,7 +510,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Meat/Poultr`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `Belgium`,
-                    ShippedDate: `1997-09-15T00:00:00Z`
+                    ShippedDate: `1997-09-15T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -519,7 +519,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Meat/Poultr`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `Spain`,
-                    ShippedDate: `1997-10-16T00:00:00Z`
+                    ShippedDate: `1997-10-16T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -528,7 +528,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Meat/Poultr`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `Mexico`,
-                    ShippedDate: `1997-10-29T00:00:00Z`
+                    ShippedDate: `1997-10-29T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -537,7 +537,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Meat/Poultr`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `USA`,
-                    ShippedDate: `1997-10-24T00:00:00Z`
+                    ShippedDate: `1997-10-24T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -546,7 +546,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Meat/Poultr`,
                     CompanyName: `Save-a-lot Markets`,
                     ShipCountry: `Spain`,
-                    ShippedDate: `1997-12-15T00:00:00Z`
+                    ShippedDate: `1997-12-15T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -555,7 +555,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Meat/Poultr`,
                     CompanyName: `Simons bistro`,
                     ShipCountry: `USA`,
-                    ShippedDate: `1997-01-28T00:00:00Z`
+                    ShippedDate: `1997-01-28T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -564,7 +564,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Produce`,
                     CompanyName: `Suprêmes délices`,
                     ShipCountry: `Mexico`,
-                    ShippedDate: `1997-03-04T00:00:00Z`
+                    ShippedDate: `1997-03-04T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -573,7 +573,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Produce`,
                     CompanyName: `Tortuga Restaurante`,
                     ShipCountry: `Ireland`,
-                    ShippedDate: `1997-05-05T00:00:00Z`
+                    ShippedDate: `1997-05-05T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -582,7 +582,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Produce`,
                     CompanyName: `Vaffeljernet`,
                     ShipCountry: `USA`,
-                    ShippedDate: `1997-03-14T00:00:00Z`
+                    ShippedDate: `1997-03-14T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -591,7 +591,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Produce`,
                     CompanyName: `Vaffeljernet`,
                     ShipCountry: `France`,
-                    ShippedDate: `1997-10-07T00:00:00Z`
+                    ShippedDate: `1997-10-07T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -600,7 +600,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Produce`,
                     CompanyName: `Victuailles en stock`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-05-27T00:00:00Z`
+                    ShippedDate: `1997-05-27T00: 00: 00Z`
                 }),
                 new ProductSalesItem(
                 {
@@ -609,7 +609,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     CategoryName: `Seafood`,
                     CompanyName: `Wartian Herkku`,
                     ShipCountry: `Germany`,
-                    ShippedDate: `1997-03-03T00:00:00Z`
+                    ShippedDate: `1997-03-03T00: 00: 00Z`
                 }),
             ];
             super(...(newItems.slice(0, items)));

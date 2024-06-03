@@ -11,3 +11,7 @@
     border-radius: .25rem;
     margin-bottom: 2rem;
 }
+
+igc-button {
+    margin: 1rem 0.5rem 0 0;
+}
