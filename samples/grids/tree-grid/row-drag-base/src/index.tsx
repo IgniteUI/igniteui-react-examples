@@ -23,6 +23,9 @@ export default function App() {
 
    // Recursive function to add the row and its children
   function addRowAndChildren(row:EmployeesNestedTreeDataItem, newData:EmployeesNestedTreeDataItem[]) {
+    if(newData.includes(row)){
+      return;
+    }
     newData.push(row);
     const children = employeesData.filter(emp => emp.ParentID === row.ID);
     children.forEach(child => addRowAndChildren(child, newData));
