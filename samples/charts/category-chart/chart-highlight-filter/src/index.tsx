@@ -7,7 +7,7 @@ import { IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrCategoryChart } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
-import { SalesData } from './SalesData';
+import { SalesDataItem, SalesData } from './SalesData';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -66,7 +66,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     chartType="Column"
                     dataSource={this.salesData}
-                    initialGroups="MonthName"
+                    initialGroups="Month"
                     initialHighlightFilter="Country ne 'UK'"
                     highlightedValuesDisplayMode="Hidden">
                 </IgrCategoryChart>
