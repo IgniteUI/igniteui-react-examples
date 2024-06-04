@@ -54,7 +54,7 @@ export default class Sample extends React.Component<any, any> {
                     rowEditable="true"
                     allowFiltering="true"
                     filterMode="ExcelStyleFilter"
-                    primaryKey="CompanyName"
+                    primaryKey="Company"
                     groupingExpressions={this.groupingExpression1}>
                     <IgrGridToolbar
                     >
@@ -86,7 +86,7 @@ export default class Sample extends React.Component<any, any> {
                         pinned="true"
                         header="Contact Details">
                         <IgrColumn
-                            field="CompanyName"
+                            field="Company"
                             header="Company"
                             rowStart="1"
                             colStart="1"

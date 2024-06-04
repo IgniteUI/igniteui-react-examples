@@ -63,7 +63,7 @@ export default class Sample extends React.Component<any, any> {
                         width="20%">
                     </IgrColumn>
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         width="20%">
                     </IgrColumn>
                 </IgrGrid>

@@ -51,7 +51,7 @@ export default class Sample extends React.Component<any, any> {
                         hidden="true">
                     </IgrColumn>
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         header="Company"
                         pinned="true">
                     </IgrColumn>

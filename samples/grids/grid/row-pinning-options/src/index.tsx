@@ -86,7 +86,7 @@ export default class Sample extends React.Component<any, any> {
                     cellSelection="None"
                     rowEditable="true">
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         header="Company"
                         width="300px">
                     </IgrColumn>
