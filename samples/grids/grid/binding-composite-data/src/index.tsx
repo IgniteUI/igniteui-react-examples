@@ -112,7 +112,7 @@ export default class Sample extends React.Component<any, any> {
                 <br />
                 <span><strong>Title:</strong> {cell.row.data.ContactTitle}</span>
                 <br />
-                <span><strong>Company:</strong> {cell.row.data.CompanyName}</span>
+                <span><strong>Company:</strong> {cell.row.data.Company}</span>
                 <br />
             </div>
         </>
@@ -143,10 +143,10 @@ export default class Sample extends React.Component<any, any> {
                         } value={cell.row.data.ContactTitle}></IgrInput>
                     <IgrInput label='Company' inputOcurred={(input: any, e: any) =>
                         {
-                            cell.row.data.CompanyName = e.detail;
+                            cell.row.data.Company = e.detail;
                             this.forceUpdate();
                         }
-                        } value={cell.row.data.CompanyName}></IgrInput>
+                        } value={cell.row.data.Company}></IgrInput>
                 </div>
             </>
         );
