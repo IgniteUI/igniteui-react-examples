@@ -9,7 +9,7 @@ import {
   IgrTreeGrid,
   IgrColumn,
 } from "igniteui-react-grids";
-import { EmployeesNestedTreeData } from "./EmployeesNestedTreeData";
+import { EmployeesNestedTreeData, EmployeesNestedTreeDataItem } from "./EmployeesNestedTreeData";
 
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
@@ -21,6 +21,13 @@ export default function App() {
   const treeGridRef = useRef<IgrTreeGrid>(null);
   const treeGridRef2 = useRef<IgrTreeGrid>(null);
 
+   // Recursive function to add the row and its children
+  function addRowAndChildren(row:EmployeesNestedTreeDataItem, newData:EmployeesNestedTreeDataItem[]) {
+    newData.push(row);
+    const children = employeesData.filter(emp => emp.ParentID === row.ID);
+    children.forEach(child => addRowAndChildren(child, newData));
+  }
+
   function RowDragEnd(grid: IgrTreeGrid, evt: any) {
     const grid2 = treeGridRef2.current;
     const ghostElement = evt.detail.dragDirective.ghostElement;
@@ -31,8 +38,11 @@ export default function App() {
       const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
       const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
       if (withinXBounds && withinYBounds) {
-        console.log(evt.detail.dragData.data.ParentID);
-        treeGridRef2.current.addRow(evt.detail.dragData.data, null);        
+        
+        const newData = [...grid2.data];
+        const draggedRowData = evt.detail.dragData.data;
+        addRowAndChildren(draggedRowData, newData);
+        grid2.data = newData;
       }
     }
   }
