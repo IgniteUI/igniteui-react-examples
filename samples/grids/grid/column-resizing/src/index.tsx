@@ -22,7 +22,7 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private iD: IgrColumn
-    private companyName: IgrColumn
+    private company: IgrColumn
     private contactName: IgrColumn
     private contactTitle: IgrColumn
     private address: IgrColumn
@@ -56,8 +56,8 @@ export default class Sample extends React.Component<any, any> {
                         header="ID">
                     </IgrColumn>
                     <IgrColumn
-                        name="CompanyName"
-                        field="CompanyName"
+                        name="Company"
+                        field="Company"
                         header="Company"
                         resizable="true">
                     </IgrColumn>

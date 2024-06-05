@@ -88,7 +88,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumnGroup
                         header="General Information">
                         <IgrColumn
-                            field="CompanyName"
+                            field="Company"
                             dataType="String"
                             sortable="true"
                             resizable="true">
@@ -295,14 +295,14 @@ export default class Sample extends React.Component<any, any> {
 
     public webHierarchicalGridPinFirstGroupToggle(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         const hgrid: IgrHierarchicalGrid = this.hierarchicalGrid;
-        const firstColumnGroup = hgrid.getColumnByName("CompanyName").parent;
+        const firstColumnGroup = hgrid.getColumnByName("Company").parent;
         firstColumnGroup.pinned = !firstColumnGroup.pinned;
         hgrid.markForCheck();
     }
 
     public webHierarchicalGridHideFirstGroupToggle(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         const hgrid: IgrHierarchicalGrid = this.hierarchicalGrid;
-        const firstColumnGroup = hgrid.getColumnByName("CompanyName").parent;
+        const firstColumnGroup = hgrid.getColumnByName("Company").parent;
         firstColumnGroup.hidden = !firstColumnGroup.hidden;
         hgrid.markForCheck();
     }

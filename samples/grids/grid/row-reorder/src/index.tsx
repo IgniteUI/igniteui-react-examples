@@ -48,7 +48,7 @@ export default class Sample extends React.Component<any, any> {
                         header="ID">
                     </IgrColumn>
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         header="Company">
                     </IgrColumn>
                     <IgrColumn
