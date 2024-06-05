@@ -83,7 +83,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumnGroup
                         header="General Information">
                         <IgrColumn
-                            field="CompanyName"
+                            field="Company"
                             sortable="true"
                             resizable="true">
                         </IgrColumn>
@@ -174,14 +174,14 @@ export default class Sample extends React.Component<any, any> {
 
     public webGridPinFirstGroupToggle(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         const grid: IgrGrid = this.grid;
-        const firstColumnGroup = grid.getColumnByName("CompanyName").parent;
+        const firstColumnGroup = grid.getColumnByName("Company").parent;
         firstColumnGroup.pinned = !firstColumnGroup.pinned;
         grid.markForCheck();
     }
 
     public webGridHideFirstGroupToggle(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         const grid: IgrGrid = this.grid;
-        const firstColumnGroup = grid.getColumnByName("CompanyName").parent;
+        const firstColumnGroup = grid.getColumnByName("Company").parent;
         firstColumnGroup.hidden = !firstColumnGroup.hidden;
         grid.markForCheck();
     }

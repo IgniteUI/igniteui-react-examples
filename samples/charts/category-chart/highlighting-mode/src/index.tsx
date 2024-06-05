@@ -66,7 +66,6 @@ export default class Sample extends React.Component<any, any> {
                     isVerticalZoomEnabled="false"
                     dataSource={this.temperatureAnnotatedData}
                     highlightingMode="BrightenSpecific"
-                    crosshairsAnnotationEnabled="false"
                     toolTipType="None"
                     crosshairsDisplayMode="None">
                 </IgrCategoryChart>
