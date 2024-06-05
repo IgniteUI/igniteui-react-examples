@@ -22,6 +22,8 @@ import {
 const mods: any[] = [IgrTreeGridModule, IgrChipModule, IgrIconButtonModule, IgrInputModule];
 mods.forEach((m) => m.register());
 
+const searchIconText =
+  "<svg width='24' height='24' viewBox='0 0 24 24'><path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' /></svg>";
 const prevIconText =
   "<svg width='24' height='24' viewBox='0 0 24 24'><path d='M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z'></path></svg>";
 const nextIconText =
@@ -33,6 +35,7 @@ const data = new EmployeesFlatData();
 
 export default function Sample() {
   const gridRef = useRef<IgrTreeGrid>(null);
+  const searchIconRef = useRef<IgrIconButton>(null);
   const clearIconRef = useRef<IgrIconButton>(null);
   const iconButtonNextRef = useRef<IgrIconButton>(null);
   const iconButtonPrevRef = useRef<IgrIconButton>(null);
@@ -42,8 +45,9 @@ export default function Sample() {
   const [searchText, setSearchText] = useState('')
 
   useEffect(() => {
-    if (clearIconRef?.current) {
-      clearIconRef.current.registerIconFromText("clear", clearIconText, "material");
+    if (searchIconRef?.current) {
+      searchIconRef.current.registerIconFromText("search", searchIconText, "material");
+      searchIconRef.current.registerIconFromText("clear", clearIconText, "material");
     }
     if (iconButtonPrevRef?.current) {
       iconButtonPrevRef.current.registerIconFromText("prev", prevIconText,"material");
@@ -96,15 +100,26 @@ export default function Sample() {
           <IgrInput name="searchBox" value={searchText} inputOcurred={handleOnSearchChange}>
 
             <div slot="prefix" key="prefix">
-              <IgrIconButton
-                key="clearIcon"
-                ref={clearIconRef}
-                variant="flat"
-                name="clear"
-                collection="material"
-                clicked={clearSearch}
-              ></IgrIconButton>
+              {searchText.length === 0 ? (
+                <IgrIconButton
+                  key="searchIcon"
+                  ref={searchIconRef} 
+                  variant="flat"
+                  name="search" 
+                  collection="material"
+                ></IgrIconButton>
+              ) : (
+                <IgrIconButton
+                  key="clearIcon"
+                  ref={clearIconRef}
+                  variant="flat"
+                  name="clear"
+                  collection="material"
+                  clicked={clearSearch}
+                ></IgrIconButton>
+              )}
             </div>
+            
             <div slot="suffix" key="chipSuffix">
               <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable="true" select={handleCaseSensitiveChange}>
                 <span key="caseSensitive">Case Sensitive</span>
@@ -134,7 +149,7 @@ export default function Sample() {
           </IgrInput>
         </div>
         <IgrTreeGrid ref={gridRef} data={data} autoGenerate="false" 
-          primaryKey="ID" foreignKey="ParentID" allowFiltering="true" height="480px"
+          primaryKey="ID" foreignKey="ParentID" allowFiltering="true" height="100%" width="100%"
         >
           <IgrColumn field="Name" dataType="string" sortable="true"></IgrColumn>        
           <IgrColumn field="ID" dataType="number" sortable="true"></IgrColumn>        
