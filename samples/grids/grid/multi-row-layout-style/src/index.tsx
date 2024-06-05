@@ -37,7 +37,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.customersData}
-                    primaryKey="CompanyName">
+                    primaryKey="Company">
                     <IgrColumnLayout
                         hidden="true"
                         header="ID">
@@ -54,7 +54,7 @@ export default class Sample extends React.Component<any, any> {
                         pinned="true"
                         header="Contact Details">
                         <IgrColumn
-                            field="CompanyName"
+                            field="Company"
                             header="Company"
                             rowStart="1"
                             colStart="1"

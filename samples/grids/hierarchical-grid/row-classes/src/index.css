@@ -1,0 +1,8 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+    .activeRow {
+        border-top: 2px solid #fc81b8;
+        border-left: 3px solid #e41c77;
+    }
+

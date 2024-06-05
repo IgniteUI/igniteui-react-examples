@@ -51,7 +51,7 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
 
             <div className="legend-title">
-                Electricity Production from Renewables
+                Annual Birth Rates by World Region
             </div>
 
             <div className="legend">

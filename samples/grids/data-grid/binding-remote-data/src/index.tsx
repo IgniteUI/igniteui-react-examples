@@ -51,7 +51,7 @@ export default class DataGridBindingRemoteData extends React.Component<any, any>
 
     public initData() {
         const vds = new ODataVirtualDataSource();
-        vds.baseUri = ("https://services.odata.org/V4/Northwind/Northwind.svc");
+        vds.baseUri = ("https://services.odata.org/northwind/northwind.svc");
         vds.entitySet = ("Orders");
         this.virtualData = vds;
     }
