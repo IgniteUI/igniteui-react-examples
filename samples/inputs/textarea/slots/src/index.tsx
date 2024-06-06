@@ -7,7 +7,7 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 IgrTextareaModule.register();
 IgrIconModule.register();
 
-export default class TextAreaSlot extends React.Component<any, any> {
+export default class TextAreaSlots extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);     
@@ -41,4 +41,4 @@ export default class TextAreaSlot extends React.Component<any, any> {
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<TextAreaSlot/>);
+root.render(<TextAreaSlots/>);

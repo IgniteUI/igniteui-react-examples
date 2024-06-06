@@ -6,7 +6,7 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrTextareaModule.register();
 
-export default class InputOverview extends React.Component<any, any> {
+export default class TextAreaOverview extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);     
@@ -23,4 +23,4 @@ export default class InputOverview extends React.Component<any, any> {
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<InputOverview/>);
+root.render(<TextAreaOverview/>);
