@@ -26,7 +26,7 @@ export default class Sample extends React.Component<any, any> {
     private gridToolbarExporter1: IgrGridToolbarExporter
     private iD: IgrColumn
     private generalInformation: IgrColumnGroup
-    private companyName: IgrColumn
+    private company: IgrColumn
     private personalDetails: IgrColumnGroup
     private contactName: IgrColumn
     private contactTitle: IgrColumn
@@ -90,8 +90,8 @@ export default class Sample extends React.Component<any, any> {
                         header="General Information"
                         collapsible="true">
                         <IgrColumn
-                            name="CompanyName"
-                            field="CompanyName"
+                            name="Company"
+                            field="Company"
                             visibleWhenCollapsed="true">
                         </IgrColumn>
                         <IgrColumnGroup

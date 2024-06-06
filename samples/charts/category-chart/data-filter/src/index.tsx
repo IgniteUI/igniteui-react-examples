@@ -7,7 +7,7 @@ import { IgrLegendModule, IgrCategoryChartModule } from 'igniteui-react-charts';
 import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, LegendDescriptionModule, CategoryChartDescriptionModule } from 'igniteui-react-core';
-import { SalesData } from './SalesData';
+import { ContinentsBirthRateItem, ContinentsBirthRate } from './ContinentsBirthRate';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { MarkerType, MarkerType_$type } from 'igniteui-react-charts';
 import { EnumUtil } from 'igniteui-react-core';
@@ -44,7 +44,7 @@ export default class Sample extends React.Component<any, any> {
 
         this.legendRef = this.legendRef.bind(this);
         this.editorRef = this.editorRef.bind(this);
-        this.editorChangeUpdateInitialFilter = this.editorChangeUpdateInitialFilter.bind(this);
+        this.editorChangeDataFilter = this.editorChangeDataFilter.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -61,18 +61,19 @@ export default class Sample extends React.Component<any, any> {
                     isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="InitialFilterHandler"
-                        editorWidth="800"
                         name="InitialFilter"
-                        label="Modify Chart Filter"
-                        valueType="StringValue"
+                        label="Modify Filter"
+                        valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
-                        changed={this.editorChangeUpdateInitialFilter}>
+                        dropDownNames={["1950", "1960", "1970", "1980", "1990", "2000", "2010", "2020"]}
+                        dropDownValues={["1950", "1960", "1970", "1980", "1990", "2000", "2010", "2020"]}
+                        changed={this.editorChangeDataFilter}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
 
             <div className="legend-title">
-                Sales Filtered by Country, Product, and Dates
+                Annual Birth Rates by World Region
             </div>
 
             <div className="legend">
@@ -85,27 +86,26 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrCategoryChart
                     ref={this.chartRef}
-                    dataSource={this.salesData}
+                    dataSource={this.continentsBirthRate}
                     legend={this.legend}
                     chartType="Column"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     crosshairsDisplayMode="None"
-                    includedProperties={["Date", "GrossSales", "Profit", "Sales"]}
-                    initialFilter="(startswith(Country, 'B') and endswith(Country, 'l') and contains(Product, 'Royal Oak') and contains(Date, '3/1/20'))">
+                    yAxisLabelFormat="{0}M">
                 </IgrCategoryChart>
             </div>
         </div>
         );
     }
 
-    private _salesData: SalesData = null;
-    public get salesData(): SalesData {
-        if (this._salesData == null)
+    private _continentsBirthRate: ContinentsBirthRate = null;
+    public get continentsBirthRate(): ContinentsBirthRate {
+        if (this._continentsBirthRate == null)
         {
-            this._salesData = new SalesData();
+            this._continentsBirthRate = new ContinentsBirthRate();
         }
-        return this._salesData;
+        return this._continentsBirthRate;
     }
 
     private _componentRenderer: ComponentRenderer = null;
@@ -120,11 +120,11 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public editorChangeUpdateInitialFilter(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+    public editorChangeDataFilter(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
 
         var chart = this.chart;
-        var intialFilterVal = args.newValue.toString();
-        chart.initialFilter = intialFilterVal;
+        var filter = args.newValue.toString();
+        chart.initialFilter = "(contains(Year," + "'" + filter + "'" + "))";
     }
 
 }
