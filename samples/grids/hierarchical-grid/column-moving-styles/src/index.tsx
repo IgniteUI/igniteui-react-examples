@@ -61,7 +61,7 @@ export default class Sample extends React.Component<any, any> {
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         dataType="String"
                         width="150px"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}

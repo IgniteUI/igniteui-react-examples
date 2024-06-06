@@ -37,7 +37,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.hierarchicalCustomersData}
                     ref={this.gridRef}
                     id="grid"
-                    primaryKey="ID">
+                    primaryKey="CustomerID">
                     <IgrColumnGroup
                         header="General Information"
                         collapsible="true">
@@ -57,7 +57,7 @@ export default class Sample extends React.Component<any, any> {
                             visibleWhenCollapsed="false">
                         </IgrColumn>
                         <IgrColumn
-                            field="CompanyName"
+                            field="Company"
                             header="Company Name"
                             visibleWhenCollapsed="false">
                         </IgrColumn>

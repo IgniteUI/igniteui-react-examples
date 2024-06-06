@@ -15,3 +15,11 @@
     padding: 0.5rem;
     border: 1px solid gainsboro;
 }
+
+igc-switch {
+    margin: 0.5rem;
+}
+
+igc-button {
+    margin: 1rem 0.5rem 0 0;
+}

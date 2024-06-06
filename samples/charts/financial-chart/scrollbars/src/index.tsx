@@ -48,11 +48,11 @@ export default class Sample extends React.Component<any, any> {
     }
 
     private _multipleStocks: MultipleStocks = null;
-    private _multipleStocksFetching: boolean = false;
+    private _isFetching: boolean = false;
     public get multipleStocks(): MultipleStocks {
-        if (this._multipleStocks == null && !this._multipleStocksFetching)
+        if (this._multipleStocks == null && !this._isFetching)
         {
-            this._multipleStocksFetching = true;
+            this._isFetching = true;
             ( async () => { this._multipleStocks = await (await MultipleStocks.fetch()); this.setState({});  })();
         }
         return this._multipleStocks;

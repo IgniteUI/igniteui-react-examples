@@ -69,7 +69,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="String">
                     </IgrColumn>
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         dataType="String">
                     </IgrColumn>
                     <IgrColumn

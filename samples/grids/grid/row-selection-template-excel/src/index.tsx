@@ -81,7 +81,7 @@ export default class Sample extends React.Component<any, any> {
                         header="Postal Code">
                     </IgrColumn>
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         header="Company">
                     </IgrColumn>
                 </IgrGrid>

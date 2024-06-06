@@ -80,7 +80,7 @@ export default class Sample extends React.Component<any, any> {
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
-                        field="AnnualChange"
+                        field="YearlyChange"
                         header="Change On Year(%)"
                         width="150px"
                         dataType="Number"
@@ -118,19 +118,19 @@ export default class Sample extends React.Component<any, any> {
                         dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
-                        field="AnnualHigh"
+                        field="YearlyHigh"
                         header="High(Y)"
                         width="130px"
                         dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
-                        field="AnnualLow"
+                        field="YearlyLow"
                         header="Low(Y)"
                         width="130px"
                         dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
-                        field="AnnualStart"
+                        field="YearlyStart"
                         header="Start(Y)"
                         width="130px"
                         dataType="Currency">

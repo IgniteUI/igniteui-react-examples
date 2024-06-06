@@ -43,7 +43,7 @@ export default class Sample extends React.Component<any, any> {
                         resizable="true">
                     </IgrColumn>
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         header="Company Name"
                         width="auto"
                         resizable="true">

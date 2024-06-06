@@ -51,7 +51,7 @@ export default class Sample extends React.Component<any, any> {
                         headerTemplate={this.webGridColumnGroupHeaderTemplate}
                         name="columnGroup1">
                         <IgrColumn
-                            field="CompanyName"
+                            field="Company"
                             sortable="true"
                             resizable="true">
                         </IgrColumn>
