@@ -59,7 +59,7 @@ export default class Sample extends React.Component<any, any> {
                         headerTemplate={this.webHierarchicalGridColumnGroupHeaderTemplate}
                         name="columnGroup1">
                         <IgrColumn
-                            field="CompanyName"
+                            field="Company"
                             dataType="String"
                             sortable="true"
                             resizable="true">
