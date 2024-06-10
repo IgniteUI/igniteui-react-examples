@@ -15,7 +15,7 @@ export default class TextAreaOverview extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="sample">
-                <IgrTextarea rows="5" label="Tell us your story:"><span>It was a dark and stormy night...</span></IgrTextarea>
+                <IgrTextarea rows="3" label="Tell us your story:"><span>It was a dark and stormy night...</span></IgrTextarea>
             </div>
         );
     }

@@ -22,7 +22,7 @@ export default class TextAreaFormIntegration extends React.Component<any, any> {
         return (
             <div className="sample">               
                 <form id="form" onSubmit={this.onSubmitButtonClicked}>
-                <IgrTextarea rows="5"  name="user_feedback" label="Your review" required>
+                <IgrTextarea rows="3"  name="user_feedback" label="Your review" required>
                 </IgrTextarea>                
                 <div className="controls">
                     <IgrButton type="submit"><span>Submit review</span></IgrButton>
