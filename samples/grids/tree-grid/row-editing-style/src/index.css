@@ -1,0 +1,8 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+#grid {
+    --ig-banner-banner-background: #e3e3e3;
+    --ig-banner-banner-message-color: #423589;
+}
+
