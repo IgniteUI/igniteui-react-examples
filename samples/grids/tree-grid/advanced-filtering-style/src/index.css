@@ -1,0 +1,8 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+#treeGrid {
+    --ig-grid-filtering-row-background: #ffcd0f;
+    --ig-grid-filtering-background-or: #d83434;
+}
+

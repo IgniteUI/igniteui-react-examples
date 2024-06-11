@@ -2,11 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrSelectModule } from 'igniteui-react';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
-import { ComponentRenderer, WebGridDescriptionModule, WebSelectDescriptionModule } from 'igniteui-react-core';
-import { RoleplayDataStatsItem, RoleplayDataStats } from './RoleplayDataStats';
+import { IgrTreeGridModule } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
+import { RoleplayTreeGridDataItem, RoleplayTreeGridData } from './RoleplayTreeGridData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrSelect, IgrSelectItem } from 'igniteui-react';
 
@@ -14,15 +13,14 @@ import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrGridModule,
-    IgrSelectModule
+    IgrTreeGridModule
 ];
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid1: IgrGrid
-    private grid1Ref(r: IgrGrid) {
-        this.grid1 = r;
+    private treeGrid1: IgrTreeGrid
+    private treeGrid1Ref(r: IgrTreeGrid) {
+        this.treeGrid1 = r;
         this.setState({});
     }
     private column1: IgrColumn
@@ -32,7 +30,7 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.grid1Ref = this.grid1Ref.bind(this);
+        this.treeGrid1Ref = this.treeGrid1Ref.bind(this);
     }
 
     public render(): JSX.Element {
@@ -40,11 +38,13 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample ig-typography">
 
             <div className="container fill">
-                <IgrGrid
+                <IgrTreeGrid
                     autoGenerate="false"
-                    data={this.roleplayDataStats}
-                    primaryKey="Name"
-                    ref={this.grid1Ref}>
+                    ref={this.treeGrid1Ref}
+                    id="treeGrid1"
+                    data={this.roleplayTreeGridData}
+                    primaryKey="ID"
+                    foreignKey="ParentID">
                     <IgrColumn
                         field="Name"
                         header="Character Name"
@@ -54,16 +54,16 @@ export default class Sample extends React.Component<any, any> {
                         field="Race"
                         header="Race"
                         dataType="String"
-                        inlineEditorTemplate={this.webGridCellEditCellTemplate}
                         editable="true"
+                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Class"
                         header="Class"
-                        inlineEditorTemplate={this.webGridCellEditCellTemplate}
-                        editable="true"
+                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
                         dataType="String"
+                        editable="true"
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
@@ -75,24 +75,24 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Alignment"
                         header="Alignment"
-                        inlineEditorTemplate={this.webGridCellEditCellTemplate}
-                        editable="true"
+                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
                         dataType="String"
+                        editable="true"
                         name="column3">
                     </IgrColumn>
-                </IgrGrid>
+                </IgrTreeGrid>
             </div>
         </div>
         );
     }
 
-    private _roleplayDataStats: RoleplayDataStats = null;
-    public get roleplayDataStats(): RoleplayDataStats {
-        if (this._roleplayDataStats == null)
+    private _roleplayTreeGridData: RoleplayTreeGridData = null;
+    public get roleplayTreeGridData(): RoleplayTreeGridData {
+        if (this._roleplayTreeGridData == null)
         {
-            this._roleplayDataStats = new RoleplayDataStats();
+            this._roleplayTreeGridData = new RoleplayTreeGridData();
         }
-        return this._roleplayDataStats;
+        return this._roleplayTreeGridData;
     }
 
     private _componentRenderer: ComponentRenderer = null;
@@ -100,18 +100,17 @@ export default class Sample extends React.Component<any, any> {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
-            WebGridDescriptionModule.register(context);
-            WebSelectDescriptionModule.register(context);
+            WebTreeGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
     }
 
-    public webGridCellEditCellTemplate = (e: {dataContext: IgrCellTemplateContext}) => {
+    public webTreeGridCellEditCellTemplate = (e: {dataContext: IgrCellTemplateContext}) => {
         let cellValues: any = [];
         let uniqueValues: any = [];
         const cell = e.dataContext.cell;
         const colIndex = cell.id.columnID;
-        const field: string = this.grid1.getColumnByVisibleIndex(colIndex).field;
+        const field: string = this.treeGrid1.getColumnByVisibleIndex(colIndex).field;
         const key = field + "_" + cell.id.rowID;
         let index = 0;
         for(const i of (this.roleplayTreeGridData as any)){
