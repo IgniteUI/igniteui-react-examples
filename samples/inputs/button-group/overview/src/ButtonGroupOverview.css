@@ -1,0 +1,7 @@
+igc-button-group {
+    max-width: 400px;
+}
+
+igc-ripple {
+    --color: gray;
+}
