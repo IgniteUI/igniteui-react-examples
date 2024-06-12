@@ -1,0 +1,16 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.cell__inner {
+    display: flex;
+    align-items: center;
+}
+
+.name {
+    margin-left: 30px;
+}
+
+.control_panel {
+    width: 700px;
+    margin-bottom: 10px;
+}

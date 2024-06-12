@@ -33,7 +33,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private companyName: IgrColumn
+    private company: IgrColumn
     private contactName: IgrColumn
     private contactTitle: IgrColumn
     private address: IgrColumn
@@ -64,8 +64,8 @@ export default class Sample extends React.Component<any, any> {
                     rendered={this.webGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
                     <IgrColumn
-                        name="CompanyName"
-                        field="CompanyName"
+                        name="Company"
+                        field="Company"
                         header="Company"
                         width="300px">
                     </IgrColumn>

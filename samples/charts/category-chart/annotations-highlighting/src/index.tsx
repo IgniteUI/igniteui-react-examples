@@ -75,14 +75,12 @@ export default class Sample extends React.Component<any, any> {
                     computedPlotAreaMarginMode="Series"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    includedProperties={["month", "temperature"]}
                     dataSource={this.temperatureAnnotatedData}
-                    isCategoryHighlightingEnabled="true"
                     highlightingMode="FadeOthersSpecific"
                     highlightingBehavior="NearestItemsAndSeries"
-                    crosshairsAnnotationYAxisPrecision="0"
                     yAxisMaximumValue="35"
-                    yAxisLabelLocation="OutsideRight">
+                    yAxisLabelLocation="OutsideRight"
+                    toolTipType="None">
                 </IgrCategoryChart>
             </div>
         </div>
