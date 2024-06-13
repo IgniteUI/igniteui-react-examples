@@ -49,8 +49,8 @@ export default class Sample extends React.Component<any, any> {
                     value={this.state.separator}
                     change={this.handleSeparatorChange}
                 >
-                    <span slot="prefix">Change copy separator:</span>
-                    <span slot="helper-text">The default value is a single tabulation.</span>
+                    <span key="separatorPrefix" slot="prefix">Change copy separator:</span>
+                    <span key="separatorHelperText" slot="helper-text">The default value is a single tabulation.</span>
                 </IgrInput>
                 <IgrSwitch
                     key="clipboardEnabledSwitch"
@@ -58,7 +58,7 @@ export default class Sample extends React.Component<any, any> {
                     labelPosition="before"
                     change={this.handleClipboardEnabledChange}
                 >
-                    <span>Grid copy behavior</span>
+                    <span key="clipboardEnabledLabel">Grid copy behavior</span>
                 </IgrSwitch>
                 <IgrSwitch
                     key="clipboardHeadersSwitch"
@@ -66,7 +66,7 @@ export default class Sample extends React.Component<any, any> {
                     labelPosition="before"
                     change={this.handleClipboardHeadersChange}
                 >
-                    <span>Copying of header labels</span>
+                    <span key="clipboardHeadersLabel">Copying of header labels</span>
                 </IgrSwitch>
                 <IgrSwitch
                     key="clipboardFormattersSwitch"
@@ -74,14 +74,14 @@ export default class Sample extends React.Component<any, any> {
                     labelPosition="before"
                     change={this.handleClipboardFormattersChange}
                 >
-                    <span>Copying column formatters</span>
+                    <span key="clipboardFormattersLabel">Copying column formatters</span>
                 </IgrSwitch>
                 <IgrButton 
                     key="clearSelectionButton" 
                     clicked={this.handleClearSelection} 
                     style={{ marginTop: '0.5rem' }}
                 >
-                    <span>Clear selection</span>
+                    <span key="clearSelectionLabel">Clear selection</span>
                 </IgrButton>
             </div>
 
