@@ -45,6 +45,7 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample ig-typography">
             <div className="options horizontal" style={{ gap: '50px' }}>
                 <IgrInput
+                    key="separatorInput"
                     value={this.state.separator}
                     change={this.handleSeparatorChange}
                 >
@@ -52,6 +53,7 @@ export default class Sample extends React.Component<any, any> {
                     <span slot="helper-text">The default value is a single tabulation.</span>
                 </IgrInput>
                 <IgrSwitch
+                    key="clipboardEnabledSwitch"
                     checked={this.state.clipboardEnabled}
                     labelPosition="before"
                     change={this.handleClipboardEnabledChange}
@@ -59,6 +61,7 @@ export default class Sample extends React.Component<any, any> {
                     <span>Grid copy behavior</span>
                 </IgrSwitch>
                 <IgrSwitch
+                    key="clipboardHeadersSwitch"
                     checked={this.state.clipboardHeaders}
                     labelPosition="before"
                     change={this.handleClipboardHeadersChange}
@@ -66,13 +69,18 @@ export default class Sample extends React.Component<any, any> {
                     <span>Copying of header labels</span>
                 </IgrSwitch>
                 <IgrSwitch
+                    key="clipboardFormattersSwitch"
                     checked={this.state.clipboardFormatters}
                     labelPosition="before"
                     change={this.handleClipboardFormattersChange}
                 >
                     <span>Copying column formatters</span>
                 </IgrSwitch>
-                <IgrButton clicked={this.handleClearSelection} style={{ marginTop: '0.5rem' }}>
+                <IgrButton 
+                    key="clearSelectionButton" 
+                    clicked={this.handleClearSelection} 
+                    style={{ marginTop: '0.5rem' }}
+                >
                     <span>Clear selection</span>
                 </IgrButton>
             </div>
