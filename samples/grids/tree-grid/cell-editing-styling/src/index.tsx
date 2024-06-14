@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
-import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
+import { IgrPaginatorModule, IgrTreeGridModule } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
+import { ComponentRenderer, WebPaginatorDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
-import { IgrGrid, IgrGridEditEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
+    IgrPaginatorModule,
     IgrTreeGridModule
 ];
 mods.forEach((m) => m.register());
@@ -27,7 +27,6 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.treeGridRef = this.treeGridRef.bind(this);
-        this.webTreeGridCellEdit = this.webTreeGridCellEdit.bind(this);
     }
 
     public render(): JSX.Element {
@@ -41,15 +40,21 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
-                    cellEdit={this.webTreeGridCellEdit}
+                    displayDensity="Comfortable"
+                    allowFiltering="true"
                     foreignKey="ParentID">
+                    <IgrPaginator
+                        perPage="10">
+                    </IgrPaginator>
                     <IgrColumn
                         field="Name"
-                        dataType="String">
+                        dataType="String"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        dataType="String">
+                        dataType="String"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
@@ -60,6 +65,12 @@ export default class Sample extends React.Component<any, any> {
                         field="HireDate"
                         dataType="Date"
                         editable="true">
+                    </IgrColumn>
+                    <IgrColumn
+                        field="OnPTO"
+                        dataType="Boolean"
+                        editable="true"
+                        width="130px">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>
@@ -81,25 +92,10 @@ export default class Sample extends React.Component<any, any> {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
+            WebPaginatorDescriptionModule.register(context);
             WebTreeGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
-    }
-
-    public webTreeGridCellEdit(sender: IgrTreeGrid, args: IgrGridEditEventArgs): void {
-        const column = args.detail.column;
-
-        if (column.field === 'Age') {
-            if (args.detail.newValue < 18) {
-                args.detail.cancel = true;
-                alert('Employees must be at least 18 years old!');
-            }
-        } else if (column.field === 'HireDate') {
-            if (args.detail.newValue > new Date().getTime()) {
-                args.detail.cancel = true;
-                alert('The employee hire date must be in the past!');
-            }
-        }
     }
 
 }
