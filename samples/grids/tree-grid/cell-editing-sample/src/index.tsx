@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
+import { IgrSelectModule } from 'igniteui-react';
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
-import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
+import { ComponentRenderer, WebTreeGridDescriptionModule, WebSelectDescriptionModule } from 'igniteui-react-core';
 import { RoleplayTreeGridDataItem, RoleplayTreeGridData } from './RoleplayTreeGridData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrSelect, IgrSelectItem } from 'igniteui-react';
@@ -13,7 +14,8 @@ import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrTreeGridModule
+    IgrTreeGridModule,
+    IgrSelectModule
 ];
 mods.forEach((m) => m.register());
 
@@ -101,6 +103,7 @@ export default class Sample extends React.Component<any, any> {
             this._componentRenderer = new ComponentRenderer();
             var context = this._componentRenderer.context;
             WebTreeGridDescriptionModule.register(context);
+            WebSelectDescriptionModule.register(context);
         }
         return this._componentRenderer;
     }
