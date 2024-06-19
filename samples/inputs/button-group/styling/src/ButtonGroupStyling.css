@@ -1,0 +1,27 @@
+igc-button-group {
+    width: 200px;
+}
+
+igc-ripple {
+    --color: gray;
+}
+
+igc-toggle-button::part(toggle) {
+    color: #fdfdfd;
+    background: #2f4d6a;
+}
+
+igc-toggle-button::part(toggle):hover {
+    color: #fdfdfd;
+    background: #1f3347;
+}
+
+igc-toggle-button[disabled]::part(toggle) {
+    color: gray;
+    background: lightgray;
+}
+
+igc-toggle-button[selected]::part(toggle) {
+    color: #fdfdfd;
+    background: #1f3347;
+}
