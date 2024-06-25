@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrSortingExpression, SortingDirection, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
+import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { ProductSalesItem, ProductSales } from './ProductSales';
 
@@ -20,21 +20,6 @@ export default class Sample extends React.Component<any, any> {
     private gridRef(r: IgrGrid) {
         this.grid = r;
         this.setState({});
-    }
-    private _sortingExpression1: IgrSortingExpression[] | null = null;
-    public get sortingExpression1(): IgrSortingExpression[] {
-        if (this._sortingExpression1 == null)
-        {
-            let sortingExpression1: IgrSortingExpression[] = [];
-            var sortingExpression2: IgrSortingExpression = {} as IgrSortingExpression;
-            sortingExpression2.fieldName = "Category";
-            sortingExpression2.dir = SortingDirection.Asc;
-            sortingExpression2.ignoreCase = true;
-
-            sortingExpression1.push(sortingExpression2)
-            this._sortingExpression1 = sortingExpression1;
-        }
-        return this._sortingExpression1;
     }
     private column1: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
@@ -65,8 +50,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     data={this.productSales}
                     ref={this.gridRef}
-                    id="grid"
-                    sortingExpressions={this.sortingExpression1}>
+                    id="grid">
                     <IgrColumn
                         field="OrderID"
                         header="Order ID"

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarPinning, IgrGridToolbarHiding, IgrColumnLayout, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarPinning, IgrGridToolbarHiding, IgrColumnLayout, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
@@ -20,21 +20,6 @@ export default class Sample extends React.Component<any, any> {
     private gridRef(r: IgrGrid) {
         this.grid = r;
         this.setState({});
-    }
-    private _groupingExpression1: IgrGroupingExpression[] | null = null;
-    public get groupingExpression1(): IgrGroupingExpression[] {
-        if (this._groupingExpression1 == null)
-        {
-            let groupingExpression1: IgrGroupingExpression[] = [];
-            var groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
-            groupingExpression2.fieldName = "Country";
-            groupingExpression2.ignoreCase = false;
-            groupingExpression2.dir = SortingDirection.Asc;
-
-            groupingExpression1.push(groupingExpression2)
-            this._groupingExpression1 = groupingExpression1;
-        }
-        return this._groupingExpression1;
     }
 
     constructor(props: any) {
@@ -54,8 +39,7 @@ export default class Sample extends React.Component<any, any> {
                     rowEditable="true"
                     allowFiltering="true"
                     filterMode="ExcelStyleFilter"
-                    primaryKey="Company"
-                    groupingExpressions={this.groupingExpression1}>
+                    primaryKey="Company">
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarTitle

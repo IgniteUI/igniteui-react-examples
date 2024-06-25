@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
+import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 
@@ -32,21 +32,6 @@ export default class Sample extends React.Component<any, any> {
     private gridRef(r: IgrGrid) {
         this.grid = r;
         this.setState({});
-    }
-    private _groupingExpression1: IgrGroupingExpression[] | null = null;
-    public get groupingExpression1(): IgrGroupingExpression[] {
-        if (this._groupingExpression1 == null)
-        {
-            let groupingExpression1: IgrGroupingExpression[] = [];
-            var groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
-            groupingExpression2.fieldName = "ShipCountry";
-            groupingExpression2.ignoreCase = false;
-            groupingExpression2.dir = SortingDirection.Asc;
-
-            groupingExpression1.push(groupingExpression2)
-            this._groupingExpression1 = groupingExpression1;
-        }
-        return this._groupingExpression1;
     }
     private column1: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
@@ -100,8 +85,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate="false"
                     ref={this.gridRef}
-                    data={this.invoicesData}
-                    groupingExpressions={this.groupingExpression1}>
+                    data={this.invoicesData}>
                     <IgrColumn
                         field="ShipCountry"
                         header="Ship Country"

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
+import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
@@ -21,27 +21,6 @@ export default class Sample extends React.Component<any, any> {
     private gridRef(r: IgrGrid) {
         this.grid = r;
         this.setState({});
-    }
-    private _groupingExpression1: IgrGroupingExpression[] | null = null;
-    public get groupingExpression1(): IgrGroupingExpression[] {
-        if (this._groupingExpression1 == null)
-        {
-            let groupingExpression1: IgrGroupingExpression[] = [];
-            var groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
-            groupingExpression2.dir = SortingDirection.Asc;
-            groupingExpression2.fieldName = "ShipCountry";
-            groupingExpression2.ignoreCase = false;
-
-            groupingExpression1.push(groupingExpression2)
-            var groupingExpression3: IgrGroupingExpression = {} as IgrGroupingExpression;
-            groupingExpression3.dir = SortingDirection.Asc;
-            groupingExpression3.fieldName = "ShipCity";
-            groupingExpression3.ignoreCase = false;
-
-            groupingExpression1.push(groupingExpression3)
-            this._groupingExpression1 = groupingExpression1;
-        }
-        return this._groupingExpression1;
     }
     private orderID: IgrColumn
     private shipCountry: IgrColumn
@@ -81,8 +60,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
-                    data={this.invoicesData}
-                    groupingExpressions={this.groupingExpression1}>
+                    data={this.invoicesData}>
                     <IgrColumn
                         name="OrderID"
                         field="OrderID"

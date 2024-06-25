@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
-import { IgrHierarchicalGrid, IgrSortingExpression, SortingDirection, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
+import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import SingersData from './SingersData.json';
 
 import 'igniteui-react-grids/grids/combined';
@@ -19,39 +19,6 @@ export default class Sample extends React.Component<any, any> {
     private hierarchicalGrid1Ref(r: IgrHierarchicalGrid) {
         this.hierarchicalGrid1 = r;
         this.setState({});
-    }
-    private _sortingExpression1: IgrSortingExpression[] | null = null;
-    public get sortingExpression1(): IgrSortingExpression[] {
-        if (this._sortingExpression1 == null)
-        {
-            let sortingExpression1: IgrSortingExpression[] = [];
-            var sortingExpression2: IgrSortingExpression = {} as IgrSortingExpression;
-            sortingExpression2.dir = SortingDirection.Asc;
-            sortingExpression2.fieldName = "Artist";
-            sortingExpression2.ignoreCase = true;
-
-            sortingExpression1.push(sortingExpression2)
-            var sortingExpression3: IgrSortingExpression = {} as IgrSortingExpression;
-            sortingExpression3.dir = SortingDirection.Desc;
-            sortingExpression3.fieldName = "Debut";
-            sortingExpression3.ignoreCase = true;
-
-            sortingExpression1.push(sortingExpression3)
-            var sortingExpression4: IgrSortingExpression = {} as IgrSortingExpression;
-            sortingExpression4.dir = SortingDirection.Asc;
-            sortingExpression4.fieldName = "GrammyNominations";
-            sortingExpression4.ignoreCase = true;
-
-            sortingExpression1.push(sortingExpression4)
-            var sortingExpression5: IgrSortingExpression = {} as IgrSortingExpression;
-            sortingExpression5.dir = SortingDirection.Asc;
-            sortingExpression5.fieldName = "GrammyAwards";
-            sortingExpression5.ignoreCase = true;
-
-            sortingExpression1.push(sortingExpression5)
-            this._sortingExpression1 = sortingExpression1;
-        }
-        return this._sortingExpression1;
     }
 
     constructor(props: any) {
@@ -69,7 +36,6 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     data={this.singersData}
                     primaryKey="ID"
-                    sortingExpressions={this.sortingExpression1}
                     ref={this.hierarchicalGrid1Ref}>
                     <IgrColumn
                         field="Artist"
