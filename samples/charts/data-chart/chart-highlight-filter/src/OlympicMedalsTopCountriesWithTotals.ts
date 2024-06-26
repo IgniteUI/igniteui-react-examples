@@ -86,7 +86,7 @@ export class OlympicMedalsTopCountriesWithTotals extends Array<OlympicMedalsTopC
                     total: 346
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

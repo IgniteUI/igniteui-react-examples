@@ -5437,7 +5437,7 @@ export class WorldStats extends Array<WorldStatsItem> {
                     internet: 1247
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

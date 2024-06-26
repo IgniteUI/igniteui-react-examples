@@ -249,7 +249,7 @@ export class RoleplayTreeGridData extends Array<RoleplayTreeGridDataItem> {
                     Class: `🥊 Fighter`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

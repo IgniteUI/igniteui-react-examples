@@ -16697,7 +16697,7 @@ export class SalesData extends Array<SalesDataItem> {
                     Year: `2019`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

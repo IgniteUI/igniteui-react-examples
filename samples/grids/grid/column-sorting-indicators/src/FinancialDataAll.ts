@@ -39048,7 +39048,7 @@ export class FinancialDataAll extends Array<FinancialDataAllItem> {
                     ID: 999
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

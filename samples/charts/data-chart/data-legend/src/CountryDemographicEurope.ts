@@ -331,7 +331,7 @@ export class CountryDemographicEurope extends Array<CountryDemographicEuropeItem
                     name: `United Kingdom`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

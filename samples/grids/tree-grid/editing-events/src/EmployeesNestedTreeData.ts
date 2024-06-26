@@ -218,7 +218,7 @@ export class EmployeesNestedTreeData extends Array<EmployeesNestedTreeDataItem> 
                     Title: `Localization Intern`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

@@ -2613,7 +2613,7 @@ export class AthletesData extends Array<AthletesDataItem> {
                     CountryName: `Yemen`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

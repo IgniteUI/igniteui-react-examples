@@ -351,7 +351,7 @@ export class EmployeesNestedData extends Array<EmployeesNestedDataItem> {
 
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }
