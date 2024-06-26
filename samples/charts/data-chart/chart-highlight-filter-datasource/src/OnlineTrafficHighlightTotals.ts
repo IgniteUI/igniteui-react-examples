@@ -49,7 +49,7 @@ export class OnlineTrafficHighlightTotals extends Array<OnlineTrafficHighlightTo
                     value: 88
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

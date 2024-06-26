@@ -13569,7 +13569,7 @@ export class EmployeesData extends Array<EmployeesDataItem> {
                     Tags: `subscriber, construction`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

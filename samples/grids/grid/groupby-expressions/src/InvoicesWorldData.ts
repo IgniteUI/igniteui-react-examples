@@ -8730,7 +8730,7 @@ export class InvoicesWorldData extends Array<InvoicesWorldDataItem> {
                     Freight: 46.62
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

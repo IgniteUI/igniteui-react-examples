@@ -111,7 +111,7 @@ export class SelectableData extends Array<SelectableDataItem> {
                     selectedValue: null
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

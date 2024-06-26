@@ -345,7 +345,7 @@ export class CountryStatsEurope extends Array<CountryStatsEuropeItem> {
                     name: `United Kingdom`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

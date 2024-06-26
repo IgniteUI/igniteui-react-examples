@@ -63,7 +63,7 @@ export class EnergyRenewableConsumption extends Array<EnergyRenewableConsumption
                     other: 10.81
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

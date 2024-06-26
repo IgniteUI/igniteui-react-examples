@@ -401,7 +401,7 @@ export class CustomersData extends Array<CustomersDataItem> {
                     Fax: `011-4988261`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

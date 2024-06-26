@@ -226,7 +226,7 @@ export class HealthDataForGermany extends Array<HealthDataForGermanyItem> {
                     name: `Germany`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

@@ -100,7 +100,7 @@ export class CountryRenewableElectricity extends Array<CountryRenewableElectrici
                     america: 38
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

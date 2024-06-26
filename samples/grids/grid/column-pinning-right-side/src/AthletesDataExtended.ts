@@ -4287,7 +4287,7 @@ export class AthletesDataExtended extends Array<AthletesDataExtendedItem> {
                     AgentPhone: `+1-316-976-4160`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }
