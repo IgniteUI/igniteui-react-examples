@@ -612,7 +612,7 @@ export class ProductSales extends Array<ProductSalesItem> {
                     ShippedDate: `1997-03-03T00: 00: 00Z`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

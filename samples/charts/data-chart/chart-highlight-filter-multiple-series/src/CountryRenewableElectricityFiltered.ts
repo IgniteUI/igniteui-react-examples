@@ -100,7 +100,7 @@ export class CountryRenewableElectricityFiltered extends Array<CountryRenewableE
                     america: 26
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

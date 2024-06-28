@@ -45,7 +45,7 @@ export class EnergyGlobalDemand extends Array<EnergyGlobalDemandItem> {
                     summary: `Other 15%`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

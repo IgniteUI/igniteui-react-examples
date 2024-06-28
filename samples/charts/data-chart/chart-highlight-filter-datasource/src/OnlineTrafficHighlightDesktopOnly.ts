@@ -49,7 +49,7 @@ export class OnlineTrafficHighlightDesktopOnly extends Array<OnlineTrafficHighli
                     value: 58
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

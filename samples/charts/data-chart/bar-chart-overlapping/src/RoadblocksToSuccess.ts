@@ -63,7 +63,7 @@ export class RoadblocksToSuccess extends Array<RoadblocksToSuccessItem> {
                     category: `Cultural Challenges`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

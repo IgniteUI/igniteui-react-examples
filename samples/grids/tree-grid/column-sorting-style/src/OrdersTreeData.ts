@@ -285,7 +285,7 @@ export class OrdersTreeData extends Array<OrdersTreeDataItem> {
                     Delivered: true
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

@@ -332,7 +332,7 @@ export class EmployeesFlatDetails extends Array<EmployeesFlatDetailsItem> {
                     FullAddress: `35 King George, London, UK`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

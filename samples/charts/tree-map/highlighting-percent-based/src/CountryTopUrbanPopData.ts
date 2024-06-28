@@ -72,7 +72,7 @@ export class CountryTopUrbanPopData extends Array<CountryTopUrbanPopDataItem> {
                     urbanPopPercent: `88%`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

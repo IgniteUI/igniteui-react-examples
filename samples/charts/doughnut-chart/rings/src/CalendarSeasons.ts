@@ -34,7 +34,7 @@ export class CalendarSeasons extends Array<CalendarSeasonsItem> {
                     label: `Fall`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

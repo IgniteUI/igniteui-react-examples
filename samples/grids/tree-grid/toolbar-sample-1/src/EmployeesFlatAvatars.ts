@@ -199,7 +199,7 @@ export class EmployeesFlatAvatars extends Array<EmployeesFlatAvatarsItem> {
                     Title: `Localization Intern`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

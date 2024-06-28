@@ -7409,7 +7409,7 @@ export class WorldCitiesAbove500K extends Array<WorldCitiesAbove500KItem> {
                     Population: 502533
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }
