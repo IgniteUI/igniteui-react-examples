@@ -170,7 +170,8 @@ export default class Sample extends React.Component<any, any> {
 
     public columnGroupStates = new Map<IgrColumn, boolean>();
     public toggleColumnGroup(column: IgrColumn) {
-        const columnGroup = this.treeGrid.contentColumns.find((col) => col.name == column.name) as IgrColumnGroup;
+        var treeGrid = this.treeGrid;
+        const columnGroup = treeGrid.contentColumns.find((col) => col.name == column.name) as IgrColumnGroup;
         const columns = Array.from(columnGroup.actualChildren);
         if (columnGroup.header === 'General Information') {
             const col = columns[1] as IgrColumn;

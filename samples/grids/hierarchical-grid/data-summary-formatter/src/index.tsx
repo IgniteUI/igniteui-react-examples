@@ -164,9 +164,10 @@ export default class Sample extends React.Component<any, any> {
 
 
     public webHierarchicalGridRenderedExpand(args:any): void {
-        this.hierarchicalGrid.expandAll();
+        var hierarchicalGrid = this.hierarchicalGrid;
+        hierarchicalGrid.expandAll();
         setTimeout(() => {
-            this.hierarchicalGrid.getColumnByName("Debut").formatter = (value: number) => Math.floor(value / 10) * 10 + 's';
+            hierarchicalGrid.getColumnByName("Debut").formatter = (value: number) => Math.floor(value / 10) * 10 + 's';
         }, 100);
     }
 
