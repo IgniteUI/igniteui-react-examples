@@ -139,7 +139,7 @@ export default class Sample extends React.Component<any, any> {
         public toggleSummary(field: IgrColumn) {
             if (field) {
                 field.hasSummary = !field.hasSummary;
-                this.setState({ summary: field.hasSummary });
+                (this as any).setState({ summary: field.hasSummary });
             }
         }
 }

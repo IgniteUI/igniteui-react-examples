@@ -188,11 +188,11 @@ export default class Sample extends React.Component<any, any> {
     public webGridMRLCustomNavigationEvent(sender: IgrGrid, args: IgrGridKeydownEventArgs): void {
         const target = args.detail.target;
         const grid: IgrGrid = this.grid;
-        if (args.detail.event.key.toLowerCase() === 'enter') {
+        if ((args.detail.event as any).key.toLowerCase() === 'enter') {
            args.detail.event.preventDefault();
            args.detail.cancel = true;
            const rowIndex = target.row.index === undefined ? target.index : target.row.index;
-           (grid as any).navigateTo(args.detail.event.shiftKey ? rowIndex - 1 : rowIndex + 1, target.column.visibleIndex,
+           (grid as any).navigateTo((args.detail.event as any).shiftKey ? rowIndex - 1 : rowIndex + 1, target.column.visibleIndex,
                 (obj: any) => {
                    obj.target.activate();
                });

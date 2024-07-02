@@ -6,7 +6,7 @@ import { IgrGridModule, IgrGridToolbarModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinning, IgrGridToolbarHiding, IgrGridToolbarExporter, IgrColumn, IgrColumnGroup } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebGridToolbarDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
-import { IgrExporterEventArgs } from 'igniteui-react-grids';
+import { IgrExporterEventArgs, IgrGrid } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';

@@ -6,7 +6,7 @@ import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
-import { IgrGrid, IgrColumnTemplateContext } from 'igniteui-react-grids';
+import { IgrColumnTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -121,10 +121,10 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public toggleColumnPin(field: string) {
-        var grid = this.treeGrid;
-        var col = grid.getColumnByName(field);
+        var treeGrid = this.treeGrid;
+        var col = treeGrid.getColumnByName(field);
         col.pinned = !col.pinned;
-        grid.markForCheck();
+        treeGrid.markForCheck();
     }
 }
 

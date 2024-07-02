@@ -1,2 +1,20 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
+.aboveContentSplit {
+    display: flex;
+    flex-direction: row;
+}
+.aboveContentLeftContainer {
+    margin-left: 1.25rem;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.aboveContentRightContainer {
+    margin-right: 1.25rem;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
