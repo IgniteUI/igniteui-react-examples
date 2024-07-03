@@ -65,7 +65,7 @@ export default class Sample extends React.Component<any, any> {
                         highlightedTitleSuffix="America">
                     </IgrColumnSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer"
+                        name="dataToolTipLayer"
                         groupRowVisible="true"
                         groupingMode="Grouped"
                         groupTextColor="purple"

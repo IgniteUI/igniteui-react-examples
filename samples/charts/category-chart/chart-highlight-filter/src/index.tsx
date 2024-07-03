@@ -50,7 +50,7 @@ export default class Sample extends React.Component<any, any> {
                     isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightedValuesDisplayMode"
-                        name="HighlightedValuesDisplayModeEditor"
+                        name="highlightedValuesDisplayModeEditor"
                         label="Highlight Display Mode: "
                         primitiveValue="Hidden">
                     </IgrPropertyEditorPropertyDescription>

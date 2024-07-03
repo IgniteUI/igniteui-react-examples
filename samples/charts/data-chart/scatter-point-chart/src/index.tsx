@@ -73,7 +73,7 @@ export default class Sample extends React.Component<any, any> {
                         interval="10">
                     </IgrNumericYAxis>
                     <IgrScatterSeries
-                        name="ScatterSeries1"
+                        name="scatterSeries1"
                         title="Europe"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -84,7 +84,7 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true">
                     </IgrScatterSeries>
                     <IgrScatterSeries
-                        name="ScatterSeries2"
+                        name="scatterSeries2"
                         title="Africa"
                         xAxisName="xAxis"
                         yAxisName="yAxis"

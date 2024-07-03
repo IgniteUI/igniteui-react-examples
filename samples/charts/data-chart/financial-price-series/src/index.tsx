@@ -59,7 +59,7 @@ export default class Sample extends React.Component<any, any> {
                         labelLocation="OutsideRight">
                     </IgrNumericYAxis>
                     <IgrFinancialPriceSeries
-                        name="Series1"
+                        name="series1"
                         title="Stock Price"
                         displayType="Candlestick"
                         xAxisName="xAxis"
