@@ -93,7 +93,7 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.temperatureRangeData}>
                     </IgrRangeColumnSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

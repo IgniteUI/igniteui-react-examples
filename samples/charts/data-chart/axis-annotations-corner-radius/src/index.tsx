@@ -56,7 +56,7 @@ export default class Sample extends React.Component<any, any> {
                         title="TWh">
                     </IgrNumericYAxis>
                     <IgrLineSeries
-                        name="LineSeries1"
+                        name="lineSeries1"
                         title="Electricity"
                         xAxisName="xAxis"
                         yAxisName="yAxis"

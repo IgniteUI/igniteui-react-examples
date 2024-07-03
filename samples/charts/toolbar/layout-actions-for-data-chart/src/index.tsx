@@ -69,12 +69,12 @@ export default class Sample extends React.Component<any, any> {
                                 commandId="EnableTooltips">
                             </IgrToolActionCheckbox>
                             <IgrToolActionLabel
-                                name="ZoomResetHidden"
+                                name="zoomResetHidden"
                                 overlayId="ZoomReset"
                                 visibility="Collapsed">
                             </IgrToolActionLabel>
                             <IgrToolActionLabel
-                                name="ZoomResetLabel"
+                                name="zoomResetLabel"
                                 title="Reset"
                                 afterId="ZoomOut"
                                 iconName="reset"
@@ -108,7 +108,7 @@ export default class Sample extends React.Component<any, any> {
                         labelLocation="OutsideRight">
                     </IgrNumericYAxis>
                     <IgrLineSeries
-                        name="LineSeries1"
+                        name="lineSeries1"
                         title="Electricity"
                         xAxisName="xAxis"
                         yAxisName="yAxis"

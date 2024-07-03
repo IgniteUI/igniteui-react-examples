@@ -91,7 +91,7 @@ export default class Sample extends React.Component<any, any> {
                         highlightedTitleSuffix="">
                     </IgrColumnSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer"
+                        name="dataToolTipLayer"
                         groupRowVisible="true"
                         groupingMode="Grouped">
                     </IgrDataToolTipLayer>

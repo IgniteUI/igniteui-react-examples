@@ -56,7 +56,7 @@ export default class Sample extends React.Component<any, any> {
                         labelLocation="OutsideRight">
                     </IgrNumericYAxis>
                     <IgrLineSeries
-                        name="LineSeries1"
+                        name="lineSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.countryRenewableElectricity}

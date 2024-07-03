@@ -102,7 +102,7 @@ export default class Sample extends React.Component<any, any> {
                         maximumValue="60">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
-                        name="BubbleSeries1"
+                        name="bubbleSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.countryDemographicAfrican}
@@ -116,7 +116,7 @@ export default class Sample extends React.Component<any, any> {
                         yMemberAsLegendLabel="Birth Rate: ">
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
-                        name="BubbleSeries2"
+                        name="bubbleSeries2"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.countryDemographicEurope}

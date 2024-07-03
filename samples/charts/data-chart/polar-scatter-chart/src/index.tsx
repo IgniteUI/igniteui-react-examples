@@ -84,7 +84,7 @@ export default class Sample extends React.Component<any, any> {
                         markerType="Circle">
                     </IgrPolarScatterSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

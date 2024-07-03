@@ -81,7 +81,7 @@ export default class Sample extends React.Component<any, any> {
                         dataLegendGroup="Medals by Country">
                     </IgrColumnSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer"
+                        name="dataToolTipLayer"
                         groupRowVisible="true"
                         groupingMode="Grouped">
                     </IgrDataToolTipLayer>
