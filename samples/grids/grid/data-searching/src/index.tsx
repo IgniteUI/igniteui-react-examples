@@ -139,7 +139,7 @@ export default function Sample() {
             </div>
           </IgrInput>
         </div>
-        <IgrGrid ref={gridRef} autoGenerate="false" allowFiltering="true" displayDensity="compact" data={data}>
+        <IgrGrid ref={gridRef} autoGenerate="false" allowFiltering="true" displayDensity="compact" data={data} height="100%" width="100%">
             <IgrColumn field="IndustrySector" dataType="string" sortable="true"></IgrColumn>        
             <IgrColumn field="IndustryGroup" dataType="string" sortable="true"></IgrColumn>        
             <IgrColumn field="SectorType" dataType="string" sortable="true"></IgrColumn>        
