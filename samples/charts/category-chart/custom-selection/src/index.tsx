@@ -5,6 +5,7 @@ import './index.css';
 import { IgrDataLegendModule, IgrCategoryChartModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataLegend, IgrCategoryChart } from 'igniteui-react-charts';
 import { SelectableDataItem, SelectableData } from './SelectableData';
+import { IgrDomainChartSeriesPointerEventArgs } from 'igniteui-react-charts';
 
 const mods: any[] = [
     IgrDataLegendModule,
@@ -78,6 +79,37 @@ export default class Sample extends React.Component<any, any> {
             this._selectableData = new SelectableData();
         }
         return this._selectableData;
+    }
+
+
+    public categoryChartCustomSelectionPointerDown(sender: any, args: IgrDomainChartSeriesPointerEventArgs): void {
+
+        var chart = this.chart;
+        var selectableData = chart.dataSource as SelectableData;
+    let oldItem = args.item as SelectableDataItem;
+
+        if (oldItem === null) return;
+
+        let newItem: SelectableDataItem = new SelectableDataItem({
+            category: oldItem.category,
+            dataValue: oldItem.dataValue,
+            selectedValue: oldItem.selectedValue
+        });
+
+        var selectedIndex = -1;
+        for (var i = 0; i < selectableData.length; i++) {
+            if (oldItem.category === selectableData[i].category) {
+                selectedIndex = i;
+                break;
+            }
+        }
+
+        if (oldItem.selectedValue === oldItem.dataValue)
+            newItem.selectedValue = null;
+        else
+            newItem.selectedValue = newItem.dataValue;
+
+        chart.notifySetItem(selectableData, selectedIndex, oldItem, newItem);
     }
 
 }
