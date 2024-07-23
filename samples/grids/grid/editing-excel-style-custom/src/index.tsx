@@ -18,11 +18,13 @@ mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid1Ref: React.RefObject<IgrGrid> = React.createRef<IgrGrid>();
+    private shouldAppendValue: boolean = false;
 
     constructor(props: any) {
         super(props);
         this.webGridEditingExcelStyle = this.webGridEditingExcelStyle.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.onActiveNodeChange = this.onActiveNodeChange.bind(this);
     }
 
     componentDidMount() {
@@ -37,8 +39,15 @@ export default class Sample extends React.Component<any, any> {
     }
 
     private handleKeyDown(event: React.KeyboardEvent) {
-        console.log("Key pressed:", event.key);
         this.webGridEditingExcelStyle(this.grid1Ref.current, event);
+    }
+
+    private onActiveNodeChange = (args: any) => {
+        this.grid1Ref.current.endEdit(true, args);
+        var grid = document.querySelector(".igx-grid__tbody-content") as HTMLElement;
+        if(grid){
+            grid.focus();
+        }
     }
     
 
@@ -46,7 +55,7 @@ export default class Sample extends React.Component<any, any> {
         return (
             <div className="container sample ig-typography">
                 <div className="container fill" onKeyDown={this.handleKeyDown}>
-                    <IgrGrid autoGenerate="false" data={this.nwindData} primaryKey="ProductID" ref={this.grid1Ref}>
+                    <IgrGrid autoGenerate="false" data={this.nwindData} primaryKey="ProductID" cellSelection={"single"} ref={this.grid1Ref} activeNodeChange={this.onActiveNodeChange}>
                         <IgrColumn field="ProductID" header="Product ID" editable="true" groupable="true" hidden="true" />
                         <IgrColumn field="ProductName" header="Product Name" dataType="String" editable="true" />
                         <IgrColumn field="UnitPrice" header="Unit Price" dataType="Number" editable="true" />
@@ -77,77 +86,73 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    private webGridEditingExcelStyle(sender: IgrGrid, args: React.KeyboardEvent): void {
-        var key = args.key; 
-        var grid1 = this.grid1Ref.current;
-        var code = args.code;
-        console.log('keydown: ' + key + ' ' + code);
-        var activeElem = grid1.selectedCells[0];
+    private webGridEditingExcelStyle(grid: IgrGrid, args: React.KeyboardEvent): void {
+            var activeElem = grid.selectedCells[0];
 
-        if(key === 'Escape') {
-            activeElem.editMode = false;
-            return;
-        }
+            if ((args.code >= 'Digit0' && args.code <= 'Digit9') || 
+                    (args.code >= 'KeyA' && args.code <= 'KeyZ') && 
+                    args.code !== 'Enter') {
+        
+                        if (activeElem && activeElem.editMode === false) {
+                            activeElem.editMode = true;
+                            activeElem.editValue = args.key;
+                            this.shouldAppendValue = true;
+                            grid.markForCheck();
+                        } else
+                        
+                        if (activeElem && activeElem.editMode && this.shouldAppendValue) {
+                            args.preventDefault();
+                            activeElem.editValue = activeElem.editValue + args.key;
+                            this.shouldAppendValue = false;
+                        }
 
-        if ((key >= '0' && key <= '9') || (key.toLowerCase() >= 'a' && key.toLowerCase() <= 'z') && key != 'Enter') {
+                if (args.code === 'Backspace') {
+                    if(activeElem == null) {
+                        return;
+                    }
+                    const rowIndex = activeElem.row.index;
+                    const columnKey = activeElem.column.field; 
+            
+                    grid.data[rowIndex][columnKey] = '';
 
-            if (activeElem && activeElem.editMode === false) {
-                activeElem.value = key;
-                
-                activeElem.editMode = true;
-                grid1.markForCheck();
-            }
-            const inputElem = document.activeElement as HTMLInputElement;
-            if (inputElem && inputElem.tagName.toLowerCase() === 'input') {
-                if (inputElem.type === 'number') {
-                    inputElem.type = 'text';
-                    inputElem.setSelectionRange(inputElem.value.length, inputElem.value.length);
-                    inputElem.type = 'number';
-                } else {
-                    inputElem.selectionStart = inputElem.selectionEnd = inputElem.value.length;
                 }
             }
-        }
 
-        if (key === 'Enter') {
+            if (args.code === 'Enter') {
+                    
+                if(activeElem == null) {
+                    return;
+                }
 
-            if(activeElem == null) {
-                return;
-            }
-            var nextRowIndex = activeElem.row.index + 1;
-            if(args.shiftKey) {
-                nextRowIndex = activeElem.row.index - 1;
-            }
-            const maxRows = grid1.data.length;
-            if (nextRowIndex >= maxRows) {
-                nextRowIndex--;
-            }
-            if(nextRowIndex < 0) {
-                nextRowIndex = 0;
-            }
+                const nextRowIndex = this.getNextEditableRowIndex(activeElem.row.index, grid.dataView, args.shiftKey);    
 
-            grid1.navigateTo(nextRowIndex, activeElem.column.colEnd, (obj: any) => {
-                grid1.clearCellSelection(); 
-                obj.target.activate(); 
-            });
-        }
+                grid.navigateTo(nextRowIndex, activeElem.visibleColumnIndex, (obj: any) => {
+                    grid.clearCellSelection(); 
+                    obj.target.activate(); 
+                });
+
+            }
     }
 
-    public getNextEditableRowIndex(currentRowIndex: number, dataView: any, previous: boolean) {
+    public getNextEditableRowIndex(currentRowIndex: number, dataView: any[], previous: boolean): number {
         if (currentRowIndex < 0 || (currentRowIndex === 0 && previous) || (currentRowIndex >= dataView.length - 1 && !previous)) {
             return currentRowIndex;
         }
-        if (previous) {
-            return dataView.findLastIndex((rec: any, index: number) => index < currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
+        if(previous){
+            for (let index = dataView.length - 1; index >= 0; index--) {
+            if (index < currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView)) {
+                return index;
+            }
+          }
+        return -1
         }
-        return dataView.findIndex((rec: any, index: number) => index > currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
+        return dataView.findIndex((rec, index) => index > currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
     }
 
-    public isEditableDataRecordAtIndex(dataViewIndex: number, dataView: any) {
-        const rec = dataView[dataViewIndex];
-        return !rec.expression && !rec.summaries && !rec.childGridsData && !rec.detailsData;
+    private isEditableDataRecordAtIndex(rowIndex: number, dataView: any[]): boolean {
+        const rec = dataView[rowIndex];
+        return !rec.expression && !rec.summaries && !rec.childGridsData && !rec.detailsData
     }
-
 }
 
 // rendering above component in the React DOM
