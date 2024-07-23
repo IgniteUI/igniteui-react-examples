@@ -12,14 +12,17 @@ import {
   IgrChip,
   IgrChipModule,
   IgrComponentValueChangedEventArgs,
-  IgrIcon,
   IgrIconButton,
   IgrInput,
+  IgrInputModule,
+  IgrIconButtonModule,
 } from "igniteui-react";
 
-const mods: any[] = [IgrGridModule, IgrChipModule];
+const mods: any[] = [IgrGridModule, IgrChipModule, IgrInputModule, IgrIconButtonModule];
 mods.forEach((m) => m.register());
 
+const searchIconText =
+  "<svg width='24' height='24' viewBox='0 0 24 24'><path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' /></svg>";
 const prevIconText =
   "<svg width='24' height='24' viewBox='0 0 24 24'><path d='M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z'></path></svg>";
 const nextIconText =
@@ -31,40 +34,31 @@ const data = new MarketData();
 
 export default function Sample() {
   const gridRef = useRef<IgrGrid>(null);
+  const searchIconRef = useRef<IgrIconButton>(null);
   const clearIconRef = useRef<IgrIconButton>(null);
+  const iconButtonNextRef = useRef<IgrIconButton>(null);
   const iconButtonPrevRef = useRef<IgrIconButton>(null);
   const caseSensitiveChipRef = useRef<IgrChip>(null);
   const exactMatchChipRef = useRef<IgrChip>(null);
-  const iconButtonNextRef = useRef<IgrIconButton>(null);
 
-  const [searchText, setSearchText] = useState('')
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
-    if (clearIconRef?.current) {
-      clearIconRef.current.registerIconFromText(
-        "clear",
-        clearIconText,
-        "material"
-      );
+    if (searchIconRef?.current) {
+      searchIconRef.current.registerIconFromText("search", searchIconText, "material");
+      searchIconRef.current.registerIconFromText("clear", clearIconText, "material");
     }
     if (iconButtonPrevRef?.current) {
-      iconButtonPrevRef.current.registerIconFromText(
-        "prev",
-        prevIconText,
-        "material"
-      );
+      iconButtonPrevRef.current.registerIconFromText("prev", prevIconText, "material");
     }
     if (iconButtonNextRef?.current) {
-      iconButtonNextRef.current.registerIconFromText(
-        "next",
-        nextIconText,
-        "material"
-      );
+      iconButtonNextRef.current.registerIconFromText("next", nextIconText, "material");
     }
   }, []);
 
   function handleOnSearchChange(input: IgrInput, event: IgrComponentValueChangedEventArgs) {
     setSearchText(event.detail);
+    gridRef.current.findNext(event.detail, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
   }
 
   function clearSearch() {
@@ -81,7 +75,7 @@ export default function Sample() {
   }
 
   function searchKeyDown(e: KeyboardEvent<HTMLElement>) {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.key === 'ArrowDown') {
         e.preventDefault();
         gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
     } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
@@ -94,18 +88,29 @@ export default function Sample() {
     <div className="container sample">
       <div className="container vertical">
         <div style={{ marginBottom: "1rem" }} onKeyDown={searchKeyDown}>
-                <IgrInput name="searchBox" value={searchText} inputOcurred={handleOnSearchChange}>
+          <IgrInput name="searchBox" value={searchText} inputOcurred={handleOnSearchChange}>
 
             <div slot="prefix" key="prefix">
-              <IgrIconButton
-                key="clearIcon"
-                ref={clearIconRef}
-                variant="flat"
-                name="clear"
-                collection="material"
-                clicked={clearSearch}
-              ></IgrIconButton>
+              {searchText.length === 0 ? (
+                <IgrIconButton
+                  key="searchIcon"
+                  ref={searchIconRef} 
+                  variant="flat"
+                  name="search" 
+                  collection="material"
+                ></IgrIconButton>
+              ) : (
+                <IgrIconButton
+                  key="clearIcon"
+                  ref={clearIconRef}
+                  variant="flat"
+                  name="clear"
+                  collection="material"
+                  clicked={clearSearch}
+                ></IgrIconButton>
+              )}
             </div>
+            
             <div slot="suffix" key="chipSuffix">
               <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable="true">
                 <span key="caseSensitive">Case Sensitive</span>
@@ -134,7 +139,7 @@ export default function Sample() {
             </div>
           </IgrInput>
         </div>
-        <IgrGrid ref={gridRef} autoGenerate="false" allowFiltering="true" displayDensity="compact" data={data}>
+        <IgrGrid ref={gridRef} autoGenerate="false" allowFiltering="true" displayDensity="compact" data={data} height="100%" width="100%">
             <IgrColumn field="IndustrySector" dataType="string" sortable="true"></IgrColumn>        
             <IgrColumn field="IndustryGroup" dataType="string" sortable="true"></IgrColumn>        
             <IgrColumn field="SectorType" dataType="string" sortable="true"></IgrColumn>        
