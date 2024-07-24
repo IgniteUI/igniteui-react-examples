@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridToolbarModule, IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridToolbarDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 
@@ -42,7 +42,8 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID"
                     columnWidth="200"
-                    allowFiltering="true">
+                    allowFiltering="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -52,61 +53,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarHiding>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ID"
-                        dataType="Number"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Fax"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>

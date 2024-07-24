@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrPaginator, IgrPaginatorResourceStrings, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrPaginator, IgrPaginatorResourceStrings } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgrRowSelectorTemplateContext, IgrHeadSelectorTemplateContext } from 'igniteui-react-grids';
@@ -56,7 +56,8 @@ export default class Sample extends React.Component<any, any> {
                     rowSelection="Multiple"
                     displayDensity="Cosy"
                     rowSelectorTemplate={this.webGridRowSelectorExcelTemplate}
-                    headSelectorTemplate={this.webGridHeaderRowSelectorExcelTemplate}>
+                    headSelectorTemplate={this.webGridHeaderRowSelectorExcelTemplate}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrPaginator
                         name="paginator"
                         perPage="15"
@@ -64,37 +65,6 @@ export default class Sample extends React.Component<any, any> {
                         selectOptions={[5, 10, 15, 25, 50]}
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        header="Job Title"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ID"
-                        dataType="Number"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OnPTO"
-                        dataType="Boolean"
-                        sortable="true">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>

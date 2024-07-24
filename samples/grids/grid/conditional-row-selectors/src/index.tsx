@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrRowSelectionEventArgs } from 'igniteui-react-grids';
@@ -42,30 +42,8 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     primaryKey="ID"
                     rowSelection="Multiple"
-                    rowSelectionChanging={this.webGridRowSelectionConditional}>
-                    <IgrColumn
-                        field="ContactName"
-                        header="Name"
-                        width="20%">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country"
-                        header="Country"
-                        width="20%">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City"
-                        header="City"
-                        width="20%">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        width="20%">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Company"
-                        width="20%">
-                    </IgrColumn>
+                    rowSelectionChanging={this.webGridRowSelectionConditional}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

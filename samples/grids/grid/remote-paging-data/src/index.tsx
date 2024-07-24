@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrPaginator } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 
@@ -23,12 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private iD: IgrColumn
-    private productName: IgrColumn
-    private quantityPerUnit: IgrColumn
-    private unitPrice: IgrColumn
-    private orderDate: IgrColumn
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -47,41 +41,12 @@ export default class Sample extends React.Component<any, any> {
                     data={this.nwindData}
                     moving="true"
                     allowAdvancedFiltering="true"
-                    pagingMode="Remote">
+                    pagingMode="Remote"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrPaginator
                         perPage="10"
                         totalRecords="20">
                     </IgrPaginator>
-                    <IgrColumn
-                        name="ID"
-                        field="ProductID"
-                        header="ID">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="ProductName"
-                        field="ProductName"
-                        header="Product Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="QuantityPerUnit"
-                        field="QuantityPerUnit"
-                        header="Quantity Per Unit">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="UnitPrice"
-                        field="UnitPrice"
-                        header="Unit Price">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="OrderDate"
-                        field="OrderDate"
-                        header="Order Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="Discontinued"
-                        field="Discontinued"
-                        header="Discontinued">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

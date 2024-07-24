@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
+import { IgrHierarchicalGrid, IgrRowIsland } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebHierarchicalGridDescriptionModule } from 'igniteui-react-core';
 import HierarchicalCustomers from './HierarchicalCustomers.json';
 
@@ -63,113 +63,16 @@ export default class Sample extends React.Component<any, any> {
                     data={this.hierarchicalCustomers}
                     ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
-                    allowFiltering="true">
-                    <IgrColumn
-                        field="CustomerID"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Company"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactName"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Fax"
-                        dataType="String">
-                    </IgrColumn>
+                    allowFiltering="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrRowIsland
                         childDataKey="Orders"
-                        autoGenerate="false">
-                        <IgrColumn
-                            field="OrderID"
-                            dataType="Number">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="EmployeeID"
-                            dataType="Number">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="OrderDate"
-                            dataType="Date">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="RequiredDate"
-                            dataType="Date">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="ShippedDate"
-                            dataType="Date">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="ShipVia"
-                            dataType="Number">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="Freight"
-                            dataType="Number">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="ShipName"
-                            dataType="String">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="ShipAddress"
-                            dataType="String">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="ShipCity"
-                            dataType="String">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="ShipPostalCode"
-                            dataType="String">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="ShipCountry"
-                            dataType="String">
-                        </IgrColumn>
+                        autoGenerate="false"
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         <IgrRowIsland
                             childDataKey="OrderDetails"
-                            autoGenerate="false">
-                            <IgrColumn
-                                field="ProductID"
-                                dataType="Number">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="UnitPrice"
-                                dataType="Number">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Quantity"
-                                dataType="Number">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Discount"
-                                dataType="Number">
-                            </IgrColumn>
+                            autoGenerate="false"
+                            columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         </IgrRowIsland>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>

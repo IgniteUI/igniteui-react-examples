@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrTreeGridModule, IgrActionStripModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrTreeGrid, IgrPinningConfig, RowPinningPosition, IgrColumn, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrPinningConfig, RowPinningPosition, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule, WebActionStripDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
@@ -89,22 +89,8 @@ export default class Sample extends React.Component<any, any> {
                     foreignKey="ParentID"
                     cellSelection="None"
                     rendered={this.webTreeGridPinRowOnRendered}
-                    pinning={this.pinningConfig1}>
-                    <IgrColumn
-                        field="Name"
-                        header="Full Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date">
-                    </IgrColumn>
+                    pinning={this.pinningConfig1}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrActionStrip
                         name="actionStrip">
                         <IgrGridPinningActions

@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { FoodsDataItem, FoodsData } from './FoodsData';
 
@@ -65,26 +65,8 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.foodsData}
                     primaryKey="ID"
-                    foreignKey="ParentID">
-                    <IgrColumn
-                        field="ID">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        selectable="false">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="AddedDate"
-                        header="Added Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Discontinued"
-                        selectable="false">
-                    </IgrColumn>
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

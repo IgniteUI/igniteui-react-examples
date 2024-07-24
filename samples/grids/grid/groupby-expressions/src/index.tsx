@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrGroupingExpression, SortingDirection } from 'igniteui-react-grids';
 import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
-import { IgrGroupByRowTemplateContext, IgrCellTemplateContext } from 'igniteui-react-grids';
+import { IgrGroupByRowTemplateContext } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
@@ -43,7 +43,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._groupingExpression1;
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -62,73 +61,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     groupingExpressions={this.groupingExpression1}
-                    groupRowTemplate={this.webGridGroupByRowTemplate}>
-                    <IgrColumn
-                        field="OrderID"
-                        hidden="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipCountry"
-                        header="Ship Country"
-                        width="200px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date"
-                        width="200px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        header="Postal Code"
-                        width="200px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Discontinued"
-                        width="200px"
-                        dataType="Boolean"
-                        groupable="true"
-                        bodyTemplate={this.webGridBooleanCellTemplate}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipName"
-                        header="Ship Name"
-                        width="200px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipCity"
-                        header="Ship City"
-                        width="200px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipperName"
-                        header="Shipper Name"
-                        width="200px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Salesperson"
-                        header="Sales Person"
-                        width="200px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        width="200px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Quantity"
-                        width="200px"
-                        groupable="true">
-                    </IgrColumn>
+                    groupRowTemplate={this.webGridGroupByRowTemplate}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>
@@ -167,18 +101,6 @@ export default class Sample extends React.Component<any, any> {
             </>
         );
     };
-
-    public webGridBooleanCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        if (props.dataContext.cell.value) {
-            return (
-                <img src="https://static.infragistics.com/xplatform/images/grid/active.png" title="Continued" alt="Continued" />
-            );
-        } else {
-            return (
-                <img src="https://static.infragistics.com/xplatform/images/grid/expired.png" title="Discontinued" alt="Discontinued" />
-            );
-        }
-    }
 
 }
 

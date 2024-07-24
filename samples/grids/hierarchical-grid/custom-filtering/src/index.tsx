@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
-import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
+import { IgrHierarchicalGrid, IgrRowIsland } from 'igniteui-react-grids';
 import SingersData from './SingersData.json';
-import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -21,7 +20,6 @@ export default class Sample extends React.Component<any, any> {
         this.hierarchicalGrid1 = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -40,133 +38,28 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     allowFiltering="true"
                     filterMode="QuickFilter"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
                     ref={this.hierarchicalGrid1Ref}>
-                    <IgrColumn
-                        field="Artist"
-                        header="Artist"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HasGrammyAward"
-                        header="Has Grammy Award"
-                        dataType="Boolean"
-                        minWidth="88px"
-                        maxWidth="230px"
-                        resizable="true"
-                        bodyTemplate={this.webGridBooleanCellTemplate}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Debut"
-                        header="Debut"
-                        dataType="Number"
-                        minWidth="88px"
-                        maxWidth="230px"
-                        resizable="true"
-                        filterable="false">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyNominations"
-                        header="Grammy Nominations"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyAwards"
-                        header="Grammy Awards"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
                         autoGenerate="false"
                         allowFiltering="true"
-                        filterMode="QuickFilter">
-                        <IgrColumn
-                            field="Album"
-                            header="Album"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="LaunchDate"
-                            header="Launch Date"
-                            dataType="Date"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="BillboardReview"
-                            header="Billboard Review"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="USBillboard200"
-                            header="US Billboard 200"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
+                        filterMode="QuickFilter"
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         <IgrRowIsland
                             childDataKey="Songs"
                             autoGenerate="false"
                             allowFiltering="true"
-                            filterMode="QuickFilter">
-                            <IgrColumn
-                                field="Number"
-                                header="No."
-                                dataType="String"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Title"
-                                header="Title"
-                                dataType="String"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Released"
-                                header="Released"
-                                dataType="String"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Genre"
-                                header="Genre"
-                                dataType="String"
-                                resizable="true">
-                            </IgrColumn>
+                            filterMode="QuickFilter"
+                            columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         </IgrRowIsland>
                     </IgrRowIsland>
                     <IgrRowIsland
                         childDataKey="Tours"
                         autoGenerate="false"
                         allowFiltering="true"
-                        filterMode="QuickFilter">
-                        <IgrColumn
-                            field="Tour"
-                            header="Tour"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="StartedOn"
-                            header="Started on"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="Location"
-                            header="Location"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="Headliner"
-                            header="Headliner"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
+                        filterMode="QuickFilter"
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>
             </div>
@@ -177,19 +70,6 @@ export default class Sample extends React.Component<any, any> {
     private _singersData: any[] = SingersData;
     public get singersData(): any[] {
         return this._singersData;
-    }
-
-
-    public webGridBooleanCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        if (props.dataContext.cell.value) {
-            return (
-                <img src="https://static.infragistics.com/xplatform/images/grid/active.png" title="Continued" alt="Continued" />
-            );
-        } else {
-            return (
-                <img src="https://static.infragistics.com/xplatform/images/grid/expired.png" title="Discontinued" alt="Discontinued" />
-            );
-        }
     }
 
 }

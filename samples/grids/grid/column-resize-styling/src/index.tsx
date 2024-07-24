@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 
@@ -37,32 +37,8 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
-                    data={this.athletesData}>
-                    <IgrColumn
-                        field="Id"
-                        header="Rank"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name"
-                        header="Athlete"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="BeatsPerMinute"
-                        header="Beats per Minute"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="TopSpeed"
-                        header="Top Speed"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="TrackProgress"
-                        header="Track Progress"
-                        resizable="true">
-                    </IgrColumn>
+                    data={this.athletesData}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

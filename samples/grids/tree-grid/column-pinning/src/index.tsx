@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinning, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinning } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 
@@ -39,7 +39,8 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.employeesFlatData}
                     primaryKey="ID"
-                    foreignKey="ParentID">
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -49,32 +50,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarPinning>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        pinned="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone"
-                        dataType="String"
-                        pinned="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OnPTO"
-                        dataType="Boolean">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>

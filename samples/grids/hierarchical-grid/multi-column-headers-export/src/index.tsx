@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridToolbarModule, IgrColumnGroupModule, IgrHierarchicalGridModule } from 'igniteui-react-grids';
-import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumnGroup, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
+import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrRowIsland } from 'igniteui-react-grids';
 import MultiColumnsExportData from './MultiColumnsExportData.json';
 import { IgrExporterEventArgs } from 'igniteui-react-grids';
 
@@ -43,6 +43,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     moving="true"
                     allowFiltering="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
                     ref={this.hierarchicalGrid1Ref}>
                     <IgrGridToolbar
                     >
@@ -56,221 +57,16 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumnGroup
-                        header="General Information">
-                        <IgrColumn
-                            field="Company"
-                            dataType="String"
-                            sortable="true"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumnGroup
-                            header="Personal Details">
-                            <IgrColumn
-                                field="ContactName"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="ContactTitle"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
-                    <IgrColumnGroup
-                        header="Address Information">
-                        <IgrColumnGroup
-                            header="Location">
-                            <IgrColumn
-                                field="Address"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="City"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="PostalCode"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Country"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                        <IgrColumnGroup
-                            header="Contact Information">
-                            <IgrColumn
-                                field="Phone"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Fax"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
                     <IgrRowIsland
                         childDataKey="ChildCompanies"
                         autoGenerate="false"
-                        moving="true">
-                        <IgrColumnGroup
-                            header="General Information">
-                            <IgrColumn
-                                field="Company"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumnGroup
-                                header="Personal Details">
-                                <IgrColumn
-                                    field="ContactName"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
-                                </IgrColumn>
-                                <IgrColumn
-                                    field="ContactTitle"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
-                                </IgrColumn>
-                            </IgrColumnGroup>
-                        </IgrColumnGroup>
-                        <IgrColumnGroup
-                            header="Address Information">
-                            <IgrColumnGroup
-                                header="Location">
-                                <IgrColumn
-                                    field="Address"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
-                                </IgrColumn>
-                                <IgrColumn
-                                    field="City"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
-                                </IgrColumn>
-                                <IgrColumn
-                                    field="PostalCode"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
-                                </IgrColumn>
-                                <IgrColumn
-                                    field="Country"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
-                                </IgrColumn>
-                            </IgrColumnGroup>
-                            <IgrColumnGroup
-                                header="Contact Information">
-                                <IgrColumn
-                                    field="Phone"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
-                                </IgrColumn>
-                                <IgrColumn
-                                    field="Fax"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
-                                </IgrColumn>
-                            </IgrColumnGroup>
-                        </IgrColumnGroup>
+                        moving="true"
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         <IgrRowIsland
                             childDataKey="ChildCompanies"
                             autoGenerate="false"
-                            moving="true">
-                            <IgrColumnGroup
-                                header="General Information">
-                                <IgrColumn
-                                    field="Company"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
-                                </IgrColumn>
-                                <IgrColumnGroup
-                                    header="Personal Details">
-                                    <IgrColumn
-                                        field="ContactName"
-                                        dataType="String"
-                                        sortable="true"
-                                        resizable="true">
-                                    </IgrColumn>
-                                    <IgrColumn
-                                        field="ContactTitle"
-                                        dataType="String"
-                                        sortable="true"
-                                        resizable="true">
-                                    </IgrColumn>
-                                </IgrColumnGroup>
-                            </IgrColumnGroup>
-                            <IgrColumnGroup
-                                header="Address Information">
-                                <IgrColumnGroup
-                                    header="Location">
-                                    <IgrColumn
-                                        field="Address"
-                                        dataType="String"
-                                        sortable="true"
-                                        resizable="true">
-                                    </IgrColumn>
-                                    <IgrColumn
-                                        field="City"
-                                        dataType="String"
-                                        sortable="true"
-                                        resizable="true">
-                                    </IgrColumn>
-                                    <IgrColumn
-                                        field="PostalCode"
-                                        dataType="String"
-                                        sortable="true"
-                                        resizable="true">
-                                    </IgrColumn>
-                                    <IgrColumn
-                                        field="Country"
-                                        dataType="String"
-                                        sortable="true"
-                                        resizable="true">
-                                    </IgrColumn>
-                                </IgrColumnGroup>
-                                <IgrColumnGroup
-                                    header="Contact Information">
-                                    <IgrColumn
-                                        field="Phone"
-                                        dataType="String"
-                                        sortable="true"
-                                        resizable="true">
-                                    </IgrColumn>
-                                    <IgrColumn
-                                        field="Fax"
-                                        dataType="String"
-                                        sortable="true"
-                                        resizable="true">
-                                    </IgrColumn>
-                                </IgrColumnGroup>
-                            </IgrColumnGroup>
+                            moving="true"
+                            columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         </IgrRowIsland>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgrRowType } from 'igniteui-react-grids';
 
@@ -41,27 +41,8 @@ export default class Sample extends React.Component<any, any> {
                     moving="true"
                     rowEditable="true"
                     rowClasses={this.webGridRowClassesHandler}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
                     ref={this.treeGrid1Ref}>
-                    <IgrColumn
-                        field="Name"
-                        header="Full Name"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        header="Age"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        header="Title"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        header="Hire Date"
-                        dataType="Date">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>
