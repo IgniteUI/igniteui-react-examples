@@ -289,7 +289,7 @@ function openDialogForRow(e: any, rowData: any) {
         </div>
       </div>
       <div className="container vertical">
-        <IgrGrid ref={gridRef} autoGenerate="false" data={data} rowSelection="multiple" primaryKey="id" displayDensity="cosy" hideGroupedColumns="true"
+        <IgrGrid className="gridSize" ref={gridRef} autoGenerate="false" data={data} rowSelection="multiple" primaryKey="id" hideGroupedColumns="true"
           allowFiltering="true" filterMode="excelStyleFilter" groupingExpressions={groupingExpressions}>
         <IgrGridToolbar>
             <IgrGridToolbarActions>
