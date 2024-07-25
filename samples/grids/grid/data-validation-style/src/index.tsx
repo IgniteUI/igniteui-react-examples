@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 
@@ -36,25 +36,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate="false"
                     data={this.nwindData}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
                     ref={this.grid1Ref}>
-                    <IgrColumn
-                        field="ProductID"
-                        header="Product ID">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ReorderLevel"
-                        header="Reorder Level">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ProductName"
-                        header="Product Name"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitsInStock"
-                        header="Units in Stock"
-                        dataType="Number">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

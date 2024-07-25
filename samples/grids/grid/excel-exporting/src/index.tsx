@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule, IgrGridToolbarModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter } from 'igniteui-react-grids';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 
 import 'igniteui-react-grids/grids/combined';
@@ -60,7 +60,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     groupingExpressions={this.groupingExpression1}
-                    hideGroupedColumns="true">
+                    hideGroupedColumns="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -71,42 +72,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="ShipCountry"
-                        header="Ship Country"
-                        width="150px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipCity"
-                        header="Ship City"
-                        width="150px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipAddress"
-                        header="Ship Address"
-                        width="150px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        header="Postal Code"
-                        width="150px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date"
-                        width="150px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Quantity"
-                        width="150px"
-                        groupable="true">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

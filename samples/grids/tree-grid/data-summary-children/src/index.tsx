@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
@@ -86,33 +86,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
-                    foreignKey="ParentID">
-                    <IgrColumn
-                        field="ID"
-                        header="Order ID"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name"
-                        header="Order Product"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Price"
-                        dataType="Number"
-                        hasSummary="true"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Delivered"
-                        dataType="Boolean">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date">
-                    </IgrColumn>
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

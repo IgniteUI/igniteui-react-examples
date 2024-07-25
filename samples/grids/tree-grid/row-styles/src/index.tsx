@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
@@ -43,35 +43,8 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID"
                     moving="true"
-                    rowStyles={this.webTreeGridRowStylesHandler}>
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        sortable="true"
-                        filterable="true"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        resizable="false"
-                        filterable="false"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String"
-                        resizable="true"
-                        filterable="true"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date"
-                        resizable="true"
-                        filterable="true"
-                        editable="true">
-                    </IgrColumn>
+                    rowStyles={this.webTreeGridRowStylesHandler}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

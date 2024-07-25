@@ -4,7 +4,7 @@ import './index.css';
 
 import { LocalDataItem, LocalData } from './SampleData';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -20,9 +20,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private category: IgrColumn
-    private marketShare: IgrColumn
-    private summary: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -41,25 +38,8 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     ref={this.gridRef}
                     cellSelection="Multiple"
-                    columnSelection="Multiple">
-                    <IgrColumn
-                        name="Category"
-                        field="Category"
-                        header="Category"
-                        selectable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="MarketShare"
-                        field="MarketShare"
-                        header="Market Share"
-                        selectable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="Summary"
-                        field="Summary"
-                        header="Summary"
-                        selectable="false">
-                    </IgrColumn>
+                    columnSelection="Multiple"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

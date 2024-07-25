@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule, IgrGridToolbarModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinning, IgrGridToolbarHiding, IgrGridToolbarExporter, IgrColumn, IgrColumnGroup } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinning, IgrGridToolbarHiding, IgrGridToolbarExporter } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebGridToolbarDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgrExporterEventArgs, IgrGrid } from 'igniteui-react-grids';
@@ -43,7 +43,8 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.employeesFlatDetails}
                     foreignKey="ParentID"
-                    primaryKey="ID">
+                    primaryKey="ID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -62,90 +63,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="ID"
-                        header="ID"
-                        resizable="true"
-                        filterable="false">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name"
-                        header="Name"
-                        resizable="true"
-                        sortable="true"
-                        width="200px">
-                    </IgrColumn>
-                    <IgrColumnGroup
-                        header="General Information">
-                        <IgrColumn
-                            field="HireDate"
-                            header="HireDate"
-                            dataType="Date"
-                            resizable="true"
-                            sortable="true">
-                        </IgrColumn>
-                        <IgrColumnGroup
-                            header="Personal Details">
-                            <IgrColumn
-                                header="Title"
-                                field="Title"
-                                resizable="true"
-                                sortable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                header="Age"
-                                field="Age"
-                                dataType="Number"
-                                resizable="true"
-                                sortable="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
-                    <IgrColumnGroup
-                        header="Address Information">
-                        <IgrColumnGroup
-                            header="Location">
-                            <IgrColumn
-                                header="Country"
-                                field="Country"
-                                resizable="true"
-                                sortable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="City"
-                                header="City"
-                                resizable="true"
-                                sortable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                header="Address"
-                                field="Address"
-                                resizable="true"
-                                sortable="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                        <IgrColumnGroup
-                            header="Contact Information">
-                            <IgrColumn
-                                header="Phone"
-                                field="Phone"
-                                resizable="true"
-                                sortable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                header="Fax"
-                                field="Fax"
-                                resizable="true"
-                                sortable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                header="PostalCode"
-                                field="PostalCode"
-                                resizable="true"
-                                sortable="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
                 </IgrTreeGrid>
             </div>
         </div>

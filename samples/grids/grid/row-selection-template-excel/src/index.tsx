@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrPaginator, IgrPaginatorResourceStrings, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrPaginator, IgrPaginatorResourceStrings } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrRowSelectorTemplateContext, IgrHeadSelectorTemplateContext } from 'igniteui-react-grids';
@@ -56,7 +56,8 @@ export default class Sample extends React.Component<any, any> {
                     displayDensity="Cosy"
                     rowSelection="Multiple"
                     rowSelectorTemplate={this.webGridRowSelectorExcelTemplate}
-                    headSelectorTemplate={this.webGridHeaderRowSelectorExcelTemplate}>
+                    headSelectorTemplate={this.webGridHeaderRowSelectorExcelTemplate}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrPaginator
                         name="paginator"
                         perPage="15"
@@ -64,26 +65,6 @@ export default class Sample extends React.Component<any, any> {
                         selectOptions={[5, 10, 15, 25, 50]}
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
-                    <IgrColumn
-                        field="ContactName"
-                        header="Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country"
-                        header="Country">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City"
-                        header="City">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        header="Postal Code">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Company"
-                        header="Company">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrPaginator } from 'igniteui-react-grids';
 import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
 import { IgrGroupByRowTemplateContext } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
@@ -56,29 +56,11 @@ export default class Sample extends React.Component<any, any> {
                     data={this.invoicesWorldData}
                     rowSelection="Multiple"
                     groupingExpressions={this.groupingExpression1}
-                    groupRowTemplate={this.webGridGroupByRowTemplate}>
+                    groupRowTemplate={this.webGridGroupByRowTemplate}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrPaginator
                         perPage="10">
                     </IgrPaginator>
-                    <IgrColumn
-                        field="ShipCountry"
-                        header="Ship Country"
-                        width="200px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipCity"
-                        header="Ship City"
-                        width="250px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        width="150px"
-                        dataType="Number"
-                        groupable="true">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

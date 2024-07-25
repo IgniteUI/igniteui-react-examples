@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgrGridEditEventArgs, IgrGrid, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
 
@@ -58,23 +58,8 @@ export default class Sample extends React.Component<any, any> {
                     cellEditEnter={this.webGridCellEditEnter}
                     cellEdit={this.webGridCellEdit}
                     cellEditDone={this.webGridCellEditDone}
-                    cellEditExit={this.webGridCellEditExit}>
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        header="Job Title"
-                        dataType="String"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        editable="true">
-                    </IgrColumn>
+                    cellEditExit={this.webGridCellEditExit}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

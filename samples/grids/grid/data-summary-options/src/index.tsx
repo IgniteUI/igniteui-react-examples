@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 import { IgrSummaryResult } from 'igniteui-react-grids';
@@ -22,12 +22,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productID: IgrColumn
-    private productName: IgrColumn
-    private unitPrice: IgrColumn
-    private unitsInStock: IgrColumn
-    private discontinued: IgrColumn
-    private orderDate: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -46,42 +40,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    columnInit={this.webGridCustomSummary}>
-                    <IgrColumn
-                        name="ProductID"
-                        field="ProductID">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="ProductName"
-                        field="ProductName"
-                        header="Product Name"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="UnitPrice"
-                        field="UnitPrice"
-                        header="Unit Price"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="UnitsInStock"
-                        field="UnitsInStock"
-                        header="Units In Stock"
-                        hasSummary="true"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="Discontinued"
-                        field="Discontinued"
-                        header="Discontinued">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="OrderDate"
-                        field="OrderDate"
-                        header="Order Date"
-                        hasSummary="true"
-                        dataType="Date">
-                    </IgrColumn>
+                    columnInit={this.webGridCustomSummary}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

@@ -4,10 +4,9 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
-import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -24,7 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -41,48 +39,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     data={this.customersDataLocal}
                     primaryKey="ID"
-                    cellSelection="None">
-                    <IgrColumn
-                        width="70px"
-                        filterable="false"
-                        pinned="true"
-                        bodyTemplate={this.webGridRowPinCellTemplate}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ID"
-                        width="150px"
-                        hidden="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Company"
-                        header="Company"
-                        width="350px">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactName"
-                        header="Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactTitle"
-                        header="Contact Tiasdsadtle">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        header="Postal Code">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Fax">
-                    </IgrColumn>
+                    cellSelection="None"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>
@@ -105,17 +63,6 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridRowPinCellTemplate = (e: {dataContext: IgrCellTemplateContext}) => {
-        const index = e.dataContext.cell.row.index;
-        return (
-            <span onPointerDown={(e: any) => this.toggleRowPin(index)} style={{ cursor: 'pointer'}}>📌</span>
-        );
-    }
-
-    public toggleRowPin(index: number) {
-        let grid = this.grid;
-        grid.getRowByIndex(index).pinned = !grid.getRowByIndex(index).pinned;
-    }
 }
 
 // rendering above component in the React DOM

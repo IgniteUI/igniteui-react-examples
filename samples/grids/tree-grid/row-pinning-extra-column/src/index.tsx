@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrPinningConfig, RowPinningPosition, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrPinningConfig, RowPinningPosition } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
-import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -33,7 +32,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -54,29 +52,8 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID"
                     cellSelection="None"
-                    pinning={this.pinningConfig1}>
-                    <IgrColumn
-                        width="150px"
-                        filterable="false"
-                        pinned="true"
-                        bodyTemplate={this.webTreeGridRowPinCellTemplate}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name"
-                        header="Full Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date">
-                    </IgrColumn>
+                    pinning={this.pinningConfig1}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>
@@ -102,17 +79,6 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridRowPinCellTemplate = (e: {dataContext: IgrCellTemplateContext}) => {
-        const index = e.dataContext.cell.row.index;
-        return (
-            <span onPointerDown={(e: any) => this.toggleRowPin(index)} style={{ cursor: 'pointer'}}>📌</span>
-        );
-    }
-
-    public toggleRowPin(index: number) {
-        var treeGrid = this.treeGrid;
-        treeGrid.getRowByIndex(index).pinned = !treeGrid.getRowByIndex(index).pinned;
-    }
 }
 
 // rendering above component in the React DOM

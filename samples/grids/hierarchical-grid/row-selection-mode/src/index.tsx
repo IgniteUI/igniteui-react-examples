@@ -6,7 +6,7 @@ import { IgrBadgeModule } from 'igniteui-react';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
+import { IgrHierarchicalGrid, IgrRowIsland } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebHierarchicalGridDescriptionModule } from 'igniteui-react-core';
 import SingersData from './SingersData.json';
 
@@ -71,79 +71,22 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
                     primaryKey="ID"
-                    allowFiltering="true">
-                    <IgrColumn
-                        field="Artist">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Photo"
-                        dataType="Image">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Debut">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyNominations"
-                        header="Grammy Nominations">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyAwards"
-                        header="Grammy Awards">
-                    </IgrColumn>
+                    allowFiltering="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate="false">
-                        <IgrColumn
-                            field="Album">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="LaunchDate"
-                            header="Launch Date"
-                            dataType="Date">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="BillboardReview"
-                            header="Billboard Review">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="USBillboard200"
-                            header="US Billboard 200">
-                        </IgrColumn>
+                        autoGenerate="false"
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         <IgrRowIsland
                             childDataKey="Songs"
-                            autoGenerate="false">
-                            <IgrColumn
-                                field="Number"
-                                header="No.">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Title">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Released"
-                                dataType="Date">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Genre">
-                            </IgrColumn>
+                            autoGenerate="false"
+                            columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         </IgrRowIsland>
                     </IgrRowIsland>
                     <IgrRowIsland
                         childDataKey="Tours"
-                        autoGenerate="false">
-                        <IgrColumn
-                            field="Tour">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="StartedOn"
-                            header="Started on">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="Location">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="Headliner">
-                        </IgrColumn>
+                        autoGenerate="false"
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>
             </div>

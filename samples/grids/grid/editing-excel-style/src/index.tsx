@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 import { IgrGridKeydownEventArgs } from 'igniteui-react-grids';
@@ -40,40 +40,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.nwindData}
                     primaryKey="ProductID"
                     gridKeydown={this.webGridEditingExcelStyle}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
                     ref={this.grid1Ref}>
-                    <IgrColumn
-                        field="ProductID"
-                        header="Product ID"
-                        editable="true"
-                        groupable="true"
-                        hidden="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ProductName"
-                        header="Product Name"
-                        dataType="String"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        dataType="Number"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="QuantityPerUnit"
-                        header="Quantity Per Unit"
-                        groupable="true"
-                        dataType="String"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ReorderLevel"
-                        header="Reorder Level"
-                        dataType="Number"
-                        groupable="true"
-                        editable="true">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

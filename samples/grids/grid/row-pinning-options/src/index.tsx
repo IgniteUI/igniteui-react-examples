@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
+import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
@@ -84,40 +84,8 @@ export default class Sample extends React.Component<any, any> {
                     pinning={this.pinningConfig1}
                     primaryKey="ID"
                     cellSelection="None"
-                    rowEditable="true">
-                    <IgrColumn
-                        field="Company"
-                        header="Company"
-                        width="300px">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactName"
-                        header="Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactTitle"
-                        header="Title">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address"
-                        header="Address">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City"
-                        header="City">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        header="Postal Code">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone"
-                        header="Phone">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Fax"
-                        header="Fax">
-                    </IgrColumn>
+                    rowEditable="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrActionStrip
                         name="actionStrip">
                         <IgrGridPinningActions

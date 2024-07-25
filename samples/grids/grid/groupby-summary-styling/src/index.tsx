@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
+import { IgrGrid, IgrGroupingExpression, SortingDirection } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 
@@ -47,19 +47,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._groupingExpression1;
     }
-    private column1: IgrColumn
-    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
-    public get columnPipeArgs1(): IgrColumnPipeArgs {
-        if (this._columnPipeArgs1 == null)
-        {
-            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
-            columnPipeArgs1.currencyCode = "USD";
-            columnPipeArgs1.digitsInfo = "1.2-2";
-
-            this._columnPipeArgs1 = columnPipeArgs1;
-        }
-        return this._columnPipeArgs1;
-    }
 
     constructor(props: any) {
         super(props);
@@ -96,37 +83,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.invoicesData}
-                    groupingExpressions={this.groupingExpression1}>
-                    <IgrColumn
-                        field="ShipCountry"
-                        header="Ship Country"
-                        width="200px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipCity"
-                        header="Ship City"
-                        width="250px"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        width="150px"
-                        dataType="Currency"
-                        groupable="true"
-                        hasSummary="true"
-                        pipeArgs={this.columnPipeArgs1}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Quantity"
-                        header="Quantity"
-                        width="150px"
-                        dataType="Number"
-                        groupable="true"
-                        hasSummary="true">
-                    </IgrColumn>
+                    groupingExpressions={this.groupingExpression1}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
 import 'igniteui-react-grids/grids/combined';
@@ -36,34 +36,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.customersData}
-                    columnSelection="multiple">
-                    <IgrColumn
-                        field="ID">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Company"
-                        header="Company">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactTitle"
-                        header="Title"
-                        selectable="false">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City"
-                        selectable="false">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        header="Postal Code">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address"
-                        selectable="false">
-                    </IgrColumn>
+                    columnSelection="multiple"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

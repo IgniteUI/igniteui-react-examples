@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 import { IgrRowSelectionEventArgs, IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
 
@@ -57,22 +57,8 @@ export default class Sample extends React.Component<any, any> {
                     cellEditEnter={this.webGridCellEditEnter}
                     cellEdit={this.webGridCellEdit}
                     cellEditDone={this.webGridCellEditDone}
-                    cellEditExit={this.webGridCellEditExit}>
-                    <IgrColumn
-                        field="ProductName"
-                        header="Product Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitsInStock"
-                        header="Units In Stock">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Ordered">
-                    </IgrColumn>
+                    cellEditExit={this.webGridCellEditExit}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

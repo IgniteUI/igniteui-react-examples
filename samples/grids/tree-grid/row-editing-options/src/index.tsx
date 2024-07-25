@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 
@@ -42,41 +42,8 @@ export default class Sample extends React.Component<any, any> {
                     foreignKey="ParentID"
                     moving="true"
                     rowEditable="true"
-                    rowSelection="Multiple">
-                    <IgrColumn
-                        field="Name"
-                        header="Full Name"
-                        dataType="String"
-                        resizable="true"
-                        sortable="true"
-                        filterable="true"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        resizable="false"
-                        sortable="false"
-                        filterable="false"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String"
-                        resizable="true"
-                        sortable="true"
-                        filterable="true"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        header="Hire Date"
-                        dataType="Date"
-                        resizable="true"
-                        sortable="true"
-                        filterable="true"
-                        editable="true">
-                    </IgrColumn>
+                    rowSelection="Multiple"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrSortingExpression, SortingDirection, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
+import { IgrGrid, IgrSortingExpression, SortingDirection } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { ProductSalesItem, ProductSales } from './ProductSales';
 
@@ -36,19 +36,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._sortingExpression1;
     }
-    private column1: IgrColumn
-    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
-    public get columnPipeArgs1(): IgrColumnPipeArgs {
-        if (this._columnPipeArgs1 == null)
-        {
-            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
-            columnPipeArgs1.currencyCode = "USD";
-            columnPipeArgs1.digitsInfo = "1.2-2";
-
-            this._columnPipeArgs1 = columnPipeArgs1;
-        }
-        return this._columnPipeArgs1;
-    }
 
     constructor(props: any) {
         super(props);
@@ -66,44 +53,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.productSales}
                     ref={this.gridRef}
                     id="grid"
-                    sortingExpressions={this.sortingExpression1}>
-                    <IgrColumn
-                        field="OrderID"
-                        header="Order ID"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Category"
-                        header="Category Name"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Company"
-                        header="Company"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipCountry"
-                        header="Ship Country"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="SaleAmount"
-                        header="Sale Amount"
-                        dataType="Currency"
-                        sortable="true"
-                        pipeArgs={this.columnPipeArgs1}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShippedDate"
-                        header="Shipped Date"
-                        dataType="Date"
-                        sortable="true">
-                    </IgrColumn>
+                    sortingExpressions={this.sortingExpression1}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

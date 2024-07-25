@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarPinning, IgrGridToolbarHiding, IgrColumnLayout, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarPinning, IgrGridToolbarHiding } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
@@ -55,7 +55,8 @@ export default class Sample extends React.Component<any, any> {
                     allowFiltering="true"
                     filterMode="ExcelStyleFilter"
                     primaryKey="Company"
-                    groupingExpressions={this.groupingExpression1}>
+                    groupingExpressions={this.groupingExpression1}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarTitle
@@ -71,112 +72,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarHiding>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumnLayout
-                        header="ID">
-                        <IgrColumn
-                            field="ID"
-                            rowStart="1"
-                            colStart="1"
-                            rowEnd="3"
-                            filterable="false"
-                            width="150px">
-                        </IgrColumn>
-                    </IgrColumnLayout>
-                    <IgrColumnLayout
-                        pinned="true"
-                        header="Contact Details">
-                        <IgrColumn
-                            field="Company"
-                            header="Company"
-                            rowStart="1"
-                            colStart="1"
-                            colEnd="3"
-                            sortable="true"
-                            width="350px">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="ContactName"
-                            header="Name"
-                            rowStart="2"
-                            colStart="1"
-                            colEnd="2"
-                            groupable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="ContactTitle"
-                            header="Title"
-                            rowStart="2"
-                            colStart="2"
-                            colEnd="3"
-                            groupable="true">
-                        </IgrColumn>
-                    </IgrColumnLayout>
-                    <IgrColumnLayout
-                        pinned="false"
-                        header="Address Details">
-                        <IgrColumn
-                            field="Country"
-                            rowStart="1"
-                            colStart="1"
-                            colEnd="3"
-                            groupable="true"
-                            filterable="false"
-                            width="220px">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="Region"
-                            rowStart="1"
-                            colStart="3"
-                            colEnd="5"
-                            groupable="true"
-                            filterable="false"
-                            width="220px">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="PostalCode"
-                            rowStart="1"
-                            colStart="5"
-                            colEnd="7"
-                            groupable="true"
-                            filterable="false"
-                            width="220px">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="City"
-                            rowStart="2"
-                            colStart="1"
-                            colEnd="4"
-                            groupable="true"
-                            filterable="false"
-                            width="220px">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="Address"
-                            rowStart="2"
-                            colStart="4"
-                            colEnd="7"
-                            filterable="false">
-                        </IgrColumn>
-                    </IgrColumnLayout>
-                    <IgrColumnLayout
-                        header="Phone Details">
-                        <IgrColumn
-                            field="Phone"
-                            rowStart="1"
-                            colStart="1"
-                            colEnd="2"
-                            filterable="false"
-                            width="220px">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="Fax"
-                            rowStart="2"
-                            colStart="1"
-                            colEnd="2"
-                            filterable="false"
-                            width="220px">
-                        </IgrColumn>
-                    </IgrColumnLayout>
                 </IgrGrid>
             </div>
         </div>

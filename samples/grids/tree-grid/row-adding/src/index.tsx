@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule, IgrActionStripModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrActionStrip, IgrGridEditingActions, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrActionStrip, IgrGridEditingActions } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule, WebActionStripDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 
@@ -41,7 +41,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    rowEditable="true">
+                    rowEditable="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrActionStrip
                     >
                         <IgrGridEditingActions
@@ -49,40 +50,6 @@ export default class Sample extends React.Component<any, any> {
                             addChild="true">
                         </IgrGridEditingActions>
                     </IgrActionStrip>
-                    <IgrColumn
-                        field="Name"
-                        header="Full Name"
-                        dataType="String"
-                        resizable="true"
-                        sortable="true"
-                        filterable="true"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        resizable="false"
-                        sortable="false"
-                        filterable="false"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String"
-                        resizable="true"
-                        sortable="true"
-                        filterable="true"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        header="Hire Date"
-                        dataType="Date"
-                        resizable="true"
-                        sortable="true"
-                        filterable="true"
-                        editable="true">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>

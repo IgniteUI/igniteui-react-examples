@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule, IgrPaginatorModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrPaginator } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 
@@ -40,54 +40,11 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ProductID"
                     displayDensity="Cosy"
                     allowFiltering="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
                     ref={this.grid1Ref}>
                     <IgrPaginator
                         perPage="10">
                     </IgrPaginator>
-                    <IgrColumn
-                        field="ProductName"
-                        header="Product Name"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitsInStock"
-                        header="Units in Stock"
-                        dataType="Number"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Discontinued"
-                        header="Discontinued"
-                        dataType="Boolean"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ReorderLevel"
-                        header="Reorder Level"
-                        dataType="Number"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        filterable="false">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

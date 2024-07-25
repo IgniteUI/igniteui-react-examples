@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule, IgrActionStripModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrPinningConfig, RowPinningPosition, IgrColumn, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrPinningConfig, RowPinningPosition, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule, WebActionStripDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 import { IgrGrid } from 'igniteui-react-grids';
@@ -58,22 +58,8 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID"
                     cellSelection="None"
-                    pinning={this.pinningConfig1}>
-                    <IgrColumn
-                        field="Name"
-                        header="Full Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date">
-                    </IgrColumn>
+                    pinning={this.pinningConfig1}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrActionStrip
                         name="actionStrip">
                         <IgrGridPinningActions

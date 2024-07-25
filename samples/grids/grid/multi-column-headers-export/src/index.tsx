@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule, IgrGridToolbarModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding, IgrGridToolbarPinning, IgrGridToolbarExporter, IgrColumn, IgrColumnGroup } from 'igniteui-react-grids';
+import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding, IgrGridToolbarPinning, IgrGridToolbarExporter } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebGridToolbarDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrExporterEventArgs } from 'igniteui-react-grids';
@@ -24,22 +24,6 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private gridToolbarExporter1: IgrGridToolbarExporter
-    private iD: IgrColumn
-    private generalInformation: IgrColumnGroup
-    private company: IgrColumn
-    private personalDetails: IgrColumnGroup
-    private contactName: IgrColumn
-    private contactTitle: IgrColumn
-    private addressInformation: IgrColumnGroup
-    private location: IgrColumnGroup
-    private country: IgrColumn
-    private region: IgrColumn
-    private city: IgrColumn
-    private address: IgrColumn
-    private contactInformation: IgrColumnGroup
-    private phone: IgrColumn
-    private fax: IgrColumn
-    private postalCode: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -59,7 +43,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.customersData}
                     moving="true"
                     displayDensity="Compact"
-                    allowFiltering="true">
+                    allowFiltering="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -78,87 +63,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        name="ID"
-                        field="ID"
-                        header="ID"
-                        resizable="true"
-                        filterable="false">
-                    </IgrColumn>
-                    <IgrColumnGroup
-                        name="GeneralInformation"
-                        header="General Information"
-                        collapsible="true">
-                        <IgrColumn
-                            name="Company"
-                            field="Company"
-                            visibleWhenCollapsed="true">
-                        </IgrColumn>
-                        <IgrColumnGroup
-                            name="PersonalDetails"
-                            header="Personal Details"
-                            collapsible="true"
-                            visibleWhenCollapsed="false">
-                            <IgrColumn
-                                name="ContactName"
-                                field="ContactName">
-                            </IgrColumn>
-                            <IgrColumn
-                                name="ContactTitle"
-                                field="ContactTitle">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
-                    <IgrColumnGroup
-                        name="AddressInformation"
-                        header="Address Information">
-                        <IgrColumnGroup
-                            name="Location"
-                            header="Location"
-                            collapsible="true"
-                            visibleWhenCollapsed="true">
-                            <IgrColumn
-                                name="Country"
-                                field="Country"
-                                visibleWhenCollapsed="true"
-                                hidden="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                name="Region"
-                                field="Region"
-                                visibleWhenCollapsed="false"
-                                hidden="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                name="City"
-                                field="City"
-                                visibleWhenCollapsed="false"
-                                hidden="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                name="Address"
-                                field="Address"
-                                visibleWhenCollapsed="false"
-                                hidden="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                        <IgrColumnGroup
-                            name="ContactInformation"
-                            header="Contact Information">
-                            <IgrColumn
-                                name="Phone"
-                                field="Phone">
-                            </IgrColumn>
-                            <IgrColumn
-                                name="Fax"
-                                field="Fax">
-                            </IgrColumn>
-                            <IgrColumn
-                                name="PostalCode"
-                                field="PostalCode">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
                 </IgrGrid>
             </div>
         </div>

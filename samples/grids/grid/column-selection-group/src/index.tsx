@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule, IgrColumnGroupModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumnGroup, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
 import 'igniteui-react-grids/grids/combined';
@@ -37,57 +37,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.customersData}
-                    columnSelection="Multiple">
-                    <IgrColumnGroup
-                        header="General Information">
-                        <IgrColumn
-                            field="Company"
-                            header="Company">
-                        </IgrColumn>
-                        <IgrColumnGroup
-                            header="Personal Details">
-                            <IgrColumn
-                                field="ContactName"
-                                header="Name"
-                                hidden="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="ContactTitle"
-                                header="Title"
-                                selectable="false">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
-                    <IgrColumn
-                        field="ID">
-                    </IgrColumn>
-                    <IgrColumnGroup
-                        header="Country Information">
-                        <IgrColumnGroup
-                            header="Region Information">
-                            <IgrColumn
-                                field="Country"
-                                selectable="false">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="City">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="PostalCode">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                        <IgrColumnGroup
-                            header="City Information">
-                            <IgrColumn
-                                field="Fax"
-                                selectable="false">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Address"
-                                selectable="false">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
+                    columnSelection="Multiple"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

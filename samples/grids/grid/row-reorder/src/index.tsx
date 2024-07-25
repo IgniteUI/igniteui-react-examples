@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrRowDragEndEventArgs } from 'igniteui-react-grids';
@@ -42,40 +42,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.customersData}
                     rowDraggable="true"
                     primaryKey="ID"
-                    rowDragEnd={this.webGridReorderRowHandler}>
-                    <IgrColumn
-                        field="ID"
-                        header="ID">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Company"
-                        header="Company">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactName"
-                        header="Name"
-                        minWidth="60px"
-                        maxWidth="230px">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactTitle"
-                        header="Title">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Fax">
-                    </IgrColumn>
+                    rowDragEnd={this.webGridReorderRowHandler}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

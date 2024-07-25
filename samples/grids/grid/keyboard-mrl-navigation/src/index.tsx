@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule, IgrColumnLayoutModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumnLayout, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebColumnLayoutDescriptionModule } from 'igniteui-react-core';
 import { CompanyDataItem, CompanyData } from './CompanyData';
 import { IgrGridKeydownEventArgs } from 'igniteui-react-grids';
@@ -23,21 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private companyInfo: IgrColumnLayout
-    private company: IgrColumn
-    private country: IgrColumn
-    private city: IgrColumn
-    private address: IgrColumn
-    private sales: IgrColumnLayout
-    private lifetimeSales: IgrColumn
-    private quarterly: IgrColumn
-    private yearly: IgrColumn
-    private marketPotentialInfo: IgrColumnLayout
-    private marketPotential: IgrColumn
-    private assets: IgrColumnLayout
-    private assetsCash: IgrColumn
-    private accountsReceivable: IgrColumn
-    private assetsBooks: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -57,108 +42,8 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     data={this.companyData}
                     displayDensity="Cosy"
-                    gridKeydown={this.webGridMRLCustomNavigationEvent}>
-                    <IgrColumnLayout
-                        name="CompanyInfo"
-                        header="Company">
-                        <IgrColumn
-                            name="Company"
-                            field="Company"
-                            header="Company"
-                            rowStart="1"
-                            colStart="1"
-                            colEnd="3">
-                        </IgrColumn>
-                        <IgrColumn
-                            name="Country"
-                            field="Country"
-                            header="Country"
-                            rowStart="2"
-                            colStart="1">
-                        </IgrColumn>
-                        <IgrColumn
-                            name="City"
-                            field="City"
-                            header="City"
-                            rowStart="2"
-                            colStart="2">
-                        </IgrColumn>
-                        <IgrColumn
-                            name="Address"
-                            field="Address"
-                            header="Address"
-                            rowStart="3"
-                            colStart="1"
-                            colEnd="3">
-                        </IgrColumn>
-                    </IgrColumnLayout>
-                    <IgrColumnLayout
-                        name="Sales"
-                        header="Sales">
-                        <IgrColumn
-                            name="LifetimeSales"
-                            field="LifetimeSales"
-                            header="Lifetime Sales"
-                            rowStart="1"
-                            rowEnd="3"
-                            colStart="1"
-                            colEnd="3">
-                        </IgrColumn>
-                        <IgrColumn
-                            name="Quarterly"
-                            field="QuarterlySales"
-                            header="Quarterly"
-                            rowStart="3"
-                            colStart="1">
-                        </IgrColumn>
-                        <IgrColumn
-                            name="Yearly"
-                            field="YearlySales"
-                            header="Yearly"
-                            rowStart="3"
-                            colStart="2">
-                        </IgrColumn>
-                    </IgrColumnLayout>
-                    <IgrColumnLayout
-                        name="MarketPotentialInfo"
-                        header="Market Potential">
-                        <IgrColumn
-                            name="MarketPotential"
-                            field="MarketPotential"
-                            header="Market Potential"
-                            rowStart="1"
-                            rowEnd="4"
-                            colStart="1">
-                        </IgrColumn>
-                    </IgrColumnLayout>
-                    <IgrColumnLayout
-                        name="Assets"
-                        header="Assets">
-                        <IgrColumn
-                            name="AssetsCash"
-                            field="AssetsCash"
-                            header="Assets Cash"
-                            rowStart="1"
-                            colStart="1">
-                        </IgrColumn>
-                        <IgrColumn
-                            name="AccountsReceivable"
-                            field="AccountsReceivable"
-                            header="Accounts Receivable"
-                            rowStart="1"
-                            colStart="2"
-                            colEnd="4">
-                        </IgrColumn>
-                        <IgrColumn
-                            name="AssetsBooks"
-                            field="AssetsBooks"
-                            header="Assets Books"
-                            rowStart="2"
-                            rowEnd="4"
-                            colStart="1"
-                            colEnd="4">
-                        </IgrColumn>
-                    </IgrColumnLayout>
+                    gridKeydown={this.webGridMRLCustomNavigationEvent}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

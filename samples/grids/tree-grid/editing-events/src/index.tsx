@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 import { IgrGrid, IgrGridEditEventArgs } from 'igniteui-react-grids';
@@ -42,25 +42,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
                     cellEdit={this.webTreeGridCellEdit}
-                    foreignKey="ParentID">
-                    <IgrColumn
-                        field="Name"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date"
-                        editable="true">
-                    </IgrColumn>
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>
