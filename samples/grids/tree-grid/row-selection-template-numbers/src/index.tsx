@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgrRowSelectorTemplateContext, IgrHeadSelectorTemplateContext } from 'igniteui-react-grids';
 import { IgrCheckbox } from 'igniteui-react';
@@ -45,27 +45,8 @@ export default class Sample extends React.Component<any, any> {
                     rowSelectorTemplate={this.webGridRowSelectorTemplate}
                     headSelectorTemplate={this.webGridHeaderRowSelectorTemplate}
                     cellSelection="None"
-                    hideRowSelectors="false">
-                    <IgrColumn
-                        field="Name"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        header="Job Title">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OnPTO"
-                        dataType="Boolean">
-                    </IgrColumn>
+                    hideRowSelectors="false"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

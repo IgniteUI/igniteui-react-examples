@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 
@@ -64,34 +64,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate="false"
                     ref={this.gridRef}
-                    data={this.nwindData}>
-                    <IgrColumn
-                        field="ProductID"
-                        header="Product ID">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ProductName"
-                        header="Product Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitsInStock"
-                        header="Units In Stock"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Units Price"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Discontinued"
-                        dataType="Boolean">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date">
-                    </IgrColumn>
+                    data={this.nwindData}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

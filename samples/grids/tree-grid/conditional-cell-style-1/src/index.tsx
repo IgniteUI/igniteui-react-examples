@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 
 import 'igniteui-react-grids/grids/combined';
@@ -20,8 +20,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -39,47 +37,8 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.ordersTreeData}
                     primaryKey="ID"
-                    foreignKey="ParentID">
-                    <IgrColumn
-                        field="ID"
-                        header="Order ID"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name"
-                        header="Order Product"
-                        dataType="String"
-                        cellClasses={this.webTreeGridAllergensCellClassesHandler}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Category"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Units"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        dataType="Currency"
-                        cellClasses={this.webTreeGridUnitPriceCellClassesHandler}
-                        name="column2">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Price"
-                        dataType="Currency">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Delivered"
-                        dataType="Boolean">
-                    </IgrColumn>
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>
@@ -93,18 +52,6 @@ export default class Sample extends React.Component<any, any> {
             this._ordersTreeData = new OrdersTreeData();
         }
         return this._ordersTreeData;
-    }
-
-
-    public allergenItems = ['Frozen Shrimps', 'Wild Salmon Fillets', 'Fresh Cheese', 'Skimmed Milk 1L', 'Butter'];
-
-    public webTreeGridAllergensCellClassesHandler = {
-        allergensFont: (rowData: any, columnKey: any): boolean => this.allergenItems.indexOf(rowData[columnKey]) >= 0,
-    }
-
-    public webTreeGridUnitPriceCellClassesHandler = {
-        downPrice: (rowData: any, columnKey: any): boolean => rowData[columnKey] <= 5,
-        upPrice: (rowData: any, columnKey: any): boolean => rowData[columnKey] > 5,
     }
 
 }

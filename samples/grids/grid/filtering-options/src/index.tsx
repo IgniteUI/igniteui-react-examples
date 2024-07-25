@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 
@@ -23,11 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productName: IgrColumn
-    private quantityPerUnit: IgrColumn
-    private unitPrice: IgrColumn
-    private orderDate: IgrColumn
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -46,35 +41,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.nwindData}
                     moving="true"
                     allowFiltering="true"
-                    filterMode="QuickFilter">
-                    <IgrColumn
-                        name="ProductName"
-                        field="ProductName"
-                        header="Product Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="QuantityPerUnit"
-                        field="QuantityPerUnit"
-                        header="Quantity Per Unit">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="UnitPrice"
-                        field="UnitPrice"
-                        header="Unit Price"
-                        dataType="Currency">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="OrderDate"
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="Discontinued"
-                        field="Discontinued"
-                        header="Discontinued"
-                        dataType="Boolean">
-                    </IgrColumn>
+                    filterMode="QuickFilter"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

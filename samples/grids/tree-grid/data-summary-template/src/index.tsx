@@ -5,11 +5,10 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
-import { IgrSummaryTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -35,7 +34,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -83,31 +81,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
-                    foreignKey="ParentID">
-                    <IgrColumn
-                        field="Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        hasSummary="true"
-                        summaryTemplate={this.webTreeGridSummaryTemplate}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OnPTO"
-                        dataType="Boolean"
-                        editable="true"
-                        hasSummary="true">
-                    </IgrColumn>
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>
@@ -144,18 +119,6 @@ export default class Sample extends React.Component<any, any> {
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
         column3.hasSummary = newValue;
-    }
-
-    public webTreeGridSummaryTemplate = (e: { dataContext: IgrSummaryTemplateContext }) => {
-        const summaryResults = e.dataContext.implicit;
-        return (
-            <div className="summary-temp">
-                <span><strong>{summaryResults[0].label}</strong><span>{(summaryResults[0] as any).summaryResult}</span></span>
-                <span><strong>{summaryResults[1].label}</strong><span>{(summaryResults[1] as any).summaryResult}</span></span>
-                <span><strong>{summaryResults[2].label}</strong><span>{(summaryResults[2] as any).summaryResult}</span></span>
-                <span><strong>{summaryResults[3].label}</strong><span>{(summaryResults[3] as any).summaryResult}</span></span>
-            </div>
-        );
     }
 
 }

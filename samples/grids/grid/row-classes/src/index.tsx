@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 import { IgrRowType } from 'igniteui-react-grids';
 
@@ -21,12 +21,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid1 = r;
         this.setState({});
     }
-    private productID: IgrColumn
-    private productName: IgrColumn
-    private unitsInStock: IgrColumn
-    private unitPrice: IgrColumn
-    private discontinued: IgrColumn
-    private orderDate: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -43,41 +37,8 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     data={this.nwindData}
                     rowClasses={this.webGridRowClassesHandler}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
                     ref={this.grid1Ref}>
-                    <IgrColumn
-                        name="ProductID"
-                        field="ProductID"
-                        header="Product ID">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="ProductName"
-                        field="ProductName"
-                        header="Product Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="UnitsInStock"
-                        field="UnitsInStock"
-                        header="Units In Stock"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="UnitPrice"
-                        field="UnitPrice"
-                        header="Unit Price"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="Discontinued"
-                        field="Discontinued"
-                        header="Discontinued"
-                        dataType="Boolean">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="OrderDate"
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

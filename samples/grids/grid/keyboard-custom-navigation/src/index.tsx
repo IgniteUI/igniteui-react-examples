@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 import { IgrGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-react-grids';
@@ -24,12 +24,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productID: IgrColumn
-    private reorderLevel: IgrColumn
-    private productName: IgrColumn
-    private unitsInStock: IgrColumn
-    private orderDate: IgrColumn
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -51,39 +45,8 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ProductID"
                     displayDensity="Cosy"
                     rowEditable="true"
-                    gridKeydown={this.webGridCustomKBNav}>
-                    <IgrColumn
-                        name="ProductID"
-                        field="ProductID"
-                        header="Product ID">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="ReorderLevel"
-                        field="ReorderLevel"
-                        header="Reorder Level"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="ProductName"
-                        field="ProductName"
-                        header="Product Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="UnitsInStock"
-                        field="UnitsInStock"
-                        header="Units In Stock"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="OrderDate"
-                        field="OrderDate"
-                        header="Order Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="Discontinued"
-                        field="Discontinued"
-                        header="Discontinued">
-                    </IgrColumn>
+                    gridKeydown={this.webGridCustomKBNav}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

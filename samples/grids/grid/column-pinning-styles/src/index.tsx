@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinning, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinning } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
 import 'igniteui-react-grids/grids/combined';
@@ -36,7 +36,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.customersData}
-                    columnSelection="Single">
+                    columnSelection="Single"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -46,38 +47,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarPinning>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="ID"
-                        hidden="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Company"
-                        header="Company"
-                        pinned="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactName"
-                        header="Contact Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactTitle"
-                        header="Contact Title">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Region">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Fax">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

@@ -5,7 +5,7 @@ import './index.css';
 import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule, PropertyEditorPanelDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 
@@ -74,38 +74,8 @@ export default class Sample extends React.Component<any, any> {
                     foreignKey="ParentID"
                     cellSelection="None"
                     allowFiltering="true"
-                    hideRowSelectors="false">
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        header="Job Title"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ID"
-                        dataType="Number"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OnPTO"
-                        dataType="Boolean"
-                        sortable="true">
-                    </IgrColumn>
+                    hideRowSelectors="false"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

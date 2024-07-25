@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule, IgrGridToolbarModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter } from 'igniteui-react-grids';
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
 
 import 'igniteui-react-grids/grids/combined';
@@ -38,7 +38,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesNestedData}
-                    childDataKey="Employees">
+                    childDataKey="Employees"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -49,36 +50,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="ID"
-                        header="ID"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name"
-                        header="Name"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        header="Hire Date"
-                        dataType="Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        header="Age"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="salary"
-                        header="Salary"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="productivity"
-                        header="Productivity"
-                        dataType="Number">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>

@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrTreeGrid, IgrPaginator, IgrPaginatorResourceStrings, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrPaginator, IgrPaginatorResourceStrings } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 
@@ -78,50 +78,14 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    displayDensity="Cosy">
+                    displayDensity="Cosy"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrPaginator
                         name="paginator"
                         perPage="10"
                         displayDensity="Cosy"
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
-                    <IgrColumn
-                        field="ID"
-                        header="Order ID">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name"
-                        header="Order Product">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Category"
-                        header="Category">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Units"
-                        header="Units"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Price"
-                        header="Price"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Delivered"
-                        header="Delivered"
-                        dataType="Boolean">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>

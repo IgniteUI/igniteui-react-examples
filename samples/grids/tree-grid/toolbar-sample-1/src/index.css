@@ -1,9 +1,2 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
-.cell__inner {
-    display: flex;
-    align-items: center;
-}
-.name {
-    margin-left: 30px;
-}

@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
+import { IgrHierarchicalGrid, IgrRowIsland } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebHierarchicalGridDescriptionModule } from 'igniteui-react-core';
 import SingersData from './SingersData.json';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
@@ -78,58 +78,13 @@ export default class Sample extends React.Component<any, any> {
                     data={this.singersData}
                     primaryKey="ID"
                     id="hierarchicalGrid"
-                    ref={this.hierarchicalGridRef}>
-                    <IgrColumn
-                        field="Artist"
-                        header="Artist"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HasGrammyAward"
-                        header="Has Grammy Award"
-                        dataType="Boolean">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Debut"
-                        header="Debut"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyNominations"
-                        header="Grammy Nominations"
-                        dataType="Number"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyAwards"
-                        header="Grammy Awards"
-                        dataType="Number"
-                        hasSummary="true">
-                    </IgrColumn>
+                    ref={this.hierarchicalGridRef}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrRowIsland
                         childDataKey="Albums"
                         autoGenerate="false"
-                        name="rowIsland">
-                        <IgrColumn
-                            field="Album"
-                            header="Album"
-                            dataType="String">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="LaunchDate"
-                            header="Launch Date"
-                            dataType="Date">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="BillboardReview"
-                            header="Billboard Review"
-                            dataType="String">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="USBillboard200"
-                            header="US Billboard 200"
-                            dataType="String">
-                        </IgrColumn>
+                        name="rowIsland"
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>
             </div>

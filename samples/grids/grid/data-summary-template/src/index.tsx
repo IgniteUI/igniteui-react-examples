@@ -5,11 +5,10 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
-import { IgrSummaryTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -35,8 +34,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -81,56 +78,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate="false"
                     ref={this.gridRef}
-                    data={this.nwindData}>
-                    <IgrColumn
-                        field="ProductID"
-                        header="Product ID"
-                        width="10%"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ProductName"
-                        header="Product Name"
-                        width="17%"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Price"
-                        filterable="false"
-                        width="17%"
-                        editable="true"
-                        dataType="Number"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitsInStock"
-                        header="Units in Stock"
-                        width="21%"
-                        dataType="Number"
-                        editable="true"
-                        groupable="true"
-                        hasSummary="true"
-                        summaries={this.discontinuedSummary}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Discontinued"
-                        header="Discontinued"
-                        editable="true"
-                        width="17%"
-                        dataType="Boolean"
-                        groupable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        width="18%"
-                        dataType="Date"
-                        groupable="true"
-                        hasSummary="true"
-                        summaryTemplate={this.webGridOrderDateSummaryTemplate}
-                        name="column2">
-                    </IgrColumn>
+                    data={this.nwindData}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>
@@ -167,45 +116,6 @@ export default class Sample extends React.Component<any, any> {
         column2.hasSummary = newValue;
     }
 
-    public webGridOrderDateSummaryTemplate = (e: { dataContext: IgrSummaryTemplateContext }) => {
-        const summaryResults = e.dataContext.implicit;
-        return (
-            <div className="summary-temp">
-                <span><strong>{ summaryResults[0].label }</strong><span>{ (summaryResults[0] as any).summaryResult }</span></span>
-                <span><strong>{ summaryResults[1].label }</strong><span>{ (summaryResults[1] as any).summaryResult }</span></span>
-            </div>
-        );
-    }
-
-    private discontinuedSummary = {
-        sum(data: any[] = []): number {
-            return data.length && data.filter((el) => el === 0 || Boolean(el)).length ? data.filter((el) => el === 0 || Boolean(el)).reduce((a, b) => +a + +b) : 0;
-        },
-        operate(data?: any[], allData: any[] = [], fieldName = ''): any[] {
-            const result = [] as any[];
-            result.push({
-                key: 'products',
-                label: 'Producs',
-                summaryResult: data?.length
-            });
-            result.push({
-                key: 'total',
-                label: 'Total Items',
-                summaryResult: this.sum(data)
-            });
-            result.push({
-                key: 'discontinued',
-                label: 'Discontinued Producs',
-                summaryResult: allData.map(r => r['Discontinued']).filter((rec) => rec).length
-            } );
-            result.push({
-                key: 'totalDiscontinued',
-                label: 'Total Discontinued Items',
-                summaryResult: this.sum(allData.filter((rec) => rec['Discontinued']).map(r => r[fieldName]))
-            } );
-            return result;
-        }
-    }
 }
 
 // rendering above component in the React DOM

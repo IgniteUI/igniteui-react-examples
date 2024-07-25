@@ -5,11 +5,10 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
+import { IgrHierarchicalGrid, IgrRowIsland } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebHierarchicalGridDescriptionModule } from 'igniteui-react-core';
 import SingersData from './SingersData.json';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
-import { IgrSummaryTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -35,10 +34,6 @@ export default class Sample extends React.Component<any, any> {
         this.hierarchicalGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
-    private column4: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -85,96 +80,16 @@ export default class Sample extends React.Component<any, any> {
                     data={this.singersData}
                     ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
-                    primaryKey="ID">
-                    <IgrColumn
-                        field="Artist"
-                        header="Artist"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Photo"
-                        header="Photo"
-                        dataType="Image"
-                        hasSummary="true"
-                        summaries={this.singerSummary}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Debut"
-                        header="Debut">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyNominations"
-                        header="Grammy Nominations"
-                        dataType="Number"
-                        hasSummary="true"
-                        summaryTemplate={this.webHierarchicalGridSummaryTemplateStyle}
-                        name="column2">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyAwards"
-                        header="Grammy Awards"
-                        dataType="Number"
-                        hasSummary="true"
-                        summaryTemplate={this.webHierarchicalGridSummaryTemplate}
-                        name="column3">
-                    </IgrColumn>
+                    primaryKey="ID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate="false">
-                        <IgrColumn
-                            field="Album"
-                            header="Album"
-                            dataType="String"
-                            hasSummary="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="LaunchDate"
-                            header="Launch Date"
-                            dataType="Date"
-                            hasSummary="true"
-                            summaryTemplate={this.webRowIslandGridSummaryTemplateStyle}
-                            name="column4">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="BillboardReview"
-                            header="Billboard Review"
-                            dataType="Number"
-                            hasSummary="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="USBillboard200"
-                            header="US Billboard 200"
-                            dataType="Number"
-                            hasSummary="true">
-                        </IgrColumn>
+                        autoGenerate="false"
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         <IgrRowIsland
                             childDataKey="Songs"
-                            autoGenerate="false">
-                            <IgrColumn
-                                field="Number"
-                                header="No."
-                                dataType="String"
-                                hasSummary="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Title"
-                                header="Title"
-                                dataType="String"
-                                hasSummary="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Released"
-                                header="Released"
-                                dataType="Date"
-                                hasSummary="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Genre"
-                                header="Genre"
-                                dataType="String"
-                                hasSummary="true">
-                            </IgrColumn>
+                            autoGenerate="false"
+                            columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         </IgrRowIsland>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>
@@ -211,67 +126,6 @@ export default class Sample extends React.Component<any, any> {
         column3.hasSummary = newValue;
     }
 
-    public webHierarchicalGridSummaryTemplateStyle = (e: { dataContext: IgrSummaryTemplateContext }) => {
-        const summaryResults = e.dataContext.implicit;
-        return (
-            <div className="summary-temp">
-                <span><strong>{ summaryResults[0].label }</strong><span>{ (summaryResults[0] as any).summaryResult }</span></span>
-                <span><strong>{ summaryResults[1].label }</strong><span>{ (summaryResults[1] as any).summaryResult }</span></span>
-                <span><strong>{ summaryResults[2].label }</strong><span>{ (summaryResults[2] as any).summaryResult }</span></span>
-            </div>
-        );
-    }
-
-    public webHierarchicalGridSummaryTemplate = (e: { dataContext: IgrSummaryTemplateContext }) => {
-        const summaryResults = e.dataContext.implicit;
-        return (
-            <div className="summary-temp">
-                <span>{ summaryResults[0].label }<span>{ (summaryResults[0] as any).summaryResult }</span></span>
-                <span>{ summaryResults[1].label }<span>{ (summaryResults[1] as any).summaryResult }</span></span>
-                <span>{ summaryResults[2].label }<span>{ (summaryResults[2] as any).summaryResult }</span></span>
-            </div>
-        );
-    }
-
-    public webRowIslandGridSummaryTemplateStyle = (e: { dataContext: IgrSummaryTemplateContext }) => {
-        const summaryResults = e.dataContext.implicit;
-        return (
-            <div className="summary-temp">
-                <span><strong>{ summaryResults[0].label }</strong><span>{ (summaryResults[0] as any).summaryResult }</span></span>
-                <span><strong>{ summaryResults[1].label }</strong><span>{ (new Date((summaryResults[2] as any).summaryResult)).toDateString() }</span></span>
-            </div>
-        );
-    }
-
-    private singerSummary = {
-        sum(data: any[] = []): number {
-            return data.length && data.filter((el) => el === 0 || Boolean(el)).length ? data.filter((el) => el === 0 || Boolean(el)).reduce((a, b) => +a + +b) : 0;
-        },
-        operate(data?: any[], allData: any[] = [], fieldName = ''): any[] {
-            const result = [] as any[];
-            result.push({
-                key: 'nominatedSingers',
-                label: 'Nominated Singers',
-                summaryResult: allData.filter((rec) => rec['GrammyNominations'] > 0).length
-            });
-            result.push({
-                key: 'singersWithAwards',
-                label: 'Singers with Awards',
-                summaryResult: allData.filter((rec) => rec['GrammyAwards'] > 0).length
-            });
-            result.push({
-                key: 'nominations',
-                label: 'Total Nominations',
-                summaryResult: this.sum(allData.map(r => r['GrammyNominations']))
-            } );
-            result.push({
-                key: 'awards',
-                label: 'Total Awards',
-                summaryResult: this.sum(allData.map(r => r['GrammyAwards']))
-            });
-            return result;
-        }
-    }
 }
 
 // rendering above component in the React DOM

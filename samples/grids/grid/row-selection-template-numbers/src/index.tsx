@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrCheckboxModule } from 'igniteui-react';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebCheckboxDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrRowSelectorTemplateContext, IgrHeadSelectorTemplateContext } from 'igniteui-react-grids';
@@ -43,22 +43,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.customersData}
                     rowSelection="Multiple"
                     rowSelectorTemplate={this.webGridRowSelectorTemplate}
-                    headSelectorTemplate={this.webGridHeaderRowSelectorTemplate}>
-                    <IgrColumn
-                        field="ContactName">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Company">
-                    </IgrColumn>
+                    headSelectorTemplate={this.webGridHeaderRowSelectorTemplate}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

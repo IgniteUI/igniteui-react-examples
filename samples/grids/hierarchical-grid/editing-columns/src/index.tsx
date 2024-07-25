@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrHierarchicalGridModule, IgrPaginatorModule } from 'igniteui-react-grids';
-import { IgrHierarchicalGrid, IgrPaginator, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
+import { IgrHierarchicalGrid, IgrPaginator, IgrRowIsland } from 'igniteui-react-grids';
 import { ComponentRenderer, WebHierarchicalGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 
@@ -40,71 +40,15 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ProductID"
                     displayDensity="Cosy"
                     allowFiltering="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
                     ref={this.hierarchicalGrid1Ref}>
                     <IgrPaginator
                         perPage="10">
                     </IgrPaginator>
-                    <IgrColumn
-                        field="ProductName"
-                        header="Product Name"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitsInStock"
-                        header="Units in Stock"
-                        dataType="Number"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Discontinued"
-                        header="Discontinued"
-                        dataType="Boolean"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ReorderLevel"
-                        header="Reorder Level"
-                        dataType="Number"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        filterable="false">
-                    </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Locations"
-                        autoGenerate="false">
-                        <IgrColumn
-                            field="Shop"
-                            header="Shop"
-                            dataType="String"
-                            editable="true"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="LastInventory"
-                            header="Last Inventory"
-                            dataType="Date"
-                            editable="true"
-                            resizable="true">
-                        </IgrColumn>
+                        autoGenerate="false"
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>
             </div>

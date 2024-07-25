@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 
@@ -39,62 +39,8 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
-                    foreignKey="ParentID">
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        resizable="true"
-                        minWidth="60"
-                        maxWidth="250"
-                        width="220">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        header="Hire Date"
-                        dataType="Date"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Fax"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        header="Postal Code"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

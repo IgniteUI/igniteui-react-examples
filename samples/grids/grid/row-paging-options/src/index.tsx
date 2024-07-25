@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrPaginator, IgrPaginatorResourceStrings, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
+import { IgrGrid, IgrPaginator, IgrPaginatorResourceStrings } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { AthletesDataItem, AthletesData } from './AthletesData';
@@ -36,18 +36,6 @@ export default class Sample extends React.Component<any, any> {
             this._paginatorResourceStrings1 = paginatorResourceStrings1;
         }
         return this._paginatorResourceStrings1;
-    }
-    private column1: IgrColumn
-    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
-    public get columnPipeArgs1(): IgrColumnPipeArgs {
-        if (this._columnPipeArgs1 == null)
-        {
-            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
-            columnPipeArgs1.digitsInfo = "1.1-5";
-
-            this._columnPipeArgs1 = columnPipeArgs1;
-        }
-        return this._columnPipeArgs1;
     }
     private propertyEditor: IgrPropertyEditorPanel
     private propertyEditorRef(r: IgrPropertyEditorPanel) {
@@ -87,33 +75,14 @@ export default class Sample extends React.Component<any, any> {
                     data={this.athletesData}
                     ref={this.gridRef}
                     id="grid"
-                    displayDensity="Cosy">
+                    displayDensity="Cosy"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrPaginator
                         name="paginator"
                         perPage="15"
                         displayDensity="Cosy"
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
-                    <IgrColumn
-                        field="Id"
-                        header="Rank"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="BeatsPerMinute"
-                        header="Beats Per Minute"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="TopSpeed"
-                        header="Top Speed"
-                        dataType="Number"
-                        pipeArgs={this.columnPipeArgs1}
-                        name="column1">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

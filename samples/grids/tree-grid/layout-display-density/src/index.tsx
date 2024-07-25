@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrTreeGrid, IgrColumn, IgrColumnGroup } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 
@@ -65,89 +65,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    allowFiltering="true">
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true"
-                        width="200">
-                    </IgrColumn>
-                    <IgrColumnGroup
-                        header="General Information">
-                        <IgrColumn
-                            field="HireDate"
-                            dataType="Date"
-                            sortable="true"
-                            hasSummary="true">
-                        </IgrColumn>
-                        <IgrColumnGroup
-                            header="Personal Details">
-                            <IgrColumn
-                                field="ID"
-                                dataType="Number"
-                                filterable="false">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Title"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Age"
-                                dataType="Number"
-                                sortable="true"
-                                hasSummary="true"
-                                filterable="false">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
-                    <IgrColumnGroup
-                        header="Address Information">
-                        <IgrColumnGroup
-                            header="Location">
-                            <IgrColumn
-                                field="Country"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="City"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Address"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                        <IgrColumnGroup
-                            header="Contact Information">
-                            <IgrColumn
-                                field="Phone"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Fax"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="PostalCode"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
+                    allowFiltering="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

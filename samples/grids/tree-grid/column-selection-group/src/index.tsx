@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn, IgrColumnGroup } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 
 import 'igniteui-react-grids/grids/combined';
@@ -39,73 +39,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    columnSelection="Multiple">
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        width="auto">
-                    </IgrColumn>
-                    <IgrColumnGroup
-                        header="General Information">
-                        <IgrColumn
-                            field="HireDate"
-                            header="Hire Date"
-                            dataType="Date">
-                        </IgrColumn>
-                        <IgrColumnGroup
-                            header="Personal Details">
-                            <IgrColumn
-                                field="ID"
-                                dataType="Number">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Title"
-                                dataType="String">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Age"
-                                dataType="Number"
-                                selectable="false">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
-                    <IgrColumnGroup
-                        header="Address Information">
-                        <IgrColumnGroup
-                            header="Location">
-                            <IgrColumn
-                                field="Country"
-                                dataType="String"
-                                selectable="false">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="City"
-                                dataType="String">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Address"
-                                dataType="String">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                        <IgrColumnGroup
-                            header="Contact Information">
-                            <IgrColumn
-                                field="Phone"
-                                dataType="String"
-                                selectable="false">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Fax"
-                                dataType="String"
-                                selectable="false">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="PostalCode"
-                                header="Postal Code"
-                                dataType="String">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
+                    columnSelection="Multiple"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

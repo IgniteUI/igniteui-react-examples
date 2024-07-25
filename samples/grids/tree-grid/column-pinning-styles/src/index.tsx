@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
-import { IgrColumnTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -22,12 +21,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
-    private column4: IgrColumn
-    private column5: IgrColumn
-    private column6: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -46,45 +39,8 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.employeesFlatData}
                     primaryKey="ID"
-                    foreignKey="ParentID">
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        pinned="true"
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        pinned="true"
-                        name="column2">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone"
-                        dataType="String"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column3">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column4">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column5">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OnPTO"
-                        dataType="Boolean"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column6">
-                    </IgrColumn>
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>
@@ -110,22 +66,6 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridPinHeaderTemplate = (props: {dataContext: IgrColumnTemplateContext}) => {
-        const column = (props.dataContext as any).column;
-        return (
-            <div>
-                <span style={{float: 'left'}}>{column.field}</span>
-                <span style={{float: 'right'}} onPointerDown={(e: any) => this.toggleColumnPin(column.field)}>📌</span>
-            </div>
-        );
-    }
-
-    public toggleColumnPin(field: string) {
-        var treeGrid = this.treeGrid;
-        var col = treeGrid.getColumnByName(field);
-        col.pinned = !col.pinned;
-        treeGrid.markForCheck();
-    }
 }
 
 // rendering above component in the React DOM

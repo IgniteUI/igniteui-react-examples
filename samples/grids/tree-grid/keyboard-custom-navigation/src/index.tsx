@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrPaginator } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
 import { IgrGrid, IgrGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-react-grids';
@@ -46,34 +46,11 @@ export default class Sample extends React.Component<any, any> {
                     rowSelection="Multiple"
                     moving="true"
                     allowFiltering="true"
-                    gridKeydown={this.webGridCustomKBNav}>
+                    gridKeydown={this.webGridCustomKBNav}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrPaginator
                         perPage="15">
                     </IgrPaginator>
-                    <IgrColumn
-                        field="Name"
-                        header="Name"
-                        dataType="String"
-                        sortable="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        header="Hire Date"
-                        dataType="Date"
-                        sortable="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        header="Age"
-                        dataType="Number"
-                        sortable="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>

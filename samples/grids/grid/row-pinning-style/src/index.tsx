@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule, IgrActionStripModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
+import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebActionStripDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
 
@@ -33,14 +33,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private company: IgrColumn
-    private contactName: IgrColumn
-    private contactTitle: IgrColumn
-    private address: IgrColumn
-    private city: IgrColumn
-    private postalCode: IgrColumn
-    private phone: IgrColumn
-    private fax: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -62,48 +54,8 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     cellSelection="None"
                     rendered={this.webGridPinRowOnRendered}
-                    pinning={this.pinningConfig1}>
-                    <IgrColumn
-                        name="Company"
-                        field="Company"
-                        header="Company"
-                        width="300px">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="ContactName"
-                        field="ContactName"
-                        header="Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="ContactTitle"
-                        field="ContactTitle"
-                        header="Title">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="Address"
-                        field="Address"
-                        header="Address">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="City"
-                        field="City"
-                        header="City">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="PostalCode"
-                        field="PostalCode"
-                        header="Postal Code">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="Phone"
-                        field="Phone"
-                        header="Phone">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="Fax"
-                        field="Fax"
-                        header="Fax">
-                    </IgrColumn>
+                    pinning={this.pinningConfig1}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrActionStrip
                     >
                         <IgrGridPinningActions

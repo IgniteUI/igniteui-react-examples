@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinning, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinning } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 
@@ -39,7 +39,8 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
-                    foreignKey="ParentID">
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -49,59 +50,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarPinning>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        width="250">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String"
-                        width="300"
-                        pinned="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        header="Hire Date"
-                        dataType="Date"
-                        width="200">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        width="100">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address"
-                        dataType="String"
-                        width="200">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City"
-                        dataType="String"
-                        width="200">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country"
-                        dataType="String"
-                        width="200">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Fax"
-                        dataType="String"
-                        width="200">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        header="Postal Code"
-                        dataType="String"
-                        width="200">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone"
-                        dataType="String"
-                        width="200">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>

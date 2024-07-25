@@ -4,10 +4,9 @@ import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrComboModule } from 'igniteui-react';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { WorldCitiesAbove500KItem, WorldCitiesAbove500K } from './WorldCitiesAbove500K';
 import { IgrCombo } from 'igniteui-react';
-import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -24,9 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -45,30 +41,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.worldCitiesAbove500K}
                     primaryKey="ID"
                     ref={this.gridRef}
-                    rendered={this.webGridWithComboRendered}>
-                    <IgrColumn
-                        field="ID"
-                        header="ID"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country"
-                        header="Country"
-                        bodyTemplate={this.webGridCountryDropDownTemplate}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Region"
-                        header="Region"
-                        bodyTemplate={this.webGridRegionDropDownTemplate}
-                        name="column2">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City"
-                        header="City"
-                        bodyTemplate={this.webGridCityDropDownTemplate}
-                        name="column3">
-                    </IgrColumn>
+                    rendered={this.webGridWithComboRendered}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>
@@ -146,57 +120,6 @@ export default class Sample extends React.Component<any, any> {
                 cityCombo.data = cities.filter(x => x.Region === newValue);
             }
        });
-    }
-
-    public webGridCountryDropDownTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        var cell = props.dataContext.cell as any;
-        if (cell === undefined) {
-            return <></>;
-        }
-        (this as any).comboRefs = (this as any).comboRefs.bind(this);
-        const id = cell.id.rowID;
-        const comboId = "country" + id;
-        return (
-        <>
-            <IgrCombo data={this.countries} ref={(this as any).comboRefs} change={(x: any, args: any) => { (this as any).onCountryChange(id, x, args) }} placeholder="Choose Country..." valueKey="Country" displayKey="Country" singleSelect="true" name={comboId}></IgrCombo>
-        </>
-        );
-    }
-
-    public webGridRegionDropDownTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        var cell = props.dataContext.cell as any;
-        if (cell === undefined) {
-            return <></>;
-        }
-        const id = cell.id.rowID;
-        const comboId = "region_" + id;
-        (this as any).comboRefs = (this as any).comboRefs.bind(this);
-        return (
-        <>
-            <div style={{display: "flex", flexDirection: "column"}}>
-                <IgrCombo ref={(this as any).comboRefs} change={(x: any, args: any) => { (this as any).onRegionChange(id, x, args) }} placeholder="Choose Region..." disabled="true" valueKey="Region"  displayKey="Region" singleSelect="true" name={comboId}>
-                </IgrCombo>
-            </div>
-        </>
-        );
-    }
-
-    public webGridCityDropDownTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        var cell = props.dataContext.cell as any;
-        if (cell === undefined) {
-            return <></>;
-        }
-        const id = cell.id.rowID;
-        const comboId = "city_" + id;
-        (this as any).comboRefs = (this as any).comboRefs.bind(this);
-        return (
-        <>
-            <div style={{display: "flex", flexDirection: "column"}}>
-                <IgrCombo ref={(this as any).comboRefs} placeholder="Choose City..." disabled="true" valueKey="Name"  displayKey="Name" name={comboId} singleSelect="true">
-                </IgrCombo>
-            </div>
-        </>
-        );
     }
 
 }

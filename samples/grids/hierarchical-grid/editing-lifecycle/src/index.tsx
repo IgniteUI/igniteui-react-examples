@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
-import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
+import { IgrHierarchicalGrid, IgrRowIsland } from 'igniteui-react-grids';
 import SingersData from './SingersData.json';
 import { IgrRowSelectionEventArgs, IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
 
@@ -63,32 +63,8 @@ export default class Sample extends React.Component<any, any> {
                     rowEditExit={this.webHierarchicalGridRowEditExit}
                     cellEditEnter={this.webHierarchicalGridCellEditEnter}
                     cellEdit={this.webHierarchicalGridCellEdit}
-                    cellEditExit={this.webHierarchicalGridCellEditExit}>
-                    <IgrColumn
-                        field="Artist"
-                        header="Artist"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HasGrammyAward"
-                        header="Has Grammy Award"
-                        dataType="Boolean">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Debut"
-                        header="Debut"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyNominations"
-                        header="Grammy Nominations"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyAwards"
-                        header="Grammy Awards"
-                        dataType="Number">
-                    </IgrColumn>
+                    cellEditExit={this.webHierarchicalGridCellEditExit}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrRowIsland
                         childDataKey="Albums"
                         autoGenerate="false"
@@ -101,27 +77,8 @@ export default class Sample extends React.Component<any, any> {
                         rowEditExit={this.webRowIslandGridRowEditExit}
                         cellEditEnter={this.webRowIslandGridCellEditEnter}
                         cellEdit={this.webRowIslandGridCellEdit}
-                        cellEditExit={this.webRowIslandGridCellEditExit}>
-                        <IgrColumn
-                            field="Album"
-                            header="Album"
-                            dataType="String">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="LaunchDate"
-                            header="Launch Date"
-                            dataType="Date">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="BillboardReview"
-                            header="Billboard Review"
-                            dataType="String">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="USBillboard200"
-                            header="US Billboard 200"
-                            dataType="String">
-                        </IgrColumn>
+                        cellEditExit={this.webRowIslandGridCellEditExit}
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>
             </div>

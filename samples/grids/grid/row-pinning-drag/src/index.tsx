@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrPinningConfig, RowPinningPosition } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
 
@@ -53,34 +53,8 @@ export default class Sample extends React.Component<any, any> {
                     rowDraggable="true"
                     pinning={this.pinningConfig1}
                     cellSelection="None"
-                    primaryKey="ID">
-                    <IgrColumn
-                        field="Company"
-                        header="Company">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactName"
-                        header="Name">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ContactTitle"
-                        header="Title">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Fax">
-                    </IgrColumn>
+                    primaryKey="ID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>
