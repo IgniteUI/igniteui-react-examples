@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 
 import 'igniteui-react-grids/grids/combined';
@@ -41,29 +41,8 @@ export default class Sample extends React.Component<any, any> {
                     foreignKey="ParentID"
                     allowFiltering="true"
                     moving="true"
-                    rowSelection="Multiple">
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        sortable="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        header="Job Title"
-                        dataType="String"
-                        sortable="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        sortable="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
+                    rowSelection="Multiple"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

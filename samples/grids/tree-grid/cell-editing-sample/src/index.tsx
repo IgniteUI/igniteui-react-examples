@@ -4,11 +4,9 @@ import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrSelectModule } from 'igniteui-react';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule, WebSelectDescriptionModule } from 'igniteui-react-core';
 import { RoleplayTreeGridDataItem, RoleplayTreeGridData } from './RoleplayTreeGridData';
-import { IgrCellTemplateContext } from 'igniteui-react-grids';
-import { IgrSelect, IgrSelectItem } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -25,9 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid1 = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -46,42 +41,8 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid1"
                     data={this.roleplayTreeGridData}
                     primaryKey="ID"
-                    foreignKey="ParentID">
-                    <IgrColumn
-                        field="Name"
-                        header="Character Name"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Race"
-                        header="Race"
-                        dataType="String"
-                        editable="true"
-                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Class"
-                        header="Class"
-                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
-                        dataType="String"
-                        editable="true"
-                        name="column2">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        header="Age"
-                        dataType="String"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Alignment"
-                        header="Alignment"
-                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
-                        dataType="String"
-                        editable="true"
-                        name="column3">
-                    </IgrColumn>
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>
@@ -106,38 +67,6 @@ export default class Sample extends React.Component<any, any> {
             WebSelectDescriptionModule.register(context);
         }
         return this._componentRenderer;
-    }
-
-    public webTreeGridCellEditCellTemplate = (e: {dataContext: IgrCellTemplateContext}) => {
-        let cellValues: any = [];
-        let uniqueValues: any = [];
-        const cell = e.dataContext.cell;
-        const colIndex = cell.id.columnID;
-        var treeGrid1 = this.treeGrid1;
-        const field: string = treeGrid1.getColumnByVisibleIndex(colIndex).field;
-        let roleplayTreeGridData = treeGrid1.data;
-        const key = field + "_" + cell.id.rowID;
-        let index = 0;
-        for(const i of (roleplayTreeGridData as any)){
-            if(uniqueValues.indexOf(i[field]) === -1 )
-            {
-                cellValues.push(<><IgrSelectItem selected={e.dataContext.cell.value == i[field]}
-                 value={i[field]} key={key + "_" + index}>
-                    <div key={key + "_" + index}>{i[field]}</div>
-            </IgrSelectItem></>);
-                uniqueValues.push(i[field]);
-
-            }
-            index++;
-        }
-        return <><IgrSelect key={key} change={(x: any) => {
-                setTimeout(() => {
-                    cell.editValue = x.value;
-                });
-            }}>
-           {cellValues}
-        </IgrSelect>
-        </>;
     }
 
 }

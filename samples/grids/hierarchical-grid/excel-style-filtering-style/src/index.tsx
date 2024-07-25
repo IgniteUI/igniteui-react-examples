@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
-import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding, IgrGridToolbarPinning, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
+import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding, IgrGridToolbarPinning, IgrRowIsland } from 'igniteui-react-grids';
 import SingersData from './SingersData.json';
 
 import 'igniteui-react-grids/grids/combined';
@@ -39,7 +39,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.hierarchicalGrid1Ref}
                     primaryKey="ID"
                     allowFiltering="true"
-                    filterMode="ExcelStyleFilter">
+                    filterMode="ExcelStyleFilter"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -52,129 +53,26 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarPinning>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="Artist"
-                        header="Artist"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Photo"
-                        header="Photo"
-                        dataType="Image"
-                        minWidth="115px"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Debut"
-                        header="Debut"
-                        dataType="Number"
-                        minWidth="88px"
-                        maxWidth="230px"
-                        resizable="true"
-                        filterable="false">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyNominations"
-                        header="Grammy Nominations"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="GrammyAwards"
-                        header="Grammy Awards"
-                        dataType="String"
-                        resizable="true">
-                    </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
                         autoGenerate="false"
                         allowFiltering="true"
-                        filterMode="ExcelStyleFilter">
-                        <IgrColumn
-                            field="Album"
-                            header="Album"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="LaunchDate"
-                            header="Launch Date"
-                            dataType="Date"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="BillboardReview"
-                            header="Billboard Review"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="USBillboard200"
-                            header="US Billboard 200"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
+                        filterMode="ExcelStyleFilter"
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         <IgrRowIsland
                             childDataKey="Songs"
                             autoGenerate="false"
                             allowFiltering="true"
-                            filterMode="ExcelStyleFilter">
-                            <IgrColumn
-                                field="Number"
-                                header="No."
-                                dataType="String"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Title"
-                                header="Title"
-                                dataType="String"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Released"
-                                header="Released"
-                                dataType="String"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Genre"
-                                header="Genre"
-                                dataType="String"
-                                resizable="true">
-                            </IgrColumn>
+                            filterMode="ExcelStyleFilter"
+                            columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                         </IgrRowIsland>
                     </IgrRowIsland>
                     <IgrRowIsland
                         childDataKey="Tours"
                         autoGenerate="false"
                         allowFiltering="true"
-                        filterMode="ExcelStyleFilter">
-                        <IgrColumn
-                            field="Tour"
-                            header="Tour"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="StartedOn"
-                            header="Started on"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="Location"
-                            header="Location"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumn
-                            field="Headliner"
-                            header="Headliner"
-                            dataType="String"
-                            resizable="true">
-                        </IgrColumn>
+                        filterMode="ExcelStyleFilter"
+                        columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>
             </div>

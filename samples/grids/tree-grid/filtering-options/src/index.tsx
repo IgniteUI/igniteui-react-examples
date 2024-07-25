@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { OrdersDataItem, OrdersData } from './OrdersData';
 
 import 'igniteui-react-grids/grids/combined';
@@ -40,54 +40,8 @@ export default class Sample extends React.Component<any, any> {
                     filterMode="QuickFilter"
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    allowFiltering="true">
-                    <IgrColumn
-                        field="ID"
-                        header="Order ID"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name"
-                        header="Order Product"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Category"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Units"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        sortable="true"
-                        hidden="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        dataType="Currency">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Price"
-                        dataType="Currency">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Delivered"
-                        dataType="Boolean">
-                    </IgrColumn>
+                    allowFiltering="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

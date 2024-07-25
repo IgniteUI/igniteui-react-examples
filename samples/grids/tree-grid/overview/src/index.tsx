@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrTreeGridModule, IgrPaginatorModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrPaginator, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarHiding, IgrGridToolbarPinning, IgrGridToolbarExporter, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrPaginator, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarHiding, IgrGridToolbarPinning, IgrGridToolbarExporter } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
 
@@ -46,7 +46,8 @@ export default class Sample extends React.Component<any, any> {
                     rowSelection="Multiple"
                     moving="true"
                     allowFiltering="true"
-                    filterMode="ExcelStyleFilter">
+                    filterMode="ExcelStyleFilter"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrPaginator
                     >
                     </IgrPaginator>
@@ -69,31 +70,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="Name"
-                        header="Name"
-                        dataType="String"
-                        sortable="true"
-                        editable="true"
-                        resizable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        header="Hire Date"
-                        dataType="Date"
-                        sortable="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        header="Age"
-                        dataType="Number"
-                        sortable="true"
-                        editable="true"
-                        resizable="true">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrGridMasterDetailContext } from 'igniteui-react-grids';
 
@@ -38,36 +38,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.customersData}
                     primaryKey="ID"
                     detailTemplate={this.webGridMasterDetailTemplate}
-                    ref={this.gridRef}>
-                    <IgrColumn
-                        field="ContactName"
-                        header="Contact"
-                        width="250px"
-                        resizable="false">
-                    </IgrColumn>
-                    <IgrColumn
-                        header="Address"
-                        field="Address"
-                        editable="true"
-                        width="250px"
-                        resizable="false">
-                    </IgrColumn>
-                    <IgrColumn
-                        header="Country"
-                        field="Country">
-                    </IgrColumn>
-                    <IgrColumn
-                        header="Region"
-                        field="Region">
-                    </IgrColumn>
-                    <IgrColumn
-                        header="Phone"
-                        field="Phone">
-                    </IgrColumn>
-                    <IgrColumn
-                        header="Fax"
-                        field="Fax">
-                    </IgrColumn>
+                    ref={this.gridRef}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

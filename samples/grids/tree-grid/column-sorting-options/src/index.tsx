@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrTreeGrid, IgrSortingExpression, SortingDirection, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrSortingExpression, SortingDirection } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
@@ -49,19 +49,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._sortingExpression1;
     }
-    private column1: IgrColumn
-    private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
-    public get columnPipeArgs1(): IgrColumnPipeArgs {
-        if (this._columnPipeArgs1 == null)
-        {
-            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
-            columnPipeArgs1.currencyCode = "USD";
-            columnPipeArgs1.digitsInfo = "1.2-2";
-
-            this._columnPipeArgs1 = columnPipeArgs1;
-        }
-        return this._columnPipeArgs1;
-    }
 
     constructor(props: any) {
         super(props);
@@ -102,49 +89,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     sortingExpressions={this.sortingExpression1}
                     primaryKey="ID"
-                    foreignKey="ParentID">
-                    <IgrColumn
-                        field="ID"
-                        header="Order ID"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name"
-                        header="Name"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Category"
-                        header="Category"
-                        dataType="String"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Price"
-                        dataType="Currency"
-                        sortable="true"
-                        pipeArgs={this.columnPipeArgs1}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Units"
-                        header="Units"
-                        dataType="Number"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Delivered"
-                        header="Units"
-                        dataType="Boolean"
-                        sortable="true">
-                    </IgrColumn>
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

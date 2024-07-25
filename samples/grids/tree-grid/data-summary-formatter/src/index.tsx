@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
-import { IgrSummaryResult, IgrSummaryOperand } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -22,13 +21,11 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
 
         this.treeGridRef = this.treeGridRef.bind(this);
-        this.webTreeGridSummaryFormatter = this.webTreeGridSummaryFormatter.bind(this);
     }
 
     public render(): JSX.Element {
@@ -44,55 +41,8 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID"
                     allowFiltering="true"
-                    filterMode="ExcelStyleFilter">
-                    <IgrColumn
-                        field="ID"
-                        header="Order ID"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name"
-                        header="Order Product"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Category"
-                        header="Product Category"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Units"
-                        header="Units"
-                        dataType="Number"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        dataType="Number"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Price"
-                        header="Price"
-                        dataType="Number"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date"
-                        hasSummary="true"
-                        sortable="true"
-                        summaryFormatter={this.webTreeGridSummaryFormatter}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Delivered"
-                        header="Delivered"
-                        dataType="Boolean"
-                        sortable="true">
-                    </IgrColumn>
+                    filterMode="ExcelStyleFilter"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>
@@ -116,15 +66,6 @@ export default class Sample extends React.Component<any, any> {
             WebTreeGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
-    }
-
-    public webTreeGridSummaryFormatter(summary: IgrSummaryResult, summaryOperand: IgrSummaryOperand): string {
-        const result = summary.summaryResult;
-        if (summary.key !== "count" && result !== null && result !== undefined) {
-            const format = new Intl.DateTimeFormat("en", { year: "numeric" });
-            return format.format(new Date(result));
-        }
-        return result;
     }
 
 }

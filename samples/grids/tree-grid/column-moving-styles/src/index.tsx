@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrPaginator } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
-import { IgrColumnTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -22,17 +21,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
-    private column4: IgrColumn
-    private column5: IgrColumn
-    private column6: IgrColumn
-    private column7: IgrColumn
-    private column8: IgrColumn
-    private column9: IgrColumn
-    private column10: IgrColumn
-    private column11: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -53,77 +41,12 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID"
                     moving="true"
-                    columnWidth="200">
+                    columnWidth="200"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrPaginator
                         perPage="10"
                         totalRecords="20">
                     </IgrPaginator>
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column2">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ID"
-                        dataType="Number"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column3">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column4">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column5">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address"
-                        dataType="String"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column6">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City"
-                        dataType="String"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column7">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country"
-                        dataType="String"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column8">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Fax"
-                        dataType="String"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column9">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        dataType="String"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column10">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone"
-                        dataType="String"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        name="column11">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>
@@ -149,22 +72,6 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridPinHeaderTemplate = (props: {dataContext: IgrColumnTemplateContext}) => {
-        const column = (props.dataContext as any).column;
-        return (
-            <div>
-                <span style={{float: 'left'}}>{column.field}</span>
-                <span style={{float: 'right'}} onPointerDown={(e: any) => this.toggleColumnPin(column.field)}>📌</span>
-            </div>
-        );
-    }
-
-    public toggleColumnPin(field: string) {
-        var treeGrid = this.treeGrid;
-        var col = treeGrid.getColumnByName(field);
-        col.pinned = !col.pinned;
-        treeGrid.markForCheck();
-    }
 }
 
 // rendering above component in the React DOM

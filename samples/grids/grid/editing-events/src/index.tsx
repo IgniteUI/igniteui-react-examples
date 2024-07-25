@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
 import { IgrGridEditEventArgs } from 'igniteui-react-grids';
@@ -22,8 +22,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid1 = r;
         this.setState({});
     }
-    private unitsInStock: IgrColumn
-    private unitsOnOrder: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -42,32 +40,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.nwindData}
                     primaryKey="ProductID"
                     cellEdit={this.webGridEditingEventsCellEdit}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
                     ref={this.grid1Ref}>
-                    <IgrColumn
-                        field="ProductName"
-                        header="Product Name"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        dataType="Number"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="UnitsInStock"
-                        field="UnitsInStock"
-                        header="Units In Stock"
-                        dataType="Number"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        name="UnitsOnOrder"
-                        field="UnitsOnOrder"
-                        header="Units on Order"
-                        dataType="Number"
-                        editable="true">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

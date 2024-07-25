@@ -4,11 +4,9 @@ import './index.css';
 
 import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrAvatarModule } from 'igniteui-react';
-import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter } from 'igniteui-react-grids';
 import { EmployeesFlatAvatarsItem, EmployeesFlatAvatars } from './EmployeesFlatAvatars';
 import { IgrExporterOptionsBase, IgrGridToolbarExportEventArgs } from 'igniteui-react-grids';
-import { IgrAvatar } from 'igniteui-react';
-import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -25,7 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -46,7 +43,8 @@ export default class Sample extends React.Component<any, any> {
                     data={this.employeesFlatAvatars}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    toolbarExporting={this.webTreeGridToolbarExporting}>
+                    toolbarExporting={this.webTreeGridToolbarExporting}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -56,28 +54,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        bodyTemplate={this.webTreeGridAvatarCellTemplate}
-                        name="column1">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ID"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>
@@ -103,16 +79,6 @@ export default class Sample extends React.Component<any, any> {
                     columnArgs.cancel = columnArgs.header === 'Name';
             });
         }
-    }
-
-    public webTreeGridAvatarCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        return (
-            <div className="cell__inner">
-                <IgrAvatar shape='circle' src={props.dataContext.cell.row.data.Avatar}>
-                </IgrAvatar>
-                <span className="name">{props.dataContext.cell.value}</span>
-            </div>
-        );
     }
 
 }

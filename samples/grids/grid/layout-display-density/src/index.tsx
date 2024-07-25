@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 
@@ -62,128 +62,8 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     ref={this.gridRef}
                     data={this.invoicesData}
-                    allowFiltering="true">
-                    <IgrColumn
-                        field="CustomerName"
-                        header="Customer Name"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country"
-                        header="Country"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="City"
-                        header="City"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Address"
-                        header="Address"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        header="Postal Code"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Salesperson"
-                        header="Sales Person"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipperName"
-                        header="Shipper Name"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="Date"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ProductID"
-                        header="ID"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ProductName"
-                        header="Name"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        dataType="Number"
-                        sortable="true"
-                        hasSummary="true"
-                        filterable="false">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Quantity"
-                        header="Quantity"
-                        dataType="Number"
-                        sortable="true"
-                        hasSummary="true"
-                        filterable="false">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Discontinued"
-                        header="Discontinued"
-                        dataType="Boolean"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipName"
-                        header="Name"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipCountry"
-                        header="Country"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipCity"
-                        header="City"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipPostalCode"
-                        header="Postal Code"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true">
-                    </IgrColumn>
+                    allowFiltering="true"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrGrid>
             </div>
         </div>

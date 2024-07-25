@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPaginatorModule, IgrTreeGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrPaginator } from 'igniteui-react-grids';
 import { ComponentRenderer, WebPaginatorDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 
@@ -42,36 +42,11 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     displayDensity="Comfortable"
                     allowFiltering="true"
-                    foreignKey="ParentID">
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrPaginator
                         perPage="10">
                     </IgrPaginator>
-                    <IgrColumn
-                        field="Name"
-                        dataType="String"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="String"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="Number"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="Date"
-                        editable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OnPTO"
-                        dataType="Boolean"
-                        editable="true"
-                        width="130px">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>

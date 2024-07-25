@@ -5,7 +5,7 @@ import './index.css';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
-import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
@@ -71,7 +71,8 @@ export default class Sample extends React.Component<any, any> {
                     rendered={this.webGridPasteFromExcel}
                     ref={this.gridRef}
                     id="grid"
-                    primaryKey="OrderID">
+                    primaryKey="OrderID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -82,35 +83,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="OrderID"
-                        hidden="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Salesperson"
-                        header="Name"
-                        width="200px">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipName"
-                        header="Ship Name"
-                        width="200px">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Country"
-                        header="Country"
-                        width="200px">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ShipCity"
-                        header="Ship City"
-                        width="200px">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="PostalCode"
-                        header="Postal Code"
-                        width="200px">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

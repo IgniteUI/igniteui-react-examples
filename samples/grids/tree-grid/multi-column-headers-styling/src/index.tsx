@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn, IgrColumnGroup } from 'igniteui-react-grids';
+import { IgrTreeGrid } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 
@@ -39,76 +39,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
-                    foreignKey="ParentID">
-                    <IgrColumn
-                        field="Name"
-                        resizable="true">
-                    </IgrColumn>
-                    <IgrColumnGroup
-                        header="General Information">
-                        <IgrColumn
-                            field="HireDate"
-                            sortable="true"
-                            resizable="true">
-                        </IgrColumn>
-                        <IgrColumnGroup
-                            header="Personal Details">
-                            <IgrColumn
-                                field="ID"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Title"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Age"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
-                    <IgrColumnGroup
-                        header="Address Information">
-                        <IgrColumnGroup
-                            header="Location">
-                            <IgrColumn
-                                field="Country"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="City"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Address"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                        <IgrColumnGroup
-                            header="Contact Information">
-                            <IgrColumn
-                                field="Phone"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="Fax"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                            <IgrColumn
-                                field="PostalCode"
-                                sortable="true"
-                                resizable="true">
-                            </IgrColumn>
-                        </IgrColumnGroup>
-                    </IgrColumnGroup>
+                    foreignKey="ParentID"
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                 </IgrTreeGrid>
             </div>
         </div>

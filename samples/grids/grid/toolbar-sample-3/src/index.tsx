@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgrExporterOptionsBase, IgrGridToolbarExportEventArgs } from 'igniteui-react-grids';
@@ -39,6 +39,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     data={this.athletesData}
                     toolbarExporting={this.webGridToolbarExporting}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}
                     ref={this.grid1Ref}>
                     <IgrGridToolbar
                     >
@@ -49,32 +50,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="Name"
-                        header="Athlete"
-                        width="200px">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="CountryName"
-                        header="Country"
-                        width="200px">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="BeatsPerMinute"
-                        header="Beats Per Minute">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="TopSpeed"
-                        header="Top Speed">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="AthleteNumber"
-                        header="ID">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="TrackProgress"
-                        header="Progress">
-                    </IgrColumn>
                 </IgrGrid>
             </div>
         </div>

@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding, IgrColumn } from 'igniteui-react-grids';
+import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { FoodsDataItem, FoodsData } from './FoodsData';
-import { IgrGridHeaderTemplateContext, IgrCellTemplateContext } from 'igniteui-react-grids';
+import { IgrGridHeaderTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -22,7 +22,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -44,7 +43,8 @@ export default class Sample extends React.Component<any, any> {
                     moving="true"
                     allowFiltering="true"
                     filterMode="ExcelStyleFilter"
-                    excelStyleHeaderIconTemplate={this.webGridFilterAltIconTemplate}>
+                    excelStyleHeaderIconTemplate={this.webGridFilterAltIconTemplate}
+                    columns={["Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder", "Infragistics.Controls.Description.CodeGenerationItemBuilder"]}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -54,34 +54,6 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarHiding>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="ID"
-                        header="ID"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Name"
-                        header="Product Name"
-                        sortable="true">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        sortable="true"
-                        dataType="Currency">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="AddedDate"
-                        header="Added Date"
-                        sortable="true"
-                        dataType="Date">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Discontinued"
-                        dataType="Boolean"
-                        bodyTemplate={this.webGridBooleanCellTemplate}
-                        name="column1">
-                    </IgrColumn>
                 </IgrTreeGrid>
             </div>
         </div>
@@ -111,18 +83,6 @@ export default class Sample extends React.Component<any, any> {
         return (
             <img height="15px" width="15px" src="http://static.infragistics.com/xplatform/images/grid/propeller-logo.svg" title="Continued" alt="Continued" />
         );
-    }
-
-    public webGridBooleanCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        if (props.dataContext.cell.value) {
-            return (
-                <img src="https://static.infragistics.com/xplatform/images/grid/active.png" title="Continued" alt="Continued" />
-            );
-        } else {
-            return (
-                <img src="https://static.infragistics.com/xplatform/images/grid/expired.png" title="Discontinued" alt="Discontinued" />
-            );
-        }
     }
 
 }
