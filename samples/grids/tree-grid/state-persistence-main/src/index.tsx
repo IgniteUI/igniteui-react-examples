@@ -4,7 +4,6 @@ import ReactDOM from "react-dom/client";
 import {
   FilterMode,
   IgrActionStrip,
-  IgrGrid,
   IgrColumn,
   IgrGridModule,
   IgrGridPinningActions,
@@ -18,6 +17,7 @@ import {
   GridSelectionMode,
   IgrHierarchicalGrid,
   IgrRowIsland,
+  IgrTreeGrid,
 } from "igniteui-react-grids";
 import {
   IgrButton,
@@ -28,11 +28,11 @@ import {
   IgrIconModule,
 } from "igniteui-react";
 import { registerIconFromText } from "igniteui-webcomponents";
-import SingersData from "./SingersData.json";
 
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
+import { EmployeesNestedData } from "./EmployeesNestedData";
 
 const mods: any[] = [IgrGridModule, IgrIconModule, IgrCheckboxModule];
 mods.forEach((m) => m.register());
@@ -51,7 +51,7 @@ const refreshIcon =
   '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"/></svg>';
 
 export default function App() {
-  const gridData = SingersData;
+  const gridData = new EmployeesNestedData();
   const [allOptions, setAllOptions] = useState(true);
   const [options, setOption] = useState<IgrGridStateOptions>({
     cellSelection: true,
@@ -64,15 +64,14 @@ export default function App() {
     expansion: true,
     rowPinning: true,
     columnSelection: true,
-    rowIslands: true,
   });
 
-  let grid: IgrHierarchicalGrid;
-  function gridRef(ref: IgrHierarchicalGrid) {
+  let grid: IgrTreeGrid;
+  function gridRef(ref: IgrTreeGrid) {
     grid = ref;
   }
   let paginatorRef = useRef<IgrPaginator>(null);
-  const stateKey = "hierarchical-grid-state";
+  const stateKey = "tree-grid-state";
   let gridStateRef = useRef<IgrGridState>(null);
 
   useEffect(() => {
@@ -126,7 +125,6 @@ export default function App() {
         expansion: e.detail,
         rowPinning: e.detail,
         columnSelection: e.detail,
-        rowIslands: e.detail,
       });
       for (const key of Object.keys(options)) {
         gridStateRef.current.options[key] = e.detail;
@@ -138,9 +136,7 @@ export default function App() {
 
   function leavePage() {
     saveGridState();
-    window.location.replace(
-      "./grids/hierarchical-grid/state-persistence-about"
-    );
+    window.location.replace("./grids/tree-grid/state-persistence-about");
   }
 
   function clearStorage() {
@@ -183,10 +179,7 @@ export default function App() {
         <ul>
           <li>
             Clicking the SAVE button or leaving the page{" "}
-            <a
-              id="leaveLink"
-              href="./grids/hierarchical-grid/state-persistence-about"
-            >
+            <a id="leaveLink" href="./grids/tree-grid/state-persistence-about">
               <strong>here</strong>
             </a>{" "}
             will save grid state to localStorage.
@@ -263,18 +256,12 @@ export default function App() {
         <IgrCheckbox name="sorting" change={onChange} checked={options.sorting}>
           <span>Sorting</span>
         </IgrCheckbox>
-        <IgrCheckbox
-          name="rowIslands"
-          change={onChange}
-          checked={options.rowIslands}
-        >
-          <span>Row Islands</span>
-        </IgrCheckbox>
       </div>
-      <IgrHierarchicalGrid
+      <IgrTreeGrid
         ref={gridRef}
         data={gridData}
         primaryKey="ID"
+        childDataKey="Employees"
         width="95%"
         height="500px"
         autoGenerate="false"
@@ -296,92 +283,47 @@ export default function App() {
           <IgrGridPinningActions></IgrGridPinningActions>
         </IgrActionStrip>
         <IgrPaginator ref={paginatorRef}></IgrPaginator>
-
-        <IgrColumn field="Artist" sortable="true"></IgrColumn>
         <IgrColumn
-          dataType="image"
-          field="Photo"
-          editable="false"
+          field="ID"
+          header="ID"
           sortable="true"
-        ></IgrColumn>
-        <IgrColumn field="Debut" dataType="number" sortable="true"></IgrColumn>
-        <IgrColumn
-          field="GrammyNominations"
-          header="Grammy Nominations"
-          dataType="number"
-          sortable="true"
+          filterable="true"
+          hidden="true"
         ></IgrColumn>
         <IgrColumn
-          field="GrammyAwards"
-          header="Grammy Awards"
-          dataType="number"
+          field="Name"
+          header="Name"
           sortable="true"
+          filterable="true"
+          pinned="true"
         ></IgrColumn>
-        <IgrRowIsland
-          height="null"
-          childDataKey="Albums"
-          autoGenerate="false"
-          primaryKey="Album"
-          allowFiltering="true"
-          columnSelection={GridSelectionMode.Multiple}
-          rowSelection={GridSelectionMode.Multiple}
-        >
-          <IgrColumn field="Album" sortable="true"></IgrColumn>
-          <IgrColumn
-            field="LaunchDate"
-            header="Launch Date"
-            dataType="date"
-            sortable="true"
-          ></IgrColumn>
-          <IgrColumn
-            field="BillboardReview"
-            header="Billboard Review"
-            sortable="true"
-          ></IgrColumn>
-          <IgrColumn
-            field="USBillboard200"
-            header="US Billboard 200"
-            sortable="true"
-          ></IgrColumn>
-          <IgrRowIsland
-            height="null"
-            childDataKey="Songs"
-            columnSelection={GridSelectionMode.Multiple}
-            rowSelection={GridSelectionMode.Multiple}
-            autoGenerate="false"
-            primaryKey="Number"
-            allowFiltering="true"
-          >
-            <IgrColumn field="Number" header="No." sortable="true"></IgrColumn>
-            <IgrColumn field="Title" sortable="true"></IgrColumn>
-            <IgrColumn
-              field="Released"
-              dataType="date"
-              sortable="true"
-            ></IgrColumn>
-            <IgrColumn field="Genre"></IgrColumn>
-          </IgrRowIsland>
-        </IgrRowIsland>
-
-        <IgrRowIsland
-          height="null"
-          childDataKey="Tours"
-          autoGenerate="false"
-          primaryKey="Tour"
-          allowFiltering="true"
-          columnSelection={GridSelectionMode.Multiple}
-          rowSelection={GridSelectionMode.Multiple}
-        >
-          <IgrColumn field="Tour" sortable="true"></IgrColumn>
-          <IgrColumn
-            field="StartedOn"
-            header="Started on"
-            sortable="true"
-          ></IgrColumn>
-          <IgrColumn field="Location" sortable="true"></IgrColumn>
-          <IgrColumn field="Headliner" sortable="true"></IgrColumn>
-        </IgrRowIsland>
-      </IgrHierarchicalGrid>
+        <IgrColumn
+          field="Title"
+          header="Title"
+          sortable="true"
+          filterable="true"
+        ></IgrColumn>
+        <IgrColumn
+          field="Age"
+          header="Age"
+          sortable="true"
+          filterable="true"
+          groupable="true"
+        ></IgrColumn>
+        <IgrColumn
+          field="Phone"
+          header="Phone"
+          sortable="true"
+          filterable="true"
+        ></IgrColumn>
+        <IgrColumn
+          field="OnPTO"
+          header="On PTO"
+          sortable="true"
+          filterable="true"
+          groupable="true"
+        ></IgrColumn>
+      </IgrTreeGrid>
     </div>
   );
 }
