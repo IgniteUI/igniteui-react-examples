@@ -77,7 +77,7 @@ export default function App() {
         return () => {
             window.removeEventListener("beforeunload", saveGridState);
         };
-    });
+    }, []);
 
     function saveGridState() {
         const state = gridStateRef.current.getStateAsString([]);
