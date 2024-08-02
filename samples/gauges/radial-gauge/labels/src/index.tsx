@@ -18,19 +18,11 @@ export default class RadialGaugeLabels extends React.Component<any, any> {
         return (
             <div className="container sample">
             <IgrRadialGauge
-                    backingShape="Fitted"
-                    backingBrush="#fcfcfc"
-                    backingOutline="DodgerBlue"
-                    backingOversweep={5}
-                    backingCornerRadius={10}
-                    backingStrokeThickness={5}
-                    backingOuterExtent={0.8}
-                    backingInnerExtent={0.15}
-
+                    titleDisplaysValue="true"
+		    subtitleText="MPH"
                     scaleStartAngle={135}
                     scaleEndAngle={45}
                     scaleBrush="#dddddd"
-
                     height="100%"
                     width="100%"
                     minimumValue={0} value={50}
