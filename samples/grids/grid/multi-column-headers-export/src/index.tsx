@@ -55,10 +55,10 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate="false"
+                    id="grid"
                     ref={this.gridRef}
                     data={this.customersData}
                     moving="true"
-                    displayDensity="Compact"
                     allowFiltering="true">
                     <IgrGridToolbar
                     >

@@ -40,7 +40,6 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
-                    displayDensity="Comfortable"
                     allowFiltering="true"
                     foreignKey="ParentID">
                     <IgrPaginator
