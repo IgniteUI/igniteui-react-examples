@@ -8,6 +8,7 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding, IgrGridToolbarPinning, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { FoodsDataItem, FoodsData } from './FoodsData';
+import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
@@ -26,10 +27,10 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditor = r;
         this.setState({});
     }
-    private displayDensityEditor: IgrPropertyEditorPropertyDescription
-    private grid: IgrTreeGrid
-    private gridRef(r: IgrTreeGrid) {
-        this.grid = r;
+    private sizeEditor: IgrPropertyEditorPropertyDescription
+    private treeGrid: IgrTreeGrid
+    private treeGridRef(r: IgrTreeGrid) {
+        this.treeGrid = r;
         this.setState({});
     }
     private column1: IgrColumn
@@ -38,7 +39,8 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.propertyEditorRef = this.propertyEditorRef.bind(this);
-        this.gridRef = this.gridRef.bind(this);
+        this.webTreeGridSetGridSize = this.webTreeGridSetGridSize.bind(this);
+        this.treeGridRef = this.treeGridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -48,13 +50,17 @@ export default class Sample extends React.Component<any, any> {
                 <IgrPropertyEditorPanel
                     ref={this.propertyEditorRef}
                     componentRenderer={this.renderer}
-                    target={this.grid}
+                    target={this.treeGrid}
                     descriptionType="WebGrid"
                     isHorizontal="true"
                     isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="DisplayDensity"
-                        name="DisplayDensityEditor">
+                        name="SizeEditor"
+                        label="Grid Size:"
+                        valueType="EnumValue"
+                        dropDownNames={["Small", "Medium", "Large"]}
+                        dropDownValues={["Small", "Medium", "Large"]}
+                        changed={this.webTreeGridSetGridSize}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -62,7 +68,8 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate="false"
-                    ref={this.gridRef}
+                    id="treeGrid"
+                    ref={this.treeGridRef}
                     data={this.foodsData}
                     primaryKey="ID"
                     foreignKey="ParentID"
@@ -133,6 +140,12 @@ export default class Sample extends React.Component<any, any> {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webTreeGridSetGridSize(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("treeGrid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
     public webGridBooleanCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {

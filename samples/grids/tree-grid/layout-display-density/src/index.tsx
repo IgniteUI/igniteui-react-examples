@@ -8,6 +8,7 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrTreeGrid, IgrColumn, IgrColumnGroup } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
+import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -25,7 +26,7 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditor = r;
         this.setState({});
     }
-    private displayDensityEditor: IgrPropertyEditorPropertyDescription
+    private sizeEditor: IgrPropertyEditorPropertyDescription
     private treeGrid: IgrTreeGrid
     private treeGridRef(r: IgrTreeGrid) {
         this.treeGrid = r;
@@ -36,6 +37,7 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.propertyEditorRef = this.propertyEditorRef.bind(this);
+        this.webTreeGridSetGridSize = this.webTreeGridSetGridSize.bind(this);
         this.treeGridRef = this.treeGridRef.bind(this);
     }
 
@@ -51,8 +53,12 @@ export default class Sample extends React.Component<any, any> {
                     isHorizontal="true"
                     isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="DisplayDensity"
-                        name="DisplayDensityEditor">
+                        name="SizeEditor"
+                        label="Grid Size:"
+                        valueType="EnumValue"
+                        dropDownNames={["Small", "Medium", "Large"]}
+                        dropDownValues={["Small", "Medium", "Large"]}
+                        changed={this.webTreeGridSetGridSize}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -172,6 +178,12 @@ export default class Sample extends React.Component<any, any> {
             WebTreeGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webTreeGridSetGridSize(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("treeGrid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
 }

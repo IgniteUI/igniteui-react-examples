@@ -8,6 +8,7 @@ import { IgrGrid, IgrPaginator, IgrPaginatorResourceStrings, IgrColumn, IgrColum
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { AthletesDataItem, AthletesData } from './AthletesData';
+import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -54,13 +55,14 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditor = r;
         this.setState({});
     }
-    private displayDensityEditor: IgrPropertyEditorPropertyDescription
+    private sizeEditor: IgrPropertyEditorPropertyDescription
 
     constructor(props: any) {
         super(props);
 
         this.gridRef = this.gridRef.bind(this);
         this.propertyEditorRef = this.propertyEditorRef.bind(this);
+        this.webGridSetGridSize = this.webGridSetGridSize.bind(this);
     }
 
     public render(): JSX.Element {
@@ -75,8 +77,12 @@ export default class Sample extends React.Component<any, any> {
                     isHorizontal="true"
                     isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="DisplayDensity"
-                        name="DisplayDensityEditor">
+                        name="SizeEditor"
+                        label="Grid Size:"
+                        valueType="EnumValue"
+                        dropDownNames={["Small", "Medium", "Large"]}
+                        dropDownValues={["Small", "Medium", "Large"]}
+                        changed={this.webGridSetGridSize}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -86,12 +92,10 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     data={this.athletesData}
                     ref={this.gridRef}
-                    id="grid"
-                    displayDensity="Cosy">
+                    id="grid">
                     <IgrPaginator
                         name="paginator"
                         perPage="15"
-                        displayDensity="Cosy"
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
                     <IgrColumn
@@ -138,6 +142,12 @@ export default class Sample extends React.Component<any, any> {
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webGridSetGridSize(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("grid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
 }
