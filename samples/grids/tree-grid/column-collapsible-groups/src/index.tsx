@@ -41,7 +41,6 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID"
                     moving="true"
-                    displayDensity="Compact"
                     rowSelection="None">
                     <IgrColumnGroup
                         header="General Information"
