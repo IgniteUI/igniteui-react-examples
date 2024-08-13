@@ -45,11 +45,11 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate="false"
+                    id="grid"
                     ref={this.gridRef}
                     data={this.nwindData}
                     moving="true"
                     primaryKey="ProductID"
-                    displayDensity="Cosy"
                     rowEditable="true"
                     gridKeydown={this.webGridCustomKBNav}>
                     <IgrColumn
