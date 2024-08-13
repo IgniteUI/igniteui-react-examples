@@ -56,7 +56,6 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.companyData}
-                    displayDensity="Cosy"
                     gridKeydown={this.webGridMRLCustomNavigationEvent}>
                     <IgrColumnLayout
                         name="CompanyInfo"

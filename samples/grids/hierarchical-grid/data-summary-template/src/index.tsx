@@ -29,7 +29,7 @@ export default class Sample extends React.Component<any, any> {
     }
     private summaryRowHeightEditor: IgrPropertyEditorPropertyDescription
     private toggleSummariesEditor: IgrPropertyEditorPropertyDescription
-    private displayDensityEditor: IgrPropertyEditorPropertyDescription
+    private sizeEditor: IgrPropertyEditorPropertyDescription
     private hierarchicalGrid: IgrHierarchicalGrid
     private hierarchicalGridRef(r: IgrHierarchicalGrid) {
         this.hierarchicalGrid = r;
@@ -45,6 +45,7 @@ export default class Sample extends React.Component<any, any> {
 
         this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
         this.webHierarchicalGridHasSummariesChange = this.webHierarchicalGridHasSummariesChange.bind(this);
+        this.webHierarchicalGridSetGridSize = this.webHierarchicalGridSetGridSize.bind(this);
         this.hierarchicalGridRef = this.hierarchicalGridRef.bind(this);
     }
 
@@ -73,8 +74,12 @@ export default class Sample extends React.Component<any, any> {
                         name="ToggleSummariesEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="DisplayDensity"
-                        name="DisplayDensityEditor">
+                        name="SizeEditor"
+                        label="Grid Size:"
+                        valueType="EnumValue"
+                        dropDownNames={["Small", "Medium", "Large"]}
+                        dropDownValues={["Small", "Medium", "Large"]}
+                        changed={this.webHierarchicalGridSetGridSize}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -209,6 +214,12 @@ export default class Sample extends React.Component<any, any> {
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
         column3.hasSummary = newValue;
+    }
+
+    public webHierarchicalGridSetGridSize(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("hierarchicalGrid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
     public webHierarchicalGridSummaryTemplateStyle = (e: { dataContext: IgrSummaryTemplateContext }) => {
