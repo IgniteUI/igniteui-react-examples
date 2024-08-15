@@ -27,9 +27,9 @@ export default class InputSize extends React.Component<any, any> {
             <div className="container sample">
                 <div id="radioGroup">
                     <IgrRadioGroup alignment="horizontal">
-                        <IgrRadio name="size" value="small" labelPosition="after" change={this.onRadioChange}><span>Small</span></IgrRadio>
-                        <IgrRadio name="size" value="medium" labelPosition="after" checked="true" change={this.onRadioChange}><span>Medium</span></IgrRadio>
-                        <IgrRadio name="size" value="large" labelPosition="after" change={this.onRadioChange}><span>Large</span></IgrRadio>
+                        <IgrRadio value="small" labelPosition="after" change={this.onRadioChange}><span>Small</span></IgrRadio>
+                        <IgrRadio value="medium" labelPosition="after" checked="true" change={this.onRadioChange}><span>Medium</span></IgrRadio>
+                        <IgrRadio value="large" labelPosition="after" change={this.onRadioChange}><span>Large</span></IgrRadio>
                     </IgrRadioGroup>
                 </div>
                 <IgrInput ref={this.inputRequiredRef} type="text" label="Required" value="This input is required" required="true" />                

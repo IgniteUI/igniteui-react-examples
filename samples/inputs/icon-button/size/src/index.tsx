@@ -26,20 +26,17 @@ export default class IconButtonSize extends React.Component<any, any> {
                     <IgrIconButton style={{margin: "10px"}} ref={this.smallRef} 
                         name="thumb-up" 
                         collection="material"
-                        variant="contained" 
-                        size="small" >
+                        variant="contained"  >
                     </IgrIconButton>
                     <IgrIconButton style={{margin: "10px"}} ref={this.mediumRef} 
                         name="thumb-up" 
                         collection="material" 
-                        variant="contained" 
-                        size="medium" >
+                        variant="contained">
                     </IgrIconButton>
                     <IgrIconButton style={{margin: "10px"}} ref={this.largeRef} 
                         name="thumb-up" 
                         collection="material" 
-                        variant="contained" 
-                        size="large" >
+                        variant="contained" >
                     </IgrIconButton>
                 </div>
             </div>

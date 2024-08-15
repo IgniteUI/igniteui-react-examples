@@ -97,7 +97,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                                         return (
                                             <IgrRadio key={`${rating}star`} name="rating" value={rating.toString()} change={this.ratingChange}>
                                                 <IgrRating label={`${rating} star${rating > 1 ? 's' : ''} or more`} max="5" value={rating + 0.5}
-                                                    size="small" readonly key={`{r-${rating}}`}>
+                                                 readonly key={`{r-${rating}}`}>
                                                 </IgrRating>
                                             </IgrRadio>
                                         );
@@ -108,7 +108,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                         <IgrExpansionPanel key="ep4">
                             <h1 slot="title" key="ep4Title">{this.state.time}</h1>
                             <span key="ep4Span">
-                                <IgrDateTimeInput key="dtInput" inputFormat="hh:mm tt" label="Arrive before" size="small"
+                                <IgrDateTimeInput key="dtInput" inputFormat="hh:mm tt" label="Arrive before"
                                     ref={this.dateTimeInputRef} change={this.timeChange}>
                                     <span key="sPrefix" slot="prefix">
                                         <IgrIcon name="clock" collection="material" ref={this.clockIconRef} />

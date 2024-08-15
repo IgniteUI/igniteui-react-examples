@@ -23,13 +23,13 @@ export default class ListOverview extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrRadioGroup alignment="horizontal" style={{marginBottom: '10px'}}>
-                    <IgrRadio name="size" value="small" labelPosition="after" change={this.onRadioChange}>
+                    <IgrRadio value="small" labelPosition="after" change={this.onRadioChange}>
                         <span>Small</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="medium" labelPosition="after" change={this.onRadioChange}>
+                    <IgrRadio value="medium" labelPosition="after" change={this.onRadioChange}>
                         <span>Medium</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="large" labelPosition="after" checked={true} change={this.onRadioChange}>
+                    <IgrRadio value="large" labelPosition="after" checked={true} change={this.onRadioChange}>
                         <span>Large</span>
                     </IgrRadio>
                 </IgrRadioGroup>
