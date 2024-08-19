@@ -61,70 +61,66 @@ export default class Sample extends React.Component<any, any> {
     }
 
     private changeRefs(collectionName: string) {
-        const meta = new IgrIconMeta();
-        meta.name = 'arrow_drop_down';
-        meta.collection = collectionName;
-        this.iconInstance.setIconRef('arrow_drop_down', 'default', meta);
+        this.iconInstance.setIconRef('arrow_drop_down', 'default', {
+            name: 'arrow_drop_down',
+            collection: collectionName,
+        } as IgrIconMeta);
+        this.iconInstance.setIconRef('import_export', 'default', {
+            name: 'import_export',
+            collection: collectionName,
+        } as IgrIconMeta);
+        this.iconInstance.setIconRef('clear', 'default', {
+            name: 'clear',
+            collection: collectionName,
+        } as IgrIconMeta);
+        this.iconInstance.setIconRef('chevron_right', 'default', {
+            name: 'search',
+            collection: collectionName,
+        } as IgrIconMeta);
 
-        const meta2 = new IgrIconMeta();
-        meta2.name = 'import_export';
-        meta2.collection = collectionName;
-        this.iconInstance.setIconRef('import_export', 'default', meta2);
+        this.iconInstance.setIconRef('search', 'default', {
+            name: 'search',
+            collection: collectionName,
+        } as IgrIconMeta);
 
-        const meta3 = new IgrIconMeta();
-        meta3.name = 'clear';
-        meta3.collection = collectionName;
-        this.iconInstance.setIconRef('clear', 'default', meta3);
-        
-        const meta4 = new IgrIconMeta();
-        meta4.name = 'chevron_right';
-        meta4.collection = collectionName;
-        this.iconInstance.setIconRef('chevron_right', 'default', meta4);
+        this.iconInstance.setIconRef('visibility_off', 'default', {
+            name: 'visibility_off',
+            collection: collectionName,
+        } as IgrIconMeta);
 
-        const meta5 = new IgrIconMeta();
-        meta5.name = 'search';
-        meta5.collection = collectionName;
-        this.iconInstance.setIconRef('search', 'default', meta5);
+        this.iconInstance.setIconRef('visibility', 'default', {
+            name: 'visibility',
+            collection: collectionName,
+        } as IgrIconMeta);
 
-        const meta6 = new IgrIconMeta();
-        meta6.name = 'visibility_off';
-        meta6.collection = collectionName;
-        this.iconInstance.setIconRef('visibility_off', 'default', meta6);
+        this.iconInstance.setIconRef('unpin-left', 'default', {
+            name: 'unpin-left',
+            collection: collectionName === "material" ? "imx-icons" : collectionName,
+        } as IgrIconMeta);
 
-        const meta7 = new IgrIconMeta();
-        meta7.name = 'visibility';
-        meta7.collection = collectionName;
-        this.iconInstance.setIconRef('visibility', 'default', meta7);
+        this.iconInstance.setIconRef('pin-left', 'default', {
+            name: 'pin-left',
+            collection: collectionName === "material" ? "imx-icons" : collectionName,
+        } as IgrIconMeta);
+        this.iconInstance.setIconRef('filter_list', 'default', {
+            name: 'filter_list',
+            collection: collectionName,
+        } as IgrIconMeta);
 
-        const meta8 = new IgrIconMeta();
-        meta8.name = 'visibility';
-        meta8.collection = collectionName === "material" ? "imx-icons" : collectionName;
-        this.iconInstance.setIconRef('unpin-left', 'default', meta8);
+        this.iconInstance.setIconRef('arrow_upward', 'default', {
+            name: 'arrow_upward',
+            collection: collectionName,
+        } as IgrIconMeta);
 
-        const meta9 = new IgrIconMeta();
-        meta9.name = 'pin-left';
-        meta9.collection = collectionName === "material" ? "imx-icons" : collectionName;
-        this.iconInstance.setIconRef('pin-left', 'default', meta9);
+        this.iconInstance.setIconRef('more_vert', 'default', {
+            name: 'more_vert',
+            collection: collectionName,
+        } as IgrIconMeta);
 
-        const meta10 = new IgrIconMeta();
-        meta10.name = 'filter_list';
-        meta10.collection = collectionName;
-        this.iconInstance.setIconRef('filter_list', 'default', meta10);
-
-        const meta11 = new IgrIconMeta();
-        meta11.name = 'arrow_upward';
-        meta11.collection = collectionName;
-        this.iconInstance.setIconRef('arrow_upward', 'default', meta11);
-
-        const meta12 = new IgrIconMeta();
-        meta12.name = 'more_vert';
-        meta12.collection = collectionName;
-        this.iconInstance.setIconRef('more_vert', 'default', meta12);
-
-        const meta13 = new IgrIconMeta();
-        meta13.name = 'arrow_downward';
-        meta13.collection = collectionName;
-        this.iconInstance.setIconRef('arrow_downward', 'default', meta13);
+        this.iconInstance.setIconRef('arrow_downward', 'default', {
+            name: 'arrow_downward',
+            collection: collectionName,
+        } as IgrIconMeta);
     } 
 
     constructor(props: any) {
