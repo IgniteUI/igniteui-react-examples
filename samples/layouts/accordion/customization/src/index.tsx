@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import './AccordionCustomization.css';
 import {
-    IgrAccordion, IgrAccordionModule, IgrCheckbox, IgrCheckboxModule, IgrDateTimeInput,
-    IgrDateTimeInputModule, IgrExpansionPanel, IgrExpansionPanelModule, IgrIcon, IgrIconModule,
-    IgrRadio, IgrRadioModule, IgrRadioGroup, IgrRadioGroupModule, IgrRating, IgrRatingModule,
-    IgrRangeSlider, IgrRangeSliderModule, IgrComponentBoolValueChangedEventArgs,
+    IgrAccordion, IgrAccordionModule, IgrCheckbox, IgrCheckboxChangeEventArgs, IgrCheckboxModule,
+    IgrDateTimeInput, IgrDateTimeInputModule, IgrExpansionPanel, IgrExpansionPanelModule, IgrIcon,
+    IgrIconModule, IgrRadio, IgrRadioModule, IgrRadioGroup, IgrRadioGroupModule, IgrRating,
+    IgrRatingModule, IgrRangeSlider, IgrRangeSliderModule, IgrRadioChangeEventArgs,
     IgrRangeSliderValueEventArgs, IIgrRadioProps, IgrComponentDateValueChangedEventArgs
 } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -71,7 +71,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                                     {this.state.categories.map((c: Category) => {
                                         return (
                                             <IgrCheckbox key={'checkbox-' + c.type}
-                                                change={(s: IgrCheckbox, e: IgrComponentBoolValueChangedEventArgs) => this.categoriesChange(s, e, c.type)}>
+                                                change={(s: IgrCheckbox, e: IgrCheckboxChangeEventArgs) => this.categoriesChange(s, e, c.type)}>
                                                 <span key={'cbSpan-' + c.type}>{c.type}</span>
                                             </IgrCheckbox>
                                         );
@@ -108,7 +108,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                         <IgrExpansionPanel key="ep4">
                             <h1 slot="title" key="ep4Title">{this.state.time}</h1>
                             <span key="ep4Span">
-                                <IgrDateTimeInput key="dtInput" inputFormat="hh:mm tt" label="Arrive before" size="small"
+                                <IgrDateTimeInput className="size-small" key="dtInput" inputFormat="hh:mm tt" label="Arrive before"
                                     ref={this.dateTimeInputRef} change={this.timeChange}>
                                     <span key="sPrefix" slot="prefix">
                                         <IgrIcon name="clock" collection="material" ref={this.clockIconRef} />
@@ -125,11 +125,11 @@ export default class AccordionCustomization extends React.Component<any, any> {
         );
     }
 
-    public categoriesChange(s: IgrCheckbox, e: IgrComponentBoolValueChangedEventArgs, type: string) {
+    public categoriesChange(s: IgrCheckbox, e: IgrCheckboxChangeEventArgs, type: string) {
         const categoryIndex = this.categories.findIndex(c => c.type === type);
         if (categoryIndex === -1) { return; }
         let categoriesCopy = this.state.categories;
-        categoriesCopy[categoryIndex].checked = e.detail;
+        categoriesCopy[categoryIndex].checked = e.detail.checked;
         this.setState({
             categories: categoriesCopy
         });
@@ -141,7 +141,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
         });
     }
 
-    public ratingChange(s: IgrRadio<IIgrRadioProps>, e: IgrComponentBoolValueChangedEventArgs) {
+    public ratingChange(s: IgrRadio<IIgrRadioProps>, e: IgrRadioChangeEventArgs) {
         if (!e.detail) { return; }
         this.setState({
             rating: `${+s.value} star${+s.value > 1 ? 's' : ''} or more`

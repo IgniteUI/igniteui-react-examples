@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import {
     IgrStepper, IgrStep, StepperOrientation, StepperTitlePosition, IgrStepperModule, IgrStepModule, IgrRadio, IgrRadioGroup,
-    IgrRadioModule, IgrRadioGroupModule, IgrComponentBoolValueChangedEventArgs, IgrButton, IgrButtonModule
+    IgrRadioChangeEventArgs, IgrRadioModule, IgrRadioGroupModule, IgrButton, IgrButtonModule
 } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -69,7 +69,7 @@ export default class StepperOrientationSample extends React.Component<any, any> 
         );
     }
 
-    public handleTitlePositionChange(s: IgrRadio, e: IgrComponentBoolValueChangedEventArgs) {
+    public handleTitlePositionChange(s: IgrRadio, e: IgrRadioChangeEventArgs) {
         const value = s.props.value;
 
         if (value === '') {
@@ -82,7 +82,7 @@ export default class StepperOrientationSample extends React.Component<any, any> 
         }
     }
 
-    public handleOrientationChange(s: IgrRadio, e: IgrComponentBoolValueChangedEventArgs) {
+    public handleOrientationChange(s: IgrRadio, e: IgrRadioChangeEventArgs) {
         const value = s.props.value;
         const newOrientation: StepperOrientation = StepperOrientation[value as keyof typeof StepperOrientation];
         this.setDefaultTitlePosition(newOrientation);

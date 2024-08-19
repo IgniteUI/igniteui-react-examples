@@ -22,8 +22,7 @@ export default class IconButtonStyling extends React.Component<any, any> {
                 <IgrIconButton style={{margin: "10px"}} ref={this.iconRef} 
                     name="thumb-up" 
                     collection="material"
-                    variant="contained" 
-                    size="small">
+                    variant="contained">
                 </IgrIconButton>
             </div>
         );
