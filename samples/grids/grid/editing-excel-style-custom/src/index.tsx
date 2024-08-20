@@ -90,8 +90,10 @@ export default class Sample extends React.Component<any, any> {
             var activeElem = grid.selectedCells[0];
 
             if ((args.code >= 'Digit0' && args.code <= 'Digit9') || 
+                    (args.code >= 'KeyA' && args.code <= 'KeyZ') || 
                     (args.code >= 'KeyA' && args.code <= 'KeyZ') && 
-                    args.code !== 'Enter') {
+                     args.code !== 'Enter' &&
+                     args.code !== 'NumpadEnter' ) {
         
                         if (activeElem && activeElem.editMode === false) {
                             activeElem.editMode = true;
@@ -118,7 +120,7 @@ export default class Sample extends React.Component<any, any> {
                 }
             }
 
-            if (args.code === 'Enter') {
+            if (args.code === 'Enter' || args.code === 'NumpadEnter') {
                     
                 if(activeElem == null) {
                     return;
