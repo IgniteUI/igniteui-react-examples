@@ -91,7 +91,7 @@ export default class Sample extends React.Component<any, any> {
 
             if ((args.code >= 'Digit0' && args.code <= 'Digit9') || 
                     (args.code >= 'KeyA' && args.code <= 'KeyZ') || 
-                    (args.code >= 'KeyA' && args.code <= 'KeyZ') && 
+                    (args.code >= 'Numpad0' && args.code <= 'Numpad9') && 
                      args.code !== 'Enter' &&
                      args.code !== 'NumpadEnter' ) {
         
@@ -121,14 +121,14 @@ export default class Sample extends React.Component<any, any> {
             }
 
             if (args.code === 'Enter' || args.code === 'NumpadEnter') {
-                    
+                args.preventDefault();    
                 if(activeElem == null) {
                     return;
                 }
 
                 const nextRowIndex = this.getNextEditableRowIndex(activeElem.row.index, grid.dataView, args.shiftKey);    
 
-                grid.navigateTo(nextRowIndex, activeElem.visibleColumnIndex, (obj: any) => {
+                grid.navigateTo(nextRowIndex, activeElem.id.columnID -1, (obj: any) => {
                     grid.clearCellSelection(); 
                     obj.target.activate(); 
                 });
