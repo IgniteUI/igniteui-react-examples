@@ -53,7 +53,6 @@ export default class Sample extends React.Component<any, any> {
                     <IgrPaginator
                         name="paginator"
                         perPage="15"
-                        displayDensity="Cosy"
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
                     <IgrColumn
