@@ -39,8 +39,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate="false"
                     data={this.nwindData}
                     ref={this.gridRef}
-                    id="grid"
-                    displayDensity="Compact">
+                    id="grid">
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"

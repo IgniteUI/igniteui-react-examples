@@ -29,7 +29,7 @@ export default class Sample extends React.Component<any, any> {
     }
     private summaryRowHeightEditor: IgrPropertyEditorPropertyDescription
     private toggleSummariesEditor: IgrPropertyEditorPropertyDescription
-    private displayDensityEditor: IgrPropertyEditorPropertyDescription
+    private sizeEditor: IgrPropertyEditorPropertyDescription
     private treeGrid: IgrTreeGrid
     private treeGridRef(r: IgrTreeGrid) {
         this.treeGrid = r;
@@ -42,6 +42,7 @@ export default class Sample extends React.Component<any, any> {
 
         this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
         this.webTreeGridHasSummariesChange = this.webTreeGridHasSummariesChange.bind(this);
+        this.webTreeGridSetGridSize = this.webTreeGridSetGridSize.bind(this);
         this.treeGridRef = this.treeGridRef.bind(this);
     }
 
@@ -70,8 +71,12 @@ export default class Sample extends React.Component<any, any> {
                         name="ToggleSummariesEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="DisplayDensity"
-                        name="DisplayDensityEditor">
+                        name="SizeEditor"
+                        label="Grid Size:"
+                        valueType="EnumValue"
+                        dropDownNames={["Small", "Medium", "Large"]}
+                        dropDownValues={["Small", "Medium", "Large"]}
+                        changed={this.webTreeGridSetGridSize}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -144,6 +149,12 @@ export default class Sample extends React.Component<any, any> {
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
         column3.hasSummary = newValue;
+    }
+
+    public webTreeGridSetGridSize(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("treeGrid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
     public webTreeGridSummaryTemplate = (e: { dataContext: IgrSummaryTemplateContext }) => {
