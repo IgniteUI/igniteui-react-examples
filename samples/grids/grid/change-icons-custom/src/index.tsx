@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
         this.iconInstance.registerIconFromText("search", magnifyGlass, "fontAwesome");
         this.iconInstance.registerIconFromText("chevron_right", chevronRight, "fontAwesome");
         this.iconInstance.registerIconFromText("clear", xMark, "fontAwesome");
-        this.iconInstance.registerIconFromText("import_export", fileExport, "fontAwesome");
+        this.iconInstance.registerIconFromText("file_download", fileExport, "fontAwesome");
         this.iconInstance.registerIconFromText("arrow_drop_down", caretDown , "fontAwesome");
     }
     private _pinningConfig1: IgrPinningConfig | null = null;
@@ -65,8 +65,8 @@ export default class Sample extends React.Component<any, any> {
             name: 'arrow_drop_down',
             collection: collectionName,
         } as IgrIconMeta);
-        this.iconInstance.setIconRef('import_export', 'default', {
-            name: 'import_export',
+        this.iconInstance.setIconRef('file_download', 'default', {
+            name: 'file_download',
             collection: collectionName,
         } as IgrIconMeta);
         this.iconInstance.setIconRef('clear', 'default', {
@@ -74,7 +74,7 @@ export default class Sample extends React.Component<any, any> {
             collection: collectionName,
         } as IgrIconMeta);
         this.iconInstance.setIconRef('chevron_right', 'default', {
-            name: 'search',
+            name: 'chevron_right',
             collection: collectionName,
         } as IgrIconMeta);
 
@@ -83,22 +83,22 @@ export default class Sample extends React.Component<any, any> {
             collection: collectionName,
         } as IgrIconMeta);
 
-        this.iconInstance.setIconRef('visibility_off', 'default', {
+        this.iconInstance.setIconRef('hide', 'default', {
             name: 'visibility_off',
             collection: collectionName,
         } as IgrIconMeta);
 
-        this.iconInstance.setIconRef('visibility', 'default', {
+        this.iconInstance.setIconRef('show', 'default', {
             name: 'visibility',
             collection: collectionName,
         } as IgrIconMeta);
 
-        this.iconInstance.setIconRef('unpin-left', 'default', {
+        this.iconInstance.setIconRef('unpin', 'default', {
             name: 'unpin-left',
             collection: collectionName === "material" ? "imx-icons" : collectionName,
         } as IgrIconMeta);
 
-        this.iconInstance.setIconRef('pin-left', 'default', {
+        this.iconInstance.setIconRef('pin', 'default', {
             name: 'pin-left',
             collection: collectionName === "material" ? "imx-icons" : collectionName,
         } as IgrIconMeta);
@@ -107,7 +107,7 @@ export default class Sample extends React.Component<any, any> {
             collection: collectionName,
         } as IgrIconMeta);
 
-        this.iconInstance.setIconRef('arrow_upward', 'default', {
+        this.iconInstance.setIconRef('sort_asc', 'default', {
             name: 'arrow_upward',
             collection: collectionName,
         } as IgrIconMeta);
@@ -117,7 +117,7 @@ export default class Sample extends React.Component<any, any> {
             collection: collectionName,
         } as IgrIconMeta);
 
-        this.iconInstance.setIconRef('arrow_downward', 'default', {
+        this.iconInstance.setIconRef('sort_desc', 'default', {
             name: 'arrow_downward',
             collection: collectionName,
         } as IgrIconMeta);
