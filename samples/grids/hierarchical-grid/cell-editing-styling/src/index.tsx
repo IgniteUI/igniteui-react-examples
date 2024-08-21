@@ -40,7 +40,6 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    displayDensity="Cosy"
                     allowFiltering="true">
                     <IgrPaginator
                         perPage="10">
