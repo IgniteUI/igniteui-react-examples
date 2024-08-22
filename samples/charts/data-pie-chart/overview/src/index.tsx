@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrDataPieChartModule, IgrItemLegendModule } from 'igniteui-react-charts';
-import { IgrDataPieChart } from 'igniteui-react-core';
+import { IgrDataPieChart } from 'igniteui-react-charts';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
 
 const mods: any[] = [

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrDataPieChartModule } from 'igniteui-react-charts';
-import { IgrDataPieChart } from 'igniteui-react-core';
+import { IgrDataPieChart } from 'igniteui-react-charts';
 import { ComponentRenderer, DataPieChartDescriptionModule } from 'igniteui-react-core';
 import { OnlineTrafficHighlightTotalsItem, OnlineTrafficHighlightTotals } from './OnlineTrafficHighlightTotals';
 import { OnlineTrafficHighlightDesktopOnlyItem, OnlineTrafficHighlightDesktopOnly } from './OnlineTrafficHighlightDesktopOnly';
