@@ -69,7 +69,7 @@ export class BoatSailingData extends Array<BoatSailingDataItem> {
                     windSpeed: 90
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

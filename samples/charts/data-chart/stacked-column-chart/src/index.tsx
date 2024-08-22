@@ -51,7 +51,7 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
 
             <div className="legend-title">
-                Electricity Production from Renewables
+                Annual Birth Rates by World Region
             </div>
 
             <div className="legend">
@@ -82,7 +82,7 @@ export default class Sample extends React.Component<any, any> {
                         labelFormat="{0} m">
                     </IgrNumericYAxis>
                     <IgrStackedColumnSeries
-                        name="StackedColumnSeries"
+                        name="stackedColumnSeries"
                         dataSource={this.continentsBirthRate}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -114,7 +114,7 @@ export default class Sample extends React.Component<any, any> {
                         </IgrStackedFragmentSeries>
                     </IgrStackedColumnSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

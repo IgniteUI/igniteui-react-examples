@@ -27,7 +27,7 @@ export default class Sample extends React.Component<any, any> {
         {
             let sortingExpression1: IgrSortingExpression[] = [];
             var sortingExpression2: IgrSortingExpression = {} as IgrSortingExpression;
-            sortingExpression2.fieldName = "CategoryName";
+            sortingExpression2.fieldName = "Category";
             sortingExpression2.dir = SortingDirection.Asc;
             sortingExpression2.ignoreCase = true;
 
@@ -73,13 +73,13 @@ export default class Sample extends React.Component<any, any> {
                         sortable="true">
                     </IgrColumn>
                     <IgrColumn
-                        field="CategoryName"
+                        field="Category"
                         header="Category Name"
                         dataType="String"
                         sortable="true">
                     </IgrColumn>
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         header="Company"
                         dataType="String"
                         sortable="true">

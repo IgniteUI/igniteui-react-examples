@@ -1,2 +1,6 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
+
+.gridSize {
+    --ig-size: var(--ig-size-medium);
+}

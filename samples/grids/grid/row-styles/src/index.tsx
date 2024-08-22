@@ -7,8 +7,9 @@ import { IgrBadgeModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
-import { IgrRowType, IgrCellTemplateContext } from 'igniteui-react-grids';
+import { IgrRowType } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';

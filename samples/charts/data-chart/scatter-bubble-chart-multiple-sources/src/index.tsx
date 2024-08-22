@@ -98,7 +98,7 @@ export default class Sample extends React.Component<any, any> {
                         abbreviateLargeNumbers="true">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
-                        name="BubbleSeries1"
+                        name="bubbleSeries1"
                         title="African Countries"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -111,7 +111,7 @@ export default class Sample extends React.Component<any, any> {
                         radiusScale={this.sizeScale1}>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
-                        name="BubbleSeries2"
+                        name="bubbleSeries2"
                         title="European Countries"
                         xAxisName="xAxis"
                         yAxisName="yAxis"

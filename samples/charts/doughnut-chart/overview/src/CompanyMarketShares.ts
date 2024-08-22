@@ -45,7 +45,7 @@ export class CompanyMarketShares extends Array<CompanyMarketSharesItem> {
                     summary: `Other 10%`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

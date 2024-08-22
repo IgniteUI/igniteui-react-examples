@@ -2,6 +2,10 @@
 /* https://static.infragistics.com/xplatform/css/samples */
 
     #grid {
+        --ig-size: var(--ig-size-medium);
+    }
+
+    #grid {
         --ig-grid-edit-mode-color: #FFA500;
         --ig-grid-cell-active-border-color: #AAFF00;
         --ig-grid-cell-editing-background: #ADD8E6;

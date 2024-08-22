@@ -96,7 +96,7 @@ export default class Sample extends React.Component<any, any> {
                         title="Messi">
                     </IgrRadialPieSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

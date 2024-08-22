@@ -149,8 +149,9 @@ export default class Sample extends React.Component<any, any> {
 
 
     public webHierarchicalGridPinRowOnRendered(): void {
-        this.grid.pinRow(this.singersData[0].Photo);
-        this.grid.pinRow(this.singersData[1].Photo);
+        var hierarchicalGrid = this.grid;
+        hierarchicalGrid.pinRow(hierarchicalGrid.data[0].Photo);
+        hierarchicalGrid.pinRow(hierarchicalGrid.data[1].Photo);
     }
 
 }

@@ -51,7 +51,7 @@ export class HighestGrossingMovies extends Array<HighestGrossingMoviesItem> {
                     highestGrossing: 1.11
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

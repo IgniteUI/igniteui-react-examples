@@ -1570,7 +1570,7 @@ export class CountyHierarchicalData extends Array<CountyHierarchicalDataItem> {
                     population: 29278000
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

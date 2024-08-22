@@ -55,7 +55,7 @@ export default class Sample extends React.Component<any, any> {
                         hidden="true">
                     </IgrColumn>
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         header="Company"
                         width="350px">
                     </IgrColumn>
@@ -113,7 +113,8 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public toggleRowPin(index: number) {
-        this.grid.getRowByIndex(index).pinned = !this.grid.getRowByIndex(index).pinned;
+        let grid = this.grid;
+        grid.getRowByIndex(index).pinned = !grid.getRowByIndex(index).pinned;
     }
 }
 

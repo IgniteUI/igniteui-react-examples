@@ -394,7 +394,7 @@ export class CountryDemographicAfrican extends Array<CountryDemographicAfricanIt
                     name: `Zimbabwe`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

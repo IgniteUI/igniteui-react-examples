@@ -8,6 +8,7 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebHierarchicalGridDescriptionModule } from 'igniteui-react-core';
 import HierarchicalCustomers from './HierarchicalCustomers.json';
+import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -25,7 +26,7 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditor = r;
         this.setState({});
     }
-    private displayDensityEditor: IgrPropertyEditorPropertyDescription
+    private sizeEditor: IgrPropertyEditorPropertyDescription
     private hierarchicalGrid: IgrHierarchicalGrid
     private hierarchicalGridRef(r: IgrHierarchicalGrid) {
         this.hierarchicalGrid = r;
@@ -36,6 +37,7 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.propertyEditorRef = this.propertyEditorRef.bind(this);
+        this.webHierarchicalGridSetGridSize = this.webHierarchicalGridSetGridSize.bind(this);
         this.hierarchicalGridRef = this.hierarchicalGridRef.bind(this);
     }
 
@@ -51,8 +53,12 @@ export default class Sample extends React.Component<any, any> {
                     isHorizontal="true"
                     isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="DisplayDensity"
-                        name="DisplayDensityEditor">
+                        name="SizeEditor"
+                        label="Grid Size:"
+                        valueType="EnumValue"
+                        dropDownNames={["Small", "Medium", "Large"]}
+                        dropDownValues={["Small", "Medium", "Large"]}
+                        changed={this.webHierarchicalGridSetGridSize}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -69,7 +75,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="String">
                     </IgrColumn>
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         dataType="String">
                     </IgrColumn>
                     <IgrColumn
@@ -192,6 +198,12 @@ export default class Sample extends React.Component<any, any> {
             WebHierarchicalGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webHierarchicalGridSetGridSize(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("hierarchicalGrid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
 }

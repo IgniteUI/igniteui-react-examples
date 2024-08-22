@@ -1,0 +1,15 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.allergensFont {
+    color: royalblue !important;
+}
+
+.upPrice {
+    color: red !important;
+}
+
+.downPrice {
+    color: green !important;
+}
+

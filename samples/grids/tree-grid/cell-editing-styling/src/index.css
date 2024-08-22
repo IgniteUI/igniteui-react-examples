@@ -1,0 +1,9 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+#treeGrid {
+	--cell-editing-background: #4567bb;
+    --cell-active-border-color: #4567bb;
+    --cell-edited-value-color: #fff;
+}
+

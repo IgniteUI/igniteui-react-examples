@@ -43,7 +43,6 @@ export default class Sample extends React.Component<any, any> {
                     data={this.nwindData}
                     cellEdit={this.webGridEditingEventsCellEdit}
                     primaryKey="ProductID"
-                    displayDensity="Cosy"
                     allowFiltering="true">
                     <IgrPaginator
                         perPage="10">
