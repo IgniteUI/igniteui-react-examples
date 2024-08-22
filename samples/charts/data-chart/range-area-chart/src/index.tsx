@@ -73,7 +73,7 @@ export default class Sample extends React.Component<any, any> {
                         titleLeftMargin="10">
                     </IgrNumericYAxis>
                     <IgrRangeAreaSeries
-                        name="RangeAreaSeries1"
+                        name="rangeAreaSeries1"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         title="Los Angeles"
@@ -83,7 +83,7 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.temperatureRangeData}>
                     </IgrRangeAreaSeries>
                     <IgrRangeAreaSeries
-                        name="RangeAreaSeries2"
+                        name="rangeAreaSeries2"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         title="New York"
@@ -93,7 +93,7 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.temperatureRangeData}>
                     </IgrRangeAreaSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

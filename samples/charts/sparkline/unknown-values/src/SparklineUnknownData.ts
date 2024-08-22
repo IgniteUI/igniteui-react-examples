@@ -64,7 +64,7 @@ export class SparklineUnknownData extends Array<SparklineUnknownDataItem> {
                     value: 6
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

@@ -17,18 +17,18 @@ export default class RadialGaugeHighlightNeedle extends React.Component<any, any
     public render(): JSX.Element {
         return (
             <div className="container sample">
-            <IgrRadialGauge                    
+            <IgrRadialGauge 
+                    highlightValue="50"                   
                     highlightValueDisplayMode="Overlay"
-                    highlightValue="25"
+                    highlightLabelDisplaysValue="true"
+                    highlightLabelSnapsToNeedlePivot="true"
                     isHighlightNeedleDraggingEnabled="true"
-                    isNeedleDraggingEnabled="true"
-                    titleDisplaysValue="true"
                     label-interval="10"
                     label-extent="0.65"        
                     height="100%"
                     width="100%"
-                    minimumValue={0} value={75}
-                    maximumValue={80} interval={10} />
+                    minimumValue={0} value={30}
+                    maximumValue={100} interval={10} />
             </div>
         );
     }

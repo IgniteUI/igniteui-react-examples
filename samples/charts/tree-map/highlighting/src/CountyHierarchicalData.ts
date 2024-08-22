@@ -2,7 +2,7 @@ export class CountyHierarchicalDataItem {
     public constructor(init: Partial<CountyHierarchicalDataItem>) {
         Object.assign(this, init);
     }
-    
+
     public code: string;
     public parent: string;
     public name: string;
@@ -1570,7 +1570,7 @@ export class CountyHierarchicalData extends Array<CountyHierarchicalDataItem> {
                     population: 29278000
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

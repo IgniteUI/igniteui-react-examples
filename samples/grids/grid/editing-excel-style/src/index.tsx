@@ -100,7 +100,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridEditingExcelStyle(sender: IgrGrid, args: IgrGridKeydownEventArgs): void {
-        var key = args.detail.event.keyCode;
+        var key = (args.detail.event as any).keyCode;
         var grid = args.detail.target.grid;
         var activeElem = grid.navigation.activeNode;
 
@@ -119,7 +119,7 @@ export default class Sample extends React.Component<any, any> {
             var column = activeElem.column;
             var rowInfo = grid.dataView;
 
-            var nextRow = this.getNextEditableRowIndex(thisRow, rowInfo, args.detail.event.shiftKey);
+            var nextRow = this.getNextEditableRowIndex(thisRow, rowInfo, (args.detail.event as any).shiftKey);
 
             grid.navigateTo(nextRow, column, (obj: any) => {
                 obj.target.activate();

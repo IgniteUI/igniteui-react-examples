@@ -112,7 +112,7 @@ export default class Sample extends React.Component<any, any> {
                 <br />
                 <span><strong>Title:</strong> {cell.row.data.ContactTitle}</span>
                 <br />
-                <span><strong>Company:</strong> {cell.row.data.CompanyName}</span>
+                <span><strong>Company:</strong> {cell.row.data.Company}</span>
                 <br />
             </div>
         </>
@@ -122,6 +122,7 @@ export default class Sample extends React.Component<any, any> {
     public webGridCompositeContactEditCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
 
         var cell = props.dataContext.cell as any;
+        var grid = this.grid;
         if (cell === undefined || cell.row === undefined || cell.row.data === undefined) {
             return <></>
         }
@@ -132,21 +133,21 @@ export default class Sample extends React.Component<any, any> {
                     <IgrInput label='Name' inputOcurred={(input: any, e: any) =>
                         {
                             cell.row.data.ContactName = e.detail;
-                            this.forceUpdate();
+                            grid.forceUpdate();
                         }
                         } value={cell.row.data.ContactName}></IgrInput>
                     <IgrInput label='Title' inputOcurred={(input: any, e: any) =>
                         {
                             cell.row.data.ContactTitle = e.detail;
-                            this.forceUpdate();
+                            grid.forceUpdate();
                         }
                         } value={cell.row.data.ContactTitle}></IgrInput>
                     <IgrInput label='Company' inputOcurred={(input: any, e: any) =>
                         {
-                            cell.row.data.CompanyName = e.detail;
-                            this.forceUpdate();
+                            cell.row.data.Company = e.detail;
+                            grid.forceUpdate();
                         }
-                        } value={cell.row.data.CompanyName}></IgrInput>
+                        } value={cell.row.data.Company}></IgrInput>
                 </div>
             </>
         );
@@ -191,25 +192,25 @@ export default class Sample extends React.Component<any, any> {
                     <IgrInput label='Country' inputOcurred={(input: any, e: any) =>
                         {
                             cell.row.data.Country = e.detail;
-                            this.forceUpdate();
+                            grid.forceUpdate();
                         }
                         } value={cell.row.data.Country}></IgrInput>
                     <IgrInput label='City' inputOcurred={(input: any, e: any) =>
                         {
                             cell.row.data.City = e.detail;
-                            this.forceUpdate();
+                            grid.forceUpdate();
                         }
                         } value={cell.row.data.City}></IgrInput>
                     <IgrInput label='Postal Code' inputOcurred={(input: any, e: any) =>
                         {
                             cell.row.data.PostalCode = e.detail;
-                            this.forceUpdate();
+                            grid.forceUpdate();
                         }
                         } value={cell.row.data.PostalCode}></IgrInput>
                     <IgrInput label='Phone' inputOcurred={(input: any, e: any) =>
                         {
                             cell.row.data.Phone = e.detail;
-                            this.forceUpdate();
+                            grid.forceUpdate();
                         }
                         } value={cell.row.data.Phone}></IgrInput>
                 </div>

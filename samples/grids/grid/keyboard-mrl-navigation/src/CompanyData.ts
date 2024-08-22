@@ -459,7 +459,7 @@ export class CompanyData extends Array<CompanyDataItem> {
                     AssetsBooks: 11183.04
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

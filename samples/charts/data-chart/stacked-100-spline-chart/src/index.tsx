@@ -78,7 +78,7 @@ export default class Sample extends React.Component<any, any> {
                         labelFormat="{0}%">
                     </IgrNumericYAxis>
                     <IgrStacked100SplineSeries
-                        name="Stacked100SplineSeries"
+                        name="stacked100SplineSeries"
                         dataSource={this.continentsBirthRate}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -111,7 +111,7 @@ export default class Sample extends React.Component<any, any> {
                         </IgrStackedFragmentSeries>
                     </IgrStacked100SplineSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

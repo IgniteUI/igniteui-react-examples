@@ -54,7 +54,7 @@ export class SparklineProfitData extends Array<SparklineProfitDataItem> {
                     label: `H`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }
