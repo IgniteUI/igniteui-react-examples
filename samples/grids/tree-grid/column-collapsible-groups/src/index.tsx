@@ -45,6 +45,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumnGroup
                         header="General Information"
                         collapsible="true"
+                        expanded="false"
                         pinned="false">
                         <IgrColumn
                             field="Name"
