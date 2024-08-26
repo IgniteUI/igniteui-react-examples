@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
@@ -17,66 +17,62 @@ const mods: any[] = [
 ];
 mods.forEach((m) => m.register());
 
-export default class Sample extends React.Component<any, any> {
-    private grid: IgrPivotGrid
-    private pivotConfiguration: IgrPivotConfiguration;
-    private gridRef(r: IgrPivotGrid) {
-        this.grid = r;
-        this.setState({});
+export default function App() {
+    let grid: IgrPivotGrid;
+    const gridRef = (r: IgrPivotGrid) => {
+        grid = r;
     }
-    constructor(props: any) {
-        super(props);
-        this.gridRef = this.gridRef.bind(this);
-        this.pivotConfiguration = new IgrPivotConfiguration();
-
-        const rowDim = new IgrPivotDimension();
-        rowDim.enabled = true;
-        rowDim.memberName = "Date";
-
-        const colDim1 = new IgrPivotDimension();
-        colDim1.enabled = true;
-        colDim1.memberName = "Country";
-
-        const colDim2 = new IgrPivotDimension();
-        colDim2.enabled = true;
-        colDim2.memberName = "Product";
-
-        const aggregate1 = new IgrPivotAggregator();
-        aggregate1.aggregatorName = PivotAggregationType.SUM;
-        aggregate1.key = "SUM";
-
-        const val1 = new IgrPivotValue();
-        val1.enabled = true;
-        val1.member = "Sales";
-        val1.aggregate = aggregate1;
-
-        const val2 = new IgrPivotValue();
-        val2.enabled = true;
-        val2.member = "Profit";
-        val2.aggregate = aggregate1;
-
-        this.pivotConfiguration.rows = [rowDim];
-        this.pivotConfiguration.columns = [colDim1, colDim2];
-        this.pivotConfiguration.values = [val1, val2];
+    const selector = (selector: IgrPivotDataSelector) => {
+        selector.grid = grid;
     }
+    const pivotConfiguration = new IgrPivotConfiguration();
+    const rowDim = new IgrPivotDimension();
+    rowDim.enabled = true;
+    rowDim.memberName = "Date";
 
-    public render(): JSX.Element {
-        return (
+    const colDim1 = new IgrPivotDimension();
+    colDim1.enabled = true;
+    colDim1.memberName = "Country";
+
+    const colDim2 = new IgrPivotDimension();
+    colDim2.enabled = true;
+    colDim2.memberName = "Product";
+
+    const aggregate1 = new IgrPivotAggregator();
+    aggregate1.aggregatorName = PivotAggregationType.SUM;
+    aggregate1.key = "SUM";
+
+    const val1 = new IgrPivotValue();
+    val1.enabled = true;
+    val1.member = "Sales";
+    val1.aggregate = aggregate1;
+
+    const val2 = new IgrPivotValue();
+    val2.enabled = true;
+    val2.member = "Profit";
+    val2.aggregate = aggregate1;
+
+    pivotConfiguration.rows = [rowDim];
+    pivotConfiguration.columns = [colDim1, colDim2];
+    pivotConfiguration.values = [val1, val2];
+
+    return (
+        <>
             <div className="container sample ig-typography">
                 <div className="container fill">
                     <div className="pivot-container">
                         <div>
-                            <IgrPivotGrid data={pivotData} ref={this.gridRef} pivotConfiguration={this.pivotConfiguration}>
+                            <IgrPivotGrid data={pivotData} ref={gridRef} pivotConfiguration={pivotConfiguration}>
                             </IgrPivotGrid>
                         </div>
-                        <IgrPivotDataSelector grid={this.grid}></IgrPivotDataSelector>
+                        <IgrPivotDataSelector ref={selector}></IgrPivotDataSelector>
                     </div>
                 </div>
             </div>
-        );
-    }
+        </>
+    );
 }
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample />);
+root.render(<App />);
