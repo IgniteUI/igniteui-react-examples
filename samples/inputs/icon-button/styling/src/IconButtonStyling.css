@@ -3,6 +3,7 @@ igc-icon-button[variant=contained]:not([disabled])::part(base) {
     padding: 12px;
     color: olive;
     background-color: lightgray;
+    --ig-size: var(--ig-size-small);
   }
   
 igc-icon-button::part(icon) {

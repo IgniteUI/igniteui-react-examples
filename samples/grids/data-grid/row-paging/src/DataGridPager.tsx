@@ -178,7 +178,7 @@ export class DataGridPager extends React.Component<DataGridPagerProps> {
      */
     public applyFilters(filterExpressions: IgrFilterExpressionCollection) {
         this.state.dataSource.filterExpressions.clear();
-        for (let i = 0; i < filterExpressions.size(); i++) {
+        for (let i = 0; i < filterExpressions.count; i++) {
             const fe = filterExpressions.get(i);
             this.state.dataSource.filterExpressions.add(fe);
         }

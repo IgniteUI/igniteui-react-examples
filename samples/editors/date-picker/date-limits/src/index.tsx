@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css'; // styles shared between all samples
 
 
-import { IgrDatePicker, IgrDatePickerModule } from 'igniteui-react-inputs';
+import { IgrXDatePicker, IgrXDatePickerModule } from 'igniteui-react-inputs';
 
-IgrDatePickerModule.register();
+IgrXDatePickerModule.register();
 
 export default class DatePickerDateLimits extends React.Component<any, any> {
 
-    public datePicker: IgrDatePicker;
+    public datePicker: IgrXDatePicker;
 
     constructor(props: any) {
         super(props);
@@ -17,7 +17,7 @@ export default class DatePickerDateLimits extends React.Component<any, any> {
         this.state = { minDate:  new Date().toLocaleString(), maxDate: new Date().toLocaleString() }
     }
 
-    public onDatePickerRef(datePicker: IgrDatePicker){
+    public onDatePickerRef(datePicker: IgrXDatePicker){
         if (!datePicker) { return; }
 
         this.datePicker = datePicker;
@@ -41,7 +41,7 @@ export default class DatePickerDateLimits extends React.Component<any, any> {
                 </div>
                 <div className="container">
 
-                    <IgrDatePicker ref={this.onDatePickerRef} height="50px" width="220px" />
+                    <IgrXDatePicker ref={this.onDatePickerRef} height="50px" width="220px" />
                 </div>
             </div>
         );

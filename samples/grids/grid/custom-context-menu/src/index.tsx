@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridBaseDirective, IgrGridCellEventArgs, IgrGridModule } from 'igniteui-react-grids';
+import { IgrGridBaseDirective, IgrGridContextMenuEventArgs, IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { NwindData } from './NwindData';
 
@@ -31,7 +31,7 @@ export default function App() {
         }
     }, [])
 
-    function rightClick(grid: IgrGridBaseDirective, event: IgrGridCellEventArgs) {
+    function rightClick(grid: IgrGridBaseDirective, event: IgrGridContextMenuEventArgs) {
         const eventArgs = event.detail;
         eventArgs.event.preventDefault();
         const node = eventArgs.cell.id;
