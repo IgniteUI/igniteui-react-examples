@@ -31,7 +31,7 @@ export default class CalendarSize extends React.Component<any, any> {
                     </IgrRadio>
                 </IgrRadioGroup>
 
-                <IgrCalendar size={this.state.calendarSize} style={{width: '400px'}}/>                
+                <IgrCalendar className={'size-' + this.state.calendarSize} style={{width: '400px'}}/>                
             </div>
         );
     }

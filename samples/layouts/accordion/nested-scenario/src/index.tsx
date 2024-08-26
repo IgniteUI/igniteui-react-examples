@@ -4,7 +4,7 @@ import './index.css';
 import './AccordionNestedScenario.css';
 import {
     IgrAccordion, IgrExpansionPanel, IgrSwitch, IgrAccordionModule, IgrExpansionPanelModule, IgrSwitchModule,
-    IgrComponentBoolValueChangedEventArgs
+    IgrCheckboxChangeEventArgs
 } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -102,8 +102,8 @@ export default class AccordionNestedScenario extends React.Component<any, any> {
         );
     }
 
-    public switchChange(s: IgrSwitch, e: IgrComponentBoolValueChangedEventArgs) {
-        this.setState({ singleExpand: e.detail })
+    public switchChange(s: IgrSwitch, e: IgrCheckboxChangeEventArgs) {
+        this.setState({ singleExpand: e.detail.checked })
     }
 }
 

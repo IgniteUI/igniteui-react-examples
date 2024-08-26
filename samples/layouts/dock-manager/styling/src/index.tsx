@@ -83,12 +83,12 @@ export default class DockManagerStyling extends React.Component {
                             <IgrCardActions>
                                 <div style={{display: "flex"}}>
                                     <div slot="start">
-                                        <IgrButton variant="fab" size="medium">
+                                        <IgrButton className="button-medium" variant="fab">
                                             <span>Add Money</span>
                                         </IgrButton>
                                     </div>
                                     <div slot="start">
-                                        <IgrButton variant="fab" size="medium">
+                                        <IgrButton className="button-medium" variant="fab">
                                             <span>Send</span>
                                         </IgrButton>
                                     </div>
@@ -490,7 +490,7 @@ export default class DockManagerStyling extends React.Component {
                     <div className="dockManagerFull" slot="content5">
                         <IgrCard className="auto-y-overflow" elevated>
                             <IgrCardContent>                                
-                                <IgrButton className="add-card-btn" size="small" variant="flat">
+                                <IgrButton className="add-card-btn button-small" variant="flat">
                                     <span>+ Add Card</span>
                                 </IgrButton>                                
                                 <IgrList id="list" className="auto-y-overflow">
