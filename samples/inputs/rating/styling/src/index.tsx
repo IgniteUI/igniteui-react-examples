@@ -15,7 +15,7 @@ export default class RatingStyling extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">                
-                    <IgrRating label="Styled Rating" value="2.5" step=".5" size="large" hoverPreview="true"></IgrRating>                                    
+                    <IgrRating label="Styled Rating" value="2.5" step=".5" hoverPreview="true"></IgrRating>                                    
             </div>
         );
     }  
