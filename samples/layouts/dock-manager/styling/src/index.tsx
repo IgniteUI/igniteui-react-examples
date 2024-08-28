@@ -108,7 +108,7 @@ export default class DockManagerStyling extends React.Component {
                         </button>
                     </div>
                     <div className="dockManagerFull" style={{overflowY: "scroll"}} slot="content2">
-                        <div className="top-movers-content">
+                        <div className="top-movers-content size-large">
                             <div className="top-move-stock-item">
                                 <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/tesla.png" shape="circle">
                                     <span>TSLA</span>

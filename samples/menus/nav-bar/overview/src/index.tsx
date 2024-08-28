@@ -19,17 +19,17 @@ export default class NavbarOverview extends React.Component<any, any> {
             <div className="container sample">
                 <IgrNavbar style={{ height: '65px' }}>
                     <div slot="start">
-                        <IgrIcon ref={this.iconRef} className="size-large" name="home" collection="material" />
+                        <IgrIcon ref={this.iconRef} name="home" collection="material" />
                     </div>
                     <h2>Sample App</h2>
                     <div slot="end">
-                        <IgrIcon className="size-large" name="search" collection="material" />
+                        <IgrIcon name="search" collection="material" />
                     </div>
                     <div slot="end">
-                        <IgrIcon className="size-large" name="favorite" collection="material" />
+                        <IgrIcon name="favorite" collection="material" />
                     </div>
                     <div slot="end">
-                        <IgrIcon className="size-large" name="more_vert" collection="material" />
+                        <IgrIcon name="more_vert" collection="material" />
                     </div>
                 </IgrNavbar>
             </div>

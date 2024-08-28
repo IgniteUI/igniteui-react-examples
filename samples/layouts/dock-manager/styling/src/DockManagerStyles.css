@@ -215,3 +215,7 @@ igc-card-content {
 .size-medium {
   --ig-size: var(--ig-size-medium);
 }
+
+.size-large {
+  --ig-size: var(--ig-size-large);
+}
