@@ -114,6 +114,10 @@ igc-toast {
     padding-inline-end: 15px;
 }
 
+.size-small {
+    --ig-size: var(--ig-size-small);
+}
+
 .gridSize {
     --ig-size: var(--ig-size-medium);
 }

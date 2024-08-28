@@ -15,7 +15,7 @@ export default class RatingOverview extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">                
-                    <IgrRating label="Rate Experience" max="5" step=".5" size="large" hoverPreview="true"></IgrRating>                                    
+                    <IgrRating className="size-large" label="Rate Experience" max="5" step=".5" hoverPreview="true"></IgrRating>                                    
             </div>
         );
     }  

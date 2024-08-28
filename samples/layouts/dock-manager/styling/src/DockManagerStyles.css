@@ -208,10 +208,14 @@ igc-card-content {
   margin-bottom: 0.5rem;
 }
 
-.button-small {
+.size-small {
   --ig-size: var(--ig-size-small);
 }
 
-.button-medium {
+.size-medium {
   --ig-size: var(--ig-size-medium);
+}
+
+.size-large {
+  --ig-size: var(--ig-size-large);
 }
