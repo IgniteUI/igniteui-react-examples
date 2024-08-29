@@ -15,7 +15,7 @@ import {
   IgrTreeGridModule,
 } from "igniteui-react-grids";
 import { IgrColumn } from "igniteui-react-grids";
-import { IgrAvatar, IgrAvatarModule, IgrComponentValueChangedEventArgs, IgrInput, IgrInputModule, IgrSwitch, IgrSwitchModule } from "igniteui-react";
+import { IgrAvatar, IgrAvatarModule, IgrComponentValueChangedEventArgs, IgrInput, IgrInputBase, IgrInputModule, IgrSwitch, IgrSwitchModule } from "igniteui-react";
 
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
@@ -47,7 +47,7 @@ export default function App() {
 
   const spanRef = useRef(null);
 
-  const changeTitle = (input: IgrInput, event: IgrComponentValueChangedEventArgs) => {
+  const changeTitle = (input: IgrInputBase, event: IgrComponentValueChangedEventArgs) => {
     spanRef.current.innerText = event.detail;
   }
 

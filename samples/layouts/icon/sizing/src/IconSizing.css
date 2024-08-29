@@ -4,3 +4,15 @@
     width: 400px;
     border: 1px solid gainsboro;
 }
+
+.size-small {
+    --ig-size: var(--ig-size-small);
+}
+
+.size-medium {
+    --ig-size: var(--ig-size-medium);
+}
+
+.size-large {
+    --ig-size: var(--ig-size-large);
+}

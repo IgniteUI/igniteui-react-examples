@@ -53,14 +53,12 @@ export default class Sample extends React.Component<any, any> {
                     data={this.customersData}
                     ref={this.gridRef}
                     id="grid"
-                    displayDensity="Cosy"
                     rowSelection="Multiple"
                     rowSelectorTemplate={this.webGridRowSelectorExcelTemplate}
                     headSelectorTemplate={this.webGridHeaderRowSelectorExcelTemplate}>
                     <IgrPaginator
                         name="paginator"
                         perPage="15"
-                        displayDensity="Cosy"
                         selectOptions={[5, 10, 15, 25, 50]}
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>

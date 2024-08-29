@@ -22,3 +22,7 @@ igc-rating::part(label) {
 igc-rating::part(symbols) {
     gap: 8px; 
 }
+
+.size-large {
+    --ig-size: var(--ig-size-large);
+}
