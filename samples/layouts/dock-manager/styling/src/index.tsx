@@ -74,7 +74,7 @@ export default class DockManagerStyling extends React.Component {
                                         <span className="usd-caption">United States Dollar</span>
                                     </div>
 
-                                    <IgrAvatar className="margin-avatar" size="medium" src="https://static.infragistics.com/xplatform/images/flags/USA.png" shape="rounded">
+                                    <IgrAvatar className="margin-avatar size-medium" src="https://static.infragistics.com/xplatform/images/flags/USA.png" shape="rounded">
                                             <span>USA</span>
                                     </IgrAvatar>
                                 </div>
@@ -83,12 +83,12 @@ export default class DockManagerStyling extends React.Component {
                             <IgrCardActions>
                                 <div style={{display: "flex"}}>
                                     <div slot="start">
-                                        <IgrButton className="button-medium" variant="fab">
+                                        <IgrButton className="size-medium" variant="fab">
                                             <span>Add Money</span>
                                         </IgrButton>
                                     </div>
                                     <div slot="start">
-                                        <IgrButton className="button-medium" variant="fab">
+                                        <IgrButton className="size-medium" variant="fab">
                                             <span>Send</span>
                                         </IgrButton>
                                     </div>
@@ -108,58 +108,58 @@ export default class DockManagerStyling extends React.Component {
                         </button>
                     </div>
                     <div className="dockManagerFull" style={{overflowY: "scroll"}} slot="content2">
-                        <div className="top-movers-content">
+                        <div className="top-movers-content size-large">
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/tesla.png" size="large" shape="circle">
+                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/tesla.png" shape="circle">
                                     <span>TSLA</span>
                                 </IgrAvatar>
                                 <span>1017,08$</span>
                                 <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>12,54%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/amc.png" size="large" shape="circle">
+                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/amc.png" shape="circle">
                                     <span>AMC</span>
                                 </IgrAvatar>
                                 <span>39,33$</span>
                                 <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>12,72%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/canoo.png" size="large" shape="circle">
+                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/canoo.png" shape="circle">
                                     <span>GOEV</span>
                                 </IgrAvatar>
                                 <span>12,33$</span>
                                 <div className="stock-item-movement-up"><IgrIcon name="arrow-up" collection="material"></IgrIcon>45,92%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/lucid.png" size="large" shape="circle">
+                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/lucid.png" shape="circle">
                                     <span>LCID</span>
                                 </IgrAvatar>
                                 <span>58,14$</span>
                                 <div className="stock-item-movement-up"><IgrIcon name="arrow-up" collection="material"></IgrIcon>29,42%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/nio.png" size="large" shape="circle">
+                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/nio.png" shape="circle">
                                     <span>NIO</span>
                                 </IgrAvatar>
                                 <span>21,67$</span>
                                 <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>7,25%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/stoneco.png" size="large" shape="circle">
+                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/stoneco.png" shape="circle">
                                     <span>STNE</span>
                                 </IgrAvatar>
                                 <span>22,48$</span>
                                 <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>28,68%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/roku.png" size="large" shape="circle">
+                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/roku.png" shape="circle">
                                     <span>ROKU</span>
                                 </IgrAvatar>
                                 <span>249,35$</span>
                                 <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>9,5%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/maxar.png" size="large" shape="circle">
+                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/maxar.png" shape="circle">
                                     <span>MAXR</span>
                                 </IgrAvatar>
                                 <span>33,14$</span>
@@ -490,7 +490,7 @@ export default class DockManagerStyling extends React.Component {
                     <div className="dockManagerFull" slot="content5">
                         <IgrCard className="auto-y-overflow" elevated>
                             <IgrCardContent>                                
-                                <IgrButton className="add-card-btn button-small" variant="flat">
+                                <IgrButton className="add-card-btn size-small" variant="flat">
                                     <span>+ Add Card</span>
                                 </IgrButton>                                
                                 <IgrList id="list" className="auto-y-overflow">

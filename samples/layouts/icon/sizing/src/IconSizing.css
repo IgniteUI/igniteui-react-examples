@@ -5,14 +5,14 @@
     border: 1px solid gainsboro;
 }
 
-.largeIcon {
-    --ig-size: var(--ig-size-large);
+.size-small {
+    --ig-size: var(--ig-size-small);
 }
 
-.mediumIcon {
+.size-medium {
     --ig-size: var(--ig-size-medium);
 }
 
-.smallIcon {
-    --ig-size: var(--ig-size-small);
+.size-large {
+    --ig-size: var(--ig-size-large);
 }

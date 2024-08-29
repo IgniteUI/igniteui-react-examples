@@ -14,6 +14,7 @@ import {
   IgrComponentValueChangedEventArgs,
   IgrIconButton,
   IgrInput,
+  IgrInputBase,
   IgrInputModule,
   IgrIconButtonModule,
 } from "igniteui-react";
@@ -56,7 +57,7 @@ export default function Sample() {
     }
   }, []);
 
-  function handleOnSearchChange(input: IgrInput, event: IgrComponentValueChangedEventArgs) {
+  function handleOnSearchChange(input: IgrInputBase, event: IgrComponentValueChangedEventArgs) {
     setSearchText(event.detail);
     gridRef.current.findNext(event.detail, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
   }
