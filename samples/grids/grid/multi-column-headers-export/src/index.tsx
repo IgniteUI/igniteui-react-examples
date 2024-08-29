@@ -55,10 +55,10 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate="false"
+                    id="grid"
                     ref={this.gridRef}
                     data={this.customersData}
                     moving="true"
-                    displayDensity="Compact"
                     allowFiltering="true">
                     <IgrGridToolbar
                     >
@@ -88,7 +88,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumnGroup
                         name="GeneralInformation"
                         header="General Information"
-                        collapsible="true">
+                        collapsible="true"
+                        expanded="true">
                         <IgrColumn
                             name="Company"
                             field="Company"
@@ -98,6 +99,7 @@ export default class Sample extends React.Component<any, any> {
                             name="PersonalDetails"
                             header="Personal Details"
                             collapsible="true"
+                            expanded="false"
                             visibleWhenCollapsed="false">
                             <IgrColumn
                                 name="ContactName"
@@ -116,6 +118,7 @@ export default class Sample extends React.Component<any, any> {
                             name="Location"
                             header="Location"
                             collapsible="true"
+                            expanded="false"
                             visibleWhenCollapsed="true">
                             <IgrColumn
                                 name="Country"

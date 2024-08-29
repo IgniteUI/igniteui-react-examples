@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrDatePicker, IgrDatePickerModule } from 'igniteui-react-inputs';
+import { IgrXDatePicker, IgrXDatePickerModule } from 'igniteui-react-inputs';
 
-IgrDatePickerModule.register();
+IgrXDatePickerModule.register();
 
 export default class DatePickerOverview extends React.Component<any, any> {
 
@@ -12,7 +12,7 @@ export default class DatePickerOverview extends React.Component<any, any> {
         this.onDatePickerRef = this.onDatePickerRef.bind(this);
     }
 
-    public onDatePickerRef(datePicker: IgrDatePicker) {
+    public onDatePickerRef(datePicker: IgrXDatePicker) {
         if (!datePicker) return;
 
         datePicker.value = new Date(Date.now());
@@ -24,7 +24,7 @@ export default class DatePickerOverview extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <div className="container">
-                    <IgrDatePicker ref={this.onDatePickerRef} height="50px" width="220px" />
+                    <IgrXDatePicker ref={this.onDatePickerRef} height="50px" width="220px" />
                 </div>
             </div>
         );

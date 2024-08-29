@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css'; // styles shared between all samples
 
-import { IgrDatePicker, IgrDatePickerModule, DateFormats } from 'igniteui-react-inputs';
+import { IgrXDatePicker, IgrXDatePickerModule, DateFormats } from 'igniteui-react-inputs';
 
-IgrDatePickerModule.register();
+IgrXDatePickerModule.register();
 
 export default class DatePickerFormat extends React.Component<any, any> {
 
@@ -14,7 +14,7 @@ export default class DatePickerFormat extends React.Component<any, any> {
         this.state = { dateFormat: DateFormats.DateLong }
     }
 
-    public onDatePickerRef(datePicker: IgrDatePicker){
+    public onDatePickerRef(datePicker: IgrXDatePicker){
         
         if(!datePicker) return;
 
@@ -35,7 +35,7 @@ export default class DatePickerFormat extends React.Component<any, any> {
                     </select>
                 </div>
                 <div className="container">
-                    <IgrDatePicker ref={this.onDatePickerRef} dateFormat={this.state.dateFormat} height="60px" width="300px" />
+                    <IgrXDatePicker ref={this.onDatePickerRef} dateFormat={this.state.dateFormat} height="60px" width="300px" />
                 </div>
             </div>
         );

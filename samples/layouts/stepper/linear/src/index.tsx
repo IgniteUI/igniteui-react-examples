@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import {
     IgrStepper, IgrStep, IgrStepperModule, IgrRadio, IgrRadioGroup, IgrRadioModule, IgrRadioGroupModule,
-    IgrButton, IgrButtonModule, IgrSwitch, IgrSwitchModule, IgrCheckboxBase, IgrComponentBoolValueChangedEventArgs, IgrComponentValueChangedEventArgs,
+    IgrButton, IgrButtonModule, IgrSwitch, IgrSwitchModule, IgrCheckboxBase, IgrCheckboxChangeEventArgs, IgrComponentValueChangedEventArgs,
     IgrInput, IgrInputModule
 } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -87,7 +87,7 @@ export default class LinearStepper extends React.Component<any, any> {
         );
     }
 
-    public OnSwitchChange(s: IgrCheckboxBase, e: IgrComponentBoolValueChangedEventArgs) {
+    public OnSwitchChange(s: IgrCheckboxBase, e: IgrCheckboxChangeEventArgs) {
         this.setState({ linear: s.checked });
         if(s.checked){
            this.checkActiveStepValidity();
