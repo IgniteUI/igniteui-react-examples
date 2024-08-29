@@ -2,11 +2,6 @@
 /* https://static.infragistics.com/xplatform/css/samples */
 /* shared styles are loaded from: */
 
-/* https://static.infragistics.com/xplatform/css/samples */
-
-
-
-
 .controls-holder {
     display: flex;
     justify-content: space-between;
@@ -15,29 +10,17 @@
     padding: 15px;
 }
 
-
-
-
 .control-item {
     flex-grow: 1;
 }
-
-
-
 
 igc-toast {
     z-index: 2;
 }
 
-
-
-
 .switch-control-item {
     flex-basis: fit-content;
 }
-
-
-
 
 .switches {
     display: flex;
@@ -49,50 +32,32 @@ igc-toast {
     gap: 20px;
 }
 
-
-
-
 .finjs-play-controls {
     display: flex;
     gap: 10px;
     flex: 1 0 0%;
 }
 
-
-
-
-    .finjs-play-controls > igc-button {
-        flex-grow: 1;
-    }
-
-
-
+.finjs-play-controls>igc-button {
+    flex-grow: 1;
+}
 
 .finjs-slider {
     width: 100%;
     min-width: 145px;
 }
 
-
-
-
 .finjs-icons {
     display: flex;
     align-items: center;
 }
 
-
-
-
-    .finjs-icons > igc-icon {
-        font-size: 16px;
-        width: 16px;
-        height: 16px;
-        margin-inline-start: 4px;
-    }
-
-
-
+.finjs-icons>igc-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    margin-inline-start: 4px;
+}
 
 .changePos,
 .changeNeg,
@@ -101,80 +66,58 @@ igc-toast {
     color: rgb(0, 0, 0);
 }
 
-
-
-
-    .changePos > .igx-grid__td-text {
-        border-inline-end: 4px solid rgb(76, 184, 96);
-        padding-inline-end: 15px;
-    }
-
-
-
-
-.changePos1 > .igx-grid__td-text {
+.changePos>.igx-grid__td-text {
     border-inline-end: 4px solid rgb(76, 184, 96);
     padding-inline-end: 15px;
 }
 
-
-
-
-.changePos2 > .igx-grid__td-text {
+.changePos1>.igx-grid__td-text {
     border-inline-end: 4px solid rgb(76, 184, 96);
     padding-inline-end: 15px;
 }
 
-
-
-
-.changeNeg > .igx-grid__td-text {
-    border-inline-end: 4px solid rgb(255, 20, 75);
-    padding-inline-end: 9px;
-}
-
-
-
-
-.changeNeg1 > .igx-grid__td-text {
-    border-inline-end: 4px solid rgb(255, 20, 75);
-    padding-inline-end: 9px;
-}
-
-
-
-
-.changeNeg2 > .igx-grid__td-text {
-    border-inline-end: 4px solid rgb(255, 20, 75);
+.changePos2>.igx-grid__td-text {
+    border-inline-end: 4px solid rgb(76, 184, 96);
     padding-inline-end: 15px;
 }
 
+.changeNeg>.igx-grid__td-text {
+    border-inline-end: 4px solid rgb(255, 20, 75);
+    padding-inline-end: 9px;
+}
 
+.changeNeg1>.igx-grid__td-text {
+    border-inline-end: 4px solid rgb(255, 20, 75);
+    padding-inline-end: 9px;
+}
 
+.changeNeg2>.igx-grid__td-text {
+    border-inline-end: 4px solid rgb(255, 20, 75);
+    padding-inline-end: 15px;
+}
 
 .positive {
     color: rgb(76, 184, 96);
 }
 
-
-
-
-.strongPositive2 > .igx-grid__td-text {
+.strongPositive2>.igx-grid__td-text {
     border-inline-end: 4px solid rgb(76, 184, 96);
     padding-inline-end: 15px;
 }
-
-
-
 
 .negative {
     color: rgb(255, 20, 75);
 }
 
-
-
-
-.strongNegative2 > .igx-grid__td-text {
+.strongNegative2>.igx-grid__td-text {
     border-inline-end: 4px solid rgb(255, 20, 75);
     padding-inline-end: 15px;
+}
+
+.size-small {
+    --ig-size: var(--ig-size-small);
+}
+
+.gridSize {
+    --ig-size: var(--ig-size-medium);
 }

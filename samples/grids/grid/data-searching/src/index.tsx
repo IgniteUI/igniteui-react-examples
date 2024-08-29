@@ -14,6 +14,7 @@ import {
   IgrComponentValueChangedEventArgs,
   IgrIconButton,
   IgrInput,
+  IgrInputBase,
   IgrInputModule,
   IgrIconButtonModule,
 } from "igniteui-react";
@@ -56,7 +57,7 @@ export default function Sample() {
     }
   }, []);
 
-  function handleOnSearchChange(input: IgrInput, event: IgrComponentValueChangedEventArgs) {
+  function handleOnSearchChange(input: IgrInputBase, event: IgrComponentValueChangedEventArgs) {
     setSearchText(event.detail);
     gridRef.current.findNext(event.detail, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
   }
@@ -139,7 +140,7 @@ export default function Sample() {
             </div>
           </IgrInput>
         </div>
-        <IgrGrid ref={gridRef} autoGenerate="false" allowFiltering="true" displayDensity="compact" data={data} height="100%" width="100%">
+        <IgrGrid className="gridSize" ref={gridRef} autoGenerate="false" allowFiltering="true" data={data} height="100%" width="100%">
             <IgrColumn field="IndustrySector" dataType="string" sortable="true"></IgrColumn>        
             <IgrColumn field="IndustryGroup" dataType="string" sortable="true"></IgrColumn>        
             <IgrColumn field="SectorType" dataType="string" sortable="true"></IgrColumn>        

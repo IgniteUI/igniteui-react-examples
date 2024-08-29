@@ -49,7 +49,6 @@ export default class Sample extends React.Component<any, any> {
                     data={this.nwindData}
                     ref={this.gridRef}
                     id="grid"
-                    displayDensity="Compact"
                     primaryKey="ProductID"
                     rowEditable="true">
                     <IgrColumn

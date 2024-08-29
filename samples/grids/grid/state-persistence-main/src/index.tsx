@@ -17,7 +17,7 @@ import {
     IgrGridStateOptions,
     GridSelectionMode
 } from 'igniteui-react-grids';
-import { IgrButton, IgrCheckbox, IgrCheckboxModule, IgrComponentBoolValueChangedEventArgs, IgrIcon, IgrIconModule } from 'igniteui-react';
+import { IgrButton, IgrCheckbox, IgrCheckboxModule, IgrCheckboxChangeEventArgs, IgrIcon, IgrIconModule } from 'igniteui-react';
 import { registerIconFromText } from 'igniteui-webcomponents';
 import { CustomersData } from './CustomersData';
 
@@ -103,26 +103,27 @@ export default function App() {
         grid.clearCellSelection();
     }
 
-    function onChange(s: IgrCheckbox, e: IgrComponentBoolValueChangedEventArgs) {
+    function onChange(s: IgrCheckbox, e: IgrCheckboxChangeEventArgs) {
         if (s.name === 'allFeatures') {
+            const bEnabled = e.detail.checked;
             setOption({
-                cellSelection: e.detail,
-                rowSelection: e.detail,
-                filtering: e.detail,
-                advancedFiltering: e.detail,
-                paging: e.detail,
-                sorting: e.detail,
-                groupBy: e.detail,
-                columns: e.detail,
-                expansion: e.detail,
-                rowPinning: e.detail,
-                columnSelection: e.detail
+                cellSelection: bEnabled,
+                rowSelection: bEnabled,
+                filtering: bEnabled,
+                advancedFiltering: bEnabled,
+                paging: bEnabled,
+                sorting: bEnabled,
+                groupBy: bEnabled,
+                columns: bEnabled,
+                expansion: bEnabled,
+                rowPinning: bEnabled,
+                columnSelection: bEnabled
             });
             for (const key of Object.keys(options)) {
-                gridStateRef.current.options[key] = e.detail;
+                gridStateRef.current.options[key] = bEnabled;
             }
         } else {
-            gridStateRef.current.options[s.name] = e.detail;
+            gridStateRef.current.options[s.name] = e.detail.checked;
         }
     }
 

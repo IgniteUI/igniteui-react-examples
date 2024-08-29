@@ -20,17 +20,17 @@ export default class NavbarStyling extends React.Component<any, any> {
             <div className="container sample">
                 <IgrNavbar style={{height: '65px'}}>
                     <div slot="start">
-                        <IgrIcon ref={this.iconRef} name="home" collection="material" size="large" />
+                        <IgrIcon ref={this.iconRef} name="home" collection="material" />
                     </div>
                     <h2>Sample App</h2>
                     <div slot="end">
-                        <IgrIcon name="search" collection="material" size="large" />
+                        <IgrIcon name="search" collection="material" />
                     </div>
                     <div slot="end">
-                        <IgrIcon name="favorite" collection="material" size="large" />
+                        <IgrIcon name="favorite" collection="material" />
                     </div>
                     <div slot="end">
-                        <IgrIcon name="more_vert" collection="material" size="large" />
+                        <IgrIcon name="more_vert" collection="material" />
                     </div>
                 </IgrNavbar>
             </div>

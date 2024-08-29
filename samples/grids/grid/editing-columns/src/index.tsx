@@ -17,16 +17,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid1: IgrGrid
-    private grid1Ref(r: IgrGrid) {
-        this.grid1 = r;
+    private grid: IgrGrid
+    private gridRef(r: IgrGrid) {
+        this.grid = r;
         this.setState({});
     }
 
     constructor(props: any) {
         super(props);
 
-        this.grid1Ref = this.grid1Ref.bind(this);
+        this.gridRef = this.gridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -36,11 +36,11 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate="false"
+                    id="grid"
+                    ref={this.gridRef}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    displayDensity="Cosy"
-                    allowFiltering="true"
-                    ref={this.grid1Ref}>
+                    allowFiltering="true">
                     <IgrPaginator
                         perPage="10">
                     </IgrPaginator>
