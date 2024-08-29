@@ -4,7 +4,6 @@ import ReactDOM from "react-dom/client";
 import {
   FilterMode,
   IgrActionStrip,
-  IgrGrid,
   IgrColumn,
   IgrGridModule,
   IgrGridPinningActions,
@@ -23,7 +22,7 @@ import {
   IgrButton,
   IgrCheckbox,
   IgrCheckboxModule,
-  IgrComponentBoolValueChangedEventArgs,
+  IgrCheckboxChangeEventArgs,
   IgrIcon,
   IgrIconModule,
 } from "igniteui-react";
@@ -113,26 +112,26 @@ export default function App() {
     grid.clearCellSelection();
   }
 
-  function onChange(s: IgrCheckbox, e: IgrComponentBoolValueChangedEventArgs) {
+  function onChange(s: IgrCheckbox, e: IgrCheckboxChangeEventArgs) {
     if (s.name === "allFeatures") {
       setOption({
-        cellSelection: e.detail,
-        rowSelection: e.detail,
-        filtering: e.detail,
-        advancedFiltering: e.detail,
-        paging: e.detail,
-        sorting: e.detail,
-        columns: e.detail,
-        expansion: e.detail,
-        rowPinning: e.detail,
-        columnSelection: e.detail,
-        rowIslands: e.detail,
+        cellSelection: e.detail.checked,
+        rowSelection: e.detail.checked,
+        filtering: e.detail.checked,
+        advancedFiltering: e.detail.checked,
+        paging: e.detail.checked,
+        sorting: e.detail.checked,
+        columns: e.detail.checked,
+        expansion: e.detail.checked,
+        rowPinning: e.detail.checked,
+        columnSelection: e.detail.checked,
+        rowIslands: e.detail.checked,
       });
       for (const key of Object.keys(options)) {
-        gridStateRef.current.options[key] = e.detail;
+        gridStateRef.current.options[key] = e.detail.checked;
       }
     } else {
-      gridStateRef.current.options[s.name] = e.detail;
+      gridStateRef.current.options[s.name] = e.detail.checked;
     }
   }
 
