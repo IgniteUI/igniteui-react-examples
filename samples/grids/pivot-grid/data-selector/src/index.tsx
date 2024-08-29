@@ -1,19 +1,16 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-
-import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrGridModule, IgrPivotAggregator, IgrPivotConfiguration, IgrPivotDataSelector, IgrPivotDimension, IgrPivotGrid, IgrPivotValue, PivotAggregationType } from 'igniteui-react-grids';
-import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrActionStrip, IgrGridPinningActions, IgrGridEditingActions, IgrColumn } from 'igniteui-react-grids';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { SALES_DATA_NEW as pivotData } from './salesDataNew';
+import { IgrPivotAggregator, IgrPivotConfiguration, IgrPivotDataSelector, IgrPivotDataSelectorModule,
+     IgrPivotDimension, IgrPivotGrid, IgrPivotGridModule, IgrPivotValue, PivotAggregationType } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
-    IgrGridModule
+    IgrPivotGridModule,
+    IgrPivotDataSelectorModule
 ];
 mods.forEach((m) => m.register());
 
