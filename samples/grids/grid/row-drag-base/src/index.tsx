@@ -22,12 +22,12 @@ export default function App() {
         const ghostElement = evt.detail.dragDirective.ghostElement;
         if (ghostElement != null) {
             const dragElementPos = ghostElement.getBoundingClientRect();
-            const gridPosition =  document.getElementById("rightGrid").getBoundingClientRect();
+            const gridPosition =  document.getElementById("rightGrid").getElementsByTagName("igc-grid")[0].getBoundingClientRect();
             
             const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
             const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
             if (withinXBounds && withinYBounds) {
-                grid.deleteRow(evt.detail.dragData.index);
+                grid.deleteRow(evt.detail.dragData.key);
                 rightGridRef.current.addRow(evt.detail.dragData.data);
             }
         }
@@ -36,7 +36,7 @@ export default function App() {
     return (
         <div className="container sample">      
             <div className="container horizontal wrapper">
-                <IgrGrid data={data} width="40%" autoGenerate="false" rowDraggable="true" rowDragEnd={onGridRowDragEnd}>
+                <IgrGrid data={data} width="40%" primaryKey='ID' autoGenerate="false" rowDraggable="true" rowDragEnd={onGridRowDragEnd}>
                     <IgrColumn field="ID" width="100px"></IgrColumn>
                     <IgrColumn field="CompanyName" width="100px"></IgrColumn>
                     <IgrColumn field="ContactName" width="100px"></IgrColumn>
