@@ -66,67 +66,68 @@ export default function App() {
   let gridStateRef = useRef<IgrGridState>(null);
 
   const pivotConfiguration = new IgrPivotConfiguration();
+  // column dimensions
+  const columnDimension = new IgrPivotDimension();
+  columnDimension.memberName = "SellerName";
+  columnDimension.enabled = true;
+
+  // row dimensions
+  const productsDimension = new IgrPivotDimension();
+  const sellerCityDimension = new IgrPivotDimension();
+  productsDimension.memberName = "ProductName";
+  productsDimension.enabled = true;
+  productsDimension.width = "150px";
+  sellerCityDimension.memberName = "SellerCity";
+  sellerCityDimension.displayName = "City";
+  sellerCityDimension.enabled = true;
+  sellerCityDimension.width = "150px";
+
+  // values
+  const sumAggregator = new IgrPivotAggregator();
+  sumAggregator.aggregatorName = PivotAggregationType.SUM;
+  sumAggregator.key = "SUM";
+  sumAggregator.label = "SUM";
+
+  const totalSaleAggregator = new IgrPivotAggregator();
+  totalSaleAggregator.aggregator = totalSale;
+  totalSaleAggregator.label = "Sum of Sale";
+  totalSaleAggregator.key = "SUM";
+  const minimumSaleAggregator = new IgrPivotAggregator();
+  minimumSaleAggregator.aggregator = totalMin;
+  minimumSaleAggregator.label = "Minimum of Sale";
+  minimumSaleAggregator.key = "MIN";
+  const maximumSaleAggregator = new IgrPivotAggregator();
+  maximumSaleAggregator.aggregator = totalMax;
+  maximumSaleAggregator.label = "Maximum of Sale";
+  maximumSaleAggregator.key = "MAX";
+
+  const value = new IgrPivotValue();
+  value.enabled = true;
+  value.member = "Value";
+  value.aggregate = sumAggregator;
+  value.styles = {
+    downFontValue: (rowData: any, columnKey: any): boolean =>
+      parseFloat(rowData.aggregationValues.get(columnKey.field)) <= 150,
+    upFontValue: (rowData: any, columnKey: any): boolean =>
+      parseFloat(rowData.aggregationValues.get(columnKey.field)) > 150,
+  };
+
+  const amountOfSale = new IgrPivotValue();
+  amountOfSale.enabled = true;
+  amountOfSale.member = "AmountofSale";
+  amountOfSale.displayName = "Amount of Sale";
+  amountOfSale.aggregate = totalSaleAggregator;
+  amountOfSale.aggregateList = [
+    totalSaleAggregator,
+    minimumSaleAggregator,
+    maximumSaleAggregator,
+  ];
+
+  pivotConfiguration.columns = [columnDimension];
+  pivotConfiguration.rows = [productsDimension, sellerCityDimension];
+  pivotConfiguration.values = [value, amountOfSale];
 
   useEffect(() => {
-      // column dimensions
-    const columnDimension = new IgrPivotDimension();
-    columnDimension.memberName = 'SellerName';
-    columnDimension.enabled = true;
-
-    // row dimensions
-    const productsDimension = new IgrPivotDimension();
-    const sellerCityDimension = new IgrPivotDimension();
-    productsDimension.memberName = "ProductName";
-    productsDimension.enabled = true;
-    productsDimension.width = "150px";
-    sellerCityDimension.memberName = "SellerCity";
-    sellerCityDimension.enabled = true;
-    sellerCityDimension.width = "150px";
-
-    // values
-    const sumAggregator = new IgrPivotAggregator();
-    sumAggregator.aggregatorName = PivotAggregationType.SUM;
-    sumAggregator.key = "SUM";
-    sumAggregator.label = "SUM";
-
-    const totalSaleAggregator = new IgrPivotAggregator();
-    totalSaleAggregator.aggregator = totalSale;
-    totalSaleAggregator.label = "Sum of Sale";
-    totalSaleAggregator.key = "SUM";
-    const minimumSaleAggregator = new IgrPivotAggregator();
-    minimumSaleAggregator.aggregator = totalMin;
-    minimumSaleAggregator.label = "Minimum of Sale";
-    minimumSaleAggregator.key = "MIN";
-    const maximumSaleAggregator = new IgrPivotAggregator();
-    maximumSaleAggregator.aggregator = totalMax;
-    maximumSaleAggregator.label = "Maximum of Sale";
-    maximumSaleAggregator.key = "MAX";
-
-    const value = new IgrPivotValue();
-    value.enabled = true;
-    value.member = "Value";
-    value.aggregate = sumAggregator;
-    value.styles = {
-      downFontValue: (rowData: any, columnKey: any): boolean =>
-        parseFloat(rowData.aggregationValues.get(columnKey.field)) <= 150,
-      upFontValue: (rowData: any, columnKey: any): boolean =>
-        parseFloat(rowData.aggregationValues.get(columnKey.field)) > 150,
-    };
-
-    const amountOfSale = new IgrPivotValue();
-    amountOfSale.enabled = true;
-    amountOfSale.member = "AmountofSale";
-    amountOfSale.displayName = "Amount of Sale";
-    amountOfSale.aggregate = totalSaleAggregator;
-    amountOfSale.aggregateList = [
-      totalSaleAggregator,
-      minimumSaleAggregator,
-      maximumSaleAggregator,
-    ];
-
-    pivotConfiguration.columns = [columnDimension];
-    pivotConfiguration.rows = [productsDimension, sellerCityDimension];
-    pivotConfiguration.values = [value, amountOfSale];
     registerIconFromText("restore", restoreIcon, "material");
     registerIconFromText("save", saveIcon, "material");
     registerIconFromText("clear", clearIcon, "material");
@@ -335,6 +336,7 @@ export default function App() {
         height="500px"
         pivotConfiguration={pivotConfiguration}
         valueInit={onValueInit}
+        superCompactMode="true"
         columnSelection={GridSelectionMode.Single}
         cellSelection={GridSelectionMode.Single}
       >
