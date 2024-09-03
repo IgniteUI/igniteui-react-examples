@@ -19,7 +19,7 @@ export default class RadialGaugeLabels extends React.Component<any, any> {
             <div className="container sample">
             <IgrRadialGauge
                     titleDisplaysValue="true"
-		    subtitleText="MPH"
+                    subtitleText="MPH"
                     scaleStartAngle={135}
                     scaleEndAngle={45}
                     scaleBrush="#dddddd"
