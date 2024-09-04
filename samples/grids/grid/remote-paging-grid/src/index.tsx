@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
@@ -71,7 +72,7 @@ function loadData(dataKey: string) {
         <IgrPaginator 
           perPage="15"
           ref={paginator}
-          pageChange={(evt) => paginate(evt.page)}
+          pageChange={(evt: { page: number }) => paginate(evt.page)}
           perPageChange={() => paginate(0)}></IgrPaginator>
           <IgrColumn field="customerId" hidden={true}></IgrColumn>
           <IgrColumn field="companyName" header="Company Name"></IgrColumn>
