@@ -34,7 +34,7 @@ export default function App() {
     function rightClick(grid: IgrGridBaseDirective, event: IgrGridContextMenuEventArgs) {
         const eventArgs = event.detail;
         eventArgs.event.preventDefault();
-        const node = eventArgs.cell.id;
+        const node = eventArgs.cell.cellID;
         const isCellWithinRange = grid.getSelectedRanges().some((range: any) => {
             if (node.columnID >= range.columnStart &&
                 node.columnID <= range.columnEnd &&
@@ -61,7 +61,7 @@ export default function App() {
     }
 
     function copySelectedRowData() {
-        const selectedData = gridRef.current.getRowData(clickedCell.id.rowID);
+        const selectedData = gridRef.current.getRowData(clickedCell.cellID.rowID);
         copyData(selectedData);
         closeContextMenu();
       }
