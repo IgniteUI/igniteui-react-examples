@@ -1,0 +1,29 @@
+igc-date-picker::part(header) {
+    background-color: #345779;
+    color: #ffffff;
+}
+igc-date-picker::part(calendar-content) {
+    background-color: #fdfdfd;
+}
+igc-date-picker::part(date-inner current) {
+    color: #2dabe8;
+    background-color: #fdfdfd;
+}
+igc-date-picker::part(navigation-button):hover,
+igc-date-picker::part(months-navigation):hover,
+igc-date-picker::part(years-navigation):hover {
+    color: #345779;
+}
+igc-date-picker::part(month-inner current),
+igc-date-picker::part(year-inner current),
+igc-date-picker::part(navigation-button),
+igc-date-picker::part(months-navigation),
+igc-date-picker::part(years-navigation) {
+    color: #2dabe8;
+}
+igc-date-picker::part(date-inner selected),
+igc-date-picker::part(month-inner selected),
+igc-date-picker::part(year-inner selected) {
+    color: #fdfdfd;
+    background-color: #345779;
+}

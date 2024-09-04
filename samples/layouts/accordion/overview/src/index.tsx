@@ -4,7 +4,7 @@ import './index.css';
 import './AccordionOverview.css';
 import {
     IgrAccordion, IgrAccordionModule, IgrExpansionPanel, IgrExpansionPanelModule, IgrSwitch, IgrSwitchModule,
-    IgrComponentBoolValueChangedEventArgs } from 'igniteui-react';
+    IgrCheckboxChangeEventArgs } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrAccordionModule.register();
@@ -67,8 +67,8 @@ export default class AccordionOverview extends React.Component<any, any> {
         );
     }
 
-    public switchChange(s: IgrSwitch, e: IgrComponentBoolValueChangedEventArgs) {
-        this.setState({ singleExpand: e.detail })
+    public switchChange(s: IgrSwitch, e: IgrCheckboxChangeEventArgs) {
+        this.setState({ singleExpand: e.detail.checked })
     }
 }
 
