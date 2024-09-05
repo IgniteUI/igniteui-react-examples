@@ -6,7 +6,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { AthletesDataItem, AthletesData } from './AthletesData';
-import { IgrExporterOptionsBase, IgrGridToolbarExportEventArgs } from 'igniteui-react-grids';
+import { IgrGridToolbarExportEventArgs, IgrExporterOptionsBase } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -102,10 +102,11 @@ export default class Sample extends React.Component<any, any> {
 
     public webGridToolbarExporting(sender: IgrGrid, evt: IgrGridToolbarExportEventArgs): void {
         const args = evt.detail;
-        const options: IgrExporterOptionsBase = args.options;
+        const options: IgrExporterOptionsBase = (args.nativeElement as any).options;
+        const exporter = (args.nativeElement as any).exporter;
         if (options) {
             options.fileName = `Report_${new Date().toDateString()}`;
-            (args.exporter as any).columnExporting.subscribe((columnArgs: any) => {
+            exporter.columnExporting.subscribe((columnArgs: any) => {
                     columnArgs.cancel = columnArgs.header === 'Athlete' || columnArgs.header === 'Country';
             });
         }
