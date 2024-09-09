@@ -1,2 +1,14 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
+
+.size-small {
+    --ig-size: var(--ig-size-small);
+}
+
+.size-medium {
+    --ig-size: var(--ig-size-medium);
+}
+
+.size-large {
+    --ig-size: var(--ig-size-large);
+}

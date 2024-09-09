@@ -4,7 +4,7 @@ import './index.css';
 import {
     IgrStepper, IgrStep, IgrStepperModule, IgrRadio, IgrRadioGroup, IgrRadioModule, IgrRadioGroupModule,
     IgrButton, IgrButtonModule, IgrInput, IgrInputModule, IgrSelect, IgrSelectItem, IgrSelectModule,
-    IgrSelectItemComponentEventArgs, IgrComponentValueChangedEventArgs
+    IgrSelectItemComponentEventArgs, IgrComponentDataValueChangedEventArgs
 } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -106,7 +106,7 @@ export default class StepperAnimations extends React.Component<any, any> {
         const selectedValue = e.detail.value;
         this.setState({verticalAnimation: selectedValue});
     }
-    public animationDurationChange(s: IgrInput, e: IgrComponentValueChangedEventArgs){
+    public animationDurationChange(s: IgrInput, e: IgrComponentDataValueChangedEventArgs){
         const animationDuration = e.detail;
         this.setState({animationDuration: animationDuration});
     }

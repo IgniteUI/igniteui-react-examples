@@ -33,9 +33,9 @@ export default class PrefixSuffix extends React.Component<any, any> {
         <IgrTabs key="tabs" ref={this.tabsRef}>
           {this.state.tabs.map((tab:string, index:number) => (
                         <IgrTab panel={tab.toLowerCase()} key={`${tab.toLowerCase()}-tab`}>
-                            <span key={`${tab.toLowerCase()}-icon-span`} slot="prefix"><IgrIcon ref={this.iconRef} name={tab.toLowerCase()} collection="material" size="small"></IgrIcon></span>
+                            <span key={`${tab.toLowerCase()}-icon-span`} slot="prefix"><IgrIcon ref={this.iconRef} name={tab.toLowerCase()} collection="material"></IgrIcon></span>
                             <span key={`${tab.toLowerCase()}-span`}>{tab}</span>
-                            <span key={`${tab.toLowerCase()}-iconButton-span`} slot="suffix"><IgrIconButton name='close' collection="material" size="small" variant="flat" clicked={() => this.onCloseClicked(index)}></IgrIconButton></span>
+                            <span key={`${tab.toLowerCase()}-iconButton-span`} slot="suffix"><IgrIconButton name='close' collection="material" variant="flat" clicked={() => this.onCloseClicked(index)}></IgrIconButton></span>
                         </IgrTab>
                     ))}
                     {this.state.tabs.map((tab:string) => (
