@@ -99,7 +99,7 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true">
                     </IgrScatterLineSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

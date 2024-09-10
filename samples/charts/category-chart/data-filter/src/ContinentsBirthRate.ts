@@ -99,7 +99,7 @@ export class ContinentsBirthRate extends Array<ContinentsBirthRateItem> {
                     Oceania: 4
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

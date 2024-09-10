@@ -11,18 +11,10 @@ IgrRadioModule.register();
 
 export default class ButtonSize extends React.Component<any, any> {
 
-    public outlinedButton: IgrButton;
-    public flatButton: IgrButton;
-    public containedButton: IgrButton;
-    public fabButton: IgrButton;
-
     constructor(props: any) {
-        super(props); 
-        this.flatButtonRef = this.flatButtonRef.bind(this);
-        this.containedButtonRef = this.containedButtonRef.bind(this);
-        this.outlinedButtonRef = this.outlinedButtonRef.bind(this);
-        this.fabButtonRef = this.fabButtonRef.bind(this);        
+        super(props);        
         this.onRadioChange = this.onRadioChange.bind(this);
+        this.state = { size: "medium"};     
     }
 
     public render(): JSX.Element {
@@ -41,34 +33,19 @@ export default class ButtonSize extends React.Component<any, any> {
                 </IgrRadioGroup>
 
                 <div className="button-container">
-                    <IgrButton ref={this.flatButtonRef}  className="flat-btn" variant="flat"><span>Flat</span></IgrButton>
-                    <IgrButton ref={this.containedButtonRef}  className="contained-btn" variant="contained"><span>Contained</span></IgrButton>
-                    <IgrButton ref={this.outlinedButtonRef}  className="outlined-btn" variant="outlined"><span>Outlined</span></IgrButton>
-                    <IgrButton ref={this.fabButtonRef}  className="fab-btn" variant="fab"><span>Like</span></IgrButton>
+                    <IgrButton className={'size-' + this.state.size} variant="flat"><span>Flat</span></IgrButton>
+                    <IgrButton className={'size-' + this.state.size} variant="contained"><span>Contained</span></IgrButton>
+                    <IgrButton className={'size-' + this.state.size} variant="outlined"><span>Outlined</span></IgrButton>
+                    <IgrButton className={'size-' + this.state.size} variant="fab"><span>Like</span></IgrButton>
                 </div>
             </div>
         );
     }
 
-    public flatButtonRef(flatButton: IgrButton){
-        this.flatButton = flatButton;
-    }
-    public containedButtonRef(containedButton: IgrButton){
-        this.containedButton = containedButton;
-    }
-    public outlinedButtonRef(outlinedButton: IgrButton){
-        this.outlinedButton = outlinedButton;
-    }
-
-    public fabButtonRef(fabButton: IgrButton){
-        this.fabButton = fabButton;
-    }
-
     public onRadioChange(e: any) {
-        this.flatButton.size = e.value;
-        this.containedButton.size = e.value;
-        this.outlinedButton.size = e.value;
-        this.fabButton.size = e.value;
+        if (e.checked == true) {
+            this.setState({ size: e.value });
+        }
     }
 }
 

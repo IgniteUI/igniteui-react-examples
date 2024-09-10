@@ -71,7 +71,7 @@ export default class Sample extends React.Component<any, any> {
                         maximumValue="120">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
-                        name="BubbleSeries1"
+                        name="bubbleSeries1"
                         xMemberPath="population"
                         yMemberPath="publicDebt"
                         radiusMemberPath="gdpPerPerson"
@@ -84,7 +84,7 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true">
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

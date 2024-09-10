@@ -125,10 +125,12 @@ export default class Sample extends React.Component<any, any> {
         let uniqueValues: any = [];
         const cell = e.dataContext.cell;
         const colIndex = cell.id.columnID;
-        const field: string = this.hierarchicalGrid1.getColumnByVisibleIndex(colIndex).field;
+        let hierarchicalGrid1 = this.hierarchicalGrid1;
+        const field: string = hierarchicalGrid1.getColumnByVisibleIndex(colIndex).field;
         const key = field + "_" + cell.id.rowID;
         let index = 0;
-        for(const i of (this.hGridDndData as any)){
+        let hGridDndData = hierarchicalGrid1.data;
+        for(const i of (hGridDndData as any)){
             if(uniqueValues.indexOf(i[field]) === -1 )
             {
                 cellValues.push(<><IgrSelectItem selected={e.dataContext.cell.value == i[field]}
@@ -140,14 +142,15 @@ export default class Sample extends React.Component<any, any> {
             }
             index++;
         }
-        return <><IgrSelect key={key} change={(x: any) => {
-                setTimeout(() => {
-                    cell.editValue = x.value;
-                });
-            }}>
-           {cellValues}
-        </IgrSelect>
-        </>;
+        return (
+            <IgrSelect className="size-large" key={key} change={(x: any) => {
+                    setTimeout(() => {
+                        cell.editValue = x.value;
+                    });
+                }}>
+                {cellValues}
+            </IgrSelect>
+        );
     }
 
 }

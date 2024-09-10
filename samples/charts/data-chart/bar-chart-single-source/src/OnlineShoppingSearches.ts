@@ -81,7 +81,7 @@ export class OnlineShoppingSearches extends Array<OnlineShoppingSearchesItem> {
                     shop: `Other`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

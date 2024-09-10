@@ -146,8 +146,9 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webTreeGridPinRowOnRendered(args:any): void {
-        this.treeGrid.pinRow(1);
-        this.treeGrid.pinRow(11);
+        var treeGrid = this.treeGrid;
+        treeGrid.pinRow(1);
+        treeGrid.pinRow(11);
     }
 
 }

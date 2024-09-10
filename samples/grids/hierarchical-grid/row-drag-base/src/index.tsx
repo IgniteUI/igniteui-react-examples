@@ -27,7 +27,7 @@ export default function App() {
     const ghostElement = evt.detail.dragDirective.ghostElement;
         if (ghostElement != null) {
             const dragElementPos = ghostElement.getBoundingClientRect();
-            const gridPosition = document.getElementById("hierarchicalGrid2").getBoundingClientRect();
+            const gridPosition = document.getElementById("hierarchicalGrid2").getElementsByTagName("igc-hierarchical-grid")[0].getBoundingClientRect();
             
             const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
             const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;

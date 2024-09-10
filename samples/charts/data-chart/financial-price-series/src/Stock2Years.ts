@@ -234,7 +234,7 @@ export class Stock2Years extends Array<Stock2YearsItem> {
                     volume: 30616
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

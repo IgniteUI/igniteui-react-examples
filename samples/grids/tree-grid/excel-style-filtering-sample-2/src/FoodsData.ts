@@ -225,7 +225,7 @@ export class FoodsData extends Array<FoodsDataItem> {
                     Discontinued: false
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

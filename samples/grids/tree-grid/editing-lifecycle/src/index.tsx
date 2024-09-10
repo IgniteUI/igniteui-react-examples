@@ -5,7 +5,7 @@ import './index.css';
 import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
-import { IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
+import { IgrGridEditEventArgs, IgrGrid, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';

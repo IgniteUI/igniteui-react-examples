@@ -8721,7 +8721,7 @@ export class StockGoogle extends Array<StockGoogleItem> {
                     volume: 1538688
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

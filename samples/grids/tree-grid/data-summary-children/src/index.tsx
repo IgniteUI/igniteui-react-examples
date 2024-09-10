@@ -140,11 +140,13 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webTreeGridChangeSummaryCalculationMode(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-      this.treeGrid.summaryCalculationMode = args.newValue;
+      var treeGrid = this.treeGrid;
+      treeGrid.summaryCalculationMode = args.newValue;
     }
 
     public webTreeGridChangeSummaryPosition(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-      this.treeGrid.summaryPosition = args.newValue;
+      var treeGrid = this.treeGrid;
+      treeGrid.summaryPosition = args.newValue;
     }
 
 }

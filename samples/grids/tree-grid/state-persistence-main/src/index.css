@@ -1,0 +1,12 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.horizontal {
+    gap: 10px;
+    flex-basis: fit-content;
+    flex-wrap: wrap;
+  }
+
+.sampleContainer {
+    padding: 0.5rem
+}

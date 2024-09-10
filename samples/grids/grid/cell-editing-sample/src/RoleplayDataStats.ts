@@ -201,7 +201,7 @@ export class RoleplayDataStats extends Array<RoleplayDataStatsItem> {
                     Class: `🥊 Fighter`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

@@ -191,22 +191,24 @@ export default class Sample extends React.Component<any, any> {
 
     public webHierarchicalGridChangePinningConfig(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
         var newPinningPosition = args.newValue === "Top" ? RowPinningPosition.Top : RowPinningPosition.Bottom;
-        this.grid.pinning.rows = newPinningPosition;
-        var rowIsland1 = this.grid.contentChildLayoutList.filter(e => e.childDataKey == 'Albums');
+        var grid = this.grid;
+        grid.pinning.rows = newPinningPosition;
+        var rowIsland1 = grid.contentChildLayoutList.filter(e => e.childDataKey == 'Albums');
         rowIsland1[0].pinning.rows = newPinningPosition;
     var rowIsland2 = rowIsland1[0].contentChildLayoutList.filter(e => e.childDataKey == 'Songs');
     if(rowIsland2[0]) {
             rowIsland2[0].pinning.rows = newPinningPosition;
         }
-        var rowIsland3 = this.grid.contentChildLayoutList.filter(e => e.childDataKey == 'Tours');
+        var rowIsland3 = grid.contentChildLayoutList.filter(e => e.childDataKey == 'Tours');
         if(rowIsland3[0]) {
             rowIsland3[0].pinning.rows = newPinningPosition
         }
     }
 
     public webHierarchicalGridPinRowOnRendered(): void {
-        this.grid.pinRow(this.singersData[0].Photo);
-        this.grid.pinRow(this.singersData[1].Photo);
+        var hierarchicalGrid = this.grid;
+        hierarchicalGrid.pinRow(hierarchicalGrid.data[0].Photo);
+        hierarchicalGrid.pinRow(hierarchicalGrid.data[1].Photo);
     }
 
 }

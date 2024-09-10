@@ -113,10 +113,12 @@ export default class Sample extends React.Component<any, any> {
         let uniqueValues: any = [];
         const cell = e.dataContext.cell;
         const colIndex = cell.id.columnID;
-        const field: string = this.treeGrid1.getColumnByVisibleIndex(colIndex).field;
+        var treeGrid1 = this.treeGrid1;
+        const field: string = treeGrid1.getColumnByVisibleIndex(colIndex).field;
+        let roleplayTreeGridData = treeGrid1.data;
         const key = field + "_" + cell.id.rowID;
         let index = 0;
-        for(const i of (this.roleplayTreeGridData as any)){
+        for(const i of (roleplayTreeGridData as any)){
             if(uniqueValues.indexOf(i[field]) === -1 )
             {
                 cellValues.push(<><IgrSelectItem selected={e.dataContext.cell.value == i[field]}
@@ -128,14 +130,15 @@ export default class Sample extends React.Component<any, any> {
             }
             index++;
         }
-        return <><IgrSelect key={key} change={(x: any) => {
-                setTimeout(() => {
-                    cell.editValue = x.value;
-                });
-            }}>
-           {cellValues}
-        </IgrSelect>
-        </>;
+        return (
+            <IgrSelect className="size-large" key={key} change={(x: any) => {
+                    setTimeout(() => {
+                        cell.editValue = x.value;
+                    });
+                }}>
+                {cellValues}
+            </IgrSelect>
+        );
     }
 
 }

@@ -5,6 +5,7 @@ import './index.css';
 import { IgrDataLegendModule, IgrCategoryChartModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataLegend, IgrCategoryChart } from 'igniteui-react-charts';
 import { SelectableDataItem, SelectableData } from './SelectableData';
+import { IgrDomainChartSeriesPointerEventArgs } from 'igniteui-react-charts';
 
 const mods: any[] = [
     IgrDataLegendModule,
@@ -81,8 +82,11 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public categoryChartCustomSelectionPointerDown(o: any, e: any): void {
-        let oldItem = e.item as SelectableDataItem;
+    public categoryChartCustomSelectionPointerDown(sender: any, args: IgrDomainChartSeriesPointerEventArgs): void {
+
+        var chart = this.chart;
+        var selectableData = chart.dataSource as SelectableData;
+    let oldItem = args.item as SelectableDataItem;
 
         if (oldItem === null) return;
 
@@ -93,8 +97,8 @@ export default class Sample extends React.Component<any, any> {
         });
 
         var selectedIndex = -1;
-        for (var i = 0; i < this.selectableData.length; i++) {
-            if (oldItem.category === this.selectableData[i].category) {
+        for (var i = 0; i < selectableData.length; i++) {
+            if (oldItem.category === selectableData[i].category) {
                 selectedIndex = i;
                 break;
             }
@@ -105,7 +109,7 @@ export default class Sample extends React.Component<any, any> {
         else
             newItem.selectedValue = newItem.dataValue;
 
-        this.chart.notifySetItem(this.selectableData, selectedIndex, oldItem, newItem);
+        chart.notifySetItem(selectableData, selectedIndex, oldItem, newItem);
     }
 
 }

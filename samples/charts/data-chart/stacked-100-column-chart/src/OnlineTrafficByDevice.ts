@@ -65,7 +65,7 @@ export class OnlineTrafficByDevice extends Array<OnlineTrafficByDeviceItem> {
                     tablet: 3
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

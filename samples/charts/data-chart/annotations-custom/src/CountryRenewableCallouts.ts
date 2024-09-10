@@ -87,7 +87,7 @@ export class CountryRenewableCallouts extends Array<CountryRenewableCalloutsItem
                     value: 38
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

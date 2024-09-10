@@ -77,7 +77,7 @@ export default class Sample extends React.Component<any, any> {
                         interval="1000">
                     </IgrNumericYAxis>
                     <IgrScatterSplineSeries
-                        name="ScatterSplineSeries1"
+                        name="scatterSplineSeries1"
                         title="Germany"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -88,7 +88,7 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true">
                     </IgrScatterSplineSeries>
                     <IgrScatterSplineSeries
-                        name="ScatterSplineSeries2"
+                        name="scatterSplineSeries2"
                         title="France"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -99,7 +99,7 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true">
                     </IgrScatterSplineSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

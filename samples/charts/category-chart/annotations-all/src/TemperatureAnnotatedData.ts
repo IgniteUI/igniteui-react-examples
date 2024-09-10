@@ -100,7 +100,7 @@ export class TemperatureAnnotatedData extends Array<TemperatureAnnotatedDataItem
                     month: `Dec`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

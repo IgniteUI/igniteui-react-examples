@@ -110,7 +110,8 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public toggleRowPin(index: number) {
-        this.treeGrid.getRowByIndex(index).pinned = !this.treeGrid.getRowByIndex(index).pinned;
+        var treeGrid = this.treeGrid;
+        treeGrid.getRowByIndex(index).pinned = !treeGrid.getRowByIndex(index).pinned;
     }
 }
 
