@@ -12,16 +12,16 @@ import { RemoteService } from "./RemoteService";
 IgrHierarchicalGridModule.register();
 
 export default function App() {
-  let data = [];
 const hierarchicalGrid = useRef<IgrHierarchicalGrid>(null);
 const paginator = useRef<IgrPaginator>(null);
 const remoteServiceInstance = new RemoteService();
-let [page] = useState(0);
+let [page, setPage] = useState(0);
 let [perPage, setPerPage] = useState(15);
+const [data, setData] = useState([]);
 
 useEffect(() => {
   if (paginator.current) {
-    setPerPage(paginator.current.perPage ?? 15);
+    setPerPage(paginator.current.perPage ?? perPage);
     hierarchicalGrid.current.isLoading = true;
   }
 
@@ -29,9 +29,9 @@ useEffect(() => {
 
   remoteServiceInstance.getData({ parentID: null, rootLevel: true, key: "Customers", page, perPage }).then(
     (data: any) => {
-      hierarchicalGrid.current.isLoading = false;
-      hierarchicalGrid.current.data = data;
-      hierarchicalGrid.current.markForCheck();
+        hierarchicalGrid.current.isLoading = false;
+        hierarchicalGrid.current.data = data;
+        hierarchicalGrid.current.markForCheck();
     }
   );
 }, [page, perPage]);
@@ -52,22 +52,22 @@ useEffect(() => {
     context.grid.isLoading = true;
 
     remoteServiceInstance.getDataLength(dataState).then((length: number) => {
-      paginator.current.totalRecords = length;
+        paginator.current.totalRecords = length;
     });
     remoteServiceInstance.getData(dataState).then((data: any[]) => {
-      context.grid.isLoading = false;
-      context.grid.data = data;
-      context.grid.markForCheck();
+        context.grid.isLoading = false;
+        context.grid.data = data;
+        context.grid.markForCheck();
     });
   }
 
   function paginate(pageArgs: number) {
-    page = pageArgs;
-    const skip = page * perPage;
+    setPage(pageArgs);
+    const skip = pageArgs * perPage;
     const top = perPage;
 
     remoteServiceInstance.getData({ parentID: null, rootLevel: true, key: 'Customers' }, skip, top).then((incData:any)=> {
-      data = incData; 
+      setData(incData);
       hierarchicalGrid.current.isLoading = false;
       hierarchicalGrid.current.markForCheck();// Update the UI after receiving data
     });
@@ -81,12 +81,14 @@ useEffect(() => {
           ref={hierarchicalGrid}
           primaryKey="customerId"
           height="600px"
+          data={data}
         >
-        <IgrPaginator 
-          perPage="15"
-          ref={paginator}
-          pageChange={(evt: { page: number }) => paginate(evt.page)}
-          perPageChange={() => paginate(0)}></IgrPaginator>
+          <IgrPaginator 
+            perPage={perPage}
+            ref={paginator}
+            pageChange={(evt: { page: number }) => paginate(evt.page)}
+            perPageChange={() => paginate(page)}>
+          </IgrPaginator>
           <IgrColumn field="customerId" hidden={true}></IgrColumn>
           <IgrColumn field="companyName" header="Company Name"></IgrColumn>
           <IgrColumn field="contactName" header="Contact Name"></IgrColumn>
