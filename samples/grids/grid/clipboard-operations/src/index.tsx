@@ -16,8 +16,13 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default function App() {
+    let defaultSeparator = " ";
     const data = new NwindData();
     const gridRef = useRef<IgrGrid>(null);
+
+    useEffect(() => {
+        defaultSeparator = gridRef.clipboardOptions.separator;
+    }, []);
 
     const onColumnInit = (grid: IgrGridBaseDirective, args: IgrColumnComponentEventArgs) => {
         let column = args.detail;
@@ -26,7 +31,7 @@ export default function App() {
     }
 
     const changeCopySeparator = (inputComponent: IgrInput, args: IgrComponentDataValueChangedEventArgs): void => {
-        gridRef.current.clipboardOptions.separator = args.detail;
+        gridRef.current.clipboardOptions.separator = args.detail || defaultSeparator;
     }
 
     const changeGridCopyBehavior = (switchComponent: any, args: IgrCheckboxChangeEventArgs): void => {
