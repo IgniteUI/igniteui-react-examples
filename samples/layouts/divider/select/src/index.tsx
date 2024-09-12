@@ -26,7 +26,7 @@ export default class DividerSelect extends React.Component<any, any> {
                     <IgrSelectItem key="item1"><span>Item 1</span></IgrSelectItem>
                     <IgrSelectItem key="item2"><span>Item 2</span></IgrSelectItem>
                     <IgrDivider key="divider"></IgrDivider>
-                    <IgrSelectItem key="item2"><span>Item 3</span></IgrSelectItem>
+                    <IgrSelectItem key="item3"><span>Item 3</span></IgrSelectItem>
                 </IgrSelect>
             </div>
         );
