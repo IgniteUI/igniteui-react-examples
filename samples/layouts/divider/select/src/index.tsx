@@ -22,11 +22,11 @@ export default class DividerSelect extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrSelect>
-                    <IgrSelectItem><span>Item 1</span></IgrSelectItem>
-                    <IgrSelectItem><span>Item 2</span></IgrSelectItem>
-                    <IgrDivider></IgrDivider>
-                    <IgrSelectItem><span>Item 3</span></IgrSelectItem>
+                <IgrSelect key="select">
+                    <IgrSelectItem key="item1"><span>Item 1</span></IgrSelectItem>
+                    <IgrSelectItem key="item2"><span>Item 2</span></IgrSelectItem>
+                    <IgrDivider key="divider"></IgrDivider>
+                    <IgrSelectItem key="item2"><span>Item 3</span></IgrSelectItem>
                 </IgrSelect>
             </div>
         );

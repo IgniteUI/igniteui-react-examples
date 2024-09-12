@@ -24,7 +24,7 @@ export default class DividerVertical extends React.Component<any, any> {
                         obcaecati placeat provident, quam repellendus vitae! Cupiditate eveniet,
                         facere harum hic quisquam sed.
                     </p>
-                    <IgrDivider vertical></IgrDivider>
+                    <IgrDivider key="divider" vertical></IgrDivider>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa officiis
                         suscipit veniam vitae. Ab ad, dolores iure nostrum quo ratione rerum

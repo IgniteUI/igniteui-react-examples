@@ -16,7 +16,7 @@ export default class DividerBase extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <p>First paragraph</p>
-                <IgrDivider></IgrDivider>
+                <IgrDivider key="divider"></IgrDivider>
                 <p>Second paragraph</p>
             </div>
         );

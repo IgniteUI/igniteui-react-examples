@@ -16,7 +16,7 @@ export default class DividerDashed extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <p>First paragraph</p>
-                <IgrDivider type="dashed"></IgrDivider>
+                <IgrDivider key="divider" type="dashed"></IgrDivider>
                 <p>Second paragraph</p>
             </div>
         );
