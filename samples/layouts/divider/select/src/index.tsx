@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrDividerModule, 
-        IgrDivider, 
-        IgrSelectModule,
-        IgrSelectItemModule,        
-        IgrSelect,
-        IgrSelectItem, } from 'igniteui-react';
+import {
+    IgrDividerModule,
+    IgrDivider,
+    IgrSelectModule,
+    IgrSelectItemModule,
+    IgrSelect,
+    IgrSelectItem,
+} from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrDividerModule.register();
@@ -16,7 +18,7 @@ IgrSelectItemModule.register();
 export default class DividerSelect extends React.Component<any, any> {
 
     constructor(props: any) {
-        super(props);  
+        super(props);
     }
 
     public render(): JSX.Element {
@@ -31,10 +33,8 @@ export default class DividerSelect extends React.Component<any, any> {
             </div>
         );
     }
-
-    
 }
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<DividerSelect/>);
+root.render(<DividerSelect />);

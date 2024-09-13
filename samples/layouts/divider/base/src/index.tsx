@@ -9,7 +9,7 @@ IgrDividerModule.register();
 export default class DividerBase extends React.Component<any, any> {
 
     constructor(props: any) {
-        super(props);  
+        super(props);
     }
 
     public render(): JSX.Element {
@@ -21,10 +21,8 @@ export default class DividerBase extends React.Component<any, any> {
             </div>
         );
     }
-
-    
 }
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<DividerBase/>);
+root.render(<DividerBase />);
