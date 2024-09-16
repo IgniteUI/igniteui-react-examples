@@ -137,6 +137,7 @@ export default class Sample extends React.Component<any, any> {
                         field="ChangePercent"
                         header="Change Percent"
                         dataType="Number"
+                        minWidth="150px"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column8">
@@ -145,6 +146,7 @@ export default class Sample extends React.Component<any, any> {
                         field="YearlyChange"
                         header="Yearly Change"
                         dataType="Number"
+                        minWidth="150px"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column9">
