@@ -21,7 +21,7 @@ export default function App() {
     const gridRef = useRef<IgrGrid>(null);
 
     useEffect(() => {
-        defaultSeparator = gridRef.clipboardOptions.separator;
+        defaultSeparator = gridRef.current.clipboardOptions.separator;
     }, []);
 
     const onColumnInit = (grid: IgrGridBaseDirective, args: IgrColumnComponentEventArgs) => {
