@@ -21,7 +21,7 @@ const [data, setData] = useState([]);
 
 useEffect(() => {
   if (paginator.current) {
-    setPerPage(paginator.current.perPage ?? perPage);
+    setPerPage(15);
     hierarchicalGrid.current.isLoading = true;
   }
 
@@ -34,7 +34,7 @@ useEffect(() => {
         hierarchicalGrid.current.markForCheck();
     }
   );
-}, [page, perPage]);
+}, [page, 15]);
 
   function gridCreated(
     rowIsland: IgrRowIsland,

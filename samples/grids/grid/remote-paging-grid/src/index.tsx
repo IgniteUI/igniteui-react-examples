@@ -22,13 +22,13 @@ let [perPage, setPerPage] = useState(15);
 
 useEffect(() => {
   if (paginator.current) {
-    setPerPage(paginator.current.perPage ?? 15);
+    setPerPage(15);
     grid.current.isLoading = true;
   }
 
   grid.current.isLoading = true;
   loadData('Customers');
-}, [page, perPage]);
+}, [page, 15]);
 
 function loadData(dataKey: string) {
     const dataState = { key: dataKey };
