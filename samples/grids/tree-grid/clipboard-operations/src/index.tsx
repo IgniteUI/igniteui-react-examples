@@ -16,9 +16,11 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
+    private defaultSeparator = " ";
     private treeGrid: IgrTreeGrid;
     private treeGridRef(r: IgrTreeGrid) {
         this.treeGrid = r;
+        this.defaultSeparator = this.treeGrid.clipboardOptions.separator;
         this.setState({});
     }
 
@@ -129,7 +131,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     private handleSeparatorChange(event: any) {
-        this.setState({ separator: event.value });
+        this.setState({ separator: event.value || this.defaultSeparator });
     }
 
     private handleClipboardEnabledChange(event: any) {

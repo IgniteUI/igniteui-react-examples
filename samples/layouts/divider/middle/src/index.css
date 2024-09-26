@@ -1,0 +1,28 @@
+.parent{
+    display: flex;
+    justify-content: space-between;   
+}
+
+.content{
+    width: 45%;    
+    padding: 20px;
+}
+
+.withInset{
+    --inset: 100px;
+    --color:red;
+}
+
+h4 {
+    margin-top: 0;
+}
+p {
+    margin-top: 0;
+}
+.mt {
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+.mb {
+    margin-bottom: 16px;
+}
