@@ -1,2 +1,5 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
+.size-large {
+    --ig-size: var(--ig-size-large);
+}

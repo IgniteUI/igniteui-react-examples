@@ -10,16 +10,10 @@ IgrRadioModule.register();
 
 export default class InputSize extends React.Component<any, any> {
 
-    public inputRequired: IgrInput;
-    public inputDisabled: IgrInput;
-    public inputReadonly: IgrInput;
-
     constructor(props: any) {
         super(props);  
-        this.inputRequiredRef = this.inputRequiredRef.bind(this);
-        this.inputDisabledRef = this.inputDisabledRef.bind(this);
-        this.inputReadonlyRef = this.inputReadonlyRef.bind(this);
         this.onRadioChange = this.onRadioChange.bind(this);
+        this.state = { size: "medium"};        
     }
 
     public render(): JSX.Element {
@@ -32,30 +26,17 @@ export default class InputSize extends React.Component<any, any> {
                         <IgrRadio name="size" value="large" labelPosition="after" change={this.onRadioChange}><span>Large</span></IgrRadio>
                     </IgrRadioGroup>
                 </div>
-                <IgrInput ref={this.inputRequiredRef} type="text" label="Required" value="This input is required" required="true" />                
-                <IgrInput ref={this.inputDisabledRef} type="text" label="Disabled" value="This input is disabled" disabled="true" />                
-                <IgrInput ref={this.inputReadonlyRef} type="text" label="Readonly" value="This input is readonly" readonly="true" />                
+                <IgrInput className={'size-' + this.state.size} type="text" label="Required" value="This input is required" required="true" />                
+                <IgrInput className={'size-' + this.state.size} type="text" label="Disabled" value="This input is disabled" disabled="true" />                
+                <IgrInput className={'size-' + this.state.size} type="text" label="Readonly" value="This input is readonly" readOnly="true" />                
             </div>
         );
     }
 
-    public inputRequiredRef(input: IgrInput){
-        if(!input) { return; }
-        this.inputRequired = input;
-    }
-    public inputDisabledRef(input: IgrInput){
-        if(!input) { return; }
-        this.inputDisabled = input;
-    }
-    public inputReadonlyRef(input: IgrInput){
-        if(!input) { return; }
-        this.inputReadonly = input;
-    }
-
     public onRadioChange(e: any) {
-        this.inputRequired.size = e.value;
-        this.inputDisabled.size = e.value;
-        this.inputReadonly.size = e.value;
+        if (e.checked == true) {
+            this.setState({ calendarSize: e.value });
+        }
     }
 
 }

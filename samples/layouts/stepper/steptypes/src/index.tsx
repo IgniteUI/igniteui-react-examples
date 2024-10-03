@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrStepper, IgrStep, IgrStepperModule, StepperStepType, IgrRadio, IgrRadioGroup, IgrRadioModule, IgrRadioGroupModule, IgrComponentBoolValueChangedEventArgs } from 'igniteui-react';
+import { IgrStepper, IgrStep, IgrStepperModule, StepperStepType, IgrRadio, IgrRadioGroup, IgrRadioChangeEventArgs, IgrRadioModule, IgrRadioGroupModule } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrStepperModule.register();
@@ -42,7 +42,7 @@ export default class StepperStepTypes extends React.Component<any, any> {
         );
     }
 
-    public onStepTypeChange(s: IgrRadio, e: IgrComponentBoolValueChangedEventArgs) {
+    public onStepTypeChange(s: IgrRadio, e: IgrRadioChangeEventArgs) {
         const newStepType = s.props.value;
         this.setState({ stepType: newStepType });
     }

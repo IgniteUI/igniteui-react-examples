@@ -1,0 +1,8 @@
+p{
+    text-align: justify;
+}
+
+.content{
+    display:flex;
+    gap: 16px;
+}

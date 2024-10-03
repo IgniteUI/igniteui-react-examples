@@ -15,7 +15,7 @@ export default class ListOverview extends React.Component<any, any> {
 
     constructor(props: any) {
         super(props);        
-        this.state = { listSize: "large" };
+        this.state = { listSize: "medium" };
         this.onRadioChange = this.onRadioChange.bind(this);
     }
 
@@ -26,15 +26,15 @@ export default class ListOverview extends React.Component<any, any> {
                     <IgrRadio name="size" value="small" labelPosition="after" change={this.onRadioChange}>
                         <span>Small</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="medium" labelPosition="after" change={this.onRadioChange}>
+                    <IgrRadio name="size" value="medium" labelPosition="after" checked={true} change={this.onRadioChange}>
                         <span>Medium</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="large" labelPosition="after" checked={true} change={this.onRadioChange}>
+                    <IgrRadio name="size" value="large" labelPosition="after" change={this.onRadioChange}>
                         <span>Large</span>
                     </IgrRadio>
                 </IgrRadioGroup>
 
-                <IgrList size={this.state.listSize}>
+                <IgrList className={'size-' + this.state.listSize}>
                     <IgrListHeader>
                         <span>Contacts</span>
                     </IgrListHeader>

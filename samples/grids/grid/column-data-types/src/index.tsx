@@ -116,7 +116,6 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     allowFiltering="true"
                     filterMode="ExcelStyleFilter"
-                    displayDensity="Compact"
                     locale="EN">
                     <IgrColumn
                         field="ProductName"
