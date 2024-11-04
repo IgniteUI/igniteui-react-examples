@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataLegendModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrDataLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrCrosshairLayer } from 'igniteui-react-charts';
+import { IgrDataLegend, IgrDataChart, IgrNumericYAxis, IgrNumericXAxis, IgrBubbleSeries, IgrSizeScale, IgrCrosshairLayer } from 'igniteui-react-charts';
 import { CountryDemographicAfricanItem, CountryDemographicAfrican } from './CountryDemographicAfrican';
 import { CountryDemographicEuropeItem, CountryDemographicEurope } from './CountryDemographicEurope';
 
@@ -30,8 +30,8 @@ export default class Sample extends React.Component<any, any> {
         this.chart = r;
         this.setState({});
     }
-    private xAxis: IgrNumericXAxis
     private yAxis: IgrNumericYAxis
+    private xAxis: IgrNumericXAxis
     private bubbleSeries1: IgrBubbleSeries
     private  _sizeScale1: IgrSizeScale | null = null;
     public get sizeScale1(): IgrSizeScale {
@@ -80,20 +80,15 @@ export default class Sample extends React.Component<any, any> {
             <div className="legend">
                 <IgrDataLegend
                     ref={this.legendRef}
-                    target={this.chart}>
+                    target={this.chart}
+                    unitsText="%"
+                    includedColumns={["BirthRate", "DeathRate"]}>
                 </IgrDataLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}>
-                    <IgrNumericXAxis
-                        name="xAxis"
-                        title="Death Rate"
-                        interval="1"
-                        minimumValue="4"
-                        maximumValue="16">
-                    </IgrNumericXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
                         title="Birth Rate"
@@ -101,6 +96,13 @@ export default class Sample extends React.Component<any, any> {
                         minimumValue="0"
                         maximumValue="60">
                     </IgrNumericYAxis>
+                    <IgrNumericXAxis
+                        name="xAxis"
+                        title="Death Rate"
+                        interval="1"
+                        minimumValue="4"
+                        maximumValue="16">
+                    </IgrNumericXAxis>
                     <IgrBubbleSeries
                         name="bubbleSeries1"
                         xAxisName="xAxis"

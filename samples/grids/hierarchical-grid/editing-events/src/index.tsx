@@ -5,7 +5,7 @@ import './index.css';
 import { IgrHierarchicalGridModule, IgrPaginatorModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrPaginator, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import { ComponentRenderer, WebHierarchicalGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-react-core';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import NwindData from './NwindData.json';
 import { IgrGrid, IgrGridEditEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
@@ -124,12 +124,8 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
+    private _nwindData: any[] = NwindData;
+    public get nwindData(): any[] {
         return this._nwindData;
     }
 
