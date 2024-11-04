@@ -111,12 +111,13 @@ export default class MapShapeSelection extends React.Component<any, any> {
             // }
         }
 
-        let statePickers = [];
-        this.sortByName(this.usaStates);
+        let statePickers: any[] = [];
+        // this.sortByName(this.usaStates);
+        // this.sortByName(this.usaSymbols);
         for (let i = 0; i < this.usaStates.length; i++) {
             let item = this.usaStates[i]; 
             let info = item.Info; // + " " + (item.KeyRace > 0 ? " *" : "");
-          
+            let key = item.KeyRace + "-" + item.Code;
             let electors = "Electors: " + item.Electors; 
             let pop = "Population: " + (item.Population / 1000000).toFixed(1) + "M"; 
             let bgDEM = item.Party === "D" ? this.partyColorDEM : this.partyColorUKN;
@@ -124,21 +125,17 @@ export default class MapShapeSelection extends React.Component<any, any> {
             let bgState = item.Party === "D" ? this.partyColorDEM : this.partyColorREP;
             let stateColor = item.KeyRace > 0 ? this.partyColorUKN : item.Lean === "D" ? this.partyColorDEM : this.partyColorREP;
             let stateLabel = item.KeyRace > 0 ? "KEY RACE" : item.Lean === "D" ? "DEM. LEANING" : "REP. LEANING";
-            let stateTitle = item.KeyRace > 0 ? "" : item.Lean === "D" ? "DEM. LEANING" : "REP. LEANING";
-
+             
             let imgDEM = this.getPartyImage("D", item.Party === "D");
             let imgREP = this.getPartyImage("R", item.Party === "R"); 
-            statePickers.push(
-                // style={{background: bgState}} 
-            <div className="horizontal statePickerItem" key={item.Code} onClick={(e) => this.onStateClick(item)}>
+            statePickers.push( 
+            <div className="horizontal statePickerItem" key={key} onClick={(e) => this.onStateClick(item)}>
                 <div className="vertical statePickerInfo"  > 
                     <div style={{fontWeight: 'bold'}}>{info}</div>
                     <div>{pop}</div>
                     <div>{electors}</div>
                 </div>
                 <div className="horizontal" > 
-                    {/* <div className="statePickerPartyCircle" style={{background: bgDEM}} onClick={(e) => this.onStateClick(item)}><img className="statePickerPartyImage" src={imgDEM}/></div> */}
-                    {/* <div className="statePickerPartyCircle" style={{background: bgREP}} onClick={(e) => this.onStateClick(item)}><img className="statePickerPartyImage" src={imgREP}/></div> */}
                     <div className="statePickerPartyCircle" style={{background: bgDEM}} title='Vote for Democrat'><img className="statePickerPartyImage" src={imgDEM}/></div>
                     <div className="statePickerPartyCircle" style={{background: bgREP}} title='Vote for Republican'><img className="statePickerPartyImage" src={imgREP}/></div>
                 </div>
@@ -146,6 +143,8 @@ export default class MapShapeSelection extends React.Component<any, any> {
                 <div className="stateLabel" style={{background: stateColor}}>{stateLabel}</div>
             </div>);
         }
+        this.sortByKey(statePickers);
+        
         let widthMenu = "16rem";
         let widthContent = "calc(100% - " + widthMenu + ")";
         return (
@@ -359,9 +358,12 @@ export default class MapShapeSelection extends React.Component<any, any> {
         this.geoMap.zoomToGeographic(geoRegion);
     }
 
+    public sortByKey(states: any[]): void {
+        states.sort((a, b) => a.key < b.key ? 1 : -1);
+    }
+
     public sortByName(states: any[]): void {
         states.sort((a, b) => b.KeyRace - a.KeyRace || (a.Code > b.Code ? 1 : -1));
-        // states.sort((a, b) => a.Code > b.Code ? (a.Code > b.Code ? 1 : -1));
     }
 
     public onDataLoaded(sds: IgrShapeDataSource, e: any) {
@@ -489,21 +491,11 @@ export default class MapShapeSelection extends React.Component<any, any> {
         // this.geoMap.windowRect = {top: 0.33089979638559797, left: 0.23950540516618768, width: 0.14048512930673307, height: 0.14048512930673307};
 
         
-        // xMax -= 10;
-        // yMax -= 20;
-        // xMin -= 30;
-        // yMin -= 1;
-        // let geoRegion = { left: xMin, top: yMin, width: 50, height: yMax - yMin};
         let geoRegion = { left: -120, top: 32, width: 40, height: 12 };
-        console.log("geoRegion"); 
-        console.log(geoRegion); 
+        // console.log("geoRegion"); 
+        // console.log(geoRegion); 
         this.geoMap.zoomToGeographic(geoRegion);
-        
-        // this.geoMap.windowRect = {height: 0.100485,
-        // left: 0.052,
-        // top: 0.32725945997,
-        // width:    0.200485 };
- 
+         
 
         this.gauge.transitionDuration = 500;
 
@@ -620,7 +612,7 @@ export default class MapShapeSelection extends React.Component<any, any> {
     public createMarker(): any
     {
         let smallStates = ["NH", "VT", "MA", "RI", "CT", "NJ", "DE", "MD", "DC", ];
-        // let style = { outline: "#9FB328", fill: "rgba(71, 70, 70, 0.153)", text: "black" };
+        
         const size = 12;
 
         return {
@@ -663,7 +655,7 @@ export default class MapShapeSelection extends React.Component<any, any> {
                     ctx.closePath();
                 }
 
-                let kr = item.KeyRace > 0 ? "* " : "";
+                let kr = ""; //item.KeyRace > 0 ? "* " : "";
                 let txt = kr + code + " (" + item.Electors + ")";
                 
                 ctx.font = '7pt Verdana';
@@ -685,7 +677,9 @@ export default class MapShapeSelection extends React.Component<any, any> {
         const winner = this.getPartyCandidateName(item.Party);
         const party = this.getPartyName(item.Party);
         const color = this.getPartyColor(item.Party);
-        
+        const statusColor = item.KeyRace > 0 ? this.partyColorUKN : item.Lean === "D" ? this.partyColorDEM : this.partyColorREP;
+        const statusText = item.KeyRace > 0 ? "Toss-up" : item.Lean === "D" ? "Democrat" : "Republican";
+            
         return <div className="tooltipBox" style={{color: color}}>
             {/* <div className="tooltipTitle" > </div> */}
             <div className="tooltipBox">
@@ -701,13 +695,17 @@ export default class MapShapeSelection extends React.Component<any, any> {
                     <div className="tooltipLbl" >Electoral Votes:</div>
                     <div className="tooltipVal">{item.Electors}</div>
                 </div>
-                <div className="tooltipRow">
+                <div className="tooltipRow" style={{color: statusColor}} >
+                    <div className="tooltipLbl">Likely Outcome:</div>
+                    <div className="tooltipVal">{statusText}</div>
+                </div>
+                <div className="tooltipRow" style={{color: color}}>
                     <div className="tooltipLbl">Winner:</div>
                     <div className="tooltipVal">{winner}</div>
                 </div>
-                <div className="tooltipRow">
+                <div className="tooltipRow" style={{color: color}}>
                     <div className="tooltipLbl">Party:</div>
-                    <div className="tooltipVal">{party}</div>
+                    <div className="tooltipVal">{party}</div> 
                 </div>
                 {/* <div className="tooltipRow">
                     <div className="tooltipLbl">Attendance:</div>
