@@ -53,6 +53,7 @@ export class ShapeComparisonStyling extends ShapeStyling {
   public generate(record: any): Style {
 
     let itemValue = this.getValue(this.itemMemberPath, record);
+    // let itemStroke = this.getValue("KeyRace", record) > 0 ? "black" : "white";
     if (itemValue === null || itemValue === "") {
       return this.defaultStyle;
     }
