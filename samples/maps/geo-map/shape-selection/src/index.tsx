@@ -517,6 +517,10 @@ export default class MapShapeSelection extends React.Component<any, any> {
         // console.log(location); 
         // console.log(locationBase); 
 
+        // https://stackoverflow.com/questions/50694649/bitwise-combination-as-integer-to-enum
+        // 4-bit hex encoding of a 50-bit binary string representing all of the states  0=D, 1=R
+
+
         const url = new URL(locationBase);  
         url.searchParams.set("D", statesDEM.join("."));
         url.searchParams.set("R", statesREP.join("."));
