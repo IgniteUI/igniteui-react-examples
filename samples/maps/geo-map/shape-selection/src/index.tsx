@@ -10,12 +10,12 @@ import { IgrGeographicShapeSeries } from 'igniteui-react-maps';
 import { IgrGeographicSymbolSeries } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrShapeDataSource, Random } from 'igniteui-react-core';
-// import { IgrShapefileRecord } from 'igniteui-react-core';
+
 import { IgrStyleShapeEventArgs } from 'igniteui-react-charts';
 import { IgrDataContext, IgRect } from 'igniteui-react-core';
 import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 import { IgrSeriesViewer } from 'igniteui-react-charts';
-import { IgrDataChartMouseButtonEventArgs,  } from 'igniteui-react-charts';
+import { IgrDataChartMouseButtonEventArgs, IgrChartMouseEventArgs } from 'igniteui-react-charts';
 import { DataTemplateMeasureInfo } from 'igniteui-react-core';
 import { DataTemplateRenderInfo } from 'igniteui-react-core';
 import { MarkerType } from 'igniteui-react-charts';
@@ -23,11 +23,10 @@ import { IgrLinearGauge } from 'igniteui-react-gauges';
 import { IgrLinearGraphRange } from 'igniteui-react-gauges';
 import { IgrLinearGaugeModule } from 'igniteui-react-gauges';
 
+// https://react-icons.github.io/react-icons/
 import { IoChevronDownCircleSharp as WinnerIcon } from "react-icons/io5";
 import { PiMouseLeftClickFill as MouseIcon } from "react-icons/pi";
 import { IoMdStar as StarIcon } from "react-icons/io";
-
-// https://react-icons.github.io/react-icons/
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
@@ -44,9 +43,11 @@ export default class MapShapeSelection extends React.Component<any, any> {
     public currentShapeStyling: ShapeStyling;
     public shapeComparisonStyling: ShapeComparisonStyling;
 
-    public partyColorREP: string = '#f61616';
-    public partyColorDEM: string = '#03adef';
-    public partyColorUKN: string = '#535556';
+    public partyHoverREP: string = 'rgba(246, 22, 22, 0.55)';
+    public partyHoverDEM: string = 'rgba(3, 173, 239, 0.55)';
+    public partyColorREP: string = 'rgba(246, 22, 22, 1)';
+    public partyColorDEM: string = 'rgba(3, 173, 239, 1)';
+    public partyColorUKN: string = 'rgba(83, 85, 86, 1)';
     public partyColors: string = this.partyColorDEM + ", " + this.partyColorREP;
 
     public candidateR: string = this.getPartyCandidateImage("R");
@@ -66,33 +67,31 @@ export default class MapShapeSelection extends React.Component<any, any> {
         this.onGauge = this.onGauge.bind(this);
         this.onMap = this.onMap.bind(this);
         this.onDataLoaded = this.onDataLoaded.bind(this);
-        // this.onOptionsSelected = this.onOptionsSelected.bind(this);
-        this.onMapStylingShape = this.onMapStylingShape.bind(this);
+        
         this.createTooltip = this.createTooltip.bind(this);
-        this.onStateClick = this.onStateClick.bind(this);
+        this.onStateUpdateData = this.onStateUpdateData.bind(this);
+        this.onStateHoverData = this.onStateHoverData.bind(this);
+
         this.onMapResize = this.onMapResize.bind(this);
+        this.onMapStylingShape = this.onMapStylingShape.bind(this);
+        this.onMapWindowChanged = this.onMapWindowChanged.bind(this);
+        this.onMapMouseClick = this.onMapMouseClick.bind(this);
+        this.onMapMouseMove = this.onMapMouseMove.bind(this);
+        this.onMapMouseLeave = this.onMapMouseLeave.bind(this);
         
         // setting up ShapeComparisonStyling:
         this.shapeComparisonStyling = new ShapeComparisonStyling();
         this.shapeComparisonStyling.defaultFill = '#959494';
         this.shapeComparisonStyling.itemMemberPath = 'Party';
         this.shapeComparisonStyling.itemMappings = [
-            { fill: this.partyColorDEM, itemValue: 'D'  },
-            { fill: this.partyColorREP, itemValue: 'R'  }, 
+            { fill: this.partyColorDEM, hover: this.partyHoverDEM, itemValue: 'D'  },
+            { fill: this.partyColorREP, hover: this.partyHoverREP, itemValue: 'R'  }, 
             // { fill: 'Gray', itemValue: '' },
         ];
 
         // setting default value for current shape styling
         this.currentShapeStyling = this.shapeComparisonStyling;
- 
-        // this.onChartMouseLeftButtonUp = this.onChartMouseLeftButtonUp.bind(this);
-        // this.onChartMouseOver = this.onChartMouseOver.bind(this);
-        
-        
-        this.seriesMouseLeftButtonDown = this.seriesMouseLeftButtonDown.bind(this);
-        this.onMapWindowChanged = this.onMapWindowChanged.bind(this);
-
-        // window.addEventListener('resize', this.onMapResize);
+  
     }
 
     public render(): JSX.Element {
@@ -100,20 +99,16 @@ export default class MapShapeSelection extends React.Component<any, any> {
         let colorWinnerDEM = this.state.electors.DEM >= 270 ? this.partyColorDEM : "transparent";
         let colorWinnerREP = this.state.electors.REP >= 270 ? this.partyColorREP : "transparent";
         let bgIcons = [];
-        for (let c = 0; c < 51; c++) {
-            // for (let r = 0; c < 10; r++) {
-                let iconBack = c % 2 === 0 ? this.partyColorREP : this.partyColorDEM
-                let iconColor = "white" ; //r % 2 === 0 ? "white" : "blue"
-                let key = c; // + r;
-                bgIcons.push(
-                    <StarIcon className="appBackgroundTitleIcon" key={key} style={{color: iconBack, background: iconColor}} />
-                );
-            // }
+        for (let c = 0; c < 17; c++) {
+            let iconBack = c % 2 === 0 ? this.partyColorREP : this.partyColorDEM
+            let iconColor = "white" ; //r % 2 === 0 ? "white" : "blue"
+            let key = c;
+            bgIcons.push(
+                <StarIcon className="appBackgroundTitleIcon" key={key} style={{color: iconBack, background: iconColor}} />
+            );
         }
 
         let statePickers: any[] = [];
-        // this.sortByName(this.usaStates);
-        // this.sortByName(this.usaSymbols);
         for (let i = 0; i < this.usaStates.length; i++) {
             let item = this.usaStates[i]; 
             let info = item.Info; // + " " + (item.KeyRace > 0 ? " *" : "");
@@ -129,7 +124,7 @@ export default class MapShapeSelection extends React.Component<any, any> {
             let imgDEM = this.getPartyImage("D", item.Party === "D");
             let imgREP = this.getPartyImage("R", item.Party === "R"); 
             statePickers.push( 
-            <div className="horizontal statePickerItem" key={key} onClick={(e) => this.onStateClick(item)}>
+            <div className="horizontal statePickerItem" key={key} onClick={(e) => this.onStateUpdateData(item)}>
                 <div className="vertical statePickerInfo"  > 
                     <div style={{fontWeight: 'bold'}}>{info}</div>
                     <div>{pop}</div>
@@ -143,7 +138,6 @@ export default class MapShapeSelection extends React.Component<any, any> {
                 <div className="stateLabel" style={{background: stateColor}}>{stateLabel}</div>
             </div>);
         }
-        // this.sortByKey(statePickers);
         
         let widthMenu = "16rem";
         let widthContent = "calc(100% - " + widthMenu + ")";
@@ -154,7 +148,6 @@ export default class MapShapeSelection extends React.Component<any, any> {
                 <div className="container sample horizontal">
                     
                     <div className="container vertical sideMenu" style={{background: "transparent", width: widthMenu}}>
-                        {/* <div className="appTitle">U.S. Presidential Election Map</div> */}
 
                         <div className="horizontal statePickerItem" style={{borderRadius: "0rem", fontWeight: 'bold', background: "transparent", opacity: "100%"}} >
                             <div className="vertical statePickerInfo"  > 
@@ -172,11 +165,9 @@ export default class MapShapeSelection extends React.Component<any, any> {
                     </div>
                     <div className="container vertical" style={{background: "transparent", width: widthContent }}>
 
-
                         <div className="container vertical electionResult" >
-                            {/* <div className="appBackgroundTitle">{bgIcons}</div> */}
                             <div className="appTitle">Interactive USA Election Map</div>
-                            {/* <div className="appBackgroundTitle">{bgIcons}</div> */}
+                            <div className="appBackgroundTitle">{bgIcons}</div>
 
                             <div className='igCandidate-bar'>
                                 <div className='igCandidate-value' style={{color: this.partyColorDEM}}>{this.state.electors.DEM}</div>
@@ -194,16 +185,7 @@ export default class MapShapeSelection extends React.Component<any, any> {
                                 <div className='igCandidate-value' style={{color: this.partyColorREP}}>{this.state.electors.REP}</div>
                             </div>
 
-
                             <div className="container horizontal" >
-                                
-                                {/* <div className="candidateInfo horizontal" style={{color: this.partyColorDEM}}>  style={{alignItems: "center",  }} */}
-                                    {/* <WinnerIcon className="candidateWinner animateFade" style={{color: colorWinnerDEM}} title='Election Winner'/> */}
-                                    {/* <div className="candidateName" > {this.getPartyCandidateName("D")}</div> */}
-                                    {/* <div className="candidateElector" > {this.state.electors.DEM}</div> */}
-                                    {/* <div className="statePickerPartyCircle electionCandidateImage" style={{background: this.partyColorREP}} ><img className="statePickerPartyImage" src={this.candidateR}/></div> */}
-                                {/* </div> */}
-
                                 <div className="electionGauge"  >
                                     <IgrLinearGauge
                                         ref={this.onGauge}
@@ -238,23 +220,15 @@ export default class MapShapeSelection extends React.Component<any, any> {
                                             outerStartExtent={0.85} outerEndExtent={0.85} />
                                     </IgrLinearGauge>
                                 </div>
-                                {/* <div className="candidateInfo horizontal" style={{color: this.partyColorREP}}>   */}
-                                    {/* <div className="candidateElector" > {this.state.electors.REP}</div> */}
-                                    {/* <div className="candidateName" > {this.getPartyCandidateName("R")}</div> */}
-                                    {/* <WinnerIcon className="candidateWinner animateFade" style={{color: colorWinnerREP}} title='Election Winner'/> */}
-                                    {/* <div className="statePickerPartyCircle electionCandidateImage" style={{background: this.partyColorREP}} ><img className="statePickerPartyImage" src={this.candidateR}/></div> */}
-
-                                {/* </div>  */}
                             </div>
 
-                            <div className="appBackgroundTitle" style={{paddingTop: "1rem"}}>{bgIcons}</div>
-
                         </div>
-                        {/* onResize={this.onMapResize} */}
                         <div className="container" id="mapContainer" >
                             <IgrGeographicMap
                                 ref={this.onMap}
-                                seriesMouseLeftButtonDown={this.seriesMouseLeftButtonDown}
+                                seriesMouseLeftButtonDown={this.onMapMouseClick}
+                                seriesMouseMove={this.onMapMouseMove}
+                                seriesMouseLeave={this.onMapMouseLeave}
                                 windowRectChanged={this.onMapWindowChanged}
                                 
                                 width="100%"
@@ -262,8 +236,6 @@ export default class MapShapeSelection extends React.Component<any, any> {
                                 zoomable="true"/>
                                 
                                 <div className="horizontal" >
-                                    {/* <MouseIcon className="mapHintIcon animateFade" title='Click on a map to change which state votes for a candidate'/> */}
-                                    {/* <div className="mapHint">Powered by Infragistics Ignite-UI for React Components</div> */}
                                     <a className="mapHint" href="https://www.infragistics.com/products/ignite-ui-react">
                                         <img className="mapSource" src="https://www.infragistics.com/blazor-apps/usa-elections/images/ig_engine_horizontal_light.svg"></img>
                                     </a>
@@ -310,6 +282,15 @@ export default class MapShapeSelection extends React.Component<any, any> {
     public getPartyColor(party: string): string {
         if (party === "R") return this.partyColorREP;
         else if (party === "D") return  this.partyColorDEM;
+        return this.partyColorUKN;
+    }
+
+    public getPartyFill(state: any): string {
+        if (state.Party === "R") 
+            return state.IsSelected ? this.partyHoverREP : this.partyColorREP;
+        else if (state.Party === "D") 
+            return state.IsSelected ? this.partyHoverDEM : this.partyColorDEM;
+
         return this.partyColorUKN;
     }
 
@@ -383,7 +364,7 @@ export default class MapShapeSelection extends React.Component<any, any> {
         let xMin = 1000;
         let yMin = 1000; 
         for (let i = 0; i < this.shapeRecords.length; i++) {
-            let record = this.shapeRecords[i]; // as IgrShapefileRecord;
+            let record = this.shapeRecords[i];
             if (i === 0) {
                 // console.log(record); 
             }
@@ -398,7 +379,8 @@ export default class MapShapeSelection extends React.Component<any, any> {
             state.Name = record.fieldValues['Name'];
             state.Region = record.fieldValues['Region'];
             state.Population = record.fieldValues['Population'];
-            
+            state.IsSelected = false;
+
             if (code === "DC") {
                 state.Info = state.Name;
             } else {
@@ -423,12 +405,9 @@ export default class MapShapeSelection extends React.Component<any, any> {
             
             state.Voters = Math.min(0.9, Math.max(0.4, 0.2 + Math.random())) * state.Population;
             state.Attendance = Math.round((state.Voters / state.Population) * 100);
-            // if (item.Code === "VT") {
-            //     item.X -= 0.5; 
-            //     // this.usaData[code].Y = record.fieldValues['CodePosY'];
-            // }
-            // console.log(code + " " + item.Attendance);
-            state.Color = this.getPartyColor(state.Party);  
+            state.Color = this.getPartyColor(state.Party);
+            state.Fill = this.getPartyFill(state);
+            
             // state.Color = state.Party === "R" ? this.partyColorREP : this.partyColorDEM;
             if (state.Party === "D") {
                 // electors.Count += item.Electors;
@@ -443,11 +422,9 @@ export default class MapShapeSelection extends React.Component<any, any> {
             this.usaSymbols.push(state);
         }
 
-        
         this.sortByName(this.usaStates);
         this.sortByName(this.usaSymbols);
 
-        // this.usaData["VT"].X -=  1; 
         this.usaData["NH"].Y -=  3.5; 
         this.usaData["NH"].X -=  3; 
 
@@ -457,9 +434,6 @@ export default class MapShapeSelection extends React.Component<any, any> {
             item.X = this.usaData["NH"].X;
             item.Y = this.usaData["NH"].Y - ((i + 1) * 1.5);
         }
-
-        // console.log(this.usaData);
-  
 
         this.geoSeries = new IgrGeographicShapeSeries ( { name: "series" });
         this.geoSeries.title = "usaStates";
@@ -548,24 +522,33 @@ export default class MapShapeSelection extends React.Component<any, any> {
         url.searchParams.set("R", statesREP.join("."));
         history.pushState({}, "", url);
     }
-    
-    public onStateClick(item: any) {
-        this.updateData(item);
+
+    public onStateHoverData(target: any) {
+
+        for (let i = 0; i < this.usaStates.length; i++) {
+            let item = this.usaStates[i];
+            item.IsSelected = item.Code === target.Code;
+            item.Fill = this.getPartyFill(item);
+            this.usaStates[i] = item;
+            this.usaSymbols[i] = item;
+        }
+
+        this.geoSeries.dataSource = null; 
+        this.geoSeries.dataSource = this.usaStates;
+        this.geoSymbol.dataSource = null; 
+        this.geoSymbol.dataSource = this.usaSymbols;
     }
 
-    public updateData(target: any) {
+    public onStateUpdateData(target: any) {
         
         let electors = { Count: 0, REP: 0, DEM: 0  }; 
         for (let i = 0; i < this.usaStates.length; i++) {
             let item = this.usaStates[i];
             if (item.Code === target.Code) {
-                // console.log(item); 
-
                 item.Party = target.Party === "R" ? "D" : "R";
                 item.Color = item.Party === "R" ? this.partyColorREP : this.partyColorDEM;
                 this.usaStates[i] = item;
                 this.usaSymbols[i] = item;
-                // console.log(item); 
             }
 
             if (item.Party === "D") {
@@ -585,27 +568,32 @@ export default class MapShapeSelection extends React.Component<any, any> {
         this.setWebsiteParams();
 
         this.setState({ electors: electors, });
- 
     }
-
-    public seriesMouseLeftButtonDown(s: IgrSeriesViewer, e: IgrDataChartMouseButtonEventArgs) {
-        
-        // if (e.series === null) return;  
-        // if (e.series.title === "usaCodes") return;
-
+    
+    public onMapMouseClick(s: IgrSeriesViewer, e: IgrDataChartMouseButtonEventArgs) {
         let item = e.item as any;
-        if (item === null) {
-            console.log('seriesMouseLeftButtonDown null' );
-        } else {
-            // console.log(item);
-            console.log('seriesMouseLeftButtonDown ' + item.Code);
-            this.updateData(item);
+        if (item !== null) {
+            console.log('onMapMouseClick ' + item.Code);
+            this.onStateUpdateData(item);
+        }
+    } 
+
+    public stateHovered: string = "";
+    public onMapMouseMove(s: IgrSeriesViewer, e: IgrChartMouseEventArgs) {
+        let item = e.item as any;
+        if (item !== null && this.stateHovered !== item.Code ) {
+            // console.log('onMapMouseMove ' + item.Code);
+            this.onStateHoverData(item);
+            this.stateHovered = item.Code;
         }
     }
 
-    public onMapStylingShape(s: IgrGeographicShapeSeries, args: IgrStyleShapeEventArgs) {
+    public onMapMouseLeave(s: IgrSeriesViewer, e: IgrChartMouseEventArgs) {
+        this.onStateHoverData({ Code: ""});
+        this.stateHovered = "";
+    }
 
-        // const itemRecord = args.item as any;
+    public onMapStylingShape(s: IgrGeographicShapeSeries, args: IgrStyleShapeEventArgs) {
         const shapeStyle = this.currentShapeStyling.generate(args.item);
         args.shapeOpacity = shapeStyle.opacity;
         args.shapeFill = shapeStyle.fill;
@@ -631,8 +619,6 @@ export default class MapShapeSelection extends React.Component<any, any> {
     public createMarker(): any
     {
         let smallStates = ["NH", "VT", "MA", "RI", "CT", "NJ", "DE", "MD", "DC", ];
-        
-        const size = 12;
 
         return {
             measure: function (measureInfo: DataTemplateMeasureInfo) {
@@ -646,7 +632,7 @@ export default class MapShapeSelection extends React.Component<any, any> {
                 const height = context.measureText("M").width;
                 const width = context.measureText(value).width;
                 measureInfo.width = 25; //width;
-                measureInfo.height = height + size;
+                measureInfo.height = height + 12;
             },
             render: function (renderInfo: DataTemplateRenderInfo) {
                 const item = renderInfo.data.item as any;
@@ -668,7 +654,8 @@ export default class MapShapeSelection extends React.Component<any, any> {
                 if (smallStates.indexOf(code) >= 0) {
                     isSmallState = true;
                     ctx.beginPath();     
-                    ctx.fillStyle =  item.Color;
+                    ctx.fillStyle =  item.Fill;
+                    // ctx.fillStyle =  item.Color;
                     ctx.fillRect(x - (width / 2), y - (height / 2), width, height);
                     ctx.closePath();
                 }

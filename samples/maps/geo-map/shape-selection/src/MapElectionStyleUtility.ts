@@ -42,6 +42,7 @@ export class ShapeComparisonStyling extends ShapeStyling {
 
     let itemValue = this.getValue(this.itemMemberPath, record);
     let itemStroke = this.getValue("KeyRace", record) > 0 ? "black" : "white";
+    let itemSelected = this.getValue("IsSelected", record);
 
     if (itemValue === null || itemValue === "") {
       return this.defaultStyle;
@@ -50,10 +51,11 @@ export class ShapeComparisonStyling extends ShapeStyling {
     for (const mapping of this.itemMappings) {
       if (mapping.itemValue === itemValue) {
         const shapeStyle = new Style();
+
         shapeStyle.opacity = mapping.opacity || this.defaultOpacity;
-        shapeStyle.fill    = mapping.fill || this.defaultFill;
+        shapeStyle.fill    = itemSelected ? (mapping.hover || this.defaultFill) : (mapping.fill || this.defaultFill);
         shapeStyle.stroke  = mapping.stroke || this.defaultStroke;
-        shapeStyle.strokeThickness = mapping.strokeThickness || this.defaultThickness;
+        shapeStyle.strokeThickness = mapping.thickness || this.defaultThickness;
         return shapeStyle;
       }
     }
@@ -68,5 +70,6 @@ export class ShapeComparison {
   public opacity?: number;
   public fill: string;
   public stroke?: string;
-  public strokeThickness?: number;
+  public thickness?: number;
+  public hover: string;
 }
