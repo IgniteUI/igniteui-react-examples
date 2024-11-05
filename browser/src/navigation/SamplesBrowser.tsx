@@ -285,7 +285,8 @@ export class SamplesBrowser extends React.Component<any, any>
     };
     
     private preventDocumentScroll(event:any) {
-        if (event.target.outerHTML.toLowerCase().includes('igx')) {
+        const eventPath = event.composedPath();
+        if (event.target.outerHTML.toLowerCase().includes('igx') && eventPath.filter(x => x.classList?.value === 'igx-grid__tbody').length > 0) {
             event.preventDefault();
         }
     }

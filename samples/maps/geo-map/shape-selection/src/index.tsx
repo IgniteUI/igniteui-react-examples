@@ -143,7 +143,7 @@ export default class MapShapeSelection extends React.Component<any, any> {
                 <div className="stateLabel" style={{background: stateColor}}>{stateLabel}</div>
             </div>);
         }
-        this.sortByKey(statePickers);
+        // this.sortByKey(statePickers);
         
         let widthMenu = "16rem";
         let widthContent = "calc(100% - " + widthMenu + ")";
@@ -443,6 +443,10 @@ export default class MapShapeSelection extends React.Component<any, any> {
             this.usaSymbols.push(state);
         }
 
+        
+        this.sortByName(this.usaStates);
+        this.sortByName(this.usaSymbols);
+
         // this.usaData["VT"].X -=  1; 
         this.usaData["NH"].Y -=  3.5; 
         this.usaData["NH"].X -=  3; 
@@ -608,7 +612,22 @@ export default class MapShapeSelection extends React.Component<any, any> {
         args.shapeStroke = shapeStyle.stroke;
         args.shapeStrokeThickness = shapeStyle.strokeThickness;
     }
-   
+
+    public static drawText(ctx: any , text: string, x: number, y: number, lineHeight: number, useMultipleLines: boolean)
+    { 
+        if (!useMultipleLines)
+        {
+            ctx.fillText(text, x, y );
+            return;
+        }
+        
+        let lines = text.split(' ');
+        for (let i = 0; i < lines.length; i++) {
+            let str = lines[i];
+            ctx.fillText(str, x, y + (i * lineHeight));
+        }
+    }
+
     public createMarker(): any
     {
         let smallStates = ["NH", "VT", "MA", "RI", "CT", "NJ", "DE", "MD", "DC", ];
@@ -644,11 +663,10 @@ export default class MapShapeSelection extends React.Component<any, any> {
                     ctx.fillRect(x - (width / 2), y - (height / 2), width, height);
                     return;
                 }
-
-                let xOffset = 35;
-                let yOffset = 10; 
-
+ 
+                let isSmallState = false;
                 if (smallStates.indexOf(code) >= 0) {
+                    isSmallState = true;
                     ctx.beginPath();     
                     ctx.fillStyle =  item.Color;
                     ctx.fillRect(x - (width / 2), y - (height / 2), width, height);
@@ -658,10 +676,21 @@ export default class MapShapeSelection extends React.Component<any, any> {
                 let kr = ""; //item.KeyRace > 0 ? "* " : "";
                 let txt = kr + code + " (" + item.Electors + ")";
                 
-                ctx.font = '7pt Verdana';
-                ctx.textBaseline = 'top';
                 ctx.fillStyle = code === "HI" ? "black" : "white";
-                ctx.fillText(txt, x - (xOffset / 2), y - (yOffset / 2));
+                ctx.font = '7pt Verdana';
+                 
+                // ctx.lineWidth = 40;
+                // x = x - (xOffset / 2); 
+                // ctx.textBaseline = 'top';
+                // ctx.fillText(txt, x - (xOffset / 2), y - (yOffset / 2));
+
+                ctx.textBaseline = 'middle';
+                if (isSmallState) {
+                    MapShapeSelection.drawText(ctx, txt, x, y, 12, false);
+                } else {
+                    ctx.textAlign = 'center';
+                    MapShapeSelection.drawText(ctx, txt, x, y - 5, 12, true);
+                }
             }
         }
     }
@@ -677,7 +706,7 @@ export default class MapShapeSelection extends React.Component<any, any> {
         const winner = this.getPartyCandidateName(item.Party);
         const party = this.getPartyName(item.Party);
         const color = this.getPartyColor(item.Party);
-        const statusColor = item.KeyRace > 0 ? this.partyColorUKN : item.Lean === "D" ? this.partyColorDEM : this.partyColorREP;
+        const statusColor = item.KeyRace > 0 ? "black" : item.Lean === "D" ? this.partyColorDEM : this.partyColorREP;
         const statusText = item.KeyRace > 0 ? "Toss-up" : item.Lean === "D" ? "Democrat" : "Republican";
             
         return <div className="tooltipBox" style={{color: color}}>
