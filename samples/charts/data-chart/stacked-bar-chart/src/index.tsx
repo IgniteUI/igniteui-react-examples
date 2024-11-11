@@ -80,7 +80,7 @@ export default class Sample extends React.Component<any, any> {
                         title="TWh">
                     </IgrNumericXAxis>
                     <IgrStackedBarSeries
-                        name="StackedBarSeries"
+                        name="stackedBarSeries"
                         dataSource={this.energyRenewableConsumption}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -108,7 +108,7 @@ export default class Sample extends React.Component<any, any> {
                         </IgrStackedFragmentSeries>
                     </IgrStackedBarSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

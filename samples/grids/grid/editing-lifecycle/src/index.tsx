@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import NwindData from './NwindData.json';
 import { IgrRowSelectionEventArgs, IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
@@ -79,19 +79,17 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
+    private _nwindData: any[] = NwindData;
+    public get nwindData(): any[] {
         return this._nwindData;
     }
 
 
     public webGridRendered(args:any): void {
         const grid = document.getElementById("grid");
+        grid.parentElement.className = "fill";
         grid.parentElement.style.display = "flex";
+        grid.parentElement.style.height = "100vh";
         const container = document.createElement("div");
         container.id = "container";
         container.style.height = "100vh";
@@ -99,7 +97,7 @@ export default class Sample extends React.Component<any, any> {
         container.style.overflow = "auto";
         grid.parentElement.appendChild(container);
         const title = document.createElement("span");
-        title.textContent = "Events execution sequence";
+        title.textContent = "Events execution sequence:";
         container.appendChild(title);
     }
 

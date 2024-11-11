@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import NwindData from './NwindData.json';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
@@ -16,9 +16,9 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid1: IgrGrid
-    private grid1Ref(r: IgrGrid) {
-        this.grid1 = r;
+    private grid: IgrGrid
+    private gridRef(r: IgrGrid) {
+        this.grid = r;
         this.setState({});
     }
     private column1: IgrColumn
@@ -26,7 +26,7 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.grid1Ref = this.grid1Ref.bind(this);
+        this.gridRef = this.gridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -36,12 +36,12 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate="false"
+                    id="grid"
+                    ref={this.gridRef}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    displayDensity="Cosy"
                     allowFiltering="true"
-                    filterMode="ExcelStyleFilter"
-                    ref={this.grid1Ref}>
+                    filterMode="ExcelStyleFilter">
                     <IgrPaginator
                         perPage="10">
                     </IgrPaginator>
@@ -106,12 +106,8 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
+    private _nwindData: any[] = NwindData;
+    public get nwindData(): any[] {
         return this._nwindData;
     }
 
@@ -119,11 +115,11 @@ export default class Sample extends React.Component<any, any> {
     public webGridBooleanCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
         if (props.dataContext.cell.value) {
             return (
-                <img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/active.png" title="Continued" alt="Continued" />
+                <img src="https://static.infragistics.com/xplatform/images/grid/active.png" title="Continued" alt="Continued" />
             );
         } else {
             return (
-                <img src="https://www.infragistics.com/angular-demos-lob/assets/images/grid/expired.png" title="Discontinued" alt="Discontinued" />
+                <img src="https://static.infragistics.com/xplatform/images/grid/expired.png" title="Discontinued" alt="Discontinued" />
             );
         }
     }

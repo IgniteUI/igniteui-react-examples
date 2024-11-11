@@ -12,9 +12,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-dockmanager": "1.14.2",
-    "igniteui-react": "18.5.2-beta.2",
-    "igniteui-react-core": "18.5.2-beta.2",
+    "igniteui-dockmanager": "1.14.3",
+    "igniteui-react": "18.7.3",
+    "igniteui-react-core": "18.7.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",

@@ -7,8 +7,9 @@ import { IgrBadgeModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
-import { IgrRowType, IgrCellTemplateContext } from 'igniteui-react-grids';
+import { IgrRowType } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -82,7 +83,7 @@ export default class Sample extends React.Component<any, any> {
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
-                        field="AnnualChange"
+                        field="YearlyChange"
                         header="Change On Year(%)"
                         width="150px"
                         dataType="Number">
@@ -120,19 +121,19 @@ export default class Sample extends React.Component<any, any> {
                         dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
-                        field="AnnualHigh"
+                        field="YearlyHigh"
                         header="High(Y)"
                         width="130px"
                         dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
-                        field="AnnualLow"
+                        field="YearlyLow"
                         header="Low(Y)"
                         width="130px"
                         dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
-                        field="AnnualStart"
+                        field="YearlyStart"
                         header="Start(Y)"
                         width="130px"
                         dataType="Currency">
@@ -154,9 +155,9 @@ export default class Sample extends React.Component<any, any> {
 
 
     public webGridRowStylesHandler = {
-        'background': (row: IgrRowType) => (+row.data['Change'] < 0 && +row.data['AnnualChange'] < 0) ? '#FF000088' : '#00000000',
-        'border': (row: IgrRowType) => (+row.data['Change'] < 0 && +row.data['AnnualChange'] < 0) ? '2px solid' : '1px solid',
-        'border-color': (row: IgrRowType) => (+row.data['Change'] < 0 && +row.data['AnnualChange'] < 0) ? '#FF000099' : '#E9E9E9'
+        'background': (row: IgrRowType) => (+row.data['Change'] < 0 && +row.data['YearlyChange'] < 0) ? '#FF000088' : '#00000000',
+        'border': (row: IgrRowType) => (+row.data['Change'] < 0 && +row.data['YearlyChange'] < 0) ? '2px solid' : '1px solid',
+        'border-color': (row: IgrRowType) => (+row.data['Change'] < 0 && +row.data['YearlyChange'] < 0) ? '#FF000099' : '#E9E9E9'
     };
 
     public webGridCurrencyCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {

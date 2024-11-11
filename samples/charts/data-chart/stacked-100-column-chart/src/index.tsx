@@ -76,7 +76,7 @@ export default class Sample extends React.Component<any, any> {
                         minimumValue="0">
                     </IgrNumericYAxis>
                     <IgrStacked100ColumnSeries
-                        name="Stacked100ColumnSeries"
+                        name="stacked100ColumnSeries"
                         dataSource={this.onlineTrafficByDevice}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -99,7 +99,7 @@ export default class Sample extends React.Component<any, any> {
                         </IgrStackedFragmentSeries>
                     </IgrStacked100ColumnSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

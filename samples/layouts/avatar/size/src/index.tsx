@@ -15,7 +15,9 @@ export default class AvatarSize extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrAvatar initials='AZ' size='large'/>
+                <IgrAvatar initials='L' className='size-large'/>
+                <IgrAvatar initials='M' className='size-medium'/>
+                <IgrAvatar initials='S' className='size-small'/>
             </div>
         );
     }

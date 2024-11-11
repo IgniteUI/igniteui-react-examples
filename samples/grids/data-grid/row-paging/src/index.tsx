@@ -52,7 +52,7 @@ export default class DataGridRowPaging extends React.Component<any, any> {
             if (this.grid.groupDescriptions.count > 0) {
                 this.onGroupChanged();
             }
-            if (this.grid.filterExpressions.size() > 0) {
+            if (this.grid.filterExpressions.count > 0) {
                 this.onFilterChanged();
             }
         }

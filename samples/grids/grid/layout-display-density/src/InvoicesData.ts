@@ -15009,7 +15009,7 @@ export class InvoicesData extends Array<InvoicesDataItem> {
                     PostalCode: 80195
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

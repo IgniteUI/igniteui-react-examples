@@ -26,7 +26,7 @@ export default class Sample extends React.Component<any, any> {
     private gridToolbarExporter1: IgrGridToolbarExporter
     private iD: IgrColumn
     private generalInformation: IgrColumnGroup
-    private companyName: IgrColumn
+    private company: IgrColumn
     private personalDetails: IgrColumnGroup
     private contactName: IgrColumn
     private contactTitle: IgrColumn
@@ -55,10 +55,10 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate="false"
+                    id="grid"
                     ref={this.gridRef}
                     data={this.customersData}
                     moving="true"
-                    displayDensity="Compact"
                     allowFiltering="true">
                     <IgrGridToolbar
                     >
@@ -88,16 +88,18 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumnGroup
                         name="GeneralInformation"
                         header="General Information"
-                        collapsible="true">
+                        collapsible="true"
+                        expanded="true">
                         <IgrColumn
-                            name="CompanyName"
-                            field="CompanyName"
+                            name="Company"
+                            field="Company"
                             visibleWhenCollapsed="true">
                         </IgrColumn>
                         <IgrColumnGroup
                             name="PersonalDetails"
                             header="Personal Details"
                             collapsible="true"
+                            expanded="false"
                             visibleWhenCollapsed="false">
                             <IgrColumn
                                 name="ContactName"
@@ -116,6 +118,7 @@ export default class Sample extends React.Component<any, any> {
                             name="Location"
                             header="Location"
                             collapsible="true"
+                            expanded="false"
                             visibleWhenCollapsed="true">
                             <IgrColumn
                                 name="Country"

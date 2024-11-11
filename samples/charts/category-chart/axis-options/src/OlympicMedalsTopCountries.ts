@@ -58,7 +58,7 @@ export class OlympicMedalsTopCountries extends Array<OlympicMedalsTopCountriesIt
                     russia: 88
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

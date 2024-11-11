@@ -25,7 +25,7 @@ export default class Sample extends React.Component<any, any> {
     private contactName: IgrColumn
     private contactTitle: IgrColumn
     private city: IgrColumn
-    private companyName: IgrColumn
+    private company: IgrColumn
     private fax: IgrColumn
     private address: IgrColumn
     private postalCode: IgrColumn
@@ -92,8 +92,8 @@ export default class Sample extends React.Component<any, any> {
                         sortable="true">
                     </IgrColumn>
                     <IgrColumn
-                        name="CompanyName"
-                        field="CompanyName"
+                        name="Company"
+                        field="Company"
                         header="Company"
                         dataType="String"
                         sortable="true">

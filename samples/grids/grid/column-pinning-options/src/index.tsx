@@ -52,7 +52,7 @@ export default class Sample extends React.Component<any, any> {
                         hidden="true">
                     </IgrColumn>
                     <IgrColumn
-                        field="CompanyName"
+                        field="Company"
                         header="Company"
                         width="300px"
                         headerTemplate={this.webGridPinHeaderTemplate}

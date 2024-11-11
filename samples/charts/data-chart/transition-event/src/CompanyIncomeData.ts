@@ -57,7 +57,7 @@ export class CompanyIncomeData extends Array<CompanyIncomeDataItem> {
                     category: `Net Income`
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

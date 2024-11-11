@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrButton, IgrInput, IgrSwitch, IgrComponentBoolValueChangedEventArgs, IgrComponentValueChangedEventArgs } from 'igniteui-react';
+import { IgrButton, IgrInput, IgrSwitch, IgrCheckboxChangeEventArgs, IgrComponentDataValueChangedEventArgs } from 'igniteui-react';
 import { IgrGridBaseDirective, IgrGridModule, IgrColumnComponentEventArgs } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { NwindData } from './NwindData';
@@ -16,8 +16,13 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default function App() {
+    let defaultSeparator = " ";
     const data = new NwindData();
     const gridRef = useRef<IgrGrid>(null);
+
+    useEffect(() => {
+        defaultSeparator = gridRef.current.clipboardOptions.separator;
+    }, []);
 
     const onColumnInit = (grid: IgrGridBaseDirective, args: IgrColumnComponentEventArgs) => {
         let column = args.detail;
@@ -25,20 +30,20 @@ export default function App() {
         column.header = "🎉" + column.field;
     }
 
-    const changeCopySeparator = (inputComponent: IgrInput, args: IgrComponentValueChangedEventArgs): void => {
-        gridRef.current.clipboardOptions.separator = args.detail;
+    const changeCopySeparator = (inputComponent: IgrInput, args: IgrComponentDataValueChangedEventArgs): void => {
+        gridRef.current.clipboardOptions.separator = args.detail || defaultSeparator;
     }
 
-    const changeGridCopyBehavior = (switchComponent: any, args: IgrComponentBoolValueChangedEventArgs): void => {
-        gridRef.current.clipboardOptions.enabled = args.detail;
+    const changeGridCopyBehavior = (switchComponent: any, args: IgrCheckboxChangeEventArgs): void => {
+        gridRef.current.clipboardOptions.enabled = args.detail.checked;
     }
 
-    const changeGridCopyHeadersBehavior = (switchComponent: any, args: IgrComponentBoolValueChangedEventArgs): void => {
-        gridRef.current.clipboardOptions.copyHeaders = args.detail;
+    const changeGridCopyHeadersBehavior = (switchComponent: any, args: IgrCheckboxChangeEventArgs): void => {
+        gridRef.current.clipboardOptions.copyHeaders = args.detail.checked;
     }
 
-    const changeGridCopyFormattersBehavior = (switchComponent: any, args: IgrComponentBoolValueChangedEventArgs): void => {
-        gridRef.current.clipboardOptions.copyFormatters = args.detail;
+    const changeGridCopyFormattersBehavior = (switchComponent: any, args: IgrCheckboxChangeEventArgs): void => {
+        gridRef.current.clipboardOptions.copyFormatters = args.detail.checked;
     }
 
     const clearSelection = () => {

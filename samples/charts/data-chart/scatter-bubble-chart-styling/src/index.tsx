@@ -36,7 +36,7 @@ export default class Sample extends React.Component<any, any> {
     public get sizeScale1(): IgrSizeScale {
         if (this._sizeScale1 == null)
         {
-            var sizeScale1 = new IgrSizeScale();
+            var sizeScale1 = new IgrSizeScale({});
             sizeScale1.isLogarithmic = false;
             sizeScale1.minimumValue = 10;
             sizeScale1.maximumValue = 50;
@@ -50,7 +50,7 @@ export default class Sample extends React.Component<any, any> {
     public get sizeScale2(): IgrSizeScale {
         if (this._sizeScale2 == null)
         {
-            var sizeScale2 = new IgrSizeScale();
+            var sizeScale2 = new IgrSizeScale({});
             sizeScale2.isLogarithmic = false;
             sizeScale2.minimumValue = 10;
             sizeScale2.maximumValue = 50;
@@ -100,7 +100,7 @@ export default class Sample extends React.Component<any, any> {
                         abbreviateLargeNumbers="true">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
-                        name="BubbleSeries1"
+                        name="bubbleSeries1"
                         title="African Countries"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -117,7 +117,7 @@ export default class Sample extends React.Component<any, any> {
                         radiusScale={this.sizeScale1}>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
-                        name="BubbleSeries2"
+                        name="bubbleSeries2"
                         title="European Countries"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -134,7 +134,7 @@ export default class Sample extends React.Component<any, any> {
                         radiusScale={this.sizeScale2}>
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
-                        name="DataToolTipLayer">
+                        name="dataToolTipLayer">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

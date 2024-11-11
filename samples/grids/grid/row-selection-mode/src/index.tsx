@@ -112,6 +112,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate="false"
                     data={this.financialDataAll}
+                    primaryKey="ID"
                     moving="true"
                     id="grid1"
                     ref={this.grid1Ref}>
@@ -152,8 +153,8 @@ export default class Sample extends React.Component<any, any> {
                         name="column5">
                     </IgrColumn>
                     <IgrColumn
-                        field="AnnualChange"
-                        header="Annual Change"
+                        field="YearlyChange"
+                        header="Yearly Change"
                         dataType="Number"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
                         name="column6">

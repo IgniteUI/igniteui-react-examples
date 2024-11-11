@@ -1,0 +1,7 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+    #treeGrid {
+        --ig-size: var(--ig-size-small);
+    }
+

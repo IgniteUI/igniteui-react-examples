@@ -29,3 +29,7 @@ igc-expansion-panel {
 igc-rating {
     flex-direction: row;
 }
+
+.size-small {
+    --ig-size: var(--ig-size-small);
+}

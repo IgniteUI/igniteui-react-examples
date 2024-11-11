@@ -113,7 +113,7 @@ export class TemperatureRangeData extends Array<TemperatureRangeDataItem> {
                     lowLA: 5.6
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

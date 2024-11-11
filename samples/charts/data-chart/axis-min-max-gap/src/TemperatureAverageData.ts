@@ -74,7 +74,7 @@ export class TemperatureAverageData extends Array<TemperatureAverageDataItem> {
                     temperature: 5
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

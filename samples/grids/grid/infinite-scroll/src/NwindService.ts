@@ -42,4 +42,3 @@ function updateData(data: any, startIndex: number) {
         cachedData[i+startIndex] = data.value[i];
     }
 }
-

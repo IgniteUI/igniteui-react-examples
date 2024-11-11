@@ -7,7 +7,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
-import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
+import NwindData from './NwindData.json';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { IgrSummaryTemplateContext } from 'igniteui-react-grids';
 
@@ -29,7 +29,7 @@ export default class Sample extends React.Component<any, any> {
     }
     private summaryRowHeightEditor: IgrPropertyEditorPropertyDescription
     private toggleSummariesEditor: IgrPropertyEditorPropertyDescription
-    private displayDensityEditor: IgrPropertyEditorPropertyDescription
+    private sizeEditor: IgrPropertyEditorPropertyDescription
     private grid: IgrGrid
     private gridRef(r: IgrGrid) {
         this.grid = r;
@@ -43,6 +43,7 @@ export default class Sample extends React.Component<any, any> {
 
         this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
         this.webGridHasSummariesChange = this.webGridHasSummariesChange.bind(this);
+        this.webGridSetGridSize = this.webGridSetGridSize.bind(this);
         this.gridRef = this.gridRef.bind(this);
     }
 
@@ -71,8 +72,12 @@ export default class Sample extends React.Component<any, any> {
                         name="ToggleSummariesEditor">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="DisplayDensity"
-                        name="DisplayDensityEditor">
+                        name="SizeEditor"
+                        label="Grid Size:"
+                        valueType="EnumValue"
+                        dropDownNames={["Small", "Medium", "Large"]}
+                        dropDownValues={["Small", "Medium", "Large"]}
+                        changed={this.webGridSetGridSize}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -80,6 +85,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate="false"
+                    id="grid"
                     ref={this.gridRef}
                     data={this.nwindData}>
                     <IgrColumn
@@ -137,12 +143,8 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _nwindData: NwindData = null;
-    public get nwindData(): NwindData {
-        if (this._nwindData == null)
-        {
-            this._nwindData = new NwindData();
-        }
+    private _nwindData: any[] = NwindData;
+    public get nwindData(): any[] {
         return this._nwindData;
     }
 
@@ -165,6 +167,12 @@ export default class Sample extends React.Component<any, any> {
 
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
+    }
+
+    public webGridSetGridSize(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
+        var newVal = (args.newValue as string).toLowerCase();
+        var grid = document.getElementById("grid");
+        grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 
     public webGridOrderDateSummaryTemplate = (e: { dataContext: IgrSummaryTemplateContext }) => {

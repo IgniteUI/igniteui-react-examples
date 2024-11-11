@@ -54,7 +54,7 @@ export class SparklineMixedData extends Array<SparklineMixedDataItem> {
                     value: 30
                 }),
             ];
-            super(...(newItems.slice(0, items)));
+            super(...newItems.slice(0));
         }
     }
 }

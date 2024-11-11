@@ -51,7 +51,7 @@ export default class Sample extends React.Component<any, any> {
                         headerTemplate={this.webGridColumnGroupHeaderTemplate}
                         name="columnGroup1">
                         <IgrColumn
-                            field="CompanyName"
+                            field="Company"
                             sortable="true"
                             resizable="true">
                         </IgrColumn>
@@ -167,9 +167,8 @@ export default class Sample extends React.Component<any, any> {
     };
 
     public columnGroupStates = new Map<IgrColumn, boolean>();
-    public toggleColumnGroup(column: IgrColumn) {
-        const columnGroup = this.grid.contentColumns.find((col) => col.name == column.name) as IgrColumnGroup;
-        const columns = Array.from(columnGroup.actualChildren);
+    public toggleColumnGroup(columnGroup: IgrColumn) {
+        const columns = columnGroup.childColumns;
         if (columnGroup.header === 'General Information') {
             const col = columns[1] as IgrColumn;
             col.hidden = !col.hidden;
@@ -180,7 +179,7 @@ export default class Sample extends React.Component<any, any> {
             }
         }
         columnGroup.forceUpdate();
-        this.columnGroupStates.set(column, !this.columnGroupStates.get(column));
+        this.columnGroupStates.set(columnGroup, !this.columnGroupStates.get(columnGroup));
     }
 }
 
