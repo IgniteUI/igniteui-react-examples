@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrButton, IgrInput, IgrSwitch, IgrCheckboxChangeEventArgs, IgrComponentDataValueChangedEventArgs } from 'igniteui-react';
+import { IgrButton, IgrInput, IgrSwitch, IgrCheckboxChangeEventArgs, IgrComponentDataValueChangedEventArgs, IgrComponentValueChangedEventArgs } from 'igniteui-react';
 import { IgrGridBaseDirective, IgrGridModule, IgrColumnComponentEventArgs } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { NwindData } from './NwindData';
@@ -30,7 +30,7 @@ export default function App() {
         column.header = "🎉" + column.field;
     }
 
-    const changeCopySeparator = (inputComponent: IgrInput, args: IgrComponentDataValueChangedEventArgs): void => {
+    const changeCopySeparator = (inputComponent: IgrInput, args: IgrComponentValueChangedEventArgs): void => {
         gridRef.current.clipboardOptions.separator = args.detail || defaultSeparator;
     }
 
