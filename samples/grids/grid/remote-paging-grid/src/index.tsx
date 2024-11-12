@@ -3,77 +3,73 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { IgrGrid, IgrPaginator, IgrGridModule } from "igniteui-react-grids";
+import { IgrGrid, IgrPaginator, IgrGridModule, GridPagingMode } from "igniteui-react-grids";
 import { IgrColumn } from "igniteui-react-grids";
 
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { RemoteService } from "./RemotePagingService";
+import { CustomersWithPageResponseModel } from "./CustomersWithPageResponseModel";
+import { IgrNumberEventArgs } from "igniteui-react";
 
 IgrGridModule.register();
 
 export default function App() {
-  let data = [];
-const grid = useRef<IgrGrid>(null);
-const paginator = useRef<IgrPaginator>(null);
-const remoteServiceInstance = new RemoteService();
-let [page] = useState(0);
-let [perPage, setPerPage] = useState(15);
+  const grid = useRef<IgrGrid>(null);
+  const paginator = useRef<IgrPaginator>(null);
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(0);
+  const [perPage, setPerPage] = useState(15);
+  const [isLoading, setIsLoading] = useState(true);
 
-useEffect(() => {
-  if (paginator.current) {
-    setPerPage(15);
-    grid.current.isLoading = true;
-  }
+  useEffect(() => {
+    loadGridData(page, perPage);
+  }, [page, perPage]);
 
-  grid.current.isLoading = true;
-  loadData('Customers');
-}, [page, 15]);
-
-function loadData(dataKey: string) {
-    const dataState = { key: dataKey };
-
+  function loadGridData(pageIndex?: number, pageSize?: number) {
     // Set loading state
-    grid.current.isLoading = true;
+    setIsLoading(true);
 
-    // Fetch data length
-    remoteServiceInstance.getDataLength(dataState).then((length: number) => {
-        paginator.current.totalRecords = length;
-    });
-  
     // Fetch data
-    remoteServiceInstance.getData(dataState).then((data: any[]) => {
-      grid.current.isLoading = false;
-      grid.current.data = data;
-      grid.current.markForCheck();
-    });
+    RemoteService.getDataWithPaging(pageIndex, pageSize)
+      .then((response: CustomersWithPageResponseModel) => {
+        setData(response.items);
+        // Stop loading when data is retrieved
+        setIsLoading(false);
+        paginator.current.totalRecords = response.totalRecordsCount;
+      })
+      .catch((error) => {
+        console.error(error.message);
+        setData([]);
+        // Stop loading even if error occurs. Prevents endless loading
+        setIsLoading(false);
+      })
   }
 
-  function paginate(pageArgs: number) {
-    page = pageArgs;
-    const skip = page * perPage;
-    const top = perPage;
+  function onPageNumberChange(paginator: IgrPaginator, args: IgrNumberEventArgs) {
+    setPage(args.detail);
+  }
 
-    remoteServiceInstance.getData({ key: 'Customers' }, skip, top).then((incData:any)=> {
-      data = incData; 
-      grid.current.isLoading = false;
-      grid.current.markForCheck();// Update the UI after receiving data
-    });
-}
+  function onPageSizeChange(paginator: IgrPaginator, args: IgrNumberEventArgs) {
+    setPerPage(args.detail);
+  }
 
   return (
     <div className="container sample ig-typography">
       <div className="container fill">
         <IgrGrid
           ref={grid}
+          data={data}
+          pagingMode={GridPagingMode.Remote}
           primaryKey="customerId"
           height="600px"
+          isLoading={isLoading}
         >
         <IgrPaginator 
-          perPage="15"
+          perPage={perPage}
           ref={paginator}
-          pageChange={(evt: { page: number }) => paginate(evt.page)}
-          perPageChange={() => paginate(0)}></IgrPaginator>
+          pageChange={onPageNumberChange}
+          perPageChange={onPageSizeChange}></IgrPaginator>
           <IgrColumn field="customerId" hidden={true}></IgrColumn>
           <IgrColumn field="companyName" header="Company Name"></IgrColumn>
           <IgrColumn field="contactName" header="Contact Name"></IgrColumn>
