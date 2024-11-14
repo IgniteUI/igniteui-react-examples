@@ -57,15 +57,15 @@ export default function App() {
 
     RemoteService.getHierarchyDataById(parentKey, parentId, childDataKey)
       .then((data: any) => {
-        context.grid.isLoading = false;
         context.grid.data = data;
+        context.grid.isLoading = false;
         context.grid.markForCheck();
-        setIsLoading(false);
       })
       .catch((error) => {
         console.error(error.message);
-        setData([]);
-        setIsLoading(false);
+        context.grid.data = [];
+        context.grid.isLoading = false;
+        context.grid.markForCheck();
       })
     
   }
