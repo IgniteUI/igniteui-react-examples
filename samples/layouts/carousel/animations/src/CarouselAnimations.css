@@ -1,0 +1,46 @@
+.carousel-wrapper {
+    height: 600px;
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.action-wrapper {
+    height: 40px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.action {
+    display: flex;
+    align-items: center;
+}
+
+.slide-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+igc-carousel {
+    border: 0.5px solid #dde0e4;
+}
+
+igc-select {
+    width: 150px;
+    margin-left: 10px;
+    --ig-size: var(--ig-size-small);
+}
+
+igc-card {
+    border: none;
+}
+
+igc-card-header {
+    padding: 8px 16px;
+}

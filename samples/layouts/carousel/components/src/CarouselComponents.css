@@ -1,0 +1,25 @@
+.carousel-container {
+    padding: 16px;
+}
+
+igc-carousel {
+    margin-inline: auto;
+    max-width: 75%;
+    height: 500px;
+}
+
+igc-carousel-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+igc-carousel-slide div {
+    text-align: center;
+    max-width: 40%;
+    margin-inline: auto;
+}
+
+igc-carousel-slide div * {
+    margin-block: 8px;
+}
