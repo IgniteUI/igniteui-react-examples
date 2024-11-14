@@ -69,7 +69,8 @@ export default function App() {
           perPage={perPage}
           ref={paginator}
           pageChange={onPageNumberChange}
-          perPageChange={onPageSizeChange}></IgrPaginator>
+          perPageChange={onPageSizeChange}>
+        </IgrPaginator>
           <IgrColumn field="customerId" hidden={true}></IgrColumn>
           <IgrColumn field="companyName" header="Company Name"></IgrColumn>
           <IgrColumn field="contactName" header="Contact Name"></IgrColumn>

@@ -2,76 +2,81 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { IgrGridCreatedEventArgs, IgrHierarchicalGridModule, IgrPaginator } from "igniteui-react-grids";
+import { GridPagingMode, IgrGridCreatedEventArgs, IgrHierarchicalGridModule, IgrPaginator } from "igniteui-react-grids";
 import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from "igniteui-react-grids";
 
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { RemoteService } from "./RemoteService";
+import { IgrNumberEventArgs } from "igniteui-react";
+import { CustomersWithPageResponseModel } from "./CustomersWithPageResponseModel";
 
 IgrHierarchicalGridModule.register();
 
 export default function App() {
-const hierarchicalGrid = useRef<IgrHierarchicalGrid>(null);
-const paginator = useRef<IgrPaginator>(null);
-const remoteServiceInstance = new RemoteService();
-let [page, setPage] = useState(0);
-let [perPage, setPerPage] = useState(15);
-const [data, setData] = useState([]);
+  const hierarchicalGrid = useRef<IgrHierarchicalGrid>(null);
+  const paginator = useRef<IgrPaginator>(null);
 
-useEffect(() => {
-  if (paginator.current) {
-    setPerPage(15);
-    hierarchicalGrid.current.isLoading = true;
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(0);
+  const [perPage, setPerPage] = useState(15);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    loadGridData(page, perPage);
+  }, [page, perPage]);
+
+  function loadGridData(pageIndex?: number, pageSize?: number) {
+    // Set loading state
+    setIsLoading(true);
+
+    // Fetch data
+    RemoteService.getCustomersDataWithPaging(pageIndex, pageSize)
+      .then((response: CustomersWithPageResponseModel) => {
+        setData(response.items);
+        // Stop loading when data is retrieved
+        setIsLoading(false);
+        paginator.current.totalRecords = response.totalRecordsCount;
+      })
+      .catch((error) => {
+        console.error(error.message);
+        setData([]);
+        // Stop loading even if error occurs. Prevents endless loading
+        setIsLoading(false);
+      })
   }
-
-  hierarchicalGrid.current.isLoading = true;
-
-  remoteServiceInstance.getData({ parentID: null, rootLevel: true, key: "Customers", page, perPage }).then(
-    (data: any) => {
-        hierarchicalGrid.current.isLoading = false;
-        hierarchicalGrid.current.data = data;
-        hierarchicalGrid.current.markForCheck();
-    }
-  );
-}, [page, 15]);
 
   function gridCreated(
     rowIsland: IgrRowIsland,
     event: IgrGridCreatedEventArgs,
-    _parentKey: string
+    parentKey: string
   ) {
     const context = event.detail;
-    const dataState = {
-      key: rowIsland.childDataKey,
-      parentID: context.parentID,
-      parentKey: _parentKey,
-      rootLevel: false,
-    };
+    const parentId: string = context.parentID;
+    const childDataKey: string = rowIsland.childDataKey;
 
-    context.grid.isLoading = true;
-
-    remoteServiceInstance.getDataLength(dataState).then((length: number) => {
-        paginator.current.totalRecords = length;
-    });
-    remoteServiceInstance.getData(dataState).then((data: any[]) => {
+    RemoteService.getHierarchyDataById(parentKey, parentId, childDataKey)
+      .then((data: any) => {
         context.grid.isLoading = false;
         context.grid.data = data;
         context.grid.markForCheck();
-    });
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error.message);
+        setData([]);
+        setIsLoading(false);
+      })
+    
   }
 
-  function paginate(pageArgs: number) {
-    setPage(pageArgs);
-    const skip = pageArgs * perPage;
-    const top = perPage;
+  function onPageNumberChange(paginator: IgrPaginator, args: IgrNumberEventArgs) {
+    setPage(args.detail);
+  }
 
-    remoteServiceInstance.getData({ parentID: null, rootLevel: true, key: 'Customers' }, skip, top).then((incData:any)=> {
-      setData(incData);
-      hierarchicalGrid.current.isLoading = false;
-      hierarchicalGrid.current.markForCheck();// Update the UI after receiving data
-    });
-}
+  function onPageSizeChange(paginator: IgrPaginator, args: IgrNumberEventArgs) {
+    setPerPage(args.detail);
+  }
 
   return (
     <div className="container sample ig-typography">
@@ -79,15 +84,17 @@ useEffect(() => {
 
         <IgrHierarchicalGrid
           ref={hierarchicalGrid}
+          data={data}
+          pagingMode={GridPagingMode.Remote}
           primaryKey="customerId"
           height="600px"
-          data={data}
+          isLoading={isLoading}
         >
           <IgrPaginator 
             perPage={perPage}
             ref={paginator}
-            pageChange={(evt: { page: number }) => paginate(evt.page)}
-            perPageChange={() => paginate(page)}>
+            pageChange={onPageNumberChange}
+            perPageChange={onPageSizeChange}>
           </IgrPaginator>
           <IgrColumn field="customerId" hidden={true}></IgrColumn>
           <IgrColumn field="companyName" header="Company Name"></IgrColumn>
