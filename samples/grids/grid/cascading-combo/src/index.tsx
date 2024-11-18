@@ -6,7 +6,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrComboModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { WorldCitiesAbove500KItem, WorldCitiesAbove500K } from './WorldCitiesAbove500K';
-import { IgrCombo } from 'igniteui-react';
+import { IgrCombo, IgrVoidEventArgs } from 'igniteui-react';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
@@ -27,26 +27,6 @@ export default class Sample extends React.Component<any, any> {
     private column1: IgrColumn
     private column2: IgrColumn
     private column3: IgrColumn
-    public gridData = [
-        {
-          ID: 1,
-          Country: '',
-          Region: '',
-          City: ''
-        },
-        {
-          ID: 2,
-          Country: '',
-          Region: '',
-          City: ''
-        },
-        {
-          ID: 3,
-          Country: '',
-          Region: '',
-          City: ''
-        }
-    ];
 
     constructor(props: any) {
         super(props);
@@ -62,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate="false"
-                    data={this.gridData}
+                    data={this.worldCitiesAbove500K}
                     primaryKey="ID"
                     ref={this.gridRef}
                     rendered={this.webGridWithComboRendered}>
@@ -105,9 +85,11 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webGridWithComboRendered(args: any) {
-        console.log(args);
-    }
+    public gridData = [
+        { ID: 1, Country: '', Region: '', City: '' },
+        { ID: 2, Country: '', Region: '', City: '' },
+        { ID: 3, Country: '', Region: '', City: '' }
+    ];
     public countryNames = [
         'United States',
         'Japan',
@@ -121,6 +103,10 @@ export default class Sample extends React.Component<any, any> {
         if (this && r && !this.comboRefCollection.get((r as any).props.name)) {
             this.comboRefCollection.set((r as any).props.name, r);
         }
+    }
+
+    public webGridWithComboRendered(gridRef: IgrGrid, args: IgrVoidEventArgs) {
+        gridRef.data = this.gridData;
     }
 
     public onCountryChange( rowId: string, cmp: any, args:any) {
