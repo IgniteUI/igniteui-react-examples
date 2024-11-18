@@ -27,6 +27,26 @@ export default class Sample extends React.Component<any, any> {
     private column1: IgrColumn
     private column2: IgrColumn
     private column3: IgrColumn
+    public gridData = [
+        {
+          ID: 1,
+          Country: '',
+          Region: '',
+          City: ''
+        },
+        {
+          ID: 2,
+          Country: '',
+          Region: '',
+          City: ''
+        },
+        {
+          ID: 3,
+          Country: '',
+          Region: '',
+          City: ''
+        }
+    ];
 
     constructor(props: any) {
         super(props);
@@ -42,7 +62,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate="false"
-                    data={this.worldCitiesAbove500K}
+                    data={this.gridData}
                     primaryKey="ID"
                     ref={this.gridRef}
                     rendered={this.webGridWithComboRendered}>
