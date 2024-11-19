@@ -1,0 +1,28 @@
+.carousel-container {
+    padding: 16px;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    object-fit: fill;
+    max-width: 90%;
+}
+
+igc-carousel {
+    margin-inline: auto;
+    max-width: 75%;
+    height: 450px;
+}
+
+igc-carousel-slide::part(base) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 75%;
+    margin-inline: auto;
+}

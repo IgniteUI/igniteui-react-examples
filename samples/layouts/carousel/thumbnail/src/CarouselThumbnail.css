@@ -1,0 +1,13 @@
+igc-carousel {
+    margin-inline: auto;
+    max-width: 75%;
+}
+
+igc-carousel::part(indicators) {
+    border-radius: 2px;
+}
+
+.blurred {
+    filter: blur(2px);
+    opacity: 0.5;
+}
