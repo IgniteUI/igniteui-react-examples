@@ -63,6 +63,7 @@ export default class Sample extends React.Component<any, any> {
                             <IgrToolActionLabel
                                 title="Custom Icon"
                                 iconName="CustomIcon"
+                                name="CustomIconName"
                                 iconCollectionName="CustomCollection">
                             </IgrToolActionLabel>
                         </IgrToolbar>
