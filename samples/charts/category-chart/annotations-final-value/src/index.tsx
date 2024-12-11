@@ -77,7 +77,8 @@ export default class Sample extends React.Component<any, any> {
                     finalValueAnnotationsPrecision="0"
                     crosshairsAnnotationYAxisPrecision="0"
                     yAxisMaximumValue="35"
-                    yAxisLabelLocation="OutsideRight">
+                    yAxisLabelLocation="OutsideRight"
+                    isTransitionInEnabled="false">
                 </IgrCategoryChart>
             </div>
         </div>
