@@ -29,6 +29,8 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private xAxisStroke: IgrPropertyEditorPropertyDescription
+    private xAxisMajorStroke: IgrPropertyEditorPropertyDescription
     private yAxisStroke: IgrPropertyEditorPropertyDescription
     private yAxisMajorStroke: IgrPropertyEditorPropertyDescription
     private yAxisMinorStroke: IgrPropertyEditorPropertyDescription
@@ -57,6 +59,26 @@ export default class Sample extends React.Component<any, any> {
                     isHorizontal="true"
                     isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
+                    <IgrPropertyEditorPropertyDescription
+                        propertyPath="XAxisStroke"
+                        name="XAxisStroke"
+                        label="X Axis Stroke"
+                        shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
+                        dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
+                        dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
+                        primitiveValue="gray">
+                    </IgrPropertyEditorPropertyDescription>
+                    <IgrPropertyEditorPropertyDescription
+                        propertyPath="XAxisMajorStroke"
+                        name="XAxisMajorStroke"
+                        label="X Axis Major Stroke"
+                        shouldOverrideDefaultEditor="true"
+                        valueType="EnumValue"
+                        dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
+                        dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
+                        primitiveValue="darkslategray">
+                    </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="YAxisStroke"
                         name="YAxisStroke"
