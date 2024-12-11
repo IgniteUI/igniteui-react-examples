@@ -75,7 +75,8 @@ export default class Sample extends React.Component<any, any> {
                     crosshairsAnnotationYAxisPrecision="0"
                     yAxisMaximumValue="35"
                     yAxisTitle="Degrees Celsius"
-                    yAxisLabelLocation="OutsideRight">
+                    yAxisLabelLocation="OutsideRight"
+                    isTransitionInEnabled="false">
                 </IgrCategoryChart>
             </div>
         </div>
