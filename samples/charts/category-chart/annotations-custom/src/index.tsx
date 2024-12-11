@@ -78,7 +78,8 @@ export default class Sample extends React.Component<any, any> {
                     calloutsYMemberPath="temperature"
                     calloutsLabelMemberPath="tempInfo"
                     yAxisMaximumValue="35"
-                    yAxisLabelLocation="OutsideRight">
+                    yAxisLabelLocation="OutsideRight"
+                    isTransitionInEnabled="false">
                 </IgrCategoryChart>
             </div>
         </div>
