@@ -278,6 +278,7 @@ function copySamples(cb) {
             // auto fix TS lint issue in import statements:
             code = code.replace('from "igniteui-react";', "from 'igniteui-react';");
             code = code.replace('from "igniteui-react-core";', "from 'igniteui-react-core';");
+            code = code.replace('from "igniteui-react-dashboards";', "from 'igniteui-react-dashboards';");
             code = code.replace('from "igniteui-react-charts";', "from 'igniteui-react-charts';");
             code = code.replace('from "igniteui-react-maps";', "from 'igniteui-react-maps';");
             code = code.replace('from "igniteui-react-gauges";', "from 'igniteui-react-gauges';");
