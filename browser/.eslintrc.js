@@ -18,7 +18,6 @@ module.exports = {
         "plugin:react/recommended", // Uses the recommended rules from @eslint-plugin-react
         "plugin:@typescript-eslint/recommended" // Uses the recommended rules from @typescript-eslint/eslint-plugin
     ],
-    extends: ["@babel/plugin-transform-private-property-in-object", "next/core-web-vitals"],
     rules: {
       // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
       "default-case": "off",
