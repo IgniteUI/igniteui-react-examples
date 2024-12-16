@@ -28,6 +28,7 @@ export default class Sample extends React.Component<any, any> {
         this.toolbar = r;
         this.setState({});
     }
+    private customIconName: IgrToolActionLabel
     private chart: IgrCategoryChart
     private chartRef(r: IgrCategoryChart) {
         this.chart = r;
@@ -63,8 +64,8 @@ export default class Sample extends React.Component<any, any> {
                             <IgrToolActionLabel
                                 title="Custom Icon"
                                 iconName="CustomIcon"
-                                name="CustomIconName"
-                                iconCollectionName="CustomCollection">
+                                iconCollectionName="CustomCollection"
+                                name="CustomIconName">
                             </IgrToolActionLabel>
                         </IgrToolbar>
                     </div>
