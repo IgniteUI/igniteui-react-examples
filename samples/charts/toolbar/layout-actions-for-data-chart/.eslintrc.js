@@ -58,7 +58,7 @@ module.exports = {
             "no-throw-literal": "off",
             "no-useless-concat": "off",
             "no-mixed-operators": "off",
-            "no-mixed-spaces-and-tabs": 0,
+	    "no-mixed-spaces-and-tabs": 0,
             "no-prototype-builtins": "off",
             "prefer-const": "off",
             "prefer-rest-params": "off",
