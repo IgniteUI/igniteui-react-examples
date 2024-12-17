@@ -836,6 +836,7 @@ function updateIG(cb) {
         { version: "18.7.5-beta.2", name: "igniteui-react-spreadsheet-chart-adapter" },
         { version: "18.7.5-beta.2", name: "igniteui-react-spreadsheet" },
         { version: "18.7.5-beta.2", name: "igniteui-react-datasources" },
+        { version: "18.7.5-beta.2", name: "igniteui-react-dashboards" },
         { version: "18.7.5-beta.2", name: "igniteui-react" },
         // these IG packages are sometimes updated:
         { version: "5.1.2" , name: "igniteui-webcomponents" },
