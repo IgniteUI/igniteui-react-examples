@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPivotGridModule } from 'igniteui-react-grids';
-import { IgrPivotGrid, IgrPivotConfiguration, IgrPivotDateDimension, IgrPivotDimension, IgrPivotDateDimensionOptions, SortingDirection, IgrPivotValue, IgrPivotAggregator, PivotAggregationType } from 'igniteui-react-grids';
+import { IgrPivotGrid, IgrPivotConfiguration, IgrPivotDateDimension, IgrPivotDimension, IgrPivotDateDimensionOptions, SortingDirection, IgrPivotValue, IgrPivotAggregator } from 'igniteui-react-grids';
 import { PivotDataFlatItem, PivotDataFlat } from './PivotDataFlat';
 
 import 'igniteui-react-grids/grids/combined';
@@ -66,18 +66,18 @@ export default class Sample extends React.Component<any, any> {
             SumOfSale.key = "SUM";
             SumOfSale.label = "Sum of Sale";
             SumOfSale.aggregator = this.pivotDataFlatAggregateSumSale;
-            SumOfSale.aggregatorName = PivotAggregationType.SUM;
+            SumOfSale.aggregatorName = "SUM";
 
             var MinOfSale = new IgrPivotAggregator();
             MinOfSale.key = "MIN";
             MinOfSale.label = "Minimum of Sale";
             MinOfSale.aggregator = this.pivotDataFlatAggregateMinSale;
-            MinOfSale.aggregatorName = PivotAggregationType.MIN;
+            MinOfSale.aggregatorName = "MIN";
 
             var MaxOfSale = new IgrPivotAggregator();
             MaxOfSale.key = "MAX";
             MaxOfSale.label = "Maximum of Sale";
-            MaxOfSale.aggregatorName = PivotAggregationType.MAX;
+            MaxOfSale.aggregatorName = "MAX";
             MaxOfSale.aggregator = this.pivotDataFlatAggregateMaxSale;
 
             igrPivotValue1.aggregateList = [SumOfSale,MinOfSale,MaxOfSale];

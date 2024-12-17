@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrXIconModule } from 'igniteui-react-inputs';
 import { IgrToolbarModule, IgrToolActionComboModule, IgrToolActionColorEditorModule } from 'igniteui-react-layouts';
 import { IgrDataChartToolbarModule, IgrDataLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCategoryModule, IgrDataChartCoreModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrToolbar, IgrToolActionColorEditor } from 'igniteui-react-layouts';
@@ -12,7 +11,6 @@ import { IgrToolCommandEventArgs } from 'igniteui-react-layouts';
 import { IgrSeries } from 'igniteui-react-charts';
 
 const mods: any[] = [
-    IgrXIconModule,
     IgrToolbarModule,
     IgrToolActionComboModule,
     IgrToolActionColorEditorModule,
