@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrColorEditorModule } from 'igniteui-react-inputs';
-import { IgrColorEditor } from 'igniteui-react-dashboards';
+import { IgrColorEditor } from 'igniteui-react-inputs';
 
 const mods: any[] = [
     IgrColorEditorModule
