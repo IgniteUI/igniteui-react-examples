@@ -66,18 +66,18 @@ export default class Sample extends React.Component<any, any> {
             SumOfSale.key = "SUM";
             SumOfSale.label = "Sum of Sale";
             SumOfSale.aggregator = this.pivotDataFlatAggregateSumSale;
-            SumOfSale.aggregatorName = PivotAggregatiotType.SUM;
+            SumOfSale.aggregatorName = PivotAggregationType.SUM;
 
             var MinOfSale = new IgrPivotAggregator();
             MinOfSale.key = "MIN";
             MinOfSale.label = "Minimum of Sale";
             MinOfSale.aggregator = this.pivotDataFlatAggregateMinSale;
-            MinOfSale.aggregatorName = PivotAggregatiotType.MIN;
+            MinOfSale.aggregatorName = PivotAggregationType.MIN;
 
             var MaxOfSale = new IgrPivotAggregator();
             MaxOfSale.key = "MAX";
             MaxOfSale.label = "Maximum of Sale";
-            MaxOfSale.aggregatorName = PivotAggregatiotType.MAX;
+            MaxOfSale.aggregatorName = PivotAggregationType.MAX;
             MaxOfSale.aggregator = this.pivotDataFlatAggregateMaxSale;
 
             igrPivotValue1.aggregateList = [SumOfSale,MinOfSale,MaxOfSale];
