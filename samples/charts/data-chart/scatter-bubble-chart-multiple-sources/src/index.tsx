@@ -93,9 +93,10 @@ export default class Sample extends React.Component<any, any> {
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
-                        title="GDP per Capita"
-                        isLogarithmic="true"
-                        abbreviateLargeNumbers="true">
+                        title="Public Debt per GDP (%)"
+                        titleLeftMargin="5"
+                        isLogarithmic="false"
+                        maximumValue="120">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
                         name="bubbleSeries1"
@@ -103,8 +104,11 @@ export default class Sample extends React.Component<any, any> {
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="population"
-                        yMemberPath="gDP"
-                        radiusMemberPath="population"
+                        yMemberPath="publicDebt"
+                        radiusMemberPath="gdpPerPerson"
+                        xMemberAsLegendLabel="Population"
+                        yMemberAsLegendLabel="Debt"
+                        radiusMemberAsLegendLabel="GDP"
                         dataSource={this.countryStatsAfrica}
                         markerType="Circle"
                         showDefaultTooltip="true"
@@ -116,8 +120,11 @@ export default class Sample extends React.Component<any, any> {
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="population"
-                        yMemberPath="gDP"
-                        radiusMemberPath="population"
+                        yMemberPath="publicDebt"
+                        radiusMemberPath="gdpPerPerson"
+                        xMemberAsLegendLabel="Population"
+                        yMemberAsLegendLabel="Debt"
+                        radiusMemberAsLegendLabel="GDP"
                         dataSource={this.countryStatsEurope}
                         markerType="Circle"
                         showDefaultTooltip="true"
