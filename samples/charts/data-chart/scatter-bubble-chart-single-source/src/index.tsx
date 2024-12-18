@@ -50,25 +50,27 @@ export default class Sample extends React.Component<any, any> {
         return (
         <div className="container sample">
 
-            <div className="legend-title">
-                Total Population of Selected Countries
-            </div>
-
             <div className="container fill">
                 <IgrDataChart
-                    ref={this.chartRef}>
+                    ref={this.chartRef}
+                    chartTitle="Population vs. Public Debt vs. GDP"
+                    titleTopMargin="10"
+                    titleBottomMargin="0">
                     <IgrNumericXAxis
                         name="xAxis"
                         title="Population"
+                        minimumValue="100"
+                        maximumValue="10000000000"
                         isLogarithmic="true"
                         abbreviateLargeNumbers="true">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
                         title="Public Debt per GDP (%)"
-                        titleLeftMargin="5"
-                        isLogarithmic="false"
-                        maximumValue="120">
+                        titleLeftMargin="10"
+                        isLogarithmic="true"
+                        abbreviateLargeNumbers="true"
+                        maximumValue="1000">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
                         name="bubbleSeries1"
@@ -76,9 +78,10 @@ export default class Sample extends React.Component<any, any> {
                         yMemberPath="publicDebt"
                         radiusMemberPath="gdpPerPerson"
                         radiusScale={this.sizeScale1}
-                        fillMemberPath="gdpPerPerson"
-                        xMemberAsLegendLabel="Population"
+                        title="Country"
+                        yMemberAsLegendUnit="%"
                         yMemberAsLegendLabel="Debt"
+                        xMemberAsLegendLabel="Population"
                         radiusMemberAsLegendLabel="GDP"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
@@ -87,7 +90,22 @@ export default class Sample extends React.Component<any, any> {
                         showDefaultTooltip="true">
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
-                        name="dataToolTipLayer">
+                        name="dataToolTipLayer"
+                        valueRowMarginTop="1"
+                        labelTextMarginTop="1"
+                        titleTextMarginTop="1"
+                        unitsTextMarginTop="1"
+                        valueRowMarginBottom="1"
+                        labelTextMarginBottom="1"
+                        titleTextMarginBottom="1"
+                        unitsTextMarginBottom="1"
+                        unitsTextMarginRight="5"
+                        valueTextMarginLeft="10"
+                        labelTextMarginLeft="1"
+                        groupingMode="Grouped"
+                        layoutMode="Vertical"
+                        badgeShape="Hidden"
+                        headerRowVisible="false">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
