@@ -62,25 +62,28 @@ export default class Sample extends React.Component<any, any> {
             igrPivotValue1.member = "AmountofSale";
             igrPivotValue1.displayName = "Amount of Sale";
             igrPivotValue1.enabled = true;
-            var SumOfSale = new IgrPivotAggregator();
-            SumOfSale.key = "SUM";
-            SumOfSale.label = "Sum of Sale";
-            SumOfSale.aggregator = this.pivotDataFlatAggregateSumSale;
-            SumOfSale.aggregatorName = "SUM";
+            var igrPivotAggregator1 = new IgrPivotAggregator();
+            igrPivotAggregator1.key = "SUM";
+            igrPivotAggregator1.label = "Sum of Sale";
+            igrPivotAggregator1.aggregator = this.pivotDataFlatAggregateSumSale;
 
-            var MinOfSale = new IgrPivotAggregator();
-            MinOfSale.key = "MIN";
-            MinOfSale.label = "Minimum of Sale";
-            MinOfSale.aggregator = this.pivotDataFlatAggregateMinSale;
-            MinOfSale.aggregatorName = "MIN";
+            igrPivotValue1.aggregate = igrPivotAggregator1;
+            var igrPivotAggregator2 = new IgrPivotAggregator();
+            igrPivotAggregator2.key = "SUM";
+            igrPivotAggregator2.label = "Sum of Sale";
+            igrPivotAggregator2.aggregator = this.pivotDataFlatAggregateSumSale;
 
-            var MaxOfSale = new IgrPivotAggregator();
-            MaxOfSale.key = "MAX";
-            MaxOfSale.label = "Maximum of Sale";
-            MaxOfSale.aggregatorName = "MAX";
-            MaxOfSale.aggregator = this.pivotDataFlatAggregateMaxSale;
+            var igrPivotAggregator3 = new IgrPivotAggregator();
+            igrPivotAggregator3.key = "MIN";
+            igrPivotAggregator3.label = "Minimum of Sale";
+            igrPivotAggregator3.aggregator = this.pivotDataFlatAggregateMinSale;
 
-            igrPivotValue1.aggregateList = [SumOfSale,MinOfSale,MaxOfSale];
+            var igrPivotAggregator4 = new IgrPivotAggregator();
+            igrPivotAggregator4.key = "MAX";
+            igrPivotAggregator4.label = "Maximum of Sale";
+            igrPivotAggregator4.aggregator = this.pivotDataFlatAggregateMaxSale;
+
+            igrPivotValue1.aggregateList = [igrPivotAggregator2,igrPivotAggregator3,igrPivotAggregator4];
 
             pivotConfiguration1.values = [igrPivotValue1];
 
