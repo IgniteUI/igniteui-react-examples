@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrValueBrushScale } from 'igniteui-react-charts';
+import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrValueBrushScale, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { ComponentRenderer, NumberAbbreviatorDescriptionModule, DataChartCoreDescriptionModule, DataChartScatterDescriptionModule, DataChartScatterCoreDescriptionModule, DataChartInteractivityDescriptionModule, DataChartAnnotationDescriptionModule } from 'igniteui-react-core';
 import { WorldStatsItem, WorldStats } from './WorldStats';
 
@@ -53,6 +53,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._valueBrushScale1;
     }
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -69,22 +70,24 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     isHorizontalZoomEnabled="true"
                     isVerticalZoomEnabled="true"
-                    chartTitle="Public Debt vs. Population"
-                    subtitle="GDP per Capita">
+                    chartTitle="Population vs. Public Debt vs. GDP"
+                    titleTopMargin="10"
+                    titleBottomMargin="0">
                     <IgrNumericXAxis
                         name="xAxis"
-                        minimumValue="10000"
+                        title="Population"
+                        minimumValue="100"
                         maximumValue="10000000000"
                         isLogarithmic="true"
-                        abbreviateLargeNumbers="true"
-                        title="Population">
+                        abbreviateLargeNumbers="true">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
                         title="Public Debt per GDP (%)"
-                        titleLeftMargin="5"
-                        isLogarithmic="false"
-                        maximumValue="120">
+                        titleLeftMargin="10"
+                        isLogarithmic="true"
+                        abbreviateLargeNumbers="true"
+                        maximumValue="1000">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
                         name="bubbleSeries1"
@@ -93,14 +96,39 @@ export default class Sample extends React.Component<any, any> {
                         radiusMemberPath="gdpPerPerson"
                         radiusScale={this.sizeScale1}
                         fillMemberPath="gdpPerPerson"
+                        yMemberAsLegendUnit="%"
+                        yMemberAsLegendLabel="Debt"
+                        xMemberAsLegendLabel="Population"
+                        radiusMemberAsLegendLabel="GDP"
+                        title="Country"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.worldStats}
                         markerType="Circle"
                         markerOutline="black"
+                        markerThickness="1"
                         showDefaultTooltip="true"
                         fillScale={this.valueBrushScale1}>
                     </IgrBubbleSeries>
+                    <IgrDataToolTipLayer
+                        name="dataToolTipLayer"
+                        valueRowMarginTop="1"
+                        labelTextMarginTop="1"
+                        titleTextMarginTop="1"
+                        unitsTextMarginTop="1"
+                        valueRowMarginBottom="1"
+                        labelTextMarginBottom="1"
+                        titleTextMarginBottom="1"
+                        unitsTextMarginBottom="1"
+                        unitsTextMarginRight="5"
+                        valueTextMarginLeft="10"
+                        labelTextMarginLeft="1"
+                        groupingMode="Grouped"
+                        layoutMode="Vertical"
+                        badgeShape="Hidden"
+                        includedColumns={["X", "Y", "Radius"]}
+                        headerRowVisible="false">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>

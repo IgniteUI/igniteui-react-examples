@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLegendModule, IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrLegend, IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrDataToolTipLayer } from 'igniteui-react-charts';
-import { CountryStatsAfricaItem, CountryStatsAfrica } from './CountryStatsAfrica';
-import { CountryStatsEuropeItem, CountryStatsEurope } from './CountryStatsEurope';
+import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { WorldStatsItem, WorldStats } from './WorldStats';
 
 const mods: any[] = [
     IgrLegendModule,
@@ -19,11 +18,6 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private legend: IgrLegend
-    private legendRef(r: IgrLegend) {
-        this.legend = r;
-        this.setState({});
-    }
     private chart: IgrDataChart
     private chartRef(r: IgrDataChart) {
         this.chart = r;
@@ -39,32 +33,17 @@ export default class Sample extends React.Component<any, any> {
             var sizeScale1 = new IgrSizeScale({});
             sizeScale1.isLogarithmic = false;
             sizeScale1.minimumValue = 10;
-            sizeScale1.maximumValue = 50;
+            sizeScale1.maximumValue = 80;
 
             this._sizeScale1 = sizeScale1;
         }
         return this._sizeScale1;
-    }
-    private bubbleSeries2: IgrBubbleSeries
-    private  _sizeScale2: IgrSizeScale | null = null;
-    public get sizeScale2(): IgrSizeScale {
-        if (this._sizeScale2 == null)
-        {
-            var sizeScale2 = new IgrSizeScale({});
-            sizeScale2.isLogarithmic = false;
-            sizeScale2.minimumValue = 10;
-            sizeScale2.maximumValue = 50;
-
-            this._sizeScale2 = sizeScale2;
-        }
-        return this._sizeScale2;
     }
     private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
 
-        this.legendRef = this.legendRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -72,73 +51,48 @@ export default class Sample extends React.Component<any, any> {
         return (
         <div className="container sample">
 
-            <div className="legend-title">
-                Total Population of Selected Countries
-            </div>
-
-            <div className="legend">
-                <IgrLegend
-                    ref={this.legendRef}
-                    orientation="Horizontal">
-                </IgrLegend>
-            </div>
-
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}
-                    legend={this.legend}>
+                    chartTitle="Population vs. Public Debt vs. GDP"
+                    titleTopMargin="10"
+                    titleBottomMargin="0">
                     <IgrNumericXAxis
                         name="xAxis"
                         title="Population"
+                        minimumValue="100"
+                        maximumValue="10000000000"
                         isLogarithmic="true"
                         abbreviateLargeNumbers="true">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
-                        title="GDP per Capita"
-                        titleLeftMargin="5"
+                        title="Public Debt per GDP (%)"
+                        titleLeftMargin="10"
                         isLogarithmic="true"
-                        abbreviateLargeNumbers="true">
+                        abbreviateLargeNumbers="true"
+                        maximumValue="1000">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
                         name="bubbleSeries1"
-                        title="African Countries"
+                        title="Country"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         xMemberPath="population"
-                        yMemberPath="gDP"
-                        radiusMemberPath="workedHours"
+                        yMemberPath="publicDebt"
+                        radiusMemberPath="gdpPerPerson"
+                        yMemberAsLegendUnit="%"
+                        yMemberAsLegendLabel="Debt"
                         xMemberAsLegendLabel="Population"
-                        yMemberAsLegendLabel="GDP"
-                        radiusMemberAsLegendLabel="Worked Hours"
-                        dataSource={this.countryStatsAfrica}
+                        radiusMemberAsLegendLabel="GDP"
+                        dataSource={this.worldStats}
                         markerType="Circle"
-                        markerOutline="rgba(2, 158, 30, 1)"
-                        markerBrush="rgba(2, 158, 30, 1)"
+                        markerOutline="black"
+                        markerBrush="rgba(67, 162, 250, 1)"
                         markerFillOpacity="0.5"
                         markerThickness="1"
                         showDefaultTooltip="true"
                         radiusScale={this.sizeScale1}>
-                    </IgrBubbleSeries>
-                    <IgrBubbleSeries
-                        name="bubbleSeries2"
-                        title="European Countries"
-                        xAxisName="xAxis"
-                        yAxisName="yAxis"
-                        xMemberPath="population"
-                        yMemberPath="gDP"
-                        radiusMemberPath="workedHours"
-                        xMemberAsLegendLabel="Population"
-                        yMemberAsLegendLabel="GDP"
-                        radiusMemberAsLegendLabel="Worked Hours"
-                        dataSource={this.countryStatsEurope}
-                        markerType="Circle"
-                        markerOutline="rgba(95, 2, 171, 1)"
-                        markerBrush="rgba(95, 2, 171, 1)"
-                        markerFillOpacity="0.5"
-                        markerThickness="1"
-                        showDefaultTooltip="true"
-                        radiusScale={this.sizeScale2}>
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
                         name="dataToolTipLayer"
@@ -152,9 +106,12 @@ export default class Sample extends React.Component<any, any> {
                         unitsTextMarginBottom="1"
                         unitsTextMarginRight="5"
                         valueTextMarginLeft="10"
-                        labelTextMarginLeft="5"
+                        labelTextMarginLeft="1"
                         groupingMode="Grouped"
-                        layoutMode="Vertical">
+                        layoutMode="Vertical"
+                        badgeShape="Hidden"
+                        includedColumns={["X", "Y", "Radius"]}
+                        headerRowVisible="false">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
@@ -162,22 +119,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _countryStatsAfrica: CountryStatsAfrica = null;
-    public get countryStatsAfrica(): CountryStatsAfrica {
-        if (this._countryStatsAfrica == null)
+    private _worldStats: WorldStats = null;
+    public get worldStats(): WorldStats {
+        if (this._worldStats == null)
         {
-            this._countryStatsAfrica = new CountryStatsAfrica();
+            this._worldStats = new WorldStats();
         }
-        return this._countryStatsAfrica;
-    }
-
-    private _countryStatsEurope: CountryStatsEurope = null;
-    public get countryStatsEurope(): CountryStatsEurope {
-        if (this._countryStatsEurope == null)
-        {
-            this._countryStatsEurope = new CountryStatsEurope();
-        }
-        return this._countryStatsEurope;
+        return this._worldStats;
     }
 
 }
