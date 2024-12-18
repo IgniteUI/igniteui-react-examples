@@ -96,6 +96,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrNumericYAxis
                         name="yAxis"
                         title="GDP per Capita"
+                        titleLeftMargin="5"
                         isLogarithmic="true"
                         abbreviateLargeNumbers="true">
                     </IgrNumericYAxis>
@@ -106,13 +107,16 @@ export default class Sample extends React.Component<any, any> {
                         yAxisName="yAxis"
                         xMemberPath="population"
                         yMemberPath="gDP"
-                        radiusMemberPath="population"
+                        radiusMemberPath="workedHours"
+                        xMemberAsLegendLabel="Population"
+                        yMemberAsLegendLabel="GDP"
+                        radiusMemberAsLegendLabel="Worked Hours"
                         dataSource={this.countryStatsAfrica}
                         markerType="Circle"
-                        markerOutline="rgba(62, 202, 62, 1)"
-                        markerBrush="rgba(69, 179, 224, 1)"
+                        markerOutline="rgba(2, 158, 30, 1)"
+                        markerBrush="rgba(2, 158, 30, 1)"
                         markerFillOpacity="0.5"
-                        markerThickness="2"
+                        markerThickness="1"
                         showDefaultTooltip="true"
                         radiusScale={this.sizeScale1}>
                     </IgrBubbleSeries>
@@ -123,18 +127,34 @@ export default class Sample extends React.Component<any, any> {
                         yAxisName="yAxis"
                         xMemberPath="population"
                         yMemberPath="gDP"
-                        radiusMemberPath="population"
+                        radiusMemberPath="workedHours"
+                        xMemberAsLegendLabel="Population"
+                        yMemberAsLegendLabel="GDP"
+                        radiusMemberAsLegendLabel="Worked Hours"
                         dataSource={this.countryStatsEurope}
                         markerType="Circle"
-                        markerOutline="rgba(171, 6, 221, 1)"
-                        markerBrush="rgba(135, 156, 235, 1)"
+                        markerOutline="rgba(95, 2, 171, 1)"
+                        markerBrush="rgba(95, 2, 171, 1)"
                         markerFillOpacity="0.5"
-                        markerThickness="2"
+                        markerThickness="1"
                         showDefaultTooltip="true"
                         radiusScale={this.sizeScale2}>
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
-                        name="dataToolTipLayer">
+                        name="dataToolTipLayer"
+                        valueRowMarginTop="1"
+                        labelTextMarginTop="1"
+                        titleTextMarginTop="1"
+                        unitsTextMarginTop="1"
+                        valueRowMarginBottom="1"
+                        labelTextMarginBottom="1"
+                        titleTextMarginBottom="1"
+                        unitsTextMarginBottom="1"
+                        unitsTextMarginRight="5"
+                        valueTextMarginLeft="10"
+                        labelTextMarginLeft="5"
+                        groupingMode="Grouped"
+                        layoutMode="Vertical">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

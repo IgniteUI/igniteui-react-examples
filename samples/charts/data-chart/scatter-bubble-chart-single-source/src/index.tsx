@@ -65,9 +65,9 @@ export default class Sample extends React.Component<any, any> {
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
-                        title="Public Debt"
+                        title="Public Debt per GDP (%)"
+                        titleLeftMargin="5"
                         isLogarithmic="false"
-                        abbreviateLargeNumbers="true"
                         maximumValue="120">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
@@ -77,6 +77,9 @@ export default class Sample extends React.Component<any, any> {
                         radiusMemberPath="gdpPerPerson"
                         radiusScale={this.sizeScale1}
                         fillMemberPath="gdpPerPerson"
+                        xMemberAsLegendLabel="Population"
+                        yMemberAsLegendLabel="Debt"
+                        radiusMemberAsLegendLabel="GDP"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.worldStats}
