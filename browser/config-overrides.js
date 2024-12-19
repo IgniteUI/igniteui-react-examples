@@ -164,6 +164,11 @@ module.exports = function override(config, env) {
                 name: 'igniteui-react-spreadsheet-chart-adapter',
                 chunks: 'all',
             },
+            igniteuiDashboards: {
+                test: /[\\/]node_modules[\\/](igniteui-react-dashboards)[\\/]/,
+                name: 'igniteui-react-dashboards',
+                chunks: 'all',
+            },
             igniteuiDataSources: {
                 test: /[\\/]node_modules[\\/](igniteui-react-datasources)[\\/]/,
                 name: 'igniteui-react-datasources',

@@ -105,7 +105,8 @@ export default class Sample extends React.Component<any, any> {
                     finalValueAnnotationsTextColor="white"
                     finalValueAnnotationsPrecision="0"
                     yAxisMaximumValue="35"
-                    yAxisLabelLocation="OutsideRight">
+                    yAxisLabelLocation="OutsideRight"
+                    isTransitionInEnabled="false">
                 </IgrCategoryChart>
             </div>
         </div>

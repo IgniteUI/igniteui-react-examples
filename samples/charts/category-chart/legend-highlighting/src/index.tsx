@@ -59,7 +59,8 @@ export default class Sample extends React.Component<any, any> {
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
                     highlightingMode="Brighten"
-                    legendHighlightingMode="MatchSeries">
+                    legendHighlightingMode="MatchSeries"
+                    isTransitionInEnabled="false">
                 </IgrCategoryChart>
             </div>
         </div>

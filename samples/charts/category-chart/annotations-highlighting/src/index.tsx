@@ -80,7 +80,8 @@ export default class Sample extends React.Component<any, any> {
                     highlightingBehavior="NearestItemsAndSeries"
                     yAxisMaximumValue="35"
                     yAxisLabelLocation="OutsideRight"
-                    toolTipType="None">
+                    toolTipType="None"
+                    isTransitionInEnabled="false">
                 </IgrCategoryChart>
             </div>
         </div>
