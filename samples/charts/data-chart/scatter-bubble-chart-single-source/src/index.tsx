@@ -102,7 +102,6 @@ export default class Sample extends React.Component<any, any> {
                         unitsTextMarginRight="5"
                         valueTextMarginLeft="10"
                         labelTextMarginLeft="1"
-                        groupingMode="Grouped"
                         layoutMode="Vertical"
                         badgeShape="Hidden"
                         headerRowVisible="false">
