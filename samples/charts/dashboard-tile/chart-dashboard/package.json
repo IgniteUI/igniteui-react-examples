@@ -1,0 +1,52 @@
+{
+  "name": "example-ignite-ui-react",
+  "description": "This project provides example of using Ignite UI for React components",
+  "author": "Infragistics",
+  "version": "1.4.0",
+  "license": "",
+  "homepage": ".",
+  "private": true,
+  "scripts": {
+    "start": "set PORT=4200 && react-scripts --max_old_space_size=10240 start",
+    "build": "react-scripts --max_old_space_size=10240 build ",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/**/*.{ts,tsx}"
+  },
+  "dependencies": {
+    "igniteui-react": "18.7.6",
+    "igniteui-react-charts": "18.7.6",
+    "igniteui-react-core": "18.7.6",
+    "igniteui-react-dashboards": "18.7.6",
+    "igniteui-react-datasources": "18.7.6",
+    "igniteui-react-gauges": "18.7.6",
+    "igniteui-react-grids": "18.7.6",
+    "igniteui-react-inputs": "18.7.6",
+    "igniteui-react-layouts": "18.7.6",
+    "igniteui-react-maps": "18.7.6",
+    "igniteui-webcomponents": "5.1.2",
+    "lit-html": "^3.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "tslib": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.0",
+    "@types/node": "^18.11.7",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "eslint": "^8.33.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-react": "^7.20.0",
+    "react-app-rewired": "^2.2.1",
+    "typescript": "^4.8.4",
+    "worker-loader": "^3.0.8"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

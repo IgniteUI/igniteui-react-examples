@@ -68,7 +68,8 @@ export default class Sample extends React.Component<any, any> {
                     highlightingMode="Brighten"
                     highlightingBehavior="DirectlyOver"
                     toolTipType="None"
-                    crosshairsDisplayMode="None">
+                    crosshairsDisplayMode="None"
+                    isTransitionInEnabled="false">
                 </IgrCategoryChart>
             </div>
         </div>

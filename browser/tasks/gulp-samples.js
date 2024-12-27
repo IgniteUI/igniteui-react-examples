@@ -278,6 +278,7 @@ function copySamples(cb) {
             // auto fix TS lint issue in import statements:
             code = code.replace('from "igniteui-react";', "from 'igniteui-react';");
             code = code.replace('from "igniteui-react-core";', "from 'igniteui-react-core';");
+            code = code.replace('from "igniteui-react-dashboards";', "from 'igniteui-react-dashboards';");
             code = code.replace('from "igniteui-react-charts";', "from 'igniteui-react-charts';");
             code = code.replace('from "igniteui-react-maps";', "from 'igniteui-react-maps';");
             code = code.replace('from "igniteui-react-gauges";', "from 'igniteui-react-gauges';");
@@ -824,38 +825,38 @@ function updateIG(cb) {
     // { name:               "igniteui-react-charts", version: "16.16.2" }, // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { name: "igniteui-react-core"                     , version: "18.7.4" },
-        { name: "igniteui-react-charts"                   , version: "18.7.4" },
-        { name: "igniteui-react-excel"                    , version: "18.7.4" },
-        { name: "igniteui-react-gauges"                   , version: "18.7.4" },
-        { name: "igniteui-react-grids"                    , version: "18.7.4" },
-        { name: "igniteui-react-inputs"                   , version: "18.7.4" },
-        { name: "igniteui-react-layouts"                  , version: "18.7.4" },
-        { name: "igniteui-react-maps"                     , version: "18.7.4" },
-        { name: "igniteui-react-spreadsheet-chart-adapter", version: "18.7.4" },
-        { name: "igniteui-react-spreadsheet"              , version: "18.7.4" },
-        { name: "igniteui-react-datasources"              , version: "18.7.4" },
-        { name: "igniteui-react"                          , version: "18.7.4" },
+        { version: "18.7.6", name: "igniteui-react-core" },
+        { version: "18.7.6", name: "igniteui-react-charts" },
+        { version: "18.7.6", name: "igniteui-react-excel" },
+        { version: "18.7.6", name: "igniteui-react-gauges" },
+        { version: "18.7.6", name: "igniteui-react-grids" },
+        { version: "18.7.6", name: "igniteui-react-inputs" },
+        { version: "18.7.6", name: "igniteui-react-layouts" },
+        { version: "18.7.6", name: "igniteui-react-maps" },
+        { version: "18.7.6", name: "igniteui-react-spreadsheet-chart-adapter" },
+        { version: "18.7.6", name: "igniteui-react-spreadsheet" },
+        { version: "18.7.6", name: "igniteui-react-datasources" },
+        { version: "18.7.6", name: "igniteui-react-dashboards" },
+        { version: "18.7.6", name: "igniteui-react" },
         // these IG packages are sometimes updated:
-        { name: "igniteui-webcomponents", version: "5.1.2" },
-        { name: "igniteui-dockmanager",   version: "1.15.2" },
+        { version: "5.1.2" , name: "igniteui-webcomponents" },
+        { version: "1.15.2", name: "igniteui-dockmanager" },
         // main react packages
-        { name: "react"             , version: "^18.2.0", },
-        { name: "react-dom"         , version: "^18.2.0", },
-        { name: "react-scripts"     , version: "^5.0.1", },
-        // { name: "tslib"             , version: "^2.4.0", },
-        // { name: "lit-html"          , version: "^2.2.0", },
+        { version: "^18.2.0", name: "react" },
+        { version: "^18.2.0", name: "react-dom" },
+        { version: "^5.0.1",  name: "react-scripts" },
+        // { version: "^2.4.0", name: "tslib" },
+        // { version: "^2.2.0", name: "lit-html" },
+        { version: "^8.33.0", name: "eslint" },
+        { version: "^1.1.7",  name: "eslint-config-react" },
+        { version: "^7.20.0", name: "eslint-plugin-react" },
 
-        { name: "eslint"             , version: "^8.33.0", },
-        { name: "eslint-config-react", version: "^1.1.7", },
-        { name: "eslint-plugin-react", version: "^7.20.0", },
-
-        { name: "@types/jest"       , version: "^29.2.0", },
-        { name: "@types/node"       , version: "^18.11.7", },
-        { name: "@types/react"      , version: "^18.0.24", },
-        { name: "@types/react-dom"  , version: "^18.0.8", },
-        { name: "react-app-rewired" , version: "^2.2.1", },
-        { name: "typescript"        , version: "^4.8.4", },
+        { version: "^29.2.0",  name: "@types/jest" },
+        { version: "^18.11.7", name: "@types/node" },
+        { version: "^18.0.24", name: "@types/react" },
+        { version: "^18.0.8",  name: "@types/react-dom" },
+        { version: "^2.2.1",   name: "react-app-rewired" },
+        { version: "^4.8.4",   name: "typescript" },
     ];
 
     // NOTE you can comment out strings in this array to run these function only on a subset of samples

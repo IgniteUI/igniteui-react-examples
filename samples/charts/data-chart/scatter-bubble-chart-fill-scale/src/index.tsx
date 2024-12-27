@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrNumberAbbreviatorModule, IgrDataChartCoreModule, IgrDataChartScatterModule, IgrDataChartScatterCoreModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule } from 'igniteui-react-charts';
-import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrValueBrushScale } from 'igniteui-react-charts';
+import { IgrDataChart, IgrNumericXAxis, IgrNumericYAxis, IgrBubbleSeries, IgrSizeScale, IgrValueBrushScale, IgrDataToolTipLayer } from 'igniteui-react-charts';
 import { ComponentRenderer, NumberAbbreviatorDescriptionModule, DataChartCoreDescriptionModule, DataChartScatterDescriptionModule, DataChartScatterCoreDescriptionModule, DataChartInteractivityDescriptionModule, DataChartAnnotationDescriptionModule } from 'igniteui-react-core';
 import { WorldStatsItem, WorldStats } from './WorldStats';
 
@@ -33,7 +33,7 @@ export default class Sample extends React.Component<any, any> {
             var sizeScale1 = new IgrSizeScale({});
             sizeScale1.isLogarithmic = false;
             sizeScale1.minimumValue = 10;
-            sizeScale1.maximumValue = 120;
+            sizeScale1.maximumValue = 80;
 
             this._sizeScale1 = sizeScale1;
         }
@@ -45,14 +45,15 @@ export default class Sample extends React.Component<any, any> {
         {
             var valueBrushScale1 = new IgrValueBrushScale({});
             valueBrushScale1.isLogarithmic = false;
-            valueBrushScale1.minimumValue = 0;
-            valueBrushScale1.maximumValue = 100000;
-            valueBrushScale1.brushes = ["rgba(26, 161, 226, 1)", "rgba(24, 154, 217, 1)", "rgba(22, 146, 206, 1)", "rgba(19, 133, 188, 1)", "rgba(15, 121, 171, 1)", "rgba(12, 107, 153, 1)", "rgba(9, 94, 136, 1)", "rgba(5, 82, 119, 1)", "rgba(2, 70, 105, 1)", "rgba(0, 63, 94, 1)"];
+            valueBrushScale1.minimumValue = 500;
+            valueBrushScale1.maximumValue = 260000;
+            valueBrushScale1.brushes = ["rgba(150, 189, 250, 1)", "rgba(111, 164, 247, 1)", "rgba(82, 144, 242, 1)", "rgba(19, 94, 212, 1)"];
 
             this._valueBrushScale1 = valueBrushScale1;
         }
         return this._valueBrushScale1;
     }
+    private dataToolTipLayer: IgrDataToolTipLayer
 
     constructor(props: any) {
         super(props);
@@ -69,21 +70,24 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     isHorizontalZoomEnabled="true"
                     isVerticalZoomEnabled="true"
-                    chartTitle="Public Debt vs. Population"
-                    subtitle="GDP per Capita">
+                    chartTitle="Population vs. Public Debt vs. GDP"
+                    titleTopMargin="10"
+                    titleBottomMargin="0">
                     <IgrNumericXAxis
                         name="xAxis"
-                        minimumValue="10000"
+                        title="Population"
+                        minimumValue="100"
                         maximumValue="10000000000"
                         isLogarithmic="true"
-                        abbreviateLargeNumbers="true"
-                        title="Population">
+                        abbreviateLargeNumbers="true">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
+                        title="Public Debt per GDP (%)"
+                        titleLeftMargin="10"
                         isLogarithmic="true"
-                        logarithmBase="10"
-                        title="Public Debt per GDP">
+                        abbreviateLargeNumbers="true"
+                        maximumValue="1000">
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
                         name="bubbleSeries1"
@@ -92,14 +96,38 @@ export default class Sample extends React.Component<any, any> {
                         radiusMemberPath="gdpPerPerson"
                         radiusScale={this.sizeScale1}
                         fillMemberPath="gdpPerPerson"
+                        yMemberAsLegendUnit="%"
+                        yMemberAsLegendLabel="Debt"
+                        xMemberAsLegendLabel="Population"
+                        radiusMemberAsLegendLabel="GDP"
+                        title="Country"
                         xAxisName="xAxis"
                         yAxisName="yAxis"
                         dataSource={this.worldStats}
                         markerType="Circle"
                         markerOutline="black"
+                        markerThickness="1"
                         showDefaultTooltip="true"
                         fillScale={this.valueBrushScale1}>
                     </IgrBubbleSeries>
+                    <IgrDataToolTipLayer
+                        name="dataToolTipLayer"
+                        valueRowMarginTop="1"
+                        labelTextMarginTop="1"
+                        titleTextMarginTop="1"
+                        unitsTextMarginTop="1"
+                        valueRowMarginBottom="1"
+                        labelTextMarginBottom="1"
+                        titleTextMarginBottom="1"
+                        unitsTextMarginBottom="1"
+                        unitsTextMarginRight="5"
+                        valueTextMarginLeft="10"
+                        labelTextMarginLeft="1"
+                        layoutMode="Vertical"
+                        badgeShape="Hidden"
+                        includedColumns={["X", "Y", "Radius"]}
+                        headerRowVisible="false">
+                    </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>
         </div>
