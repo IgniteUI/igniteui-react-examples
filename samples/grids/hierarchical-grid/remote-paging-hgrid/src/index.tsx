@@ -20,7 +20,6 @@ export default function App() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const [perPage, setPerPage] = useState(15);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     loadGridData(page, perPage);
@@ -28,21 +27,23 @@ export default function App() {
 
   function loadGridData(pageIndex?: number, pageSize?: number) {
     // Set loading state
-    setIsLoading(true);
+    hierarchicalGrid.current.isLoading = true;
 
     // Fetch data
     RemoteService.getCustomersDataWithPaging(pageIndex, pageSize)
       .then((response: CustomersWithPageResponseModel) => {
         setData(response.items);
         // Stop loading when data is retrieved
-        setIsLoading(false);
+        hierarchicalGrid.current.isLoading = false;
+
         paginator.current.totalRecords = response.totalRecordsCount;
       })
       .catch((error) => {
         console.error(error.message);
         setData([]);
         // Stop loading even if error occurs. Prevents endless loading
-        setIsLoading(false);
+        hierarchicalGrid.current.isLoading = false;
+
       })
   }
 
@@ -52,6 +53,8 @@ export default function App() {
     parentKey: string
   ) {
     const context = event.detail;
+    context.grid.isLoading = true;
+    
     const parentId: string = context.parentID;
     const childDataKey: string = rowIsland.childDataKey;
 
@@ -88,7 +91,6 @@ export default function App() {
           pagingMode={GridPagingMode.Remote}
           primaryKey="customerId"
           height="600px"
-          isLoading={isLoading}
         >
           <IgrPaginator 
             perPage={perPage}
