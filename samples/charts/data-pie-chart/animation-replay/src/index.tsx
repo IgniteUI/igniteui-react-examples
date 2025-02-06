@@ -8,6 +8,8 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrDataPieChart } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataPieChartDescriptionModule, ItemLegendDescriptionModule } from 'igniteui-react-core';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
+import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
+import { XamDomainChart } from 'igniteui-react-charts';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -24,7 +26,7 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
-    private selectionBehavior: IgrPropertyEditorPropertyDescription
+    private propertyEditorPropertyDescription1: IgrPropertyEditorPropertyDescription
     private chart: IgrDataPieChart
     private chartRef(r: IgrDataPieChart) {
         this.chart = r;
@@ -35,6 +37,7 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.propertyEditorPanel1Ref = this.propertyEditorPanel1Ref.bind(this);
+        this.editorButtonReplayTransitionInDomain = this.editorButtonReplayTransitionInDomain.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -50,19 +53,12 @@ export default class Sample extends React.Component<any, any> {
                     isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
-                        label="Selection Behavior: "
-                        valueType="EnumValue"
-                        propertyPath="SelectionBehavior"
-                        name="SelectionBehavior"
-                        shouldOverrideDefaultEditor="true"
-                        dropDownNames={["PerDataItemSingleSelect", "PerDataItemMultiSelect"]}
-                        dropDownValues={["PerDataItemSingleSelect", "PerDataItemMultiSelect"]}
-                        primitiveValue="PerDataItemSingleSelect">
-                    </IgrPropertyEditorPropertyDescription>
-                    <IgrPropertyEditorPropertyDescription
-                        propertyPath="SelectionMode"
-                        label="Selection Mode: "
-                        primitiveValue="Brighten">
+                        propertyPath="ReplayTransitionIn"
+                        label="Replay Animation"
+                        primitiveValue="Replay Animation"
+                        valueType="Button"
+                        buttonClicked={this.editorButtonReplayTransitionInDomain}
+                        name="propertyEditorPropertyDescription1">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -75,12 +71,10 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataPieChart
                     ref={this.chartRef}
                     dataSource={this.energyGlobalDemand}
-                    highlightingMode="None"
-                    selectionMode="Brighten"
-                    selectionBehavior="PerDataItemSingleSelect"
-                    selectionBrush="dodgerblue"
-                    focusBrush="black"
-                    thickness="3">
+                    transitionInMode="Auto"
+                    transitionInDuration="1000"
+                    transitionInSpeedType="Random"
+                    highlightingMode="None">
                 </IgrDataPieChart>
             </div>
         </div>
@@ -106,6 +100,11 @@ export default class Sample extends React.Component<any, any> {
             ItemLegendDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public editorButtonReplayTransitionInDomain(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
+        var chart = this.chart;
+        chart.replayTransitionIn();
     }
 
 }
