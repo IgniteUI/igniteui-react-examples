@@ -4,6 +4,7 @@ import './index.css';
 
 import { IgrDashboardTileModule, IgrDataChartDashboardTileModule, IgrGeographicMapDashboardTileModule, IgrLinearGaugeDashboardTileModule, IgrPieChartDashboardTileModule, IgrRadialGaugeDashboardTileModule } from 'igniteui-react-dashboards';
 import { IgrDashboardTile } from 'igniteui-react-dashboards';
+import { DashboardGaugeDataSourceItem, DashboardGaugeDataSource } from './DashboardGaugeDataSource';
 
 const mods: any[] = [
     IgrDashboardTileModule,
@@ -27,9 +28,6 @@ export default class Sample extends React.Component<any, any> {
 
         this.dashboardRef = this.dashboardRef.bind(this);
     }
-    public componentDidMount() {
-        this.dashboardTileGaugeOnInit();
-    }
 
     public render(): JSX.Element {
         return (
@@ -38,19 +36,21 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDashboardTile
                     tileTitle="Sample Gauge"
-                    ref={this.dashboardRef}>
+                    ref={this.dashboardRef}
+                    dataSource={this.dashboardGaugeDataSource}>
                 </IgrDashboardTile>
             </div>
         </div>
         );
     }
 
-
-    public dashboardTileGaugeOnInit(): void {
-
-        var target = this.dashboard;
-
-        target.dataSource = 40;
+    private _dashboardGaugeDataSource: DashboardGaugeDataSource = null;
+    public get dashboardGaugeDataSource(): DashboardGaugeDataSource {
+        if (this._dashboardGaugeDataSource == null)
+        {
+            this._dashboardGaugeDataSource = new DashboardGaugeDataSource();
+        }
+        return this._dashboardGaugeDataSource;
     }
 
 }
