@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { LocalDataItem, LocalData } from './SampleData';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrDataPieChartModule, IgrItemLegendModule } from 'igniteui-react-charts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrDataPieChart } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataPieChartDescriptionModule, ItemLegendDescriptionModule } from 'igniteui-react-core';
+import { DataPieDataItem, DataPieData } from './DataPieData';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -77,7 +77,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDataPieChart
                     ref={this.chartRef}
-                    dataSource={this.localData}
+                    dataSource={this.dataPieData}
                     othersCategoryType="Number"
                     othersCategoryThreshold="15">
                 </IgrDataPieChart>
@@ -86,13 +86,13 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _localData: LocalData = null;
-    public get localData(): LocalData {
-        if (this._localData == null)
+    private _dataPieData: DataPieData = null;
+    public get dataPieData(): DataPieData {
+        if (this._dataPieData == null)
         {
-            this._localData = new LocalData();
+            this._dataPieData = new DataPieData();
         }
-        return this._localData;
+        return this._dataPieData;
     }
 
     private _componentRenderer: ComponentRenderer = null;
