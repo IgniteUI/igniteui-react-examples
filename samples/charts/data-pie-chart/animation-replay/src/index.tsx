@@ -9,7 +9,6 @@ import { IgrDataPieChart } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataPieChartDescriptionModule, ItemLegendDescriptionModule } from 'igniteui-react-core';
 import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
-import { IgrDomainChart } from 'igniteui-react-charts';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
