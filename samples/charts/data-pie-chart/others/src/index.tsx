@@ -24,6 +24,9 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private othersCategoryTypeEditor: IgrPropertyEditorPropertyDescription
+    private othersCategoryThresholdEditor: IgrPropertyEditorPropertyDescription
+    private othersCategoryTextEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrDataPieChart
     private chartRef(r: IgrDataPieChart) {
         this.chart = r;
@@ -50,12 +53,14 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="OthersCategoryType"
+                        name="OthersCategoryTypeEditor"
                         label="Others Type: "
                         primitiveValue="Number"
                         valueType="EnumValue">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="OthersCategoryThreshold"
+                        name="OthersCategoryThresholdEditor"
                         label="Others Threshold: "
                         valueType="Slider"
                         min="0"
@@ -64,6 +69,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="OthersCategoryText"
+                        name="OthersCategoryTextEditor"
                         label="Others Text: "
                         valueType="StringValue">
                     </IgrPropertyEditorPropertyDescription>
