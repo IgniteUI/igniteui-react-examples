@@ -1,0 +1,44 @@
+.grid-wrapper {
+    margin: 0 auto;
+    padding: 16px;
+    height: 87%;
+}
+
+.grid-wrapper .summaries {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.grid-wrapper .summaries-title {
+    margin: 0 0 1rem 0;
+    flex-basis: 100%;
+    font-weight: bold;
+}
+
+.grid-wrapper .summary-button {
+    margin-right: 1rem;
+}
+
+igc-dialog {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+igc-dialog::part(title) {
+    color: #1E6DFE;
+}
+
+.summaries-dialog-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.summaries-dialog-items .summaries-dialog-item {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+
