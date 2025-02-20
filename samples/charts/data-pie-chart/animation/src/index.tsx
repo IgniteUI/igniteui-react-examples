@@ -24,6 +24,8 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private transitionInModeEditor: IgrPropertyEditorPropertyDescription
+    private transitionInSpeedTypeEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrDataPieChart
     private chartRef(r: IgrDataPieChart) {
         this.chart = r;
@@ -50,11 +52,13 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="TransitionInMode"
+                        name="TransitionInModeEditor"
                         label="Transition In Animation: "
                         primitiveValue="Auto">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="TransitionInSpeedType"
+                        name="TransitionInSpeedTypeEditor"
                         label="Transition In Speed Type: "
                         primitiveValue="Random">
                     </IgrPropertyEditorPropertyDescription>
