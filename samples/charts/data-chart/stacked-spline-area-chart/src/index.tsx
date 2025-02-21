@@ -70,7 +70,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrCategoryXAxis
                         name="xAxis"
                         dataSource={this.continentsBirthRate}
-                        label="year"
+                        label="Year"
                         gap="0.75">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
@@ -91,27 +91,27 @@ export default class Sample extends React.Component<any, any> {
                         markerType="Circle">
                         <IgrStackedFragmentSeries
                             name="s1"
-                            valueMemberPath="asia"
+                            valueMemberPath="Asia"
                             title="Asia">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s2"
-                            valueMemberPath="africa"
+                            valueMemberPath="Africa"
                             title="Africa">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s3"
-                            valueMemberPath="europe"
+                            valueMemberPath="Europe"
                             title="Europe">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s4"
-                            valueMemberPath="northAmerica"
+                            valueMemberPath="NorthAmerica"
                             title="North America">
                         </IgrStackedFragmentSeries>
                         <IgrStackedFragmentSeries
                             name="s5"
-                            valueMemberPath="southAmerica"
+                            valueMemberPath="SouthAmerica"
                             title="South America">
                         </IgrStackedFragmentSeries>
                     </IgrStackedSplineAreaSeries>

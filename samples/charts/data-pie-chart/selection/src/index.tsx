@@ -24,7 +24,8 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
-    private selectionBehavior: IgrPropertyEditorPropertyDescription
+    private selectionBehaviorEditor: IgrPropertyEditorPropertyDescription
+    private selectionModeEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrDataPieChart
     private chartRef(r: IgrDataPieChart) {
         this.chart = r;
@@ -53,7 +54,7 @@ export default class Sample extends React.Component<any, any> {
                         label="Selection Behavior: "
                         valueType="EnumValue"
                         propertyPath="SelectionBehavior"
-                        name="SelectionBehavior"
+                        name="SelectionBehaviorEditor"
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["PerDataItemSingleSelect", "PerDataItemMultiSelect"]}
                         dropDownValues={["PerDataItemSingleSelect", "PerDataItemMultiSelect"]}
@@ -61,6 +62,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="SelectionMode"
+                        name="SelectionModeEditor"
                         label="Selection Mode: "
                         primitiveValue="Brighten">
                     </IgrPropertyEditorPropertyDescription>
