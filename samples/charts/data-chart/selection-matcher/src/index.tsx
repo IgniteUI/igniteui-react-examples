@@ -138,21 +138,24 @@ export default class Sample extends React.Component<any, any> {
     	var chart = this.chart;
 
     	this._timer = setInterval(() => {
-    		var matcher = new IgrSeriesMatcher();
+    	var data = this.energyRenewableConsumption;
 
-    		var selection = new IgrChartSelection();
-    		selection.item = this.energyRenewableConsumption[1];
+        var matcher = new IgrSeriesMatcher();
+
+        var selection = new IgrChartSelection();
+    		selection.item = data[1];
     		matcher.memberPath = "hydro";
     		matcher.memberPathType = "ValueMemberPath";
     		selection.matcher = matcher;
-
     		chart.selectedSeriesItems.add(selection);
 
-    		var selection2 = new IgrChartSelection();
-    		selection2.item = this.energyRenewableConsumption[2];
-    		matcher.memberPath = "wind";
-    		matcher.memberPathType = "ValueMemberPath";
-    		selection2.matcher = matcher;
+    	var matcher2 = new IgrSeriesMatcher();
+
+    var selection2 = new IgrChartSelection();
+    		selection2.item = data[2];
+    		matcher2.memberPath = "wind";
+    		matcher2.memberPathType = "ValueMemberPath";
+    		selection2.matcher = matcher2;
 
     		chart.selectedSeriesItems.add(selection2);
 

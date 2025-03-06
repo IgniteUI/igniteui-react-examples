@@ -4,11 +4,11 @@ import './index.css';
 
 import { IgrToolbarModule } from 'igniteui-react-layouts';
 import { IgrDataChartToolbarModule, IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartAnnotationModule, IgrDataChartInteractivityModule, IgrDataChartCategoryTrendLineModule } from 'igniteui-react-charts';
-import { IgrToolbar, IgrToolActionCheckbox, IgrToolActionLabel, IgrToolActionIconMenu } from 'igniteui-react-layouts';
+import { IgrToolbar, IgrToolActionIconMenu, IgrToolActionGroupHeader, IgrToolActionSubPanel, IgrToolActionCheckbox, IgrToolActionLabel } from 'igniteui-react-layouts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries } from 'igniteui-react-charts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
 import { IgrToolCommandEventArgs } from 'igniteui-react-layouts';
-import { IgrSeries, IgrDataToolTipLayer } from 'igniteui-react-charts';
+import { IgrSeries, IgrDataToolTipLayer, IgrCrosshairLayer, IgrFinalValueLayer } from 'igniteui-react-charts';
 
 const mods: any[] = [
     IgrToolbarModule,
@@ -27,10 +27,16 @@ export default class Sample extends React.Component<any, any> {
         this.toolbar = r;
         this.setState({});
     }
+    private menuForSubPanelTool: IgrToolActionIconMenu
+    private subPanelGroup: IgrToolActionGroupHeader
+    private customSubPanelTools: IgrToolActionSubPanel
     private enableTooltipsLabel: IgrToolActionCheckbox
-    private zoomResetHidden: IgrToolActionLabel
+    private enableCrosshairsLabel: IgrToolActionCheckbox
+    private enableFinalValuesLabel: IgrToolActionCheckbox
     private zoomResetLabel: IgrToolActionLabel
+    private zoomResetHidden: IgrToolActionLabel
     private analyzeMenu: IgrToolActionIconMenu
+    private copyMenu: IgrToolActionLabel
     private chart: IgrDataChart
     private chartRef(r: IgrDataChart) {
         this.chart = r;
@@ -46,7 +52,7 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.toolbarRef = this.toolbarRef.bind(this);
-        this.toolbarToggleTooltip = this.toolbarToggleTooltip.bind(this);
+        this.toolbarToggleAnnotations = this.toolbarToggleAnnotations.bind(this);
         this.chartRef = this.chartRef.bind(this);
     }
 
@@ -61,31 +67,60 @@ export default class Sample extends React.Component<any, any> {
                             ref={this.toolbarRef}
                             target={this.chart}
                             orientation="Horizontal"
-                            onCommand={this.toolbarToggleTooltip}>
-                            <IgrToolActionCheckbox
-                                name="EnableTooltipsLabel"
-                                title="Enable Tooltips"
-                                beforeId="ZoomReset"
-                                commandId="EnableTooltips">
-                            </IgrToolActionCheckbox>
-                            <IgrToolActionLabel
-                                name="zoomResetHidden"
-                                overlayId="ZoomReset"
-                                visibility="Collapsed">
-                            </IgrToolActionLabel>
+                            onCommand={this.toolbarToggleAnnotations}>
+                            <IgrToolActionIconMenu
+                                name="MenuForSubPanelTool"
+                                iconCollectionName="ChartToolbarIcons"
+                                iconName="analyze">
+                                <IgrToolActionGroupHeader
+                                    name="SubPanelGroup"
+                                    closeOnExecute="true"
+                                    title="Visualizations"
+                                    subtitle="Layers">
+                                </IgrToolActionGroupHeader>
+                                <IgrToolActionSubPanel
+                                    name="CustomSubPanelTools">
+                                    <IgrToolActionCheckbox
+                                        name="EnableTooltipsLabel"
+                                        title="Enable Tooltips"
+                                        commandId="EnableTooltips">
+                                    </IgrToolActionCheckbox>
+                                    <IgrToolActionCheckbox
+                                        name="EnableCrosshairsLabel"
+                                        title="Enable Crosshairs"
+                                        commandId="EnableCrosshairs">
+                                    </IgrToolActionCheckbox>
+                                    <IgrToolActionCheckbox
+                                        name="EnableFinalValuesLabel"
+                                        title="Enable Final Values"
+                                        commandId="EnableFinalValues">
+                                    </IgrToolActionCheckbox>
+                                </IgrToolActionSubPanel>
+                            </IgrToolActionIconMenu>
                             <IgrToolActionLabel
                                 name="zoomResetLabel"
                                 title="Reset"
                                 afterId="ZoomOut"
                                 iconName="reset"
                                 iconCollectionName="ChartToolbarIcons"
-                                commandId="ZoomReset">
+                                commandId="ZoomReset"
+                                isHighlighted="true">
+                            </IgrToolActionLabel>
+                            <IgrToolActionLabel
+                                name="zoomResetHidden"
+                                overlayId="ZoomReset"
+                                visibility="Collapsed">
                             </IgrToolActionLabel>
                             <IgrToolActionIconMenu
                                 name="AnalyzeMenu"
                                 overlayId="AnalyzeMenu"
                                 visibility="Collapsed">
                             </IgrToolActionIconMenu>
+                            <IgrToolActionLabel
+                                name="CopyMenu"
+                                overlayId="CopyMenu"
+                                visibility="Collapsed">
+                            </IgrToolActionLabel>
                         </IgrToolbar>
                     </div>
                 </div>
@@ -147,7 +182,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public toolbarToggleTooltip(sender: any, args: IgrToolCommandEventArgs): void {
+    public toolbarToggleAnnotations(sender: any, args: IgrToolCommandEventArgs): void {
         var target = this.chart;
         switch (args.command.commandId)
     	{
@@ -163,6 +198,50 @@ export default class Sample extends React.Component<any, any> {
     				for (var i = 0; i < target.actualSeries.length; i++) {
                         let s = target.actualSeries[i] as IgrSeries;
     					if (s instanceof IgrDataToolTipLayer)
+    					{
+    						toRemove = s;
+    					}
+    				}
+    				if (toRemove != null)
+    				{
+    					target.series.remove(toRemove);
+    				}
+    			}
+    			break;
+    		case "EnableCrosshairs":
+    			var enable = args.command.argumentsList[0].value as boolean;
+    			if (enable)
+    			{
+    				target.series.add(new IgrCrosshairLayer({ name: "crosshairLayer" }));
+    			}
+    			else
+    			{
+    				var toRemove = null;
+    				for (var i = 0; i < target.actualSeries.length; i++) {
+    					let s = target.actualSeries[i] as IgrSeries;
+    					if (s instanceof IgrCrosshairLayer)
+    					{
+    						toRemove = s;
+    					}
+    				}
+    				if (toRemove != null)
+    				{
+    					target.series.remove(toRemove);
+    				}
+    			}
+    			break;
+    		case "EnableFinalValues":
+    			var enable = args.command.argumentsList[0].value as boolean;
+    			if (enable)
+    			{
+    				target.series.add(new IgrFinalValueLayer({ name: "finalValueLayer" }));
+    			}
+    			else
+    			{
+    				var toRemove = null;
+    				for (var i = 0; i < target.actualSeries.length; i++) {
+    					let s = target.actualSeries[i] as IgrSeries;
+    					if (s instanceof IgrFinalValueLayer)
     					{
     						toRemove = s;
     					}
