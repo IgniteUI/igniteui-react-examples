@@ -249,6 +249,14 @@ module.exports = function override(config, env) {
         config.plugins[checkerInd] = checker;
     }
 
+    // Add Babel plugins manually to the config
+    let moduleRules = config.module.rules[0].oneOf;
+    for (var j = 0; j < moduleRules.length; j++) {
+      if (moduleRules[j].loader?.includes("babel-loader")) {
+        moduleRules[j].options.plugins?.push("@babel/plugin-transform-class-static-block");
+      }
+    }
+
     let newConfig = aliasMultiple(tspaths)(config);
     console.log(newConfig);
     return newConfig;
