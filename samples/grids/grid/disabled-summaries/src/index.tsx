@@ -114,7 +114,8 @@ export default class Sample extends React.Component<any, any> {
         const columnState: any | undefined = this.state.columns.find((c: any) => c.field === column.field);
 
         this.setState({
-            currentColumn: columnState!
+            currentColumn: columnState!,
+            checkboxStates: [],
         }, () => {
             this.updateCheckboxes();
             this.dialog?.show();
@@ -194,10 +195,8 @@ export default class Sample extends React.Component<any, any> {
             currentColumn: { ...currentColumn, disabledSummaries: updatedDisabledSummaries },
             columns: updatedColumns,
         }, () => {
-          this.updateCheckboxes();
           this.grid.markForCheck();
         });
-
     };
 
     disableAllSummaries = () => {
@@ -273,7 +272,7 @@ export default class Sample extends React.Component<any, any> {
                                 key={checkbox.key}
                                 className="summaries-dialog-item"
                                 checked={checkbox.checked}
-                                onChange={() => this.toggleSummary(checkbox.key)}
+                                onClick={() => this.toggleSummary(checkbox.key)}
                             >
                                 <span>{checkbox.label}</span>
                             </IgrCheckbox>
@@ -292,12 +291,18 @@ export default class Sample extends React.Component<any, any> {
                         height="700px"
                         width="100%"
                     >
-                        <IgrColumn field="ProductID" header="ProductID" hasSummary={true} disabledSummaries={col.disabledSummaries}></IgrColumn>
-                        <IgrColumn field="ProductName" header="Product Name" hasSummary={true} disabledSummaries={col.disabledSummaries}></IgrColumn>
-                        <IgrColumn field="UnitPrice" header="Unit Price" hasSummary={true} dataType="number" disabledSummaries={col.disabledSummaries}></IgrColumn>
-                        <IgrColumn field="UnitsInStock" header="Units In Stock" hasSummary={true} dataType="number" summaries={UnitsInStockSummary} disabledSummaries={col.disabledSummaries}></IgrColumn>
-                        <IgrColumn field="Discontinued" header="Discontinued" hasSummary={true} summaries={DiscontinuedSummary} disabledSummaries={col.disabledSummaries}></IgrColumn>
-                        <IgrColumn field="OrderDate" header="Order Date" hasSummary={true} dataType="date" disabledSummaries={col.disabledSummaries}></IgrColumn>
+                        <IgrColumn field="ProductID" header="ProductID" 
+                            hasSummary={true} disabledSummaries={this.state.columns.find((col: any) => col.field === "ProductID")?.disabledSummaries}></IgrColumn>
+                        <IgrColumn field="ProductName" header="Product Name" 
+                            hasSummary={true} disabledSummaries={this.state.columns.find((col: any) => col.field === "ProductName")?.disabledSummaries}></IgrColumn>
+                        <IgrColumn field="UnitPrice" header="Unit Price" dataType="number"
+                            hasSummary={true} disabledSummaries={this.state.columns.find((col: any) => col.field === "UnitPrice")?.disabledSummaries}></IgrColumn>
+                        <IgrColumn field="UnitsInStock" header="Units In Stock" dataType="number"
+                            hasSummary={true} summaries={UnitsInStockSummary} disabledSummaries={this.state.columns.find((col: any) => col.field === "UnitsInStock")?.disabledSummaries}></IgrColumn>
+                        <IgrColumn field="Discontinued" header="Discontinued" 
+                            hasSummary={true} summaries={DiscontinuedSummary} disabledSummaries={this.state.columns.find((col: any) => col.field === "Discontinued")?.disabledSummaries}></IgrColumn>
+                        <IgrColumn field="OrderDate" header="Order Date" dataType="date"
+                            hasSummary={true} disabledSummaries={this.state.columns.find((col: any) => col.field === "OrderDate")?.disabledSummaries}></IgrColumn>
                     </IgrGrid>
                 </div>
             </div>

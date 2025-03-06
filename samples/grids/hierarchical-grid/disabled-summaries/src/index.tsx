@@ -105,7 +105,8 @@ export default class Sample extends React.Component<any, any> {
         const columnState: any | undefined = this.state.columns.find((c: any) => c.field === column.field);
 
         this.setState({
-            currentColumn: columnState!
+            currentColumn: columnState!,
+            checkboxStates: [],
         }, () => {
             this.updateCheckboxes();
             this.dialog?.show();
@@ -185,10 +186,8 @@ export default class Sample extends React.Component<any, any> {
             currentColumn: { ...currentColumn, disabledSummaries: updatedDisabledSummaries },
             columns: updatedColumns,
         }, () => {
-          this.updateCheckboxes();
           this.hierarchicalGrid.markForCheck();
         });
-
     };
 
     disableAllSummaries = () => {
@@ -264,7 +263,7 @@ export default class Sample extends React.Component<any, any> {
                                 key={checkbox.key}
                                 className="summaries-dialog-item"
                                 checked={checkbox.checked}
-                                onChange={() => this.toggleSummary(checkbox.key)}
+                                onClick={() => this.toggleSummary(checkbox.key)}
                             >
                                 <span>{checkbox.label}</span>
                             </IgrCheckbox>
@@ -284,31 +283,36 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Artist"
                         header="Artist"
-                        hasSummary="true">
+                        hasSummary="true"
+                        disabledSummaries={this.state.columns.find((col: any) => col.field === "Artist")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Photo"
                         header="Photo"
                         dataType="Image"
                         hasSummary="true"
-                        summaries={GrammySummary}>
+                        summaries={GrammySummary}
+                        disabledSummaries={this.state.columns.find((col: any) => col.field === "Photo")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut"
-                        hasSummary="true">
+                        hasSummary="true"
+                        disabledSummaries={this.state.columns.find((col: any) => col.field === "Debut")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
                         dataType="Number"
-                        hasSummary="true">
+                        hasSummary="true"
+                        disabledSummaries={this.state.columns.find((col: any) => col.field === "GrammyNominations")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
                         dataType="Number"
-                        hasSummary="true">
+                        hasSummary="true"
+                        disabledSummaries={this.state.columns.find((col: any) => col.field === "GrammyAwards")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
