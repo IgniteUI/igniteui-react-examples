@@ -9,14 +9,9 @@ import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { IgrCategoryChart, IgrCategoryChartModule } from 'igniteui-react-charts';
 import {
   IgrButton,
-  IgrChip,
-  IgrChipModule,
-  IgrComponentValueChangedEventArgs,
   IgrDialog,
   IgrIcon,
-  IgrIconButton,
   IgrIconModule,
-  IgrInput,
   IgrSlider,
   IgrSwitch,
   IgrToast,
@@ -80,7 +75,7 @@ function priceTemplate(ctx: {dataContext: IgrCellTemplateContext}) {
   const cell = ctx.dataContext.cell;
   const rowData = gridRef.current.getRowData(cell.id.rowID);
   const icon = trends.positive(rowData) ? "trending_up" : "trending_down";
-  const value = cell.value.toFixed(4);
+  const value = parseFloat(cell.value).toFixed(4);
   return <div className="finjs-icons">
   <span>${value}</span>
   <IgrIcon name={icon} collection="material"></IgrIcon>
