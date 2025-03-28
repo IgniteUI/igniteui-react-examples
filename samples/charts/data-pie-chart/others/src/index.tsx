@@ -7,7 +7,7 @@ import { IgrDataPieChartModule, IgrItemLegendModule } from 'igniteui-react-chart
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrDataPieChart } from 'igniteui-react-charts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataPieChartDescriptionModule, ItemLegendDescriptionModule } from 'igniteui-react-core';
-import { EnergyGlobalDemandItem, EnergyGlobalDemand } from './EnergyGlobalDemand';
+import { DataPieDataItem, DataPieData } from './DataPieData';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -24,6 +24,9 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private othersCategoryTypeEditor: IgrPropertyEditorPropertyDescription
+    private othersCategoryThresholdEditor: IgrPropertyEditorPropertyDescription
+    private othersCategoryTextEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrDataPieChart
     private chartRef(r: IgrDataPieChart) {
         this.chart = r;
@@ -50,20 +53,25 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="OthersCategoryType"
+                        name="OthersCategoryTypeEditor"
                         label="Others Type: "
-                        primitiveValue="Number">
+                        primitiveValue="Number"
+                        valueType="EnumValue">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="OthersCategoryThreshold"
+                        name="OthersCategoryThresholdEditor"
                         label="Others Threshold: "
-                        shouldOverrideDefaultEditor="true"
                         valueType="Slider"
                         min="0"
-                        max="40">
+                        max="50"
+                        primitiveValue="15">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="OthersCategoryText"
-                        label="Others Text: ">
+                        name="OthersCategoryTextEditor"
+                        label="Others Text: "
+                        valueType="StringValue">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
@@ -75,23 +83,22 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDataPieChart
                     ref={this.chartRef}
-                    dataSource={this.energyGlobalDemand}
-                    othersCategoryText="Others"
+                    dataSource={this.dataPieData}
                     othersCategoryType="Number"
-                    othersCategoryThreshold="5">
+                    othersCategoryThreshold="15">
                 </IgrDataPieChart>
             </div>
         </div>
         );
     }
 
-    private _energyGlobalDemand: EnergyGlobalDemand = null;
-    public get energyGlobalDemand(): EnergyGlobalDemand {
-        if (this._energyGlobalDemand == null)
+    private _dataPieData: DataPieData = null;
+    public get dataPieData(): DataPieData {
+        if (this._dataPieData == null)
         {
-            this._energyGlobalDemand = new EnergyGlobalDemand();
+            this._dataPieData = new DataPieData();
         }
-        return this._energyGlobalDemand;
+        return this._dataPieData;
     }
 
     private _componentRenderer: ComponentRenderer = null;

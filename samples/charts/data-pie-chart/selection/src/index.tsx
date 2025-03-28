@@ -24,6 +24,8 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private selectionBehaviorEditor: IgrPropertyEditorPropertyDescription
+    private selectionModeEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrDataPieChart
     private chartRef(r: IgrDataPieChart) {
         this.chart = r;
@@ -49,12 +51,18 @@ export default class Sample extends React.Component<any, any> {
                     isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="SelectionBehavior"
                         label="Selection Behavior: "
+                        valueType="EnumValue"
+                        propertyPath="SelectionBehavior"
+                        name="SelectionBehaviorEditor"
+                        shouldOverrideDefaultEditor="true"
+                        dropDownNames={["PerDataItemSingleSelect", "PerDataItemMultiSelect"]}
+                        dropDownValues={["PerDataItemSingleSelect", "PerDataItemMultiSelect"]}
                         primitiveValue="PerDataItemSingleSelect">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="SelectionMode"
+                        name="SelectionModeEditor"
                         label="Selection Mode: "
                         primitiveValue="Brighten">
                     </IgrPropertyEditorPropertyDescription>

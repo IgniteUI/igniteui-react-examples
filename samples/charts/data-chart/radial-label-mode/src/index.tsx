@@ -60,13 +60,13 @@ export default class Sample extends React.Component<any, any> {
             <div className="options vertical">
                 <IgrPropertyEditorPanel
                     componentRenderer={this.renderer}
-                    target={this.angleAxis}
-                    descriptionType="CategoryAngleAxis"
+                    target={this.chart}
+                    descriptionType="DataChart"
                     isHorizontal="true"
                     isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="LabelExtent"
+                        propertyPath="Axes[0 as CategoryAngleAxis].LabelExtent"
                         name="LabelExtent"
                         label="Label Extent"
                         shouldOverrideDefaultEditor="true"
@@ -77,7 +77,7 @@ export default class Sample extends React.Component<any, any> {
                         step="1">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
-                        propertyPath="LabelMode"
+                        propertyPath="Axes[0 as CategoryAngleAxis].LabelMode"
                         name="LabelMode"
                         label="LabelMode"
                         shouldOverrideDefaultEditor="true"

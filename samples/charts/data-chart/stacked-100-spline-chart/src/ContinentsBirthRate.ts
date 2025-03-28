@@ -3,13 +3,13 @@ export class ContinentsBirthRateItem {
         Object.assign(this, init);
     }
 
-    public year: string;
-    public asia: number;
-    public africa: number;
-    public europe: number;
-    public northAmerica: number;
-    public southAmerica: number;
-    public oceania: number;
+    public Year: string;
+    public Asia: number;
+    public Africa: number;
+    public Europe: number;
+    public NorthAmerica: number;
+    public SouthAmerica: number;
+    public Oceania: number;
 
 }
 export class ContinentsBirthRate extends Array<ContinentsBirthRateItem> {
@@ -20,83 +20,83 @@ export class ContinentsBirthRate extends Array<ContinentsBirthRateItem> {
             const newItems = [
                 new ContinentsBirthRateItem(
                 {
-                    year: `1950`,
-                    asia: 62,
-                    africa: 13,
-                    europe: 10,
-                    northAmerica: 4,
-                    southAmerica: 8,
-                    oceania: 1
+                    Year: `1950`,
+                    Asia: 62,
+                    Africa: 13,
+                    Europe: 10,
+                    NorthAmerica: 4,
+                    SouthAmerica: 8,
+                    Oceania: 1
                 }),
                 new ContinentsBirthRateItem(
                 {
-                    year: `1960`,
-                    asia: 68,
-                    africa: 12,
-                    europe: 15,
-                    northAmerica: 4,
-                    southAmerica: 9,
-                    oceania: 2
+                    Year: `1960`,
+                    Asia: 68,
+                    Africa: 12,
+                    Europe: 15,
+                    NorthAmerica: 4,
+                    SouthAmerica: 9,
+                    Oceania: 2
                 }),
                 new ContinentsBirthRateItem(
                 {
-                    year: `1970`,
-                    asia: 80,
-                    africa: 17,
-                    europe: 11,
-                    northAmerica: 3,
-                    southAmerica: 9,
-                    oceania: 1
+                    Year: `1970`,
+                    Asia: 80,
+                    Africa: 17,
+                    Europe: 11,
+                    NorthAmerica: 3,
+                    SouthAmerica: 9,
+                    Oceania: 1
                 }),
                 new ContinentsBirthRateItem(
                 {
-                    year: `1980`,
-                    asia: 77,
-                    africa: 21,
-                    europe: 12,
-                    northAmerica: 3,
-                    southAmerica: 10,
-                    oceania: 2
+                    Year: `1980`,
+                    Asia: 77,
+                    Africa: 21,
+                    Europe: 12,
+                    NorthAmerica: 3,
+                    SouthAmerica: 10,
+                    Oceania: 2
                 }),
                 new ContinentsBirthRateItem(
                 {
-                    year: `1990`,
-                    asia: 87,
-                    africa: 24,
-                    europe: 9,
-                    northAmerica: 3,
-                    southAmerica: 10,
-                    oceania: 1
+                    Year: `1990`,
+                    Asia: 87,
+                    Africa: 24,
+                    Europe: 9,
+                    NorthAmerica: 3,
+                    SouthAmerica: 10,
+                    Oceania: 1
                 }),
                 new ContinentsBirthRateItem(
                 {
-                    year: `2000`,
-                    asia: 79,
-                    africa: 28,
-                    europe: 8,
-                    northAmerica: 4,
-                    southAmerica: 9,
-                    oceania: 3
+                    Year: `2000`,
+                    Asia: 79,
+                    Africa: 28,
+                    Europe: 8,
+                    NorthAmerica: 4,
+                    SouthAmerica: 9,
+                    Oceania: 3
                 }),
                 new ContinentsBirthRateItem(
                 {
-                    year: `2010`,
-                    asia: 78,
-                    africa: 35,
-                    europe: 10,
-                    northAmerica: 4,
-                    southAmerica: 8,
-                    oceania: 2
+                    Year: `2010`,
+                    Asia: 78,
+                    Africa: 35,
+                    Europe: 10,
+                    NorthAmerica: 4,
+                    SouthAmerica: 8,
+                    Oceania: 2
                 }),
                 new ContinentsBirthRateItem(
                 {
-                    year: `2020`,
-                    asia: 75,
-                    africa: 43,
-                    europe: 7,
-                    northAmerica: 4,
-                    southAmerica: 7,
-                    oceania: 4
+                    Year: `2020`,
+                    Asia: 75,
+                    Africa: 43,
+                    Europe: 7,
+                    NorthAmerica: 4,
+                    SouthAmerica: 7,
+                    Oceania: 4
                 }),
             ];
             super(...newItems.slice(0));

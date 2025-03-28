@@ -80,7 +80,7 @@ export class MultipleStocks extends Array<Array<StockItem>> {
       for (let json of jsonData) {
         let parts = json.date.split("-"); // "2020-01-01"
         let item = new StockItem();
-        item.date = new Date(parts[0], parts[1], parts[2]);
+        item.date = new Date(parts[0], parts[1], parts[2],13,0,0);
         item.open = json.open;
         item.high = json.high;
         item.low = json.low;
