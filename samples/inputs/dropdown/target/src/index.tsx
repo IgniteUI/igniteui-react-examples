@@ -24,7 +24,7 @@ export default class DropDownTarget extends React.Component<any, any> {
                     <IgrButton clicked={(e)=>this.onClick(e)}><span>First Target</span></IgrButton>
                     <IgrButton clicked={(e)=>this.onClick(e)} style={{marginLeft: "20px"}}><span>Second Target</span></IgrButton>
 
-                    <IgrDropdown ref={this.onDropDownRef} sameWidth="true">
+                    <IgrDropdown ref={this.onDropDownRef} sameWidth={true}>
                         <IgrDropdownItem><span>Option 1</span></IgrDropdownItem>
                         <IgrDropdownItem><span>Option 2</span></IgrDropdownItem>
                         <IgrDropdownItem><span>Option 3</span></IgrDropdownItem>

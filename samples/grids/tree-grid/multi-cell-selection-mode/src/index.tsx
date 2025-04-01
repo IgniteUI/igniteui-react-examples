@@ -35,7 +35,7 @@ export default function App() {
     <div className="container sample">
       <div className="container horizontal wrapper">
         <IgrTreeGrid
-          autoGenerate="false"
+          autoGenerate={false}
           ref={leftTreeGridRef}
           id="leftTreeGrid"
           width="50%"
@@ -52,7 +52,7 @@ export default function App() {
           <IgrColumn field="Title" dataType="string" />
           <IgrColumn field="HireDate" dataType="date" />
         </IgrTreeGrid>
-        <IgrGrid ref={rightGridRef} id="rightGrid" autoGenerate="false" width="50%" height="100%">
+        <IgrGrid ref={rightGridRef} id="rightGrid" autoGenerate={false} width="50%" height="100%">
           <IgrColumn field="ID" dataType="number" />
           <IgrColumn field="Name" dataType="string" />
           <IgrColumn field="Age" dataType="number" />

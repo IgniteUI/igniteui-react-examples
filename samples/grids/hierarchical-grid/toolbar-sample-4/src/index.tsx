@@ -44,7 +44,7 @@ export default function App() {
     <div className="container sample ig-typography">
       <div className="container fill">
         <IgrHierarchicalGrid
-          autoGenerate="false"
+          autoGenerate={false}
           data={singersData}
           primaryKey="ID"
           ref={hierarchicalGridRef}
@@ -86,7 +86,7 @@ export default function App() {
             width="200px"
             sortable
           ></IgrColumn>
-          <IgrRowIsland childDataKey="Albums" autoGenerate="false">
+          <IgrRowIsland childDataKey="Albums" autoGenerate={false}>
             <IgrColumn
               field="Album"
               header="Album"
@@ -107,7 +107,7 @@ export default function App() {
               header="US Billboard 200"
               dataType="String"
             ></IgrColumn>
-            <IgrRowIsland childDataKey="Songs" autoGenerate="false">
+            <IgrRowIsland childDataKey="Songs" autoGenerate={false}>
               <IgrColumn
                 field="Number"
                 header="No."
@@ -130,7 +130,7 @@ export default function App() {
               ></IgrColumn>
             </IgrRowIsland>
           </IgrRowIsland>
-          <IgrRowIsland childDataKey="Tours" autoGenerate="false">
+          <IgrRowIsland childDataKey="Tours" autoGenerate={false}>
             <IgrColumn field="Tour" header="Tour" dataType="String"></IgrColumn>
             <IgrColumn
               field="StartedOn"

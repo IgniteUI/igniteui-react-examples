@@ -16,7 +16,7 @@ export default class RadioInvalid extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <div className="container" style={{width: "430px", height: "25px", border: "1px solid gainsboro"}}>
-                    <IgrRadio value="banana" invalid="true"><span>Invalid</span></IgrRadio>
+                    <IgrRadio value="banana" invalid={true}><span>Invalid</span></IgrRadio>
                 </div>
             </div>
         );

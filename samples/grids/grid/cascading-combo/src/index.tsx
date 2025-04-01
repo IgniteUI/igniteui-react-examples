@@ -164,7 +164,7 @@ export default class Sample extends React.Component<any, any> {
         const comboId = "country" + id;
         return (
         <>
-            <IgrCombo data={this.countries} ref={(this as any).comboRefs} change={(x: any, args: any) => { (this as any).onCountryChange(id, x, args) }} placeholder="Choose Country..." valueKey="Country" displayKey="Country" singleSelect="true" name={comboId}></IgrCombo>
+            <IgrCombo data={this.countries} ref={(this as any).comboRefs} change={(x: any, args: any) => { (this as any).onCountryChange(id, x, args) }} placeholder="Choose Country..." valueKey="Country" displayKey="Country" singleSelect={true} name={comboId}></IgrCombo>
         </>
         );
     }
@@ -180,7 +180,7 @@ export default class Sample extends React.Component<any, any> {
         return (
         <>
             <div style={{display: "flex", flexDirection: "column"}}>
-                <IgrCombo ref={(this as any).comboRefs} change={(x: any, args: any) => { (this as any).onRegionChange(id, x, args) }} placeholder="Choose Region..." disabled="true" valueKey="Region"  displayKey="Region" singleSelect="true" name={comboId}>
+                <IgrCombo ref={(this as any).comboRefs} change={(x: any, args: any) => { (this as any).onRegionChange(id, x, args) }} placeholder="Choose Region..." disabled={true} valueKey="Region"  displayKey="Region" singleSelect={true} name={comboId}>
                 </IgrCombo>
             </div>
         </>
@@ -198,7 +198,7 @@ export default class Sample extends React.Component<any, any> {
         return (
         <>
             <div style={{display: "flex", flexDirection: "column"}}>
-                <IgrCombo ref={(this as any).comboRefs} placeholder="Choose City..." disabled="true" valueKey="Name"  displayKey="Name" name={comboId} singleSelect="true">
+                <IgrCombo ref={(this as any).comboRefs} placeholder="Choose City..." disabled={true} valueKey="Name"  displayKey="Name" name={comboId} singleSelect={true}>
                 </IgrCombo>
             </div>
         </>

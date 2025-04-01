@@ -33,7 +33,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatDetails}
@@ -64,7 +64,7 @@ export default class Sample extends React.Component<any, any> {
                             <IgrColumn
                                 field="Age"
                                 dataType="Number"
-                                selectable="false">
+                                selectable={false}>
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>
@@ -75,7 +75,7 @@ export default class Sample extends React.Component<any, any> {
                             <IgrColumn
                                 field="Country"
                                 dataType="String"
-                                selectable="false">
+                                selectable={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="City"
@@ -91,12 +91,12 @@ export default class Sample extends React.Component<any, any> {
                             <IgrColumn
                                 field="Phone"
                                 dataType="String"
-                                selectable="false">
+                                selectable={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Fax"
                                 dataType="String"
-                                selectable="false">
+                                selectable={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="PostalCode"

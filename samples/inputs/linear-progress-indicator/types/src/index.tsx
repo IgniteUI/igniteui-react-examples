@@ -16,9 +16,9 @@ export default class LinearProgressTypes extends React.Component<any, any> {
         return (
             <div className="container sample">
                  <IgrLinearProgress value="100"variant="primary" />
-                 <IgrLinearProgress value="100"variant="success" striped="true" />
+                 <IgrLinearProgress value="100"variant="success" striped={true} />
                  <IgrLinearProgress value="100"variant="danger" />
-                 <IgrLinearProgress value="100"variant="info" striped="true" />
+                 <IgrLinearProgress value="100"variant="info" striped={true} />
                  <IgrLinearProgress value="100"variant="warning" />
 
             </div>

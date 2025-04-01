@@ -22,13 +22,13 @@ export default class InputSize extends React.Component<any, any> {
                 <div id="radioGroup">
                     <IgrRadioGroup alignment="horizontal">
                         <IgrRadio name="size" value="small" labelPosition="after" change={this.onRadioChange}><span>Small</span></IgrRadio>
-                        <IgrRadio name="size" value="medium" labelPosition="after" checked="true" change={this.onRadioChange}><span>Medium</span></IgrRadio>
+                        <IgrRadio name="size" value="medium" labelPosition="after" checked={true} change={this.onRadioChange}><span>Medium</span></IgrRadio>
                         <IgrRadio name="size" value="large" labelPosition="after" change={this.onRadioChange}><span>Large</span></IgrRadio>
                     </IgrRadioGroup>
                 </div>
-                <IgrInput className={'size-' + this.state.size} type="text" label="Required" value="This input is required" required="true" />                
-                <IgrInput className={'size-' + this.state.size} type="text" label="Disabled" value="This input is disabled" disabled="true" />                
-                <IgrInput className={'size-' + this.state.size} type="text" label="Readonly" value="This input is readonly" readOnly="true" />                
+                <IgrInput className={'size-' + this.state.size} type="text" label="Required" value="This input is required" required={true} />                
+                <IgrInput className={'size-' + this.state.size} type="text" label="Disabled" value="This input is disabled" disabled={true} />                
+                <IgrInput className={'size-' + this.state.size} type="text" label="Readonly" value="This input is readonly" readOnly={true} />                
             </div>
         );
     }

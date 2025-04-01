@@ -19,7 +19,7 @@ export default class RadioStyling extends React.Component<any, any> {
                 <div className="container" style={{width: "430px", height: "120px", border: "1px solid gainsboro"}}>
                     <IgrRadioGroup alignment="vertical">
                         <IgrRadio name="fruit" value="apple"><span>Apple</span></IgrRadio>
-                        <IgrRadio name="fruit" value="banana" checked="true"><span>Banana</span></IgrRadio>
+                        <IgrRadio name="fruit" value="banana" checked={true}><span>Banana</span></IgrRadio>
                         <IgrRadio name="fruit" value="Mango"><span>Mango</span></IgrRadio>
                         <IgrRadio name="fruit" value="orange"><span>Orange</span></IgrRadio>
                     </IgrRadioGroup>

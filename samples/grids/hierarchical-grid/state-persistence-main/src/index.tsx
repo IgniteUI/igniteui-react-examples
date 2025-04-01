@@ -276,10 +276,10 @@ export default function App() {
         primaryKey="ID"
         width="95%"
         height="500px"
-        autoGenerate="false"
-        moving="true"
-        allowFiltering="true"
-        allowAdvancedFiltering="true"
+        autoGenerate={false}
+        moving={true}
+        allowFiltering={true}
+        allowAdvancedFiltering={true}
         filterMode={FilterMode.ExcelStyleFilter}
         columnSelection={GridSelectionMode.Multiple}
         rowSelection={GridSelectionMode.Multiple}
@@ -296,67 +296,67 @@ export default function App() {
         </IgrActionStrip>
         <IgrPaginator ref={paginatorRef}></IgrPaginator>
 
-        <IgrColumn field="Artist" sortable="true"></IgrColumn>
+        <IgrColumn field="Artist" sortable={true}></IgrColumn>
         <IgrColumn
           dataType="image"
           field="Photo"
-          editable="false"
-          sortable="true"
+          editable={false}
+          sortable={true}
         ></IgrColumn>
-        <IgrColumn field="Debut" dataType="number" sortable="true"></IgrColumn>
+        <IgrColumn field="Debut" dataType="number" sortable={true}></IgrColumn>
         <IgrColumn
           field="GrammyNominations"
           header="Grammy Nominations"
           dataType="number"
-          sortable="true"
+          sortable={true}
         ></IgrColumn>
         <IgrColumn
           field="GrammyAwards"
           header="Grammy Awards"
           dataType="number"
-          sortable="true"
+          sortable={true}
         ></IgrColumn>
         <IgrRowIsland
           height="null"
           childDataKey="Albums"
-          autoGenerate="false"
+          autoGenerate={false}
           primaryKey="Album"
-          allowFiltering="true"
+          allowFiltering={true}
           columnSelection={GridSelectionMode.Multiple}
           rowSelection={GridSelectionMode.Multiple}
         >
-          <IgrColumn field="Album" sortable="true"></IgrColumn>
+          <IgrColumn field="Album" sortable={true}></IgrColumn>
           <IgrColumn
             field="LaunchDate"
             header="Launch Date"
             dataType="date"
-            sortable="true"
+            sortable={true}
           ></IgrColumn>
           <IgrColumn
             field="BillboardReview"
             header="Billboard Review"
-            sortable="true"
+            sortable={true}
           ></IgrColumn>
           <IgrColumn
             field="USBillboard200"
             header="US Billboard 200"
-            sortable="true"
+            sortable={true}
           ></IgrColumn>
           <IgrRowIsland
             height="null"
             childDataKey="Songs"
             columnSelection={GridSelectionMode.Multiple}
             rowSelection={GridSelectionMode.Multiple}
-            autoGenerate="false"
+            autoGenerate={false}
             primaryKey="Number"
-            allowFiltering="true"
+            allowFiltering={true}
           >
-            <IgrColumn field="Number" header="No." sortable="true"></IgrColumn>
-            <IgrColumn field="Title" sortable="true"></IgrColumn>
+            <IgrColumn field="Number" header="No." sortable={true}></IgrColumn>
+            <IgrColumn field="Title" sortable={true}></IgrColumn>
             <IgrColumn
               field="Released"
               dataType="date"
-              sortable="true"
+              sortable={true}
             ></IgrColumn>
             <IgrColumn field="Genre"></IgrColumn>
           </IgrRowIsland>
@@ -365,20 +365,20 @@ export default function App() {
         <IgrRowIsland
           height="null"
           childDataKey="Tours"
-          autoGenerate="false"
+          autoGenerate={false}
           primaryKey="Tour"
-          allowFiltering="true"
+          allowFiltering={true}
           columnSelection={GridSelectionMode.Multiple}
           rowSelection={GridSelectionMode.Multiple}
         >
-          <IgrColumn field="Tour" sortable="true"></IgrColumn>
+          <IgrColumn field="Tour" sortable={true}></IgrColumn>
           <IgrColumn
             field="StartedOn"
             header="Started on"
-            sortable="true"
+            sortable={true}
           ></IgrColumn>
-          <IgrColumn field="Location" sortable="true"></IgrColumn>
-          <IgrColumn field="Headliner" sortable="true"></IgrColumn>
+          <IgrColumn field="Location" sortable={true}></IgrColumn>
+          <IgrColumn field="Headliner" sortable={true}></IgrColumn>
         </IgrRowIsland>
       </IgrHierarchicalGrid>
     </div>

@@ -274,7 +274,7 @@ function openDialogForRow(e: any, rowData: any) {
             LIVE ALL PRICES
             </span>
           </IgrButton>
-          <IgrButton variant="outlined" disabled="true" ref={stopButton} clicked={e => stopUpdate()}>
+          <IgrButton variant="outlined" disabled={true} ref={stopButton} clicked={e => stopUpdate()}>
             <span key='content2'>
             <IgrIcon name="stop" ref={iconForStop} collection="material"></IgrIcon>
             Stop
@@ -289,8 +289,8 @@ function openDialogForRow(e: any, rowData: any) {
         </div>
       </div>
       <div className="container vertical">
-        <IgrGrid className="gridSize" ref={gridRef} autoGenerate="false" data={data} rowSelection="multiple" primaryKey="id" hideGroupedColumns="true"
-          allowFiltering="true" filterMode="excelStyleFilter" groupingExpressions={groupingExpressions}>
+        <IgrGrid className="gridSize" ref={gridRef} autoGenerate={false} data={data} rowSelection="multiple" primaryKey="id" hideGroupedColumns={true}
+          allowFiltering={true} filterMode="excelStyleFilter" groupingExpressions={groupingExpressions}>
         <IgrGridToolbar>
             <IgrGridToolbarActions>
               <IgrGridToolbarHiding></IgrGridToolbarHiding>
@@ -298,100 +298,100 @@ function openDialogForRow(e: any, rowData: any) {
               <IgrGridToolbarExporter></IgrGridToolbarExporter>
             </IgrGridToolbarActions>
           </IgrGridToolbar>
-          <IgrColumn field="id" header="Id" dataType="number" sortable="true" editable="true" resizable="true">
+          <IgrColumn field="id" header="Id" dataType="number" sortable={true} editable={true} resizable={true}>
           </IgrColumn>
-          <IgrColumn field="category" header="Category" width="120px" dataType="string" sortable="true"
-            editable="true" resizable="true">
+          <IgrColumn field="category" header="Category" width="120px" dataType="string" sortable={true}
+            editable={true} resizable={true}>
           </IgrColumn>
-          <IgrColumn field="type" header="Type" width="100px" dataType="string" sortable="true" editable="true"
-            resizable="true">
+          <IgrColumn field="type" header="Type" width="100px" dataType="string" sortable={true} editable={true}
+            resizable={true}>
           </IgrColumn>
-          <IgrColumn field="contract" header="Contract" width="110px" dataType="string" sortable="true"
-            editable="true" groupable="true">
+          <IgrColumn field="contract" header="Contract" width="110px" dataType="string" sortable={true}
+            editable={true} groupable={true}>
           </IgrColumn>
-          <IgrColumn field="settlement" width="100px" header="Settlement" dataType="string" sortable="true"
-            editable="true" resizable="true">
+          <IgrColumn field="settlement" width="100px" header="Settlement" dataType="string" sortable={true}
+            editable={true} resizable={true}>
           </IgrColumn>
-          <IgrColumn field="country" header="Country" width="100px" dataType="string" sortable="true" editable="true"
-            resizable="true">
+          <IgrColumn field="country" header="Country" width="100px" dataType="string" sortable={true} editable={true}
+            resizable={true}>
           </IgrColumn>
-          <IgrColumn field="region" width="100px" header="Region" dataType="string" sortable="true" editable="true">
+          <IgrColumn field="region" width="100px" header="Region" dataType="string" sortable={true} editable={true}>
           </IgrColumn>
-          <IgrColumn field="lastUpdated" width="120px" header="Last Updated" dataType="date" sortable="true"
-            editable="true" filterable="true">
+          <IgrColumn field="lastUpdated" width="120px" header="Last Updated" dataType="date" sortable={true}
+            editable={true} filterable={true}>
           </IgrColumn>
-          <IgrColumn field="openPrice" width="120px" header="Open Price" dataType="currency" sortable="true"
-            editable="true" filterable="true">
+          <IgrColumn field="openPrice" width="120px" header="Open Price" dataType="currency" sortable={true}
+            editable={true} filterable={true}>
           </IgrColumn>
-          <IgrColumn field="price" id="price" header="Price" width="120px" dataType="currency" sortable="true"
-            editable="true" filterable="true" bodyTemplate={priceTemplate} cellClasses={trends}>
+          <IgrColumn field="price" id="price" header="Price" width="120px" dataType="currency" sortable={true}
+            editable={true} filterable={true} bodyTemplate={priceTemplate} cellClasses={trends}>
           </IgrColumn>
           <IgrColumn id="chart" field="Chart" header="Chart" width="60px" bodyTemplate={chartBtnTemplate}>
           </IgrColumn>
-          <IgrColumn field="change" id="change" header="Change" width="120px" dataType="number" sortable="true"
-            editable="true" filterable="true" cellClasses={trendsChange}>
+          <IgrColumn field="change" id="change" header="Change" width="120px" dataType="number" sortable={true}
+            editable={true} filterable={true} cellClasses={trendsChange}>
           </IgrColumn>
-          <IgrColumn field="changeP" id="changeP" header="Change %" width="120px" dataType="percent" sortable="true"
-            editable="true" filterable="true" cellClasses={trendsChange}>
+          <IgrColumn field="changeP" id="changeP" header="Change %" width="120px" dataType="percent" sortable={true}
+            editable={true} filterable={true} cellClasses={trendsChange}>
           </IgrColumn>
-          <IgrColumn field="buy" header="Buy" width="110px" dataType="currency" sortable="true" filterable="true">
+          <IgrColumn field="buy" header="Buy" width="110px" dataType="currency" sortable={true} filterable={true}>
           </IgrColumn>
-          <IgrColumn field="sell" header="Sell" width="110px" dataType="currency" sortable="true" filterable="true">
+          <IgrColumn field="sell" header="Sell" width="110px" dataType="currency" sortable={true} filterable={true}>
           </IgrColumn>
-          <IgrColumn field="spread" header="Spread" width="110px" dataType="number" sortable="true" filterable="true">
+          <IgrColumn field="spread" header="Spread" width="110px" dataType="number" sortable={true} filterable={true}>
           </IgrColumn>
-          <IgrColumn field="volume" header="Volume" width="110px" dataType="number" sortable="true" filterable="true">
+          <IgrColumn field="volume" header="Volume" width="110px" dataType="number" sortable={true} filterable={true}>
           </IgrColumn>
-          <IgrColumn field="highD" header="highD" width="110px" dataType="currency" sortable="true" filterable="true">
+          <IgrColumn field="highD" header="highD" width="110px" dataType="currency" sortable={true} filterable={true}>
           </IgrColumn>
-          <IgrColumn field="lowD" header="lowD" width="110px" dataType="currency" sortable="true" filterable="true">
+          <IgrColumn field="lowD" header="lowD" width="110px" dataType="currency" sortable={true} filterable={true}>
           </IgrColumn>
-          <IgrColumn field="highY" header="highY" width="110px" dataType="currency" sortable="true" filterable="true">
+          <IgrColumn field="highY" header="highY" width="110px" dataType="currency" sortable={true} filterable={true}>
           </IgrColumn>
-          <IgrColumn field="lowY" header="lowY" width="110px" dataType="currency" sortable="true" filterable="true">
+          <IgrColumn field="lowY" header="lowY" width="110px" dataType="currency" sortable={true} filterable={true}>
           </IgrColumn>
-          <IgrColumn field="startY" header="startY" width="110px" dataType="currency" sortable="true"
-            filterable="true">
+          <IgrColumn field="startY" header="startY" width="110px" dataType="currency" sortable={true}
+            filterable={true}>
           </IgrColumn>
-          <IgrColumn field="indGrou" width="100px" filterable="false">
+          <IgrColumn field="indGrou" width="100px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="indSect" width="120px" filterable="false">
+          <IgrColumn field="indSect" width="120px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="indSubg" width="100px" filterable="false">
+          <IgrColumn field="indSubg" width="100px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="secType" width="90px" filterable="false">
+          <IgrColumn field="secType" width="90px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="issuerN" width="170px" filterable="false">
+          <IgrColumn field="issuerN" width="170px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="moodys" width="60px" filterable="false">
+          <IgrColumn field="moodys" width="60px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="fitch" width="60px" filterable="false">
+          <IgrColumn field="fitch" width="60px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="dbrs" width="60px" filterable="false">
+          <IgrColumn field="dbrs" width="60px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="collatT" width="90px" filterable="false">
+          <IgrColumn field="collatT" width="90px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="curncy" width="60px" filterable="false">
+          <IgrColumn field="curncy" width="60px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="security" width="120px" filterable="false">
+          <IgrColumn field="security" width="120px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="sector" width="80px" filterable="false">
+          <IgrColumn field="sector" width="80px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="cusip" width="100px" filterable="false">
+          <IgrColumn field="cusip" width="100px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="ticker" width="60px" filterable="false">
+          <IgrColumn field="ticker" width="60px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="cpn" width="80px" filterable="false">
+          <IgrColumn field="cpn" width="80px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="maturity" width="120px" filterable="false">
+          <IgrColumn field="maturity" width="120px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="krD_3YR" width="110px" filterable="false">
+          <IgrColumn field="krD_3YR" width="110px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="zV_SPREAD" width="90px" filterable="false">
+          <IgrColumn field="zV_SPREAD" width="90px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="kRD_5YR" width="50px" filterable="false">
+          <IgrColumn field="kRD_5YR" width="50px" filterable={false}>
           </IgrColumn>
-          <IgrColumn field="kRD_1YR" width="80px" filterable="false">
+          <IgrColumn field="kRD_1YR" width="80px" filterable={false}>
           </IgrColumn>
         </IgrGrid>
       </div>

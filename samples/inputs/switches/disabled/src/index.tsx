@@ -15,7 +15,7 @@ export default class SwitchDisabled extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                 <IgrSwitch disabled="true" />
+                 <IgrSwitch disabled={true} />
             </div>
         );
     }

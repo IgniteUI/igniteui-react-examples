@@ -336,7 +336,7 @@ export default function App() {
         height="500px"
         pivotConfiguration={pivotConfiguration}
         valueInit={onValueInit}
-        superCompactMode="true"
+        superCompactMode={true}
         columnSelection={GridSelectionMode.Single}
         cellSelection={GridSelectionMode.Single}
       >

@@ -16,7 +16,7 @@ export default class ChipStyling extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample" style={{flexDirection: "row", gap: "8px"}}>
-                 <IgrChip selectable="true" removable="true">
+                 <IgrChip selectable={true} removable={true}>
                      <span>Chip</span>
                  </IgrChip>
             </div>

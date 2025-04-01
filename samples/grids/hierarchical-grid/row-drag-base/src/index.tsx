@@ -44,13 +44,13 @@ export default function App() {
       <div className="container fill">
         <div className="container horizontal wrapper">
         <IgrHierarchicalGrid
-          autoGenerate="false"
+          autoGenerate={false}
           data={singersData}
           primaryKey="ID"
           id="hierarchicalGrid1"
           width="40%"
           ref={hierarchicalGridRef}
-          rowDraggable="true"
+          rowDraggable={true}
           rowDragEnd={RowDragEnd}
         >          
           <IgrColumn
@@ -73,7 +73,7 @@ export default function App() {
             dataType="String"
             width="200px"
           ></IgrColumn>
-          <IgrRowIsland childDataKey="Albums" autoGenerate="false">
+          <IgrRowIsland childDataKey="Albums" autoGenerate={false}>
             <IgrColumn
               field="Album"
               header="Album"
@@ -94,7 +94,7 @@ export default function App() {
               header="US Billboard 200"
               dataType="String"
             ></IgrColumn>
-            <IgrRowIsland childDataKey="Songs" autoGenerate="false">
+            <IgrRowIsland childDataKey="Songs" autoGenerate={false}>
               <IgrColumn
                 field="Number"
                 header="No."
@@ -117,7 +117,7 @@ export default function App() {
               ></IgrColumn>
             </IgrRowIsland>
           </IgrRowIsland>
-          <IgrRowIsland childDataKey="Tours" autoGenerate="false">
+          <IgrRowIsland childDataKey="Tours" autoGenerate={false}>
             <IgrColumn field="Tour" header="Tour" dataType="String"></IgrColumn>
             <IgrColumn
               field="StartedOn"
@@ -138,7 +138,7 @@ export default function App() {
         </IgrHierarchicalGrid>
 
         <IgrHierarchicalGrid
-          autoGenerate="false"
+          autoGenerate={false}
           data={[]}
           primaryKey="ID"
           ref={hierarchicalGridRef2}
@@ -166,7 +166,7 @@ export default function App() {
             dataType="String"
             width="200px"
           ></IgrColumn>
-          <IgrRowIsland childDataKey="Albums" autoGenerate="false">
+          <IgrRowIsland childDataKey="Albums" autoGenerate={false}>
             <IgrColumn
               field="Album"
               header="Album"
@@ -187,7 +187,7 @@ export default function App() {
               header="US Billboard 200"
               dataType="String"
             ></IgrColumn>
-            <IgrRowIsland childDataKey="Songs" autoGenerate="false">
+            <IgrRowIsland childDataKey="Songs" autoGenerate={false}>
               <IgrColumn
                 field="Number"
                 header="No."
@@ -210,7 +210,7 @@ export default function App() {
               ></IgrColumn>
             </IgrRowIsland>
           </IgrRowIsland>
-          <IgrRowIsland childDataKey="Tours" autoGenerate="false">
+          <IgrRowIsland childDataKey="Tours" autoGenerate={false}>
             <IgrColumn field="Tour" header="Tour" dataType="String"></IgrColumn>
             <IgrColumn
               field="StartedOn"

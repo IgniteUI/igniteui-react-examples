@@ -29,7 +29,7 @@ export default class ChipMultiple extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <div className="container" style={{flexDirection: "row", gap: "8px"}}>
-                    <IgrChip selectable="true" removable="true" >
+                    <IgrChip selectable={true} removable={true} >
                         <span slot="select">
                             <IgrIcon ref={this.customSelectRef} name="custom-select" collection="material"></IgrIcon>
                         </span>
@@ -38,19 +38,19 @@ export default class ChipMultiple extends React.Component<any, any> {
                             <IgrIcon ref={this.customRemoveRef} name="custom-remove" collection="material"></IgrIcon>
                         </span>
                     </IgrChip>
-                    <IgrChip removable="true">
+                    <IgrChip removable={true}>
                         <span slot="start">
                             <IgrIcon ref={this.brushRef} name="brush" collection="material"></IgrIcon>
                         </span>
                         <span>Start Slot</span>
                     </IgrChip>
-                    <IgrChip selectable="true">
+                    <IgrChip selectable={true}>
                         <span>End Slot</span>
                         <span slot="end">
                             <IgrIcon ref={this.brickRef} name="brick-wall" collection="material"></IgrIcon>
                         </span>
                     </IgrChip>
-                    <IgrChip disabled="true">
+                    <IgrChip disabled={true}>
                         <span>Disabled Chip</span>
                         <span slot="end">
                             <IgrIcon ref={this.dogRef} name="dog-icon" collection="material"></IgrIcon>

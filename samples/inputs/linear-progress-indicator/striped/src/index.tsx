@@ -16,9 +16,9 @@ export default class StripedLinearProgress extends React.Component<any, any> {
         return (
             <div className="container sample">
                  <IgrLinearProgress style={{marginBottom: "15px"}} value="100" variant="primary" />
-                 <IgrLinearProgress style={{marginBottom: "15px"}} value="100" variant="success" indeterminate="true" striped="true" />
+                 <IgrLinearProgress style={{marginBottom: "15px"}} value="100" variant="success" indeterminate={true} striped={true} />
                  <IgrLinearProgress style={{marginBottom: "15px"}} value="100" variant="danger" />
-                 <IgrLinearProgress style={{marginBottom: "15px"}} value="100" variant="info" striped="true" />
+                 <IgrLinearProgress style={{marginBottom: "15px"}} value="100" variant="info" striped={true} />
                  <IgrLinearProgress style={{marginBottom: "15px"}} value="100" variant="warning"/>
             </div>
         );

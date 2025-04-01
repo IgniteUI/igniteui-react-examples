@@ -47,7 +47,7 @@ export default function App() {
         <IgrTreeGrid
           ref={treeGridRef}
           data={localData}
-          autoGenerate="false"
+          autoGenerate={false}
           primaryKey="ID"
           foreignKey="ParentID"
           height="350px"
