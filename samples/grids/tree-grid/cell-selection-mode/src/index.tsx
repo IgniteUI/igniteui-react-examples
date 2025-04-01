@@ -48,8 +48,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.treeGrid}
                     descriptionType="WebTreeGrid"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="CellSelection"
                         name="CellSelectionEditor"
@@ -63,7 +63,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatData}
@@ -77,7 +77,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="Title">
@@ -85,12 +85,12 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="HireDate"
                         header="Hire Date"
-                        dataType="Date">
+                        dataType="date">
                     </IgrColumn>
                     <IgrColumn
                         field="OnPTO"
                         header="On PTO"
-                        dataType="Boolean">
+                        dataType="boolean">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

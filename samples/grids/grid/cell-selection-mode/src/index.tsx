@@ -48,8 +48,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.grid}
                     descriptionType="WebGrid"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="CellSelection"
                         name="CellSelectionEditor"
@@ -62,7 +62,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.gridRef}
                     data={this.nwindData}>
                     <IgrColumn
@@ -76,21 +76,21 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="UnitsInStock"
                         header="Units In Stock"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Units Price"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
-                        dataType="Boolean">
+                        dataType="boolean">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date">
+                        dataType="date">
                     </IgrColumn>
                 </IgrGrid>
             </div>

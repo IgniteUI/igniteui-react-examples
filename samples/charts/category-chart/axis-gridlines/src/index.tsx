@@ -56,14 +56,14 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true"
+                    isHorizontal={true}
+                    isWrappingEnabled={true}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisStroke"
                         name="XAxisStroke"
                         label="X Axis Stroke"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
                         dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
@@ -73,7 +73,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="XAxisMajorStroke"
                         name="XAxisMajorStroke"
                         label="X Axis Major Stroke"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
                         dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
@@ -83,7 +83,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="YAxisStroke"
                         name="YAxisStroke"
                         label="Y Axis Stroke"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
                         dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
@@ -93,7 +93,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="YAxisMajorStroke"
                         name="YAxisMajorStroke"
                         label="Y Axis Major Stroke"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
                         dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
@@ -103,7 +103,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="YAxisMinorStroke"
                         name="YAxisMinorStroke"
                         label="Y Axis Minor Stroke"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
                         dropDownValues={["gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen"]}
@@ -131,22 +131,22 @@ export default class Sample extends React.Component<any, any> {
                     includedProperties={["year", "europe", "china", "america"]}
                     chartType="Line"
                     legend={this.legend}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     xAxisStroke="rgba(145, 145, 145, 1)"
-                    xAxisStrokeThickness="2"
-                    xAxisInterval="1"
+                    xAxisStrokeThickness={2}
+                    xAxisInterval={1}
                     xAxisMajorStroke="rgba(71, 71, 71, 1)"
-                    xAxisMajorStrokeThickness="0.5"
+                    xAxisMajorStrokeThickness={0.5}
                     yAxisStroke="gray"
-                    yAxisStrokeThickness="2"
-                    yAxisInterval="20"
+                    yAxisStrokeThickness={2}
+                    yAxisInterval={20}
                     yAxisMajorStroke="darkslategray"
-                    yAxisMajorStrokeThickness="1"
-                    yAxisMinorInterval="5"
+                    yAxisMajorStrokeThickness={1}
+                    yAxisMinorInterval={5}
                     yAxisMinorStroke="gray"
-                    yAxisMinorStrokeThickness="0.5"
-                    thickness="2">
+                    yAxisMinorStrokeThickness={0.5}
+                    thickness={2}>
                 </IgrCategoryChart>
             </div>
         </div>

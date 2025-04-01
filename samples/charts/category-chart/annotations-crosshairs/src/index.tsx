@@ -47,8 +47,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="CrosshairsDisplayMode"
                         name="CrosshairsDisplayModeEditor"
@@ -59,7 +59,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="CrosshairsSnapToData"
                         name="CrosshairsSnapToDataEditor"
                         label="Crosshairs Snap to Data"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         primitiveValue="True">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
@@ -74,21 +74,21 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     chartType="Column"
                     computedPlotAreaMarginMode="Series"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     includedProperties={["month", "temperature"]}
                     dataSource={this.temperatureAnnotatedData}
                     crosshairsDisplayMode="Both"
-                    crosshairsAnnotationYAxisPrecision="0"
+                    crosshairsAnnotationYAxisPrecision={0}
                     crosshairsAnnotationXAxisBackground="black"
                     crosshairsAnnotationYAxisBackground="dodgerblue"
                     crosshairsLineHorizontalStroke="dodgerblue"
                     crosshairsLineVerticalStroke="black"
-                    crosshairsLineThickness="2"
-                    crosshairsSnapToData="true"
-                    yAxisMaximumValue="35"
+                    crosshairsLineThickness={2}
+                    crosshairsSnapToData={true}
+                    yAxisMaximumValue={35}
                     yAxisLabelLocation="OutsideRight"
-                    isTransitionInEnabled="false">
+                    isTransitionInEnabled={false}>
                 </IgrCategoryChart>
             </div>
         </div>

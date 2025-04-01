@@ -50,15 +50,15 @@ export default class Sample extends React.Component<any, any> {
                 <IgrCategoryChart
                     ref={this.chartRef}
                     chartType="Line"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
                     legend={this.legend}
                     yAxisTitle="TWh"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisLabelLeftMargin="0"
+                    yAxisTitleLeftMargin={10}
+                    yAxisTitleRightMargin={5}
+                    yAxisLabelLeftMargin={0}
                     computedPlotAreaMarginMode="Series">
                 </IgrCategoryChart>
             </div>

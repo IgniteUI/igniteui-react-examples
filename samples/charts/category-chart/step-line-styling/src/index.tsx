@@ -54,16 +54,16 @@ export default class Sample extends React.Component<any, any> {
                     chartType="StepLine"
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
-                    isCategoryHighlightingEnabled="true"
-                    isSeriesHighlightingEnabled="true"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isCategoryHighlightingEnabled={true}
+                    isSeriesHighlightingEnabled={true}
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     yAxisTitle="TWh"
                     markerBrushes="white"
                     markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
-                    crosshairsSnapToData="true">
+                    crosshairsSnapToData={true}>
                 </IgrCategoryChart>
             </div>
         </div>

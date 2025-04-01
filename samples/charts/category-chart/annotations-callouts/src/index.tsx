@@ -46,13 +46,13 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="AutoCalloutsVisible"
                         name="CalloutsVisibleEditor"
                         label="Callouts Visible"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         primitiveValue="True">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
@@ -67,16 +67,16 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     chartType="Column"
                     computedPlotAreaMarginMode="Series"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     includedProperties={["month", "temperature"]}
                     dataSource={this.temperatureAnnotatedData}
-                    autoCalloutsVisible="true"
-                    crosshairsAnnotationYAxisPrecision="0"
-                    yAxisMaximumValue="35"
+                    autoCalloutsVisible={true}
+                    crosshairsAnnotationYAxisPrecision={0}
+                    yAxisMaximumValue={35}
                     yAxisTitle="Degrees Celsius"
                     yAxisLabelLocation="OutsideRight"
-                    isTransitionInEnabled="false">
+                    isTransitionInEnabled={false}>
                 </IgrCategoryChart>
             </div>
         </div>

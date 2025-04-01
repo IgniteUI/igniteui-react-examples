@@ -50,21 +50,21 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="DataChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true"
+                    isHorizontal={true}
+                    isWrappingEnabled={true}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="ShouldConsiderAutoRotationForInitialLabels"
                         name="ShouldConsiderAutoRotationForInitialLabels"
                         label="Rotate Labels?"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         primitiveValue="True">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="AutoMarginAndAngleUpdateMode"
                         name="AutoMarginAndAngleUpdateMode"
                         label="AutoMarginAndAngleUpdateMode: "
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["None", "SizeChanging", "SizeChangingAndZoom"]}
                         dropDownValues={["None", "SizeChanging", "SizeChangingAndZoom"]}
@@ -76,16 +76,16 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}
-                    isHorizontalZoomEnabled="true"
-                    isVerticalZoomEnabled="true"
+                    isHorizontalZoomEnabled={true}
+                    isVerticalZoomEnabled={true}
                     autoMarginAndAngleUpdateMode="SizeChangingAndZoom"
-                    shouldConsiderAutoRotationForInitialLabels="true"
-                    shouldAutoExpandMarginForInitialLabels="true">
+                    shouldConsiderAutoRotationForInitialLabels={true}
+                    shouldAutoExpandMarginForInitialLabels={true}>
                     <IgrCategoryXAxis
                         name="xAxis"
                         dataSource={this.temperatureAverageDataLongLabels}
-                        enhancedIntervalPreferMoreCategoryLabels="true"
-                        useEnhancedIntervalManagement="true"
+                        enhancedIntervalPreferMoreCategoryLabels={true}
+                        useEnhancedIntervalManagement={true}
                         label="month">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis

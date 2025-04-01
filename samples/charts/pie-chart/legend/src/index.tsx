@@ -54,8 +54,8 @@ export default class Sample extends React.Component<any, any> {
                     labelsPosition="OutsideEnd"
                     legendLabelMemberPath="category"
                     outlines="white"
-                    radiusFactor="0.7"
-                    labelExtent="30"
+                    radiusFactor={0.7}
+                    labelExtent={30}
                     dataSource={this.energyGlobalDemand}
                     legend={this.legend}>
                 </IgrPieChart>

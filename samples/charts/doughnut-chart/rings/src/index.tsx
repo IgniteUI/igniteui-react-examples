@@ -39,14 +39,14 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDoughnutChart
                     ref={this.chartRef}
-                    allowSliceExplosion="false"
-                    allowSliceSelection="false">
+                    allowSliceExplosion={false}
+                    allowSliceSelection={false}>
                     <IgrRingSeries
                         name="series1"
                         labelMemberPath="label"
                         valueMemberPath="value"
                         labelsPosition="Center"
-                        radiusFactor="0.9"
+                        radiusFactor={0.9}
                         outlines="white"
                         brushes="rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1)"
                         dataSource={this.calendarSeasons}>
@@ -56,7 +56,7 @@ export default class Sample extends React.Component<any, any> {
                         labelMemberPath="label"
                         valueMemberPath="value"
                         labelsPosition="Center"
-                        radiusFactor="0.9"
+                        radiusFactor={0.9}
                         outlines="white"
                         brushes="rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(60, 189, 201, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(159, 179, 40, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(249, 98, 50, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1) rgba(138, 88, 214, 1)"
                         dataSource={this.calendarMonths}>

@@ -62,8 +62,8 @@ export default class Sample extends React.Component<any, any> {
                     chartType="Column"
                     crosshairsDisplayMode="None"
                     yAxisTitle="TWh"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     selectionMode="SelectionColorFill"
                     selectionBehavior="Auto"
                     selectionBrush="orange">

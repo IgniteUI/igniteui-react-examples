@@ -106,8 +106,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrPivotGrid
                     data={this.pivotDataFlat}
                     ref={this.gridRef}
-                    rowSelection="Single"
-                    superCompactMode="true"
+                    rowSelection="single"
+                    superCompactMode={true}
                     pivotConfiguration={this.pivotConfiguration1}>
                 </IgrPivotGrid>
             </div>

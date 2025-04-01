@@ -46,9 +46,9 @@ export default class Sample extends React.Component<any, any> {
                     fillBrushes="rgba(252, 65, 0, 1) rgba(255, 197, 90, 1) rgba(0, 33, 94, 1) rgba(44, 78, 128, 1)"
                     rootTitle="Continents"
                     headerDisplayMode="Auto"
-                    isFillScaleLogarithmic="true"
+                    isFillScaleLogarithmic={true}
                     labelVerticalAlignment="Top"
-                    parentNodeTopMargin="10"
+                    parentNodeTopMargin={10}
                     fillScaleMode="Value"
                     textColor="black"
                     textStyle="normal bold 25px Verdana">

@@ -54,9 +54,9 @@ export default class Sample extends React.Component<any, any> {
                     dataSource={this.countryRenewableElectricity}
                     legend={this.legend}
                     yAxisTitle="TWh"
-                    isTransitionInEnabled="true"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isTransitionInEnabled={true}
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     computedPlotAreaMarginMode="Series">
                 </IgrCategoryChart>
             </div>

@@ -88,17 +88,17 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}>
                     <IgrNumericXAxis
                         name="xAxis"
-                        isLogarithmic="true"
-                        abbreviateLargeNumbers="true"
+                        isLogarithmic={true}
+                        abbreviateLargeNumbers={true}
                         title="Population">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
                         title="GDP per Capita"
-                        maximumValue="1000000"
-                        titleLeftMargin="10"
-                        isLogarithmic="true"
-                        abbreviateLargeNumbers="true">
+                        maximumValue={1000000}
+                        titleLeftMargin={10}
+                        isLogarithmic={true}
+                        abbreviateLargeNumbers={true}>
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
                         name="bubbleSeries1"
@@ -113,7 +113,7 @@ export default class Sample extends React.Component<any, any> {
                         radiusMemberAsLegendLabel="Work Hours"
                         dataSource={this.countryStatsAfrica}
                         markerType="Circle"
-                        showDefaultTooltip="true"
+                        showDefaultTooltip={true}
                         radiusScale={this.sizeScale1}>
                     </IgrBubbleSeries>
                     <IgrBubbleSeries
@@ -129,22 +129,22 @@ export default class Sample extends React.Component<any, any> {
                         radiusMemberAsLegendLabel="Work Hours"
                         dataSource={this.countryStatsEurope}
                         markerType="Circle"
-                        showDefaultTooltip="true"
+                        showDefaultTooltip={true}
                         radiusScale={this.sizeScale2}>
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
                         name="dataToolTipLayer"
-                        valueRowMarginTop="1"
-                        labelTextMarginTop="1"
-                        titleTextMarginTop="1"
-                        unitsTextMarginTop="1"
-                        valueRowMarginBottom="1"
-                        labelTextMarginBottom="1"
-                        titleTextMarginBottom="1"
-                        unitsTextMarginBottom="1"
-                        unitsTextMarginRight="5"
-                        valueTextMarginLeft="10"
-                        labelTextMarginLeft="1"
+                        valueRowMarginTop={1}
+                        labelTextMarginTop={1}
+                        titleTextMarginTop={1}
+                        unitsTextMarginTop={1}
+                        valueRowMarginBottom={1}
+                        labelTextMarginBottom={1}
+                        titleTextMarginBottom={1}
+                        unitsTextMarginBottom={1}
+                        unitsTextMarginRight={5}
+                        valueTextMarginLeft={10}
+                        labelTextMarginLeft={1}
                         layoutMode="Vertical">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>

@@ -57,14 +57,14 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="InitialFilterHandler"
                         name="InitialFilter"
                         label="Modify Filter"
                         valueType="EnumValue"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         dropDownNames={["1950", "1960", "1970", "1980", "1990", "2000", "2010", "2020"]}
                         dropDownValues={["1950", "1960", "1970", "1980", "1990", "2000", "2010", "2020"]}
                         changed={this.editorChangeDataFilter}>
@@ -89,8 +89,8 @@ export default class Sample extends React.Component<any, any> {
                     dataSource={this.continentsBirthRate}
                     legend={this.legend}
                     chartType="Column"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     crosshairsDisplayMode="None"
                     yAxisLabelFormat="{0}M">
                 </IgrCategoryChart>

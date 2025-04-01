@@ -47,14 +47,14 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="Sparkline"
-                    isHorizontal="true"
-                    isWrappingEnabled="true"
+                    isHorizontal={true}
+                    isWrappingEnabled={true}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="NormalRangeVisibility"
                         name="NormalRangeVisibilityEditor"
                         label="Normal Range Visibility"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["Visible", "Collapsed"]}
                         dropDownValues={["Visible", "Collapsed"]}
@@ -64,7 +64,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="NormalRangeMinimum"
                         name="NormalRangeMinimumEditor"
                         label="Normal Range Minimum"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["0", "10", "15", "20", "25", "30"]}
                         dropDownValues={["0", "10", "15", "20", "25", "30"]}
@@ -74,7 +74,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="NormalRangeMaximum"
                         name="NormalRangeMaximumEditor"
                         label="Normal Range Maximum"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["0", "10", "15", "20", "25", "30"]}
                         dropDownValues={["0", "10", "15", "20", "25", "30"]}
@@ -91,8 +91,8 @@ export default class Sample extends React.Component<any, any> {
                     labelMemberPath="label"
                     valueMemberPath="value"
                     normalRangeVisibility="Visible"
-                    normalRangeMinimum="15"
-                    normalRangeMaximum="25">
+                    normalRangeMinimum={15}
+                    normalRangeMaximum={25}>
                 </IgrSparkline>
             </div>
         </div>

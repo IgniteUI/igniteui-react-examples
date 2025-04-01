@@ -48,20 +48,20 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false">
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}>
                     <IgrCategoryYAxis
                         name="yAxis"
                         label="shop"
                         dataSource={this.onlineShoppingSearches}
-                        isInverted="true"
-                        gap="0.75">
+                        isInverted={true}
+                        gap={0.75}>
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
                         name="xAxis"
-                        interval="20"
-                        maximumValue="80"
-                        minimumValue="0"
+                        interval={20}
+                        maximumValue={80}
+                        minimumValue={0}
                         labelFormat="{0}%">
                     </IgrNumericXAxis>
                     <IgrCategoryHighlightLayer
@@ -73,18 +73,18 @@ export default class Sample extends React.Component<any, any> {
                         yAxisName="yAxis"
                         valueMemberPath="percent"
                         dataSource={this.onlineShoppingSearches}
-                        showDefaultTooltip="true"
-                        isTransitionInEnabled="true"
-                        isHighlightingEnabled="true"
+                        showDefaultTooltip={true}
+                        isTransitionInEnabled={true}
+                        isHighlightingEnabled={true}
                         brush="rgba(134, 6, 138, 0.6470588235294118)"
                         outline="rgba(133, 6, 138, 1)"
-                        thickness="2"
-                        areaFillOpacity="0.5"
+                        thickness={2}
+                        areaFillOpacity={0.5}
                         markerType="Hidden">
                     </IgrBarSeries>
                     <IgrCalloutLayer
                         name="CalloutLayer1"
-                        isAutoCalloutBehaviorEnabled="true"
+                        isAutoCalloutBehaviorEnabled={true}
                         calloutTextColor="rgba(133, 6, 138, 1)"
                         calloutBackground="rgba(0, 0, 0, 0)"
                         calloutLeaderBrush="rgba(0, 0, 0, 0)"

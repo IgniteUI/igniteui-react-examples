@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
-                    shouldAutoExpandMarginForInitialLabels="true"
+                    shouldAutoExpandMarginForInitialLabels={true}
                     computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
@@ -63,16 +63,16 @@ export default class Sample extends React.Component<any, any> {
                         valueMemberPath="america"
                         brush="rgba(137, 97, 169, 1)"
                         markerOutline="rgba(137, 97, 169, 1)"
-                        shouldHideAutoCallouts="false">
+                        shouldHideAutoCallouts={false}>
                     </IgrLineSeries>
                     <IgrCalloutLayer
                         name="CalloutLayer1"
-                        isAutoCalloutBehaviorEnabled="true"
+                        isAutoCalloutBehaviorEnabled={true}
                         calloutLeaderBrush="rgba(137, 97, 169, 1)"
                         calloutOutline="rgba(137, 97, 169, 1)"
                         calloutBackground="white"
                         calloutTextColor="rgba(137, 97, 169, 1)"
-                        calloutStrokeThickness="1"
+                        calloutStrokeThickness={1}
                         calloutCollisionMode="Greedy">
                     </IgrCalloutLayer>
                 </IgrDataChart>

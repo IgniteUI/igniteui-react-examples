@@ -47,25 +47,25 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true"
+                    isHorizontal={true}
+                    isWrappingEnabled={true}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisGap"
                         name="XAxisGap"
                         label="X Axis - Gap"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="Slider"
                         primitiveValue="0.5"
-                        min="0"
-                        max="1.5"
-                        step="0.1">
+                        min={0}
+                        max={1.5}
+                        step={0.1}>
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisMaximumGap"
                         name="XAxisMaximumGap"
                         label="Maximum Gap"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
                         dropDownValues={["1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"]}
@@ -84,13 +84,13 @@ export default class Sample extends React.Component<any, any> {
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
                     chartType="Column"
-                    crosshairsSnapToData="true"
+                    crosshairsSnapToData={true}
                     yAxisTitle="TWh"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    xAxisInterval="1"
-                    xAxisGap="0.5"
-                    xAxisMaximumGap="1.5">
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
+                    xAxisInterval={1}
+                    xAxisGap={0.5}
+                    xAxisMaximumGap={1.5}>
                 </IgrCategoryChart>
             </div>
         </div>

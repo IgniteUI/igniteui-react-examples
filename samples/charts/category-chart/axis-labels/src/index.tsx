@@ -54,14 +54,14 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true"
+                    isHorizontal={true}
+                    isWrappingEnabled={true}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisLabelAngle"
                         name="XAxisLabelAngleEditor"
                         label="X Axis Label Angle"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["0", "45", "90", "135", "180", "225", "270"]}
                         dropDownValues={["0", "45", "90", "135", "180", "225", "270"]}
@@ -71,7 +71,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="YAxisLabelAngle"
                         name="YAxisLabelAngleEditor"
                         label="Y Axis Label Angle"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["-90", "-45", "0", "45", "90"]}
                         dropDownValues={["-90", "-45", "0", "45", "90"]}
@@ -82,7 +82,7 @@ export default class Sample extends React.Component<any, any> {
                         name="XAxisLabelTextColorEditor"
                         label="Y Axis Label Color"
                         valueType="EnumValue"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         dropDownNames={["red", "green"]}
                         dropDownValues={["red", "green"]}
                         primitiveValue="red">
@@ -109,19 +109,19 @@ export default class Sample extends React.Component<any, any> {
                     chartType="Line"
                     computedPlotAreaMarginMode="Series"
                     legend={this.legend}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    topMargin="20"
-                    xAxisLabelAngle="0"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
+                    topMargin={20}
+                    xAxisLabelAngle={0}
                     xAxisLabelTextColor="gray"
                     xAxisLabelTextStyle="10pt 'Titillium Web'"
-                    xAxisLabelTopMargin="5"
-                    yAxisLabelAngle="0"
+                    xAxisLabelTopMargin={5}
+                    yAxisLabelAngle={0}
                     yAxisLabelTextColor="gray"
                     yAxisLabelTextStyle="10pt 'Titillium Web'"
-                    yAxisLabelRightMargin="5"
+                    yAxisLabelRightMargin={5}
                     yAxisLabelLocation="OutsideRight"
-                    titleTopMargin="10">
+                    titleTopMargin={10}>
                 </IgrCategoryChart>
             </div>
         </div>

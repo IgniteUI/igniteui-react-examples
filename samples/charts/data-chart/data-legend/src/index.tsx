@@ -92,16 +92,16 @@ export default class Sample extends React.Component<any, any> {
                     <IgrNumericYAxis
                         name="yAxis"
                         title="Birth Rate"
-                        interval="10"
-                        minimumValue="0"
-                        maximumValue="60">
+                        interval={10}
+                        minimumValue={0}
+                        maximumValue={60}>
                     </IgrNumericYAxis>
                     <IgrNumericXAxis
                         name="xAxis"
                         title="Death Rate"
-                        interval="1"
-                        minimumValue="4"
-                        maximumValue="16">
+                        interval={1}
+                        minimumValue={4}
+                        maximumValue={16}>
                     </IgrNumericXAxis>
                     <IgrBubbleSeries
                         name="bubbleSeries1"

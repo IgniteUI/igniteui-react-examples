@@ -49,8 +49,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="DataToolTipGroupedPositionModeX"
                         primitiveValue="PinRight"
@@ -85,11 +85,11 @@ export default class Sample extends React.Component<any, any> {
                     dataToolTipGroupedPositionModeX="PinRight"
                     dataToolTipGroupedPositionModeY="PinTop"
                     dataToolTipGroupingMode="Grouped"
-                    xAxisInterval="1"
+                    xAxisInterval={1}
                     yAxisTitle="Billions of U.S. Dollars"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisLabelLeftMargin="0"
+                    yAxisTitleLeftMargin={10}
+                    yAxisTitleRightMargin={5}
+                    yAxisLabelLeftMargin={0}
                     crosshairsDisplayMode="None">
                 </IgrCategoryChart>
             </div>

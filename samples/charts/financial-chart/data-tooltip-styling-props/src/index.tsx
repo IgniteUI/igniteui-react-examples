@@ -33,8 +33,8 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrFinancialChart
                     ref={this.chartRef}
-                    isVerticalZoomEnabled="true"
-                    isHorizontalZoomEnabled="true"
+                    isVerticalZoomEnabled={true}
+                    isHorizontalZoomEnabled={true}
                     dataSource={this.stockGoogle}
                     toolTipType="Data"
                     dataToolTipIncludedColumns={["Open", "Close", "High", "Low", "Change"]}

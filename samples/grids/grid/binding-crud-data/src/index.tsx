@@ -41,15 +41,15 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.gridRef}
                     data={this.nwindData}
-                    moving="true"
+                    moving={true}
                     primaryKey="ProductID"
-                    isLoading="true"
-                    allowFiltering="false"
+                    isLoading={true}
+                    allowFiltering={false}
                     pagingMode="Remote"
-                    rowEditable="true">
+                    rowEditable={true}>
                     <IgrColumn
                         name="ProductName"
                         field="ProductName"

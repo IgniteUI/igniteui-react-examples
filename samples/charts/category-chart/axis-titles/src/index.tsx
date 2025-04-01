@@ -53,18 +53,18 @@ export default class Sample extends React.Component<any, any> {
                     includedProperties={["year", "europe", "china", "america"]}
                     chartType="Line"
                     legend={this.legend}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     computedPlotAreaMarginMode="Series"
                     xAxisTitle="Year"
                     xAxisTitleTextColor="gray"
                     xAxisTitleTextStyle="10pt 'Titillium Web'"
-                    xAxisTitleAngle="0"
+                    xAxisTitleAngle={0}
                     yAxisTitle="Trillions of Watt-hours (Twh)"
                     yAxisTitleTextColor="gray"
                     yAxisTitleTextStyle="10pt 'Titillium Web'"
-                    yAxisTitleAngle="90"
-                    yAxisTitleLeftMargin="5">
+                    yAxisTitleAngle={90}
+                    yAxisTitleLeftMargin={5}>
                 </IgrCategoryChart>
             </div>
         </div>

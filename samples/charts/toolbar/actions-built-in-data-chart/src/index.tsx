@@ -63,8 +63,8 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
-                    isHorizontalZoomEnabled="true"
-                    isVerticalZoomEnabled="true"
+                    isHorizontalZoomEnabled={true}
+                    isVerticalZoomEnabled={true}
                     computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis

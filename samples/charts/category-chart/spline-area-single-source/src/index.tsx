@@ -39,13 +39,13 @@ export default class Sample extends React.Component<any, any> {
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe"]}
                     yAxisTitle="TWh"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisLabelLeftMargin="0"
+                    yAxisTitleLeftMargin={10}
+                    yAxisTitleRightMargin={5}
+                    yAxisLabelLeftMargin={0}
                     toolTipType="Category"
-                    isTransitionInEnabled="true"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isTransitionInEnabled={true}
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     computedPlotAreaMarginMode="Series">
                 </IgrCategoryChart>
             </div>

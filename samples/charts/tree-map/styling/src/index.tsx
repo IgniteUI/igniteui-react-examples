@@ -54,12 +54,12 @@ export default class Sample extends React.Component<any, any> {
                     overlayHeaderBackground="rgba(63, 64, 63, 1)"
                     headerHoverBackground="rgba(63, 64, 63, 1)"
                     headerBackground="rgba(63, 64, 63, 1)"
-                    parentNodeBottomPadding="0"
-                    parentNodeLeftPadding="0"
-                    parentNodeRightPadding="0"
-                    parentNodeTopPadding="0"
+                    parentNodeBottomPadding={0}
+                    parentNodeLeftPadding={0}
+                    parentNodeRightPadding={0}
+                    parentNodeTopPadding={0}
                     outline="black"
-                    strokeThickness="1">
+                    strokeThickness={1}>
                     <IgrTreemapNodeStyleMapping
                         name="styling1"
                         value="Africa"

@@ -36,11 +36,11 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.gridRef}
                     data={this.nwindData}
-                    moving="true"
-                    allowAdvancedFiltering="true">
+                    moving={true}
+                    allowAdvancedFiltering={true}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -59,31 +59,31 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="QuantityPerUnit"
                         header="Quantity Per Unit"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        sortable="true"
-                        dataType="Currency">
+                        sortable={true}
+                        dataType="currency">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date"
-                        sortable="true">
+                        dataType="date"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
                         header="Discontinued"
-                        dataType="Boolean"
+                        dataType="boolean"
                         bodyTemplate={this.webGridDiscontinuedCellTemplate}
-                        sortable="true"
+                        sortable={true}
                         name="column1">
                     </IgrColumn>
                 </IgrGrid>

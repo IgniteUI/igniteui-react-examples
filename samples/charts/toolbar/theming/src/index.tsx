@@ -61,14 +61,14 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.toolbar}
                     descriptionType="Toolbar"
-                    isHorizontal="true"
-                    isWrappingEnabled="true"
+                    isHorizontal={true}
+                    isWrappingEnabled={true}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="BaseTheme"
                         name="BaseThemeEditor"
                         label="Theme"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         primitiveValue="Default">
                     </IgrPropertyEditorPropertyDescription>
@@ -87,8 +87,8 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDataChart
                     computedPlotAreaMarginMode="Series"
-                    isVerticalZoomEnabled="true"
-                    isHorizontalZoomEnabled="true"
+                    isVerticalZoomEnabled={true}
+                    isHorizontalZoomEnabled={true}
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         name="xAxis"

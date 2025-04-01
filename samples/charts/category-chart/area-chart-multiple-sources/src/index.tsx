@@ -54,11 +54,11 @@ export default class Sample extends React.Component<any, any> {
                     includedProperties={["year", "europe", "china", "america"]}
                     legend={this.legend}
                     yAxisTitle="TWh"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisLabelLeftMargin="0"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    yAxisTitleLeftMargin={10}
+                    yAxisTitleRightMargin={5}
+                    yAxisLabelLeftMargin={0}
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     computedPlotAreaMarginMode="Series">
                 </IgrCategoryChart>
             </div>

@@ -45,43 +45,43 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.nwindData}
                     ref={this.gridRef}
                     id="grid"
                     primaryKey="ProductID"
-                    rowEditable="true">
+                    rowEditable={true}>
                     <IgrColumn
                         field="ProductID"
                         header="Product ID"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="ReorderLevel"
                         header="Reorder Level"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="ProductName"
                         header="Prod. Name"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitsInStock"
                         header="Units In Stock"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date"
+                        dataType="date"
                         pipeArgs={this.columnPipeArgs1}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
                         header="Discontinued"
-                        dataType="Boolean">
+                        dataType="boolean">
                     </IgrColumn>
                 </IgrGrid>
             </div>

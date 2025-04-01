@@ -52,8 +52,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="false"
+                    isHorizontal={true}
+                    isWrappingEnabled={false}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="YAxisLabelLocation"
@@ -84,9 +84,9 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     chartType="Line"
                     yAxisTitle="Labels Location"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    xAxisInterval="1"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
+                    xAxisInterval={1}
                     yAxisLabelLocation="OutsideRight">
                 </IgrCategoryChart>
             </div>

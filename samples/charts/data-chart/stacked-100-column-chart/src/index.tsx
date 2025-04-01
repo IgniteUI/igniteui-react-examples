@@ -63,25 +63,25 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}
                     legend={this.legend}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false">
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}>
                     <IgrCategoryXAxis
                         name="xAxis"
                         dataSource={this.onlineTrafficByDevice}
                         label="category"
-                        gap="0.75">
+                        gap={0.75}>
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
-                        minimumValue="0">
+                        minimumValue={0}>
                     </IgrNumericYAxis>
                     <IgrStacked100ColumnSeries
                         name="stacked100ColumnSeries"
                         dataSource={this.onlineTrafficByDevice}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        showDefaultTooltip="true"
-                        areaFillOpacity="1">
+                        showDefaultTooltip={true}
+                        areaFillOpacity={1}>
                         <IgrStackedFragmentSeries
                             name="s1"
                             valueMemberPath="desktop"

@@ -52,18 +52,18 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true"
+                    isHorizontal={true}
+                    isWrappingEnabled={true}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisOverlap"
                         name="XAxisOverlap"
                         label="X Axis - Overlap"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="Slider"
-                        min="0"
-                        max="1"
-                        step="0.1"
+                        min={0}
+                        max={1}
+                        step={0.1}
                         primitiveValue="0">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
@@ -85,11 +85,11 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     dataSource={this.highestGrossingMovies}
                     chartType="Column"
-                    crosshairsSnapToData="true"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    xAxisInterval="1"
-                    xAxisOverlap="1">
+                    crosshairsSnapToData={true}
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
+                    xAxisInterval={1}
+                    xAxisOverlap={1}>
                 </IgrCategoryChart>
             </div>
         </div>

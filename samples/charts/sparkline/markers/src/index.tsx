@@ -50,14 +50,14 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="Sparkline"
-                    isHorizontal="true"
-                    isWrappingEnabled="true"
+                    isHorizontal={true}
+                    isWrappingEnabled={true}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="FirstMarkerVisibility"
                         name="FirstMarkerVisibilityEditor"
                         label="First Markers"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         valueType="EnumValue"
                         dropDownNames={["Visible", "Collapsed"]}
                         dropDownValues={["Visible", "Collapsed"]}
@@ -124,14 +124,14 @@ export default class Sample extends React.Component<any, any> {
                     firstMarkerVisibility="Visible"
                     lastMarkerVisibility="Visible"
                     negativeMarkerVisibility="Visible"
-                    markerSize="10"
-                    firstMarkerSize="10"
-                    lastMarkerSize="10"
-                    lowMarkerSize="10"
-                    highMarkerSize="10"
-                    negativeMarkerSize="10"
-                    minimum="0"
-                    maximum="60">
+                    markerSize={10}
+                    firstMarkerSize={10}
+                    lastMarkerSize={10}
+                    lowMarkerSize={10}
+                    highMarkerSize={10}
+                    negativeMarkerSize={10}
+                    minimum={0}
+                    maximum={60}>
                 </IgrSparkline>
             </div>
         </div>

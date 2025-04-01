@@ -52,8 +52,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="DataChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="false"
+                    isHorizontal={true}
+                    isWrappingEnabled={false}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="ReplayTransitionIn"
@@ -73,22 +73,22 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false">
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}>
                     <IgrCategoryXAxis
                         name="xAxis"
                         label="category"
-                        interval="1"
+                        interval={1}
                         dataSource={this.companyIncomeData}
-                        overlap="1">
+                        overlap={1}>
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
                         title="Millions of Dollars"
-                        titleLeftMargin="10"
-                        titleAngle="-90"
-                        minimumValue="0"
-                        maximumValue="60">
+                        titleLeftMargin={10}
+                        titleAngle={-90}
+                        minimumValue={0}
+                        maximumValue={60}>
                     </IgrNumericYAxis>
                     <IgrWaterfallSeries
                         name="WaterfallSeries1"
@@ -96,8 +96,8 @@ export default class Sample extends React.Component<any, any> {
                         yAxisName="yAxis"
                         dataSource={this.companyIncomeData}
                         valueMemberPath="costs"
-                        showDefaultTooltip="true"
-                        isTransitionInEnabled="true">
+                        showDefaultTooltip={true}
+                        isTransitionInEnabled={true}>
                     </IgrWaterfallSeries>
                     <IgrWaterfallSeries
                         name="WaterfallSeries2"
@@ -107,8 +107,8 @@ export default class Sample extends React.Component<any, any> {
                         brush="rgba(116, 70, 185, 1)"
                         outline="rgba(116, 70, 185, 1)"
                         valueMemberPath="netIncome"
-                        showDefaultTooltip="true"
-                        isTransitionInEnabled="true">
+                        showDefaultTooltip={true}
+                        isTransitionInEnabled={true}>
                     </IgrWaterfallSeries>
                 </IgrDataChart>
             </div>

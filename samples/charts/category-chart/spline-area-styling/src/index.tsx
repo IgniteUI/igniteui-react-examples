@@ -54,9 +54,9 @@ export default class Sample extends React.Component<any, any> {
                     dataSource={this.countryRenewableElectricity}
                     legend={this.legend}
                     yAxisTitle="TWh"
-                    isTransitionInEnabled="true"
-                    isVerticalZoomEnabled="false"
-                    isHorizontalZoomEnabled="false"
+                    isTransitionInEnabled={true}
+                    isVerticalZoomEnabled={false}
+                    isHorizontalZoomEnabled={false}
                     markerBrushes="white"
                     markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"

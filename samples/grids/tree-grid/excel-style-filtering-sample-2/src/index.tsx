@@ -36,14 +36,14 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.gridRef}
                     data={this.foodsData}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    moving="true"
-                    allowFiltering="true"
-                    filterMode="ExcelStyleFilter">
+                    moving={true}
+                    allowFiltering={true}
+                    filterMode="excelStyleFilter">
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -63,27 +63,27 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Name"
                         header="Product Name"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        sortable="false"
-                        dataType="Number"
-                        disablePinning="true"
-                        disableHiding="true">
+                        sortable={false}
+                        dataType="number"
+                        disablePinning={true}
+                        disableHiding={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="AddedDate"
                         header="Added Date"
-                        sortable="false"
-                        dataType="Date">
+                        sortable={false}
+                        dataType="date">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
-                        dataType="Boolean"
+                        dataType="boolean"
                         bodyTemplate={this.webGridBooleanCellTemplate}
-                        sortable="true"
+                        sortable={true}
                         name="column1">
                     </IgrColumn>
                 </IgrTreeGrid>

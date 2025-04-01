@@ -59,22 +59,22 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}
                     legend={this.legend}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false">
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}>
                     <IgrNumericAngleAxis
                         name="angleAxis"
-                        startAngleOffset="-90"
-                        interval="30"
-                        minimumValue="0"
-                        maximumValue="360">
+                        startAngleOffset={-90}
+                        interval={30}
+                        minimumValue={0}
+                        maximumValue={360}>
                     </IgrNumericAngleAxis>
                     <IgrNumericRadiusAxis
                         name="radiusAxis"
-                        radiusExtentScale="0.9"
-                        innerRadiusExtentScale="0.1"
-                        interval="25"
-                        minimumValue="0"
-                        maximumValue="100">
+                        radiusExtentScale={0.9}
+                        innerRadiusExtentScale={0.1}
+                        interval={25}
+                        minimumValue={0}
+                        maximumValue={100}>
                     </IgrNumericRadiusAxis>
                     <IgrPolarLineSeries
                         name="PolarLineSeries1"
@@ -83,8 +83,8 @@ export default class Sample extends React.Component<any, any> {
                         radiusAxisName="radiusAxis"
                         angleMemberPath="direction"
                         radiusMemberPath="windSpeed"
-                        showDefaultTooltip="false"
-                        thickness="1"
+                        showDefaultTooltip={false}
+                        thickness={1}
                         title="Wind Speed"
                         markerType="Circle">
                     </IgrPolarLineSeries>
@@ -95,8 +95,8 @@ export default class Sample extends React.Component<any, any> {
                         radiusAxisName="radiusAxis"
                         angleMemberPath="direction"
                         radiusMemberPath="boatSpeed"
-                        showDefaultTooltip="false"
-                        thickness="1"
+                        showDefaultTooltip={false}
+                        thickness={1}
                         title="Boat Speed"
                         markerType="Circle">
                     </IgrPolarLineSeries>

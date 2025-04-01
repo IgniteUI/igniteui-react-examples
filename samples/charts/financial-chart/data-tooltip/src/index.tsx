@@ -34,8 +34,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrFinancialChart
                     ref={this.chartRef}
                     chartType="Candle"
-                    isVerticalZoomEnabled="true"
-                    isHorizontalZoomEnabled="true"
+                    isVerticalZoomEnabled={true}
+                    isHorizontalZoomEnabled={true}
                     dataSource={this.multipleStocks}
                     toolTipType="Data"
                     dataToolTipIncludedColumns={["Open", "Close", "High", "Low", "Change"]}

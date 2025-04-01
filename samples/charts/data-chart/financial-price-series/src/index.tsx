@@ -42,17 +42,17 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}
-                    shouldAutoExpandMarginForInitialLabels="true"
+                    shouldAutoExpandMarginForInitialLabels={true}
                     computedPlotAreaMarginMode="Series"
-                    isVerticalZoomEnabled="true"
-                    isHorizontalZoomEnabled="true">
+                    isVerticalZoomEnabled={true}
+                    isHorizontalZoomEnabled={true}>
                     <IgrCategoryXAxis
                         name="xAxis"
                         dataSource={this.stock2Years}
                         labelLocation="OutsideBottom"
                         label="month"
-                        interval="1"
-                        labelExtent="30">
+                        interval={1}
+                        labelExtent={30}>
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
@@ -70,7 +70,7 @@ export default class Sample extends React.Component<any, any> {
                         lowMemberPath="low"
                         closeMemberPath="close"
                         volumeMemberPath="volume"
-                        showDefaultTooltip="true">
+                        showDefaultTooltip={true}>
                     </IgrFinancialPriceSeries>
                     <IgrDataToolTipLayer
                         name="Tooltip">

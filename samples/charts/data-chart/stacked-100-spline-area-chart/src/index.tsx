@@ -65,8 +65,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}
                     legend={this.legend}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false">
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}>
                     <IgrCategoryXAxis
                         name="xAxis"
                         dataSource={this.continentsBirthRate}
@@ -74,8 +74,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
-                        interval="20"
-                        titleLeftMargin="10"
+                        interval={20}
+                        titleLeftMargin={10}
                         labelFormat="{0}%">
                     </IgrNumericYAxis>
                     <IgrStacked100SplineAreaSeries
@@ -83,7 +83,7 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.continentsBirthRate}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        showDefaultTooltip="false"
+                        showDefaultTooltip={false}
                         markerType="Circle">
                         <IgrStackedFragmentSeries
                             name="s1"

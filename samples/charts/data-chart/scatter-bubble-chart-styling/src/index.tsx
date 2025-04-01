@@ -55,23 +55,23 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}
                     chartTitle="Population vs. Public Debt vs. GDP"
-                    titleTopMargin="10"
-                    titleBottomMargin="0">
+                    titleTopMargin={10}
+                    titleBottomMargin={0}>
                     <IgrNumericXAxis
                         name="xAxis"
                         title="Population"
-                        minimumValue="100"
-                        maximumValue="10000000000"
-                        isLogarithmic="true"
-                        abbreviateLargeNumbers="true">
+                        minimumValue={100}
+                        maximumValue={10000000000}
+                        isLogarithmic={true}
+                        abbreviateLargeNumbers={true}>
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
                         title="Public Debt per GDP (%)"
-                        titleLeftMargin="10"
-                        isLogarithmic="true"
-                        abbreviateLargeNumbers="true"
-                        maximumValue="1000">
+                        titleLeftMargin={10}
+                        isLogarithmic={true}
+                        abbreviateLargeNumbers={true}
+                        maximumValue={1000}>
                     </IgrNumericYAxis>
                     <IgrBubbleSeries
                         name="bubbleSeries1"
@@ -89,28 +89,28 @@ export default class Sample extends React.Component<any, any> {
                         markerType="Circle"
                         markerOutline="black"
                         markerBrush="rgba(67, 162, 250, 1)"
-                        markerFillOpacity="0.5"
-                        markerThickness="1"
-                        showDefaultTooltip="true"
+                        markerFillOpacity={0.5}
+                        markerThickness={1}
+                        showDefaultTooltip={true}
                         radiusScale={this.sizeScale1}>
                     </IgrBubbleSeries>
                     <IgrDataToolTipLayer
                         name="dataToolTipLayer"
-                        valueRowMarginTop="1"
-                        labelTextMarginTop="1"
-                        titleTextMarginTop="1"
-                        unitsTextMarginTop="1"
-                        valueRowMarginBottom="1"
-                        labelTextMarginBottom="1"
-                        titleTextMarginBottom="1"
-                        unitsTextMarginBottom="1"
-                        unitsTextMarginRight="5"
-                        valueTextMarginLeft="10"
-                        labelTextMarginLeft="1"
+                        valueRowMarginTop={1}
+                        labelTextMarginTop={1}
+                        titleTextMarginTop={1}
+                        unitsTextMarginTop={1}
+                        valueRowMarginBottom={1}
+                        labelTextMarginBottom={1}
+                        titleTextMarginBottom={1}
+                        unitsTextMarginBottom={1}
+                        unitsTextMarginRight={5}
+                        valueTextMarginLeft={10}
+                        labelTextMarginLeft={1}
                         layoutMode="Vertical"
                         badgeShape="Hidden"
                         includedColumns={["X", "Y", "Radius"]}
-                        headerRowVisible="false">
+                        headerRowVisible={false}>
                     </IgrDataToolTipLayer>
                 </IgrDataChart>
             </div>

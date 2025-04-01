@@ -44,13 +44,13 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.gridRef}
                     id="grid"
                     data={this.customersData}
                     columnWidth="200px"
-                    allowFiltering="true"
-                    columnSelection="Single">
+                    allowFiltering={true}
+                    columnSelection="single">
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarTitle
@@ -67,71 +67,71 @@ export default class Sample extends React.Component<any, any> {
                         name="ID"
                         field="ID"
                         header="ID"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         name="ContactName"
                         field="ContactName"
                         header="Name"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         name="ContactTitle"
                         field="ContactTitle"
                         header="Title"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         name="City"
                         field="City"
                         header="City"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         name="Company"
                         field="Company"
                         header="Company"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         name="Fax"
                         field="Fax"
                         header="Fax"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         name="Address"
                         field="Address"
                         header="Address"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         name="PostalCode"
                         field="PostalCode"
                         header="Postal Code"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         name="Country"
                         field="Country"
                         header="Country"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         name="Phone"
                         field="Phone"
                         header="Phone"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

@@ -68,8 +68,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.grid}
                     descriptionType="WebGrid"
-                    isHorizontal="true"
-                    isWrappingEnabled="false"
+                    isHorizontal={true}
+                    isWrappingEnabled={false}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         label=""
@@ -106,7 +106,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     ref={this.gridRef}
                     data={this.nwindData}
-                    rowEditable="true"
+                    rowEditable={true}
                     primaryKey="ProductID">
                     <IgrColumn
                         bodyTemplate={this.webGridDeleteCellTemplate}

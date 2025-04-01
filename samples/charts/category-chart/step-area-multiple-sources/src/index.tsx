@@ -54,16 +54,16 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     chartType="StepArea"
                     titleAlignment="Left"
-                    titleLeftMargin="25"
-                    titleTopMargin="10"
-                    titleBottomMargin="10"
-                    isCategoryHighlightingEnabled="true"
-                    isSeriesHighlightingEnabled="true"
-                    isTransitionInEnabled="true"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    titleLeftMargin={25}
+                    titleTopMargin={10}
+                    titleBottomMargin={10}
+                    isCategoryHighlightingEnabled={true}
+                    isSeriesHighlightingEnabled={true}
+                    isTransitionInEnabled={true}
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     yAxisTitle="TWh"
-                    crosshairsSnapToData="true">
+                    crosshairsSnapToData={true}>
                 </IgrCategoryChart>
             </div>
         </div>

@@ -53,8 +53,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.hierarchicalGrid}
                     descriptionType="WebGrid"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         valueType="Button"
                         primitiveValue="Pin First Group"
@@ -72,40 +72,40 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.hierarchicalCustomers}
                     ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
                     primaryKey="CustomerID"
-                    moving="true"
-                    allowFiltering="true">
+                    moving={true}
+                    allowFiltering={true}>
                     <IgrColumn
                         field="CustomerID"
-                        dataType="String"
-                        sortable="true"
-                        resizable="true">
+                        dataType="string"
+                        sortable={true}
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumnGroup
                         header="General Information">
                         <IgrColumn
                             field="Company"
-                            dataType="String"
-                            sortable="true"
-                            resizable="true">
+                            dataType="string"
+                            sortable={true}
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumnGroup
                             header="Personal Details">
                             <IgrColumn
                                 field="ContactName"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
+                                dataType="string"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="ContactTitle"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
+                                dataType="string"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>
@@ -115,158 +115,158 @@ export default class Sample extends React.Component<any, any> {
                             header="Location">
                             <IgrColumn
                                 field="Address"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
+                                dataType="string"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="City"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
+                                dataType="string"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="PostalCode"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
+                                dataType="string"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Country"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
+                                dataType="string"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrColumnGroup
                             header="Contact Information">
                             <IgrColumn
                                 field="Phone"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
+                                dataType="string"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Fax"
-                                dataType="String"
-                                sortable="true"
-                                resizable="true">
+                                dataType="string"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>
                     <IgrRowIsland
                         childDataKey="Orders"
-                        autoGenerate="false">
+                        autoGenerate={false}>
                         <IgrColumnGroup
                             header="Order Information">
                             <IgrColumnGroup
                                 header="Order Details">
                                 <IgrColumn
                                     field="OrderID"
-                                    dataType="Number"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="number"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                                 <IgrColumn
                                     field="EmployeeID"
-                                    dataType="Number"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="number"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                                 <IgrColumn
                                     field="OrderDate"
-                                    dataType="Date"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="date"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                                 <IgrColumn
                                     field="RequiredDate"
-                                    dataType="Date"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="date"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                             </IgrColumnGroup>
                             <IgrColumnGroup
                                 header="General Shipping Information">
                                 <IgrColumn
                                     field="ShipDate"
-                                    dataType="Date"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="date"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                                 <IgrColumn
                                     field="ShipVia"
-                                    dataType="Number"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="number"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                                 <IgrColumn
                                     field="Freight"
-                                    dataType="Number"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="number"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                                 <IgrColumn
                                     field="ShipName"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="string"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                             </IgrColumnGroup>
                             <IgrColumnGroup
                                 header="Shipping Locations">
                                 <IgrColumn
                                     field="ShipAddress"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="string"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                                 <IgrColumn
                                     field="ShipCity"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="string"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                                 <IgrColumn
                                     field="ShipPostalCode"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="string"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                                 <IgrColumn
                                     field="ShipCountry"
-                                    dataType="String"
-                                    sortable="true"
-                                    resizable="true">
+                                    dataType="string"
+                                    sortable={true}
+                                    resizable={true}>
                                 </IgrColumn>
                             </IgrColumnGroup>
                         </IgrColumnGroup>
                         <IgrRowIsland
                             childDataKey="OrderDetails"
-                            autoGenerate="false">
+                            autoGenerate={false}>
                             <IgrColumn
                                 field="ProductID"
-                                dataType="Number"
-                                sortable="true"
-                                resizable="true">
+                                dataType="number"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="UnitPrice"
-                                dataType="Number"
-                                sortable="true"
-                                resizable="true">
+                                dataType="number"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Quantity"
-                                dataType="Number"
-                                sortable="true"
-                                resizable="true">
+                                dataType="number"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Discount"
-                                dataType="Number"
-                                sortable="true"
-                                resizable="true">
+                                dataType="number"
+                                sortable={true}
+                                resizable={true}>
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>

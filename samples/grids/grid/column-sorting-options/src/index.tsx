@@ -81,8 +81,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.grid}
                     descriptionType="WebGrid"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="SortingOptions.Mode"
                         name="SortingOptionsEditor">
@@ -104,51 +104,51 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.productSales}
                     ref={this.gridRef}
                     sortingExpressions={this.sortingExpression1}>
                     <IgrColumn
                         field="OrderID"
                         header="Order ID"
-                        groupable="true"
-                        sortable="true">
+                        groupable={true}
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Category"
                         header="Category Name"
-                        dataType="String"
-                        groupable="true"
-                        sortable="true">
+                        dataType="string"
+                        groupable={true}
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
                         header="Company"
-                        dataType="String"
-                        groupable="true"
-                        sortable="true">
+                        dataType="string"
+                        groupable={true}
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ShipCountry"
                         header="Ship Country"
-                        dataType="String"
-                        groupable="true"
-                        sortable="true">
+                        dataType="string"
+                        groupable={true}
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="SaleAmount"
                         header="Sale Amount"
-                        dataType="Currency"
-                        groupable="true"
-                        sortable="true"
+                        dataType="currency"
+                        groupable={true}
+                        sortable={true}
                         pipeArgs={this.columnPipeArgs1}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="ShippedDate"
                         header="Shipped Date"
-                        dataType="Date"
-                        sortable="true">
+                        dataType="date"
+                        sortable={true}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

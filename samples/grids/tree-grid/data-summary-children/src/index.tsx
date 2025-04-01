@@ -52,8 +52,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.treeGrid}
                     descriptionType="WebTreeGrid"
-                    isHorizontal="true"
-                    isWrappingEnabled="false"
+                    isHorizontal={true}
+                    isWrappingEnabled={false}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         name="SummaryCalculationModeEditor"
@@ -81,7 +81,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.ordersTreeData}
                     ref={this.treeGridRef}
                     id="treeGrid"
@@ -90,28 +90,28 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="Order ID"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Order Product"
-                        hasSummary="true">
+                        hasSummary={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Price"
-                        dataType="Number"
-                        hasSummary="true"
-                        editable="true">
+                        dataType="number"
+                        hasSummary={true}
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
-                        dataType="Boolean">
+                        dataType="boolean">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date">
+                        dataType="date">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

@@ -35,45 +35,45 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
-                    allowFiltering="true"
+                    allowFiltering={true}
                     foreignKey="ParentID">
                     <IgrPaginator
-                        perPage="10">
+                        perPage={10}>
                     </IgrPaginator>
                     <IgrColumn
                         field="Name"
-                        dataType="String"
-                        editable="true"
-                        hasSummary="true">
+                        dataType="string"
+                        editable={true}
+                        hasSummary={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        dataType="String"
-                        editable="true"
-                        hasSummary="true">
+                        dataType="string"
+                        editable={true}
+                        hasSummary={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="Number"
-                        editable="true"
-                        hasSummary="true">
+                        dataType="number"
+                        editable={true}
+                        hasSummary={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="Date"
-                        editable="true"
-                        hasSummary="true">
+                        dataType="date"
+                        editable={true}
+                        hasSummary={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="OnPTO"
-                        dataType="Boolean"
-                        editable="true"
-                        hasSummary="true"
+                        dataType="boolean"
+                        editable={true}
+                        hasSummary={true}
                         width="130px">
                     </IgrColumn>
                 </IgrTreeGrid>

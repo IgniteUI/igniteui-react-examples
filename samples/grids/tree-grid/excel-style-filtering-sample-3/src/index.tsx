@@ -36,14 +36,14 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.gridRef}
                     data={this.foodsData}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    moving="true"
-                    allowFiltering="true"
-                    filterMode="ExcelStyleFilter"
+                    moving={true}
+                    allowFiltering={true}
+                    filterMode="excelStyleFilter"
                     excelStyleHeaderIconTemplate={this.webGridFilterAltIconTemplate}>
                     <IgrGridToolbar
                     >
@@ -57,28 +57,28 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="ID"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Product Name"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        sortable="true"
-                        dataType="Currency">
+                        sortable={true}
+                        dataType="currency">
                     </IgrColumn>
                     <IgrColumn
                         field="AddedDate"
                         header="Added Date"
-                        sortable="true"
-                        dataType="Date">
+                        sortable={true}
+                        dataType="date">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
-                        dataType="Boolean"
+                        dataType="boolean"
                         bodyTemplate={this.webGridBooleanCellTemplate}
                         name="column1">
                     </IgrColumn>

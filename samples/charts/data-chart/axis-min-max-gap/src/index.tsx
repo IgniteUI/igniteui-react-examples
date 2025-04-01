@@ -44,11 +44,11 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         name="xAxis"
-                        useEnhancedIntervalManagement="true"
-                        enhancedIntervalPreferMoreCategoryLabels="true"
+                        useEnhancedIntervalManagement={true}
+                        enhancedIntervalPreferMoreCategoryLabels={true}
                         dataSource={this.temperatureAverageData}
                         label="month"
-                        minimumGapSize="25">
+                        minimumGapSize={25}>
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis">

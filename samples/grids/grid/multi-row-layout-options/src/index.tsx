@@ -51,9 +51,9 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     ref={this.gridRef}
                     data={this.customersData}
-                    rowEditable="true"
-                    allowFiltering="true"
-                    filterMode="ExcelStyleFilter"
+                    rowEditable={true}
+                    allowFiltering={true}
+                    filterMode="excelStyleFilter"
                     primaryKey="Company"
                     groupingExpressions={this.groupingExpression1}>
                     <IgrGridToolbar
@@ -75,105 +75,105 @@ export default class Sample extends React.Component<any, any> {
                         header="ID">
                         <IgrColumn
                             field="ID"
-                            rowStart="1"
-                            colStart="1"
-                            rowEnd="3"
-                            filterable="false"
+                            rowStart={1}
+                            colStart={1}
+                            rowEnd={3}
+                            filterable={false}
                             width="150px">
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
-                        pinned="true"
+                        pinned={true}
                         header="Contact Details">
                         <IgrColumn
                             field="Company"
                             header="Company"
-                            rowStart="1"
-                            colStart="1"
-                            colEnd="3"
-                            sortable="true"
+                            rowStart={1}
+                            colStart={1}
+                            colEnd={3}
+                            sortable={true}
                             width="350px">
                         </IgrColumn>
                         <IgrColumn
                             field="ContactName"
                             header="Name"
-                            rowStart="2"
-                            colStart="1"
-                            colEnd="2"
-                            groupable="true">
+                            rowStart={2}
+                            colStart={1}
+                            colEnd={2}
+                            groupable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ContactTitle"
                             header="Title"
-                            rowStart="2"
-                            colStart="2"
-                            colEnd="3"
-                            groupable="true">
+                            rowStart={2}
+                            colStart={2}
+                            colEnd={3}
+                            groupable={true}>
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
-                        pinned="false"
+                        pinned={false}
                         header="Address Details">
                         <IgrColumn
                             field="Country"
-                            rowStart="1"
-                            colStart="1"
-                            colEnd="3"
-                            groupable="true"
-                            filterable="false"
+                            rowStart={1}
+                            colStart={1}
+                            colEnd={3}
+                            groupable={true}
+                            filterable={false}
                             width="220px">
                         </IgrColumn>
                         <IgrColumn
                             field="Region"
-                            rowStart="1"
-                            colStart="3"
-                            colEnd="5"
-                            groupable="true"
-                            filterable="false"
+                            rowStart={1}
+                            colStart={3}
+                            colEnd={5}
+                            groupable={true}
+                            filterable={false}
                             width="220px">
                         </IgrColumn>
                         <IgrColumn
                             field="PostalCode"
-                            rowStart="1"
-                            colStart="5"
-                            colEnd="7"
-                            groupable="true"
-                            filterable="false"
+                            rowStart={1}
+                            colStart={5}
+                            colEnd={7}
+                            groupable={true}
+                            filterable={false}
                             width="220px">
                         </IgrColumn>
                         <IgrColumn
                             field="City"
-                            rowStart="2"
-                            colStart="1"
-                            colEnd="4"
-                            groupable="true"
-                            filterable="false"
+                            rowStart={2}
+                            colStart={1}
+                            colEnd={4}
+                            groupable={true}
+                            filterable={false}
                             width="220px">
                         </IgrColumn>
                         <IgrColumn
                             field="Address"
-                            rowStart="2"
-                            colStart="4"
-                            colEnd="7"
-                            filterable="false">
+                            rowStart={2}
+                            colStart={4}
+                            colEnd={7}
+                            filterable={false}>
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
                         header="Phone Details">
                         <IgrColumn
                             field="Phone"
-                            rowStart="1"
-                            colStart="1"
-                            colEnd="2"
-                            filterable="false"
+                            rowStart={1}
+                            colStart={1}
+                            colEnd={2}
+                            filterable={false}
                             width="220px">
                         </IgrColumn>
                         <IgrColumn
                             field="Fax"
-                            rowStart="2"
-                            colStart="1"
-                            colEnd="2"
-                            filterable="false"
+                            rowStart={2}
+                            colStart={1}
+                            colEnd={2}
+                            filterable={false}
                             width="220px">
                         </IgrColumn>
                     </IgrColumnLayout>

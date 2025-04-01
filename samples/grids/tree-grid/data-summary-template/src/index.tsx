@@ -54,8 +54,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.treeGrid}
                     descriptionType="WebTreeGrid"
-                    isHorizontal="true"
-                    isWrappingEnabled="false"
+                    isHorizontal={true}
+                    isWrappingEnabled={false}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="SummaryRowHeight"
@@ -83,7 +83,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.employeesNestedTreeData}
                     ref={this.treeGridRef}
                     id="treeGrid"
@@ -94,24 +94,24 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="Number"
-                        hasSummary="true"
+                        dataType="number"
+                        hasSummary={true}
                         summaryTemplate={this.webTreeGridSummaryTemplate}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        hasSummary="true">
+                        hasSummary={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="Date">
+                        dataType="date">
                     </IgrColumn>
                     <IgrColumn
                         field="OnPTO"
-                        dataType="Boolean"
-                        editable="true"
-                        hasSummary="true">
+                        dataType="boolean"
+                        editable={true}
+                        hasSummary={true}>
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

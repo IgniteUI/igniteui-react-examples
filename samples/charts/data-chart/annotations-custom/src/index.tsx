@@ -69,26 +69,26 @@ export default class Sample extends React.Component<any, any> {
                         xMemberPath="index"
                         yMemberPath="value"
                         labelMemberPath="label"
-                        calloutPaddingLeft="20"
-                        calloutPaddingRight="20"
-                        calloutPaddingBottom="10"
-                        calloutPaddingTop="10"
-                        calloutCornerRadius="5">
+                        calloutPaddingLeft={20}
+                        calloutPaddingRight={20}
+                        calloutPaddingBottom={10}
+                        calloutPaddingTop={10}
+                        calloutCornerRadius={5}>
                     </IgrCalloutLayer>
                     <IgrFinalValueLayer
                         name="FinalValueLayer"
-                        axisAnnotationBackgroundCornerRadius="10"
-                        axisAnnotationPaddingBottom="10"
-                        axisAnnotationPaddingTop="10"
-                        axisAnnotationPaddingLeft="10"
-                        axisAnnotationPaddingRight="10">
+                        axisAnnotationBackgroundCornerRadius={10}
+                        axisAnnotationPaddingBottom={10}
+                        axisAnnotationPaddingTop={10}
+                        axisAnnotationPaddingLeft={10}
+                        axisAnnotationPaddingRight={10}>
                     </IgrFinalValueLayer>
                     <IgrCrosshairLayer
                         name="CrosshairLayer"
-                        isAxisAnnotationEnabled="true"
-                        yAxisAnnotationInterpolatedValuePrecision="0"
-                        xAxisAnnotationBackgroundCornerRadius="10"
-                        yAxisAnnotationBackgroundCornerRadius="10">
+                        isAxisAnnotationEnabled={true}
+                        yAxisAnnotationInterpolatedValuePrecision={0}
+                        xAxisAnnotationBackgroundCornerRadius={10}
+                        yAxisAnnotationBackgroundCornerRadius={10}>
                     </IgrCrosshairLayer>
                     <IgrDataToolTipLayer
                         name="Tooltips">

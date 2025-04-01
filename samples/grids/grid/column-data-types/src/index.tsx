@@ -110,32 +110,32 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.invoicesDataExtendedDates}
                     ref={this.gridRef}
                     id="grid"
-                    allowFiltering="true"
-                    filterMode="ExcelStyleFilter"
+                    allowFiltering={true}
+                    filterMode="excelStyleFilter"
                     locale="EN">
                     <IgrColumn
                         field="ProductName"
                         header="Prod. Name"
                         width="120px"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true"
-                        dataType="String">
+                        sortable={true}
+                        hasSummary={true}
+                        editable={true}
+                        resizable={true}
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
                         width="120px"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true"
-                        dataType="Number"
+                        sortable={true}
+                        hasSummary={true}
+                        editable={true}
+                        resizable={true}
+                        dataType="number"
                         pipeArgs={this.columnPipeArgs1}
                         name="column1">
                     </IgrColumn>
@@ -143,11 +143,11 @@ export default class Sample extends React.Component<any, any> {
                         field="OrderFullDate"
                         header="Order Full Date"
                         width="300px"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true"
-                        dataType="DateTime"
+                        sortable={true}
+                        hasSummary={true}
+                        editable={true}
+                        resizable={true}
+                        dataType="dateTime"
                         pipeArgs={this.columnPipeArgs2}
                         name="column2">
                     </IgrColumn>
@@ -155,11 +155,11 @@ export default class Sample extends React.Component<any, any> {
                         field="OrderDate"
                         header="Order Date"
                         width="160px"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true"
-                        dataType="Date"
+                        sortable={true}
+                        hasSummary={true}
+                        editable={true}
+                        resizable={true}
+                        dataType="date"
                         pipeArgs={this.columnPipeArgs3}
                         name="column3">
                     </IgrColumn>
@@ -167,11 +167,11 @@ export default class Sample extends React.Component<any, any> {
                         field="OrderDateDelay"
                         header="Order Time"
                         width="120px"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true"
-                        dataType="Time"
+                        sortable={true}
+                        hasSummary={true}
+                        editable={true}
+                        resizable={true}
+                        dataType="time"
                         pipeArgs={this.columnPipeArgs4}
                         name="column4">
                     </IgrColumn>
@@ -179,11 +179,11 @@ export default class Sample extends React.Component<any, any> {
                         field="UnitsInStock"
                         header="Stock Value"
                         width="120px"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true"
-                        dataType="Currency"
+                        sortable={true}
+                        hasSummary={true}
+                        editable={true}
+                        resizable={true}
+                        dataType="currency"
                         pipeArgs={this.columnPipeArgs5}
                         name="column5">
                     </IgrColumn>
@@ -191,11 +191,11 @@ export default class Sample extends React.Component<any, any> {
                         field="UnitsOnOrder"
                         header="% Change"
                         width="120px"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true"
-                        dataType="Percent"
+                        sortable={true}
+                        hasSummary={true}
+                        editable={true}
+                        resizable={true}
+                        dataType="percent"
                         pipeArgs={this.columnPipeArgs6}
                         name="column6">
                     </IgrColumn>
@@ -203,11 +203,11 @@ export default class Sample extends React.Component<any, any> {
                         field="Discontinued"
                         header="Discontinued"
                         width="160px"
-                        sortable="true"
-                        hasSummary="true"
-                        editable="true"
-                        resizable="true"
-                        dataType="Boolean">
+                        sortable={true}
+                        hasSummary={true}
+                        editable={true}
+                        resizable={true}
+                        dataType="boolean">
                     </IgrColumn>
                 </IgrGrid>
             </div>

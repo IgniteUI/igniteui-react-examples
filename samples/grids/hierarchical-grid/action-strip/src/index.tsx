@@ -45,11 +45,11 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.singersData}
                     primaryKey="ID"
-                    rowEditable="true"
-                    allowFiltering="true"
+                    rowEditable={true}
+                    allowFiltering={true}
                     pinning={this.pinningConfig1}
                     ref={this.hierarchicalGrid1Ref}>
                     <IgrActionStrip
@@ -58,115 +58,115 @@ export default class Sample extends React.Component<any, any> {
                         >
                         </IgrGridPinningActions>
                         <IgrGridEditingActions
-                            editRow="true"
-                            deleteRow="true"
-                            addRow="true">
+                            editRow={true}
+                            deleteRow={true}
+                            addRow={true}>
                         </IgrGridEditingActions>
                     </IgrActionStrip>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Photo"
                         header="Photo"
-                        dataType="Image"
-                        sortable="true">
+                        dataType="image"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut"
-                        dataType="Number"
-                        sortable="true">
+                        dataType="number"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="Number"
-                        sortable="true">
+                        dataType="number"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="Number"
-                        sortable="true">
+                        dataType="number"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate="false">
+                        autoGenerate={false}>
                         <IgrColumn
                             field="Album"
                             header="Album"
-                            dataType="String"
-                            sortable="true">
+                            dataType="string"
+                            sortable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="Date"
-                            sortable="true">
+                            dataType="date"
+                            sortable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
                             header="Billboard Review"
-                            dataType="String"
-                            sortable="true">
+                            dataType="string"
+                            sortable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="USBillboard200"
                             header="US Billboard 200"
-                            dataType="String"
-                            sortable="true">
+                            dataType="string"
+                            sortable={true}>
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="Songs"
-                            autoGenerate="false">
+                            autoGenerate={false}>
                             <IgrColumn
                                 field="Number"
                                 header="No."
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                             <IgrColumn
                                 field="Title"
                                 header="Title"
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                             <IgrColumn
                                 field="Released"
                                 header="Released"
-                                dataType="Date">
+                                dataType="date">
                             </IgrColumn>
                             <IgrColumn
                                 field="Genre"
                                 header="Genre"
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>
                     <IgrRowIsland
                         childDataKey="Tours"
-                        autoGenerate="false">
+                        autoGenerate={false}>
                         <IgrColumn
                             field="Tour"
                             header="Tour"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="StartedOn"
                             header="Started on"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="Location"
                             header="Location"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="Headliner"
                             header="Headliner"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>

@@ -78,8 +78,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.grid}
                     descriptionType="WebHierarchicalGrid"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         name="rowPinningEditor"
                         label="Row Pinning toggle"
@@ -93,39 +93,39 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.singersData}
                     primaryKey="Photo"
                     id="grid"
                     ref={this.gridRef}
-                    cellSelection="None"
+                    cellSelection="none"
                     rendered={this.webHierarchicalGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="Photo"
                         header="Photo"
-                        dataType="Image"
+                        dataType="image"
                         minWidth="115px">
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrActionStrip
                         name="actionStrip1">
@@ -136,29 +136,29 @@ export default class Sample extends React.Component<any, any> {
                     <IgrRowIsland
                         childDataKey="Albums"
                         primaryKey="Album"
-                        cellSelection="None"
-                        autoGenerate="false"
+                        cellSelection="none"
+                        autoGenerate={false}
                         pinning={this.pinningConfig2}
                         name="rowIsland1">
                         <IgrColumn
                             field="Album"
                             header="Album"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="Date">
+                            dataType="date">
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
                             header="Billboard Review"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="USBillboard200"
                             header="US Billboard 200"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrActionStrip
                             name="actionStrip2">

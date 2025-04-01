@@ -52,15 +52,15 @@ export default class Sample extends React.Component<any, any> {
                     dataSource={this.energyRenewableConsumption}
                     chartType="Column"
                     legend={this.legend}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
-                    isSeriesHighlightingEnabled="true"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
+                    isSeriesHighlightingEnabled={true}
                     brushes="rgba(157, 231, 114, 1) rgba(139, 91, 177, 1) rgba(109, 177, 255, 1) rgba(238, 88, 121, 1) rgba(248, 161, 95, 1)"
                     outlines="white"
                     xAxisMajorStroke="lightgray"
-                    xAxisGap="0.5"
+                    xAxisGap={0.5}
                     crosshairsDisplayMode="None"
-                    isCategoryHighlightingEnabled="true"
+                    isCategoryHighlightingEnabled={true}
                     highlightingMode="FadeOthersSpecific"
                     highlightingBehavior="NearestItemsAndSeries">
                 </IgrCategoryChart>

@@ -44,7 +44,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.legendRef}
                     target={this.chart}
                     valueFormatMode="Decimal"
-                    valueFormatMinFractions="1"
+                    valueFormatMinFractions={1}
                     unitsText="B">
                 </IgrDataLegend>
             </div>
@@ -54,16 +54,16 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     chartType="Column"
                     dataSource={this.highestGrossingMovies}
-                    xAxisInterval="1"
+                    xAxisInterval={1}
                     yAxisTitle="Billions of U.S. Dollars"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisLabelLeftMargin="0"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    yAxisTitleLeftMargin={10}
+                    yAxisTitleRightMargin={5}
+                    yAxisLabelLeftMargin={0}
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     toolTipType="None"
                     crosshairsDisplayMode="None"
-                    isCategoryHighlightingEnabled="true">
+                    isCategoryHighlightingEnabled={true}>
                 </IgrCategoryChart>
             </div>
         </div>

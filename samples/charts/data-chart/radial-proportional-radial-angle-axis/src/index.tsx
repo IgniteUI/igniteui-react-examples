@@ -59,19 +59,19 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}
                     legend={this.legend}
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false">
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}>
                     <IgrProportionalCategoryAngleAxis
                         name="angleAxis"
                         dataSource={this.energyRenewableConsumption}
                         label="location"
                         valueMemberPath="hydro"
-                        gap="0">
+                        gap={0}>
                     </IgrProportionalCategoryAngleAxis>
                     <IgrNumericRadiusAxis
                         name="radiusAxis"
-                        minimumValue="0"
-                        maximumValue="100">
+                        minimumValue={0}
+                        maximumValue={100}>
                     </IgrNumericRadiusAxis>
                     <IgrRadialPieSeries
                         name="RadialPieSeries1"
@@ -79,8 +79,8 @@ export default class Sample extends React.Component<any, any> {
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
                         valueMemberPath="hydro"
-                        showDefaultTooltip="false"
-                        useItemWiseColors="true"
+                        showDefaultTooltip={false}
+                        useItemWiseColors={true}
                         title="Hydro Consumption">
                     </IgrRadialPieSeries>
                     <IgrDataToolTipLayer

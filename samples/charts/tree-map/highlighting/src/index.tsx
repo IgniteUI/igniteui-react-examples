@@ -46,8 +46,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.treemap}
                     descriptionType="Treemap"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightingMode"
                         name="HighlightedModeEditor"
@@ -71,18 +71,18 @@ export default class Sample extends React.Component<any, any> {
                     labelMemberPath="name"
                     valueMemberPath="population"
                     fillScaleMode="Value"
-                    fillScaleMinimumValue="0"
-                    fillScaleMaximumValue="1500000000"
+                    fillScaleMinimumValue={0}
+                    fillScaleMaximumValue={1500000000}
                     fillBrushes="rgba(78, 98, 207, 1) rgba(138, 88, 214, 1)"
-                    isFillScaleLogarithmic="true"
+                    isFillScaleLogarithmic={true}
                     rootTitle="Countries"
                     headerDisplayMode="Overlay"
-                    parentNodeBottomPadding="0"
-                    parentNodeLeftPadding="0"
-                    parentNodeRightPadding="0"
-                    parentNodeTopPadding="0"
+                    parentNodeBottomPadding={0}
+                    parentNodeLeftPadding={0}
+                    parentNodeRightPadding={0}
+                    parentNodeTopPadding={0}
                     outline="black"
-                    strokeThickness="1">
+                    strokeThickness={1}>
                 </IgrTreemap>
             </div>
         </div>

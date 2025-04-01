@@ -46,13 +46,13 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="FinalValueAnnotationsVisible"
                         name="FinalValueAnnotationsEditor"
                         label="Final Value Visible"
-                        shouldOverrideDefaultEditor="true"
+                        shouldOverrideDefaultEditor={true}
                         primitiveValue="True">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
@@ -67,18 +67,18 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     chartType="Column"
                     computedPlotAreaMarginMode="Series"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     includedProperties={["month", "temperature"]}
                     dataSource={this.temperatureAnnotatedData}
-                    finalValueAnnotationsVisible="true"
+                    finalValueAnnotationsVisible={true}
                     finalValueAnnotationsBackground="dodgerblue"
                     finalValueAnnotationsTextColor="white"
-                    finalValueAnnotationsPrecision="0"
-                    crosshairsAnnotationYAxisPrecision="0"
-                    yAxisMaximumValue="35"
+                    finalValueAnnotationsPrecision={0}
+                    crosshairsAnnotationYAxisPrecision={0}
+                    yAxisMaximumValue={35}
                     yAxisLabelLocation="OutsideRight"
-                    isTransitionInEnabled="false">
+                    isTransitionInEnabled={false}>
                 </IgrCategoryChart>
             </div>
         </div>

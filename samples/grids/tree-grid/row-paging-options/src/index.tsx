@@ -62,8 +62,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.treeGrid}
                     descriptionType="WebTreeGrid"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         name="SizeEditor"
                         label="Grid Size:"
@@ -77,7 +77,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.ordersTreeData}
                     ref={this.treeGridRef}
                     id="treeGrid"
@@ -85,7 +85,7 @@ export default class Sample extends React.Component<any, any> {
                     foreignKey="ParentID">
                     <IgrPaginator
                         name="paginator"
-                        perPage="10"
+                        perPage={10}
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
                     <IgrColumn
@@ -103,27 +103,27 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Units"
                         header="Units"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         header="Price"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date">
+                        dataType="date">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
                         header="Delivered"
-                        dataType="Boolean">
+                        dataType="boolean">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

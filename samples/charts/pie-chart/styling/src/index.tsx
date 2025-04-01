@@ -53,11 +53,11 @@ export default class Sample extends React.Component<any, any> {
                     valueMemberPath="value"
                     labelMemberPath="summary"
                     labelsPosition="OutsideEnd"
-                    labelExtent="30"
+                    labelExtent={30}
                     brushes="rgba(247, 210, 98, 1) rgba(168, 168, 183, 1) rgba(224, 81, 169, 1) rgba(248, 161, 95, 1) rgba(115, 86, 86, 1)"
                     outlines="white"
-                    radiusFactor="0.7"
-                    startAngle="0"
+                    radiusFactor={0.7}
+                    startAngle={0}
                     dataSource={this.energyGlobalDemand}
                     legend={this.legend}>
                 </IgrPieChart>

@@ -69,25 +69,25 @@ export default class Sample extends React.Component<any, any> {
                         name="yAxis1"
                         label="category"
                         dataSource={this.roadblocksToSuccess}
-                        gap="0.25"
-                        labelExtent="0">
+                        gap={0.25}
+                        labelExtent={0}>
                     </IgrCategoryYAxis>
                     <IgrCategoryYAxis
                         name="yAxis2"
                         label="category"
                         dataSource={this.roadblocksToSuccess}
-                        gap="1"
+                        gap={1}
                         labelHorizontalAlignment="Right">
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
                         name="xAxis"
-                        minimumValue="0"
-                        maximumValue="50"
-                        useEnhancedIntervalManagement="true"
+                        minimumValue={0}
+                        maximumValue={50}
+                        useEnhancedIntervalManagement={true}
                         labelFormat="{0}%"
-                        strokeThickness="2"
+                        strokeThickness={2}
                         stroke="gray"
-                        tickLength="5">
+                        tickLength={5}>
                     </IgrNumericXAxis>
                     <IgrCategoryHighlightLayer
                         name="CategoryHighlightLayer">
@@ -99,9 +99,9 @@ export default class Sample extends React.Component<any, any> {
                         title="Sum of Top 3 Choices"
                         valueMemberPath="topChoices"
                         dataSource={this.roadblocksToSuccess}
-                        showDefaultTooltip="true"
-                        isTransitionInEnabled="true"
-                        isHighlightingEnabled="true"
+                        showDefaultTooltip={true}
+                        isTransitionInEnabled={true}
+                        isHighlightingEnabled={true}
                         markerType="Hidden">
                     </IgrBarSeries>
                     <IgrBarSeries
@@ -111,32 +111,32 @@ export default class Sample extends React.Component<any, any> {
                         title="Top Choice"
                         valueMemberPath="firstChoice"
                         dataSource={this.roadblocksToSuccess}
-                        showDefaultTooltip="true"
-                        isTransitionInEnabled="true"
-                        isHighlightingEnabled="true"
+                        showDefaultTooltip={true}
+                        isTransitionInEnabled={true}
+                        isHighlightingEnabled={true}
                         markerType="Hidden">
                     </IgrBarSeries>
                     <IgrCalloutLayer
                         name="CalloutLayer1"
-                        isAutoCalloutBehaviorEnabled="true"
+                        isAutoCalloutBehaviorEnabled={true}
                         calloutLeaderBrush="rgba(0, 0, 0, 0)"
                         calloutOutline="rgba(0, 0, 0, 0)"
                         calloutBackground="rgba(0, 0, 0, 0)"
                         calloutTextColor="black"
-                        calloutStrokeThickness="2"
-                        calloutPaddingTop="0"
-                        calloutPositionPadding="0">
+                        calloutStrokeThickness={2}
+                        calloutPaddingTop={0}
+                        calloutPositionPadding={0}>
                     </IgrCalloutLayer>
                     <IgrCalloutLayer
                         name="CalloutLayer2"
-                        isAutoCalloutBehaviorEnabled="true"
+                        isAutoCalloutBehaviorEnabled={true}
                         calloutLeaderBrush="rgba(0, 0, 0, 0)"
                         calloutOutline="rgba(0, 0, 0, 0)"
                         calloutBackground="rgba(0, 0, 0, 0)"
                         calloutTextColor="black"
-                        calloutStrokeThickness="2"
-                        calloutPaddingTop="0"
-                        calloutPositionPadding="0">
+                        calloutStrokeThickness={2}
+                        calloutPaddingTop={0}
+                        calloutPositionPadding={0}>
                     </IgrCalloutLayer>
                     <IgrDataToolTipLayer
                         name="Tooltips">

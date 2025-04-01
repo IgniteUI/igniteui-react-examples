@@ -126,7 +126,7 @@ export default class Sample extends React.Component<any, any> {
                     dataToolTipIncludedColumns={["Close", "Change", "Value"]}
                     dataToolTipHeaderFormatTime="None"
                     zoomSliderType="None"
-                    yAxisAbbreviateLargeNumbers="false"
+                    yAxisAbbreviateLargeNumbers={false}
                     yAxisLabelFormat="{0}"
                     yAxisLabelFormatSpecifiers={this.numberFormatSpecifier5}
                     xAxisLabelFormat="{0}"

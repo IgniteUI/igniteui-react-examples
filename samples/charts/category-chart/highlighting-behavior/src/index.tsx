@@ -46,8 +46,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightingBehavior"
                         name="HighlightingBehaviorEditor"
@@ -62,14 +62,14 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     chartType="Column"
                     computedPlotAreaMarginMode="Series"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     dataSource={this.temperatureAnnotatedData}
                     highlightingMode="Brighten"
                     highlightingBehavior="DirectlyOver"
                     toolTipType="None"
                     crosshairsDisplayMode="None"
-                    isTransitionInEnabled="false">
+                    isTransitionInEnabled={false}>
                 </IgrCategoryChart>
             </div>
         </div>

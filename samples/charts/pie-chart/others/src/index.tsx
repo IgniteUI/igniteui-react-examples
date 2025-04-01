@@ -51,13 +51,13 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     labelMemberPath="summary"
                     labelsPosition="OutsideEnd"
-                    labelExtent="30"
+                    labelExtent={30}
                     valueMemberPath="value"
                     outlines="white"
-                    othersCategoryThreshold="10"
+                    othersCategoryThreshold={10}
                     othersCategoryType="Number"
                     othersCategoryText="Others"
-                    radiusFactor="0.7"
+                    radiusFactor={0.7}
                     legendLabelMemberPath="category"
                     dataSource={this.energyGlobalDemand}
                     legend={this.legend}>

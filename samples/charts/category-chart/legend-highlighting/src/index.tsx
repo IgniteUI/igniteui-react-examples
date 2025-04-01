@@ -51,16 +51,16 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     chartType="Column"
                     dataSource={this.highestGrossingMovies}
-                    xAxisInterval="1"
+                    xAxisInterval={1}
                     yAxisTitle="Billions of U.S. Dollars"
-                    yAxisTitleLeftMargin="10"
-                    yAxisTitleRightMargin="5"
-                    yAxisLabelLeftMargin="0"
-                    isHorizontalZoomEnabled="false"
-                    isVerticalZoomEnabled="false"
+                    yAxisTitleLeftMargin={10}
+                    yAxisTitleRightMargin={5}
+                    yAxisLabelLeftMargin={0}
+                    isHorizontalZoomEnabled={false}
+                    isVerticalZoomEnabled={false}
                     highlightingMode="Brighten"
                     legendHighlightingMode="MatchSeries"
-                    isTransitionInEnabled="false">
+                    isTransitionInEnabled={false}>
                 </IgrCategoryChart>
             </div>
         </div>

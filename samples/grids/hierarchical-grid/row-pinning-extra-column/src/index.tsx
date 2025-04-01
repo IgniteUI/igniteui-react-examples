@@ -106,8 +106,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.grid}
                     descriptionType="WebHierarchicalGrid"
-                    isHorizontal="true"
-                    isWrappingEnabled="true">
+                    isHorizontal={true}
+                    isWrappingEnabled={true}>
                     <IgrPropertyEditorPropertyDescription
                         name="rowPinningEditor"
                         label="Row Pinning toggle"
@@ -121,148 +121,148 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.singersData}
                     primaryKey="Photo"
                     id="grid"
                     ref={this.gridRef}
-                    cellSelection="None"
+                    cellSelection="none"
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         width="70px"
-                        filterable="false"
-                        pinned="true"
+                        filterable={false}
+                        pinned={true}
                         bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="Photo"
                         header="Photo"
-                        dataType="Image">
+                        dataType="image">
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
                         primaryKey="Album"
-                        cellSelection="None"
+                        cellSelection="none"
                         pinning={this.pinningConfig2}
-                        autoGenerate="false"
+                        autoGenerate={false}
                         name="rowIsland1">
                         <IgrColumn
                             width="70px"
-                            filterable="false"
-                            pinned="true"
+                            filterable={false}
+                            pinned={true}
                             bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}
                             name="column2">
                         </IgrColumn>
                         <IgrColumn
                             field="Album"
                             header="Album"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="Date">
+                            dataType="date">
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
                             header="Billboard Review"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="USBillboard200"
                             header="US Billboard 200"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="Songs"
                             primaryKey="Number"
-                            cellSelection="None"
+                            cellSelection="none"
                             pinning={this.pinningConfig3}
-                            autoGenerate="false"
+                            autoGenerate={false}
                             name="rowIsland2">
                             <IgrColumn
                                 width="70px"
-                                filterable="false"
-                                pinned="true"
+                                filterable={false}
+                                pinned={true}
                                 bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}
                                 name="column3">
                             </IgrColumn>
                             <IgrColumn
                                 field="Number"
                                 header="No."
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                             <IgrColumn
                                 field="Title"
                                 header="Title"
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                             <IgrColumn
                                 field="Released"
                                 header="Released"
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                             <IgrColumn
                                 field="Genre"
                                 header="Genre"
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>
                     <IgrRowIsland
                         childDataKey="Tours"
                         primaryKey="Tour"
-                        cellSelection="None"
+                        cellSelection="none"
                         pinning={this.pinningConfig4}
-                        autoGenerate="false"
+                        autoGenerate={false}
                         name="rowIsland3">
                         <IgrColumn
                             width="70px"
-                            filterable="false"
-                            pinned="true"
+                            filterable={false}
+                            pinned={true}
                             bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}
                             name="column4">
                         </IgrColumn>
                         <IgrColumn
                             field="Tour"
                             header="Tour"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="StartedOn"
                             header="Started on"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="Location"
                             header="Location"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="Headliner"
                             header="Headliner"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>
