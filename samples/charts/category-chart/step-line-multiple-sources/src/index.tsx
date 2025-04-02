@@ -54,13 +54,13 @@ export default class Sample extends React.Component<any, any> {
                     chartType="StepLine"
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
-                    isCategoryHighlightingEnabled={true}
-                    isSeriesHighlightingEnabled={true}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
-                    xAxisInterval={1}
+                    isCategoryHighlightingEnabled="true"
+                    isSeriesHighlightingEnabled="true"
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
+                    xAxisInterval="1"
                     yAxisTitle="TWh"
-                    crosshairsSnapToData={true}>
+                    crosshairsSnapToData="true">
                 </IgrCategoryChart>
             </div>
         </div>

@@ -46,7 +46,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataLegend
                     ref={this.legendRef}
                     summaryType="None"
-                    valueFormatMaxFractions={0}
+                    valueFormatMaxFractions="0"
                     target={this.chart}>
                 </IgrDataLegend>
             </div>
@@ -56,15 +56,15 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     dataSource={this.selectableData}
                     chartType="Column"
-                    xAxisOverlap={1}
-                    yAxisMinimumValue={0}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
-                    isSeriesHighlightingEnabled={true}
-                    finalValueAnnotationsVisible={false}
-                    crosshairsAnnotationEnabled={false}
+                    xAxisOverlap="1"
+                    yAxisMinimumValue="0"
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
+                    isSeriesHighlightingEnabled="true"
+                    finalValueAnnotationsVisible="false"
+                    crosshairsAnnotationEnabled="false"
                     dataToolTipSummaryType="None"
-                    dataToolTipValueFormatMaxFractions={0}
+                    dataToolTipValueFormatMaxFractions="0"
                     seriesPointerDown={this.categoryChartCustomSelectionPointerDown}>
                 </IgrCategoryChart>
             </div>

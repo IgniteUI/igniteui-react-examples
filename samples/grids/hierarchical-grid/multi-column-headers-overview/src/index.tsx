@@ -53,8 +53,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.hierarchicalGrid}
                     descriptionType="WebGrid"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}>
+                    isHorizontal="true"
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         valueType="Button"
                         primitiveValue="Pin First Group"

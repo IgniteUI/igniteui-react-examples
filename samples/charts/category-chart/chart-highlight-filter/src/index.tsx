@@ -46,8 +46,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}>
+                    isHorizontal="true"
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightedValuesDisplayMode"
                         name="highlightedValuesDisplayModeEditor"

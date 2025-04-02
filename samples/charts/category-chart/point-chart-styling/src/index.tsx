@@ -57,13 +57,13 @@ export default class Sample extends React.Component<any, any> {
                     brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     yAxisTitle="TWh"
-                    yAxisTitleLeftMargin={10}
-                    yAxisLabelLeftMargin={0}
-                    thickness={2}
+                    yAxisTitleLeftMargin="10"
+                    yAxisLabelLeftMargin="0"
+                    thickness="2"
                     computedPlotAreaMarginMode="Series"
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
-                    crosshairsSnapToData={true}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
+                    crosshairsSnapToData="true">
                 </IgrCategoryChart>
             </div>
         </div>

@@ -52,8 +52,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}>
+                    isHorizontal="true"
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="ChartType"
                         name="ChartTypeEditor"
@@ -64,7 +64,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="MarkerTypeHandler"
                         name="MarkerTypeEditor"
                         label="Marker Type"
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         valueType="EnumValue"
                         dropDownValues={["Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None"]}
                         dropDownNames={["Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None"]}
@@ -81,7 +81,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrCategoryChart
                     ref={this.chartRef}
-                    isSeriesHighlightingEnabled={true}
+                    isSeriesHighlightingEnabled="true"
                     chartType="Line"
                     dataSource={this.countryRenewableElectricity}
                     computedPlotAreaMarginMode="Series">

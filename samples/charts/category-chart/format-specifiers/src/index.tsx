@@ -109,9 +109,9 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     dataSource={this.highestGrossingMovies}
                     chartType="Column"
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
-                    finalValueAnnotationsPrecision={2}
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
+                    finalValueAnnotationsPrecision="2"
                     dataToolTipValueFormatString="{0} Billion"
                     dataToolTipValueFormatSpecifiers={this.numberFormatSpecifier3}
                     yAxisLabelFormat="{0}B"

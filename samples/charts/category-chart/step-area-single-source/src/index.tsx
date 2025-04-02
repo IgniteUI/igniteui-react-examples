@@ -39,11 +39,11 @@ export default class Sample extends React.Component<any, any> {
                     includedProperties={["year", "europe"]}
                     ref={this.chartRef}
                     chartType="StepArea"
-                    isTransitionInEnabled={true}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
+                    isTransitionInEnabled="true"
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
                     yAxisTitle="TWh"
-                    crosshairsSnapToData={true}>
+                    crosshairsSnapToData="true">
                 </IgrCategoryChart>
             </div>
         </div>

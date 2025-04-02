@@ -74,7 +74,7 @@ export default class Sample extends React.Component<any, any> {
                                 iconName="analyze">
                                 <IgrToolActionGroupHeader
                                     name="SubPanelGroup"
-                                    closeOnExecute={true}
+                                    closeOnExecute="true"
                                     title="Visualizations"
                                     subtitle="Layers">
                                 </IgrToolActionGroupHeader>
@@ -104,7 +104,7 @@ export default class Sample extends React.Component<any, any> {
                                 iconName="reset"
                                 iconCollectionName="ChartToolbarIcons"
                                 commandId="ZoomReset"
-                                isHighlighted={true}>
+                                isHighlighted="true">
                             </IgrToolActionLabel>
                             <IgrToolActionLabel
                                 name="zoomResetHidden"
@@ -129,8 +129,8 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDataChart
                     computedPlotAreaMarginMode="Series"
-                    isHorizontalZoomEnabled={true}
-                    isVerticalZoomEnabled={true}
+                    isHorizontalZoomEnabled="true"
+                    isVerticalZoomEnabled="true"
                     ref={this.chartRef}>
                     <IgrCategoryXAxis
                         name="xAxis"

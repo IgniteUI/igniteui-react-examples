@@ -57,20 +57,20 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
                     legend={this.legend}>
                     <IgrCategoryXAxis
                         name="xAxis"
                         label="month"
-                        interval={1}
+                        interval="1"
                         dataSource={this.temperatureRangeData}>
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
                         title="Temperature (in Celsius)"
-                        titleAngle={90}
-                        titleLeftMargin={10}>
+                        titleAngle="90"
+                        titleLeftMargin="10">
                     </IgrNumericYAxis>
                     <IgrRangeAreaSeries
                         name="rangeAreaSeries1"
@@ -79,7 +79,7 @@ export default class Sample extends React.Component<any, any> {
                         title="Los Angeles"
                         lowMemberPath="lowLA"
                         highMemberPath="highLA"
-                        showDefaultTooltip={false}
+                        showDefaultTooltip="false"
                         dataSource={this.temperatureRangeData}>
                     </IgrRangeAreaSeries>
                     <IgrRangeAreaSeries
@@ -89,7 +89,7 @@ export default class Sample extends React.Component<any, any> {
                         title="New York"
                         lowMemberPath="lowNY"
                         highMemberPath="highNY"
-                        showDefaultTooltip={false}
+                        showDefaultTooltip="false"
                         dataSource={this.temperatureRangeData}>
                     </IgrRangeAreaSeries>
                     <IgrDataToolTipLayer

@@ -40,7 +40,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
-                    shouldAutoExpandMarginForInitialLabels={true}
+                    shouldAutoExpandMarginForInitialLabels="true"
                     computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}
                     highlightedValuesDisplayMode="Overlay">
@@ -66,7 +66,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumnSeries>
                     <IgrDataToolTipLayer
                         name="dataToolTipLayer"
-                        groupRowVisible={true}
+                        groupRowVisible="true"
                         groupingMode="Grouped"
                         groupTextColor="purple"
                         groupTextStyle="Italic bold 14px Arial">

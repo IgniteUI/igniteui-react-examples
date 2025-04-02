@@ -48,8 +48,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.hGrid}
                     descriptionType="WebHierarchicalGrid"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}>
+                    isHorizontal="true"
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="CellSelection"
                         name="CellSelectionEditor"

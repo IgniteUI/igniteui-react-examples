@@ -62,25 +62,25 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="DataChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="Axes[0 as CategoryAngleAxis].LabelExtent"
                         name="LabelExtent"
                         label="Label Extent"
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         valueType="Slider"
                         primitiveValue="5"
-                        min={0}
-                        max={100}
-                        step={1}>
+                        min="0"
+                        max="100"
+                        step="1">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="Axes[0 as CategoryAngleAxis].LabelMode"
                         name="LabelMode"
                         label="LabelMode"
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         valueType="EnumValue"
                         dropDownNames={["Auto", "Center", "ClosestPoint"]}
                         dropDownValues={["Auto", "Center", "ClosestPoint"]}
@@ -104,8 +104,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}
                     legend={this.legend}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryAngleAxis
                         name="angleAxis"
                         dataSource={this.footballPlayerStats}
@@ -113,10 +113,10 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryAngleAxis>
                     <IgrNumericRadiusAxis
                         name="radiusAxis"
-                        innerRadiusExtentScale={0.1}
-                        interval={2}
-                        minimumValue={0}
-                        maximumValue={10}>
+                        innerRadiusExtentScale="0.1"
+                        interval="2"
+                        minimumValue="0"
+                        maximumValue="10">
                     </IgrNumericRadiusAxis>
                     <IgrRadialColumnSeries
                         name="RadialColumnSeries1"
@@ -124,9 +124,9 @@ export default class Sample extends React.Component<any, any> {
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
                         valueMemberPath="ronaldo"
-                        showDefaultTooltip={false}
-                        areaFillOpacity={0.8}
-                        thickness={3}
+                        showDefaultTooltip="false"
+                        areaFillOpacity="0.8"
+                        thickness="3"
                         title="Ronaldo">
                     </IgrRadialColumnSeries>
                     <IgrRadialColumnSeries
@@ -135,9 +135,9 @@ export default class Sample extends React.Component<any, any> {
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
                         valueMemberPath="messi"
-                        showDefaultTooltip={false}
-                        areaFillOpacity={0.8}
-                        thickness={3}
+                        showDefaultTooltip="false"
+                        areaFillOpacity="0.8"
+                        thickness="3"
                         title="Messi">
                     </IgrRadialColumnSeries>
                     <IgrDataToolTipLayer

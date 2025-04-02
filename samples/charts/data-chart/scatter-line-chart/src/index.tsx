@@ -64,17 +64,17 @@ export default class Sample extends React.Component<any, any> {
                     <IgrNumericXAxis
                         name="xAxis"
                         title="Life Expectancy (in years)"
-                        minimumValue={72}
-                        maximumValue={84}
-                        interval={2}>
+                        minimumValue="72"
+                        maximumValue="84"
+                        interval="2">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
                         title="Health Expenditure per Capita"
-                        abbreviateLargeNumbers={true}
-                        minimumValue={1000}
-                        maximumValue={6000}
-                        interval={1000}>
+                        abbreviateLargeNumbers="true"
+                        minimumValue="1000"
+                        maximumValue="6000"
+                        interval="1000">
                     </IgrNumericYAxis>
                     <IgrScatterLineSeries
                         name="ScatterLineSeries1"
@@ -85,7 +85,7 @@ export default class Sample extends React.Component<any, any> {
                         yMemberPath="healthExpense"
                         dataSource={this.healthDataForGermany}
                         markerType="Circle"
-                        showDefaultTooltip={true}>
+                        showDefaultTooltip="true">
                     </IgrScatterLineSeries>
                     <IgrScatterLineSeries
                         name="ScatterLineSeries2"
@@ -96,7 +96,7 @@ export default class Sample extends React.Component<any, any> {
                         yMemberPath="healthExpense"
                         dataSource={this.healthDataForFrance}
                         markerType="Circle"
-                        showDefaultTooltip={true}>
+                        showDefaultTooltip="true">
                     </IgrScatterLineSeries>
                     <IgrDataToolTipLayer
                         name="dataToolTipLayer">

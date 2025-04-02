@@ -39,22 +39,22 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false">
                     <IgrProportionalCategoryAngleAxis
                         name="angleAxis"
                         dataSource={this.radialProportionalData}
                         label="label"
                         valueMemberPath="value"
-                        gap={0}
+                        gap="0"
                         othersCategoryText="Others"
-                        othersCategoryThreshold={55}
+                        othersCategoryThreshold="55"
                         othersCategoryType="Number">
                     </IgrProportionalCategoryAngleAxis>
                     <IgrNumericRadiusAxis
                         name="radiusAxis"
-                        minimumValue={0}
-                        maximumValue={100}>
+                        minimumValue="0"
+                        maximumValue="100">
                     </IgrNumericRadiusAxis>
                     <IgrRadialPieSeries
                         name="RadialPieSeries1"
@@ -62,8 +62,8 @@ export default class Sample extends React.Component<any, any> {
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
                         valueMemberPath="value"
-                        showDefaultTooltip={false}
-                        useItemWiseColors={true}
+                        showDefaultTooltip="false"
+                        useItemWiseColors="true"
                         legendRadialLabelMode="LabelAndValueAndPercentage"
                         markerType="None"
                         title="Categories">

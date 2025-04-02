@@ -50,7 +50,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataLegend
                     ref={this.legendRef}
                     target={this.chart}
-                    groupRowVisible={true}>
+                    groupRowVisible="true">
                 </IgrDataLegend>
             </div>
 

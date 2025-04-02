@@ -45,17 +45,17 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDataChart
                     ref={this.chartRef}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryYAxis
                         name="yAxis"
                         label="shop"
-                        useEnhancedIntervalManagement={true}
-                        enhancedIntervalPreferMoreCategoryLabels={true}
+                        useEnhancedIntervalManagement="true"
+                        enhancedIntervalPreferMoreCategoryLabels="true"
                         dataSource={this.onlineShoppingSearches}
-                        isInverted={true}
-                        gap={0.5}
-                        overlap={-0.1}>
+                        isInverted="true"
+                        gap="0.5"
+                        overlap="-0.1">
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
                         name="xAxis"
@@ -70,9 +70,9 @@ export default class Sample extends React.Component<any, any> {
                         yAxisName="yAxis"
                         valueMemberPath="percent"
                         dataSource={this.onlineShoppingSearches}
-                        showDefaultTooltip={true}
-                        isTransitionInEnabled={true}
-                        isHighlightingEnabled={true}>
+                        showDefaultTooltip="true"
+                        isTransitionInEnabled="true"
+                        isHighlightingEnabled="true">
                     </IgrBarSeries>
                     <IgrDataToolTipLayer
                         name="Tooltips">

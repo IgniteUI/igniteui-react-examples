@@ -52,8 +52,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="DataChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}>
+                    isHorizontal="true"
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightedValuesDisplayMode"
                         name="HighlightedValuesDisplayModeEditor"
@@ -65,7 +65,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
-                    shouldAutoExpandMarginForInitialLabels={true}
+                    shouldAutoExpandMarginForInitialLabels="true"
                     computedPlotAreaMarginMode="Series"
                     highlightedValuesDisplayMode="Hidden"
                     ref={this.chartRef}>
@@ -76,8 +76,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
-                        minimumValue={0}
-                        maximumValue={100}>
+                        minimumValue="0"
+                        maximumValue="100">
                     </IgrNumericYAxis>
                     <IgrColumnSeries
                         name="ColumnSeries1"

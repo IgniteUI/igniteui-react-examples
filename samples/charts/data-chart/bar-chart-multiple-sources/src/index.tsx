@@ -64,12 +64,12 @@ export default class Sample extends React.Component<any, any> {
                     <IgrCategoryYAxis
                         name="yAxis"
                         label="franchise"
-                        useEnhancedIntervalManagement={true}
-                        enhancedIntervalPreferMoreCategoryLabels={true}
+                        useEnhancedIntervalManagement="true"
+                        enhancedIntervalPreferMoreCategoryLabels="true"
                         dataSource={this.highestGrossingMovies}
-                        isInverted={true}
-                        gap={0.5}
-                        overlap={-0.1}>
+                        isInverted="true"
+                        gap="0.5"
+                        overlap="-0.1">
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
                         name="xAxis"
@@ -85,9 +85,9 @@ export default class Sample extends React.Component<any, any> {
                         title="Total Revenue of Franchise"
                         valueMemberPath="totalRevenue"
                         dataSource={this.highestGrossingMovies}
-                        showDefaultTooltip={true}
-                        isTransitionInEnabled={true}
-                        isHighlightingEnabled={true}>
+                        showDefaultTooltip="true"
+                        isTransitionInEnabled="true"
+                        isHighlightingEnabled="true">
                     </IgrBarSeries>
                     <IgrBarSeries
                         name="BarSeries2"
@@ -96,9 +96,9 @@ export default class Sample extends React.Component<any, any> {
                         title="Highest Grossing Movie in Series"
                         valueMemberPath="highestGrossing"
                         dataSource={this.highestGrossingMovies}
-                        showDefaultTooltip={true}
-                        isTransitionInEnabled={true}
-                        isHighlightingEnabled={true}>
+                        showDefaultTooltip="true"
+                        isTransitionInEnabled="true"
+                        isHighlightingEnabled="true">
                     </IgrBarSeries>
                     <IgrDataToolTipLayer
                         name="Tooltips">

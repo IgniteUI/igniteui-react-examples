@@ -93,8 +93,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrPropertyEditorPanel
                     target={this.grid1}
                     descriptionType="WebGrid"
-                    isWrappingEnabled={true}
-                    isHorizontal={true}
+                    isWrappingEnabled="true"
+                    isHorizontal="true"
                     componentRenderer={this.renderer}
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription

@@ -53,17 +53,17 @@ export default class Sample extends React.Component<any, any> {
                     includedProperties={["year", "europe", "china", "america"]}
                     chartType="Area"
                     legend={this.legend}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
                     markerBrushes="white"
                     markerOutlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     brushes="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     outlines="rgba(140, 231, 217, 1) rgba(238, 88, 121, 1) rgba(115, 86, 86, 1)"
                     yAxisTitle="TWh"
-                    yAxisTitleLeftMargin={10}
-                    yAxisLabelLeftMargin={0}
+                    yAxisTitleLeftMargin="10"
+                    yAxisLabelLeftMargin="0"
                     toolTipType="Category"
-                    thickness={2}
+                    thickness="2"
                     computedPlotAreaMarginMode="Series">
                 </IgrCategoryChart>
             </div>

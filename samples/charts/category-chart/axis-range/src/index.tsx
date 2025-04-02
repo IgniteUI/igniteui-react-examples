@@ -58,14 +58,14 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="YAxisMinimumValueHandler"
                         name="YAxisMinimumValue"
                         label="Y Axis Minimum Value"
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         valueType="EnumValue"
                         dropDownNames={["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]}
                         dropDownValues={["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"]}
@@ -76,7 +76,7 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="YAxisMaximumValueHandler"
                         name="YAxisMaximumValue"
                         label="Y Axis Maximum Value"
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         valueType="EnumValue"
                         dropDownNames={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}
                         dropDownValues={["100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200"]}
@@ -105,10 +105,10 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     chartType="Line"
                     computedPlotAreaMarginMode="Series"
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
-                    yAxisMinimumValue={0}
-                    yAxisMaximumValue={150}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
+                    yAxisMinimumValue="0"
+                    yAxisMaximumValue="150">
                 </IgrCategoryChart>
             </div>
         </div>

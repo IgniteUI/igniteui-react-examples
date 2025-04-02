@@ -57,13 +57,13 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}>
+                    isHorizontal="true"
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="ValueListHandler"
                         name="ValueListEditor"
                         label="Value List"
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         valueType="EnumValue"
                         dropDownValues={["Auto", "Average", "GlobalAverage", "GlobalMaximum", "GlobalMinimum", "Maximum", "Minimum"]}
                         dropDownNames={["Auto", "Average", "GlobalAverage", "GlobalMaximum", "GlobalMinimum", "Maximum", "Minimum"]}
@@ -91,12 +91,12 @@ export default class Sample extends React.Component<any, any> {
                     includedProperties={["year", "america", "europe"]}
                     chartType="Column"
                     legend={this.legend}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
                     crosshairsDisplayMode="None"
-                    isTransitionInEnabled={false}
-                    yAxisMinimumValue={0}
-                    yAxisMaximumValue={100}>
+                    isTransitionInEnabled="false"
+                    yAxisMinimumValue="0"
+                    yAxisMaximumValue="100">
                 </IgrCategoryChart>
             </div>
         </div>

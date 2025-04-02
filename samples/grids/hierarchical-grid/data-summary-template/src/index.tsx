@@ -57,8 +57,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.hierarchicalGrid}
                     descriptionType="WebHierarchicalGrid"
-                    isHorizontal={true}
-                    isWrappingEnabled={false}
+                    isHorizontal="true"
+                    isWrappingEnabled="false"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="SummaryRowHeight"

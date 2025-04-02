@@ -45,14 +45,14 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="Sparkline"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="UnknownValuePlotting"
                         name="UnknownValuePlottingEditor"
                         label="Unknown Value Plotting"
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         valueType="EnumValue"
                         dropDownNames={["LinearInterpolate", "DontPlot"]}
                         dropDownValues={["LinearInterpolate", "DontPlot"]}

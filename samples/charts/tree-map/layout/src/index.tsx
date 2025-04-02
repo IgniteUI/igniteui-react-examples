@@ -48,8 +48,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.treemap}
                     descriptionType="Treemap"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="LayoutType"
@@ -92,12 +92,12 @@ export default class Sample extends React.Component<any, any> {
                     labelMemberPath="name"
                     valueMemberPath="population"
                     fillBrushes="rgba(41, 158, 65, 1) rgba(78, 98, 207, 1) rgba(94, 53, 156, 1)"
-                    isFillScaleLogarithmic={true}
+                    isFillScaleLogarithmic="true"
                     headerDisplayMode="Overlay"
-                    parentNodeBottomPadding={0}
-                    parentNodeLeftPadding={0}
-                    parentNodeRightPadding={0}
-                    parentNodeTopPadding={0}>
+                    parentNodeBottomPadding="0"
+                    parentNodeLeftPadding="0"
+                    parentNodeRightPadding="0"
+                    parentNodeTopPadding="0">
                 </IgrTreemap>
             </div>
         </div>

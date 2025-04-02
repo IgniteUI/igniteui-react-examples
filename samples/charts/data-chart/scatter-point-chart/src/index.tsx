@@ -62,15 +62,15 @@ export default class Sample extends React.Component<any, any> {
                     <IgrNumericXAxis
                         name="xAxis"
                         title="Death Rate (per 1,000 people)"
-                        minimumValue={5}
-                        maximumValue={15}>
+                        minimumValue="5"
+                        maximumValue="15">
                     </IgrNumericXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
                         title="Birth Rate (per 1,000 people)"
-                        minimumValue={0}
-                        maximumValue={50}
-                        interval={10}>
+                        minimumValue="0"
+                        maximumValue="50"
+                        interval="10">
                     </IgrNumericYAxis>
                     <IgrScatterSeries
                         name="scatterSeries1"
@@ -81,7 +81,7 @@ export default class Sample extends React.Component<any, any> {
                         yMemberPath="birthRate"
                         dataSource={this.countryDemographicEurope}
                         markerType="Circle"
-                        showDefaultTooltip={true}>
+                        showDefaultTooltip="true">
                     </IgrScatterSeries>
                     <IgrScatterSeries
                         name="scatterSeries2"
@@ -92,7 +92,7 @@ export default class Sample extends React.Component<any, any> {
                         yMemberPath="birthRate"
                         dataSource={this.countryDemographicAfrican}
                         markerType="Circle"
-                        showDefaultTooltip={true}>
+                        showDefaultTooltip="true">
                     </IgrScatterSeries>
                 </IgrDataChart>
             </div>

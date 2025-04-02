@@ -53,7 +53,7 @@ export default class Sample extends React.Component<any, any> {
                     labelMemberPath="summary"
                     labelsPosition="BestFit"
                     valueMemberPath="value"
-                    radiusFactor={0.7}
+                    radiusFactor="0.7"
                     dataSource={this.energyGlobalDemand}
                     legend={this.legend}>
                 </IgrPieChart>

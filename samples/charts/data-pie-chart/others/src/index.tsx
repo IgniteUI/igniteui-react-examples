@@ -48,8 +48,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="DataPieChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="OthersCategoryType"
@@ -63,8 +63,8 @@ export default class Sample extends React.Component<any, any> {
                         name="OthersCategoryThresholdEditor"
                         label="Others Threshold: "
                         valueType="Slider"
-                        min={0}
-                        max={50}
+                        min="0"
+                        max="50"
                         primitiveValue="15">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
@@ -85,7 +85,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     dataSource={this.dataPieData}
                     othersCategoryType="Number"
-                    othersCategoryThreshold={15}>
+                    othersCategoryThreshold="15">
                 </IgrDataPieChart>
             </div>
         </div>

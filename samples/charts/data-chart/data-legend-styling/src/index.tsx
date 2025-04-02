@@ -49,7 +49,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataLegend
                     ref={this.legendRef}
                     target={this.chart}
-                    groupRowVisible={true}
+                    groupRowVisible="true"
                     groupTextColor="purple"
                     groupTextStyle="Italic bold 20px Arial">
                 </IgrDataLegend>
@@ -57,7 +57,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrDataChart
-                    shouldAutoExpandMarginForInitialLabels={true}
+                    shouldAutoExpandMarginForInitialLabels="true"
                     computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}
                     highlightedValuesDisplayMode="Overlay">
@@ -83,7 +83,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumnSeries>
                     <IgrDataToolTipLayer
                         name="dataToolTipLayer"
-                        groupRowVisible={true}
+                        groupRowVisible="true"
                         groupingMode="Grouped">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>

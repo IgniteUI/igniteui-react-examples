@@ -59,8 +59,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}
                     legend={this.legend}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryAngleAxis
                         name="angleAxis"
                         dataSource={this.footballPlayerStats}
@@ -68,10 +68,10 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryAngleAxis>
                     <IgrNumericRadiusAxis
                         name="radiusAxis"
-                        innerRadiusExtentScale={0.1}
-                        interval={2}
-                        minimumValue={0}
-                        maximumValue={10}>
+                        innerRadiusExtentScale="0.1"
+                        interval="2"
+                        minimumValue="0"
+                        maximumValue="10">
                     </IgrNumericRadiusAxis>
                     <IgrRadialAreaSeries
                         name="RadialAreaSeries1"
@@ -79,9 +79,9 @@ export default class Sample extends React.Component<any, any> {
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
                         valueMemberPath="ronaldo"
-                        showDefaultTooltip={false}
-                        areaFillOpacity={0.5}
-                        thickness={3}
+                        showDefaultTooltip="false"
+                        areaFillOpacity="0.5"
+                        thickness="3"
                         title="Ronaldo"
                         markerType="Circle">
                     </IgrRadialAreaSeries>
@@ -91,9 +91,9 @@ export default class Sample extends React.Component<any, any> {
                         angleAxisName="angleAxis"
                         valueAxisName="radiusAxis"
                         valueMemberPath="messi"
-                        showDefaultTooltip={false}
-                        areaFillOpacity={0.5}
-                        thickness={3}
+                        showDefaultTooltip="false"
+                        areaFillOpacity="0.5"
+                        thickness="3"
                         title="Messi"
                         markerType="Circle">
                     </IgrRadialAreaSeries>

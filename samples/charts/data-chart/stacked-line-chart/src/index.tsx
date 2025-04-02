@@ -65,21 +65,21 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}
                     legend={this.legend}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryXAxis
                         name="xAxis"
                         dataSource={this.continentsBirthRate}
                         label="Year"
-                        gap={0.75}>
+                        gap="0.75">
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
-                        minimumValue={0}
-                        maximumValue={140}
-                        interval={20}
+                        minimumValue="0"
+                        maximumValue="140"
+                        interval="20"
                         title="Millions of Births"
-                        titleAngle={-90}
+                        titleAngle="-90"
                         labelFormat="{0} m">
                     </IgrNumericYAxis>
                     <IgrStackedLineSeries
@@ -87,7 +87,7 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.continentsBirthRate}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        showDefaultTooltip={false}
+                        showDefaultTooltip="false"
                         markerType="Circle">
                         <IgrStackedFragmentSeries
                             name="s1"

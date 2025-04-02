@@ -52,8 +52,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.treeGrid}
                     descriptionType="WebTreeGrid"
-                    isHorizontal={true}
-                    isWrappingEnabled={false}
+                    isHorizontal="true"
+                    isWrappingEnabled="false"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         name="SummaryCalculationModeEditor"

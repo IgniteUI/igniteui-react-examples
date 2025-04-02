@@ -48,8 +48,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="DataPieChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="ReplayTransitionIn"
@@ -71,7 +71,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     dataSource={this.energyGlobalDemand}
                     transitionInMode="Auto"
-                    transitionInDuration={1000}
+                    transitionInDuration="1000"
                     transitionInSpeedType="Random"
                     highlightingMode="None">
                 </IgrDataPieChart>

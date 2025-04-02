@@ -50,17 +50,17 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrDoughnutChart
                     ref={this.chartRef}
-                    allowSliceExplosion={true}>
+                    allowSliceExplosion="true">
                     <IgrRingSeries
                         name="series"
                         labelMemberPath="summary"
                         labelsPosition="OutsideEnd"
-                        labelExtent={30}
+                        labelExtent="30"
                         valueMemberPath="value"
                         legendLabelMemberPath="category"
                         outlines="white"
-                        radiusFactor={0.6}
-                        startAngle={30}
+                        radiusFactor="0.6"
+                        startAngle="30"
                         dataSource={this.energyGlobalDemand}
                         legend={this.legend}>
                     </IgrRingSeries>

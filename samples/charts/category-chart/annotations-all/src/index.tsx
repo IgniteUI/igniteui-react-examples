@@ -49,8 +49,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}>
+                    isHorizontal="true"
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="CrosshairsDisplayMode"
                         name="CrosshairsDisplayModeEditor"
@@ -67,14 +67,14 @@ export default class Sample extends React.Component<any, any> {
                         propertyPath="AutoCalloutsVisible"
                         name="CalloutsVisibleEditor"
                         label="Callouts: "
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         primitiveValue="True">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="FinalValueAnnotationsVisible"
                         name="FinalValueAnnotationsEditor"
                         label="Final Value: "
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         primitiveValue="True">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
@@ -89,24 +89,24 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     chartType="Column"
                     computedPlotAreaMarginMode="Series"
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
                     includedProperties={["month", "temperature"]}
                     dataSource={this.temperatureAnnotatedData}
-                    autoCalloutsVisible={true}
-                    isCategoryHighlightingEnabled={true}
+                    autoCalloutsVisible="true"
+                    isCategoryHighlightingEnabled="true"
                     highlightingMode="BrightenSpecific"
                     highlightingBehavior="NearestItemsAndSeries"
                     crosshairsDisplayMode="Both"
-                    crosshairsAnnotationYAxisPrecision={0}
+                    crosshairsAnnotationYAxisPrecision="0"
                     crosshairsAnnotationXAxisBackground="black"
-                    finalValueAnnotationsVisible={true}
+                    finalValueAnnotationsVisible="true"
                     finalValueAnnotationsBackground="dodgerblue"
                     finalValueAnnotationsTextColor="white"
-                    finalValueAnnotationsPrecision={0}
-                    yAxisMaximumValue={35}
+                    finalValueAnnotationsPrecision="0"
+                    yAxisMaximumValue="35"
                     yAxisLabelLocation="OutsideRight"
-                    isTransitionInEnabled={false}>
+                    isTransitionInEnabled="false">
                 </IgrCategoryChart>
             </div>
         </div>

@@ -64,17 +64,17 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataChart
                     ref={this.chartRef}
                     legend={this.legend}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}>
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false">
                     <IgrCategoryYAxis
                         name="yAxis"
                         dataSource={this.energyRenewableConsumption}
                         label="location"
-                        isInverted={true}>
+                        isInverted="true">
                     </IgrCategoryYAxis>
                     <IgrNumericXAxis
                         name="xAxis"
-                        minimumValue={0}
+                        minimumValue="0"
                         title="TWh">
                     </IgrNumericXAxis>
                     <IgrStacked100BarSeries
@@ -82,8 +82,8 @@ export default class Sample extends React.Component<any, any> {
                         dataSource={this.energyRenewableConsumption}
                         xAxisName="xAxis"
                         yAxisName="yAxis"
-                        showDefaultTooltip={true}
-                        areaFillOpacity={1}>
+                        showDefaultTooltip="true"
+                        areaFillOpacity="1">
                         <IgrStackedFragmentSeries
                             name="s1"
                             valueMemberPath="hydro"

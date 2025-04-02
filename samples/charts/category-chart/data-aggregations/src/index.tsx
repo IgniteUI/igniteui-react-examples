@@ -54,14 +54,14 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}>
+                    isHorizontal="true"
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="InitialGroupsHandler"
                         name="InitialGroups"
                         label="Initial Groups"
                         valueType="EnumValue"
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         dropDownNames={["Country", "Product", "Month", "Year"]}
                         dropDownValues={["Country", "Product", "Month", "Year"]}
                         primitiveValue="Country"
@@ -79,8 +79,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     dataSource={this.salesData}
                     chartType="Column"
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
                     crosshairsDisplayMode="None"
                     initialGroups="Country"
                     initialSummaries="Sum(Sales) as Sales"

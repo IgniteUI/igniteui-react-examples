@@ -54,8 +54,8 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}>
+                    isHorizontal="true"
+                    isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="SelectionMode"
                         name="SelectionModeEditor"
@@ -88,11 +88,11 @@ export default class Sample extends React.Component<any, any> {
                     chartType="Column"
                     dataSource={this.energyRenewableConsumption}
                     legend={this.legend}
-                    yAxisTitleLeftMargin={10}
-                    yAxisTitleRightMargin={5}
-                    yAxisLabelLeftMargin={0}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
+                    yAxisTitleLeftMargin="10"
+                    yAxisTitleRightMargin="5"
+                    yAxisLabelLeftMargin="0"
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
                     crosshairsDisplayMode="None"
                     selectionMode="SelectionColorFill"
                     selectionBehavior="PerSeriesAndDataItemGlobalSingleSelect"

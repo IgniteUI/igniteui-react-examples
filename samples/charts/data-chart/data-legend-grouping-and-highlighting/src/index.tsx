@@ -50,13 +50,13 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataLegend
                     ref={this.legendRef}
                     target={this.chart}
-                    groupRowVisible={true}>
+                    groupRowVisible="true">
                 </IgrDataLegend>
             </div>
 
             <div className="container fill">
                 <IgrDataChart
-                    shouldAutoExpandMarginForInitialLabels={true}
+                    shouldAutoExpandMarginForInitialLabels="true"
                     computedPlotAreaMarginMode="Series"
                     ref={this.chartRef}
                     highlightedValuesDisplayMode="Overlay">

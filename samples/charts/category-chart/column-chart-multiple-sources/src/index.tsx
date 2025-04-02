@@ -52,14 +52,14 @@ export default class Sample extends React.Component<any, any> {
                     chartType="Column"
                     dataSource={this.highestGrossingMovies}
                     legend={this.legend}
-                    xAxisInterval={1}
+                    xAxisInterval="1"
                     yAxisTitle="Billions of U.S. Dollars"
-                    yAxisTitleLeftMargin={10}
-                    yAxisTitleRightMargin={5}
-                    yAxisLabelLeftMargin={0}
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
-                    isCategoryHighlightingEnabled={true}
+                    yAxisTitleLeftMargin="10"
+                    yAxisTitleRightMargin="5"
+                    yAxisLabelLeftMargin="0"
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
+                    isCategoryHighlightingEnabled="true"
                     crosshairsDisplayMode="None">
                 </IgrCategoryChart>
             </div>

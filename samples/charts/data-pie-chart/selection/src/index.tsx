@@ -47,15 +47,15 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="DataPieChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         label="Selection Behavior: "
                         valueType="EnumValue"
                         propertyPath="SelectionBehavior"
                         name="SelectionBehaviorEditor"
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         dropDownNames={["PerDataItemSingleSelect", "PerDataItemMultiSelect"]}
                         dropDownValues={["PerDataItemSingleSelect", "PerDataItemMultiSelect"]}
                         primitiveValue="PerDataItemSingleSelect">
@@ -82,7 +82,7 @@ export default class Sample extends React.Component<any, any> {
                     selectionBehavior="PerDataItemSingleSelect"
                     selectionBrush="dodgerblue"
                     focusBrush="black"
-                    thickness={3}>
+                    thickness="3">
                 </IgrDataPieChart>
             </div>
         </div>

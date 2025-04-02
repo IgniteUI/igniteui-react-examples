@@ -52,17 +52,17 @@ export default class Sample extends React.Component<any, any> {
                     componentRenderer={this.renderer}
                     target={this.chart}
                     descriptionType="CategoryChart"
-                    isHorizontal={true}
-                    isWrappingEnabled={true}
+                    isHorizontal="true"
+                    isWrappingEnabled="true"
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisTickLength"
                         name="XAxisTickLength"
                         label="X Axis Tick Length"
-                        shouldOverrideDefaultEditor={true}
+                        shouldOverrideDefaultEditor="true"
                         valueType="Slider"
-                        min={0}
-                        max={20}
+                        min="0"
+                        max="20"
                         primitiveValue="10">
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
@@ -87,13 +87,13 @@ export default class Sample extends React.Component<any, any> {
                     legend={this.legend}
                     chartType="Line"
                     computedPlotAreaMarginMode="Series"
-                    isHorizontalZoomEnabled={false}
-                    isVerticalZoomEnabled={false}
-                    xAxisTickLength={10}
-                    xAxisTickStrokeThickness={1}
+                    isHorizontalZoomEnabled="false"
+                    isVerticalZoomEnabled="false"
+                    xAxisTickLength="10"
+                    xAxisTickStrokeThickness="1"
                     xAxisTickStroke="gray"
-                    yAxisTickLength={0}
-                    yAxisTickStrokeThickness={0}
+                    yAxisTickLength="0"
+                    yAxisTickStrokeThickness="0"
                     yAxisTickStroke="rgba(0, 0, 0, 0)">
                 </IgrCategoryChart>
             </div>
