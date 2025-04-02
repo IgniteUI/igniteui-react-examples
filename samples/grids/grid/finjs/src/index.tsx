@@ -256,13 +256,13 @@ function openDialogForRow(e: any, rowData: any) {
           </div>
           <div className="control-item">
             <label id="recordsLabel">Records: <span>{recordsCount}</span></label>
-            <IgrSlider className="finjs-slider" value="1000" min="0" max="10000" step="100" change={x => {
+            <IgrSlider className="finjs-slider" value={1000} min={0} max={10000} step={100} change={x => {
               setRecordsCount(x.value);
             }}></IgrSlider>
           </div>
           <div className="control-item">
             <label id="frequencyLabel" >Frequency:<span id="slider-freq-value">{frequency}</span></label>
-            <IgrSlider className="finjs-slider" value="500" min="100" max="3000" step="10"  change={x => {
+            <IgrSlider className="finjs-slider" value={500} min={100} max={3000} step={10}  change={x => {
               setFrequency(x.value);
             }}></IgrSlider>
           </div>

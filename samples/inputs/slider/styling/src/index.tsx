@@ -18,11 +18,11 @@ export default class SliderStyling extends React.Component<any, any> {
             <div className="container sample">
                 <div className="slider-container">
                     <span className="slider-label"> Slider</span>
-                    <IgrSlider value="40"/>
+                    <IgrSlider value={40}/>
                 </div>
                 <div className="slider-container">
                     <span className="slider-label"> Range Slider</span>
-                    <IgrRangeSlider lower="20" upper="70">
+                    <IgrRangeSlider lower={20} upper={70}>
                     </IgrRangeSlider>
                 </div>
             </div>

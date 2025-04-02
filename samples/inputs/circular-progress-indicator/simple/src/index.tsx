@@ -16,7 +16,7 @@ export default class SimpleCircularProgressIndicator extends React.Component<any
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrCircularProgress value="100" />
+                <IgrCircularProgress value={100} />
             </div>
         );
     }

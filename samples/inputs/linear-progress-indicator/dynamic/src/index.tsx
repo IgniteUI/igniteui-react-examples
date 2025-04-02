@@ -25,7 +25,7 @@ export default class DynamicLinearProgress extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrLinearProgress ref={this.linearProgressRef} style={{marginRight: "50px", marginLeft: "20px"}} max="100" value="100" labelAlign="BottomStart">
+                <IgrLinearProgress ref={this.linearProgressRef} style={{marginRight: "50px", marginLeft: "20px"}} max={100} value={100} labelAlign="BottomStart">
                 </IgrLinearProgress>
                 <div style={{display: "flex", justifyContent: "space-evenly", marginTop: "20px", marginLeft: "20px"}} onClick={this.onIconClick}>
                     <IgrIconButton ref={this.removeIconRef} className="removeIcon" name="remove" collection="material">

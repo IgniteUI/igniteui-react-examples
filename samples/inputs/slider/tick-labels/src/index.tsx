@@ -16,8 +16,8 @@ export default class SliderTickLabels extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrSlider style={{padding: "30px 30px  0px 30px"}}
-                    primaryTicks="6" 
-                    secondaryTicks="1"
+                    primaryTicks={6} 
+                    secondaryTicks={1}
                     tickOrientation="Mirror" 
                     tickLabelRotation={-90} 
                     hideSecondaryLabels={true}>
