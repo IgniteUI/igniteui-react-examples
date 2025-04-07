@@ -17,7 +17,7 @@ export default class RatingCustomSymbols extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">                
-                    <IgrRating className="size-large" label="Rate Experience" step=".5" value="3" hoverPreview="true">
+                    <IgrRating className="size-large" label="Rate Experience" step={.5} value={3} hoverPreview={true}>
                          <IgrRatingSymbol key="0">
                             <div key="div0"><IgrIcon ref={this.iconRef} name='heart' collection="material" key="default0"></IgrIcon></div>
                             <div key="empty-div0" slot='empty'><IgrIcon ref={this.iconRef} name='emptyHeart' collection="material" key="empty0"></IgrIcon></div> 

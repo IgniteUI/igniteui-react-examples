@@ -84,7 +84,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                                 Cost: $<span id="lowerCost">{this.state.cost.lower}</span> to $<span id="upperCost">{this.state.cost.upper}</span>
                             </h1>
                             <span key="ep2Span">
-                                <IgrRangeSlider key="rangeSlider" min="0" max="1000" lower={this.state.cost.lower} upper={this.state.cost.upper}
+                                <IgrRangeSlider key="rangeSlider" min={0} max={1000} lower={this.state.cost.lower} upper={this.state.cost.upper}
                                     change={this.costRangeChange}>
                                 </IgrRangeSlider>
                             </span>
@@ -96,7 +96,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                                     {[1, 2, 3, 4].map(rating => {
                                         return (
                                             <IgrRadio key={`${rating}star`} name="rating" value={rating.toString()} change={this.ratingChange}>
-                                                <IgrRating label={`${rating} star${rating > 1 ? 's' : ''} or more`} max="5" value={rating + 0.5}
+                                                <IgrRating label={`${rating} star${rating > 1 ? 's' : ''} or more`} max={5} value={rating + 0.5}
                                                     className="size-small" readonly key={`{r-${rating}}`}>
                                                 </IgrRating>
                                             </IgrRadio>

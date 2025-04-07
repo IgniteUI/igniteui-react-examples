@@ -34,14 +34,14 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.ordersTreeData}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
                     foreignKey="ParentID">
                     <IgrPaginator
-                        perPage="10">
+                        perPage={10}>
                     </IgrPaginator>
                     <IgrColumn
                         field="ID"
@@ -58,27 +58,27 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Units"
                         header="Units"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         header="Price"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date">
+                        dataType="date">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
                         header="Delivered"
-                        dataType="Boolean">
+                        dataType="boolean">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

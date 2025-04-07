@@ -71,7 +71,7 @@ export default function App() {
                     </IgrButton>
                 </div>
                 <div className="container fill">
-                    <IgrGrid autoGenerate="false" cellSelection="multiple" data={data} ref={gridRef} columnInit={onColumnInit}>
+                    <IgrGrid autoGenerate={false} cellSelection="multiple" data={data} ref={gridRef} columnInit={onColumnInit}>
                         <IgrColumn field="ProductID" header="Product ID">
                         </IgrColumn>
                         <IgrColumn field="ProductName" header="Product Name">

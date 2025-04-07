@@ -36,41 +36,41 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    moving="true"
+                    moving={true}
                     rowStyles={this.webTreeGridRowStylesHandler}>
                     <IgrColumn
                         field="Name"
-                        dataType="String"
-                        sortable="true"
-                        filterable="true"
-                        editable="true">
+                        dataType="string"
+                        sortable={true}
+                        filterable={true}
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="Number"
-                        resizable="false"
-                        filterable="false"
-                        editable="true">
+                        dataType="number"
+                        resizable={false}
+                        filterable={false}
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        dataType="String"
-                        resizable="true"
-                        filterable="true"
-                        editable="true">
+                        dataType="string"
+                        resizable={true}
+                        filterable={true}
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="Date"
-                        resizable="true"
-                        filterable="true"
-                        editable="true">
+                        dataType="date"
+                        resizable={true}
+                        filterable={true}
+                        editable={true}>
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

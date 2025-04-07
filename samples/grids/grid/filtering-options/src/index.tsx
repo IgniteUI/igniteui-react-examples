@@ -41,12 +41,12 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.gridRef}
                     data={this.nwindData}
-                    moving="true"
-                    allowFiltering="true"
-                    filterMode="QuickFilter">
+                    moving={true}
+                    allowFiltering={true}
+                    filterMode="quickFilter">
                     <IgrColumn
                         name="ProductName"
                         field="ProductName"
@@ -61,19 +61,19 @@ export default class Sample extends React.Component<any, any> {
                         name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="Currency">
+                        dataType="currency">
                     </IgrColumn>
                     <IgrColumn
                         name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date">
+                        dataType="date">
                     </IgrColumn>
                     <IgrColumn
                         name="Discontinued"
                         field="Discontinued"
                         header="Discontinued"
-                        dataType="Boolean">
+                        dataType="boolean">
                     </IgrColumn>
                 </IgrGrid>
             </div>

@@ -39,43 +39,43 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.gridRef}
                     data={this.athletesData}>
                     <IgrColumn
                         field="Id"
                         header="Rank"
-                        sortable="true"
-                        editable="true">
+                        sortable={true}
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Athlete"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="BeatsPerMinute"
                         header="Beats per Minute"
-                        dataType="Number"
-                        editable="true"
-                        sortable="true"
+                        dataType="number"
+                        editable={true}
+                        sortable={true}
                         cellClasses={this.webGridBeatsPerMinuteCellClassesHandler}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="TopSpeed"
                         header="Top Speed"
-                        dataType="Number"
-                        editable="true"
-                        sortable="true"
+                        dataType="number"
+                        editable={true}
+                        sortable={true}
                         cellClasses={this.webGridTopSpeedCellClassesHandler}
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="TrackProgress"
                         header="Track Progress"
-                        editable="true"
-                        sortable="true">
+                        editable={true}
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="CountryFlag"

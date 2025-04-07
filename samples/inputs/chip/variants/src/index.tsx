@@ -15,19 +15,19 @@ export default class ChipVariants extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample" style={{flexDirection: "row", gap: "8px", alignItems: "baseline"}}>
-                 <IgrChip variant="primary" selectable="true" removable="true">
+                 <IgrChip variant="primary" selectable={true} removable={true}>
                      <span>Primary</span>
                  </IgrChip>
-                 <IgrChip variant="info" selectable="true" removable="true">
+                 <IgrChip variant="info" selectable={true} removable={true}>
                      <span>Info</span>
                  </IgrChip>
-                 <IgrChip variant="success" selectable="true" removable="true">
+                 <IgrChip variant="success" selectable={true} removable={true}>
                      <span>Success</span>
                  </IgrChip>
-                 <IgrChip variant="warning" selectable="true" removable="true">
+                 <IgrChip variant="warning" selectable={true} removable={true}>
                      <span>Warning</span>
                  </IgrChip>
-                 <IgrChip variant="danger" selectable="true" removable="true">
+                 <IgrChip variant="danger" selectable={true} removable={true}>
                      <span>Danger</span>
                  </IgrChip>
             </div>

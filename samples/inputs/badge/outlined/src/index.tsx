@@ -15,7 +15,7 @@ export default class BadgeOutlined extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
 			<div className="sample">
-				<IgrBadge outlined="true" />
+				<IgrBadge outlined={true} />
 			</div>            
         );
     }

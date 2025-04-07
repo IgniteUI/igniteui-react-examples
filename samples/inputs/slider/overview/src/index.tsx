@@ -19,9 +19,9 @@ export default class SliderOverview extends React.Component<any, any> {
             <div className="container sample">
                 <div className="slider-component">
                     <span className="slider-label">Slider</span>
-                    <IgrSlider value="40" />
+                    <IgrSlider value={40} />
                     <span className="slider-label">Range Slider</span>
-                    <IgrRangeSlider lower="20" upper="70"></IgrRangeSlider>
+                    <IgrRangeSlider lower={20} upper={70}></IgrRangeSlider>
                 </div>
             </div>
         );

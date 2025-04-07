@@ -47,51 +47,51 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.employeesFlatData}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    rowSelection="Multiple"
+                    rowSelection="multiple"
                     rowSelectorTemplate={this.webGridRowSelectorExcelTemplate}
                     headSelectorTemplate={this.webGridHeaderRowSelectorExcelTemplate}>
                     <IgrPaginator
                         name="paginator"
-                        perPage="15"
+                        perPage={15}
                         selectOptions={[5, 10, 15, 25, 50]}
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
                     <IgrColumn
                         field="Name"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
                         header="Job Title"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="Date"
-                        sortable="true">
+                        dataType="date"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ID"
-                        dataType="Number"
-                        sortable="true">
+                        dataType="number"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="Number"
-                        sortable="true">
+                        dataType="number"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="OnPTO"
-                        dataType="Boolean"
-                        sortable="true">
+                        dataType="boolean"
+                        sortable={true}>
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

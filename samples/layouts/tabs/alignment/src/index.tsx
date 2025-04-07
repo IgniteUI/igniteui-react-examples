@@ -28,7 +28,7 @@ export default class Alignment extends React.Component<any, any> {
     return (
       <div className="container sample">
         <IgrRadioGroup alignment="horizontal" key="radio-group" >
-            <IgrRadio name="alignment" value="start" checked="true" key="start" change={this.onRadioChange}><span key="radio-span-0">Start</span></IgrRadio>
+            <IgrRadio name="alignment" value="start" checked={true} key="start" change={this.onRadioChange}><span key="radio-span-0">Start</span></IgrRadio>
             <IgrRadio name="alignment" value="center" key="center" change={this.onRadioChange}><span key="radio-span-1">Center</span></IgrRadio>
             <IgrRadio name="alignment" value="end" key="end" change={this.onRadioChange}><span key="radio-span-2">End</span></IgrRadio>
             <IgrRadio name="alignment" value="justify" key="justify" change={this.onRadioChange}><span key="radio-span-3">Justify</span></IgrRadio>

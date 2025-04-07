@@ -47,7 +47,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.hierarchicalCustomersData}
-                    columnSelection="Single"
+                    columnSelection="single"
                     primaryKey="CustomerID"
                     pinning={this.pinningConfig1}>
                     <IgrGridToolbar
@@ -61,12 +61,12 @@ export default class Sample extends React.Component<any, any> {
                     </IgrGridToolbar>
                     <IgrColumn
                         field="CustomerID"
-                        hidden="true">
+                        hidden={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
                         header="Company Name"
-                        pinned="true">
+                        pinned={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ContactName"
@@ -100,82 +100,82 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Orders"
-                        autoGenerate="false">
+                        autoGenerate={false}>
                         <IgrColumn
                             field="OrderDate"
                             header="Order Date"
-                            dataType="Date"
-                            resizable="true">
+                            dataType="date"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="RequiredDate"
                             header="Required Date"
-                            dataType="Date"
-                            resizable="true">
+                            dataType="date"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShippedDate"
                             header="Shipped Date"
-                            dataType="Date"
-                            resizable="true">
+                            dataType="date"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShipName"
                             header="Ship Name"
-                            dataType="String"
-                            resizable="true"
-                            pinned="true">
+                            dataType="string"
+                            resizable={true}
+                            pinned={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShippedVia"
                             header="Shipped Via"
-                            dataType="String"
-                            resizable="true">
+                            dataType="string"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="Freight"
                             header="Freight"
-                            dataType="String"
-                            resizable="true">
+                            dataType="string"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="OrderDetails"
-                            autoGenerate="false">
+                            autoGenerate={false}>
                             <IgrColumn
                                 field="UnitPrice"
                                 header="Unit Price"
-                                dataType="String"
-                                resizable="true">
+                                dataType="string"
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Quantity"
                                 header="Quantity"
-                                dataType="String"
-                                resizable="true">
+                                dataType="string"
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Discount"
                                 header="Discount"
-                                dataType="String"
-                                resizable="true">
+                                dataType="string"
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Weight"
                                 header="Weight"
-                                dataType="String"
-                                resizable="true">
+                                dataType="string"
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Length"
                                 header="Length"
-                                dataType="String"
-                                resizable="true">
+                                dataType="string"
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="TotalPrice"
                                 header="Total Price"
-                                dataType="String"
-                                resizable="true">
+                                dataType="string"
+                                resizable={true}>
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>

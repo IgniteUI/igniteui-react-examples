@@ -352,7 +352,7 @@ export default class Sample extends React.Component<any, any> {
 
                 <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.ordersTreeData}
                     ref={this.treeGridRef}
                     id="treeGrid"
@@ -361,20 +361,20 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="Order ID"
-                        hasSummary="true"
+                        hasSummary={true}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "ID")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Order Product"
-                        hasSummary="true"
+                        hasSummary={true}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "Name")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
                         header="Units"
                         dataType="Number"
-                        hasSummary="true"
+                        hasSummary={true}
                         summaries={UnitsSummary}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "Units")?.disabledSummaries}>
                     </IgrColumn>
@@ -382,21 +382,21 @@ export default class Sample extends React.Component<any, any> {
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="Number"
-                        hasSummary="true"
+                        hasSummary={true}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "UnitPrice")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         header="Price"
                         dataType="Number"
-                        hasSummary="true"
+                        hasSummary={true}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "Price")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
                         header="Delivered"
                         dataType="Boolean"
-                        hasSummary="true"
+                        hasSummary={true}
                         summaries={DeliveredSummary}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "Delivered")?.disabledSummaries}>
                     </IgrColumn>
@@ -404,7 +404,7 @@ export default class Sample extends React.Component<any, any> {
                         field="OrderDate"
                         header="Order Date"
                         dataType="Date"
-                        hasSummary="true"
+                        hasSummary={true}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "OrderDate")?.disabledSummaries}>
                     </IgrColumn>
                 </IgrTreeGrid>

@@ -15,13 +15,13 @@ export default class ChipSize extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample" style={{flexDirection: "row", gap: "8px", alignItems: "baseline"}}>
-                 <IgrChip className="size-small" selectable="true" removable="true">
+                 <IgrChip className="size-small" selectable={true} removable={true}>
                      <span>Chip</span>
                  </IgrChip>
-                 <IgrChip className="size-medium" selectable="true" removable="true">
+                 <IgrChip className="size-medium" selectable={true} removable={true}>
                      <span>Chip</span>
                  </IgrChip>
-                 <IgrChip className="size-large" selectable="true" removable="true">
+                 <IgrChip className="size-large" selectable={true} removable={true}>
                      <span>Chip</span>
                  </IgrChip>
             </div>

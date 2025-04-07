@@ -37,7 +37,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.customersData}
-                    columnSelection="Multiple">
+                    columnSelection="multiple">
                     <IgrColumnGroup
                         header="General Information">
                         <IgrColumn
@@ -49,12 +49,12 @@ export default class Sample extends React.Component<any, any> {
                             <IgrColumn
                                 field="ContactName"
                                 header="Name"
-                                hidden="true">
+                                hidden={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="ContactTitle"
                                 header="Title"
-                                selectable="false">
+                                selectable={false}>
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>
@@ -67,7 +67,7 @@ export default class Sample extends React.Component<any, any> {
                             header="Region Information">
                             <IgrColumn
                                 field="Country"
-                                selectable="false">
+                                selectable={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="City">
@@ -80,11 +80,11 @@ export default class Sample extends React.Component<any, any> {
                             header="City Information">
                             <IgrColumn
                                 field="Fax"
-                                selectable="false">
+                                selectable={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Address"
-                                selectable="false">
+                                selectable={false}>
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>

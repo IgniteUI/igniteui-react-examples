@@ -33,147 +33,147 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.hierarchicalCustomers}
                     ref={this.hierarchicalGrid1Ref}>
                     <IgrColumn
                         field="CustomerID"
                         width="auto"
-                        resizable="true">
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="CompanyName"
                         width="auto"
-                        resizable="true">
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ContactName"
                         width="auto"
-                        resizable="true">
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ContactTitle"
                         width="auto"
-                        resizable="true">
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
                         width="auto"
-                        resizable="true">
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="City"
                         width="auto"
-                        resizable="true">
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
                         width="auto"
-                        resizable="true">
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
                         width="auto"
-                        resizable="true">
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
                         width="auto"
-                        resizable="true">
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Fax"
                         width="auto"
-                        resizable="true">
+                        resizable={true}>
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Orders"
-                        autoGenerate="false">
+                        autoGenerate={false}>
                         <IgrColumn
                             field="OrderID"
                             width="auto"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="EmployeeID"
                             width="auto"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="OrderDate"
                             width="auto"
                             dataType="Date"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="RequiredDate"
                             width="auto"
                             dataType="Date"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShippedDate"
                             width="auto"
                             dataType="Date"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShipVia"
                             width="auto"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="Freight"
                             width="auto"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShipName"
                             width="auto"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShipAddress"
                             width="auto"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShipCity"
                             width="auto"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShipPostalCode"
                             width="auto"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShipCountry"
                             width="auto"
-                            resizable="true">
+                            resizable={true}>
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="OrderDetails"
-                            autoGenerate="false">
+                            autoGenerate={false}>
                             <IgrColumn
                                 field="ProductID"
                                 width="auto"
-                                resizable="true">
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="UnitPrice"
                                 width="auto"
-                                resizable="true">
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Quantity"
                                 width="auto"
-                                resizable="true">
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Discount"
                                 width="auto"
-                                resizable="true">
+                                resizable={true}>
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>

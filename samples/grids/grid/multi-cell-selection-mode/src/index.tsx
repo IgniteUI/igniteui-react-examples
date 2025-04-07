@@ -27,7 +27,7 @@ export default function App() {
         <>
             <div className="container sample">      
                 <div className="container horizontal wrapper">
-                    <IgrGrid autoGenerate="false" cellSelection="multiple" data={data} rangeSelected={onGridRangeSelected} width="40%">
+                    <IgrGrid autoGenerate={false} cellSelection="multiple" data={data} rangeSelected={onGridRangeSelected} width="40%">
                         <IgrColumn field="ProductID" header="Product ID">
                         </IgrColumn>
                         <IgrColumn field="ProductName" header="Product Name">
@@ -38,7 +38,7 @@ export default function App() {
                         </IgrColumn>
                     </IgrGrid>
 
-                    <IgrGrid ref={rightGridRef} autoGenerate="false" width="40%">
+                    <IgrGrid ref={rightGridRef} autoGenerate={false} width="40%">
                         <IgrColumn field="ProductID" header="Product ID">
                         </IgrColumn>
                         <IgrColumn field="ProductName" header="Product Name">

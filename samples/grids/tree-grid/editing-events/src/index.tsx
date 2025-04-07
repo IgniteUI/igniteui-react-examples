@@ -36,7 +36,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
@@ -45,21 +45,21 @@ export default class Sample extends React.Component<any, any> {
                     foreignKey="ParentID">
                     <IgrColumn
                         field="Name"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="Number"
-                        editable="true">
+                        dataType="number"
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="Date"
-                        editable="true">
+                        dataType="date"
+                        editable={true}>
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

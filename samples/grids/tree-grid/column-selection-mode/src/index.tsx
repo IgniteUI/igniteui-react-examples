@@ -60,7 +60,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.foodsData}
@@ -75,7 +75,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        selectable="false">
+                        selectable={false}>
                     </IgrColumn>
                     <IgrColumn
                         field="AddedDate"
@@ -83,7 +83,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
-                        selectable="false">
+                        selectable={false}>
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

@@ -55,19 +55,19 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.invoicesData}
                     ref={this.gridRef}
                     id="grid"
                     groupingExpressions={this.groupingExpression1}
-                    hideGroupedColumns="true">
+                    hideGroupedColumns={true}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
                         >
                             <IgrGridToolbarExporter
-                                exportCSV="false"
-                                exportExcel="true">
+                                exportCSV={false}
+                                exportExcel={true}>
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
@@ -75,37 +75,37 @@ export default class Sample extends React.Component<any, any> {
                         field="ShipCountry"
                         header="Ship Country"
                         width="150px"
-                        groupable="true">
+                        groupable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ShipCity"
                         header="Ship City"
                         width="150px"
-                        groupable="true">
+                        groupable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ShipAddress"
                         header="Ship Address"
                         width="150px"
-                        groupable="true">
+                        groupable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
                         header="Postal Code"
                         width="150px"
-                        groupable="true">
+                        groupable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date"
+                        dataType="date"
                         width="150px"
-                        groupable="true">
+                        groupable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Quantity"
                         width="150px"
-                        groupable="true">
+                        groupable={true}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

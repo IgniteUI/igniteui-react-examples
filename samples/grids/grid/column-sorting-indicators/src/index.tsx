@@ -78,36 +78,36 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.financialDataAll}
                     ref={this.gridRef}
                     sortingExpressions={this.sortingExpression1}
                     id="grid">
                     <IgrColumn
                         field="Settlement"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Type"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Region"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
-                        dataType="Currency"
-                        sortable="true">
+                        dataType="currency"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Buy"
-                        dataType="Currency"
-                        sortable="true">
+                        dataType="currency"
+                        sortable={true}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

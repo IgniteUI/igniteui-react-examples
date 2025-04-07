@@ -33,59 +33,59 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.invoicesData}
                     ref={this.gridRef}
                     id="grid">
                     <IgrColumnGroup
                         header="Customer Information"
-                        collapsible="true">
+                        collapsible={true}>
                         <IgrColumn
                             field="CustomerName"
                             header="Customer Name"
-                            visibleWhenCollapsed="true">
+                            visibleWhenCollapsed={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="CustomerID"
                             header="Customer ID"
-                            visibleWhenCollapsed="false">
+                            visibleWhenCollapsed={false}>
                         </IgrColumn>
                         <IgrColumn
                             field="CustomerFirstName"
                             header="First Name"
-                            visibleWhenCollapsed="false">
+                            visibleWhenCollapsed={false}>
                         </IgrColumn>
                         <IgrColumn
                             field="CustomerLastName"
                             header="Last Name"
-                            visibleWhenCollapsed="false">
+                            visibleWhenCollapsed={false}>
                         </IgrColumn>
                         <IgrColumnGroup
                             header="Customer Address"
-                            expanded="false"
-                            collapsible="true">
+                            expanded={false}
+                            collapsible={true}>
                             <IgrColumn
                                 field="CustomerAddress"
                                 header="Full Address"
                                 width="250px"
-                                visibleWhenCollapsed="true">
+                                visibleWhenCollapsed={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Address"
-                                visibleWhenCollapsed="false">
+                                visibleWhenCollapsed={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="City"
-                                visibleWhenCollapsed="false">
+                                visibleWhenCollapsed={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Country"
-                                visibleWhenCollapsed="false">
+                                visibleWhenCollapsed={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="PostalCode"
                                 header="Postal Code"
-                                visibleWhenCollapsed="false">
+                                visibleWhenCollapsed={false}>
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>
@@ -99,30 +99,30 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumnGroup
                         header="Product Details"
-                        collapsible="true"
-                        expanded="false">
+                        collapsible={true}
+                        expanded={false}>
                         <IgrColumn
                             field="ProductName"
                             header="Name"
-                            visibleWhenCollapsed="true">
+                            visibleWhenCollapsed={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="UnitPrice"
                             header="Unit Price"
-                            visibleWhenCollapsed="true">
+                            visibleWhenCollapsed={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ProductID"
                             header="ID"
-                            visibleWhenCollapsed="true">
+                            visibleWhenCollapsed={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="Quantity"
-                            visibleWhenCollapsed="false">
+                            visibleWhenCollapsed={false}>
                         </IgrColumn>
                         <IgrColumn
                             field="Quantity"
-                            visibleWhenCollapsed="false">
+                            visibleWhenCollapsed={false}>
                         </IgrColumn>
                     </IgrColumnGroup>
                 </IgrGrid>

@@ -46,81 +46,81 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    moving="true"
+                    moving={true}
                     columnWidth="200">
                     <IgrPaginator
-                        perPage="10"
-                        totalRecords="20">
+                        perPage={10}
+                        totalRecords={20}>
                     </IgrPaginator>
                     <IgrColumn
                         field="Name"
-                        dataType="String"
+                        dataType="string"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        dataType="String"
+                        dataType="string"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="ID"
-                        dataType="Number"
+                        dataType="number"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column3">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="Date"
+                        dataType="date"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column4">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="Number"
+                        dataType="number"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column5">
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
-                        dataType="String"
+                        dataType="string"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column6">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
-                        dataType="String"
+                        dataType="string"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column7">
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
-                        dataType="String"
+                        dataType="string"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column8">
                     </IgrColumn>
                     <IgrColumn
                         field="Fax"
-                        dataType="String"
+                        dataType="string"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column9">
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
-                        dataType="String"
+                        dataType="string"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column10">
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
-                        dataType="String"
+                        dataType="string"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column11">
                     </IgrColumn>
