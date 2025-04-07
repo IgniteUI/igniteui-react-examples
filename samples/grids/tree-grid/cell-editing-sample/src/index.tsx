@@ -25,9 +25,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid1 = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -42,7 +39,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
-                    ref={this.treeGrid1Ref}
                     id="treeGrid1"
                     data={this.roleplayTreeGridData}
                     primaryKey="ID"
@@ -57,16 +53,14 @@ export default class Sample extends React.Component<any, any> {
                         header="Race"
                         dataType="string"
                         editable={true}
-                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
-                        name="column1">
+                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="Class"
                         header="Class"
                         inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
                         dataType="string"
-                        editable={true}
-                        name="column2">
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
@@ -79,8 +73,7 @@ export default class Sample extends React.Component<any, any> {
                         header="Alignment"
                         inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
                         dataType="string"
-                        editable={true}
-                        name="column3">
+                        editable={true}>
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

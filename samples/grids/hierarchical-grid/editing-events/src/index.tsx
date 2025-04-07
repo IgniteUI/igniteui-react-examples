@@ -39,7 +39,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     id="grid"
-                    ref={this.gridRef}
                     data={this.nwindData}
                     cellEdit={this.webGridEditingEventsCellEdit}
                     primaryKey="ProductID"

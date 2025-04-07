@@ -51,7 +51,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     id="treeGrid"
-                    ref={this.treeGridRef}
                     data={this.employeesNestedTreeData}
                     rendered={this.webTreeGridPinRowOnRendered}
                     rowEditable={true}
@@ -75,7 +74,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="date">
                     </IgrColumn>
                     <IgrActionStrip
-                        name="actionStrip">
+                    >
                         <IgrGridPinningActions
                         >
                         </IgrGridPinningActions>

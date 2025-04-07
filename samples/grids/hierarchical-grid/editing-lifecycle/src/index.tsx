@@ -54,7 +54,6 @@ export default class Sample extends React.Component<any, any> {
                     data={this.singersData}
                     primaryKey="ID"
                     id="hierarchicalGrid"
-                    ref={this.hierarchicalGridRef}
                     rowEditable={true}
                     rendered={this.webHierarchicalGridRendered}
                     rowEditEnter={this.webHierarchicalGridRowEditEnter}
@@ -92,7 +91,6 @@ export default class Sample extends React.Component<any, any> {
                     <IgrRowIsland
                         childDataKey="Albums"
                         autoGenerate={false}
-                        name="rowIsland"
                         primaryKey="Album"
                         rowEditable={true}
                         rowEditEnter={this.webRowIslandGridRowEditEnter}

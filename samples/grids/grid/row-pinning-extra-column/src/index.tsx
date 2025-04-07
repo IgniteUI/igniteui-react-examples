@@ -24,7 +24,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -38,7 +37,6 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    ref={this.gridRef}
                     data={this.customersDataLocal}
                     primaryKey="ID"
                     cellSelection="none">
@@ -46,8 +44,7 @@ export default class Sample extends React.Component<any, any> {
                         width="70px"
                         filterable={false}
                         pinned={true}
-                        bodyTemplate={this.webGridRowPinCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webGridRowPinCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="ID"

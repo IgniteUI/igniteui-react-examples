@@ -56,7 +56,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
-                    ref={this.gridRef}
                     id="grid"
                     data={this.customersDataLocal}
                     primaryKey="ID"
@@ -64,43 +63,35 @@ export default class Sample extends React.Component<any, any> {
                     rendered={this.webGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
                     <IgrColumn
-                        name="Company"
                         field="Company"
                         header="Company"
                         width="300px">
                     </IgrColumn>
                     <IgrColumn
-                        name="ContactName"
                         field="ContactName"
                         header="Name">
                     </IgrColumn>
                     <IgrColumn
-                        name="ContactTitle"
                         field="ContactTitle"
                         header="Title">
                     </IgrColumn>
                     <IgrColumn
-                        name="Address"
                         field="Address"
                         header="Address">
                     </IgrColumn>
                     <IgrColumn
-                        name="City"
                         field="City"
                         header="City">
                     </IgrColumn>
                     <IgrColumn
-                        name="PostalCode"
                         field="PostalCode"
                         header="Postal Code">
                     </IgrColumn>
                     <IgrColumn
-                        name="Phone"
                         field="Phone"
                         header="Phone">
                     </IgrColumn>
                     <IgrColumn
-                        name="Fax"
                         field="Fax"
                         header="Fax">
                     </IgrColumn>
