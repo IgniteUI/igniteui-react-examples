@@ -6,13 +6,13 @@ import { Products } from './Products';
 import { IgrSparkline } from 'igniteui-react-charts';
 import { IgrSparklineModule } from 'igniteui-react-charts';
 // grid modules:
-import { IgrDataGridModule } from 'igniteui-react-grids';
-import { IgrDataGrid } from 'igniteui-react-grids';
-import { IgrTextColumn } from 'igniteui-react-grids';
-import { IgrNumericColumn } from 'igniteui-react-grids';
-import { IgrImageColumn } from 'igniteui-react-grids';
-import { IgrTemplateColumn, IIgrCellTemplateProps } from 'igniteui-react-grids';
-import { IgrTemplateCellInfo } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-data-grids';
+import { IgrDataGrid } from 'igniteui-react-data-grids';
+import { IgrTextColumn } from 'igniteui-react-data-grids';
+import { IgrNumericColumn } from 'igniteui-react-data-grids';
+import { IgrImageColumn } from 'igniteui-react-data-grids';
+import { IgrTemplateColumn, IIgrCellTemplateProps } from 'igniteui-react-data-grids';
+import { IgrTemplateCellInfo } from 'igniteui-react-data-grids';
 
 IgrDataGridModule.register();
 IgrSparklineModule.register();

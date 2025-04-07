@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrDataGridModule } from 'igniteui-react-grids';
-import { IgrDataGrid } from 'igniteui-react-grids';
-import { IgrDataGridColumn } from 'igniteui-react-grids';
-import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-grids';
-import { IgrDataBindingEventArgs } from 'igniteui-react-grids';
-import { HeaderClickAction } from 'igniteui-react-grids';
-import { DataGridSelectionMode } from 'igniteui-react-grids';
-import { IgrColumnGroupDescription } from 'igniteui-react-grids';
-import { IgrTextColumn } from 'igniteui-react-grids';
-import { IgrNumericColumn } from 'igniteui-react-grids';
-import { IgrTemplateColumn, IIgrCellTemplateProps } from 'igniteui-react-grids';
-import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
-import { IgrTemplateCellInfo } from 'igniteui-react-grids';
-import { IgrDateTimeColumn } from 'igniteui-react-grids';
+import { IgrDataGridModule } from 'igniteui-react-data-grids';
+import { IgrDataGrid } from 'igniteui-react-data-grids';
+import { IgrDataGridColumn } from 'igniteui-react-data-grids';
+import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-data-grids';
+import { IgrDataBindingEventArgs } from 'igniteui-react-data-grids';
+import { HeaderClickAction } from 'igniteui-react-data-grids';
+import { DataGridSelectionMode } from 'igniteui-react-data-grids';
+import { IgrColumnGroupDescription } from 'igniteui-react-data-grids';
+import { IgrTextColumn } from 'igniteui-react-data-grids';
+import { IgrNumericColumn } from 'igniteui-react-data-grids';
+import { IgrTemplateColumn, IIgrCellTemplateProps } from 'igniteui-react-data-grids';
+import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-data-grids';
+import { IgrTemplateCellInfo } from 'igniteui-react-data-grids';
+import { IgrDateTimeColumn } from 'igniteui-react-data-grids';
 
 IgrDataGridModule.register();
 
