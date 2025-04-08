@@ -95,7 +95,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    columnSelection="Multiple"
+                    columnSelection="multiple"
                     clipboardOptions={{
                         enabled: this.state.clipboardEnabled,
                         copyHeaders: this.state.clipboardHeaders,
