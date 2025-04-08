@@ -28,7 +28,7 @@ log('loaded');
 // NOTE you can comment out strings in this array to run subset of samples
 var sampleSource = [
     // including samples for all components:
-    //igConfig.SampleCopyPath + '/**/package.json',
+    igConfig.SampleCopyPath + '/**/package.json',
 
     // including individual samples:
     // igConfig.SampleCopyPath + '/layouts/**/overview/package.json',
@@ -58,7 +58,7 @@ var sampleSource = [
     // igConfig.SampleCopyPath + '/gauges/linear-gauge/**/package.json',
     // igConfig.SampleCopyPath + '/gauges/radial-gauge/**/package.json',
     // igConfig.SampleCopyPath + '/grids/**/package.json',
-     igConfig.SampleCopyPath + '/grids/data-grid/**/package.json',
+    // igConfig.SampleCopyPath + '/grids/data-grid/**/package.json',
     // igConfig.SampleCopyPath + '/grids/grid/**/package.json',
     // igConfig.SampleCopyPath + '/grids/list/**/package.json',
     // igConfig.SampleCopyPath + '/grids/tree/**/package.json',
