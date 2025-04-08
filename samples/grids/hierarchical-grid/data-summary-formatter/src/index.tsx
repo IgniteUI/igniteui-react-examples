@@ -43,7 +43,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     allowFiltering={true}
                     filterMode="excelStyleFilter"
-                    rendered={this.webHierarchicalGridRenderedExpand}>
+                    onRendered={this.webHierarchicalGridRenderedExpand}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"

@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID"
                     rowSelection="multiple"
-                    rowSelectionChanging={this.webTreeGridRowSelectionConditional}>
+                    onRowSelectionChanging={this.webTreeGridRowSelectionConditional}>
                     <IgrColumn
                         field="Name"
                         dataType="string">

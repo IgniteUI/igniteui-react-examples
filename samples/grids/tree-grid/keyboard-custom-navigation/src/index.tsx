@@ -45,7 +45,7 @@ export default class Sample extends React.Component<any, any> {
                     rowSelection="multiple"
                     moving={true}
                     allowFiltering={true}
-                    gridKeydown={this.webGridCustomKBNav}>
+                    onGridKeydown={this.webGridCustomKBNav}>
                     <IgrPaginator
                         perPage={15}>
                     </IgrPaginator>

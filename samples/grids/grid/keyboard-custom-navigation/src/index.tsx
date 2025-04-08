@@ -50,7 +50,7 @@ export default class Sample extends React.Component<any, any> {
                     moving={true}
                     primaryKey="ProductID"
                     rowEditable={true}
-                    gridKeydown={this.webGridCustomKBNav}>
+                    onGridKeydown={this.webGridCustomKBNav}>
                     <IgrColumn
                         field="ProductID"
                         header="Product ID">

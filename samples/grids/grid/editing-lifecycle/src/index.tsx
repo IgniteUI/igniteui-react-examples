@@ -48,15 +48,15 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     rowEditable={true}
                     primaryKey="ProductID"
-                    rendered={this.webGridRendered}
-                    rowEditEnter={this.webGridRowEditEnter}
-                    rowEdit={this.webGridRowEdit}
-                    rowEditDone={this.webGridRowEditDone}
-                    rowEditExit={this.webGridRowEditExit}
-                    cellEditEnter={this.webGridCellEditEnter}
-                    cellEdit={this.webGridCellEdit}
-                    cellEditDone={this.webGridCellEditDone}
-                    cellEditExit={this.webGridCellEditExit}>
+                    onRendered={this.webGridRendered}
+                    onRowEditEnter={this.webGridRowEditEnter}
+                    onRowEdit={this.webGridRowEdit}
+                    onRowEditDone={this.webGridRowEditDone}
+                    onRowEditExit={this.webGridRowEditExit}
+                    onCellEditEnter={this.webGridCellEditEnter}
+                    onCellEdit={this.webGridCellEdit}
+                    onCellEditDone={this.webGridCellEditDone}
+                    onCellEditExit={this.webGridCellEditExit}>
                     <IgrColumn
                         field="ProductName"
                         header="Product Name">

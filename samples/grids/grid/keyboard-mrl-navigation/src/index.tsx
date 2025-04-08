@@ -55,7 +55,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     id="grid"
                     data={this.companyData}
-                    gridKeydown={this.webGridMRLCustomNavigationEvent}>
+                    onGridKeydown={this.webGridMRLCustomNavigationEvent}>
                     <IgrColumnLayout
                         header="Company">
                         <IgrColumn

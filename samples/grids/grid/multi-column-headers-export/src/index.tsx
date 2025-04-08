@@ -71,7 +71,7 @@ export default class Sample extends React.Component<any, any> {
                             <IgrGridToolbarExporter
                                 exportCSV={false}
                                 exportExcel={true}
-                                exportStarted={this.webGridExportEventMultiColumnHeaders}>
+                                onExportStarted={this.webGridExportEventMultiColumnHeaders}>
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>

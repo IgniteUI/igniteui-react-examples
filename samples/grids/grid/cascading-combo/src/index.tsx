@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.worldCitiesAbove500K}
                     primaryKey="ID"
-                    rendered={this.webGridWithComboRendered}>
+                    onRendered={this.webGridWithComboRendered}>
                     <IgrColumn
                         field="ID"
                         header="ID"

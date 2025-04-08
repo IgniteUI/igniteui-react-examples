@@ -45,7 +45,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    columnInit={this.webGridCustomSummary}>
+                    onColumnInit={this.webGridCustomSummary}>
                     <IgrColumn
                         field="ProductID">
                     </IgrColumn>

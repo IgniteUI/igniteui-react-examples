@@ -48,7 +48,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.customersData}
                     id="grid"
-                    columnResized={this.webGridColumnResized}>
+                    onColumnResized={this.webGridColumnResized}>
                     <IgrColumn
                         field="ID"
                         header="ID">

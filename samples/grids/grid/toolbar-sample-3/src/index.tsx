@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesData}
-                    toolbarExporting={this.webGridToolbarExporting}>
+                    onToolbarExporting={this.webGridToolbarExporting}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions

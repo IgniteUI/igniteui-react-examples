@@ -40,7 +40,7 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
-                    cellEdit={this.webTreeGridCellEdit}
+                    onCellEdit={this.webTreeGridCellEdit}
                     foreignKey="ParentID">
                     <IgrColumn
                         field="Name"

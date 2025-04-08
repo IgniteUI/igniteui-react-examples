@@ -87,7 +87,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID"
                     cellSelection="none"
-                    rendered={this.webTreeGridPinRowOnRendered}
+                    onRendered={this.webTreeGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         field="Name"
