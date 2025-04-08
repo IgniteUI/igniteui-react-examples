@@ -323,7 +323,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
             return;
         }
 
-        let toChangeIndexes = {};
+        let toChangeIndexes: Record<string, boolean> = {};
         let toChange = Math.round(this.state.volume / 10);
         let stillAnimating = false;
 
