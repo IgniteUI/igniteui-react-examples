@@ -125,19 +125,19 @@ export default class Sample extends React.Component<any, any> {
         return (
             <>
                 <div className="contact-container--edit" style={{padding: "1rem"}}>
-                    <IgrInput label='Name' inputOcurred={(input: any, e: any) =>
+                    <IgrInput label='Name' onInput={(e: any) =>
                         {
                             cell.row.data.ContactName = e.detail;
                             grid.forceUpdate();
                         }
                         } value={cell.row.data.ContactName}></IgrInput>
-                    <IgrInput label='Title' inputOcurred={(input: any, e: any) =>
+                    <IgrInput label='Title' onInput={(e: any) =>
                         {
                             cell.row.data.ContactTitle = e.detail;
                             grid.forceUpdate();
                         }
                         } value={cell.row.data.ContactTitle}></IgrInput>
-                    <IgrInput label='Company' inputOcurred={(input: any, e: any) =>
+                    <IgrInput label='Company' onInput={(e: any) =>
                         {
                             cell.row.data.Company = e.detail;
                             grid.forceUpdate();
@@ -184,25 +184,25 @@ export default class Sample extends React.Component<any, any> {
         return (
             <>
                 <div className="contact-container--edit" style={{padding: "1rem"}}>
-                    <IgrInput label='Country' inputOcurred={(input: any, e: any) =>
+                    <IgrInput label='Country' onInput={(e: any) =>
                         {
                             cell.row.data.Country = e.detail;
                             grid.forceUpdate();
                         }
                         } value={cell.row.data.Country}></IgrInput>
-                    <IgrInput label='City' inputOcurred={(input: any, e: any) =>
+                    <IgrInput label='City' onInput={(e: any) =>
                         {
                             cell.row.data.City = e.detail;
                             grid.forceUpdate();
                         }
                         } value={cell.row.data.City}></IgrInput>
-                    <IgrInput label='Postal Code' inputOcurred={(input: any, e: any) =>
+                    <IgrInput label='Postal Code' onInput={(e: any) =>
                         {
                             cell.row.data.PostalCode = e.detail;
                             grid.forceUpdate();
                         }
                         } value={cell.row.data.PostalCode}></IgrInput>
-                    <IgrInput label='Phone' inputOcurred={(input: any, e: any) =>
+                    <IgrInput label='Phone' onInput={(e: any) =>
                         {
                             cell.row.data.Phone = e.detail;
                             grid.forceUpdate();

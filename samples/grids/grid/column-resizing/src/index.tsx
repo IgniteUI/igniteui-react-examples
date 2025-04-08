@@ -115,7 +115,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webGridColumnResized(grid: IgrGridBaseDirective, args: IgrColumnResizeEventArgs): void {
+    public webGridColumnResized(args: IgrColumnResizeEventArgs): void {
         var col = args.detail.column;
         var pWidth = args.detail.prevWidth;
         var nWidth = args.detail.newWidth;

@@ -124,9 +124,9 @@ export default class Sample extends React.Component<any, any> {
             index++;
         }
         return (
-            <IgrSelect className="size-large" key={key} change={(x: any) => {
+            <IgrSelect className="size-large" key={key} onChange={(x: any) => {
                     setTimeout(() => {
-                        cell.editValue = x.value;
+                        cell.editValue = x.target.value;
                     });
                 }}>
                 {cellValues}
