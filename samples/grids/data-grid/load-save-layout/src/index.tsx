@@ -56,11 +56,11 @@ export default class DataGridLoadSaveLayout extends React.Component<any, any> {
 
                 <div className="options" style={{height: "50px"}}>
                     <IgrButton variant="contained" style={buttonStyle}                                
-                               clicked={this.onLoadLayoutClicked}>
+                               onClick={this.onLoadLayoutClicked}>
                         <span>Load</span>
                     </IgrButton>
                     <IgrButton variant="contained" style={buttonStyle}                                
-                               clicked={this.onSaveLayoutClicked}>
+                               onClick={this.onSaveLayoutClicked}>
                         <span>Save</span>                                  
                     </IgrButton>
                 </div>
