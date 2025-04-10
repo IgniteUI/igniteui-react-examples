@@ -40,7 +40,7 @@ export default function App() {
         updateFormStatus();
     };
 
-    const handleReset = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleReset = (event: React.MouseEvent<IgrButton>) => {
         event.preventDefault();
         if (formRef.current) {
             formRef.current.reset();
