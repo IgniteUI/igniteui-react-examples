@@ -35,7 +35,7 @@ export default class LinearStepper extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrSwitch change={this.OnSwitchChange}><span key="liner-switch">Linear</span></IgrSwitch>
+                <IgrSwitch onChange={this.OnSwitchChange}><span key="liner-switch">Linear</span></IgrSwitch>
 
                 <IgrStepper ref={this.stepperRef} linear={this.state.linear} >
                     <IgrStep key="info-step" invalid={this.state.linear && this.state.firstStepInvalid}>
@@ -87,9 +87,9 @@ export default class LinearStepper extends React.Component<any, any> {
         );
     }
 
-    public OnSwitchChange(s: IgrCheckboxBase, e: IgrCheckboxChangeEventArgs) {
-        this.setState({ linear: s.checked });
-        if(s.checked){
+    public OnSwitchChange(e: IgrCheckboxChangeEventArgs) {
+        this.setState({ linear: e.detail.checked });
+        if(e.detail.checked){
            this.checkActiveStepValidity();
         }
     }

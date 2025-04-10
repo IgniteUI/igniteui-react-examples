@@ -240,8 +240,8 @@ function openDialogForRow(e: any, rowData: any) {
         <div className="controls-holder">
         <div className="switches">
           <div className="switch-control-item">
-            <IgrSwitch checked={groupingEnabled} change={e => {
-              if (e.checked) {
+            <IgrSwitch checked={groupingEnabled} onChange={e => {
+              if (e.detail.checked) {
                 gridRef.current.groupingExpressions = groupingExpressions;
               } else {
                 gridRef.current.groupingExpressions = [];
@@ -249,21 +249,21 @@ function openDialogForRow(e: any, rowData: any) {
             }}><span key="switch">Grouped</span></IgrSwitch>
           </div>
           <div className="switch-control-item">
-            <IgrSwitch checked={toolbarEnabled} change={e => {
+            <IgrSwitch checked={toolbarEnabled} onChange={e => {
               const tbar = document.getElementsByTagName("igc-grid-toolbar")[0];
-              (tbar as any).hidden = !e.checked;
+              (tbar as any).hidden = !e.detail.checked;
             }}><span key="switch2">Toolbar</span></IgrSwitch>
           </div>
           <div className="control-item">
             <label id="recordsLabel">Records: <span>{recordsCount}</span></label>
-            <IgrSlider className="finjs-slider" value={1000} min={0} max={10000} step={100} change={x => {
-              setRecordsCount(x.value);
+            <IgrSlider className="finjs-slider" value={1000} min={0} max={10000} step={100} onChange={e => {
+              setRecordsCount(e.detail);
             }}></IgrSlider>
           </div>
           <div className="control-item">
             <label id="frequencyLabel" >Frequency:<span id="slider-freq-value">{frequency}</span></label>
-            <IgrSlider className="finjs-slider" value={500} min={100} max={3000} step={10}  change={x => {
-              setFrequency(x.value);
+            <IgrSlider className="finjs-slider" value={500} min={100} max={3000} step={10}  onChange={e => {
+              setFrequency(e.detail);
             }}></IgrSlider>
           </div>
         </div>

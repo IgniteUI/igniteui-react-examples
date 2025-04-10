@@ -31,21 +31,21 @@ export default class StepperAnimations extends React.Component<any, any> {
         return (
             <div className="container sample">               
                 <article className="settings">
-                    <IgrSelect label="Orienation" change={this.orientationChange}>
+                    <IgrSelect label="Orienation" onChange={this.orientationChange}>
                         <IgrSelectItem key="horizontal-item" value="horizontal" selected><span key="horizontal">Horizontal</span></IgrSelectItem>
                         <IgrSelectItem key="vertical-item" value="vertical"><span key="vertical">Vertical</span></IgrSelectItem>
                     </IgrSelect>
-                    <IgrSelect label="Vertical Animation" change={this.verticalAnimationChange}>
+                    <IgrSelect label="Vertical Animation" onChange={this.verticalAnimationChange}>
                         <IgrSelectItem key="grow-item" value="grow" selected><span key="grow">Grow</span></IgrSelectItem>
                         <IgrSelectItem key="vertical-fade-item" value="fade"><span key="vertical-fade">Fade</span></IgrSelectItem>
                         <IgrSelectItem key="vertical-none-item" value="none"><span key="vertical-none">None</span></IgrSelectItem>
                     </IgrSelect>
-                    <IgrSelect label="Horizontal Animation" change={this.horizontalAnimationChange}>
+                    <IgrSelect label="Horizontal Animation" onChange={this.horizontalAnimationChange}>
                         <IgrSelectItem key="slide-item" value="slide" selected><span key="slide">Slide</span></IgrSelectItem>
                         <IgrSelectItem key="horizontal-fade-item" value="fade"><span key="horizontal-fade">Fade</span></IgrSelectItem>
                         <IgrSelectItem key="horizontal-none-item" value="none"><span key="horizontal-none">None</span></IgrSelectItem>
                     </IgrSelect>
-                    <IgrInput type="number" value="320" label="Duration" change={this.animationDurationChange}>
+                    <IgrInput type="number" value="320" label="Duration" onChange={this.animationDurationChange}>
                         <span key="duration-suffix" slot="suffix">ms</span>
                     </IgrInput>
                 </article>
@@ -95,19 +95,19 @@ export default class StepperAnimations extends React.Component<any, any> {
         );
     }
 
-    public orientationChange(s: IgrSelect, e: IgrSelectItemComponentEventArgs){
+    public orientationChange(e: IgrSelectItemComponentEventArgs){
         const selectedValue = e.detail.value;
         this.setState({orientation: selectedValue});
     }
-    public horizontalAnimationChange(s: IgrSelect, e: IgrSelectItemComponentEventArgs){
+    public horizontalAnimationChange(e: IgrSelectItemComponentEventArgs){
         const selectedValue = e.detail.value;
         this.setState({horizontalAnimation: selectedValue});
     }
-    public verticalAnimationChange(s: IgrSelect, e: IgrSelectItemComponentEventArgs){
+    public verticalAnimationChange(e: IgrSelectItemComponentEventArgs){
         const selectedValue = e.detail.value;
         this.setState({verticalAnimation: selectedValue});
     }
-    public animationDurationChange(s: IgrInput, e: IgrComponentValueChangedEventArgs){
+    public animationDurationChange(e: IgrComponentValueChangedEventArgs){
         const animationDuration = e.detail;
         this.setState({animationDuration: animationDuration});
     }

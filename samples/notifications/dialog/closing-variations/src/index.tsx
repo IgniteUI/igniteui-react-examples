@@ -24,8 +24,8 @@ export default class DialogClosingVariations extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrSwitch labelPosition="before" change={this.onSwitchChangeEscape}><span>keepOpenOnEscape</span></IgrSwitch>
-                <IgrSwitch labelPosition="before" change={this.onSwitchChangeClick}><span>closeOnOutsideClick</span></IgrSwitch>
+                <IgrSwitch labelPosition="before" onChange={this.onSwitchChangeEscape}><span>keepOpenOnEscape</span></IgrSwitch>
+                <IgrSwitch labelPosition="before" onChange={this.onSwitchChangeClick}><span>closeOnOutsideClick</span></IgrSwitch>
 
                 <IgrButton variant="contained" onClick={this.onDialogShow}>
                     <span>Show Dialog</span>
@@ -60,11 +60,11 @@ export default class DialogClosingVariations extends React.Component<any, any> {
     }
 
     public onSwitchChangeEscape(e: any) {
-        this.dialogRef.keepOpenOnEscape = e.checked;
+        this.dialogRef.keepOpenOnEscape = e.detail.checked;
     }
 
     public onSwitchChangeClick(e: any) {
-        this.dialogRef.closeOnOutsideClick = e.checked;
+        this.dialogRef.closeOnOutsideClick = e.detail.checked;
     }
 }
 

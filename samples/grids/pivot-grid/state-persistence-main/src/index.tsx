@@ -188,7 +188,8 @@ export default function App() {
     }
   }
 
-  function onChange(s: IgrCheckbox, e: IgrCheckboxChangeEventArgs) {
+  function onChange(e: IgrCheckboxChangeEventArgs) {
+    const s = e.target as IgrCheckbox;
     if (s.name === "allFeatures") {
       setOption({
         cellSelection: e.detail.checked,
@@ -287,43 +288,43 @@ export default function App() {
         </ul>
       </div>
       <div className="container horizontal">
-        <IgrCheckbox name="allFeatures" change={onChange} checked={allOptions}>
+        <IgrCheckbox name="allFeatures" onChange={onChange} checked={allOptions}>
           <span>All Features</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="cellSelection"
-          change={onChange}
+          onChange={onChange}
           checked={options.cellSelection}
         >
           <span>Cell Selection</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="columnSelection"
-          change={onChange}
+          onChange={onChange}
           checked={options.columnSelection}
         >
           <span>Col Selection</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="expansion"
-          change={onChange}
+          onChange={onChange}
           checked={options.expansion}
         >
           <span>Expansion</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="filtering"
-          change={onChange}
+          onChange={onChange}
           checked={options.filtering}
         >
           <span>Filtering </span>
         </IgrCheckbox>
-        <IgrCheckbox name="sorting" change={onChange} checked={options.sorting}>
+        <IgrCheckbox name="sorting" onChange={onChange} checked={options.sorting}>
           <span>Sorting</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="pivotConfiguration"
-          change={onChange}
+          onChange={onChange}
           checked={options.pivotConfiguration}
         >
           <span>Pivot Configuration</span>
