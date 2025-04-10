@@ -24,7 +24,7 @@ export default class MaskInputValueModes extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample center">
-                <IgrMaskInput ref={this.onMaskRef} inputOcurred={(e)=>this.onInputChange(e)}>
+                <IgrMaskInput ref={this.onMaskRef} onInput={(e)=>this.onInputChange(e)}>
                     <span slot="prefix">
                         <IgrIcon ref={this.iconFileRef} name="file" collection="material"></IgrIcon>
                     </span>
