@@ -52,17 +52,17 @@ export default class StepperOrientationSample extends React.Component<any, any> 
                 <IgrStepper ref={this.stepperRef} orientation={this.state.orientation} >
                     <IgrStep>
                         <span slot="title">Order</span>
-                        <IgrButton clicked={() => { this.stepperRef.current.next(); }}><span>NEXT</span></IgrButton>
+                        <IgrButton onClick={() => { this.stepperRef.current.next(); }}><span>NEXT</span></IgrButton>
                     </IgrStep>
                     <IgrStep>
                         <span slot="title">Payment</span>
-                        <IgrButton clicked={() => { this.stepperRef.current.prev(); }}><span>PREVIOUS</span></IgrButton>
-                        <IgrButton clicked={() => { this.stepperRef.current.next(); }}><span>NEXT</span></IgrButton>
+                        <IgrButton onClick={() => { this.stepperRef.current.prev(); }}><span>PREVIOUS</span></IgrButton>
+                        <IgrButton onClick={() => { this.stepperRef.current.next(); }}><span>NEXT</span></IgrButton>
                     </IgrStep>
                     <IgrStep>
                         <span slot="title">Confirmation</span>
-                        <IgrButton clicked={() => { this.stepperRef.current.prev(); }}><span>PREVIOUS</span></IgrButton>
-                        <IgrButton clicked={() => { this.stepperRef.current.reset(); }}><span>RESET</span></IgrButton>
+                        <IgrButton onClick={() => { this.stepperRef.current.prev(); }}><span>PREVIOUS</span></IgrButton>
+                        <IgrButton onClick={() => { this.stepperRef.current.reset(); }}><span>RESET</span></IgrButton>
                     </IgrStep>
                 </IgrStepper>
             </div>

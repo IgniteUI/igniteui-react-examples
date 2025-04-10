@@ -143,27 +143,27 @@ export default function App() {
     return (
         <div className="vertical sampleContainer">
             <div className="container horizontal">
-                <IgrButton clicked={restoreGridState}>
+                <IgrButton onClick={restoreGridState}>
                     <IgrIcon name="restore" collection="material"></IgrIcon>
                     <span>Restore</span>
                 </IgrButton>
-                <IgrButton clicked={saveGridState}>
+                <IgrButton onClick={saveGridState}>
                     <IgrIcon name="save" collection="material"></IgrIcon>
                     <span>Save</span>
                 </IgrButton>
-                <IgrButton clicked={resetGridState}>
+                <IgrButton onClick={resetGridState}>
                     <IgrIcon name="clear" collection="material"></IgrIcon>
                     <span>Reset</span>
                 </IgrButton>
-                <IgrButton clicked={leavePage}>
+                <IgrButton onClick={leavePage}>
                     <IgrIcon name="forward" collection="material"></IgrIcon>
                     <span>Leave</span>
                 </IgrButton>
-                <IgrButton clicked={clearStorage}>
+                <IgrButton onClick={clearStorage}>
                     <IgrIcon name="delete" collection="material"></IgrIcon>
                     <span>Clear</span>
                 </IgrButton>
-                <IgrButton clicked={reloadPage}>
+                <IgrButton onClick={reloadPage}>
                     <IgrIcon name="refresh" collection="material"></IgrIcon>
                     <span>Reload</span>
                 </IgrButton>

@@ -48,7 +48,7 @@ export default function App() {
             <IgrGridToolbarTitle>
               <span key="singers">Singers</span>
             </IgrGridToolbarTitle>
-            <IgrButton key="btn" clicked={showProgress}>
+            <IgrButton key="btn" onClick={showProgress}>
               <span key="simulate">Simulate long running operation</span>
             </IgrButton>
             <IgrGridToolbarActions>

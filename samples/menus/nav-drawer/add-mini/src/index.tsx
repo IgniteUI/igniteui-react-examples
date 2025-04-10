@@ -23,7 +23,7 @@ export default class NavDrawerAddMini extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <div style={{ width: '100%' }}>
-                    <IgrButton clicked={this.onButtonClick} style={{ marginLeft: '70px' }}>
+                    <IgrButton onClick={this.onButtonClick} style={{ marginLeft: '70px' }}>
                         <span key="sButton">Toggle</span>
                     </IgrButton>
                 </div>

@@ -80,7 +80,7 @@ export default class Sample extends React.Component<any, any> {
                 </IgrSwitch>
                 <IgrButton 
                     key="clearSelectionButton" 
-                    clicked={this.handleClearSelection} 
+                    onClick={this.handleClearSelection} 
                     style={{ marginTop: '0.5rem' }}
                 >
                     <span key="clearSelectionLabel">Clear selection</span>

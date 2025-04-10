@@ -268,19 +268,19 @@ function openDialogForRow(e: any, rowData: any) {
           </div>
         </div>
         <div className="control-item finjs-play-controls">
-          <IgrButton variant="outlined" ref={startButton} clicked={e => startUpdate()}>
+          <IgrButton variant="outlined" ref={startButton} onClick={e => startUpdate()}>
             <span key='content'>
             <IgrIcon name="update" ref={iconForUpdate} collection="material"></IgrIcon>
             LIVE ALL PRICES
             </span>
           </IgrButton>
-          <IgrButton variant="outlined" disabled={true} ref={stopButton} clicked={e => stopUpdate()}>
+          <IgrButton variant="outlined" disabled={true} ref={stopButton} onClick={e => stopUpdate()}>
             <span key='content2'>
             <IgrIcon name="stop" ref={iconForStop} collection="material"></IgrIcon>
             Stop
             </span>
           </IgrButton>
-          <IgrButton variant="outlined" ref={chartButton} clicked={e => openDialogForSelected()}>
+          <IgrButton variant="outlined" ref={chartButton} onClick={e => openDialogForSelected()}>
             <span key='content3'>
             <IgrIcon name="insert_chart" ref={iconForChart}  collection="material"></IgrIcon>
             Chart

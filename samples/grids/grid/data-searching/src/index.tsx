@@ -107,7 +107,7 @@ export default function Sample() {
                   variant="flat"
                   name="clear"
                   collection="material"
-                  clicked={clearSearch}
+                  onClick={clearSearch}
                 ></IgrIconButton>
               )}
             </div>
@@ -127,7 +127,7 @@ export default function Sample() {
                 variant="flat"
                 name="prev"
                 collection="material"
-                clicked={prevSearch}
+                onClick={prevSearch}
               ></IgrIconButton>
               <IgrIconButton
                 key="nextIconButton"
@@ -135,7 +135,7 @@ export default function Sample() {
                 variant="flat"
                 name="next"
                 collection="material"
-                clicked={nextSearch}
+                onClick={nextSearch}
               ></IgrIconButton>
             </div>
           </IgrInput>
