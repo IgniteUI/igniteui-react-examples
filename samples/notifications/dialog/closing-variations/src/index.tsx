@@ -24,8 +24,8 @@ export default class DialogClosingVariations extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrSwitch labelPosition="Before" change={this.onSwitchChangeEscape}><span>keepOpenOnEscape</span></IgrSwitch>
-                <IgrSwitch labelPosition="Before" change={this.onSwitchChangeClick}><span>closeOnOutsideClick</span></IgrSwitch>
+                <IgrSwitch labelPosition="before" change={this.onSwitchChangeEscape}><span>keepOpenOnEscape</span></IgrSwitch>
+                <IgrSwitch labelPosition="before" change={this.onSwitchChangeClick}><span>closeOnOutsideClick</span></IgrSwitch>
 
                 <IgrButton variant="contained" clicked={this.onDialogShow}>
                     <span>Show Dialog</span>

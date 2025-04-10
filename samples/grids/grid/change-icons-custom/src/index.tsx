@@ -132,7 +132,7 @@ export default class Sample extends React.Component<any, any> {
                         data={this.nwindData}
                         rowEditable={true}
                         allowFiltering={true}
-                        filterMode="ExcelStyleFilter"
+                        filterMode="excelStyleFilter"
                         primaryKey="ProductID">
                         <IgrGridToolbar>
                             <IgrGridToolbarActions>

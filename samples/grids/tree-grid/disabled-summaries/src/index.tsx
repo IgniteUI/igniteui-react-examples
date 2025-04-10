@@ -373,7 +373,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Units"
                         header="Units"
-                        dataType="Number"
+                        dataType="number"
                         hasSummary={true}
                         summaries={UnitsSummary}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "Units")?.disabledSummaries}>
@@ -381,21 +381,21 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="Number"
+                        dataType="number"
                         hasSummary={true}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "UnitPrice")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         header="Price"
-                        dataType="Number"
+                        dataType="number"
                         hasSummary={true}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "Price")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
                         header="Delivered"
-                        dataType="Boolean"
+                        dataType="boolean"
                         hasSummary={true}
                         summaries={DeliveredSummary}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "Delivered")?.disabledSummaries}>
@@ -403,7 +403,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date"
+                        dataType="date"
                         hasSummary={true}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "OrderDate")?.disabledSummaries}>
                     </IgrColumn>
