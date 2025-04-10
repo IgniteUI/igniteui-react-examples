@@ -45,7 +45,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     data={this.employeesFlatData}
-                    ref={this.gridRef}
                     id="grid"
                     rowEditable={true}
                     primaryKey="ID"

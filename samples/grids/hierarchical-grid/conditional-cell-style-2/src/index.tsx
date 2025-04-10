@@ -17,22 +17,18 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private hierarchicalGrid1: IgrHierarchicalGrid
-    private hierarchicalGrid1Ref(r: IgrHierarchicalGrid) {
-        this.hierarchicalGrid1 = r;
+    private hierarchicalGrid: IgrHierarchicalGrid
+    private hierarchicalGridRef(r: IgrHierarchicalGrid) {
+        this.hierarchicalGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
-    private column4: IgrColumn
-    private column5: IgrColumn
-    private column6: IgrColumn
+    private column: IgrColumn
+    private rowIsland: IgrRowIsland
 
     constructor(props: any) {
         super(props);
 
-        this.hierarchicalGrid1Ref = this.hierarchicalGrid1Ref.bind(this);
+        this.hierarchicalGridRef = this.hierarchicalGridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -43,23 +39,20 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     data={this.singersData}
-                    primaryKey="ID"
-                    ref={this.hierarchicalGrid1Ref}>
+                    primaryKey="ID">
                     <IgrColumn
                         field="Artist"
                         header="Artist"
                         dataType="string"
                         resizable={true}
-                        cellStyles={this.webHierarchicalGridCellStylesHandler}
-                        name="column1">
+                        cellStyles={this.webHierarchicalGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="HasGrammyAward"
                         header="Has Grammy Award?"
                         dataType="boolean"
                         resizable={true}
-                        cellStyles={this.webHierarchicalGridCellStylesHandler}
-                        name="column2">
+                        cellStyles={this.webHierarchicalGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="Photo"
@@ -67,8 +60,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="image"
                         minWidth="115px"
                         resizable={true}
-                        cellStyles={this.webHierarchicalGridCellStylesHandler}
-                        name="column3">
+                        cellStyles={this.webHierarchicalGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
@@ -77,24 +69,21 @@ export default class Sample extends React.Component<any, any> {
                         minWidth="88px"
                         maxWidth="230px"
                         resizable={true}
-                        cellStyles={this.webHierarchicalGridCellStylesHandler}
-                        name="column4">
+                        cellStyles={this.webHierarchicalGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
                         dataType="string"
                         resizable={true}
-                        cellStyles={this.webHierarchicalGridCellStylesHandler}
-                        name="column5">
+                        cellStyles={this.webHierarchicalGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
                         dataType="string"
                         resizable={true}
-                        cellStyles={this.webHierarchicalGridCellStylesHandler}
-                        name="column6">
+                        cellStyles={this.webHierarchicalGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"

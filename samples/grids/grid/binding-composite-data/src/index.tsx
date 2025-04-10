@@ -24,8 +24,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -41,8 +39,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.customersData}
-                    primaryKey="ID"
-                    ref={this.gridRef}>
+                    primaryKey="ID">
                     <IgrColumn
                         header="ID"
                         field="ID">
@@ -54,8 +51,7 @@ export default class Sample extends React.Component<any, any> {
                         bodyTemplate={this.webGridCompositeContactCellTemplate}
                         inlineEditorTemplate={this.webGridCompositeContactEditCellTemplate}
                         width="250px"
-                        resizable={false}
-                        name="column1">
+                        resizable={false}>
                     </IgrColumn>
                     <IgrColumn
                         header="Address"
@@ -64,8 +60,7 @@ export default class Sample extends React.Component<any, any> {
                         bodyTemplate={this.webGridCompositeAddressCellTemplate}
                         inlineEditorTemplate={this.webGridCompositeAddressEditCellTemplate}
                         width="250px"
-                        resizable={false}
-                        name="column2">
+                        resizable={false}>
                     </IgrColumn>
                     <IgrColumn
                         header="Country"

@@ -25,7 +25,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -41,7 +40,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
-                    ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatAvatars}
                     primaryKey="ID"
@@ -59,8 +57,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Name"
                         dataType="string"
-                        bodyTemplate={this.webTreeGridAvatarCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webTreeGridAvatarCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="Title"

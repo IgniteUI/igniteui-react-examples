@@ -17,16 +17,20 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid1: IgrGrid
-    private grid1Ref(r: IgrGrid) {
-        this.grid1 = r;
+    private grid: IgrGrid
+    private gridRef(r: IgrGrid) {
+        this.grid = r;
         this.setState({});
     }
+    private gridToolbar: IgrGridToolbar
+    private gridToolbarActions: IgrGridToolbarActions
+    private gridToolbarExporter: IgrGridToolbarExporter
+    private column: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.grid1Ref = this.grid1Ref.bind(this);
+        this.gridRef = this.gridRef.bind(this);
         this.webGridToolbarExporting = this.webGridToolbarExporting.bind(this);
     }
 
@@ -38,8 +42,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesData}
-                    toolbarExporting={this.webGridToolbarExporting}
-                    ref={this.grid1Ref}>
+                    toolbarExporting={this.webGridToolbarExporting}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions

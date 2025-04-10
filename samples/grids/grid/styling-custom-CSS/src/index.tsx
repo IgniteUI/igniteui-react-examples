@@ -39,23 +39,19 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.localData}
                     id="grid"
-                    ref={this.gridRef}
                     cellSelection="multiple"
                     columnSelection="multiple">
                     <IgrColumn
-                        name="Category"
                         field="Category"
                         header="Category"
                         selectable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="MarketShare"
                         field="MarketShare"
                         header="Market Share"
                         selectable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Summary"
                         field="Summary"
                         header="Summary"
                         selectable={false}>
