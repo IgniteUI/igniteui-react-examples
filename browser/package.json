@@ -61,7 +61,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^3.0.4",
     "del": "^5.1.0",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^6.11.0",
