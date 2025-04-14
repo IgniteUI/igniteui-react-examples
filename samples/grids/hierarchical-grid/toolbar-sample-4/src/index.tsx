@@ -53,7 +53,7 @@ export default function App() {
             <IgrGridToolbarTitle key="toolbarTitle">
               <span key="singers">Singers</span>
             </IgrGridToolbarTitle>
-            <IgrButton key="btn" clicked={clearSort}>
+            <IgrButton key="btn" onClick={clearSort}>
               <span slot="prefix" key="clearIcon">
                 <IgrIcon name="clear" ref={iconClear} collection="material"></IgrIcon>
               </span>

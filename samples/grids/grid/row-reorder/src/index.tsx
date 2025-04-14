@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.customersData}
                     rowDraggable={true}
                     primaryKey="ID"
-                    rowDragEnd={this.webGridReorderRowHandler}>
+                    onRowDragEnd={this.webGridReorderRowHandler}>
                     <IgrColumn
                         field="ID"
                         header="ID">

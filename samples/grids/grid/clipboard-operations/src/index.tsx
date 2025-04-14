@@ -66,7 +66,7 @@ export default function App() {
                     <IgrSwitch labelPosition="before" checked change={changeGridCopyFormattersBehavior}>
                         <span key="gridCopyFormatters">Copying column formatters</span>
                     </IgrSwitch>
-                    <IgrButton clicked={clearSelection}>
+                    <IgrButton onClick={clearSelection}>
                         <span key="clearSelection">Clear selection</span>
                     </IgrButton>
                 </div>

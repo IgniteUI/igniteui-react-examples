@@ -42,9 +42,9 @@ export default class Sample extends React.Component<any, any> {
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    rowDragStart={this.webTreeGridReorderRowStartHandler}
+                    onRowDragStart={this.webTreeGridReorderRowStartHandler}
                     rowDraggable={true}
-                    rowDragEnd={this.webTreeGridReorderRowHandler}>
+                    onRowDragEnd={this.webTreeGridReorderRowHandler}>
                     <IgrColumn
                         field="Name"
                         header="Full Name"

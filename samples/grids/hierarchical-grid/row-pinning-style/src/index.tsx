@@ -66,7 +66,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="Photo"
                     id="grid"
                     cellSelection="none"
-                    rendered={this.webHierarchicalGridPinRowOnRendered}
+                    onRendered={this.webHierarchicalGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         field="Artist"

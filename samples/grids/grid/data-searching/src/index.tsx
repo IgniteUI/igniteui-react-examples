@@ -14,7 +14,6 @@ import {
   IgrComponentValueChangedEventArgs,
   IgrIconButton,
   IgrInput,
-  IgrInputBase,
   IgrInputModule,
   IgrIconButtonModule,
 } from "igniteui-react";
@@ -57,7 +56,7 @@ export default function Sample() {
     }
   }, []);
 
-  function handleOnSearchChange(input: IgrInputBase, event: IgrComponentValueChangedEventArgs) {
+  function handleOnSearchChange(event: IgrComponentValueChangedEventArgs) {
     setSearchText(event.detail);
     gridRef.current.findNext(event.detail, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
   }
@@ -89,7 +88,7 @@ export default function Sample() {
     <div className="container sample">
       <div className="container vertical">
         <div style={{ marginBottom: "1rem" }} onKeyDown={searchKeyDown}>
-          <IgrInput name="searchBox" value={searchText} inputOcurred={handleOnSearchChange}>
+          <IgrInput name="searchBox" value={searchText} onInput={handleOnSearchChange}>
 
             <div slot="prefix" key="prefix">
               {searchText.length === 0 ? (
@@ -107,7 +106,7 @@ export default function Sample() {
                   variant="flat"
                   name="clear"
                   collection="material"
-                  clicked={clearSearch}
+                  onClick={clearSearch}
                 ></IgrIconButton>
               )}
             </div>
@@ -127,7 +126,7 @@ export default function Sample() {
                 variant="flat"
                 name="prev"
                 collection="material"
-                clicked={prevSearch}
+                onClick={prevSearch}
               ></IgrIconButton>
               <IgrIconButton
                 key="nextIconButton"
@@ -135,7 +134,7 @@ export default function Sample() {
                 variant="flat"
                 name="next"
                 collection="material"
-                clicked={nextSearch}
+                onClick={nextSearch}
               ></IgrIconButton>
             </div>
           </IgrInput>

@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    cellEdit={this.webGridEditingEventsCellEdit}>
+                    onCellEdit={this.webGridEditingEventsCellEdit}>
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"

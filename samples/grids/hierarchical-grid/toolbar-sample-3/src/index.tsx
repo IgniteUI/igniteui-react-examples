@@ -44,7 +44,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.singersData}
                     primaryKey="ID"
-                    toolbarExporting={this.webHierarchicalGridToolbarExporting}>
+                    onToolbarExporting={this.webHierarchicalGridToolbarExporting}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions

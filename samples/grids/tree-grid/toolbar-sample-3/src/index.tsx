@@ -44,7 +44,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.employeesFlatAvatars}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    toolbarExporting={this.webTreeGridToolbarExporting}>
+                    onToolbarExporting={this.webTreeGridToolbarExporting}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions

@@ -52,7 +52,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
-                    rendered={this.webTreeGridPinRowOnRendered}
+                    onRendered={this.webTreeGridPinRowOnRendered}
                     rowEditable={true}
                     primaryKey="ID"
                     foreignKey="ParentID"

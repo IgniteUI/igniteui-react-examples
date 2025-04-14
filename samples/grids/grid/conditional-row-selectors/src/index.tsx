@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     primaryKey="ID"
                     rowSelection="multiple"
-                    rowSelectionChanging={this.webGridRowSelectionConditional}>
+                    onRowSelectionChanging={this.webGridRowSelectionConditional}>
                     <IgrColumn
                         field="ContactName"
                         header="Name"

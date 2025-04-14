@@ -40,7 +40,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     id="grid"
                     data={this.nwindData}
-                    cellEdit={this.webGridEditingEventsCellEdit}
+                    onCellEdit={this.webGridEditingEventsCellEdit}
                     primaryKey="ProductID"
                     allowFiltering={true}>
                     <IgrPaginator

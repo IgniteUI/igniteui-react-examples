@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesData}
-                    toolbarExporting={this.webGridToolbarExporting}>
+                    onToolbarExporting={this.webGridToolbarExporting}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -103,10 +103,10 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridToolbarExporting(sender: IgrGrid, evt: IgrGridToolbarExportEventArgs): void {
+    public webGridToolbarExporting(evt: IgrGridToolbarExportEventArgs): void {
         const args = evt.detail;
-        const options: IgrExporterOptionsBase = (args.nativeElement as any).options;
-        const exporter = (args.nativeElement as any).exporter;
+        const options: IgrExporterOptionsBase = args.options;
+        const exporter = args.exporter as any;
         if (options) {
             options.fileName = `Report_${new Date().toDateString()}`;
             exporter.columnExporting.subscribe((columnArgs: any) => {

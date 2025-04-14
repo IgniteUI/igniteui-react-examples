@@ -55,14 +55,14 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     id="hierarchicalGrid"
                     rowEditable={true}
-                    rendered={this.webHierarchicalGridRendered}
-                    rowEditEnter={this.webHierarchicalGridRowEditEnter}
-                    rowEdit={this.webHierarchicalGridRowEdit}
-                    rowEditDone={this.webHierarchicalGridRowEditDone}
-                    rowEditExit={this.webHierarchicalGridRowEditExit}
-                    cellEditEnter={this.webHierarchicalGridCellEditEnter}
-                    cellEdit={this.webHierarchicalGridCellEdit}
-                    cellEditExit={this.webHierarchicalGridCellEditExit}>
+                    onRendered={this.webHierarchicalGridRendered}
+                    onRowEditEnter={this.webHierarchicalGridRowEditEnter}
+                    onRowEdit={this.webHierarchicalGridRowEdit}
+                    onRowEditDone={this.webHierarchicalGridRowEditDone}
+                    onRowEditExit={this.webHierarchicalGridRowEditExit}
+                    onCellEditEnter={this.webHierarchicalGridCellEditEnter}
+                    onCellEdit={this.webHierarchicalGridCellEdit}
+                    onCellEditExit={this.webHierarchicalGridCellEditExit}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
@@ -93,13 +93,13 @@ export default class Sample extends React.Component<any, any> {
                         autoGenerate={false}
                         primaryKey="Album"
                         rowEditable={true}
-                        rowEditEnter={this.webRowIslandGridRowEditEnter}
-                        rowEdit={this.webRowIslandGridRowEdit}
-                        rowEditDone={this.webRowIslandGridRowEditDone}
-                        rowEditExit={this.webRowIslandGridRowEditExit}
-                        cellEditEnter={this.webRowIslandGridCellEditEnter}
-                        cellEdit={this.webRowIslandGridCellEdit}
-                        cellEditExit={this.webRowIslandGridCellEditExit}>
+                        onRowEditEnter={this.webRowIslandGridRowEditEnter}
+                        onRowEdit={this.webRowIslandGridRowEdit}
+                        onRowEditDone={this.webRowIslandGridRowEditDone}
+                        onRowEditExit={this.webRowIslandGridRowEditExit}
+                        onCellEditEnter={this.webRowIslandGridCellEditEnter}
+                        onCellEdit={this.webRowIslandGridCellEdit}
+                        onCellEditExit={this.webRowIslandGridCellEditExit}>
                         <IgrColumn
                             field="Album"
                             header="Album"
