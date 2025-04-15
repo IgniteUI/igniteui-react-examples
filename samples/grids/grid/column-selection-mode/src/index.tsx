@@ -63,7 +63,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.customersData}
-                    columnSelection="Single">
+                    columnSelection="single">
                     <IgrColumn
                         field="ID">
                     </IgrColumn>
@@ -74,11 +74,11 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ContactTitle"
                         header="Title"
-                        selectable="false">
+                        selectable={false}>
                     </IgrColumn>
                     <IgrColumn
                         field="City"
-                        selectable="false">
+                        selectable={false}>
                     </IgrColumn>
                     <IgrColumn
                         field="Country">
@@ -89,7 +89,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
-                        selectable="false">
+                        selectable={false}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

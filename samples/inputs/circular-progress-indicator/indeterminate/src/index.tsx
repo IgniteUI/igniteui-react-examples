@@ -15,7 +15,7 @@ export default class IndeterminateCircularProgress extends React.Component<any, 
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                 <IgrCircularProgress indeterminate="true" />
+                 <IgrCircularProgress indeterminate={true} />
             </div>
         );
     }

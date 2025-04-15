@@ -39,7 +39,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.customersData}
                     primaryKey="ID"
                     ref={this.gridRef}>
@@ -50,21 +50,21 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ContactName"
                         header="Contact"
-                        editable="true"
+                        editable={true}
                         bodyTemplate={this.webGridCompositeContactCellTemplate}
                         inlineEditorTemplate={this.webGridCompositeContactEditCellTemplate}
                         width="250px"
-                        resizable="false"
+                        resizable={false}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         header="Address"
                         field="Address"
-                        editable="true"
+                        editable={true}
                         bodyTemplate={this.webGridCompositeAddressCellTemplate}
                         inlineEditorTemplate={this.webGridCompositeAddressEditCellTemplate}
                         width="250px"
-                        resizable="false"
+                        resizable={false}
                         name="column2">
                     </IgrColumn>
                     <IgrColumn

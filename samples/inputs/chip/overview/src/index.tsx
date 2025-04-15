@@ -15,7 +15,7 @@ export default class ChipOverview extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                 <IgrChip selectable="true" removable="true">
+                 <IgrChip selectable={true} removable={true}>
                      <span>Chip</span>
                  </IgrChip>
             </div>

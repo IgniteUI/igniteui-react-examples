@@ -18,7 +18,7 @@ export default class DividerMiddle extends React.Component<any, any> {
                 <div className="parent">
                     <div className="content">
                         <h4 className="mb">Both sides inset.</h4>
-                        <IgrDivider key="divider2" className="withInset" middle="true"></IgrDivider>
+                        <IgrDivider key="divider2" className="withInset" middle={true}></IgrDivider>
                         <p className="mt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias at consectetur dolor magnam maiores nihil quasi quod repudiandae similique. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, culpa delectus eius fuga ipsa iste laborum nemo, numquam omnis perferendis soluta sunt. Animi asperiores aspernatur assumenda doloribus eligendi.</p>
                     </div>
                     <div className="content">

@@ -15,7 +15,7 @@ export default class SimpleLinearProgressIndicator extends React.Component<any, 
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrLinearProgress value="100" ></IgrLinearProgress>
+                <IgrLinearProgress value={100} ></IgrLinearProgress>
             </div>
         );
     }

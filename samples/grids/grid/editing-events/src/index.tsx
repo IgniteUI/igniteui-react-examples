@@ -38,7 +38,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.nwindData}
                     primaryKey="ProductID"
                     cellEdit={this.webGridEditingEventsCellEdit}
@@ -46,27 +46,27 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="Number"
-                        editable="true">
+                        dataType="number"
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         name="UnitsInStock"
                         field="UnitsInStock"
                         header="Units In Stock"
-                        dataType="Number"
-                        editable="true">
+                        dataType="number"
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         name="UnitsOnOrder"
                         field="UnitsOnOrder"
                         header="Units on Order"
-                        dataType="Number"
-                        editable="true">
+                        dataType="number"
+                        editable={true}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

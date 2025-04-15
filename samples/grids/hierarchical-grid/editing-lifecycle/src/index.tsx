@@ -50,12 +50,12 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.singersData}
                     primaryKey="ID"
                     id="hierarchicalGrid"
                     ref={this.hierarchicalGridRef}
-                    rowEditable="true"
+                    rowEditable={true}
                     rendered={this.webHierarchicalGridRendered}
                     rowEditEnter={this.webHierarchicalGridRowEditEnter}
                     rowEdit={this.webHierarchicalGridRowEdit}
@@ -67,34 +67,34 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Artist"
                         header="Artist"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="HasGrammyAward"
                         header="Has Grammy Award"
-                        dataType="Boolean">
+                        dataType="boolean">
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate="false"
+                        autoGenerate={false}
                         name="rowIsland"
                         primaryKey="Album"
-                        rowEditable="true"
+                        rowEditable={true}
                         rowEditEnter={this.webRowIslandGridRowEditEnter}
                         rowEdit={this.webRowIslandGridRowEdit}
                         rowEditDone={this.webRowIslandGridRowEditDone}
@@ -105,22 +105,22 @@ export default class Sample extends React.Component<any, any> {
                         <IgrColumn
                             field="Album"
                             header="Album"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="Date">
+                            dataType="date">
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
                             header="Billboard Review"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="USBillboard200"
                             header="US Billboard 200"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>

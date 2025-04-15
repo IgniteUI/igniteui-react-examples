@@ -15,7 +15,7 @@ export default class CheckboxIndeterminate extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="sample">
-                <IgrCheckbox indeterminate="true">
+                <IgrCheckbox indeterminate={true}>
                     <span key="checkboxLabel">Label</span>
                 </IgrCheckbox>
             </div>

@@ -262,10 +262,10 @@ export default function App() {
         childDataKey="Employees"
         width="95%"
         height="500px"
-        autoGenerate="false"
-        moving="true"
-        allowFiltering="true"
-        allowAdvancedFiltering="true"
+        autoGenerate={false}
+        moving={true}
+        allowFiltering={true}
+        allowAdvancedFiltering={true}
         filterMode={FilterMode.ExcelStyleFilter}
         columnSelection={GridSelectionMode.Multiple}
         rowSelection={GridSelectionMode.Multiple}
@@ -284,42 +284,42 @@ export default function App() {
         <IgrColumn
           field="ID"
           header="ID"
-          sortable="true"
-          filterable="true"
-          hidden="true"
+          sortable={true}
+          filterable={true}
+          hidden={true}
         ></IgrColumn>
         <IgrColumn
           field="Name"
           header="Name"
-          sortable="true"
-          filterable="true"
-          pinned="true"
+          sortable={true}
+          filterable={true}
+          pinned={true}
         ></IgrColumn>
         <IgrColumn
           field="Title"
           header="Title"
-          sortable="true"
-          filterable="true"
+          sortable={true}
+          filterable={true}
         ></IgrColumn>
         <IgrColumn
           field="Age"
           header="Age"
-          sortable="true"
-          filterable="true"
-          groupable="true"
+          sortable={true}
+          filterable={true}
+          groupable={true}
         ></IgrColumn>
         <IgrColumn
           field="Phone"
           header="Phone"
-          sortable="true"
-          filterable="true"
+          sortable={true}
+          filterable={true}
         ></IgrColumn>
         <IgrColumn
           field="OnPTO"
           header="On PTO"
-          sortable="true"
-          filterable="true"
-          groupable="true"
+          sortable={true}
+          filterable={true}
+          groupable={true}
         ></IgrColumn>
       </IgrTreeGrid>
     </div>

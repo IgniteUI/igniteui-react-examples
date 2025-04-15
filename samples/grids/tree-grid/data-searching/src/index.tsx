@@ -122,10 +122,10 @@ export default function Sample() {
             </div>
             
             <div slot="suffix" key="chipSuffix">
-              <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable="true" select={handleCaseSensitiveChange}>
+              <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable={true} select={handleCaseSensitiveChange}>
                 <span key="caseSensitive">Case Sensitive</span>
               </IgrChip>
-              <IgrChip ref={exactMatchChipRef} key="exactMatchChip" selectable="true" select={handleExactMatchChange}>
+              <IgrChip ref={exactMatchChipRef} key="exactMatchChip" selectable={true} select={handleExactMatchChange}>
                 <span key="exactMatch">Exact Match</span>
               </IgrChip>
             </div>
@@ -149,14 +149,14 @@ export default function Sample() {
             </div>
           </IgrInput>
         </div>
-        <IgrTreeGrid ref={gridRef} data={data} autoGenerate="false" 
-          primaryKey="ID" foreignKey="ParentID" allowFiltering="true" height="100%" width="100%"
+        <IgrTreeGrid ref={gridRef} data={data} autoGenerate={false} 
+          primaryKey="ID" foreignKey="ParentID" allowFiltering={true} height="100%" width="100%"
         >
-          <IgrColumn field="Name" dataType="string" sortable="true"></IgrColumn>        
-          <IgrColumn field="ID" dataType="number" sortable="true"></IgrColumn>        
-          <IgrColumn field="Title" dataType="string" sortable="true"></IgrColumn>        
-          <IgrColumn field="Age" dataType="number" sortable="true"></IgrColumn>        
-          <IgrColumn field="HireDate" dataType="date" sortable="true"></IgrColumn>  
+          <IgrColumn field="Name" dataType="string" sortable={true}></IgrColumn>        
+          <IgrColumn field="ID" dataType="number" sortable={true}></IgrColumn>        
+          <IgrColumn field="Title" dataType="string" sortable={true}></IgrColumn>        
+          <IgrColumn field="Age" dataType="number" sortable={true}></IgrColumn>        
+          <IgrColumn field="HireDate" dataType="date" sortable={true}></IgrColumn>  
         </IgrTreeGrid>
       </div>
     </div>

@@ -189,8 +189,8 @@ export default function App() {
                 <IgrCheckbox name="sorting" change={onChange} checked={options.sorting}><span>Sorting</span></IgrCheckbox>
                 <IgrCheckbox name="groupBy" change={onChange} checked={options.groupBy}><span>Group By</span></IgrCheckbox>
             </div>
-            <IgrGrid ref={gridRef} data={gridData} primaryKey="ID" width="95%" height="500px" autoGenerate="false" moving="true" allowFiltering="true"
-                allowAdvancedFiltering="true" filterMode={FilterMode.ExcelStyleFilter} columnSelection={GridSelectionMode.Multiple} rowSelection={GridSelectionMode.Multiple}>
+            <IgrGrid ref={gridRef} data={gridData} primaryKey="ID" width="95%" height="500px" autoGenerate={false} moving={true} allowFiltering={true}
+                allowAdvancedFiltering={true} filterMode={FilterMode.ExcelStyleFilter} columnSelection={GridSelectionMode.Multiple} rowSelection={GridSelectionMode.Multiple}>
                 <IgrGridState ref={gridStateRef}></IgrGridState>
                 <IgrGridToolbar>
                     <IgrGridToolbarActions>
@@ -203,14 +203,14 @@ export default function App() {
                 </IgrActionStrip>
                 <IgrPaginator ref={paginatorRef}></IgrPaginator>
 
-                <IgrColumn field="ID" width="100px" sortable="true" filterable="true" pinned="true"></IgrColumn>
-                <IgrColumn field="ContactName" header="Contact Name" minWidth="200px" sortable="true" filterable="true" pinned="true"></IgrColumn>
-                <IgrColumn field="ContactTitle" header="Contact Title" minWidth="200px" sortable="true" filterable="true" groupable="true"></IgrColumn>
-                <IgrColumn field="CompanyName" header="Company Name" minWidth="200px" sortable="true" filterable="true" groupable="true"></IgrColumn>
-                <IgrColumn field="Country" minWidth="200px" sortable="true" filterable="true" groupable="true"></IgrColumn>
-                <IgrColumn field="City" minWidth="200px" sortable="true" filterable="true" groupable="true"></IgrColumn>
-                <IgrColumn field="Address" minWidth="200px" sortable="true" filterable="true" groupable="true"></IgrColumn>
-                <IgrColumn field="PostalCode" header="Postal Code" minWidth="200px" sortable="true" filterable="true" groupable="true"></IgrColumn>
+                <IgrColumn field="ID" width="100px" sortable={true} filterable={true} pinned={true}></IgrColumn>
+                <IgrColumn field="ContactName" header="Contact Name" minWidth="200px" sortable={true} filterable={true} pinned={true}></IgrColumn>
+                <IgrColumn field="ContactTitle" header="Contact Title" minWidth="200px" sortable={true} filterable={true} groupable={true}></IgrColumn>
+                <IgrColumn field="CompanyName" header="Company Name" minWidth="200px" sortable={true} filterable={true} groupable={true}></IgrColumn>
+                <IgrColumn field="Country" minWidth="200px" sortable={true} filterable={true} groupable={true}></IgrColumn>
+                <IgrColumn field="City" minWidth="200px" sortable={true} filterable={true} groupable={true}></IgrColumn>
+                <IgrColumn field="Address" minWidth="200px" sortable={true} filterable={true} groupable={true}></IgrColumn>
+                <IgrColumn field="PostalCode" header="Postal Code" minWidth="200px" sortable={true} filterable={true} groupable={true}></IgrColumn>
             </IgrGrid>
         </div>
     );

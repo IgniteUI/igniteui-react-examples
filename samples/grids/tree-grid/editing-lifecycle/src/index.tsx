@@ -43,11 +43,11 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.employeesFlatData}
                     ref={this.gridRef}
                     id="grid"
-                    rowEditable="true"
+                    rowEditable={true}
                     primaryKey="ID"
                     foreignKey="ParentID"
                     rendered={this.webTreeGridRendered}
@@ -61,19 +61,19 @@ export default class Sample extends React.Component<any, any> {
                     cellEditExit={this.webGridCellEditExit}>
                     <IgrColumn
                         field="Name"
-                        dataType="String"
-                        editable="true">
+                        dataType="string"
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
                         header="Job Title"
-                        dataType="String"
-                        editable="true">
+                        dataType="string"
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="Number"
-                        editable="true">
+                        dataType="number"
+                        editable={true}>
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

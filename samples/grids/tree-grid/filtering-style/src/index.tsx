@@ -33,60 +33,60 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.ordersData}
-                    filterMode="QuickFilter"
+                    filterMode="quickFilter"
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    allowFiltering="true">
+                    allowFiltering={true}>
                     <IgrColumn
                         field="ID"
                         header="Order ID"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Order Product"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="Category"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="Number"
-                        sortable="true"
-                        hidden="true">
+                        dataType="number"
+                        sortable={true}
+                        hidden={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="Currency">
+                        dataType="currency">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
-                        dataType="Currency">
+                        dataType="currency">
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
-                        dataType="String"
-                        sortable="true">
+                        dataType="string"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="Date">
+                        dataType="date">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
-                        dataType="Boolean">
+                        dataType="boolean">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

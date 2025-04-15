@@ -64,7 +64,7 @@ export default function App() {
             <div className="container sample">
                 <div className="container fill" >
                     <IgrGrid
-                        autoGenerate="false" dataPreLoad={handlePreLoad}
+                        autoGenerate={false} dataPreLoad={handlePreLoad}
                         ref={gridRef} height='480px' width='100%'>
                         <IgrColumn field="ProductID" header="Product ID">
                         </IgrColumn>

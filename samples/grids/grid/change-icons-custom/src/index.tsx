@@ -127,11 +127,11 @@ export default class Sample extends React.Component<any, any> {
                 </IgrButtonGroup>
                 <div className="container fill">
                     <IgrGrid
-                        autoGenerate="false"
+                        autoGenerate={false}
                         ref={this.gridRef}
                         data={this.nwindData}
-                        rowEditable="true"
-                        allowFiltering="true"
+                        rowEditable={true}
+                        allowFiltering={true}
                         filterMode="ExcelStyleFilter"
                         primaryKey="ProductID">
                         <IgrGridToolbar>
@@ -145,37 +145,37 @@ export default class Sample extends React.Component<any, any> {
                         <IgrColumn
                             name="ProductName"
                             field="ProductName"
-                            header="Product Name" sortable="true">
+                            header="Product Name" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
                             name="UnitPrice"
                             field="UnitPrice"
-                            header="Unit Price" sortable="true">
+                            header="Unit Price" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
                             name="UnitsOnOrder"
                             field="UnitsOnOrder"
-                            header="Units On Order" sortable="true">
+                            header="Units On Order" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
                             name="UnitsInStock"
                             field="UnitsInStock"
-                            header="Units In Stock" sortable="true">
+                            header="Units In Stock" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
                             name="QuantityPerUnit"
                             field="QuantityPerUnit"
-                            header="Quantity Per Unit" sortable="true">
+                            header="Quantity Per Unit" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
                             name="ReorderLevel"
                             field="ReorderLevel"
-                            header="Reorder Level" sortable="true">
+                            header="Reorder Level" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
                             name="Discontinued"
                             field="Discontinued"
-                            header="Discontinued" sortable="true">
+                            header="Discontinued" sortable={true}>
                         </IgrColumn>
                     </IgrGrid>
                 </div>

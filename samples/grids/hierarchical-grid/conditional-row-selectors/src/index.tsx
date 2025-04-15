@@ -37,13 +37,13 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.singersData}
                     ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
                     primaryKey="ID"
-                    rowSelection="Multiple"
-                    cellSelection="None"
+                    rowSelection="multiple"
+                    cellSelection="none"
                     rowSelectionChanging={this.webHierarchicalGridRowSelectionConditional}>
                     <IgrPaginator
                         name="paginator">
@@ -64,15 +64,15 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate="false"
-                        rowSelection="Multiple">
+                        autoGenerate={false}
+                        rowSelection="multiple">
                         <IgrColumn
                             field="Album">
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="Date">
+                            dataType="date">
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
@@ -84,8 +84,8 @@ export default class Sample extends React.Component<any, any> {
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="Songs"
-                            autoGenerate="false"
-                            rowSelection="Multiple">
+                            autoGenerate={false}
+                            rowSelection="multiple">
                             <IgrColumn
                                 field="Number"
                                 header="No.">
@@ -95,7 +95,7 @@ export default class Sample extends React.Component<any, any> {
                             </IgrColumn>
                             <IgrColumn
                                 field="Released"
-                                dataType="Date">
+                                dataType="date">
                             </IgrColumn>
                             <IgrColumn
                                 field="Genre">
@@ -104,8 +104,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrRowIsland>
                     <IgrRowIsland
                         childDataKey="Tours"
-                        autoGenerate="false"
-                        rowSelection="Multiple">
+                        autoGenerate={false}
+                        rowSelection="multiple">
                         <IgrColumn
                             field="Tour">
                         </IgrColumn>

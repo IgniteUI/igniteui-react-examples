@@ -17,7 +17,7 @@ export default class RatingSingleSelection extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">                
-                    <IgrRating label="Rate Experience" single="true">
+                    <IgrRating label="Rate Experience" single={true}>
                         <IgrRatingSymbol key="0">                           
                             <div key="div0">😣</div>
                             <div key="empty-div0" slot="empty">😣</div>

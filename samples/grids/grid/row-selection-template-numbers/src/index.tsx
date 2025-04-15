@@ -38,10 +38,10 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="true"
+                    autoGenerate={true}
                     ref={this.gridRef}
                     data={this.customersData}
-                    rowSelection="Multiple"
+                    rowSelection="multiple"
                     rowSelectorTemplate={this.webGridRowSelectorTemplate}
                     headSelectorTemplate={this.webGridHeaderRowSelectorTemplate}>
                     <IgrColumn

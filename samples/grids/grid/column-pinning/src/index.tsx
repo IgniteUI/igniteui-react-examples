@@ -33,7 +33,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.customersDataLocal}
                     ref={this.gridRef}>
                     <IgrGridToolbar
@@ -51,7 +51,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="ID"
-                        hidden="true">
+                        hidden={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
@@ -62,13 +62,13 @@ export default class Sample extends React.Component<any, any> {
                         field="ContactName"
                         header="Contact Name"
                         width="200px"
-                        pinned="true">
+                        pinned={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ContactTitle"
                         header="Contact Title"
                         width="200px"
-                        pinned="true">
+                        pinned={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Address"

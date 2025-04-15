@@ -34,144 +34,144 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.singersData}
                     id="hGrid"
                     ref={this.hGridRef}
                     primaryKey="ID"
-                    rowEditable="true">
+                    rowEditable={true}>
                     <IgrActionStrip
                     >
                         <IgrGridEditingActions
-                            addRow="true">
+                            addRow={true}>
                         </IgrGridEditingActions>
                     </IgrActionStrip>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
-                        dataType="String"
-                        resizable="true">
+                        dataType="string"
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut"
-                        dataType="Number"
+                        dataType="number"
                         minWidth="88px"
                         maxWidth="230px"
-                        resizable="true">
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="String"
-                        resizable="true">
+                        dataType="string"
+                        resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="String"
-                        resizable="true">
+                        dataType="string"
+                        resizable={true}>
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate="false"
+                        autoGenerate={false}
                         primaryKey="Album"
-                        rowEditable="true">
+                        rowEditable={true}>
                         <IgrColumn
                             field="Album"
                             header="Album"
-                            dataType="String"
-                            resizable="true">
+                            dataType="string"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="Date"
-                            resizable="true">
+                            dataType="date"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
                             header="Billboard Review"
-                            dataType="String"
-                            resizable="true">
+                            dataType="string"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="USBillboard200"
                             header="US Billboard 200"
-                            dataType="String"
-                            resizable="true">
+                            dataType="string"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="Songs"
-                            autoGenerate="false"
+                            autoGenerate={false}
                             primaryKey="Title"
-                            rowEditable="true">
+                            rowEditable={true}>
                             <IgrActionStrip
                             >
                                 <IgrGridEditingActions
-                                    addRow="true">
+                                    addRow={true}>
                                 </IgrGridEditingActions>
                             </IgrActionStrip>
                             <IgrColumn
                                 field="Number"
                                 header="No."
-                                dataType="String"
-                                resizable="true">
+                                dataType="string"
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Title"
                                 header="Title"
-                                dataType="String"
-                                resizable="true">
+                                dataType="string"
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Released"
                                 header="Released"
-                                dataType="String"
-                                resizable="true">
+                                dataType="string"
+                                resizable={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Genre"
                                 header="Genre"
-                                dataType="String"
-                                resizable="true">
+                                dataType="string"
+                                resizable={true}>
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>
                     <IgrRowIsland
                         childDataKey="Tours"
-                        autoGenerate="false"
+                        autoGenerate={false}
                         primaryKey="Tour"
-                        rowEditable="true">
+                        rowEditable={true}>
                         <IgrActionStrip
                         >
                             <IgrGridEditingActions
-                                addRow="true">
+                                addRow={true}>
                             </IgrGridEditingActions>
                         </IgrActionStrip>
                         <IgrColumn
                             field="Tour"
                             header="Tour"
-                            dataType="String"
-                            resizable="true">
+                            dataType="string"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="StartedOn"
                             header="Started on"
-                            dataType="String"
-                            resizable="true">
+                            dataType="string"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="Location"
                             header="Location"
-                            dataType="String"
-                            resizable="true">
+                            dataType="string"
+                            resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="Headliner"
                             header="Headliner"
-                            dataType="String"
-                            resizable="true">
+                            dataType="string"
+                            resizable={true}>
                         </IgrColumn>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>

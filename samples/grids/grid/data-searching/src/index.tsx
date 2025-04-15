@@ -113,10 +113,10 @@ export default function Sample() {
             </div>
             
             <div slot="suffix" key="chipSuffix">
-              <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable="true">
+              <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable={true}>
                 <span key="caseSensitive">Case Sensitive</span>
               </IgrChip>
-              <IgrChip ref={exactMatchChipRef} key="exactMatchChip" selectable="true">
+              <IgrChip ref={exactMatchChipRef} key="exactMatchChip" selectable={true}>
                 <span key="exactMatch">Exact Match</span>
               </IgrChip>
             </div>
@@ -140,12 +140,12 @@ export default function Sample() {
             </div>
           </IgrInput>
         </div>
-        <IgrGrid className="gridSize" ref={gridRef} autoGenerate="false" allowFiltering="true" data={data} height="100%" width="100%">
-            <IgrColumn field="IndustrySector" dataType="string" sortable="true"></IgrColumn>        
-            <IgrColumn field="IndustryGroup" dataType="string" sortable="true"></IgrColumn>        
-            <IgrColumn field="SectorType" dataType="string" sortable="true"></IgrColumn>        
-            <IgrColumn field="KRD" dataType="number" sortable="true"></IgrColumn>        
-            <IgrColumn field="MarketNotion" dataType="number" sortable="true"></IgrColumn>  
+        <IgrGrid className="gridSize" ref={gridRef} autoGenerate={false} allowFiltering={true} data={data} height="100%" width="100%">
+            <IgrColumn field="IndustrySector" dataType="string" sortable={true}></IgrColumn>        
+            <IgrColumn field="IndustryGroup" dataType="string" sortable={true}></IgrColumn>        
+            <IgrColumn field="SectorType" dataType="string" sortable={true}></IgrColumn>        
+            <IgrColumn field="KRD" dataType="number" sortable={true}></IgrColumn>        
+            <IgrColumn field="MarketNotion" dataType="number" sortable={true}></IgrColumn>  
         </IgrGrid>
       </div>
     </div>

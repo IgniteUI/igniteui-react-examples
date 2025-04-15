@@ -61,7 +61,7 @@ export default function App() {
       <div className="container fill">
 
         <IgrTreeGrid
-          autoGenerate="false"
+          autoGenerate={false}
           ref={treeGridRef}
           data={employeesData}
           primaryKey="ID"
@@ -88,10 +88,10 @@ export default function App() {
             dataType="string"
             bodyTemplate={webTreeGridAvatarCellTemplate}
           ></IgrColumn>
-          <IgrColumn field="Title" dataType="string" sortable="true"></IgrColumn>
-          <IgrColumn field="ID" dataType="number" sortable="true"></IgrColumn>
-          <IgrColumn field="Age" dataType="number" sortable="true"></IgrColumn>
-          <IgrColumn field="HireDate" dataType="date" sortable="true"></IgrColumn>
+          <IgrColumn field="Title" dataType="string" sortable={true}></IgrColumn>
+          <IgrColumn field="ID" dataType="number" sortable={true}></IgrColumn>
+          <IgrColumn field="Age" dataType="number" sortable={true}></IgrColumn>
+          <IgrColumn field="HireDate" dataType="date" sortable={true}></IgrColumn>
         </IgrTreeGrid>
       </div>
     </div>
