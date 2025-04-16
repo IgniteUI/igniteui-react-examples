@@ -99,7 +99,8 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridWithComboRendered(args: IgrVoidEventArgs) {
-        args.target.data = this.gridData;
+        const grid = args.target as IgrGrid;
+        grid.data = this.gridData;
     }
 
     public onCountryChange(rowId: string, args: CustomEvent<any>) {
