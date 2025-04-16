@@ -30,19 +30,19 @@ export default function App() {
         column.header = "🎉" + column.field;
     }
 
-    const changeCopySeparator = (inputComponent: IgrInput, args: IgrComponentValueChangedEventArgs): void => {
+    const changeCopySeparator = (args: IgrComponentValueChangedEventArgs): void => {
         gridRef.current.clipboardOptions.separator = args.detail || defaultSeparator;
     }
 
-    const changeGridCopyBehavior = (switchComponent: any, args: IgrCheckboxChangeEventArgs): void => {
+    const changeGridCopyBehavior = (args: IgrCheckboxChangeEventArgs): void => {
         gridRef.current.clipboardOptions.enabled = args.detail.checked;
     }
 
-    const changeGridCopyHeadersBehavior = (switchComponent: any, args: IgrCheckboxChangeEventArgs): void => {
+    const changeGridCopyHeadersBehavior = (args: IgrCheckboxChangeEventArgs): void => {
         gridRef.current.clipboardOptions.copyHeaders = args.detail.checked;
     }
 
-    const changeGridCopyFormattersBehavior = (switchComponent: any, args: IgrCheckboxChangeEventArgs): void => {
+    const changeGridCopyFormattersBehavior = (args: IgrCheckboxChangeEventArgs): void => {
         gridRef.current.clipboardOptions.copyFormatters = args.detail.checked;
     }
 
@@ -54,16 +54,16 @@ export default function App() {
         <>
             <div className="container sample">      
                 <div className="options horizontal" style={{gap: "1rem", alignItems: "center", margin: "1rem"}}>
-                    <IgrInput placeholder='The default value is a single tabulation' style={{flex: "1 0 auto"}} change={changeCopySeparator}>
+                    <IgrInput placeholder='The default value is a single tabulation' style={{flex: "1 0 auto"}} onChange={changeCopySeparator}>
                         <span key="prefix" slot="prefix">Change copy separator:</span>
                     </IgrInput>
-                    <IgrSwitch labelPosition="before" checked change={changeGridCopyBehavior}>
+                    <IgrSwitch labelPosition="before" checked onChange={changeGridCopyBehavior}>
                         <span key="gridCopy">Grid copy behavior</span>
                     </IgrSwitch>
-                    <IgrSwitch labelPosition="before" checked change={changeGridCopyHeadersBehavior}>
+                    <IgrSwitch labelPosition="before" checked onChange={changeGridCopyHeadersBehavior}>
                         <span key="gridCopyHeaders">Copying of header labels</span>
                     </IgrSwitch>
-                    <IgrSwitch labelPosition="before" checked change={changeGridCopyFormattersBehavior}>
+                    <IgrSwitch labelPosition="before" checked onChange={changeGridCopyFormattersBehavior}>
                         <span key="gridCopyFormatters">Copying column formatters</span>
                     </IgrSwitch>
                     <IgrButton onClick={clearSelection}>

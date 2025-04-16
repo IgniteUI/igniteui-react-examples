@@ -23,13 +23,13 @@ export default class ListOverview extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrRadioGroup alignment="horizontal" style={{marginBottom: '10px'}}>
-                    <IgrRadio name="size" value="small" labelPosition="after" change={this.onRadioChange}>
+                    <IgrRadio name="size" value="small" labelPosition="after" onChange={this.onRadioChange}>
                         <span>Small</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="medium" labelPosition="after" checked={true} change={this.onRadioChange}>
+                    <IgrRadio name="size" value="medium" labelPosition="after" checked={true} onChange={this.onRadioChange}>
                         <span>Medium</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="large" labelPosition="after" change={this.onRadioChange}>
+                    <IgrRadio name="size" value="large" labelPosition="after" onChange={this.onRadioChange}>
                         <span>Large</span>
                     </IgrRadio>
                 </IgrRadioGroup>
@@ -95,7 +95,7 @@ export default class ListOverview extends React.Component<any, any> {
     }
 
     public onRadioChange(e: any) {
-        if (e.checked == true) {
+        if (e.detail.checked == true) {
             this.setState({ listSize: e.value });
         }
     }

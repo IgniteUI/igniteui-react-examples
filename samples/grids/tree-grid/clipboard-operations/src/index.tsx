@@ -49,7 +49,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrInput
                     key="separatorInput"
                     value={this.state.separator}
-                    change={this.handleSeparatorChange}
+                    onChange={this.handleSeparatorChange}
                 >
                     <span key="separatorPrefix" slot="prefix">Change copy separator:</span>
                     <span key="separatorHelperText" slot="helper-text">The default value is a single tabulation.</span>
@@ -58,7 +58,7 @@ export default class Sample extends React.Component<any, any> {
                     key="clipboardEnabledSwitch"
                     checked={this.state.clipboardEnabled}
                     labelPosition="before"
-                    change={this.handleClipboardEnabledChange}
+                    onChange={this.handleClipboardEnabledChange}
                 >
                     <span key="clipboardEnabledLabel">Grid copy behavior</span>
                 </IgrSwitch>
@@ -66,7 +66,7 @@ export default class Sample extends React.Component<any, any> {
                     key="clipboardHeadersSwitch"
                     checked={this.state.clipboardHeaders}
                     labelPosition="before"
-                    change={this.handleClipboardHeadersChange}
+                    onChange={this.handleClipboardHeadersChange}
                 >
                     <span key="clipboardHeadersLabel">Copying of header labels</span>
                 </IgrSwitch>
@@ -74,7 +74,7 @@ export default class Sample extends React.Component<any, any> {
                     key="clipboardFormattersSwitch"
                     checked={this.state.clipboardFormatters}
                     labelPosition="before"
-                    change={this.handleClipboardFormattersChange}
+                    onChange={this.handleClipboardFormattersChange}
                 >
                     <span key="clipboardFormattersLabel">Copying column formatters</span>
                 </IgrSwitch>
@@ -131,19 +131,19 @@ export default class Sample extends React.Component<any, any> {
     }
 
     private handleSeparatorChange(event: any) {
-        this.setState({ separator: event.value || this.defaultSeparator });
+        this.setState({ separator: event.detail.value || this.defaultSeparator });
     }
 
     private handleClipboardEnabledChange(event: any) {
-        this.setState({ clipboardEnabled: event.checked });
+        this.setState({ clipboardEnabled: event.detail.checked });
     }
 
     private handleClipboardHeadersChange(event: any) {
-        this.setState({ clipboardHeaders: event.checked });
+        this.setState({ clipboardHeaders: event.detail.checked });
     }
 
     private handleClipboardFormattersChange(event: any) {
-        this.setState({ clipboardFormatters: event.checked });
+        this.setState({ clipboardFormatters: event.detail.checked });
     }
 
     private handleClearSelection() {

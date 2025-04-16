@@ -21,9 +21,9 @@ export default class InputSize extends React.Component<any, any> {
             <div className="container sample">
                 <div id="radioGroup">
                     <IgrRadioGroup alignment="horizontal">
-                        <IgrRadio name="size" value="small" labelPosition="after" change={this.onRadioChange}><span>Small</span></IgrRadio>
-                        <IgrRadio name="size" value="medium" labelPosition="after" checked={true} change={this.onRadioChange}><span>Medium</span></IgrRadio>
-                        <IgrRadio name="size" value="large" labelPosition="after" change={this.onRadioChange}><span>Large</span></IgrRadio>
+                        <IgrRadio name="size" value="small" labelPosition="after" onChange={this.onRadioChange}><span>Small</span></IgrRadio>
+                        <IgrRadio name="size" value="medium" labelPosition="after" checked={true} onChange={this.onRadioChange}><span>Medium</span></IgrRadio>
+                        <IgrRadio name="size" value="large" labelPosition="after" onChange={this.onRadioChange}><span>Large</span></IgrRadio>
                     </IgrRadioGroup>
                 </div>
                 <IgrInput className={'size-' + this.state.size} type="text" label="Required" value="This input is required" required={true} />                
@@ -34,7 +34,7 @@ export default class InputSize extends React.Component<any, any> {
     }
 
     public onRadioChange(e: any) {
-        if (e.checked == true) {
+        if (e.detail.checked == true) {
             this.setState({ calendarSize: e.value });
         }
     }
