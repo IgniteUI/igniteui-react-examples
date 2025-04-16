@@ -90,7 +90,7 @@ function priceTemplate(ctx: {dataContext: IgrCellTemplateContext}) {
 function chartBtnTemplate(ctx: {dataContext: IgrCellTemplateContext}) {
   const cell = ctx.dataContext.cell;
   const rowData = gridRef.current.getRowData(cell.id.rowID);
-  return <span onClick={e => openDialogForRow(e, rowData)}><IgrIcon name="insert_chart" collection="material" variant="contained" className="size-small">
+  return <span onClick={e => openDialogForRow(e, rowData)}><IgrIcon name="insert_chart" collection="material" className="size-small">
   </IgrIcon></span>
 }
 
