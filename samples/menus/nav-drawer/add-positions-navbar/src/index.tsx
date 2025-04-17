@@ -52,16 +52,16 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
                 </div>
                 <div>
                     <IgrRadioGroup alignment="horizontal" style={{ marginBottom: '10px' }}>
-                        <IgrRadio name="position" value="start" labelPosition="after" checked={true} change={this.onRadioChange} key="start">
+                        <IgrRadio name="position" value="start" labelPosition="after" checked={true} onChange={this.onRadioChange} key="start">
                             <span key="sStart">Start</span>
                         </IgrRadio>
-                        <IgrRadio name="position" value="end" labelPosition="after" change={this.onRadioChange} key="end">
+                        <IgrRadio name="position" value="end" labelPosition="after" onChange={this.onRadioChange} key="end">
                             <span key="sEnd">End</span>
                         </IgrRadio>
-                        <IgrRadio name="position" value="top" labelPosition="after" change={this.onRadioChange} key="top">
+                        <IgrRadio name="position" value="top" labelPosition="after" onChange={this.onRadioChange} key="top">
                             <span key="sTop">Top</span>
                         </IgrRadio>
-                        <IgrRadio name="position" value="bottom" labelPosition="after" change={this.onRadioChange} key="bottom">
+                        <IgrRadio name="position" value="bottom" labelPosition="after" onChange={this.onRadioChange} key="bottom">
                             <span key="sBottom">Bottom</span>
                         </IgrRadio>
                     </IgrRadioGroup>
@@ -116,7 +116,7 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
     }
 
     public onRadioChange(e: any) {
-        if (e.checked == true) {
+        if (e.detail.checked) {
             this.setState({ drawerPosition: e.value });
         }
     }

@@ -7,6 +7,7 @@ import {
     IgrIcon,
     IgrIconModule,
     IgrRadio,
+    IgrRadioChangeEventArgs,
     IgrRadioGroup,
     IgrRadioGroupModule,
     IgrRipple,
@@ -47,8 +48,8 @@ export default function ButtonGroupSelectionSample() {
 
     const buttonGroupRef = useRef<IgrButtonGroup>(null);
 
-    function onRadioChange(radio: IgrRadio) {
-        switch (radio.value) {
+    function onRadioChange(e: IgrRadioChangeEventArgs) {
+        switch (e.detail.value) {
             case 'single':
                 buttonGroupRef.current.selection = ButtonGroupSelection.Single;
                 break;
@@ -66,13 +67,13 @@ export default function ButtonGroupSelectionSample() {
             <div className="radio-group-container">
                 <label>Selection Mode</label>
                 <IgrRadioGroup alignment="horizontal">
-                    <IgrRadio name="mode" value="single" checked change={onRadioChange} key="radio-single">
+                    <IgrRadio name="mode" value="single" checked onChange={onRadioChange} key="radio-single">
                         <span key="text-single">Single</span>
                     </IgrRadio>
-                    <IgrRadio name="mode" value="single-required" change={onRadioChange} key="radio-single-required">
+                    <IgrRadio name="mode" value="single-required" onChange={onRadioChange} key="radio-single-required">
                         <span key="text-single-required">Single-Required</span>
                     </IgrRadio>
-                    <IgrRadio name="mode" value="multiple" change={onRadioChange} key="radio-multiple">
+                    <IgrRadio name="mode" value="multiple" onChange={onRadioChange} key="radio-multiple">
                         <span key="text-multiple">Multiple</span>
                     </IgrRadio>
                 </IgrRadioGroup>

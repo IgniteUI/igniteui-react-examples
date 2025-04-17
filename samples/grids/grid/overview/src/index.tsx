@@ -21,7 +21,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -37,7 +36,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     id="grid"
-                    ref={this.gridRef}
                     data={this.nwindData}
                     primaryKey="ProductID"
                     allowFiltering={true}
@@ -88,8 +86,7 @@ export default class Sample extends React.Component<any, any> {
                         sortable={true}
                         hasSummary={true}
                         editable={true}
-                        bodyTemplate={this.webGridBooleanCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webGridBooleanCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="ReorderLevel"

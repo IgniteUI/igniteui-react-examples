@@ -21,15 +21,15 @@ export default class DialogOverview extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrButton variant="contained" clicked={this.onDialogShow}>
+                <IgrButton variant="contained" onClick={this.onDialogShow}>
                     <span>Show Dialog</span>
                 </IgrButton>
 
                 <IgrDialog title="Confirmation" ref={this.onDialogRef}>
                     <p>Are you sure you want to delete the Annual_Report_2016.pdf and Annual_Report_2017.pdf files?</p>
                     <div slot="footer">
-                        <IgrButton clicked={this.onDialogHide} variant="flat"><span>Cancel</span></IgrButton>
-                        <IgrButton clicked={this.onDialogHide} variant="flat"><span>OK</span></IgrButton>
+                        <IgrButton onClick={this.onDialogHide} variant="flat"><span>Cancel</span></IgrButton>
+                        <IgrButton onClick={this.onDialogHide} variant="flat"><span>OK</span></IgrButton>
                     </div>
                 </IgrDialog>
             </div>

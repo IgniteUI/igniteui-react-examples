@@ -45,8 +45,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private column1: IgrColumn
-    private rowIsland1: IgrRowIsland
     private  _pinningConfig2: IgrPinningConfig | null = null;
     public get pinningConfig2(): IgrPinningConfig {
         if (this._pinningConfig2 == null)
@@ -59,8 +57,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig2;
     }
-    private column2: IgrColumn
-    private rowIsland2: IgrRowIsland
     private  _pinningConfig3: IgrPinningConfig | null = null;
     public get pinningConfig3(): IgrPinningConfig {
         if (this._pinningConfig3 == null)
@@ -73,8 +69,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig3;
     }
-    private column3: IgrColumn
-    private rowIsland3: IgrRowIsland
     private  _pinningConfig4: IgrPinningConfig | null = null;
     public get pinningConfig4(): IgrPinningConfig {
         if (this._pinningConfig4 == null)
@@ -87,7 +81,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig4;
     }
-    private column4: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -125,15 +118,13 @@ export default class Sample extends React.Component<any, any> {
                     data={this.singersData}
                     primaryKey="Photo"
                     id="grid"
-                    ref={this.gridRef}
                     cellSelection="none"
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         width="70px"
                         filterable={false}
                         pinned={true}
-                        bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="Artist"
@@ -165,14 +156,12 @@ export default class Sample extends React.Component<any, any> {
                         primaryKey="Album"
                         cellSelection="none"
                         pinning={this.pinningConfig2}
-                        autoGenerate={false}
-                        name="rowIsland1">
+                        autoGenerate={false}>
                         <IgrColumn
                             width="70px"
                             filterable={false}
                             pinned={true}
-                            bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}
-                            name="column2">
+                            bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}>
                         </IgrColumn>
                         <IgrColumn
                             field="Album"
@@ -199,14 +188,12 @@ export default class Sample extends React.Component<any, any> {
                             primaryKey="Number"
                             cellSelection="none"
                             pinning={this.pinningConfig3}
-                            autoGenerate={false}
-                            name="rowIsland2">
+                            autoGenerate={false}>
                             <IgrColumn
                                 width="70px"
                                 filterable={false}
                                 pinned={true}
-                                bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}
-                                name="column3">
+                                bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Number"
@@ -235,14 +222,12 @@ export default class Sample extends React.Component<any, any> {
                         primaryKey="Tour"
                         cellSelection="none"
                         pinning={this.pinningConfig4}
-                        autoGenerate={false}
-                        name="rowIsland3">
+                        autoGenerate={false}>
                         <IgrColumn
                             width="70px"
                             filterable={false}
                             pinned={true}
-                            bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}
-                            name="column4">
+                            bodyTemplate={this.webHierarchicalGridRowPinCellTemplate}>
                         </IgrColumn>
                         <IgrColumn
                             field="Tour"

@@ -37,7 +37,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     id="grid"
-                    ref={this.gridRef}
                     data={this.nwindData}
                     primaryKey="ProductID"
                     allowFiltering={true}>

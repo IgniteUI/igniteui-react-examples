@@ -26,7 +26,7 @@ export default class DialogForm extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample center">
-                <IgrButton variant="contained" clicked={this.onDialogShow}>
+                <IgrButton variant="contained" onClick={this.onDialogShow}>
                     <span>Show Dialog</span>
                 </IgrButton>
 

@@ -35,8 +35,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.customersData}
-                    primaryKey="ProductID"
-                    ref={this.gridRef}>
+                    primaryKey="ProductID">
                     <IgrColumn
                         field="ID"
                         width="auto"

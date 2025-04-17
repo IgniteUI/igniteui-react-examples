@@ -71,7 +71,7 @@ export default function App() {
             <IgrGridToolbarTitle key="toolbarTitle">
               <span key="toolbarTitleText">Tree Grid Toolbar</span>
             </IgrGridToolbarTitle>
-            <IgrButton key="btn" clicked={clearSort}>
+            <IgrButton key="btn" onClick={clearSort}>
               <span slot="prefix" key="clearIcon">
                 <IgrIcon name="clear" ref={iconClear} collection="material"></IgrIcon>
               </span>

@@ -102,19 +102,19 @@ export default class Sample extends React.Component<any, any> {
                         <IgrColumn
                             field="OrderDate"
                             width="auto"
-                            dataType="Date"
+                            dataType="date"
                             resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="RequiredDate"
                             width="auto"
-                            dataType="Date"
+                            dataType="date"
                             resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShippedDate"
                             width="auto"
-                            dataType="Date"
+                            dataType="date"
                             resizable={true}>
                         </IgrColumn>
                         <IgrColumn

@@ -23,11 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.hierarchicalGrid = r;
         this.setState({});
     }
-    private columnGroup1: IgrColumnGroup
-    private columnGroup2: IgrColumnGroup
-    private columnGroup3: IgrColumnGroup
-    private columnGroup4: IgrColumnGroup
-    private columnGroup5: IgrColumnGroup
 
     constructor(props: any) {
         super(props);
@@ -43,7 +38,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     data={this.hierarchicalCustomers}
-                    ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
                     primaryKey="ID"
                     moving={true}
@@ -56,8 +50,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumnGroup
                         header="General Information"
-                        headerTemplate={this.webHierarchicalGridColumnGroupHeaderTemplate}
-                        name="columnGroup1">
+                        headerTemplate={this.webHierarchicalGridColumnGroupHeaderTemplate}>
                         <IgrColumn
                             field="Company"
                             dataType="string"
@@ -82,8 +75,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumnGroup>
                     <IgrColumnGroup
                         header="Address Information"
-                        headerTemplate={this.webHierarchicalGridColumnGroupHeaderTemplate}
-                        name="columnGroup2">
+                        headerTemplate={this.webHierarchicalGridColumnGroupHeaderTemplate}>
                         <IgrColumnGroup
                             header="Location">
                             <IgrColumn
@@ -134,8 +126,7 @@ export default class Sample extends React.Component<any, any> {
                             header="Order Information">
                             <IgrColumnGroup
                                 header="Order Details"
-                                headerTemplate={this.webHierarchicalGridColumnGroupHeaderTemplate}
-                                name="columnGroup3">
+                                headerTemplate={this.webHierarchicalGridColumnGroupHeaderTemplate}>
                                 <IgrColumn
                                     field="OrderID"
                                     dataType="number"
@@ -163,8 +154,7 @@ export default class Sample extends React.Component<any, any> {
                             </IgrColumnGroup>
                             <IgrColumnGroup
                                 header="General Shipping Information"
-                                headerTemplate={this.webHierarchicalGridColumnGroupHeaderTemplate}
-                                name="columnGroup4">
+                                headerTemplate={this.webHierarchicalGridColumnGroupHeaderTemplate}>
                                 <IgrColumn
                                     field="ShipDate"
                                     dataType="date"
@@ -192,8 +182,7 @@ export default class Sample extends React.Component<any, any> {
                             </IgrColumnGroup>
                             <IgrColumnGroup
                                 header="Shipping Locations"
-                                headerTemplate={this.webHierarchicalGridColumnGroupHeaderTemplate}
-                                name="columnGroup5">
+                                headerTemplate={this.webHierarchicalGridColumnGroupHeaderTemplate}>
                                 <IgrColumn
                                     field="ShipAddress"
                                     dataType="string"

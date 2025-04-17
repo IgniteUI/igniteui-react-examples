@@ -31,21 +31,21 @@ export default class StepperAnimations extends React.Component<any, any> {
         return (
             <div className="container sample">               
                 <article className="settings">
-                    <IgrSelect label="Orienation" change={this.orientationChange}>
+                    <IgrSelect label="Orienation" onChange={this.orientationChange}>
                         <IgrSelectItem key="horizontal-item" value="horizontal" selected><span key="horizontal">Horizontal</span></IgrSelectItem>
                         <IgrSelectItem key="vertical-item" value="vertical"><span key="vertical">Vertical</span></IgrSelectItem>
                     </IgrSelect>
-                    <IgrSelect label="Vertical Animation" change={this.verticalAnimationChange}>
+                    <IgrSelect label="Vertical Animation" onChange={this.verticalAnimationChange}>
                         <IgrSelectItem key="grow-item" value="grow" selected><span key="grow">Grow</span></IgrSelectItem>
                         <IgrSelectItem key="vertical-fade-item" value="fade"><span key="vertical-fade">Fade</span></IgrSelectItem>
                         <IgrSelectItem key="vertical-none-item" value="none"><span key="vertical-none">None</span></IgrSelectItem>
                     </IgrSelect>
-                    <IgrSelect label="Horizontal Animation" change={this.horizontalAnimationChange}>
+                    <IgrSelect label="Horizontal Animation" onChange={this.horizontalAnimationChange}>
                         <IgrSelectItem key="slide-item" value="slide" selected><span key="slide">Slide</span></IgrSelectItem>
                         <IgrSelectItem key="horizontal-fade-item" value="fade"><span key="horizontal-fade">Fade</span></IgrSelectItem>
                         <IgrSelectItem key="horizontal-none-item" value="none"><span key="horizontal-none">None</span></IgrSelectItem>
                     </IgrSelect>
-                    <IgrInput type="number" value="320" label="Duration" change={this.animationDurationChange}>
+                    <IgrInput type="number" value="320" label="Duration" onChange={this.animationDurationChange}>
                         <span key="duration-suffix" slot="suffix">ms</span>
                     </IgrInput>
                 </article>
@@ -59,7 +59,7 @@ export default class StepperAnimations extends React.Component<any, any> {
                             <IgrInput key="full-name" label="Full Name" type="text" name="fullName"></IgrInput>
                             <IgrInput key="email" label="Email" type="email" name="email"></IgrInput>
 
-                            <IgrButton key="info-next" clicked={() => { this.stepperRef.current.next(); }}><span key="info-label-next">NEXT</span></IgrButton>
+                            <IgrButton key="info-next" onClick={() => { this.stepperRef.current.next(); }}><span key="info-label-next">NEXT</span></IgrButton>
                         </form>
                     </IgrStep>
                     <IgrStep key="address">
@@ -68,8 +68,8 @@ export default class StepperAnimations extends React.Component<any, any> {
                             <IgrInput key="city" label="City" type="text" name="city"></IgrInput>
                             <IgrInput key="street" label="Street" type="text" name="street"></IgrInput>
 
-                            <IgrButton key="address-prev" clicked={() => { this.stepperRef.current.prev(); }}><span key="address-label-prev">PREVIOUS</span></IgrButton>
-                            <IgrButton key="address-next" clicked={() => { this.stepperRef.current.next(); }}><span key="address-label-next">NEXT</span></IgrButton>
+                            <IgrButton key="address-prev" onClick={() => { this.stepperRef.current.prev(); }}><span key="address-label-prev">PREVIOUS</span></IgrButton>
+                            <IgrButton key="address-next" onClick={() => { this.stepperRef.current.next(); }}><span key="address-label-next">NEXT</span></IgrButton>
                         </form>
                     </IgrStep>
                     <IgrStep key="payment">
@@ -80,34 +80,34 @@ export default class StepperAnimations extends React.Component<any, any> {
                             <IgrRadio key="master-card-radio" name="payment"><span key="master-card">MasterCard (**** **** **** 5678; 12/24)</span></IgrRadio>
                         </IgrRadioGroup>
 
-                        <IgrButton key="payment-prev" clicked={() => { this.stepperRef.current.prev(); }}><span key="payment-label-prev">PREVIOUS</span></IgrButton>
-                        <IgrButton key="payment-next" clicked={() => { this.stepperRef.current.next(); }}><span key="address-label-submit">SUBMIT</span></IgrButton>
+                        <IgrButton key="payment-prev" onClick={() => { this.stepperRef.current.prev(); }}><span key="payment-label-prev">PREVIOUS</span></IgrButton>
+                        <IgrButton key="payment-next" onClick={() => { this.stepperRef.current.next(); }}><span key="address-label-submit">SUBMIT</span></IgrButton>
                     </IgrStep>
                     <IgrStep key="status">
                         <span key="status-title" slot="title">Delivery status</span>
                         <p key="status-text">Your order is on its way. Expect delivery on 25th September 2021. Delivery address: San Jose, CA 94243.</p>
 
-                        <IgrButton key="status-prev" clicked={() => { this.stepperRef.current.prev(); }}><span key="status-label-prev">PREVIOUS</span></IgrButton>
-                        <IgrButton key="status-reset" clicked={() => { this.stepperRef.current.reset(); }}><span key="status-label-reset">RESET</span></IgrButton>
+                        <IgrButton key="status-prev" onClick={() => { this.stepperRef.current.prev(); }}><span key="status-label-prev">PREVIOUS</span></IgrButton>
+                        <IgrButton key="status-reset" onClick={() => { this.stepperRef.current.reset(); }}><span key="status-label-reset">RESET</span></IgrButton>
                     </IgrStep>
                 </IgrStepper>
             </div>
         );
     }
 
-    public orientationChange(s: IgrSelect, e: IgrSelectItemComponentEventArgs){
+    public orientationChange(e: IgrSelectItemComponentEventArgs){
         const selectedValue = e.detail.value;
         this.setState({orientation: selectedValue});
     }
-    public horizontalAnimationChange(s: IgrSelect, e: IgrSelectItemComponentEventArgs){
+    public horizontalAnimationChange(e: IgrSelectItemComponentEventArgs){
         const selectedValue = e.detail.value;
         this.setState({horizontalAnimation: selectedValue});
     }
-    public verticalAnimationChange(s: IgrSelect, e: IgrSelectItemComponentEventArgs){
+    public verticalAnimationChange(e: IgrSelectItemComponentEventArgs){
         const selectedValue = e.detail.value;
         this.setState({verticalAnimation: selectedValue});
     }
-    public animationDurationChange(s: IgrInput, e: IgrComponentValueChangedEventArgs){
+    public animationDurationChange(e: IgrComponentValueChangedEventArgs){
         const animationDuration = e.detail;
         this.setState({animationDuration: animationDuration});
     }

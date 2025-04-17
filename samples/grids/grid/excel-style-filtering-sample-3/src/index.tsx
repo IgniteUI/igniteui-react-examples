@@ -65,7 +65,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
-                    ref={this.gridRef}
                     data={this.nwindData}
                     moving={true}
                     allowFiltering={true}
@@ -81,31 +80,26 @@ export default class Sample extends React.Component<any, any> {
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
                     <IgrColumn
-                        name="ProductName"
                         field="ProductName"
                         header="Product Name">
                     </IgrColumn>
                     <IgrColumn
-                        name="QuantityPerUnit"
                         field="QuantityPerUnit"
                         header="Quantity Per Unit">
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="currency"
                         pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
-                        name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
                         dataType="date"
                         pipeArgs={this.columnPipeArgs2}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Discontinued"
                         field="Discontinued"
                         header="Discontinued"
                         bodyTemplate={this.webGridBooleanCellTemplate}>

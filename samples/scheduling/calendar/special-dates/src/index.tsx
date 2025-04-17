@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCalendar, IgrCalendarModule, IgrCalendarDate, DateRangeDescriptor, DateRangeType } from 'igniteui-react';
+import { IgrCalendar, IgrCalendarModule, DateRangeDescriptor, DateRangeType } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrCalendarModule.register();

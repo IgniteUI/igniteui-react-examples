@@ -24,7 +24,7 @@ export default class NavDrawerAddDrawerItems extends React.Component<any, any> {
         return (
             <div className="container sample">
                   <IgrIconButton style={{margin: "10px"}} ref={this.iconButtonRef} 
-                        clicked={this.toggleDrawer}
+                        onClick={this.toggleDrawer}
                         name="menu" 
                         collection="material"
                         variant="flat">

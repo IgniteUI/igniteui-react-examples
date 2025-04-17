@@ -21,9 +21,9 @@ export default class StepperStepTypes extends React.Component<any, any> {
                 <label>Step type</label>
                 <div className="radio-group-container">
                     <IgrRadioGroup alignment="horizontal">
-                        <IgrRadio key="radio-indicator" name="type" value="indicator" change={this.onStepTypeChange}><span key="indicator">Indicator</span></IgrRadio>
-                        <IgrRadio key="radio-title" name="type" value="title" change={this.onStepTypeChange}><span key="indicator">Title</span></IgrRadio>
-                        <IgrRadio key="radio-full" name="type" value="full" change={this.onStepTypeChange} checked={true}><span key="indicator">Full</span></IgrRadio>
+                        <IgrRadio key="radio-indicator" name="type" value="indicator" onChange={this.onStepTypeChange}><span key="indicator">Indicator</span></IgrRadio>
+                        <IgrRadio key="radio-title" name="type" value="title" onChange={this.onStepTypeChange}><span key="indicator">Title</span></IgrRadio>
+                        <IgrRadio key="radio-full" name="type" value="full" onChange={this.onStepTypeChange} checked={true}><span key="indicator">Full</span></IgrRadio>
                     </IgrRadioGroup>
                 </div>
 
@@ -42,8 +42,8 @@ export default class StepperStepTypes extends React.Component<any, any> {
         );
     }
 
-    public onStepTypeChange(s: IgrRadio, e: IgrRadioChangeEventArgs) {
-        const newStepType = s.props.value;
+    public onStepTypeChange(e: IgrRadioChangeEventArgs) {
+        const newStepType = e.detail.value;
         this.setState({ stepType: newStepType });
     }
 }

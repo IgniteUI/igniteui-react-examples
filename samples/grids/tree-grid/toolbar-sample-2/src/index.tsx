@@ -15,7 +15,7 @@ import {
   IgrTreeGridModule,
 } from "igniteui-react-grids";
 import { IgrColumn } from "igniteui-react-grids";
-import { IgrAvatar, IgrAvatarModule, IgrComponentValueChangedEventArgs, IgrInput, IgrInputBase, IgrInputModule, IgrSwitch, IgrSwitchModule } from "igniteui-react";
+import { IgrAvatar, IgrAvatarModule, IgrCheckboxChangeEventArgs, IgrComponentValueChangedEventArgs, IgrInput, IgrInputModule, IgrSwitch, IgrSwitchModule } from "igniteui-react";
 
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
@@ -47,45 +47,45 @@ export default function App() {
 
   const spanRef = useRef(null);
 
-  const changeTitle = (input: IgrInputBase, event: IgrComponentValueChangedEventArgs) => {
+  const changeTitle = (event: IgrComponentValueChangedEventArgs) => {
     spanRef.current.innerText = event.detail;
   }
 
-  const enableFiltering = (switchComponent: IgrSwitch) => {
+  const enableFiltering = (e: IgrCheckboxChangeEventArgs) => {
     const toolbarFiltering = document.getElementsByTagName('igc-grid-toolbar-advanced-filtering')[0] as any;
-    toolbarFiltering.hidden = !switchComponent.checked;
+    toolbarFiltering.hidden = !e.detail.checked;
   };
 
-  const enableHiding = (switchComponent: IgrSwitch) => {
+  const enableHiding = (e: IgrCheckboxChangeEventArgs) => {
     const toolbarHiding = document.getElementsByTagName('igc-grid-toolbar-hiding')[0] as any;
-    toolbarHiding.hidden = !switchComponent.checked;
+    toolbarHiding.hidden = !e.detail.checked;
   };
 
-  const enablePinning = (switchComponent: IgrSwitch) => {
+  const enablePinning = (e: IgrCheckboxChangeEventArgs) => {
     const toolbarPinning = document.getElementsByTagName('igc-grid-toolbar-pinning')[0] as any;
-    toolbarPinning.hidden = !switchComponent.checked;
+    toolbarPinning.hidden = !e.detail.checked;
   };
 
-  const enableExport = (switchComponent: IgrSwitch) => {
+  const enableExport = (e: IgrCheckboxChangeEventArgs) => {
     const toolbarExporter = document.getElementsByTagName('igc-grid-toolbar-exporter')[0] as any;
-    toolbarExporter.hidden = !switchComponent.checked;
+    toolbarExporter.hidden = !e.detail.checked;
   };
 
   return (
     <div className="container sample ig-typography">
       <div className="container fill">
         <div className="control_panel">
-          <IgrInput inputOcurred={changeTitle} type="text" label="Toolbar title" value="Tree grid toolbar" />
-          <IgrSwitch change={enableFiltering} checked>
+          <IgrInput onInput={changeTitle} type="text" label="Toolbar title" value="Tree grid toolbar" />
+          <IgrSwitch onChange={enableFiltering} checked>
             <span key="filtering">Advanced Filtering</span>
           </IgrSwitch>
-          <IgrSwitch change={enableHiding} checked>
+          <IgrSwitch onChange={enableHiding} checked>
             <span key="hiding">Column hiding</span>
           </IgrSwitch>
-          <IgrSwitch change={enablePinning} checked>
+          <IgrSwitch onChange={enablePinning} checked>
             <span key="pinning">Column pinning</span>
           </IgrSwitch>
-          <IgrSwitch change={enableExport} checked>
+          <IgrSwitch onChange={enableExport} checked>
             <span key="exporting">Exporting</span>
           </IgrSwitch>
         </div>

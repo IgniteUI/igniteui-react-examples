@@ -31,11 +31,11 @@ export default class StepperOrientationSample extends React.Component<any, any> 
                         <label>Title position</label>
                         <div className="radio-group-container">
                             <IgrRadioGroup alignment="horizontal">
-                                <IgrRadio name="title" value="Top" change={this.handleTitlePositionChange}><span>Top</span></IgrRadio>
-                                <IgrRadio name="title" value="Bottom" change={this.handleTitlePositionChange}><span>Bottom</span></IgrRadio>
-                                <IgrRadio name="title" value="Start" change={this.handleTitlePositionChange}><span>Start</span></IgrRadio>
-                                <IgrRadio name="title" value="End" change={this.handleTitlePositionChange}><span>End</span></IgrRadio>
-                                <IgrRadio name="title" value="" checked={true} change={this.handleTitlePositionChange}><span>Default</span></IgrRadio>
+                                <IgrRadio name="title" value="Top" onChange={this.handleTitlePositionChange}><span>Top</span></IgrRadio>
+                                <IgrRadio name="title" value="Bottom" onChange={this.handleTitlePositionChange}><span>Bottom</span></IgrRadio>
+                                <IgrRadio name="title" value="Start" onChange={this.handleTitlePositionChange}><span>Start</span></IgrRadio>
+                                <IgrRadio name="title" value="End" onChange={this.handleTitlePositionChange}><span>End</span></IgrRadio>
+                                <IgrRadio name="title" value="" checked={true} onChange={this.handleTitlePositionChange}><span>Default</span></IgrRadio>
                             </IgrRadioGroup>
                         </div>
                     </div>
@@ -43,8 +43,8 @@ export default class StepperOrientationSample extends React.Component<any, any> 
                         <label>Orientation</label>
                         <div className="radio-group-container">
                             <IgrRadioGroup alignment="horizontal">
-                                <IgrRadio name="orientation" value="Horizontal" checked={true} change={this.handleOrientationChange}><span>Horizontal</span></IgrRadio>
-                                <IgrRadio name="orientation" value="Vertical" change={this.handleOrientationChange}><span>Vertical</span></IgrRadio>
+                                <IgrRadio name="orientation" value="Horizontal" checked={true} onChange={this.handleOrientationChange}><span>Horizontal</span></IgrRadio>
+                                <IgrRadio name="orientation" value="Vertical" onChange={this.handleOrientationChange}><span>Vertical</span></IgrRadio>
                             </IgrRadioGroup>
                         </div>
                     </div>
@@ -52,25 +52,25 @@ export default class StepperOrientationSample extends React.Component<any, any> 
                 <IgrStepper ref={this.stepperRef} orientation={this.state.orientation} >
                     <IgrStep>
                         <span slot="title">Order</span>
-                        <IgrButton clicked={() => { this.stepperRef.current.next(); }}><span>NEXT</span></IgrButton>
+                        <IgrButton onClick={() => { this.stepperRef.current.next(); }}><span>NEXT</span></IgrButton>
                     </IgrStep>
                     <IgrStep>
                         <span slot="title">Payment</span>
-                        <IgrButton clicked={() => { this.stepperRef.current.prev(); }}><span>PREVIOUS</span></IgrButton>
-                        <IgrButton clicked={() => { this.stepperRef.current.next(); }}><span>NEXT</span></IgrButton>
+                        <IgrButton onClick={() => { this.stepperRef.current.prev(); }}><span>PREVIOUS</span></IgrButton>
+                        <IgrButton onClick={() => { this.stepperRef.current.next(); }}><span>NEXT</span></IgrButton>
                     </IgrStep>
                     <IgrStep>
                         <span slot="title">Confirmation</span>
-                        <IgrButton clicked={() => { this.stepperRef.current.prev(); }}><span>PREVIOUS</span></IgrButton>
-                        <IgrButton clicked={() => { this.stepperRef.current.reset(); }}><span>RESET</span></IgrButton>
+                        <IgrButton onClick={() => { this.stepperRef.current.prev(); }}><span>PREVIOUS</span></IgrButton>
+                        <IgrButton onClick={() => { this.stepperRef.current.reset(); }}><span>RESET</span></IgrButton>
                     </IgrStep>
                 </IgrStepper>
             </div>
         );
     }
 
-    public handleTitlePositionChange(s: IgrRadio, e: IgrRadioChangeEventArgs) {
-        const value = s.props.value;
+    public handleTitlePositionChange(e: IgrRadioChangeEventArgs) {
+        const value = e.detail.value;
 
         if (value === '') {
             this.setDefaultTitlePosition();
@@ -82,8 +82,8 @@ export default class StepperOrientationSample extends React.Component<any, any> 
         }
     }
 
-    public handleOrientationChange(s: IgrRadio, e: IgrRadioChangeEventArgs) {
-        const value = s.props.value;
+    public handleOrientationChange(e: IgrRadioChangeEventArgs) {
+        const value = e.detail.value;
         const newOrientation: StepperOrientation = StepperOrientation[value as keyof typeof StepperOrientation];
         this.setDefaultTitlePosition(newOrientation);
         this.setState({ orientation: newOrientation });

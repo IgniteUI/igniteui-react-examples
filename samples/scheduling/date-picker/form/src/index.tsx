@@ -34,13 +34,13 @@ export default function App() {
         }
     };
 
-    const handleDateChange = (s: any, e: any) => {
+    const handleDateChange = (e: any) => {
         const newValue = e.detail;
         setDatePickerValue(newValue);
         updateFormStatus();
     };
 
-    const handleReset = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleReset = (event: React.MouseEvent<IgrButton>) => {
         event.preventDefault();
         if (formRef.current) {
             formRef.current.reset();
@@ -54,7 +54,7 @@ export default function App() {
             <div className="container">
                 <form ref={formRef}>
                     <div>
-                        <IgrDatePicker id='datePicker' ref={datePickerRef} change={handleDateChange}/>
+                        <IgrDatePicker id='datePicker' ref={datePickerRef} onChange={handleDateChange}/>
                         <IgrButton id="resetButton" onClick={handleReset}><span>Reset</span></IgrButton>
                     </div>
                 </form>

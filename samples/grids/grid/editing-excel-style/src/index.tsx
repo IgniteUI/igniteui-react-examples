@@ -51,26 +51,26 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"
-                        dataType="String"
+                        dataType="string"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="Number"
+                        dataType="number"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="QuantityPerUnit"
                         header="Quantity Per Unit"
                         groupable={true}
-                        dataType="String"
+                        dataType="string"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ReorderLevel"
                         header="Reorder Level"
-                        dataType="Number"
+                        dataType="number"
                         groupable={true}
                         editable={true}>
                     </IgrColumn>

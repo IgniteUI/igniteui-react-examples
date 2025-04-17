@@ -24,7 +24,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -36,8 +35,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs1;
     }
-    private column2: IgrColumn
-    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -53,7 +50,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesData}
-                    ref={this.gridRef}
                     id="grid">
                     <IgrPaginator
                         perPage={10}>
@@ -75,20 +71,17 @@ export default class Sample extends React.Component<any, any> {
                         field="TopSpeed"
                         header="Top Speed"
                         dataType="number"
-                        pipeArgs={this.columnPipeArgs1}
-                        name="column1">
+                        pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
                         field="TrackProgress"
                         header="Track Progress"
-                        bodyTemplate={this.webGridProgressCellTemplate}
-                        name="column2">
+                        bodyTemplate={this.webGridProgressCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="CountryFlag"
                         header="Country Flag"
-                        bodyTemplate={this.webGridImageCellTemplate}
-                        name="column3">
+                        bodyTemplate={this.webGridImageCellTemplate}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

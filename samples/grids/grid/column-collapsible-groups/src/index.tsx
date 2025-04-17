@@ -35,7 +35,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.invoicesData}
-                    ref={this.gridRef}
                     id="grid">
                     <IgrColumnGroup
                         header="Customer Information"

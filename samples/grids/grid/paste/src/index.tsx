@@ -68,8 +68,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.invoicesData}
-                    rendered={this.webGridPasteFromExcel}
-                    ref={this.gridRef}
+                    onRendered={this.webGridPasteFromExcel}
                     id="grid"
                     primaryKey="OrderID">
                     <IgrGridToolbar

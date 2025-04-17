@@ -37,7 +37,6 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.singersData}
                     id="hierarchicalGrid"
-                    ref={this.hierarchicalGridRef}
                     primaryKey="ID"
                     allowFiltering={true}>
                     <IgrGridToolbar

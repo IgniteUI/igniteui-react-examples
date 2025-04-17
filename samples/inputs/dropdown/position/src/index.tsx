@@ -20,7 +20,7 @@ export default class DropDownPosition extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample center">
-                <IgrDropdown ref={this.onDropDownRef} distance={5} change={(e)=>this.onChange(e)} placement="bottom">
+                <IgrDropdown ref={this.onDropDownRef} distance={5} onChange={(e)=>this.onChange(e)} placement="bottom">
                     <div slot="target">
                         <IgrButton><span>Options</span></IgrButton>
                     </div>
@@ -48,8 +48,8 @@ export default class DropDownPosition extends React.Component<any, any> {
 
     public onChange(event: any): void {
         if(this.dropdownRef){
-            for (let i = 1; i < event.i.nativeElement.children.length; i++) {
-                let item = event.i.nativeElement.children[i];
+            for (let i = 1; i < event.target.children.length; i++) {
+                let item = event.target.children[i];
                 if (item.selected){
                     this.dropdownRef.placement = item.value;
                 }

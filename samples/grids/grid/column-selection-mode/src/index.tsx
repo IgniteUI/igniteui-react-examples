@@ -60,7 +60,6 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    ref={this.gridRef}
                     id="grid"
                     data={this.customersData}
                     columnSelection="single">

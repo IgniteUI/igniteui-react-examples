@@ -71,7 +71,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._sortingExpression1;
     }
-    private column1: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -99,7 +98,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     data={this.ordersTreeData}
-                    ref={this.gridRef}
                     sortingExpressions={this.sortingExpression1}
                     id="grid"
                     primaryKey="ID"
@@ -133,8 +131,7 @@ export default class Sample extends React.Component<any, any> {
                         field="Price"
                         dataType="currency"
                         sortable={true}
-                        pipeArgs={this.columnPipeArgs1}
-                        name="column1">
+                        pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
                         field="Units"

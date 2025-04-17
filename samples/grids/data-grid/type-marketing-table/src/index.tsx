@@ -4,18 +4,18 @@ import './index.css';
 import './DataGridTypeMarketingTable.css';
 import { LiveFinancialData } from './LiveFinancialData';
 // IgrDataGrid modules
-import { IgrDataGrid } from 'igniteui-react-grids';
-import { IgrDataGridModule } from 'igniteui-react-grids';
-import { IgrNumericColumn } from 'igniteui-react-grids';
-import { IgrTextColumn } from 'igniteui-react-grids';
-import { IgrTemplateColumn } from 'igniteui-react-grids';
-import { IgrColumnGroupDescription } from 'igniteui-react-grids';
-import { IgrDataBindingEventArgs } from 'igniteui-react-grids';
-import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-grids';
-import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
-import { IgrTemplateCellInfo } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-data-grids';
+import { IgrDataGridModule } from 'igniteui-react-data-grids';
+import { IgrNumericColumn } from 'igniteui-react-data-grids';
+import { IgrTextColumn } from 'igniteui-react-data-grids';
+import { IgrTemplateColumn } from 'igniteui-react-data-grids';
+import { IgrColumnGroupDescription } from 'igniteui-react-data-grids';
+import { IgrDataBindingEventArgs } from 'igniteui-react-data-grids';
+import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-data-grids';
+import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-data-grids';
+import { IgrTemplateCellInfo } from 'igniteui-react-data-grids';
 import { ListSortDirection } from 'igniteui-react-core';
-import { HeaderClickAction } from 'igniteui-react-grids';
+import { HeaderClickAction } from 'igniteui-react-data-grids';
 
 IgrDataGridModule.register();
 
