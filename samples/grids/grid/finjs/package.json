@@ -15,11 +15,11 @@
   },
   "dependencies": {
     "igniteui-dockmanager": "1.16.1",
-    "igniteui-react": "19.0.0-alpha.6",
+    "igniteui-react": "19.0.0-rc.0",
     "igniteui-react-charts": "19.0.0-alpha.0",
     "igniteui-react-core": "19.0.0-alpha.0",
     "igniteui-react-datasources": "19.0.0-alpha.0",
-    "igniteui-react-grids": "19.0.0-alpha.6",
+    "igniteui-react-grids": "19.0.0-rc.0",
     "igniteui-react-inputs": "19.0.0-alpha.0",
     "igniteui-react-layouts": "19.0.0-alpha.0",
     "igniteui-webcomponents": "5.3.0",
