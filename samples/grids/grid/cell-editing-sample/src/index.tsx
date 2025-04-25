@@ -41,43 +41,43 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.grid1Ref}
                     data={this.roleplayDataStats}
                     primaryKey="Name">
                     <IgrColumn
                         field="Name"
                         header="Character Name"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="Race"
                         header="Race"
-                        dataType="String"
+                        dataType="string"
                         inlineEditorTemplate={this.webGridCellEditCellTemplate}
-                        editable="true"
+                        editable={true}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Class"
                         header="Class"
                         inlineEditorTemplate={this.webGridCellEditCellTemplate}
-                        editable="true"
-                        dataType="String"
+                        editable={true}
+                        dataType="string"
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
                         header="Age"
-                        dataType="String"
-                        editable="true">
+                        dataType="string"
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Alignment"
                         header="Alignment"
                         inlineEditorTemplate={this.webGridCellEditCellTemplate}
-                        editable="true"
-                        dataType="String"
+                        editable={true}
+                        dataType="string"
                         name="column3">
                     </IgrColumn>
                 </IgrGrid>

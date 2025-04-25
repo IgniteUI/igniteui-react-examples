@@ -42,15 +42,15 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.gridRef}
                     data={this.nwindData}
-                    moving="true"
-                    allowAdvancedFiltering="true"
+                    moving={true}
+                    allowAdvancedFiltering={true}
                     pagingMode="Remote">
                     <IgrPaginator
-                        perPage="10"
-                        totalRecords="20">
+                        perPage={10}
+                        totalRecords={20}>
                     </IgrPaginator>
                     <IgrColumn
                         name="ID"

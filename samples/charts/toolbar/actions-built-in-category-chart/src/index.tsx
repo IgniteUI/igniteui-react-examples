@@ -4,6 +4,7 @@ import './index.css';
 
 import { IgrLegendModule, IgrCategoryChartModule, IgrCategoryChartToolbarModule } from 'igniteui-react-charts';
 import { IgrToolbarModule } from 'igniteui-react-layouts';
+import { IgrCheckboxListModule } from 'igniteui-react-grids';
 import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrToolbar } from 'igniteui-react-layouts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
@@ -12,7 +13,8 @@ const mods: any[] = [
     IgrLegendModule,
     IgrToolbarModule,
     IgrCategoryChartModule,
-    IgrCategoryChartToolbarModule
+    IgrCategoryChartToolbarModule,
+    IgrCheckboxListModule
 ];
 mods.forEach((m) => m.register());
 

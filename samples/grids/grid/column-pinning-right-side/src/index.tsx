@@ -50,7 +50,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.athletesDataExtended}
                     ref={this.gridRef}
                     id="grid"
@@ -84,7 +84,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="AthleteNumber"
                         header="Athlete Number"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="BeatsPerMinute"
@@ -97,11 +97,11 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="RegistrationDate"
                         header="Registration Date"
-                        dataType="Date">
+                        dataType="date">
                     </IgrColumn>
                     <IgrColumn
                         field="Birthday"
-                        dataType="Date">
+                        dataType="date">
                     </IgrColumn>
                     <IgrColumn
                         field="Sponsor">
@@ -120,17 +120,17 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="FirstPlaces"
                         header="Gold"
-                        pinned="true">
+                        pinned={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="SecondPlaces"
                         header="Silver"
-                        pinned="true">
+                        pinned={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ThirdPlaces"
                         header="Bronze"
-                        pinned="true">
+                        pinned={true}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

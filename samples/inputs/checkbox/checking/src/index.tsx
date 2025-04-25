@@ -15,7 +15,7 @@ export default class CheckboxChecked extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="sample">
-                <IgrCheckbox checked="true">
+                <IgrCheckbox checked={true}>
                     <span key="checkboxLabel">Label</span>
                 </IgrCheckbox>
             </div>

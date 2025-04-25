@@ -24,6 +24,8 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private highlightingModeEditor: IgrPropertyEditorPropertyDescription
+    private highlightingBehaviorEditor: IgrPropertyEditorPropertyDescription
     private chart: IgrDataPieChart
     private chartRef(r: IgrDataPieChart) {
         this.chart = r;
@@ -50,11 +52,13 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightingMode"
+                        name="HighlightingModeEditor"
                         label="Highlighting Mode: "
                         primitiveValue="BrightenSpecific">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="HighlightingBehavior"
+                        name="HighlightingBehaviorEditor"
                         label="Highlighting Behavior: "
                         primitiveValue="DirectlyOver">
                     </IgrPropertyEditorPropertyDescription>

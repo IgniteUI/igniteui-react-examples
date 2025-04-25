@@ -36,7 +36,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.nwindData}
                     primaryKey="ProductID"
                     gridKeydown={this.webGridEditingExcelStyle}
@@ -44,35 +44,35 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ProductID"
                         header="Product ID"
-                        editable="true"
-                        groupable="true"
-                        hidden="true">
+                        editable={true}
+                        groupable={true}
+                        hidden={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"
                         dataType="String"
-                        editable="true">
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="Number"
-                        editable="true">
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="QuantityPerUnit"
                         header="Quantity Per Unit"
-                        groupable="true"
+                        groupable={true}
                         dataType="String"
-                        editable="true">
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ReorderLevel"
                         header="Reorder Level"
                         dataType="Number"
-                        groupable="true"
-                        editable="true">
+                        groupable={true}
+                        editable={true}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

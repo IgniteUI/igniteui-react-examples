@@ -32,13 +32,13 @@ export default class SliderValue extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <div className="slider-component">
-                    <IgrSlider style={{padding: "30px 30px  0px 30px"}} ref={this.sliderRef} input={this.onInput} value="40" />
+                    <IgrSlider style={{padding: "30px 30px  0px 30px"}} ref={this.sliderRef} input={this.onInput} value={40} />
                     <div style={{paddingLeft: "30px", display: "flex"}}>
                         <span style={{whiteSpace: "pre"}}>Value:</span>
                         <span id="slider-value"></span>
                     </div>
 
-                    <IgrRangeSlider style={{padding: "30px 30px  0px 30px"}} ref={this.rangeSliderRef} input={this.onRangeInput} lower="20" upper="70"></IgrRangeSlider>
+                    <IgrRangeSlider style={{padding: "30px 30px  0px 30px"}} ref={this.rangeSliderRef} input={this.onRangeInput} lower={20} upper={70}></IgrRangeSlider>
                     <div style={{paddingLeft: "30px", display: "flex"}}>
                         <span style={{whiteSpace: "pre"}}>Lower:</span>
                         <span id="slider-lower">20</span>

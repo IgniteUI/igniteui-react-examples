@@ -17,7 +17,7 @@ export default class SliderLabels extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrSlider primaryTicks="3" >
+                <IgrSlider primaryTicks={3} >
                     <IgrSliderLabel><span>Low</span></IgrSliderLabel>
                     <IgrSliderLabel><span>Medium</span></IgrSliderLabel>
                     <IgrSliderLabel><span>High</span></IgrSliderLabel>

@@ -94,7 +94,7 @@ export default function App() {
             <div className="container sample">
                 <div className="wrapper" onClick={closeContextMenu}>
                     <IgrGrid
-                        autoGenerate="false"
+                        autoGenerate={false}
                         data={northWindData}
                         primaryKey="ProductID"
                         ref={gridRef}

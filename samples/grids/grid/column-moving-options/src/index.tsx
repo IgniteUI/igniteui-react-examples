@@ -82,15 +82,15 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.financialDataAll}
                     primaryKey="ProductID"
-                    moving="true"
+                    moving={true}
                     ref={this.gridRef}>
                     <IgrColumn
                         header="Category"
                         field="Category"
-                        pinned="true"
+                        pinned={true}
                         width="200px"
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column1">
@@ -98,14 +98,14 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         header="Type"
                         field="Type"
-                        pinned="true"
+                        pinned={true}
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         header="Price"
                         field="Price"
-                        dataType="Currency"
+                        dataType="currency"
                         pipeArgs={this.columnPipeArgs1}
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column3">
@@ -113,7 +113,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         header="Buy"
                         field="Buy"
-                        dataType="Currency"
+                        dataType="currency"
                         pipeArgs={this.columnPipeArgs2}
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column4">
@@ -121,7 +121,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         header="Sell"
                         field="Sell"
-                        dataType="Currency"
+                        dataType="currency"
                         pipeArgs={this.columnPipeArgs3}
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column5">
@@ -142,7 +142,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ChangePercent"
                         header="Change Percent"
-                        dataType="Number"
+                        dataType="number"
                         width="150px"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
                         headerTemplate={this.webGridPinHeaderTemplate}
@@ -151,7 +151,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="YearlyChange"
                         header="Yearly Change"
-                        dataType="Number"
+                        dataType="number"
                         width="150px"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
                         headerTemplate={this.webGridPinHeaderTemplate}

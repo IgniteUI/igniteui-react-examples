@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrFinancialChartModule, IgrDataChartInteractivityModule, IgrDataLegendModule } from 'igniteui-react-charts';
 import { IgrFinancialChart } from 'igniteui-react-charts';
-import { StockGoogleItem, StockGoogle } from './StockGoogle';
+import { StockGoogle } from './StockGoogle';
 
 const mods: any[] = [
     IgrFinancialChartModule,

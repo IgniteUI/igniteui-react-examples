@@ -65,47 +65,47 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    allowFiltering="true">
+                    allowFiltering={true}>
                     <IgrColumn
                         field="Name"
-                        dataType="String"
-                        sortable="true"
-                        hasSummary="true"
+                        dataType="string"
+                        sortable={true}
+                        hasSummary={true}
                         width="200">
                     </IgrColumn>
                     <IgrColumnGroup
                         header="General Information">
                         <IgrColumn
                             field="HireDate"
-                            dataType="Date"
-                            sortable="true"
-                            hasSummary="true">
+                            dataType="date"
+                            sortable={true}
+                            hasSummary={true}>
                         </IgrColumn>
                         <IgrColumnGroup
                             header="Personal Details">
                             <IgrColumn
                                 field="ID"
-                                dataType="Number"
-                                filterable="false">
+                                dataType="number"
+                                filterable={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Title"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
+                                dataType="string"
+                                sortable={true}
+                                hasSummary={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Age"
-                                dataType="Number"
-                                sortable="true"
-                                hasSummary="true"
-                                filterable="false">
+                                dataType="number"
+                                sortable={true}
+                                hasSummary={true}
+                                filterable={false}>
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>
@@ -115,42 +115,42 @@ export default class Sample extends React.Component<any, any> {
                             header="Location">
                             <IgrColumn
                                 field="Country"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
+                                dataType="string"
+                                sortable={true}
+                                hasSummary={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="City"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
+                                dataType="string"
+                                sortable={true}
+                                hasSummary={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Address"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
+                                dataType="string"
+                                sortable={true}
+                                hasSummary={true}>
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrColumnGroup
                             header="Contact Information">
                             <IgrColumn
                                 field="Phone"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
+                                dataType="string"
+                                sortable={true}
+                                hasSummary={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Fax"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
+                                dataType="string"
+                                sortable={true}
+                                hasSummary={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="PostalCode"
-                                dataType="String"
-                                sortable="true"
-                                hasSummary="true">
+                                dataType="string"
+                                sortable={true}
+                                hasSummary={true}>
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>

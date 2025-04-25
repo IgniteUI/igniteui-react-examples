@@ -91,7 +91,7 @@ export default function App() {
         </div>
 
         <IgrTreeGrid
-          autoGenerate="false"
+          autoGenerate={false}
           ref={treeGridRef}
           data={employeesData}
           primaryKey="ID"

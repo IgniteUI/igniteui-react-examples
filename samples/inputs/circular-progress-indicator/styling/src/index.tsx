@@ -16,7 +16,7 @@ export default class StylingCircularProgressIndicator extends React.Component<an
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrCircularProgress indeterminate="true"/>
+                <IgrCircularProgress indeterminate={true}/>
             </div>
         );
     }

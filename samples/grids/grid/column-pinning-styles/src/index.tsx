@@ -36,7 +36,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.customersData}
-                    columnSelection="Single">
+                    columnSelection="single">
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -48,12 +48,12 @@ export default class Sample extends React.Component<any, any> {
                     </IgrGridToolbar>
                     <IgrColumn
                         field="ID"
-                        hidden="true">
+                        hidden={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
                         header="Company"
-                        pinned="true">
+                        pinned={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ContactName"

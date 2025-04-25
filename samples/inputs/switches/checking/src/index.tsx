@@ -15,7 +15,7 @@ export default class SwitchOutlined extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrSwitch checked="true" ><span>Label</span></IgrSwitch>
+                <IgrSwitch checked={true} ><span>Label</span></IgrSwitch>
             </div>
         );
     }

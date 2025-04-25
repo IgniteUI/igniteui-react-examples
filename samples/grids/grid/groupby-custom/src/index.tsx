@@ -98,7 +98,7 @@ export default function Sample() {
             <span onClick={e => setMode(e)}>
               <IgrDropdownItem key="day"><span key="contentDay">Day</span></IgrDropdownItem>
               <IgrDropdownItem key="week"><span key="contentWeek">Week</span></IgrDropdownItem>
-              <IgrDropdownItem key="month" selected="true"><span key="contentMonth">Month</span></IgrDropdownItem>
+              <IgrDropdownItem key="month" selected={true}><span key="contentMonth">Month</span></IgrDropdownItem>
               <IgrDropdownItem key="year"><span key="contentYear">Year</span></IgrDropdownItem>
             </span>
           </IgrDropdown>
@@ -109,7 +109,7 @@ export default function Sample() {
           ref={gridRef}
           groupRowTemplate={groupByRowTemplate}
           groupingExpressions={groupExpression}
-          autoGenerate="false">
+          autoGenerate={false}>
           <IgrColumn
             name="OrderID"
             id="OrderID"

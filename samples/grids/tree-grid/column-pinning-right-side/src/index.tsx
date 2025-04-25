@@ -45,7 +45,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatDetails}
@@ -63,55 +63,55 @@ export default class Sample extends React.Component<any, any> {
                     </IgrGridToolbar>
                     <IgrColumn
                         field="Name"
-                        dataType="String"
+                        dataType="string"
                         width="250">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        dataType="String"
+                        dataType="string"
                         width="300"
-                        pinned="true">
+                        pinned={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
                         header="Hire Date"
-                        dataType="Date"
+                        dataType="date"
                         width="200">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="Number"
+                        dataType="number"
                         width="100">
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
-                        dataType="String"
+                        dataType="string"
                         width="200">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
-                        dataType="String"
+                        dataType="string"
                         width="200">
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
-                        dataType="String"
+                        dataType="string"
                         width="200">
                     </IgrColumn>
                     <IgrColumn
                         field="Fax"
-                        dataType="String"
+                        dataType="string"
                         width="200">
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
                         header="Postal Code"
-                        dataType="String"
+                        dataType="string"
                         width="200">
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
-                        dataType="String"
+                        dataType="string"
                         width="200">
                     </IgrColumn>
                 </IgrTreeGrid>

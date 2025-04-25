@@ -84,7 +84,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     id="grid"
                     ref={this.gridRef}
                     data={this.nwindData}>
@@ -92,48 +92,48 @@ export default class Sample extends React.Component<any, any> {
                         field="ProductID"
                         header="Product ID"
                         width="10%"
-                        groupable="true">
+                        groupable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"
                         width="17%"
-                        groupable="true">
+                        groupable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Price"
-                        filterable="false"
+                        filterable={false}
                         width="17%"
-                        editable="true"
-                        dataType="Number"
-                        groupable="true">
+                        editable={true}
+                        dataType="number"
+                        groupable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitsInStock"
                         header="Units in Stock"
                         width="21%"
-                        dataType="Number"
-                        editable="true"
-                        groupable="true"
-                        hasSummary="true"
+                        dataType="number"
+                        editable={true}
+                        groupable={true}
+                        hasSummary={true}
                         summaries={this.discontinuedSummary}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
                         header="Discontinued"
-                        editable="true"
+                        editable={true}
                         width="17%"
-                        dataType="Boolean"
-                        groupable="true">
+                        dataType="boolean"
+                        groupable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         width="18%"
-                        dataType="Date"
-                        groupable="true"
-                        hasSummary="true"
+                        dataType="date"
+                        groupable={true}
+                        hasSummary={true}
                         summaryTemplate={this.webGridOrderDateSummaryTemplate}
                         name="column2">
                     </IgrColumn>

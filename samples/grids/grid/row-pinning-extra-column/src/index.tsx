@@ -41,18 +41,18 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     data={this.customersDataLocal}
                     primaryKey="ID"
-                    cellSelection="None">
+                    cellSelection="none">
                     <IgrColumn
                         width="70px"
-                        filterable="false"
-                        pinned="true"
+                        filterable={false}
+                        pinned={true}
                         bodyTemplate={this.webGridRowPinCellTemplate}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="ID"
                         width="150px"
-                        hidden="true">
+                        hidden={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Company"

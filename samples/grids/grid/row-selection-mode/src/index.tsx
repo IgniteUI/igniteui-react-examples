@@ -110,10 +110,10 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.financialDataAll}
                     primaryKey="ID"
-                    moving="true"
+                    moving={true}
                     id="grid1"
                     ref={this.grid1Ref}>
                     <IgrColumn
@@ -124,19 +124,19 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
-                        dataType="Currency"
+                        dataType="currency"
                         pipeArgs={this.columnPipeArgs1}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Buy"
-                        dataType="Currency"
+                        dataType="currency"
                         pipeArgs={this.columnPipeArgs2}
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Sell"
-                        dataType="Currency"
+                        dataType="currency"
                         pipeArgs={this.columnPipeArgs3}
                         name="column3">
                     </IgrColumn>
@@ -148,14 +148,14 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ChangePercent"
                         header="Change Percent"
-                        dataType="Number"
+                        dataType="number"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
                         name="column5">
                     </IgrColumn>
                     <IgrColumn
                         field="YearlyChange"
                         header="Yearly Change"
-                        dataType="Number"
+                        dataType="number"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
                         name="column6">
                     </IgrColumn>

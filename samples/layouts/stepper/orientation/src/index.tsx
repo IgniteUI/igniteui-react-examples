@@ -35,7 +35,7 @@ export default class StepperOrientationSample extends React.Component<any, any> 
                                 <IgrRadio name="title" value="Bottom" change={this.handleTitlePositionChange}><span>Bottom</span></IgrRadio>
                                 <IgrRadio name="title" value="Start" change={this.handleTitlePositionChange}><span>Start</span></IgrRadio>
                                 <IgrRadio name="title" value="End" change={this.handleTitlePositionChange}><span>End</span></IgrRadio>
-                                <IgrRadio name="title" value="" checked="true" change={this.handleTitlePositionChange}><span>Default</span></IgrRadio>
+                                <IgrRadio name="title" value="" checked={true} change={this.handleTitlePositionChange}><span>Default</span></IgrRadio>
                             </IgrRadioGroup>
                         </div>
                     </div>
@@ -43,7 +43,7 @@ export default class StepperOrientationSample extends React.Component<any, any> 
                         <label>Orientation</label>
                         <div className="radio-group-container">
                             <IgrRadioGroup alignment="horizontal">
-                                <IgrRadio name="orientation" value="Horizontal" checked="true" change={this.handleOrientationChange}><span>Horizontal</span></IgrRadio>
+                                <IgrRadio name="orientation" value="Horizontal" checked={true} change={this.handleOrientationChange}><span>Horizontal</span></IgrRadio>
                                 <IgrRadio name="orientation" value="Vertical" change={this.handleOrientationChange}><span>Vertical</span></IgrRadio>
                             </IgrRadioGroup>
                         </div>

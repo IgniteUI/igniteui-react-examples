@@ -34,7 +34,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesNestedData}
@@ -44,40 +44,40 @@ export default class Sample extends React.Component<any, any> {
                         <IgrGridToolbarActions
                         >
                             <IgrGridToolbarExporter
-                                exportCSV="false"
-                                exportExcel="true">
+                                exportCSV={false}
+                                exportExcel={true}>
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
                     <IgrColumn
                         field="ID"
                         header="ID"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Name"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
                         header="Hire Date"
-                        dataType="Date">
+                        dataType="date">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
                         header="Age"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="salary"
                         header="Salary"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                     <IgrColumn
                         field="productivity"
                         header="Productivity"
-                        dataType="Number">
+                        dataType="number">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

@@ -23,7 +23,7 @@ export default class StepperStepTypes extends React.Component<any, any> {
                     <IgrRadioGroup alignment="horizontal">
                         <IgrRadio key="radio-indicator" name="type" value="indicator" change={this.onStepTypeChange}><span key="indicator">Indicator</span></IgrRadio>
                         <IgrRadio key="radio-title" name="type" value="title" change={this.onStepTypeChange}><span key="indicator">Title</span></IgrRadio>
-                        <IgrRadio key="radio-full" name="type" value="full" change={this.onStepTypeChange} checked="true"><span key="indicator">Full</span></IgrRadio>
+                        <IgrRadio key="radio-full" name="type" value="full" change={this.onStepTypeChange} checked={true}><span key="indicator">Full</span></IgrRadio>
                     </IgrRadioGroup>
                 </div>
 

@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.athletesData}
                     primaryKey="Id"
                     ref={this.grid1Ref}>

@@ -37,7 +37,7 @@ export default class Sample extends React.Component<any, any> {
         <div className="container sample">
 
             <div className="legend-title">
-                Olympic Medals By Country
+                Olympic Medals by Country
             </div>
 
             <div className="legend">

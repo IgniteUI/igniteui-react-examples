@@ -27,7 +27,7 @@ export default class DynamicCircularProgress extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div style={{width: "300px", display: "flex", alignItems: "center", marginTop: "30px"}}>
-                <IgrCircularProgress ref={this.circularProgressRef} style={{marginRight: "50px", marginLeft: "20px"}} max="100" value="100">
+                <IgrCircularProgress ref={this.circularProgressRef} style={{marginRight: "50px", marginLeft: "20px"}} max={100} value={100}>
                     <IgrCircularGradient offset="0%" color="#ff9a40">
                     </IgrCircularGradient>
                     <IgrCircularGradient offset="50%" color="#1eccd4">

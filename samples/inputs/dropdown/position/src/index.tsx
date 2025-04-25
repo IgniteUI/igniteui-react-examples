@@ -20,7 +20,7 @@ export default class DropDownPosition extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample center">
-                <IgrDropdown ref={this.onDropDownRef} distance="5" change={(e)=>this.onChange(e)} placement="bottom">
+                <IgrDropdown ref={this.onDropDownRef} distance={5} change={(e)=>this.onChange(e)} placement="bottom">
                     <div slot="target">
                         <IgrButton><span>Options</span></IgrButton>
                     </div>

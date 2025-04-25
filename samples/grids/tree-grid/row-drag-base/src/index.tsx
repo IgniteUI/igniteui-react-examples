@@ -55,51 +55,51 @@ export default function App() {
       <div className="container fill">
         <div className="container horizontal wrapper">
           <IgrTreeGrid
-            autoGenerate="false"
+            autoGenerate={false}
             data={employeesData}
             primaryKey="ID"
             foreignKey="ParentID"
             id="treeGrid"
             width="40%"
             ref={treeGridRef}
-            rowDraggable="true"
+            rowDraggable={true}
             rowDragEnd={RowDragEnd}
           >
             <IgrColumn
               field="Name"
               header="Full Name"
               dataType="String"
-              resizable="true"
-              sortable="true"
-              editable="true">
+              resizable={true}
+              sortable={true}
+              editable={true}>
             </IgrColumn>
             <IgrColumn
               field="Age"
               dataType="Number"
-              resizable="false"
-              sortable="false"
-              filterable="false"
-              editable="true">
+              resizable={false}
+              sortable={false}
+              filterable={false}
+              editable={true}>
             </IgrColumn>
             <IgrColumn
               field="Title"
               dataType="String"
-              resizable="true"
-              sortable="true"
-              editable="true">
+              resizable={true}
+              sortable={true}
+              editable={true}>
             </IgrColumn>
             <IgrColumn
               field="HireDate"
               header="Hire Date"
               dataType="Date"
-              resizable="true"
-              sortable="true"
-              editable="true">
+              resizable={true}
+              sortable={true}
+              editable={true}>
             </IgrColumn>
           </IgrTreeGrid>
 
           <IgrTreeGrid
-            autoGenerate="false"
+            autoGenerate={false}
             data={[]}
             primaryKey="ID"
             foreignKey="ParentID"
@@ -112,32 +112,32 @@ export default function App() {
               field="Name"
               header="Full Name"
               dataType="String"
-              resizable="true"
-              sortable="true"
-              editable="true">
+              resizable={true}
+              sortable={true}
+              editable={true}>
             </IgrColumn>
             <IgrColumn
               field="Age"
               dataType="Number"
-              resizable="false"
-              sortable="false"
-              filterable="false"
-              editable="true">
+              resizable={false}
+              sortable={false}
+              filterable={false}
+              editable={true}>
             </IgrColumn>
             <IgrColumn
               field="Title"
               dataType="String"
-              resizable="true"
-              sortable="true"
-              editable="true">
+              resizable={true}
+              sortable={true}
+              editable={true}>
             </IgrColumn>
             <IgrColumn
               field="HireDate"
               header="Hire Date"
               dataType="Date"
-              resizable="true"
-              sortable="true"
-              editable="true">
+              resizable={true}
+              sortable={true}
+              editable={true}>
             </IgrColumn>
           </IgrTreeGrid>
         </div>

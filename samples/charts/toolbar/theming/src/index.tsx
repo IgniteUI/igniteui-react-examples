@@ -30,6 +30,7 @@ export default class Sample extends React.Component<any, any> {
         this.propertyEditorPanel1 = r;
         this.setState({});
     }
+    private baseThemeEditor: IgrPropertyEditorPropertyDescription
     private toolbar: IgrToolbar
     private toolbarRef(r: IgrToolbar) {
         this.toolbar = r;
@@ -65,6 +66,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="BaseTheme"
+                        name="BaseThemeEditor"
                         label="Theme"
                         shouldOverrideDefaultEditor="true"
                         valueType="EnumValue"

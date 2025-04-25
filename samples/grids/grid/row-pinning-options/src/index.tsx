@@ -77,14 +77,14 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     ref={this.gridRef}
                     id="grid"
                     data={this.customersDataLocal}
                     pinning={this.pinningConfig1}
                     primaryKey="ID"
-                    cellSelection="None"
-                    rowEditable="true">
+                    cellSelection="none"
+                    rowEditable={true}>
                     <IgrColumn
                         field="Company"
                         header="Company"

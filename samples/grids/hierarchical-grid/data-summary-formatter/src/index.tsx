@@ -38,117 +38,117 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate="false"
+                    autoGenerate={false}
                     data={this.singersData}
                     ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
                     primaryKey="ID"
-                    allowFiltering="true"
-                    filterMode="ExcelStyleFilter"
+                    allowFiltering={true}
+                    filterMode="excelStyleFilter"
                     rendered={this.webHierarchicalGridRenderedExpand}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
-                        sortable="true">
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut Decade"
-                        sortable="true"
-                        hasSummary="true"
+                        sortable={true}
+                        hasSummary={true}
                         name="debutColumn">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="Number"
-                        sortable="true">
+                        dataType="number"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="Number"
-                        sortable="true">
+                        dataType="number"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate="false"
-                        allowFiltering="true"
-                        filterMode="ExcelStyleFilter">
+                        autoGenerate={false}
+                        allowFiltering={true}
+                        filterMode="excelStyleFilter">
                         <IgrColumn
                             field="Album"
                             header="Album"
-                            dataType="String"
-                            sortable="true">
+                            dataType="string"
+                            sortable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="Date"
-                            sortable="true"
-                            hasSummary="true"
+                            dataType="date"
+                            sortable={true}
+                            hasSummary={true}
                             summaryFormatter={this.webHierarchicalGridSummaryFormatter}
                             name="column1">
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
                             header="Billboard Review"
-                            dataType="Number"
-                            sortable="true">
+                            dataType="number"
+                            sortable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="USBillboard200"
                             header="US Billboard 200"
-                            dataType="Number"
-                            sortable="true">
+                            dataType="number"
+                            sortable={true}>
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="Songs"
-                            autoGenerate="false">
+                            autoGenerate={false}>
                             <IgrColumn
                                 field="Number"
                                 header="No."
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                             <IgrColumn
                                 field="Title"
                                 header="Title"
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                             <IgrColumn
                                 field="Released"
                                 header="Released"
-                                dataType="Date">
+                                dataType="date">
                             </IgrColumn>
                             <IgrColumn
                                 field="Genre"
                                 header="Genre"
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>
                     <IgrRowIsland
                         childDataKey="Tours"
-                        autoGenerate="false">
+                        autoGenerate={false}>
                         <IgrColumn
                             field="Tour"
                             header="Tour"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="StartedOn"
                             header="Started on"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="Location"
                             header="Location"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                         <IgrColumn
                             field="Headliner"
                             header="Headliner"
-                            dataType="String">
+                            dataType="string">
                         </IgrColumn>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>

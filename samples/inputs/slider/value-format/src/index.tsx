@@ -21,8 +21,8 @@ export default class SliderValueFormat extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrSlider ref={this.sliderRef} style={{padding: "30px 50px"}}
-                    primaryTicks="2"
-                    secondaryTicks="4"></IgrSlider>
+                    primaryTicks={2}
+                    secondaryTicks={4}></IgrSlider>
 
                 <IgrSlider ref={this.sliderRef2} style={{padding: "30px 50px"}}
                     valueFormat="Storage {0} GB"></IgrSlider>
