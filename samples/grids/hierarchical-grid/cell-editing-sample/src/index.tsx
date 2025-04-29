@@ -39,6 +39,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrHierarchicalGrid
                     autoGenerate={false}
+                    ref={this.hierarchicalGrid1Ref}
                     data={this.hGridDndData}
                     primaryKey="Name">
                     <IgrColumn

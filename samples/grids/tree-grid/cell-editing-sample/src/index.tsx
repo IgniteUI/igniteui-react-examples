@@ -42,6 +42,7 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid1"
                     data={this.roleplayTreeGridData}
                     primaryKey="ID"
+                    ref={this.treeGrid1Ref}
                     foreignKey="ParentID">
                     <IgrColumn
                         field="Name"
