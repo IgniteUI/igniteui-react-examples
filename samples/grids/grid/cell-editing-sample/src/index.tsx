@@ -38,6 +38,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
+                    ref={this.grid1Ref}
                     autoGenerate={false}
                     data={this.roleplayDataStats}
                     primaryKey="Name">
