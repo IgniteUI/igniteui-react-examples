@@ -7,7 +7,7 @@ import {
   IgrTreeGridModule,
   IgrGridBaseDirective,
 } from "igniteui-react-grids";
-import { IgrGrid, IgrTreeGrid, IgrColumn } from "igniteui-react-grids";
+import { IgrGrid, IgrTreeGrid, IgrColumn, IgrGridSelectionRangeEventArgs } from "igniteui-react-grids";
 import { EmployeesFlatData } from "./EmployeesFlatData";
 
 import "igniteui-react-grids/grids/combined";
@@ -24,8 +24,8 @@ export default function App() {
   const leftTreeGridRef = useRef<IgrTreeGrid>(null);
   const rightGridRef = useRef<IgrGrid>(null);
 
-  function handleTreeGridRangeSelectionChanged(grid: IgrGridBaseDirective) {
-    rightGridRef.current!.data = grid.getSelectedData(
+  function handleTreeGridRangeSelectionChanged(args: IgrGridSelectionRangeEventArgs) {
+    rightGridRef.current!.data = (args.target as any).getSelectedData(
       false,
       false
     ) as unknown as any[];
@@ -44,7 +44,7 @@ export default function App() {
           primaryKey="ID"
           foreignKey="ParentID"
           cellSelection="multiple"
-          rangeSelected={handleTreeGridRangeSelectionChanged}
+          onRangeSelected={handleTreeGridRangeSelectionChanged}
         >
           <IgrColumn field="ID" dataType="number" />
           <IgrColumn field="Name" dataType="string" />
