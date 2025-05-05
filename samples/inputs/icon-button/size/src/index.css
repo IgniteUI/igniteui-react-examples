@@ -2,16 +2,16 @@
 /* https://static.infragistics.com/xplatform/css/samples */
 
 .size-small {
-    margin: "10px";
+    margin: 10px;
     --ig-size: var(--ig-size-small);
 }
 
 .size-medium {
-    margin: "10px";
+    margin: 10px;
     --ig-size: var(--ig-size-medium);
 }
 
 .size-large {
-    margin: "10px";
+    margin: 10px;
     --ig-size: var(--ig-size-large);
 }
