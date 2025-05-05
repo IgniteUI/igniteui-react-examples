@@ -84,7 +84,7 @@ const trendsChange = {
 };
 
 // Component
-export const FinjsSample = () => {
+export default function FinjsSample() {
   const groupingEnabled = true;
   const toolbarEnabled = true;
 
