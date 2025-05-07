@@ -22,29 +22,29 @@ export default function App() {
     const selector = (selector: IgrPivotDataSelector) => {
         selector.grid = grid;
     }
-    const pivotConfiguration = new IgrPivotConfiguration();
-    const rowDim = new IgrPivotDimension();
+    const pivotConfiguration = {} as IgrPivotConfiguration;
+    const rowDim = {} as IgrPivotDimension;
     rowDim.enabled = true;
     rowDim.memberName = "Date";
 
-    const colDim1 = new IgrPivotDimension();
+    const colDim1 = {} as IgrPivotDimension;
     colDim1.enabled = true;
     colDim1.memberName = "Country";
 
-    const colDim2 = new IgrPivotDimension();
+    const colDim2 = {} as IgrPivotDimension;
     colDim2.enabled = true;
     colDim2.memberName = "Product";
 
-    const aggregate1 = new IgrPivotAggregator();
+    const aggregate1 = {} as IgrPivotAggregator;
     aggregate1.aggregatorName = PivotAggregationType.SUM;
     aggregate1.key = "SUM";
 
-    const val1 = new IgrPivotValue();
+    const val1 = {} as IgrPivotValue;
     val1.enabled = true;
     val1.member = "Sales";
     val1.aggregate = aggregate1;
 
-    const val2 = new IgrPivotValue();
+    const val2 = {} as IgrPivotValue;
     val2.enabled = true;
     val2.member = "Profit";
     val2.aggregate = aggregate1;

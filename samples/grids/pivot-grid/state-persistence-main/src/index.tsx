@@ -65,15 +65,15 @@ export default function App() {
   const stateKey = "pivot-grid-state";
   let gridStateRef = useRef<IgrGridState>(null);
 
-  const pivotConfiguration = new IgrPivotConfiguration();
+  const pivotConfiguration = {} as IgrPivotConfiguration;
   // column dimensions
-  const columnDimension = new IgrPivotDimension();
+  const columnDimension = {} as IgrPivotDimension;
   columnDimension.memberName = "SellerName";
   columnDimension.enabled = true;
 
   // row dimensions
-  const productsDimension = new IgrPivotDimension();
-  const sellerCityDimension = new IgrPivotDimension();
+  const productsDimension = {} as IgrPivotDimension;
+  const sellerCityDimension = {} as IgrPivotDimension;
   productsDimension.memberName = "ProductName";
   productsDimension.enabled = true;
   productsDimension.width = "150px";
@@ -83,25 +83,25 @@ export default function App() {
   sellerCityDimension.width = "150px";
 
   // values
-  const sumAggregator = new IgrPivotAggregator();
+  const sumAggregator = {} as IgrPivotAggregator;
   sumAggregator.aggregatorName = PivotAggregationType.SUM;
   sumAggregator.key = "SUM";
   sumAggregator.label = "SUM";
 
-  const totalSaleAggregator = new IgrPivotAggregator();
+  const totalSaleAggregator = {} as IgrPivotAggregator;
   totalSaleAggregator.aggregator = totalSale;
   totalSaleAggregator.label = "Sum of Sale";
   totalSaleAggregator.key = "SUM";
-  const minimumSaleAggregator = new IgrPivotAggregator();
+  const minimumSaleAggregator = {} as IgrPivotAggregator;
   minimumSaleAggregator.aggregator = totalMin;
   minimumSaleAggregator.label = "Minimum of Sale";
   minimumSaleAggregator.key = "MIN";
-  const maximumSaleAggregator = new IgrPivotAggregator();
+  const maximumSaleAggregator = {} as IgrPivotAggregator;
   maximumSaleAggregator.aggregator = totalMax;
   maximumSaleAggregator.label = "Maximum of Sale";
   maximumSaleAggregator.key = "MAX";
 
-  const value = new IgrPivotValue();
+  const value = {} as IgrPivotValue;
   value.enabled = true;
   value.member = "Value";
   value.aggregate = sumAggregator;
@@ -112,7 +112,7 @@ export default function App() {
       parseFloat(rowData.aggregationValues.get(columnKey.field)) > 150,
   };
 
-  const amountOfSale = new IgrPivotValue();
+  const amountOfSale = {} as IgrPivotValue;
   amountOfSale.enabled = true;
   amountOfSale.member = "AmountofSale";
   amountOfSale.displayName = "Amount of Sale";
