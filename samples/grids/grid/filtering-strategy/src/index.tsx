@@ -35,46 +35,46 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.nwindData}
                     ref={this.gridRef}
                     id="grid"
-                    allowFiltering={true}
-                    filterMode="excelStyleFilter">
+                    allowFiltering="true"
+                    filterMode="ExcelStyleFilter">
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"
-                        sortable={true}
-                        disableHiding={true}
-                        dataType="string">
+                        sortable="true"
+                        disableHiding="true"
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="QuantityPerUnit"
                         header="Quantity Per Unit"
-                        sortable={true}
-                        disableHiding={true}
-                        dataType="string">
+                        sortable="true"
+                        disableHiding="true"
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price Category"
-                        sortable={true}
-                        disableHiding={true}
-                        dataType="string">
+                        sortable="true"
+                        disableHiding="true"
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        sortable={true}
-                        disableHiding={true}
-                        dataType="date">
+                        sortable="true"
+                        disableHiding="true"
+                        dataType="Date">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
                         header="Discontinued"
-                        sortable={true}
-                        disableHiding={true}
-                        dataType="boolean"
+                        sortable="true"
+                        disableHiding="true"
+                        dataType="Boolean"
                         bodyTemplate={this.webGridBooleanCellTemplate}
                         name="column1">
                     </IgrColumn>

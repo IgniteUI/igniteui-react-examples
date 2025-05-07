@@ -33,38 +33,38 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    columnSelection="multiple">
+                    columnSelection="Multiple">
                     <IgrColumn
                         field="Name"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumnGroup
                         header="General Information">
                         <IgrColumn
                             field="HireDate"
                             header="Hire Date"
-                            dataType="date">
+                            dataType="Date">
                         </IgrColumn>
                         <IgrColumnGroup
                             header="Personal Details">
                             <IgrColumn
                                 field="ID"
-                                dataType="number">
+                                dataType="Number">
                             </IgrColumn>
                             <IgrColumn
                                 field="Title"
-                                dataType="string">
+                                dataType="String">
                             </IgrColumn>
                             <IgrColumn
                                 field="Age"
-                                dataType="number"
-                                selectable={false}>
+                                dataType="Number"
+                                selectable="false">
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>
@@ -74,34 +74,34 @@ export default class Sample extends React.Component<any, any> {
                             header="Location">
                             <IgrColumn
                                 field="Country"
-                                dataType="string"
-                                selectable={false}>
+                                dataType="String"
+                                selectable="false">
                             </IgrColumn>
                             <IgrColumn
                                 field="City"
-                                dataType="string">
+                                dataType="String">
                             </IgrColumn>
                             <IgrColumn
                                 field="Address"
-                                dataType="string">
+                                dataType="String">
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrColumnGroup
                             header="Contact Information">
                             <IgrColumn
                                 field="Phone"
-                                dataType="string"
-                                selectable={false}>
+                                dataType="String"
+                                selectable="false">
                             </IgrColumn>
                             <IgrColumn
                                 field="Fax"
-                                dataType="string"
-                                selectable={false}>
+                                dataType="String"
+                                selectable="false">
                             </IgrColumn>
                             <IgrColumn
                                 field="PostalCode"
                                 header="Postal Code"
-                                dataType="string">
+                                dataType="String">
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>

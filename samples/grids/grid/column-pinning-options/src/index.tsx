@@ -43,13 +43,13 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.customersData}
                     ref={this.gridRef}>
                     <IgrColumn
                         field="ID"
                         header="ID"
-                        hidden={true}>
+                        hidden="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
@@ -62,7 +62,7 @@ export default class Sample extends React.Component<any, any> {
                         field="ContactName"
                         header="Name"
                         width="200px"
-                        pinned={true}
+                        pinned="true"
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column2">
                     </IgrColumn>
@@ -70,7 +70,7 @@ export default class Sample extends React.Component<any, any> {
                         field="ContactTitle"
                         header="Title"
                         width="200px"
-                        pinned={true}
+                        pinned="true"
                         headerTemplate={this.webGridPinHeaderTemplate}
                         name="column3">
                     </IgrColumn>

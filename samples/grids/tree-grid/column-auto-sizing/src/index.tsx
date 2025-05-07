@@ -34,7 +34,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatDetails}
@@ -43,8 +43,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Name"
                         header="Name"
-                        dataType="string"
-                        resizable={true}
+                        dataType="String"
+                        resizable="true"
                         width="220px"
                         minWidth="200px"
                         maxWidth="250px">
@@ -52,58 +52,58 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Title"
                         header="Title"
-                        dataType="string"
-                        resizable={true}
+                        dataType="String"
+                        resizable="true"
                         width="auto">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
                         header="Hire Date"
-                        dataType="date"
-                        resizable={true}
+                        dataType="Date"
+                        resizable="true"
                         width="auto">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="number"
-                        resizable={true}
+                        dataType="Number"
+                        resizable="true"
                         width="auto">
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
-                        dataType="string"
-                        resizable={true}
+                        dataType="String"
+                        resizable="true"
                         width="auto">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
-                        dataType="string"
-                        resizable={true}
+                        dataType="String"
+                        resizable="true"
                         width="auto">
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
-                        dataType="string"
-                        resizable={true}
+                        dataType="String"
+                        resizable="true"
                         width="auto">
                     </IgrColumn>
                     <IgrColumn
                         field="Fax"
-                        dataType="string"
-                        resizable={true}
+                        dataType="String"
+                        resizable="true"
                         width="auto">
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
                         header="Postal Code"
-                        dataType="string"
-                        resizable={true}
+                        dataType="String"
+                        resizable="true"
                         width="auto">
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
-                        dataType="string"
-                        resizable={true}
+                        dataType="String"
+                        resizable="true"
                         width="auto">
                     </IgrColumn>
                 </IgrTreeGrid>

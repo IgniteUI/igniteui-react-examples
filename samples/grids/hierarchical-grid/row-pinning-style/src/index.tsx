@@ -62,39 +62,39 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.singersData}
                     primaryKey="Photo"
                     id="grid"
                     ref={this.gridRef}
-                    cellSelection="none"
+                    cellSelection="None"
                     rendered={this.webHierarchicalGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Photo"
                         header="Photo"
-                        dataType="image"
+                        dataType="Image"
                         minWidth="115px">
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrActionStrip
                         name="actionStrip1">
@@ -105,29 +105,29 @@ export default class Sample extends React.Component<any, any> {
                     <IgrRowIsland
                         childDataKey="Albums"
                         primaryKey="Album"
-                        cellSelection="none"
-                        autoGenerate={false}
+                        cellSelection="None"
+                        autoGenerate="false"
                         pinning={this.pinningConfig2}
                         name="rowIsland1">
                         <IgrColumn
                             field="Album"
                             header="Album"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="date">
+                            dataType="Date">
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
                             header="Billboard Review"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="USBillboard200"
                             header="US Billboard 200"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrActionStrip
                             name="actionStrip2">

@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatData}
@@ -49,39 +49,39 @@ export default class Sample extends React.Component<any, any> {
                     foreignKey="ParentID">
                     <IgrColumn
                         field="Name"
-                        dataType="string"
+                        dataType="String"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        pinned={true}
+                        pinned="true"
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        dataType="string"
+                        dataType="String"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
-                        pinned={true}
+                        pinned="true"
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
-                        dataType="string"
+                        dataType="String"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column3">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="number"
+                        dataType="Number"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column4">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="date"
+                        dataType="Date"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column5">
                     </IgrColumn>
                     <IgrColumn
                         field="OnPTO"
-                        dataType="boolean"
+                        dataType="Boolean"
                         headerTemplate={this.webTreeGridPinHeaderTemplate}
                         name="column6">
                     </IgrColumn>

@@ -89,19 +89,19 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.athletesData}
                     ref={this.gridRef}
                     id="grid">
                     <IgrPaginator
                         name="paginator"
-                        perPage={15}
+                        perPage="15"
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
                     <IgrColumn
                         field="Id"
                         header="Rank"
-                        sortable={true}>
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Name">
@@ -109,12 +109,12 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="BeatsPerMinute"
                         header="Beats Per Minute"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="TopSpeed"
                         header="Top Speed"
-                        dataType="number"
+                        dataType="Number"
                         pipeArgs={this.columnPipeArgs1}
                         name="column1">
                     </IgrColumn>

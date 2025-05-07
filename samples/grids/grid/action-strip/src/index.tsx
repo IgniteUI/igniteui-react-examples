@@ -55,11 +55,11 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     data={this.nwindData}
-                    rowEditable={true}
-                    allowFiltering={true}
+                    rowEditable="true"
+                    allowFiltering="true"
                     pinning={this.pinningConfig1}
                     primaryKey="ProductID">
                     <IgrActionStrip
@@ -68,9 +68,9 @@ export default class Sample extends React.Component<any, any> {
                         >
                         </IgrGridPinningActions>
                         <IgrGridEditingActions
-                            editRow={true}
-                            deleteRow={true}
-                            addRow={true}>
+                            editRow="true"
+                            deleteRow="true"
+                            addRow="true">
                         </IgrGridEditingActions>
                     </IgrActionStrip>
                     <IgrColumn

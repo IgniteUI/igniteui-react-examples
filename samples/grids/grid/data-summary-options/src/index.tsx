@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     data={this.nwindData}
                     primaryKey="ProductID"
@@ -55,20 +55,20 @@ export default class Sample extends React.Component<any, any> {
                         name="ProductName"
                         field="ProductName"
                         header="Product Name"
-                        hasSummary={true}>
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
-                        hasSummary={true}>
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         name="UnitsInStock"
                         field="UnitsInStock"
                         header="Units In Stock"
-                        hasSummary={true}
-                        dataType="number">
+                        hasSummary="true"
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         name="Discontinued"
@@ -79,8 +79,8 @@ export default class Sample extends React.Component<any, any> {
                         name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
-                        hasSummary={true}
-                        dataType="date">
+                        hasSummary="true"
+                        dataType="Date">
                     </IgrColumn>
                 </IgrGrid>
             </div>

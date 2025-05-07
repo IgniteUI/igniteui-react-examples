@@ -62,7 +62,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.productSales}
                     ref={this.gridRef}
                     id="grid"
@@ -70,39 +70,39 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="OrderID"
                         header="Order ID"
-                        sortable={true}>
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Category"
                         header="Category Name"
-                        dataType="string"
-                        sortable={true}>
+                        dataType="String"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
                         header="Company"
-                        dataType="string"
-                        sortable={true}>
+                        dataType="String"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipCountry"
                         header="Ship Country"
-                        dataType="string"
-                        sortable={true}>
+                        dataType="String"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="SaleAmount"
                         header="Sale Amount"
-                        dataType="currency"
-                        sortable={true}
+                        dataType="Currency"
+                        sortable="true"
                         pipeArgs={this.columnPipeArgs1}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="ShippedDate"
                         header="Shipped Date"
-                        dataType="date"
-                        sortable={true}>
+                        dataType="Date"
+                        sortable="true">
                     </IgrColumn>
                 </IgrGrid>
             </div>

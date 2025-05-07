@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.ordersTreeData}
                     ref={this.treeGridRef}
                     id="treeGrid"
@@ -55,57 +55,57 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Name"
                         header="Order Product"
-                        hasSummary={true}
+                        hasSummary="true"
                         headerTemplate={this.webTreeGridSummariesHeaderTemplate}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Category"
                         header="Category"
-                        hasSummary={true}
+                        hasSummary="true"
                         headerTemplate={this.webTreeGridSummariesHeaderTemplate}
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
                         header="Units"
-                        dataType="number"
-                        hasSummary={true}
-                        editable={true}
+                        dataType="Number"
+                        hasSummary="true"
+                        editable="true"
                         headerTemplate={this.webTreeGridSummariesHeaderTemplate}
                         name="column3">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="number"
-                        hasSummary={true}
-                        editable={true}
+                        dataType="Number"
+                        hasSummary="true"
+                        editable="true"
                         headerTemplate={this.webTreeGridSummariesHeaderTemplate}
                         name="column4">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         header="Price"
-                        dataType="number"
-                        hasSummary={true}
-                        editable={true}
+                        dataType="Number"
+                        hasSummary="true"
+                        editable="true"
                         headerTemplate={this.webTreeGridSummariesHeaderTemplate}
                         name="column5">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
                         header="Delivered"
-                        dataType="boolean"
-                        hasSummary={true}
+                        dataType="Boolean"
+                        hasSummary="true"
                         headerTemplate={this.webTreeGridSummariesHeaderTemplate}
                         name="column6">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date"
-                        hasSummary={true}
+                        dataType="Date"
+                        hasSummary="true"
                         headerTemplate={this.webTreeGridSummariesHeaderTemplate}
                         name="column7">
                     </IgrColumn>

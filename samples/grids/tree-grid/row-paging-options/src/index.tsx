@@ -77,7 +77,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.ordersTreeData}
                     ref={this.treeGridRef}
                     id="treeGrid"
@@ -85,7 +85,7 @@ export default class Sample extends React.Component<any, any> {
                     foreignKey="ParentID">
                     <IgrPaginator
                         name="paginator"
-                        perPage={10}
+                        perPage="10"
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
                     <IgrColumn
@@ -103,27 +103,27 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Units"
                         header="Units"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         header="Price"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
                         header="Delivered"
-                        dataType="boolean">
+                        dataType="Boolean">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

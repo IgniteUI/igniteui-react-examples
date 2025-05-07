@@ -36,12 +36,12 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.customersData}
                     ref={this.gridRef}
                     id="grid"
                     primaryKey="ID"
-                    rowSelection="multiple"
+                    rowSelection="Multiple"
                     rowSelectionChanging={this.webGridRowSelectionConditional}>
                     <IgrColumn
                         field="ContactName"
