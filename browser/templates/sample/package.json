@@ -32,7 +32,7 @@
     "igniteui-react-spreadsheet": { "version": "19.0.0-alpha.0", "usage": "detect" },
     "igniteui-react-spreadsheet-chart-adapter": { "version": "19.0.0-alpha.0", "usage": "detect" },
     "igniteui-react-excel":       { "version": "19.0.0-alpha.0", "usage": "detect" },
-    "igniteui-react-grids":       { "version": "19.0.0-rc.0", "usage": "detect" },
+    "igniteui-react-grids":       { "version": "19.0.1", "usage": "detect" },
     "igniteui-react-data-grids":       { "version": "19.0.0-alpha.0", "usage": "detect" },
     "igniteui-react-inputs":      { "version": "19.0.0-alpha.0", "usage": "detect", "keywords": ["igniteui-react-data-grids"] },
     "igniteui-react-layouts":     { "version": "19.0.0-alpha.0", "usage": "detect" }
