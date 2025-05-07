@@ -300,7 +300,6 @@ export default class Sample extends React.Component<any, any> {
                 c.hidden = !c.hidden;
             }
         }
-        columnGroup.forceUpdate();
         this.columnGroupStates.set(columnGroup, !this.columnGroupStates.get(columnGroup));
     }
 }
