@@ -47,7 +47,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ProductID"
                     isLoading={true}
                     allowFiltering={false}
-                    pagingMode="Remote"
+                    pagingMode="remote"
                     rowEditable={true}>
                     <IgrColumn
                         field="ProductName"
