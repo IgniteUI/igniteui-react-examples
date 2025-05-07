@@ -32,7 +32,7 @@ import { FinancialData } from "./FinancialData";
 IgrCategoryChartModule.register();
 
 // Set up data and grid properties
-const data = FinancialData.generateData(1000);
+
 const groupingExpressions = [
   {
     dir: SortingDirection.Desc,
@@ -93,14 +93,15 @@ export default function FinjsSample() {
   const chartRef = useRef<IgrCategoryChart>(null);
   const dialogRef = useRef<IgrDialog>(null);
   const toastRef = useRef<IgrToast>(null);
+  const timer = useRef<ReturnType<typeof setInterval>>(null);
 
   // State
   const [recordsCount, setRecordsCount] = useState(1000);
   const [frequency, setFrequency] = useState(500);
-  const [timer, setTimer] = useState(null);
   const [isStartButtonDisabled, setIsStartButtonDisabled] = useState<boolean>(false);
   const [isStopButtonDisabled, setIsStopButtonDisabled] = useState<boolean>(true);
   const [isChartButtonDisabled, setIsChartButtonDisabled] = useState<boolean>(false);
+  const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
     registerIconFromText("update", updateIcon, "material");
@@ -110,6 +111,9 @@ export default function FinjsSample() {
     registerIconFromText("trending_down", trendDown, "material");
   }, []);
 
+  useEffect(() => {
+    setData(FinancialData.generateData(recordsCount));
+  }, [recordsCount]);
 
   // Column body templates
   const priceTemplate = (ctx: IgrCellTemplateContext) => {
@@ -145,18 +149,18 @@ export default function FinjsSample() {
 
 
   const startUpdate = () => {
-    const timer = setInterval(() => {
-      gridRef.current.data = FinancialData.updateAllPrices(data);
+    timer.current = setInterval(() => {
+      setData((oldData) => FinancialData.updateAllPrices(oldData));
     }, frequency);
-    setTimer(timer);
-
+  
     setIsStartButtonDisabled(true);
     setIsStopButtonDisabled(false);
     setIsChartButtonDisabled(true);
   }
 
   const stopUpdate = () => {
-    clearInterval(timer);
+    clearInterval(timer.current);
+
     setIsStartButtonDisabled(false);
     setIsStopButtonDisabled(true);
     setIsChartButtonDisabled(false);
@@ -467,9 +471,10 @@ export default function FinjsSample() {
           ></IgrColumn>
           <IgrColumn
             id="chart"
-            field="chart"
+            field="id"
             header="Chart"
             width="60px"
+            filterable={false}
             bodyTemplate={chartBtnTemplate}
           ></IgrColumn>
           <IgrColumn
