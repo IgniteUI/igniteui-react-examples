@@ -100,6 +100,7 @@ export default function App() {
     setPage(0);
     setPerPage(15);
     setTotalRecords(gridData.length);
+    
     grid.clearFilter();
     grid.sortingExpressions = [];
     grid.deselectAllColumns();
@@ -294,12 +295,12 @@ export default function App() {
           <IgrGridPinningActions></IgrGridPinningActions>
         </IgrActionStrip>
         <IgrPaginator 
-            page={page}  
-            perPage={perPage} 
-            totalRecords={totalRecords}
-            onPageChange={(ev) => setPage(ev.detail)}
-            onPerPageChange={(ev) => setPerPage(ev.detail)}>  
-          </IgrPaginator>
+          page={page}  
+          perPage={perPage} 
+          totalRecords={totalRecords}
+          onPageChange={(ev) => setPage(ev.detail)}
+          onPerPageChange={(ev) => setPerPage(ev.detail)}>  
+        </IgrPaginator>
 
         <IgrColumn field="Artist" sortable={true}></IgrColumn>
         <IgrColumn
