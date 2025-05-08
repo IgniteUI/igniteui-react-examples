@@ -48,13 +48,15 @@ export default function App() {
         rowPinning: true,
         columnSelection: true
     });
+    const [page, setPage] = useState<number>(0);
+    const [perPage, setPerPage] = useState<number>(15);
+    const [totalRecords, setTotalRecords] = useState<number>(gridData.length);
 
     let grid: IgrGrid;
     const gridRef = (ref: IgrGrid) => {
         grid = ref;
     };
     const gridStateRef = useRef<IgrGridState>(null);
-    const paginatorRef = useRef<IgrPaginator>(null);
 
     useEffect(() => {
         registerIconFromText("restore", restoreIcon, "material");
@@ -84,9 +86,10 @@ export default function App() {
     }
 
     const resetGridState = () => {
-        paginatorRef.current.page = 0;
-        paginatorRef.current.perPage = 15;
-        paginatorRef.current.totalRecords = gridData.length;
+        setPage(0);
+        setPerPage(15);
+        setTotalRecords(gridData.length);
+
         grid.clearFilter(null);
         grid.sortingExpressions = [];
         grid.groupingExpressions = [];
@@ -197,7 +200,13 @@ export default function App() {
                 <IgrActionStrip>
                     <IgrGridPinningActions></IgrGridPinningActions>
                 </IgrActionStrip>
-                <IgrPaginator ref={paginatorRef}></IgrPaginator>
+                <IgrPaginator 
+                    page={page}  
+                    perPage={perPage} 
+                    totalRecords={totalRecords}
+                    onPageChange={(ev) => setPage(ev.detail)}
+                    onPerPageChange={(ev) => setPerPage(ev.detail)}>
+                </IgrPaginator>
 
                 <IgrColumn field="ID" width="100px" sortable={true} filterable={true} pinned={true}></IgrColumn>
                 <IgrColumn field="ContactName" header="Contact Name" minWidth="200px" sortable={true} filterable={true} pinned={true}></IgrColumn>
