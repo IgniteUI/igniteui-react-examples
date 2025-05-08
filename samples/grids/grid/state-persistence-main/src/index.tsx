@@ -90,7 +90,7 @@ export default function App() {
         setPerPage(15);
         setTotalRecords(gridData.length);
 
-        grid.clearFilter(null);
+        grid.clearFilter();
         grid.sortingExpressions = [];
         grid.groupingExpressions = [];
         grid.deselectAllColumns();
