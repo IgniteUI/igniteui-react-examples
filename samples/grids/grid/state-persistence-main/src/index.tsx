@@ -2,11 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 
 import {
-    FilterMode,
     IgrActionStrip,
     IgrGrid,
     IgrColumn,
-    IgrGridModule,
     IgrGridPinningActions,
     IgrGridToolbar,
     IgrGridToolbarActions,
@@ -14,10 +12,9 @@ import {
     IgrGridToolbarPinning,
     IgrPaginator,
     IgrGridState,
-    IgrGridStateOptions,
-    GridSelectionMode
+    IgrGridStateOptions
 } from 'igniteui-react-grids';
-import { IgrButton, IgrCheckbox, IgrCheckboxModule, IgrCheckboxChangeEventArgs, IgrIcon, IgrIconModule } from 'igniteui-react';
+import { IgrButton, IgrCheckbox, IgrCheckboxChangeEventArgs, IgrIcon } from 'igniteui-react';
 import { registerIconFromText } from 'igniteui-webcomponents';
 import { CustomersData } from './CustomersData';
 
@@ -25,12 +22,6 @@ import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import './index.css';
 
-const mods: any[] = [
-    IgrGridModule,
-    IgrIconModule,
-    IgrCheckboxModule
-];
-mods.forEach((m) => m.register());
 
 const restoreIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/></svg>';
 const saveIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6z"/></svg>';
@@ -41,6 +32,8 @@ const refreshIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox
 
 export default function App() {
     const gridData = new CustomersData();
+    const stateKey = "grid-state";
+    
     const [allOptions, setAllOptions] = useState(true);
     const [options, setOption] = useState<IgrGridStateOptions>({
         cellSelection: true,
@@ -57,12 +50,11 @@ export default function App() {
     });
 
     let grid: IgrGrid;
-    function gridRef(ref: IgrGrid) {
+    const gridRef = (ref: IgrGrid) => {
         grid = ref;
-    }
-    let paginatorRef = useRef<IgrPaginator>(null);
-    const stateKey = "grid-state";
-    let gridStateRef = useRef<IgrGridState>(null);
+    };
+    const gridStateRef = useRef<IgrGridState>(null);
+    const paginatorRef = useRef<IgrPaginator>(null);
 
     useEffect(() => {
         registerIconFromText("restore", restoreIcon, "material");
@@ -79,19 +71,19 @@ export default function App() {
         };
     }, []);
 
-    function saveGridState() {
+    const saveGridState = () => {
         const state = gridStateRef.current.getStateAsString([]);
         window.localStorage.setItem(stateKey, state);
     }
 
-    function restoreGridState() {
+    const restoreGridState = () => {
         const state = window.localStorage.getItem(stateKey);
         if (state) {
             gridStateRef.current.applyStateFromString(state, []);
         }
     }
 
-    function resetGridState() {
+    const resetGridState = () => {
         paginatorRef.current.page = 0;
         paginatorRef.current.perPage = 15;
         paginatorRef.current.totalRecords = gridData.length;
@@ -103,41 +95,44 @@ export default function App() {
         grid.clearCellSelection();
     }
 
-    function onChange(e: IgrCheckboxChangeEventArgs) {
+    const onChange = (e: IgrCheckboxChangeEventArgs) => {
         const s = e.target as IgrCheckbox;
+
         if (s.name === 'allFeatures') {
-            const bEnabled = e.detail.checked;
+            const isChecked = e.detail.checked;
+
+            setAllOptions(isChecked);
+
             setOption({
-                cellSelection: bEnabled,
-                rowSelection: bEnabled,
-                filtering: bEnabled,
-                advancedFiltering: bEnabled,
-                paging: bEnabled,
-                sorting: bEnabled,
-                groupBy: bEnabled,
-                columns: bEnabled,
-                expansion: bEnabled,
-                rowPinning: bEnabled,
-                columnSelection: bEnabled
+                cellSelection: isChecked,
+                rowSelection: isChecked,
+                filtering: isChecked,
+                advancedFiltering: isChecked,
+                paging: isChecked,
+                sorting: isChecked,
+                groupBy: isChecked,
+                columns: isChecked,
+                expansion: isChecked,
+                rowPinning: isChecked,
+                columnSelection: isChecked
             });
-            for (const key of Object.keys(options)) {
-                gridStateRef.current.options[key] = bEnabled;
-            }
         } else {
-            gridStateRef.current.options[s.name] = e.detail.checked;
+            const newOptions = { ...options };
+            newOptions[s.name as keyof typeof newOptions] = e.detail.checked;
+            setOption(newOptions);
         }
     }
 
-    function leavePage() {
+    const leavePage = () => {
         saveGridState();
         window.location.replace("./grids/grid/state-persistence-about");
     }
 
-    function clearStorage() {
+    const clearStorage = () => {
         window.localStorage.removeItem(stateKey);
     }
 
-    function reloadPage() {
+    const reloadPage = () => {
         window.location.reload();
     }
 
@@ -191,7 +186,7 @@ export default function App() {
                 <IgrCheckbox name="groupBy" onChange={onChange} checked={options.groupBy}><span>Group By</span></IgrCheckbox>
             </div>
             <IgrGrid ref={gridRef} data={gridData} primaryKey="ID" width="95%" height="500px" autoGenerate={false} moving={true} allowFiltering={true}
-                allowAdvancedFiltering={true} filterMode={FilterMode.ExcelStyleFilter} columnSelection={GridSelectionMode.Multiple} rowSelection={GridSelectionMode.Multiple}>
+                allowAdvancedFiltering={true} filterMode="excelStyleFilter" columnSelection="multiple" rowSelection="multiple">
                 <IgrGridState ref={gridStateRef}></IgrGridState>
                 <IgrGridToolbar>
                     <IgrGridToolbarActions>
