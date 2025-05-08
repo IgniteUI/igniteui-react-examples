@@ -19,7 +19,7 @@ const Sample = () => {
     const shouldAppendValue = useRef(false);
 
     useEffect(() => {
-        const gridElement = gridRef.current?.nativeElement;
+        const gridElement = gridRef.current;
 
         if (!gridElement) {
             return undefined;
@@ -106,9 +106,8 @@ const Sample = () => {
         return !rec.expression && !rec.summaries && !rec.childGridsData && !rec.detailsData;
     };
 
-    function gridEndEdit(sender: IgrGrid, e: IgrActiveNodeChangeEventArgs): void {
-        
-        sender.endEdit(true, e);
+    function gridEndEdit(event: CustomEvent<any>): void {
+        gridRef.current.endEdit(true, event.detail);
     }
 
     return (
@@ -119,13 +118,13 @@ const Sample = () => {
                     data={nwindData}
                     primaryKey="ProductID"
                     ref={gridRef}
-                    activeNodeChange={gridEndEdit}
+                    onActiveNodeChange={gridEndEdit}
                 >
                     <IgrColumn field="ProductID" header="Product ID" editable={true} groupable={true} hidden={true} />
-                    <IgrColumn field="ProductName" header="Product Name" dataType="String" editable={true} />
-                    <IgrColumn field="UnitPrice" header="Unit Price" dataType="Number" editable={true} />
-                    <IgrColumn field="QuantityPerUnit" header="Quantity Per Unit" groupable={true} dataType="String" editable={true} />
-                    <IgrColumn field="ReorderLevel" header="Reorder Level" dataType="Number" groupable={true} editable={true} />
+                    <IgrColumn field="ProductName" header="Product Name" dataType="string" editable={true} />
+                    <IgrColumn field="UnitPrice" header="Unit Price" dataType="number" editable={true} />
+                    <IgrColumn field="QuantityPerUnit" header="Quantity Per Unit" groupable={true} dataType="string" editable={true} />
+                    <IgrColumn field="ReorderLevel" header="Reorder Level" dataType="number" groupable={true} editable={true} />
                 </IgrGrid>
             </div>
         </div>
