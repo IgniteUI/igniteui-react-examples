@@ -1,18 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import ReactDOM from "react-dom/client";
-import "./index.css";
-
-import { IgrGrid, IgrPaginator, IgrGridModule, GridPagingMode } from "igniteui-react-grids";
+import { IgrGrid, IgrPaginator, GridPagingMode } from "igniteui-react-grids";
 import { IgrColumn } from "igniteui-react-grids";
-
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { RemoteService } from "./RemotePagingService";
 import { CustomersWithPageResponseModel } from "./CustomersWithPageResponseModel";
 import { IgrNumberEventArgs } from "igniteui-react";
-
-IgrGridModule.register();
 
 export default function App() {
   const grid = useRef<IgrGrid>(null);
@@ -26,31 +20,26 @@ export default function App() {
   }, [page, perPage]);
 
   function loadGridData(pageIndex?: number, pageSize?: number) {
-    // Set loading
     grid.current.isLoading = true;
 
-    // Fetch data
     RemoteService.getDataWithPaging(pageIndex, pageSize)
       .then((response: CustomersWithPageResponseModel) => {
         setData(response.items);
-        // Stop loading when data is retrieved
         grid.current.isLoading = false;
         paginator.current.totalRecords = response.totalRecordsCount;
       })
       .catch((error) => {
         console.error(error.message);
         setData([]);
-        // Stop loading even if error occurs. Prevents endless loading
         grid.current.isLoading = false;
-
-      })
+      });
   }
 
-  function onPageNumberChange(paginator: IgrPaginator, args: IgrNumberEventArgs) {
+  function onPageNumberChange(args: IgrNumberEventArgs) {
     setPage(args.detail);
   }
 
-  function onPageSizeChange(paginator: IgrPaginator, args: IgrNumberEventArgs) {
+  function onPageSizeChange(args: IgrNumberEventArgs) {
     setPerPage(args.detail);
   }
 
@@ -60,16 +49,16 @@ export default function App() {
         <IgrGrid
           ref={grid}
           data={data}
-          pagingMode={GridPagingMode.Remote}
+          pagingMode={"remote"}
           primaryKey="customerId"
           height="600px"
         >
-        <IgrPaginator 
-          perPage={perPage}
-          ref={paginator}
-          pageChange={onPageNumberChange}
-          perPageChange={onPageSizeChange}>
-        </IgrPaginator>
+          <IgrPaginator
+            perPage={perPage}
+            ref={paginator}
+            onPageChange={onPageNumberChange}
+            onPerPageChange={onPageSizeChange}
+          ></IgrPaginator>
           <IgrColumn field="customerId" hidden={true}></IgrColumn>
           <IgrColumn field="companyName" header="Company Name"></IgrColumn>
           <IgrColumn field="contactName" header="Contact Name"></IgrColumn>
@@ -77,12 +66,11 @@ export default function App() {
           <IgrColumn field="address.country" header="Country"></IgrColumn>
           <IgrColumn field="address.phone" header="Phone"></IgrColumn>
         </IgrGrid>
-
       </div>
     </div>
   );
 }
 
-// rendering above component in the React DOM
+// Render the component
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
