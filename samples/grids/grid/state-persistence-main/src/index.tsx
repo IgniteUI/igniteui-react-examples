@@ -17,8 +17,7 @@ import {
     IgrGridStateOptions,
     GridSelectionMode
 } from 'igniteui-react-grids';
-import { IgrButton, IgrCheckbox, IgrCheckboxModule, IgrCheckboxChangeEventArgs, IgrIcon, IgrIconModule } from 'igniteui-react';
-import { registerIconFromText } from 'igniteui-webcomponents';
+import { IgrButton, IgrCheckbox, IgrCheckboxModule, IgrCheckboxChangeEventArgs, IgrIcon, IgrIconModule, registerIconFromText } from 'igniteui-react';
 import { CustomersData } from './CustomersData';
 
 import 'igniteui-react-grids/grids/combined';

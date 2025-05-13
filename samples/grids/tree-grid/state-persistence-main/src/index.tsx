@@ -24,8 +24,8 @@ import {
   IgrCheckboxChangeEventArgs,
   IgrIcon,
   IgrIconModule,
+  registerIconFromText,
 } from "igniteui-react";
-import { registerIconFromText } from "igniteui-webcomponents";
 
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";

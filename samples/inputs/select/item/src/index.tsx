@@ -7,6 +7,7 @@ import {
   IgrSelect,
   IgrSelectItem,
   IgrIcon,
+  registerIconFromText,
 } from "igniteui-react";
 import "./index.css";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
@@ -23,20 +24,11 @@ const restaurantSvg =
   '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 6v8h3v8h2V2c-2.76 0-5 2.24-5 4zm-5 3H9V2H7v7H5V2H3v7c0 2.21 1.79 4 4 4v9h2v-9c2.21 0 4-1.79 4-4V2h-2v7z"/></svg>';
 
 export default function SelectItem() {
-  const iconHotel = useRef<IgrIcon>(null);
-  const iconGrocery = useRef<IgrIcon>(null);
-  const iconReastaurant = useRef<IgrIcon>(null);
 
   useEffect(() => {
-    if (iconHotel?.current) {
-      iconHotel.current.registerIconFromText("hotel", hotelSvg, "material");
-    }
-    if (iconGrocery?.current) {
-      iconGrocery.current.registerIconFromText("grocery", grocerySvg, "material");
-    }
-    if (iconReastaurant?.current) {
-      iconReastaurant.current.registerIconFromText("restaurant", restaurantSvg, "material");
-    }
+    registerIconFromText("hotel", hotelSvg, "material");
+    registerIconFromText("grocery", grocerySvg, "material");
+    registerIconFromText("restaurant", restaurantSvg, "material");
   }, []);
 
   return (
@@ -44,19 +36,19 @@ export default function SelectItem() {
       <IgrSelect>
         <IgrSelectItem>
           <span slot="prefix">
-            <IgrIcon name="hotel" ref={iconHotel} collection="material"></IgrIcon>
+            <IgrIcon name="hotel" collection="material"></IgrIcon>
           </span>
           <span>Hotel</span>
         </IgrSelectItem>
         <IgrSelectItem disabled>
           <span slot="prefix">
-            <IgrIcon name="grocery" ref={iconGrocery} collection="material"></IgrIcon>
+            <IgrIcon name="grocery" collection="material"></IgrIcon>
           </span>
           <span>Grocery</span>
         </IgrSelectItem>
         <IgrSelectItem selected>
           <span slot="prefix">
-            <IgrIcon name="restaurant" ref={iconReastaurant} collection="material"></IgrIcon>
+            <IgrIcon name="restaurant" collection="material"></IgrIcon>
           </span>
           <span>Restaurant</span>
         </IgrSelectItem>

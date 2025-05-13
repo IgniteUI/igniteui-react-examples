@@ -8,7 +8,7 @@ import { NwindData } from './NwindData';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
-import { IgrIcon } from 'igniteui-react';
+import { IgrIcon, registerIconFromText } from 'igniteui-react';
 
 const mods: any[] = [
     IgrGridModule
@@ -21,14 +21,11 @@ export default function App() {
     const [isCellWithinRange, setIsCellWithinRange] = useState(false);
     const [selectedData, setSelectedData] = useState('');
     const gridRef = useRef<IgrGrid>(null);
-    const iconRef = useRef<IgrIcon>(null);
     const contextMenuRef = useRef(null);
     const northWindData = new NwindData();
 
     useEffect(() => {
-        if (iconRef.current) {
-            iconRef.current.registerIconFromText('content_copy', icon, 'material');
-        }
+        registerIconFromText('content_copy', icon, 'material');
     }, [])
 
     function rightClick(grid: IgrGridBaseDirective, event: IgrGridContextMenuEventArgs) {
@@ -119,7 +116,7 @@ export default function App() {
             </div>
             <div style={{display: "none"}} className="contextmenu" ref={contextMenuRef}>
                 <span className="item" onClick={copySelectedCellData}>
-                    <IgrIcon ref={iconRef} collection='material' name="content_copy"></IgrIcon>Copy Cell Data
+                    <IgrIcon collection='material' name="content_copy"></IgrIcon>Copy Cell Data
                 </span>
                 <span className="item" onClick={copySelectedRowData}>
                     <IgrIcon collection='material' name="content_copy"></IgrIcon>Copy Row Data

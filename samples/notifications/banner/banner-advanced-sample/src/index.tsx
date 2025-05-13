@@ -15,11 +15,11 @@ import {
     IgrRippleModule,
     IgrToast,
     IgrToastModule,
+    registerIconFromText,
   } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './BannerAdvancedSample.css';
 import './index.css';
-import { registerIconFromText } from 'igniteui-webcomponents';
 
 IgrBannerModule.register();
 IgrNavbarModule.register();

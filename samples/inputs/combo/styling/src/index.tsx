@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom/client";
-import { IgrComboModule, IgrCombo, IgrIconModule, IgrIcon } from "igniteui-react";
+import { IgrComboModule, IgrCombo, IgrIconModule, IgrIcon, registerIconFromText } from "igniteui-react";
 import "./index.css";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { Cities } from "./ComboData";
@@ -15,9 +15,7 @@ export default function ComboStyling() {
   const iconPlace = useRef<IgrIcon>(null);
 
   useEffect(() => {
-    if (iconPlace?.current) {
-      iconPlace.current.registerIconFromText("place", placeSvg, "material");
-    }
+    registerIconFromText("place", placeSvg, "material");
   }, []);
 
   return (
