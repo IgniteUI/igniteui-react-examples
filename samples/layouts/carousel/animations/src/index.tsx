@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
 import {
   CarouselAnimationType,
-  CheckboxBaseLabelPosition,
   IgrButton,
   IgrButtonModule,
   IgrCard,
@@ -35,17 +34,8 @@ export default function CarouselComponents() {
   const carouselRef = useRef<IgrCarousel>(null);
 
   function onSelectChange(e: CustomEvent<IgrSelectItem>) {
-    switch (e.detail.value) {
-      case "slide":
-        carouselRef.current.animationType = CarouselAnimationType.Slide;
-        break;
-      case "fade":
-        carouselRef.current.animationType = CarouselAnimationType.Fade;
-        break;
-      default:
-        carouselRef.current.animationType = CarouselAnimationType.None;
-        break;
-    }
+    const value = e.detail.value as CarouselAnimationType;
+    carouselRef.current.animationType = value;
   }
 
   function onSwitchChange(e: IgrCheckboxChangeEventArgs) {
@@ -72,7 +62,7 @@ export default function CarouselComponents() {
         <div className="action">
           <IgrSwitch
             onChange={onSwitchChange}
-            labelPosition={CheckboxBaseLabelPosition.Before}
+            labelPosition="before"
           >
             <span key="switch-span">Vertical alignment</span>
           </IgrSwitch>

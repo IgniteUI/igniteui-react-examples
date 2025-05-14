@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { GridSelectionMode, IgrColumnComponentEventArgs, IgrTreeGridModule } from 'igniteui-react-grids';
+import { IgrColumnComponentEventArgs, IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { EmployeesFlatDetails } from './EmployeesFlatDetails';
 
@@ -147,8 +147,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     private handleClearSelection() {
-        this.treeGrid.cellSelection = GridSelectionMode.None;
-        this.treeGrid.cellSelection = GridSelectionMode.Multiple;
+        this.treeGrid.clearCellSelection();
     }
 
     private webGridClipboardOperationsColumnInit = (args: IgrColumnComponentEventArgs) => {
