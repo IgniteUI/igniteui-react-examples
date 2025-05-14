@@ -9,11 +9,11 @@ import {
     IgrIconModule,
     IgrNavbar,
     IgrNavbarModule,
+    registerIconFromText,
   } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './BannerSample1.css';
 import './index.css';
-import { registerIconFromText } from 'igniteui-webcomponents';
 
 IgrBannerModule.register();
 IgrNavbarModule.register();

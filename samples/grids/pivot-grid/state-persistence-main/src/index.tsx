@@ -15,8 +15,8 @@ import {
   IgrCheckbox,
   IgrCheckboxChangeEventArgs,
   IgrIcon,
+  registerIconFromText,
 } from "igniteui-react";
-import { registerIconFromText } from "igniteui-webcomponents";
 import { PivotDataFlat } from "./PivotDataFlat";
 
 import "igniteui-react-grids/grids/combined";

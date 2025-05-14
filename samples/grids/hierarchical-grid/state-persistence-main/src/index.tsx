@@ -20,8 +20,8 @@ import {
   IgrCheckbox,
   IgrCheckboxChangeEventArgs,
   IgrIcon,
+  registerIconFromText,
 } from "igniteui-react";
-import { registerIconFromText } from "igniteui-webcomponents";
 import SingersData from "./SingersData.json";
 
 import "igniteui-react-grids/grids/combined";

@@ -5,7 +5,7 @@ import './DockManagerStyles.css';
 import { IgcDockManagerComponent, IgcContentPane, IgcDockManagerLayout, IgcSplitPane, IgcTabGroupPane } from "igniteui-dockmanager";
 import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
 import { defineCustomElements } from "igniteui-dockmanager/loader";
-import { IgrAvatar, IgrButton, IgrCard, IgrCardActions, IgrCardContent, IgrIcon, IgrIconButton, IgrList, IgrListItem } from "igniteui-react" ;
+import { IgrAvatar, IgrButton, IgrCard, IgrCardActions, IgrCardContent, IgrIcon, IgrList, IgrListItem, registerIconFromText } from "igniteui-react" ;
 import { IgrAvatarModule, IgrButtonModule, IgrCardModule, IgrIconModule, IgrListModule } from "igniteui-react";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -28,6 +28,9 @@ declare global {
 
 defineCustomElements();
 
+const arrowDown = "<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 10l5 5 5-5H7z'/></svg>";
+const arrowUp = "<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 14l5-5 5 5H7z'/></svg>";
+
 export default class DockManagerStyling extends React.Component {
 
     public dockManager: IgcDockManagerComponent;
@@ -36,19 +39,8 @@ export default class DockManagerStyling extends React.Component {
     constructor(props: any){        
         super(props);        
         this.onSampleResize = this.onSampleResize.bind(this);   
-        this.iconRef = this.iconRef.bind(this);     
-    }
-
-    public iconRef(icon: IgrIcon){
-        if(!icon){
-            return;
-        }
-
-        const arrowDown = "<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 10l5 5 5-5H7z'/></svg>";
-        const arrowUp = "<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 14l5-5 5 5H7z'/></svg>";
-
-        icon.registerIconFromText("arrow-down", arrowDown, "material");
-        icon.registerIconFromText("arrow-up", arrowUp, "material");            
+        registerIconFromText("arrow-down", arrowDown, "material");
+        registerIconFromText("arrow-up", arrowUp, "material");
     }
 
     public render(): JSX.Element {
@@ -62,7 +54,7 @@ export default class DockManagerStyling extends React.Component {
                     <div slot="accountFloatingHeader" className="floatingHeader">
                         <span>ACCOUNTS</span>
                         <button id="close" className="closeButton">
-                            <IgrIcon ref={this.iconRef} name="close" />
+                            <IgrIcon name="close" />
                         </button>
                     </div>
                     <div className="dockManagerFull" slot="content1">
