@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 
 import {
-  IgrGridModule,
   IgrGridState,
   IgrGridStateOptions,
   IgrPivotGrid,
@@ -15,9 +14,7 @@ import {
   IgrButton,
   IgrCheckbox,
   IgrCheckboxChangeEventArgs,
-  IgrCheckboxModule,
   IgrIcon,
-  IgrIconModule,
   registerIconFromText,
 } from "igniteui-react";
 import { PivotDataFlat } from "./PivotDataFlat";
@@ -25,9 +22,6 @@ import { PivotDataFlat } from "./PivotDataFlat";
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
-
-const mods: any[] = [IgrGridModule, IgrIconModule, IgrCheckboxModule];
-mods.forEach((m) => m.register());
 
 const restoreIcon =
   '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/></svg>';
@@ -44,6 +38,8 @@ const refreshIcon =
 
 export default function App() {
   const gridData = new PivotDataFlat();
+  const stateKey = "pivot-grid-state";
+
   const [allOptions, setAllOptions] = useState(true);
   const [options, setOption] = useState<IgrGridStateOptions>({
     cellSelection: true,
@@ -55,11 +51,30 @@ export default function App() {
   });
 
   let grid: IgrPivotGrid;
-  function gridRef(ref: IgrPivotGrid) {
+  const gridRef = (ref: IgrPivotGrid) => {
     grid = ref;
   }
-  const stateKey = "pivot-grid-state";
-  let gridStateRef = useRef<IgrGridState>(null);
+  const gridStateRef = useRef<IgrGridState>(null);
+
+  const totalSale = (member: any, data: any) => {
+    return data.reduce(
+      (accumulator: any, value: any) =>
+        accumulator + value.ProductUnitPrice * value.NumberOfUnits,
+      0
+    );
+  }
+
+  const totalMin = (member: any, data: any) => {
+    return data
+      .map((x: any) => x.ProductUnitPrice * x.NumberOfUnits)
+      .reduce((a: any, b: any) => Math.min(a, b));
+  }
+
+  const totalMax = (member: any, data: any) => {
+    return data
+      .map((x: any) => x.ProductUnitPrice * x.NumberOfUnits)
+      .reduce((a: any, b: any) => Math.max(a, b));
+  }
 
   const pivotConfiguration: IgrPivotConfiguration = {
     // column dimensions
@@ -145,19 +160,19 @@ export default function App() {
     };
   }, []);
 
-  function saveGridState() {
+  const saveGridState = () => {
     const state = gridStateRef.current.getStateAsString([]);
     window.localStorage.setItem(stateKey, state);
   }
 
-  function restoreGridState() {
+  const restoreGridState = () => {
     const state = window.localStorage.getItem(stateKey);
     if (state) {
       gridStateRef.current.applyStateFromString(state, []);
     }
   }
 
-  function resetGridState() {
+  const resetGridState = () => {
     grid.allDimensions.forEach((dimension) =>
       grid.clearFilter(dimension.memberName)
     );
@@ -166,7 +181,7 @@ export default function App() {
     grid.clearCellSelection();
   }
 
-  function onValueInit(s: IgrPivotGrid, event: IgrPivotValueEventArgs) {
+  const onValueInit = (event: IgrPivotValueEventArgs) => {
     const value: IgrPivotValue = event.detail;
     if (value.member === "AmountofSale") {
       value.aggregate.aggregator = totalSale;
@@ -191,56 +206,39 @@ export default function App() {
     }
   }
 
-  function onChange(e: IgrCheckboxChangeEventArgs) {
+  const onChange = (e: IgrCheckboxChangeEventArgs) => {
     const s = e.target as IgrCheckbox;
+
     if (s.name === "allFeatures") {
+      const isChecked = e.detail.checked;
+      setAllOptions(isChecked);
+
       setOption({
-        cellSelection: e.detail.checked,
-        filtering: e.detail.checked,
-        sorting: e.detail.checked,
-        expansion: e.detail.checked,
-        columnSelection: e.detail.checked,
-        pivotConfiguration: e.detail.checked,
+        cellSelection: isChecked,
+        filtering: isChecked,
+        sorting: isChecked,
+        expansion: isChecked,
+        columnSelection: isChecked,
+        pivotConfiguration: isChecked,
       });
-      for (const key of Object.keys(options)) {
-        gridStateRef.current.options[key] = e.detail.checked;
-      }
     } else {
-      gridStateRef.current.options[s.name] = e.detail.checked;
+      const newOptions = { ...options };
+      newOptions[s.name as keyof typeof newOptions] = e.detail.checked;
+      setOption(newOptions);
     }
   }
 
-  function leavePage() {
+  const leavePage = () => {
     saveGridState();
     window.location.replace("./grids/pivot-grid/state-persistence-about");
   }
 
-  function clearStorage() {
+  const clearStorage = () => {
     window.localStorage.removeItem(stateKey);
   }
 
-  function reloadPage() {
+  const reloadPage = () => {
     window.location.reload();
-  }
-
-  function totalSale(member: any, data: any) {
-    return data.reduce(
-      (accumulator: any, value: any) =>
-        accumulator + value.ProductUnitPrice * value.NumberOfUnits,
-      0
-    );
-  }
-
-  function totalMin(member: any, data: any) {
-    return data
-      .map((x: any) => x.ProductUnitPrice * x.NumberOfUnits)
-      .reduce((a: any, b: any) => Math.min(a, b));
-  }
-
-  function totalMax(member: any, data: any) {
-    return data
-      .map((x: any) => x.ProductUnitPrice * x.NumberOfUnits)
-      .reduce((a: any, b: any) => Math.max(a, b));
   }
 
   return (
@@ -339,10 +337,10 @@ export default function App() {
         width="95%"
         height="500px"
         pivotConfiguration={pivotConfiguration}
-        valueInit={onValueInit}
+        onValueInit={onValueInit}
         superCompactMode={true}
-        columnSelection={GridSelectionMode.Single}
-        cellSelection={GridSelectionMode.Single}
+        columnSelection="single"
+        cellSelection="single"
       >
         <IgrGridState ref={gridStateRef}></IgrGridState>
       </IgrPivotGrid>
