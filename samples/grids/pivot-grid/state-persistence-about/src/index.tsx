@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { ButtonVariant, IgrButton } from 'igniteui-react';
+import { IgrButton } from 'igniteui-react';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import './index.css';
 
@@ -17,8 +17,8 @@ export default function App() {
                     <br />
                     <span>By default navigating to the previous page, components will reinitialize as per their initial configuration, therefore the IgrPivotGrid will lose its state.</span>
                     <br />
-                    <span>What our App Component does is reading the state from the window.localStorage object and applying the corresponding state in the `useEffect`` hook.</span><br />
-                    <IgrButton onClick={onBackClicked} variant={ButtonVariant.Contained}><span>Go Back</span></IgrButton>
+                    <span>What our App Component does is reading the state from the window.localStorage object and applying the corresponding state in the `useEffect` hook.</span><br />
+                    <IgrButton onClick={onBackClicked} variant="contained"><span>Go Back</span></IgrButton>
                 </div>
             </div>
         </div>

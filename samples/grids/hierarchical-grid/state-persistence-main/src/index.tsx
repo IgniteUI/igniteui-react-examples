@@ -2,10 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 
 import {
-  FilterMode,
   IgrActionStrip,
   IgrColumn,
-  IgrGridModule,
   IgrGridPinningActions,
   IgrGridToolbar,
   IgrGridToolbarActions,
@@ -14,17 +12,14 @@ import {
   IgrPaginator,
   IgrGridState,
   IgrGridStateOptions,
-  GridSelectionMode,
   IgrHierarchicalGrid,
   IgrRowIsland,
 } from "igniteui-react-grids";
 import {
   IgrButton,
   IgrCheckbox,
-  IgrCheckboxModule,
   IgrCheckboxChangeEventArgs,
   IgrIcon,
-  IgrIconModule,
 } from "igniteui-react";
 import { registerIconFromText } from "igniteui-webcomponents";
 import SingersData from "./SingersData.json";
@@ -32,9 +27,6 @@ import SingersData from "./SingersData.json";
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
-
-const mods: any[] = [IgrGridModule, IgrIconModule, IgrCheckboxModule];
-mods.forEach((m) => m.register());
 
 const restoreIcon =
   '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/></svg>';
@@ -51,6 +43,8 @@ const refreshIcon =
 
 export default function App() {
   const gridData = SingersData;
+  const stateKey = "hierarchical-grid-state";
+
   const [allOptions, setAllOptions] = useState(true);
   const [options, setOption] = useState<IgrGridStateOptions>({
     cellSelection: true,
@@ -65,14 +59,15 @@ export default function App() {
     columnSelection: true,
     rowIslands: true,
   });
+  const [page, setPage] = useState<number>(0);
+  const [perPage, setPerPage] = useState<number>(15);
+  const [totalRecords, setTotalRecords] = useState<number>(gridData.length);
 
   let grid: IgrHierarchicalGrid;
-  function gridRef(ref: IgrHierarchicalGrid) {
+  const gridRef = (ref: IgrHierarchicalGrid) => {
     grid = ref;
   }
-  let paginatorRef = useRef<IgrPaginator>(null);
-  const stateKey = "hierarchical-grid-state";
-  let gridStateRef = useRef<IgrGridState>(null);
+  const gridStateRef = useRef<IgrGridState>(null);
 
   useEffect(() => {
     registerIconFromText("restore", restoreIcon, "material");
@@ -89,65 +84,69 @@ export default function App() {
     };
   }, []);
 
-  function saveGridState() {
+  const saveGridState = () => {
     const state = gridStateRef.current.getStateAsString([]);
     window.localStorage.setItem(stateKey, state);
   }
 
-  function restoreGridState() {
+  const restoreGridState = () => {
     const state = window.localStorage.getItem(stateKey);
     if (state) {
       gridStateRef.current.applyStateFromString(state, []);
     }
   }
 
-  function resetGridState() {
-    paginatorRef.current.page = 0;
-    paginatorRef.current.perPage = 15;
-    paginatorRef.current.totalRecords = gridData.length;
-    grid.clearFilter(null);
+  const resetGridState = () => {
+    setPage(0);
+    setPerPage(15);
+    setTotalRecords(gridData.length);
+    
+    grid.clearFilter();
     grid.sortingExpressions = [];
     grid.deselectAllColumns();
     grid.deselectAllRows();
     grid.clearCellSelection();
   }
 
-  function onChange(e: IgrCheckboxChangeEventArgs) {
+  const onChange = (e: IgrCheckboxChangeEventArgs) => {
     const s = e.target as IgrCheckbox;
+
     if (s.name === "allFeatures") {
+      const isChecked = e.detail.checked;
+      setAllOptions(isChecked);
+
       setOption({
-        cellSelection: e.detail.checked,
-        rowSelection: e.detail.checked,
-        filtering: e.detail.checked,
-        advancedFiltering: e.detail.checked,
-        paging: e.detail.checked,
-        sorting: e.detail.checked,
-        columns: e.detail.checked,
-        expansion: e.detail.checked,
-        rowPinning: e.detail.checked,
-        columnSelection: e.detail.checked,
-        rowIslands: e.detail.checked,
+        cellSelection: isChecked,
+        rowSelection: isChecked,
+        filtering: isChecked,
+        advancedFiltering: isChecked,
+        paging: isChecked,
+        sorting: isChecked,
+        columns: isChecked,
+        expansion: isChecked,
+        rowPinning: isChecked,
+        columnSelection: isChecked,
+        rowIslands: isChecked,
       });
-      for (const key of Object.keys(options)) {
-        gridStateRef.current.options[key] = e.detail.checked;
-      }
     } else {
-      gridStateRef.current.options[s.name] = e.detail.checked;
+      const newOptions = { ...options };
+      newOptions[s.name as keyof typeof newOptions] = e.detail.checked;
+      setOption(newOptions);
     }
   }
 
-  function leavePage() {
+  const leavePage = () => {
     saveGridState();
     window.location.replace(
       "./grids/hierarchical-grid/state-persistence-about"
     );
   }
 
-  function clearStorage() {
+  const clearStorage = () => {
     window.localStorage.removeItem(stateKey);
   }
 
-  function reloadPage() {
+  const reloadPage = () => {
     window.location.reload();
   }
 
@@ -281,9 +280,9 @@ export default function App() {
         moving={true}
         allowFiltering={true}
         allowAdvancedFiltering={true}
-        filterMode={FilterMode.ExcelStyleFilter}
-        columnSelection={GridSelectionMode.Multiple}
-        rowSelection={GridSelectionMode.Multiple}
+        filterMode="excelStyleFilter"
+        columnSelection="multiple"
+        rowSelection="multiple"
       >
         <IgrGridState ref={gridStateRef}></IgrGridState>
         <IgrGridToolbar>
@@ -295,7 +294,13 @@ export default function App() {
         <IgrActionStrip>
           <IgrGridPinningActions></IgrGridPinningActions>
         </IgrActionStrip>
-        <IgrPaginator ref={paginatorRef}></IgrPaginator>
+        <IgrPaginator 
+          page={page}  
+          perPage={perPage} 
+          totalRecords={totalRecords}
+          onPageChange={(ev) => setPage(ev.detail)}
+          onPerPageChange={(ev) => setPerPage(ev.detail)}>  
+        </IgrPaginator>
 
         <IgrColumn field="Artist" sortable={true}></IgrColumn>
         <IgrColumn
@@ -323,8 +328,8 @@ export default function App() {
           autoGenerate={false}
           primaryKey="Album"
           allowFiltering={true}
-          columnSelection={GridSelectionMode.Multiple}
-          rowSelection={GridSelectionMode.Multiple}
+          columnSelection="multiple"
+          rowSelection="multiple"
         >
           <IgrColumn field="Album" sortable={true}></IgrColumn>
           <IgrColumn
@@ -346,8 +351,8 @@ export default function App() {
           <IgrRowIsland
             height="null"
             childDataKey="Songs"
-            columnSelection={GridSelectionMode.Multiple}
-            rowSelection={GridSelectionMode.Multiple}
+            columnSelection="multiple"
+            rowSelection="multiple"
             autoGenerate={false}
             primaryKey="Number"
             allowFiltering={true}
@@ -369,8 +374,8 @@ export default function App() {
           autoGenerate={false}
           primaryKey="Tour"
           allowFiltering={true}
-          columnSelection={GridSelectionMode.Multiple}
-          rowSelection={GridSelectionMode.Multiple}
+          columnSelection="multiple"
+          rowSelection="multiple"
         >
           <IgrColumn field="Tour" sortable={true}></IgrColumn>
           <IgrColumn
