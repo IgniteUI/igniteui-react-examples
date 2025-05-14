@@ -22,7 +22,7 @@ export default function App() {
   const hierarchicalGridRef = useRef<IgrHierarchicalGrid>(null); 
   const hierarchicalGridRef2 = useRef<IgrHierarchicalGrid>(null);  
 
-  function RowDragEnd(grid: IgrHierarchicalGrid, evt: any){    
+  function RowDragEnd(evt: any){
     const grid2 = hierarchicalGridRef2.current;
     const ghostElement = evt.detail.dragDirective.ghostElement;
         if (ghostElement != null) {
@@ -51,7 +51,7 @@ export default function App() {
           width="40%"
           ref={hierarchicalGridRef}
           rowDraggable={true}
-          rowDragEnd={RowDragEnd}
+          onRowDragEnd={RowDragEnd}
         >          
           <IgrColumn
             field="Artist"

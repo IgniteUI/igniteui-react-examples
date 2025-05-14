@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrButton, IgrInput, IgrSwitch, IgrCheckboxChangeEventArgs, IgrComponentDataValueChangedEventArgs, IgrComponentValueChangedEventArgs } from 'igniteui-react';
-import { IgrGridBaseDirective, IgrGridModule, IgrColumnComponentEventArgs } from 'igniteui-react-grids';
+import { IgrGridModule, IgrColumnComponentEventArgs } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { NwindData } from './NwindData';
 
@@ -24,7 +24,7 @@ export default function App() {
         defaultSeparator = gridRef.current.clipboardOptions.separator;
     }, []);
 
-    const onColumnInit = (grid: IgrGridBaseDirective, args: IgrColumnComponentEventArgs) => {
+    const onColumnInit = (args: IgrColumnComponentEventArgs) => {
         let column = args.detail;
         column.formatter = (val: any) => "** " + val + " **"
         column.header = "🎉" + column.field;
@@ -71,7 +71,7 @@ export default function App() {
                     </IgrButton>
                 </div>
                 <div className="container fill">
-                    <IgrGrid autoGenerate={false} cellSelection="multiple" data={data} ref={gridRef} columnInit={onColumnInit}>
+                    <IgrGrid autoGenerate={false} cellSelection="multiple" data={data} ref={gridRef} onColumnInit={onColumnInit}>
                         <IgrColumn field="ProductID" header="Product ID">
                         </IgrColumn>
                         <IgrColumn field="ProductName" header="Product Name">

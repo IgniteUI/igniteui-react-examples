@@ -21,7 +21,7 @@ export default class ExpansionPanelComponentCustomization extends React.Componen
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrExpansionPanel closed={this.onExpansionPanelClosed} opened={this.onExpansionPanelOpened} indicatorPosition="end">
+                <IgrExpansionPanel onClosed={this.onExpansionPanelClosed} onOpened={this.onExpansionPanelOpened} indicatorPosition="end">
                     <h1 key="epTitle" slot="title">Golden Retriever</h1>
                     <h3 key="epSubtitle" slot="subtitle">Medium-large gun dog</h3>
                     <div key="epIndicator" slot="indicator">{this.state.expansionText}</div>

@@ -27,11 +27,11 @@ export default function App() {
   }, []);
 
   function gridCreated(
-    rowIsland: IgrRowIsland,
     event: IgrGridCreatedEventArgs,
     _parentKey: string
   ) {
     const context = event.detail;
+    const rowIsland = context.owner;
     const dataState = {
       key: rowIsland.childDataKey,
       parentID: context.parentID,
@@ -67,10 +67,7 @@ export default function App() {
           <IgrRowIsland
             childDataKey="Orders"
             primaryKey="orderId"
-            gridCreated={(
-              rowIsland: IgrRowIsland,
-              e: IgrGridCreatedEventArgs
-            ) => gridCreated(rowIsland, e, "Customers")}
+            onGridCreated={(e: IgrGridCreatedEventArgs) => gridCreated(e, "Customers")}
           >
             <IgrColumn field="orderId" hidden={true}></IgrColumn>
             <IgrColumn field="shipAddress.country" header="Ship Country"></IgrColumn>
@@ -81,10 +78,7 @@ export default function App() {
             <IgrRowIsland
               childDataKey="Details"
               primaryKey="productId"
-              gridCreated={(
-                rowIsland: IgrRowIsland,
-                e: IgrGridCreatedEventArgs
-              ) => gridCreated(rowIsland, e, "Orders")}
+              onGridCreated={(e: IgrGridCreatedEventArgs) => gridCreated(e, "Orders")}
             >
               <IgrColumn field="productId" hidden={true}></IgrColumn>
               <IgrColumn field="quantity" header="Quantity"></IgrColumn>
