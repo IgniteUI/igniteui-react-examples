@@ -103,7 +103,8 @@ export default function App() {
         grid.clearCellSelection();
     }
 
-    function onChange(s: IgrCheckbox, e: IgrCheckboxChangeEventArgs) {
+    function onChange(e: IgrCheckboxChangeEventArgs) {
+        const s = e.target as IgrCheckbox;
         if (s.name === 'allFeatures') {
             const bEnabled = e.detail.checked;
             setOption({
@@ -143,27 +144,27 @@ export default function App() {
     return (
         <div className="vertical sampleContainer">
             <div className="container horizontal">
-                <IgrButton clicked={restoreGridState}>
+                <IgrButton onClick={restoreGridState}>
                     <IgrIcon name="restore" collection="material"></IgrIcon>
                     <span>Restore</span>
                 </IgrButton>
-                <IgrButton clicked={saveGridState}>
+                <IgrButton onClick={saveGridState}>
                     <IgrIcon name="save" collection="material"></IgrIcon>
                     <span>Save</span>
                 </IgrButton>
-                <IgrButton clicked={resetGridState}>
+                <IgrButton onClick={resetGridState}>
                     <IgrIcon name="clear" collection="material"></IgrIcon>
                     <span>Reset</span>
                 </IgrButton>
-                <IgrButton clicked={leavePage}>
+                <IgrButton onClick={leavePage}>
                     <IgrIcon name="forward" collection="material"></IgrIcon>
                     <span>Leave</span>
                 </IgrButton>
-                <IgrButton clicked={clearStorage}>
+                <IgrButton onClick={clearStorage}>
                     <IgrIcon name="delete" collection="material"></IgrIcon>
                     <span>Clear</span>
                 </IgrButton>
-                <IgrButton clicked={reloadPage}>
+                <IgrButton onClick={reloadPage}>
                     <IgrIcon name="refresh" collection="material"></IgrIcon>
                     <span>Reload</span>
                 </IgrButton>
@@ -176,18 +177,18 @@ export default function App() {
                 </ul>
             </div>
             <div className="container horizontal">
-                <IgrCheckbox name="allFeatures" change={onChange} checked={allOptions}><span>All Features</span></IgrCheckbox>
-                <IgrCheckbox name="advancedFiltering" change={onChange} checked={options.advancedFiltering}><span>Adv. Filtering</span></IgrCheckbox>
-                <IgrCheckbox name="cellSelection" change={onChange} checked={options.cellSelection}><span>Cell Selection</span></IgrCheckbox>
-                <IgrCheckbox name="columns" change={onChange} checked={options.columns}><span>Columns</span></IgrCheckbox>
-                <IgrCheckbox name="columnSelection" change={onChange} checked={options.columnSelection}><span>Col Selection</span></IgrCheckbox>
-                <IgrCheckbox name="expansion" change={onChange} checked={options.expansion}><span>Expansion</span></IgrCheckbox>
-                <IgrCheckbox name="filtering" change={onChange} checked={options.filtering}><span>Filtering </span></IgrCheckbox>
-                <IgrCheckbox name="paging" change={onChange} checked={options.paging}><span>Paging</span></IgrCheckbox>
-                <IgrCheckbox name="rowPinning" change={onChange} checked={options.rowPinning}><span>Row Pinning</span></IgrCheckbox>
-                <IgrCheckbox name="rowSelection" change={onChange} checked={options.rowSelection}><span>Row Selection</span></IgrCheckbox>
-                <IgrCheckbox name="sorting" change={onChange} checked={options.sorting}><span>Sorting</span></IgrCheckbox>
-                <IgrCheckbox name="groupBy" change={onChange} checked={options.groupBy}><span>Group By</span></IgrCheckbox>
+                <IgrCheckbox name="allFeatures" onChange={onChange} checked={allOptions}><span>All Features</span></IgrCheckbox>
+                <IgrCheckbox name="advancedFiltering" onChange={onChange} checked={options.advancedFiltering}><span>Adv. Filtering</span></IgrCheckbox>
+                <IgrCheckbox name="cellSelection" onChange={onChange} checked={options.cellSelection}><span>Cell Selection</span></IgrCheckbox>
+                <IgrCheckbox name="columns" onChange={onChange} checked={options.columns}><span>Columns</span></IgrCheckbox>
+                <IgrCheckbox name="columnSelection" onChange={onChange} checked={options.columnSelection}><span>Col Selection</span></IgrCheckbox>
+                <IgrCheckbox name="expansion" onChange={onChange} checked={options.expansion}><span>Expansion</span></IgrCheckbox>
+                <IgrCheckbox name="filtering" onChange={onChange} checked={options.filtering}><span>Filtering </span></IgrCheckbox>
+                <IgrCheckbox name="paging" onChange={onChange} checked={options.paging}><span>Paging</span></IgrCheckbox>
+                <IgrCheckbox name="rowPinning" onChange={onChange} checked={options.rowPinning}><span>Row Pinning</span></IgrCheckbox>
+                <IgrCheckbox name="rowSelection" onChange={onChange} checked={options.rowSelection}><span>Row Selection</span></IgrCheckbox>
+                <IgrCheckbox name="sorting" onChange={onChange} checked={options.sorting}><span>Sorting</span></IgrCheckbox>
+                <IgrCheckbox name="groupBy" onChange={onChange} checked={options.groupBy}><span>Group By</span></IgrCheckbox>
             </div>
             <IgrGrid ref={gridRef} data={gridData} primaryKey="ID" width="95%" height="500px" autoGenerate={false} moving={true} allowFiltering={true}
                 allowAdvancedFiltering={true} filterMode={FilterMode.ExcelStyleFilter} columnSelection={GridSelectionMode.Multiple} rowSelection={GridSelectionMode.Multiple}>

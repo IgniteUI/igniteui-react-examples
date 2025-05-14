@@ -68,14 +68,14 @@ export default function App() {
             <IgrColumn
               field="Name"
               header="Full Name"
-              dataType="String"
+              dataType="string"
               resizable={true}
               sortable={true}
               editable={true}>
             </IgrColumn>
             <IgrColumn
               field="Age"
-              dataType="Number"
+              dataType="number"
               resizable={false}
               sortable={false}
               filterable={false}
@@ -83,7 +83,7 @@ export default function App() {
             </IgrColumn>
             <IgrColumn
               field="Title"
-              dataType="String"
+              dataType="string"
               resizable={true}
               sortable={true}
               editable={true}>
@@ -91,7 +91,7 @@ export default function App() {
             <IgrColumn
               field="HireDate"
               header="Hire Date"
-              dataType="Date"
+              dataType="date"
               resizable={true}
               sortable={true}
               editable={true}>
@@ -111,14 +111,14 @@ export default function App() {
             <IgrColumn
               field="Name"
               header="Full Name"
-              dataType="String"
+              dataType="string"
               resizable={true}
               sortable={true}
               editable={true}>
             </IgrColumn>
             <IgrColumn
               field="Age"
-              dataType="Number"
+              dataType="number"
               resizable={false}
               sortable={false}
               filterable={false}
@@ -126,7 +126,7 @@ export default function App() {
             </IgrColumn>
             <IgrColumn
               field="Title"
-              dataType="String"
+              dataType="string"
               resizable={true}
               sortable={true}
               editable={true}>
@@ -134,7 +134,7 @@ export default function App() {
             <IgrColumn
               field="HireDate"
               header="Hire Date"
-              dataType="Date"
+              dataType="date"
               resizable={true}
               sortable={true}
               editable={true}>

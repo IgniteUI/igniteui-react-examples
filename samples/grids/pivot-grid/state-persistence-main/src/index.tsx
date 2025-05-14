@@ -7,12 +7,8 @@ import {
   IgrGridStateOptions,
   IgrPivotGrid,
   IgrPivotConfiguration,
-  PivotAggregationType,
-  IgrPivotDimension,
-  IgrPivotAggregator,
-  IgrPivotValue,
   IgrPivotValueEventArgs,
-  IgrPivotValueDetail,
+  IgrPivotValue,
   GridSelectionMode,
 } from "igniteui-react-grids";
 import {
@@ -65,67 +61,74 @@ export default function App() {
   const stateKey = "pivot-grid-state";
   let gridStateRef = useRef<IgrGridState>(null);
 
-  const pivotConfiguration = new IgrPivotConfiguration();
-  // column dimensions
-  const columnDimension = new IgrPivotDimension();
-  columnDimension.memberName = "SellerName";
-  columnDimension.enabled = true;
-
-  // row dimensions
-  const productsDimension = new IgrPivotDimension();
-  const sellerCityDimension = new IgrPivotDimension();
-  productsDimension.memberName = "ProductName";
-  productsDimension.enabled = true;
-  productsDimension.width = "150px";
-  sellerCityDimension.memberName = "SellerCity";
-  sellerCityDimension.displayName = "City";
-  sellerCityDimension.enabled = true;
-  sellerCityDimension.width = "150px";
-
-  // values
-  const sumAggregator = new IgrPivotAggregator();
-  sumAggregator.aggregatorName = PivotAggregationType.SUM;
-  sumAggregator.key = "SUM";
-  sumAggregator.label = "SUM";
-
-  const totalSaleAggregator = new IgrPivotAggregator();
-  totalSaleAggregator.aggregator = totalSale;
-  totalSaleAggregator.label = "Sum of Sale";
-  totalSaleAggregator.key = "SUM";
-  const minimumSaleAggregator = new IgrPivotAggregator();
-  minimumSaleAggregator.aggregator = totalMin;
-  minimumSaleAggregator.label = "Minimum of Sale";
-  minimumSaleAggregator.key = "MIN";
-  const maximumSaleAggregator = new IgrPivotAggregator();
-  maximumSaleAggregator.aggregator = totalMax;
-  maximumSaleAggregator.label = "Maximum of Sale";
-  maximumSaleAggregator.key = "MAX";
-
-  const value = new IgrPivotValue();
-  value.enabled = true;
-  value.member = "Value";
-  value.aggregate = sumAggregator;
-  value.styles = {
-    downFontValue: (rowData: any, columnKey: any): boolean =>
-      parseFloat(rowData.aggregationValues.get(columnKey.field)) <= 150,
-    upFontValue: (rowData: any, columnKey: any): boolean =>
-      parseFloat(rowData.aggregationValues.get(columnKey.field)) > 150,
+  const pivotConfiguration: IgrPivotConfiguration = {
+    // column dimensions
+    columns: [
+      {
+        memberName: "SellerName",
+        enabled: true,
+      },
+    ],
+    // row dimensions
+    rows: [
+      {
+        memberName: "ProductName",
+        enabled: true,
+        width: "150px",
+      },
+      {
+        memberName: "SellerCity",
+        displayName: "City",
+        enabled: true,
+        width: "150px",
+      },
+    ],
+    // values
+    values: [
+      {
+        enabled: true,
+        member: "Value",
+        aggregate: {
+          aggregatorName: "SUM",
+          key: "SUM",
+          label: "SUM",
+        },
+        styles: {
+          downFontValue: (rowData: any, columnKey: any): boolean =>
+            parseFloat(rowData.aggregationValues.get(columnKey.field)) <= 150,
+          upFontValue: (rowData: any, columnKey: any): boolean =>
+            parseFloat(rowData.aggregationValues.get(columnKey.field)) > 150,
+        },
+      },
+      {
+        enabled: true,
+        member: "AmountofSale",
+        displayName: "Amount of Sale",
+        aggregate: {
+          aggregator: totalSale,
+          label: "Sum of Sale",
+          key: "SUM",
+        },
+        aggregateList: [
+          {
+            aggregator: totalSale,
+            label: "Sum of Sale",
+            key: "SUM",
+          },
+          {
+            aggregator: totalMin,
+            label: "Minimum of Sale",
+            key: "MIN",
+          },
+          {
+            aggregator: totalMax,
+            label: "Maximum of Sale",
+            key: "MAX",
+          },
+        ],
+      },
+    ],
   };
-
-  const amountOfSale = new IgrPivotValue();
-  amountOfSale.enabled = true;
-  amountOfSale.member = "AmountofSale";
-  amountOfSale.displayName = "Amount of Sale";
-  amountOfSale.aggregate = totalSaleAggregator;
-  amountOfSale.aggregateList = [
-    totalSaleAggregator,
-    minimumSaleAggregator,
-    maximumSaleAggregator,
-  ];
-
-  pivotConfiguration.columns = [columnDimension];
-  pivotConfiguration.rows = [productsDimension, sellerCityDimension];
-  pivotConfiguration.values = [value, amountOfSale];
 
   useEffect(() => {
     registerIconFromText("restore", restoreIcon, "material");
@@ -164,7 +167,7 @@ export default function App() {
   }
 
   function onValueInit(s: IgrPivotGrid, event: IgrPivotValueEventArgs) {
-    const value: IgrPivotValueDetail = event.detail;
+    const value: IgrPivotValue = event.detail;
     if (value.member === "AmountofSale") {
       value.aggregate.aggregator = totalSale;
       value.aggregateList?.forEach((aggr: any) => {
@@ -188,7 +191,8 @@ export default function App() {
     }
   }
 
-  function onChange(s: IgrCheckbox, e: IgrCheckboxChangeEventArgs) {
+  function onChange(e: IgrCheckboxChangeEventArgs) {
+    const s = e.target as IgrCheckbox;
     if (s.name === "allFeatures") {
       setOption({
         cellSelection: e.detail.checked,
@@ -242,27 +246,27 @@ export default function App() {
   return (
     <div className="vertical sampleContainer">
       <div className="container horizontal">
-        <IgrButton clicked={restoreGridState}>
+        <IgrButton onClick={restoreGridState}>
           <IgrIcon name="restore" collection="material"></IgrIcon>
           <span>Restore</span>
         </IgrButton>
-        <IgrButton clicked={saveGridState}>
+        <IgrButton onClick={saveGridState}>
           <IgrIcon name="save" collection="material"></IgrIcon>
           <span>Save</span>
         </IgrButton>
-        <IgrButton clicked={resetGridState}>
+        <IgrButton onClick={resetGridState}>
           <IgrIcon name="clear" collection="material"></IgrIcon>
           <span>Reset</span>
         </IgrButton>
-        <IgrButton clicked={leavePage}>
+        <IgrButton onClick={leavePage}>
           <IgrIcon name="forward" collection="material"></IgrIcon>
           <span>Leave</span>
         </IgrButton>
-        <IgrButton clicked={clearStorage}>
+        <IgrButton onClick={clearStorage}>
           <IgrIcon name="delete" collection="material"></IgrIcon>
           <span>Clear</span>
         </IgrButton>
-        <IgrButton clicked={reloadPage}>
+        <IgrButton onClick={reloadPage}>
           <IgrIcon name="refresh" collection="material"></IgrIcon>
           <span>Reload</span>
         </IgrButton>
@@ -287,43 +291,43 @@ export default function App() {
         </ul>
       </div>
       <div className="container horizontal">
-        <IgrCheckbox name="allFeatures" change={onChange} checked={allOptions}>
+        <IgrCheckbox name="allFeatures" onChange={onChange} checked={allOptions}>
           <span>All Features</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="cellSelection"
-          change={onChange}
+          onChange={onChange}
           checked={options.cellSelection}
         >
           <span>Cell Selection</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="columnSelection"
-          change={onChange}
+          onChange={onChange}
           checked={options.columnSelection}
         >
           <span>Col Selection</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="expansion"
-          change={onChange}
+          onChange={onChange}
           checked={options.expansion}
         >
           <span>Expansion</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="filtering"
-          change={onChange}
+          onChange={onChange}
           checked={options.filtering}
         >
           <span>Filtering </span>
         </IgrCheckbox>
-        <IgrCheckbox name="sorting" change={onChange} checked={options.sorting}>
+        <IgrCheckbox name="sorting" onChange={onChange} checked={options.sorting}>
           <span>Sorting</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="pivotConfiguration"
-          change={onChange}
+          onChange={onChange}
           checked={options.pivotConfiguration}
         >
           <span>Pivot Configuration</span>

@@ -37,11 +37,10 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     data={this.singersData}
-                    ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
                     primaryKey="ID"
                     rowDraggable={true}
-                    rowDragEnd={this.webHierarchicalGridReorderRowHandler}>
+                    onRowDragEnd={this.webHierarchicalGridReorderRowHandler}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"

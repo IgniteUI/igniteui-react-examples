@@ -34,8 +34,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
-                    data={this.customersDataLocal}
-                    ref={this.gridRef}>
+                    data={this.customersDataLocal}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarTitle

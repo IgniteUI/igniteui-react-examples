@@ -4,24 +4,24 @@ import './index.css';
 import './DataGridBindingLiveData.css';
 import { LiveFinancialData } from './LiveFinancialData';
 // IgrDataGrid modules
-import { IgrDataGrid } from 'igniteui-react-grids';
-import { IgrDataGridToolbar } from 'igniteui-react-grids';
-import { IgrDataGridModule } from 'igniteui-react-grids';
-import { IgrDataGridToolbarModule } from 'igniteui-react-grids';
-import { IgrNumericColumn } from 'igniteui-react-grids';
-import { IgrTextColumn } from 'igniteui-react-grids';
-import { IgrTemplateColumn } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-data-grids';
+import { IgrDataGridToolbar } from 'igniteui-react-data-grids';
+import { IgrDataGridModule } from 'igniteui-react-data-grids';
+import { IgrDataGridToolbarModule } from 'igniteui-react-data-grids';
+import { IgrNumericColumn } from 'igniteui-react-data-grids';
+import { IgrTextColumn } from 'igniteui-react-data-grids';
+import { IgrTemplateColumn } from 'igniteui-react-data-grids';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrDataChartAnnotationModule } from 'igniteui-react-charts';
 import { IgrItemToolTipLayer } from 'igniteui-react-charts';
-import { IgrColumnGroupDescription } from 'igniteui-react-grids';
-import { IgrDataBindingEventArgs } from 'igniteui-react-grids';
-import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-grids';
-import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-grids';
-import { IgrTemplateCellInfo } from 'igniteui-react-grids';
+import { IgrColumnGroupDescription } from 'igniteui-react-data-grids';
+import { IgrDataBindingEventArgs } from 'igniteui-react-data-grids';
+import { IgrCellStyleRequestedEventArgs } from 'igniteui-react-data-grids';
+import { IgrTemplateCellUpdatingEventArgs } from 'igniteui-react-data-grids';
+import { IgrTemplateCellInfo } from 'igniteui-react-data-grids';
 import { FilterFactory } from 'igniteui-react-core';
 import { ListSortDirection } from 'igniteui-react-core';
-import { HeaderClickAction } from 'igniteui-react-grids';
+import { HeaderClickAction } from 'igniteui-react-data-grids';
 // IgrDataChart modules
 import { IgrDataChart } from 'igniteui-react-charts';
 import { IgrDataChartCategoryModule } from 'igniteui-react-charts';
@@ -120,18 +120,18 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                     <div className="toolAreaColumn">
                         <IgrButton variant="contained" style={buttonStyle}
                             disabled={this.state.liveSomePricesDisabled}
-                            clicked={this.onLiveSomePricesClicked} >
+                            onClick={this.onLiveSomePricesClicked} >
                                 <span>{this.state.liveSomePricesText}</span>
                         </IgrButton>
                         <label>&nbsp;</label>
                         <IgrButton variant="contained" style={buttonStyle}
                         disabled={this.state.liveAllPricesDisabled}
-                        clicked={this.onLiveAllPricesClicked} >
+                        onClick={this.onLiveAllPricesClicked} >
                             <span>{this.state.liveAllPricesText}</span>
                         </IgrButton>
                         <label>&nbsp;</label>
                         <IgrButton variant="contained" style={buttonStyle}
-                        clicked={this.onChartClicked} >
+                        onClick={this.onChartClicked} >
                             <span>Chart</span>
                         </IgrButton>
                     </div>
@@ -145,7 +145,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                                     step={100}
                                     className="options-slider"
                                     value={this.state.frequency}
-                                    change={this.onPriceFrequencyChanged}/>
+                                    onChange={this.onPriceFrequencyChanged}/>
                         </div>
                         <div className="volumeSlider">
                             <label id="label">Volume: {this.state.volume / 1000}k</label>
@@ -155,7 +155,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                                 step={100}
                                 className="options-slider"
                                 value={this.state.volume}
-                                change={this.onPriceVolumeChanged}/>
+                                onChange={this.onPriceVolumeChanged}/>
                         </div>
                     </div>
 
@@ -164,24 +164,24 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
                             <div className="gridSwitch">
                                 <label id="label">Canvas</label>
                                 <IgrSwitch checked={this.state.canvasChecked}
-                                    change={this.onGridCanvasModeChanged}
+                                    onChange={this.onGridCanvasModeChanged}
                                     value="canvas" />
                             </div>
                             <div className="gridSwitch">
                                 <label id="label">Grouping</label>
                                 <IgrSwitch checked={this.state.groupingChecked}
-                                    change={this.onGridGroupingChanged}
+                                    onChange={this.onGridGroupingChanged}
                                     value="grouping" />
                             </div>
                             <div className="gridSwitch">
                                 <label id="label">Heat</label>
                                 <IgrSwitch checked={this.state.heatChecked}
-                                    change={this.onGridHeatModeChanged}
+                                    onChange={this.onGridHeatModeChanged}
                                     value="heat" />
                             </div>
                         </div>
                         <div className="toolAreaRow" style={{paddingTop: "25px"}}>
-                            <IgrInput inputOcurred={this.onGridSearchChanged} placeholder="Search" type="text" />
+                            <IgrInput onInput={this.onGridSearchChanged} placeholder="Search" type="text" />
                         </div>
                     </div>
                 </div>
@@ -265,7 +265,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
 
                 <div id="dialogContainer">
                     <div id="dialogContent">
-                        <IgrButton clicked={this.onChartClose}>
+                        <IgrButton onClick={this.onChartClose}>
                             <span>Close</span>
                         </IgrButton>
                         <IgrDataChart
@@ -323,7 +323,7 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
             return;
         }
 
-        let toChangeIndexes = {};
+        let toChangeIndexes: Record<string, boolean> = {};
         let toChange = Math.round(this.state.volume / 10);
         let stillAnimating = false;
 
@@ -889,16 +889,15 @@ export default class DataGridBindingLiveData extends React.Component<any, AppSta
     // onChange?: (event: React.ChangeEvent<{}>, value: number | number[]) => void;
     // public onPriceFrequencyChanged(event: any, value: number) {
     // public onPriceFrequencyChanged(event: any, value: number | number[]) {
-        public onPriceFrequencyChanged = (event: any, input: any) => {
-    // public onPriceFrequencyChanged(event: React.ChangeEvent<{}>, value: number) {
-        let value = parseFloat(input.detail.toString());
+    public onPriceFrequencyChanged = (event: CustomEvent<number>) => {
+    let value = event.detail;
         this.setState({
             frequency: value,
         });
     }
 
-    public onPriceVolumeChanged = (event: any, input: any) => {
-        let value = parseFloat(input.detail.toString());
+    public onPriceVolumeChanged = (event: CustomEvent<number>) => {
+        let value = event.detail;
         this.setState({
             volume: value,
             data: LiveFinancialData.generateData(value)

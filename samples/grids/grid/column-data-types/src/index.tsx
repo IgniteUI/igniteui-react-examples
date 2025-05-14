@@ -20,7 +20,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -33,7 +32,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs1;
     }
-    private column2: IgrColumn
     private  _columnPipeArgs2: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs2(): IgrColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
@@ -46,7 +44,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs2;
     }
-    private column3: IgrColumn
     private  _columnPipeArgs3: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs3(): IgrColumnPipeArgs {
         if (this._columnPipeArgs3 == null)
@@ -58,7 +55,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs3;
     }
-    private column4: IgrColumn
     private  _columnPipeArgs4: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs4(): IgrColumnPipeArgs {
         if (this._columnPipeArgs4 == null)
@@ -71,7 +67,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs4;
     }
-    private column5: IgrColumn
     private  _columnPipeArgs5: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs5(): IgrColumnPipeArgs {
         if (this._columnPipeArgs5 == null)
@@ -84,7 +79,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs5;
     }
-    private column6: IgrColumn
     private  _columnPipeArgs6: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs6(): IgrColumnPipeArgs {
         if (this._columnPipeArgs6 == null)
@@ -112,7 +106,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.invoicesDataExtendedDates}
-                    ref={this.gridRef}
                     id="grid"
                     allowFiltering={true}
                     filterMode="excelStyleFilter"
@@ -136,8 +129,7 @@ export default class Sample extends React.Component<any, any> {
                         editable={true}
                         resizable={true}
                         dataType="number"
-                        pipeArgs={this.columnPipeArgs1}
-                        name="column1">
+                        pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
                         field="OrderFullDate"
@@ -148,8 +140,7 @@ export default class Sample extends React.Component<any, any> {
                         editable={true}
                         resizable={true}
                         dataType="dateTime"
-                        pipeArgs={this.columnPipeArgs2}
-                        name="column2">
+                        pipeArgs={this.columnPipeArgs2}>
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
@@ -160,8 +151,7 @@ export default class Sample extends React.Component<any, any> {
                         editable={true}
                         resizable={true}
                         dataType="date"
-                        pipeArgs={this.columnPipeArgs3}
-                        name="column3">
+                        pipeArgs={this.columnPipeArgs3}>
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDateDelay"
@@ -172,8 +162,7 @@ export default class Sample extends React.Component<any, any> {
                         editable={true}
                         resizable={true}
                         dataType="time"
-                        pipeArgs={this.columnPipeArgs4}
-                        name="column4">
+                        pipeArgs={this.columnPipeArgs4}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitsInStock"
@@ -184,8 +173,7 @@ export default class Sample extends React.Component<any, any> {
                         editable={true}
                         resizable={true}
                         dataType="currency"
-                        pipeArgs={this.columnPipeArgs5}
-                        name="column5">
+                        pipeArgs={this.columnPipeArgs5}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitsOnOrder"
@@ -196,8 +184,7 @@ export default class Sample extends React.Component<any, any> {
                         editable={true}
                         resizable={true}
                         dataType="percent"
-                        pipeArgs={this.columnPipeArgs6}
-                        name="column6">
+                        pipeArgs={this.columnPipeArgs6}>
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"

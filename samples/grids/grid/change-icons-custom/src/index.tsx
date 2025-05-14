@@ -132,7 +132,7 @@ export default class Sample extends React.Component<any, any> {
                         data={this.nwindData}
                         rowEditable={true}
                         allowFiltering={true}
-                        filterMode="ExcelStyleFilter"
+                        filterMode="excelStyleFilter"
                         primaryKey="ProductID">
                         <IgrGridToolbar>
                             <IgrGridToolbarActions>
@@ -143,37 +143,30 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarActions>
                         </IgrGridToolbar>
                         <IgrColumn
-                            name="ProductName"
                             field="ProductName"
                             header="Product Name" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="UnitPrice"
                             field="UnitPrice"
                             header="Unit Price" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="UnitsOnOrder"
                             field="UnitsOnOrder"
                             header="Units On Order" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="UnitsInStock"
                             field="UnitsInStock"
                             header="Units In Stock" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="QuantityPerUnit"
                             field="QuantityPerUnit"
                             header="Quantity Per Unit" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="ReorderLevel"
                             field="ReorderLevel"
                             header="Reorder Level" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="Discontinued"
                             field="Discontinued"
                             header="Discontinued" sortable={true}>
                         </IgrColumn>

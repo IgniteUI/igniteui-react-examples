@@ -14,6 +14,7 @@ import {
   IgrCarousel,
   IgrCarouselModule,
   IgrCarouselSlide,
+  IgrCheckboxChangeEventArgs,
   IgrSelect,
   IgrSelectItem,
   IgrSelectModule,
@@ -33,8 +34,8 @@ IgrCardModule.register();
 export default function CarouselComponents() {
   const carouselRef = useRef<IgrCarousel>(null);
 
-  function onSelectChange(s: IgrSelect) {
-    switch (s.value) {
+  function onSelectChange(e: CustomEvent<IgrSelectItem>) {
+    switch (e.detail.value) {
       case "slide":
         carouselRef.current.animationType = CarouselAnimationType.Slide;
         break;
@@ -47,8 +48,8 @@ export default function CarouselComponents() {
     }
   }
 
-  function onSwitchChange(s: IgrSwitch) {
-    carouselRef.current.vertical = s.checked;
+  function onSwitchChange(e: IgrCheckboxChangeEventArgs) {
+    carouselRef.current.vertical = e.detail.checked;
   }
 
   return (
@@ -56,7 +57,7 @@ export default function CarouselComponents() {
       <div className="action-wrapper">
         <div className="action">
           <span>Animation type</span>
-          <IgrSelect change={onSelectChange}>
+          <IgrSelect onChange={onSelectChange}>
             <IgrSelectItem value="slide" selected={true} key="slide">
               <span key="select-span">Slide</span>
             </IgrSelectItem>
@@ -70,7 +71,7 @@ export default function CarouselComponents() {
         </div>
         <div className="action">
           <IgrSwitch
-            change={onSwitchChange}
+            onChange={onSwitchChange}
             labelPosition={CheckboxBaseLabelPosition.Before}
           >
             <span key="switch-span">Vertical alignment</span>

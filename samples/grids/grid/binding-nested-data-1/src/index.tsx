@@ -24,7 +24,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -40,7 +39,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.employeesNestedData}
-                    ref={this.gridRef}
                     id="grid">
                     <IgrColumn
                         header="Name"
@@ -61,8 +59,7 @@ export default class Sample extends React.Component<any, any> {
                         field="Employees"
                         header="Employees"
                         bodyTemplate={this.webGridNestedDataCellTemplate}
-                        width="20%"
-                        name="column1">
+                        width="20%">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
@@ -112,12 +109,12 @@ export default class Sample extends React.Component<any, any> {
                 {value.Name}
                 </div>
                 <div className="description">
-                    <IgrInput type="text" label="Title" name="title" value={value.Title} change={(s:any, e: any) => {
-                            props.dataContext.cell.value[0][s.label] = e.detail;
+                    <IgrInput type="text" label="Title" name="title" value={value.Title} onChange={(e: any) => {
+                            props.dataContext.cell.value[0][e.target.label] = e.detail;
                             grid.markForCheck();
                         }} style={{textOverflow: "ellipsis"}} />
-                    <IgrInput type="number" label="Age" name="title" value={value.Age} inputOcurred={(s:any, e: any) => {
-                            props.dataContext.cell.value[0][s.label] = e.detail;
+                    <IgrInput type="number" label="Age" name="title" value={value.Age} onInput={(e: any) => {
+                            props.dataContext.cell.value[0][e.target.label] = e.detail;
                             grid.markForCheck();
                         }} style={{textOverflow: "ellipsis"}} />
                 </div>

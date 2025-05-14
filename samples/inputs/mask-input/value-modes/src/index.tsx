@@ -24,7 +24,7 @@ export default class MaskInputValueModes extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample center">
-                <IgrMaskInput ref={this.onMaskRef} inputOcurred={(e)=>this.onInputChange(e)}>
+                <IgrMaskInput ref={this.onMaskRef} onInput={(e)=>this.onInputChange(e)}>
                     <span slot="prefix">
                         <IgrIcon ref={this.iconFileRef} name="file" collection="material"></IgrIcon>
                     </span>
@@ -32,8 +32,8 @@ export default class MaskInputValueModes extends React.Component<any, any> {
 
                 <div id="content" style={{width: "100%", height: "inherit"}}>
                     <IgrRadioGroup alignment="horizontal" style={{marginBottom: "10px"}}>
-                        <IgrRadio name="position" value="raw" label-position="after" change={(e)=>this.onRadioChange(e)} checked><span>raw</span></IgrRadio>
-                        <IgrRadio name="position" value="withFormatting" label-position="after" change={(e)=>this.onRadioChange(e)}><span>withFormatting</span></IgrRadio>
+                        <IgrRadio name="position" value="raw" label-position="after" onChange={(e)=>this.onRadioChange(e)} checked><span>raw</span></IgrRadio>
+                        <IgrRadio name="position" value="withFormatting" label-position="after" onChange={(e)=>this.onRadioChange(e)}><span>withFormatting</span></IgrRadio>
                     </IgrRadioGroup>
                     
                     <span id="value-span">Value: {this.state.value}</span>
@@ -56,7 +56,7 @@ export default class MaskInputValueModes extends React.Component<any, any> {
 
     public onRadioChange(event: any) {
         if (this.maskRef) {
-            this.maskRef.valueMode = event.value;
+            this.maskRef.valueMode = event.detail.value;
             this.setState({value: this.maskRef.value})
         }
     }

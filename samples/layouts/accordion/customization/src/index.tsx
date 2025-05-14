@@ -71,7 +71,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                                     {this.state.categories.map((c: Category) => {
                                         return (
                                             <IgrCheckbox key={'checkbox-' + c.type}
-                                                change={(s: IgrCheckbox, e: IgrCheckboxChangeEventArgs) => this.categoriesChange(s, e, c.type)}>
+                                                onChange={(e: IgrCheckboxChangeEventArgs) => this.categoriesChange(e, c.type)}>
                                                 <span key={'cbSpan-' + c.type}>{c.type}</span>
                                             </IgrCheckbox>
                                         );
@@ -85,7 +85,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                             </h1>
                             <span key="ep2Span">
                                 <IgrRangeSlider key="rangeSlider" min={0} max={1000} lower={this.state.cost.lower} upper={this.state.cost.upper}
-                                    change={this.costRangeChange}>
+                                    onChange={this.costRangeChange}>
                                 </IgrRangeSlider>
                             </span>
                         </IgrExpansionPanel>
@@ -95,7 +95,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                                 <IgrRadioGroup key="radio" alignment="horizontal">
                                     {[1, 2, 3, 4].map(rating => {
                                         return (
-                                            <IgrRadio key={`${rating}star`} name="rating" value={rating.toString()} change={this.ratingChange}>
+                                            <IgrRadio key={`${rating}star`} name="rating" value={rating.toString()} onChange={this.ratingChange}>
                                                 <IgrRating label={`${rating} star${rating > 1 ? 's' : ''} or more`} max={5} value={rating + 0.5}
                                                     className="size-small" readonly key={`{r-${rating}}`}>
                                                 </IgrRating>
@@ -109,7 +109,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                             <h1 slot="title" key="ep4Title">{this.state.time}</h1>
                             <span key="ep4Span">
                                 <IgrDateTimeInput className="size-small" key="dtInput" inputFormat="hh:mm tt" label="Arrive before"
-                                    ref={this.dateTimeInputRef} change={this.timeChange}>
+                                    ref={this.dateTimeInputRef} onChange={this.timeChange}>
                                     <span key="sPrefix" slot="prefix">
                                         <IgrIcon name="clock" collection="material" ref={this.clockIconRef} />
                                     </span>
@@ -125,7 +125,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
         );
     }
 
-    public categoriesChange(s: IgrCheckbox, e: IgrCheckboxChangeEventArgs, type: string) {
+    public categoriesChange(e: IgrCheckboxChangeEventArgs, type: string) {
         const categoryIndex = this.categories.findIndex(c => c.type === type);
         if (categoryIndex === -1) { return; }
         let categoriesCopy = this.state.categories;
@@ -135,20 +135,21 @@ export default class AccordionCustomization extends React.Component<any, any> {
         });
     }
 
-    public costRangeChange(s: IgrRangeSlider, e: IgrRangeSliderValueEventArgs) {
+    public costRangeChange(e: IgrRangeSliderValueEventArgs) {
         this.setState({
             cost: { lower: e.detail.lower, upper: e.detail.upper }
         });
     }
 
-    public ratingChange(s: IgrRadio<IIgrRadioProps>, e: IgrRadioChangeEventArgs) {
-        if (!e.detail) { return; }
+    public ratingChange(e: IgrRadioChangeEventArgs) {
+        if (!e.detail.value) { return; }
         this.setState({
-            rating: `${+s.value} star${+s.value > 1 ? 's' : ''} or more`
+            rating: `${+e.detail.value} star${+e.detail.value > 1 ? 's' : ''} or more`
         });
     }
 
-    public timeChange(s: IgrDateTimeInput, e: IgrComponentDateValueChangedEventArgs) {
+    public timeChange(e: IgrComponentDateValueChangedEventArgs) {
+        const s = e.target as IgrDateTimeInput;
         const result = s.value !== null ? `Arrive before ${e.detail.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}` : 'Time';
         this.setState({
             time: result

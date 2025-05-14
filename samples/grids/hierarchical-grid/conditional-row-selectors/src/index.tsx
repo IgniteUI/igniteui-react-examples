@@ -39,14 +39,13 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     data={this.singersData}
-                    ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
                     primaryKey="ID"
                     rowSelection="multiple"
                     cellSelection="none"
-                    rowSelectionChanging={this.webHierarchicalGridRowSelectionConditional}>
+                    onRowSelectionChanging={this.webHierarchicalGridRowSelectionConditional}>
                     <IgrPaginator
-                        name="paginator">
+                    >
                     </IgrPaginator>
                     <IgrColumn
                         field="Artist">
