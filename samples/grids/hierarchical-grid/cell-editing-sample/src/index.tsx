@@ -41,61 +41,61 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.hGridDndData}
                     primaryKey="Name"
                     ref={this.hierarchicalGrid1Ref}>
                     <IgrColumn
                         field="Name"
                         header="Character Name"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Race"
                         header="Race"
-                        dataType="string"
+                        dataType="String"
                         inlineEditorTemplate={this.hGridCellEditCellTemplate}
-                        editable={true}
+                        editable="true"
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Class"
                         header="Class"
                         inlineEditorTemplate={this.hGridCellEditCellTemplate}
-                        editable={true}
-                        dataType="string"
+                        editable="true"
+                        dataType="String"
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
                         header="Age"
-                        dataType="string"
-                        editable={true}>
+                        dataType="String"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Alignment"
                         header="Alignment"
                         inlineEditorTemplate={this.hGridCellEditCellTemplate}
-                        editable={true}
-                        dataType="string"
+                        editable="true"
+                        dataType="String"
                         name="column3">
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Skills"
-                        autoGenerate={false}>
+                        autoGenerate="false">
                         <IgrColumn
                             field="Skill"
                             header="Skill"
-                            dataType="string"
-                            editable={true}
-                            resizable={true}>
+                            dataType="String"
+                            editable="true"
+                            resizable="true">
                         </IgrColumn>
                         <IgrColumn
                             field="Level"
                             header="Level"
-                            dataType="string"
-                            editable={true}
-                            resizable={true}>
+                            dataType="String"
+                            editable="true"
+                            resizable="true">
                         </IgrColumn>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>

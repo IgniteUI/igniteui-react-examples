@@ -36,42 +36,42 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.nwindData}
                     ref={this.gridRef}
                     id="grid">
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"
-                        sortable={true}
-                        dataType="string">
+                        sortable="true"
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="QuantityPerUnit"
                         header="Quantity Per Unit"
-                        sortable={true}
-                        dataType="string">
+                        sortable="true"
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price Category"
-                        sortable={true}
-                        dataType="string">
+                        sortable="true"
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        sortable={true}
-                        hasSummary={true}
-                        dataType="date"
+                        sortable="true"
+                        hasSummary="true"
+                        dataType="Date"
                         summaryFormatter={this.webGridSummaryFormatter}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
                         header="Discontinued"
-                        sortable={true}
-                        dataType="boolean">
+                        sortable="true"
+                        dataType="Boolean">
                     </IgrColumn>
                 </IgrGrid>
             </div>

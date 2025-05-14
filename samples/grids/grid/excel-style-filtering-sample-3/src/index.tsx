@@ -64,12 +64,12 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     data={this.nwindData}
-                    moving={true}
-                    allowFiltering={true}
-                    filterMode="excelStyleFilter"
+                    moving="true"
+                    allowFiltering="true"
+                    filterMode="ExcelStyleFilter"
                     excelStyleHeaderIconTemplate={this.webGridFilterAltIconTemplate}>
                     <IgrGridToolbar
                     >
@@ -94,14 +94,14 @@ export default class Sample extends React.Component<any, any> {
                         name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="currency"
+                        dataType="Currency"
                         pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
                         name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date"
+                        dataType="Date"
                         pipeArgs={this.columnPipeArgs2}>
                     </IgrColumn>
                     <IgrColumn

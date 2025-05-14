@@ -81,7 +81,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.ordersTreeData}
                     ref={this.treeGridRef}
                     id="treeGrid"
@@ -90,28 +90,28 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="Order ID"
-                        sortable={true}>
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Order Product"
-                        hasSummary={true}>
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Price"
-                        dataType="number"
-                        hasSummary={true}
-                        editable={true}>
+                        dataType="Number"
+                        hasSummary="true"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
-                        dataType="boolean">
+                        dataType="Boolean">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

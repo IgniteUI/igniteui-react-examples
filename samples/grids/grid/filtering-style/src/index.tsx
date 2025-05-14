@@ -93,13 +93,13 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
                     data={this.nwindData}
-                    moving={true}
-                    allowFiltering={true}
-                    filterMode="excelStyleFilter">
+                    moving="true"
+                    allowFiltering="true"
+                    filterMode="ExcelStyleFilter">
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -113,35 +113,35 @@ export default class Sample extends React.Component<any, any> {
                         name="ProductName"
                         field="ProductName"
                         header="Product Name"
-                        sortable={true}>
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="QuantityPerUnit"
                         field="QuantityPerUnit"
                         header="Quantity Per Unit"
-                        sortable={true}>
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="currency"
-                        sortable={true}
+                        dataType="Currency"
+                        sortable="true"
                         pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
                         name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date"
-                        sortable={true}
+                        dataType="Date"
+                        sortable="true"
                         pipeArgs={this.columnPipeArgs2}>
                     </IgrColumn>
                     <IgrColumn
                         name="Discontinued"
                         field="Discontinued"
                         header="Discontinued"
-                        sortable={true}
+                        sortable="true"
                         bodyTemplate={this.webGridBooleanCellTemplate}>
                     </IgrColumn>
                 </IgrGrid>

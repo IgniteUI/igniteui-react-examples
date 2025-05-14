@@ -34,33 +34,33 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.employeesFlatData}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    moving={true}
-                    rowEditable={true}
+                    moving="true"
+                    rowEditable="true"
                     rowClasses={this.webGridRowClassesHandler}
                     ref={this.treeGrid1Ref}>
                     <IgrColumn
                         field="Name"
                         header="Full Name"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
                         header="Age"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
                         header="Title"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
                         header="Hire Date"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

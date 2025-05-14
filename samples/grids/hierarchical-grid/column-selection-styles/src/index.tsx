@@ -33,13 +33,13 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.singersData}
                     ref={this.gridRef}
                     id="grid"
                     primaryKey="ID"
-                    allowFiltering={true}
-                    columnSelection="single">
+                    allowFiltering="true"
+                    columnSelection="Single">
                     <IgrColumn
                         field="Artist"
                         header="Artist">
@@ -47,14 +47,14 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Photo"
                         header="Photo"
-                        dataType="image"
-                        selectable={false}>
+                        dataType="Image"
+                        selectable="false">
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut"
-                        dataType="number"
-                        selectable={false}>
+                        dataType="Number"
+                        selectable="false">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
@@ -66,8 +66,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate={false}
-                        columnSelection="multiple">
+                        autoGenerate="false"
+                        columnSelection="Multiple">
                         <IgrColumn
                             field="Album"
                             header="Album">
@@ -75,8 +75,8 @@ export default class Sample extends React.Component<any, any> {
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="date"
-                            selectable={false}>
+                            dataType="Date"
+                            selectable="false">
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
@@ -88,8 +88,8 @@ export default class Sample extends React.Component<any, any> {
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="Songs"
-                            autoGenerate={false}
-                            columnSelection="multiple">
+                            autoGenerate="false"
+                            columnSelection="Multiple">
                             <IgrColumn
                                 field="Number"
                                 header="No.">
@@ -101,8 +101,8 @@ export default class Sample extends React.Component<any, any> {
                             <IgrColumn
                                 field="Released"
                                 header="Released"
-                                dataType="date"
-                                selectable={false}>
+                                dataType="Date"
+                                selectable="false">
                             </IgrColumn>
                             <IgrColumn
                                 field="Genre"
@@ -112,22 +112,22 @@ export default class Sample extends React.Component<any, any> {
                     </IgrRowIsland>
                     <IgrRowIsland
                         childDataKey="Tours"
-                        autoGenerate={false}
-                        columnSelection="single">
+                        autoGenerate="false"
+                        columnSelection="Single">
                         <IgrColumn
                             field="Tour"
                             header="Tour"
-                            selectable={false}>
+                            selectable="false">
                         </IgrColumn>
                         <IgrColumn
                             field="StartedOn"
                             header="Started on"
-                            selectable={false}>
+                            selectable="false">
                         </IgrColumn>
                         <IgrColumn
                             field="Location"
                             header="Location"
-                            selectable={false}>
+                            selectable="false">
                         </IgrColumn>
                         <IgrColumn
                             field="Headliner"

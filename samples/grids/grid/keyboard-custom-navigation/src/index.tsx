@@ -44,13 +44,13 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     id="grid"
                     ref={this.gridRef}
                     data={this.nwindData}
-                    moving={true}
+                    moving="true"
                     primaryKey="ProductID"
-                    rowEditable={true}
+                    rowEditable="true"
                     gridKeydown={this.webGridCustomKBNav}>
                     <IgrColumn
                         name="ProductID"
@@ -61,7 +61,7 @@ export default class Sample extends React.Component<any, any> {
                         name="ReorderLevel"
                         field="ReorderLevel"
                         header="Reorder Level"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         name="ProductName"
@@ -72,7 +72,7 @@ export default class Sample extends React.Component<any, any> {
                         name="UnitsInStock"
                         field="UnitsInStock"
                         header="Units In Stock"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         name="OrderDate"

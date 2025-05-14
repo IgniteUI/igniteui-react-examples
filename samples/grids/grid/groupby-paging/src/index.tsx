@@ -50,34 +50,34 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
                     data={this.invoicesWorldData}
-                    rowSelection="multiple"
+                    rowSelection="Multiple"
                     groupingExpressions={this.groupingExpression1}
                     groupRowTemplate={this.webGridGroupByRowTemplate}>
                     <IgrPaginator
-                        perPage={10}>
+                        perPage="10">
                     </IgrPaginator>
                     <IgrColumn
                         field="ShipCountry"
                         header="Ship Country"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipCity"
                         header="Ship City"
                         width="250px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
                         width="150px"
-                        dataType="number"
-                        groupable={true}>
+                        dataType="Number"
+                        groupable="true">
                     </IgrColumn>
                 </IgrGrid>
             </div>

@@ -36,7 +36,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.customersData}
-                    columnSelection="single">
+                    columnSelection="Single">
                     <IgrColumn
                         field="ID">
                     </IgrColumn>

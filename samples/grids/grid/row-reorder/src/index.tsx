@@ -40,7 +40,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     ref={this.gridRef}
                     data={this.customersData}
-                    rowDraggable={true}
+                    rowDraggable="true"
                     primaryKey="ID"
                     rowDragEnd={this.webGridReorderRowHandler}>
                     <IgrColumn

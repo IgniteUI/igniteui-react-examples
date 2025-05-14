@@ -36,40 +36,40 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
                     data={this.foodsData}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    moving={true}
-                    allowFiltering={true}
-                    filterMode="excelStyleFilter">
+                    moving="true"
+                    allowFiltering="true"
+                    filterMode="ExcelStyleFilter">
                     <IgrColumn
                         field="ID"
                         header="ID"
-                        sortable={true}>
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Product Name"
-                        sortable={true}>
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        sortable={true}
-                        dataType="currency">
+                        sortable="true"
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="AddedDate"
                         header="Added Date"
-                        sortable={true}
-                        dataType="date">
+                        sortable="true"
+                        dataType="Date">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
-                        dataType="boolean"
+                        dataType="Boolean"
                         bodyTemplate={this.webGridBooleanCellTemplate}
                         name="column1">
                     </IgrColumn>

@@ -34,14 +34,14 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatData}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    allowAdvancedFiltering={true}
-                    moving={true}>
+                    allowAdvancedFiltering="true"
+                    moving="true">
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -53,28 +53,28 @@ export default class Sample extends React.Component<any, any> {
                     </IgrGridToolbar>
                     <IgrColumn
                         field="Name"
-                        dataType="string"
-                        sortable={true}>
+                        dataType="String"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        dataType="string"
-                        sortable={true}>
+                        dataType="String"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="number"
-                        sortable={true}>
+                        dataType="Number"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="date"
-                        sortable={true}>
+                        dataType="Date"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="OnPTO"
-                        dataType="boolean"
-                        sortable={true}>
+                        dataType="Boolean"
+                        sortable="true">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

@@ -65,116 +65,116 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.hierarchicalCustomers}
                     ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
-                    allowFiltering={true}>
+                    allowFiltering="true">
                     <IgrColumn
                         field="CustomerID"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="ContactName"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Fax"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Orders"
-                        autoGenerate={false}>
+                        autoGenerate="false">
                         <IgrColumn
                             field="OrderID"
-                            dataType="number">
+                            dataType="Number">
                         </IgrColumn>
                         <IgrColumn
                             field="EmployeeID"
-                            dataType="number">
+                            dataType="Number">
                         </IgrColumn>
                         <IgrColumn
                             field="OrderDate"
-                            dataType="date">
+                            dataType="Date">
                         </IgrColumn>
                         <IgrColumn
                             field="RequiredDate"
-                            dataType="date">
+                            dataType="Date">
                         </IgrColumn>
                         <IgrColumn
                             field="ShippedDate"
-                            dataType="date">
+                            dataType="Date">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipVia"
-                            dataType="number">
+                            dataType="Number">
                         </IgrColumn>
                         <IgrColumn
                             field="Freight"
-                            dataType="number">
+                            dataType="Number">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipName"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipAddress"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipCity"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipPostalCode"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipCountry"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="OrderDetails"
-                            autoGenerate={false}>
+                            autoGenerate="false">
                             <IgrColumn
                                 field="ProductID"
-                                dataType="number">
+                                dataType="Number">
                             </IgrColumn>
                             <IgrColumn
                                 field="UnitPrice"
-                                dataType="number">
+                                dataType="Number">
                             </IgrColumn>
                             <IgrColumn
                                 field="Quantity"
-                                dataType="number">
+                                dataType="Number">
                             </IgrColumn>
                             <IgrColumn
                                 field="Discount"
-                                dataType="number">
+                                dataType="Number">
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>

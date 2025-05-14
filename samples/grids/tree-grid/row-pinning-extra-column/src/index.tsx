@@ -47,18 +47,18 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGridRef}
                     data={this.employeesNestedTreeData}
-                    rowEditable={true}
+                    rowEditable="true"
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    cellSelection="none"
+                    cellSelection="None"
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         width="150px"
-                        filterable={false}
-                        pinned={true}
+                        filterable="false"
+                        pinned="true"
                         bodyTemplate={this.webTreeGridRowPinCellTemplate}
                         name="column1">
                     </IgrColumn>
@@ -68,14 +68,14 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="Title">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

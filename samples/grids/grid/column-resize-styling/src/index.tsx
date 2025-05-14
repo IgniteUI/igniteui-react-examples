@@ -34,34 +34,34 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
                     data={this.athletesData}>
                     <IgrColumn
                         field="Id"
                         header="Rank"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Athlete"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="BeatsPerMinute"
                         header="Beats per Minute"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="TopSpeed"
                         header="Top Speed"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="TrackProgress"
                         header="Track Progress"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                 </IgrGrid>
             </div>

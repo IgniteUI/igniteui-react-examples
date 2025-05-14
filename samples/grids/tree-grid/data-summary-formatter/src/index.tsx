@@ -37,61 +37,61 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.ordersTreeData}
                     ref={this.treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    allowFiltering={true}
-                    filterMode="excelStyleFilter">
+                    allowFiltering="true"
+                    filterMode="ExcelStyleFilter">
                     <IgrColumn
                         field="ID"
                         header="Order ID"
-                        sortable={true}>
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Order Product"
-                        sortable={true}>
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Category"
                         header="Product Category"
-                        sortable={true}>
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
                         header="Units"
-                        dataType="number"
-                        sortable={true}>
+                        dataType="Number"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="number"
-                        sortable={true}>
+                        dataType="Number"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         header="Price"
-                        dataType="number"
-                        sortable={true}>
+                        dataType="Number"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date"
-                        hasSummary={true}
-                        sortable={true}
+                        dataType="Date"
+                        hasSummary="true"
+                        sortable="true"
                         summaryFormatter={this.webTreeGridSummaryFormatter}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
                         header="Delivered"
-                        dataType="boolean"
-                        sortable={true}>
+                        dataType="Boolean"
+                        sortable="true">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

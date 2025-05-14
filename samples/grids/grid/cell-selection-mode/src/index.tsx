@@ -62,7 +62,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     data={this.nwindData}>
                     <IgrColumn
@@ -76,21 +76,21 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="UnitsInStock"
                         header="Units In Stock"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Units Price"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
-                        dataType="boolean">
+                        dataType="Boolean">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                 </IgrGrid>
             </div>

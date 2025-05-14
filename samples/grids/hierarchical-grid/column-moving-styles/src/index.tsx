@@ -45,149 +45,149 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.hierarchicalCustomers}
-                    moving={true}
+                    moving="true"
                     ref={this.gridRef}
                     id="grid">
                     <IgrPaginator
                         name="paginator"
-                        perPage={15}>
+                        perPage="15">
                     </IgrPaginator>
                     <IgrColumn
                         field="CustomerID"
-                        dataType="string"
+                        dataType="String"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
-                        dataType="string"
+                        dataType="String"
                         width="150px"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="ContactName"
-                        dataType="string"
+                        dataType="String"
                         width="150px"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                         name="column3">
                     </IgrColumn>
                     <IgrColumn
                         field="ContactTitle"
-                        dataType="string"
+                        dataType="String"
                         width="150px"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                         name="column4">
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
-                        dataType="string"
+                        dataType="String"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                         name="column5">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
-                        dataType="string"
+                        dataType="String"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                         name="column6">
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
-                        dataType="string"
+                        dataType="String"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                         name="column7">
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
-                        dataType="string"
+                        dataType="String"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                         name="column8">
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
-                        dataType="string"
+                        dataType="String"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                         name="column9">
                     </IgrColumn>
                     <IgrColumn
                         field="Fax"
-                        dataType="string"
+                        dataType="String"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                         name="column10">
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Orders"
-                        autoGenerate={false}
-                        moving={true}>
+                        autoGenerate="false"
+                        moving="true">
                         <IgrColumn
                             field="OrderID"
-                            dataType="number">
+                            dataType="Number">
                         </IgrColumn>
                         <IgrColumn
                             field="EmployeeID"
-                            dataType="number">
+                            dataType="Number">
                         </IgrColumn>
                         <IgrColumn
                             field="OrderDate"
-                            dataType="date">
+                            dataType="Date">
                         </IgrColumn>
                         <IgrColumn
                             field="RequiredDate"
-                            dataType="date">
+                            dataType="Date">
                         </IgrColumn>
                         <IgrColumn
                             field="ShippedDate"
-                            dataType="date">
+                            dataType="Date">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipVia"
-                            dataType="number">
+                            dataType="Number">
                         </IgrColumn>
                         <IgrColumn
                             field="Freight"
-                            dataType="number">
+                            dataType="Number">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipName"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipAddress"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipCity"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipPostalCode"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipCountry"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="OrderDetails"
-                            autoGenerate={false}
-                            moving={true}>
+                            autoGenerate="false"
+                            moving="true">
                             <IgrColumn
                                 field="ProductID"
-                                dataType="number">
+                                dataType="Number">
                             </IgrColumn>
                             <IgrColumn
                                 field="UnitPrice"
-                                dataType="number">
+                                dataType="Number">
                             </IgrColumn>
                             <IgrColumn
                                 field="Quantity"
-                                dataType="number">
+                                dataType="Number">
                             </IgrColumn>
                             <IgrColumn
                                 field="Discount"
-                                dataType="number">
+                                dataType="Number">
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>
