@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { IgrGridCreatedEventArgs, IgrPaginator } from "igniteui-react-grids";
 import {
-  IgrHierarchicalGrid,
   IgrColumn,
+  IgrGridCreatedEventArgs,
+  IgrHierarchicalGrid,
+  IgrPaginator,
   IgrRowIsland,
 } from "igniteui-react-grids";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { RemoteService } from "./RemoteService";
 import { IgrNumberEventArgs } from "igniteui-react";

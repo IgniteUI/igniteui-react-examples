@@ -1,12 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrForOfState } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
-import { loadDataForPage, getCachedData } from './NwindService';
+import { IgrColumn, IgrForOfStateEventArgs, IgrGrid } from 'igniteui-react-grids';
+import { getCachedData, loadDataForPage } from './NwindService';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 
