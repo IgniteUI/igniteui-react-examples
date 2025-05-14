@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { IgrColumn, IgrGrid, IgrPaginator } from "igniteui-react-grids";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
