@@ -168,7 +168,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridMRLCustomNavigationEvent(sender: IgrGrid, args: IgrGridKeydownEventArgs): void {
+    public webGridMRLCustomNavigationEvent(args: IgrGridKeydownEventArgs): void {
         const target = args.detail.target;
         const grid: IgrGrid = this.grid;
         if ((args.detail.event as any).key.toLowerCase() === 'enter') {
