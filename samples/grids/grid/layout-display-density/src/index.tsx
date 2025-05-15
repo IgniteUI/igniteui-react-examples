@@ -65,131 +65,131 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     id="grid"
                     ref={this.gridRef}
                     data={this.invoicesData}
-                    allowFiltering={true}>
+                    allowFiltering="true">
                     <IgrColumn
                         field="CustomerName"
                         header="Customer Name"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
                         header="Country"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
                         header="City"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
                         header="Address"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
                         header="Postal Code"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Salesperson"
                         header="Sales Person"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipperName"
                         header="Shipper Name"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="Date"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ProductID"
                         header="ID"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ProductName"
                         header="Name"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="number"
-                        sortable={true}
-                        hasSummary={true}
-                        filterable={false}>
+                        dataType="Number"
+                        sortable="true"
+                        hasSummary="true"
+                        filterable="false">
                     </IgrColumn>
                     <IgrColumn
                         field="Quantity"
                         header="Quantity"
-                        dataType="number"
-                        sortable={true}
-                        hasSummary={true}
-                        filterable={false}>
+                        dataType="Number"
+                        sortable="true"
+                        hasSummary="true"
+                        filterable="false">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
                         header="Discontinued"
-                        dataType="boolean"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="Boolean"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipName"
                         header="Name"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipCountry"
                         header="Country"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipCity"
                         header="City"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipPostalCode"
                         header="Postal Code"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true">
                     </IgrColumn>
                 </IgrGrid>
             </div>

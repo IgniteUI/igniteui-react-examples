@@ -35,70 +35,70 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     id="grid"
                     ref={this.gridRef}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    allowFiltering={true}
-                    filterMode="excelStyleFilter">
+                    allowFiltering="true"
+                    filterMode="ExcelStyleFilter">
                     <IgrPaginator
-                        perPage={10}>
+                        perPage="10">
                     </IgrPaginator>
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"
-                        dataType="string"
-                        sortable={true}
-                        hasSummary={true}
-                        editable={true}
-                        resizable={true}>
+                        dataType="String"
+                        sortable="true"
+                        hasSummary="true"
+                        editable="true"
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="number"
-                        sortable={true}
-                        hasSummary={true}
-                        editable={true}
-                        resizable={true}>
+                        dataType="Number"
+                        sortable="true"
+                        hasSummary="true"
+                        editable="true"
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitsInStock"
                         header="Units in Stock"
-                        dataType="number"
-                        sortable={true}
-                        hasSummary={true}
-                        editable={true}
-                        resizable={true}>
+                        dataType="Number"
+                        sortable="true"
+                        hasSummary="true"
+                        editable="true"
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date"
-                        sortable={true}
-                        hasSummary={true}
-                        editable={true}
-                        resizable={true}>
+                        dataType="Date"
+                        sortable="true"
+                        hasSummary="true"
+                        editable="true"
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
                         header="Discontinued"
-                        dataType="boolean"
-                        sortable={true}
-                        hasSummary={true}
-                        editable={true}
+                        dataType="Boolean"
+                        sortable="true"
+                        hasSummary="true"
+                        editable="true"
                         bodyTemplate={this.webGridBooleanCellTemplate}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="ReorderLevel"
                         header="Reorder Level"
-                        dataType="number"
-                        sortable={true}
-                        hasSummary={true}
-                        editable={true}
-                        filterable={true}>
+                        dataType="Number"
+                        sortable="true"
+                        hasSummary="true"
+                        editable="true"
+                        filterable="true">
                     </IgrColumn>
                 </IgrGrid>
             </div>

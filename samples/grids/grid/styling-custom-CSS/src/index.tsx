@@ -36,29 +36,29 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.localData}
                     id="grid"
                     ref={this.gridRef}
-                    cellSelection="multiple"
-                    columnSelection="multiple">
+                    cellSelection="Multiple"
+                    columnSelection="Multiple">
                     <IgrColumn
                         name="Category"
                         field="Category"
                         header="Category"
-                        selectable={true}>
+                        selectable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="MarketShare"
                         field="MarketShare"
                         header="Market Share"
-                        selectable={true}>
+                        selectable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="Summary"
                         field="Summary"
                         header="Summary"
-                        selectable={false}>
+                        selectable="false">
                     </IgrColumn>
                 </IgrGrid>
             </div>

@@ -97,7 +97,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.ordersTreeData}
                     ref={this.gridRef}
                     sortingExpressions={this.sortingExpression1}
@@ -106,44 +106,44 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="Order ID"
-                        sortable={true}>
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Name"
-                        dataType="string"
-                        sortable={true}>
+                        dataType="String"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Category"
                         header="Category"
-                        dataType="string"
-                        sortable={true}>
+                        dataType="String"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date"
-                        sortable={true}>
+                        dataType="Date"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
-                        dataType="currency"
-                        sortable={true}
+                        dataType="Currency"
+                        sortable="true"
                         pipeArgs={this.columnPipeArgs1}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
                         header="Units"
-                        dataType="number"
-                        sortable={true}>
+                        dataType="Number"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
                         header="Units"
-                        dataType="boolean"
-                        sortable={true}>
+                        dataType="Boolean"
+                        sortable="true">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

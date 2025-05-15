@@ -41,61 +41,61 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    rowEditable={true}>
+                    rowEditable="true">
                     <IgrActionStrip
                     >
                         <IgrGridEditingActions
-                            addRow={true}>
+                            addRow="true">
                         </IgrGridEditingActions>
                     </IgrActionStrip>
                     <IgrColumn
                         name="ID"
                         field="ProductID"
                         header="Product ID"
-                        dataType="number"
-                        hidden={true}>
+                        dataType="Number"
+                        hidden="true">
                     </IgrColumn>
                     <IgrColumn
                         name="ReorderLevel"
                         field="ReorderLevel"
                         header="Reorder Level"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         name="ProductName"
                         field="ProductName"
                         header="Product Name"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         name="UnitsInStock"
                         field="UnitsInStock"
                         header="Units In Stock"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="number"
-                        sortable={true}>
+                        dataType="Number"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                     <IgrColumn
                         name="Discontinued"
                         field="Discontinued"
                         header="Discontinued"
-                        dataType="boolean">
+                        dataType="Boolean">
                     </IgrColumn>
                 </IgrGrid>
             </div>

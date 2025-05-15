@@ -58,7 +58,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid"
                     data={this.hierarchicalCustomersData}
-                    columnSelection="single"
+                    columnSelection="Single"
                     primaryKey="CustomerID">
                     <IgrGridToolbar
                     >
@@ -71,12 +71,12 @@ export default class Sample extends React.Component<any, any> {
                     </IgrGridToolbar>
                     <IgrColumn
                         field="CustomerID"
-                        hidden={true}>
+                        hidden="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
                         header="Company Name"
-                        pinned={true}
+                        pinned="true"
                         headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                         name="column1">
                     </IgrColumn>
@@ -128,104 +128,104 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Orders"
-                        autoGenerate={false}>
+                        autoGenerate="false">
                         <IgrColumn
                             field="OrderDate"
                             header="Order Date"
-                            dataType="date"
-                            resizable={true}
+                            dataType="Date"
+                            resizable="true"
                             headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                             name="column10">
                         </IgrColumn>
                         <IgrColumn
                             field="RequiredDate"
                             header="Required Date"
-                            dataType="date"
-                            resizable={true}
+                            dataType="Date"
+                            resizable="true"
                             headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                             name="column11">
                         </IgrColumn>
                         <IgrColumn
                             field="ShippedDate"
                             header="Shipped Date"
-                            dataType="date"
-                            resizable={true}
+                            dataType="Date"
+                            resizable="true"
                             headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                             name="column12">
                         </IgrColumn>
                         <IgrColumn
                             field="ShipName"
                             header="Ship Name"
-                            dataType="string"
-                            resizable={true}
-                            pinned={true}
+                            dataType="String"
+                            resizable="true"
+                            pinned="true"
                             headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                             name="column13">
                         </IgrColumn>
                         <IgrColumn
                             field="ShippedVia"
                             header="Shipped Via"
-                            dataType="string"
-                            resizable={true}
+                            dataType="String"
+                            resizable="true"
                             headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                             name="column14">
                         </IgrColumn>
                         <IgrColumn
                             field="Freight"
                             header="Freight"
-                            dataType="string"
-                            resizable={true}
+                            dataType="String"
+                            resizable="true"
                             headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                             name="column15">
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="OrderDetails"
-                            autoGenerate={false}>
+                            autoGenerate="false">
                             <IgrColumn
                                 field="UnitPrice"
                                 header="Unit Price"
-                                dataType="string"
-                                resizable={true}
+                                dataType="String"
+                                resizable="true"
                                 headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                                 name="column16">
                             </IgrColumn>
                             <IgrColumn
                                 field="Quantity"
                                 header="Quantity"
-                                dataType="string"
-                                resizable={true}
+                                dataType="String"
+                                resizable="true"
                                 headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                                 name="column17">
                             </IgrColumn>
                             <IgrColumn
                                 field="Discount"
                                 header="Discount"
-                                dataType="string"
-                                resizable={true}
+                                dataType="String"
+                                resizable="true"
                                 headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                                 name="column18">
                             </IgrColumn>
                             <IgrColumn
                                 field="Weight"
                                 header="Weight"
-                                dataType="string"
-                                resizable={true}
+                                dataType="String"
+                                resizable="true"
                                 headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                                 name="column19">
                             </IgrColumn>
                             <IgrColumn
                                 field="Length"
                                 header="Length"
-                                dataType="string"
-                                resizable={true}
+                                dataType="String"
+                                resizable="true"
                                 headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                                 name="column20">
                             </IgrColumn>
                             <IgrColumn
                                 field="TotalPrice"
                                 header="Total Price"
-                                dataType="string"
-                                resizable={true}
+                                dataType="String"
+                                resizable="true"
                                 headerTemplate={this.hierarchicalGridPinHeaderTemplate}
                                 name="column21">
                             </IgrColumn>

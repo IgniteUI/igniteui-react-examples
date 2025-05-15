@@ -33,165 +33,165 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.hierarchicalCustomersData}
                     ref={this.gridRef}
                     id="grid"
                     primaryKey="CustomerID">
                     <IgrColumnGroup
                         header="General Information"
-                        collapsible={true}>
+                        collapsible="true">
                         <IgrColumn
                             field="ContactName"
                             header="Contact Name"
-                            visibleWhenCollapsed={true}>
+                            visibleWhenCollapsed="true">
                         </IgrColumn>
                         <IgrColumn
                             field="ContactTitle"
                             header="Contact Title"
-                            visibleWhenCollapsed={false}>
+                            visibleWhenCollapsed="false">
                         </IgrColumn>
                         <IgrColumn
                             field="CustomerID"
                             header="Customer ID"
-                            visibleWhenCollapsed={false}>
+                            visibleWhenCollapsed="false">
                         </IgrColumn>
                         <IgrColumn
                             field="Company"
                             header="Company Name"
-                            visibleWhenCollapsed={false}>
+                            visibleWhenCollapsed="false">
                         </IgrColumn>
                         <IgrColumnGroup
                             header="Address Information"
-                            collapsible={true}>
+                            collapsible="true">
                             <IgrColumnGroup
                                 header="Location"
                                 width="250px"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                                 <IgrColumn
                                     field="Country"
                                     header="Country"
-                                    visibleWhenCollapsed={true}>
+                                    visibleWhenCollapsed="true">
                                 </IgrColumn>
                                 <IgrColumn
                                     field="City"
                                     header="City"
-                                    visibleWhenCollapsed={true}>
+                                    visibleWhenCollapsed="true">
                                 </IgrColumn>
                                 <IgrColumn
                                     field="Address"
                                     header="Address"
-                                    visibleWhenCollapsed={true}>
+                                    visibleWhenCollapsed="true">
                                 </IgrColumn>
                                 <IgrColumn
                                     field="PostalCode"
                                     header="Postal Code"
-                                    visibleWhenCollapsed={true}>
+                                    visibleWhenCollapsed="true">
                                 </IgrColumn>
                             </IgrColumnGroup>
                         </IgrColumnGroup>
                     </IgrColumnGroup>
                     <IgrRowIsland
                         childDataKey="Orders"
-                        autoGenerate={false}>
+                        autoGenerate="false">
                         <IgrColumnGroup
                             header="Order Details"
-                            collapsible={true}>
+                            collapsible="true">
                             <IgrColumn
                                 field="OrderID"
                                 header="Order ID"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="EmployeeID"
                                 header="Employee ID"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="OrderDate"
                                 header="Order Date"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="RequiredDate"
                                 header="Required Date"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrColumnGroup
                             header="General Shipping Information"
-                            collapsible={true}>
+                            collapsible="true">
                             <IgrColumn
                                 field="ShippedDate"
                                 header="Shipped Date"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="ShipVia"
                                 header="Ship Via"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="Freight"
                                 header="Freight"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="ShipName"
                                 header="Ship Name"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrColumnGroup
                             header="Shipping Location"
-                            collapsible={true}>
+                            collapsible="true">
                             <IgrColumn
                                 field="ShipAddress"
                                 header="Ship Address"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="ShipCity"
                                 header="Ship City"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="ShipPostalCode"
                                 header="Ship Postal Code"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="ShipCountry"
                                 header="Ship Country"
-                                visibleWhenCollapsed={true}>
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrRowIsland
                             childDataKey="OrderDetails"
-                            autoGenerate={false}>
+                            autoGenerate="false">
                             <IgrColumn
                                 field="ProductID"
                                 header="Product ID"
-                                dataType="string"
-                                resizable={true}>
+                                dataType="String"
+                                resizable="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="UnitPrice"
                                 header="Unit Price"
-                                dataType="string"
-                                resizable={true}>
+                                dataType="String"
+                                resizable="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="Quantity"
                                 header="Quantity"
-                                dataType="string"
-                                resizable={true}>
+                                dataType="String"
+                                resizable="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="Discount"
                                 header="Discount"
-                                dataType="string"
-                                resizable={true}>
+                                dataType="String"
+                                resizable="true">
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>

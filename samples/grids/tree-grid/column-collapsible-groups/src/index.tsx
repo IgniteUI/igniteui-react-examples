@@ -34,120 +34,120 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    moving={true}
-                    rowSelection="none">
+                    moving="true"
+                    rowSelection="None">
                     <IgrColumnGroup
                         header="General Information"
-                        collapsible={true}
-                        expanded={false}
-                        pinned={false}>
+                        collapsible="true"
+                        expanded="false"
+                        pinned="false">
                         <IgrColumn
                             field="Name"
                             header="Full Name"
-                            dataType="string"
-                            sortable={true}
-                            resizable={true}
+                            dataType="String"
+                            sortable="true"
+                            resizable="true"
                             width="200"
-                            visibleWhenCollapsed={false}>
+                            visibleWhenCollapsed="false">
                         </IgrColumn>
                         <IgrColumn
                             field="LastName"
                             header="Last Name"
-                            dataType="string"
-                            sortable={true}
-                            resizable={true}
+                            dataType="String"
+                            sortable="true"
+                            resizable="true"
                             width="200"
-                            visibleWhenCollapsed={true}>
+                            visibleWhenCollapsed="true">
                         </IgrColumn>
                         <IgrColumn
                             field="Title"
                             width="250"
-                            dataType="string"
-                            sortable={true}
-                            resizable={true}>
+                            dataType="String"
+                            sortable="true"
+                            resizable="true">
                         </IgrColumn>
                         <IgrColumn
                             field="ID"
-                            dataType="number"
-                            resizable={true}
-                            filterable={false}
-                            visibleWhenCollapsed={false}>
+                            dataType="Number"
+                            resizable="true"
+                            filterable="false"
+                            visibleWhenCollapsed="false">
                         </IgrColumn>
                         <IgrColumn
                             field="HireDate"
-                            dataType="date"
-                            sortable={true}
-                            resizable={true}
-                            visibleWhenCollapsed={false}>
+                            dataType="Date"
+                            sortable="true"
+                            resizable="true"
+                            visibleWhenCollapsed="false">
                         </IgrColumn>
                         <IgrColumn
                             field="Age"
-                            dataType="number"
-                            sortable={true}
-                            resizable={true}
-                            visibleWhenCollapsed={false}>
+                            dataType="Number"
+                            sortable="true"
+                            resizable="true"
+                            visibleWhenCollapsed="false">
                         </IgrColumn>
                     </IgrColumnGroup>
                     <IgrColumnGroup
                         header="Address Information">
                         <IgrColumnGroup
                             header="Location"
-                            collapsible={true}>
+                            collapsible="true">
                             <IgrColumn
                                 field="FullAddress"
                                 width="300"
-                                dataType="string"
-                                sortable={true}
-                                resizable={true}
-                                visibleWhenCollapsed={true}>
+                                dataType="String"
+                                sortable="true"
+                                resizable="true"
+                                visibleWhenCollapsed="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="Country"
-                                dataType="string"
-                                sortable={true}
-                                resizable={true}
-                                visibleWhenCollapsed={false}>
+                                dataType="String"
+                                sortable="true"
+                                resizable="true"
+                                visibleWhenCollapsed="false">
                             </IgrColumn>
                             <IgrColumn
                                 field="City"
-                                dataType="string"
-                                sortable={true}
-                                resizable={true}
-                                visibleWhenCollapsed={false}>
+                                dataType="String"
+                                sortable="true"
+                                resizable="true"
+                                visibleWhenCollapsed="false">
                             </IgrColumn>
                             <IgrColumn
                                 field="Address"
-                                dataType="string"
-                                sortable={true}
-                                resizable={true}
-                                visibleWhenCollapsed={false}>
+                                dataType="String"
+                                sortable="true"
+                                resizable="true"
+                                visibleWhenCollapsed="false">
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrColumnGroup
                             header="Contact Information">
                             <IgrColumn
                                 field="Phone"
-                                dataType="string"
-                                sortable={true}
-                                resizable={true}>
+                                dataType="String"
+                                sortable="true"
+                                resizable="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="Fax"
-                                dataType="string"
-                                sortable={true}
-                                resizable={true}>
+                                dataType="String"
+                                sortable="true"
+                                resizable="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="PostalCode"
-                                dataType="string"
-                                sortable={true}
-                                resizable={true}>
+                                dataType="String"
+                                sortable="true"
+                                resizable="true">
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>

@@ -38,13 +38,13 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatAvatars}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    allowAdvancedFiltering={true}>
+                    allowAdvancedFiltering="true">
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -65,25 +65,25 @@ export default class Sample extends React.Component<any, any> {
                     </IgrGridToolbar>
                     <IgrColumn
                         field="Name"
-                        dataType="string"
+                        dataType="String"
                         bodyTemplate={this.webTreeGridAvatarCellTemplate}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="ID"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

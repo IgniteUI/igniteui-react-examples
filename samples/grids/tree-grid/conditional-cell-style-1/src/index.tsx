@@ -43,42 +43,42 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="Order ID"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Order Product"
-                        dataType="string"
+                        dataType="String"
                         cellClasses={this.webTreeGridAllergensCellClassesHandler}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Category"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="currency"
+                        dataType="Currency"
                         cellClasses={this.webTreeGridUnitPriceCellClassesHandler}
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
-                        dataType="boolean">
+                        dataType="Boolean">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

@@ -83,7 +83,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.employeesNestedTreeData}
                     ref={this.treeGridRef}
                     id="treeGrid"
@@ -94,24 +94,24 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="number"
-                        hasSummary={true}
+                        dataType="Number"
+                        hasSummary="true"
                         summaryTemplate={this.webTreeGridSummaryTemplate}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        hasSummary={true}>
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                     <IgrColumn
                         field="OnPTO"
-                        dataType="boolean"
-                        editable={true}
-                        hasSummary={true}>
+                        dataType="Boolean"
+                        editable="true"
+                        hasSummary="true">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

@@ -66,7 +66,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.invoicesData}
                     rendered={this.webGridPasteFromExcel}
                     ref={this.gridRef}
@@ -77,14 +77,14 @@ export default class Sample extends React.Component<any, any> {
                         <IgrGridToolbarActions
                         >
                             <IgrGridToolbarExporter
-                                exportExcel={true}
-                                exportCSV={false}>
+                                exportExcel="true"
+                                exportCSV="false">
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
                     <IgrColumn
                         field="OrderID"
-                        hidden={true}>
+                        hidden="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Salesperson"
