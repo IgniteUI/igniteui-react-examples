@@ -140,7 +140,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webHierarchicalGridRowSelectionConditional(sender: IgrHierarchicalGrid, eventArgs: IgrRowSelectionEventArgs): void {
+    public webHierarchicalGridRowSelectionConditional(eventArgs: IgrRowSelectionEventArgs): void {
         const event = eventArgs.detail;
         if (!event.added.length && event.removed.length) {
             // ignore de-select

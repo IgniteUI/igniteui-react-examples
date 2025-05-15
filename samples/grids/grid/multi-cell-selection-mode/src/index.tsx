@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridBaseDirective, IgrGridCellEventArgs, IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrColumn, IgrGrid, IgrGridModule, IgrGridSelectionRangeEventArgs } from 'igniteui-react-grids';
 import { InvoicesData } from './InvoicesData';
 
 import 'igniteui-react-grids/grids/combined';
@@ -19,7 +18,8 @@ export default function App() {
     const data = new InvoicesData();
     const rightGridRef = useRef(null);
 
-    function onGridRangeSelected(grid: IgrGridBaseDirective): void {
+    function onGridRangeSelected(evt: IgrGridSelectionRangeEventArgs): void {
+        const grid = evt.target as IgrGrid;
         rightGridRef.current.data = grid.getSelectedData(false, false);
     }
 
@@ -27,7 +27,7 @@ export default function App() {
         <>
             <div className="container sample">      
                 <div className="container horizontal wrapper">
-                    <IgrGrid autoGenerate={false} cellSelection="multiple" data={data} rangeSelected={onGridRangeSelected} width="40%">
+                    <IgrGrid autoGenerate={false} cellSelection="multiple" data={data} onRangeSelected={onGridRangeSelected} width="40%">
                         <IgrColumn field="ProductID" header="Product ID">
                         </IgrColumn>
                         <IgrColumn field="ProductName" header="Product Name">

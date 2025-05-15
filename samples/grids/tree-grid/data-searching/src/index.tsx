@@ -53,11 +53,11 @@ export default function Sample() {
     gridRef.current.findNext(event.detail, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
   }
 
-  function handleCaseSensitiveChange(chip: IgrChip, event: IgrComponentBoolValueChangedEventArgs) {
+  function handleCaseSensitiveChange(event: IgrComponentBoolValueChangedEventArgs) {
     gridRef.current.findNext(searchText, event.detail, exactMatchChipRef.current.selected);
   }
 
-  function handleExactMatchChange(chip: IgrChip, event: IgrComponentBoolValueChangedEventArgs) {
+  function handleExactMatchChange(event: IgrComponentBoolValueChangedEventArgs) {
     gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, event.detail);
   }
 
@@ -110,10 +110,10 @@ export default function Sample() {
             </div>
             
             <div slot="suffix" key="chipSuffix">
-              <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable={true} select={handleCaseSensitiveChange}>
+              <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable={true} onSelect={handleCaseSensitiveChange}>
                 <span key="caseSensitive">Case Sensitive</span>
               </IgrChip>
-              <IgrChip ref={exactMatchChipRef} key="exactMatchChip" selectable={true} select={handleExactMatchChange}>
+              <IgrChip ref={exactMatchChipRef} key="exactMatchChip" selectable={true} onSelect={handleExactMatchChange}>
                 <span key="exactMatch">Exact Match</span>
               </IgrChip>
             </div>

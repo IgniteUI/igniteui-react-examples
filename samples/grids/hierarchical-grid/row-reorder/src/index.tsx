@@ -166,7 +166,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webHierarchicalGridReorderRowHandler(sender: IgrHierarchicalGrid, args: IgrRowDragEndEventArgs): void {
+    public webHierarchicalGridReorderRowHandler(args: IgrRowDragEndEventArgs): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
         const dragElementPos = ghostElement.getBoundingClientRect();
         const grid = this.hierarchicalGrid;

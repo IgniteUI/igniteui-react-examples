@@ -85,7 +85,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridCellEdit(sender: IgrTreeGrid, args: IgrGridEditEventArgs): void {
+    public webTreeGridCellEdit(args: IgrGridEditEventArgs): void {
         const column = args.detail.column;
 
         if (column.field === 'Age') {

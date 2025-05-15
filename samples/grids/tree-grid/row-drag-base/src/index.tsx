@@ -31,7 +31,7 @@ export default function App() {
     children.forEach(child => addRowAndChildren(child, newData));
   }
 
-  function RowDragEnd(grid: IgrTreeGrid, evt: any) {
+  function RowDragEnd(evt: any) {
     const grid2 = treeGridRef2.current;
     const ghostElement = evt.detail.dragDirective.ghostElement;
     if (ghostElement != null) {
@@ -63,7 +63,7 @@ export default function App() {
             width="40%"
             ref={treeGridRef}
             rowDraggable={true}
-            rowDragEnd={RowDragEnd}
+            onRowDragEnd={RowDragEnd}
           >
             <IgrColumn
               field="Name"

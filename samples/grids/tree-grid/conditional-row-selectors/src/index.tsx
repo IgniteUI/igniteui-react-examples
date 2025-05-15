@@ -88,7 +88,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridRowSelectionConditional(sender: IgrTreeGrid, eventArgs: IgrRowSelectionEventArgs): void {
+    public webTreeGridRowSelectionConditional(eventArgs: IgrRowSelectionEventArgs): void {
         const event = eventArgs.detail;
         if (!event.added.length && event.removed.length) {
             // ignore de-select
