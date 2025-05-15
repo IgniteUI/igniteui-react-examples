@@ -49,15 +49,15 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     id="treeGrid"
                     ref={this.treeGridRef}
                     data={this.employeesNestedTreeData}
                     rendered={this.webTreeGridPinRowOnRendered}
-                    rowEditable={true}
+                    rowEditable="true"
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    cellSelection="none"
+                    cellSelection="None"
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         field="Name"
@@ -65,14 +65,14 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="Title">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                     <IgrActionStrip
                         name="actionStrip">

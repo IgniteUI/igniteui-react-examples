@@ -34,7 +34,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
                     data={this.ordersTreeData}
@@ -43,31 +43,31 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="Order ID"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
-                        dataType="string"
+                        dataType="String"
                         header="Order Product">
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         header="Price"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

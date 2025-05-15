@@ -41,11 +41,11 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.financialDataAll}
                     ref={this.gridRef}
                     id="grid"
-                    allowFiltering={true}
+                    allowFiltering="true"
                     rowStyles={this.webGridRowStylesHandler}>
                     <IgrColumn
                         field="Category"
@@ -53,24 +53,24 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumn
                         field="Type"
-                        filterable={false}
+                        filterable="false"
                         width="120px">
                     </IgrColumn>
                     <IgrColumn
                         field="Open"
                         header="Open Price"
                         width="120px"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         width="120px"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="Change"
                         width="120px"
-                        dataType="number"
+                        dataType="Number"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
                         name="column1">
                     </IgrColumn>
@@ -78,7 +78,7 @@ export default class Sample extends React.Component<any, any> {
                         field="ChangePercent"
                         header="Change(%)"
                         width="120px"
-                        dataType="percent"
+                        dataType="Percent"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
                         name="column2">
                     </IgrColumn>
@@ -86,57 +86,57 @@ export default class Sample extends React.Component<any, any> {
                         field="YearlyChange"
                         header="Change On Year(%)"
                         width="150px"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="Buy"
                         width="130px"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="Sell"
                         width="130px"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="Spread"
                         width="130px"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="Volume"
                         width="130px"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="High"
                         header="High(D)"
                         width="130px"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="Low"
                         header="Low(D)"
                         width="130px"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="YearlyHigh"
                         header="High(Y)"
                         width="130px"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="YearlyLow"
                         header="Low(Y)"
                         width="130px"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                     <IgrColumn
                         field="YearlyStart"
                         header="Start(Y)"
                         width="130px"
-                        dataType="currency">
+                        dataType="Currency">
                     </IgrColumn>
                 </IgrGrid>
             </div>

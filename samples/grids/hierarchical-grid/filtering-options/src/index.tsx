@@ -33,134 +33,134 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.singersData}
                     primaryKey="ID"
-                    allowFiltering={true}
-                    filterMode="quickFilter"
+                    allowFiltering="true"
+                    filterMode="QuickFilter"
                     ref={this.hierarchicalGrid1Ref}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
-                        dataType="string"
-                        resizable={true}>
+                        dataType="String"
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Photo"
                         header="Photo"
-                        dataType="image"
+                        dataType="Image"
                         minWidth="115px"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut"
-                        dataType="number"
+                        dataType="Number"
                         minWidth="88px"
                         maxWidth="230px"
-                        resizable={true}
-                        filterable={false}>
+                        resizable="true"
+                        filterable="false">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="string"
-                        resizable={true}>
+                        dataType="String"
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="string"
-                        resizable={true}>
+                        dataType="String"
+                        resizable="true">
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate={false}
-                        allowFiltering={true}
-                        filterMode="quickFilter">
+                        autoGenerate="false"
+                        allowFiltering="true"
+                        filterMode="QuickFilter">
                         <IgrColumn
                             field="Album"
                             header="Album"
-                            dataType="string"
-                            resizable={true}>
+                            dataType="String"
+                            resizable="true">
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="date"
-                            resizable={true}>
+                            dataType="Date"
+                            resizable="true">
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
                             header="Billboard Review"
-                            dataType="string"
-                            resizable={true}>
+                            dataType="String"
+                            resizable="true">
                         </IgrColumn>
                         <IgrColumn
                             field="USBillboard200"
                             header="US Billboard 200"
-                            dataType="string"
-                            resizable={true}>
+                            dataType="String"
+                            resizable="true">
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="Songs"
-                            autoGenerate={false}
-                            allowFiltering={true}
-                            filterMode="quickFilter">
+                            autoGenerate="false"
+                            allowFiltering="true"
+                            filterMode="QuickFilter">
                             <IgrColumn
                                 field="Number"
                                 header="No."
-                                dataType="string"
-                                resizable={true}>
+                                dataType="String"
+                                resizable="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="Title"
                                 header="Title"
-                                dataType="string"
-                                resizable={true}>
+                                dataType="String"
+                                resizable="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="Released"
                                 header="Released"
-                                dataType="string"
-                                resizable={true}>
+                                dataType="String"
+                                resizable="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="Genre"
                                 header="Genre"
-                                dataType="string"
-                                resizable={true}>
+                                dataType="String"
+                                resizable="true">
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>
                     <IgrRowIsland
                         childDataKey="Tours"
-                        autoGenerate={false}
-                        allowFiltering={true}
-                        filterMode="quickFilter">
+                        autoGenerate="false"
+                        allowFiltering="true"
+                        filterMode="QuickFilter">
                         <IgrColumn
                             field="Tour"
                             header="Tour"
-                            dataType="string"
-                            resizable={true}>
+                            dataType="String"
+                            resizable="true">
                         </IgrColumn>
                         <IgrColumn
                             field="StartedOn"
                             header="Started on"
-                            dataType="string"
-                            resizable={true}>
+                            dataType="String"
+                            resizable="true">
                         </IgrColumn>
                         <IgrColumn
                             field="Location"
                             header="Location"
-                            dataType="string"
-                            resizable={true}>
+                            dataType="String"
+                            resizable="true">
                         </IgrColumn>
                         <IgrColumn
                             field="Headliner"
                             header="Headliner"
-                            dataType="string"
-                            resizable={true}>
+                            dataType="String"
+                            resizable="true">
                         </IgrColumn>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>

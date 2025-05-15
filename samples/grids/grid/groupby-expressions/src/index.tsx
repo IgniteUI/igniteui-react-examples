@@ -57,7 +57,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.invoicesWorldData}
                     ref={this.gridRef}
                     id="grid"
@@ -65,32 +65,32 @@ export default class Sample extends React.Component<any, any> {
                     groupRowTemplate={this.webGridGroupByRowTemplate}>
                     <IgrColumn
                         field="OrderID"
-                        hidden={true}>
+                        hidden="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipCountry"
                         header="Ship Country"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date"
+                        dataType="Date"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
                         header="Postal Code"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
                         width="200px"
-                        dataType="boolean"
-                        groupable={true}
+                        dataType="Boolean"
+                        groupable="true"
                         bodyTemplate={this.webGridBooleanCellTemplate}
                         name="column1">
                     </IgrColumn>
@@ -98,36 +98,36 @@ export default class Sample extends React.Component<any, any> {
                         field="ShipName"
                         header="Ship Name"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipCity"
                         header="Ship City"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipperName"
                         header="Shipper Name"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Salesperson"
                         header="Sales Person"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Quantity"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                 </IgrGrid>
             </div>

@@ -35,20 +35,20 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatData}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    rowSelection="multiple"
+                    rowSelection="Multiple"
                     rowSelectorTemplate={this.webGridRowSelectorTemplate}
                     headSelectorTemplate={this.webGridHeaderRowSelectorTemplate}
-                    cellSelection="none"
-                    hideRowSelectors={false}>
+                    cellSelection="None"
+                    hideRowSelectors="false">
                     <IgrColumn
                         field="Name"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
@@ -56,15 +56,15 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="date">
+                        dataType="Date">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="OnPTO"
-                        dataType="boolean">
+                        dataType="Boolean">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

@@ -49,7 +49,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     id="grid"
                     ref={this.gridRef}
                     data={this.ordersTreeData}
@@ -58,49 +58,49 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="Order ID"
-                        groupable={true}
-                        sortable={true}>
+                        groupable="true"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Name"
-                        dataType="string"
-                        groupable={true}
-                        sortable={true}>
+                        dataType="String"
+                        groupable="true"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Category"
                         header="Category"
-                        dataType="string"
-                        groupable={true}
-                        sortable={true}>
+                        dataType="String"
+                        groupable="true"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date"
-                        groupable={true}
-                        sortable={true}>
+                        dataType="Date"
+                        groupable="true"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
-                        dataType="currency"
-                        groupable={true}
-                        sortable={true}
+                        dataType="Currency"
+                        groupable="true"
+                        sortable="true"
                         pipeArgs={this.columnPipeArgs1}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
                         header="Units"
-                        dataType="number"
-                        sortable={true}>
+                        dataType="Number"
+                        sortable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
                         header="Units"
-                        dataType="boolean"
-                        sortable={true}>
+                        dataType="Boolean"
+                        sortable="true">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

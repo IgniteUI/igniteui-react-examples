@@ -94,7 +94,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     ref={this.gridRef}
                     data={this.nwindData}
-                    rowEditable={true}
+                    rowEditable="true"
                     primaryKey="ProductID">
                     <IgrColumn
                         name="ProductID"

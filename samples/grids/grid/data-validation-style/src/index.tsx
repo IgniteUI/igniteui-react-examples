@@ -34,7 +34,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.nwindData}
                     ref={this.grid1Ref}>
                     <IgrColumn
@@ -48,12 +48,12 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitsInStock"
                         header="Units in Stock"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                 </IgrGrid>
             </div>

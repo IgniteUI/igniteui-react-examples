@@ -34,48 +34,48 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    moving={true}
-                    rowEditable={true}
-                    rowSelection="multiple">
+                    moving="true"
+                    rowEditable="true"
+                    rowSelection="Multiple">
                     <IgrColumn
                         field="Name"
                         header="Full Name"
-                        dataType="string"
-                        resizable={true}
-                        sortable={true}
-                        filterable={true}
-                        editable={true}>
+                        dataType="String"
+                        resizable="true"
+                        sortable="true"
+                        filterable="true"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="number"
-                        resizable={false}
-                        sortable={false}
-                        filterable={false}
-                        editable={true}>
+                        dataType="Number"
+                        resizable="false"
+                        sortable="false"
+                        filterable="false"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        dataType="string"
-                        resizable={true}
-                        sortable={true}
-                        filterable={true}
-                        editable={true}>
+                        dataType="String"
+                        resizable="true"
+                        sortable="true"
+                        filterable="true"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
                         header="Hire Date"
-                        dataType="date"
-                        resizable={true}
-                        sortable={true}
-                        filterable={true}
-                        editable={true}>
+                        dataType="Date"
+                        resizable="true"
+                        sortable="true"
+                        filterable="true"
+                        editable="true">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

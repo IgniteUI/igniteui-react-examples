@@ -38,15 +38,15 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesNestedData}
                     childDataKey="Employees"
-                    rowSelection="multiple"
-                    moving={true}
-                    allowFiltering={true}
-                    filterMode="excelStyleFilter">
+                    rowSelection="Multiple"
+                    moving="true"
+                    allowFiltering="true"
+                    filterMode="ExcelStyleFilter">
                     <IgrPaginator
                     >
                     </IgrPaginator>
@@ -64,35 +64,35 @@ export default class Sample extends React.Component<any, any> {
                             >
                             </IgrGridToolbarPinning>
                             <IgrGridToolbarExporter
-                                exportCSV={true}
-                                exportExcel={true}>
+                                exportCSV="true"
+                                exportExcel="true">
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
                     <IgrColumn
                         field="Name"
                         header="Name"
-                        dataType="string"
-                        sortable={true}
-                        editable={true}
-                        resizable={true}
-                        hasSummary={true}>
+                        dataType="String"
+                        sortable="true"
+                        editable="true"
+                        resizable="true"
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
                         header="Hire Date"
-                        dataType="date"
-                        sortable={true}
-                        editable={true}
-                        resizable={true}>
+                        dataType="Date"
+                        sortable="true"
+                        editable="true"
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
                         header="Age"
-                        dataType="number"
-                        sortable={true}
-                        editable={true}
-                        resizable={true}>
+                        dataType="Number"
+                        sortable="true"
+                        editable="true"
+                        resizable="true">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

@@ -38,7 +38,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatDetails}
@@ -55,8 +55,8 @@ export default class Sample extends React.Component<any, any> {
                             >
                             </IgrGridToolbarHiding>
                             <IgrGridToolbarExporter
-                                exportCSV={false}
-                                exportExcel={true}
+                                exportCSV="false"
+                                exportExcel="true"
                                 exportStarted={this.webGridExportEventMultiColumnHeaders}
                                 name="gridToolbarExporter1">
                             </IgrGridToolbarExporter>
@@ -65,14 +65,14 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="ID"
-                        resizable={true}
-                        filterable={false}>
+                        resizable="true"
+                        filterable="false">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Name"
-                        resizable={true}
-                        sortable={true}
+                        resizable="true"
+                        sortable="true"
                         width="200px">
                     </IgrColumn>
                     <IgrColumnGroup
@@ -80,24 +80,24 @@ export default class Sample extends React.Component<any, any> {
                         <IgrColumn
                             field="HireDate"
                             header="HireDate"
-                            dataType="date"
-                            resizable={true}
-                            sortable={true}>
+                            dataType="Date"
+                            resizable="true"
+                            sortable="true">
                         </IgrColumn>
                         <IgrColumnGroup
                             header="Personal Details">
                             <IgrColumn
                                 header="Title"
                                 field="Title"
-                                resizable={true}
-                                sortable={true}>
+                                resizable="true"
+                                sortable="true">
                             </IgrColumn>
                             <IgrColumn
                                 header="Age"
                                 field="Age"
-                                dataType="number"
-                                resizable={true}
-                                sortable={true}>
+                                dataType="Number"
+                                resizable="true"
+                                sortable="true">
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>
@@ -108,20 +108,20 @@ export default class Sample extends React.Component<any, any> {
                             <IgrColumn
                                 header="Country"
                                 field="Country"
-                                resizable={true}
-                                sortable={true}>
+                                resizable="true"
+                                sortable="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="City"
                                 header="City"
-                                resizable={true}
-                                sortable={true}>
+                                resizable="true"
+                                sortable="true">
                             </IgrColumn>
                             <IgrColumn
                                 header="Address"
                                 field="Address"
-                                resizable={true}
-                                sortable={true}>
+                                resizable="true"
+                                sortable="true">
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrColumnGroup
@@ -129,20 +129,20 @@ export default class Sample extends React.Component<any, any> {
                             <IgrColumn
                                 header="Phone"
                                 field="Phone"
-                                resizable={true}
-                                sortable={true}>
+                                resizable="true"
+                                sortable="true">
                             </IgrColumn>
                             <IgrColumn
                                 header="Fax"
                                 field="Fax"
-                                resizable={true}
-                                sortable={true}>
+                                resizable="true"
+                                sortable="true">
                             </IgrColumn>
                             <IgrColumn
                                 header="PostalCode"
                                 field="PostalCode"
-                                resizable={true}
-                                sortable={true}>
+                                resizable="true"
+                                sortable="true">
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>

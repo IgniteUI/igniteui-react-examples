@@ -52,7 +52,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
                     data={this.companyData}
@@ -64,31 +64,31 @@ export default class Sample extends React.Component<any, any> {
                             name="Company"
                             field="Company"
                             header="Company"
-                            rowStart={1}
-                            colStart={1}
-                            colEnd={3}>
+                            rowStart="1"
+                            colStart="1"
+                            colEnd="3">
                         </IgrColumn>
                         <IgrColumn
                             name="Country"
                             field="Country"
                             header="Country"
-                            rowStart={2}
-                            colStart={1}>
+                            rowStart="2"
+                            colStart="1">
                         </IgrColumn>
                         <IgrColumn
                             name="City"
                             field="City"
                             header="City"
-                            rowStart={2}
-                            colStart={2}>
+                            rowStart="2"
+                            colStart="2">
                         </IgrColumn>
                         <IgrColumn
                             name="Address"
                             field="Address"
                             header="Address"
-                            rowStart={3}
-                            colStart={1}
-                            colEnd={3}>
+                            rowStart="3"
+                            colStart="1"
+                            colEnd="3">
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
@@ -98,24 +98,24 @@ export default class Sample extends React.Component<any, any> {
                             name="LifetimeSales"
                             field="LifetimeSales"
                             header="Lifetime Sales"
-                            rowStart={1}
-                            rowEnd={3}
-                            colStart={1}
-                            colEnd={3}>
+                            rowStart="1"
+                            rowEnd="3"
+                            colStart="1"
+                            colEnd="3">
                         </IgrColumn>
                         <IgrColumn
                             name="Quarterly"
                             field="QuarterlySales"
                             header="Quarterly"
-                            rowStart={3}
-                            colStart={1}>
+                            rowStart="3"
+                            colStart="1">
                         </IgrColumn>
                         <IgrColumn
                             name="Yearly"
                             field="YearlySales"
                             header="Yearly"
-                            rowStart={3}
-                            colStart={2}>
+                            rowStart="3"
+                            colStart="2">
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
@@ -125,9 +125,9 @@ export default class Sample extends React.Component<any, any> {
                             name="MarketPotential"
                             field="MarketPotential"
                             header="Market Potential"
-                            rowStart={1}
-                            rowEnd={4}
-                            colStart={1}>
+                            rowStart="1"
+                            rowEnd="4"
+                            colStart="1">
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
@@ -137,25 +137,25 @@ export default class Sample extends React.Component<any, any> {
                             name="AssetsCash"
                             field="AssetsCash"
                             header="Assets Cash"
-                            rowStart={1}
-                            colStart={1}>
+                            rowStart="1"
+                            colStart="1">
                         </IgrColumn>
                         <IgrColumn
                             name="AccountsReceivable"
                             field="AccountsReceivable"
                             header="Accounts Receivable"
-                            rowStart={1}
-                            colStart={2}
-                            colEnd={4}>
+                            rowStart="1"
+                            colStart="2"
+                            colEnd="4">
                         </IgrColumn>
                         <IgrColumn
                             name="AssetsBooks"
                             field="AssetsBooks"
                             header="Assets Books"
-                            rowStart={2}
-                            rowEnd={4}
-                            colStart={1}
-                            colEnd={4}>
+                            rowStart="2"
+                            rowEnd="4"
+                            colStart="1"
+                            colEnd="4">
                         </IgrColumn>
                     </IgrColumnLayout>
                 </IgrGrid>
