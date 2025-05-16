@@ -86,10 +86,12 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     data={this.employeesData}
                     rowEditable={true}
                     primaryKey="ID">
                     <IgrColumn
+                        name="Avatar"
                         field="Avatar"
                         header="Avatar"
                         dataType="string"
@@ -98,27 +100,32 @@ export default class Sample extends React.Component<any, any> {
                         bodyTemplate={this.webGridAvatarCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
+                        name="Name"
                         field="Name"
                         header="Name"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="Company"
                         field="Company"
                         header="Company"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="Email"
                         field="Email"
                         header="Email"
                         width="190px"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="Fax"
                         field="Fax"
                         header="Phone"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="CreatedOn"
                         field="CreatedOn"
                         header="Date of Registration"
                         width="170px"
@@ -127,6 +134,7 @@ export default class Sample extends React.Component<any, any> {
                         pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
+                        name="LastActivity"
                         field="LastActivity"
                         header="Last Active"
                         width="170px"
@@ -134,24 +142,28 @@ export default class Sample extends React.Component<any, any> {
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="EstimatedSales"
                         field="EstimatedSales"
                         header="Estimated Sales"
                         dataType="number"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="DealsLost"
                         field="DealsLost"
                         header="Deals Lost"
                         dataType="number"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="DealsWon"
                         field="DealsWon"
                         header="Deals Won"
                         dataType="number"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="DealsPending"
                         field="DealsPending"
                         header="Deals Pending"
                         dataType="number"

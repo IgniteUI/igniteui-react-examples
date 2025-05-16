@@ -21,6 +21,7 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -36,6 +37,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.nwindData}
+                    ref={this.gridRef}
                     id="grid"
                     allowFiltering={true}
                     filterMode="excelStyleFilter">
@@ -73,7 +75,8 @@ export default class Sample extends React.Component<any, any> {
                         sortable={true}
                         disableHiding={true}
                         dataType="boolean"
-                        bodyTemplate={this.webGridBooleanCellTemplate}>
+                        bodyTemplate={this.webGridBooleanCellTemplate}
+                        name="column1">
                     </IgrColumn>
                 </IgrGrid>
             </div>

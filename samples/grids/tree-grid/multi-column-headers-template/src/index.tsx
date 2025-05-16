@@ -23,6 +23,8 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
+    private columnGroup1: IgrColumnGroup
+    private columnGroup2: IgrColumnGroup
 
     constructor(props: any) {
         super(props);
@@ -38,6 +40,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     data={this.employeesFlatDetails}
+                    ref={this.treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
                     foreignKey="ParentID">
@@ -47,7 +50,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumnGroup
                         header="General Information"
-                        headerTemplate={this.webTreeGridColumnGroupHeaderTemplate}>
+                        headerTemplate={this.webTreeGridColumnGroupHeaderTemplate}
+                        name="columnGroup1">
                         <IgrColumn
                             field="HireDate"
                             sortable={true}
@@ -74,7 +78,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumnGroup>
                     <IgrColumnGroup
                         header="Address Information"
-                        headerTemplate={this.webTreeGridColumnGroupHeaderTemplate}>
+                        headerTemplate={this.webTreeGridColumnGroupHeaderTemplate}
+                        name="columnGroup2">
                         <IgrColumn
                             header="Location"
                             field="Address"
@@ -175,6 +180,7 @@ export default class Sample extends React.Component<any, any> {
                 c.hidden = !c.hidden;
             }
         }
+        columnGroup.forceUpdate();
         this.columnGroupStates.set(columnGroup, !this.columnGroupStates.get(columnGroup));
     }
 }

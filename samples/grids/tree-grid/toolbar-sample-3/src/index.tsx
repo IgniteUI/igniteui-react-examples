@@ -25,6 +25,7 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -40,11 +41,12 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
+                    ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatAvatars}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    onToolbarExporting={this.webTreeGridToolbarExporting}>
+                    toolbarExporting={this.webTreeGridToolbarExporting}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -57,7 +59,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Name"
                         dataType="string"
-                        bodyTemplate={this.webTreeGridAvatarCellTemplate}>
+                        bodyTemplate={this.webTreeGridAvatarCellTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
@@ -91,7 +94,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webTreeGridToolbarExporting(evt: IgrGridToolbarExportEventArgs): void {
+    public webTreeGridToolbarExporting(sender: IgrTreeGrid, evt: IgrGridToolbarExportEventArgs): void {
         const args = evt.detail;
         const options: IgrExporterOptionsBase = args.options;
         if (options) {

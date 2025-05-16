@@ -45,6 +45,7 @@ export default class Sample extends React.Component<any, any> {
         return this._pinningConfig1;
     }
     private actionStrip1: IgrActionStrip
+    private rowIsland1: IgrRowIsland
     private  _pinningConfig2: IgrPinningConfig | null = null;
     public get pinningConfig2(): IgrPinningConfig {
         if (this._pinningConfig2 == null)
@@ -96,8 +97,9 @@ export default class Sample extends React.Component<any, any> {
                     data={this.singersData}
                     primaryKey="Photo"
                     id="grid"
+                    ref={this.gridRef}
                     cellSelection="none"
-                    onRendered={this.webHierarchicalGridPinRowOnRendered}
+                    rendered={this.webHierarchicalGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         field="Artist"
@@ -126,7 +128,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="string">
                     </IgrColumn>
                     <IgrActionStrip
-                    >
+                        name="actionStrip1">
                         <IgrGridPinningActions
                         >
                         </IgrGridPinningActions>
@@ -136,7 +138,8 @@ export default class Sample extends React.Component<any, any> {
                         primaryKey="Album"
                         cellSelection="none"
                         autoGenerate={false}
-                        pinning={this.pinningConfig2}>
+                        pinning={this.pinningConfig2}
+                        name="rowIsland1">
                         <IgrColumn
                             field="Album"
                             header="Album"
@@ -158,7 +161,7 @@ export default class Sample extends React.Component<any, any> {
                             dataType="string">
                         </IgrColumn>
                         <IgrActionStrip
-                        >
+                            name="actionStrip2">
                             <IgrGridPinningActions
                             >
                             </IgrGridPinningActions>
@@ -187,17 +190,19 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webHierarchicalGridChangePinningConfig(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        const rows = args.newValue === "Top" ? RowPinningPosition.Top : RowPinningPosition.Bottom;
-        const columns = ColumnPinningPosition.End;
-        this._pinningConfig1 = { rows, columns };
-        this._pinningConfig2 = { rows, columns };
-        if ('_pinningConfig3' in this) {
-            this._pinningConfig3 = { rows, columns };
+        var newPinningPosition = args.newValue === "Top" ? RowPinningPosition.Top : RowPinningPosition.Bottom;
+        var grid = this.grid;
+        grid.pinning.rows = newPinningPosition;
+        var rowIsland1 = grid.contentChildLayoutList.filter(e => e.childDataKey == 'Albums');
+        rowIsland1[0].pinning.rows = newPinningPosition;
+    var rowIsland2 = rowIsland1[0].contentChildLayoutList.filter(e => e.childDataKey == 'Songs');
+    if(rowIsland2[0]) {
+            rowIsland2[0].pinning.rows = newPinningPosition;
         }
-        if ('_pinningConfig4' in this) {
-            this._pinningConfig4 = { rows, columns };
+        var rowIsland3 = grid.contentChildLayoutList.filter(e => e.childDataKey == 'Tours');
+        if(rowIsland3[0]) {
+            rowIsland3[0].pinning.rows = newPinningPosition
         }
-        this.forceUpdate(); // due to not using state
     }
 
     public webHierarchicalGridPinRowOnRendered(): void {

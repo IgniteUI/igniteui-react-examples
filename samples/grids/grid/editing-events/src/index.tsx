@@ -17,19 +17,18 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid: IgrGrid
-    private gridRef(r: IgrGrid) {
-        this.grid = r;
+    private grid1: IgrGrid
+    private grid1Ref(r: IgrGrid) {
+        this.grid1 = r;
         this.setState({});
     }
-    private column: IgrColumn
     private unitsInStock: IgrColumn
     private unitsOnOrder: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.gridRef = this.gridRef.bind(this);
+        this.grid1Ref = this.grid1Ref.bind(this);
         this.webGridEditingEventsCellEdit = this.webGridEditingEventsCellEdit.bind(this);
     }
 
@@ -42,7 +41,8 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    onCellEdit={this.webGridEditingEventsCellEdit}>
+                    cellEdit={this.webGridEditingEventsCellEdit}
+                    ref={this.grid1Ref}>
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"
@@ -55,12 +55,14 @@ export default class Sample extends React.Component<any, any> {
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="UnitsInStock"
                         field="UnitsInStock"
                         header="Units In Stock"
                         dataType="number"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="UnitsOnOrder"
                         field="UnitsOnOrder"
                         header="Units on Order"
                         dataType="number"
@@ -87,7 +89,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridEditingEventsCellEdit(args: IgrGridEditEventArgs): void {
+    public webGridEditingEventsCellEdit(sender: IgrGrid, args: IgrGridEditEventArgs): void {
         var d = args.detail;
 
         if (d.column != null && d.column.field == "UnitsOnOrder") {

@@ -95,6 +95,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     id="grid"
+                    ref={this.gridRef}
                     data={this.nwindData}
                     moving={true}
                     allowFiltering={true}
@@ -109,16 +110,19 @@ export default class Sample extends React.Component<any, any> {
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
                     <IgrColumn
+                        name="ProductName"
                         field="ProductName"
                         header="Product Name"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="QuantityPerUnit"
                         field="QuantityPerUnit"
                         header="Quantity Per Unit"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="currency"
@@ -126,6 +130,7 @@ export default class Sample extends React.Component<any, any> {
                         pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
+                        name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
                         dataType="date"
@@ -133,6 +138,7 @@ export default class Sample extends React.Component<any, any> {
                         pipeArgs={this.columnPipeArgs2}>
                     </IgrColumn>
                     <IgrColumn
+                        name="Discontinued"
                         field="Discontinued"
                         header="Discontinued"
                         sortable={true}

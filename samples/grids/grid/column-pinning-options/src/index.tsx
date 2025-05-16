@@ -21,6 +21,15 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
+    private column4: IgrColumn
+    private column5: IgrColumn
+    private column6: IgrColumn
+    private column7: IgrColumn
+    private column8: IgrColumn
+    private column9: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -35,7 +44,8 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
-                    data={this.customersData}>
+                    data={this.customersData}
+                    ref={this.gridRef}>
                     <IgrColumn
                         field="ID"
                         header="ID"
@@ -45,57 +55,66 @@ export default class Sample extends React.Component<any, any> {
                         field="Company"
                         header="Company"
                         width="300px"
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="ContactName"
                         header="Name"
                         width="200px"
                         pinned={true}
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="ContactTitle"
                         header="Title"
                         width="200px"
                         pinned={true}
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column3">
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
                         header="Address"
                         width="300px"
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column4">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
                         header="City"
                         width="120px"
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column5">
                     </IgrColumn>
                     <IgrColumn
                         field="Region"
                         header="Region"
                         width="120px"
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column6">
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
                         header="Postal Code"
                         width="150px"
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column7">
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
                         header="Phone"
                         width="150px"
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column8">
                     </IgrColumn>
                     <IgrColumn
                         field="Fax"
                         header="Fax"
                         width="150px"
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column9">
                     </IgrColumn>
                 </IgrGrid>
             </div>

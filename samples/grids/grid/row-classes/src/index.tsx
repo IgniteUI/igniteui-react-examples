@@ -16,9 +16,9 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid: IgrGrid
-    private gridRef(r: IgrGrid) {
-        this.grid = r;
+    private grid1: IgrGrid
+    private grid1Ref(r: IgrGrid) {
+        this.grid1 = r;
         this.setState({});
     }
     private productID: IgrColumn
@@ -31,7 +31,7 @@ export default class Sample extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
 
-        this.gridRef = this.gridRef.bind(this);
+        this.grid1Ref = this.grid1Ref.bind(this);
     }
 
     public render(): JSX.Element {
@@ -42,31 +42,38 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.nwindData}
-                    rowClasses={this.webGridRowClassesHandler}>
+                    rowClasses={this.webGridRowClassesHandler}
+                    ref={this.grid1Ref}>
                     <IgrColumn
+                        name="ProductID"
                         field="ProductID"
                         header="Product ID">
                     </IgrColumn>
                     <IgrColumn
+                        name="ProductName"
                         field="ProductName"
                         header="Product Name">
                     </IgrColumn>
                     <IgrColumn
+                        name="UnitsInStock"
                         field="UnitsInStock"
                         header="Units In Stock"
                         dataType="number">
                     </IgrColumn>
                     <IgrColumn
+                        name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="number">
                     </IgrColumn>
                     <IgrColumn
+                        name="Discontinued"
                         field="Discontinued"
                         header="Discontinued"
                         dataType="boolean">
                     </IgrColumn>
                     <IgrColumn
+                        name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
                         dataType="date">

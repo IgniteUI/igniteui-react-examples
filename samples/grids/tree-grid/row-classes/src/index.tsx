@@ -16,17 +16,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private treeGrid: IgrTreeGrid
-    private treeGridRef(r: IgrTreeGrid) {
-        this.treeGrid = r;
+    private treeGrid1: IgrTreeGrid
+    private treeGrid1Ref(r: IgrTreeGrid) {
+        this.treeGrid1 = r;
         this.setState({});
     }
-    private column: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.treeGridRef = this.treeGridRef.bind(this);
+        this.treeGrid1Ref = this.treeGrid1Ref.bind(this);
     }
 
     public render(): JSX.Element {
@@ -41,7 +40,8 @@ export default class Sample extends React.Component<any, any> {
                     foreignKey="ParentID"
                     moving={true}
                     rowEditable={true}
-                    rowClasses={this.webGridRowClassesHandler}>
+                    rowClasses={this.webGridRowClassesHandler}
+                    ref={this.treeGrid1Ref}>
                     <IgrColumn
                         field="Name"
                         header="Full Name"

@@ -17,6 +17,7 @@
     "igniteui-dockmanager": "1.16.1",
     "igniteui-react": "19.0.2",
     "igniteui-react-core": "19.0.0-alpha.1",
+    "igniteui-react-data-grids": "19.0.0-alpha.1",
     "igniteui-react-datasources": "19.0.0-alpha.1",
     "igniteui-react-grids": "19.0.2",
     "igniteui-react-inputs": "19.0.0-alpha.1",

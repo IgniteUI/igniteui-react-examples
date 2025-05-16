@@ -48,17 +48,21 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.customersData}
                     id="grid"
-                    onColumnResized={this.webGridColumnResized}>
+                    ref={this.gridRef}
+                    columnResized={this.webGridColumnResized}>
                     <IgrColumn
+                        name="ID"
                         field="ID"
                         header="ID">
                     </IgrColumn>
                     <IgrColumn
+                        name="Company"
                         field="Company"
                         header="Company"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="ContactName"
                         field="ContactName"
                         header="Name"
                         minWidth="60px"
@@ -66,35 +70,42 @@ export default class Sample extends React.Component<any, any> {
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="ContactTitle"
                         field="ContactTitle"
                         header="Title"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="Address"
                         field="Address"
                         header="Address"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="City"
                         field="City"
                         header="City">
                     </IgrColumn>
                     <IgrColumn
+                        name="Region"
                         field="Region"
                         header="Region"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="PostalCode"
                         field="PostalCode"
                         header="Postal Code"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="Country"
                         field="Country"
                         header="Country"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
+                        name="Phone"
                         field="Phone"
                         header="Phone"
                         resizable={true}>
@@ -115,7 +126,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webGridColumnResized(args: IgrColumnResizeEventArgs): void {
+    public webGridColumnResized(grid: IgrGridBaseDirective, args: IgrColumnResizeEventArgs): void {
         var col = args.detail.column;
         var pWidth = args.detail.prevWidth;
         var nWidth = args.detail.newWidth;

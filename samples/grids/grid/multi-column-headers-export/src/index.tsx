@@ -23,6 +23,7 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private gridToolbarExporter1: IgrGridToolbarExporter
     private iD: IgrColumn
     private generalInformation: IgrColumnGroup
     private company: IgrColumn
@@ -55,6 +56,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     id="grid"
+                    ref={this.gridRef}
                     data={this.customersData}
                     moving={true}
                     allowFiltering={true}>
@@ -71,74 +73,91 @@ export default class Sample extends React.Component<any, any> {
                             <IgrGridToolbarExporter
                                 exportCSV={false}
                                 exportExcel={true}
-                                onExportStarted={this.webGridExportEventMultiColumnHeaders}>
+                                exportStarted={this.webGridExportEventMultiColumnHeaders}
+                                name="gridToolbarExporter1">
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
                     <IgrColumn
+                        name="ID"
                         field="ID"
                         header="ID"
                         resizable={true}
                         filterable={false}>
                     </IgrColumn>
                     <IgrColumnGroup
+                        name="GeneralInformation"
                         header="General Information"
                         collapsible={true}
                         expanded={true}>
                         <IgrColumn
+                            name="Company"
                             field="Company"
                             visibleWhenCollapsed={true}>
                         </IgrColumn>
                         <IgrColumnGroup
+                            name="PersonalDetails"
                             header="Personal Details"
                             collapsible={true}
                             expanded={false}
                             visibleWhenCollapsed={false}>
                             <IgrColumn
+                                name="ContactName"
                                 field="ContactName">
                             </IgrColumn>
                             <IgrColumn
+                                name="ContactTitle"
                                 field="ContactTitle">
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>
                     <IgrColumnGroup
+                        name="AddressInformation"
                         header="Address Information">
                         <IgrColumnGroup
+                            name="Location"
                             header="Location"
                             collapsible={true}
                             expanded={false}
                             visibleWhenCollapsed={true}>
                             <IgrColumn
+                                name="Country"
                                 field="Country"
                                 visibleWhenCollapsed={true}
                                 hidden={true}>
                             </IgrColumn>
                             <IgrColumn
+                                name="Region"
                                 field="Region"
                                 visibleWhenCollapsed={false}
                                 hidden={true}>
                             </IgrColumn>
                             <IgrColumn
+                                name="City"
                                 field="City"
                                 visibleWhenCollapsed={false}
                                 hidden={true}>
                             </IgrColumn>
                             <IgrColumn
+                                name="Address"
                                 field="Address"
                                 visibleWhenCollapsed={false}
                                 hidden={true}>
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrColumnGroup
+                            name="ContactInformation"
                             header="Contact Information">
                             <IgrColumn
+                                name="Phone"
                                 field="Phone">
                             </IgrColumn>
                             <IgrColumn
+                                name="Fax"
                                 field="Fax">
                             </IgrColumn>
                             <IgrColumn
+                                name="PostalCode"
                                 field="PostalCode">
                             </IgrColumn>
                         </IgrColumnGroup>
@@ -169,7 +188,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridExportEventMultiColumnHeaders(args: IgrExporterEventArgs): void {
+    public webGridExportEventMultiColumnHeaders(sender: IgrGridToolbarExporter, args: IgrExporterEventArgs): void {
         if (args.detail.options) {
             args.detail.options.ignoreMultiColumnHeaders = false;
         }

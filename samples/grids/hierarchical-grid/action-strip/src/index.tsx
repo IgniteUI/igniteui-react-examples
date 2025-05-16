@@ -15,9 +15,9 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private hierarchicalGrid: IgrHierarchicalGrid
-    private hierarchicalGridRef(r: IgrHierarchicalGrid) {
-        this.hierarchicalGrid = r;
+    private hierarchicalGrid1: IgrHierarchicalGrid
+    private hierarchicalGrid1Ref(r: IgrHierarchicalGrid) {
+        this.hierarchicalGrid1 = r;
         this.setState({});
     }
     private  _pinningConfig1: IgrPinningConfig | null = null;
@@ -32,13 +32,11 @@ export default class Sample extends React.Component<any, any> {
         return this._pinningConfig1;
     }
     private actionStrip: IgrActionStrip
-    private column: IgrColumn
-    private rowIsland: IgrRowIsland
 
     constructor(props: any) {
         super(props);
 
-        this.hierarchicalGridRef = this.hierarchicalGridRef.bind(this);
+        this.hierarchicalGrid1Ref = this.hierarchicalGrid1Ref.bind(this);
     }
 
     public render(): JSX.Element {
@@ -52,9 +50,10 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     rowEditable={true}
                     allowFiltering={true}
-                    pinning={this.pinningConfig1}>
+                    pinning={this.pinningConfig1}
+                    ref={this.hierarchicalGrid1Ref}>
                     <IgrActionStrip
-                    >
+                        name="actionStrip">
                         <IgrGridPinningActions
                         >
                         </IgrGridPinningActions>

@@ -18,6 +18,7 @@
     "igniteui-react-charts": "19.0.0-alpha.1",
     "igniteui-react-core": "19.0.0-alpha.1",
     "igniteui-react-dashboards": "19.0.0-alpha.1",
+    "igniteui-react-data-grids": "19.0.0-alpha.1",
     "igniteui-react-datasources": "19.0.0-alpha.1",
     "igniteui-react-gauges": "19.0.0-alpha.1",
     "igniteui-react-grids": "19.0.2",
