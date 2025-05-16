@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGrid1Ref}
                     id="treeGrid1"
                     data={this.roleplayTreeGridData}
@@ -50,13 +50,13 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Name"
                         header="Character Name"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Race"
                         header="Race"
-                        dataType="string"
-                        editable={true}
+                        dataType="String"
+                        editable="true"
                         inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
                         name="column1">
                     </IgrColumn>
@@ -64,22 +64,22 @@ export default class Sample extends React.Component<any, any> {
                         field="Class"
                         header="Class"
                         inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
-                        dataType="string"
-                        editable={true}
+                        dataType="String"
+                        editable="true"
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
                         header="Age"
-                        dataType="string"
-                        editable={true}>
+                        dataType="String"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Alignment"
                         header="Alignment"
                         inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
-                        dataType="string"
-                        editable={true}
+                        dataType="String"
+                        editable="true"
                         name="column3">
                     </IgrColumn>
                 </IgrTreeGrid>

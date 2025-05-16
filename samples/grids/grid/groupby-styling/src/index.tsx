@@ -78,7 +78,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
                     data={this.invoicesData}
@@ -87,35 +87,35 @@ export default class Sample extends React.Component<any, any> {
                         name="OrderID"
                         field="OrderID"
                         header="Order ID"
-                        hidden={true}>
+                        hidden="true">
                     </IgrColumn>
                     <IgrColumn
                         name="ShipCountry"
                         field="ShipCountry"
                         header="Ship Country"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="PostalCode"
                         field="PostalCode"
                         header="Postal Code"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="Discontinued"
                         field="Discontinued"
                         header="Discontinued"
                         width="200px"
-                        groupable={true}
+                        groupable="true"
                         bodyTemplate={this.webGridBooleanCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
@@ -123,45 +123,45 @@ export default class Sample extends React.Component<any, any> {
                         field="ShipName"
                         header="Ship Name"
                         width="250px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="ShipCity"
                         field="ShipCity"
                         header="Ship City"
                         width="250px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="ShipperName"
                         field="ShipperName"
                         header="Shipper Name"
                         width="250px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="Salesperson"
                         field="Salesperson"
                         header="Sales Person"
                         width="250px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
                         width="150px"
-                        dataType="currency"
+                        dataType="Currency"
                         pipeArgs={this.columnPipeArgs1}
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         name="Quantity"
                         field="Quantity"
                         header="Quantity"
                         width="150px"
-                        dataType="number"
-                        groupable={true}>
+                        dataType="Number"
+                        groupable="true">
                     </IgrColumn>
                 </IgrGrid>
             </div>

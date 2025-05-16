@@ -35,7 +35,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrHierarchicalGrid
                     data={this.hierarchicalCustomers}
-                    columnSelection="multiple"
+                    columnSelection="Multiple"
                     ref={this.hierarchicalGrid1Ref}>
                     <IgrColumnGroup
                         header="General Information">
@@ -62,7 +62,7 @@ export default class Sample extends React.Component<any, any> {
                             <IgrColumn
                                 field="Address"
                                 header="Address"
-                                selectable={false}>
+                                selectable="false">
                             </IgrColumn>
                             <IgrColumn
                                 field="City"
@@ -71,12 +71,12 @@ export default class Sample extends React.Component<any, any> {
                             <IgrColumn
                                 field="PostalCode"
                                 header="Postal Code"
-                                selectable={false}>
+                                selectable="false">
                             </IgrColumn>
                             <IgrColumn
                                 field="Country"
                                 header="Country"
-                                selectable={false}>
+                                selectable="false">
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrColumnGroup
@@ -91,8 +91,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumnGroup>
                     <IgrRowIsland
                         childDataKey="Orders"
-                        autoGenerate={false}
-                        columnSelection="multiple">
+                        autoGenerate="false"
+                        columnSelection="Multiple">
                         <IgrColumnGroup
                             header="Order Information">
                             <IgrColumnGroup
@@ -105,26 +105,26 @@ export default class Sample extends React.Component<any, any> {
                                 </IgrColumn>
                                 <IgrColumn
                                     field="OrderDate"
-                                    dataType="date">
+                                    dataType="Date">
                                 </IgrColumn>
                                 <IgrColumn
                                     field="RequiredDate"
-                                    dataType="date">
+                                    dataType="Date">
                                 </IgrColumn>
                             </IgrColumnGroup>
                             <IgrColumnGroup
                                 header="General Shipping Information">
                                 <IgrColumn
                                     field="ShippedDate"
-                                    dataType="date">
+                                    dataType="Date">
                                 </IgrColumn>
                                 <IgrColumn
                                     field="ShipVia"
-                                    selectable={false}>
+                                    selectable="false">
                                 </IgrColumn>
                                 <IgrColumn
                                     field="Freight"
-                                    selectable={false}>
+                                    selectable="false">
                                 </IgrColumn>
                                 <IgrColumn
                                     field="ShipName">
@@ -148,8 +148,8 @@ export default class Sample extends React.Component<any, any> {
                         </IgrColumnGroup>
                         <IgrRowIsland
                             childDataKey="OrderDetails"
-                            autoGenerate={false}
-                            columnSelection="single">
+                            autoGenerate="false"
+                            columnSelection="Single">
                             <IgrColumn
                                 field="ProductID">
                             </IgrColumn>
@@ -158,7 +158,7 @@ export default class Sample extends React.Component<any, any> {
                             </IgrColumn>
                             <IgrColumn
                                 field="Quantity"
-                                selectable={false}>
+                                selectable="false">
                             </IgrColumn>
                             <IgrColumn
                                 field="Discount">

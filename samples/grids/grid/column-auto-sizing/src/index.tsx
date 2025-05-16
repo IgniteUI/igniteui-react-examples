@@ -33,63 +33,63 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.customersData}
                     primaryKey="ProductID"
                     ref={this.gridRef}>
                     <IgrColumn
                         field="ID"
                         width="auto"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
                         header="Company Name"
                         width="auto"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ContactName"
                         header="Name"
                         width="auto"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ContactTitle"
                         header="Title"
                         width="auto"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
                         width="auto"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
                         width="auto"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Region"
                         width="auto"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
                         header="Postal Code"
                         width="auto"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
                         width="auto"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Fax"
                         width="auto"
-                        resizable={true}>
+                        resizable="true">
                     </IgrColumn>
                 </IgrGrid>
             </div>

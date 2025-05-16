@@ -33,110 +33,110 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.singersData}
                     ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
                     primaryKey="ID"
-                    rowEditable={true}>
+                    rowEditable="true">
                     <IgrColumn
                         field="Artist"
                         header="Artist"
-                        dataType="string">
+                        dataType="String">
                     </IgrColumn>
                     <IgrColumn
                         field="Photo"
                         header="Photo"
-                        dataType="image"
-                        editable={false}>
+                        dataType="Image"
+                        editable="false">
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="number">
+                        dataType="Number">
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate={false}
+                        autoGenerate="false"
                         primaryKey="Album"
-                        rowEditable={true}>
+                        rowEditable="true">
                         <IgrColumn
                             field="Album"
                             header="Album"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="date">
+                            dataType="Date">
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
                             header="Billboard Review"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="USBillboard200"
                             header="US Billboard 200"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="Songs"
-                            autoGenerate={false}>
+                            autoGenerate="false">
                             <IgrColumn
                                 field="Number"
                                 header="No."
-                                dataType="string">
+                                dataType="String">
                             </IgrColumn>
                             <IgrColumn
                                 field="Title"
                                 header="Title"
-                                dataType="string">
+                                dataType="String">
                             </IgrColumn>
                             <IgrColumn
                                 field="Released"
                                 header="Released"
-                                dataType="date">
+                                dataType="Date">
                             </IgrColumn>
                             <IgrColumn
                                 field="Genre"
                                 header="Genre"
-                                dataType="string">
+                                dataType="String">
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>
                     <IgrRowIsland
                         childDataKey="Tours"
-                        autoGenerate={false}>
+                        autoGenerate="false">
                         <IgrColumn
                             field="Tour"
                             header="Tour"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="StartedOn"
                             header="Started on"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="Location"
                             header="Location"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                         <IgrColumn
                             field="Headliner"
                             header="Headliner"
-                            dataType="string">
+                            dataType="String">
                         </IgrColumn>
                     </IgrRowIsland>
                 </IgrHierarchicalGrid>

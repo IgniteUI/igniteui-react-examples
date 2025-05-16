@@ -92,7 +92,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.gridRef}
                     id="grid"
                     data={this.invoicesData}
@@ -101,21 +101,21 @@ export default class Sample extends React.Component<any, any> {
                         field="ShipCountry"
                         header="Ship Country"
                         width="200px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipCity"
                         header="Ship City"
                         width="250px"
-                        groupable={true}>
+                        groupable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
                         width="150px"
-                        dataType="currency"
-                        groupable={true}
-                        hasSummary={true}
+                        dataType="Currency"
+                        groupable="true"
+                        hasSummary="true"
                         pipeArgs={this.columnPipeArgs1}
                         name="column1">
                     </IgrColumn>
@@ -123,9 +123,9 @@ export default class Sample extends React.Component<any, any> {
                         field="Quantity"
                         header="Quantity"
                         width="150px"
-                        dataType="number"
-                        groupable={true}
-                        hasSummary={true}>
+                        dataType="Number"
+                        groupable="true"
+                        hasSummary="true">
                     </IgrColumn>
                 </IgrGrid>
             </div>

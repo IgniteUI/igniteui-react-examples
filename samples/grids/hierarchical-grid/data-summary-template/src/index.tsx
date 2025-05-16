@@ -86,7 +86,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     data={this.singersData}
                     ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
@@ -94,13 +94,13 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Artist"
                         header="Artist"
-                        hasSummary={true}>
+                        hasSummary="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Photo"
                         header="Photo"
-                        dataType="image"
-                        hasSummary={true}
+                        dataType="Image"
+                        hasSummary="true"
                         summaries={this.singerSummary}
                         name="column1">
                     </IgrColumn>
@@ -111,74 +111,74 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="number"
-                        hasSummary={true}
+                        dataType="Number"
+                        hasSummary="true"
                         summaryTemplate={this.webHierarchicalGridSummaryTemplateStyle}
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="number"
-                        hasSummary={true}
+                        dataType="Number"
+                        hasSummary="true"
                         summaryTemplate={this.webHierarchicalGridSummaryTemplate}
                         name="column3">
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate={false}>
+                        autoGenerate="false">
                         <IgrColumn
                             field="Album"
                             header="Album"
-                            dataType="string"
-                            hasSummary={true}>
+                            dataType="String"
+                            hasSummary="true">
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="date"
-                            hasSummary={true}
+                            dataType="Date"
+                            hasSummary="true"
                             summaryTemplate={this.webRowIslandGridSummaryTemplateStyle}
                             name="column4">
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
                             header="Billboard Review"
-                            dataType="number"
-                            hasSummary={true}>
+                            dataType="Number"
+                            hasSummary="true">
                         </IgrColumn>
                         <IgrColumn
                             field="USBillboard200"
                             header="US Billboard 200"
-                            dataType="number"
-                            hasSummary={true}>
+                            dataType="Number"
+                            hasSummary="true">
                         </IgrColumn>
                         <IgrRowIsland
                             childDataKey="Songs"
-                            autoGenerate={false}>
+                            autoGenerate="false">
                             <IgrColumn
                                 field="Number"
                                 header="No."
-                                dataType="string"
-                                hasSummary={true}>
+                                dataType="String"
+                                hasSummary="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="Title"
                                 header="Title"
-                                dataType="string"
-                                hasSummary={true}>
+                                dataType="String"
+                                hasSummary="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="Released"
                                 header="Released"
-                                dataType="date"
-                                hasSummary={true}>
+                                dataType="Date"
+                                hasSummary="true">
                             </IgrColumn>
                             <IgrColumn
                                 field="Genre"
                                 header="Genre"
-                                dataType="string"
-                                hasSummary={true}>
+                                dataType="String"
+                                hasSummary="true">
                             </IgrColumn>
                         </IgrRowIsland>
                     </IgrRowIsland>

@@ -35,40 +35,40 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    autoGenerate={false}
+                    autoGenerate="false"
                     ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
-                    allowFiltering={true}
+                    allowFiltering="true"
                     foreignKey="ParentID">
                     <IgrPaginator
-                        perPage={10}>
+                        perPage="10">
                     </IgrPaginator>
                     <IgrColumn
                         field="Name"
-                        dataType="string"
-                        editable={true}>
+                        dataType="String"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
-                        dataType="string"
-                        editable={true}>
+                        dataType="String"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
-                        dataType="number"
-                        editable={true}>
+                        dataType="Number"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
-                        dataType="date"
-                        editable={true}>
+                        dataType="Date"
+                        editable="true">
                     </IgrColumn>
                     <IgrColumn
                         field="OnPTO"
-                        dataType="boolean"
-                        editable={true}
+                        dataType="Boolean"
+                        editable="true"
                         width="130px">
                     </IgrColumn>
                 </IgrTreeGrid>

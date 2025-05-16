@@ -45,21 +45,21 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="Order ID"
-                        dataType="string"
+                        dataType="String"
                         cellStyles={this.webTreeGridCellStylesHandler}
                         name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Order Product"
-                        dataType="string"
+                        dataType="String"
                         cellStyles={this.webTreeGridCellStylesHandler}
                         name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="currency"
+                        dataType="Currency"
                         cellStyles={this.webTreeGridCellStylesHandler}
                         name="column3">
                     </IgrColumn>
