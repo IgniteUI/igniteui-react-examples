@@ -20,7 +20,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -47,7 +46,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.nwindData}
-                    ref={this.gridRef}
                     id="grid"
                     primaryKey="ProductID"
                     rowEditable={true}>
@@ -75,8 +73,7 @@ export default class Sample extends React.Component<any, any> {
                         field="OrderDate"
                         header="Order Date"
                         dataType="date"
-                        pipeArgs={this.columnPipeArgs1}
-                        name="column1">
+                        pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"

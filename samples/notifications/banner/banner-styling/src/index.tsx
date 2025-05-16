@@ -15,11 +15,11 @@ import {
     IgrRippleModule,
     IgrToast,
     IgrToastModule,
+    registerIconFromText,
   } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './BannerStyling.css';
 import './index.css';
-import { registerIconFromText } from 'igniteui-webcomponents';
 
 IgrBannerModule.register();
 IgrNavbarModule.register();
@@ -77,11 +77,11 @@ export default function BannerStyling() {
                     <IgrIcon key="icon-wifi-off" name="signal_wifi_off" slot="prefix"></IgrIcon>
                     <span key="message">You have lost connection to the internet. This app is offline.</span>
                     <div key="actions" slot="actions">
-                        <IgrButton key="button-offline" variant="flat" clicked={() => bannerRef.current.hide()}>
+                        <IgrButton key="button-offline" variant="flat" onClick={() => bannerRef.current.hide()}>
                             <IgrRipple key="ripple-offline" />
                             <span key="action-offline">Continue Offline</span>
                         </IgrButton>
-                        <IgrButton key="button-wifi" variant="flat" clicked={() => refreshBanner()}>
+                        <IgrButton key="button-wifi" variant="flat" onClick={() => refreshBanner()}>
                             <IgrRipple key="ripple-wifi" />
                             <span key="action-wifi">Turn On Wifi</span>
                         </IgrButton>

@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom/client';
 import "./index.css";
 
 import {
+  IgrColumn,
+  IgrGrid,
   IgrGridModule,
+  IgrGridSelectionRangeEventArgs,
+  IgrTreeGrid,
   IgrTreeGridModule,
-  IgrGridBaseDirective,
 } from "igniteui-react-grids";
-import { IgrGrid, IgrTreeGrid, IgrColumn } from "igniteui-react-grids";
 import { EmployeesFlatData } from "./EmployeesFlatData";
 
 import "igniteui-react-grids/grids/combined";
@@ -24,7 +26,8 @@ export default function App() {
   const leftTreeGridRef = useRef<IgrTreeGrid>(null);
   const rightGridRef = useRef<IgrGrid>(null);
 
-  function handleTreeGridRangeSelectionChanged(grid: IgrGridBaseDirective) {
+  function handleTreeGridRangeSelectionChanged(evt: IgrGridSelectionRangeEventArgs) {
+    const grid = evt.target as IgrGrid;
     rightGridRef.current!.data = grid.getSelectedData(
       false,
       false
@@ -44,7 +47,7 @@ export default function App() {
           primaryKey="ID"
           foreignKey="ParentID"
           cellSelection="multiple"
-          rangeSelected={handleTreeGridRangeSelectionChanged}
+          onRangeSelected={handleTreeGridRangeSelectionChanged}
         >
           <IgrColumn field="ID" dataType="number" />
           <IgrColumn field="Name" dataType="string" />

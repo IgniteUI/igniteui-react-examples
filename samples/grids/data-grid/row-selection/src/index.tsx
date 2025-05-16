@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css'; // styles shared between all samples
 
 import { DataGridSharedData } from './DataGridSharedData';
-import { IgrDataGrid } from 'igniteui-react-grids';
-import { IgrDataGridModule } from 'igniteui-react-grids';
-import { IgrTextColumn } from 'igniteui-react-grids';
-import { IgrNumericColumn } from 'igniteui-react-grids';
-import { IgrDateTimeColumn } from 'igniteui-react-grids';
-import { IgrImageColumn } from 'igniteui-react-grids';
-import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
+import { IgrDataGrid } from 'igniteui-react-data-grids';
+import { IgrDataGridModule } from 'igniteui-react-data-grids';
+import { IgrTextColumn } from 'igniteui-react-data-grids';
+import { IgrNumericColumn } from 'igniteui-react-data-grids';
+import { IgrDateTimeColumn } from 'igniteui-react-data-grids';
+import { IgrImageColumn } from 'igniteui-react-data-grids';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-data-grids';
 
 IgrDataGridModule.register();
 IgrGridColumnOptionsModule.register();

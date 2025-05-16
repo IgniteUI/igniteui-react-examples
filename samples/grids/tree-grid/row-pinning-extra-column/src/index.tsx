@@ -33,7 +33,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -48,7 +47,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
-                    ref={this.treeGridRef}
                     data={this.employeesNestedTreeData}
                     rowEditable={true}
                     primaryKey="ID"
@@ -59,8 +57,7 @@ export default class Sample extends React.Component<any, any> {
                         width="150px"
                         filterable={false}
                         pinned={true}
-                        bodyTemplate={this.webTreeGridRowPinCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webTreeGridRowPinCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name"

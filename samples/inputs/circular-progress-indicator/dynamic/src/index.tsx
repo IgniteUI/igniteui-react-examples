@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCircularProgress, IgrCircularGradient, IgrIconButton, IgrCircularProgressModule, IgrCircularGradientModule, IgrIconButtonModule } from 'igniteui-react';
+import { IgrCircularProgress, IgrCircularGradient, IgrIconButton, IgrCircularProgressModule, IgrCircularGradientModule, IgrIconButtonModule, registerIconFromText } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './DynamicCircularProgressStyle.css';
 
 IgrCircularProgressModule.register();
 IgrCircularGradientModule.register();
 IgrIconButtonModule.register();
+
+const addIconText = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>';
+const removeIconText = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13H5v-2h14v2z"/></svg>';
 
 export default class DynamicCircularProgress extends React.Component<any, any> {
 
@@ -16,11 +19,16 @@ export default class DynamicCircularProgress extends React.Component<any, any> {
     public removeIcon: IgrIconButton;
 
     constructor(props: any) {
-        super(props);       
-        
+        super(props);
+
+        registerIconFromText(
+            "add", addIconText, "material"
+        );
+        registerIconFromText(
+            "remove", removeIconText, "material"
+        );
+
         this.circularProgressRef = this.circularProgressRef.bind(this);
-        this.addIconRef = this.addIconRef.bind(this);
-        this.removeIconRef = this.removeIconRef.bind(this);
         this.onIconClick = this.onIconClick.bind(this);  
     }
 
@@ -36,9 +44,9 @@ export default class DynamicCircularProgress extends React.Component<any, any> {
                     </IgrCircularGradient>
                 </IgrCircularProgress>
                 <div style={{display: "flex", justifyContent: "space evenly", marginTop: "20px"}} onClick={this.onIconClick}>
-                    <IgrIconButton ref={this.removeIconRef} className="removeIcon" name="remove" collection="material">
+                    <IgrIconButton className="removeIcon" name="remove" collection="material">
                     </IgrIconButton>
-                    <IgrIconButton ref={this.addIconRef} className="addIcon" name="add" collection="material">
+                    <IgrIconButton className="addIcon" name="add" collection="material">
                     </IgrIconButton>
                 </div>
             </div>
@@ -49,24 +57,6 @@ export default class DynamicCircularProgress extends React.Component<any, any> {
     {
         if(!progress) { return; }
         this.circularProgress = progress;
-    }
-
-    public addIconRef(icon: IgrIconButton){
-        if (!icon) { return; }        
-        this.addIcon = icon;
-        const addIconText = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>';
-        this.addIcon.registerIconFromText(
-            "add", addIconText, "material"
-        );
-    }
-
-    public removeIconRef(icon: IgrIconButton){
-        if (!icon) { return; }
-        this.removeIcon = icon;
-        const removeIconText = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13H5v-2h14v2z"/></svg>';
-        this.removeIcon.registerIconFromText(
-            "remove", removeIconText, "material"
-        );
     }
 
     public onIconClick(e: any) {

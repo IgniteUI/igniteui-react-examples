@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
 import {
   CarouselAnimationType,
-  CheckboxBaseLabelPosition,
   IgrButton,
   IgrButtonModule,
   IgrCard,
@@ -14,6 +13,7 @@ import {
   IgrCarousel,
   IgrCarouselModule,
   IgrCarouselSlide,
+  IgrCheckboxChangeEventArgs,
   IgrSelect,
   IgrSelectItem,
   IgrSelectModule,
@@ -33,22 +33,13 @@ IgrCardModule.register();
 export default function CarouselComponents() {
   const carouselRef = useRef<IgrCarousel>(null);
 
-  function onSelectChange(s: IgrSelect) {
-    switch (s.value) {
-      case "slide":
-        carouselRef.current.animationType = CarouselAnimationType.Slide;
-        break;
-      case "fade":
-        carouselRef.current.animationType = CarouselAnimationType.Fade;
-        break;
-      default:
-        carouselRef.current.animationType = CarouselAnimationType.None;
-        break;
-    }
+  function onSelectChange(e: CustomEvent<IgrSelectItem>) {
+    const value = e.detail.value as CarouselAnimationType;
+    carouselRef.current.animationType = value;
   }
 
-  function onSwitchChange(s: IgrSwitch) {
-    carouselRef.current.vertical = s.checked;
+  function onSwitchChange(e: IgrCheckboxChangeEventArgs) {
+    carouselRef.current.vertical = e.detail.checked;
   }
 
   return (
@@ -56,7 +47,7 @@ export default function CarouselComponents() {
       <div className="action-wrapper">
         <div className="action">
           <span>Animation type</span>
-          <IgrSelect change={onSelectChange}>
+          <IgrSelect onChange={onSelectChange}>
             <IgrSelectItem value="slide" selected={true} key="slide">
               <span key="select-span">Slide</span>
             </IgrSelectItem>
@@ -70,8 +61,8 @@ export default function CarouselComponents() {
         </div>
         <div className="action">
           <IgrSwitch
-            change={onSwitchChange}
-            labelPosition={CheckboxBaseLabelPosition.Before}
+            onChange={onSwitchChange}
+            labelPosition="before"
           >
             <span key="switch-span">Vertical alignment</span>
           </IgrSwitch>

@@ -38,14 +38,13 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
-                    ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    rowDragStart={this.webTreeGridReorderRowStartHandler}
+                    onRowDragStart={this.webTreeGridReorderRowStartHandler}
                     rowDraggable={true}
-                    rowDragEnd={this.webTreeGridReorderRowHandler}>
+                    onRowDragEnd={this.webTreeGridReorderRowHandler}>
                     <IgrColumn
                         field="Name"
                         header="Full Name"
@@ -105,14 +104,14 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridReorderRowStartHandler(sender: IgrTreeGrid, args: IgrRowDragStartEventArgs){
+    public webTreeGridReorderRowStartHandler(args: IgrRowDragStartEventArgs){
         const draggedRow = args.detail.dragData;
         if(draggedRow.expanded){
             draggedRow.expanded = false;
         }
     }
 
-    public webTreeGridReorderRowHandler(sender: IgrTreeGrid, args: IgrRowDragEndEventArgs): void {
+    public webTreeGridReorderRowHandler(args: IgrRowDragEndEventArgs): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
         const dragElementPos = ghostElement.getBoundingClientRect();
         const grid = this.treeGrid;

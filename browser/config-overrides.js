@@ -134,6 +134,11 @@ module.exports = function override(config, env) {
                 name: 'igniteui-react-grids',
                 chunks: 'all',
             },
+            igniteuiDataGrids: {
+                test: /[\\/]node_modules[\\/](igniteui-react-data-grids)[\\/]/,
+                name: 'igniteui-react-data-grids',
+                chunks: 'all',
+            },
             igniteuiInputs: {
                 test: /[\\/]node_modules[\\/](igniteui-react-inputs)[\\/]/,
                 name: 'igniteui-react-inputs',

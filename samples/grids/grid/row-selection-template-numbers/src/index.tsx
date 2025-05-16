@@ -39,7 +39,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={true}
-                    ref={this.gridRef}
                     data={this.customersData}
                     rowSelection="multiple"
                     rowSelectorTemplate={this.webGridRowSelectorTemplate}

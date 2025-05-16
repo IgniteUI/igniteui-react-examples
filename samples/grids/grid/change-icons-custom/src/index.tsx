@@ -26,7 +26,7 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
 
-    public onSelect(_buttonGroup: IgrButtonGroup, args: IgrComponentValueChangedEventArgs) {
+    public onSelect(args: IgrComponentValueChangedEventArgs) {
         this.changeRefs(args.detail);
     }
 
@@ -117,7 +117,7 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample ig-typography">
-                <IgrButtonGroup select={this.onSelect} style={{ width: 'fit-content' }}>
+                <IgrButtonGroup onSelect={this.onSelect} style={{ width: 'fit-content' }}>
                     <IgrToggleButton value="material" key="material" selected>
                         <span key="text">Material Icons</span>
                     </IgrToggleButton>
@@ -132,7 +132,7 @@ export default class Sample extends React.Component<any, any> {
                         data={this.nwindData}
                         rowEditable={true}
                         allowFiltering={true}
-                        filterMode="ExcelStyleFilter"
+                        filterMode="excelStyleFilter"
                         primaryKey="ProductID">
                         <IgrGridToolbar>
                             <IgrGridToolbarActions>
@@ -143,37 +143,30 @@ export default class Sample extends React.Component<any, any> {
                             </IgrGridToolbarActions>
                         </IgrGridToolbar>
                         <IgrColumn
-                            name="ProductName"
                             field="ProductName"
                             header="Product Name" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="UnitPrice"
                             field="UnitPrice"
                             header="Unit Price" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="UnitsOnOrder"
                             field="UnitsOnOrder"
                             header="Units On Order" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="UnitsInStock"
                             field="UnitsInStock"
                             header="Units In Stock" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="QuantityPerUnit"
                             field="QuantityPerUnit"
                             header="Quantity Per Unit" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="ReorderLevel"
                             field="ReorderLevel"
                             header="Reorder Level" sortable={true}>
                         </IgrColumn>
                         <IgrColumn
-                            name="Discontinued"
                             field="Discontinued"
                             header="Discontinued" sortable={true}>
                         </IgrColumn>

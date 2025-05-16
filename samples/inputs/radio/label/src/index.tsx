@@ -24,7 +24,7 @@ export default class RadioLabel extends React.Component<any, any> {
                         <IgrRadio
                             name="fruit"
                             labelPosition="before"
-                            ariaLabelledby="radio-label"
+                            aria-labelledby="radio-label"
                             value="orange">
                         </IgrRadio>
                         </div>

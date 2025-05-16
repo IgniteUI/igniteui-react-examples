@@ -37,8 +37,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.customersData}
                     primaryKey="ID"
-                    detailTemplate={this.webGridMasterDetailTemplate}
-                    ref={this.gridRef}>
+                    detailTemplate={this.webGridMasterDetailTemplate}>
                     <IgrColumn
                         field="ContactName"
                         header="Contact"
