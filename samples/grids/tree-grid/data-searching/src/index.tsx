@@ -1,27 +1,18 @@
 import React, { KeyboardEvent, useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
-import { IgrTreeGridModule } from "igniteui-react-grids";
 import { IgrTreeGrid, IgrColumn } from "igniteui-react-grids";
 import { EmployeesFlatData } from "./EmployeesFlatData";
-
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import {
   IgrChip,
-  IgrChipModule,
   IgrComponentBoolValueChangedEventArgs,
   IgrComponentValueChangedEventArgs,
   IgrIconButton,
-  IgrIconButtonModule,
   IgrInput,
-  IgrInputModule,
   registerIconFromText,
 } from "igniteui-react";
-
-const mods: any[] = [IgrTreeGridModule, IgrChipModule, IgrIconButtonModule, IgrInputModule];
-mods.forEach((m) => m.register());
 
 const searchIconText =
   "<svg width='24' height='24' viewBox='0 0 24 24'><path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' /></svg>";
@@ -38,50 +29,49 @@ export default function Sample() {
   const gridRef = useRef<IgrTreeGrid>(null);
   const caseSensitiveChipRef = useRef<IgrChip>(null);
   const exactMatchChipRef = useRef<IgrChip>(null);
-
-  const [searchText, setSearchText] = useState('')
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     registerIconFromText("search", searchIconText, "material");
     registerIconFromText("clear", clearIconText, "material");
-    registerIconFromText("prev", prevIconText,"material");
+    registerIconFromText("prev", prevIconText, "material");
     registerIconFromText("next", nextIconText, "material");
   }, []);
 
-  function handleOnSearchChange(event: IgrComponentValueChangedEventArgs) {
+  const handleOnSearchChange = (event: IgrComponentValueChangedEventArgs) => {
     setSearchText(event.detail);
     gridRef.current.findNext(event.detail, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
   }
 
-  function handleCaseSensitiveChange(event: IgrComponentBoolValueChangedEventArgs) {
-    gridRef.current.findNext(searchText, event.detail, exactMatchChipRef.current.selected);
-  }
-
-  function handleExactMatchChange(event: IgrComponentBoolValueChangedEventArgs) {
-    gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, event.detail);
-  }
-
-  function clearSearch() {
+  const clearSearch = () => {
     setSearchText('');
     gridRef.current.clearSearch();
   }
 
-  function prevSearch() {
+  const prevSearch = () => {
     gridRef.current.findPrev(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
   }
 
-  function nextSearch() {
+  const nextSearch = () => {
     gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
   }
 
-  function searchKeyDown(e: KeyboardEvent<HTMLElement>) {
+  const searchKeyDown = (e: KeyboardEvent<HTMLElement>) => {
     if (e.key === 'Enter' || e.key === 'ArrowDown') {
-        e.preventDefault();
-        gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+      e.preventDefault();
+      gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
     } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        gridRef.current.findPrev(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+      e.preventDefault();
+      gridRef.current.findPrev(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
     }
+  }
+
+  const handleCaseSensitiveChange = (event: IgrComponentBoolValueChangedEventArgs) => {
+    gridRef.current.findNext(searchText, event.detail, exactMatchChipRef.current.selected);
+  }
+
+  const handleExactMatchChange = (event: IgrComponentBoolValueChangedEventArgs) => {
+    gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, event.detail);
   }
 
   return (
@@ -95,7 +85,7 @@ export default function Sample() {
                 <IgrIconButton
                   key="searchIcon"
                   variant="flat"
-                  name="search" 
+                  name="search"
                   collection="material"
                 ></IgrIconButton>
               ) : (
@@ -108,7 +98,7 @@ export default function Sample() {
                 ></IgrIconButton>
               )}
             </div>
-            
+
             <div slot="suffix" key="chipSuffix">
               <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable={true} onSelect={handleCaseSensitiveChange}>
                 <span key="caseSensitive">Case Sensitive</span>
@@ -135,14 +125,14 @@ export default function Sample() {
             </div>
           </IgrInput>
         </div>
-        <IgrTreeGrid ref={gridRef} data={data} autoGenerate={false} 
+        <IgrTreeGrid ref={gridRef} data={data} autoGenerate={false}
           primaryKey="ID" foreignKey="ParentID" allowFiltering={true} height="100%" width="100%"
         >
-          <IgrColumn field="Name" dataType="string" sortable={true}></IgrColumn>        
-          <IgrColumn field="ID" dataType="number" sortable={true}></IgrColumn>        
-          <IgrColumn field="Title" dataType="string" sortable={true}></IgrColumn>        
-          <IgrColumn field="Age" dataType="number" sortable={true}></IgrColumn>        
-          <IgrColumn field="HireDate" dataType="date" sortable={true}></IgrColumn>  
+          <IgrColumn field="Name" dataType="string" sortable={true}></IgrColumn>
+          <IgrColumn field="ID" dataType="number" sortable={true}></IgrColumn>
+          <IgrColumn field="Title" dataType="string" sortable={true}></IgrColumn>
+          <IgrColumn field="Age" dataType="number" sortable={true}></IgrColumn>
+          <IgrColumn field="HireDate" dataType="date" sortable={true}></IgrColumn>
         </IgrTreeGrid>
       </div>
     </div>
