@@ -21,7 +21,7 @@
     "igniteui-react-grids": "18.9.0",
     "igniteui-react-inputs": "18.9.0",
     "igniteui-react-layouts": "18.9.0",
-    "igniteui-webcomponents": "5.3.0",
+    "igniteui-webcomponents": "6.0.0",
     "lit-html": "^3.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
