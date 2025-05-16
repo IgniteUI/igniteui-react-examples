@@ -27,7 +27,7 @@ export default class CardStyling extends React.Component<any, any> {
             <div className="container sample center">
                 <div className="card-wrapper">
                     <IgrCard>
-                        <IgrCardMedia key="media" height="180px">
+                        <IgrCardMedia key="media">
                             <img key="mediaImg" src="https://images.unsplash.com/photo-1541516160071-4bb0c5af65ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"></img>
                         </IgrCardMedia>
 
