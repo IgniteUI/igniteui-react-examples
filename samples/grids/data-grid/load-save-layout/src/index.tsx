@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import "./DataGridStyles.css";
 import { DataGridSharedData } from './DataGridSharedData';
-import { IgrDataGridModule } from 'igniteui-react-grids';
-import { IgrGridColumnOptionsModule } from 'igniteui-react-grids';
-import { IgrDataGrid } from 'igniteui-react-grids';
-import { IgrDataGridToolbarModule } from "igniteui-react-grids";
-import { IgrDataGridToolbar } from "igniteui-react-grids";
-import { IgrTextColumn } from 'igniteui-react-grids';
-import { IgrNumericColumn } from 'igniteui-react-grids';
-import { IgrDateTimeColumn } from 'igniteui-react-grids';
-import { IgrImageColumn } from 'igniteui-react-grids';
-import { IgrColumnGroupDescription } from 'igniteui-react-grids';
-import { IgrColumnSummaryDescription } from 'igniteui-react-grids'
+import { IgrDataGridModule } from 'igniteui-react-data-grids';
+import { IgrGridColumnOptionsModule } from 'igniteui-react-data-grids';
+import { IgrDataGrid } from 'igniteui-react-data-grids';
+import { IgrDataGridToolbarModule } from "igniteui-react-data-grids";
+import { IgrDataGridToolbar } from "igniteui-react-data-grids";
+import { IgrTextColumn } from 'igniteui-react-data-grids';
+import { IgrNumericColumn } from 'igniteui-react-data-grids';
+import { IgrDateTimeColumn } from 'igniteui-react-data-grids';
+import { IgrImageColumn } from 'igniteui-react-data-grids';
+import { IgrColumnGroupDescription } from 'igniteui-react-data-grids';
+import { IgrColumnSummaryDescription } from 'igniteui-react-data-grids'
 import { DataSourceSummaryOperand } from 'igniteui-react-core';
 import { IgrButton } from 'igniteui-react';
 import { IgrButtonModule } from 'igniteui-react';
