@@ -152,7 +152,8 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webRowIslandCellSelectionChange(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        this.hierarchicalGrid.contentChildLayoutList[0].cellSelection = args.newValue.toLocaleLowerCase();
+        const rowIsland = document.getElementsByTagName("igc-row-island")[0] as IgrRowIsland;
+        rowIsland.cellSelection = args.newValue.toLocaleLowerCase();
     }
 
 }
