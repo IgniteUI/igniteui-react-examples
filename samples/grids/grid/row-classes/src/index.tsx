@@ -16,22 +16,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid: IgrGrid
-    private gridRef(r: IgrGrid) {
-        this.grid = r;
+    private grid1: IgrGrid
+    private grid1Ref(r: IgrGrid) {
+        this.grid1 = r;
         this.setState({});
     }
-    private productID: IgrColumn
-    private productName: IgrColumn
-    private unitsInStock: IgrColumn
-    private unitPrice: IgrColumn
-    private discontinued: IgrColumn
-    private orderDate: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.gridRef = this.gridRef.bind(this);
+        this.grid1Ref = this.grid1Ref.bind(this);
     }
 
     public render(): JSX.Element {
@@ -42,7 +36,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.nwindData}
-                    rowClasses={this.webGridRowClassesHandler}>
+                    rowClasses={this.webGridRowClassesHandler}
+                    ref={this.grid1Ref}>
                     <IgrColumn
                         field="ProductID"
                         header="Product ID">

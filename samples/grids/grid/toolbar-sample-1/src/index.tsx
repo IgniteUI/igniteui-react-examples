@@ -16,23 +16,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid: IgrGrid
-    private gridRef(r: IgrGrid) {
-        this.grid = r;
+    private grid1: IgrGrid
+    private grid1Ref(r: IgrGrid) {
+        this.grid1 = r;
         this.setState({});
     }
-    private gridToolbar: IgrGridToolbar
-    private gridToolbarActions: IgrGridToolbarActions
-    private gridToolbarAdvancedFiltering: IgrGridToolbarAdvancedFiltering
-    private gridToolbarHiding: IgrGridToolbarHiding
-    private gridToolbarPinning: IgrGridToolbarPinning
-    private gridToolbarExporter: IgrGridToolbarExporter
-    private column: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.gridRef = this.gridRef.bind(this);
+        this.grid1Ref = this.grid1Ref.bind(this);
     }
 
     public render(): JSX.Element {
@@ -42,7 +35,8 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
-                    data={this.athletesData}>
+                    data={this.athletesData}
+                    ref={this.grid1Ref}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
