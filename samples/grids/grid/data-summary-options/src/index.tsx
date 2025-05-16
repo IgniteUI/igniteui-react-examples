@@ -22,12 +22,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productID: IgrColumn
-    private productName: IgrColumn
-    private unitPrice: IgrColumn
-    private unitsInStock: IgrColumn
-    private discontinued: IgrColumn
-    private orderDate: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -43,9 +37,10 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    onColumnInit={this.webGridCustomSummary}>
+                    columnInit={this.webGridCustomSummary}>
                     <IgrColumn
                         field="ProductID">
                     </IgrColumn>

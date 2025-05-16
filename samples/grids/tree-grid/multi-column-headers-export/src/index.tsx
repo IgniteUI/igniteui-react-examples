@@ -23,6 +23,7 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
+    private gridToolbarExporter1: IgrGridToolbarExporter
 
     constructor(props: any) {
         super(props);
@@ -38,6 +39,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
+                    ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesFlatDetails}
                     foreignKey="ParentID"
@@ -55,7 +57,8 @@ export default class Sample extends React.Component<any, any> {
                             <IgrGridToolbarExporter
                                 exportCSV={false}
                                 exportExcel={true}
-                                onExportStarted={this.webGridExportEventMultiColumnHeaders}>
+                                exportStarted={this.webGridExportEventMultiColumnHeaders}
+                                name="gridToolbarExporter1">
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
@@ -169,7 +172,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridExportEventMultiColumnHeaders(args: IgrExporterEventArgs): void {
+    public webGridExportEventMultiColumnHeaders(sender: IgrGridToolbarExporter, args: IgrExporterEventArgs): void {
         if (args.detail.options) {
             args.detail.options.ignoreMultiColumnHeaders = false;
         }

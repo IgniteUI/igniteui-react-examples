@@ -24,20 +24,9 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private companyInfo: IgrColumnLayout
-    private company: IgrColumn
-    private country: IgrColumn
-    private city: IgrColumn
-    private address: IgrColumn
     private sales: IgrColumnLayout
-    private lifetimeSales: IgrColumn
-    private quarterly: IgrColumn
-    private yearly: IgrColumn
     private marketPotentialInfo: IgrColumnLayout
-    private marketPotential: IgrColumn
     private assets: IgrColumnLayout
-    private assetsCash: IgrColumn
-    private accountsReceivable: IgrColumn
-    private assetsBooks: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -53,10 +42,12 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     id="grid"
                     data={this.companyData}
-                    onGridKeydown={this.webGridMRLCustomNavigationEvent}>
+                    gridKeydown={this.webGridMRLCustomNavigationEvent}>
                     <IgrColumnLayout
+                        name="CompanyInfo"
                         header="Company">
                         <IgrColumn
                             field="Company"
@@ -86,6 +77,7 @@ export default class Sample extends React.Component<any, any> {
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
+                        name="Sales"
                         header="Sales">
                         <IgrColumn
                             field="LifetimeSales"
@@ -109,6 +101,7 @@ export default class Sample extends React.Component<any, any> {
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
+                        name="MarketPotentialInfo"
                         header="Market Potential">
                         <IgrColumn
                             field="MarketPotential"
@@ -119,6 +112,7 @@ export default class Sample extends React.Component<any, any> {
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
+                        name="Assets"
                         header="Assets">
                         <IgrColumn
                             field="AssetsCash"
@@ -168,7 +162,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridMRLCustomNavigationEvent(args: IgrGridKeydownEventArgs): void {
+    public webGridMRLCustomNavigationEvent(sender: IgrGrid, args: IgrGridKeydownEventArgs): void {
         const target = args.detail.target;
         const grid: IgrGrid = this.grid;
         if ((args.detail.event as any).key.toLowerCase() === 'enter') {

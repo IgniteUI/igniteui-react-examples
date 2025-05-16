@@ -7,7 +7,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
-import { IgrGridKeydownEventArgs } from 'igniteui-react-grids';
+import { IgrGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -24,12 +24,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productID: IgrColumn
-    private reorderLevel: IgrColumn
-    private productName: IgrColumn
-    private unitsInStock: IgrColumn
-    private orderDate: IgrColumn
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -46,11 +40,12 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     id="grid"
+                    ref={this.gridRef}
                     data={this.nwindData}
                     moving={true}
                     primaryKey="ProductID"
                     rowEditable={true}
-                    onGridKeydown={this.webGridCustomKBNav}>
+                    gridKeydown={this.webGridCustomKBNav}>
                     <IgrColumn
                         field="ProductID"
                         header="Product ID">
@@ -99,14 +94,13 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridCustomKBNav(eventArgs: IgrGridKeydownEventArgs): void {
+    public webGridCustomKBNav(grid: IgrGrid, eventArgs: IgrGridKeydownEventArgs): void {
         const args = eventArgs.detail;
         const target = args.target;
         const evt = args.event;
         const type = args.targetType;
-        const grid = eventArgs.target as IgrGrid;
 
-        if (type === 'dataCell' && target.editMode && evt.key.toLowerCase() === 'tab') {
+        if (type === GridKeydownTargetType.DataCell && target.editMode && evt.key.toLowerCase() === 'tab') {
             // Value validation for number column.
             // This covers both 'tab' and 'shift+tab' key interactions.
             args.event.preventDefault();
@@ -121,7 +115,7 @@ export default class Sample extends React.Component<any, any> {
 
             grid.navigateTo(cell.rowIndex, cell.visibleColumnIndex,
                 (obj: any) => { obj.target.activate(); });
-        } else if (type === 'dataCell' && evt.key.toLowerCase() === 'enter') {
+        } else if (type === GridKeydownTargetType.DataCell && evt.key.toLowerCase() === 'enter') {
             // Perform column based kb navigation with 'enter' key press
             args.cancel = true;
             grid.navigateTo(target.row.index + 1, target.column.visibleIndex, (obj: any) => {
