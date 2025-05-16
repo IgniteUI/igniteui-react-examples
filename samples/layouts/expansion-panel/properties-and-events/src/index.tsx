@@ -20,7 +20,7 @@ export default class ExpansionPanelPropertiesAndEvents extends React.Component<a
     public render(): JSX.Element {
         return (
             <div className="container sample center">
-                <IgrExpansionPanel closed={this.onExpansionPanelClosed} opened={this.onExpansionPanelOpened}>
+                <IgrExpansionPanel onClosed={this.onExpansionPanelClosed} onOpened={this.onExpansionPanelOpened}>
                     <h1 key="epTitle" slot="title">Golden Retriever</h1>
                     <h3 key="epSubtitle" className={this.state.subtitleClass} slot="subtitle">Medium-large gun dog</h3>
                     <div key="epIndicator" slot="indicator">{this.state.expansionText}</div>

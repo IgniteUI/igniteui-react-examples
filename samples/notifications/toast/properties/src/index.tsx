@@ -23,13 +23,13 @@ export default class ToastProperties extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <div style={{display: 'flex', justifyContent: 'space-evenly', marginTop: '20px'}}>
-                    <IgrButton variant="contained" clicked={this.onToggleButtonClicked}>
+                    <IgrButton variant="contained" onClick={this.onToggleButtonClicked}>
                         <span>Toggle Toast</span>
                     </IgrButton>
-                    <IgrButton variant="contained" clicked={this.onKeepOpenButtonClicked}>
+                    <IgrButton variant="contained" onClick={this.onKeepOpenButtonClicked}>
                         <span>Toggle keepOpen Property</span>
                     </IgrButton>
-                    <IgrButton variant="contained" clicked={this.onDisplayTimeButtonClicked}>
+                    <IgrButton variant="contained" onClick={this.onDisplayTimeButtonClicked}>
                         <span>Set DisplayTime to 8000</span>
                     </IgrButton>
                 </div>

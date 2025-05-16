@@ -20,8 +20,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -35,7 +33,6 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.ordersTreeData}
                     primaryKey="ID"
@@ -49,8 +46,7 @@ export default class Sample extends React.Component<any, any> {
                         field="Name"
                         header="Order Product"
                         dataType="string"
-                        cellClasses={this.webTreeGridAllergensCellClassesHandler}
-                        name="column1">
+                        cellClasses={this.webTreeGridAllergensCellClassesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="Category"
@@ -64,8 +60,7 @@ export default class Sample extends React.Component<any, any> {
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="currency"
-                        cellClasses={this.webTreeGridUnitPriceCellClassesHandler}
-                        name="column2">
+                        cellClasses={this.webTreeGridUnitPriceCellClassesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="Price"

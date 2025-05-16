@@ -45,20 +45,19 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     data={this.employeesFlatData}
-                    ref={this.gridRef}
                     id="grid"
                     rowEditable={true}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    rendered={this.webTreeGridRendered}
-                    rowEditEnter={this.webGridRowEditEnter}
-                    rowEdit={this.webGridRowEdit}
-                    rowEditDone={this.webGridRowEditDone}
-                    rowEditExit={this.webGridRowEditExit}
-                    cellEditEnter={this.webGridCellEditEnter}
-                    cellEdit={this.webGridCellEdit}
-                    cellEditDone={this.webGridCellEditDone}
-                    cellEditExit={this.webGridCellEditExit}>
+                    onRendered={this.webTreeGridRendered}
+                    onRowEditEnter={this.webGridRowEditEnter}
+                    onRowEdit={this.webGridRowEdit}
+                    onRowEditDone={this.webGridRowEditDone}
+                    onRowEditExit={this.webGridRowEditExit}
+                    onCellEditEnter={this.webGridCellEditEnter}
+                    onCellEdit={this.webGridCellEdit}
+                    onCellEditDone={this.webGridCellEditDone}
+                    onCellEditExit={this.webGridCellEditExit}>
                     <IgrColumn
                         field="Name"
                         dataType="string"
@@ -107,56 +106,56 @@ export default class Sample extends React.Component<any, any> {
         container.appendChild(title);
     }
 
-    public webGridRowEditEnter(sender: IgrTreeGrid, args: IgrGridEditEventArgs): void {
+    public webGridRowEditEnter(args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.detail.rowID;
         container.appendChild(message);
     }
 
-    public webGridRowEdit(sender: IgrTreeGrid, args: IgrGridEditEventArgs): void {
+    public webGridRowEdit(args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEdit'`;
         container.appendChild(message);
     }
 
-    public webGridRowEditDone(sender: IgrTreeGrid, args: IgrGridEditDoneEventArgs): void {
+    public webGridRowEditDone(args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditDone'`;
         container.appendChild(message);
     }
 
-    public webGridRowEditExit(sender: IgrTreeGrid, args: IgrGridEditDoneEventArgs): void {
+    public webGridRowEditExit(args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'rowEditExit'  << End of cycle >>`;
         container.appendChild(message);
     }
 
-    public webGridCellEditEnter(sender: IgrTreeGrid, args: IgrGridEditEventArgs): void {
+    public webGridCellEditEnter(args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditEnter' with 'value':` + args.detail.oldValue, args.detail.cancel;
         container.appendChild(message);
     }
 
-    public webGridCellEdit(sender: IgrTreeGrid, args: IgrGridEditEventArgs): void {
+    public webGridCellEdit(args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEdit' with 'newValue':` + args.detail.newValue, args.detail.cancel;
         container.appendChild(message);
     }
 
-    public webGridCellEditDone(sender: IgrTreeGrid, args: IgrGridEditDoneEventArgs): void {
+    public webGridCellEditDone(args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditDone'`;
         container.appendChild(message);
     }
 
-    public webGridCellEditExit(sender: IgrTreeGrid, args: IgrGridEditDoneEventArgs): void {
+    public webGridCellEditExit(args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `=> 'cellEditExit'`;

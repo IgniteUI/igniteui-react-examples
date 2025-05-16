@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrNavbar, IgrNavDrawer, IgrNavDrawerHeaderItem, IgrNavDrawerItem, IgrIcon, IgrRadioGroup, IgrRadio, IgrNavDrawerModule, IgrNavbarModule, IgrRadioGroupModule, IgrRadioModule, IgrIconModule } from 'igniteui-react';
+import { IgrNavbar, IgrNavDrawer, IgrNavDrawerHeaderItem, IgrNavDrawerItem, IgrIcon, IgrRadioGroup, IgrRadio, IgrNavDrawerModule, IgrNavbarModule, IgrRadioGroupModule, IgrRadioModule, IgrIconModule, registerIconFromText } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 IgrNavDrawerModule.register();
@@ -9,6 +9,10 @@ IgrNavbarModule.register();
 IgrIconModule.register();
 IgrRadioGroupModule.register();
 IgrRadioModule.register();
+
+const searchIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>';
+const homeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>';
+const menuIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>';
 
 export default class NavDrawerAddPositionsNavbar extends React.Component<any, any> {
 
@@ -19,7 +23,10 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
 
         this.state = { drawerPosition: "start", title: "Home" };
 
-        this.iconRef = this.iconRef.bind(this);
+        registerIconFromText("home", homeIcon, "material");
+        registerIconFromText("search", searchIcon, "material");
+        registerIconFromText("menu", menuIcon, "material");
+
         this.navDrawerRef = this.navDrawerRef.bind(this);
         this.onMenuIconClick = this.onMenuIconClick.bind(this);
         this.onNavDrawerClick = this.onNavDrawerClick.bind(this);
@@ -37,7 +44,7 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
 
                         <IgrNavDrawerItem key="home" active>
                             <div slot="icon" key="iHome">
-                                <IgrIcon ref={this.iconRef} name="home" collection="material" />
+                                <IgrIcon name="home" collection="material" />
                             </div>
                             <span slot="content" key="sHome">Home</span>
                         </IgrNavDrawerItem>
@@ -52,16 +59,16 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
                 </div>
                 <div>
                     <IgrRadioGroup alignment="horizontal" style={{ marginBottom: '10px' }}>
-                        <IgrRadio name="position" value="start" labelPosition="after" checked={true} change={this.onRadioChange} key="start">
+                        <IgrRadio name="position" value="start" labelPosition="after" checked={true} onChange={this.onRadioChange} key="start">
                             <span key="sStart">Start</span>
                         </IgrRadio>
-                        <IgrRadio name="position" value="end" labelPosition="after" change={this.onRadioChange} key="end">
+                        <IgrRadio name="position" value="end" labelPosition="after" onChange={this.onRadioChange} key="end">
                             <span key="sEnd">End</span>
                         </IgrRadio>
-                        <IgrRadio name="position" value="top" labelPosition="after" change={this.onRadioChange} key="top">
+                        <IgrRadio name="position" value="top" labelPosition="after" onChange={this.onRadioChange} key="top">
                             <span key="sTop">Top</span>
                         </IgrRadio>
-                        <IgrRadio name="position" value="bottom" labelPosition="after" change={this.onRadioChange} key="bottom">
+                        <IgrRadio name="position" value="bottom" labelPosition="after" onChange={this.onRadioChange} key="bottom">
                             <span key="sBottom">Bottom</span>
                         </IgrRadio>
                     </IgrRadioGroup>
@@ -74,18 +81,6 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
                 </div>
             </div>
         );
-    }
-
-    public iconRef(icon: IgrIcon) {
-        if (!icon) { return; }
-
-        const searchIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>';
-        const homeIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>';
-        const menuIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>';
-
-        icon.registerIconFromText("home", homeIcon, "material");
-        icon.registerIconFromText("search", searchIcon, "material");
-        icon.registerIconFromText("menu", menuIcon, "material");
     }
 
     public onMenuIconClick() {
@@ -116,7 +111,7 @@ export default class NavDrawerAddPositionsNavbar extends React.Component<any, an
     }
 
     public onRadioChange(e: any) {
-        if (e.checked == true) {
+        if (e.detail.checked) {
             this.setState({ drawerPosition: e.value });
         }
     }

@@ -25,9 +25,6 @@ export default class Sample extends React.Component<any, any> {
         this.hierarchicalGrid1 = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -43,8 +40,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     data={this.hGridDndData}
-                    primaryKey="Name"
-                    ref={this.hierarchicalGrid1Ref}>
+                    primaryKey="Name">
                     <IgrColumn
                         field="Name"
                         header="Character Name"
@@ -55,16 +51,14 @@ export default class Sample extends React.Component<any, any> {
                         header="Race"
                         dataType="string"
                         inlineEditorTemplate={this.hGridCellEditCellTemplate}
-                        editable={true}
-                        name="column1">
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Class"
                         header="Class"
                         inlineEditorTemplate={this.hGridCellEditCellTemplate}
                         editable={true}
-                        dataType="string"
-                        name="column2">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
@@ -77,8 +71,7 @@ export default class Sample extends React.Component<any, any> {
                         header="Alignment"
                         inlineEditorTemplate={this.hGridCellEditCellTemplate}
                         editable={true}
-                        dataType="string"
-                        name="column3">
+                        dataType="string">
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Skills"
@@ -143,9 +136,9 @@ export default class Sample extends React.Component<any, any> {
             index++;
         }
         return (
-            <IgrSelect className="size-large" key={key} change={(x: any) => {
+            <IgrSelect className="size-large" key={key} onChange={(x: any) => {
                     setTimeout(() => {
-                        cell.editValue = x.value;
+                        cell.editValue = x.target.value;
                     });
                 }}>
                 {cellValues}

@@ -37,11 +37,10 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
-                    ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
-                    cellEdit={this.webTreeGridCellEdit}
+                    onCellEdit={this.webTreeGridCellEdit}
                     foreignKey="ParentID">
                     <IgrColumn
                         field="Name"
@@ -86,7 +85,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridCellEdit(sender: IgrTreeGrid, args: IgrGridEditEventArgs): void {
+    public webTreeGridCellEdit(args: IgrGridEditEventArgs): void {
         const column = args.detail.column;
 
         if (column.field === 'Age') {

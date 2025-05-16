@@ -14,7 +14,7 @@ import {
   IgrTreeGridModule,
 } from "igniteui-react-grids";
 import { IgrColumn } from "igniteui-react-grids";
-import { IgrAvatar, IgrAvatarModule, IgrButton, IgrIcon, IgrIconModule } from "igniteui-react";
+import { IgrAvatar, IgrAvatarModule, IgrButton, IgrIcon, IgrIconModule, registerIconFromText } from "igniteui-react";
 
 import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
@@ -30,12 +30,9 @@ const icon = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -96
 export default function App() {
   const employeesData = new EmployeesFlatAvatars();
   const treeGridRef = useRef<IgrTreeGrid>(null);
-  const iconClear = useRef<IgrIcon>(null);
 
   useEffect(() => {
-    if (iconClear?.current) {
-      iconClear.current.registerIconFromText("clear", icon, "material");
-    }
+    registerIconFromText("clear", icon, "material");
   }, []);
 
   function webTreeGridAvatarCellTemplate(props: {
@@ -71,9 +68,9 @@ export default function App() {
             <IgrGridToolbarTitle key="toolbarTitle">
               <span key="toolbarTitleText">Tree Grid Toolbar</span>
             </IgrGridToolbarTitle>
-            <IgrButton key="btn" clicked={clearSort}>
+            <IgrButton key="btn" onClick={clearSort}>
               <span slot="prefix" key="clearIcon">
-                <IgrIcon name="clear" ref={iconClear} collection="material"></IgrIcon>
+                <IgrIcon name="clear" collection="material"></IgrIcon>
               </span>
               <span key="clearSort">Clear Sort</span>
             </IgrButton>

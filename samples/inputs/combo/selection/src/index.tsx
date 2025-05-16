@@ -39,16 +39,16 @@ export default function ComboSelection() {
         ref={comboRef}
       ></IgrCombo>
       <div className="button-container">
-        <IgrButton clicked={selectCities}>
+        <IgrButton onClick={selectCities}>
           <span key="selectUK">Select UK Cities</span>
         </IgrButton>
-        <IgrButton clicked={deselectCities}>
+        <IgrButton onClick={deselectCities}>
           <span key="deselectUK">Deselect UK Favorites</span>
         </IgrButton>
-        <IgrButton clicked={selectAll}>
+        <IgrButton onClick={selectAll}>
           <span key="selectAll">Select All</span>
         </IgrButton>
-        <IgrButton clicked={deselectAll}>
+        <IgrButton onClick={deselectAll}>
           <span key="deselectAll">Deselect All</span>
         </IgrButton>
       </div>

@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCalendar, IgrCalendarModule, DateRangeDescriptor, DateRangeType } from 'igniteui-react';
+import { IgrCalendar, DateRangeDescriptor, DateRangeType } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrCalendarModule.register();
 
 export default class CalendarDisabledDates extends React.Component<any, any> {
 
-    //public disabledDates: DateRangeDescriptor[];
-
     constructor(props: any) {
-        super(props);                
+        super(props);
 
         const today = new Date();
         const range = [
@@ -19,19 +15,19 @@ export default class CalendarDisabledDates extends React.Component<any, any> {
             new Date(today.getFullYear(), today.getMonth(), 8)
         ];
 
-        const desc: DateRangeDescriptor = new DateRangeDescriptor();
-        desc.dateRange = range;
-        desc.rangeType = DateRangeType.Specific;
-        
-        const dates: DateRangeDescriptor[] = [desc];
+        const desc: DateRangeDescriptor = {
+            dateRange: range,
+            type: DateRangeType.Specific,
+        }
+        const disabledDates = [desc];
 
-        this.state = { disabledDates: dates};        
+        this.state = { disabledDates };
     }
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrCalendar disabledDates={this.state.disabledDates} style={{width: '400px'}}/>                
+                <IgrCalendar disabledDates={this.state.disabledDates} style={{width: '400px'}}/>
             </div>
         );
     }

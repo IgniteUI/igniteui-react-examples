@@ -36,7 +36,6 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.singersData}
                     primaryKey="ID"
-                    ref={this.hGridRef}
                     id="hGrid">
                     <IgrColumn
                         field="Artist"

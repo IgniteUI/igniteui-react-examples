@@ -20,10 +20,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
-    private column4: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -37,7 +33,6 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrTreeGrid
-                    ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.ordersTreeData}
                     primaryKey="ID"
@@ -46,28 +41,24 @@ export default class Sample extends React.Component<any, any> {
                         field="ID"
                         header="Order ID"
                         dataType="string"
-                        cellStyles={this.webTreeGridCellStylesHandler}
-                        name="column1">
+                        cellStyles={this.webTreeGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Order Product"
                         dataType="string"
-                        cellStyles={this.webTreeGridCellStylesHandler}
-                        name="column2">
+                        cellStyles={this.webTreeGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="currency"
-                        cellStyles={this.webTreeGridCellStylesHandler}
-                        name="column3">
+                        cellStyles={this.webTreeGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        cellStyles={this.webTreeGridCellStylesHandler}
-                        name="column4">
+                        cellStyles={this.webTreeGridCellStylesHandler}>
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

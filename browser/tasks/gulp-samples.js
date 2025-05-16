@@ -283,6 +283,7 @@ function copySamples(cb) {
             code = code.replace('from "igniteui-react-maps";', "from 'igniteui-react-maps';");
             code = code.replace('from "igniteui-react-gauges";', "from 'igniteui-react-gauges';");
             code = code.replace('from "igniteui-react-grids";', "from 'igniteui-react-grids';");
+            code = code.replace('from "igniteui-react-data-grids";', "from 'igniteui-react-data-grids';");
             code = code.replace('from "igniteui-react-inputs";', "from 'igniteui-react-inputs';");
             code = code.replace('from "igniteui-react-layouts";', "from 'igniteui-react-layouts';");
 

@@ -36,7 +36,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     data={this.ordersTreeData}
-                    ref={this.treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
                     foreignKey="ParentID">

@@ -13,11 +13,11 @@ import {
     IgrNavbarModule,
     IgrRipple,
     IgrRippleModule,
+    registerIconFromText,
   } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './BannerSample2.css';
 import './index.css';
-import { registerIconFromText } from 'igniteui-webcomponents';
 
 IgrBannerModule.register();
 IgrNavbarModule.register();
@@ -52,7 +52,7 @@ export default function BannerSample2() {
                     <IgrIcon key="icon-wifi-off" name="signal_wifi_off" slot="prefix"></IgrIcon>
                     <span key="message">You have lost connection to the internet. This app is offline.</span>
                     <div key="actions"slot="actions" >
-                        <IgrButton key="button" variant="flat" clicked={() => bannerRef.current.toggle()}>
+                        <IgrButton key="button" variant="flat" onClick={() => bannerRef.current.toggle()}>
                             <IgrRipple key="ripple" />
                             <span key="action-text">Toggle Banner</span>
                         </IgrButton>

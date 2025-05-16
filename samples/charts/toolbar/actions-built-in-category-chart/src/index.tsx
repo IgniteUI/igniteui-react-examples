@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrLegendModule, IgrCategoryChartModule, IgrCategoryChartToolbarModule } from 'igniteui-react-charts';
 import { IgrToolbarModule } from 'igniteui-react-layouts';
-import { IgrCheckboxListModule } from 'igniteui-react-grids';
+import { IgrCheckboxListModule } from 'igniteui-react-data-grids';
 import { IgrLegend, IgrCategoryChart } from 'igniteui-react-charts';
 import { IgrToolbar } from 'igniteui-react-layouts';
 import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';

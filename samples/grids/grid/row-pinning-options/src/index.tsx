@@ -78,7 +78,6 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
-                    ref={this.gridRef}
                     id="grid"
                     data={this.customersDataLocal}
                     pinning={this.pinningConfig1}
@@ -119,7 +118,7 @@ export default class Sample extends React.Component<any, any> {
                         header="Fax">
                     </IgrColumn>
                     <IgrActionStrip
-                        name="actionStrip">
+                    >
                         <IgrGridPinningActions
                         >
                         </IgrGridPinningActions>

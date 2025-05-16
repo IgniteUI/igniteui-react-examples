@@ -20,7 +20,7 @@ export default class ToastOverview extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrButton variant="contained" clicked={this.onShowButtonClicked}>
+                <IgrButton variant="contained" onClick={this.onShowButtonClicked}>
                     <span>Show Toast</span>
                 </IgrButton>
 

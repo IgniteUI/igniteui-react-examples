@@ -35,8 +35,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -52,7 +50,6 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesDataExtended}
-                    ref={this.gridRef}
                     id="grid"
                     pinning={this.pinningConfig1}>
                     <IgrGridToolbar
@@ -70,13 +67,11 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="CountryFlag"
                         header="Team"
-                        bodyTemplate={this.webGridImageCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webGridImageCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="Avatar"
-                        bodyTemplate={this.webGridAvatarCellTemplate}
-                        name="column2">
+                        bodyTemplate={this.webGridAvatarCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name">
