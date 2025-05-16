@@ -21,16 +21,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private iD: IgrColumn
-    private contactName: IgrColumn
-    private contactTitle: IgrColumn
-    private city: IgrColumn
-    private company: IgrColumn
-    private fax: IgrColumn
-    private address: IgrColumn
-    private postalCode: IgrColumn
-    private country: IgrColumn
-    private phone: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -45,6 +35,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     id="grid"
                     data={this.customersData}
                     columnWidth="200px"

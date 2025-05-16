@@ -15,18 +15,17 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private hierarchicalGrid: IgrHierarchicalGrid
-    private hierarchicalGridRef(r: IgrHierarchicalGrid) {
-        this.hierarchicalGrid = r;
+    private hierarchicalGrid1: IgrHierarchicalGrid
+    private hierarchicalGrid1Ref(r: IgrHierarchicalGrid) {
+        this.hierarchicalGrid1 = r;
         this.setState({});
     }
-    private column: IgrColumn
-    private rowIsland: IgrRowIsland
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.hierarchicalGridRef = this.hierarchicalGridRef.bind(this);
+        this.hierarchicalGrid1Ref = this.hierarchicalGrid1Ref.bind(this);
     }
 
     public render(): JSX.Element {
@@ -37,7 +36,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     data={this.singersData}
-                    primaryKey="ID">
+                    primaryKey="ID"
+                    ref={this.hierarchicalGrid1Ref}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
@@ -64,7 +64,8 @@ export default class Sample extends React.Component<any, any> {
                         header="Grammy Nominations"
                         dataType="string"
                         resizable={true}
-                        cellClasses={this.webGridGrammyNominationsCellClassesHandler}>
+                        cellClasses={this.webGridGrammyNominationsCellClassesHandler}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"

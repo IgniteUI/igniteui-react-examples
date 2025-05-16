@@ -33,12 +33,8 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private avatar: IgrColumn
-    private name: IgrColumn
-    private company: IgrColumn
-    private email: IgrColumn
-    private fax: IgrColumn
-    private createdOn: IgrColumn
+    private column1: IgrColumn
+    private column2: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -50,11 +46,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs1;
     }
-    private lastActivity: IgrColumn
-    private estimatedSales: IgrColumn
-    private dealsLost: IgrColumn
-    private dealsWon: IgrColumn
-    private dealsPending: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -86,6 +77,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     data={this.employeesData}
                     rowEditable={true}
                     primaryKey="ID">
@@ -95,7 +87,8 @@ export default class Sample extends React.Component<any, any> {
                         dataType="string"
                         editable={false}
                         width="80px"
-                        bodyTemplate={this.webGridAvatarCellTemplate}>
+                        bodyTemplate={this.webGridAvatarCellTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
@@ -124,7 +117,8 @@ export default class Sample extends React.Component<any, any> {
                         width="170px"
                         dataType="date"
                         editable={true}
-                        pipeArgs={this.columnPipeArgs1}>
+                        pipeArgs={this.columnPipeArgs1}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="LastActivity"

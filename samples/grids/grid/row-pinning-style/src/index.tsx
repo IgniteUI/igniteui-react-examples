@@ -33,14 +33,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private company: IgrColumn
-    private contactName: IgrColumn
-    private contactTitle: IgrColumn
-    private address: IgrColumn
-    private city: IgrColumn
-    private postalCode: IgrColumn
-    private phone: IgrColumn
-    private fax: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -56,11 +48,12 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     id="grid"
                     data={this.customersDataLocal}
                     primaryKey="ID"
                     cellSelection="none"
-                    onRendered={this.webGridPinRowOnRendered}
+                    rendered={this.webGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         field="Company"

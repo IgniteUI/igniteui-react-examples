@@ -22,6 +22,7 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -36,6 +37,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     data={this.foodsData}
                     primaryKey="ID"
                     foreignKey="ParentID"
@@ -81,7 +83,8 @@ export default class Sample extends React.Component<any, any> {
                         field="Discontinued"
                         dataType="boolean"
                         bodyTemplate={this.webGridBooleanCellTemplate}
-                        sortable={true}>
+                        sortable={true}
+                        name="column1">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

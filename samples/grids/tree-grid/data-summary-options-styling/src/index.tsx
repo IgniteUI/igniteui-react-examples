@@ -22,6 +22,13 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
+    private column4: IgrColumn
+    private column5: IgrColumn
+    private column6: IgrColumn
+    private column7: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -37,6 +44,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     data={this.ordersTreeData}
+                    ref={this.treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
                     foreignKey="ParentID">
@@ -48,13 +56,15 @@ export default class Sample extends React.Component<any, any> {
                         field="Name"
                         header="Order Product"
                         hasSummary={true}
-                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}>
+                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Category"
                         header="Category"
                         hasSummary={true}
-                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}>
+                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
@@ -62,7 +72,8 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         hasSummary={true}
                         editable={true}
-                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}>
+                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}
+                        name="column3">
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
@@ -70,7 +81,8 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         hasSummary={true}
                         editable={true}
-                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}>
+                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}
+                        name="column4">
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
@@ -78,21 +90,24 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         hasSummary={true}
                         editable={true}
-                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}>
+                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}
+                        name="column5">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
                         header="Delivered"
                         dataType="boolean"
                         hasSummary={true}
-                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}>
+                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}
+                        name="column6">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
                         dataType="date"
                         hasSummary={true}
-                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}>
+                        headerTemplate={this.webTreeGridSummariesHeaderTemplate}
+                        name="column7">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

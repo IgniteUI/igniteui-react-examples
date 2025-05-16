@@ -24,9 +24,7 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productName: IgrColumn
-    private quantityPerUnit: IgrColumn
-    private unitPrice: IgrColumn
+    private column1: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -38,7 +36,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs1;
     }
-    private orderDate: IgrColumn
+    private column2: IgrColumn
     private  _columnPipeArgs2: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs2(): IgrColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
@@ -50,7 +48,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs2;
     }
-    private discontinued: IgrColumn
+    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -65,6 +63,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     data={this.nwindData}
                     moving={true}
                     allowFiltering={true}
@@ -91,18 +90,21 @@ export default class Sample extends React.Component<any, any> {
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="currency"
-                        pipeArgs={this.columnPipeArgs1}>
+                        pipeArgs={this.columnPipeArgs1}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
                         dataType="date"
-                        pipeArgs={this.columnPipeArgs2}>
+                        pipeArgs={this.columnPipeArgs2}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
                         header="Discontinued"
-                        bodyTemplate={this.webGridBooleanCellTemplate}>
+                        bodyTemplate={this.webGridBooleanCellTemplate}
+                        name="column3">
                     </IgrColumn>
                 </IgrGrid>
             </div>
