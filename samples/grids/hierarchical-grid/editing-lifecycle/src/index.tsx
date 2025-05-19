@@ -54,6 +54,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.singersData}
                     primaryKey="ID"
                     id="hierarchicalGrid"
+                    ref={this.hierarchicalGridRef}
                     rowEditable={true}
                     onRendered={this.webHierarchicalGridRendered}
                     onRowEditEnter={this.webHierarchicalGridRowEditEnter}

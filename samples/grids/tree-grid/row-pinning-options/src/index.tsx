@@ -82,6 +82,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     id="treeGrid"
+                    ref={this.treeGridRef}
                     data={this.employeesNestedTreeData}
                     rowEditable={true}
                     primaryKey="ID"

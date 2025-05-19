@@ -65,6 +65,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.singersData}
                     primaryKey="Photo"
                     id="grid"
+                    ref={this.gridRef}
                     cellSelection="none"
                     onRendered={this.webHierarchicalGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>

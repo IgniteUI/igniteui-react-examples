@@ -80,6 +80,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.financialDataAll}
+                    ref={this.gridRef}
                     sortingExpressions={this.sortingExpression1}
                     id="grid">
                     <IgrColumn

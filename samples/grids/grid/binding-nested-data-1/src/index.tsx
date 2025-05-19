@@ -39,6 +39,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.employeesNestedData}
+                    ref={this.gridRef}
                     id="grid">
                     <IgrColumn
                         header="Name"
