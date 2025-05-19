@@ -1,16 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-
-import { IgrActiveNodeChangeEventArgs, IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrColumn, IgrActiveNodeChangeEventArgs } from 'igniteui-react-grids';
 import NwindData from './NwindData.json';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
-
-// Register modules once
-IgrGridModule.register();
 
 const nwindData = NwindData;
 
@@ -106,7 +101,7 @@ const Sample = () => {
         return !rec.expression && !rec.summaries && !rec.childGridsData && !rec.detailsData;
     };
 
-    function gridEndEdit(event: CustomEvent<any>): void {
+    function gridEndEdit(event: IgrActiveNodeChangeEventArgs): void {
         gridRef.current.endEdit(true, event.detail);
     }
 
