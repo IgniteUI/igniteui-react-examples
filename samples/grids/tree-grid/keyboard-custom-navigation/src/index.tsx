@@ -7,7 +7,7 @@ import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
-import { IgrGrid, IgrGridKeydownEventArgs } from 'igniteui-react-grids';
+import { IgrGrid, IgrGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -39,13 +39,14 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
+                    ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesNestedData}
                     childDataKey="Employees"
                     rowSelection="multiple"
                     moving={true}
                     allowFiltering={true}
-                    onGridKeydown={this.webGridCustomKBNav}>
+                    gridKeydown={this.webGridCustomKBNav}>
                     <IgrPaginator
                         perPage={15}>
                     </IgrPaginator>
@@ -99,14 +100,13 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridCustomKBNav(eventArgs: IgrGridKeydownEventArgs): void {
+    public webGridCustomKBNav(grid: IgrGrid, eventArgs: IgrGridKeydownEventArgs): void {
         const args = eventArgs.detail;
         const target = args.target;
         const evt = args.event;
         const type = args.targetType;
-        const grid = eventArgs.target as IgrGrid;
 
-        if (type === 'dataCell' && target.editMode && evt.key.toLowerCase() === 'tab') {
+        if (type === GridKeydownTargetType.DataCell && target.editMode && evt.key.toLowerCase() === 'tab') {
             // Value validation for number column.
             // This covers both 'tab' and 'shift+tab' key interactions.
             args.event.preventDefault();
@@ -121,7 +121,7 @@ export default class Sample extends React.Component<any, any> {
 
             grid.navigateTo(cell.rowIndex, cell.visibleColumnIndex,
                 (obj: any) => { obj.target.activate(); });
-        } else if (type === 'dataCell' && evt.key.toLowerCase() === 'enter') {
+        } else if (type === GridKeydownTargetType.DataCell && evt.key.toLowerCase() === 'enter') {
             // Perform column based kb navigation with 'enter' key press
             args.cancel = true;
             grid.navigateTo(target.row.index + 1, target.column.visibleIndex, (obj: any) => {

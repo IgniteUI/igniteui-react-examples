@@ -35,6 +35,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     data={this.hierarchicalCustomersData}
+                    ref={this.gridRef}
                     id="grid"
                     primaryKey="CustomerID">
                     <IgrColumnGroup

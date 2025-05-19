@@ -77,7 +77,8 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.singersData}
                     primaryKey="ID"
-                    id="hierarchicalGrid">
+                    id="hierarchicalGrid"
+                    ref={this.hierarchicalGridRef}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
@@ -107,7 +108,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate={false}>
+                        autoGenerate={false}
+                        name="rowIsland">
                         <IgrColumn
                             field="Album"
                             header="Album"
@@ -152,8 +154,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webRowIslandCellSelectionChange(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        const rowIsland = document.getElementsByTagName("igc-row-island")[0] as IgrRowIsland;
-        rowIsland.cellSelection = args.newValue.toLocaleLowerCase();
+        this.hierarchicalGrid.contentChildLayoutList[0].cellSelection = args.newValue.toLocaleLowerCase();
     }
 
 }

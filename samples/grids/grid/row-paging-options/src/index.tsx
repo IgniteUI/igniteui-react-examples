@@ -38,6 +38,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._paginatorResourceStrings1;
     }
+    private column1: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -90,8 +91,10 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesData}
+                    ref={this.gridRef}
                     id="grid">
                     <IgrPaginator
+                        name="paginator"
                         perPage={15}
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>
@@ -112,7 +115,8 @@ export default class Sample extends React.Component<any, any> {
                         field="TopSpeed"
                         header="Top Speed"
                         dataType="number"
-                        pipeArgs={this.columnPipeArgs1}>
+                        pipeArgs={this.columnPipeArgs1}
+                        name="column1">
                     </IgrColumn>
                 </IgrGrid>
             </div>

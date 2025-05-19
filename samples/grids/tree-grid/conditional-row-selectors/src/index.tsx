@@ -38,11 +38,12 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     data={this.employeesFlatData}
+                    ref={this.treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
                     foreignKey="ParentID"
                     rowSelection="multiple"
-                    onRowSelectionChanging={this.webTreeGridRowSelectionConditional}>
+                    rowSelectionChanging={this.webTreeGridRowSelectionConditional}>
                     <IgrColumn
                         field="Name"
                         dataType="string">
@@ -88,7 +89,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridRowSelectionConditional(eventArgs: IgrRowSelectionEventArgs): void {
+    public webTreeGridRowSelectionConditional(sender: IgrTreeGrid, eventArgs: IgrRowSelectionEventArgs): void {
         const event = eventArgs.detail;
         if (!event.added.length && event.removed.length) {
             // ignore de-select

@@ -36,6 +36,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.localData}
                     id="grid"
+                    ref={this.gridRef}
                     cellSelection="multiple"
                     columnSelection="multiple">
                     <IgrColumn

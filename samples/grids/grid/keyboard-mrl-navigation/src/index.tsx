@@ -42,10 +42,12 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     id="grid"
                     data={this.companyData}
-                    onGridKeydown={this.webGridMRLCustomNavigationEvent}>
+                    gridKeydown={this.webGridMRLCustomNavigationEvent}>
                     <IgrColumnLayout
+                        name="CompanyInfo"
                         header="Company">
                         <IgrColumn
                             field="Company"
@@ -75,6 +77,7 @@ export default class Sample extends React.Component<any, any> {
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
+                        name="Sales"
                         header="Sales">
                         <IgrColumn
                             field="LifetimeSales"
@@ -98,6 +101,7 @@ export default class Sample extends React.Component<any, any> {
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
+                        name="MarketPotentialInfo"
                         header="Market Potential">
                         <IgrColumn
                             field="MarketPotential"
@@ -108,6 +112,7 @@ export default class Sample extends React.Component<any, any> {
                         </IgrColumn>
                     </IgrColumnLayout>
                     <IgrColumnLayout
+                        name="Assets"
                         header="Assets">
                         <IgrColumn
                             field="AssetsCash"
@@ -157,7 +162,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridMRLCustomNavigationEvent(args: IgrGridKeydownEventArgs): void {
+    public webGridMRLCustomNavigationEvent(sender: IgrGrid, args: IgrGridKeydownEventArgs): void {
         const target = args.detail.target;
         const grid: IgrGrid = this.grid;
         if ((args.detail.event as any).key.toLowerCase() === 'enter') {

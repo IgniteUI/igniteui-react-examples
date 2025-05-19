@@ -23,6 +23,7 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private gridToolbarExporter1: IgrGridToolbarExporter
     private generalInformation: IgrColumnGroup
     private personalDetails: IgrColumnGroup
     private addressInformation: IgrColumnGroup
@@ -44,6 +45,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     id="grid"
+                    ref={this.gridRef}
                     data={this.customersData}
                     moving={true}
                     allowFiltering={true}>
@@ -60,7 +62,8 @@ export default class Sample extends React.Component<any, any> {
                             <IgrGridToolbarExporter
                                 exportCSV={false}
                                 exportExcel={true}
-                                onExportStarted={this.webGridExportEventMultiColumnHeaders}>
+                                exportStarted={this.webGridExportEventMultiColumnHeaders}
+                                name="gridToolbarExporter1">
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
@@ -71,6 +74,7 @@ export default class Sample extends React.Component<any, any> {
                         filterable={false}>
                     </IgrColumn>
                     <IgrColumnGroup
+                        name="GeneralInformation"
                         header="General Information"
                         collapsible={true}
                         expanded={true}>
@@ -79,6 +83,7 @@ export default class Sample extends React.Component<any, any> {
                             visibleWhenCollapsed={true}>
                         </IgrColumn>
                         <IgrColumnGroup
+                            name="PersonalDetails"
                             header="Personal Details"
                             collapsible={true}
                             expanded={false}
@@ -92,8 +97,10 @@ export default class Sample extends React.Component<any, any> {
                         </IgrColumnGroup>
                     </IgrColumnGroup>
                     <IgrColumnGroup
+                        name="AddressInformation"
                         header="Address Information">
                         <IgrColumnGroup
+                            name="Location"
                             header="Location"
                             collapsible={true}
                             expanded={false}
@@ -120,6 +127,7 @@ export default class Sample extends React.Component<any, any> {
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrColumnGroup
+                            name="ContactInformation"
                             header="Contact Information">
                             <IgrColumn
                                 field="Phone">
@@ -158,7 +166,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridExportEventMultiColumnHeaders(args: IgrExporterEventArgs): void {
+    public webGridExportEventMultiColumnHeaders(sender: IgrGridToolbarExporter, args: IgrExporterEventArgs): void {
         if (args.detail.options) {
             args.detail.options.ignoreMultiColumnHeaders = false;
         }

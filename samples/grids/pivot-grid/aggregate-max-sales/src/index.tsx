@@ -24,22 +24,22 @@ export default class Sample extends React.Component<any, any> {
     public get pivotConfiguration1(): IgrPivotConfiguration {
         if (this._pivotConfiguration1 == null)
         {
-            var pivotConfiguration1: IgrPivotConfiguration = {} as IgrPivotConfiguration;
+            var pivotConfiguration1 = new IgrPivotConfiguration();
 
-            var igrPivotDimension1: IgrPivotDimension = {} as IgrPivotDimension;
+            var igrPivotDimension1 = new IgrPivotDimension();
             igrPivotDimension1.memberName = "Country";
             igrPivotDimension1.enabled = true;
 
             pivotConfiguration1.columns = [igrPivotDimension1];
-            var igrPivotDimension2: IgrPivotDimension = {} as IgrPivotDimension;
+            var igrPivotDimension2 = new IgrPivotDimension();
             igrPivotDimension2.memberName = "Product";
             igrPivotDimension2.enabled = true;
 
             pivotConfiguration1.rows = [igrPivotDimension2];
-            var igrPivotValue1: IgrPivotValue = {} as IgrPivotValue;
+            var igrPivotValue1 = new IgrPivotValue();
             igrPivotValue1.member = "Sales";
             igrPivotValue1.enabled = true;
-            var igrPivotAggregator1: IgrPivotAggregator = {} as IgrPivotAggregator;
+            var igrPivotAggregator1 = new IgrPivotAggregator();
             igrPivotAggregator1.key = "MAX";
             igrPivotAggregator1.aggregator = this.pivotSalesDataAggregateMaxSales;
 
@@ -65,6 +65,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrPivotGrid
                     data={this.pivotSalesData}
+                    ref={this.gridRef}
                     pivotConfiguration={this.pivotConfiguration1}>
                 </IgrPivotGrid>
             </div>

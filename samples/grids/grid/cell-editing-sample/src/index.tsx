@@ -25,6 +25,9 @@ export default class Sample extends React.Component<any, any> {
         this.grid1 = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -39,6 +42,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.grid1Ref}
                     data={this.roleplayDataStats}
                     primaryKey="Name">
                     <IgrColumn
@@ -51,14 +55,16 @@ export default class Sample extends React.Component<any, any> {
                         header="Race"
                         dataType="string"
                         inlineEditorTemplate={this.webGridCellEditCellTemplate}
-                        editable={true}>
+                        editable={true}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Class"
                         header="Class"
                         inlineEditorTemplate={this.webGridCellEditCellTemplate}
                         editable={true}
-                        dataType="string">
+                        dataType="string"
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
@@ -71,7 +77,8 @@ export default class Sample extends React.Component<any, any> {
                         header="Alignment"
                         inlineEditorTemplate={this.webGridCellEditCellTemplate}
                         editable={true}
-                        dataType="string">
+                        dataType="string"
+                        name="column3">
                     </IgrColumn>
                 </IgrGrid>
             </div>
@@ -122,9 +129,9 @@ export default class Sample extends React.Component<any, any> {
             index++;
         }
         return (
-            <IgrSelect className="size-large" key={key} onChange={(x: any) => {
+            <IgrSelect className="size-large" key={key} change={(x: any) => {
                     setTimeout(() => {
-                        cell.editValue = x.target.value;
+                        cell.editValue = x.value;
                     });
                 }}>
                 {cellValues}

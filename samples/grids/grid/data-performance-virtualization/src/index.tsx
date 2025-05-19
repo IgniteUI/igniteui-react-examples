@@ -24,6 +24,9 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -39,6 +42,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.financialDataAll}
+                    ref={this.gridRef}
                     id="grid"
                     allowFiltering={true}>
                     <IgrColumn
@@ -64,21 +68,24 @@ export default class Sample extends React.Component<any, any> {
                         field="Change"
                         width="120px"
                         dataType="number"
-                        bodyTemplate={this.webGridCurrencyCellTemplate}>
+                        bodyTemplate={this.webGridCurrencyCellTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="ChangePercent"
                         header="Change(%)"
                         width="120px"
                         dataType="number"
-                        bodyTemplate={this.webGridCurrencyCellTemplate}>
+                        bodyTemplate={this.webGridCurrencyCellTemplate}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="YearlyChange"
                         header="Change On Year(%)"
                         width="150px"
                         dataType="number"
-                        bodyTemplate={this.webGridCurrencyCellTemplate}>
+                        bodyTemplate={this.webGridCurrencyCellTemplate}
+                        name="column3">
                     </IgrColumn>
                     <IgrColumn
                         field="Buy"
