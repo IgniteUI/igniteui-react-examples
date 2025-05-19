@@ -38,6 +38,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.hierarchicalCustomers}
                     moving={true}
+                    ref={this.gridRef}
                     id="grid">
                     <IgrPaginator
                         perPage={15}>

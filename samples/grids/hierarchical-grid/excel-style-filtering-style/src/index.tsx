@@ -36,6 +36,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.singersData}
                     id="grid"
+                    ref={this.gridRef}
                     primaryKey="ID"
                     allowFiltering={true}
                     filterMode="excelStyleFilter">

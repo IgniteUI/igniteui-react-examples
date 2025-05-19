@@ -38,6 +38,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     id="grid"
                     data={this.employeesFlatAvatars}
                     primaryKey="ID"

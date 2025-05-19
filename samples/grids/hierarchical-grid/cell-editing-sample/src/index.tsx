@@ -40,7 +40,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     data={this.hGridDndData}
-                    primaryKey="Name">
+                    primaryKey="Name"
+                    ref={this.hierarchicalGrid1Ref}>
                     <IgrColumn
                         field="Name"
                         header="Character Name"

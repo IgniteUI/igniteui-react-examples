@@ -39,6 +39,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
+                    ref={this.treeGrid1Ref}
                     id="treeGrid1"
                     data={this.roleplayTreeGridData}
                     primaryKey="ID"
