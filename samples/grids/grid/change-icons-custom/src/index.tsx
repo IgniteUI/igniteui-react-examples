@@ -26,7 +26,7 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
 
-    public onSelect(_buttonGroup: IgrButtonGroup, args: IgrComponentValueChangedEventArgs) {
+    public onSelect(args: IgrComponentValueChangedEventArgs) {
         this.changeRefs(args.detail);
     }
 
@@ -117,7 +117,7 @@ export default class Sample extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample ig-typography">
-                <IgrButtonGroup select={this.onSelect} style={{ width: 'fit-content' }}>
+                <IgrButtonGroup onSelect={this.onSelect} style={{ width: 'fit-content' }}>
                     <IgrToggleButton value="material" key="material" selected>
                         <span key="text">Material Icons</span>
                     </IgrToggleButton>

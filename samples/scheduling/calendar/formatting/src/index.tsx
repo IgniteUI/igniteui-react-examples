@@ -11,14 +11,15 @@ IgrRadioModule.register();
 export default class CalendarFormatting extends React.Component<any, any> {
 
     constructor(props: any) {
-        super(props);                
+        super(props);
         this.onRadioChange = this.onRadioChange.bind(this);
 
-        const formatOptions: IgrCalendarFormatOptions = new IgrCalendarFormatOptions();
-        formatOptions.month = 'short';
-        formatOptions.weekday = 'short';
+        const formatOptions: IgrCalendarFormatOptions = {
+            month: 'short',
+            weekday: 'short',
+        }
 
-        this.state = { calendarLocale: "en", calendarFormat: formatOptions };        
+        this.state = { calendarLocale: "en", calendarFormat: formatOptions };
     }
 
     public render(): JSX.Element {
@@ -45,7 +46,7 @@ export default class CalendarFormatting extends React.Component<any, any> {
                 <IgrCalendar weekStart='monday' formatOptions={this.state.calendarFormat} 
                              locale={this.state.calendarLocale}
                              value={new Date()}
-                             style={{width: '400px'}}/>                
+                             style={{width: '400px'}}/>
             </div>
         );
     }

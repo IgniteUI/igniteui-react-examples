@@ -8,11 +8,11 @@ import {
     IgrRipple,
     IgrRippleModule,
     IgrToggleButton,
+    registerIconFromText,
   } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
 import './ButtonGroupOverview.css';
 import './index.css';
-import { registerIconFromText } from 'igniteui-webcomponents'
 
 IgrButtonGroupModule.register();
 IgrIconModule.register();

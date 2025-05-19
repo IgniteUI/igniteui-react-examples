@@ -17,6 +17,7 @@ import {
   IgrIconButtonModule,
   IgrInput,
   IgrInputModule,
+  registerIconFromText,
 } from "igniteui-react";
 
 const mods: any[] = [IgrTreeGridModule, IgrChipModule, IgrIconButtonModule, IgrInputModule];
@@ -35,26 +36,16 @@ const data = new EmployeesFlatData();
 
 export default function Sample() {
   const gridRef = useRef<IgrTreeGrid>(null);
-  const searchIconRef = useRef<IgrIconButton>(null);
-  const clearIconRef = useRef<IgrIconButton>(null);
-  const iconButtonNextRef = useRef<IgrIconButton>(null);
-  const iconButtonPrevRef = useRef<IgrIconButton>(null);
   const caseSensitiveChipRef = useRef<IgrChip>(null);
   const exactMatchChipRef = useRef<IgrChip>(null);
 
   const [searchText, setSearchText] = useState('')
 
   useEffect(() => {
-    if (searchIconRef?.current) {
-      searchIconRef.current.registerIconFromText("search", searchIconText, "material");
-      searchIconRef.current.registerIconFromText("clear", clearIconText, "material");
-    }
-    if (iconButtonPrevRef?.current) {
-      iconButtonPrevRef.current.registerIconFromText("prev", prevIconText,"material");
-    }
-    if (iconButtonNextRef?.current) {
-      iconButtonNextRef.current.registerIconFromText("next", nextIconText, "material");
-    }
+    registerIconFromText("search", searchIconText, "material");
+    registerIconFromText("clear", clearIconText, "material");
+    registerIconFromText("prev", prevIconText,"material");
+    registerIconFromText("next", nextIconText, "material");
   }, []);
 
   function handleOnSearchChange(event: IgrComponentValueChangedEventArgs) {
@@ -62,11 +53,11 @@ export default function Sample() {
     gridRef.current.findNext(event.detail, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
   }
 
-  function handleCaseSensitiveChange(chip: IgrChip, event: IgrComponentBoolValueChangedEventArgs) {
+  function handleCaseSensitiveChange(event: IgrComponentBoolValueChangedEventArgs) {
     gridRef.current.findNext(searchText, event.detail, exactMatchChipRef.current.selected);
   }
 
-  function handleExactMatchChange(chip: IgrChip, event: IgrComponentBoolValueChangedEventArgs) {
+  function handleExactMatchChange(event: IgrComponentBoolValueChangedEventArgs) {
     gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, event.detail);
   }
 
@@ -103,7 +94,6 @@ export default function Sample() {
               {searchText.length === 0 ? (
                 <IgrIconButton
                   key="searchIcon"
-                  ref={searchIconRef} 
                   variant="flat"
                   name="search" 
                   collection="material"
@@ -111,7 +101,6 @@ export default function Sample() {
               ) : (
                 <IgrIconButton
                   key="clearIcon"
-                  ref={clearIconRef}
                   variant="flat"
                   name="clear"
                   collection="material"
@@ -121,17 +110,16 @@ export default function Sample() {
             </div>
             
             <div slot="suffix" key="chipSuffix">
-              <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable={true} select={handleCaseSensitiveChange}>
+              <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable={true} onSelect={handleCaseSensitiveChange}>
                 <span key="caseSensitive">Case Sensitive</span>
               </IgrChip>
-              <IgrChip ref={exactMatchChipRef} key="exactMatchChip" selectable={true} select={handleExactMatchChange}>
+              <IgrChip ref={exactMatchChipRef} key="exactMatchChip" selectable={true} onSelect={handleExactMatchChange}>
                 <span key="exactMatch">Exact Match</span>
               </IgrChip>
             </div>
             <div slot="suffix" key="buttonsSuffix">
               <IgrIconButton
                 key="prevIconButton"
-                ref={iconButtonPrevRef}
                 variant="flat"
                 name="prev"
                 collection="material"
@@ -139,7 +127,6 @@ export default function Sample() {
               ></IgrIconButton>
               <IgrIconButton
                 key="nextIconButton"
-                ref={iconButtonNextRef}
                 variant="flat"
                 name="next"
                 collection="material"

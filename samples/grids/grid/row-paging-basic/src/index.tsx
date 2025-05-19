@@ -50,6 +50,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesData}
+                    ref={this.gridRef}
                     id="grid">
                     <IgrPaginator
                         perPage={10}>

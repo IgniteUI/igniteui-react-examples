@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {
-  CarouselAnimationType,
   IgrCarousel,
   IgrCarouselIndicator,
   IgrCarouselModule,
@@ -44,7 +43,7 @@ export default function CarouselThumbnail() {
         hideNavigation={true}
         interval={2000}
         vertical={true}
-        animationType={CarouselAnimationType.Fade}
+        animationType="fade"
       >
         {images.map((image, index) => {
           return (

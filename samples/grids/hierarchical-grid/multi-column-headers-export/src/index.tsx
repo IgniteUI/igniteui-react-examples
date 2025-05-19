@@ -288,7 +288,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webHierarchicalGridExportMultiColumnHeaders(sender: IgrGridToolbarExporter, args: IgrExporterEventArgs): void {
+    public webHierarchicalGridExportMultiColumnHeaders(args: IgrExporterEventArgs): void {
         if (args.detail.options) {
             args.detail.options.ignoreMultiColumnHeaders = false;
         }

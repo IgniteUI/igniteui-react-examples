@@ -38,6 +38,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
+                    ref={this.gridRef}
                     data={this.customersData}
                     rowDraggable={true}
                     primaryKey="ID"
@@ -101,7 +102,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridReorderRowHandler(sender: IgrGrid, args: IgrRowDragEndEventArgs): void {
+    public webGridReorderRowHandler(args: IgrRowDragEndEventArgs): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
         const dragElementPos = ghostElement.getBoundingClientRect();
         const grid = this.grid;

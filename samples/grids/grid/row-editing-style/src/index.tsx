@@ -46,6 +46,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.nwindData}
+                    ref={this.gridRef}
                     id="grid"
                     primaryKey="ProductID"
                     rowEditable={true}>

@@ -23,22 +23,11 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private iD: IgrColumn
     private generalInformation: IgrColumnGroup
-    private company: IgrColumn
     private personalDetails: IgrColumnGroup
-    private contactName: IgrColumn
-    private contactTitle: IgrColumn
     private addressInformation: IgrColumnGroup
     private location: IgrColumnGroup
-    private country: IgrColumn
-    private region: IgrColumn
-    private city: IgrColumn
-    private address: IgrColumn
     private contactInformation: IgrColumnGroup
-    private phone: IgrColumn
-    private fax: IgrColumn
-    private postalCode: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -55,6 +44,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     id="grid"
+                    ref={this.gridRef}
                     data={this.customersData}
                     moving={true}
                     allowFiltering={true}>
@@ -169,7 +159,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridExportEventMultiColumnHeaders(sender: IgrGridToolbarExporter, args: IgrExporterEventArgs): void {
+    public webGridExportEventMultiColumnHeaders(args: IgrExporterEventArgs): void {
         if (args.detail.options) {
             args.detail.options.ignoreMultiColumnHeaders = false;
         }

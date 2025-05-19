@@ -77,6 +77,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.financialDataAll}
                     primaryKey="ProductID"
                     moving={true}
+                    ref={this.gridRef}
                     id="grid">
                     <IgrColumn
                         field="Category"

@@ -14,7 +14,7 @@ import {
   IgrColumn,
   IgrRowIsland,
 } from "igniteui-react-grids";
-import { IgrButton, IgrIcon, IgrIconModule } from "igniteui-react";
+import { IgrButton, IgrIcon, IgrIconModule, registerIconFromText } from "igniteui-react";
 import { SingersData } from "./SingersData";
 
 import "igniteui-react-grids/grids/combined";
@@ -28,12 +28,9 @@ const icon = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -96
 export default function App() {
   const singersData = new SingersData();
   const hierarchicalGridRef = useRef<IgrHierarchicalGrid>(null);
-  const iconClear = useRef<IgrIcon>(null);
 
   useEffect(() => {
-    if (iconClear?.current) {
-      iconClear.current.registerIconFromText("clear", icon, "material");
-    }
+    registerIconFromText("clear", icon, "material");
   }, []);
 
   function clearSort() {
@@ -55,7 +52,7 @@ export default function App() {
             </IgrGridToolbarTitle>
             <IgrButton key="btn" onClick={clearSort}>
               <span slot="prefix" key="clearIcon">
-                <IgrIcon name="clear" ref={iconClear} collection="material"></IgrIcon>
+                <IgrIcon name="clear" collection="material"></IgrIcon>
               </span>
               <span key="clearSort">Clear Sort</span>
             </IgrButton>

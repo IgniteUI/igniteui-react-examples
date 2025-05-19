@@ -23,8 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private column: IgrColumn
-    private unitsInStock: IgrColumn
-    private unitsOnOrder: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -87,7 +85,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridEditingEventsCellEdit(sender: IgrGrid, args: IgrGridEditEventArgs): void {
+    public webGridEditingEventsCellEdit(args: IgrGridEditEventArgs): void {
         var d = args.detail;
 
         if (d.column != null && d.column.field == "UnitsOnOrder") {

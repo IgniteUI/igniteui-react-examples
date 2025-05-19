@@ -50,6 +50,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesDataExtended}
+                    ref={this.gridRef}
                     id="grid"
                     pinning={this.pinningConfig1}>
                     <IgrGridToolbar

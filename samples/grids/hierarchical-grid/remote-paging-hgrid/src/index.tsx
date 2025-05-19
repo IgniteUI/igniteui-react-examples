@@ -2,16 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { GridPagingMode, IgrGridCreatedEventArgs, IgrHierarchicalGridModule, IgrPaginator } from "igniteui-react-grids";
-import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from "igniteui-react-grids";
+import {
+  IgrColumn,
+  IgrGridCreatedEventArgs,
+  IgrHierarchicalGrid,
+  IgrPaginator,
+  IgrRowIsland,
+} from "igniteui-react-grids";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { RemoteService } from "./RemoteService";
 import { IgrNumberEventArgs } from "igniteui-react";
 import { CustomersWithPageResponseModel } from "./CustomersWithPageResponseModel";
-
-IgrHierarchicalGridModule.register();
 
 export default function App() {
   const hierarchicalGrid = useRef<IgrHierarchicalGrid>(null);
@@ -43,20 +45,15 @@ export default function App() {
         setData([]);
         // Stop loading even if error occurs. Prevents endless loading
         hierarchicalGrid.current.isLoading = false;
-
-      })
+      });
   }
 
-  function gridCreated(
-    rowIsland: IgrRowIsland,
-    event: IgrGridCreatedEventArgs,
-    parentKey: string
-  ) {
+  function gridCreated(event: IgrGridCreatedEventArgs, parentKey: string) {
     const context = event.detail;
     context.grid.isLoading = true;
-    
+
     const parentId: string = context.parentID;
-    const childDataKey: string = rowIsland.childDataKey;
+    const childDataKey: string = context.owner.childDataKey;
 
     RemoteService.getHierarchyDataById(parentKey, parentId, childDataKey)
       .then((data: any) => {
@@ -69,35 +66,33 @@ export default function App() {
         context.grid.data = [];
         context.grid.isLoading = false;
         context.grid.markForCheck();
-      })
-    
+      });
   }
 
-  function onPageNumberChange(paginator: IgrPaginator, args: IgrNumberEventArgs) {
+  function onPageNumberChange(args: IgrNumberEventArgs) {
     setPage(args.detail);
   }
 
-  function onPageSizeChange(paginator: IgrPaginator, args: IgrNumberEventArgs) {
+  function onPageSizeChange(args: IgrNumberEventArgs) {
     setPerPage(args.detail);
   }
 
   return (
     <div className="container sample ig-typography">
       <div className="container fill">
-
         <IgrHierarchicalGrid
           ref={hierarchicalGrid}
           data={data}
-          pagingMode={GridPagingMode.Remote}
+          pagingMode={"remote"}
           primaryKey="customerId"
           height="600px"
         >
-          <IgrPaginator 
+          <IgrPaginator
             perPage={perPage}
             ref={paginator}
-            pageChange={onPageNumberChange}
-            perPageChange={onPageSizeChange}>
-          </IgrPaginator>
+            onPageChange={onPageNumberChange}
+            onPerPageChange={onPageSizeChange}
+          ></IgrPaginator>
           <IgrColumn field="customerId" hidden={true}></IgrColumn>
           <IgrColumn field="companyName" header="Company Name"></IgrColumn>
           <IgrColumn field="contactName" header="Contact Name"></IgrColumn>
@@ -108,24 +103,32 @@ export default function App() {
           <IgrRowIsland
             childDataKey="Orders"
             primaryKey="orderId"
-            gridCreated={(
-              rowIsland: IgrRowIsland,
-              e: IgrGridCreatedEventArgs
-            ) => gridCreated(rowIsland, e, "Customers")}
+            onGridCreated={(e: IgrGridCreatedEventArgs) =>
+              gridCreated(e, "Customers")
+            }
           >
             <IgrColumn field="orderId" hidden={true}></IgrColumn>
-            <IgrColumn field="shipAddress.country" header="Ship Country"></IgrColumn>
+            <IgrColumn
+              field="shipAddress.country"
+              header="Ship Country"
+            ></IgrColumn>
             <IgrColumn field="shipAddress.city" header="Ship City"></IgrColumn>
-            <IgrColumn field="shipAddress.street" header="Ship Address"></IgrColumn>
-            <IgrColumn field="orderDate" header="Order Date" dataType="date"></IgrColumn>
+            <IgrColumn
+              field="shipAddress.street"
+              header="Ship Address"
+            ></IgrColumn>
+            <IgrColumn
+              field="orderDate"
+              header="Order Date"
+              dataType="date"
+            ></IgrColumn>
 
             <IgrRowIsland
               childDataKey="Details"
               primaryKey="productId"
-              gridCreated={(
-                rowIsland: IgrRowIsland,
-                e: IgrGridCreatedEventArgs
-              ) => gridCreated(rowIsland, e, "Orders")}
+              onGridCreated={(e: IgrGridCreatedEventArgs) =>
+                gridCreated(e, "Orders")
+              }
             >
               <IgrColumn field="productId" hidden={true}></IgrColumn>
               <IgrColumn field="quantity" header="Quantity"></IgrColumn>
@@ -134,7 +137,6 @@ export default function App() {
             </IgrRowIsland>
           </IgrRowIsland>
         </IgrHierarchicalGrid>
-
       </div>
     </div>
   );

@@ -13,8 +13,8 @@ import {
     IgrRipple,
     IgrRippleModule,
     IgrToggleButton,
+    registerIconFromText,
   } from 'igniteui-react';
-import { registerIconFromText } from 'igniteui-webcomponents'
 import 'igniteui-webcomponents/themes/light/material.css';
 import './ButtonGroupSelection.css';
 import './index.css';
@@ -49,17 +49,8 @@ export default function ButtonGroupSelectionSample() {
     const buttonGroupRef = useRef<IgrButtonGroup>(null);
 
     function onRadioChange(e: IgrRadioChangeEventArgs) {
-        switch (e.detail.value) {
-            case 'single':
-                buttonGroupRef.current.selection = ButtonGroupSelection.Single;
-                break;
-            case 'single-required':
-                buttonGroupRef.current.selection = ButtonGroupSelection.SingleRequired;
-                break;
-            default:
-                buttonGroupRef.current.selection = ButtonGroupSelection.Multiple;
-                break;
-        }
+        const value = e.detail.value as ButtonGroupSelection;
+        buttonGroupRef.current.selection = value;
     }
 
     return (

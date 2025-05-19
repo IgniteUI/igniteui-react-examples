@@ -39,6 +39,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     id="grid"
+                    ref={this.gridRef}
                     data={this.nwindData}
                     onCellEdit={this.webGridEditingEventsCellEdit}
                     primaryKey="ProductID"
@@ -139,7 +140,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridEditingEventsCellEdit(sender: IgrHierarchicalGrid, args: IgrGridEditEventArgs): void {
+    public webGridEditingEventsCellEdit(args: IgrGridEditEventArgs): void {
         var d = args.detail;
 
         if (d.column != null && d.column.field == "UnitsOnOrder") {

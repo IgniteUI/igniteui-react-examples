@@ -24,20 +24,9 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private companyInfo: IgrColumnLayout
-    private company: IgrColumn
-    private country: IgrColumn
-    private city: IgrColumn
-    private address: IgrColumn
     private sales: IgrColumnLayout
-    private lifetimeSales: IgrColumn
-    private quarterly: IgrColumn
-    private yearly: IgrColumn
     private marketPotentialInfo: IgrColumnLayout
-    private marketPotential: IgrColumn
     private assets: IgrColumnLayout
-    private assetsCash: IgrColumn
-    private accountsReceivable: IgrColumn
-    private assetsBooks: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -53,6 +42,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     id="grid"
                     data={this.companyData}
                     onGridKeydown={this.webGridMRLCustomNavigationEvent}>
@@ -168,7 +158,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridMRLCustomNavigationEvent(sender: IgrGrid, args: IgrGridKeydownEventArgs): void {
+    public webGridMRLCustomNavigationEvent(args: IgrGridKeydownEventArgs): void {
         const target = args.detail.target;
         const grid: IgrGrid = this.grid;
         if ((args.detail.event as any).key.toLowerCase() === 'enter') {
