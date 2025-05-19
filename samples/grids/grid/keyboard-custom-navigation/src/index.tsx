@@ -24,12 +24,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productID: IgrColumn
-    private reorderLevel: IgrColumn
-    private productName: IgrColumn
-    private unitsInStock: IgrColumn
-    private orderDate: IgrColumn
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);

@@ -20,9 +20,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private category: IgrColumn
-    private marketShare: IgrColumn
-    private summary: IgrColumn
 
     constructor(props: any) {
         super(props);

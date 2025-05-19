@@ -33,14 +33,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private company: IgrColumn
-    private contactName: IgrColumn
-    private contactTitle: IgrColumn
-    private address: IgrColumn
-    private city: IgrColumn
-    private postalCode: IgrColumn
-    private phone: IgrColumn
-    private fax: IgrColumn
 
     constructor(props: any) {
         super(props);
