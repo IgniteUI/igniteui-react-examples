@@ -24,20 +24,9 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private companyInfo: IgrColumnLayout
-    private company: IgrColumn
-    private country: IgrColumn
-    private city: IgrColumn
-    private address: IgrColumn
     private sales: IgrColumnLayout
-    private lifetimeSales: IgrColumn
-    private quarterly: IgrColumn
-    private yearly: IgrColumn
     private marketPotentialInfo: IgrColumnLayout
-    private marketPotential: IgrColumn
     private assets: IgrColumnLayout
-    private assetsCash: IgrColumn
-    private accountsReceivable: IgrColumn
-    private assetsBooks: IgrColumn
 
     constructor(props: any) {
         super(props);
