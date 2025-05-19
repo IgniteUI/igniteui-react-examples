@@ -24,6 +24,7 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -39,6 +40,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.employeesNestedData}
+                    ref={this.gridRef}
                     id="grid">
                     <IgrColumn
                         header="Name"
@@ -59,7 +61,8 @@ export default class Sample extends React.Component<any, any> {
                         field="Employees"
                         header="Employees"
                         bodyTemplate={this.webGridNestedDataCellTemplate}
-                        width="20%">
+                        width="20%"
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="City"

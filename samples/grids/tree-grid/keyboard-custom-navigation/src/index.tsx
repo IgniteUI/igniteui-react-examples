@@ -39,13 +39,14 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
+                    ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesNestedData}
                     childDataKey="Employees"
                     rowSelection="multiple"
                     moving={true}
                     allowFiltering={true}
-                    onGridKeydown={this.webGridCustomKBNav}>
+                    gridKeydown={this.webGridCustomKBNav}>
                     <IgrPaginator
                         perPage={15}>
                     </IgrPaginator>

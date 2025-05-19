@@ -49,13 +49,14 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     data={this.nwindData}
                     rowEditable={true}
                     allowFiltering={true}
                     pinning={this.pinningConfig1}
                     primaryKey="ProductID">
                     <IgrActionStrip
-                    >
+                        name="actionStrip">
                         <IgrGridPinningActions
                         >
                         </IgrGridPinningActions>

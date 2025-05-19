@@ -43,6 +43,8 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._groupingExpression1;
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -68,6 +70,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     id="grid"
                     data={this.invoicesData}
                     groupingExpressions={this.groupingExpression1}>
@@ -99,7 +102,8 @@ export default class Sample extends React.Component<any, any> {
                         header="Discontinued"
                         width="200px"
                         groupable={true}
-                        bodyTemplate={this.webGridBooleanCellTemplate}>
+                        bodyTemplate={this.webGridBooleanCellTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipName"
@@ -131,7 +135,8 @@ export default class Sample extends React.Component<any, any> {
                         width="150px"
                         dataType="currency"
                         pipeArgs={this.columnPipeArgs1}
-                        groupable={true}>
+                        groupable={true}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Quantity"

@@ -40,11 +40,12 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     id="grid"
+                    ref={this.gridRef}
                     data={this.nwindData}
                     moving={true}
                     primaryKey="ProductID"
                     rowEditable={true}
-                    onGridKeydown={this.webGridCustomKBNav}>
+                    gridKeydown={this.webGridCustomKBNav}>
                     <IgrColumn
                         field="ProductID"
                         header="Product ID">

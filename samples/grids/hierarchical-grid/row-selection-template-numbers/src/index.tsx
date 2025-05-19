@@ -41,6 +41,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     data={this.singersData}
+                    ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
                     primaryKey="ID"
                     rowSelection="multiple"
@@ -48,7 +49,7 @@ export default class Sample extends React.Component<any, any> {
                     rowSelectorTemplate={this.webGridRowSelectorTemplate}
                     headSelectorTemplate={this.webGridHeaderRowSelectorTemplate}>
                     <IgrPaginator
-                    >
+                        name="paginator">
                     </IgrPaginator>
                     <IgrColumn
                         field="Artist">
