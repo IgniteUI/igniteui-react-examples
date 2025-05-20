@@ -23,6 +23,8 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private columnGroup1: IgrColumnGroup
+    private columnGroup2: IgrColumnGroup
 
     constructor(props: any) {
         super(props);
@@ -46,7 +48,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumnGroup
                         header="General Information"
-                        headerTemplate={this.webGridColumnGroupHeaderTemplate}>
+                        headerTemplate={this.webGridColumnGroupHeaderTemplate}
+                        name="columnGroup1">
                         <IgrColumn
                             field="Company"
                             sortable={true}
@@ -68,7 +71,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumnGroup>
                     <IgrColumnGroup
                         header="Address Information"
-                        headerTemplate={this.webGridColumnGroupHeaderTemplate}>
+                        headerTemplate={this.webGridColumnGroupHeaderTemplate}
+                        name="columnGroup2">
                         <IgrColumn
                             header="Location"
                             field="Address"

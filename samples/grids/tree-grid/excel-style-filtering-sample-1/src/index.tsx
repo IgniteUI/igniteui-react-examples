@@ -33,6 +33,7 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -112,7 +113,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Discontinued"
                         dataType="boolean"
-                        bodyTemplate={this.webGridBooleanCellTemplate}>
+                        bodyTemplate={this.webGridBooleanCellTemplate}
+                        name="column1">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

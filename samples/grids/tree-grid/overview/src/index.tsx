@@ -53,7 +53,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarTitle
-                        >
+                            name="Employees">
                         </IgrGridToolbarTitle>
                         <IgrGridToolbarActions
                         >

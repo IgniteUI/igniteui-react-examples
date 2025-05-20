@@ -22,6 +22,17 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
+    private column4: IgrColumn
+    private column5: IgrColumn
+    private column6: IgrColumn
+    private column7: IgrColumn
+    private column8: IgrColumn
+    private column9: IgrColumn
+    private column10: IgrColumn
+    private column11: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -50,57 +61,68 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Name"
                         dataType="string"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}>
+                        headerTemplate={this.webTreeGridPinHeaderTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
                         dataType="string"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}>
+                        headerTemplate={this.webTreeGridPinHeaderTemplate}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="ID"
                         dataType="number"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}>
+                        headerTemplate={this.webTreeGridPinHeaderTemplate}
+                        name="column3">
                     </IgrColumn>
                     <IgrColumn
                         field="HireDate"
                         dataType="date"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}>
+                        headerTemplate={this.webTreeGridPinHeaderTemplate}
+                        name="column4">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
                         dataType="number"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}>
+                        headerTemplate={this.webTreeGridPinHeaderTemplate}
+                        name="column5">
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
                         dataType="string"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}>
+                        headerTemplate={this.webTreeGridPinHeaderTemplate}
+                        name="column6">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
                         dataType="string"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}>
+                        headerTemplate={this.webTreeGridPinHeaderTemplate}
+                        name="column7">
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
                         dataType="string"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}>
+                        headerTemplate={this.webTreeGridPinHeaderTemplate}
+                        name="column8">
                     </IgrColumn>
                     <IgrColumn
                         field="Fax"
                         dataType="string"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}>
+                        headerTemplate={this.webTreeGridPinHeaderTemplate}
+                        name="column9">
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
                         dataType="string"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}>
+                        headerTemplate={this.webTreeGridPinHeaderTemplate}
+                        name="column10">
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
                         dataType="string"
-                        headerTemplate={this.webTreeGridPinHeaderTemplate}>
+                        headerTemplate={this.webTreeGridPinHeaderTemplate}
+                        name="column11">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

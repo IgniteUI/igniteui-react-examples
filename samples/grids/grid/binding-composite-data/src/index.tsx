@@ -24,6 +24,8 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -52,7 +54,8 @@ export default class Sample extends React.Component<any, any> {
                         bodyTemplate={this.webGridCompositeContactCellTemplate}
                         inlineEditorTemplate={this.webGridCompositeContactEditCellTemplate}
                         width="250px"
-                        resizable={false}>
+                        resizable={false}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         header="Address"
@@ -61,7 +64,8 @@ export default class Sample extends React.Component<any, any> {
                         bodyTemplate={this.webGridCompositeAddressCellTemplate}
                         inlineEditorTemplate={this.webGridCompositeAddressEditCellTemplate}
                         width="250px"
-                        resizable={false}>
+                        resizable={false}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         header="Country"

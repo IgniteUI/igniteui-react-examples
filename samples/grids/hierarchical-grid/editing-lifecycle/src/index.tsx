@@ -56,14 +56,14 @@ export default class Sample extends React.Component<any, any> {
                     id="hierarchicalGrid"
                     ref={this.hierarchicalGridRef}
                     rowEditable={true}
-                    onRendered={this.webHierarchicalGridRendered}
-                    onRowEditEnter={this.webHierarchicalGridRowEditEnter}
-                    onRowEdit={this.webHierarchicalGridRowEdit}
-                    onRowEditDone={this.webHierarchicalGridRowEditDone}
-                    onRowEditExit={this.webHierarchicalGridRowEditExit}
-                    onCellEditEnter={this.webHierarchicalGridCellEditEnter}
-                    onCellEdit={this.webHierarchicalGridCellEdit}
-                    onCellEditExit={this.webHierarchicalGridCellEditExit}>
+                    rendered={this.webHierarchicalGridRendered}
+                    rowEditEnter={this.webHierarchicalGridRowEditEnter}
+                    rowEdit={this.webHierarchicalGridRowEdit}
+                    rowEditDone={this.webHierarchicalGridRowEditDone}
+                    rowEditExit={this.webHierarchicalGridRowEditExit}
+                    cellEditEnter={this.webHierarchicalGridCellEditEnter}
+                    cellEdit={this.webHierarchicalGridCellEdit}
+                    cellEditExit={this.webHierarchicalGridCellEditExit}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
@@ -92,15 +92,16 @@ export default class Sample extends React.Component<any, any> {
                     <IgrRowIsland
                         childDataKey="Albums"
                         autoGenerate={false}
+                        name="rowIsland"
                         primaryKey="Album"
                         rowEditable={true}
-                        onRowEditEnter={this.webRowIslandGridRowEditEnter}
-                        onRowEdit={this.webRowIslandGridRowEdit}
-                        onRowEditDone={this.webRowIslandGridRowEditDone}
-                        onRowEditExit={this.webRowIslandGridRowEditExit}
-                        onCellEditEnter={this.webRowIslandGridCellEditEnter}
-                        onCellEdit={this.webRowIslandGridCellEdit}
-                        onCellEditExit={this.webRowIslandGridCellEditExit}>
+                        rowEditEnter={this.webRowIslandGridRowEditEnter}
+                        rowEdit={this.webRowIslandGridRowEdit}
+                        rowEditDone={this.webRowIslandGridRowEditDone}
+                        rowEditExit={this.webRowIslandGridRowEditExit}
+                        cellEditEnter={this.webRowIslandGridCellEditEnter}
+                        cellEdit={this.webRowIslandGridCellEdit}
+                        cellEditExit={this.webRowIslandGridCellEditExit}>
                         <IgrColumn
                             field="Album"
                             header="Album"
@@ -150,98 +151,98 @@ export default class Sample extends React.Component<any, any> {
         container.appendChild(title);
     }
 
-    public webHierarchicalGridRowEditEnter(args: IgrGridEditEventArgs): void {
+    public webHierarchicalGridRowEditEnter(sender: IgrHierarchicalGrid, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Hierarchical Grid => 'rowEditEnter' with 'RowID':` + args.detail.rowID;
         container.appendChild(message);
     }
 
-    public webHierarchicalGridRowEdit(args: IgrGridEditEventArgs): void {
+    public webHierarchicalGridRowEdit(sender: IgrHierarchicalGrid, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Hierarchical Grid => 'rowEdit'`;
         container.appendChild(message);
     }
 
-    public webHierarchicalGridRowEditDone(args: IgrGridEditDoneEventArgs): void {
+    public webHierarchicalGridRowEditDone(sender: IgrHierarchicalGrid, args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Hierarchical Grid => 'rowEditDone'`;
         container.appendChild(message);
     }
 
-    public webHierarchicalGridRowEditExit(args: IgrGridEditDoneEventArgs): void {
+    public webHierarchicalGridRowEditExit(sender: IgrHierarchicalGrid, args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Hierarchical Grid => 'rowEditExit'  << End of cycle >>`;
         container.appendChild(message);
     }
 
-    public webHierarchicalGridCellEditEnter(args: IgrGridEditEventArgs): void {
+    public webHierarchicalGridCellEditEnter(sender: IgrHierarchicalGrid, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Hierarchical Grid => 'cellEditEnter' with 'value':` + args.detail.oldValue, args.detail.cancel;
         container.appendChild(message);
     }
 
-    public webHierarchicalGridCellEdit(args: IgrGridEditEventArgs): void {
+    public webHierarchicalGridCellEdit(sender: IgrHierarchicalGrid, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Hierarchical Grid => 'cellEdit' with 'newValue':` + args.detail.newValue, args.detail.cancel;
         container.appendChild(message);
     }
 
-    public webHierarchicalGridCellEditExit(args: IgrGridEditDoneEventArgs): void {
+    public webHierarchicalGridCellEditExit(sender: IgrHierarchicalGrid, args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Hierarchical Grid => 'cellEditExit'`;
         container.appendChild(message);
     }
 
-    public webRowIslandGridRowEditEnter(args: IgrGridEditEventArgs): void {
+    public webRowIslandGridRowEditEnter(sender: IgrRowIsland, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Row Island => 'rowEditEnter' with 'RowID':` + args.detail.rowID;
         container.appendChild(message);
     }
 
-    public webRowIslandGridRowEdit(args: IgrGridEditEventArgs): void {
+    public webRowIslandGridRowEdit(sender: IgrRowIsland, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Row Island => 'rowEdit'`;
         container.appendChild(message);
     }
 
-    public webRowIslandGridRowEditDone(args: IgrGridEditDoneEventArgs): void {
+    public webRowIslandGridRowEditDone(sender: IgrRowIsland, args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Row Island => 'rowEditDone'`;
         container.appendChild(message);
     }
 
-    public webRowIslandGridRowEditExit(args: IgrGridEditDoneEventArgs): void {
+    public webRowIslandGridRowEditExit(sender: IgrRowIsland, args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Row Island => 'rowEditExit'  << End of cycle >>`;
         container.appendChild(message);
     }
 
-    public webRowIslandGridCellEditEnter(args: IgrGridEditEventArgs): void {
+    public webRowIslandGridCellEditEnter(sender: IgrRowIsland, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Row Island => 'cellEditEnter' with 'value':` + args.detail.oldValue, args.detail.cancel;
         container.appendChild(message);
     }
 
-    public webRowIslandGridCellEdit(args: IgrGridEditEventArgs): void {
+    public webRowIslandGridCellEdit(sender: IgrRowIsland, args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Row Island => 'cellEdit' with 'newValue':` + args.detail.newValue, args.detail.cancel;
         container.appendChild(message);
     }
 
-    public webRowIslandGridCellEditExit(args: IgrGridEditDoneEventArgs): void {
+    public webRowIslandGridCellEditExit(sender: IgrRowIsland, args: IgrGridEditDoneEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
         message.textContent = `Row Island => 'cellEditExit'`;

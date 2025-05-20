@@ -18,17 +18,21 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid: IgrGrid
-    private gridRef(r: IgrGrid) {
-        this.grid = r;
+    private grid1: IgrGrid
+    private grid1Ref(r: IgrGrid) {
+        this.grid1 = r;
         this.setState({});
     }
-    private column: IgrColumn
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
+    private column4: IgrColumn
+    private column5: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.gridRef = this.gridRef.bind(this);
+        this.grid1Ref = this.grid1Ref.bind(this);
     }
 
     public render(): JSX.Element {
@@ -39,26 +43,32 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesData}
-                    primaryKey="Id">
+                    primaryKey="Id"
+                    ref={this.grid1Ref}>
                     <IgrColumn
                         field="Id"
-                        cellStyles={this.webGridCellStylesHandler}>
+                        cellStyles={this.webGridCellStylesHandler}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Position"
-                        cellStyles={this.webGridCellStylesHandler}>
+                        cellStyles={this.webGridCellStylesHandler}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
-                        cellStyles={this.webGridCellStylesHandler}>
+                        cellStyles={this.webGridCellStylesHandler}
+                        name="column3">
                     </IgrColumn>
                     <IgrColumn
                         field="AthleteNumber"
-                        cellStyles={this.webGridCellStylesHandler}>
+                        cellStyles={this.webGridCellStylesHandler}
+                        name="column4">
                     </IgrColumn>
                     <IgrColumn
                         field="CountryName"
-                        cellStyles={this.webGridCellStylesHandler}>
+                        cellStyles={this.webGridCellStylesHandler}
+                        name="column5">
                     </IgrColumn>
                 </IgrGrid>
             </div>

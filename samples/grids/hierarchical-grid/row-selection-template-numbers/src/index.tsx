@@ -49,7 +49,7 @@ export default class Sample extends React.Component<any, any> {
                     rowSelectorTemplate={this.webGridRowSelectorTemplate}
                     headSelectorTemplate={this.webGridHeaderRowSelectorTemplate}>
                     <IgrPaginator
-                    >
+                        name="paginator">
                     </IgrPaginator>
                     <IgrColumn
                         field="Artist">

@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.customersData}
                     rowDraggable={true}
                     primaryKey="ID"
-                    onRowDragEnd={this.webGridReorderRowHandler}>
+                    rowDragEnd={this.webGridReorderRowHandler}>
                     <IgrColumn
                         field="ID"
                         header="ID">
@@ -102,7 +102,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridReorderRowHandler(args: IgrRowDragEndEventArgs): void {
+    public webGridReorderRowHandler(sender: IgrGrid, args: IgrRowDragEndEventArgs): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
         const dragElementPos = ghostElement.getBoundingClientRect();
         const grid = this.grid;

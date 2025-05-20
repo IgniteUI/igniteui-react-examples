@@ -24,6 +24,7 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -65,7 +66,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Name"
                         dataType="string"
-                        bodyTemplate={this.webTreeGridAvatarCellTemplate}>
+                        bodyTemplate={this.webTreeGridAvatarCellTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"

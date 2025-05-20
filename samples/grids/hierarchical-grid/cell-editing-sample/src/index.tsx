@@ -25,6 +25,9 @@ export default class Sample extends React.Component<any, any> {
         this.hierarchicalGrid1 = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -52,14 +55,16 @@ export default class Sample extends React.Component<any, any> {
                         header="Race"
                         dataType="string"
                         inlineEditorTemplate={this.hGridCellEditCellTemplate}
-                        editable={true}>
+                        editable={true}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Class"
                         header="Class"
                         inlineEditorTemplate={this.hGridCellEditCellTemplate}
                         editable={true}
-                        dataType="string">
+                        dataType="string"
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
@@ -72,7 +77,8 @@ export default class Sample extends React.Component<any, any> {
                         header="Alignment"
                         inlineEditorTemplate={this.hGridCellEditCellTemplate}
                         editable={true}
-                        dataType="string">
+                        dataType="string"
+                        name="column3">
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Skills"

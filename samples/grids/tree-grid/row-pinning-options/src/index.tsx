@@ -88,7 +88,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID"
                     cellSelection="none"
-                    onRendered={this.webTreeGridPinRowOnRendered}
+                    rendered={this.webTreeGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         field="Name"
@@ -106,7 +106,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="date">
                     </IgrColumn>
                     <IgrActionStrip
-                    >
+                        name="actionStrip">
                         <IgrGridPinningActions
                         >
                         </IgrGridPinningActions>

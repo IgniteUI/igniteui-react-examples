@@ -42,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     primaryKey="ID"
                     rowSelection="multiple"
-                    onRowSelectionChanging={this.webGridRowSelectionConditional}>
+                    rowSelectionChanging={this.webGridRowSelectionConditional}>
                     <IgrColumn
                         field="ContactName"
                         header="Name"
@@ -91,7 +91,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridRowSelectionConditional(eventArgs: IgrRowSelectionEventArgs): void {
+    public webGridRowSelectionConditional(sender: IgrGrid, eventArgs: IgrRowSelectionEventArgs): void {
         const event = eventArgs.detail;
         if (!event.added.length && event.removed.length) {
             // ignore de-select

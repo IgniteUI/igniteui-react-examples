@@ -37,6 +37,7 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -98,7 +99,8 @@ export default class Sample extends React.Component<any, any> {
                     rowEditable={true}
                     primaryKey="ProductID">
                     <IgrColumn
-                        bodyTemplate={this.webGridDeleteCellTemplate}>
+                        bodyTemplate={this.webGridDeleteCellTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="ProductID"

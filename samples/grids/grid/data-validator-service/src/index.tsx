@@ -33,6 +33,8 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -85,7 +87,8 @@ export default class Sample extends React.Component<any, any> {
                         dataType="string"
                         editable={false}
                         width="80px"
-                        bodyTemplate={this.webGridAvatarCellTemplate}>
+                        bodyTemplate={this.webGridAvatarCellTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
@@ -114,7 +117,8 @@ export default class Sample extends React.Component<any, any> {
                         width="170px"
                         dataType="date"
                         editable={true}
-                        pipeArgs={this.columnPipeArgs1}>
+                        pipeArgs={this.columnPipeArgs1}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="LastActivity"

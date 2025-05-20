@@ -43,6 +43,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._groupingExpression1;
     }
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -90,7 +91,8 @@ export default class Sample extends React.Component<any, any> {
                         width="200px"
                         dataType="boolean"
                         groupable={true}
-                        bodyTemplate={this.webGridBooleanCellTemplate}>
+                        bodyTemplate={this.webGridBooleanCellTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="ShipName"

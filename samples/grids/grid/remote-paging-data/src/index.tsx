@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.nwindData}
                     moving={true}
                     allowAdvancedFiltering={true}
-                    pagingMode="remote">
+                    pagingMode="Remote">
                     <IgrPaginator
                         perPage={10}
                         totalRecords={20}>

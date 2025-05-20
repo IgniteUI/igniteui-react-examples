@@ -53,7 +53,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.customersDataLocal}
                     primaryKey="ID"
                     cellSelection="none"
-                    onRendered={this.webGridPinRowOnRendered}
+                    rendered={this.webGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         field="Company"

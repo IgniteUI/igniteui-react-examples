@@ -23,6 +23,9 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -56,7 +59,8 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         editable={true}
                         sortable={true}
-                        cellClasses={this.webGridBeatsPerMinuteCellClassesHandler}>
+                        cellClasses={this.webGridBeatsPerMinuteCellClassesHandler}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="TopSpeed"
@@ -64,7 +68,8 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         editable={true}
                         sortable={true}
-                        cellClasses={this.webGridTopSpeedCellClassesHandler}>
+                        cellClasses={this.webGridTopSpeedCellClassesHandler}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="TrackProgress"
@@ -75,7 +80,8 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="CountryFlag"
                         header="Country"
-                        bodyTemplate={this.webGridImageCellTemplate}>
+                        bodyTemplate={this.webGridImageCellTemplate}
+                        name="column3">
                     </IgrColumn>
                 </IgrGrid>
             </div>

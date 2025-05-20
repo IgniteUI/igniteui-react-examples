@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
                     id="hierarchicalGrid"
                     primaryKey="ID"
                     rowDraggable={true}
-                    onRowDragEnd={this.webHierarchicalGridReorderRowHandler}>
+                    rowDragEnd={this.webHierarchicalGridReorderRowHandler}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
@@ -167,7 +167,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webHierarchicalGridReorderRowHandler(args: IgrRowDragEndEventArgs): void {
+    public webHierarchicalGridReorderRowHandler(sender: IgrHierarchicalGrid, args: IgrRowDragEndEventArgs): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
         const dragElementPos = ghostElement.getBoundingClientRect();
         const grid = this.hierarchicalGrid;

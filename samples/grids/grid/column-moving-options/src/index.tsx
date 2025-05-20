@@ -24,6 +24,9 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -36,6 +39,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs1;
     }
+    private column4: IgrColumn
     private  _columnPipeArgs2: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs2(): IgrColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
@@ -48,6 +52,7 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs2;
     }
+    private column5: IgrColumn
     private  _columnPipeArgs3: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs3(): IgrColumnPipeArgs {
         if (this._columnPipeArgs3 == null)
@@ -60,6 +65,10 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs3;
     }
+    private column6: IgrColumn
+    private column7: IgrColumn
+    private column8: IgrColumn
+    private column9: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -83,45 +92,52 @@ export default class Sample extends React.Component<any, any> {
                         field="Category"
                         pinned={true}
                         width="200px"
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         header="Type"
                         field="Type"
                         pinned={true}
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         header="Price"
                         field="Price"
                         dataType="currency"
                         pipeArgs={this.columnPipeArgs1}
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column3">
                     </IgrColumn>
                     <IgrColumn
                         header="Buy"
                         field="Buy"
                         dataType="currency"
                         pipeArgs={this.columnPipeArgs2}
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column4">
                     </IgrColumn>
                     <IgrColumn
                         header="Sell"
                         field="Sell"
                         dataType="currency"
                         pipeArgs={this.columnPipeArgs3}
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column5">
                     </IgrColumn>
                     <IgrColumn
                         header="Spread"
                         field="Spread"
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column6">
                     </IgrColumn>
                     <IgrColumn
                         field="Change"
                         header="Change"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column7">
                     </IgrColumn>
                     <IgrColumn
                         field="ChangePercent"
@@ -129,7 +145,8 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         width="150px"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column8">
                     </IgrColumn>
                     <IgrColumn
                         field="YearlyChange"
@@ -137,7 +154,8 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         width="150px"
                         bodyTemplate={this.webGridCurrencyCellTemplate}
-                        headerTemplate={this.webGridPinHeaderTemplate}>
+                        headerTemplate={this.webGridPinHeaderTemplate}
+                        name="column9">
                     </IgrColumn>
                 </IgrGrid>
             </div>

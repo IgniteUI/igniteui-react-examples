@@ -44,7 +44,7 @@ export default class Sample extends React.Component<any, any> {
                     batchEditing={true}
                     allowFiltering={true}>
                     <IgrActionStrip
-                    >
+                        name="actionStrip">
                         <IgrGridPinningActions
                         >
                         </IgrGridPinningActions>
