@@ -39,7 +39,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.hierarchicalCustomers}
                     ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
-                    primaryKey="ID"
+                    primaryKey="CustomerID"
                     moving={true}
                     allowFiltering={true}>
                     <IgrColumn
