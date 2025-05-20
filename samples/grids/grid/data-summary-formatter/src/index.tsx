@@ -21,6 +21,7 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -63,7 +64,8 @@ export default class Sample extends React.Component<any, any> {
                         sortable={true}
                         hasSummary={true}
                         dataType="date"
-                        summaryFormatter={this.webGridSummaryFormatter}>
+                        summaryFormatter={this.webGridSummaryFormatter}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"

@@ -84,6 +84,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID">
                     <IgrPaginator
+                        name="paginator"
                         perPage={10}
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>

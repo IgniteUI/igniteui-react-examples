@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
-                    onCellEdit={this.webTreeGridCellEdit}
+                    cellEdit={this.webTreeGridCellEdit}
                     foreignKey="ParentID">
                     <IgrColumn
                         field="Name"
@@ -86,7 +86,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridCellEdit(args: IgrGridEditEventArgs): void {
+    public webTreeGridCellEdit(sender: IgrTreeGrid, args: IgrGridEditEventArgs): void {
         const column = args.detail.column;
 
         if (column.field === 'Age') {

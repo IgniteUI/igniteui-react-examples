@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     ref={this.gridRef}
                     data={this.nwindData}
-                    onCellEdit={this.webGridEditingEventsCellEdit}
+                    cellEdit={this.webGridEditingEventsCellEdit}
                     primaryKey="ProductID"
                     allowFiltering={true}>
                     <IgrPaginator
@@ -140,7 +140,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridEditingEventsCellEdit(args: IgrGridEditEventArgs): void {
+    public webGridEditingEventsCellEdit(sender: IgrHierarchicalGrid, args: IgrGridEditEventArgs): void {
         var d = args.detail;
 
         if (d.column != null && d.column.field == "UnitsOnOrder") {

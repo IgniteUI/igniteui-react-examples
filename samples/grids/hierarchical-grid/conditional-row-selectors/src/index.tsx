@@ -44,9 +44,9 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     rowSelection="multiple"
                     cellSelection="none"
-                    onRowSelectionChanging={this.webHierarchicalGridRowSelectionConditional}>
+                    rowSelectionChanging={this.webHierarchicalGridRowSelectionConditional}>
                     <IgrPaginator
-                    >
+                        name="paginator">
                     </IgrPaginator>
                     <IgrColumn
                         field="Artist">
@@ -141,7 +141,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webHierarchicalGridRowSelectionConditional(eventArgs: IgrRowSelectionEventArgs): void {
+    public webHierarchicalGridRowSelectionConditional(sender: IgrHierarchicalGrid, eventArgs: IgrRowSelectionEventArgs): void {
         const event = eventArgs.detail;
         if (!event.added.length && event.removed.length) {
             // ignore de-select

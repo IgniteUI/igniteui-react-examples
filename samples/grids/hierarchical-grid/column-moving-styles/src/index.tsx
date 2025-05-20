@@ -22,6 +22,16 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private paginator: IgrPaginator
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
+    private column4: IgrColumn
+    private column5: IgrColumn
+    private column6: IgrColumn
+    private column7: IgrColumn
+    private column8: IgrColumn
+    private column9: IgrColumn
+    private column10: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -41,60 +51,71 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     id="grid">
                     <IgrPaginator
+                        name="paginator"
                         perPage={15}>
                     </IgrPaginator>
                     <IgrColumn
                         field="CustomerID"
                         dataType="string"
-                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}>
+                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
                         dataType="string"
                         width="150px"
-                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}>
+                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="ContactName"
                         dataType="string"
                         width="150px"
-                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}>
+                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}
+                        name="column3">
                     </IgrColumn>
                     <IgrColumn
                         field="ContactTitle"
                         dataType="string"
                         width="150px"
-                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}>
+                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}
+                        name="column4">
                     </IgrColumn>
                     <IgrColumn
                         field="Address"
                         dataType="string"
-                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}>
+                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}
+                        name="column5">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
                         dataType="string"
-                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}>
+                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}
+                        name="column6">
                     </IgrColumn>
                     <IgrColumn
                         field="PostalCode"
                         dataType="string"
-                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}>
+                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}
+                        name="column7">
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
                         dataType="string"
-                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}>
+                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}
+                        name="column8">
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
                         dataType="string"
-                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}>
+                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}
+                        name="column9">
                     </IgrColumn>
                     <IgrColumn
                         field="Fax"
                         dataType="string"
-                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}>
+                        headerTemplate={this.hierarchicalGridPinHeaderTemplate}
+                        name="column10">
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Orders"

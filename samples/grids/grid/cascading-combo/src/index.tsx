@@ -24,6 +24,9 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -42,7 +45,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.worldCitiesAbove500K}
                     primaryKey="ID"
                     ref={this.gridRef}
-                    onRendered={this.webGridWithComboRendered}>
+                    rendered={this.webGridWithComboRendered}>
                     <IgrColumn
                         field="ID"
                         header="ID"
@@ -51,17 +54,20 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Country"
                         header="Country"
-                        bodyTemplate={this.webGridCountryDropDownTemplate}>
+                        bodyTemplate={this.webGridCountryDropDownTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Region"
                         header="Region"
-                        bodyTemplate={this.webGridRegionDropDownTemplate}>
+                        bodyTemplate={this.webGridRegionDropDownTemplate}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
                         header="City"
-                        bodyTemplate={this.webGridCityDropDownTemplate}>
+                        bodyTemplate={this.webGridCityDropDownTemplate}
+                        name="column3">
                     </IgrColumn>
                 </IgrGrid>
             </div>

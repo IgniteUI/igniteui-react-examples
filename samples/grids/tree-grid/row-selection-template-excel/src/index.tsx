@@ -57,6 +57,7 @@ export default class Sample extends React.Component<any, any> {
                     rowSelectorTemplate={this.webGridRowSelectorExcelTemplate}
                     headSelectorTemplate={this.webGridHeaderRowSelectorExcelTemplate}>
                     <IgrPaginator
+                        name="paginator"
                         perPage={15}
                         selectOptions={[5, 10, 15, 25, 50]}
                         resourceStrings={this.paginatorResourceStrings1}>

@@ -25,6 +25,9 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid1 = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
+    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -54,14 +57,16 @@ export default class Sample extends React.Component<any, any> {
                         header="Race"
                         dataType="string"
                         editable={true}
-                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}>
+                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Class"
                         header="Class"
                         inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
                         dataType="string"
-                        editable={true}>
+                        editable={true}
+                        name="column2">
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
@@ -74,7 +79,8 @@ export default class Sample extends React.Component<any, any> {
                         header="Alignment"
                         inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
                         dataType="string"
-                        editable={true}>
+                        editable={true}
+                        name="column3">
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

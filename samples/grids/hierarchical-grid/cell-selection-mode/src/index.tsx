@@ -108,7 +108,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
-                        autoGenerate={false}>
+                        autoGenerate={false}
+                        name="rowIsland">
                         <IgrColumn
                             field="Album"
                             header="Album"

@@ -35,6 +35,8 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
+    private column1: IgrColumn
+    private column2: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -115,7 +117,8 @@ export default class Sample extends React.Component<any, any> {
                         editable={true}
                         groupable={true}
                         hasSummary={true}
-                        summaries={this.discontinuedSummary}>
+                        summaries={this.discontinuedSummary}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
@@ -131,7 +134,8 @@ export default class Sample extends React.Component<any, any> {
                         dataType="date"
                         groupable={true}
                         hasSummary={true}
-                        summaryTemplate={this.webGridOrderDateSummaryTemplate}>
+                        summaryTemplate={this.webGridOrderDateSummaryTemplate}
+                        name="column2">
                     </IgrColumn>
                 </IgrGrid>
             </div>

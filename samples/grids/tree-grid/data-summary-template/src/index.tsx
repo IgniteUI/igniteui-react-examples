@@ -35,6 +35,7 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -95,7 +96,8 @@ export default class Sample extends React.Component<any, any> {
                         field="Age"
                         dataType="number"
                         hasSummary={true}
-                        summaryTemplate={this.webTreeGridSummaryTemplate}>
+                        summaryTemplate={this.webTreeGridSummaryTemplate}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Title"

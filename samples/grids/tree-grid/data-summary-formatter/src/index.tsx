@@ -22,6 +22,7 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
+    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -83,7 +84,8 @@ export default class Sample extends React.Component<any, any> {
                         dataType="date"
                         hasSummary={true}
                         sortable={true}
-                        summaryFormatter={this.webTreeGridSummaryFormatter}>
+                        summaryFormatter={this.webTreeGridSummaryFormatter}
+                        name="column1">
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"

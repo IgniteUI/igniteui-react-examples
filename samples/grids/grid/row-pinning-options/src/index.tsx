@@ -119,7 +119,7 @@ export default class Sample extends React.Component<any, any> {
                         header="Fax">
                     </IgrColumn>
                     <IgrActionStrip
-                    >
+                        name="actionStrip">
                         <IgrGridPinningActions
                         >
                         </IgrGridPinningActions>
