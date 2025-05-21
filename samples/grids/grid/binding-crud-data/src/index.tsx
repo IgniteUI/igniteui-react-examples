@@ -4,7 +4,7 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, GridPagingMode, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
 
@@ -23,11 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productName: IgrColumn
-    private quantityPerUnit: IgrColumn
-    private unitPrice: IgrColumn
-    private orderDate: IgrColumn
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -42,12 +37,13 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     data={this.nwindData}
                     moving={true}
                     primaryKey="ProductID"
                     isLoading={true}
                     allowFiltering={false}
-                    pagingMode="remote"
+                    pagingMode={GridPagingMode.Remote}
                     rowEditable={true}>
                     <IgrColumn
                         field="ProductName"

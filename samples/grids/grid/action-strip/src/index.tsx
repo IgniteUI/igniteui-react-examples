@@ -35,13 +35,6 @@ export default class Sample extends React.Component<any, any> {
         return this._pinningConfig1;
     }
     private actionStrip: IgrActionStrip
-    private productName: IgrColumn
-    private unitPrice: IgrColumn
-    private unitsOnOrder: IgrColumn
-    private unitsInStock: IgrColumn
-    private quantityPerUnit: IgrColumn
-    private reorderLevel: IgrColumn
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -56,6 +49,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     data={this.nwindData}
                     rowEditable={true}
                     allowFiltering={true}

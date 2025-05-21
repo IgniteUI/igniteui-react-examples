@@ -66,6 +66,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrPivotGrid
                     data={this.pivotSalesData}
+                    ref={this.gridRef}
                     pivotConfiguration={this.pivotConfiguration1}>
                 </IgrPivotGrid>
             </div>

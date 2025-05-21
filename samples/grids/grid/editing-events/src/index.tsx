@@ -23,8 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private column: IgrColumn
-    private unitsInStock: IgrColumn
-    private unitsOnOrder: IgrColumn
 
     constructor(props: any) {
         super(props);

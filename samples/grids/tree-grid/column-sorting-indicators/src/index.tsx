@@ -98,6 +98,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     data={this.ordersTreeData}
+                    ref={this.gridRef}
                     sortingExpressions={this.sortingExpression1}
                     id="grid"
                     primaryKey="ID"

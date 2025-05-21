@@ -47,6 +47,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
+                    ref={this.treeGridRef}
                     data={this.employeesNestedTreeData}
                     rowEditable={true}
                     primaryKey="ID"

@@ -106,6 +106,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.invoicesDataExtendedDates}
+                    ref={this.gridRef}
                     id="grid"
                     allowFiltering={true}
                     filterMode="excelStyleFilter"
