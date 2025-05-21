@@ -28,10 +28,6 @@ const data = new MarketData();
 
 export default function Sample() {
   const gridRef = useRef<IgrGrid>(null);
-  const searchIconRef = useRef<IgrIconButton>(null);
-  const clearIconRef = useRef<IgrIconButton>(null);
-  const iconButtonNextRef = useRef<IgrIconButton>(null);
-  const iconButtonPrevRef = useRef<IgrIconButton>(null);
   const caseSensitiveChipRef = useRef<IgrChip>(null);
   const exactMatchChipRef = useRef<IgrChip>(null);
   const [searchText, setSearchText] = useState('');
@@ -89,7 +85,6 @@ export default function Sample() {
               {searchText.length === 0 ? (
                 <IgrIconButton
                   key="searchIcon"
-                  ref={searchIconRef}
                   variant="flat"
                   name="search"
                   collection="material"
@@ -97,7 +92,6 @@ export default function Sample() {
               ) : (
                 <IgrIconButton
                   key="clearIcon"
-                  ref={clearIconRef}
                   variant="flat"
                   name="clear"
                   collection="material"
@@ -117,7 +111,6 @@ export default function Sample() {
             <div slot="suffix" key="buttonsSuffix">
               <IgrIconButton
                 key="prevIconButton"
-                ref={iconButtonPrevRef}
                 variant="flat"
                 name="prev"
                 collection="material"
@@ -125,7 +118,6 @@ export default function Sample() {
               ></IgrIconButton>
               <IgrIconButton
                 key="nextIconButton"
-                ref={iconButtonNextRef}
                 variant="flat"
                 name="next"
                 collection="material"
