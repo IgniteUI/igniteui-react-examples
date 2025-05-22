@@ -28,8 +28,8 @@ const data = new MarketData();
 
 export default function Sample() {
   const gridRef = useRef<IgrGrid>(null);
-  const caseSensitiveChipRef = useRef<IgrChip>(null);
-  const exactMatchChipRef = useRef<IgrChip>(null);
+  const [caseSensitiveSelected, setCaseSensitiveSelected] = useState<boolean>(false);
+  const [exactMatchSelected, setExactMatchSelected] = useState<boolean>(false);
   const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function Sample() {
 
   const handleOnSearchChange = (event: IgrComponentValueChangedEventArgs) => {
     setSearchText(event.detail);
-    gridRef.current.findNext(event.detail, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+    gridRef.current.findNext(event.detail, caseSensitiveSelected, exactMatchSelected);
   }
 
   const clearSearch = () => {
@@ -50,29 +50,31 @@ export default function Sample() {
   }
 
   const prevSearch = () => {
-    gridRef.current.findPrev(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+    gridRef.current.findPrev(searchText, caseSensitiveSelected, exactMatchSelected);
   }
 
   const nextSearch = () => {
-    gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+    gridRef.current.findNext(searchText, caseSensitiveSelected, exactMatchSelected);
   }
 
   const searchKeyDown = (e: KeyboardEvent<HTMLElement>) => {
     if (e.key === 'Enter' || e.key === 'ArrowDown') {
       e.preventDefault();
-      gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+      gridRef.current.findNext(searchText, caseSensitiveSelected, exactMatchSelected);
     } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
       e.preventDefault();
-      gridRef.current.findPrev(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+      gridRef.current.findPrev(searchText, caseSensitiveSelected, exactMatchSelected);
     }
   }
 
   const handleCaseSensitiveChange = (event: IgrComponentBoolValueChangedEventArgs) => {
-    gridRef.current.findNext(searchText, event.detail, exactMatchChipRef.current.selected);
+    setCaseSensitiveSelected(!caseSensitiveSelected);
+    gridRef.current.findNext(searchText, event.detail, exactMatchSelected);
   }
 
   const handleExactMatchChange = (event: IgrComponentBoolValueChangedEventArgs) => {
-    gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, event.detail);
+    setExactMatchSelected(!exactMatchSelected);
+    gridRef.current.findNext(searchText, caseSensitiveSelected, event.detail);
   }
 
   return (
@@ -101,10 +103,10 @@ export default function Sample() {
             </div>
 
             <div slot="suffix" key="chipSuffix">
-              <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable={true} onSelect={handleCaseSensitiveChange}>
+              <IgrChip key="caseSensitiveChip" selectable={true} onSelect={handleCaseSensitiveChange}>
                 <span key="caseSensitive">Case Sensitive</span>
               </IgrChip>
-              <IgrChip ref={exactMatchChipRef} key="exactMatchChip" selectable={true} onSelect={handleExactMatchChange}>
+              <IgrChip key="exactMatchChip" selectable={true} onSelect={handleExactMatchChange}>
                 <span key="exactMatch">Exact Match</span>
               </IgrChip>
             </div>
