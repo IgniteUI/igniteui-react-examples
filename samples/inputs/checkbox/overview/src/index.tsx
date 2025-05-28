@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCheckbox, IgrCheckboxModule } from 'igniteui-react';
+import { IgrCheckbox } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrCheckboxModule.register();
 
 export default class CheckboxOverview extends React.Component<any, any> {
 
@@ -16,7 +14,7 @@ export default class CheckboxOverview extends React.Component<any, any> {
         return (
             <div className="sample">
                 <IgrCheckbox>
-                    <span key="checkboxLabel">Checkbox</span>
+                    <span>Checkbox</span>
                 </IgrCheckbox>
             </div>
         );
