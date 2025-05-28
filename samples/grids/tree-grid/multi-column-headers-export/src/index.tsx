@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule, WebGridToolbarDescriptionM
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgrExporterEventArgs, IgrGrid } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

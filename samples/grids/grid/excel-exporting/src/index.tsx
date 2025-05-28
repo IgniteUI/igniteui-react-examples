@@ -6,7 +6,6 @@ import { IgrGridModule, IgrGridToolbarModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumn } from 'igniteui-react-grids';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

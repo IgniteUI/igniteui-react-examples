@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrPaginator, IgrColumn, IgrRowIsland } from 'igni
 import { ComponentRenderer, WebHierarchicalGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
