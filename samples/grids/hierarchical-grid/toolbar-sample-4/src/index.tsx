@@ -17,7 +17,6 @@ import {
 import { IgrButton, IgrIcon, IgrIconModule, registerIconFromText } from "igniteui-react";
 import { SingersData } from "./SingersData";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 IgrHierarchicalGridModule.register();

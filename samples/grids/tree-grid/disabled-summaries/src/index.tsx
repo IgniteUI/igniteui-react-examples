@@ -7,7 +7,6 @@ import { IgrButtonModule, IgrDialogModule, IgrCheckboxModule } from 'igniteui-re
 import { IgrTreeGridModule, IgrSummaryOperand, IgrSummaryResult } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrColumn } from "igniteui-react-grids";
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import { OrdersTreeData } from './OrdersTreeData';
 

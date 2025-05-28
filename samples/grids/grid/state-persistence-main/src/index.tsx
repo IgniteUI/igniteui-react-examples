@@ -17,7 +17,6 @@ import {
 import { IgrButton, IgrCheckbox, IgrCheckboxChangeEventArgs, IgrIcon, registerIconFromText } from 'igniteui-react';
 import { CustomersData } from './CustomersData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import './index.css';
 
