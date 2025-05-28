@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrBadge, IgrBadgeModule } from 'igniteui-react';
+import { IgrBadge } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrBadgeModule.register();
 
 export default class BadgeShape extends React.Component<any, any> {
 
