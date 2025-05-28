@@ -6,7 +6,6 @@ import { IgrGridToolbarModule, IgrHierarchicalGridModule } from 'igniteui-react-
 import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import SingersExportData from './SingersExportData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

@@ -9,7 +9,6 @@ import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, Employe
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrExpansionPanel, IgrInput } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

@@ -8,7 +8,6 @@ import { ComponentRenderer, WebHierarchicalGridDescriptionModule, WebPaginatorDe
 import NwindData from './NwindData.json';
 import { IgrGrid, IgrGridEditEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
