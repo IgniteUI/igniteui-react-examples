@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './ButtonStyle.css';
-import { IgrButton, IgrButtonModule } from 'igniteui-react';
+import { IgrButton } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrButtonModule.register();
 
 export default class ButtonStyling extends React.Component<any, any> {
 
