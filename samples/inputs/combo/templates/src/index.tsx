@@ -19,7 +19,7 @@ const renderItemTemplate = (args: ComboTemplateProps<City>) => {
   );
 };
 
-function renderGroupHeaderTemplate(args: ComboTemplateProps<City>): any {
+const renderGroupHeaderTemplate = (args: ComboTemplateProps<City>) => {
   return (
   <span>Country of {args.item.country}</span>
   );
