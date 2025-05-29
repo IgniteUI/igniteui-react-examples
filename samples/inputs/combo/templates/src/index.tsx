@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { IgrCombo, ComboTemplateProps } from "igniteui-react";
+import { IgrCombo, ComboTemplateProps, IgrIcon, registerIcon } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { Cities } from "./data";
 
@@ -9,6 +9,9 @@ type City = {
   id: string;
   country: string;
 };
+
+registerIcon("down", "images/down.svg", "material");
+registerIcon("clear", "images/clear.svg", "material");
 
 const renderItemTemplate = (args: ComboTemplateProps<City>) => {
   const item = args.item;
@@ -20,11 +23,8 @@ const renderItemTemplate = (args: ComboTemplateProps<City>) => {
 };
 
 const renderGroupHeaderTemplate = (args: ComboTemplateProps<City>) => {
-  return (
-  <span>Country of {args.item.country}</span>
-  );
-}
-
+  return <span>Country of {args.item.country}</span>;
+};
 
 export default function ComboTemplates() {
   return (
@@ -35,7 +35,16 @@ export default function ComboTemplates() {
         groupKey="country"
         data={Cities}
         itemTemplate={renderItemTemplate}
-        groupHeaderTemplate={renderGroupHeaderTemplate}>
+        groupHeaderTemplate={renderGroupHeaderTemplate}
+      >
+        <header slot="header">Header content goes here</header>
+        <footer slot="footer">Footer content goes here</footer>
+        <span slot="toggle-icon">
+          <IgrIcon name="down" collection="material"></IgrIcon>
+        </span>
+        <span slot="clear-icon">
+          <IgrIcon name="clear" collection="material"></IgrIcon>
+        </span>
       </IgrCombo>
     </div>
   );
