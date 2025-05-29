@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { IgrTreeGrid, IgrColumn } from "igniteui-react-grids";
 import { EmployeesFlatData } from "./EmployeesFlatData";
-
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import {
   IgrChip,
@@ -40,7 +39,7 @@ export default function Sample() {
 
   const handleOnSearchChange = (event: IgrComponentValueChangedEventArgs) => {
     setSearchText(event.detail);
-    gridRef.current.findNext(event.detail, caseSensitiveSelected, exactMatchSelected);
+    nextSearch(event.detail, caseSensitiveSelected, exactMatchSelected);
   }
 
   const clearSearch = () => {
@@ -48,32 +47,32 @@ export default function Sample() {
     gridRef.current.clearSearch();
   }
 
-  const prevSearch = () => {
-    gridRef.current.findPrev(searchText, caseSensitiveSelected, exactMatchSelected);
-  }
-
-  const nextSearch = () => {
-    gridRef.current.findNext(searchText, caseSensitiveSelected, exactMatchSelected);
-  }
-
   const searchKeyDown = (e: KeyboardEvent<HTMLElement>) => {
     if (e.key === 'Enter' || e.key === 'ArrowDown') {
       e.preventDefault();
-      gridRef.current.findNext(searchText, caseSensitiveSelected, exactMatchSelected);
+      nextSearch(searchText, caseSensitiveSelected, exactMatchSelected);
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      gridRef.current.findPrev(searchText, caseSensitiveSelected, exactMatchSelected);
+      prevSearch(searchText, caseSensitiveSelected, exactMatchSelected);
     }
   }
 
   const handleCaseSensitiveChange = (event: IgrComponentBoolValueChangedEventArgs) => {
     setCaseSensitiveSelected(!caseSensitiveSelected);
-    gridRef.current.findNext(searchText, event.detail, exactMatchSelected);
+    nextSearch(searchText, event.detail, exactMatchSelected);
   }
 
   const handleExactMatchChange = (event: IgrComponentBoolValueChangedEventArgs) => {
     setExactMatchSelected(!exactMatchSelected);
-    gridRef.current.findNext(searchText, caseSensitiveSelected, event.detail);
+    nextSearch(searchText, caseSensitiveSelected, event.detail);
+  }
+
+  const prevSearch = (text: string, caseSensitive: boolean, exactMatch: boolean) => {
+    gridRef.current.findPrev(text, caseSensitive, exactMatch);
+  }
+
+  const nextSearch = (text: string, caseSensitive: boolean, exactMatch: boolean) => {
+    gridRef.current.findNext(text, caseSensitive, exactMatch);
   }
 
   return (
@@ -82,17 +81,15 @@ export default function Sample() {
         <div style={{ marginBottom: "1rem" }} onKeyDown={searchKeyDown}>
           <IgrInput name="searchBox" value={searchText} onInput={handleOnSearchChange}>
 
-            <div slot="prefix" key="prefix">
+            <div slot="prefix">
               {searchText.length === 0 ? (
                 <IgrIconButton
-                  key="searchIcon"
                   variant="flat"
                   name="search"
                   collection="material"
                 ></IgrIconButton>
               ) : (
                 <IgrIconButton
-                  key="clearIcon"
                   variant="flat"
                   name="clear"
                   collection="material"
@@ -101,35 +98,32 @@ export default function Sample() {
               )}
             </div>
 
-            <div slot="suffix" key="chipSuffix">
-              <IgrChip key="caseSensitiveChip" selectable={true} onSelect={handleCaseSensitiveChange}>
-                <span key="caseSensitive">Case Sensitive</span>
+            <div slot="suffix">
+              <IgrChip selectable={true} onSelect={handleCaseSensitiveChange}>
+                <span>Case Sensitive</span>
               </IgrChip>
-              <IgrChip key="exactMatchChip" selectable={true} onSelect={handleExactMatchChange}>
-                <span key="exactMatch">Exact Match</span>
+              <IgrChip selectable={true} onSelect={handleExactMatchChange}>
+                <span>Exact Match</span>
               </IgrChip>
             </div>
-            <div slot="suffix" key="buttonsSuffix">
+            <div slot="suffix">
               <IgrIconButton
-                key="prevIconButton"
                 variant="flat"
                 name="prev"
                 collection="material"
-                onClick={prevSearch}
+                onClick={() => prevSearch(searchText, caseSensitiveSelected, exactMatchSelected)}
               ></IgrIconButton>
               <IgrIconButton
-                key="nextIconButton"
                 variant="flat"
                 name="next"
                 collection="material"
-                onClick={nextSearch}
+                onClick={() => nextSearch(searchText, caseSensitiveSelected, exactMatchSelected)}
               ></IgrIconButton>
             </div>
           </IgrInput>
         </div>
         <IgrTreeGrid ref={gridRef} data={data} autoGenerate={false}
-          primaryKey="ID" foreignKey="ParentID" allowFiltering={true} height="100%" width="100%"
-        >
+          primaryKey="ID" foreignKey="ParentID" allowFiltering={true} height="100%" width="100%">
           <IgrColumn field="Name" dataType="string" sortable={true}></IgrColumn>
           <IgrColumn field="ID" dataType="number" sortable={true}></IgrColumn>
           <IgrColumn field="Title" dataType="string" sortable={true}></IgrColumn>
