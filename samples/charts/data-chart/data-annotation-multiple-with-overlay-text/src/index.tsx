@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartInteractivityModule, IgrAnnotationLayerProxyModule, IgrDataChartAnnotationModule, IgrDataAnnotationSliceLayerModule, IgrNumberAbbreviatorModule, IgrValueOverlayModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrLineSeries, IgrValueOverlay, IgrValueLayer, IgrDataAnnotationSliceLayer } from 'igniteui-react-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationSliceMultiOverlayDataItem, AnnotationSliceMultiOverlayData } from './AnnotationSliceMultiOverlayData';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -104,7 +104,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrValueLayer>
                     <IgrDataAnnotationSliceLayer
                         name="AnnoLayer"
-                        dataSource={this.annotationData}
+                        dataSource={this.annotationSliceMultiOverlayData}
                         targetAxis={this.yAxis}
                         brush="green"
                         annotationTextColor="white"
@@ -123,15 +123,6 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _annotationData: AnnotationData = null;
-    public get annotationData(): AnnotationData {
-        if (this._annotationData == null)
-        {
-            this._annotationData = new AnnotationData();
-        }
-        return this._annotationData;
-    }
-
     private _stockTesla: StockTesla = null;
     public get stockTesla(): StockTesla {
         if (this._stockTesla == null)
@@ -139,6 +130,15 @@ export default class Sample extends React.Component<any, any> {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationSliceMultiOverlayData: AnnotationSliceMultiOverlayData = null;
+    public get annotationSliceMultiOverlayData(): AnnotationSliceMultiOverlayData {
+        if (this._annotationSliceMultiOverlayData == null)
+        {
+            this._annotationSliceMultiOverlayData = new AnnotationSliceMultiOverlayData();
+        }
+        return this._annotationSliceMultiOverlayData;
     }
 
 }
