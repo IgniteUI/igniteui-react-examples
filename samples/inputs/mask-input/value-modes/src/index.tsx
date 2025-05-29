@@ -1,13 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrMaskInput, IgrIcon, IgrRadioGroup, IgrRadio, IgrMaskInputModule, IgrIconModule, IgrRadioGroupModule, IgrRadioModule, registerIconFromText } from 'igniteui-react';
+import { IgrMaskInput, IgrIcon, IgrRadioGroup, IgrRadio, registerIconFromText } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrMaskInputModule.register();
-IgrIconModule.register();
-IgrRadioGroupModule.register();
-IgrRadioModule.register();
 
 export default class MaskInputValueModes extends React.Component<any, any> {
 
