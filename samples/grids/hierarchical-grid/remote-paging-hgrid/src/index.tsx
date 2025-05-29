@@ -77,13 +77,21 @@ export default function App() {
     setPerPage(args.detail);
   }
 
+  const onCustomersGridCreatedHandler = (e: IgrGridCreatedEventArgs) => {
+    gridCreated(e, "Customers")
+  };
+
+  const onOrdersGridCreatedHandler = (e: IgrGridCreatedEventArgs) => {
+    gridCreated(e, "Orders")
+  };
+
   return (
     <div className="container sample ig-typography">
       <div className="container fill">
         <IgrHierarchicalGrid
           ref={hierarchicalGrid}
           data={data}
-          pagingMode={"remote"}
+          pagingMode="remote"
           primaryKey="customerId"
           height="600px"
         >
@@ -103,9 +111,7 @@ export default function App() {
           <IgrRowIsland
             childDataKey="Orders"
             primaryKey="orderId"
-            onGridCreated={(e: IgrGridCreatedEventArgs) =>
-              gridCreated(e, "Customers")
-            }
+            onGridCreated={onCustomersGridCreatedHandler}
           >
             <IgrColumn field="orderId" hidden={true}></IgrColumn>
             <IgrColumn
@@ -126,9 +132,7 @@ export default function App() {
             <IgrRowIsland
               childDataKey="Details"
               primaryKey="productId"
-              onGridCreated={(e: IgrGridCreatedEventArgs) =>
-                gridCreated(e, "Orders")
-              }
+              onGridCreated={onOrdersGridCreatedHandler}
             >
               <IgrColumn field="productId" hidden={true}></IgrColumn>
               <IgrColumn field="quantity" header="Quantity"></IgrColumn>
