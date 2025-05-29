@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { IgrGrid, IgrColumn } from "igniteui-react-grids";
 import { MarketData } from "./MarketData";
-import "igniteui-react-grids/grids/combined";
+
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import {
   IgrChip,

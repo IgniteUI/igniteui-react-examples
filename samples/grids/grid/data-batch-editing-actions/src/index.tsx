@@ -12,7 +12,6 @@ import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'ignite
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrButton } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 

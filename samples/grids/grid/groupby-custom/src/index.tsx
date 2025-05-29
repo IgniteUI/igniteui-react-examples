@@ -6,7 +6,6 @@ import { IgrGridModule, IgrGroupByRowTemplateContext, SortingDirection } from "i
 import { IgrGrid, IgrColumn } from "igniteui-react-grids";
 import { InvoicesWorldData } from "./InvoicesWorldData";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import {
   IgrBadge,
