@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrDropdown, IgrButton, IgrDropdownItem, IgrDropdownModule, IgrButtonModule, IgrDropdownItemModule } from 'igniteui-react';
+import { IgrDropdown, IgrButton, IgrDropdownItem } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrDropdownModule.register();
-IgrDropdownItemModule.register();
-IgrButtonModule.register();
 
 export default class DropDownTarget extends React.Component<any, any> {
 
