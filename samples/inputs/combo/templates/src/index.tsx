@@ -19,6 +19,13 @@ const renderItemTemplate = (args: ComboTemplateProps<City>) => {
   );
 };
 
+function renderGroupHeaderTemplate(args: ComboTemplateProps<City>): any {
+  return (
+  <span>Country of {args.item.country}</span>
+  );
+}
+
+
 export default function ComboTemplates() {
   return (
     <div className="sample">
@@ -27,7 +34,8 @@ export default function ComboTemplates() {
         displayKey="name"
         groupKey="country"
         data={Cities}
-        itemTemplate={renderItemTemplate}>
+        itemTemplate={renderItemTemplate}
+        groupHeaderTemplate={renderGroupHeaderTemplate}>
       </IgrCombo>
     </div>
   );
