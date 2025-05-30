@@ -1,5 +1,5 @@
-export class AnnotationDataItem {
-    public constructor(init: Partial<AnnotationDataItem>) {
+export class AnnotationRectDataItem {
+    public constructor(init: Partial<AnnotationRectDataItem>) {
         Object.assign(this, init);
     }
 
@@ -10,13 +10,13 @@ export class AnnotationDataItem {
     public label: string;
 
 }
-export class AnnotationData extends Array<AnnotationDataItem> {
-    public constructor(items: Array<AnnotationDataItem> | number = -1) {
+export class AnnotationRectData extends Array<AnnotationRectDataItem> {
+    public constructor(items: Array<AnnotationRectDataItem> | number = -1) {
         if (Array.isArray(items)) {
             super(...items);
         } else {
             const newItems = [
-                new AnnotationDataItem(
+                new AnnotationRectDataItem(
                 {
                     startX: 85,
                     startY: 190,
@@ -25,7 +25,7 @@ export class AnnotationData extends Array<AnnotationDataItem> {
                     label: `Head & Shoulders Pattern
   (Bearish Downtrend)`
                 }),
-                new AnnotationDataItem(
+                new AnnotationRectDataItem(
                 {
                     startX: 53,
                     startY: 75,

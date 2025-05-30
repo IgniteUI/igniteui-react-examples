@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataAnnotationStripLayerModule, IgrNumberAbbreviatorModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer, IgrDataAnnotationStripLayer } from 'igniteui-react-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationStripDataItem, AnnotationStripData } from './AnnotationStripData';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -134,7 +134,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationStripLayer
                         name="StripLayer"
-                        dataSource={this.annotationData}
+                        dataSource={this.annotationStripData}
                         targetAxis={this.xAxisTop}
                         centerLabelMemberPath="label"
                         startValueMemberPath="start"
@@ -155,15 +155,6 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _annotationData: AnnotationData = null;
-    public get annotationData(): AnnotationData {
-        if (this._annotationData == null)
-        {
-            this._annotationData = new AnnotationData();
-        }
-        return this._annotationData;
-    }
-
     private _stockTesla: StockTesla = null;
     public get stockTesla(): StockTesla {
         if (this._stockTesla == null)
@@ -171,6 +162,15 @@ export default class Sample extends React.Component<any, any> {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationStripData: AnnotationStripData = null;
+    public get annotationStripData(): AnnotationStripData {
+        if (this._annotationStripData == null)
+        {
+            this._annotationStripData = new AnnotationStripData();
+        }
+        return this._annotationStripData;
     }
 
 }
