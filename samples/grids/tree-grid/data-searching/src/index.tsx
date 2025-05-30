@@ -10,6 +10,7 @@ import {
   IgrComponentValueChangedEventArgs,
   IgrIconButton,
   IgrInput,
+  IgrRipple,
   registerIconFromText,
 } from "igniteui-react";
 
@@ -112,13 +113,17 @@ export default function Sample() {
                 name="prev"
                 collection="material"
                 onClick={() => prevSearch(searchText, caseSensitiveSelected, exactMatchSelected)}
-              ></IgrIconButton>
+              >
+                <IgrRipple></IgrRipple>
+              </IgrIconButton>
               <IgrIconButton
                 variant="flat"
                 name="next"
                 collection="material"
                 onClick={() => nextSearch(searchText, caseSensitiveSelected, exactMatchSelected)}
-              ></IgrIconButton>
+              >
+                <IgrRipple></IgrRipple>
+              </IgrIconButton>
             </div>
           </IgrInput>
         </div>
