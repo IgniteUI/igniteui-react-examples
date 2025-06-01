@@ -2,10 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { StripAnnotationDataItem, StripAnnotationData, LineAnnotationData1Item, LineAnnotationData1, LineAnnotationData2Item, LineAnnotationData2, SliceAnnotationData1Item, SliceAnnotationData1, SliceAnnotationData2Item, SliceAnnotationData2, SliceAnnotationData3Item, SliceAnnotationData3 } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataAnnotationStripLayerModule, IgrDataAnnotationSliceLayerModule, IgrDataAnnotationLineLayerModule, IgrNumberAbbreviatorModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer, IgrDataAnnotationStripLayer, IgrDataAnnotationLineLayer, IgrDataAnnotationSliceLayer } from 'igniteui-react-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationStripDataItem, AnnotationStripData } from './AnnotationStripData';
+import { AnnotationLineData1Item, AnnotationLineData1 } from './AnnotationLineData1';
+import { AnnotationLineData2Item, AnnotationLineData2 } from './AnnotationLineData2';
+import { AnnotationSliceStockSplitDataItem, AnnotationSliceStockSplitData } from './AnnotationSliceStockSplitData';
+import { AnnotationSliceEarningsMissDataItem, AnnotationSliceEarningsMissData } from './AnnotationSliceEarningsMissData';
+import { AnnotationSliceEarningsBeatDataItem, AnnotationSliceEarningsBeatData } from './AnnotationSliceEarningsBeatData';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -157,7 +162,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationStripLayer
                         name="StripLayer"
-                        dataSource={this.stripAnnotationData}
+                        dataSource={this.annotationStripData}
                         targetAxis={this.xAxisTop}
                         centerLabelMemberPath="label"
                         startValueMemberPath="start"
@@ -172,7 +177,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationStripLayer>
                     <IgrDataAnnotationLineLayer
                         name="LineLayer52WeekRange"
-                        dataSource={this.lineAnnotationData1}
+                        dataSource={this.annotationLineData1}
                         targetAxis={this.yAxisRight}
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="Hidden"
@@ -195,7 +200,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationLineLayer>
                     <IgrDataAnnotationLineLayer
                         name="LineLayerGrowthAndDecline"
-                        dataSource={this.lineAnnotationData2}
+                        dataSource={this.annotationLineData2}
                         targetAxis={this.xAxis}
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="Hidden"
@@ -216,7 +221,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationLineLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerStockSplit"
-                        dataSource={this.sliceAnnotationData1}
+                        dataSource={this.annotationSliceStockSplitData}
                         targetAxis={this.xAxisBottom}
                         brush="dodgerblue"
                         annotationTextColor="white"
@@ -230,7 +235,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationSliceLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerEarningsMissAnnotations"
-                        dataSource={this.sliceAnnotationData2}
+                        dataSource={this.annotationSliceEarningsMissData}
                         targetAxis={this.xAxisBottom}
                         brush="red"
                         annotationTextColor="white"
@@ -244,7 +249,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationSliceLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerEarningsBeatAnnotations"
-                        dataSource={this.sliceAnnotationData3}
+                        dataSource={this.annotationSliceEarningsBeatData}
                         targetAxis={this.xAxisBottom}
                         brush="green"
                         annotationTextColor="white"
@@ -262,60 +267,6 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _stripAnnotationData: StripAnnotationData = null;
-    public get stripAnnotationData(): StripAnnotationData {
-        if (this._stripAnnotationData == null)
-        {
-            this._stripAnnotationData = new StripAnnotationData();
-        }
-        return this._stripAnnotationData;
-    }
-
-    private _lineAnnotationData1: LineAnnotationData1 = null;
-    public get lineAnnotationData1(): LineAnnotationData1 {
-        if (this._lineAnnotationData1 == null)
-        {
-            this._lineAnnotationData1 = new LineAnnotationData1();
-        }
-        return this._lineAnnotationData1;
-    }
-
-    private _lineAnnotationData2: LineAnnotationData2 = null;
-    public get lineAnnotationData2(): LineAnnotationData2 {
-        if (this._lineAnnotationData2 == null)
-        {
-            this._lineAnnotationData2 = new LineAnnotationData2();
-        }
-        return this._lineAnnotationData2;
-    }
-
-    private _sliceAnnotationData1: SliceAnnotationData1 = null;
-    public get sliceAnnotationData1(): SliceAnnotationData1 {
-        if (this._sliceAnnotationData1 == null)
-        {
-            this._sliceAnnotationData1 = new SliceAnnotationData1();
-        }
-        return this._sliceAnnotationData1;
-    }
-
-    private _sliceAnnotationData2: SliceAnnotationData2 = null;
-    public get sliceAnnotationData2(): SliceAnnotationData2 {
-        if (this._sliceAnnotationData2 == null)
-        {
-            this._sliceAnnotationData2 = new SliceAnnotationData2();
-        }
-        return this._sliceAnnotationData2;
-    }
-
-    private _sliceAnnotationData3: SliceAnnotationData3 = null;
-    public get sliceAnnotationData3(): SliceAnnotationData3 {
-        if (this._sliceAnnotationData3 == null)
-        {
-            this._sliceAnnotationData3 = new SliceAnnotationData3();
-        }
-        return this._sliceAnnotationData3;
-    }
-
     private _stockTesla: StockTesla = null;
     public get stockTesla(): StockTesla {
         if (this._stockTesla == null)
@@ -323,6 +274,60 @@ export default class Sample extends React.Component<any, any> {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationStripData: AnnotationStripData = null;
+    public get annotationStripData(): AnnotationStripData {
+        if (this._annotationStripData == null)
+        {
+            this._annotationStripData = new AnnotationStripData();
+        }
+        return this._annotationStripData;
+    }
+
+    private _annotationLineData1: AnnotationLineData1 = null;
+    public get annotationLineData1(): AnnotationLineData1 {
+        if (this._annotationLineData1 == null)
+        {
+            this._annotationLineData1 = new AnnotationLineData1();
+        }
+        return this._annotationLineData1;
+    }
+
+    private _annotationLineData2: AnnotationLineData2 = null;
+    public get annotationLineData2(): AnnotationLineData2 {
+        if (this._annotationLineData2 == null)
+        {
+            this._annotationLineData2 = new AnnotationLineData2();
+        }
+        return this._annotationLineData2;
+    }
+
+    private _annotationSliceStockSplitData: AnnotationSliceStockSplitData = null;
+    public get annotationSliceStockSplitData(): AnnotationSliceStockSplitData {
+        if (this._annotationSliceStockSplitData == null)
+        {
+            this._annotationSliceStockSplitData = new AnnotationSliceStockSplitData();
+        }
+        return this._annotationSliceStockSplitData;
+    }
+
+    private _annotationSliceEarningsMissData: AnnotationSliceEarningsMissData = null;
+    public get annotationSliceEarningsMissData(): AnnotationSliceEarningsMissData {
+        if (this._annotationSliceEarningsMissData == null)
+        {
+            this._annotationSliceEarningsMissData = new AnnotationSliceEarningsMissData();
+        }
+        return this._annotationSliceEarningsMissData;
+    }
+
+    private _annotationSliceEarningsBeatData: AnnotationSliceEarningsBeatData = null;
+    public get annotationSliceEarningsBeatData(): AnnotationSliceEarningsBeatData {
+        if (this._annotationSliceEarningsBeatData == null)
+        {
+            this._annotationSliceEarningsBeatData = new AnnotationSliceEarningsBeatData();
+        }
+        return this._annotationSliceEarningsBeatData;
     }
 
 }

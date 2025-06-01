@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { AnnotationData1Item, AnnotationData1, AnnotationData2Item, AnnotationData2, AnnotationData3Item, AnnotationData3 } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataAnnotationSliceLayerModule, IgrNumberAbbreviatorModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer, IgrDataAnnotationSliceLayer } from 'igniteui-react-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationSliceStockSplitDataItem, AnnotationSliceStockSplitData } from './AnnotationSliceStockSplitData';
+import { AnnotationSliceEarningsMissDataItem, AnnotationSliceEarningsMissData } from './AnnotationSliceEarningsMissData';
+import { AnnotationSliceEarningsBeatDataItem, AnnotationSliceEarningsBeatData } from './AnnotationSliceEarningsBeatData';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -134,7 +136,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerStockSplit"
-                        dataSource={this.annotationData1}
+                        dataSource={this.annotationSliceStockSplitData}
                         targetAxis={this.xAxisBottom}
                         brush="dodgerblue"
                         annotationTextColor="white"
@@ -148,7 +150,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationSliceLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerEarningsMissAnnotations"
-                        dataSource={this.annotationData2}
+                        dataSource={this.annotationSliceEarningsMissData}
                         targetAxis={this.xAxisBottom}
                         brush="red"
                         annotationTextColor="white"
@@ -162,7 +164,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationSliceLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerEarningsBeatAnnotations"
-                        dataSource={this.annotationData3}
+                        dataSource={this.annotationSliceEarningsBeatData}
                         targetAxis={this.xAxisBottom}
                         brush="green"
                         annotationTextColor="white"
@@ -180,33 +182,6 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _annotationData1: AnnotationData1 = null;
-    public get annotationData1(): AnnotationData1 {
-        if (this._annotationData1 == null)
-        {
-            this._annotationData1 = new AnnotationData1();
-        }
-        return this._annotationData1;
-    }
-
-    private _annotationData2: AnnotationData2 = null;
-    public get annotationData2(): AnnotationData2 {
-        if (this._annotationData2 == null)
-        {
-            this._annotationData2 = new AnnotationData2();
-        }
-        return this._annotationData2;
-    }
-
-    private _annotationData3: AnnotationData3 = null;
-    public get annotationData3(): AnnotationData3 {
-        if (this._annotationData3 == null)
-        {
-            this._annotationData3 = new AnnotationData3();
-        }
-        return this._annotationData3;
-    }
-
     private _stockTesla: StockTesla = null;
     public get stockTesla(): StockTesla {
         if (this._stockTesla == null)
@@ -214,6 +189,33 @@ export default class Sample extends React.Component<any, any> {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationSliceStockSplitData: AnnotationSliceStockSplitData = null;
+    public get annotationSliceStockSplitData(): AnnotationSliceStockSplitData {
+        if (this._annotationSliceStockSplitData == null)
+        {
+            this._annotationSliceStockSplitData = new AnnotationSliceStockSplitData();
+        }
+        return this._annotationSliceStockSplitData;
+    }
+
+    private _annotationSliceEarningsMissData: AnnotationSliceEarningsMissData = null;
+    public get annotationSliceEarningsMissData(): AnnotationSliceEarningsMissData {
+        if (this._annotationSliceEarningsMissData == null)
+        {
+            this._annotationSliceEarningsMissData = new AnnotationSliceEarningsMissData();
+        }
+        return this._annotationSliceEarningsMissData;
+    }
+
+    private _annotationSliceEarningsBeatData: AnnotationSliceEarningsBeatData = null;
+    public get annotationSliceEarningsBeatData(): AnnotationSliceEarningsBeatData {
+        if (this._annotationSliceEarningsBeatData == null)
+        {
+            this._annotationSliceEarningsBeatData = new AnnotationSliceEarningsBeatData();
+        }
+        return this._annotationSliceEarningsBeatData;
     }
 
 }
