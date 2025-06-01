@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrGrid, IgrColumn, IgrActiveNodeChangeEventArgs } from 'igniteui-react-grids';
@@ -13,87 +13,75 @@ const Sample = () => {
     const gridRef = useRef<IgrGrid>(null);
     const shouldAppendValue = useRef(false);
 
-    useEffect(() => {
-        const gridElement = gridRef.current;
+    const handleKeyDown = (event: React.KeyboardEvent<IgrGrid>) => {
+        const code = event.code;
+        const activeElem = gridRef.current?.selectedCells[0];
 
-        if (!gridElement) {
-            return undefined;
+        if (
+            (event.code >= 'Digit0' && event.code <= 'Digit9') ||
+            (event.code >= 'KeyA' && event.code <= 'KeyZ') ||
+            (event.code >= 'Numpad0' && event.code <= 'Numpad9') &&
+            event.code !== 'Enter' &&
+            event.code !== 'NumpadEnter'
+        ) {
+            if (activeElem && activeElem.editMode === false) {
+                activeElem.editMode = true;
+                activeElem.editValue = event.key;
+                shouldAppendValue.current = true;
+                gridRef.current?.markForCheck();
+            } else if (activeElem && activeElem.editMode && shouldAppendValue.current) {
+                event.preventDefault();
+                activeElem.editValue = activeElem.editValue + event.key;
+                shouldAppendValue.current = false;
+            }
         }
 
-        const handleKeyDown = (event: KeyboardEvent) => {
-            var code = event.code;
-            var activeElem = gridRef.current.selectedCells[0];
+        if (code === 'Backspace') {
+            if (activeElem == null) {
+                return;
+            }
+            const rowIndex = activeElem.row.index;
+            const columnKey = activeElem.column.field;
 
-            if ((event.code >= 'Digit0' && event.code <= 'Digit9') || 
-                (event.code >= 'KeyA' && event.code <= 'KeyZ') ||
-                (event.code >= 'Numpad0' && event.code <= 'Numpad9') && 
-                 event.code !== 'Enter' && event.code !== 'NumpadEnter') {
-    
-                if (activeElem && activeElem.editMode === false) {
-                    activeElem.editMode = true;
-                    activeElem.editValue = event.key;
-                    shouldAppendValue.current = true;
-                    gridRef.current.markForCheck();
-                } else
-                
-                if (activeElem && activeElem.editMode && shouldAppendValue.current) {
-                    event.preventDefault();
-                    activeElem.editValue = activeElem.editValue + event.key;
-                    shouldAppendValue.current = false;
-                  }
+            gridRef.current!.data[rowIndex][columnKey] = '';
+            gridRef.current?.markForCheck();
+        }
+
+        if (code === 'Enter' || code === 'NumpadEnter') {
+            if (activeElem == null) {
+                return;
             }
 
-            if (code === 'Backspace') {
-                if(activeElem == null) {
-                    return;
-                }
-                const rowIndex = activeElem.row.index;
-                const columnKey = activeElem.column.field; 
-        
-                gridRef.current.data[rowIndex][columnKey] = '';
-                gridRef.current.markForCheck();
+            const thisRow = activeElem.row.index;
+            const dataView = gridRef.current?.dataView;
+            const nextRowIndex = getNextEditableRowIndex(thisRow, dataView, event.shiftKey);
 
-            }
-
-            if (code === 'Enter' || code === 'NumpadEnter') {
-                
-                if(activeElem == null) {
-                    return;
-                }
-
-                const thisRow = activeElem.row.index;
-                const dataView = gridRef.current.dataView;
-                const nextRowIndex = getNextEditableRowIndex(thisRow, dataView, event.shiftKey);    
-
-                gridRef.current.navigateTo(nextRowIndex, activeElem.column.visibleIndex, (obj: any) => {
-                
-                    requestAnimationFrame(() => {
-                        gridRef.current.endEdit(true, obj);
-                        gridRef.current.clearCellSelection();
-                        obj.target.activate();
-                    
-                    });
+            gridRef.current?.navigateTo(nextRowIndex, activeElem.column.visibleIndex, (obj: any) => {
+                requestAnimationFrame(() => {
+                    gridRef.current?.endEdit(true, obj);
+                    gridRef.current?.clearCellSelection();
+                    obj.target.activate();
                 });
-
-            }
-        };
-
-        gridElement.addEventListener("keydown", handleKeyDown);
-        
-        return () => {
-            gridElement.removeEventListener("keydown", handleKeyDown);
-        };
-    }, []);
-
+            });
+        }
+    };
 
     const getNextEditableRowIndex = (currentRowIndex: number, dataView: any, previous: boolean) => {
-        if (currentRowIndex < 0 || (currentRowIndex === 0 && previous) || (currentRowIndex >= dataView.length - 1 && !previous)) {
+        if (
+            currentRowIndex < 0 ||
+            (currentRowIndex === 0 && previous) ||
+            (currentRowIndex >= dataView.length - 1 && !previous)
+        ) {
             return currentRowIndex;
         }
         if (previous) {
-            return dataView.findLastIndex((rec: any, index: number) => index < currentRowIndex && isEditableDataRecordAtIndex(index, dataView));
+            return dataView.findLastIndex(
+                (rec: any, index: number) => index < currentRowIndex && isEditableDataRecordAtIndex(index, dataView)
+            );
         }
-        return dataView.findIndex((rec: any, index: number) => index > currentRowIndex && isEditableDataRecordAtIndex(index, dataView));
+        return dataView.findIndex(
+            (rec: any, index: number) => index > currentRowIndex && isEditableDataRecordAtIndex(index, dataView)
+        );
     };
 
     const isEditableDataRecordAtIndex = (dataViewIndex: number, dataView: any) => {
@@ -101,9 +89,9 @@ const Sample = () => {
         return !rec.expression && !rec.summaries && !rec.childGridsData && !rec.detailsData;
     };
 
-    function gridEndEdit(event: IgrActiveNodeChangeEventArgs): void {
-        gridRef.current.endEdit(true, event.detail);
-    }
+    const gridEndEdit = (event: IgrActiveNodeChangeEventArgs): void => {
+        gridRef.current?.endEdit(true, event.detail);
+    };
 
     return (
         <div className="container sample ig-typography">
@@ -114,6 +102,7 @@ const Sample = () => {
                     primaryKey="ProductID"
                     ref={gridRef}
                     onActiveNodeChange={gridEndEdit}
+                    onKeyDown={handleKeyDown}
                 >
                     <IgrColumn field="ProductID" header="Product ID" editable={true} groupable={true} hidden={true} />
                     <IgrColumn field="ProductName" header="Product Name" dataType="string" editable={true} />
