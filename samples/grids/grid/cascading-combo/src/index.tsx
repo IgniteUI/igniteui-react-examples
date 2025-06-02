@@ -91,10 +91,10 @@ export default class Sample extends React.Component<any, any> {
     public countries = [...this.worldCitiesAbove500K].filter(x => this.countryNames.indexOf(x.Country) !== -1).filter((value, index, array) => array.findIndex(x => x.Country === value.Country) === index);
     public regions = [...this.worldCitiesAbove500K].filter((value, index, array) => array.findIndex(x => x.Region === value.Region) === index);
     public cities = [...this.worldCitiesAbove500K].filter((value, index, array) => array.findIndex(x => x.Name === value.Name) === index);
-    private comboRefCollection = new Map<string, IgrCombo>();
+    private comboRefCollection = new Array<IgrCombo>();
     private comboRefs(r: IgrCombo) {
-        if (this && r && !this.comboRefCollection.get((r as any).props.name)) {
-            this.comboRefCollection.set((r as any).props.name, r);
+        if (this && r && !this.comboRefCollection.includes(r)) {
+            this.comboRefCollection.push(r);
         }
     }
 
@@ -105,8 +105,8 @@ export default class Sample extends React.Component<any, any> {
 
     public onCountryChange(rowId: string, args: CustomEvent<any>) {
         // find next combo
-        const regionCombo = this.comboRefCollection.get("region_" + rowId);
-        const cityCombo = this.comboRefCollection.get("city_" + rowId);
+        const regionCombo = this.comboRefCollection.find(c => c.name === "region_" + rowId);
+        const cityCombo = this.comboRefCollection.find(c => c.name === "city_" + rowId);
         const regions = this.regions;
         const newValue = args.detail.newValue[0];
         if (newValue === undefined) {
@@ -129,7 +129,7 @@ export default class Sample extends React.Component<any, any> {
 
     public onRegionChange(rowId: string, args: CustomEvent<any>) {
         // find next combo
-        const cityCombo = this.comboRefCollection.get("city_" + rowId);
+        const cityCombo = this.comboRefCollection.find(c => c.name === "city_" + rowId);
         const cities = this.cities;
         const newValue = args.detail.newValue[0];
         if (newValue === undefined) {
