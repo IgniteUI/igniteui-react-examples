@@ -1,12 +1,9 @@
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
-import { IgrCheckboxChangeEventArgs, IgrComboModule, IgrCombo, IgrSwitchModule, IgrSwitch } from "igniteui-react";
+import { IgrCheckboxChangeEventArgs, IgrCombo, IgrSwitch } from "igniteui-react";
 import "./index.css";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { Cities } from "./ComboData";
-
-IgrComboModule.register();
-IgrSwitchModule.register();
 
 export default function ComboSingleSelection() {
   const comboRef = useRef<IgrCombo>(null);
