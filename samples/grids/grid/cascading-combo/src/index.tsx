@@ -7,6 +7,7 @@ import { IgrComboModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { WorldCitiesAbove500KItem, WorldCitiesAbove500K } from './WorldCitiesAbove500K';
 import { IgrCombo, IgrVoidEventArgs } from 'igniteui-react';
+import { IgrComponentBoolValueChangedEventArgs } from 'igniteui-react-grids';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
@@ -98,7 +99,7 @@ export default class Sample extends React.Component<any, any> {
         }
     }
 
-    public webGridWithComboRendered(args: IgrVoidEventArgs) {
+    public webGridWithComboRendered(args: IgrComponentBoolValueChangedEventArgs): void {
         const grid = args.target as IgrGrid;
         grid.data = this.gridData;
     }
