@@ -5,7 +5,7 @@ import './index.css';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import NwindData from './NwindData.json';
-import { IgrRowSelectionEventArgs, IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
+import { IgrRowSelectionEventArgs, IgrComponentBoolValueChangedEventArgs, IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
@@ -84,7 +84,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webGridRendered(args:any): void {
+    public webGridRendered(args: IgrComponentBoolValueChangedEventArgs): void {
         const grid = document.getElementById("grid");
         grid.parentElement.className = "fill";
         grid.parentElement.style.display = "flex";
