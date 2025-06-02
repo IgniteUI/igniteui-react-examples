@@ -5,7 +5,8 @@ import './index.css';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import NwindData from './NwindData.json';
-import { IgrRowSelectionEventArgs, IgrComponentBoolValueChangedEventArgs, IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
+import { IgrRowSelectionEventArgs, IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
+import { IgrComponentBoolValueChangedEventArgs } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 

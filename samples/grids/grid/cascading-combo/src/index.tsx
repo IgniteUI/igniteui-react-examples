@@ -6,8 +6,7 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrComboModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { WorldCitiesAbove500KItem, WorldCitiesAbove500K } from './WorldCitiesAbove500K';
-import { IgrCombo, IgrVoidEventArgs } from 'igniteui-react';
-import { IgrComponentBoolValueChangedEventArgs } from 'igniteui-react-grids';
+import { IgrCombo, IgrComponentBoolValueChangedEventArgs } from 'igniteui-react';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
