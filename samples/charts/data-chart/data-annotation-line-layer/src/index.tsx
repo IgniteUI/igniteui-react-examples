@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { AnnotationData1Item, AnnotationData1, AnnotationData2Item, AnnotationData2 } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataAnnotationLineLayerModule, IgrNumberAbbreviatorModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer, IgrDataAnnotationLineLayer } from 'igniteui-react-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationLineData1Item, AnnotationLineData1 } from './AnnotationLineData1';
+import { AnnotationLineData2Item, AnnotationLineData2 } from './AnnotationLineData2';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -120,7 +121,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationLineLayer
                         name="LineLayer52WeekRange"
-                        dataSource={this.annotationData1}
+                        dataSource={this.annotationLineData1}
                         targetAxis={this.yAxisRight}
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="Hidden"
@@ -143,7 +144,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationLineLayer>
                     <IgrDataAnnotationLineLayer
                         name="LineLayerGrowthAndDecline"
-                        dataSource={this.annotationData2}
+                        dataSource={this.annotationLineData2}
                         targetAxis={this.xAxis}
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="Hidden"
@@ -168,24 +169,6 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _annotationData1: AnnotationData1 = null;
-    public get annotationData1(): AnnotationData1 {
-        if (this._annotationData1 == null)
-        {
-            this._annotationData1 = new AnnotationData1();
-        }
-        return this._annotationData1;
-    }
-
-    private _annotationData2: AnnotationData2 = null;
-    public get annotationData2(): AnnotationData2 {
-        if (this._annotationData2 == null)
-        {
-            this._annotationData2 = new AnnotationData2();
-        }
-        return this._annotationData2;
-    }
-
     private _stockTesla: StockTesla = null;
     public get stockTesla(): StockTesla {
         if (this._stockTesla == null)
@@ -193,6 +176,24 @@ export default class Sample extends React.Component<any, any> {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationLineData1: AnnotationLineData1 = null;
+    public get annotationLineData1(): AnnotationLineData1 {
+        if (this._annotationLineData1 == null)
+        {
+            this._annotationLineData1 = new AnnotationLineData1();
+        }
+        return this._annotationLineData1;
+    }
+
+    private _annotationLineData2: AnnotationLineData2 = null;
+    public get annotationLineData2(): AnnotationLineData2 {
+        if (this._annotationLineData2 == null)
+        {
+            this._annotationLineData2 = new AnnotationLineData2();
+        }
+        return this._annotationLineData2;
     }
 
 }

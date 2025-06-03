@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataAnnotationBandLayerModule, IgrNumberAbbreviatorModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer, IgrDataAnnotationBandLayer } from 'igniteui-react-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationBandDataItem, AnnotationBandData } from './AnnotationBandData';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -131,7 +131,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationBandLayer
                         name="BandLayer"
-                        dataSource={this.annotationData}
+                        dataSource={this.annotationBandData}
                         targetAxis={this.xAxisBottom}
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="DataLabel"
@@ -157,15 +157,6 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _annotationData: AnnotationData = null;
-    public get annotationData(): AnnotationData {
-        if (this._annotationData == null)
-        {
-            this._annotationData = new AnnotationData();
-        }
-        return this._annotationData;
-    }
-
     private _stockTesla: StockTesla = null;
     public get stockTesla(): StockTesla {
         if (this._stockTesla == null)
@@ -173,6 +164,15 @@ export default class Sample extends React.Component<any, any> {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationBandData: AnnotationBandData = null;
+    public get annotationBandData(): AnnotationBandData {
+        if (this._annotationBandData == null)
+        {
+            this._annotationBandData = new AnnotationBandData();
+        }
+        return this._annotationBandData;
     }
 
 }

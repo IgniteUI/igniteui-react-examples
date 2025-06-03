@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrColumn, IgrColumnGroup, IgrRowIsland } from 'ig
 import { ComponentRenderer, WebHierarchicalGridDescriptionModule, WebColumnGroupDescriptionModule } from 'igniteui-react-core';
 import HierarchicalCustomers from './HierarchicalCustomers.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

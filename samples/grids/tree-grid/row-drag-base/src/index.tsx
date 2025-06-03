@@ -11,7 +11,6 @@ import {
 } from "igniteui-react-grids";
 import { EmployeesNestedTreeData, EmployeesNestedTreeDataItem } from "./EmployeesNestedTreeData";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 IgrTreeGridModule.register();

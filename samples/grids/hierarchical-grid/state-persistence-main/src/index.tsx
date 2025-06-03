@@ -24,7 +24,6 @@ import {
 } from "igniteui-react";
 import SingersData from "./SingersData.json";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
 

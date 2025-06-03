@@ -11,7 +11,6 @@ import { EmployeesDataItem, EmployeesData } from './EmployeesData';
 import { IgrAvatar } from 'igniteui-react';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 

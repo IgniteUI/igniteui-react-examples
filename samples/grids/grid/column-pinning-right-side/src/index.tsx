@@ -9,7 +9,6 @@ import { AthletesDataExtendedItem, AthletesDataExtended } from './AthletesDataEx
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrAvatar } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

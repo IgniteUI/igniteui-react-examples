@@ -9,7 +9,6 @@ import {
   IgrColumnPipeArgs,
 } from "igniteui-react-grids";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { EMPLOYEES_DATA } from "./EmployeesData";
 

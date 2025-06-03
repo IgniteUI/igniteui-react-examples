@@ -7,7 +7,6 @@ import { IgrGrid, IgrSortingExpression, SortingDirection, IgrColumn, IgrColumnPi
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { ProductSalesItem, ProductSales } from './ProductSales';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

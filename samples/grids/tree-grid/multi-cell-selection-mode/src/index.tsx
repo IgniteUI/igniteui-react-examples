@@ -12,7 +12,6 @@ import {
 } from "igniteui-react-grids";
 import { EmployeesFlatData } from "./EmployeesFlatData";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 const mods: any[] = [

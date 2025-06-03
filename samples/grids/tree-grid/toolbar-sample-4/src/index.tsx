@@ -16,7 +16,6 @@ import {
 import { IgrColumn } from "igniteui-react-grids";
 import { IgrAvatar, IgrAvatarModule, IgrButton, IgrIcon, IgrIconModule, registerIconFromText } from "igniteui-react";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 import { EmployeesFlatAvatars } from "./EmployeesFlatAvatars";

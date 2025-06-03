@@ -6,7 +6,6 @@ import { IgrColumnComponentEventArgs, IgrTreeGridModule } from 'igniteui-react-g
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { EmployeesFlatDetails } from './EmployeesFlatDetails';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import { IgrInput, IgrSwitch, IgrButton } from 'igniteui-react';
 
