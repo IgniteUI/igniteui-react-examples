@@ -37,7 +37,7 @@ export default class DropDownTarget extends React.Component<any, any> {
 
     public onClick(event: any) {
         if(this.dropdownRef){
-            this.dropdownRef.toggle(event.i.nativeElement);
+            this.dropdownRef.toggle(event.currentTarget);
         }
     }
 }
