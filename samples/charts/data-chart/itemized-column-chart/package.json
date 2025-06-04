@@ -14,8 +14,8 @@
     "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
-    "igniteui-react-charts": "19.0.0-alpha.1",
-    "igniteui-react-core": "19.0.0-alpha.1",
+    "igniteui-react-charts": "19.0.0-alpha.2",
+    "igniteui-react-core": "19.0.0-alpha.2",
     "igniteui-webcomponents": "6.0.0",
     "lit-html": "^3.2.0",
     "react": "^18.2.0",
