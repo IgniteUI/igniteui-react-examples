@@ -7,5 +7,5 @@
 
 igc-icon {
     --size: 48px;
-    color: olive;
+    color: var(--ig-primary-500);
 }
