@@ -7,7 +7,6 @@ import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinni
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core
 import { FoodsDataItem, FoodsData } from './FoodsData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -22,7 +21,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -70,8 +68,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Discontinued"
                         dataType="boolean"
-                        bodyTemplate={this.webGridBooleanCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webGridBooleanCellTemplate}>
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>

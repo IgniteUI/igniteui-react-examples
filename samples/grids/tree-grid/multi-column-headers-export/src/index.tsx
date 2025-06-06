@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule, WebGridToolbarDescriptionM
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgrExporterEventArgs, IgrGrid } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -23,7 +22,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private gridToolbarExporter1: IgrGridToolbarExporter
 
     constructor(props: any) {
         super(props);
@@ -57,8 +55,7 @@ export default class Sample extends React.Component<any, any> {
                             <IgrGridToolbarExporter
                                 exportCSV={false}
                                 exportExcel={true}
-                                exportStarted={this.webGridExportEventMultiColumnHeaders}
-                                name="gridToolbarExporter1">
+                                onExportStarted={this.webGridExportEventMultiColumnHeaders}>
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
@@ -172,7 +169,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridExportEventMultiColumnHeaders(sender: IgrGridToolbarExporter, args: IgrExporterEventArgs): void {
+    public webGridExportEventMultiColumnHeaders(args: IgrExporterEventArgs): void {
         if (args.detail.options) {
             args.detail.options.ignoreMultiColumnHeaders = false;
         }

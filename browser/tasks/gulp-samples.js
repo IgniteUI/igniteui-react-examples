@@ -283,6 +283,7 @@ function copySamples(cb) {
             code = code.replace('from "igniteui-react-maps";', "from 'igniteui-react-maps';");
             code = code.replace('from "igniteui-react-gauges";', "from 'igniteui-react-gauges';");
             code = code.replace('from "igniteui-react-grids";', "from 'igniteui-react-grids';");
+            code = code.replace('from "igniteui-react-data-grids";', "from 'igniteui-react-data-grids';");
             code = code.replace('from "igniteui-react-inputs";', "from 'igniteui-react-inputs';");
             code = code.replace('from "igniteui-react-layouts";', "from 'igniteui-react-layouts';");
 
@@ -825,21 +826,22 @@ function updateIG(cb) {
     // { name:               "igniteui-react-charts", version: "16.16.2" }, // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { version: "18.9.0", name: "igniteui-react-core" },
-        { version: "18.9.0", name: "igniteui-react-charts" },
-        { version: "18.9.0", name: "igniteui-react-excel" },
-        { version: "18.9.0", name: "igniteui-react-gauges" },
-        { version: "18.9.0", name: "igniteui-react-grids" },
-        { version: "18.9.0", name: "igniteui-react-inputs" },
-        { version: "18.9.0", name: "igniteui-react-layouts" },
-        { version: "18.9.0", name: "igniteui-react-maps" },
-        { version: "18.9.0", name: "igniteui-react-spreadsheet-chart-adapter" },
-        { version: "18.9.0", name: "igniteui-react-spreadsheet" },
-        { version: "18.9.0", name: "igniteui-react-datasources" },
-        { version: "18.9.0", name: "igniteui-react-dashboards" },
-        { version: "18.9.0", name: "igniteui-react" },
+        { version: "19.0.0", name: "igniteui-react-core" },
+        { version: "19.0.0", name: "igniteui-react-charts" },
+        { version: "19.0.0", name: "igniteui-react-excel" },
+        { version: "19.0.0", name: "igniteui-react-gauges" },
+        { version: "19.0.0", name: "igniteui-react-data-grids" },
+        { version: "19.0.2", name: "igniteui-react-grids" },
+        { version: "19.0.0", name: "igniteui-react-inputs" },
+        { version: "19.0.0", name: "igniteui-react-layouts" },
+        { version: "19.0.0", name: "igniteui-react-maps" },
+        { version: "19.0.0", name: "igniteui-react-spreadsheet-chart-adapter" },
+        { version: "19.0.0", name: "igniteui-react-spreadsheet" },
+        { version: "19.0.0", name: "igniteui-react-datasources" },
+        { version: "19.0.0", name: "igniteui-react-dashboards" },
+        { version: "19.0.2", name: "igniteui-react" },
         // these IG packages are sometimes updated:
-        { version: "5.3.0" , name: "igniteui-webcomponents" },
+        { version: "6.0.0" , name: "igniteui-webcomponents" },
         { version: "1.16.1", name: "igniteui-dockmanager" },
         // main react packages
         { version: "^18.2.0", name: "react" },
@@ -884,6 +886,7 @@ function updateIG(cb) {
     gulp.src(packagePaths, {allowEmpty: true})
     .pipe(es.map(function(file, fileCallback) {
         let filePath = file.dirname + "\\" + file.basename;
+        console.log("processing " + filePath);
         var fileContent = file.contents.toString();
         var fileLines = fileContent.split('\n');
 

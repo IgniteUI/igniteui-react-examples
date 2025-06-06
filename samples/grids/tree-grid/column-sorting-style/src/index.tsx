@@ -8,7 +8,6 @@ import { IgrTreeGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids'
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -23,7 +22,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -87,8 +85,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="currency"
                         groupable={true}
                         sortable={true}
-                        pipeArgs={this.columnPipeArgs1}
-                        name="column1">
+                        pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
                         field="Units"

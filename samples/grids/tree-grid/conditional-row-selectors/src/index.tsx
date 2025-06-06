@@ -8,7 +8,6 @@ import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgrRowSelectionEventArgs, IgrGrid } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -43,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID"
                     rowSelection="multiple"
-                    rowSelectionChanging={this.webTreeGridRowSelectionConditional}>
+                    onRowSelectionChanging={this.webTreeGridRowSelectionConditional}>
                     <IgrColumn
                         field="Name"
                         dataType="string">
@@ -89,7 +88,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridRowSelectionConditional(sender: IgrTreeGrid, eventArgs: IgrRowSelectionEventArgs): void {
+    public webTreeGridRowSelectionConditional(eventArgs: IgrRowSelectionEventArgs): void {
         const event = eventArgs.detail;
         if (!event.added.length && event.removed.length) {
             // ignore de-select

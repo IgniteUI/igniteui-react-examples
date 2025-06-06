@@ -26,6 +26,10 @@ IF EXIST @infragistics\igniteui-react-grids (
  MOVE /y @infragistics\igniteui-react-grids igniteui-react-grids
 )
 
+IF EXIST @infragistics\igniteui-react-data-grids (
+ MOVE /y @infragistics\igniteui-react-data-grids igniteui-react-data-grids
+)
+
 IF EXIST @infragistics\igniteui-react-dashboards (
  MOVE /y @infragistics\igniteui-react-dashboards igniteui-react-dashboards
 )

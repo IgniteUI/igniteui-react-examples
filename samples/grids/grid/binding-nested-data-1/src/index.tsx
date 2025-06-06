@@ -9,7 +9,6 @@ import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, Employe
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrExpansionPanel, IgrInput } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -24,7 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -61,8 +59,7 @@ export default class Sample extends React.Component<any, any> {
                         field="Employees"
                         header="Employees"
                         bodyTemplate={this.webGridNestedDataCellTemplate}
-                        width="20%"
-                        name="column1">
+                        width="20%">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
@@ -112,12 +109,12 @@ export default class Sample extends React.Component<any, any> {
                 {value.Name}
                 </div>
                 <div className="description">
-                    <IgrInput type="text" label="Title" name="title" value={value.Title} change={(s:any, e: any) => {
-                            props.dataContext.cell.value[0][s.label] = e.detail;
+                    <IgrInput type="text" label="Title" name="title" value={value.Title} onChange={(e: any) => {
+                            props.dataContext.cell.value[0][e.target.label] = e.detail;
                             grid.markForCheck();
                         }} style={{textOverflow: "ellipsis"}} />
-                    <IgrInput type="number" label="Age" name="title" value={value.Age} inputOcurred={(s:any, e: any) => {
-                            props.dataContext.cell.value[0][s.label] = e.detail;
+                    <IgrInput type="number" label="Age" name="title" value={value.Age} onInput={(e: any) => {
+                            props.dataContext.cell.value[0][e.target.label] = e.detail;
                             grid.markForCheck();
                         }} style={{textOverflow: "ellipsis"}} />
                 </div>

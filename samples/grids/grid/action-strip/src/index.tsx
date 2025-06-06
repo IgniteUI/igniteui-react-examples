@@ -8,7 +8,6 @@ import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrActionStrip, IgrGridP
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -35,13 +34,6 @@ export default class Sample extends React.Component<any, any> {
         return this._pinningConfig1;
     }
     private actionStrip: IgrActionStrip
-    private productName: IgrColumn
-    private unitPrice: IgrColumn
-    private unitsOnOrder: IgrColumn
-    private unitsInStock: IgrColumn
-    private quantityPerUnit: IgrColumn
-    private reorderLevel: IgrColumn
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -63,7 +55,7 @@ export default class Sample extends React.Component<any, any> {
                     pinning={this.pinningConfig1}
                     primaryKey="ProductID">
                     <IgrActionStrip
-                        name="actionStrip">
+                    >
                         <IgrGridPinningActions
                         >
                         </IgrGridPinningActions>
@@ -74,37 +66,30 @@ export default class Sample extends React.Component<any, any> {
                         </IgrGridEditingActions>
                     </IgrActionStrip>
                     <IgrColumn
-                        name="ProductName"
                         field="ProductName"
                         header="Product Name">
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price">
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitsOnOrder"
                         field="UnitsOnOrder"
                         header="Units On Order">
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitsInStock"
                         field="UnitsInStock"
                         header="Units In Stock">
                     </IgrColumn>
                     <IgrColumn
-                        name="QuantityPerUnit"
                         field="QuantityPerUnit"
                         header="Quantity Per Unit">
                     </IgrColumn>
                     <IgrColumn
-                        name="ReorderLevel"
                         field="ReorderLevel"
                         header="Reorder Level">
                     </IgrColumn>
                     <IgrColumn
-                        name="Discontinued"
                         field="Discontinued"
                         header="Discontinued">
                     </IgrColumn>

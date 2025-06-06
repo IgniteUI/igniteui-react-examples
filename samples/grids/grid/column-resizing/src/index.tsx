@@ -7,7 +7,6 @@ import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrGridBaseDirective, IgrColumnResizeEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -21,16 +20,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private iD: IgrColumn
-    private company: IgrColumn
-    private contactName: IgrColumn
-    private contactTitle: IgrColumn
-    private address: IgrColumn
-    private city: IgrColumn
-    private region: IgrColumn
-    private postalCode: IgrColumn
-    private country: IgrColumn
-    private phone: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -49,20 +38,17 @@ export default class Sample extends React.Component<any, any> {
                     data={this.customersData}
                     id="grid"
                     ref={this.gridRef}
-                    columnResized={this.webGridColumnResized}>
+                    onColumnResized={this.webGridColumnResized}>
                     <IgrColumn
-                        name="ID"
                         field="ID"
                         header="ID">
                     </IgrColumn>
                     <IgrColumn
-                        name="Company"
                         field="Company"
                         header="Company"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="ContactName"
                         field="ContactName"
                         header="Name"
                         minWidth="60px"
@@ -70,42 +56,35 @@ export default class Sample extends React.Component<any, any> {
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="ContactTitle"
                         field="ContactTitle"
                         header="Title"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Address"
                         field="Address"
                         header="Address"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="City"
                         field="City"
                         header="City">
                     </IgrColumn>
                     <IgrColumn
-                        name="Region"
                         field="Region"
                         header="Region"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="PostalCode"
                         field="PostalCode"
                         header="Postal Code"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Country"
                         field="Country"
                         header="Country"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Phone"
                         field="Phone"
                         header="Phone"
                         resizable={true}>
@@ -126,7 +105,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webGridColumnResized(grid: IgrGridBaseDirective, args: IgrColumnResizeEventArgs): void {
+    public webGridColumnResized(args: IgrColumnResizeEventArgs): void {
         var col = args.detail.column;
         var pWidth = args.detail.prevWidth;
         var nWidth = args.detail.newWidth;

@@ -15,7 +15,6 @@ import {
 } from "igniteui-react-grids";
 import { IgrButton } from "igniteui-react";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { OrdersTreeData } from "./OrdersData";
 
@@ -56,7 +55,7 @@ export default function App() {
             <IgrGridToolbarTitle key="toolbarTitle">
               <span key="toolbarTitleText">Tree Grid Toolbar</span>
             </IgrGridToolbarTitle>
-            <IgrButton key="btn" clicked={showProgress}>
+            <IgrButton key="btn" onClick={showProgress}>
               <span key="simulate">Simulate long running operation</span>
             </IgrButton>
             <IgrGridToolbarActions key="toolbarActions">

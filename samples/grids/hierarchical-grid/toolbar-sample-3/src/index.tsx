@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridTool
 import SingersData from './SingersData.json';
 import { IgrExporterOptionsBase, IgrGridToolbarExportEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -17,16 +16,21 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private hierarchicalGrid1: IgrHierarchicalGrid
-    private hierarchicalGrid1Ref(r: IgrHierarchicalGrid) {
-        this.hierarchicalGrid1 = r;
+    private hierarchicalGrid: IgrHierarchicalGrid
+    private hierarchicalGridRef(r: IgrHierarchicalGrid) {
+        this.hierarchicalGrid = r;
         this.setState({});
     }
+    private gridToolbar: IgrGridToolbar
+    private gridToolbarActions: IgrGridToolbarActions
+    private gridToolbarExporter: IgrGridToolbarExporter
+    private column: IgrColumn
+    private rowIsland: IgrRowIsland
 
     constructor(props: any) {
         super(props);
 
-        this.hierarchicalGrid1Ref = this.hierarchicalGrid1Ref.bind(this);
+        this.hierarchicalGridRef = this.hierarchicalGridRef.bind(this);
         this.webHierarchicalGridToolbarExporting = this.webHierarchicalGridToolbarExporting.bind(this);
     }
 
@@ -39,8 +43,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.singersData}
                     primaryKey="ID"
-                    toolbarExporting={this.webHierarchicalGridToolbarExporting}
-                    ref={this.hierarchicalGrid1Ref}>
+                    onToolbarExporting={this.webHierarchicalGridToolbarExporting}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -162,7 +165,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webHierarchicalGridToolbarExporting(sender: IgrHierarchicalGrid, evt: IgrGridToolbarExportEventArgs): void {
+    public webHierarchicalGridToolbarExporting(evt: IgrGridToolbarExportEventArgs): void {
         const args = evt.detail;
         const options: IgrExporterOptionsBase = args.options;
         if (options) {

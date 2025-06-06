@@ -10,7 +10,6 @@ import SingersData from './SingersData.json';
 import { IgrRowSelectorTemplateContext, IgrHeadSelectorTemplateContext } from 'igniteui-react-grids';
 import { IgrCheckbox } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -49,7 +48,7 @@ export default class Sample extends React.Component<any, any> {
                     rowSelectorTemplate={this.webGridRowSelectorTemplate}
                     headSelectorTemplate={this.webGridHeaderRowSelectorTemplate}>
                     <IgrPaginator
-                        name="paginator">
+                    >
                     </IgrPaginator>
                     <IgrColumn
                         field="Artist">

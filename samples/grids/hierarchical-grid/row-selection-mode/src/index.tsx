@@ -10,7 +10,6 @@ import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-gri
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebHierarchicalGridDescriptionModule } from 'igniteui-react-core';
 import SingersData from './SingersData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 

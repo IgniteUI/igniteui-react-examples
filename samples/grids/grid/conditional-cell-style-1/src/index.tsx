@@ -8,7 +8,6 @@ import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -23,9 +22,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -59,8 +55,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         editable={true}
                         sortable={true}
-                        cellClasses={this.webGridBeatsPerMinuteCellClassesHandler}
-                        name="column1">
+                        cellClasses={this.webGridBeatsPerMinuteCellClassesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="TopSpeed"
@@ -68,8 +63,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         editable={true}
                         sortable={true}
-                        cellClasses={this.webGridTopSpeedCellClassesHandler}
-                        name="column2">
+                        cellClasses={this.webGridTopSpeedCellClassesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="TrackProgress"
@@ -80,8 +74,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="CountryFlag"
                         header="Country"
-                        bodyTemplate={this.webGridImageCellTemplate}
-                        name="column3">
+                        bodyTemplate={this.webGridImageCellTemplate}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

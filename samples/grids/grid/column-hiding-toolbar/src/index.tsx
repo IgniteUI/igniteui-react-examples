@@ -7,7 +7,6 @@ import { IgrGrid, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, Ig
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -21,16 +20,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private iD: IgrColumn
-    private contactName: IgrColumn
-    private contactTitle: IgrColumn
-    private city: IgrColumn
-    private company: IgrColumn
-    private fax: IgrColumn
-    private address: IgrColumn
-    private postalCode: IgrColumn
-    private country: IgrColumn
-    private phone: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -64,70 +53,60 @@ export default class Sample extends React.Component<any, any> {
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
                     <IgrColumn
-                        name="ID"
                         field="ID"
                         header="ID"
                         dataType="string"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="ContactName"
                         field="ContactName"
                         header="Name"
                         dataType="string"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="ContactTitle"
                         field="ContactTitle"
                         header="Title"
                         dataType="string"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="City"
                         field="City"
                         header="City"
                         dataType="string"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Company"
                         field="Company"
                         header="Company"
                         dataType="string"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Fax"
                         field="Fax"
                         header="Fax"
                         dataType="string"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Address"
                         field="Address"
                         header="Address"
                         dataType="string"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="PostalCode"
                         field="PostalCode"
                         header="Postal Code"
                         dataType="string"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Country"
                         field="Country"
                         header="Country"
                         dataType="string"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Phone"
                         field="Phone"
                         header="Phone"
                         dataType="string"

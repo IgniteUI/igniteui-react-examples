@@ -23,7 +23,7 @@ export default class AccordionNestedScenario extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div id="root">
-                <IgrSwitch key="switch" change={this.switchChange}><span key="swText">Single Expand</span></IgrSwitch>
+                <IgrSwitch key="switch" onChange={this.switchChange}><span key="swText">Single Expand</span></IgrSwitch>
                 <div className="sample-wrapper">
                     <IgrAccordion singleExpand={this.state.singleExpand}>
                         <IgrExpansionPanel key="ep1">
@@ -102,7 +102,7 @@ export default class AccordionNestedScenario extends React.Component<any, any> {
         );
     }
 
-    public switchChange(s: IgrSwitch, e: IgrCheckboxChangeEventArgs) {
+    public switchChange(e: IgrCheckboxChangeEventArgs) {
         this.setState({ singleExpand: e.detail.checked })
     }
 }

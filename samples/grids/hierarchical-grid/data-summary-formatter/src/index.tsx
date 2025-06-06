@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-gri
 import SingersData from './SingersData.json';
 import { IgrSummaryResult, IgrSummaryOperand } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -22,7 +21,6 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private debutColumn: IgrColumn
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -45,7 +43,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     allowFiltering={true}
                     filterMode="excelStyleFilter"
-                    rendered={this.webHierarchicalGridRenderedExpand}>
+                    onRendered={this.webHierarchicalGridRenderedExpand}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
@@ -55,8 +53,7 @@ export default class Sample extends React.Component<any, any> {
                         field="Debut"
                         header="Debut Decade"
                         sortable={true}
-                        hasSummary={true}
-                        name="debutColumn">
+                        hasSummary={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
@@ -87,8 +84,7 @@ export default class Sample extends React.Component<any, any> {
                             dataType="date"
                             sortable={true}
                             hasSummary={true}
-                            summaryFormatter={this.webHierarchicalGridSummaryFormatter}
-                            name="column1">
+                            summaryFormatter={this.webHierarchicalGridSummaryFormatter}>
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"

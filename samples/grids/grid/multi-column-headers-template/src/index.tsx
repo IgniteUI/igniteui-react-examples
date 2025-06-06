@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule, WebColumnGroupDescriptionM
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrColumnTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -23,8 +22,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private columnGroup1: IgrColumnGroup
-    private columnGroup2: IgrColumnGroup
 
     constructor(props: any) {
         super(props);
@@ -48,8 +45,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumn>
                     <IgrColumnGroup
                         header="General Information"
-                        headerTemplate={this.webGridColumnGroupHeaderTemplate}
-                        name="columnGroup1">
+                        headerTemplate={this.webGridColumnGroupHeaderTemplate}>
                         <IgrColumn
                             field="Company"
                             sortable={true}
@@ -71,8 +67,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrColumnGroup>
                     <IgrColumnGroup
                         header="Address Information"
-                        headerTemplate={this.webGridColumnGroupHeaderTemplate}
-                        name="columnGroup2">
+                        headerTemplate={this.webGridColumnGroupHeaderTemplate}>
                         <IgrColumn
                             header="Location"
                             field="Address"
@@ -178,7 +173,6 @@ export default class Sample extends React.Component<any, any> {
                 c.hidden = !c.hidden;
             }
         }
-        columnGroup.forceUpdate();
         this.columnGroupStates.set(columnGroup, !this.columnGroupStates.get(columnGroup));
     }
 }

@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -43,16 +42,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._groupingExpression1;
     }
-    private orderID: IgrColumn
-    private shipCountry: IgrColumn
-    private orderDate: IgrColumn
-    private postalCode: IgrColumn
-    private discontinued: IgrColumn
-    private shipName: IgrColumn
-    private shipCity: IgrColumn
-    private shipperName: IgrColumn
-    private salesperson: IgrColumn
-    private unitPrice: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -64,7 +53,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs1;
     }
-    private quantity: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -84,34 +72,29 @@ export default class Sample extends React.Component<any, any> {
                     data={this.invoicesData}
                     groupingExpressions={this.groupingExpression1}>
                     <IgrColumn
-                        name="OrderID"
                         field="OrderID"
                         header="Order ID"
                         hidden={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="ShipCountry"
                         field="ShipCountry"
                         header="Ship Country"
                         width="200px"
                         groupable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
                         width="200px"
                         groupable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="PostalCode"
                         field="PostalCode"
                         header="Postal Code"
                         width="200px"
                         groupable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Discontinued"
                         field="Discontinued"
                         header="Discontinued"
                         width="200px"
@@ -119,35 +102,30 @@ export default class Sample extends React.Component<any, any> {
                         bodyTemplate={this.webGridBooleanCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
-                        name="ShipName"
                         field="ShipName"
                         header="Ship Name"
                         width="250px"
                         groupable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="ShipCity"
                         field="ShipCity"
                         header="Ship City"
                         width="250px"
                         groupable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="ShipperName"
                         field="ShipperName"
                         header="Shipper Name"
                         width="250px"
                         groupable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Salesperson"
                         field="Salesperson"
                         header="Sales Person"
                         width="250px"
                         groupable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
                         width="150px"
@@ -156,7 +134,6 @@ export default class Sample extends React.Component<any, any> {
                         groupable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="Quantity"
                         field="Quantity"
                         header="Quantity"
                         width="150px"

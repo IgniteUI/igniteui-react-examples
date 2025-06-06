@@ -8,7 +8,6 @@ import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -33,7 +32,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -59,8 +57,7 @@ export default class Sample extends React.Component<any, any> {
                         width="150px"
                         filterable={false}
                         pinned={true}
-                        bodyTemplate={this.webTreeGridRowPinCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webTreeGridRowPinCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name"

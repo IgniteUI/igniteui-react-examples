@@ -8,7 +8,6 @@ import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn } from 'ignite
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

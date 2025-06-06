@@ -7,7 +7,6 @@ import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
 import { IgrRowType } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -16,16 +15,17 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private treeGrid1: IgrTreeGrid
-    private treeGrid1Ref(r: IgrTreeGrid) {
-        this.treeGrid1 = r;
+    private treeGrid: IgrTreeGrid
+    private treeGridRef(r: IgrTreeGrid) {
+        this.treeGrid = r;
         this.setState({});
     }
+    private column: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.treeGrid1Ref = this.treeGrid1Ref.bind(this);
+        this.treeGridRef = this.treeGridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -40,8 +40,7 @@ export default class Sample extends React.Component<any, any> {
                     foreignKey="ParentID"
                     moving={true}
                     rowEditable={true}
-                    rowClasses={this.webGridRowClassesHandler}
-                    ref={this.treeGrid1Ref}>
+                    rowClasses={this.webGridRowClassesHandler}>
                     <IgrColumn
                         field="Name"
                         header="Full Name"

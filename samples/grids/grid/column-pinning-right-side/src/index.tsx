@@ -9,7 +9,6 @@ import { AthletesDataExtendedItem, AthletesDataExtended } from './AthletesDataEx
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrAvatar } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -35,8 +34,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -70,13 +67,11 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="CountryFlag"
                         header="Team"
-                        bodyTemplate={this.webGridImageCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webGridImageCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="Avatar"
-                        bodyTemplate={this.webGridAvatarCellTemplate}
-                        name="column2">
+                        bodyTemplate={this.webGridAvatarCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name">

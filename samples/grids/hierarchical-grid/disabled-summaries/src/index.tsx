@@ -8,7 +8,6 @@ import { IgrHierarchicalGridModule, IgrSummaryOperand, IgrSummaryResult, IgrNumb
 import { IgrHierarchicalGrid, IgrRowIsland, IgrColumn } from "igniteui-react-grids";
 import  SingersData from './SingersData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 IgrHierarchicalGridModule.register();
@@ -289,7 +288,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Photo"
                         header="Photo"
-                        dataType="Image"
+                        dataType="image"
                         hasSummary={true}
                         summaries={GrammySummary}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "Photo")?.disabledSummaries}>
@@ -303,14 +302,14 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="Number"
+                        dataType="number"
                         hasSummary={true}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "GrammyNominations")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="Number"
+                        dataType="number"
                         hasSummary={true}
                         disabledSummaries={this.state.columns.find((col: any) => col.field === "GrammyAwards")?.disabledSummaries}>
                     </IgrColumn>
@@ -320,25 +319,25 @@ export default class Sample extends React.Component<any, any> {
                         <IgrColumn
                             field="Album"
                             header="Album"
-                            dataType="String"
+                            dataType="string"
                             hasSummary={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="LaunchDate"
                             header="Launch Date"
-                            dataType="Date"
+                            dataType="date"
                             hasSummary={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"
                             header="Billboard Review"
-                            dataType="Number"
+                            dataType="number"
                             hasSummary={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="USBillboard200"
                             header="US Billboard 200"
-                            dataType="Number"
+                            dataType="number"
                             hasSummary={true}>
                         </IgrColumn>
                         <IgrRowIsland
@@ -347,25 +346,25 @@ export default class Sample extends React.Component<any, any> {
                             <IgrColumn
                                 field="Number"
                                 header="No."
-                                dataType="String"
+                                dataType="string"
                                 hasSummary={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Title"
                                 header="Title"
-                                dataType="String"
+                                dataType="string"
                                 hasSummary={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Released"
                                 header="Released"
-                                dataType="Date"
+                                dataType="date"
                                 hasSummary={true}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Genre"
                                 header="Genre"
-                                dataType="String"
+                                dataType="string"
                                 hasSummary={true}>
                             </IgrColumn>
                         </IgrRowIsland>
@@ -376,25 +375,25 @@ export default class Sample extends React.Component<any, any> {
                         <IgrColumn
                             field="Tour"
                             header="Tour"
-                            dataType="String"
+                            dataType="string"
                             hasSummary={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="StartedOn"
                             header="Started on"
-                            dataType="String"
+                            dataType="string"
                             hasSummary={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="Location"
                             header="Location"
-                            dataType="String"
+                            dataType="string"
                             hasSummary={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="Headliner"
                             header="Headliner"
-                            dataType="String"
+                            dataType="string"
                             hasSummary={true}>
                         </IgrColumn>
                     </IgrRowIsland>

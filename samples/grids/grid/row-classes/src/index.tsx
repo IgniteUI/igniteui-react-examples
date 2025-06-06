@@ -7,7 +7,6 @@ import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import NwindData from './NwindData.json';
 import { IgrRowType } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -16,22 +15,17 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid1: IgrGrid
-    private grid1Ref(r: IgrGrid) {
-        this.grid1 = r;
+    private grid: IgrGrid
+    private gridRef(r: IgrGrid) {
+        this.grid = r;
         this.setState({});
     }
-    private productID: IgrColumn
-    private productName: IgrColumn
-    private unitsInStock: IgrColumn
-    private unitPrice: IgrColumn
-    private discontinued: IgrColumn
-    private orderDate: IgrColumn
+    private column: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.grid1Ref = this.grid1Ref.bind(this);
+        this.gridRef = this.gridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -42,38 +36,31 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.nwindData}
-                    rowClasses={this.webGridRowClassesHandler}
-                    ref={this.grid1Ref}>
+                    rowClasses={this.webGridRowClassesHandler}>
                     <IgrColumn
-                        name="ProductID"
                         field="ProductID"
                         header="Product ID">
                     </IgrColumn>
                     <IgrColumn
-                        name="ProductName"
                         field="ProductName"
                         header="Product Name">
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitsInStock"
                         field="UnitsInStock"
                         header="Units In Stock"
                         dataType="number">
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="number">
                     </IgrColumn>
                     <IgrColumn
-                        name="Discontinued"
                         field="Discontinued"
                         header="Discontinued"
                         dataType="boolean">
                     </IgrColumn>
                     <IgrColumn
-                        name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
                         dataType="date">

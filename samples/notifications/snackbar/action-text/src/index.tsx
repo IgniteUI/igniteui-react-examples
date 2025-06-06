@@ -21,11 +21,11 @@ export default class SnackbarActionText extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrButton variant="contained" clicked={this.onShowButtonClicked}>
+                <IgrButton variant="contained" onClick={this.onShowButtonClicked}>
                     <span>Show Snackbar</span>
                 </IgrButton>
 
-                <IgrSnackbar ref={this.onSnackbarRef} keepOpen={true} actionText="Close" action={this.onSnackbarActionClicked}>
+                <IgrSnackbar ref={this.onSnackbarRef} keepOpen={true} actionText="Close" onAction={this.onSnackbarActionClicked}>
                     <span>Snackbar with enabled keep-open option</span>
                 </IgrSnackbar>
             </div>

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
-import { IgrComboModule, IgrCombo, IgrSwitchModule, IgrSwitch } from "igniteui-react";
+import { IgrCheckboxChangeEventArgs, IgrComboModule, IgrCombo, IgrSwitchModule, IgrSwitch } from "igniteui-react";
 import "./index.css";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { Cities } from "./ComboData";
@@ -11,12 +11,12 @@ IgrSwitchModule.register();
 export default function ComboSingleSelection() {
   const comboRef = useRef<IgrCombo>(null);
 
-  const enableGrouping = (switchComponent: IgrSwitch) => {
-    comboRef.current.groupKey = switchComponent.checked ? "country" : undefined;
+  const enableGrouping = (e: IgrCheckboxChangeEventArgs) => {
+    comboRef.current.groupKey = e.detail.checked ? "country" : undefined;
   };
 
-  const disableCombo = (switchComponent: IgrSwitch) => {
-    comboRef.current.disabled = switchComponent.checked;
+  const disableCombo = (e: IgrCheckboxChangeEventArgs) => {
+    comboRef.current.disabled = e.detail.checked;
   };
 
   return (
@@ -31,10 +31,10 @@ export default function ComboSingleSelection() {
         ref={comboRef}
       ></IgrCombo>
       <div className="options">
-        <IgrSwitch change={enableGrouping}>
+        <IgrSwitch onChange={enableGrouping}>
           <span key="grouping">Enable Grouping</span>
         </IgrSwitch>
-        <IgrSwitch change={disableCombo}>
+        <IgrSwitch onChange={disableCombo}>
           <span key="disabled">Disable Combo</span>
         </IgrSwitch>
       </div>

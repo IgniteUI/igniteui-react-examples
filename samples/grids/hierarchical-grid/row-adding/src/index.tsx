@@ -6,7 +6,6 @@ import { IgrHierarchicalGridModule, IgrActionStripModule } from 'igniteui-react-
 import { IgrHierarchicalGrid, IgrActionStrip, IgrGridEditingActions, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import SingersData from './SingersData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

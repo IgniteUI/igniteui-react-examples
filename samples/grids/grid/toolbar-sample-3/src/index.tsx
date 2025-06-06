@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgrGridToolbarExportEventArgs, IgrExporterOptionsBase } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -17,16 +16,20 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid1: IgrGrid
-    private grid1Ref(r: IgrGrid) {
-        this.grid1 = r;
+    private grid: IgrGrid
+    private gridRef(r: IgrGrid) {
+        this.grid = r;
         this.setState({});
     }
+    private gridToolbar: IgrGridToolbar
+    private gridToolbarActions: IgrGridToolbarActions
+    private gridToolbarExporter: IgrGridToolbarExporter
+    private column: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.grid1Ref = this.grid1Ref.bind(this);
+        this.gridRef = this.gridRef.bind(this);
         this.webGridToolbarExporting = this.webGridToolbarExporting.bind(this);
     }
 
@@ -38,8 +41,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesData}
-                    toolbarExporting={this.webGridToolbarExporting}
-                    ref={this.grid1Ref}>
+                    onToolbarExporting={this.webGridToolbarExporting}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -100,10 +102,10 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridToolbarExporting(sender: IgrGrid, evt: IgrGridToolbarExportEventArgs): void {
+    public webGridToolbarExporting(evt: IgrGridToolbarExportEventArgs): void {
         const args = evt.detail;
-        const options: IgrExporterOptionsBase = (args.nativeElement as any).options;
-        const exporter = (args.nativeElement as any).exporter;
+        const options: IgrExporterOptionsBase = args.options;
+        const exporter = args.exporter as any;
         if (options) {
             options.fileName = `Report_${new Date().toDateString()}`;
             exporter.columnExporting.subscribe((columnArgs: any) => {

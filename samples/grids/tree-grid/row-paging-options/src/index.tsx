@@ -10,7 +10,6 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDes
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -84,7 +83,6 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     foreignKey="ParentID">
                     <IgrPaginator
-                        name="paginator"
                         perPage={10}
                         resourceStrings={this.paginatorResourceStrings1}>
                     </IgrPaginator>

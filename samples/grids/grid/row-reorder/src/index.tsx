@@ -9,7 +9,6 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrRowDragEndEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -42,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.customersData}
                     rowDraggable={true}
                     primaryKey="ID"
-                    rowDragEnd={this.webGridReorderRowHandler}>
+                    onRowDragEnd={this.webGridReorderRowHandler}>
                     <IgrColumn
                         field="ID"
                         header="ID">
@@ -102,7 +101,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridReorderRowHandler(sender: IgrGrid, args: IgrRowDragEndEventArgs): void {
+    public webGridReorderRowHandler(args: IgrRowDragEndEventArgs): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
         const dragElementPos = ghostElement.getBoundingClientRect();
         const grid = this.grid;

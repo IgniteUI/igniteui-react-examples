@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
-import { IgrComboModule, IgrCombo, IgrSwitchModule, IgrSwitch } from "igniteui-react";
+import { IgrCheckboxChangeEventArgs, IgrComboModule, IgrCombo, IgrSwitchModule, IgrSwitch } from "igniteui-react";
 import "./index.css";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { Cities } from "./ComboData";
@@ -12,21 +12,21 @@ export default function ComboFeatures() {
   const comboRef = useRef<IgrCombo>(null);
   const switchCaseSensitiveRef = useRef<IgrSwitch>(null);
 
-  const disableFiltering = (switchComponent: IgrSwitch) => {
+  const disableFiltering = (e: IgrCheckboxChangeEventArgs) => {
     comboRef.current.disableFiltering =
-      switchCaseSensitiveRef.current.disabled = switchComponent.checked;
+      switchCaseSensitiveRef.current.disabled = e.detail.checked;
   };
 
-  const showCaseSencitiveIcon = (switchComponent: IgrSwitch) => {
-    comboRef.current.caseSensitiveIcon = switchComponent.checked;
+  const showCaseSencitiveIcon = (e: IgrCheckboxChangeEventArgs) => {
+    comboRef.current.caseSensitiveIcon = e.detail.checked;
   };
 
-  const enableGrouping = (switchComponent: IgrSwitch) => {
-    comboRef.current.groupKey = switchComponent.checked ? "country" : undefined;
+  const enableGrouping = (e: IgrCheckboxChangeEventArgs) => {
+    comboRef.current.groupKey = e.detail.checked ? "country" : undefined;
   };
 
-  const disableCombo = (switchComponent: IgrSwitch) => {
-    comboRef.current.disabled = switchComponent.checked;
+  const disableCombo = (e: IgrCheckboxChangeEventArgs) => {
+    comboRef.current.disabled = e.detail.checked;
   };
 
   return (
@@ -41,16 +41,16 @@ export default function ComboFeatures() {
         ref={comboRef}
       ></IgrCombo>
       <div className="options">
-        <IgrSwitch change={disableFiltering}>
+        <IgrSwitch onChange={disableFiltering}>
           <span key="filtering">Disable Filtering</span>
         </IgrSwitch>
-        <IgrSwitch change={showCaseSencitiveIcon} ref={switchCaseSensitiveRef}>
+        <IgrSwitch onChange={showCaseSencitiveIcon} ref={switchCaseSensitiveRef}>
           <span key="caseSensitive">Show Case-sensitive Icon</span>
         </IgrSwitch>
-        <IgrSwitch change={enableGrouping}>
+        <IgrSwitch onChange={enableGrouping}>
           <span key="grouping">Enable Grouping</span>
         </IgrSwitch>
-        <IgrSwitch change={disableCombo}>
+        <IgrSwitch onChange={disableCombo}>
           <span key="disabled">Disable Combo</span>
         </IgrSwitch>
       </div>

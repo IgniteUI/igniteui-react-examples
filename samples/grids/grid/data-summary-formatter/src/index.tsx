@@ -7,7 +7,6 @@ import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import NwindData from './NwindData.json';
 import { IgrSummaryResult, IgrSummaryOperand } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -21,7 +20,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -64,8 +62,7 @@ export default class Sample extends React.Component<any, any> {
                         sortable={true}
                         hasSummary={true}
                         dataType="date"
-                        summaryFormatter={this.webGridSummaryFormatter}
-                        name="column1">
+                        summaryFormatter={this.webGridSummaryFormatter}>
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
