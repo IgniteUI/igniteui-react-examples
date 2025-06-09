@@ -86,14 +86,12 @@ export default function App() {
   };
 
   return (
-    <div className="container sample ig-typography">
-      <div className="container fill">
         <IgrHierarchicalGrid
           ref={hierarchicalGrid}
           data={data}
           pagingMode="remote"
           primaryKey="customerId"
-          height="600px"
+          height="100%"
         >
           <IgrPaginator
             perPage={perPage}
@@ -112,6 +110,7 @@ export default function App() {
             childDataKey="Orders"
             primaryKey="orderId"
             onGridCreated={onCustomersGridCreatedHandler}
+            height="100%"
           >
             <IgrColumn field="orderId" hidden={true}></IgrColumn>
             <IgrColumn
@@ -133,6 +132,7 @@ export default function App() {
               childDataKey="Details"
               primaryKey="productId"
               onGridCreated={onOrdersGridCreatedHandler}
+              height="100%"
             >
               <IgrColumn field="productId" hidden={true}></IgrColumn>
               <IgrColumn field="quantity" header="Quantity"></IgrColumn>
@@ -141,8 +141,6 @@ export default function App() {
             </IgrRowIsland>
           </IgrRowIsland>
         </IgrHierarchicalGrid>
-      </div>
-    </div>
   );
 }
 
