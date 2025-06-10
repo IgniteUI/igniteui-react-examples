@@ -314,4 +314,3 @@ export default class Sample extends React.Component<any, any> {
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Sample/>);
-
