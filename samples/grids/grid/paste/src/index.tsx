@@ -8,7 +8,6 @@ import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'ig
 import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
-import { InvoicesData } from './InvoicesData';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { IgrGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-react-grids';
 
