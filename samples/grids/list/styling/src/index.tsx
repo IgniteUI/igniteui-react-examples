@@ -2,12 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './ListStyling.css';
-import { IgrList, IgrListItem, IgrListHeader, IgrAvatar, IgrButton, IgrListModule, IgrAvatarModule, IgrButtonModule } from 'igniteui-react';
+import { IgrList, IgrListItem, IgrListHeader, IgrAvatar, IgrButton } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrAvatarModule.register();
-IgrButtonModule.register();
-IgrListModule.register();
 
 export default class ListStyling extends React.Component<any, any> {
 
