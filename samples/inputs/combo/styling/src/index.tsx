@@ -24,8 +24,8 @@ export default function ComboStyling() {
         caseSensitiveIcon
         data={Cities}
       >
-        <span slot="helper-text" key="helperText">Choose the desired place</span>
-        <span slot="prefix" key="prefix">
+        <span slot="helper-text">Choose the desired place</span>
+        <span slot="prefix">
           <IgrIcon name="place" collection="material"></IgrIcon>
         </span>
       </IgrCombo>
