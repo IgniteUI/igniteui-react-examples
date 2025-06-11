@@ -1,118 +1,206 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React, { useRef, useState } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 import {
-    IgrStepper, IgrStep, IgrStepperModule, IgrRadio, IgrRadioGroup, IgrRadioModule, IgrRadioGroupModule,
-    IgrButton, IgrButtonModule, IgrInput, IgrInputModule, IgrSelect, IgrSelectItem, IgrSelectModule,
-    IgrSelectItemComponentEventArgs, IgrComponentDataValueChangedEventArgs,
-    IgrComponentValueChangedEventArgs
-} from 'igniteui-react';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+  IgrStepper,
+  IgrStep,
+  IgrRadio,
+  IgrRadioGroup,
+  IgrButton,
+  IgrInput,
+  IgrSelect,
+  IgrSelectItem,
+  IgrSelectItemComponentEventArgs,
+  IgrComponentValueChangedEventArgs,
+  StepperOrientation,
+  HorizontalTransitionAnimation,
+  StepperVerticalAnimation,
+} from "igniteui-react";
+import "igniteui-webcomponents/themes/light/bootstrap.css";
 
-IgrStepperModule.register();
-IgrInputModule.register();
-IgrRadioModule.register();
-IgrRadioGroupModule.register();
-IgrButtonModule.register();
-IgrSelectModule.register();
+export default function StepperAnimations() {
 
-export default class StepperAnimations extends React.Component<any, any> {
-    private stepperRef = React.createRef<IgrStepper>();
-    constructor(props: any) {
-        super(props);
-        this.state = { orientation: 'horizontal', horizontalAnimation: 'slide', verticalAnimation: 'grow', animationDuration: "320" };
-        this.orientationChange = this.orientationChange.bind(this);
-        this.horizontalAnimationChange = this.horizontalAnimationChange.bind(this);
-        this.verticalAnimationChange = this.verticalAnimationChange.bind(this);
-        this.animationDurationChange = this.animationDurationChange.bind(this);
+    const stepperRef = useRef<IgrStepper>(null);
+    const [orientation, setOrientation] = useState<StepperOrientation>("horizontal");
+    const [horizontalAnimation, setHorizontalAnimation] = useState<HorizontalTransitionAnimation>("slide");
+    const [verticalAnimation, setVerticalAnimation] = useState<StepperVerticalAnimation>("grow");
+    const [animationDuration, setAnimationDuration] = useState("320");
+    
+
+    const orientationChange = (e: IgrSelectItemComponentEventArgs) => {
+        const selectedValue = e.detail.value as StepperOrientation;
+        setOrientation(selectedValue);
+    }
+    
+    const horizontalAnimationChange = (e: IgrSelectItemComponentEventArgs) => {
+        const selectedValue = e.detail.value as HorizontalTransitionAnimation;
+        setHorizontalAnimation(selectedValue);
+
     }
 
-    public render(): JSX.Element {
-        return (
-            <div className="container sample">               
-                <article className="settings">
-                    <IgrSelect label="Orienation" onChange={this.orientationChange}>
-                        <IgrSelectItem key="horizontal-item" value="horizontal" selected><span key="horizontal">Horizontal</span></IgrSelectItem>
-                        <IgrSelectItem key="vertical-item" value="vertical"><span key="vertical">Vertical</span></IgrSelectItem>
-                    </IgrSelect>
-                    <IgrSelect label="Vertical Animation" onChange={this.verticalAnimationChange}>
-                        <IgrSelectItem key="grow-item" value="grow" selected><span key="grow">Grow</span></IgrSelectItem>
-                        <IgrSelectItem key="vertical-fade-item" value="fade"><span key="vertical-fade">Fade</span></IgrSelectItem>
-                        <IgrSelectItem key="vertical-none-item" value="none"><span key="vertical-none">None</span></IgrSelectItem>
-                    </IgrSelect>
-                    <IgrSelect label="Horizontal Animation" onChange={this.horizontalAnimationChange}>
-                        <IgrSelectItem key="slide-item" value="slide" selected><span key="slide">Slide</span></IgrSelectItem>
-                        <IgrSelectItem key="horizontal-fade-item" value="fade"><span key="horizontal-fade">Fade</span></IgrSelectItem>
-                        <IgrSelectItem key="horizontal-none-item" value="none"><span key="horizontal-none">None</span></IgrSelectItem>
-                    </IgrSelect>
-                    <IgrInput type="number" value="320" label="Duration" onChange={this.animationDurationChange}>
-                        <span key="duration-suffix" slot="suffix">ms</span>
-                    </IgrInput>
-                </article>
-
-                <IgrStepper ref={this.stepperRef} orientation={this.state.orientation}
-                horizontalAnimation={this.state.horizontalAnimation} verticalAnimation={this.state.verticalAnimation}
-                animationDuration={this.state.animationDuration} >
-                    <IgrStep key="info">
-                        <span key="info-title" slot="title">Personal Info</span>
-                        <form key="info-form">
-                            <IgrInput key="full-name" label="Full Name" type="text" name="fullName"></IgrInput>
-                            <IgrInput key="email" label="Email" type="email" name="email"></IgrInput>
-
-                            <IgrButton key="info-next" onClick={() => { this.stepperRef.current.next(); }}><span key="info-label-next">NEXT</span></IgrButton>
-                        </form>
-                    </IgrStep>
-                    <IgrStep key="address">
-                        <span key="address-title" slot="title">Delivery address</span>
-                        <form key="address-form">
-                            <IgrInput key="city" label="City" type="text" name="city"></IgrInput>
-                            <IgrInput key="street" label="Street" type="text" name="street"></IgrInput>
-
-                            <IgrButton key="address-prev" onClick={() => { this.stepperRef.current.prev(); }}><span key="address-label-prev">PREVIOUS</span></IgrButton>
-                            <IgrButton key="address-next" onClick={() => { this.stepperRef.current.next(); }}><span key="address-label-next">NEXT</span></IgrButton>
-                        </form>
-                    </IgrStep>
-                    <IgrStep key="payment">
-                        <span key="payment-title" slot="title">Payment</span>
-                        <IgrRadioGroup key="payment-options">
-                            <IgrRadio key="pay-pal-radio" name="payment" checked><span key="pay-pal">PayPal (n@mail.com; 18/02/2021)</span></IgrRadio>
-                            <IgrRadio key="visa-radio" name="payment"><span key="visa">Visa (**** **** **** 1234; 12/23)</span></IgrRadio>
-                            <IgrRadio key="master-card-radio" name="payment"><span key="master-card">MasterCard (**** **** **** 5678; 12/24)</span></IgrRadio>
-                        </IgrRadioGroup>
-
-                        <IgrButton key="payment-prev" onClick={() => { this.stepperRef.current.prev(); }}><span key="payment-label-prev">PREVIOUS</span></IgrButton>
-                        <IgrButton key="payment-next" onClick={() => { this.stepperRef.current.next(); }}><span key="address-label-submit">SUBMIT</span></IgrButton>
-                    </IgrStep>
-                    <IgrStep key="status">
-                        <span key="status-title" slot="title">Delivery status</span>
-                        <p key="status-text">Your order is on its way. Expect delivery on 25th September 2021. Delivery address: San Jose, CA 94243.</p>
-
-                        <IgrButton key="status-prev" onClick={() => { this.stepperRef.current.prev(); }}><span key="status-label-prev">PREVIOUS</span></IgrButton>
-                        <IgrButton key="status-reset" onClick={() => { this.stepperRef.current.reset(); }}><span key="status-label-reset">RESET</span></IgrButton>
-                    </IgrStep>
-                </IgrStepper>
-            </div>
-        );
+    const verticalAnimationChange = (e: IgrSelectItemComponentEventArgs) => {
+        const selectedValue = e.detail.value as StepperVerticalAnimation;
+        setVerticalAnimation(selectedValue);
     }
 
-    public orientationChange(e: IgrSelectItemComponentEventArgs){
-        const selectedValue = e.detail.value;
-        this.setState({orientation: selectedValue});
-    }
-    public horizontalAnimationChange(e: IgrSelectItemComponentEventArgs){
-        const selectedValue = e.detail.value;
-        this.setState({horizontalAnimation: selectedValue});
-    }
-    public verticalAnimationChange(e: IgrSelectItemComponentEventArgs){
-        const selectedValue = e.detail.value;
-        this.setState({verticalAnimation: selectedValue});
-    }
-    public animationDurationChange(e: IgrComponentValueChangedEventArgs){
+    const animationDurationChange = (e: IgrComponentValueChangedEventArgs) => {
         const animationDuration = e.detail;
-        this.setState({animationDuration: animationDuration});
+        setAnimationDuration(animationDuration);
     }
+
+    return (
+      <div className="container sample">
+        <article className="settings">
+          <IgrSelect label="Orienation" onChange={orientationChange}>
+            <IgrSelectItem value="horizontal" selected={orientation === 'horizontal'}>
+              <span>Horizontal</span>
+            </IgrSelectItem>
+            <IgrSelectItem value="vertical">
+              <span>Vertical</span>
+            </IgrSelectItem>
+          </IgrSelect>
+          <IgrSelect
+            label="Vertical Animation"
+            onChange={verticalAnimationChange}
+          >
+            <IgrSelectItem value="grow" selected={verticalAnimation === 'grow'}>
+              <span>Grow</span>
+            </IgrSelectItem>
+            <IgrSelectItem value="fade">
+              <span>Fade</span>
+            </IgrSelectItem>
+            <IgrSelectItem value="none">
+              <span>None</span>
+            </IgrSelectItem>
+          </IgrSelect>
+          <IgrSelect
+            label="Horizontal Animation"
+            onChange={horizontalAnimationChange}
+          >
+            <IgrSelectItem value="slide" selected={horizontalAnimation === 'slide'}>
+              <span>Slide</span>
+            </IgrSelectItem>
+            <IgrSelectItem value="fade">
+              <span>Fade</span>
+            </IgrSelectItem>
+            <IgrSelectItem value="none">
+              <span>None</span>
+            </IgrSelectItem>
+          </IgrSelect>
+          <IgrInput
+            type="number"
+            value={animationDuration}
+            label="Duration"
+            onChange={animationDurationChange}
+          >
+            <span slot="suffix">ms</span>
+          </IgrInput>
+        </article>
+
+        <IgrStepper
+          ref={stepperRef}
+          orientation={orientation}
+          horizontalAnimation={horizontalAnimation}
+          verticalAnimation={verticalAnimation}
+          animationDuration={+animationDuration}
+        >
+          <IgrStep>
+            <span slot="title">Personal Info</span>
+            <form>
+              <IgrInput
+                label="Full Name"
+                type="text"
+                name="fullName"
+              ></IgrInput>
+              <IgrInput label="Email" type="email" name="email"></IgrInput>
+
+              <IgrButton
+                onClick={() => {
+                  stepperRef.current.next();
+                }}
+              >
+                <span>NEXT</span>
+              </IgrButton>
+            </form>
+          </IgrStep>
+          <IgrStep>
+            <span slot="title">Delivery address</span>
+            <form>
+              <IgrInput label="City" type="text" name="city"></IgrInput>
+              <IgrInput label="Street" type="text" name="street"></IgrInput>
+
+              <IgrButton
+                onClick={() => {
+                  stepperRef.current.prev();
+                }}
+              >
+                <span>PREVIOUS</span>
+              </IgrButton>
+              <IgrButton
+                onClick={() => {
+                  stepperRef.current.next();
+                }}
+              >
+                <span>NEXT</span>
+              </IgrButton>
+            </form>
+          </IgrStep>
+          <IgrStep>
+            <span slot="title">Payment</span>
+            <IgrRadioGroup>
+              <IgrRadio name="payment" checked>
+                <span>PayPal (n@mail.com; 18/02/2021)</span>
+              </IgrRadio>
+              <IgrRadio name="payment">
+                <span>Visa (**** **** **** 1234; 12/23)</span>
+              </IgrRadio>
+              <IgrRadio name="payment">
+                <span>MasterCard (**** **** **** 5678; 12/24)</span>
+              </IgrRadio>
+            </IgrRadioGroup>
+
+            <IgrButton
+              onClick={() => {
+                stepperRef.current.prev();
+              }}
+            >
+              <span>PREVIOUS</span>
+            </IgrButton>
+            <IgrButton
+              onClick={() => {
+                stepperRef.current.next();
+              }}
+            >
+              <span>SUBMIT</span>
+            </IgrButton>
+          </IgrStep>
+          <IgrStep>
+            <span slot="title">Delivery status</span>
+            <p>
+              Your order is on its way. Expect delivery on 25th September 2021.
+              Delivery address: San Jose, CA 94243.
+            </p>
+
+            <IgrButton
+              onClick={() => {
+                stepperRef.current.prev();
+              }}
+            >
+              <span>PREVIOUS</span>
+            </IgrButton>
+            <IgrButton
+              onClick={() => {
+                stepperRef.current.reset();
+              }}
+            >
+              <span>RESET</span>
+            </IgrButton>
+          </IgrStep>
+        </IgrStepper>
+      </div>
+    );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<StepperAnimations />);

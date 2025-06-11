@@ -1,0 +1,48 @@
+.sizes .size-small {
+    --ig-size: var(--ig-size-small);
+}
+
+.sizes .size-medium {
+    --ig-size: var(--ig-size-medium);
+}
+
+.sizes .size-large,
+.size-large {
+    --ig-size: var(--ig-size-large);
+}
+
+.sample {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.sizes {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+igc-avatar::part(base) {
+    background: var(--ig-success-100);
+    border: 2px solid var(--ig-error-500);
+}
+
+igc-avatar::part(initials) {
+    color: var(--ig-success-500-contrast);
+    background: var(--ig-error-500);
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 50px;
+    /* border: 1px solid greenyellow; */
+}
+
+igc-avatar::part(image) {
+    border-radius: 20px;
+    padding: 5px;
+    border: 2px solid var(--ig-primary-500);
+}
+
+
