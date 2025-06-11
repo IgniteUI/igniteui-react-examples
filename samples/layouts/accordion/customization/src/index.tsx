@@ -63,8 +63,8 @@ export default class AccordionCustomization extends React.Component<any, any> {
       <div id="root">
         <div className="sample-wrapper">
           <IgrAccordion>
-            <IgrExpansionPanel key="ep1">
-              <h1 slot="title" key="ep1Title">
+            <IgrExpansionPanel>
+              <h1 slot="title">
                 Categories
                 {this.state.categories.some((c: Category) => c.checked) && ": "}
                 {this.state.categories
@@ -72,7 +72,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                   .map((c: Category) => c.type)
                   .join(", ")}
               </h1>
-              <span key="ep1Span">
+              <span>
                 <div className="categories-container">
                   {this.state.categories.map((c: Category) => {
                     return (
@@ -82,21 +82,20 @@ export default class AccordionCustomization extends React.Component<any, any> {
                           this.categoriesChange(e, c.type)
                         }
                       >
-                        <span key={"cbSpan-" + c.type}>{c.type}</span>
+                        <span>{c.type}</span>
                       </IgrCheckbox>
                     );
                   })}
                 </div>
               </span>
             </IgrExpansionPanel>
-            <IgrExpansionPanel key="ep2">
-              <h1 slot="title" key="ep2Title">
+            <IgrExpansionPanel>
+              <h1 slot="title">
                 Cost: $<span id="lowerCost">{this.state.cost.lower}</span> to $
                 <span id="upperCost">{this.state.cost.upper}</span>
               </h1>
-              <span key="ep2Span">
+              <span>
                 <IgrRangeSlider
-                  key="rangeSlider"
                   min={0}
                   max={1000}
                   lower={this.state.cost.lower}
@@ -105,13 +104,13 @@ export default class AccordionCustomization extends React.Component<any, any> {
                 ></IgrRangeSlider>
               </span>
             </IgrExpansionPanel>
-            <IgrExpansionPanel key="ep3">
-              <h1 slot="title" key="ep3Title">
+            <IgrExpansionPanel>
+              <h1 slot="title">
                 Rating{this.state.rating && ": "}
                 {this.state.rating}
               </h1>
-              <span key="ep3Span">
-                <IgrRadioGroup key="radio" alignment="horizontal">
+              <span>
+                <IgrRadioGroup alignment="horizontal">
                   {[1, 2, 3, 4].map((rating) => {
                     return (
                       <IgrRadio
@@ -128,7 +127,6 @@ export default class AccordionCustomization extends React.Component<any, any> {
                           value={rating + 0.5}
                           className="size-small"
                           readOnly={true}
-                          key={`{r-${rating}}`}
                         ></IgrRating>
                       </IgrRadio>
                     );
@@ -136,23 +134,22 @@ export default class AccordionCustomization extends React.Component<any, any> {
                 </IgrRadioGroup>
               </span>
             </IgrExpansionPanel>
-            <IgrExpansionPanel key="ep4">
-              <h1 slot="title" key="ep4Title">
+            <IgrExpansionPanel>
+              <h1 slot="title">
                 {this.state.time}
               </h1>
-              <span key="ep4Span">
+              <span>
                 <IgrDateTimeInput
                   className="size-small"
-                  key="dtInput"
                   inputFormat="hh:mm tt"
                   label="Arrive before"
                   ref={this.dateTimeInputRef}
                   onChange={this.timeChange}
                 >
-                  <span key="sPrefix" slot="prefix">
+                  <span slot="prefix">
                     <IgrIcon name="clock" collection="material" />
                   </span>
-                  <span key="sSuffix" slot="suffix" onClick={this.clearTime}>
+                  <span slot="suffix" onClick={this.clearTime}>
                     <IgrIcon name="clear" collection="material" />
                   </span>
                 </IgrDateTimeInput>
