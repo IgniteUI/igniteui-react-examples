@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrList, IgrListItem, IgrListHeader, IgrListModule } from 'igniteui-react';
+import { IgrList, IgrListItem, IgrListHeader } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrListModule.register();
 
 export default class ListItemContent extends React.Component<any, any> {
 
