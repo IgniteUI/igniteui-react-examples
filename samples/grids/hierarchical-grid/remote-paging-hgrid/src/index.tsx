@@ -77,67 +77,71 @@ export default function App() {
     setPerPage(args.detail);
   }
 
+  const onCustomersGridCreatedHandler = (e: IgrGridCreatedEventArgs) => {
+    gridCreated(e, "Customers")
+  };
+
+  const onOrdersGridCreatedHandler = (e: IgrGridCreatedEventArgs) => {
+    gridCreated(e, "Orders")
+  };
+
   return (
-    <div className="container sample ig-typography">
-      <div className="container fill">
-        <IgrHierarchicalGrid
-          ref={hierarchicalGrid}
-          data={data}
-          pagingMode={"remote"}
-          primaryKey="customerId"
-          height="600px"
+    <div className="sample ig-typography">
+      <IgrHierarchicalGrid
+        ref={hierarchicalGrid}
+        data={data}
+        pagingMode="remote"
+        primaryKey="customerId"
+        height="100%"
+      >
+        <IgrPaginator
+          perPage={perPage}
+          ref={paginator}
+          onPageChange={onPageNumberChange}
+          onPerPageChange={onPageSizeChange}
+        ></IgrPaginator>
+        <IgrColumn field="customerId" hidden={true}></IgrColumn>
+        <IgrColumn field="companyName" header="Company Name"></IgrColumn>
+        <IgrColumn field="contactName" header="Contact Name"></IgrColumn>
+        <IgrColumn field="contactTitle" header="Contact Title"></IgrColumn>
+        <IgrColumn field="address.country" header="Country"></IgrColumn>
+        <IgrColumn field="address.phone" header="Phone"></IgrColumn>
+
+        <IgrRowIsland
+          childDataKey="Orders"
+          primaryKey="orderId"
+          onGridCreated={onCustomersGridCreatedHandler}
+          height="100%"
         >
-          <IgrPaginator
-            perPage={perPage}
-            ref={paginator}
-            onPageChange={onPageNumberChange}
-            onPerPageChange={onPageSizeChange}
-          ></IgrPaginator>
-          <IgrColumn field="customerId" hidden={true}></IgrColumn>
-          <IgrColumn field="companyName" header="Company Name"></IgrColumn>
-          <IgrColumn field="contactName" header="Contact Name"></IgrColumn>
-          <IgrColumn field="contactTitle" header="Contact Title"></IgrColumn>
-          <IgrColumn field="address.country" header="Country"></IgrColumn>
-          <IgrColumn field="address.phone" header="Phone"></IgrColumn>
+          <IgrColumn field="orderId" hidden={true}></IgrColumn>
+          <IgrColumn
+            field="shipAddress.country"
+            header="Ship Country"
+          ></IgrColumn>
+          <IgrColumn field="shipAddress.city" header="Ship City"></IgrColumn>
+          <IgrColumn
+            field="shipAddress.street"
+            header="Ship Address"
+          ></IgrColumn>
+          <IgrColumn
+            field="orderDate"
+            header="Order Date"
+            dataType="date"
+          ></IgrColumn>
 
           <IgrRowIsland
-            childDataKey="Orders"
-            primaryKey="orderId"
-            onGridCreated={(e: IgrGridCreatedEventArgs) =>
-              gridCreated(e, "Customers")
-            }
+            childDataKey="Details"
+            primaryKey="productId"
+            onGridCreated={onOrdersGridCreatedHandler}
+            height="100%"
           >
-            <IgrColumn field="orderId" hidden={true}></IgrColumn>
-            <IgrColumn
-              field="shipAddress.country"
-              header="Ship Country"
-            ></IgrColumn>
-            <IgrColumn field="shipAddress.city" header="Ship City"></IgrColumn>
-            <IgrColumn
-              field="shipAddress.street"
-              header="Ship Address"
-            ></IgrColumn>
-            <IgrColumn
-              field="orderDate"
-              header="Order Date"
-              dataType="date"
-            ></IgrColumn>
-
-            <IgrRowIsland
-              childDataKey="Details"
-              primaryKey="productId"
-              onGridCreated={(e: IgrGridCreatedEventArgs) =>
-                gridCreated(e, "Orders")
-              }
-            >
-              <IgrColumn field="productId" hidden={true}></IgrColumn>
-              <IgrColumn field="quantity" header="Quantity"></IgrColumn>
-              <IgrColumn field="unitPrice" header="Unit Price"></IgrColumn>
-              <IgrColumn field="discount" header="Discount"></IgrColumn>
-            </IgrRowIsland>
+            <IgrColumn field="productId" hidden={true}></IgrColumn>
+            <IgrColumn field="quantity" header="Quantity"></IgrColumn>
+            <IgrColumn field="unitPrice" header="Unit Price"></IgrColumn>
+            <IgrColumn field="discount" header="Discount"></IgrColumn>
           </IgrRowIsland>
-        </IgrHierarchicalGrid>
-      </div>
+        </IgrRowIsland>
+      </IgrHierarchicalGrid>
     </div>
   );
 }
