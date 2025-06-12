@@ -4,16 +4,20 @@ import {
   IgrCombo,
   ComboTemplateProps,
   IgrIcon,
-  registerIcon,
+  registerIconFromText
 } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { Cities, City } from "./data";
 import "./index.css";
 
 export default function ComboTemplates() {
+
+  const downIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-200 240-440l56-56 184 183 184-183 56 56-240 240Zm0-240L240-680l56-56 184 183 184-183 56 56-240 240Z"/></svg>';
+  const clearIcon = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M120-280v-80h560v80H120Zm80-160v-80h560v80H200Zm80-160v-80h560v80H280Z"/></svg>';
+
   useEffect(() => {
-    registerIcon("down", "/images/down.svg", "material");
-    registerIcon("clear", "/images/clear.svg", "material");
+    registerIconFromText("down", downIcon, "material");
+    registerIconFromText("clear", clearIcon, "material");
   }, []);
 
   const renderGroupHeaderTemplate = (args: ComboTemplateProps<City>) => {
