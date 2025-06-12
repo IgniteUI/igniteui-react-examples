@@ -2,32 +2,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
     IgrBanner,
-    IgrBannerModule,
     IgrButton,
-    IgrButtonModule,
     IgrCard,
-    IgrCardModule,
     IgrIcon,
-    IgrIconModule,
     IgrNavbar,
-    IgrNavbarModule,
     IgrRipple,
-    IgrRippleModule,
     IgrToast,
-    IgrToastModule,
     registerIconFromText,
-  } from 'igniteui-react';
+} from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './BannerStyling.css';
 import './index.css';
-
-IgrBannerModule.register();
-IgrNavbarModule.register();
-IgrIconModule.register();
-IgrCardModule.register();
-IgrButtonModule.register();
-IgrRippleModule.register();
-IgrToastModule.register();
 
 const wifiOnIcon =
     '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12.01 21.49L23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01z"/></svg>';
@@ -40,6 +25,7 @@ export default function BannerStyling() {
     const toastRef = useRef<IgrToast>(null);
 
     const [wifiState, setWifiState] = useState(false);
+    const [iconName, setIconName] = useState("signal_wifi_off");
 
     useEffect(() => {
         registerIconFromText('signal_wifi_off', wifiOffIcon);
@@ -47,20 +33,21 @@ export default function BannerStyling() {
         bannerRef.current.open = true;
     }, []);
 
-    function refreshBanner() {
-        if (!wifiState) {
-            iconRef.current.name = 'signal_wifi_4_bar';
+    const refreshBanner = () => {
+        const nextWifiState = !wifiState;
+        setWifiState(nextWifiState);
+        setIconName(nextWifiState ? "signal_wifi_4_bar" : "signal_wifi_off");
+
+        if (nextWifiState) {
             bannerRef.current.hide();
         } else {
-            iconRef.current.name = 'signal_wifi_off';
             bannerRef.current.show();
         }
 
-        setWifiState(current => !current);
         showToast();
     }
 
-    function showToast() {
+    const showToast = () => {
         toastRef.current.open = false;
         toastRef.current.show();
     }
@@ -69,37 +56,37 @@ export default function BannerStyling() {
         <div className="gallery__wrapper">
             <div className="gallery__content">
                 <IgrNavbar>
-                    <h1 key="header">Gallery</h1>
-                    <IgrIcon ref={iconRef} key="icon-wifi-off" name="signal_wifi_off" slot="end" onClick={() => refreshBanner()}></IgrIcon>
+                    <h1>Gallery</h1>
+                    <IgrIcon ref={iconRef} name={iconName} slot="end" onClick={refreshBanner}></IgrIcon>
                 </IgrNavbar>
 
                 <IgrBanner ref={bannerRef} className="offline-banner">
-                    <IgrIcon key="icon-wifi-off" name="signal_wifi_off" slot="prefix"></IgrIcon>
-                    <span key="message">You have lost connection to the internet. This app is offline.</span>
-                    <div key="actions" slot="actions">
-                        <IgrButton key="button-offline" variant="flat" onClick={() => bannerRef.current.hide()}>
-                            <IgrRipple key="ripple-offline" />
-                            <span key="action-offline">Continue Offline</span>
+                    <IgrIcon name="signal_wifi_off" slot="prefix"></IgrIcon>
+                    <span>You have lost connection to the internet. This app is offline.</span>
+                    <div slot="actions">
+                        <IgrButton variant="flat" onClick={() => bannerRef.current.hide()}>
+                            <IgrRipple />
+                            <span>Continue Offline</span>
                         </IgrButton>
-                        <IgrButton key="button-wifi" variant="flat" onClick={() => refreshBanner()}>
-                            <IgrRipple key="ripple-wifi" />
-                            <span key="action-wifi">Turn On Wifi</span>
+                        <IgrButton variant="flat" onClick={refreshBanner}>
+                            <IgrRipple />
+                            <span>Turn On Wifi</span>
                         </IgrButton>
                     </div>
                 </IgrBanner>
 
                 <IgrCard className="gallery__item" elevated>
-                    <div key="img-forest">
-                        <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/media/the_red_ice_forest.jpg"/>
+                    <div>
+                        <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/media/the_red_ice_forest.jpg" />
                     </div>
                 </IgrCard>
                 <IgrCard className="gallery__item" elevated>
-                    <div key="img-yosemite">
-                        <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/media/yosemite.jpg"/>
+                    <div>
+                        <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/media/yosemite.jpg" />
                     </div>
                 </IgrCard>
                 <IgrToast ref={toastRef} position="middle">
-                    <span key="toast-message">{`Wifi is now ${wifiState ? 'on' : 'off'}`}</span>
+                    <span>{`Wifi is now ${wifiState ? 'on' : 'off'}`}</span>
                 </IgrToast>
             </div>
         </div>
@@ -108,4 +95,4 @@ export default function BannerStyling() {
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<BannerStyling/>);
+root.render(<BannerStyling />);
