@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataAnnotationStripLayerModule, IgrNumberAbbreviatorModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer, IgrDataAnnotationStripLayer } from 'igniteui-react-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationStripDataItem, AnnotationStripData } from './AnnotationStripData';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -30,16 +30,29 @@ export default class Sample extends React.Component<any, any> {
     }
     private xAxisBottom: IgrCategoryXAxis
     private xAxisTop: IgrCategoryXAxis
+    private xAxisTopRef(r: IgrCategoryXAxis){
+        this.xAxisTop = r;
+        this.setState({});
+    }
     private yAxisLeft: IgrNumericYAxis
     private yAxisRight: IgrNumericYAxis
     private series1: IgrFinancialPriceSeries
     private tooltip: IgrDataToolTipLayer
     private stripLayer: IgrDataAnnotationStripLayer
+    private stripLayerRef(r: IgrDataAnnotationStripLayer){
+        this.stripLayer = r;
+        this.setState({});
+    }
+    componentDidMount(): void {
+        this.stripLayer.targetAxis = this.xAxisTop;
+    }
 
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
+        this.xAxisTopRef = this.xAxisTopRef.bind(this);
+        this.stripLayerRef = this.stripLayerRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -76,6 +89,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrCategoryXAxis
                         name="xAxisTop"
+                        ref={this.xAxisTopRef}
                         dataSource={this.stockTesla}
                         label="date"
                         tickLength="0"
@@ -134,8 +148,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationStripLayer
                         name="StripLayer"
-                        dataSource={this.annotationData}
-                        targetAxis={this.xAxisTop}
+                        ref={this.stripLayerRef}
+                        dataSource={this.annotationStripData}
                         centerLabelMemberPath="label"
                         startValueMemberPath="start"
                         endValueMemberPath="end"
@@ -155,15 +169,6 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _annotationData: AnnotationData = null;
-    public get annotationData(): AnnotationData {
-        if (this._annotationData == null)
-        {
-            this._annotationData = new AnnotationData();
-        }
-        return this._annotationData;
-    }
-
     private _stockTesla: StockTesla = null;
     public get stockTesla(): StockTesla {
         if (this._stockTesla == null)
@@ -171,6 +176,15 @@ export default class Sample extends React.Component<any, any> {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationStripData: AnnotationStripData = null;
+    public get annotationStripData(): AnnotationStripData {
+        if (this._annotationStripData == null)
+        {
+            this._annotationStripData = new AnnotationStripData();
+        }
+        return this._annotationStripData;
     }
 
 }

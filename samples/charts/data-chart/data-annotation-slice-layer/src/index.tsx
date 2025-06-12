@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { AnnotationData1Item, AnnotationData1, AnnotationData2Item, AnnotationData2, AnnotationData3Item, AnnotationData3 } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataAnnotationSliceLayerModule, IgrNumberAbbreviatorModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer, IgrDataAnnotationSliceLayer } from 'igniteui-react-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationSliceStockSplitDataItem, AnnotationSliceStockSplitData } from './AnnotationSliceStockSplitData';
+import { AnnotationSliceEarningsMissDataItem, AnnotationSliceEarningsMissData } from './AnnotationSliceEarningsMissData';
+import { AnnotationSliceEarningsBeatDataItem, AnnotationSliceEarningsBeatData } from './AnnotationSliceEarningsBeatData';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -29,19 +31,45 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private xAxisBottom: IgrCategoryXAxis
+    private xAxisBottomRef(r: IgrCategoryXAxis){
+        this.xAxisBottom =r;
+        this.setState({});
+    }
     private xAxisTop: IgrCategoryXAxis
     private yAxisLeft: IgrNumericYAxis
     private yAxisRight: IgrNumericYAxis
     private series1: IgrFinancialPriceSeries
     private tooltip: IgrDataToolTipLayer
     private sliceLayerStockSplit: IgrDataAnnotationSliceLayer
+    private sliceLayerStockSplitRef(r: IgrDataAnnotationSliceLayer){
+        this.sliceLayerStockSplit = r;
+        this.setState({});
+    }
     private sliceLayerEarningsMissAnnotations: IgrDataAnnotationSliceLayer
+    private sliceLayerEarningsMissAnnotationsRef(r: IgrDataAnnotationSliceLayer){
+        this.sliceLayerEarningsMissAnnotations = r;
+        this.setState({});
+    }
     private sliceLayerEarningsBeatAnnotations: IgrDataAnnotationSliceLayer
+    private sliceLayerEarningsBeatAnnotationsRef(r: IgrDataAnnotationSliceLayer){
+        this.sliceLayerEarningsBeatAnnotations = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
+        this.sliceLayerStockSplitRef = this.sliceLayerStockSplitRef.bind(this);
+        this.xAxisBottomRef = this.xAxisBottomRef.bind(this);
+        this.sliceLayerEarningsMissAnnotationsRef = this.sliceLayerEarningsMissAnnotationsRef.bind(this);
+        this.sliceLayerEarningsBeatAnnotationsRef = this.sliceLayerEarningsBeatAnnotationsRef.bind(this);
+    }
+
+    componentDidMount(): void {
+        this.sliceLayerStockSplit.targetAxis = this.xAxisBottom;
+        this.sliceLayerEarningsMissAnnotations.targetAxis = this.xAxisBottom;
+        this.sliceLayerEarningsBeatAnnotations.targetAxis = this.xAxisBottom;
     }
 
     public render(): JSX.Element {
@@ -69,6 +97,7 @@ export default class Sample extends React.Component<any, any> {
                     chartTitle="This Data Chart demonstrates the DataAnnotationSliceLayer bound to data that annotates stock splits and earnings miss/beat events.">
                     <IgrCategoryXAxis
                         name="xAxisBottom"
+                        ref={this.xAxisBottomRef}
                         dataSource={this.stockTesla}
                         label="index"
                         tickLength="0"
@@ -134,8 +163,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerStockSplit"
-                        dataSource={this.annotationData1}
-                        targetAxis={this.xAxisBottom}
+                        ref={this.sliceLayerStockSplitRef}
+                        dataSource={this.annotationSliceStockSplitData}
                         brush="dodgerblue"
                         annotationTextColor="white"
                         annotationLabelMemberPath="label"
@@ -148,8 +177,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationSliceLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerEarningsMissAnnotations"
-                        dataSource={this.annotationData2}
-                        targetAxis={this.xAxisBottom}
+                        ref={this.sliceLayerEarningsMissAnnotationsRef}
+                        dataSource={this.annotationSliceEarningsMissData}
                         brush="red"
                         annotationTextColor="white"
                         annotationLabelMemberPath="label"
@@ -162,8 +191,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationSliceLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerEarningsBeatAnnotations"
-                        dataSource={this.annotationData3}
-                        targetAxis={this.xAxisBottom}
+                        ref={this.sliceLayerEarningsBeatAnnotationsRef}
+                        dataSource={this.annotationSliceEarningsBeatData}
                         brush="green"
                         annotationTextColor="white"
                         annotationLabelMemberPath="label"
@@ -180,33 +209,6 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _annotationData1: AnnotationData1 = null;
-    public get annotationData1(): AnnotationData1 {
-        if (this._annotationData1 == null)
-        {
-            this._annotationData1 = new AnnotationData1();
-        }
-        return this._annotationData1;
-    }
-
-    private _annotationData2: AnnotationData2 = null;
-    public get annotationData2(): AnnotationData2 {
-        if (this._annotationData2 == null)
-        {
-            this._annotationData2 = new AnnotationData2();
-        }
-        return this._annotationData2;
-    }
-
-    private _annotationData3: AnnotationData3 = null;
-    public get annotationData3(): AnnotationData3 {
-        if (this._annotationData3 == null)
-        {
-            this._annotationData3 = new AnnotationData3();
-        }
-        return this._annotationData3;
-    }
-
     private _stockTesla: StockTesla = null;
     public get stockTesla(): StockTesla {
         if (this._stockTesla == null)
@@ -214,6 +216,33 @@ export default class Sample extends React.Component<any, any> {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationSliceStockSplitData: AnnotationSliceStockSplitData = null;
+    public get annotationSliceStockSplitData(): AnnotationSliceStockSplitData {
+        if (this._annotationSliceStockSplitData == null)
+        {
+            this._annotationSliceStockSplitData = new AnnotationSliceStockSplitData();
+        }
+        return this._annotationSliceStockSplitData;
+    }
+
+    private _annotationSliceEarningsMissData: AnnotationSliceEarningsMissData = null;
+    public get annotationSliceEarningsMissData(): AnnotationSliceEarningsMissData {
+        if (this._annotationSliceEarningsMissData == null)
+        {
+            this._annotationSliceEarningsMissData = new AnnotationSliceEarningsMissData();
+        }
+        return this._annotationSliceEarningsMissData;
+    }
+
+    private _annotationSliceEarningsBeatData: AnnotationSliceEarningsBeatData = null;
+    public get annotationSliceEarningsBeatData(): AnnotationSliceEarningsBeatData {
+        if (this._annotationSliceEarningsBeatData == null)
+        {
+            this._annotationSliceEarningsBeatData = new AnnotationSliceEarningsBeatData();
+        }
+        return this._annotationSliceEarningsBeatData;
     }
 
 }

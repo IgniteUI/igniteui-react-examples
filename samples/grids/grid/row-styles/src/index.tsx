@@ -11,7 +11,6 @@ import { IgrRowType } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

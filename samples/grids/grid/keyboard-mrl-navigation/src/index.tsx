@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule, WebColumnLayoutDescription
 import { CompanyDataItem, CompanyData } from './CompanyData';
 import { IgrGridKeydownEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

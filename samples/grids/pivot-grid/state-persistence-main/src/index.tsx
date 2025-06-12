@@ -19,7 +19,6 @@ import {
 } from "igniteui-react";
 import { PivotDataFlat } from "./PivotDataFlat";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
 
