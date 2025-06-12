@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrButton, IgrDialog, IgrSwitch, IgrButtonModule, IgrDialogModule, IgrSwitchModule  } from 'igniteui-react';
+import { IgrButton, IgrDialog, IgrSwitch } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrButtonModule.register();
-IgrDialogModule.register();
-IgrSwitchModule.register();
 
 export default class DialogClosingVariations extends React.Component<any, any> {
 
