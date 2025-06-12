@@ -1,12 +1,10 @@
 import React, { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrDatePicker, IgrDatePickerModule } from 'igniteui-react';
+import { IgrDatePicker } from 'igniteui-react';
 
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './DatePickerStyling.css';
-
-IgrDatePickerModule.register();
 
 export default function App() {
     const datePickerRef = useRef<IgrDatePicker>(null);

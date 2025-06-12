@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrPinningConfig, RowPinningPosition, ColumnPinnin
 import SingersData from './SingersData.json';
 import { IgrGrid } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -34,7 +33,6 @@ export default class Sample extends React.Component<any, any> {
         return this._pinningConfig1;
     }
     private actionStrip1: IgrActionStrip
-    private rowIsland1: IgrRowIsland
     private  _pinningConfig2: IgrPinningConfig | null = null;
     public get pinningConfig2(): IgrPinningConfig {
         if (this._pinningConfig2 == null)
@@ -68,7 +66,7 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     ref={this.gridRef}
                     cellSelection="none"
-                    rendered={this.webHierarchicalGridPinRowOnRendered}
+                    onRendered={this.webHierarchicalGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
                     <IgrColumn
                         field="Artist"
@@ -97,7 +95,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="string">
                     </IgrColumn>
                     <IgrActionStrip
-                        name="actionStrip1">
+                    >
                         <IgrGridPinningActions
                         >
                         </IgrGridPinningActions>
@@ -107,8 +105,7 @@ export default class Sample extends React.Component<any, any> {
                         primaryKey="Album"
                         cellSelection="none"
                         autoGenerate={false}
-                        pinning={this.pinningConfig2}
-                        name="rowIsland1">
+                        pinning={this.pinningConfig2}>
                         <IgrColumn
                             field="Album"
                             header="Album"
@@ -130,7 +127,7 @@ export default class Sample extends React.Component<any, any> {
                             dataType="string">
                         </IgrColumn>
                         <IgrActionStrip
-                            name="actionStrip2">
+                        >
                             <IgrGridPinningActions
                             >
                             </IgrGridPinningActions>

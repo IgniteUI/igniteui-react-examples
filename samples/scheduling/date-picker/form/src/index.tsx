@@ -1,32 +1,22 @@
 import React, { useRef, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrButton, IgrDatePicker, IgrDatePickerModule } from 'igniteui-react';
-
+import { IgrButton, IgrDatePicker } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-IgrDatePickerModule.register();
-
 export default function App() {
-    const datePickerRef = useRef<IgrDatePicker>(null);
     const formRef = useRef<HTMLFormElement>(null);
 
-    const [datePickerValue, setDatePickerValue] = useState<Date | null>(new Date(2024, 4, 15));
+    const initialDate = new Date(2024, 4, 15);
+    const minDate = new Date(initialDate.getFullYear(), initialDate.getMonth(), initialDate.getDate() - 10);
+    const maxDate = new Date(initialDate.getFullYear(), initialDate.getMonth(), initialDate.getDate() + 15);
+
+    const [datePickerValue, setDatePickerValue] = useState<Date | null>(initialDate);
     const [formStatus, setFormStatus] = useState<string>('');
 
     useEffect(() => {
-        const date = new Date(2024, 4, 15);
-        const minDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - 10);
-        const maxDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 15);
-
-        if (datePickerRef.current) {
-            datePickerRef.current.value = date;
-            datePickerRef.current.min = minDate;
-            datePickerRef.current.max = maxDate;
-        }
-
         updateFormStatus();
-    }, []);
+    }, [datePickerValue]);
 
     const updateFormStatus = () => {
         if (formRef.current) {
@@ -34,19 +24,15 @@ export default function App() {
         }
     };
 
-    const handleDateChange = (s: any, e: any) => {
+    const handleDateChange = (e: any) => {
         const newValue = e.detail;
         setDatePickerValue(newValue);
-        updateFormStatus();
     };
 
-    const handleReset = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleReset = (event: React.MouseEvent<IgrButton>) => {
         event.preventDefault();
-        if (formRef.current) {
-            formRef.current.reset();
-            setDatePickerValue(null);
-            setFormStatus('false');
-        }
+        setDatePickerValue(null);
+        setFormStatus('false');
     };
 
     return (
@@ -54,7 +40,9 @@ export default function App() {
             <div className="container">
                 <form ref={formRef}>
                     <div>
-                        <IgrDatePicker id='datePicker' ref={datePickerRef} change={handleDateChange}/>
+                        <IgrDatePicker id='datePicker' value={datePickerValue ?? undefined} min={minDate} max={maxDate}
+                            onChange={handleDateChange}
+                        />
                         <IgrButton id="resetButton" onClick={handleReset}><span>Reset</span></IgrButton>
                     </div>
                 </form>

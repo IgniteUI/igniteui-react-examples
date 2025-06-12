@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-gri
 import SingersData from './SingersData.json';
 import { IgrRowType } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -16,19 +15,18 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private hierarchicalGrid1: IgrHierarchicalGrid
-    private hierarchicalGrid1Ref(r: IgrHierarchicalGrid) {
-        this.hierarchicalGrid1 = r;
+    private hierarchicalGrid: IgrHierarchicalGrid
+    private hierarchicalGridRef(r: IgrHierarchicalGrid) {
+        this.hierarchicalGrid = r;
         this.setState({});
     }
-    private rowIsland1: IgrRowIsland
-    private rowIsland2: IgrRowIsland
-    private rowIsland3: IgrRowIsland
+    private column: IgrColumn
+    private rowIsland: IgrRowIsland
 
     constructor(props: any) {
         super(props);
 
-        this.hierarchicalGrid1Ref = this.hierarchicalGrid1Ref.bind(this);
+        this.hierarchicalGridRef = this.hierarchicalGridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -40,8 +38,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.singersData}
                     primaryKey="ID"
-                    rowClasses={this.webGridRowClassesHandler}
-                    ref={this.hierarchicalGrid1Ref}>
+                    rowClasses={this.webGridRowClassesHandler}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
@@ -78,8 +75,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrRowIsland
                         childDataKey="Albums"
                         autoGenerate={false}
-                        rowClasses={this.webGridRowClassesHandler}
-                        name="rowIsland1">
+                        rowClasses={this.webGridRowClassesHandler}>
                         <IgrColumn
                             field="Album"
                             header="Album"
@@ -107,8 +103,7 @@ export default class Sample extends React.Component<any, any> {
                         <IgrRowIsland
                             childDataKey="Songs"
                             autoGenerate={false}
-                            rowClasses={this.webGridRowClassesHandler}
-                            name="rowIsland2">
+                            rowClasses={this.webGridRowClassesHandler}>
                             <IgrColumn
                                 field="Number"
                                 header="No."
@@ -138,8 +133,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrRowIsland
                         childDataKey="Tours"
                         autoGenerate={false}
-                        rowClasses={this.webGridRowClassesHandler}
-                        name="rowIsland3">
+                        rowClasses={this.webGridRowClassesHandler}>
                         <IgrColumn
                             field="Tour"
                             header="Tour"

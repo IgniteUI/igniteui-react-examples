@@ -17,7 +17,6 @@ import {
 import { IgrButton } from "igniteui-react";
 import { SingersData } from "./SingersData";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 IgrHierarchicalGridModule.register();
@@ -48,7 +47,7 @@ export default function App() {
             <IgrGridToolbarTitle>
               <span key="singers">Singers</span>
             </IgrGridToolbarTitle>
-            <IgrButton key="btn" clicked={showProgress}>
+            <IgrButton key="btn" onClick={showProgress}>
               <span key="simulate">Simulate long running operation</span>
             </IgrButton>
             <IgrGridToolbarActions>
@@ -58,83 +57,83 @@ export default function App() {
           <IgrColumn
             field="Artist"
             header="Artist"
-            dataType="String"
+            dataType="string"
             width="150px"
           ></IgrColumn>
-          <IgrColumn field="Photo" header="Photo" dataType="Image"></IgrColumn>
-          <IgrColumn field="Debut" header="Debut" dataType="Number"></IgrColumn>
+          <IgrColumn field="Photo" header="Photo" dataType="image"></IgrColumn>
+          <IgrColumn field="Debut" header="Debut" dataType="number"></IgrColumn>
           <IgrColumn
             field="GrammyNominations"
             header="Grammy Nominations"
-            dataType="String"
+            dataType="string"
             width="200px"
           ></IgrColumn>
           <IgrColumn
             field="GrammyAwards"
             header="Grammy Awards"
-            dataType="String"
+            dataType="string"
             width="200px"
           ></IgrColumn>
           <IgrRowIsland childDataKey="Albums" autoGenerate={false}>
             <IgrColumn
               field="Album"
               header="Album"
-              dataType="String"
+              dataType="string"
             ></IgrColumn>
             <IgrColumn
               field="LaunchDate"
               header="Launch Date"
-              dataType="Date"
+              dataType="date"
             ></IgrColumn>
             <IgrColumn
               field="BillboardReview"
               header="Billboard Review"
-              dataType="String"
+              dataType="string"
             ></IgrColumn>
             <IgrColumn
               field="USBillboard200"
               header="US Billboard 200"
-              dataType="String"
+              dataType="string"
             ></IgrColumn>
             <IgrRowIsland childDataKey="Songs" autoGenerate={false}>
               <IgrColumn
                 field="Number"
                 header="No."
-                dataType="String"
+                dataType="string"
               ></IgrColumn>
               <IgrColumn
                 field="Title"
                 header="Title"
-                dataType="String"
+                dataType="string"
               ></IgrColumn>
               <IgrColumn
                 field="Released"
                 header="Released"
-                dataType="Date"
+                dataType="date"
               ></IgrColumn>
               <IgrColumn
                 field="Genre"
                 header="Genre"
-                dataType="String"
+                dataType="string"
               ></IgrColumn>
             </IgrRowIsland>
           </IgrRowIsland>
           <IgrRowIsland childDataKey="Tours" autoGenerate={false}>
-            <IgrColumn field="Tour" header="Tour" dataType="String"></IgrColumn>
+            <IgrColumn field="Tour" header="Tour" dataType="string"></IgrColumn>
             <IgrColumn
               field="StartedOn"
               header="Started on"
-              dataType="String"
+              dataType="string"
             ></IgrColumn>
             <IgrColumn
               field="Location"
               header="Location"
-              dataType="String"
+              dataType="string"
             ></IgrColumn>
             <IgrColumn
               field="Headliner"
               header="Headliner"
-              dataType="String"
+              dataType="string"
             ></IgrColumn>
           </IgrRowIsland>
         </IgrHierarchicalGrid>

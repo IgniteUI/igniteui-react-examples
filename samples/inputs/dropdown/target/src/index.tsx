@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrDropdown, IgrButton, IgrDropdownItem, IgrDropdownModule, IgrButtonModule, IgrDropdownItemModule } from 'igniteui-react';
+import { IgrDropdown, IgrButton, IgrDropdownItem } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrDropdownModule.register();
-IgrDropdownItemModule.register();
-IgrButtonModule.register();
 
 export default class DropDownTarget extends React.Component<any, any> {
 
@@ -21,8 +17,8 @@ export default class DropDownTarget extends React.Component<any, any> {
         return (
             <div className="container sample center">
                 <div className="options horizontal">
-                    <IgrButton clicked={(e)=>this.onClick(e)}><span>First Target</span></IgrButton>
-                    <IgrButton clicked={(e)=>this.onClick(e)} style={{marginLeft: "20px"}}><span>Second Target</span></IgrButton>
+                    <IgrButton onClick={(e)=>this.onClick(e)}><span>First Target</span></IgrButton>
+                    <IgrButton onClick={(e)=>this.onClick(e)} style={{marginLeft: "20px"}}><span>Second Target</span></IgrButton>
 
                     <IgrDropdown ref={this.onDropDownRef} sameWidth={true}>
                         <IgrDropdownItem><span>Option 1</span></IgrDropdownItem>
@@ -41,7 +37,7 @@ export default class DropDownTarget extends React.Component<any, any> {
 
     public onClick(event: any) {
         if(this.dropdownRef){
-            this.dropdownRef.toggleTarget(event.i.nativeElement);
+            this.dropdownRef.toggle(event.currentTarget);
         }
     }
 }

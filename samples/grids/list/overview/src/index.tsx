@@ -1,15 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrList, IgrListItem, IgrListHeader, IgrRadioGroup, IgrRadio, IgrAvatar, IgrButton,
-         IgrListModule, IgrRadioGroupModule, IgrRadioModule, IgrAvatarModule, IgrButtonModule } from 'igniteui-react';
+import { IgrList, IgrListItem, IgrListHeader, IgrRadioGroup, IgrRadio, IgrAvatar, IgrButton } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrAvatarModule.register();
-IgrButtonModule.register();
-IgrListModule.register();
-IgrRadioGroupModule.register();
-IgrRadioModule.register();
 
 export default class ListOverview extends React.Component<any, any> {
 
@@ -23,13 +16,13 @@ export default class ListOverview extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrRadioGroup alignment="horizontal" style={{marginBottom: '10px'}}>
-                    <IgrRadio name="size" value="small" labelPosition="after" change={this.onRadioChange}>
+                    <IgrRadio name="size" value="small" labelPosition="after" checked={this.state.listSize === "small" } onChange={this.onRadioChange}>
                         <span>Small</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="medium" labelPosition="after" checked={true} change={this.onRadioChange}>
+                    <IgrRadio name="size" value="medium" labelPosition="after" checked={this.state.listSize === "medium" } onChange={this.onRadioChange}>
                         <span>Medium</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="large" labelPosition="after" change={this.onRadioChange}>
+                    <IgrRadio name="size" value="large" labelPosition="after" checked={ this.state.listSize === "large" } onChange={this.onRadioChange}>
                         <span>Large</span>
                     </IgrRadio>
                 </IgrRadioGroup>
@@ -95,8 +88,8 @@ export default class ListOverview extends React.Component<any, any> {
     }
 
     public onRadioChange(e: any) {
-        if (e.checked == true) {
-            this.setState({ listSize: e.value });
+        if (e.detail.checked == true) {
+            this.setState({ listSize: e.detail.value });
         }
     }
 }

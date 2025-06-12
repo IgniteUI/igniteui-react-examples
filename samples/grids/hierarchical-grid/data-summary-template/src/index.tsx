@@ -11,7 +11,6 @@ import SingersData from './SingersData.json';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { IgrSummaryTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -35,10 +34,6 @@ export default class Sample extends React.Component<any, any> {
         this.hierarchicalGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
-    private column4: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -101,8 +96,7 @@ export default class Sample extends React.Component<any, any> {
                         header="Photo"
                         dataType="image"
                         hasSummary={true}
-                        summaries={this.singerSummary}
-                        name="column1">
+                        summaries={this.singerSummary}>
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
@@ -113,16 +107,14 @@ export default class Sample extends React.Component<any, any> {
                         header="Grammy Nominations"
                         dataType="number"
                         hasSummary={true}
-                        summaryTemplate={this.webHierarchicalGridSummaryTemplateStyle}
-                        name="column2">
+                        summaryTemplate={this.webHierarchicalGridSummaryTemplateStyle}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
                         dataType="number"
                         hasSummary={true}
-                        summaryTemplate={this.webHierarchicalGridSummaryTemplate}
-                        name="column3">
+                        summaryTemplate={this.webHierarchicalGridSummaryTemplate}>
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"
@@ -138,8 +130,7 @@ export default class Sample extends React.Component<any, any> {
                             header="Launch Date"
                             dataType="date"
                             hasSummary={true}
-                            summaryTemplate={this.webRowIslandGridSummaryTemplateStyle}
-                            name="column4">
+                            summaryTemplate={this.webRowIslandGridSummaryTemplateStyle}>
                         </IgrColumn>
                         <IgrColumn
                             field="BillboardReview"

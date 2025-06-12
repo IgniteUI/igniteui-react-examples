@@ -9,7 +9,6 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import CustomersDataLocal from './CustomersDataLocal.json';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -24,7 +23,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -46,8 +44,7 @@ export default class Sample extends React.Component<any, any> {
                         width="70px"
                         filterable={false}
                         pinned={true}
-                        bodyTemplate={this.webGridRowPinCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webGridRowPinCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="ID"

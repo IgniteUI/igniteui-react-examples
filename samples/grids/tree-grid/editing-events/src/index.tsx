@@ -8,7 +8,6 @@ import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 import { IgrGrid, IgrGridEditEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -41,7 +40,7 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
-                    cellEdit={this.webTreeGridCellEdit}
+                    onCellEdit={this.webTreeGridCellEdit}
                     foreignKey="ParentID">
                     <IgrColumn
                         field="Name"
@@ -86,7 +85,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridCellEdit(sender: IgrTreeGrid, args: IgrGridEditEventArgs): void {
+    public webTreeGridCellEdit(args: IgrGridEditEventArgs): void {
         const column = args.detail.column;
 
         if (column.field === 'Age') {

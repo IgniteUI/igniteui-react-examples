@@ -1,0 +1,33 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+igc-icon:hover {
+  cursor: pointer;
+  color: var(--ig-primary-500);
+}
+
+.map {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 272px;
+  background-image: url("https://www.infragistics.com/angular-demos-lob/assets/images/card/media/infragisticsMap.png");
+  border: 1px solid var(--ig-gray-300);
+}
+
+.locationTooltipContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 10px;
+  width: 45px;
+}
+
+igc-tooltip::part(base) {
+  max-width: 240px;
+}

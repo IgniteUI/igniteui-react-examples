@@ -1,17 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {
-  CarouselAnimationType,
   IgrCarousel,
   IgrCarouselIndicator,
-  IgrCarouselModule,
   IgrCarouselSlide,
 } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./CarouselThumbnail.css";
 import "./index.css";
 
-IgrCarouselModule.register();
 
 export default function CarouselThumbnail() {
   const images = [
@@ -44,17 +41,16 @@ export default function CarouselThumbnail() {
         hideNavigation={true}
         interval={2000}
         vertical={true}
-        animationType={CarouselAnimationType.Fade}
+        animationType="fade"
       >
         {images.map((image, index) => {
           return (
             <React.Fragment key={index}>
-              <IgrCarouselSlide key={`slide-${index}`}>
-                <img src={image.src} alt={image.alt} key="slide-img" />
+              <IgrCarouselSlide>
+                <img src={image.src} alt={image.alt} />
               </IgrCarouselSlide>
-              <IgrCarouselIndicator key={`indicator-${index}`}>
+              <IgrCarouselIndicator>
                 <img
-                  key="img-blur"
                   className="blurred"
                   src={image.src.replace(".png", "Thumb.png")}
                   alt={`${image.alt} Thumb`}
@@ -62,7 +58,6 @@ export default function CarouselThumbnail() {
                   height="60"
                 />
                 <img
-                  key="img-active"
                   slot="active"
                   src={image.src.replace(".png", "Thumb.png")}
                   alt={`${image.alt} Thumb Active`}
@@ -78,6 +73,6 @@ export default function CarouselThumbnail() {
   );
 }
 
-// rendering above class to the React DOM
+// rendering above component to the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<CarouselThumbnail />);

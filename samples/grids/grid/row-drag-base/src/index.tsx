@@ -6,7 +6,6 @@ import { IgrGridModule, IgrRowDragEndEventArgs } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { CustomersData } from './CustomersData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -18,7 +17,8 @@ export default function App() {
     const data = new CustomersData();
     const rightGridRef = useRef<IgrGrid>(null);
 
-    function onGridRowDragEnd(grid: IgrGrid, evt: IgrRowDragEndEventArgs): void {
+    function onGridRowDragEnd(evt: IgrRowDragEndEventArgs): void {
+        const grid = evt.target as IgrGrid;
         const ghostElement = evt.detail.dragDirective.ghostElement;
         if (ghostElement != null) {
             const dragElementPos = ghostElement.getBoundingClientRect();
@@ -36,7 +36,7 @@ export default function App() {
     return (
         <div className="container sample">      
             <div className="container horizontal wrapper">
-                <IgrGrid data={data} width="40%" primaryKey='ID' autoGenerate={false} rowDraggable={true} rowDragEnd={onGridRowDragEnd}>
+                <IgrGrid data={data} width="40%" primaryKey='ID' autoGenerate={false} rowDraggable={true} onRowDragEnd={onGridRowDragEnd}>
                     <IgrColumn field="ID" width="100px"></IgrColumn>
                     <IgrColumn field="CompanyName" width="100px"></IgrColumn>
                     <IgrColumn field="ContactName" width="100px"></IgrColumn>

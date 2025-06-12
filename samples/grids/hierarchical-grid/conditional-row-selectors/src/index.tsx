@@ -8,7 +8,6 @@ import { ComponentRenderer, WebHierarchicalGridDescriptionModule } from 'igniteu
 import SingersData from './SingersData.json';
 import { IgrRowSelectionEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -44,9 +43,9 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     rowSelection="multiple"
                     cellSelection="none"
-                    rowSelectionChanging={this.webHierarchicalGridRowSelectionConditional}>
+                    onRowSelectionChanging={this.webHierarchicalGridRowSelectionConditional}>
                     <IgrPaginator
-                        name="paginator">
+                    >
                     </IgrPaginator>
                     <IgrColumn
                         field="Artist">
@@ -141,7 +140,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webHierarchicalGridRowSelectionConditional(sender: IgrHierarchicalGrid, eventArgs: IgrRowSelectionEventArgs): void {
+    public webHierarchicalGridRowSelectionConditional(eventArgs: IgrRowSelectionEventArgs): void {
         const event = eventArgs.detail;
         if (!event.added.length && event.removed.length) {
             // ignore de-select

@@ -11,7 +11,6 @@ import { IgrRowType } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -26,8 +25,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -71,16 +68,14 @@ export default class Sample extends React.Component<any, any> {
                         field="Change"
                         width="120px"
                         dataType="number"
-                        bodyTemplate={this.webGridCurrencyCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webGridCurrencyCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="ChangePercent"
                         header="Change(%)"
                         width="120px"
                         dataType="percent"
-                        bodyTemplate={this.webGridCurrencyCellTemplate}
-                        name="column2">
+                        bodyTemplate={this.webGridCurrencyCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="YearlyChange"

@@ -1,70 +1,49 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrButton, IgrToast, IgrButtonModule, IgrToastModule } from 'igniteui-react';
+import { IgrButton, IgrToast } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-IgrButtonModule.register();
-IgrToastModule.register();
+export default function ToastProperties() {
+    const toastRef = useRef<IgrToast>(null);
 
-export default class ToastProperties extends React.Component<any, any> {
+    const onToggleButtonClicked = () => {
+        toastRef.current?.toggle();
+    };
 
-    public toastRef: IgrToast;
+    const onKeepOpenButtonClicked = () => {
+        if (toastRef.current) {
+            toastRef.current.keepOpen = !toastRef.current.keepOpen;
+        }
+    };
 
-    constructor(props: any) {
-        super(props);
-        this.onToggleButtonClicked = this.onToggleButtonClicked.bind(this);
-        this.onKeepOpenButtonClicked = this.onKeepOpenButtonClicked.bind(this);
-        this.onDisplayTimeButtonClicked = this.onDisplayTimeButtonClicked.bind(this);
-        this.onToastRef = this.onToastRef.bind(this);
-    }
+    const onDisplayTimeButtonClicked = () => {
+        if (toastRef.current) {
+            toastRef.current.displayTime = 8000;
+        }
+    };
 
-    public render(): JSX.Element {
-        return (
-            <div className="container sample">
-                <div style={{display: 'flex', justifyContent: 'space-evenly', marginTop: '20px'}}>
-                    <IgrButton variant="contained" clicked={this.onToggleButtonClicked}>
-                        <span>Toggle Toast</span>
-                    </IgrButton>
-                    <IgrButton variant="contained" clicked={this.onKeepOpenButtonClicked}>
-                        <span>Toggle keepOpen Property</span>
-                    </IgrButton>
-                    <IgrButton variant="contained" clicked={this.onDisplayTimeButtonClicked}>
-                        <span>Set DisplayTime to 8000</span>
-                    </IgrButton>
-                </div>
-
-                <IgrToast ref={this.onToastRef}>
-                    <span>Toast Message</span>
-                </IgrToast>
+    return (
+        <div className="container sample">
+            <div style={{display: 'flex', justifyContent: 'space-evenly', marginTop: '20px'}}>
+                <IgrButton variant="contained" onClick={onToggleButtonClicked}>
+                    <span>Toggle Toast</span>
+                </IgrButton>
+                <IgrButton variant="contained" onClick={onKeepOpenButtonClicked}>
+                    <span>Toggle keepOpen Property</span>
+                </IgrButton>
+                <IgrButton variant="contained" onClick={onDisplayTimeButtonClicked}>
+                    <span>Set DisplayTime to 8000</span>
+                </IgrButton>
             </div>
-        );
-    }
 
-    public onToastRef(toast: IgrToast){
-        if (!toast) { return; }
-        this.toastRef = toast;
-    }
-
-    public onToggleButtonClicked() {
-        if(this.toastRef){
-            this.toastRef.toggle();
-        }
-    }
-
-    public onKeepOpenButtonClicked() {
-        if(this.toastRef){
-            this.toastRef.keepOpen = !this.toastRef.keepOpen;
-        }
-    }
-
-    public onDisplayTimeButtonClicked() {
-        if(this.toastRef){
-            this.toastRef.displayTime = 8000;
-        }
-    }
+            <IgrToast ref={toastRef}>
+                <span>Toast Message</span>
+            </IgrToast>
+        </div>
+    );
 }
 
-// rendering above class to the React DOM
+// rendering above function to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<ToastProperties/>);
+root.render(<ToastProperties />);

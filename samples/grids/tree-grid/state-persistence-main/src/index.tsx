@@ -2,10 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 
 import {
-  FilterMode,
   IgrActionStrip,
   IgrColumn,
-  IgrGridModule,
   IgrGridPinningActions,
   IgrGridToolbar,
   IgrGridToolbarActions,
@@ -14,26 +12,19 @@ import {
   IgrPaginator,
   IgrGridState,
   IgrGridStateOptions,
-  GridSelectionMode,
   IgrTreeGrid,
 } from "igniteui-react-grids";
 import {
   IgrButton,
   IgrCheckbox,
-  IgrCheckboxModule,
   IgrCheckboxChangeEventArgs,
   IgrIcon,
-  IgrIconModule,
+  registerIconFromText,
 } from "igniteui-react";
-import { registerIconFromText } from "igniteui-webcomponents";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import "./index.css";
 import { EmployeesNestedData } from "./EmployeesNestedData";
-
-const mods: any[] = [IgrGridModule, IgrIconModule, IgrCheckboxModule];
-mods.forEach((m) => m.register());
 
 const restoreIcon =
   '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/></svg>';
@@ -50,6 +41,8 @@ const refreshIcon =
 
 export default function App() {
   const gridData = new EmployeesNestedData();
+  const stateKey = "tree-grid-state";
+
   const [allOptions, setAllOptions] = useState(true);
   const [options, setOption] = useState<IgrGridStateOptions>({
     cellSelection: true,
@@ -63,14 +56,15 @@ export default function App() {
     rowPinning: true,
     columnSelection: true,
   });
+  const [page, setPage] = useState<number>(0);
+  const [perPage, setPerPage] = useState<number>(15);
+  const [totalRecords, setTotalRecords] = useState<number>(gridData.length);
 
   let grid: IgrTreeGrid;
-  function gridRef(ref: IgrTreeGrid) {
+  const gridRef = (ref: IgrTreeGrid) => {
     grid = ref;
   }
-  let paginatorRef = useRef<IgrPaginator>(null);
-  const stateKey = "tree-grid-state";
-  let gridStateRef = useRef<IgrGridState>(null);
+  const gridStateRef = useRef<IgrGridState>(null);
 
   useEffect(() => {
     registerIconFromText("restore", restoreIcon, "material");
@@ -87,22 +81,23 @@ export default function App() {
     };
   }, []);
 
-  function saveGridState() {
+  const saveGridState = () => {
     const state = gridStateRef.current.getStateAsString([]);
     window.localStorage.setItem(stateKey, state);
   }
 
-  function restoreGridState() {
+  const restoreGridState = () => {
     const state = window.localStorage.getItem(stateKey);
     if (state) {
       gridStateRef.current.applyStateFromString(state, []);
     }
   }
 
-  function resetGridState() {
-    paginatorRef.current.page = 0;
-    paginatorRef.current.perPage = 15;
-    paginatorRef.current.totalRecords = gridData.length;
+  const resetGridState = () => {
+    setPage(0);
+    setPerPage(15);
+    setTotalRecords(gridData.length);
+
     grid.clearFilter(null);
     grid.sortingExpressions = [];
     grid.deselectAllColumns();
@@ -110,65 +105,69 @@ export default function App() {
     grid.clearCellSelection();
   }
 
-  function onChange(s: IgrCheckbox, e: IgrCheckboxChangeEventArgs) {
+  const onChange = (e: IgrCheckboxChangeEventArgs) => {
+    const s = e.target as IgrCheckbox;
+
     if (s.name === "allFeatures") {
+      const isChecked = e.detail.checked;
+      setAllOptions(isChecked);
+
       setOption({
-        cellSelection: e.detail.checked,
-        rowSelection: e.detail.checked,
-        filtering: e.detail.checked,
-        advancedFiltering: e.detail.checked,
-        paging: e.detail.checked,
-        sorting: e.detail.checked,
-        columns: e.detail.checked,
-        expansion: e.detail.checked,
-        rowPinning: e.detail.checked,
-        columnSelection: e.detail.checked,
+        cellSelection: isChecked,
+        rowSelection: isChecked,
+        filtering: isChecked,
+        advancedFiltering: isChecked,
+        paging: isChecked,
+        sorting: isChecked,
+        columns: isChecked,
+        expansion: isChecked,
+        rowPinning: isChecked,
+        columnSelection: isChecked,
       });
-      for (const key of Object.keys(options)) {
-        gridStateRef.current.options[key] = e.detail.checked;
-      }
     } else {
-      gridStateRef.current.options[s.name] = e.detail.checked;
+      const newOptions = { ...options };
+      newOptions[s.name as keyof typeof newOptions] = e.detail.checked;
+      setOption(newOptions);
     }
   }
 
-  function leavePage() {
+  const leavePage = () => {
     saveGridState();
     window.location.replace("./grids/tree-grid/state-persistence-about");
   }
 
-  function clearStorage() {
+  const clearStorage = () => {
     window.localStorage.removeItem(stateKey);
   }
 
-  function reloadPage() {
+  const reloadPage = () => {
     window.location.reload();
   }
 
   return (
     <div className="vertical sampleContainer">
       <div className="container horizontal">
-        <IgrButton clicked={restoreGridState}>
+        <IgrButton onClick={restoreGridState}>
           <IgrIcon name="restore" collection="material"></IgrIcon>
           <span>Restore</span>
         </IgrButton>
-        <IgrButton clicked={saveGridState}>
+        <IgrButton onClick={saveGridState}>
           <IgrIcon name="save" collection="material"></IgrIcon>
           <span>Save</span>
         </IgrButton>
-        <IgrButton clicked={resetGridState}>
+        <IgrButton onClick={resetGridState}>
           <IgrIcon name="clear" collection="material"></IgrIcon>
           <span>Reset</span>
         </IgrButton>
-        <IgrButton clicked={leavePage}>
+        <IgrButton onClick={leavePage}>
           <IgrIcon name="forward" collection="material"></IgrIcon>
           <span>Leave</span>
         </IgrButton>
-        <IgrButton clicked={clearStorage}>
+        <IgrButton onClick={clearStorage}>
           <IgrIcon name="delete" collection="material"></IgrIcon>
           <span>Clear</span>
         </IgrButton>
-        <IgrButton clicked={reloadPage}>
+        <IgrButton onClick={reloadPage}>
           <IgrIcon name="refresh" collection="material"></IgrIcon>
           <span>Reload</span>
         </IgrButton>
@@ -193,65 +192,65 @@ export default function App() {
         </ul>
       </div>
       <div className="container horizontal">
-        <IgrCheckbox name="allFeatures" change={onChange} checked={allOptions}>
+        <IgrCheckbox name="allFeatures" onChange={onChange} checked={allOptions}>
           <span>All Features</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="advancedFiltering"
-          change={onChange}
+          onChange={onChange}
           checked={options.advancedFiltering}
         >
           <span>Adv. Filtering</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="cellSelection"
-          change={onChange}
+          onChange={onChange}
           checked={options.cellSelection}
         >
           <span>Cell Selection</span>
         </IgrCheckbox>
-        <IgrCheckbox name="columns" change={onChange} checked={options.columns}>
+        <IgrCheckbox name="columns" onChange={onChange} checked={options.columns}>
           <span>Columns</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="columnSelection"
-          change={onChange}
+          onChange={onChange}
           checked={options.columnSelection}
         >
           <span>Col Selection</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="expansion"
-          change={onChange}
+          onChange={onChange}
           checked={options.expansion}
         >
           <span>Expansion</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="filtering"
-          change={onChange}
+          onChange={onChange}
           checked={options.filtering}
         >
           <span>Filtering </span>
         </IgrCheckbox>
-        <IgrCheckbox name="paging" change={onChange} checked={options.paging}>
+        <IgrCheckbox name="paging" onChange={onChange} checked={options.paging}>
           <span>Paging</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="rowPinning"
-          change={onChange}
+          onChange={onChange}
           checked={options.rowPinning}
         >
           <span>Row Pinning</span>
         </IgrCheckbox>
         <IgrCheckbox
           name="rowSelection"
-          change={onChange}
+          onChange={onChange}
           checked={options.rowSelection}
         >
           <span>Row Selection</span>
         </IgrCheckbox>
-        <IgrCheckbox name="sorting" change={onChange} checked={options.sorting}>
+        <IgrCheckbox name="sorting" onChange={onChange} checked={options.sorting}>
           <span>Sorting</span>
         </IgrCheckbox>
       </div>
@@ -266,9 +265,9 @@ export default function App() {
         moving={true}
         allowFiltering={true}
         allowAdvancedFiltering={true}
-        filterMode={FilterMode.ExcelStyleFilter}
-        columnSelection={GridSelectionMode.Multiple}
-        rowSelection={GridSelectionMode.Multiple}
+        filterMode="excelStyleFilter"
+        columnSelection="multiple"
+        rowSelection="multiple"
       >
         <IgrGridState ref={gridStateRef}></IgrGridState>
         <IgrGridToolbar>
@@ -280,7 +279,13 @@ export default function App() {
         <IgrActionStrip>
           <IgrGridPinningActions></IgrGridPinningActions>
         </IgrActionStrip>
-        <IgrPaginator ref={paginatorRef}></IgrPaginator>
+        <IgrPaginator 
+          page={page}  
+          perPage={perPage} 
+          totalRecords={totalRecords}
+          onPageChange={(ev) => setPage(ev.detail)}
+          onPerPageChange={(ev) => setPerPage(ev.detail)}>
+        </IgrPaginator>
         <IgrColumn
           field="ID"
           header="ID"

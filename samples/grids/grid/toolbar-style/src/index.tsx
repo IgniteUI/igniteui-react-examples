@@ -7,7 +7,6 @@ import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarAdvancedF
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

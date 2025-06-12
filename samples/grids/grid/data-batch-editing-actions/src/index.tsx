@@ -12,7 +12,6 @@ import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'ignite
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrButton } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -37,17 +36,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private productID: IgrColumn
-    private productName: IgrColumn
-    private unitPrice: IgrColumn
-    private unitsOnOrder: IgrColumn
-    private unitsInStock: IgrColumn
-    private quantityPerUnit: IgrColumn
-    private reorderLevel: IgrColumn
-    private supplierID: IgrColumn
-    private categoryID: IgrColumn
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -109,56 +97,45 @@ export default class Sample extends React.Component<any, any> {
                     rowEditable={true}
                     primaryKey="ProductID">
                     <IgrColumn
-                        bodyTemplate={this.webGridDeleteCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webGridDeleteCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
-                        name="ProductID"
                         field="ProductID"
                         header="Product ID">
                     </IgrColumn>
                     <IgrColumn
-                        name="ProductName"
                         field="ProductName"
                         header="Product Name">
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price">
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitsOnOrder"
                         field="UnitsOnOrder"
                         header="Units On Order">
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitsInStock"
                         field="UnitsInStock"
                         header="Units In Stock">
                     </IgrColumn>
                     <IgrColumn
-                        name="QuantityPerUnit"
                         field="QuantityPerUnit"
                         header="Quantity Per Unit">
                     </IgrColumn>
                     <IgrColumn
-                        name="ReorderLevel"
                         field="ReorderLevel"
                         header="Reorder Level">
                     </IgrColumn>
                     <IgrColumn
-                        name="SupplierID"
                         field="SupplierID"
                         header="Supplier ID">
                     </IgrColumn>
                     <IgrColumn
-                        name="CategoryID"
                         field="CategoryID"
                         header="Category ID">
                     </IgrColumn>
                     <IgrColumn
-                        name="Discontinued"
                         field="Discontinued"
                         header="Discontinued">
                     </IgrColumn>

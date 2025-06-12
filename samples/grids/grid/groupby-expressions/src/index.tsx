@@ -8,7 +8,6 @@ import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
 import { IgrGroupByRowTemplateContext, IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -43,7 +42,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._groupingExpression1;
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -91,8 +89,7 @@ export default class Sample extends React.Component<any, any> {
                         width="200px"
                         dataType="boolean"
                         groupable={true}
-                        bodyTemplate={this.webGridBooleanCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webGridBooleanCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="ShipName"

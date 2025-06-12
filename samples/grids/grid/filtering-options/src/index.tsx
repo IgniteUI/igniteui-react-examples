@@ -8,7 +8,6 @@ import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -23,11 +22,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productName: IgrColumn
-    private quantityPerUnit: IgrColumn
-    private unitPrice: IgrColumn
-    private orderDate: IgrColumn
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -48,29 +42,24 @@ export default class Sample extends React.Component<any, any> {
                     allowFiltering={true}
                     filterMode="quickFilter">
                     <IgrColumn
-                        name="ProductName"
                         field="ProductName"
                         header="Product Name">
                     </IgrColumn>
                     <IgrColumn
-                        name="QuantityPerUnit"
                         field="QuantityPerUnit"
                         header="Quantity Per Unit">
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitPrice"
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="currency">
                     </IgrColumn>
                     <IgrColumn
-                        name="OrderDate"
                         field="OrderDate"
                         header="Order Date"
                         dataType="date">
                     </IgrColumn>
                     <IgrColumn
-                        name="Discontinued"
                         field="Discontinued"
                         header="Discontinued"
                         dataType="boolean">

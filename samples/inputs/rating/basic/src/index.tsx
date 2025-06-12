@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrRating, IgrRatingModule,} from 'igniteui-react';
+import { IgrRating } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrRatingModule.register();
 
 export default class RatingOverview extends React.Component<any, any> {
 

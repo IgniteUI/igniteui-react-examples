@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrRadio, IgrRadioGroup, IgrRadioModule, IgrRadioGroupModule } from 'igniteui-react';
+import { IgrRadio, IgrRadioGroup } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrRadioModule.register();
-IgrRadioGroupModule.register();
 
 export default class RadioLabel extends React.Component<any, any> {
 
@@ -24,7 +21,7 @@ export default class RadioLabel extends React.Component<any, any> {
                         <IgrRadio
                             name="fruit"
                             labelPosition="before"
-                            ariaLabelledby="radio-label"
+                            aria-labelledby="radio-label"
                             value="orange">
                         </IgrRadio>
                         </div>

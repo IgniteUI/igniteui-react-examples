@@ -2,24 +2,15 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import {
   IgrButton,
-  IgrButtonModule,
   IgrCarousel,
-  IgrCarouselModule,
   IgrCarouselSlide,
   IgrIcon,
-  IgrIconModule,
   IgrInput,
-  IgrInputModule,
   registerIconFromText,
 } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./CarouselComponents.css";
 import "./index.css";
-
-IgrButtonModule.register();
-IgrCarouselModule.register();
-IgrIconModule.register();
-IgrInputModule.register();
 
 const icons = [
   {
@@ -49,31 +40,31 @@ export default function CarouselComponents() {
   return (
     <div className="carousel-container">
       <IgrCarousel>
-        <IgrCarouselSlide key="slide-1">
-          <div key="slide-content">
+        <IgrCarouselSlide>
+          <div>
             <img src="https://www.infragistics.com/angular-demos-lob/assets/images/svg/carousel/SignUp.svg" />
             <form>
               <IgrInput type="text" placeholder="Username">
-                <IgrIcon slot="prefix" name="person" key="icon"></IgrIcon>
+                <IgrIcon slot="prefix" name="person"></IgrIcon>
               </IgrInput>
               <IgrInput type="password" placeholder="Password">
-                <IgrIcon slot="prefix" name="password" key="icon"></IgrIcon>
+                <IgrIcon slot="prefix" name="password"></IgrIcon>
               </IgrInput>
               <IgrButton type="reset">
-                <span key="button-span">Sign In</span>
+                <span>Sign In</span>
               </IgrButton>
             </form>
           </div>
         </IgrCarouselSlide>
-        <IgrCarouselSlide key="slide-2">
-          <div key="slide-content">
+        <IgrCarouselSlide>
+          <div>
             <img src="https://www.infragistics.com/angular-demos-lob/assets/images/svg/carousel/Route.svg" />
             <form>
               <IgrInput type="text" placeholder="Search">
-                <IgrIcon slot="prefix" name="search" key="icon"></IgrIcon>
+                <IgrIcon slot="prefix" name="search"></IgrIcon>
               </IgrInput>
               <IgrButton type="reset">
-                <span key="button-span">Search</span>
+                <span>Search</span>
               </IgrButton>
             </form>
           </div>
@@ -83,6 +74,6 @@ export default function CarouselComponents() {
   );
 }
 
-// rendering above class to the React DOM
+// rendering above component to the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<CarouselComponents />);

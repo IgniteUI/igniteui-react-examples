@@ -2,12 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './ButtonSizingStyle.css';
-import { IgrButton, IgrRadio, IgrRadioGroup, IgrButtonModule, IgrRadioModule, IgrRadioGroupModule } from 'igniteui-react';
+import { IgrButton, IgrRadio, IgrRadioGroup } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrButtonModule.register();
-IgrRadioGroupModule.register();
-IgrRadioModule.register();
 
 export default class ButtonSize extends React.Component<any, any> {
 
@@ -21,13 +17,13 @@ export default class ButtonSize extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrRadioGroup alignment="horizontal" style={{display: 'flex', margin: '0 auto', width: '15%'}}>
-                    <IgrRadio name="size" value="small" labelPosition="after" checked={true} change={this.onRadioChange}>
+                    <IgrRadio name="size" value="small" labelPosition="after" onChange={this.onRadioChange}>
                         <span>Small</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="medium" labelPosition="after" change={this.onRadioChange}>
+                    <IgrRadio name="size" value="medium" labelPosition="after" onChange={this.onRadioChange} checked={this.state.size === "medium"}>
                         <span>Medium</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="large" labelPosition="after" change={this.onRadioChange}>
+                    <IgrRadio name="size" value="large" labelPosition="after" onChange={this.onRadioChange}>
                         <span>Large</span>
                     </IgrRadio>
                 </IgrRadioGroup>
@@ -43,8 +39,8 @@ export default class ButtonSize extends React.Component<any, any> {
     }
 
     public onRadioChange(e: any) {
-        if (e.checked == true) {
-            this.setState({ size: e.value });
+        if (e.detail.checked == true) {
+            this.setState({ size: e.detail.value });
         }
     }
 }

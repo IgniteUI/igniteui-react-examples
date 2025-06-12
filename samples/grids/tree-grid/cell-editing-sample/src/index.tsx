@@ -10,7 +10,6 @@ import { RoleplayTreeGridDataItem, RoleplayTreeGridData } from './RoleplayTreeGr
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrSelect, IgrSelectItem } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -25,9 +24,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid1 = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -57,16 +53,14 @@ export default class Sample extends React.Component<any, any> {
                         header="Race"
                         dataType="string"
                         editable={true}
-                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
-                        name="column1">
+                        inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="Class"
                         header="Class"
                         inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
                         dataType="string"
-                        editable={true}
-                        name="column2">
+                        editable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Age"
@@ -79,8 +73,7 @@ export default class Sample extends React.Component<any, any> {
                         header="Alignment"
                         inlineEditorTemplate={this.webTreeGridCellEditCellTemplate}
                         dataType="string"
-                        editable={true}
-                        name="column3">
+                        editable={true}>
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>
@@ -131,9 +124,9 @@ export default class Sample extends React.Component<any, any> {
             index++;
         }
         return (
-            <IgrSelect className="size-large" key={key} change={(x: any) => {
+            <IgrSelect className="size-large" key={key} onChange={(x: any) => {
                     setTimeout(() => {
-                        cell.editValue = x.value;
+                        cell.editValue = x.target.value;
                     });
                 }}>
                 {cellValues}

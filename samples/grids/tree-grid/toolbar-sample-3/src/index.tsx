@@ -10,7 +10,6 @@ import { IgrExporterOptionsBase, IgrGridToolbarExportEventArgs } from 'igniteui-
 import { IgrAvatar } from 'igniteui-react';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -25,7 +24,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -46,7 +44,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.employeesFlatAvatars}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    toolbarExporting={this.webTreeGridToolbarExporting}>
+                    onToolbarExporting={this.webTreeGridToolbarExporting}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -59,8 +57,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Name"
                         dataType="string"
-                        bodyTemplate={this.webTreeGridAvatarCellTemplate}
-                        name="column1">
+                        bodyTemplate={this.webTreeGridAvatarCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="Title"
@@ -94,7 +91,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webTreeGridToolbarExporting(sender: IgrTreeGrid, evt: IgrGridToolbarExportEventArgs): void {
+    public webTreeGridToolbarExporting(evt: IgrGridToolbarExportEventArgs): void {
         const args = evt.detail;
         const options: IgrExporterOptionsBase = args.options;
         if (options) {

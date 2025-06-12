@@ -1,0 +1,62 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+.settings {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.125rem;
+  background: hsl(var(--ig-gray-100));
+  padding: 1.125rem;
+  border: 1px solid hsl(var(--ig-gray-300));
+  border-radius: .25rem;
+  margin-bottom: 2rem;
+}
+
+:root {
+  --color-teal: rgba(77, 182, 172, 1);
+  --color-dark-navy: rgba(26, 35, 126, 1);
+  --color-aqua-gray: rgba(208, 236, 236, 1);
+  --color-white: rgba(255, 255, 255, 1);
+
+  --color-teal-hover: rgba(26, 35, 126, 1);
+  --color-teal-shadow: rgba(77, 182, 172, 0.5);
+}
+
+igc-button::part(base) {
+  margin: 1rem 0.5rem 0 0;
+  background-color: var(--color-teal);
+  color: var(--color-white);
+  font-weight: 600;
+  transition: background-color 0.25s ease, transform 0.1s ease;
+}
+
+igc-button:hover::part(base) {
+  background-color: var(--color-dark-navy);
+}
+
+igc-button:active::part(base) {
+  transform: scale(0.96);
+}
+
+igc-step::part(title) {
+  color: var(--color-dark-navy);
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+igc-step::part(indicator) {
+  border-radius: 12px 6px 12px 6px;
+  background-color: var(--color-aqua-gray);
+  color: var(--color-dark-navy);
+  transition: all 0.2s ease;
+}
+
+igc-step[active]::part(indicator) {
+  background-color: var(--color-teal);
+  box-shadow: 0 2px 8px var(--color-teal-shadow);
+  transform: scale(1.04);
+}
+
+igc-step[active]:active::part(indicator) {
+  transform: scale(1.08);
+}

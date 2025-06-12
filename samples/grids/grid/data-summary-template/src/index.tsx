@@ -11,7 +11,6 @@ import NwindData from './NwindData.json';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { IgrSummaryTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -35,8 +34,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -117,8 +114,7 @@ export default class Sample extends React.Component<any, any> {
                         editable={true}
                         groupable={true}
                         hasSummary={true}
-                        summaries={this.discontinuedSummary}
-                        name="column1">
+                        summaries={this.discontinuedSummary}>
                     </IgrColumn>
                     <IgrColumn
                         field="Discontinued"
@@ -134,8 +130,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="date"
                         groupable={true}
                         hasSummary={true}
-                        summaryTemplate={this.webGridOrderDateSummaryTemplate}
-                        name="column2">
+                        summaryTemplate={this.webGridOrderDateSummaryTemplate}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

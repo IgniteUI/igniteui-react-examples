@@ -12,7 +12,6 @@ import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 import { IgrBadge } from 'igniteui-react';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -36,7 +35,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid1 = r;
         this.setState({});
     }
-    private column1: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -49,7 +47,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs1;
     }
-    private column2: IgrColumn
     private  _columnPipeArgs2: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs2(): IgrColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
@@ -62,7 +59,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs2;
     }
-    private column3: IgrColumn
     private  _columnPipeArgs3: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs3(): IgrColumnPipeArgs {
         if (this._columnPipeArgs3 == null)
@@ -75,9 +71,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs3;
     }
-    private column4: IgrColumn
-    private column5: IgrColumn
-    private column6: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -125,39 +118,33 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="Price"
                         dataType="currency"
-                        pipeArgs={this.columnPipeArgs1}
-                        name="column1">
+                        pipeArgs={this.columnPipeArgs1}>
                     </IgrColumn>
                     <IgrColumn
                         field="Buy"
                         dataType="currency"
-                        pipeArgs={this.columnPipeArgs2}
-                        name="column2">
+                        pipeArgs={this.columnPipeArgs2}>
                     </IgrColumn>
                     <IgrColumn
                         field="Sell"
                         dataType="currency"
-                        pipeArgs={this.columnPipeArgs3}
-                        name="column3">
+                        pipeArgs={this.columnPipeArgs3}>
                     </IgrColumn>
                     <IgrColumn
                         field="Change"
-                        bodyTemplate={this.webGridCurrencyCellTemplate}
-                        name="column4">
+                        bodyTemplate={this.webGridCurrencyCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="ChangePercent"
                         header="Change Percent"
                         dataType="number"
-                        bodyTemplate={this.webGridCurrencyCellTemplate}
-                        name="column5">
+                        bodyTemplate={this.webGridCurrencyCellTemplate}>
                     </IgrColumn>
                     <IgrColumn
                         field="YearlyChange"
                         header="Yearly Change"
                         dataType="number"
-                        bodyTemplate={this.webGridCurrencyCellTemplate}
-                        name="column6">
+                        bodyTemplate={this.webGridCurrencyCellTemplate}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

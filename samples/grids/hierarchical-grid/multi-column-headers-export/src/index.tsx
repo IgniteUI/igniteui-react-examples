@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridTool
 import MultiColumnsExportData from './MultiColumnsExportData.json';
 import { IgrExporterEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -18,17 +17,22 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private hierarchicalGrid1: IgrHierarchicalGrid
-    private hierarchicalGrid1Ref(r: IgrHierarchicalGrid) {
-        this.hierarchicalGrid1 = r;
+    private hierarchicalGrid: IgrHierarchicalGrid
+    private hierarchicalGridRef(r: IgrHierarchicalGrid) {
+        this.hierarchicalGrid = r;
         this.setState({});
     }
+    private gridToolbar: IgrGridToolbar
+    private gridToolbarActions: IgrGridToolbarActions
     private hGridToolbarExporter: IgrGridToolbarExporter
+    private columnGroup: IgrColumnGroup
+    private column: IgrColumn
+    private rowIsland: IgrRowIsland
 
     constructor(props: any) {
         super(props);
 
-        this.hierarchicalGrid1Ref = this.hierarchicalGrid1Ref.bind(this);
+        this.hierarchicalGridRef = this.hierarchicalGridRef.bind(this);
         this.webHierarchicalGridExportMultiColumnHeaders = this.webHierarchicalGridExportMultiColumnHeaders.bind(this);
     }
 
@@ -42,8 +46,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.multiColumnsExportData}
                     primaryKey="ID"
                     moving={true}
-                    allowFiltering={true}
-                    ref={this.hierarchicalGrid1Ref}>
+                    allowFiltering={true}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions
@@ -51,8 +54,7 @@ export default class Sample extends React.Component<any, any> {
                             <IgrGridToolbarExporter
                                 exportCSV={false}
                                 exportExcel={true}
-                                name="hGridToolbarExporter"
-                                exportStarted={this.webHierarchicalGridExportMultiColumnHeaders}>
+                                onExportStarted={this.webHierarchicalGridExportMultiColumnHeaders}>
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
@@ -285,7 +287,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webHierarchicalGridExportMultiColumnHeaders(sender: IgrGridToolbarExporter, args: IgrExporterEventArgs): void {
+    public webHierarchicalGridExportMultiColumnHeaders(args: IgrExporterEventArgs): void {
         if (args.detail.options) {
             args.detail.options.ignoreMultiColumnHeaders = false;
         }

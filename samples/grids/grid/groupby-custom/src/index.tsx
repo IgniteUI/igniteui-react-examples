@@ -6,7 +6,6 @@ import { IgrGridModule, IgrGroupByRowTemplateContext, SortingDirection } from "i
 import { IgrGrid, IgrColumn } from "igniteui-react-grids";
 import { InvoicesWorldData } from "./InvoicesWorldData";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import {
   IgrBadge,
@@ -111,62 +110,52 @@ export default function Sample() {
           groupingExpressions={groupExpression}
           autoGenerate={false}>
           <IgrColumn
-            name="OrderID"
             id="OrderID"
             field="OrderID"
             header="Order ID">
           </IgrColumn>
           <IgrColumn
-            name="ShipCountry"
             id="ShipCountry"
             field="ShipCountry"
             header="Ship Country">
           </IgrColumn>
           <IgrColumn
-            name="OrderDate"
             id="OrderDate"
             dataType="date"
             field="OrderDate"
             header="Order Date">
           </IgrColumn>
           <IgrColumn
-            name="PostalCode"
             id="PostalCode"
             field="PostalCode"
             header="Postal Code">
           </IgrColumn>
           <IgrColumn
-            name="Discontinued"
             id="Discontinued"
             field="Discontinued"
             header="Discontinued">
           </IgrColumn>
           <IgrColumn
-            name="ShipName"
             id="ShipName"
             field="ShipName"
             header="Ship Name">
           </IgrColumn>
           <IgrColumn
-            name="ShipperName"
             id="ShipperName"
             field="ShipperName"
             header="Shipper Name">
           </IgrColumn>
           <IgrColumn
-            name="SalesPerson"
             id="SalesPerson"
             field="SalesPerson"
             header="Sales Person">
           </IgrColumn>
           <IgrColumn
-            name="UnitPrice"
             id="UnitPrice"
             field="UnitPrice"
             header="Unit Price">
           </IgrColumn>
           <IgrColumn
-            name="Quantity"
             id="Quantity"
             field="Quantity"
             header="Quantity">

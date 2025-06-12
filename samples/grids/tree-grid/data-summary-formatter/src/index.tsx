@@ -8,7 +8,6 @@ import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 import { IgrSummaryResult, IgrSummaryOperand } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -22,7 +21,6 @@ export default class Sample extends React.Component<any, any> {
         this.treeGrid = r;
         this.setState({});
     }
-    private column1: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -84,8 +82,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="date"
                         hasSummary={true}
                         sortable={true}
-                        summaryFormatter={this.webTreeGridSummaryFormatter}
-                        name="column1">
+                        summaryFormatter={this.webTreeGridSummaryFormatter}>
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"

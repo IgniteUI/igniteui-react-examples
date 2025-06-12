@@ -6,7 +6,6 @@ import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrColumn, IgrColumnGroup } from 'igniteui-react-grids';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -39,31 +38,31 @@ export default class Sample extends React.Component<any, any> {
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    columnSelection="Multiple">
+                    columnSelection="multiple">
                     <IgrColumn
                         field="Name"
-                        dataType="String">
+                        dataType="string">
                     </IgrColumn>
                     <IgrColumnGroup
                         header="General Information">
                         <IgrColumn
                             field="HireDate"
                             header="Hire Date"
-                            dataType="Date">
+                            dataType="date">
                         </IgrColumn>
                         <IgrColumnGroup
                             header="Personal Details">
                             <IgrColumn
                                 field="ID"
-                                dataType="Number">
+                                dataType="number">
                             </IgrColumn>
                             <IgrColumn
                                 field="Title"
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                             <IgrColumn
                                 field="Age"
-                                dataType="Number"
+                                dataType="number"
                                 selectable={false}>
                             </IgrColumn>
                         </IgrColumnGroup>
@@ -74,34 +73,34 @@ export default class Sample extends React.Component<any, any> {
                             header="Location">
                             <IgrColumn
                                 field="Country"
-                                dataType="String"
+                                dataType="string"
                                 selectable={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="City"
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                             <IgrColumn
                                 field="Address"
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                         </IgrColumnGroup>
                         <IgrColumnGroup
                             header="Contact Information">
                             <IgrColumn
                                 field="Phone"
-                                dataType="String"
+                                dataType="string"
                                 selectable={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="Fax"
-                                dataType="String"
+                                dataType="string"
                                 selectable={false}>
                             </IgrColumn>
                             <IgrColumn
                                 field="PostalCode"
                                 header="Postal Code"
-                                dataType="String">
+                                dataType="string">
                             </IgrColumn>
                         </IgrColumnGroup>
                     </IgrColumnGroup>

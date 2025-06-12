@@ -1,48 +1,29 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrButton, IgrToast, IgrButtonModule, IgrToastModule } from 'igniteui-react';
+import { IgrButton, IgrToast } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-IgrButtonModule.register();
-IgrToastModule.register();
+export default function ToastOverview() {
+    const toastRef = useRef<IgrToast>(null);
 
-export default class ToastOverview extends React.Component<any, any> {
+    const onShowButtonClicked = () => {
+        toastRef.current?.show();
+    };
 
-    public toastRef: IgrToast;
+    return (
+        <div className="container sample">
+            <IgrButton variant="contained" onClick={onShowButtonClicked}>
+                <span>Show Toast</span>
+            </IgrButton>
 
-    constructor(props: any) {
-        super(props);
-        this.onShowButtonClicked = this.onShowButtonClicked.bind(this);
-        this.onToastRef = this.onToastRef.bind(this);
-    }
-
-    public render(): JSX.Element {
-        return (
-            <div className="container sample">
-                <IgrButton variant="contained" clicked={this.onShowButtonClicked}>
-                    <span>Show Toast</span>
-                </IgrButton>
-
-                <IgrToast ref={this.onToastRef}>
-                    <span>Toast Message</span>
-                </IgrToast>
-            </div>
-        );
-    }
-
-    public onToastRef(toast: IgrToast){
-        if (!toast) { return; }
-        this.toastRef = toast;
-    }
-
-    public onShowButtonClicked() {
-        if(this.toastRef){
-            this.toastRef.show();
-        }
-    }
+            <IgrToast ref={toastRef}>
+                <span>Toast Message</span>
+            </IgrToast>
+        </div>
+    );
 }
 
-// rendering above class to the React DOM
+// rendering above function to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<ToastOverview/>);
+root.render(<ToastOverview />);

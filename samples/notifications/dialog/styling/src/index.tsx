@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrButton, IgrDialog, IgrButtonModule, IgrDialogModule } from 'igniteui-react';
+import { IgrButton, IgrDialog } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrButtonModule.register();
-IgrDialogModule.register();
 
 export default class DialogStyling extends React.Component<any, any> {
 
@@ -21,7 +18,7 @@ export default class DialogStyling extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample center">
-                <IgrButton variant="contained" clicked={this.onDialogShow}>
+                <IgrButton variant="contained" onClick={this.onDialogShow}>
                     <span>Show Dialog</span>
                 </IgrButton>
 
@@ -29,8 +26,8 @@ export default class DialogStyling extends React.Component<any, any> {
                     <h1 slot="title">Styled Title</h1>
                     <p>Are you sure you want to delete the Annual_Report_2016.pdf and Annual_Report_2017.pdf files?</p>
                     <div slot="footer">
-                        <IgrButton clicked={this.onDialogHide} variant="flat"><span>Cancel</span></IgrButton>
-                        <IgrButton clicked={this.onDialogHide} variant="flat"><span>OK</span></IgrButton>
+                        <IgrButton onClick={this.onDialogHide} variant="flat"><span>Cancel</span></IgrButton>
+                        <IgrButton onClick={this.onDialogHide} variant="flat"><span>OK</span></IgrButton>
                     </div>
                 </IgrDialog>
             </div>

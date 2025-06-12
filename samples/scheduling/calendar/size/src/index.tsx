@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCalendar, IgrRadioGroup, IgrRadio, IgrCalendarModule, IgrRadioGroupModule, IgrRadioModule } from 'igniteui-react';
+import { IgrCalendar, IgrRadioGroup, IgrRadio } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrCalendarModule.register();
-IgrRadioGroupModule.register();
-IgrRadioModule.register();
 
 export default class CalendarSize extends React.Component<any, any> {
 
@@ -20,29 +16,34 @@ export default class CalendarSize extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrRadioGroup alignment="horizontal" style={{ marginBottom: '10px' }}>
-                    <IgrRadio name="size" value="small" change={this.onRadioChange}>
+                    <IgrRadio name="size" value="small" 
+                        checked={this.state.calendarSize === "small"} 
+                        onChange={this.onRadioChange}>
                         <span>Small</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="medium" change={this.onRadioChange}>
+                    <IgrRadio name="size" value="medium" 
+                        checked={this.state.calendarSize === "medium"} 
+                        onChange={this.onRadioChange}>
                         <span>Medium</span>
                     </IgrRadio>
-                    <IgrRadio name="size" value="large" checked={true} change={this.onRadioChange}>
+                    <IgrRadio name="size" value="large" 
+                        checked={this.state.calendarSize === "large"} 
+                        onChange={this.onRadioChange}>
                         <span>Large</span>
                     </IgrRadio>
                 </IgrRadioGroup>
-
                 <IgrCalendar className={'size-' + this.state.calendarSize} style={{width: '400px'}}/>                
             </div>
         );
     }
 
     public onRadioChange(e: any) {
-        if (e.checked == true) {
-            this.setState({ calendarSize: e.value });
+        if (e.detail.checked) {
+            this.setState({ calendarSize: e.detail.value });
         }
     }
 }
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<CalendarSize/>);
+root.render(<CalendarSize />);

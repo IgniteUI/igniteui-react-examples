@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core
 import NwindData from './NwindData.json';
 import { IgrGridEditEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -17,18 +16,17 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid1: IgrGrid
-    private grid1Ref(r: IgrGrid) {
-        this.grid1 = r;
+    private grid: IgrGrid
+    private gridRef(r: IgrGrid) {
+        this.grid = r;
         this.setState({});
     }
-    private unitsInStock: IgrColumn
-    private unitsOnOrder: IgrColumn
+    private column: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.grid1Ref = this.grid1Ref.bind(this);
+        this.gridRef = this.gridRef.bind(this);
         this.webGridEditingEventsCellEdit = this.webGridEditingEventsCellEdit.bind(this);
     }
 
@@ -41,8 +39,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    cellEdit={this.webGridEditingEventsCellEdit}
-                    ref={this.grid1Ref}>
+                    onCellEdit={this.webGridEditingEventsCellEdit}>
                     <IgrColumn
                         field="ProductName"
                         header="Product Name"
@@ -55,14 +52,12 @@ export default class Sample extends React.Component<any, any> {
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitsInStock"
                         field="UnitsInStock"
                         header="Units In Stock"
                         dataType="number"
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        name="UnitsOnOrder"
                         field="UnitsOnOrder"
                         header="Units on Order"
                         dataType="number"
@@ -89,7 +84,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridEditingEventsCellEdit(sender: IgrGrid, args: IgrGridEditEventArgs): void {
+    public webGridEditingEventsCellEdit(args: IgrGridEditEventArgs): void {
         var d = args.detail;
 
         if (d.column != null && d.column.field == "UnitsOnOrder") {

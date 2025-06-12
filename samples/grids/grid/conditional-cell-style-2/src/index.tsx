@@ -9,7 +9,6 @@ import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
 import { IgrRowType } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -18,21 +17,17 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid1: IgrGrid
-    private grid1Ref(r: IgrGrid) {
-        this.grid1 = r;
+    private grid: IgrGrid
+    private gridRef(r: IgrGrid) {
+        this.grid = r;
         this.setState({});
     }
-    private column1: IgrColumn
-    private column2: IgrColumn
-    private column3: IgrColumn
-    private column4: IgrColumn
-    private column5: IgrColumn
+    private column: IgrColumn
 
     constructor(props: any) {
         super(props);
 
-        this.grid1Ref = this.grid1Ref.bind(this);
+        this.gridRef = this.gridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -43,32 +38,26 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesData}
-                    primaryKey="Id"
-                    ref={this.grid1Ref}>
+                    primaryKey="Id">
                     <IgrColumn
                         field="Id"
-                        cellStyles={this.webGridCellStylesHandler}
-                        name="column1">
+                        cellStyles={this.webGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="Position"
-                        cellStyles={this.webGridCellStylesHandler}
-                        name="column2">
+                        cellStyles={this.webGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
-                        cellStyles={this.webGridCellStylesHandler}
-                        name="column3">
+                        cellStyles={this.webGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="AthleteNumber"
-                        cellStyles={this.webGridCellStylesHandler}
-                        name="column4">
+                        cellStyles={this.webGridCellStylesHandler}>
                     </IgrColumn>
                     <IgrColumn
                         field="CountryName"
-                        cellStyles={this.webGridCellStylesHandler}
-                        name="column5">
+                        cellStyles={this.webGridCellStylesHandler}>
                     </IgrColumn>
                 </IgrGrid>
             </div>

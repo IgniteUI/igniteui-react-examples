@@ -6,7 +6,6 @@ import { IgrGridToolbarModule, IgrHierarchicalGridModule } from 'igniteui-react-
 import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import SingersData from './SingersData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -16,16 +15,21 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private hierarchicalGrid1: IgrHierarchicalGrid
-    private hierarchicalGrid1Ref(r: IgrHierarchicalGrid) {
-        this.hierarchicalGrid1 = r;
+    private hierarchicalGrid: IgrHierarchicalGrid
+    private hierarchicalGridRef(r: IgrHierarchicalGrid) {
+        this.hierarchicalGrid = r;
         this.setState({});
     }
+    private gridToolbar: IgrGridToolbar
+    private gridToolbarActions: IgrGridToolbarActions
+    private gridToolbarHiding: IgrGridToolbarHiding
+    private column: IgrColumn
+    private rowIsland: IgrRowIsland
 
     constructor(props: any) {
         super(props);
 
-        this.hierarchicalGrid1Ref = this.hierarchicalGrid1Ref.bind(this);
+        this.hierarchicalGridRef = this.hierarchicalGridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -37,8 +41,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.singersData}
                     primaryKey="ID"
-                    allowFiltering={true}
-                    ref={this.hierarchicalGrid1Ref}>
+                    allowFiltering={true}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarActions

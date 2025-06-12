@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrButton, IgrDialog, IgrSwitch, IgrButtonModule, IgrDialogModule, IgrSwitchModule  } from 'igniteui-react';
+import { IgrButton, IgrDialog, IgrSwitch } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrButtonModule.register();
-IgrDialogModule.register();
-IgrSwitchModule.register();
 
 export default class DialogClosingVariations extends React.Component<any, any> {
 
@@ -24,18 +20,18 @@ export default class DialogClosingVariations extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrSwitch labelPosition="Before" change={this.onSwitchChangeEscape}><span>keepOpenOnEscape</span></IgrSwitch>
-                <IgrSwitch labelPosition="Before" change={this.onSwitchChangeClick}><span>closeOnOutsideClick</span></IgrSwitch>
+                <IgrSwitch labelPosition="before" onChange={this.onSwitchChangeEscape}><span>keepOpenOnEscape</span></IgrSwitch>
+                <IgrSwitch labelPosition="before" onChange={this.onSwitchChangeClick}><span>closeOnOutsideClick</span></IgrSwitch>
 
-                <IgrButton variant="contained" clicked={this.onDialogShow}>
+                <IgrButton variant="contained" onClick={this.onDialogShow}>
                     <span>Show Dialog</span>
                 </IgrButton>
 
                 <IgrDialog title="Confirmation" ref={this.onDialogRef}>
                     <p>Are you sure you want to delete the Annual_Report_2016.pdf and Annual_Report_2017.pdf files?</p>
                     <div slot="footer">
-                        <IgrButton clicked={this.onDialogHide} variant="flat"><span>Cancel</span></IgrButton>
-                        <IgrButton clicked={this.onDialogHide} variant="flat"><span>OK</span></IgrButton>
+                        <IgrButton onClick={this.onDialogHide} variant="flat"><span>Cancel</span></IgrButton>
+                        <IgrButton onClick={this.onDialogHide} variant="flat"><span>OK</span></IgrButton>
                     </div>
                 </IgrDialog>
             </div>
@@ -60,11 +56,11 @@ export default class DialogClosingVariations extends React.Component<any, any> {
     }
 
     public onSwitchChangeEscape(e: any) {
-        this.dialogRef.keepOpenOnEscape = e.checked;
+        this.dialogRef.keepOpenOnEscape = e.detail.checked;
     }
 
     public onSwitchChangeClick(e: any) {
-        this.dialogRef.closeOnOutsideClick = e.checked;
+        this.dialogRef.closeOnOutsideClick = e.detail.checked;
     }
 }
 

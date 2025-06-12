@@ -6,7 +6,6 @@ import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import HierarchicalCustomers from './HierarchicalCustomers.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -102,19 +101,19 @@ export default class Sample extends React.Component<any, any> {
                         <IgrColumn
                             field="OrderDate"
                             width="auto"
-                            dataType="Date"
+                            dataType="date"
                             resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="RequiredDate"
                             width="auto"
-                            dataType="Date"
+                            dataType="date"
                             resizable={true}>
                         </IgrColumn>
                         <IgrColumn
                             field="ShippedDate"
                             width="auto"
-                            dataType="Date"
+                            dataType="date"
                             resizable={true}>
                         </IgrColumn>
                         <IgrColumn
