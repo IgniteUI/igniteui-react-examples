@@ -15,7 +15,6 @@ import {
 } from "igniteui-react-grids";
 import { IgrButton } from "igniteui-react";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { OrdersTreeData } from "./OrdersData";
 

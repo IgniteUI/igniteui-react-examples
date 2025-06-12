@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { AnnotationData1Item, AnnotationData1, AnnotationData2Item, AnnotationData2 } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataAnnotationLineLayerModule, IgrNumberAbbreviatorModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer, IgrDataAnnotationLineLayer } from 'igniteui-react-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationLineData1Item, AnnotationLineData1 } from './AnnotationLineData1';
+import { AnnotationLineData2Item, AnnotationLineData2 } from './AnnotationLineData2';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -27,21 +28,43 @@ export default class Sample extends React.Component<any, any> {
     private chartRef(r: IgrDataChart) {
         this.chart = r;
         this.setState({});
-    }
+    } 
     private xAxis: IgrCategoryXAxis
+    private xAxisRef(r: IgrCategoryXAxis){
+        this.xAxis = r;
+        this.setState({});
+    }
     private yAxisLeft: IgrNumericYAxis
     private yAxisRight: IgrNumericYAxis
+    private yAxisRightRef(r: IgrNumericYAxis){
+        this.yAxisRight = r;
+        this.setState({});
+    }
     private series1: IgrFinancialPriceSeries
     private tooltip: IgrDataToolTipLayer
     private lineLayer52WeekRange: IgrDataAnnotationLineLayer
+    private lineLayer52WeekRangeRef(r: IgrDataAnnotationLineLayer){
+        this.lineLayer52WeekRange = r;
+        this.setState({});
+    }
     private lineLayerGrowthAndDecline: IgrDataAnnotationLineLayer
-
+    private lineLayerGrowthAndDeclineRef(r: IgrDataAnnotationLineLayer){
+        this.lineLayerGrowthAndDecline = r;
+        this.setState({});
+    }
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
+        this.xAxisRef = this.xAxisRef.bind(this);
+        this.yAxisRightRef = this.yAxisRightRef.bind(this);
+        this.lineLayer52WeekRangeRef = this.lineLayer52WeekRangeRef.bind(this);
+        this.lineLayerGrowthAndDeclineRef = this.lineLayerGrowthAndDeclineRef.bind(this);
     }
-
+    componentDidMount(): void {
+        this.lineLayer52WeekRange.targetAxis = this.yAxisRight;
+        this.lineLayerGrowthAndDecline.targetAxis = this.xAxis;
+    }
     public render(): JSX.Element {
         return (
         <div className="container sample">
@@ -67,6 +90,7 @@ export default class Sample extends React.Component<any, any> {
                     chartTitle="The Data Chart demonstrates the DataAnnotationLineLayer bound to data that annotates stock growth and decline patterns.">
                     <IgrCategoryXAxis
                         name="xAxis"
+                        ref={this.xAxisRef}
                         dataSource={this.stockTesla}
                         label="date"
                         labelLeftMargin="0"
@@ -89,6 +113,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrNumericYAxis>
                     <IgrNumericYAxis
                         name="yAxisRight"
+                        ref={this.yAxisRightRef}
                         labelLocation="OutsideRight"
                         labelTextStyle="normal normal 12px Verdana"
                         labelExtent="80"
@@ -120,8 +145,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationLineLayer
                         name="LineLayer52WeekRange"
-                        dataSource={this.annotationData1}
-                        targetAxis={this.yAxisRight}
+                        ref={this.lineLayer52WeekRangeRef}
+                        dataSource={this.annotationLineData1}
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="Hidden"
                         startLabelYDisplayMode="DataValue"
@@ -143,8 +168,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationLineLayer>
                     <IgrDataAnnotationLineLayer
                         name="LineLayerGrowthAndDecline"
-                        dataSource={this.annotationData2}
-                        targetAxis={this.xAxis}
+                        ref={this.lineLayerGrowthAndDeclineRef}
+                        dataSource={this.annotationLineData2}
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="Hidden"
                         endLabelXDisplayMode="Hidden"
@@ -168,24 +193,6 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _annotationData1: AnnotationData1 = null;
-    public get annotationData1(): AnnotationData1 {
-        if (this._annotationData1 == null)
-        {
-            this._annotationData1 = new AnnotationData1();
-        }
-        return this._annotationData1;
-    }
-
-    private _annotationData2: AnnotationData2 = null;
-    public get annotationData2(): AnnotationData2 {
-        if (this._annotationData2 == null)
-        {
-            this._annotationData2 = new AnnotationData2();
-        }
-        return this._annotationData2;
-    }
-
     private _stockTesla: StockTesla = null;
     public get stockTesla(): StockTesla {
         if (this._stockTesla == null)
@@ -193,6 +200,24 @@ export default class Sample extends React.Component<any, any> {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationLineData1: AnnotationLineData1 = null;
+    public get annotationLineData1(): AnnotationLineData1 {
+        if (this._annotationLineData1 == null)
+        {
+            this._annotationLineData1 = new AnnotationLineData1();
+        }
+        return this._annotationLineData1;
+    }
+
+    private _annotationLineData2: AnnotationLineData2 = null;
+    public get annotationLineData2(): AnnotationLineData2 {
+        if (this._annotationLineData2 == null)
+        {
+            this._annotationLineData2 = new AnnotationLineData2();
+        }
+        return this._annotationLineData2;
     }
 
 }

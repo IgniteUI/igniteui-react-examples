@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataAnnotationBandLayerModule, IgrNumberAbbreviatorModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer, IgrDataAnnotationBandLayer } from 'igniteui-react-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationBandDataItem, AnnotationBandData } from './AnnotationBandData';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -27,19 +27,32 @@ export default class Sample extends React.Component<any, any> {
     private chartRef(r: IgrDataChart) {
         this.chart = r;
         this.setState({});
-    }
+    }      
     private xAxisBottom: IgrCategoryXAxis
+    private xAxisBottomRef(r: IgrCategoryXAxis){
+        this.xAxisBottom = r;
+        this.setState({});
+    }
     private xAxis: IgrCategoryXAxis
     private yAxisLeft: IgrNumericYAxis
     private yAxisRight: IgrNumericYAxis
     private series1: IgrFinancialPriceSeries
     private tooltip: IgrDataToolTipLayer
     private bandLayer: IgrDataAnnotationBandLayer
+    private bandLayerRef(r: IgrDataAnnotationBandLayer) {
+        this.bandLayer = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
+        this.bandLayerRef = this.bandLayerRef.bind(this);   
+        this.xAxisBottomRef = this.xAxisBottomRef.bind(this);     
+    }
+    componentDidMount(): void {
+        this.bandLayer.targetAxis = this.xAxisBottom;
     }
 
     public render(): JSX.Element {
@@ -67,6 +80,7 @@ export default class Sample extends React.Component<any, any> {
                     chartTitle="Data Chart with DataAnnotationBandLayer bound to data that annotates stock rapid growth">
                     <IgrCategoryXAxis
                         name="xAxisBottom"
+                        ref={this.xAxisBottomRef}
                         dataSource={this.stockTesla}
                         label="index"
                         tickLength="0"
@@ -131,8 +145,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationBandLayer
                         name="BandLayer"
-                        dataSource={this.annotationData}
-                        targetAxis={this.xAxisBottom}
+                        ref={this.bandLayerRef}
+                        dataSource={this.annotationBandData}
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="DataLabel"
                         endLabelXDisplayMode="DataLabel"
@@ -157,15 +171,6 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _annotationData: AnnotationData = null;
-    public get annotationData(): AnnotationData {
-        if (this._annotationData == null)
-        {
-            this._annotationData = new AnnotationData();
-        }
-        return this._annotationData;
-    }
-
     private _stockTesla: StockTesla = null;
     public get stockTesla(): StockTesla {
         if (this._stockTesla == null)
@@ -173,6 +178,15 @@ export default class Sample extends React.Component<any, any> {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationBandData: AnnotationBandData = null;
+    public get annotationBandData(): AnnotationBandData {
+        if (this._annotationBandData == null)
+        {
+            this._annotationBandData = new AnnotationBandData();
+        }
+        return this._annotationBandData;
     }
 
 }

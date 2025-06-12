@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrTree, IgrTreeItem, IgrTreeModule } from 'igniteui-react';
+import { IgrTree, IgrTreeItem } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrTreeModule.register();
 
 export default class TreeBasicExample extends React.Component<any, any> {
 
@@ -23,7 +21,7 @@ export default class TreeBasicExample extends React.Component<any, any> {
                     </IgrTreeItem>
                     <IgrTreeItem label='South America'>
                         <IgrTreeItem label='Brazil' />
-                        <IgrTreeItem label='Uruguay' />                        
+                        <IgrTreeItem label='Uruguay' />
                     </IgrTreeItem>
                     <IgrTreeItem label='Europe'>
                         <IgrTreeItem label='United Kingdom' />

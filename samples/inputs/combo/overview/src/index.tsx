@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { IgrComboModule, IgrCombo } from "igniteui-react";
+import { IgrCombo } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-
-IgrComboModule.register();
 
 interface City {
   id: string;

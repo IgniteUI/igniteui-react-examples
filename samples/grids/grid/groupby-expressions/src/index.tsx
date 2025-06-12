@@ -8,7 +8,6 @@ import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
 import { IgrGroupByRowTemplateContext, IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

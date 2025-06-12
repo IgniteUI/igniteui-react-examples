@@ -9,7 +9,6 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import CustomersDataLocal from './CustomersDataLocal.json';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

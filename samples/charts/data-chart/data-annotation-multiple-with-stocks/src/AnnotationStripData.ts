@@ -1,5 +1,5 @@
-export class AnnotationDataItem {
-    public constructor(init: Partial<AnnotationDataItem>) {
+export class AnnotationStripDataItem {
+    public constructor(init: Partial<AnnotationStripDataItem>) {
         Object.assign(this, init);
     }
 
@@ -8,25 +8,25 @@ export class AnnotationDataItem {
     public label: string;
 
 }
-export class AnnotationData extends Array<AnnotationDataItem> {
-    public constructor(items: Array<AnnotationDataItem> | number = -1) {
+export class AnnotationStripData extends Array<AnnotationStripDataItem> {
+    public constructor(items: Array<AnnotationStripDataItem> | number = -1) {
         if (Array.isArray(items)) {
             super(...items);
         } else {
             const newItems = [
-                new AnnotationDataItem(
+                new AnnotationStripDataItem(
                 {
                     start: 40,
                     end: 45,
                     label: `Covid - Market Crash`
                 }),
-                new AnnotationDataItem(
+                new AnnotationStripDataItem(
                 {
                     start: 100,
                     end: 144,
                     label: `Fed Rate Up  0.25 - 5.25%`
                 }),
-                new AnnotationDataItem(
+                new AnnotationStripDataItem(
                 {
                     start: 190,
                     end: 205,

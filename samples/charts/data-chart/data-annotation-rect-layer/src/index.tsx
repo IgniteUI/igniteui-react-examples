@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { AnnotationDataItem, AnnotationData } from './SampleData';
 import { IgrDataChartCoreModule, IgrDataChartCategoryModule, IgrDataChartCategoryCoreModule, IgrDataChartFinancialCoreModule, IgrDataChartFinancialModule, IgrDataChartFinancialOverlaysModule, IgrDataChartInteractivityModule, IgrDataChartAnnotationModule, IgrDataAnnotationRectLayerModule, IgrNumberAbbreviatorModule, IgrAnnotationLayerProxyModule } from 'igniteui-react-charts';
 import { IgrDataChart, IgrCategoryXAxis, IgrNumericYAxis, IgrFinancialPriceSeries, IgrDataToolTipLayer, IgrDataAnnotationRectLayer } from 'igniteui-react-charts';
 import { StockTeslaItem, StockTesla } from './StockTesla';
+import { AnnotationRectDataItem, AnnotationRectData } from './AnnotationRectData';
 
 const mods: any[] = [
     IgrDataChartCoreModule,
@@ -29,15 +29,28 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private xAxis: IgrCategoryXAxis
+    private xAxisRef(r: IgrCategoryXAxis){
+        this.xAxis = r;
+        this.setState({});
+    }
     private yAxis: IgrNumericYAxis
     private series1: IgrFinancialPriceSeries
     private tooltip: IgrDataToolTipLayer
     private rectLayer: IgrDataAnnotationRectLayer
+    private rectLayerRef(r: IgrDataAnnotationRectLayer){
+        this.rectLayer = r;
+        this.setState({});
+    }
 
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
+        this.xAxisRef = this.xAxisRef.bind(this);
+        this.rectLayerRef = this.rectLayerRef.bind(this);
+    }
+    componentDidMount(): void {
+        this.rectLayer.targetAxis = this.xAxis;
     }
 
     public render(): JSX.Element {
@@ -65,6 +78,7 @@ export default class Sample extends React.Component<any, any> {
                     chartTitle="This Data Chart demonstrates the DataAnnotationRectLayer bound to data that annotates bearish patterns in stock prices.">
                     <IgrCategoryXAxis
                         name="xAxis"
+                        ref={this.xAxisRef}
                         dataSource={this.stockTesla}
                         label="date"
                         labelLeftMargin="0"
@@ -97,8 +111,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationRectLayer
                         name="RectLayer"
-                        dataSource={this.annotationData}
-                        targetAxis={this.xAxis}
+                        ref={this.rectLayerRef}
+                        dataSource={this.annotationRectData}
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="Hidden"
                         endLabelXDisplayMode="Hidden"
@@ -125,15 +139,6 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _annotationData: AnnotationData = null;
-    public get annotationData(): AnnotationData {
-        if (this._annotationData == null)
-        {
-            this._annotationData = new AnnotationData();
-        }
-        return this._annotationData;
-    }
-
     private _stockTesla: StockTesla = null;
     public get stockTesla(): StockTesla {
         if (this._stockTesla == null)
@@ -141,6 +146,15 @@ export default class Sample extends React.Component<any, any> {
             this._stockTesla = new StockTesla();
         }
         return this._stockTesla;
+    }
+
+    private _annotationRectData: AnnotationRectData = null;
+    public get annotationRectData(): AnnotationRectData {
+        if (this._annotationRectData == null)
+        {
+            this._annotationRectData = new AnnotationRectData();
+        }
+        return this._annotationRectData;
     }
 
 }

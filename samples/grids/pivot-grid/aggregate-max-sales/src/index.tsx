@@ -6,7 +6,6 @@ import { IgrPivotGridModule } from 'igniteui-react-grids';
 import { IgrPivotGrid, IgrPivotConfiguration, IgrPivotDimension, IgrPivotValue, IgrPivotAggregator } from 'igniteui-react-grids';
 import { PivotSalesDataItem, PivotSalesData } from './PivotSalesData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

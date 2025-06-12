@@ -8,7 +8,6 @@ import {
 import { IgrGrid, IgrColumn } from "igniteui-react-grids";
 import { NwindData } from "./NwindData";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { IgrIcon, registerIconFromText } from "igniteui-react";
 

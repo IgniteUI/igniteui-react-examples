@@ -1,18 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {
-  IgrSelectModule,
-  IgrSelectHeaderModule,
-  IgrSelectItemModule,
   IgrSelect,
   IgrSelectItem,
   IgrSelectHeader
 } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-
-IgrSelectModule.register();
-IgrSelectHeaderModule.register();
-IgrSelectItemModule.register();
 
 export default function SelectHeader() {
   return (
@@ -28,6 +21,6 @@ export default function SelectHeader() {
   );
 }
 
-// rendering above class to the React DOM
+// rendering above component to the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<SelectHeader />);
