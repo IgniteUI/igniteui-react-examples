@@ -1,19 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrButton, IgrDialog, IgrCheckbox } from 'igniteui-react';
-import { IgrButtonModule, IgrDialogModule, IgrCheckboxModule } from 'igniteui-react';
-import { IgrTreeGridModule, IgrSummaryOperand, IgrSummaryResult } from 'igniteui-react-grids';
-import { IgrTreeGrid, IgrColumn } from "igniteui-react-grids";
+import { IgrSummaryOperand, IgrSummaryResult, IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import { OrdersTreeData } from './OrdersTreeData';
+import { get } from 'http';
 
-IgrTreeGridModule.register();
-IgrButtonModule.register();
-IgrDialogModule.register();
-IgrCheckboxModule.register();
 
 export class UnitsSummary extends IgrSummaryOperand {
     operate(data: any[] = [], allData: any[] = [], fieldName: string = ""): IgrSummaryResult[] {
@@ -124,236 +119,262 @@ export class DeliveredSummary extends IgrSummaryOperand {
     }
 }
 
-export default class Sample extends React.Component<any, any> {
-    private treeGrid: IgrTreeGrid;
-    private dialog: IgrDialog;
+interface SummaryColumn {
+    field: string;
+    header: string;
+    hasSummary: boolean;
+    dataType?: string;
+    summaries?: any;
+    disabledSummaries: string[];
+}
 
-    constructor(props: any) {
-        super(props);
+export default function DisabledSummariesTreeGridSample() {
 
-        this.state = {
-            currentColumn: null,
-            disableAllBtnDisabled: false,
-            enableAllBtnDisabled: false,
-            checkboxStates: [],
-            columns: [
-                { field: "ID", header: "Order ID", hasSummary: true, disabledSummaries: [] },
-                { field: "Name", header: "Order Product", hasSummary: true, disabledSummaries: [] },
-                { field: "Units", header: "Units", hasSummary: true, dataType: "number", summaries: UnitsSummary, disabledSummaries: [] },
-                { field: "UnitPrice", header: "Unit Price", hasSummary: true, dataType: "number", disabledSummaries: [] },
-                { field: "Price", header: "Price", hasSummary: true, dataType: "number", disabledSummaries: [] },
-                { field: "Delivered", header: "Delivered", hasSummary: true, summaries: DeliveredSummary, disabledSummaries: [] },
-                { field: "OrderDate", header: "Order Date", hasSummary: true, dataType: "date", disabledSummaries: [] },
-            ],
-        };
+    // State
+    const [ordersTreeData, setOrdersTreeData] = useState<OrdersTreeData>([]);
+    const [currentColumn, setCurrentColumn] = useState<SummaryColumn | null>(null);
+    const [currentColumnSource, setCurrentColumnSource] = useState<"dialog" | "toggle" | null>(null);
+    const [pendingUpdateType, setPendingUpdateType] = useState<null | "disableAll" | "enableAll">(null);
+    const [disableAllBtnDisabled, setDisableAllBtnDisabled] = useState(false);
+    const [enableAllBtnDisabled, setEnableAllBtnDisabled] = useState(false);
+    const [checkboxStates, setCheckboxStates] = useState([]);
+    const [columns, setColumns] = useState([
+        { field: "ID", header: "Order ID", hasSummary: true, disabledSummaries: [] },
+        { field: "Name", header: "Order Product", hasSummary: true, disabledSummaries: [] },
+        { field: "Units", header: "Units", hasSummary: true, dataType: "number", summaries: UnitsSummary, disabledSummaries: [] },
+        { field: "UnitPrice", header: "Unit Price", hasSummary: true, dataType: "number", disabledSummaries: [] },
+        { field: "Price", header: "Price", hasSummary: true, dataType: "number", disabledSummaries: [] },
+        { field: "Delivered", header: "Delivered", hasSummary: true, summaries: DeliveredSummary, disabledSummaries: [] },
+        { field: "OrderDate", header: "Order Date", hasSummary: true, dataType: "date", disabledSummaries: [] },
+    ]);
 
-        this.treeGridRef = this.treeGridRef.bind(this);
-        this.dialogRef = this.dialogRef.bind(this);
-        this.openDialog = this.openDialog.bind(this);
-        this.updateCheckboxes = this.updateCheckboxes.bind(this);
-        this.toggleSummary = this.toggleSummary.bind(this);
-        this.disableAllSummaries = this.disableAllSummaries.bind(this);
-        this.enableAllSummaries = this.enableAllSummaries.bind(this);
-    }
-
-    treeGridRef = (ref: IgrTreeGrid) => {
-        this.treeGrid = ref;
+    // Refs
+    let treeGrid: IgrTreeGrid;
+    const treeGridRef = (ref: IgrTreeGrid) => {
+        treeGrid = ref;
     };
-
-    dialogRef = (ref: IgrDialog) => {
-        this.dialog = ref;
-        if (this.dialog) {
-            this.dialog.closeOnOutsideClick = true;
-            this.dialog.keepOpenOnEscape = false;
+    let dialog: IgrDialog;
+    const dialogRef = (ref: IgrDialog) => {
+        dialog = ref;
+        if (dialog) {
+        dialog.closeOnOutsideClick = true;
+        dialog.keepOpenOnEscape = false;
         }
     };
 
-    private _ordersTreeData: OrdersTreeData = null;
-    public get ordersTreeData(): OrdersTreeData {
-        if (this._ordersTreeData == null)
-        {
-            this._ordersTreeData = new OrdersTreeData();
+    useEffect(() => {
+        const data = new OrdersTreeData();
+        setOrdersTreeData(data);
+    }, []);
+
+    useEffect(() => {
+        if (!currentColumn) return;
+    
+        const shouldShowDialog = currentColumnSource === "dialog";
+        const shouldMarkForCheck =
+          currentColumnSource === "toggle" ||
+          pendingUpdateType === "disableAll" ||
+          pendingUpdateType === "enableAll";
+    
+        if (shouldShowDialog) {
+          updateCheckboxes();
+          dialog?.show();
+          setCurrentColumnSource(null);
         }
-        return this._ordersTreeData;
-    }
-
-    openDialog = (column: any) => {
-        const columnState: any | undefined = this.state.columns.find((c: any) => c.field === column.field);
-
-        this.setState({
-            currentColumn: columnState!,
-            checkboxStates: [],
-        }, () => {
-            this.updateCheckboxes();
-            this.dialog?.show();
-        });
-    };
-
-    getSummaryResults(operand: any, data: any[], field: string): IgrSummaryResult[] {
+    
+        if (shouldMarkForCheck && treeGrid) {
+          updateCheckboxes();
+          treeGrid.markForCheck();
+          setPendingUpdateType(null);
+          setCurrentColumnSource(null);
+        }
+      }, [currentColumn, currentColumnSource, pendingUpdateType, treeGrid]);
+    
+      const openDialog = (column: any) => {
+        const columnState = columns.find((c) => c.field === column.field);
+        setCurrentColumn(columnState!);
+        setCurrentColumnSource("dialog");
+        setCheckboxStates([]);
+      };
+    
+      const getSummaryResults = (
+        operand: any,
+        data: any[],
+        field: string
+      ): IgrSummaryResult[] => {
         if (typeof operand === "function") {
-            operand = new operand();
+          operand = new operand();
         }
         if (operand instanceof IgrSummaryOperand) {
-            return operand.operate([], data, field, null);
-        } else if (!operand) { 
-            return new IgrSummaryOperand().operate([], data, field, null);
+          return operand.operate([], data, field, null);
+        } else if (!operand) {
+          return new IgrSummaryOperand().operate([], data, field, null);
         }
         return [];
-    }
-
-    getDefaultSummaries(data: any[], field: string): IgrSummaryResult[] {
-        const columnInstance = this.treeGrid.columns.find(c => c.field === field);
-        if (columnInstance && columnInstance.summaries && typeof columnInstance.summaries.operate === 'function') {
+      };
+    
+      const getDefaultSummaries = (
+        data: any[],
+        field: string
+      ): IgrSummaryResult[] => {
+        const columnInstance = treeGrid.columns.find((c) => c.field === field);
+        if (
+          columnInstance &&
+          columnInstance.summaries &&
+          typeof columnInstance.summaries.operate === "function"
+        ) {
           return columnInstance.summaries.operate([], data, field, null);
         }
         return [];
-    }
-
-    updateCheckboxes() {
-        if (!this.state.currentColumn || !this.treeGrid) return;
-
-        const gridData: any[] = this.treeGrid.data;
+      };
+    
+      const updateCheckboxes = () => {
+        if (!currentColumn || !treeGrid) return;
+    
+        const gridData: any[] = treeGrid.data;
         let allSummaries: IgrSummaryResult[] = [];
-        if (this.state.currentColumn.summaries) {
-            allSummaries = this.getSummaryResults(this.state.currentColumn.summaries, gridData, this.state.currentColumn.field);
-        } else { 
-            allSummaries = this.getDefaultSummaries(gridData, this.state.currentColumn.field);
+        if (currentColumn.summaries) {
+          allSummaries = getSummaryResults(
+            currentColumn.summaries,
+            gridData,
+            currentColumn.field
+          );
+        } else {
+          allSummaries = getDefaultSummaries(gridData, currentColumn.field);
         }
-
+    
         let allDisabled: boolean = true;
         let allEnabled: boolean = true;
-
-        const checkboxStates: any[] = allSummaries.map(summary => {
-            const isDisabled = this.state.currentColumn.disabledSummaries.includes(summary.key);
-            if (isDisabled) {
-                allEnabled = false;
-            } else {
-                allDisabled = false;
-            }
-            return {
-                label: summary.label,
-                key: summary.key,
-                checked: isDisabled, 
-            };
+    
+        const newCheckboxStates: any[] = allSummaries.map((summary) => {
+          const isDisabled = currentColumn.disabledSummaries.includes(summary.key);
+          if (isDisabled) {
+            allEnabled = false;
+          } else {
+            allDisabled = false;
+          }
+          return {
+            label: summary.label,
+            key: summary.key,
+            checked: isDisabled,
+          };
         });
-
-        this.setState({
-            checkboxStates, 
-            disableAllBtnDisabled: allDisabled,
-            enableAllBtnDisabled: allEnabled,
-        });
-    }
-
-    toggleSummary = (summaryKey: string) => {
-        if (!this.state.currentColumn || !this.treeGrid) return;
-        const { currentColumn, columns } = this.state;
-
-        const updatedDisabledSummaries: string[] = currentColumn.disabledSummaries.includes(summaryKey)
-            ? currentColumn.disabledSummaries.filter((key: any) => key !== summaryKey)
-            : [...currentColumn.disabledSummaries, summaryKey];
-
-        const updatedColumns: any[] = columns.map((col: any) =>
-            col.field === currentColumn.field
-                ? { ...col, disabledSummaries: updatedDisabledSummaries }
-                : col
+    
+        setCheckboxStates(newCheckboxStates);
+        setDisableAllBtnDisabled(allDisabled);
+        setEnableAllBtnDisabled(allEnabled);
+      };
+    
+      const toggleSummary = (summaryKey: string) => {
+        if (!currentColumn || !treeGrid) return;
+    
+        const updatedDisabledSummaries = currentColumn.disabledSummaries.includes(
+          summaryKey
+        )
+          ? currentColumn.disabledSummaries.filter((key: any) => key !== summaryKey)
+          : [...currentColumn.disabledSummaries, summaryKey];
+    
+        const updatedColumns = columns.map((col: any) =>
+          col.field === currentColumn.field
+            ? { ...col, disabledSummaries: updatedDisabledSummaries }
+            : col
         );
-
-        this.setState({
-            currentColumn: { ...currentColumn, disabledSummaries: updatedDisabledSummaries },
-            columns: updatedColumns,
-        }, () => {
-          this.treeGrid.markForCheck();
-        });
-    };
-
-    disableAllSummaries = () => {
-        if (!this.state.currentColumn || !this.treeGrid) return;
-
-        const gridData: any[] = this.treeGrid.data;
-        let allSummaries: IgrSummaryResult[] = [];
-        if (this.state.currentColumn.summaries) {
-            allSummaries = this.getSummaryResults(this.state.currentColumn.summaries, gridData, this.state.currentColumn.field);
-        } else { 
-            allSummaries = this.getDefaultSummaries(gridData, this.state.currentColumn.field);
-        }
-
-        const allSummaryKeys: string[] = allSummaries.map(s => s.key);
-
-        const updatedColumns: any[] = this.state.columns.map((col: any) =>
-            col.field === this.state.currentColumn!.field
-                ? { ...col, disabledSummaries: allSummaryKeys }
-                : col
+    
+        setCurrentColumn((prev) => ({
+          ...prev,
+          disabledSummaries: updatedDisabledSummaries,
+        }));
+        setColumns(updatedColumns);
+        setCurrentColumnSource("toggle");
+      };
+    
+      const disableAllSummaries = () => {
+        if (!currentColumn || !treeGrid) return;
+    
+        const gridData: any[] = treeGrid.data;
+        let allSummaries: IgrSummaryResult[] = currentColumn.summaries
+          ? getSummaryResults(
+              currentColumn.summaries,
+              gridData,
+              currentColumn.field
+            )
+          : getDefaultSummaries(gridData, currentColumn.field);
+    
+        const allSummaryKeys: string[] = allSummaries.map((s) => s.key);
+    
+        const updatedColumns = columns.map((col: any) =>
+          col.field === currentColumn.field
+            ? { ...col, disabledSummaries: allSummaryKeys }
+            : col
         );
-
-        this.setState((prevState: any) => ({
-            currentColumn: { ...prevState.currentColumn!, disabledSummaries: allSummaryKeys },
-            columns: updatedColumns,
-            disableAllBtnDisabled: true,
-            enableAllBtnDisabled: false,
-        }), () => {
-            this.updateCheckboxes();
-            this.treeGrid.markForCheck();
-        });
-    };
-
-    enableAllSummaries = () => {
-        if (!this.state.currentColumn || !this.treeGrid) return;
-
-        const updatedColumns: any[] = this.state.columns.map((col: any) =>
-            col.field === this.state.currentColumn!.field
-                ? { ...col, disabledSummaries: [] }
-                : col
+    
+        setCurrentColumn((prev) => ({
+          ...prev,
+          disabledSummaries: allSummaryKeys,
+        }));
+        setColumns(updatedColumns);
+        setDisableAllBtnDisabled(true);
+        setEnableAllBtnDisabled(false);
+    
+        setPendingUpdateType("disableAll");
+      };
+    
+      const enableAllSummaries = () => {
+        if (!currentColumn || !treeGrid) return;
+    
+        const updatedColumns = columns.map((col: any) =>
+          col.field === currentColumn.field
+            ? { ...col, disabledSummaries: [] }
+            : col
         );
+    
+        setCurrentColumn((prev) => ({ ...prev, disabledSummaries: [] }));
+        setColumns(updatedColumns);
+        setDisableAllBtnDisabled(false);
+        setEnableAllBtnDisabled(true);
+    
+        setPendingUpdateType("enableAll");
+      };
+    
 
-        this.setState((prevState: any) => ({
-            currentColumn: { ...prevState.currentColumn!, disabledSummaries: [] },
-            columns: updatedColumns,
-            disableAllBtnDisabled: false,
-            enableAllBtnDisabled: true,
-        }), () => {
-            this.updateCheckboxes();
-            this.treeGrid.markForCheck();
-        });
-    };
 
-    public render(): JSX.Element {
-        return (
-            <div className="grid-wrapper container sample ig-typography">
+    return (
+        <div className="grid-wrapper container sample ig-typography">
                 <div className="summaries">
                     <p className="summaries-title">Disable Summaries for Column:</p>
-                    {this.state.columns.map((col: any) => (
+                    {columns.map((col: any) => (
                         <IgrButton
                             key={col.field}
                             className="summary-button"
                             variant="contained"
-                            onClick={() => this.openDialog({ field: col.field, header: col.header })}
+                            onClick={() => openDialog({ field: col.field, header: col.header })}
                         >
                             <span>{col.header}</span>
                         </IgrButton>
                     ))}
                 </div>
-                <IgrDialog ref={this.dialogRef} title={this.state.currentColumn ? `Disable Summaries for ${this.state.currentColumn.header}` : ""}>
+                <IgrDialog ref={dialogRef} title={currentColumn ? `Disable Summaries for ${currentColumn.header}` : ""}>
                     <div className="summaries-dialog-items">
-                         {this.state.currentColumn && this.state.checkboxStates.map((checkbox: any) => (
+                         {currentColumn && checkboxStates.map((checkbox: any) => (
                             <IgrCheckbox
                                 key={checkbox.key}
                                 className="summaries-dialog-item"
                                 checked={checkbox.checked}
-                                onClick={() => this.toggleSummary(checkbox.key)}
+                                onClick={() => toggleSummary(checkbox.key)}
                             >
                                 <span>{checkbox.label}</span>
                             </IgrCheckbox>
                         ))}
                     </div>
-                    <IgrButton key="disableAll" slot="footer" variant="flat" onClick={this.disableAllSummaries} disabled={this.state.disableAllBtnDisabled}><span>Disable All</span></IgrButton>
-                    <IgrButton key="enableAll" slot="footer" variant="flat" onClick={this.enableAllSummaries} disabled={this.state.enableAllBtnDisabled}><span>Enable All</span></IgrButton>
+                    <IgrButton key="disableAll" slot="footer" variant="flat" onClick={disableAllSummaries} disabled={disableAllBtnDisabled}><span>Disable All</span></IgrButton>
+                    <IgrButton key="enableAll" slot="footer" variant="flat" onClick={enableAllSummaries} disabled={enableAllBtnDisabled}><span>Enable All</span></IgrButton>
                 </IgrDialog>
 
                 <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
-                    data={this.ordersTreeData}
-                    ref={this.treeGridRef}
+                    data={ordersTreeData}
+                    ref={treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
                     foreignKey="ParentID">
@@ -361,13 +382,13 @@ export default class Sample extends React.Component<any, any> {
                         field="ID"
                         header="Order ID"
                         hasSummary={true}
-                        disabledSummaries={this.state.columns.find((col: any) => col.field === "ID")?.disabledSummaries}>
+                        disabledSummaries={columns.find((col: any) => col.field === "ID")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         header="Order Product"
                         hasSummary={true}
-                        disabledSummaries={this.state.columns.find((col: any) => col.field === "Name")?.disabledSummaries}>
+                        disabledSummaries={columns.find((col: any) => col.field === "Name")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
@@ -375,21 +396,21 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         hasSummary={true}
                         summaries={UnitsSummary}
-                        disabledSummaries={this.state.columns.find((col: any) => col.field === "Units")?.disabledSummaries}>
+                        disabledSummaries={columns.find((col: any) => col.field === "Units")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="number"
                         hasSummary={true}
-                        disabledSummaries={this.state.columns.find((col: any) => col.field === "UnitPrice")?.disabledSummaries}>
+                        disabledSummaries={columns.find((col: any) => col.field === "UnitPrice")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         header="Price"
                         dataType="number"
                         hasSummary={true}
-                        disabledSummaries={this.state.columns.find((col: any) => col.field === "Price")?.disabledSummaries}>
+                        disabledSummaries={columns.find((col: any) => col.field === "Price")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="Delivered"
@@ -397,22 +418,22 @@ export default class Sample extends React.Component<any, any> {
                         dataType="boolean"
                         hasSummary={true}
                         summaries={DeliveredSummary}
-                        disabledSummaries={this.state.columns.find((col: any) => col.field === "Delivered")?.disabledSummaries}>
+                        disabledSummaries={columns.find((col: any) => col.field === "Delivered")?.disabledSummaries}>
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
                         dataType="date"
                         hasSummary={true}
-                        disabledSummaries={this.state.columns.find((col: any) => col.field === "OrderDate")?.disabledSummaries}>
+                        disabledSummaries={columns.find((col: any) => col.field === "OrderDate")?.disabledSummaries}>
                     </IgrColumn>
                 </IgrTreeGrid>
                 </div>
-            </div>
-        );
-    }
+        </div>
+    );
+
 }
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+root.render(<DisabledSummariesTreeGridSample/>);
