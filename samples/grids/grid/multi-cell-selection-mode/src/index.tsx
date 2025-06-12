@@ -5,7 +5,6 @@ import './index.css';
 import { IgrColumn, IgrGrid, IgrGridModule, IgrGridSelectionRangeEventArgs } from 'igniteui-react-grids';
 import { InvoicesData } from './InvoicesData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

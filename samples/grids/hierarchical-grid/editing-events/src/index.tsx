@@ -8,7 +8,6 @@ import { ComponentRenderer, WebHierarchicalGridDescriptionModule, WebPaginatorDe
 import NwindData from './NwindData.json';
 import { IgrGrid, IgrGridEditEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -39,6 +38,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     id="grid"
+                    ref={this.gridRef}
                     data={this.nwindData}
                     onCellEdit={this.webGridEditingEventsCellEdit}
                     primaryKey="ProductID"

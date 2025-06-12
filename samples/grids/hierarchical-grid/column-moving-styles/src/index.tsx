@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrPaginator, IgrColumn, IgrRowIsland } from 'igni
 import HierarchicalCustomers from './HierarchicalCustomers.json';
 import { IgrColumnTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -38,6 +37,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.hierarchicalCustomers}
                     moving={true}
+                    ref={this.gridRef}
                     id="grid">
                     <IgrPaginator
                         perPage={15}>

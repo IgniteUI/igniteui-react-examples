@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-gri
 import SingersData from './SingersData.json';
 import { IgrRowSelectionEventArgs, IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -54,6 +53,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.singersData}
                     primaryKey="ID"
                     id="hierarchicalGrid"
+                    ref={this.hierarchicalGridRef}
                     rowEditable={true}
                     onRendered={this.webHierarchicalGridRendered}
                     onRowEditEnter={this.webHierarchicalGridRowEditEnter}

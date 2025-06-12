@@ -8,7 +8,6 @@ import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn } from 'ignite
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -48,6 +47,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     data={this.customersDataLocal}
                     rowDraggable={true}
                     pinning={this.pinningConfig1}

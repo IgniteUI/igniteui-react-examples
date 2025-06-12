@@ -6,7 +6,6 @@ import { IgrPivotGridModule } from 'igniteui-react-grids';
 import { IgrPivotGrid, IgrPivotConfiguration, IgrPivotDateDimension, IgrPivotDimension, IgrPivotDateDimensionOptions, SortingDirection, IgrPivotValue, IgrPivotAggregator } from 'igniteui-react-grids';
 import { PivotDataFlatItem, PivotDataFlat } from './PivotDataFlat';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -105,6 +104,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrPivotGrid
                     data={this.pivotDataFlat}
+                    ref={this.gridRef}
                     rowSelection="single"
                     superCompactMode={true}
                     pivotConfiguration={this.pivotConfiguration1}>

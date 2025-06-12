@@ -6,7 +6,6 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrSortingExpression, SortingDirection, IgrColumn } from 'igniteui-react-grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -80,6 +79,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.financialDataAll}
+                    ref={this.gridRef}
                     sortingExpressions={this.sortingExpression1}
                     id="grid">
                     <IgrColumn

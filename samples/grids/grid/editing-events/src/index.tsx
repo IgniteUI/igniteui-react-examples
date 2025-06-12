@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core
 import NwindData from './NwindData.json';
 import { IgrGridEditEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -23,8 +22,6 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private column: IgrColumn
-    private unitsInStock: IgrColumn
-    private unitsOnOrder: IgrColumn
 
     constructor(props: any) {
         super(props);

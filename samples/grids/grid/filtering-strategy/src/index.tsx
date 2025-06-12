@@ -7,7 +7,6 @@ import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import NwindData from './NwindData.json';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -36,6 +35,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.nwindData}
+                    ref={this.gridRef}
                     id="grid"
                     allowFiltering={true}
                     filterMode="excelStyleFilter">

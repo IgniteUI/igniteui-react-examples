@@ -6,7 +6,6 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { InvoicesDataExtendedDates } from './InvoicesDataExtendedDates';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -106,6 +105,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.invoicesDataExtendedDates}
+                    ref={this.gridRef}
                     id="grid"
                     allowFiltering={true}
                     filterMode="excelStyleFilter"

@@ -7,7 +7,6 @@ import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import NwindData from './NwindData.json';
 import { IgrRowType } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -21,12 +20,7 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productID: IgrColumn
-    private productName: IgrColumn
-    private unitsInStock: IgrColumn
-    private unitPrice: IgrColumn
-    private discontinued: IgrColumn
-    private orderDate: IgrColumn
+    private column: IgrColumn
 
     constructor(props: any) {
         super(props);

@@ -9,7 +9,6 @@ import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 import { IgrColumnTemplateContext, IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -76,7 +75,8 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.financialDataAll}
                     primaryKey="ProductID"
-                    moving={true}>
+                    moving={true}
+                    ref={this.gridRef}>
                     <IgrColumn
                         header="Category"
                         field="Category"

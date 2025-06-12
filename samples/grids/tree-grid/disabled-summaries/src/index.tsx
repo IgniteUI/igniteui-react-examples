@@ -5,7 +5,6 @@ import './index.css';
 import { IgrButton, IgrDialog, IgrCheckbox } from 'igniteui-react';
 import { IgrSummaryOperand, IgrSummaryResult, IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import { OrdersTreeData } from './OrdersTreeData';
 import { get } from 'http';

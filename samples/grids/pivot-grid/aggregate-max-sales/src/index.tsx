@@ -6,7 +6,6 @@ import { IgrPivotGridModule } from 'igniteui-react-grids';
 import { IgrPivotGrid, IgrPivotConfiguration, IgrPivotDimension, IgrPivotValue, IgrPivotAggregator } from 'igniteui-react-grids';
 import { PivotSalesDataItem, PivotSalesData } from './PivotSalesData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -65,6 +64,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrPivotGrid
                     data={this.pivotSalesData}
+                    ref={this.gridRef}
                     pivotConfiguration={this.pivotConfiguration1}>
                 </IgrPivotGrid>
             </div>

@@ -6,7 +6,6 @@ import { IgrButton, IgrDialog, IgrCheckbox } from 'igniteui-react';
 import { IgrSummaryOperand, IgrSummaryResult, IgrHierarchicalGrid, IgrRowIsland, IgrColumn } from 'igniteui-react-grids';
 import  SingersData from './SingersData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 export class GrammySummary extends IgrSummaryOperand {

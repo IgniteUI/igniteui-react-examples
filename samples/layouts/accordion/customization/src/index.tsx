@@ -101,7 +101,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
                                         return (
                                             <IgrRadio key={`${rating}star`} name="rating" value={rating.toString()} onChange={this.ratingChange}>
                                                 <IgrRating label={`${rating} star${rating > 1 ? 's' : ''} or more`} max={5} value={rating + 0.5}
-                                                    className="size-small" readonly key={`{r-${rating}}`}>
+                                                    className="size-small" readOnly={true} key={`{r-${rating}}`}>
                                                 </IgrRating>
                                             </IgrRadio>
                                         );

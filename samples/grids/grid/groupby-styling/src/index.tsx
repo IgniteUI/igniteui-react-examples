@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -43,16 +42,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._groupingExpression1;
     }
-    private orderID: IgrColumn
-    private shipCountry: IgrColumn
-    private orderDate: IgrColumn
-    private postalCode: IgrColumn
-    private discontinued: IgrColumn
-    private shipName: IgrColumn
-    private shipCity: IgrColumn
-    private shipperName: IgrColumn
-    private salesperson: IgrColumn
-    private unitPrice: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -64,7 +53,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs1;
     }
-    private quantity: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -79,6 +67,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     id="grid"
                     data={this.invoicesData}
                     groupingExpressions={this.groupingExpression1}>

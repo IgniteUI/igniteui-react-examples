@@ -8,7 +8,6 @@ import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -23,16 +22,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productID: IgrColumn
-    private productName: IgrColumn
-    private unitPrice: IgrColumn
-    private unitsOnOrder: IgrColumn
-    private unitsInStock: IgrColumn
-    private quantityPerUnit: IgrColumn
-    private reorderLevel: IgrColumn
-    private supplierID: IgrColumn
-    private categoryID: IgrColumn
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -46,6 +35,7 @@ export default class Sample extends React.Component<any, any> {
 
             <div className="container fill">
                 <IgrGrid
+                    ref={this.gridRef}
                     data={this.nwindData}
                     rowEditable={true}
                     primaryKey="ProductID">
