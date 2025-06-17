@@ -806,12 +806,12 @@ class PackageDependency {
 }
 
 class CodeViewer {
-    public path: string;
     public hasRelativeAssetsUrls: boolean;
-    public content: string;
     public isMain: boolean;
+    public path: string;
     public fileExtension: string;
     public fileHeader: string;
+    public content: string;
 
     constructor(filePath: string, content: string, fileExtension: string, fileHeader: string, isMain: boolean) {
 
@@ -819,10 +819,10 @@ class CodeViewer {
         // jsonContent = jsonContent.replace(/\/\//g, "/");
 
         this.hasRelativeAssetsUrls = false;
-        this.path = filePath;
-        this.content = jsonContent;
         this.isMain = isMain;
         this.fileExtension = fileExtension;
         this.fileHeader = fileHeader;
+        this.path = filePath;
+        this.content = jsonContent;
     }
 }
