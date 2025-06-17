@@ -1,12 +1,9 @@
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
-import { IgrComboModule, IgrCombo, IgrButtonModule, IgrButton } from "igniteui-react";
+import { IgrCombo, IgrButton } from "igniteui-react";
 import "./index.css";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { Cities } from "./ComboData";
-
-IgrComboModule.register();
-IgrButtonModule.register();
 
 export default function ComboSelection() {
   const comboRef = useRef<IgrCombo>(null);
@@ -40,16 +37,16 @@ export default function ComboSelection() {
       ></IgrCombo>
       <div className="button-container">
         <IgrButton onClick={selectCities}>
-          <span key="selectUK">Select UK Cities</span>
+          <span>Select UK Cities</span>
         </IgrButton>
         <IgrButton onClick={deselectCities}>
-          <span key="deselectUK">Deselect UK Favorites</span>
+          <span>Deselect UK Favorites</span>
         </IgrButton>
         <IgrButton onClick={selectAll}>
-          <span key="selectAll">Select All</span>
+          <span>Select All</span>
         </IgrButton>
         <IgrButton onClick={deselectAll}>
-          <span key="deselectAll">Deselect All</span>
+          <span>Deselect All</span>
         </IgrButton>
       </div>
     </div>
