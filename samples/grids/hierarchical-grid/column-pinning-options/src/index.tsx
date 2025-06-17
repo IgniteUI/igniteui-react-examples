@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridTool
 import HierarchicalCustomersData from './HierarchicalCustomersData.json';
 import { IgrColumnTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

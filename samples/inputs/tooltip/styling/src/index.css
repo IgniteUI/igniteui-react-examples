@@ -1,0 +1,6 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+igc-avatar {
+  --ig-size: var(--ig-size-medium);
+}

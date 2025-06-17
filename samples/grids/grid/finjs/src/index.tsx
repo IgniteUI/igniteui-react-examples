@@ -12,7 +12,6 @@ import {
   IgrGrid,
   IgrColumn
 } from "igniteui-react-grids";
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import {
   IgrCategoryChart,
@@ -122,7 +121,7 @@ export default function FinjsSample() {
     const rowData = gridRef.current.getRowData(cell.id.rowID);
     const isValueUp: boolean = trends.positive(rowData);
     const icon = isValueUp ? "trending_up" : "trending_down";
-    const value = cell.value.toFixed(4);
+    const value = parseFloat(cell.value).toFixed(4);
 
     return (
       <div className={`finjs-icons ${isValueUp ? "positive" : "negative"}`}>

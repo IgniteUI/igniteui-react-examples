@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrPinningConfig, RowPinningPosition, ColumnPinnin
 import SingersData from './SingersData.json';
 import { IgrGrid } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

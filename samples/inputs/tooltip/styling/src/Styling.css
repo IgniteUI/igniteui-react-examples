@@ -1,0 +1,8 @@
+igc-tooltip::part(base) {
+  background-color: var(--ig-primary-300);
+  color: var(--ig-primary-300-contrast);
+}
+
+igc-tooltip::part(bottom) {
+  border-bottom-color: var(--ig-primary-300);
+}

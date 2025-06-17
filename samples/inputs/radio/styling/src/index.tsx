@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { IgrRadio, IgrRadioGroup, IgrRadioModule, IgrRadioGroupModule } from 'igniteui-react';
+import { IgrRadio, IgrRadioGroup } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './index.css';
-
-IgrRadioModule.register();
-IgrRadioGroupModule.register();
 
 export default class RadioStyling extends React.Component<any, any> {
 

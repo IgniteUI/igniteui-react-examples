@@ -1,26 +1,19 @@
 import React, { KeyboardEvent, useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
-import { IgrGridModule } from "igniteui-react-grids";
 import { IgrGrid, IgrColumn } from "igniteui-react-grids";
 import { MarketData } from "./MarketData";
-
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import {
   IgrChip,
-  IgrChipModule,
+  IgrComponentBoolValueChangedEventArgs,
   IgrComponentValueChangedEventArgs,
   IgrIconButton,
   IgrInput,
-  IgrInputModule,
-  IgrIconButtonModule,
+  IgrRipple,
   registerIconFromText,
 } from "igniteui-react";
 
-const mods: any[] = [IgrGridModule, IgrChipModule, IgrInputModule, IgrIconButtonModule];
-mods.forEach((m) => m.register());
 
 const searchIconText =
   "<svg width='24' height='24' viewBox='0 0 24 24'><path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' /></svg>";
@@ -35,9 +28,8 @@ const data = new MarketData();
 
 export default function Sample() {
   const gridRef = useRef<IgrGrid>(null);
-  const caseSensitiveChipRef = useRef<IgrChip>(null);
-  const exactMatchChipRef = useRef<IgrChip>(null);
-
+  const [caseSensitiveSelected, setCaseSensitiveSelected] = useState<boolean>(false);
+  const [exactMatchSelected, setExactMatchSelected] = useState<boolean>(false);
   const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
@@ -47,32 +39,42 @@ export default function Sample() {
     registerIconFromText("next", nextIconText, "material");
   }, []);
 
-  function handleOnSearchChange(event: IgrComponentValueChangedEventArgs) {
+  const handleOnSearchChange = (event: IgrComponentValueChangedEventArgs) => {
     setSearchText(event.detail);
-    gridRef.current.findNext(event.detail, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+    nextSearch(event.detail, caseSensitiveSelected, exactMatchSelected);
   }
 
-  function clearSearch() {
+  const clearSearch = () => {
     setSearchText('');
     gridRef.current.clearSearch();
   }
 
-  function prevSearch() {
-    gridRef.current.findPrev(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
-  }
-
-  function nextSearch() {
-    gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
-  }
-
-  function searchKeyDown(e: KeyboardEvent<HTMLElement>) {
+  const searchKeyDown = (e: KeyboardEvent<HTMLElement>) => {
     if (e.key === 'Enter' || e.key === 'ArrowDown') {
-        e.preventDefault();
-        gridRef.current.findNext(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+      e.preventDefault();
+      nextSearch(searchText, caseSensitiveSelected, exactMatchSelected);
     } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-        e.preventDefault();
-        gridRef.current.findPrev(searchText, caseSensitiveChipRef.current.selected, exactMatchChipRef.current.selected);
+      e.preventDefault();
+      prevSearch(searchText, caseSensitiveSelected, exactMatchSelected);
     }
+  }
+
+  const handleCaseSensitiveChange = (event: IgrComponentBoolValueChangedEventArgs) => {
+    setCaseSensitiveSelected(event.detail);
+    nextSearch(searchText, event.detail, exactMatchSelected);
+  }
+
+  const handleExactMatchChange = (event: IgrComponentBoolValueChangedEventArgs) => {
+    setExactMatchSelected(event.detail);
+    nextSearch(searchText, caseSensitiveSelected, event.detail);
+  }
+
+  const prevSearch = (text: string, caseSensitive: boolean, exactMatch: boolean) => {
+    gridRef.current.findPrev(text, caseSensitive, exactMatch);
+  }
+
+  const nextSearch = (text: string, caseSensitive: boolean, exactMatch: boolean) => {
+    gridRef.current.findNext(text, caseSensitive, exactMatch);
   }
 
   return (
@@ -81,17 +83,15 @@ export default function Sample() {
         <div style={{ marginBottom: "1rem" }} onKeyDown={searchKeyDown}>
           <IgrInput name="searchBox" value={searchText} onInput={handleOnSearchChange}>
 
-            <div slot="prefix" key="prefix">
+            <div slot="prefix">
               {searchText.length === 0 ? (
                 <IgrIconButton
-                  key="searchIcon"
                   variant="flat"
-                  name="search" 
+                  name="search"
                   collection="material"
                 ></IgrIconButton>
               ) : (
                 <IgrIconButton
-                  key="clearIcon"
                   variant="flat"
                   name="clear"
                   collection="material"
@@ -99,39 +99,41 @@ export default function Sample() {
                 ></IgrIconButton>
               )}
             </div>
-            
-            <div slot="suffix" key="chipSuffix">
-              <IgrChip ref={caseSensitiveChipRef} key="caseSensitiveChip" selectable={true}>
-                <span key="caseSensitive">Case Sensitive</span>
+
+            <div slot="suffix">
+              <IgrChip selectable={true} onSelect={handleCaseSensitiveChange}>
+                <span>Case Sensitive</span>
               </IgrChip>
-              <IgrChip ref={exactMatchChipRef} key="exactMatchChip" selectable={true}>
-                <span key="exactMatch">Exact Match</span>
+              <IgrChip selectable={true} onSelect={handleExactMatchChange}>
+                <span>Exact Match</span>
               </IgrChip>
             </div>
-            <div slot="suffix" key="buttonsSuffix">
+            <div slot="suffix">
               <IgrIconButton
-                key="prevIconButton"
                 variant="flat"
                 name="prev"
                 collection="material"
-                onClick={prevSearch}
-              ></IgrIconButton>
+                onClick={() => prevSearch(searchText, caseSensitiveSelected, exactMatchSelected)}
+              >
+                <IgrRipple></IgrRipple>
+              </IgrIconButton>
               <IgrIconButton
-                key="nextIconButton"
                 variant="flat"
                 name="next"
                 collection="material"
-                onClick={nextSearch}
-              ></IgrIconButton>
+                onClick={() => nextSearch(searchText, caseSensitiveSelected, exactMatchSelected)}
+              >
+                <IgrRipple></IgrRipple>
+              </IgrIconButton>
             </div>
           </IgrInput>
         </div>
         <IgrGrid className="gridSize" ref={gridRef} autoGenerate={false} allowFiltering={true} data={data} height="100%" width="100%">
-            <IgrColumn field="IndustrySector" dataType="string" sortable={true}></IgrColumn>
-            <IgrColumn field="IndustryGroup" dataType="string" sortable={true}></IgrColumn>
-            <IgrColumn field="SectorType" dataType="string" sortable={true}></IgrColumn>
-            <IgrColumn field="KRD" dataType="number" sortable={true}></IgrColumn>
-            <IgrColumn field="MarketNotion" dataType="number" sortable={true}></IgrColumn>
+          <IgrColumn field="IndustrySector" dataType="string" sortable={true}></IgrColumn>
+          <IgrColumn field="IndustryGroup" dataType="string" sortable={true}></IgrColumn>
+          <IgrColumn field="SectorType" dataType="string" sortable={true}></IgrColumn>
+          <IgrColumn field="KRD" dataType="number" sortable={true}></IgrColumn>
+          <IgrColumn field="MarketNotion" dataType="number" sortable={true}></IgrColumn>
         </IgrGrid>
       </div>
     </div>

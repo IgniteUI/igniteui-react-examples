@@ -9,7 +9,6 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDes
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
 import { IgrGrid, IgrGridKeydownEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

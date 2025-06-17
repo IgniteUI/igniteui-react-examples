@@ -7,7 +7,6 @@ import { IgrGrid, IgrActionStrip, IgrGridEditingActions, IgrColumn } from 'ignit
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

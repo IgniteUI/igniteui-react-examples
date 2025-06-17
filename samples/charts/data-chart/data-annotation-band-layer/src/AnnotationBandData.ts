@@ -1,5 +1,5 @@
-export class AnnotationDataItem {
-    public constructor(init: Partial<AnnotationDataItem>) {
+export class AnnotationBandDataItem {
+    public constructor(init: Partial<AnnotationBandDataItem>) {
         Object.assign(this, init);
     }
 
@@ -13,13 +13,13 @@ export class AnnotationDataItem {
     public label: string;
 
 }
-export class AnnotationData extends Array<AnnotationDataItem> {
-    public constructor(items: Array<AnnotationDataItem> | number = -1) {
+export class AnnotationBandData extends Array<AnnotationBandDataItem> {
+    public constructor(items: Array<AnnotationBandDataItem> | number = -1) {
         if (Array.isArray(items)) {
             super(...items);
         } else {
             const newItems = [
-                new AnnotationDataItem(
+                new AnnotationBandDataItem(
                 {
                     startLabel: `Growth Start`,
                     endLabel: `Growth Stop`,

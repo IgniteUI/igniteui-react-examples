@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
-import { IgrColumn, IgrGrid, IgrPaginator } from "igniteui-react-grids";
+import { IgrGrid, IgrPaginator } from "igniteui-react-grids";
+import { IgrColumn } from "igniteui-react-grids";
+import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { RemoteService } from "./RemotePagingService";
 import { CustomersWithPageResponseModel } from "./CustomersWithPageResponseModel";

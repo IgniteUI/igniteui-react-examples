@@ -4,11 +4,10 @@ import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, GridPagingMode, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -43,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ProductID"
                     isLoading={true}
                     allowFiltering={false}
-                    pagingMode={GridPagingMode.Remote}
+                    pagingMode="remote"
                     rowEditable={true}>
                     <IgrColumn
                         field="ProductName"

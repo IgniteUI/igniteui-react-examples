@@ -6,7 +6,6 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrSortingExpression, SortingDirection, IgrColumn } from 'igniteui-react-grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

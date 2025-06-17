@@ -5,7 +5,6 @@ import "./index.css";
 import { IgrGridCreatedEventArgs } from "igniteui-react-grids";
 import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from "igniteui-react-grids";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { getData } from "./RemoteService";
 

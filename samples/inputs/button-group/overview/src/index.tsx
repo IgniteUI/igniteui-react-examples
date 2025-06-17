@@ -2,11 +2,8 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
     IgrButtonGroup,
-    IgrButtonGroupModule,
     IgrIcon,
-    IgrIconModule,
     IgrRipple,
-    IgrRippleModule,
     IgrToggleButton,
     registerIconFromText,
   } from 'igniteui-react';
@@ -14,9 +11,6 @@ import 'igniteui-webcomponents/themes/light/material.css';
 import './ButtonGroupOverview.css';
 import './index.css';
 
-IgrButtonGroupModule.register();
-IgrIconModule.register();
-IgrRippleModule.register();
 
 const icons = [
     {
@@ -47,21 +41,21 @@ export default function ButtonGroupOverview() {
     return (
         <div className="container sample">
             <IgrButtonGroup>
-                <IgrToggleButton value="left" key="button-left">
-                    <IgrIcon name="format_align_left" collection="material" key="icon-left" />
-                    <IgrRipple key="ripple-left" />
+                <IgrToggleButton value="left">
+                    <IgrIcon name="format_align_left" collection="material" />
+                    <IgrRipple/>
                 </IgrToggleButton>
-                <IgrToggleButton value="center" key="button-center">
-                    <IgrIcon name="format_align_center" collection="material" key="icon-center" />
-                    <IgrRipple key="ripple-center" />
+                <IgrToggleButton value="center">
+                    <IgrIcon name="format_align_center" collection="material"/>
+                    <IgrRipple />
                 </IgrToggleButton>
-                <IgrToggleButton value="right" key="button-right">
-                    <IgrIcon name="format_align_right" collection="material" key="icon-right" />
-                    <IgrRipple key="ripple-right" />
+                <IgrToggleButton value="right" >
+                    <IgrIcon name="format_align_right" collection="material" />
+                    <IgrRipple />
                 </IgrToggleButton>
-                <IgrToggleButton value="justify" selected={true} key="button-justify">
-                    <IgrIcon name="format_align_justify" collection="material" key="icon-justify" />
-                    <IgrRipple key="ripple-justify" />
+                <IgrToggleButton value="justify" selected={true}>
+                    <IgrIcon name="format_align_justify" collection="material"/>
+                    <IgrRipple/>
                 </IgrToggleButton>
             </IgrButtonGroup>
       </div>

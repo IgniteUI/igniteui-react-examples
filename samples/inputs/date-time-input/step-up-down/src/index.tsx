@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrIcon, IgrIconModule, IgrDateTimeInput, IgrDateTimeInputModule, DatePart, registerIconFromText } from 'igniteui-react';
+import { IgrIcon, IgrDateTimeInput, DatePart, registerIconFromText } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrIconModule.register();
-IgrDateTimeInputModule.register();
 
 const upIconText = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg>';
 const downIconText = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>';
@@ -27,13 +24,13 @@ export default class DateTimeInputStepUpDown extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrDateTimeInput ref={this.dateTimeInputRef}>
-                    <span slot="prefix" key="prefix" onClick={() => this.dateTimeInput.clear()}>
+                    <span slot="prefix" onClick={() => this.dateTimeInput.clear()}>
                     <IgrIcon name="clear" collection="material" />
                     </span>
-                    <span slot="suffix" key="upSuffix" onClick={() => this.dateTimeInput.stepUp(DatePart.Month, 3)}>
+                    <span slot="suffix" onClick={() => this.dateTimeInput.stepUp(DatePart.Month, 3)}>
                     <IgrIcon name="up" collection="material" />
                     </span>
-                    <span slot='suffix' key="downSuffix" onClick={() => this.dateTimeInput.stepDown(DatePart.Date, 2)}>
+                    <span slot='suffix' onClick={() => this.dateTimeInput.stepDown(DatePart.Date, 2)}>
                     <IgrIcon name="down" collection="material" />
                     </span> 
                 </IgrDateTimeInput>

@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './ChipStyle.css';
-import { IgrChip, IgrChipModule } from 'igniteui-react';
+import { IgrChip } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrChipModule.register();
 
 export default class ChipStyling extends React.Component<any, any> {
 

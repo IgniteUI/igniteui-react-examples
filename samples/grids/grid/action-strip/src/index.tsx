@@ -8,7 +8,6 @@ import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrActionStrip, IgrGridP
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [

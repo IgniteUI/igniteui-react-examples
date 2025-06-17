@@ -7,7 +7,6 @@ import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
