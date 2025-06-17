@@ -11,26 +11,25 @@ import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 export default function App() {
     const data = new CustomersData();
     const rightGridRef = useRef<IgrGrid>(null);
-    const leftGridRef = useRef<IgrGrid>(null);
 
-    function onGridRowDragEnd(evt: IgrRowDragEndEventArgs): void {
-        const grid = evt.target as IgrGrid;
+    const onGridRowDragEnd = (evt: IgrRowDragEndEventArgs) => {
+        const leftGrid = evt.target as IgrGrid;
         const ghostElement = evt.detail.dragDirective.ghostElement;
         if (ghostElement != null) {
             const dragElementPos = ghostElement.getBoundingClientRect();
-            const gridPosition =  document.getElementById("rightGrid").getBoundingClientRect();
-            
+            const gridPosition = document.getElementById("rightGrid").getBoundingClientRect();
+
             const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
             const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
             if (withinXBounds && withinYBounds) {
-                grid.deleteRow(evt.detail.dragData.key);
+                leftGrid.deleteRow(evt.detail.dragData.key);
                 rightGridRef.current.addRow(evt.detail.dragData.data);
             }
         }
     }
 
     return (
-        <div className="container sample">      
+        <div className="container sample">
             <div className="container horizontal wrapper">
                 <IgrGrid data={data} width="40%" primaryKey='ID' autoGenerate={false} rowDraggable={true} onRowDragEnd={onGridRowDragEnd}>
                     <IgrColumn field="ID" width="100px"></IgrColumn>
@@ -60,9 +59,9 @@ export default function App() {
                 </IgrGrid>
             </div>
         </div>
-        );
+    );
 }
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App/>);
+root.render(<App />);

@@ -12,7 +12,6 @@ import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 export default function App() {
   const employeesData = new EmployeesNestedTreeData();
-  const leftTGridRef = useRef<IgrTreeGrid>(null);
   const rightTGridRef = useRef<IgrTreeGrid>(null);
 
   // Recursive function to add the row and its children
@@ -26,6 +25,7 @@ export default function App() {
   }
 
   const RowDragEnd = (evt: IgrRowDragEndEventArgs) => {
+    const leftGrid = evt.target as IgrTreeGrid;
     const ghostElement = evt.detail.dragDirective.ghostElement;
     if (ghostElement != null) {
       const dragElementPos = ghostElement.getBoundingClientRect();
@@ -40,7 +40,7 @@ export default function App() {
 
         addRowAndChildren(draggedRowData, newData);
         rightTGridRef.current.data = newData;
-        leftTGridRef.current.deleteRow(evt.detail.dragData.key);
+        leftGrid.deleteRow(evt.detail.dragData.key);
       }
     }
   }
@@ -56,7 +56,6 @@ export default function App() {
             foreignKey="ParentID"
             id="treeGrid"
             width="40%"
-            ref={leftTGridRef}
             rowDraggable={true}
             onRowDragEnd={RowDragEnd}
           >

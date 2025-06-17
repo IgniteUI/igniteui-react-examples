@@ -14,10 +14,10 @@ import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 export default function App() {
   const singersData = new SingersData();
-  const leftHGridRef = useRef<IgrHierarchicalGrid>(null);
   const rightHGridRef = useRef<IgrHierarchicalGrid>(null);
 
   const RowDragEnd = (evt: IgrRowDragEndEventArgs) => {
+    const leftGrid = evt.target as IgrHierarchicalGrid;
     const ghostElement = evt.detail.dragDirective.ghostElement;
     if (ghostElement != null) {
       const dragElementPos = ghostElement.getBoundingClientRect();
@@ -26,7 +26,7 @@ export default function App() {
       const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
       const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
       if (withinXBounds && withinYBounds) {
-        leftHGridRef.current.deleteRow(evt.detail.dragData.key);
+        leftGrid.deleteRow(evt.detail.dragData.key);
         rightHGridRef.current.addRow(evt.detail.dragData.data);
       }
     }
@@ -42,7 +42,6 @@ export default function App() {
             primaryKey="ID"
             id="hierarchicalGrid1"
             width="40%"
-            ref={leftHGridRef}
             rowDraggable={true}
             onRowDragEnd={RowDragEnd}
           >
