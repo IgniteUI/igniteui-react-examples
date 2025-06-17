@@ -6,7 +6,6 @@ import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrSortingExpression, SortingDirection, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -98,6 +97,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     data={this.ordersTreeData}
+                    ref={this.gridRef}
                     sortingExpressions={this.sortingExpression1}
                     id="grid"
                     primaryKey="ID"

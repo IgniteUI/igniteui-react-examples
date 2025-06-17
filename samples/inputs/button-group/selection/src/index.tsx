@@ -3,26 +3,17 @@ import ReactDOM from 'react-dom/client';
 import {
     ButtonGroupSelection,
     IgrButtonGroup,
-    IgrButtonGroupModule,
     IgrIcon,
-    IgrIconModule,
     IgrRadio,
     IgrRadioChangeEventArgs,
     IgrRadioGroup,
-    IgrRadioGroupModule,
     IgrRipple,
-    IgrRippleModule,
     IgrToggleButton,
+    registerIconFromText,
   } from 'igniteui-react';
-import { registerIconFromText } from 'igniteui-webcomponents'
 import 'igniteui-webcomponents/themes/light/material.css';
 import './ButtonGroupSelection.css';
 import './index.css';
-
-IgrButtonGroupModule.register();
-IgrRadioGroupModule.register();
-IgrIconModule.register();
-IgrRippleModule.register();
 
 const icons = [
     {
@@ -49,17 +40,8 @@ export default function ButtonGroupSelectionSample() {
     const buttonGroupRef = useRef<IgrButtonGroup>(null);
 
     function onRadioChange(e: IgrRadioChangeEventArgs) {
-        switch (e.detail.value) {
-            case 'single':
-                buttonGroupRef.current.selection = ButtonGroupSelection.Single;
-                break;
-            case 'single-required':
-                buttonGroupRef.current.selection = ButtonGroupSelection.SingleRequired;
-                break;
-            default:
-                buttonGroupRef.current.selection = ButtonGroupSelection.Multiple;
-                break;
-        }
+        const value = e.detail.value as ButtonGroupSelection;
+        buttonGroupRef.current.selection = value;
     }
 
     return (
@@ -67,29 +49,29 @@ export default function ButtonGroupSelectionSample() {
             <div className="radio-group-container">
                 <label>Selection Mode</label>
                 <IgrRadioGroup alignment="horizontal">
-                    <IgrRadio name="mode" value="single" checked onChange={onRadioChange} key="radio-single">
-                        <span key="text-single">Single</span>
+                    <IgrRadio name="mode" value="single" checked onChange={onRadioChange}>
+                        <span>Single</span>
                     </IgrRadio>
-                    <IgrRadio name="mode" value="single-required" onChange={onRadioChange} key="radio-single-required">
-                        <span key="text-single-required">Single-Required</span>
+                    <IgrRadio name="mode" value="single-required" onChange={onRadioChange}>
+                        <span>Single-Required</span>
                     </IgrRadio>
-                    <IgrRadio name="mode" value="multiple" onChange={onRadioChange} key="radio-multiple">
-                        <span key="text-multiple">Multiple</span>
+                    <IgrRadio name="mode" value="multiple" onChange={onRadioChange}>
+                        <span>Multiple</span>
                     </IgrRadio>
                 </IgrRadioGroup>
             </div>
             <IgrButtonGroup ref={buttonGroupRef}>
-                <IgrToggleButton value="bold" key="button-bold">
-                    <IgrIcon name="bold" collection="material" key="icon-bold" />
-                    <IgrRipple key="ripple-bold" />
+                <IgrToggleButton value="bold">
+                    <IgrIcon name="bold" collection="material" />
+                    <IgrRipple />
                 </IgrToggleButton>
-                <IgrToggleButton value="italic" key="button-italic">
-                    <IgrIcon name="italic" collection="material" key="icon-italic" />
-                    <IgrRipple key="ripple-italic" />
+                <IgrToggleButton value="italic">
+                    <IgrIcon name="italic" collection="material" />
+                    <IgrRipple />
                 </IgrToggleButton>
-                <IgrToggleButton value="underlined" key="button-underlined">
-                    <IgrIcon name="underlined" collection="material" key="icon-underlined" />
-                    <IgrRipple key="ripple-underlined" />
+                <IgrToggleButton value="underlined">
+                    <IgrIcon name="underlined" collection="material"/>
+                    <IgrRipple/>
                 </IgrToggleButton>
             </IgrButtonGroup>
       </div>

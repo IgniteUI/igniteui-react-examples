@@ -6,7 +6,6 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -35,7 +34,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.customersData}
-                    primaryKey="ProductID">
+                    primaryKey="ProductID"
+                    ref={this.gridRef}>
                     <IgrColumn
                         field="ID"
                         width="auto"

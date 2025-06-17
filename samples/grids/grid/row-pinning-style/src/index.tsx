@@ -7,7 +7,6 @@ import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn, IgrActionStri
 import { ComponentRenderer, WebGridDescriptionModule, WebActionStripDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -33,14 +32,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._pinningConfig1;
     }
-    private company: IgrColumn
-    private contactName: IgrColumn
-    private contactTitle: IgrColumn
-    private address: IgrColumn
-    private city: IgrColumn
-    private postalCode: IgrColumn
-    private phone: IgrColumn
-    private fax: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -56,6 +47,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     id="grid"
                     data={this.customersDataLocal}
                     primaryKey="ID"

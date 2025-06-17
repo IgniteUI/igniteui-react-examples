@@ -10,7 +10,6 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { ProductSalesItem, ProductSales } from './ProductSales';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -105,6 +104,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.productSales}
+                    ref={this.gridRef}
                     sortingExpressions={this.sortingExpression1}>
                     <IgrColumn
                         field="OrderID"

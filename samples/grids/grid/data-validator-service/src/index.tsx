@@ -11,7 +11,6 @@ import { EmployeesDataItem, EmployeesData } from './EmployeesData';
 import { IgrAvatar } from 'igniteui-react';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -33,12 +32,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private avatar: IgrColumn
-    private name: IgrColumn
-    private company: IgrColumn
-    private email: IgrColumn
-    private fax: IgrColumn
-    private createdOn: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -50,11 +43,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs1;
     }
-    private lastActivity: IgrColumn
-    private estimatedSales: IgrColumn
-    private dealsLost: IgrColumn
-    private dealsWon: IgrColumn
-    private dealsPending: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -86,6 +74,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     data={this.employeesData}
                     rowEditable={true}
                     primaryKey="ID">

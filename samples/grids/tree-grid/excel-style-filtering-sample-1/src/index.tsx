@@ -11,7 +11,6 @@ import { FoodsDataItem, FoodsData } from './FoodsData';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -68,6 +67,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     id="treeGrid"
+                    ref={this.treeGridRef}
                     data={this.foodsData}
                     primaryKey="ID"
                     foreignKey="ParentID"

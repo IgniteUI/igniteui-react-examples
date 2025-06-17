@@ -10,7 +10,6 @@ import HGridDndData from './HGridDndData.json';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrSelect, IgrSelectItem } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -40,7 +39,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     data={this.hGridDndData}
-                    primaryKey="Name">
+                    primaryKey="Name"
+                    ref={this.hierarchicalGrid1Ref}>
                     <IgrColumn
                         field="Name"
                         header="Character Name"

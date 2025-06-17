@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrInput, IgrInputModule } from 'igniteui-react';
+import { IgrInput } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrInputModule.register();
 
 export default class InputOverview extends React.Component<any, any> {
 

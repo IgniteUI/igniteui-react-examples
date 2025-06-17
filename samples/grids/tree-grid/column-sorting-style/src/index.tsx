@@ -8,7 +8,6 @@ import { IgrTreeGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids'
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { OrdersTreeDataItem, OrdersTreeData } from './OrdersTreeData';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -50,6 +49,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     id="grid"
+                    ref={this.gridRef}
                     data={this.ordersTreeData}
                     primaryKey="ID"
                     foreignKey="ParentID">

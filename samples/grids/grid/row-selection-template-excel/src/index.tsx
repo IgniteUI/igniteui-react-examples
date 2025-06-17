@@ -9,7 +9,6 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescrip
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrRowSelectorTemplateContext, IgrHeadSelectorTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -51,6 +50,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.customersData}
+                    ref={this.gridRef}
                     id="grid"
                     rowSelection="multiple"
                     rowSelectorTemplate={this.webGridRowSelectorExcelTemplate}

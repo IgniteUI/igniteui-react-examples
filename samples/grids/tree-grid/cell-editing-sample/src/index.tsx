@@ -10,7 +10,6 @@ import { RoleplayTreeGridDataItem, RoleplayTreeGridData } from './RoleplayTreeGr
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrSelect, IgrSelectItem } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -39,6 +38,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
+                    ref={this.treeGrid1Ref}
                     id="treeGrid1"
                     data={this.roleplayTreeGridData}
                     primaryKey="ID"

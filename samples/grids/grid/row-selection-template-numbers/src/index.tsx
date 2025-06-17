@@ -10,7 +10,6 @@ import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrRowSelectorTemplateContext, IgrHeadSelectorTemplateContext } from 'igniteui-react-grids';
 import { IgrCheckbox } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -39,6 +38,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={true}
+                    ref={this.gridRef}
                     data={this.customersData}
                     rowSelection="multiple"
                     rowSelectorTemplate={this.webGridRowSelectorTemplate}

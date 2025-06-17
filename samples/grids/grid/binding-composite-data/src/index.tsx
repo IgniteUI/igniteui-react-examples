@@ -9,7 +9,6 @@ import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrInput } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -39,7 +38,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.customersData}
-                    primaryKey="ID">
+                    primaryKey="ID"
+                    ref={this.gridRef}>
                     <IgrColumn
                         header="ID"
                         field="ID">
@@ -125,24 +125,21 @@ export default class Sample extends React.Component<any, any> {
         return (
             <>
                 <div className="contact-container--edit" style={{padding: "1rem"}}>
-                    <IgrInput label='Name' onInput={(e: any) =>
-                        {
-                            cell.row.data.ContactName = e.detail;
-                            grid.forceUpdate();
-                        }
-                        } value={cell.row.data.ContactName}></IgrInput>
-                    <IgrInput label='Title' onInput={(e: any) =>
-                        {
-                            cell.row.data.ContactTitle = e.detail;
-                            grid.forceUpdate();
-                        }
-                        } value={cell.row.data.ContactTitle}></IgrInput>
-                    <IgrInput label='Company' onInput={(e: any) =>
-                        {
-                            cell.row.data.Company = e.detail;
-                            grid.forceUpdate();
-                        }
-                        } value={cell.row.data.Company}></IgrInput>
+                    <IgrInput
+                        label='Name'
+                        onInput={(e: any) => cell.row.data.ContactName = e.detail}
+                        value={cell.row.data.ContactName}
+                    ></IgrInput>
+                    <IgrInput
+                        label='Title'
+                        onInput={(e: any) => cell.row.data.ContactTitle = e.detail}
+                        value={cell.row.data.ContactTitle}
+                    ></IgrInput>
+                    <IgrInput
+                        label='Company'
+                        onInput={(e: any) => cell.row.data.Company = e.detail}
+                        value={cell.row.data.Company}
+                    ></IgrInput>
                 </div>
             </>
         );
@@ -184,30 +181,26 @@ export default class Sample extends React.Component<any, any> {
         return (
             <>
                 <div className="contact-container--edit" style={{padding: "1rem"}}>
-                    <IgrInput label='Country' onInput={(e: any) =>
-                        {
-                            cell.row.data.Country = e.detail;
-                            grid.forceUpdate();
-                        }
-                        } value={cell.row.data.Country}></IgrInput>
-                    <IgrInput label='City' onInput={(e: any) =>
-                        {
-                            cell.row.data.City = e.detail;
-                            grid.forceUpdate();
-                        }
-                        } value={cell.row.data.City}></IgrInput>
-                    <IgrInput label='Postal Code' onInput={(e: any) =>
-                        {
-                            cell.row.data.PostalCode = e.detail;
-                            grid.forceUpdate();
-                        }
-                        } value={cell.row.data.PostalCode}></IgrInput>
-                    <IgrInput label='Phone' onInput={(e: any) =>
-                        {
-                            cell.row.data.Phone = e.detail;
-                            grid.forceUpdate();
-                        }
-                        } value={cell.row.data.Phone}></IgrInput>
+                    <IgrInput
+                        label='Country'
+                        onInput={(e: any) => cell.row.data.Country = e.detail}
+                        value={cell.row.data.Country}
+                    ></IgrInput>
+                    <IgrInput
+                        label='City'
+                        onInput={(e: any) => cell.row.data.City = e.detail}
+                        value={cell.row.data.City}
+                    ></IgrInput>
+                    <IgrInput
+                        label='Postal Code'
+                        onInput={(e: any) => cell.row.data.PostalCode = e.detail}
+                        value={cell.row.data.PostalCode}
+                    ></IgrInput>
+                    <IgrInput
+                        label='Phone'
+                        onInput={(e: any) => cell.row.data.Phone = e.detail}
+                        value={cell.row.data.Phone}
+                    ></IgrInput>
                 </div>
             </>
         );

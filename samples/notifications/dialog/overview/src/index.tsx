@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrButton, IgrDialog, IgrButtonModule, IgrDialogModule } from 'igniteui-react';
+import { IgrButton, IgrDialog } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrButtonModule.register();
-IgrDialogModule.register();
 
 export default class DialogOverview extends React.Component<any, any> {
 

@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core
 import NwindData from './NwindData.json';
 import { IgrGridKeydownEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -39,7 +38,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    gridKeydown={this.webGridEditingExcelStyle}
+                    onGridKeydown={this.webGridEditingExcelStyle}
                     ref={this.grid1Ref}>
                     <IgrColumn
                         field="ProductID"
@@ -95,7 +94,7 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridEditingExcelStyle(sender: IgrGrid, args: IgrGridKeydownEventArgs): void {
+    public webGridEditingExcelStyle(args: IgrGridKeydownEventArgs): void {
         var key = (args.detail.event as any).keyCode;
         var grid = args.detail.target.grid;
         var activeElem = grid.navigation.activeNode;

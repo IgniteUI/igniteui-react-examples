@@ -10,7 +10,6 @@ import { ComponentRenderer, WebHierarchicalGridDescriptionModule, WebColumnGroup
 import HierarchicalCustomers from './HierarchicalCustomers.json';
 import { IgrPropertyEditorPropertyDescriptionButtonClickEventArgs } from 'igniteui-react-layouts';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -74,6 +73,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrHierarchicalGrid
                     autoGenerate={false}
                     data={this.hierarchicalCustomers}
+                    ref={this.hierarchicalGridRef}
                     id="hierarchicalGrid"
                     primaryKey="CustomerID"
                     moving={true}

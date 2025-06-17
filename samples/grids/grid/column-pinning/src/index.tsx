@@ -6,7 +6,6 @@ import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarPinning, IgrColumn } from 'igniteui-react-grids';
 import CustomersDataLocal from './CustomersDataLocal.json';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -34,7 +33,8 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
-                    data={this.customersDataLocal}>
+                    data={this.customersDataLocal}
+                    ref={this.gridRef}>
                     <IgrGridToolbar
                     >
                         <IgrGridToolbarTitle

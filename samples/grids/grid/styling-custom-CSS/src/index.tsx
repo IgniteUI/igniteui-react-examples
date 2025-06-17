@@ -6,7 +6,6 @@ import { LocalDataItem, LocalData } from './SampleData';
 import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -20,9 +19,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private category: IgrColumn
-    private marketShare: IgrColumn
-    private summary: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -39,6 +35,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.localData}
                     id="grid"
+                    ref={this.gridRef}
                     cellSelection="multiple"
                     columnSelection="multiple">
                     <IgrColumn

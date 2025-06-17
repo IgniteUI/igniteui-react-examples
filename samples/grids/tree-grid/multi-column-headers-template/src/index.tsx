@@ -8,7 +8,6 @@ import { ComponentRenderer, WebGridDescriptionModule, WebColumnGroupDescriptionM
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 import { IgrColumnTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -38,6 +37,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     data={this.employeesFlatDetails}
+                    ref={this.treeGridRef}
                     id="treeGrid"
                     primaryKey="ID"
                     foreignKey="ParentID">
@@ -175,7 +175,6 @@ export default class Sample extends React.Component<any, any> {
                 c.hidden = !c.hidden;
             }
         }
-        columnGroup.forceUpdate();
         this.columnGroupStates.set(columnGroup, !this.columnGroupStates.get(columnGroup));
     }
 }

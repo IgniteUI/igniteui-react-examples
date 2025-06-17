@@ -11,7 +11,6 @@ import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './Employee
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { IgrGrid } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -82,6 +81,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     id="treeGrid"
+                    ref={this.treeGridRef}
                     data={this.employeesNestedTreeData}
                     rowEditable={true}
                     primaryKey="ID"

@@ -11,7 +11,6 @@ import NwindData from './NwindData.json';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -33,9 +32,6 @@ export default class Sample extends React.Component<any, any> {
         this.grid = r;
         this.setState({});
     }
-    private productName: IgrColumn
-    private quantityPerUnit: IgrColumn
-    private unitPrice: IgrColumn
     private  _columnPipeArgs1: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
@@ -47,7 +43,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs1;
     }
-    private orderDate: IgrColumn
     private  _columnPipeArgs2: IgrColumnPipeArgs | null = null;
     public get columnPipeArgs2(): IgrColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
@@ -59,7 +54,6 @@ export default class Sample extends React.Component<any, any> {
         }
         return this._columnPipeArgs2;
     }
-    private discontinued: IgrColumn
 
     constructor(props: any) {
         super(props);
@@ -95,6 +89,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     id="grid"
+                    ref={this.gridRef}
                     data={this.nwindData}
                     moving={true}
                     allowFiltering={true}

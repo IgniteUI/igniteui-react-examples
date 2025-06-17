@@ -10,7 +10,6 @@ import {
 } from "igniteui-react-grids";
 import { SingersData } from "./SingersData";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 export default function App() {

@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridTool
 import MultiColumnsExportData from './MultiColumnsExportData.json';
 import { IgrExporterEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -288,7 +287,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webHierarchicalGridExportMultiColumnHeaders(sender: IgrGridToolbarExporter, args: IgrExporterEventArgs): void {
+    public webHierarchicalGridExportMultiColumnHeaders(args: IgrExporterEventArgs): void {
         if (args.detail.options) {
             args.detail.options.ignoreMultiColumnHeaders = false;
         }

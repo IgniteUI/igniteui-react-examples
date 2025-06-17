@@ -8,7 +8,6 @@ import { ComponentRenderer, WebTreeGridDescriptionModule, WebActionStripDescript
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 import { IgrGrid } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -51,6 +50,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrTreeGrid
                     autoGenerate={false}
                     id="treeGrid"
+                    ref={this.treeGridRef}
                     data={this.employeesNestedTreeData}
                     onRendered={this.webTreeGridPinRowOnRendered}
                     rowEditable={true}

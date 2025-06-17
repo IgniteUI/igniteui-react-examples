@@ -9,7 +9,6 @@ import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, Employe
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrExpansionPanel, IgrInput } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -39,6 +38,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.employeesNestedData}
+                    ref={this.gridRef}
                     id="grid">
                     <IgrColumn
                         header="Name"

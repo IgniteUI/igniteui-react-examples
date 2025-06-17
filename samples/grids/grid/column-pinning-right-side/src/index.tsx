@@ -9,7 +9,6 @@ import { AthletesDataExtendedItem, AthletesDataExtended } from './AthletesDataEx
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrAvatar } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -50,6 +49,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     autoGenerate={false}
                     data={this.athletesDataExtended}
+                    ref={this.gridRef}
                     id="grid"
                     pinning={this.pinningConfig1}>
                     <IgrGridToolbar

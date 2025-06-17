@@ -8,7 +8,6 @@ import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
 import { IgrGroupByRowTemplateContext } from 'igniteui-react-grids';
 import { IgrBadge } from 'igniteui-react';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -51,6 +50,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
+                    ref={this.gridRef}
                     id="grid"
                     data={this.invoicesWorldData}
                     rowSelection="multiple"

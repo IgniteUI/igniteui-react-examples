@@ -2,16 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { GridPagingMode, IgrGridCreatedEventArgs, IgrHierarchicalGridModule, IgrPaginator } from "igniteui-react-grids";
-import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from "igniteui-react-grids";
+import {
+  IgrColumn,
+  IgrGridCreatedEventArgs,
+  IgrHierarchicalGrid,
+  IgrPaginator,
+  IgrRowIsland,
+} from "igniteui-react-grids";
 
-import "igniteui-react-grids/grids/combined";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { RemoteService } from "./RemoteService";
 import { IgrNumberEventArgs } from "igniteui-react";
 import { CustomersWithPageResponseModel } from "./CustomersWithPageResponseModel";
-
-IgrHierarchicalGridModule.register();
 
 export default function App() {
   const hierarchicalGrid = useRef<IgrHierarchicalGrid>(null);
@@ -43,20 +45,15 @@ export default function App() {
         setData([]);
         // Stop loading even if error occurs. Prevents endless loading
         hierarchicalGrid.current.isLoading = false;
-
-      })
+      });
   }
 
-  function gridCreated(
-    rowIsland: IgrRowIsland,
-    event: IgrGridCreatedEventArgs,
-    parentKey: string
-  ) {
+  function gridCreated(event: IgrGridCreatedEventArgs, parentKey: string) {
     const context = event.detail;
     context.grid.isLoading = true;
-    
+
     const parentId: string = context.parentID;
-    const childDataKey: string = rowIsland.childDataKey;
+    const childDataKey: string = context.owner.childDataKey;
 
     RemoteService.getHierarchyDataById(parentKey, parentId, childDataKey)
       .then((data: any) => {
@@ -69,73 +66,82 @@ export default function App() {
         context.grid.data = [];
         context.grid.isLoading = false;
         context.grid.markForCheck();
-      })
-    
+      });
   }
 
-  function onPageNumberChange(paginator: IgrPaginator, args: IgrNumberEventArgs) {
+  function onPageNumberChange(args: IgrNumberEventArgs) {
     setPage(args.detail);
   }
 
-  function onPageSizeChange(paginator: IgrPaginator, args: IgrNumberEventArgs) {
+  function onPageSizeChange(args: IgrNumberEventArgs) {
     setPerPage(args.detail);
   }
 
-  return (
-    <div className="container sample ig-typography">
-      <div className="container fill">
+  const onCustomersGridCreatedHandler = (e: IgrGridCreatedEventArgs) => {
+    gridCreated(e, "Customers")
+  };
 
-        <IgrHierarchicalGrid
-          ref={hierarchicalGrid}
-          data={data}
-          pagingMode={GridPagingMode.Remote}
-          primaryKey="customerId"
-          height="600px"
+  const onOrdersGridCreatedHandler = (e: IgrGridCreatedEventArgs) => {
+    gridCreated(e, "Orders")
+  };
+
+  return (
+    <div className="sample ig-typography">
+      <IgrHierarchicalGrid
+        ref={hierarchicalGrid}
+        data={data}
+        pagingMode="remote"
+        primaryKey="customerId"
+        height="100%"
+      >
+        <IgrPaginator
+          perPage={perPage}
+          ref={paginator}
+          onPageChange={onPageNumberChange}
+          onPerPageChange={onPageSizeChange}
+        ></IgrPaginator>
+        <IgrColumn field="customerId" hidden={true}></IgrColumn>
+        <IgrColumn field="companyName" header="Company Name"></IgrColumn>
+        <IgrColumn field="contactName" header="Contact Name"></IgrColumn>
+        <IgrColumn field="contactTitle" header="Contact Title"></IgrColumn>
+        <IgrColumn field="address.country" header="Country"></IgrColumn>
+        <IgrColumn field="address.phone" header="Phone"></IgrColumn>
+
+        <IgrRowIsland
+          childDataKey="Orders"
+          primaryKey="orderId"
+          onGridCreated={onCustomersGridCreatedHandler}
+          height="100%"
         >
-          <IgrPaginator 
-            perPage={perPage}
-            ref={paginator}
-            pageChange={onPageNumberChange}
-            perPageChange={onPageSizeChange}>
-          </IgrPaginator>
-          <IgrColumn field="customerId" hidden={true}></IgrColumn>
-          <IgrColumn field="companyName" header="Company Name"></IgrColumn>
-          <IgrColumn field="contactName" header="Contact Name"></IgrColumn>
-          <IgrColumn field="contactTitle" header="Contact Title"></IgrColumn>
-          <IgrColumn field="address.country" header="Country"></IgrColumn>
-          <IgrColumn field="address.phone" header="Phone"></IgrColumn>
+          <IgrColumn field="orderId" hidden={true}></IgrColumn>
+          <IgrColumn
+            field="shipAddress.country"
+            header="Ship Country"
+          ></IgrColumn>
+          <IgrColumn field="shipAddress.city" header="Ship City"></IgrColumn>
+          <IgrColumn
+            field="shipAddress.street"
+            header="Ship Address"
+          ></IgrColumn>
+          <IgrColumn
+            field="orderDate"
+            header="Order Date"
+            dataType="date"
+          ></IgrColumn>
 
           <IgrRowIsland
-            childDataKey="Orders"
-            primaryKey="orderId"
-            gridCreated={(
-              rowIsland: IgrRowIsland,
-              e: IgrGridCreatedEventArgs
-            ) => gridCreated(rowIsland, e, "Customers")}
+            childDataKey="Details"
+            primaryKey="productId"
+            onGridCreated={onOrdersGridCreatedHandler}
+            height="100%"
           >
-            <IgrColumn field="orderId" hidden={true}></IgrColumn>
-            <IgrColumn field="shipAddress.country" header="Ship Country"></IgrColumn>
-            <IgrColumn field="shipAddress.city" header="Ship City"></IgrColumn>
-            <IgrColumn field="shipAddress.street" header="Ship Address"></IgrColumn>
-            <IgrColumn field="orderDate" header="Order Date" dataType="date"></IgrColumn>
-
-            <IgrRowIsland
-              childDataKey="Details"
-              primaryKey="productId"
-              gridCreated={(
-                rowIsland: IgrRowIsland,
-                e: IgrGridCreatedEventArgs
-              ) => gridCreated(rowIsland, e, "Orders")}
-            >
-              <IgrColumn field="productId" hidden={true}></IgrColumn>
-              <IgrColumn field="quantity" header="Quantity"></IgrColumn>
-              <IgrColumn field="unitPrice" header="Unit Price"></IgrColumn>
-              <IgrColumn field="discount" header="Discount"></IgrColumn>
-            </IgrRowIsland>
+            <IgrColumn field="productId" hidden={true}></IgrColumn>
+            <IgrColumn field="quantity" header="Quantity"></IgrColumn>
+            <IgrColumn field="unitPrice" header="Unit Price"></IgrColumn>
+            <IgrColumn field="discount" header="Discount"></IgrColumn>
           </IgrRowIsland>
-        </IgrHierarchicalGrid>
-
-      </div>
+        </IgrRowIsland>
+      </IgrHierarchicalGrid>
     </div>
   );
 }

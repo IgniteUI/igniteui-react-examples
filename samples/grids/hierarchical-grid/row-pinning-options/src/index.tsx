@@ -10,7 +10,6 @@ import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebHierarchica
 import SingersData from './SingersData.json';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -96,6 +95,7 @@ export default class Sample extends React.Component<any, any> {
                     data={this.singersData}
                     primaryKey="Photo"
                     id="grid"
+                    ref={this.gridRef}
                     cellSelection="none"
                     onRendered={this.webHierarchicalGridPinRowOnRendered}
                     pinning={this.pinningConfig1}>
@@ -187,19 +187,17 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webHierarchicalGridChangePinningConfig(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        var newPinningPosition = args.newValue === "Top" ? RowPinningPosition.Top : RowPinningPosition.Bottom;
-        var grid = this.grid;
-        grid.pinning.rows = newPinningPosition;
-        var rowIsland1 = grid.contentChildLayoutList.filter(e => e.childDataKey == 'Albums');
-        rowIsland1[0].pinning.rows = newPinningPosition;
-    var rowIsland2 = rowIsland1[0].contentChildLayoutList.filter(e => e.childDataKey == 'Songs');
-    if(rowIsland2[0]) {
-            rowIsland2[0].pinning.rows = newPinningPosition;
+        const rows = args.newValue === "Top" ? RowPinningPosition.Top : RowPinningPosition.Bottom;
+        const columns = ColumnPinningPosition.End;
+        this._pinningConfig1 = { rows, columns };
+        this._pinningConfig2 = { rows, columns };
+        if ('_pinningConfig3' in this) {
+            this._pinningConfig3 = { rows, columns };
         }
-        var rowIsland3 = grid.contentChildLayoutList.filter(e => e.childDataKey == 'Tours');
-        if(rowIsland3[0]) {
-            rowIsland3[0].pinning.rows = newPinningPosition
+        if ('_pinningConfig4' in this) {
+            this._pinningConfig4 = { rows, columns };
         }
+        this.forceUpdate(); // due to not using state
     }
 
     public webHierarchicalGridPinRowOnRendered(): void {

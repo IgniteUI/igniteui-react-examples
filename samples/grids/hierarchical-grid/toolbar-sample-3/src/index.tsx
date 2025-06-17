@@ -7,7 +7,6 @@ import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridTool
 import SingersData from './SingersData.json';
 import { IgrExporterOptionsBase, IgrGridToolbarExportEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -166,7 +165,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
 
-    public webHierarchicalGridToolbarExporting(sender: IgrHierarchicalGrid, evt: IgrGridToolbarExportEventArgs): void {
+    public webHierarchicalGridToolbarExporting(evt: IgrGridToolbarExportEventArgs): void {
         const args = evt.detail;
         const options: IgrExporterOptionsBase = args.options;
         if (options) {

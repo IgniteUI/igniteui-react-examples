@@ -8,7 +8,6 @@ import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
 import { IgrRowDragStartEventArgs, IgrRowDragEndEventArgs } from 'igniteui-react-grids';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
@@ -38,6 +37,7 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
+                    ref={this.treeGridRef}
                     id="treeGrid"
                     data={this.employeesNestedTreeData}
                     primaryKey="ID"
@@ -104,14 +104,14 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webTreeGridReorderRowStartHandler(sender: IgrTreeGrid, args: IgrRowDragStartEventArgs){
+    public webTreeGridReorderRowStartHandler(args: IgrRowDragStartEventArgs){
         const draggedRow = args.detail.dragData;
         if(draggedRow.expanded){
             draggedRow.expanded = false;
         }
     }
 
-    public webTreeGridReorderRowHandler(sender: IgrTreeGrid, args: IgrRowDragEndEventArgs): void {
+    public webTreeGridReorderRowHandler(args: IgrRowDragEndEventArgs): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
         const dragElementPos = ghostElement.getBoundingClientRect();
         const grid = this.treeGrid;

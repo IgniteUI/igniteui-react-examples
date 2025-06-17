@@ -2,11 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { GridSelectionMode, IgrColumnComponentEventArgs, IgrGridBaseDirective, IgrTreeGridModule } from 'igniteui-react-grids';
+import { IgrColumnComponentEventArgs, IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { EmployeesFlatDetails } from './EmployeesFlatDetails';
 
-import 'igniteui-react-grids/grids/combined';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import { IgrInput, IgrSwitch, IgrButton } from 'igniteui-react';
 
@@ -102,7 +101,7 @@ export default class Sample extends React.Component<any, any> {
                         copyFormatters: this.state.clipboardFormatters,
                         separator: this.state.separator
                     }}
-                    columnInit={this.webGridClipboardOperationsColumnInit}
+                    onColumnInit={this.webGridClipboardOperationsColumnInit}
                 >
                     <IgrColumn field="ID" header="ID" dataType="number" sortable />
                     <IgrColumn field="Name" dataType="string" sortable disableHiding />
@@ -147,11 +146,10 @@ export default class Sample extends React.Component<any, any> {
     }
 
     private handleClearSelection() {
-        this.treeGrid.cellSelection = GridSelectionMode.None;
-        this.treeGrid.cellSelection = GridSelectionMode.Multiple;
+        this.treeGrid.clearCellSelection();
     }
 
-    private webGridClipboardOperationsColumnInit = (grid: IgrGridBaseDirective, args: IgrColumnComponentEventArgs) => {
+    private webGridClipboardOperationsColumnInit = (args: IgrColumnComponentEventArgs) => {
         let column = args.detail;
         column.formatter = (val: any) => "** " + val + " **"
         column.header = "🎉" + column.field;
