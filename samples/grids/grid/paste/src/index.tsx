@@ -9,7 +9,6 @@ import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter,
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
-import { IgrGridKeydownEventArgs, GridKeydownTargetType } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -142,8 +141,8 @@ export default class Sample extends React.Component<any, any> {
         (this as any)["pasteMode"] = newVal === "NewRecords" ? "Paste data as new records" : "Paste starting from active cell";
     }
 
-    public webGridPasteFromExcel() {
-        const grid = document.getElementById("grid") as any;
+    public webGridPasteFromExcel(e: any) {
+        const grid = e.target as IgrGrid;
         this.onKeyDown = this.onKeyDown.bind(this);
         grid.addEventListener("keydown", this.onKeyDown);
     }
