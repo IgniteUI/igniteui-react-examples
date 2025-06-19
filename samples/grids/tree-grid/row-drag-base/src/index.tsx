@@ -1,28 +1,22 @@
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
-import {
-  IgrTreeGridModule,
-} from "igniteui-react-grids";
 import {
   IgrTreeGrid,
   IgrColumn,
+  IgrRowDragEndEventArgs,
 } from "igniteui-react-grids";
 import { EmployeesNestedTreeData, EmployeesNestedTreeDataItem } from "./EmployeesNestedTreeData";
 
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
-IgrTreeGridModule.register();
-
 export default function App() {
   const employeesData = new EmployeesNestedTreeData();
-  const treeGridRef = useRef<IgrTreeGrid>(null);
-  const treeGridRef2 = useRef<IgrTreeGrid>(null);
+  const rightTGridRef = useRef<IgrTreeGrid>(null);
 
-   // Recursive function to add the row and its children
-  function addRowAndChildren(row:EmployeesNestedTreeDataItem, newData:EmployeesNestedTreeDataItem[]) {
-    if(newData.includes(row)){
+  // Recursive function to add the row and its children
+  const addRowAndChildren = (row: EmployeesNestedTreeDataItem, newData: EmployeesNestedTreeDataItem[]) => {
+    if (newData.includes(row)) {
       return;
     }
     newData.push(row);
@@ -30,21 +24,23 @@ export default function App() {
     children.forEach(child => addRowAndChildren(child, newData));
   }
 
-  function RowDragEnd(evt: any) {
-    const grid2 = treeGridRef2.current;
+  const RowDragEnd = (evt: IgrRowDragEndEventArgs) => {
+    const leftGrid = evt.target as IgrTreeGrid;
     const ghostElement = evt.detail.dragDirective.ghostElement;
     if (ghostElement != null) {
       const dragElementPos = ghostElement.getBoundingClientRect();
-      const gridPosition = document.getElementById("treeGrid2").getElementsByTagName("igc-tree-grid")[0].getBoundingClientRect();
+      const gridPosition = document.getElementById("treeGrid2").getBoundingClientRect();
 
       const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
       const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
+
       if (withinXBounds && withinYBounds) {
-        
-        const newData = [...grid2.data];
+        const newData = [...rightTGridRef.current.data];
         const draggedRowData = evt.detail.dragData.data;
+
         addRowAndChildren(draggedRowData, newData);
-        grid2.data = newData;
+        rightTGridRef.current.data = newData;
+        leftGrid.deleteRow(evt.detail.dragData.key);
       }
     }
   }
@@ -60,7 +56,6 @@ export default function App() {
             foreignKey="ParentID"
             id="treeGrid"
             width="40%"
-            ref={treeGridRef}
             rowDraggable={true}
             onRowDragEnd={RowDragEnd}
           >
@@ -102,7 +97,7 @@ export default function App() {
             data={[]}
             primaryKey="ID"
             foreignKey="ParentID"
-            ref={treeGridRef2}
+            ref={rightTGridRef}
             id="treeGrid2"
             width="40%"
             emptyGridMessage="Drag and Drop a row from the left grid to this grid"
