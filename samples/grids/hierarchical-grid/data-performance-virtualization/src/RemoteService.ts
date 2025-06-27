@@ -1,8 +1,9 @@
 const URL = `https://data-northwind.indigo.design/`;
 
-export function getData(dataState: any): any {
-    return fetch(buildUrl(dataState))
-        .then((result) => result.json());
+export async function getData(dataState: any): Promise<any> {
+    const response = await fetch(buildUrl(dataState));
+    const data = await response.json();
+    return data;
 }
 
 function buildUrl(dataState: any) {
