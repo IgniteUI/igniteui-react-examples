@@ -1,0 +1,30 @@
+ span{
+  font-size: 30px;
+}
+
+igc-tile::part(header) {
+  border-bottom: 2px solid var(--ig-primary-700);
+}
+
+p {
+  font-size: 18px;
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
+igc-radio-group {
+  margin-left: 22px;
+  width: fit-content;
+  padding: 4px 15px;
+  margin-bottom: 8px;
+  border: 2px solid var(--ig-primary-700);
+  background-color: var(--ig-gray-300);
+}
+
+igc-tile::part(dragging) {
+  color: yellow;
+}
+
+.radioWrapper {
+  display: flex;
+}
