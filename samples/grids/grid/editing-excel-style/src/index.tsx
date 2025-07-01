@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { IgrGrid, IgrColumn } from "igniteui-react-grids";
+import { IgrGrid, IgrColumn, IgrGridKeydownEventArgs } from "igniteui-react-grids";
 import NwindData from "./NwindData.json";
 
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
@@ -58,10 +58,16 @@ function Sample() {
     return !rec.expression && !rec.summaries && !rec.childGridsData && !rec.detailsData;
   };
 
+  const cancelGridKeydown = (args: IgrGridKeydownEventArgs) => {
+    if(args.detail.event.code === "Enter" || args.detail.event.code === "NumpadEnter") {
+      args.detail.cancel = true; 
+    }
+  };
+
   return (
     <div className="container sample ig-typography">
       <div className="container fill">
-        <IgrGrid ref={gridRef} autoGenerate={false} data={NwindData} primaryKey="ProductID">
+        <IgrGrid ref={gridRef} autoGenerate={false} data={NwindData} primaryKey="ProductID" onGridKeydown={cancelGridKeydown}>
           <IgrColumn field="ProductID" header="Product ID" editable={true} groupable={true} hidden={true} />
           <IgrColumn field="ProductName" header="Product Name" dataType="string" editable={true} />
           <IgrColumn field="UnitPrice" header="Unit Price" dataType="number" editable={true} />
