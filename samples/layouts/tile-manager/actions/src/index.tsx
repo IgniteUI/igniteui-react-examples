@@ -106,13 +106,13 @@ export default class Actions extends React.Component<any, any> {
           </IgrTile>
           <IgrTile disableFullscreen disableMaximize>
             <h3 slot="title">Custom Actions</h3>
-            <IgrIconButton id="customOne" onClick={this.onCustomOneClick} slot="actions" variant="flat" collection="material" exportparts="icon" name="north_east"
+            <IgrIconButton id="customOne" onClick={this.onCustomOneClick} slot="actions" variant="flat" collection="material" name="north_east"
             aria-label="north_east"></IgrIconButton>
             <p>Replace the default actions with custom ones, and include extra actions when the tile is maximized.</p>
           </IgrTile>
           <IgrTile disableFullscreen disableMaximize>
-            <IgrIconButton id="customTwo" onClick={this.onCustomTwoClick} slot="actions" variant="flat" collection="material" exportparts="icon"
-            name="north_east"></IgrIconButton>
+            <IgrIconButton id="customTwo" onClick={this.onCustomTwoClick} slot="actions" variant="flat" collection="material"
+            name="north_east" aria-label="north_east"></IgrIconButton>
             <p>Display only custom actions in the header.</p>
           </IgrTile>
           <IgrTile disableFullscreen disableMaximize>

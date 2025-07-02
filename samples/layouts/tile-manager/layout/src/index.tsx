@@ -26,7 +26,7 @@ export default class Layout extends Component<any, any> {
     newTile.position = 0;
     newTile.append(contentHeader);
     newTile.append(content);
-    this.tileManagerRef.current.insertBefore(newTile, this.tileManagerRef.current.tiles.at(-1));
+    (this.tileManagerRef.current as IgrTileManager).appendChild(newTile);
   }
 
   public render(): JSX.Element {
