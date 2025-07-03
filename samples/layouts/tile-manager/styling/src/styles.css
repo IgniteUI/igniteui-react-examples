@@ -1,0 +1,41 @@
+igc-tile-manager::part(base) {
+  background-color: var(--ig-surface-900);
+}
+
+igc-tile::part(content-container) {
+  color: var(--ig-secondary-200);
+}
+
+igc-tile::part(header) {
+  background-color: var(--ig-gray-300);
+}
+
+igc-tile::part(title) {
+  color: var(--ig-primary-400);
+}
+
+igc-tile:nth-child(n+2)::part(trigger-side), igc-tile:nth-child(n+2)::part(trigger-bottom) {
+  background-color: var(--ig-success-500);
+}
+
+igc-tile:nth-child(n+2)::part(trigger) {
+  background-color: var(--ig-error-500);
+}
+ 
+.side,
+.corner,
+.bottom {
+  display: inline;
+  width: 100%;
+  height: 100%;
+}
+
+.corner {
+  transform: rotate(220deg);
+  bottom: 8px;
+  right: 8px;
+}
+
+.bottom {
+  transform: rotate(90deg);
+}

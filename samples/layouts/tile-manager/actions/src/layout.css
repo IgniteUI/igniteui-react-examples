@@ -1,0 +1,23 @@
+igc-tile-manager {
+  margin-bottom: 5px;
+}
+
+igc-tile:nth-child(n + 3):nth-child(-n + 4)::part(actions) {
+  padding: 13px 16px;
+}
+
+igc-tile:nth-child(n+3)::part(header) {
+  padding: 0px;
+}
+
+igc-tile:nth-child(5)::part(header) {
+  padding: 18px 0 18px 0;
+}
+
+p, igc-tile:nth-child(3) h3, igc-tile:nth-child(5) h3  {
+  margin-left: 20px;
+}
+
+igc-tile:nth-last-child(1) p {
+  margin-top: 30px;
+}

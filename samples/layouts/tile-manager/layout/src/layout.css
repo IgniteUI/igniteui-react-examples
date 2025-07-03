@@ -1,0 +1,21 @@
+span{
+  font-size: 30px;
+}
+
+p {
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.btnWrapper {
+  margin: 0 0 8px 22px;
+}
+
+igc-button:nth-of-type(-n+3) {
+  margin-right: 5px;;
+}
+
+.sample {
+  overflow: auto;
+}
+ 

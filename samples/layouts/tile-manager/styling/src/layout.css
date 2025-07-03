@@ -1,0 +1,12 @@
+span{
+  font-size: 30px;
+}
+
+p {
+  font-size: 18px;
+  margin: 10px 0 0 20px;
+}
+ 
+.sample {
+  overflow: auto;
+}
