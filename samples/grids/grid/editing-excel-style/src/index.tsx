@@ -59,15 +59,25 @@ function Sample() {
   };
 
   const cancelGridKeydown = (args: IgrGridKeydownEventArgs) => {
-    if(args.detail.event.code === "Enter" || args.detail.event.code === "NumpadEnter") {
-      args.detail.cancel = true; 
+    if (args.detail.event.code === "Enter" || args.detail.event.code === "NumpadEnter") {
+      args.detail.cancel = true;
+    }
+  };
+
+  const handleArrowKeyDown = (event: any) => {
+    const code = event.code;
+    const grid = event.currentTarget as IgrGrid;
+    const activeElem = grid.selectedCells[0];
+
+    if ((code === "ArrowDown" || code === "ArrowUp") && activeElem.editMode) {
+      event.preventDefault();
     }
   };
 
   return (
     <div className="container sample ig-typography">
       <div className="container fill">
-        <IgrGrid ref={gridRef} autoGenerate={false} data={NwindData} primaryKey="ProductID" onGridKeydown={cancelGridKeydown}>
+        <IgrGrid ref={gridRef} autoGenerate={false} data={NwindData} primaryKey="ProductID" onGridKeydown={cancelGridKeydown} onKeyDownCapture={handleArrowKeyDown}>
           <IgrColumn field="ProductID" header="Product ID" editable={true} groupable={true} hidden={true} />
           <IgrColumn field="ProductName" header="Product Name" dataType="string" editable={true} />
           <IgrColumn field="UnitPrice" header="Unit Price" dataType="number" editable={true} />
