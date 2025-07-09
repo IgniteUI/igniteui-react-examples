@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { IgrGrid, IgrColumn, IgrGridKeydownEventArgs } from "igniteui-react-grids";
+import { IgrGrid, IgrColumn, IgrGridKeydownEventArgs, IgrCellType } from "igniteui-react-grids";
 import NwindData from "./NwindData.json";
 
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 function Sample() {
   const gridRef = useRef<IgrGrid>();
+  const lastActiveCellRef = useRef<IgrCellType>(null);
   useEffect(() => {
     gridRef.current.addEventListener("keydown", handleKeyDown);
     return () => {
@@ -18,7 +19,7 @@ function Sample() {
   const handleKeyDown = (event: KeyboardEvent) => {
     const code = event.code;
     const grid = event.currentTarget as IgrGrid;
-    const activeElem = grid.selectedCells[0];
+    const activeElem = grid.selectedCells[0] || lastActiveCellRef.current;
 
     if ((event.code >= "Digit0" && event.code <= "Digit9") || (event.code >= "KeyA" && event.code <= "KeyZ") || (event.code >= "Numpad0" && event.code <= "Numpad9" && event.code !== "Enter" && event.code !== "NumpadEnter")) {
       if (activeElem && !activeElem.editMode) {
@@ -33,7 +34,7 @@ function Sample() {
     if (code === "Enter" || code === "NumpadEnter") {
       const thisRow = activeElem.row.index;
       const dataView = grid.dataView;
-      const nextRowIndex = getNextEditableRowIndex(thisRow, dataView, event.shiftKey);
+      const nextRowIndex = getNextEditableIndex(thisRow, dataView, event.shiftKey);
 
       grid.navigateTo(nextRowIndex, activeElem.column.visibleIndex, (obj: any) => {
         obj.target.activate();
@@ -43,14 +44,14 @@ function Sample() {
     }
   };
 
-  const getNextEditableRowIndex = (currentRowIndex: number, dataView: any, previous: boolean) => {
-    if (currentRowIndex < 0 || (currentRowIndex === 0 && previous) || (currentRowIndex >= dataView.length - 1 && !previous)) {
-      return currentRowIndex;
+  const getNextEditableIndex = (currentIndex: number, dataView: any, previous: boolean): number => {
+    if (currentIndex < 0 || (currentIndex === 0 && previous) || (currentIndex >= dataView.length - 1 && !previous)) {
+      return currentIndex;
     }
     if (previous) {
-      return dataView.findLastIndex((rec: any, index: number) => index < currentRowIndex && isEditableDataRecordAtIndex(index, dataView));
+      return dataView.findLastIndex((rec: any, index: number) => index < currentIndex && isEditableDataRecordAtIndex(index, dataView));
     }
-    return dataView.findIndex((rec: any, index: number) => index > currentRowIndex && isEditableDataRecordAtIndex(index, dataView));
+    return dataView.findIndex((rec: any, index: number) => index > currentIndex && isEditableDataRecordAtIndex(index, dataView));
   };
 
   const isEditableDataRecordAtIndex = (dataViewIndex: number, dataView: any) => {
@@ -68,10 +69,56 @@ function Sample() {
     const code = event.code;
     const grid = event.currentTarget as IgrGrid;
     const activeElem = grid.selectedCells[0];
+    if (!activeElem || !activeElem.editMode) return;
 
-    if ((code === "ArrowDown" || code === "ArrowUp") && activeElem.editMode) {
+    const dataView = grid.dataView;
+
+    if (code === "ArrowDown" || code === "ArrowUp") {
       event.preventDefault();
+      event.stopPropagation();
+
+      const thisRow = activeElem.row.index;
+      const isUp = code === "ArrowUp";
+      const nextRowIndex = getNextEditableIndex(thisRow, dataView, isUp);
+
+      navigateAndFocus(grid, nextRowIndex, activeElem.column.visibleIndex, isUp);
     }
+
+    if (code === "ArrowLeft" || code === "ArrowRight") {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const thisColumn = activeElem.column.visibleIndex;
+      const isLeft = code === "ArrowLeft";
+      const nextColIndex = getNextEditableIndex(thisColumn, dataView, isLeft);
+
+      navigateAndFocus(grid, activeElem.row.index, nextColIndex, isLeft);
+    }
+  };
+
+  const navigateAndFocus = (
+    grid: IgrGrid,
+    rowIndex: number,
+    colIndex: number,
+    reverse: boolean
+  ) => {
+    grid.navigateTo(rowIndex, colIndex, (obj: any) => {
+      obj.target.activate();
+      grid.endEdit(true);
+
+      const selected = grid.selectedCells;
+      let cell = selected[0]
+
+      if (selected.length > 1) {
+        cell = reverse ? selected[0] : selected[selected.length - 1];
+      }
+
+      grid.clearCellSelection();
+      cell.selected = true;
+      cell.editMode = true;
+
+      lastActiveCellRef.current = cell;
+    });
   };
 
   return (
