@@ -3,15 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrGridModule, IgrPaginatorModule } from 'igniteui-react-grids';
+import { IgrInputModule } from 'igniteui-react';
 import { IgrGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
-import { ComponentRenderer, WebGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-react-core';
+import { ComponentRenderer, WebGridDescriptionModule, WebPaginatorDescriptionModule, WebInputDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
+import { IgrGridBaseDirective, IgrGridEditEventArgs } from 'igniteui-react-grids';
+import { IgrCellTemplateContext } from 'igniteui-react-grids';
+import { IgrInput } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
     IgrGridModule,
-    IgrPaginatorModule
+    IgrPaginatorModule,
+    IgrInputModule
 ];
 mods.forEach((m) => m.register());
 
@@ -26,6 +31,7 @@ export default class Sample extends React.Component<any, any> {
         super(props);
 
         this.gridRef = this.gridRef.bind(this);
+        this.webGridOnEditEnter = this.webGridOnEditEnter.bind(this);
     }
 
     public render(): JSX.Element {
@@ -39,7 +45,8 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.gridRef}
                     data={this.nwindData}
                     primaryKey="ProductID"
-                    allowFiltering={true}>
+                    allowFiltering={true}
+                    onCellEditEnter={this.webGridOnEditEnter}>
                     <IgrPaginator
                         perPage={10}>
                     </IgrPaginator>
@@ -84,6 +91,7 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         sortable={true}
                         hasSummary={true}
+                        inlineEditorTemplate={this.webGridNumericColEditCellTemplate}
                         editable={true}
                         filterable={false}>
                     </IgrColumn>
@@ -105,8 +113,44 @@ export default class Sample extends React.Component<any, any> {
             var context = this._componentRenderer.context;
             WebGridDescriptionModule.register(context);
             WebPaginatorDescriptionModule.register(context);
+            WebInputDescriptionModule.register(context);
         }
         return this._componentRenderer;
+    }
+
+    public webGridOnEditEnter(s: IgrGridBaseDirective, e: IgrGridEditEventArgs): void {
+
+        const column = s.getColumnByVisibleIndex(e.detail.cellID.columnID);
+        if(column.field === 'ReorderLevel') {
+            setTimeout(() => {
+                const rowId = e.detail.cellID.rowID;
+                const columnId = e.detail.cellID.columnID;
+                const inputTemplateId = `edit-cell-${rowId}-${columnId}`;
+                const element = document.getElementById(inputTemplateId);
+                element?.focus();
+            });
+        }
+    }
+
+    public webGridNumericColEditCellTemplate = (e: { dataContext: IgrCellTemplateContext }) => {
+
+        const cell = e.dataContext.cell;
+        const rowId = cell.id.rowID;
+        const columnId = cell.id.columnID;
+        const inputTemplateId = `edit-cell-${rowId}-${columnId}`;
+
+        return (
+            <IgrInput
+                type="number"
+                id={inputTemplateId}
+                name={cell.id.rowID}
+                value={cell.editValue}
+                inputOcurred={(s:any, e: any) => {
+                    cell.editValue = e.detail;
+                }}
+                style={{width: "100%"}}
+            />
+        );
     }
 
 }
