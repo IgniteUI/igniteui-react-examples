@@ -3,6 +3,9 @@
 
 .container {
     display: flex;
+    flex-wrap: wrap;
+    max-height: 320px;
+    max-width: max-content;
 }
 
 .sample {
@@ -25,7 +28,7 @@ igc-tooltip::part(base) {
     border: 1px solid var(--ig-gray-300);
     width: 280px;
     height: max-content;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 
     igc-list-item {
         padding: 8px 16px;
@@ -95,12 +98,6 @@ igc-tooltip::part(base) {
         width: 100%;
         height: 100%;
     }
-
-    .helper {
-        margin: 5px 0 0 5px;
-        font-size: 12px;
-        color: var(--ig-gray-500);
-    }
 }
 
 .trigger:nth-of-type(1) {
@@ -111,8 +108,12 @@ igc-tooltip::part(base) {
     cursor: pointer;
 }
 
+.trigger:nth-of-type(n+5) {
+    margin-left: 1.5rem;
+}
+
 .helper {
-    margin: 5px 0 0 5px;
+    margin: 0.25rem 0 0 1.8rem;
     font-size: 12px;
     color: var(--ig-gray-500);
     width: max-content;
@@ -272,7 +273,6 @@ igc-tooltip::part(base) {
     display: block;
     border-right-color: var(--ig-error-50);
 }
-
 
 .multiline {
 
