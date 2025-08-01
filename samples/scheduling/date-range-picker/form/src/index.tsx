@@ -1,37 +1,36 @@
-import React, {useEffect} from 'react';
+import React, { useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrDateRangePicker, IgrButton, IgrDialog } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 export default function DrpForm() {
-  useEffect(() => {
-    document.getElementById("DateForm")?.addEventListener("submit", (event: SubmitEvent) => {
-      event.preventDefault();
-      showDialog(event.target as HTMLFormElement);
-    });
+  const dialog = useRef<IgrDialog>(null);
+  const [range, setRange] = useState({ start: null, end: null });
 
-    function showDialog(data: HTMLFormElement) {
-      let dateRange = data.DateRange.value;
-      const dialog = document.createElement("igc-dialog") as IgrDialog;
-      dialog.addEventListener("igcClosed", () => dialog.remove());
-      const dump = document.createElement("pre");
-      dump.innerHTML = `<b>Start</b>: ${dateRange.start} \n<b>End</b>: ${dateRange.end}`;
-      dialog.appendChild(dump);
-      document.body.appendChild(dialog);
-      dialog.show();
+  const showDialog = (event: React.FormEvent<HTMLFormElement>) => {
+    if (dialog.current) {
+      event.preventDefault();
+      dialog.current.show();
     }
-  }, []);
+  };
+
+  const handleDateRangeChange = (event: CustomEvent) => {
+    const newRange = {
+      start: event.detail?.start || null,
+      end: event.detail?.end || null,
+    };
+    setRange(newRange);
+  };
 
   return (
     <div className="container sample center">
-      <form id="DateForm">
+      <form id="DateForm" onSubmit={showDialog}>
         <fieldset>
           <IgrDateRangePicker
             required
-            min={new Date("2025-05-01")}
+            onChange={handleDateRangeChange}
             label="Date Range"
-            id="DateRange"
           ></IgrDateRangePicker>
           <IgrButton variant="outlined" type="submit">
             Submit
@@ -41,6 +40,12 @@ export default function DrpForm() {
           </IgrButton>
         </fieldset>
       </form>
+      <IgrDialog ref={dialog}>
+        <pre>
+          <b>Start</b>: {range?.start?.toString() ?? ""} <br />
+          <b>End</b>: {range?.end?.toString() ?? ""}
+        </pre>
+      </IgrDialog>
     </div>
   );
 }
