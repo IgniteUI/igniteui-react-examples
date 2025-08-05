@@ -93,7 +93,6 @@ igc-tooltip::part(base) {
     }
 }
 
-
 .trigger:nth-of-type(6) {
     cursor: pointer;
 }
@@ -247,6 +246,7 @@ igc-tooltip::part(base) {
     border-radius: 0.125rem;
     gap: 0.5rem;
     background-color: var(--ig-error-50);
+		border: unset;
     padding: 0.188rem 0.5rem;
 }
 
@@ -265,7 +265,7 @@ igc-tooltip::part(base) {
 
     p {
         font-size: 0.625rem;
-        width: 116px;
+        width: 158px;
         line-height: 1rem;
         letter-spacing: 0.33px;
         margin: unset;
@@ -367,7 +367,7 @@ igc-tooltip::part(base) {
     gap: 0.5rem;
     display: flex;
     justify-content: space-between;
-    width: 260px;
+    width: 280px;
     --ig-icon-color: var(--ig-gray-700);
 }
 
