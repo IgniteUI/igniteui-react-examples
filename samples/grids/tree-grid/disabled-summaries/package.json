@@ -9,7 +9,7 @@
     "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
-    "igniteui-react": "19.0.2",
+    "igniteui-react": "19.1.0",
     "igniteui-react-core": "19.0.1-beta.0",
     "igniteui-react-datasources": "19.0.1-beta.0",
     "igniteui-react-grids": "19.0.2",

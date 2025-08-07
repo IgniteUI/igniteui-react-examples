@@ -14,12 +14,12 @@
     "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
-    "igniteui-react": "19.0.2",
+    "igniteui-react": "19.1.0",
     "igniteui-react-charts": "19.0.1-beta.0",
     "igniteui-react-core": "19.0.1-beta.0",
     "igniteui-react-inputs": "19.0.1-beta.0",
     "igniteui-react-layouts": "19.0.1-beta.0",
-    "igniteui-webcomponents": "6.0.0",
+    "igniteui-webcomponents": "6.2.0",
     "lit-html": "^3.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
