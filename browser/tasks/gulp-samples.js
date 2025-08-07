@@ -859,7 +859,7 @@ function updateIG(cb) {
         { version: "19.0.1-beta.0", name: "igniteui-react-dashboards" },
         { version: "19.1.0", name: "igniteui-react" },
         // these IG packages are sometimes updated:
-        { version: "6.1.2" , name: "igniteui-webcomponents" },
+        { version: "6.2.0" , name: "igniteui-webcomponents" },
         { version: "1.16.1", name: "igniteui-dockmanager" },
         // main react packages
         { version: "^18.2.0", name: "react" },
