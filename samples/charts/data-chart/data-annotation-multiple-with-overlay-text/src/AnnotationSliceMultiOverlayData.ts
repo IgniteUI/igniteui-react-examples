@@ -12,10 +12,7 @@ export class AnnotationSliceMultiOverlayData extends Array<AnnotationSliceMultiO
             super(...items);
         } else {
             const newItems = [
-                new AnnotationSliceMultiOverlayDataItem(
-                {
-                    value: 50
-                }),
+                new AnnotationSliceMultiOverlayDataItem({ value: 50 }),
             ];
             super(...newItems.slice(0));
         }

@@ -27,32 +27,19 @@ export default class Sample extends React.Component<any, any> {
     private chartRef(r: IgrDataChart) {
         this.chart = r;
         this.setState({});
-    }      
-    private xAxisBottom: IgrCategoryXAxis
-    private xAxisBottomRef(r: IgrCategoryXAxis){
-        this.xAxisBottom = r;
-        this.setState({});
     }
+    private xAxisBottom: IgrCategoryXAxis
     private xAxis: IgrCategoryXAxis
     private yAxisLeft: IgrNumericYAxis
     private yAxisRight: IgrNumericYAxis
     private series1: IgrFinancialPriceSeries
     private tooltip: IgrDataToolTipLayer
     private bandLayer: IgrDataAnnotationBandLayer
-    private bandLayerRef(r: IgrDataAnnotationBandLayer) {
-        this.bandLayer = r;
-        this.setState({});
-    }
 
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-        this.bandLayerRef = this.bandLayerRef.bind(this);   
-        this.xAxisBottomRef = this.xAxisBottomRef.bind(this);     
-    }
-    componentDidMount(): void {
-        this.bandLayer.targetAxis = this.xAxisBottom;
     }
 
     public render(): JSX.Element {
@@ -80,7 +67,6 @@ export default class Sample extends React.Component<any, any> {
                     chartTitle="Data Chart with DataAnnotationBandLayer bound to data that annotates stock rapid growth">
                     <IgrCategoryXAxis
                         name="xAxisBottom"
-                        ref={this.xAxisBottomRef}
                         dataSource={this.stockTesla}
                         label="index"
                         tickLength="0"
@@ -140,13 +126,13 @@ export default class Sample extends React.Component<any, any> {
                     </IgrFinancialPriceSeries>
                     <IgrDataToolTipLayer
                         name="Tooltip"
-                        includedColumns={["High", "Low", "Open", "Close"]}
+                        includedColumns={["high", "low", "open", "close"]}
                         layoutMode="Vertical">
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationBandLayer
                         name="BandLayer"
-                        ref={this.bandLayerRef}
                         dataSource={this.annotationBandData}
+                        targetAxisName="xAxisBottom"
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="DataLabel"
                         endLabelXDisplayMode="DataLabel"
