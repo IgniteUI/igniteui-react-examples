@@ -13,16 +13,8 @@ export class AnnotationSliceStockSplitData extends Array<AnnotationSliceStockSpl
             super(...items);
         } else {
             const newItems = [
-                new AnnotationSliceStockSplitDataItem(
-                {
-                    value: 126,
-                    label: `Stock Split 3-1`
-                }),
-                new AnnotationSliceStockSplitDataItem(
-                {
-                    value: 61,
-                    label: `Stock Split 5-1`
-                }),
+                new AnnotationSliceStockSplitDataItem({ value: 126, label: `Stock Split 3-1` }),
+                new AnnotationSliceStockSplitDataItem({ value: 61, label: `Stock Split 5-1` }),
             ];
             super(...newItems.slice(0));
         }

@@ -28,43 +28,21 @@ export default class Sample extends React.Component<any, any> {
     private chartRef(r: IgrDataChart) {
         this.chart = r;
         this.setState({});
-    } 
-    private xAxis: IgrCategoryXAxis
-    private xAxisRef(r: IgrCategoryXAxis){
-        this.xAxis = r;
-        this.setState({});
     }
+    private xAxis: IgrCategoryXAxis
     private yAxisLeft: IgrNumericYAxis
     private yAxisRight: IgrNumericYAxis
-    private yAxisRightRef(r: IgrNumericYAxis){
-        this.yAxisRight = r;
-        this.setState({});
-    }
     private series1: IgrFinancialPriceSeries
     private tooltip: IgrDataToolTipLayer
     private lineLayer52WeekRange: IgrDataAnnotationLineLayer
-    private lineLayer52WeekRangeRef(r: IgrDataAnnotationLineLayer){
-        this.lineLayer52WeekRange = r;
-        this.setState({});
-    }
     private lineLayerGrowthAndDecline: IgrDataAnnotationLineLayer
-    private lineLayerGrowthAndDeclineRef(r: IgrDataAnnotationLineLayer){
-        this.lineLayerGrowthAndDecline = r;
-        this.setState({});
-    }
+
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-        this.xAxisRef = this.xAxisRef.bind(this);
-        this.yAxisRightRef = this.yAxisRightRef.bind(this);
-        this.lineLayer52WeekRangeRef = this.lineLayer52WeekRangeRef.bind(this);
-        this.lineLayerGrowthAndDeclineRef = this.lineLayerGrowthAndDeclineRef.bind(this);
     }
-    componentDidMount(): void {
-        this.lineLayer52WeekRange.targetAxis = this.yAxisRight;
-        this.lineLayerGrowthAndDecline.targetAxis = this.xAxis;
-    }
+
     public render(): JSX.Element {
         return (
         <div className="container sample">
@@ -90,7 +68,6 @@ export default class Sample extends React.Component<any, any> {
                     chartTitle="The Data Chart demonstrates the DataAnnotationLineLayer bound to data that annotates stock growth and decline patterns.">
                     <IgrCategoryXAxis
                         name="xAxis"
-                        ref={this.xAxisRef}
                         dataSource={this.stockTesla}
                         label="date"
                         labelLeftMargin="0"
@@ -113,7 +90,6 @@ export default class Sample extends React.Component<any, any> {
                     </IgrNumericYAxis>
                     <IgrNumericYAxis
                         name="yAxisRight"
-                        ref={this.yAxisRightRef}
                         labelLocation="OutsideRight"
                         labelTextStyle="normal normal 12px Verdana"
                         labelExtent="80"
@@ -140,13 +116,13 @@ export default class Sample extends React.Component<any, any> {
                     </IgrFinancialPriceSeries>
                     <IgrDataToolTipLayer
                         name="Tooltip"
-                        includedColumns={["High", "Low", "Open", "Close"]}
+                        includedColumns={["high", "low", "open", "close"]}
                         layoutMode="Vertical">
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationLineLayer
                         name="LineLayer52WeekRange"
-                        ref={this.lineLayer52WeekRangeRef}
                         dataSource={this.annotationLineData1}
+                        targetAxisName="yAxisRight"
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="Hidden"
                         startLabelYDisplayMode="DataValue"
@@ -168,8 +144,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationLineLayer>
                     <IgrDataAnnotationLineLayer
                         name="LineLayerGrowthAndDecline"
-                        ref={this.lineLayerGrowthAndDeclineRef}
                         dataSource={this.annotationLineData2}
+                        targetAxisName="xAxis"
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="Hidden"
                         endLabelXDisplayMode="Hidden"

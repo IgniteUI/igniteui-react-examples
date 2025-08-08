@@ -16,22 +16,8 @@ export class AnnotationLineData1 extends Array<AnnotationLineData1Item> {
             super(...items);
         } else {
             const newItems = [
-                new AnnotationLineData1Item(
-                {
-                    startX: 190,
-                    startY: 138,
-                    endX: 230,
-                    endY: 138,
-                    label: `52-Week Low`
-                }),
-                new AnnotationLineData1Item(
-                {
-                    startX: 190,
-                    startY: 481,
-                    endX: 230,
-                    endY: 481,
-                    label: `52-Week High`
-                }),
+                new AnnotationLineData1Item({ startX: 190, startY: 138, endX: 230, endY: 138, label: `52-Week Low` }),
+                new AnnotationLineData1Item({ startX: 190, startY: 481, endX: 230, endY: 481, label: `52-Week High` }),
             ];
             super(...newItems.slice(0));
         }

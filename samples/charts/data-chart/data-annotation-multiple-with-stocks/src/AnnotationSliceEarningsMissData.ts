@@ -13,21 +13,9 @@ export class AnnotationSliceEarningsMissData extends Array<AnnotationSliceEarnin
             super(...items);
         } else {
             const newItems = [
-                new AnnotationSliceEarningsMissDataItem(
-                {
-                    value: 9,
-                    label: `Earnings Miss`
-                }),
-                new AnnotationSliceEarningsMissDataItem(
-                {
-                    value: 179,
-                    label: `Earnings Miss`
-                }),
-                new AnnotationSliceEarningsMissDataItem(
-                {
-                    value: 215,
-                    label: `Earnings Miss`
-                }),
+                new AnnotationSliceEarningsMissDataItem({ value: 9, label: `Earnings Miss` }),
+                new AnnotationSliceEarningsMissDataItem({ value: 179, label: `Earnings Miss` }),
+                new AnnotationSliceEarningsMissDataItem({ value: 215, label: `Earnings Miss` }),
             ];
             super(...newItems.slice(0));
         }

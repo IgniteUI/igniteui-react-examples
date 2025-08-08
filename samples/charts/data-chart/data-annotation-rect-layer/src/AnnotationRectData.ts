@@ -16,23 +16,9 @@ export class AnnotationRectData extends Array<AnnotationRectDataItem> {
             super(...items);
         } else {
             const newItems = [
-                new AnnotationRectDataItem(
-                {
-                    startX: 85,
-                    startY: 190,
-                    endX: 140,
-                    endY: 415,
-                    label: `Head & Shoulders Pattern
-  (Bearish Downtrend)`
-                }),
-                new AnnotationRectDataItem(
-                {
-                    startX: 53,
-                    startY: 75,
-                    endX: 230,
-                    endY: 80,
-                    label: `Price Gap (Bearish Target)`
-                }),
+                new AnnotationRectDataItem({ startX: 85, startY: 190, endX: 140, endY: 415, label: `Head & Shoulders Pattern
+  (Bearish Downtrend)` }),
+                new AnnotationRectDataItem({ startX: 53, startY: 75, endX: 230, endY: 80, label: `Price Gap (Bearish Target)` }),
             ];
             super(...newItems.slice(0));
         }

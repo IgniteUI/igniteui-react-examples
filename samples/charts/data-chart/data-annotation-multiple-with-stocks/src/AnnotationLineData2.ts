@@ -16,24 +16,10 @@ export class AnnotationLineData2 extends Array<AnnotationLineData2Item> {
             super(...items);
         } else {
             const newItems = [
-                new AnnotationLineData2Item(
-                {
-                    startX: 48,
-                    startY: 25,
-                    endX: 105,
-                    endY: 250,
-                    label: `Growth &
-Support`
-                }),
-                new AnnotationLineData2Item(
-                {
-                    startX: 108,
-                    startY: 440,
-                    endX: 155,
-                    endY: 210,
-                    label: `Decline &
-Resistance`
-                }),
+                new AnnotationLineData2Item({ startX: 48, startY: 25, endX: 105, endY: 250, label: `Growth &
+Support` }),
+                new AnnotationLineData2Item({ startX: 108, startY: 440, endX: 155, endY: 210, label: `Decline &
+Resistance` }),
             ];
             super(...newItems.slice(0));
         }

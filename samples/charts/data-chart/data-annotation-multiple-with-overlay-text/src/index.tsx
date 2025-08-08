@@ -29,28 +29,15 @@ export default class Sample extends React.Component<any, any> {
     }
     private xAxis: IgrCategoryXAxis
     private yAxis: IgrNumericYAxis
-    private yAxisRef(r: IgrNumericYAxis) {
-        this.yAxis = r;
-        this.setState({});
-    }
     private series1: IgrLineSeries
     private valueOverlay: IgrValueOverlay
     private valueLayer: IgrValueLayer
     private annoLayer: IgrDataAnnotationSliceLayer
-    private annoLayerRef(r: IgrDataAnnotationSliceLayer){
-        this.annoLayer = r;
-        this.setState({});
-    }
 
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-        this.yAxisRef = this.yAxisRef.bind(this);
-        this.annoLayerRef = this.annoLayerRef.bind(this);
-    }
-    componentDidMount(): void {
-        this.annoLayer.targetAxis = this.yAxis;
     }
 
     public render(): JSX.Element {
@@ -73,7 +60,6 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxis"
-                        ref={this.yAxisRef}
                         labelExtent="60"
                         labelHorizontalAlignment="Center"
                         labelLeftMargin="0"
@@ -111,15 +97,15 @@ export default class Sample extends React.Component<any, any> {
                         brush="purple"
                         thickness="2"
                         dashArray="2, 4"
-                        targetAxis={this.yAxis}
+                        targetAxisName="yAxis"
                         isAxisAnnotationEnabled="true"
                         overlayText="OverlayText on ValueLayer (Average)"
                         overlayTextLocation="OutsideBottomCenter">
                     </IgrValueLayer>
                     <IgrDataAnnotationSliceLayer
                         name="AnnoLayer"
-                        ref={this.annoLayerRef}
                         dataSource={this.annotationSliceMultiOverlayData}
+                        targetAxisName="yAxis"
                         brush="green"
                         annotationTextColor="white"
                         annotationLabelMemberPath="label"

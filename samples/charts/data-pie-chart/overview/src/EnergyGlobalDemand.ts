@@ -14,36 +14,11 @@ export class EnergyGlobalDemand extends Array<EnergyGlobalDemandItem> {
             super(...items);
         } else {
             const newItems = [
-                new EnergyGlobalDemandItem(
-                {
-                    value: 37,
-                    category: `Cooling`,
-                    summary: `Cooling 37%`
-                }),
-                new EnergyGlobalDemandItem(
-                {
-                    value: 25,
-                    category: `Residential`,
-                    summary: `Residential 25%`
-                }),
-                new EnergyGlobalDemandItem(
-                {
-                    value: 12,
-                    category: `Heating`,
-                    summary: `Heating 12%`
-                }),
-                new EnergyGlobalDemandItem(
-                {
-                    value: 11,
-                    category: `Lighting`,
-                    summary: `Lighting 11%`
-                }),
-                new EnergyGlobalDemandItem(
-                {
-                    value: 15,
-                    category: `Other`,
-                    summary: `Other 15%`
-                }),
+                new EnergyGlobalDemandItem({ value: 37, category: `Cooling`, summary: `Cooling 37%` }),
+                new EnergyGlobalDemandItem({ value: 25, category: `Residential`, summary: `Residential 25%` }),
+                new EnergyGlobalDemandItem({ value: 12, category: `Heating`, summary: `Heating 12%` }),
+                new EnergyGlobalDemandItem({ value: 11, category: `Lighting`, summary: `Lighting 11%` }),
+                new EnergyGlobalDemandItem({ value: 15, category: `Other`, summary: `Other 15%` }),
             ];
             super(...newItems.slice(0));
         }

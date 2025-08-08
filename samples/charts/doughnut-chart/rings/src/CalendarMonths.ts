@@ -13,66 +13,18 @@ export class CalendarMonths extends Array<CalendarMonthsItem> {
             super(...items);
         } else {
             const newItems = [
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `December`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `January`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `February`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `March`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `April`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `May`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `June`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `July`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `August`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `September`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `October`
-                }),
-                new CalendarMonthsItem(
-                {
-                    value: 1,
-                    label: `November`
-                }),
+                new CalendarMonthsItem({ value: 1, label: `December` }),
+                new CalendarMonthsItem({ value: 1, label: `January` }),
+                new CalendarMonthsItem({ value: 1, label: `February` }),
+                new CalendarMonthsItem({ value: 1, label: `March` }),
+                new CalendarMonthsItem({ value: 1, label: `April` }),
+                new CalendarMonthsItem({ value: 1, label: `May` }),
+                new CalendarMonthsItem({ value: 1, label: `June` }),
+                new CalendarMonthsItem({ value: 1, label: `July` }),
+                new CalendarMonthsItem({ value: 1, label: `August` }),
+                new CalendarMonthsItem({ value: 1, label: `September` }),
+                new CalendarMonthsItem({ value: 1, label: `October` }),
+                new CalendarMonthsItem({ value: 1, label: `November` }),
             ];
             super(...newItems.slice(0));
         }
