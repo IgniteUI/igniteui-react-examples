@@ -30,29 +30,16 @@ export default class Sample extends React.Component<any, any> {
     }
     private xAxisBottom: IgrCategoryXAxis
     private xAxisTop: IgrCategoryXAxis
-    private xAxisTopRef(r: IgrCategoryXAxis){
-        this.xAxisTop = r;
-        this.setState({});
-    }
     private yAxisLeft: IgrNumericYAxis
     private yAxisRight: IgrNumericYAxis
     private series1: IgrFinancialPriceSeries
     private tooltip: IgrDataToolTipLayer
     private stripLayer: IgrDataAnnotationStripLayer
-    private stripLayerRef(r: IgrDataAnnotationStripLayer){
-        this.stripLayer = r;
-        this.setState({});
-    }
-    componentDidMount(): void {
-        this.stripLayer.targetAxis = this.xAxisTop;
-    }
 
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-        this.xAxisTopRef = this.xAxisTopRef.bind(this);
-        this.stripLayerRef = this.stripLayerRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -89,7 +76,6 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrCategoryXAxis
                         name="xAxisTop"
-                        ref={this.xAxisTopRef}
                         dataSource={this.stockTesla}
                         label="date"
                         tickLength="0"
@@ -148,8 +134,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationStripLayer
                         name="StripLayer"
-                        ref={this.stripLayerRef}
                         dataSource={this.annotationStripData}
+                        targetAxisName="xAxisTop"
                         centerLabelMemberPath="label"
                         startValueMemberPath="start"
                         endValueMemberPath="end"

@@ -19,17 +19,7 @@ export class AnnotationBandData extends Array<AnnotationBandDataItem> {
             super(...items);
         } else {
             const newItems = [
-                new AnnotationBandDataItem(
-                {
-                    startLabel: `Growth Start`,
-                    endLabel: `Growth Stop`,
-                    startX: 48,
-                    startY: 110,
-                    endX: 105,
-                    endY: 335,
-                    value: 170,
-                    label: `Rapid Growth`
-                }),
+                new AnnotationBandDataItem({ startLabel: `Growth Start`, endLabel: `Growth Stop`, startX: 48, startY: 110, endX: 105, endY: 335, value: 170, label: `Rapid Growth` }),
             ];
             super(...newItems.slice(0));
         }

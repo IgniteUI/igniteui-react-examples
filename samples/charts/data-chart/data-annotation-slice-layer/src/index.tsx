@@ -31,45 +31,19 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private xAxisBottom: IgrCategoryXAxis
-    private xAxisBottomRef(r: IgrCategoryXAxis){
-        this.xAxisBottom =r;
-        this.setState({});
-    }
     private xAxisTop: IgrCategoryXAxis
     private yAxisLeft: IgrNumericYAxis
     private yAxisRight: IgrNumericYAxis
     private series1: IgrFinancialPriceSeries
     private tooltip: IgrDataToolTipLayer
     private sliceLayerStockSplit: IgrDataAnnotationSliceLayer
-    private sliceLayerStockSplitRef(r: IgrDataAnnotationSliceLayer){
-        this.sliceLayerStockSplit = r;
-        this.setState({});
-    }
     private sliceLayerEarningsMissAnnotations: IgrDataAnnotationSliceLayer
-    private sliceLayerEarningsMissAnnotationsRef(r: IgrDataAnnotationSliceLayer){
-        this.sliceLayerEarningsMissAnnotations = r;
-        this.setState({});
-    }
     private sliceLayerEarningsBeatAnnotations: IgrDataAnnotationSliceLayer
-    private sliceLayerEarningsBeatAnnotationsRef(r: IgrDataAnnotationSliceLayer){
-        this.sliceLayerEarningsBeatAnnotations = r;
-        this.setState({});
-    }
 
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-        this.sliceLayerStockSplitRef = this.sliceLayerStockSplitRef.bind(this);
-        this.xAxisBottomRef = this.xAxisBottomRef.bind(this);
-        this.sliceLayerEarningsMissAnnotationsRef = this.sliceLayerEarningsMissAnnotationsRef.bind(this);
-        this.sliceLayerEarningsBeatAnnotationsRef = this.sliceLayerEarningsBeatAnnotationsRef.bind(this);
-    }
-
-    componentDidMount(): void {
-        this.sliceLayerStockSplit.targetAxis = this.xAxisBottom;
-        this.sliceLayerEarningsMissAnnotations.targetAxis = this.xAxisBottom;
-        this.sliceLayerEarningsBeatAnnotations.targetAxis = this.xAxisBottom;
     }
 
     public render(): JSX.Element {
@@ -97,7 +71,6 @@ export default class Sample extends React.Component<any, any> {
                     chartTitle="This Data Chart demonstrates the DataAnnotationSliceLayer bound to data that annotates stock splits and earnings miss/beat events.">
                     <IgrCategoryXAxis
                         name="xAxisBottom"
-                        ref={this.xAxisBottomRef}
                         dataSource={this.stockTesla}
                         label="index"
                         tickLength="0"
@@ -163,8 +136,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerStockSplit"
-                        ref={this.sliceLayerStockSplitRef}
                         dataSource={this.annotationSliceStockSplitData}
+                        targetAxisName="xAxisBottom"
                         brush="dodgerblue"
                         annotationTextColor="white"
                         annotationLabelMemberPath="label"
@@ -177,8 +150,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationSliceLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerEarningsMissAnnotations"
-                        ref={this.sliceLayerEarningsMissAnnotationsRef}
                         dataSource={this.annotationSliceEarningsMissData}
+                        targetAxisName="xAxisBottom"
                         brush="red"
                         annotationTextColor="white"
                         annotationLabelMemberPath="label"
@@ -191,8 +164,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationSliceLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerEarningsBeatAnnotations"
-                        ref={this.sliceLayerEarningsBeatAnnotationsRef}
                         dataSource={this.annotationSliceEarningsBeatData}
+                        targetAxisName="xAxisBottom"
                         brush="green"
                         annotationTextColor="white"
                         annotationLabelMemberPath="label"

@@ -13,26 +13,10 @@ export class CalendarSeasons extends Array<CalendarSeasonsItem> {
             super(...items);
         } else {
             const newItems = [
-                new CalendarSeasonsItem(
-                {
-                    value: 4,
-                    label: `Winter`
-                }),
-                new CalendarSeasonsItem(
-                {
-                    value: 4,
-                    label: `Spring`
-                }),
-                new CalendarSeasonsItem(
-                {
-                    value: 4,
-                    label: `Summer`
-                }),
-                new CalendarSeasonsItem(
-                {
-                    value: 4,
-                    label: `Fall`
-                }),
+                new CalendarSeasonsItem({ value: 4, label: `Winter` }),
+                new CalendarSeasonsItem({ value: 4, label: `Spring` }),
+                new CalendarSeasonsItem({ value: 4, label: `Summer` }),
+                new CalendarSeasonsItem({ value: 4, label: `Fall` }),
             ];
             super(...newItems.slice(0));
         }
