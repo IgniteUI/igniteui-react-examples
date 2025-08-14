@@ -40,7 +40,7 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataLegend
                     ref={this.legendRef}
                     target={this.chart}
-                    includedColumns={["open", "close", "high", "low", "change"]}>
+                    includedColumns={["Open", "Close", "High", "Low", "Change"]}>
                 </IgrDataLegend>
             </div>
 

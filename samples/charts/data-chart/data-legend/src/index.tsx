@@ -82,7 +82,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.legendRef}
                     target={this.chart}
                     unitsText="%"
-                    includedColumns={["birthRate", "deathRate"]}>
+                    includedColumns={["BirthRate", "DeathRate"]}>
                 </IgrDataLegend>
             </div>
 
