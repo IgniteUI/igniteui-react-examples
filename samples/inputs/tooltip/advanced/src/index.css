@@ -101,7 +101,6 @@ igc-tooltip::part(base) {
     margin-left: 1.5rem;
 }
 
-/* 1st tooltip */
 .list::part(base) {
     padding: unset;
 }
@@ -145,9 +144,7 @@ igc-tooltip::part(base) {
         }
     }
 }
-/* ------------- */
 
-/* 2nd tooltip */
 .chart::part(base) {
     border-radius: 0.5rem;
     padding: 1rem;
@@ -186,9 +183,7 @@ igc-tooltip::part(base) {
         margin: unset;
     }
 }
-/* ------------- */
 
-/* 3rd tooltip */
 .employee::part(base) {
     border-radius: 0.5rem;
     padding: 1rem;
@@ -239,9 +234,7 @@ igc-tooltip::part(base) {
         right: -3px;
     }
 }
-/* ------------- */
 
-/* 4th tooltip */
 .multiline::part(base) {
     border-radius: 0.125rem;
     gap: 0.5rem;
@@ -271,9 +264,7 @@ igc-tooltip::part(base) {
         margin: unset;
     }
 }
-/* ------------- */
 
-/* 5th tooltip */
 .btcBtn::part(base) {
     border-radius: 0.25rem;
     padding: 1rem 1rem 0.5rem 1rem;
@@ -358,9 +349,7 @@ igc-tooltip::part(base) {
         }
     }
 }
-/* ------------- */
 
-/* 6th tooltip */
 .btc::part(base) {
     border-radius: 0.25rem;
     padding: 1rem;
@@ -435,4 +424,3 @@ igc-tooltip::part(base) {
         }
     }
 }
-/* ------------- */
