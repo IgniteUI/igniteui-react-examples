@@ -108,8 +108,8 @@ export default class Sample extends React.Component<any, any> {
                 <IgrDataLegend
                     ref={this.legendRef}
                     target={this.chart}
-                    includedColumns={["Close", "Change", "Value"]}
-                    excludedColumns={["High", "Low", "Open", "Volume"]}
+                    includedColumns={["close", "change", "value"]}
+                    excludedColumns={["high", "low", "open", "volume"]}
                     labelDisplayMode="Hidden"
                     valueFormatString="{0}"
                     valueFormatSpecifiers={this.numberFormatSpecifier1}>

@@ -36,85 +36,23 @@ export default class Sample extends React.Component<any, any> {
         this.setState({});
     }
     private xAxisBottom: IgrCategoryXAxis
-    private xAxisBottonRef(r: IgrCategoryXAxis){
-        this.xAxisBottom = r;
-        this.setState({});
-    }
     private xAxis: IgrCategoryXAxis
-     private xAxisRef(r: IgrCategoryXAxis){
-        this.xAxis = r;
-        this.setState({});
-    }
     private xAxisTop: IgrCategoryXAxis
-    private xAxisTopRef(r: IgrCategoryXAxis){
-        this.xAxisTop = r;
-        this.setState({});
-    }
     private yAxisLeft: IgrNumericYAxis
-    private yAxisLeftRef(r: IgrNumericYAxis){
-        this.yAxisLeft = r;
-        this.setState({});
-    }
     private yAxisRight: IgrNumericYAxis
-      private yAxisRightRef(r: IgrNumericYAxis){
-        this.yAxisRight = r;
-        this.setState({});
-    }
     private series1: IgrFinancialPriceSeries
     private tooltip: IgrDataToolTipLayer
     private stripLayer: IgrDataAnnotationStripLayer
-     private stripRef1(r: IgrDataAnnotationStripLayer){
-        this.stripLayer = r;
-        this.setState({});
-    }
     private lineLayer52WeekRange: IgrDataAnnotationLineLayer
-    private lineRef1(r: IgrDataAnnotationLineLayer){
-        this.lineLayer52WeekRange = r;
-        this.setState({});
-    }
     private lineLayerGrowthAndDecline: IgrDataAnnotationLineLayer
-     private lineRef2(r: IgrDataAnnotationLineLayer){
-        this.lineLayerGrowthAndDecline = r;
-        this.setState({});
-    }
     private sliceLayerStockSplit: IgrDataAnnotationSliceLayer
-     private sliceRef1(r: IgrDataAnnotationSliceLayer){
-        this.sliceLayerStockSplit = r;
-        this.setState({});
-    }
     private sliceLayerEarningsMissAnnotations: IgrDataAnnotationSliceLayer
-    private sliceRef2(r: IgrDataAnnotationSliceLayer){
-        this.sliceLayerEarningsMissAnnotations = r;
-        this.setState({});
-    }
     private sliceLayerEarningsBeatAnnotations: IgrDataAnnotationSliceLayer
-    private sliceRef3(r: IgrDataAnnotationSliceLayer){
-        this.sliceLayerEarningsBeatAnnotations = r;
-        this.setState({});
-    }
+
     constructor(props: any) {
         super(props);
 
         this.chartRef = this.chartRef.bind(this);
-        this.stripRef1 = this.stripRef1.bind(this);
-        this.lineRef1 = this.lineRef1.bind(this);
-        this.lineRef2 = this.lineRef2.bind(this);
-        this.sliceRef1 = this.sliceRef1.bind(this);
-        this.sliceRef2 = this.sliceRef2.bind(this);
-        this.sliceRef3 = this.sliceRef3.bind(this);
-        this.xAxisRef = this.xAxisRef.bind(this);
-        this.xAxisBottonRef = this.xAxisBottonRef.bind(this);
-        this.xAxisTopRef = this.xAxisTopRef.bind(this);
-        this.yAxisLeftRef = this.yAxisLeftRef.bind(this);
-        this.yAxisRightRef = this.yAxisRightRef.bind(this);
-    }
-    componentDidMount(): void {
-        this.stripLayer.targetAxis = this.xAxisTop;
-        this.lineLayer52WeekRange.targetAxis = this.yAxisRight;
-        this.lineLayerGrowthAndDecline.targetAxis = this.xAxis;
-        this.sliceLayerStockSplit.targetAxis = this.xAxisBottom;
-        this.sliceLayerEarningsMissAnnotations.targetAxis = this.xAxisBottom;
-        this.sliceLayerEarningsBeatAnnotations.targetAxis = this.xAxisBottom;        
     }
 
     public render(): JSX.Element {
@@ -142,7 +80,6 @@ export default class Sample extends React.Component<any, any> {
                     chartTitle="This Data Chart has multiple Data Annotation Layers bound to data that annotates important events and patterns in stock prices.">
                     <IgrCategoryXAxis
                         name="xAxisBottom"
-                        ref={this.xAxisBottonRef}
                         dataSource={this.stockTesla}
                         label="index"
                         tickLength="0"
@@ -158,7 +95,6 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrCategoryXAxis
                         name="xAxis"
-                        ref={this.xAxisRef}
                         dataSource={this.stockTesla}
                         label="date"
                         labelLeftMargin="0"
@@ -168,7 +104,6 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrCategoryXAxis
                         name="xAxisTop"
-                        ref={this.xAxisTopRef}
                         dataSource={this.stockTesla}
                         label="date"
                         tickLength="0"
@@ -183,7 +118,6 @@ export default class Sample extends React.Component<any, any> {
                     </IgrCategoryXAxis>
                     <IgrNumericYAxis
                         name="yAxisLeft"
-                        ref={this.yAxisLeftRef}
                         labelLocation="OutsideLeft"
                         labelTextStyle="normal normal 12px Verdana"
                         labelExtent="80"
@@ -197,7 +131,6 @@ export default class Sample extends React.Component<any, any> {
                     </IgrNumericYAxis>
                     <IgrNumericYAxis
                         name="yAxisRight"
-                        ref={this.yAxisRightRef}
                         labelLocation="OutsideRight"
                         labelTextStyle="normal normal 12px Verdana"
                         labelExtent="80"
@@ -224,13 +157,13 @@ export default class Sample extends React.Component<any, any> {
                     </IgrFinancialPriceSeries>
                     <IgrDataToolTipLayer
                         name="Tooltip"
-                        includedColumns={["High", "Low", "Open", "Close"]}
+                        includedColumns={["high", "low", "open", "close"]}
                         layoutMode="Vertical">
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationStripLayer
-                        ref={this.stripRef1}
                         name="StripLayer"
                         dataSource={this.annotationStripData}
+                        targetAxisName="xAxisTop"
                         centerLabelMemberPath="label"
                         startValueMemberPath="start"
                         endValueMemberPath="end"
@@ -244,8 +177,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationStripLayer>
                     <IgrDataAnnotationLineLayer
                         name="LineLayer52WeekRange"
-                        ref={this.lineRef1}
                         dataSource={this.annotationLineData1}
+                        targetAxisName="yAxisRight"
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="Hidden"
                         startLabelYDisplayMode="DataValue"
@@ -267,8 +200,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationLineLayer>
                     <IgrDataAnnotationLineLayer
                         name="LineLayerGrowthAndDecline"
-                        ref={this.lineRef2}
                         dataSource={this.annotationLineData2}
+                        targetAxisName="xAxis"
                         centerLabelXDisplayMode="Hidden"
                         startLabelXDisplayMode="Hidden"
                         endLabelXDisplayMode="Hidden"
@@ -288,8 +221,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationLineLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerStockSplit"
-                        ref={this.sliceRef1}
                         dataSource={this.annotationSliceStockSplitData}
+                        targetAxisName="xAxisBottom"
                         brush="dodgerblue"
                         annotationTextColor="white"
                         annotationLabelMemberPath="label"
@@ -302,8 +235,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationSliceLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerEarningsMissAnnotations"
-                        ref={this.sliceRef2}
                         dataSource={this.annotationSliceEarningsMissData}
+                        targetAxisName="xAxisBottom"
                         brush="red"
                         annotationTextColor="white"
                         annotationLabelMemberPath="label"
@@ -316,8 +249,8 @@ export default class Sample extends React.Component<any, any> {
                     </IgrDataAnnotationSliceLayer>
                     <IgrDataAnnotationSliceLayer
                         name="SliceLayerEarningsBeatAnnotations"
-                        ref={this.sliceRef3}
                         dataSource={this.annotationSliceEarningsBeatData}
+                        targetAxisName="xAxisBottom"
                         brush="green"
                         annotationTextColor="white"
                         annotationLabelMemberPath="label"
