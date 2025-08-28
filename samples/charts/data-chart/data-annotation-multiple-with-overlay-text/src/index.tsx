@@ -111,7 +111,7 @@ export default class Sample extends React.Component<any, any> {
                         brush="purple"
                         thickness="2"
                         dashArray="2, 4"
-                        targetAxis={this.yAxis}
+                        targetAxisName="yAxis"
                         isAxisAnnotationEnabled="true"
                         overlayText="OverlayText on ValueLayer (Average)"
                         overlayTextLocation="OutsideBottomCenter">

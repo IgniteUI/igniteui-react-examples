@@ -12,10 +12,7 @@ export class DashboardGaugeDataSource extends Array<DashboardGaugeDataSourceItem
             super(...items);
         } else {
             const newItems = [
-                new DashboardGaugeDataSourceItem(
-                {
-                    value: 40
-                }),
+                new DashboardGaugeDataSourceItem({ value: 40 }),
             ];
             super(...newItems.slice(0));
         }
