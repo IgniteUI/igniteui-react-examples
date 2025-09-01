@@ -145,6 +145,7 @@ function getSamples(cb) {
     cleanSamples();
 
     samplesList = [];
+    console.log('getting samples from ' + sampleSource);
 
     gulp.src(sampleSource)
         // .pipe(gSort( { asc: false } ))
