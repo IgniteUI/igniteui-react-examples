@@ -37,7 +37,6 @@ jobs:
         working-directory: ./browser
 
       - name: Build the samples browser to ensure it compiles
-        run: npm run build
-        working-directory: ./browser
+        run: cd browser && npm run build
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
