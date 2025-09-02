@@ -146,12 +146,14 @@ function getSamples(cb) {
 
     samplesList = [];
     console.log('getting samples from ' + sampleSource);
+    console.log('cwd: ' + process.cwd());
 
     gulp.src(sampleSource)
         // .pipe(gSort( { asc: false } ))
         .pipe(es.map(function (samplePackage, sampleCallback) {
 
             let sampleFolderName = Transformer.getRelative(samplePackage.dirname);
+            console.log('processing sample folder: ' + sampleFolderName);
 
             if (skipSamples.indexOf(sampleFolderName) >= 0) {
                 // skip until material UI components are replaced in samples
@@ -166,6 +168,7 @@ function getSamples(cb) {
                     // .pipe(gSort( { asc: false } ))
                     .pipe(es.map(function (file, fileCallback) {
                         let fileDir = Transformer.getRelative(file.dirname);
+                        console.log('   found sample file: ' + fileDir + "/" + file.basename);
                         sampleFiles.push(fileDir + "/" + file.basename);
                         fileCallback(null, file);
                     }))
