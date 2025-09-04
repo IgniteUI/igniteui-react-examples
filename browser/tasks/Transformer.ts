@@ -448,11 +448,11 @@ class Transformer {
         console.log("getRelative  called for" + sampleFullPath);
         console.log("igConfig.RepositoryName is" + igConfig.RepositoryName);
         if (sampleFullPath.indexOf(igConfig.RepositoryName) > -1) {
-            sampleFullPath = sampleFullPath.split(igConfig.RepositoryName)[1];
-            /*sampleFullPath = sampleFullPath.substring(
+            // sampleFullPath = sampleFullPath.split(igConfig.RepositoryName)[1];
+            sampleFullPath = sampleFullPath.substring(
                 sampleFullPath.lastIndexOf(igConfig.RepositoryName) +
                 igConfig.RepositoryName.length
-            );*/
+            );
           //  sampleFullPath = sampleFullPath.split(igConfig.RepositoryName)[1];
             console.log("sampleFullPath is now " + sampleFullPath + " and is now split by pathModule.sep " + pathModule.sep);
             sampleFullPath = sampleFullPath.split(pathModule.sep).join(process.env.PATH_SEP || '/');
