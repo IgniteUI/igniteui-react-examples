@@ -38,7 +38,7 @@
     "igniteui-react-maps": "^19.0.1",
     "igniteui-react-spreadsheet": "^19.0.1",
     "igniteui-react-spreadsheet-chart-adapter": "^19.0.1",
-    "igniteui-webcomponents": "6.2.0",
+    "igniteui-webcomponents": "^6.2.0",
     "lit-html": "^3.2.0",
     "prop-types": "15.7.2",
     "react": "^18.2.0",
