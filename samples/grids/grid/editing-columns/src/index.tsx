@@ -118,9 +118,9 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridOnEditEnter(s: IgrGridBaseDirective, e: IgrGridEditEventArgs): void {
+    public webGridOnEditEnter(e: IgrGridEditEventArgs): void {
 
-        const column = s.getColumnByVisibleIndex(e.detail.cellID.columnID);
+        const column = e.detail.owner.getColumnByVisibleIndex(e.detail.cellID.columnID);
         if(column.field === 'ReorderLevel') {
             setTimeout(() => {
                 const rowId = e.detail.cellID.rowID;
@@ -145,7 +145,7 @@ export default class Sample extends React.Component<any, any> {
                 id={inputTemplateId}
                 name={cell.id.rowID}
                 value={cell.editValue}
-                inputOcurred={(s:any, e: any) => {
+                onInput={(e: CustomEvent<string>) => {
                     cell.editValue = e.detail;
                 }}
                 style={{width: "100%"}}
