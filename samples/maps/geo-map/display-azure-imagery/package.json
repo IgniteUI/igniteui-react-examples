@@ -1,6 +1,6 @@
 {
-  "name": "react-geographic-map-display-imagery-bing",
-  "description": "This project provides example of Geographic Map Display Imagery Bing using Infragistics React components",
+  "name": "react-geographic-map-display-imagery-azure",
+  "description": "This project provides example of Geographic Map Display Imagery Azure using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
