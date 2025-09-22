@@ -55,7 +55,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.chartRef}
                     chartType="StepArea"
                     yAxisTitle="TWh"
-                    isCategoryHighlightingEnabled="true"
+                    isCategoryHighlightingEnabled="false"
                     isSeriesHighlightingEnabled="true"
                     isTransitionInEnabled="true"
                     isHorizontalZoomEnabled="false"
