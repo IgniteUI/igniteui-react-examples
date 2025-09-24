@@ -445,12 +445,13 @@ class Transformer {
 
     public static getRelative(sampleFullPath: string): string {
         // let path = filePath;
-
         if (sampleFullPath.indexOf(igConfig.RepositoryName) > -1) {
-            sampleFullPath = sampleFullPath.split(igConfig.RepositoryName)[1];
-            sampleFullPath = sampleFullPath.split(pathModule.sep).join("/");
+            sampleFullPath = sampleFullPath.substring(
+                sampleFullPath.lastIndexOf(igConfig.RepositoryName) +
+                igConfig.RepositoryName.length
+            );
+            sampleFullPath = sampleFullPath.split(pathModule.sep).join(process.env.PATH_SEP || '/');
             return ".." + sampleFullPath;
-            // return sampleFullPath;
         }
 
         console.log("failed on getRelative " + sampleFullPath);
@@ -806,12 +807,12 @@ class PackageDependency {
 }
 
 class CodeViewer {
-    public path: string;
     public hasRelativeAssetsUrls: boolean;
-    public content: string;
     public isMain: boolean;
+    public path: string;
     public fileExtension: string;
     public fileHeader: string;
+    public content: string;
 
     constructor(filePath: string, content: string, fileExtension: string, fileHeader: string, isMain: boolean) {
 
@@ -819,10 +820,10 @@ class CodeViewer {
         // jsonContent = jsonContent.replace(/\/\//g, "/");
 
         this.hasRelativeAssetsUrls = false;
-        this.path = filePath;
-        this.content = jsonContent;
         this.isMain = isMain;
         this.fileExtension = fileExtension;
         this.fileHeader = fileHeader;
+        this.path = filePath;
+        this.content = jsonContent;
     }
 }

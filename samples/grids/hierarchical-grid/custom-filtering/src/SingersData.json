@@ -78,7 +78,79 @@
 				"LaunchDate": "September 3, 2013",
 				"BillboardReview": 86,
 				"USBillboard200": 1,
-				"Artist": "Naomí Yepes"
+				"Artist": "Naomí Yepes",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Lonely Falling",
+						"Released": "01 May 2019",
+						"Genre": "*",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 2,
+						"Title": "Bright Breaking",
+						"Released": "25 Jul 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 3,
+						"Title": "River of Whisper",
+						"Released": "29 Jan 2020",
+						"Genre": "Electro house Electropop",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 4,
+						"Title": "Sky of Storm",
+						"Released": "07 May 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 5,
+						"Title": "Electric River",
+						"Released": "20 Jan 2020",
+						"Genre": "R&B",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 6,
+						"Title": "Storm of Storm",
+						"Released": "01 Sep 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 7,
+						"Title": "Fire of Dream",
+						"Released": "12 Sep 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 8,
+						"Title": "Burning in the Light",
+						"Released": "15 Apr 2019",
+						"Genre": "*",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 9,
+						"Title": "Burning in the Storm",
+						"Released": "10 Sep 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 10,
+						"Title": "Shadow of Whisper",
+						"Released": "06 Jan 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Initiation"
+					}
+				]
 			},
 			{
 				"Album": "Dream Driven",
@@ -90,7 +162,7 @@
 					{
 						"Number": 1,
 						"Title": "Intro",
-						"Released": false,
+						"Released": "10 Sep 2019",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
@@ -111,7 +183,7 @@
 					{
 						"Number": 4,
 						"Title": "Future past",
-						"Released": false,
+						"Released": "20 Sep 2011",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
@@ -132,14 +204,14 @@
 					{
 						"Number": 7,
 						"Title": "Stay where you are",
-						"Released": false,
+						"Released": "14 Sep 2013",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
 					{
 						"Number": 8,
 						"Title": "Imaginarium",
-						"Released": false,
+						"Released": "20 Sep 2021",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
@@ -153,21 +225,21 @@
 					{
 						"Number": 10,
 						"Title": "Shredded into pieces",
-						"Released": false,
+						"Released": "11 Sep 2015",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
 					{
 						"Number": 11,
 						"Title": "Capture this moment",
-						"Released": false,
+						"Released": "13 Sep 2016",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					},
 					{
 						"Number": 12,
 						"Title": "Dream Driven",
-						"Released": false,
+						"Released": "14 Sep 2014",
 						"Genre": "*",
 						"Album": "Dream Driven"
 					}
@@ -180,7 +252,76 @@
 				"USBillboard200": 2,
 				"Artist": "Naomí Yepes",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Calling in the Storm",
+						"Released": "12 Mar 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 2,
+						"Title": "Hiding in the Dream",
+						"Released": "23 Mar 2019",
+						"Genre": "R&B",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 3,
+						"Title": "Electric Heart",
+						"Released": "17 Mar 2019",
+						"Genre": "ethno-tunes",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 4,
+						"Title": "Shadow of Echo",
+						"Released": "20 Feb 2019",
+						"Genre": "ethno-tunes",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 5,
+						"Title": "Flying in the Storm",
+						"Released": "08 Apr 2019",
+						"Genre": "R&B",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 6,
+						"Title": "Dark Waiting",
+						"Released": "20 Oct 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 7,
+						"Title": "Fire of River",
+						"Released": "20 Feb 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 8,
+						"Title": "Wild Crying",
+						"Released": "14 Jun 2019",
+						"Genre": "R&B",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 9,
+						"Title": "Bright Dancing",
+						"Released": "14 Mar 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 10,
+						"Title": "Golden Waiting",
+						"Released": "12 Sep 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "The dragon journey"
+					}
 				]
 			},
 			{
@@ -276,7 +417,76 @@
 				"USBillboard200": 12,
 				"Artist": "Naomí Yepes",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Storm of Dream",
+						"Released": "05 Jan 2019",
+						"Genre": "*",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 2,
+						"Title": "Echo of Dream",
+						"Released": "28 Jan 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 3,
+						"Title": "Light of Shadow",
+						"Released": "07 Feb 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 4,
+						"Title": "Storm of Heart",
+						"Released": "05 Jan 2020",
+						"Genre": "Electro house Electropop",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 5,
+						"Title": "Shadow of River",
+						"Released": "27 Feb 2019",
+						"Genre": "*",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 6,
+						"Title": "Wicked Dancing",
+						"Released": "17 Jan 2020",
+						"Genre": "ethno-tunes",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 7,
+						"Title": "River of Light",
+						"Released": "22 Feb 2019",
+						"Genre": "R&B",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 8,
+						"Title": "Lonely Breaking",
+						"Released": "09 Sep 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 9,
+						"Title": "Furious Flying",
+						"Released": "08 Jun 2019",
+						"Genre": "R&B",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 10,
+						"Title": "Hiding in the Storm",
+						"Released": "27 May 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Curiosity"
+					}
 				]
 			}
 		]
@@ -513,7 +723,76 @@
 				"USBillboard200": 69,
 				"Artist": "Ahmad Nazeri",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Gentle Falling",
+						"Released": "26 Apr 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 2,
+						"Title": "Calling in the Fire",
+						"Released": "03 Sep 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 3,
+						"Title": "Fire of Shadow",
+						"Released": "05 Jan 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 4,
+						"Title": "Dancing in the Dream",
+						"Released": "15 Apr 2019",
+						"Genre": "R&B",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 5,
+						"Title": "Calling in the Shadow",
+						"Released": "09 Oct 2019",
+						"Genre": "R&B",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 6,
+						"Title": "Falling in the Sky",
+						"Released": "08 Mar 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 7,
+						"Title": "Calling in the Storm",
+						"Released": "05 Dec 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 8,
+						"Title": "Falling in the River",
+						"Released": "19 Aug 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 9,
+						"Title": "Electric Fire",
+						"Released": "30 Nov 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 10,
+						"Title": "Lonely River",
+						"Released": "11 Nov 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Emergency"
+					}
 				]
 			},
 			{
@@ -523,7 +802,76 @@
 				"USBillboard200": 39,
 				"Artist": "Ahmad Nazeri",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Lonely Dream",
+						"Released": "11 Dec 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 2,
+						"Title": "Fire of River",
+						"Released": "01 Aug 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 3,
+						"Title": "Wicked Falling",
+						"Released": "25 Jan 2019",
+						"Genre": "*",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 4,
+						"Title": "Crying in the Shadow",
+						"Released": "04 Jan 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 5,
+						"Title": "Wild Burning",
+						"Released": "10 May 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 6,
+						"Title": "Waiting in the Heart",
+						"Released": "07 Aug 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 7,
+						"Title": "Fire of Fire",
+						"Released": "16 May 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 8,
+						"Title": "Bright Heart",
+						"Released": "14 Mar 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 9,
+						"Title": "Lonely Fire",
+						"Released": "15 Oct 2019",
+						"Genre": "R&B",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 10,
+						"Title": "Sky of Dream",
+						"Released": "20 Jun 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Bursting bubbles"
+					}
 				]
 			}
 		]
@@ -547,7 +895,76 @@
 				"USBillboard200": 1,
 				"Artist": "Kimmy McIlmorie",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Storm of Sky",
+						"Released": "04 Mar 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 2,
+						"Title": "Dream of Shadow",
+						"Released": "03 Jan 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 3,
+						"Title": "Dream of Shadow",
+						"Released": "19 Dec 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 4,
+						"Title": "Golden Fire",
+						"Released": "20 Jan 2019",
+						"Genre": "R&B",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 5,
+						"Title": "Running in the Light",
+						"Released": "03 Jan 2020",
+						"Genre": "Synth-pop R&B",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 6,
+						"Title": "Flying in the Heart",
+						"Released": "17 Jan 2019",
+						"Genre": "*",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 7,
+						"Title": "Fire of Storm",
+						"Released": "26 Jan 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 8,
+						"Title": "Calling in the Sky",
+						"Released": "28 Oct 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 9,
+						"Title": "Flying in the Shadow",
+						"Released": "30 Mar 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 10,
+						"Title": "Golden Dancing",
+						"Released": "12 Oct 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Here we go again"
+					}
 				]
 			}
 		]
@@ -771,7 +1188,76 @@
 				"USBillboard200": 85,
 				"Artist": "Izabella Tabakova",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Hiding in the Light",
+						"Released": "24 Jan 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 2,
+						"Title": "Furious River",
+						"Released": "13 Jan 2020",
+						"Genre": "Electro house Electropop",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 3,
+						"Title": "Wild Crying",
+						"Released": "27 Feb 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 4,
+						"Title": "Light of Dream",
+						"Released": "01 Jun 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 5,
+						"Title": "Light of Dream",
+						"Released": "24 Aug 2019",
+						"Genre": "*",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 6,
+						"Title": "Storm of Light",
+						"Released": "26 Feb 2019",
+						"Genre": "*",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 7,
+						"Title": "Dark Storm",
+						"Released": "18 Jan 2020",
+						"Genre": "R&B",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 8,
+						"Title": "Dark Calling",
+						"Released": "20 Mar 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 9,
+						"Title": "Sky of Whisper",
+						"Released": "30 Jan 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 10,
+						"Title": "Dancing in the Light",
+						"Released": "28 Nov 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Dark matters"
+					}
 				]
 			}
 		]
@@ -795,7 +1281,76 @@
 				"USBillboard200": 5,
 				"Artist": "Nguyễn Diệp Chi",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Echo of River",
+						"Released": "05 Mar 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 2,
+						"Title": "Heart of River",
+						"Released": "12 Jan 2020",
+						"Genre": "Electro house Electropop",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 3,
+						"Title": "Dark Light",
+						"Released": "09 Aug 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 4,
+						"Title": "Dark Fire",
+						"Released": "22 Jun 2019",
+						"Genre": "R&B",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 5,
+						"Title": "Flying in the Fire",
+						"Released": "22 Jul 2019",
+						"Genre": "*",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 6,
+						"Title": "Shadow of Heart",
+						"Released": "02 Jan 2020",
+						"Genre": "*",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 7,
+						"Title": "Fire of Fire",
+						"Released": "27 Jan 2019",
+						"Genre": "*",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 8,
+						"Title": "Falling in the River",
+						"Released": "05 Aug 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 9,
+						"Title": "Fire of Light",
+						"Released": "31 Dec 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 10,
+						"Title": "Bright Flying",
+						"Released": "24 Jan 2019",
+						"Genre": "*",
+						"Album": "Library of liberty"
+					}
 				]
 			}
 		]
@@ -819,7 +1374,76 @@
 				"USBillboard200": 29,
 				"Artist": "Eva Lee",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Dancing in the Shadow",
+						"Released": "02 Aug 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 2,
+						"Title": "Silent Whisper",
+						"Released": "09 Jul 2019",
+						"Genre": "*",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 3,
+						"Title": "Crying in the Whisper",
+						"Released": "30 May 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 4,
+						"Title": "River of Light",
+						"Released": "10 Jan 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 5,
+						"Title": "Golden River",
+						"Released": "15 Nov 2019",
+						"Genre": "*",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 6,
+						"Title": "Burning in the Shadow",
+						"Released": "18 Apr 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 7,
+						"Title": "Shadow of Sky",
+						"Released": "06 Sep 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 8,
+						"Title": "Gentle Waiting",
+						"Released": "05 Dec 2019",
+						"Genre": "R&B",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 9,
+						"Title": "Bright River",
+						"Released": "27 Jan 2020",
+						"Genre": "R&B",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 10,
+						"Title": "Heart of Storm",
+						"Released": "07 Jan 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Just a tease"
+					}
 				]
 			}
 		]
@@ -1046,7 +1670,76 @@
 				"USBillboard200": 98,
 				"Artist": "Pablo Cambeiro",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Dancing in the Echo",
+						"Released": "03 Oct 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 2,
+						"Title": "Dream of Dream",
+						"Released": "03 Mar 2019",
+						"Genre": "*",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 3,
+						"Title": "Calling in the Echo",
+						"Released": "16 Sep 2019",
+						"Genre": "*",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 4,
+						"Title": "Light of Light",
+						"Released": "25 May 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 5,
+						"Title": "Bright Light",
+						"Released": "21 Mar 2019",
+						"Genre": "R&B",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 6,
+						"Title": "Storm of Echo",
+						"Released": "17 Jul 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 7,
+						"Title": "Lonely Calling",
+						"Released": "10 Apr 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 8,
+						"Title": "Gentle Falling",
+						"Released": "28 Nov 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 9,
+						"Title": "Wild Flying",
+						"Released": "26 Nov 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 10,
+						"Title": "Sky of Dream",
+						"Released": "29 May 2019",
+						"Genre": "R&B",
+						"Album": "Fluke"
+					}
 				]
 			},
 			{
@@ -1142,7 +1835,76 @@
 				"USBillboard200": 77,
 				"Artist": "Athar Malakooti",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Hiding in the Whisper",
+						"Released": "03 Apr 2019",
+						"Genre": "R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 2,
+						"Title": "Wicked Light",
+						"Released": "21 Aug 2019",
+						"Genre": "R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 3,
+						"Title": "Flying in the River",
+						"Released": "03 Feb 2020",
+						"Genre": "Synth-pop R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 4,
+						"Title": "Wicked Hiding",
+						"Released": "15 Sep 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 5,
+						"Title": "Lonely Light",
+						"Released": "13 May 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 6,
+						"Title": "Bright Dancing",
+						"Released": "10 Apr 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 7,
+						"Title": "Gentle Dream",
+						"Released": "21 May 2019",
+						"Genre": "*",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 8,
+						"Title": "Sky of Echo",
+						"Released": "09 Jun 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 9,
+						"Title": "Breaking in the Sky",
+						"Released": "27 Dec 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 10,
+						"Title": "Whisper of Shadow",
+						"Released": "04 Jan 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Pushing up daisies"
+					}
 				]
 			}
 		]
@@ -1179,7 +1941,76 @@
 				"USBillboard200": 9,
 				"Artist": "Marti Valencia",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Hiding in the Sky",
+						"Released": "26 Nov 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 2,
+						"Title": "Waiting in the Echo",
+						"Released": "10 Jul 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 3,
+						"Title": "Wicked Shadow",
+						"Released": "29 Jul 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 4,
+						"Title": "Crying in the Whisper",
+						"Released": "09 Apr 2019",
+						"Genre": "*",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 5,
+						"Title": "Echo of Storm",
+						"Released": "19 Nov 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 6,
+						"Title": "Shadow of Sky",
+						"Released": "24 Jul 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 7,
+						"Title": "Golden Hiding",
+						"Released": "12 Dec 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 8,
+						"Title": "Wild Dancing",
+						"Released": "17 Aug 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 9,
+						"Title": "Bright Burning",
+						"Released": "30 Aug 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 10,
+						"Title": "Flying in the River",
+						"Released": "02 Sep 2019",
+						"Genre": "*",
+						"Album": "Nemesis"
+					}
 				]
 			},
 			{
@@ -1282,7 +2113,76 @@
 				"USBillboard200": 37,
 				"Artist": "Marti Valencia",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Wild River",
+						"Released": "11 Jan 2019",
+						"Genre": "*",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 2,
+						"Title": "Wicked Whisper",
+						"Released": "16 Feb 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 3,
+						"Title": "Storm of Heart",
+						"Released": "11 Aug 2019",
+						"Genre": "*",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 4,
+						"Title": "Golden Dancing",
+						"Released": "02 Mar 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 5,
+						"Title": "Calling in the Sky",
+						"Released": "10 Sep 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 6,
+						"Title": "Calling in the Heart",
+						"Released": "12 Jan 2019",
+						"Genre": "ethno-tunes",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 7,
+						"Title": "Running in the Storm",
+						"Released": "10 Nov 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 8,
+						"Title": "Wild Sky",
+						"Released": "10 Apr 2019",
+						"Genre": "R&B",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 9,
+						"Title": "Crying in the Shadow",
+						"Released": "02 Mar 2019",
+						"Genre": "R&B",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 10,
+						"Title": "Whisper of River",
+						"Released": "12 May 2019",
+						"Genre": "*",
+						"Album": "God's advocate"
+					}
 				]
 			}
 		]
@@ -1306,7 +2206,76 @@
 				"USBillboard200": 7,
 				"Artist": "Alicia Stanger",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Shadow of Light",
+						"Released": "24 Mar 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 2,
+						"Title": "Running in the Echo",
+						"Released": "03 May 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 3,
+						"Title": "Gentle Dream",
+						"Released": "24 Aug 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 4,
+						"Title": "Furious River",
+						"Released": "24 Apr 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 5,
+						"Title": "Wild Whisper",
+						"Released": "09 Mar 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 6,
+						"Title": "Whisper of Sky",
+						"Released": "24 Jul 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 7,
+						"Title": "Lonely Storm",
+						"Released": "01 May 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 8,
+						"Title": "Dancing in the River",
+						"Released": "17 Dec 2019",
+						"Genre": "*",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 9,
+						"Title": "Electric Fire",
+						"Released": "17 Oct 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 10,
+						"Title": "Electric Sky",
+						"Released": "25 Sep 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Forever alone"
+					}
 				]
 			}
 		]
@@ -1371,7 +2340,76 @@
 				"USBillboard200": 35,
 				"Artist": "Peter Taylor",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Calling in the Dream",
+						"Released": "01 Aug 2019",
+						"Genre": "R&B",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 2,
+						"Title": "Electric Burning",
+						"Released": "10 Sep 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 3,
+						"Title": "Dark Flying",
+						"Released": "28 Apr 2019",
+						"Genre": "*",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 4,
+						"Title": "Gentle Sky",
+						"Released": "20 Nov 2019",
+						"Genre": "ethno-tunes",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 5,
+						"Title": "Gentle Calling",
+						"Released": "13 Jan 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 6,
+						"Title": "Golden Falling",
+						"Released": "14 Feb 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 7,
+						"Title": "Silent River",
+						"Released": "13 Feb 2019",
+						"Genre": "R&B",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 8,
+						"Title": "Furious Calling",
+						"Released": "11 Jun 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 9,
+						"Title": "Running in the Echo",
+						"Released": "06 Nov 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 10,
+						"Title": "Furious River",
+						"Released": "12 Mar 2019",
+						"Genre": "*",
+						"Album": "Decisions decisions"
+					}
 				]
 			},
 			{
@@ -1381,7 +2419,76 @@
 				"USBillboard200": 89,
 				"Artist": "Peter Taylor",
 				"Songs": [
-
+					{
+						"Number": 1,
+						"Title": "Dark Crying",
+						"Released": "27 Apr 2019",
+						"Genre": "Electro house Electropop",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 2,
+						"Title": "Dark Waiting",
+						"Released": "14 Nov 2019",
+						"Genre": "Synth-pop R&B",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 3,
+						"Title": "Furious Waiting",
+						"Released": "23 May 2019",
+						"Genre": "*",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 4,
+						"Title": "Running in the Echo",
+						"Released": "29 Nov 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 5,
+						"Title": "Dream of Sky",
+						"Released": "31 Oct 2019",
+						"Genre": "Crunk reggaeton",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 6,
+						"Title": "Hiding in the Heart",
+						"Released": "09 Aug 2019",
+						"Genre": "R&B",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 7,
+						"Title": "Sky of Storm",
+						"Released": "01 Jun 2019",
+						"Genre": "R&B",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 8,
+						"Title": "Light of Storm",
+						"Released": "17 Jan 2020",
+						"Genre": "ethno-tunes",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 9,
+						"Title": "Light of Sky",
+						"Released": "26 May 2019",
+						"Genre": "*",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 10,
+						"Title": "Golden River",
+						"Released": "19 Jun 2019",
+						"Genre": "*",
+						"Album": "Climate changed"
+					}
 				]
 			}
 		]

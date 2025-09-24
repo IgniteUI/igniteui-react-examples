@@ -1,145 +1,86 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React, { useEffect, useRef } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { IgrGrid, IgrColumn, IgrGridKeydownEventArgs } from "igniteui-react-grids";
+import NwindData from "./NwindData.json";
 
-import { IgrGridModule } from 'igniteui-react-grids';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
-import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
-import NwindData from './NwindData.json';
-import { IgrGridKeydownEventArgs } from 'igniteui-react-grids';
+import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
-import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
+function Sample() {
+  const gridRef = useRef<IgrGrid>();
+  useEffect(() => {
+    gridRef.current.addEventListener("keydown", handleKeyDown);
+    return () => {
+      gridRef.current.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
+  const handleKeyDown = (event: KeyboardEvent) => {
+    const code = event.code;
+    const grid = event.currentTarget as IgrGrid;
+    const activeElem = grid.selectedCells[0];
 
-export default class Sample extends React.Component<any, any> {
-    private grid1: IgrGrid
-    private grid1Ref(r: IgrGrid) {
-        this.grid1 = r;
-        this.setState({});
+    if ((event.code >= "Digit0" && event.code <= "Digit9") || (event.code >= "KeyA" && event.code <= "KeyZ") || (event.code >= "Numpad0" && event.code <= "Numpad9" && event.code !== "Enter" && event.code !== "NumpadEnter")) {
+      if (activeElem && !activeElem.editMode) {
+        activeElem.editMode = true;
+        activeElem.editValue = event.key;
+      } else if (activeElem && activeElem.editMode) {
+        event.preventDefault();
+        activeElem.editValue = activeElem.editValue + event.key;
+      }
     }
 
-    constructor(props: any) {
-        super(props);
+    if (code === "Enter" || code === "NumpadEnter") {
+      const thisRow = activeElem.row.index;
+      const dataView = grid.dataView;
+      const nextRowIndex = getNextEditableRowIndex(thisRow, dataView, event.shiftKey);
 
-        this.grid1Ref = this.grid1Ref.bind(this);
-        this.webGridEditingExcelStyle = this.webGridEditingExcelStyle.bind(this);
+      grid.navigateTo(nextRowIndex, activeElem.column.visibleIndex, (obj: any) => {
+        obj.target.activate();
+        grid.endEdit(true);
+        grid.markForCheck();
+      });
     }
+  };
 
-    public render(): JSX.Element {
-        return (
-        <div className="container sample ig-typography">
-
-            <div className="container fill">
-                <IgrGrid
-                    autoGenerate={false}
-                    data={this.nwindData}
-                    primaryKey="ProductID"
-                    onGridKeydown={this.webGridEditingExcelStyle}
-                    ref={this.grid1Ref}>
-                    <IgrColumn
-                        field="ProductID"
-                        header="Product ID"
-                        editable={true}
-                        groupable={true}
-                        hidden={true}>
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ProductName"
-                        header="Product Name"
-                        dataType="string"
-                        editable={true}>
-                    </IgrColumn>
-                    <IgrColumn
-                        field="UnitPrice"
-                        header="Unit Price"
-                        dataType="number"
-                        editable={true}>
-                    </IgrColumn>
-                    <IgrColumn
-                        field="QuantityPerUnit"
-                        header="Quantity Per Unit"
-                        groupable={true}
-                        dataType="string"
-                        editable={true}>
-                    </IgrColumn>
-                    <IgrColumn
-                        field="ReorderLevel"
-                        header="Reorder Level"
-                        dataType="number"
-                        groupable={true}
-                        editable={true}>
-                    </IgrColumn>
-                </IgrGrid>
-            </div>
-        </div>
-        );
+  const getNextEditableRowIndex = (currentRowIndex: number, dataView: any, previous: boolean) => {
+    if (currentRowIndex < 0 || (currentRowIndex === 0 && previous) || (currentRowIndex >= dataView.length - 1 && !previous)) {
+      return currentRowIndex;
     }
-
-    private _nwindData: any[] = NwindData;
-    public get nwindData(): any[] {
-        return this._nwindData;
+    if (previous) {
+      return dataView.findLastIndex((rec: any, index: number) => index < currentRowIndex && isEditableDataRecordAtIndex(index, dataView));
     }
+    return dataView.findIndex((rec: any, index: number) => index > currentRowIndex && isEditableDataRecordAtIndex(index, dataView));
+  };
 
-    private _componentRenderer: ComponentRenderer = null;
-    public get renderer(): ComponentRenderer {
-        if (this._componentRenderer == null) {
-            this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
-            WebGridDescriptionModule.register(context);
-        }
-        return this._componentRenderer;
+  const isEditableDataRecordAtIndex = (dataViewIndex: number, dataView: any) => {
+    const rec = dataView[dataViewIndex];
+    return !rec.expression && !rec.summaries && !rec.childGridsData && !rec.detailsData;
+  };
+
+  const cancelGridKeydown = (args: IgrGridKeydownEventArgs) => {
+    if(args.detail.event.code === "Enter" || args.detail.event.code === "NumpadEnter") {
+      args.detail.cancel = true; 
     }
+  };
 
-    public webGridEditingExcelStyle(args: IgrGridKeydownEventArgs): void {
-        var key = (args.detail.event as any).keyCode;
-        var grid = args.detail.target.grid;
-        var activeElem = grid.navigation.activeNode;
-
-        if ((key >= 48 && key <= 57) || (key >= 65 && key <= 90) || (key >= 97 && key <= 122)) {
-            var columnName = grid.getColumnByVisibleIndex(activeElem.column).field;
-            var cell = grid.getCellByColumn(activeElem.row, columnName);
-
-            if (cell && !grid.crudService.cellInEditMode) {
-                grid.crudService.enterEditMode(cell);
-                cell.editValue = key;
-            }
-        }
-
-        if (key == 13) {
-            var thisRow = activeElem.row;
-            var column = activeElem.column;
-            var rowInfo = grid.dataView;
-
-            var nextRow = this.getNextEditableRowIndex(thisRow, rowInfo, (args.detail.event as any).shiftKey);
-
-            grid.navigateTo(nextRow, column, (obj: any) => {
-                obj.target.activate();
-                grid.clearCellSelection();
-            });
-        }
-    }
-
-    public getNextEditableRowIndex(currentRowIndex: number, dataView: any, previous: boolean) {
-        if (currentRowIndex < 0 || (currentRowIndex === 0 && previous) || (currentRowIndex >= dataView.length - 1 && !previous)) {
-            return currentRowIndex;
-        }
-        if (previous) {
-            return dataView.findLastIndex((rec: any, index: number) => index < currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
-        }
-        return dataView.findIndex((rec: any, index: number) => index > currentRowIndex && this.isEditableDataRecordAtIndex(index, dataView));
-    }
-
-    public isEditableDataRecordAtIndex(dataViewIndex: number, dataView: any) {
-        const rec = dataView[dataViewIndex];
-        return !rec.expression && !rec.summaries && !rec.childGridsData && !rec.detailsData;
-    }
-
+  return (
+    <div className="container sample ig-typography">
+      <div className="container fill">
+        <IgrGrid ref={gridRef} autoGenerate={false} data={NwindData} primaryKey="ProductID" onGridKeydown={cancelGridKeydown}>
+          <IgrColumn field="ProductID" header="Product ID" editable={true} groupable={true} hidden={true} />
+          <IgrColumn field="ProductName" header="Product Name" dataType="string" editable={true} />
+          <IgrColumn field="UnitPrice" header="Unit Price" dataType="number" editable={true} />
+          <IgrColumn field="QuantityPerUnit" header="Quantity Per Unit" groupable={true} dataType="string" editable={true} />
+          <IgrColumn field="ReorderLevel" header="Reorder Level" dataType="number" groupable={true} editable={true} />
+        </IgrGrid>
+      </div>
+    </div>
+  );
 }
 
-// rendering above component in the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+export default Sample;
+
+// Render the component
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Sample />);

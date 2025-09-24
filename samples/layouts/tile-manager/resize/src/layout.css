@@ -1,0 +1,32 @@
+span{
+  font-size: 30px;
+}
+
+p {
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+igc-radio-group {
+  margin: 0 50px 0 22px;
+  width: fit-content;
+  padding: 4px 15px;
+  border: 2px solid var(--ig-primary-700);
+  background-color: var(--ig-gray-300);
+  align-self: end;
+}
+
+.sample {
+  overflow: auto;
+}
+
+.inputWrapper{
+  display: flex;
+  margin-bottom: 12px;
+}
+
+igc-input {
+  width: min-content;
+  --ig-size: var(--ig-size-small);
+  margin-right: 50px;
+}

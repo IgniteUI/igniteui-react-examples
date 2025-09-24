@@ -125,7 +125,7 @@ export default class Sample extends React.Component<any, any> {
                         labelTextMarginLeft="1"
                         layoutMode="Vertical"
                         badgeShape="Hidden"
-                        includedColumns={["X", "Y", "Radius"]}
+                        includedColumns={["x", "y", "radius"]}
                         headerRowVisible="false">
                     </IgrDataToolTipLayer>
                 </IgrDataChart>

@@ -1,0 +1,25 @@
+p {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.sample {
+  overflow: auto;
+}
+
+igc-input {
+  width: min-content;
+  --ig-size: var(--ig-size-small);
+  margin-right: 50px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.inputWrapper{
+  display: flex;
+  margin-left: 22px;
+  margin-bottom: 12px;
+}
