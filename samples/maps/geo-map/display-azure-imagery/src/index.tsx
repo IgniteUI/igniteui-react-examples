@@ -4,7 +4,7 @@ import './index.css';
 import {
   IgrGeographicMapModule,
   IgrGeographicMap,
-  IgrAzureMapsMapImagery,
+  IgrAzureMapsImagery,
   AzureMapsImageryStyle,
   IgrGeographicTileSeries
 } from "igniteui-react-maps";
@@ -48,12 +48,12 @@ const placeholderImages: Record<string, string> = {
 };
 
 const trafficWeatherStyles = [
-  AzureMapsImageryStyle.TrafficDelay,
-  AzureMapsImageryStyle.TrafficAbsolute,
-  AzureMapsImageryStyle.TrafficReduced,
-  AzureMapsImageryStyle.TrafficRelativeDark,
-  AzureMapsImageryStyle.WeatherInfrared,
-  AzureMapsImageryStyle.WeatherRadar
+  AzureMapsImageryStyle.TrafficDelayOverlay,
+  AzureMapsImageryStyle.TrafficAbsoluteOverlay,
+  AzureMapsImageryStyle.TrafficReducedOverlay,
+  AzureMapsImageryStyle.TrafficRelativeDarkOverlay,
+  AzureMapsImageryStyle.WeatherInfraredOverlay,
+  AzureMapsImageryStyle.WeatherRadarOverlay
 ];
 
 export default class MapDisplayImageryAzure extends React.Component<any, any> {
@@ -203,21 +203,21 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
 
   private mapStyleFromName(name: string): AzureMapsImageryStyle {
     switch (name) {
-      case "Satellite": return AzureMapsImageryStyle.Imagery;
+      case "Satellite": return AzureMapsImageryStyle.Satellite;
       case "Road": return AzureMapsImageryStyle.Road;
       case "DarkGrey": return AzureMapsImageryStyle.DarkGrey;
-      case "TerraOverlay": return AzureMapsImageryStyle.Terra;
-      case "HybridRoadOverlay": return AzureMapsImageryStyle.HybridRoad;
-      case "HybridDarkGreyOverlay": return AzureMapsImageryStyle.HybridDarkGrey;
-      case "LabelsRoadOverlay": return AzureMapsImageryStyle.LabelsRoad;
-      case "LabelsDarkGreyOverlay": return AzureMapsImageryStyle.LabelsDarkGrey;
-      case "TrafficDelayOverlay": return AzureMapsImageryStyle.TrafficDelay;
-      case "TrafficAbsoluteOverlay": return AzureMapsImageryStyle.TrafficAbsolute;
-      case "TrafficReducedOverlay": return AzureMapsImageryStyle.TrafficReduced;
-      case "TrafficRelativeOverlay": return AzureMapsImageryStyle.TrafficRelativeDark;
-      case "WeatherInfraredOverlay": return AzureMapsImageryStyle.WeatherInfrared;
-      case "WeatherRadarOverlay": return AzureMapsImageryStyle.WeatherRadar;
-      default: return AzureMapsImageryStyle.Imagery;
+      case "TerraOverlay": return AzureMapsImageryStyle.TerraOverlay;
+      case "HybridRoadOverlay": return AzureMapsImageryStyle.HybridRoadOverlay;
+      case "HybridDarkGreyOverlay": return AzureMapsImageryStyle.HybridDarkGreyOverlay;
+      case "LabelsRoadOverlay": return AzureMapsImageryStyle.LabelsRoadOverlay;
+      case "LabelsDarkGreyOverlay": return AzureMapsImageryStyle.LabelsDarkGreyOverlay;
+      case "TrafficDelayOverlay": return AzureMapsImageryStyle.TrafficDelayOverlay;
+      case "TrafficAbsoluteOverlay": return AzureMapsImageryStyle.TrafficAbsoluteOverlay;
+      case "TrafficReducedOverlay": return AzureMapsImageryStyle.TrafficReducedOverlay;
+      case "TrafficRelativeOverlay": return AzureMapsImageryStyle.TrafficRelativeDarkOverlay;
+      case "WeatherInfraredOverlay": return AzureMapsImageryStyle.WeatherInfraredOverlay;
+      case "WeatherRadarOverlay": return AzureMapsImageryStyle.WeatherRadarOverlay;
+      default: return AzureMapsImageryStyle.Satellite;
     }
   }
 
@@ -225,14 +225,14 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
     if (!this.geoMap || !this.state.apiKey) return;
 
     this.geoMap.series.clear();
-    const tileSource = new IgrAzureMapsMapImagery();
+    const tileSource = new IgrAzureMapsImagery();
     tileSource.apiKey = this.state.apiKey;
 
     const series = new IgrGeographicTileSeries({ name: "AzureTileSeries", tileImagery: tileSource });
     series.tileImagery = tileSource;
 
     if (trafficWeatherStyles.includes(style)) {
-      const bg = new IgrAzureMapsMapImagery();
+      const bg = new IgrAzureMapsImagery();
       bg.apiKey = this.state.apiKey;
       bg.imageryStyle = AzureMapsImageryStyle.DarkGrey;
       this.geoMap.backgroundContent = bg;
@@ -240,16 +240,16 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
       tileSource.imageryStyle = style;
       this.geoMap.series.add(series);
 
-      if (style === AzureMapsImageryStyle.WeatherInfrared || style === AzureMapsImageryStyle.WeatherRadar) {
+      if (style === AzureMapsImageryStyle.WeatherInfraredOverlay || style === AzureMapsImageryStyle.WeatherRadarOverlay) {
         MapUtils.navigateTo(this.geoMap, MapRegion.UnitedStates);
       } else {
         MapUtils.zoomToNYC(this.geoMap);
       }
     }
-    else if (style === AzureMapsImageryStyle.Terra) {
-      const bg = new IgrAzureMapsMapImagery();
+    else if (style === AzureMapsImageryStyle.TerraOverlay) {
+      const bg = new IgrAzureMapsImagery();
       bg.apiKey = this.state.apiKey;
-      bg.imageryStyle = AzureMapsImageryStyle.Imagery;
+      bg.imageryStyle = AzureMapsImageryStyle.Satellite;
       this.geoMap.backgroundContent = bg;
 
       tileSource.imageryStyle = style;
@@ -259,9 +259,9 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
     else {
       tileSource.imageryStyle = style;
       this.geoMap.series.add(series);
-      const bg = new IgrAzureMapsMapImagery();
+      const bg = new IgrAzureMapsImagery();
       bg.apiKey = this.state.apiKey;
-      bg.imageryStyle = AzureMapsImageryStyle.Imagery;
+      bg.imageryStyle = AzureMapsImageryStyle.Satellite;
       this.geoMap.backgroundContent = bg;
       MapUtils.navigateTo(this.geoMap, MapRegion.UnitedStates);
     }
