@@ -2,13 +2,11 @@ import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { IgrGridCreatedEventArgs, IgrHierarchicalGridModule } from "igniteui-react-grids";
+import { IgrGridCreatedEventArgs } from "igniteui-react-grids";
 import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from "igniteui-react-grids";
 
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { getData } from "./RemoteService";
-
-IgrHierarchicalGridModule.register();
 
 export default function App() {
   const hierarchicalGrid = useRef<IgrHierarchicalGrid>(null);
