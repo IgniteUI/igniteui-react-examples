@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "igniteui-react": "^19.2.0",
-    "igniteui-react-core": "^19.0.2-beta.2",
-    "igniteui-react-inputs": "^19.0.2-beta.2",
+    "igniteui-react-core": "^19.0.1",
+    "igniteui-react-inputs": "^19.0.1",
     "igniteui-webcomponents": "^6.2.0",
     "lit-html": "^3.2.0",
     "react": "^18.2.0",
