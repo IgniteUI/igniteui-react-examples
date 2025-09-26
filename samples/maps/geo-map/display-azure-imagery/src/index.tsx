@@ -11,24 +11,10 @@ import {
 import { IgrButton, IgrDialog, IgrInput, IgrSelect, IgrSelectItem } from "igniteui-react";
 import { IgrDataChartInteractivityModule } from "igniteui-react-charts";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
+import { MapUtils, MapRegion } from './MapUtils';
 
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
-
-enum MapRegion { UnitedStates }
-
-class MapUtils {
-  public static navigateTo(geoMap: IgrGeographicMap | undefined, region: MapRegion) {
-    if (!geoMap) return;
-    if (region === MapRegion.UnitedStates)
-      geoMap.zoomToGeographic({ left: -125, top: 50, width: 60, height: 25 });
-  }
-
-  public static zoomToNYC(geoMap: IgrGeographicMap | undefined) {
-    if (!geoMap) return;
-    geoMap.zoomToGeographic({ left: -74.2591, top: 40.9176, width: -73.7004 - (-74.2591), height: 40.4774 - 40.9176 });
-  }
-}
 
 const placeholderImages: Record<string, string> = {
   Satellite: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_satellite.png",
@@ -73,27 +59,30 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
     this.onStyleChange = this.onStyleChange.bind(this);
   }
 
+  componentDidMount() {
+    this.onDialogShow(); // open dialog on startup
+  }
+
   render(): JSX.Element {
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        gap: "16px",
+        height: "100vh", // full viewport
         width: "100%",
-        padding: "16px",
-        boxSizing: "border-box"
       }}
     >
       {/* Controls panel */}
       <div
         style={{
+          flex: "0 0 auto", // fixed height
           display: "flex",
           gap: "12px",
           alignItems: "center",
           justifyContent: "center",
-          flexWrap: "wrap"
+          padding: "12px",
+          zIndex: 2
         }}
       >
         <IgrButton variant="contained" onClick={this.onDialogShow}>
@@ -113,51 +102,41 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
         </IgrSelect>
       </div>
 
-      {/* Placeholder image */}
-      {!this.state.mapVisible && (
-        <div
-          style={{
-            width: "640px",
-            height: "480px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            border: "1px solid #ccc",
-            borderRadius: "6px",
-            overflow: "hidden",
-            boxShadow: "0 2px 6px rgba(0,0,0,0.2)"
-          }}
-        >
+      {/* Placeholder image or map fills the rest */}
+      <div
+        style={{
+          width: "100%",           // fill parent container width
+          maxWidth: "960px",       // constrain max width
+          aspectRatio: "4 / 3",    // maintain 4:3 ratio
+          margin: "0 auto",        // center horizontally
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {!this.state.mapVisible ? (
           <img
             src={placeholderImages[this.state.styleName]}
             alt={this.state.styleName}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover"
+            }}
           />
-        </div>
-      )}
-
-      {/* Map container */}
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "100%",
-          height: "1000px",
-          overflow: "hidden",
-          display: this.state.mapVisible ? "block" : "none"
-        }}
-      >
-        <IgrGeographicMap
-          ref={(r) => (this.geoMap = r!)}
-          width="100%"
-          height="100%"
-          zoomable={true}
-        />
+        ) : (
+          <IgrGeographicMap
+            ref={(r) => (this.geoMap = r!)}
+            width="100%"
+            height="100%"
+            zoomable={true}
+          />
+        )}
       </div>
 
-      {/* Dialog for API key */}
-      <IgrDialog title="Azure Key" ref={this.onDialogRef}>
+      {/* Dialog always floats above */}
+      <IgrDialog title="Azure Key" ref={this.onDialogRef} className="igr-dialog">
         <IgrInput
-          label="Azure Key"
+          label="An image will remain visible when no key is entered."
           value={this.state.apiKey}
           inputMode="text"
           onInput={this.onApiKeyChange}
@@ -181,6 +160,7 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
     </div>
   );
 }
+
 
   private onDialogRef(dialog: IgrDialog) { this.dialogRef = dialog; }
   private onDialogShow() { this.dialogRef?.show(); }
@@ -243,7 +223,7 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
       if (style === AzureMapsImageryStyle.WeatherInfraredOverlay || style === AzureMapsImageryStyle.WeatherRadarOverlay) {
         MapUtils.navigateTo(this.geoMap, MapRegion.UnitedStates);
       } else {
-        MapUtils.zoomToNYC(this.geoMap);
+        this.geoMap.zoomToGeographic({ left: -74.2591, top: 40.9176, width: -73.7004 - (-74.2591), height: 40.4774 - 40.9176 });
       }
     }
     else if (style === AzureMapsImageryStyle.TerraOverlay) {
