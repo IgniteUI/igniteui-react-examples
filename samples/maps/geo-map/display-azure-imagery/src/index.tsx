@@ -16,36 +16,8 @@ import { MapUtils, MapRegion } from './MapUtils';
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();
 
-const mapStyles: Record<string, { placeholder: string; azureStyle: AzureMapsImageryStyle }> = {
-  Satellite: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_satellite.png", azureStyle: AzureMapsImageryStyle.Satellite },
-  Road: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_road.png", azureStyle: AzureMapsImageryStyle.Road },
-  DarkGrey: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_darkgrey.png", azureStyle: AzureMapsImageryStyle.DarkGrey },
-  TerraOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_terra_overlay.png", azureStyle: AzureMapsImageryStyle.TerraOverlay },
-  HybridRoadOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/AzureHybridRoad.png", azureStyle: AzureMapsImageryStyle.HybridRoadOverlay },
-  HybridDarkGreyOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_hybriddarkgrey.png", azureStyle: AzureMapsImageryStyle.HybridDarkGreyOverlay },
-  LabelsRoadOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsroad.png", azureStyle: AzureMapsImageryStyle.LabelsRoadOverlay },
-  LabelsDarkGreyOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsdarkgrey.png", azureStyle: AzureMapsImageryStyle.LabelsDarkGreyOverlay },
-  TrafficDelayOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_trafficdelay.png", azureStyle: AzureMapsImageryStyle.TrafficDelayOverlay },
-  TrafficAbsoluteOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_absolute.png", azureStyle: AzureMapsImageryStyle.TrafficAbsoluteOverlay },
-  TrafficReducedOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_light.png", azureStyle: AzureMapsImageryStyle.TrafficReducedOverlay },
-  TrafficRelativeOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_relative.png", azureStyle: AzureMapsImageryStyle.TrafficRelativeDarkOverlay },
-  WeatherInfraredOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_Infrared_road.png", azureStyle: AzureMapsImageryStyle.WeatherInfraredOverlay },
-  WeatherRadarOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_radar.png", azureStyle: AzureMapsImageryStyle.WeatherRadarOverlay }
-};
-
-const trafficWeatherStyles = [
-  AzureMapsImageryStyle.TrafficDelayOverlay,
-  AzureMapsImageryStyle.TrafficAbsoluteOverlay,
-  AzureMapsImageryStyle.TrafficReducedOverlay,
-  AzureMapsImageryStyle.TrafficRelativeDarkOverlay,
-  AzureMapsImageryStyle.WeatherInfraredOverlay,
-  AzureMapsImageryStyle.WeatherRadarOverlay
-];
-
 export default class MapDisplayImageryAzure extends React.Component<any, any> {
-  private geoMap?: IgrGeographicMap;
-  private dialogRef?: IgrDialog;
-
+   
   constructor(props: any) {
     super(props);
     this.state = { apiKey: "", styleName: "Satellite", mapVisible: false };
@@ -64,7 +36,7 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
   }
 
   render(): JSX.Element {
-    const currentStyle = mapStyles[this.state.styleName];
+    const currentStyle = this.mapStyles[this.state.styleName];
 
     return (
       <div style={{ display: "flex", flexDirection: "column", height: "100vh", width: "100%" }}>
@@ -72,7 +44,7 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
         <div style={{ flex: "0 0 auto", display: "flex", gap: "12px", alignItems: "center", justifyContent: "center", padding: "12px", zIndex: 2 }}>
           <IgrButton variant="contained" onClick={this.onDialogShow}>Enter Azure Maps API Key</IgrButton>
           <IgrSelect value={this.state.styleName} onChange={this.onStyleChange} style={{ minWidth: "220px" }}>
-            {Object.keys(mapStyles).map(key => (
+            {Object.keys(this.mapStyles).map(key => (
               <IgrSelectItem key={key} value={key}>{key}</IgrSelectItem>
             ))}
           </IgrSelect>
@@ -111,6 +83,18 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
     );
   }
 
+  private geoMap?: IgrGeographicMap;
+  private dialogRef?: IgrDialog;
+
+  private trafficWeatherStyles = [
+  AzureMapsImageryStyle.TrafficDelayOverlay,
+  AzureMapsImageryStyle.TrafficAbsoluteOverlay,
+  AzureMapsImageryStyle.TrafficReducedOverlay,
+  AzureMapsImageryStyle.TrafficRelativeDarkOverlay,
+  AzureMapsImageryStyle.WeatherInfraredOverlay,
+  AzureMapsImageryStyle.WeatherRadarOverlay
+  ];
+
   private onDialogRef(dialog: IgrDialog) { this.dialogRef = dialog; }
   private onDialogShow() { this.dialogRef?.show(); }
   private onDialogHide() { this.dialogRef?.hide(); }
@@ -119,14 +103,14 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
 
   private onApplyKey() {
     if (!this.state.apiKey) { this.onDialogHide(); return; }
-    this.setState({ mapVisible: true }, () => this.updateAzureMap(mapStyles[this.state.styleName].azureStyle));
+    this.setState({ mapVisible: true }, () => this.updateAzureMap(this.mapStyles[this.state.styleName].azureStyle));
     this.onDialogHide();
   }
 
   private onStyleChange(e: CustomEvent) {
     const selected = e.detail.value as string;
     this.setState({ styleName: selected }, () => {
-      if (this.state.apiKey) this.updateAzureMap(mapStyles[selected].azureStyle);
+      if (this.state.apiKey) this.updateAzureMap(this.mapStyles[selected].azureStyle);
     });
   }
 
@@ -140,7 +124,7 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
     const series = new IgrGeographicTileSeries({ name: "AzureTileSeries", tileImagery: tileSource });
     series.tileImagery = tileSource;
 
-    if (trafficWeatherStyles.includes(style)) {
+    if (this.trafficWeatherStyles.includes(style)) {
       const bg = new IgrAzureMapsImagery();
       bg.apiKey = this.state.apiKey;
       bg.imageryStyle = AzureMapsImageryStyle.DarkGrey;
@@ -173,6 +157,23 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
       MapUtils.navigateTo(this.geoMap, MapRegion.UnitedStates);
     }
   }
+
+    private mapStyles: Record<string, { placeholder: string; azureStyle: AzureMapsImageryStyle }> = {
+    Satellite: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_satellite.png", azureStyle: AzureMapsImageryStyle.Satellite },
+    Road: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_road.png", azureStyle: AzureMapsImageryStyle.Road },
+    DarkGrey: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_darkgrey.png", azureStyle: AzureMapsImageryStyle.DarkGrey },
+    TerraOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_terra_overlay.png", azureStyle: AzureMapsImageryStyle.TerraOverlay },
+    HybridRoadOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/AzureHybridRoad.png", azureStyle: AzureMapsImageryStyle.HybridRoadOverlay },
+    HybridDarkGreyOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_hybriddarkgrey.png", azureStyle: AzureMapsImageryStyle.HybridDarkGreyOverlay },
+    LabelsRoadOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsroad.png", azureStyle: AzureMapsImageryStyle.LabelsRoadOverlay },
+    LabelsDarkGreyOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsdarkgrey.png", azureStyle: AzureMapsImageryStyle.LabelsDarkGreyOverlay },
+    TrafficDelayOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_trafficdelay.png", azureStyle: AzureMapsImageryStyle.TrafficDelayOverlay },
+    TrafficAbsoluteOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_absolute.png", azureStyle: AzureMapsImageryStyle.TrafficAbsoluteOverlay },
+    TrafficReducedOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_light.png", azureStyle: AzureMapsImageryStyle.TrafficReducedOverlay },
+    TrafficRelativeOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_relative.png", azureStyle: AzureMapsImageryStyle.TrafficRelativeDarkOverlay },
+    WeatherInfraredOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_Infrared_road.png", azureStyle: AzureMapsImageryStyle.WeatherInfraredOverlay },
+    WeatherRadarOverlay: { placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_radar.png", azureStyle: AzureMapsImageryStyle.WeatherRadarOverlay }
+  };
 }
 
 // rendering above class to the React DOM
