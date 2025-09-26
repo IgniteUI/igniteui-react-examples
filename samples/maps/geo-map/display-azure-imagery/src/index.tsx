@@ -133,34 +133,33 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
         )}
       </div>
 
-      {/* Dialog always floats above */}
-      <IgrDialog title="Azure Key" ref={this.onDialogRef} className="igr-dialog">
-        <IgrInput
-          label="An image will remain visible when no key is entered."
-          value={this.state.apiKey}
-          inputMode="text"
-          onInput={this.onApiKeyChange}
-        />
-        <div
-          slot="footer"
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            gap: "8px"
-          }}
-        >
-          <IgrButton variant="flat" onClick={this.onResetKey}>
-            Reset
-          </IgrButton>
-          <IgrButton variant="flat" onClick={this.onApplyKey}>
-            Submit
-          </IgrButton>
-        </div>
-      </IgrDialog>
-    </div>
-  );
-}
-
+        {/* Dialog always floats above */}
+        <IgrDialog title="Azure Key" ref={this.onDialogRef} className="igr-dialog">
+          <IgrInput
+            label="An image will remain visible when no key is entered."
+            value={this.state.apiKey}
+            inputMode="text"
+            onInput={this.onApiKeyChange}
+          />
+          <div
+            slot="footer"
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              gap: "8px"
+            }}
+          >
+            <IgrButton variant="flat" onClick={this.onResetKey}>
+              Reset
+            </IgrButton>
+            <IgrButton variant="flat" onClick={this.onApplyKey}>
+              Submit
+            </IgrButton>
+          </div>
+        </IgrDialog>
+      </div>
+    );
+  }
 
   private onDialogRef(dialog: IgrDialog) { this.dialogRef = dialog; }
   private onDialogShow() { this.dialogRef?.show(); }
