@@ -43,7 +43,7 @@ export default class Sample extends React.Component<any, any> {
                     yAxisLabelLeftMargin="0"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    isCategoryHighlightingEnabled="true"
+                    isCategoryHighlightingEnabled="false"
                     highlightingMode="FadeOthersSpecific"
                     highlightingBehavior="NearestItemsAndSeries"
                     crosshairsDisplayMode="None">
