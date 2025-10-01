@@ -35,17 +35,17 @@ export default class TooltipPlacement extends React.Component<any, any> {
         <IgrButton
           variant="outlined"
           id="tooltip-position"
-          style={{ textAlign: "center" }}
         >Click to trigger all supported placements
         </IgrButton>
 
         {this.Positions.map((pos) => (
           <IgrTooltip
             anchor="tooltip-position"
-            show-triggers="click"
-            show-delay="0"
-            hide-delay="0"
-            sticky
+            showTriggers="click"
+            showDelay={0}
+            hideDelay={0}
+            sticky={true}
+            withArrow={true}
             placement={pos}
             key={pos}
           >
