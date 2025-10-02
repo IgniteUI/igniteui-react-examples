@@ -7,7 +7,7 @@ import { IgrInputModule } from 'igniteui-react';
 import { IgrGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebPaginatorDescriptionModule, WebInputDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
-import { IgrGridBaseDirective, IgrGridEditEventArgs } from 'igniteui-react-grids';
+import { IgrGridEditEventArgs } from 'igniteui-react-grids';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import { IgrInput } from 'igniteui-react';
 
@@ -118,13 +118,13 @@ export default class Sample extends React.Component<any, any> {
         return this._componentRenderer;
     }
 
-    public webGridOnEditEnter(e: IgrGridEditEventArgs): void {
+    public webGridOnEditEnter(args: IgrGridEditEventArgs): void {
 
-        const column = e.detail.owner.getColumnByVisibleIndex(e.detail.cellID.columnID);
+        const column = args.detail.owner.getColumnByVisibleIndex(args.detail.cellID.columnID);
         if(column.field === 'ReorderLevel') {
             setTimeout(() => {
-                const rowId = e.detail.cellID.rowID;
-                const columnId = e.detail.cellID.columnID;
+                const rowId = args.detail.cellID.rowID;
+                const columnId = args.detail.cellID.columnID;
                 const inputTemplateId = `edit-cell-${rowId}-${columnId}`;
                 const element = document.getElementById(inputTemplateId);
                 element?.focus();

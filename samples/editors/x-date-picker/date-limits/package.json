@@ -12,9 +12,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "igniteui-react-core": "^19.0.1",
-    "igniteui-react-inputs": "^19.0.1",
-    "igniteui-react-layouts": "^19.0.1",
+    "igniteui-react-core": "19.2.2",
+    "igniteui-react-inputs": "19.2.2",
+    "igniteui-react-layouts": "19.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
