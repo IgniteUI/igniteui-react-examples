@@ -3,42 +3,17 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import {
-  IgrGrid,
-  IgrGridModule,
+  IgrTreeGrid,
   IgrColumn,
-  IgrColumnGroup,
-  IgrPaginator,
-  IgrGridToolbar,
-  IgrGridMasterDetailContext,
+  IgrPaginator
 } from 'igniteui-react-grids';
 import { IgrCheckbox } from 'igniteui-react';
 import { IgrList, IgrListItem, IgrListHeader } from 'igniteui-react';
-import NwindData from './NwindData.json';
+import { EmployeesNestedDataItem, EmployeesNestedData } from './EmployeesNestedData';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-IgrGridModule.register();
-
-interface MasterDetailTemplateProps {
-  dataContext: IgrGridMasterDetailContext;
-}
-
-type Customer = {
-  ProductID: number;
-  ProductName: string;
-  SupplierID: number;
-  CategoryID: number;
-  QuantityPerUnit: string;
-  UnitPrice: number;
-  UnitsInStock: number;
-  UnitsOnOrder: number;
-  ReorderLevel: number;
-  Discontinued: boolean;
-  OrderDate: string;
-  Rating: number;
-  Locations?: any[];
-  CompanysAnnualProfit?: number;
-};
+type Employee = EmployeesNestedDataItem;
 enum GridSection {
   THEAD = 'thead',
   TBODY = 'tbody',
@@ -49,9 +24,7 @@ enum ItemAction {
   Filterable,
   Sortable,
   Selectable,
-  Groupable,
   Collapsible,
-  Expandable,
   Editable,
   Always,
 }
@@ -74,18 +47,15 @@ const makeItem = (
 const theadKeyCombinations: Item[] = [
   makeItem('Space', 'select column', false, ItemAction.Selectable),
   makeItem('Ctrl + ↑/↓', 'sort column asc/desc', false, ItemAction.Sortable),
-  makeItem('Shift + Alt + ←/→', 'group / ungroup column', false, ItemAction.Groupable),
-  makeItem('Alt + arrows', 'expand / collapse column group', false, ItemAction.Collapsible),
   makeItem('Ctrl + Shift + L', 'open Excel-style filter', false, ItemAction.Filterable),
   makeItem('Alt + L', 'open Advanced filtering', false, ItemAction.Filterable),
 ];
 
 const tbodyKeyCombinations: Item[] = [
   makeItem('Enter', 'enter edit mode', false, ItemAction.Editable),
-  makeItem('Alt + ←/→', 'expand/collapse group row', false, ItemAction.Expandable),
-  makeItem('Ctrl + Home/End', 'jump to first/last cell', false, ItemAction.Always),
-  makeItem('Alt + →/↓', 'expand row detail', false, ItemAction.Collapsible),
   makeItem('Alt + ←/↑', 'collapse row detail', false, ItemAction.Collapsible),
+  makeItem('Alt + →/↓', 'expand row detail', false, ItemAction.Collapsible),
+  makeItem('Ctrl + Home/End', 'jump to first/last cell', false, ItemAction.Always),
 ];
 
 const summaryCombinations: Item[] = [
@@ -111,56 +81,21 @@ function markCompleted(list: Item[], idx: number, value: boolean) {
   return next;
 }
 
-function withComputed(data: Customer[]): Customer[] {
-  return data.map((item) => {
-    const profit = (100000 + Math.random() * 1000000);
-    return {
-      ...item,
-      CompanysAnnualProfit: profit,
-    };
-  });
-}
+export default function TreeGridKeyboardNavGuide() {
+  const gridRef = useRef<IgrTreeGrid | null>(null);
+  const lastKeyRef = useRef<string>('');
+  const isInEditModeRef = useRef<boolean>(false);
 
-const MasterDetailTemplate: React.FC<MasterDetailTemplateProps> = ({ dataContext }) => {
-  const rowData = dataContext.implicit as Customer;
-  
-  return (
-    <div style={{ padding: '16px', backgroundColor: '#f8f9fa', border: '1px solid #dee2e6' }}>
-      <h4 style={{ margin: '0 0 12px 0', color: '#495057' }}>Product Details</h4>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-        <div>
-          <strong>Product ID:</strong> {rowData.ProductID}<br />
-          <strong>Supplier ID:</strong> {rowData.SupplierID}<br />
-          <strong>Category ID:</strong> {rowData.CategoryID}<br />
-          <strong>Unit Price:</strong> ${rowData.UnitPrice?.toFixed(2)}<br />
-        </div>
-        <div>
-          <strong>Units in Stock:</strong> {rowData.UnitsInStock}<br />
-          <strong>Units on Order:</strong> {rowData.UnitsOnOrder}<br />
-          <strong>Reorder Level:</strong> {rowData.ReorderLevel}<br />
-          <strong>Discontinued:</strong> {rowData.Discontinued ? 'Yes' : 'No'}<br />
-        </div>
-      </div>
-      {rowData.OrderDate && (
-        <div style={{ marginTop: '12px' }}>
-          <strong>Order Date:</strong> {new Date(rowData.OrderDate).toLocaleDateString()}
-        </div>
-      )}
-      {rowData.CompanysAnnualProfit && (
-        <div style={{ marginTop: '8px' }}>
-          <strong>Annual Profit:</strong> ${rowData.CompanysAnnualProfit.toLocaleString()}
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default function GridKeyboardNavGuide() {
-  const gridRef = useRef<IgrGrid | null>(null);
-
-  const [data, setData] = useState<Customer[]>(() => withComputed(NwindData as Customer[]));
+  const [data] = useState<Employee[]>(() => new EmployeesNestedData());
   const [gridSection, setGridSection] = useState<GridSection>(GridSection.THEAD);
   const [items, setItems] = useState<Item[]>(cloneItems(theadKeyCombinations));
+
+  const checkEditMode = () => {
+    const editingCell = document.querySelector('.igx-grid__td--editing, .igc-grid__td--editing');
+    const gridElement = (gridRef.current as any)?.nativeElement;
+    const inputInGrid = gridElement?.querySelector('input, textarea, select');
+    return !!(editingCell || inputInGrid);
+  };
 
   useEffect(() => {
     const handleGlobalKeyDown = (evt: KeyboardEvent) => {
@@ -171,25 +106,43 @@ export default function GridKeyboardNavGuide() {
       
       if (gridElement && (gridElement.contains(focusedElement) || gridElement === focusedElement)) {
         if (evt.altKey && (key === 'arrowup' || key === 'arrowdown' || key === 'arrowleft' || key === 'arrowright')) {
-          if (gridSection === GridSection.TBODY) {
-            if (key === 'arrowup' || key === 'arrowleft') {
-              setTimeout(() => {
-                setItems((prev: Item[]) => markCompleted(prev, 4, true));
-              }, 0);
-            } else if (key === 'arrowdown' || key === 'arrowright') {
-              setTimeout(() => {
-                setItems((prev: Item[]) => markCompleted(prev, 3, true));
-              }, 0);
-            }
-          }
+          lastKeyRef.current = key;
         }
         
         if (evt.ctrlKey && (key === 'home' || key === 'end')) {
+          lastKeyRef.current = key;
+          
           if (gridSection === GridSection.TBODY) {
             setTimeout(() => {
-              setItems((prev: Item[]) => markCompleted(prev, 2, true));
+              setItems((prev: Item[]) => markCompleted(prev, 3, true));
             }, 0);
           }
+        }
+        
+        if (key === 'enter') {
+          const focusedElement = document.activeElement;
+          
+          const focusedIsInput = focusedElement && (
+            focusedElement.tagName === 'INPUT' || 
+            focusedElement.tagName === 'TEXTAREA' || 
+            focusedElement.tagName === 'SELECT'
+          );
+          
+          const focusedCellInEditMode = focusedElement && focusedElement.closest('.igx-grid__td--editing, .igc-grid__td--editing');
+          
+          const currentlyInEditMode = !!(focusedIsInput || focusedCellInEditMode);
+          
+          if (!currentlyInEditMode && gridSection === GridSection.TBODY) {
+            setItems((prev: Item[]) => markCompleted(prev, 0, true));
+          }
+          
+          isInEditModeRef.current = currentlyInEditMode;
+        }
+
+        if (key === 'escape') {
+          setTimeout(() => {
+            isInEditModeRef.current = checkEditMode();
+          }, 10);
         }
       }
     };
@@ -215,13 +168,19 @@ export default function GridKeyboardNavGuide() {
     if (active && typeof active.row === 'number') {
       if (active.row < 0) {
         setGridSection(GridSection.THEAD);
-        setItems(cloneItems(theadKeyCombinations));
+        if (gridSection !== GridSection.THEAD) {
+          setItems(cloneItems(theadKeyCombinations));
+        }
       } else if (active.row >= rows) {
         setGridSection(GridSection.FOOTER);
-        setItems(cloneItems(summaryCombinations));
+        if (gridSection !== GridSection.FOOTER) {
+          setItems(cloneItems(summaryCombinations));
+        }
       } else {
         setGridSection(GridSection.TBODY);
-        setItems(cloneItems(tbodyKeyCombinations));
+        if (gridSection !== GridSection.TBODY) {
+          setItems(cloneItems(tbodyKeyCombinations));
+        }
       }
     }
   };
@@ -230,10 +189,6 @@ export default function GridKeyboardNavGuide() {
     const key = evt.key?.toLowerCase();
     if (!key) return;
     if (key === 'tab') return;
-
-    if (evt.altKey && (key === 'arrowleft' || key === 'arrowright' || key === 'arrowup' || key === 'arrowdown')) {
-      evt.preventDefault();
-    }
 
     if ((key === 'l' && evt.altKey) || 
         (key === 'l' && evt.ctrlKey && evt.shiftKey) ||
@@ -267,13 +222,10 @@ export default function GridKeyboardNavGuide() {
 
       if (gridSection === GridSection.THEAD) {
         if (key === 'l' && evt.altKey) {
-          next = markCompleted(next, 5, true);
+          next = markCompleted(next, 3, true);
           return next;
         }
         if (key === 'l' && evt.ctrlKey && evt.shiftKey) {
-          next = markCompleted(next, 4, true);
-        }
-        if ((key === 'arrowleft' || key === 'arrowright') && evt.altKey && evt.shiftKey) {
           next = markCompleted(next, 2, true);
         }
         if ((key === 'arrowup' || key === 'arrowdown') && evt.ctrlKey) {
@@ -281,15 +233,6 @@ export default function GridKeyboardNavGuide() {
         }
         if (key === ' ' || key === 'spacebar') {
           next = markCompleted(next, 0, true);
-        }
-      }
-
-      if (gridSection === GridSection.TBODY) {
-        if (key === 'enter') {
-          next = markCompleted(next, 0, true);
-        }
-        if ((key === 'end' || key === 'home') && evt.ctrlKey) {
-          next = markCompleted(next, 2, true);
         }
       }
 
@@ -311,39 +254,58 @@ export default function GridKeyboardNavGuide() {
     const actions: ItemAction[] = [];
     if (col?.sortable) actions.push(ItemAction.Sortable);
     if (col?.filterable && !col?.columnGroup) actions.push(ItemAction.Filterable);
-    if (col?.collapsible) actions.push(ItemAction.Collapsible);
-    if (col?.groupable) actions.push(ItemAction.Groupable);
     if (col?.selectable) actions.push(ItemAction.Selectable);
 
     setItems((prev: Item[]) => enableActions(prev, actions));
   };
 
-  // When grid focuses a new node, update section + header actions
   const onActiveNodeChange = () => {
     updateSectionFromActiveNode();
     refreshHeaderActions();
+    
+    setTimeout(() => {
+      isInEditModeRef.current = checkEditMode();
+    }, 10);
   };
+
+  useEffect(() => {
+    const handleGlobalClick = () => {
+      setTimeout(() => {
+        isInEditModeRef.current = checkEditMode();
+      }, 10);
+    };
+
+    document.addEventListener('click', handleGlobalClick, true);
+    
+    return () => {
+      document.removeEventListener('click', handleGlobalClick, true);
+    };
+  }, []);
 
   const onRowToggle = () => {
-    if (gridSection === GridSection.TBODY) {
-      setItems((prev: Item[]) => markCompleted(prev, 1, true));
-    }
-  };
-
-  const onColumnSelectionChanging = (e: any) => {
-    if (e?.detail?.event?.type === 'keydown') {
-      setItems((prev: Item[]) => markCompleted(prev, 0, true));
+    if (gridSection === GridSection.TBODY || gridSection === GridSection.FOOTER) {
+      const lastKey = lastKeyRef.current;
+      setItems((prev: Item[]) => {
+        if (lastKey === 'arrowup' || lastKey === 'arrowleft') {
+          return markCompleted(prev, 1, true);
+        } else if (lastKey === 'arrowdown' || lastKey === 'arrowright') {
+          return markCompleted(prev, 2, true);
+        }
+        return prev;
+      });
+      setTimeout(() => {
+        lastKeyRef.current = '';
+      }, 100);
     }
   };
 
   return (
-    <div className="sample" style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: 16, height: '100vh', overflow: 'hidden' }}>
-      <div className="grid_wrapper" style={{ overflow: 'auto' }} onKeyDown={onGridKeyDown}>
-        <IgrGrid
+    <div className="sample" style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: 16 }}>
+      <div className="grid_wrapper">
+        <IgrTreeGrid
           ref={gridRef}
           data={data}
-          primaryKey="ProductID"
-          detailTemplate={MasterDetailTemplate}
+          childDataKey="Employees"
           allowFiltering={true}
           filterMode="excelStyleFilter"
           allowAdvancedFiltering={true}
@@ -352,106 +314,25 @@ export default function GridKeyboardNavGuide() {
           summaryCalculationMode="rootLevelOnly"
           onActiveNodeChange={onActiveNodeChange as any}
           onRowToggle={onRowToggle as any}
-          onColumnSelectionChanging={onColumnSelectionChanging as any}
+          onKeyDown={onGridKeyDown as any}
         >
           <IgrPaginator />
-          {/* Toolbar can be conditionally shown if needed */}
-          {/* <IgrGridToolbar /> */}
 
-          {/* Row detail template removed for simplicity */}
-
-          {/* Column Groups */}
-          <IgrColumnGroup header="Product Information">
-            <IgrColumn
-              field="ProductName"
-              header="Product Name"
-              hasSummary={true}
-              groupable={true}
-              editable={true}
-              sortable={true}
-              selectable={false}
-            />
-            <IgrColumn
-              field="ProductID"
-              header="Product ID"
-              width="120px"
-              sortable={true}
-              selectable={true}
-            />
-            <IgrColumn
-              field="QuantityPerUnit"
-              header="Quantity Per Unit"
-              width="200px"
-              sortable={true}
-              editable={true}
-            />
-          </IgrColumnGroup>
-
-          <IgrColumnGroup header="Pricing & Stock">
-            <IgrColumn
-              field="UnitPrice"
-              header="Unit Price"
-              dataType="number"
-              hasSummary={true}
-              sortable={true}
-              editable={true}
-            />
-            <IgrColumn
-              field="UnitsInStock"
-              header="Units In Stock"
-              dataType="number"
-              sortable={true}
-              editable={true}
-            />
-            <IgrColumn
-              field="UnitsOnOrder"
-              header="Units On Order"
-              dataType="number"
-              sortable={true}
-            />
-            <IgrColumn
-              field="ReorderLevel"
-              header="Reorder Level"
-              dataType="number"
-              sortable={true}
-              editable={true}
-            />
-          </IgrColumnGroup>
-
-          <IgrColumnGroup header="Additional Info">
-            <IgrColumn
-              field="Discontinued"
-              header="Discontinued"
-              dataType="boolean"
-              sortable={true}
-              editable={true}
-            />
-            <IgrColumn
-              field="OrderDate"
-              header="Order Date"
-              dataType="date"
-              sortable={true}
-            />
-            <IgrColumn
-              field="Rating"
-              header="Rating"
-              dataType="number"
-              sortable={true}
-              editable={true}
-            />
-            <IgrColumn
-              field="CompanysAnnualProfit"
-              header="Annual Profit"
-              dataType="number"
-              hasSummary={true}
-              sortable={true}
-            />
-          </IgrColumnGroup>
-        </IgrGrid>
+          {/* Tree grid columns for Employees */}
+          <IgrColumn field="Name" header="Name" sortable={true} selectable={true} editable={true} />
+          <IgrColumn field="Title" header="Title" sortable={true} editable={true} />
+          <IgrColumn field="Age" header="Age" dataType="number" sortable={true} editable={true} />
+          <IgrColumn field="Salary" header="Salary" dataType="currency" sortable={true} editable={true} />
+          <IgrColumn field="Productivity" header="Productivity" dataType="number" sortable={true} editable={true} />
+          <IgrColumn field="City" header="City" sortable={true} editable={true} />
+          <IgrColumn field="Country" header="Country" sortable={true} />
+          <IgrColumn field="Phone" header="Phone" sortable={true} editable={true} />
+          <IgrColumn field="HireDate" header="Hire Date" dataType="date" sortable={true} />
+        </IgrTreeGrid>
       </div>
 
       {/* Right-side list showing active/available shortcuts */}
-      <div className="list-sample" style={{ overflow: 'auto', height: '100vh', position: 'sticky', top: 0 }}>
+      <div className="list-sample" style={{ overflow: 'auto' }}>
         <IgrList>
           {items.length > 0 && (
             <IgrListHeader>
@@ -494,6 +375,5 @@ export default function GridKeyboardNavGuide() {
   );
 }
 
-// Render to DOM
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(<GridKeyboardNavGuide />);
+root.render(<TreeGridKeyboardNavGuide />);
