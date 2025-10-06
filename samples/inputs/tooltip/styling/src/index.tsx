@@ -16,7 +16,7 @@ export default class TooltipStyling extends React.Component<any, any> {
         <IgrAvatar id="avatar" shape="circle"
           src="https://www.infragistics.com/angular-demos-lob/assets/images/avatar/10.jpg"
         ></IgrAvatar>
-        <IgrTooltip placement="bottom-start" anchor="avatar">
+        <IgrTooltip placement="bottom-start" anchor="avatar" withArrow={true}>
           Her name is Madelyn James
         </IgrTooltip>
       </div>
