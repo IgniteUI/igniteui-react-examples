@@ -1,47 +1,108 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RemoteService } from './RemoteService'
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { IgrGrid, IgrColumn, GridColumnDataType } from 'igniteui-react-grids';
 import { IgrSortingExpressionEventArgs, IgrFilteringExpressionsTreeEventArgs } from 'igniteui-react-grids';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
+interface ProductData {
+  ProductID: number;
+  ProductName: string;
+  SupplierID: number;
+  CategoryID: number;
+  QuantityPerUnit: string;
+  UnitPrice: number;
+  UnitsInStock: number;
+  UnitsOnOrder: number;
+  ReorderLevel: number;
+  Discontinued: boolean;
+}
+
+interface ColumnConfig {
+  field: string;
+  header: string;
+  dataType: GridColumnDataType;
+}
+
+interface GridState {
+  filterExpressions: any;
+  sortExpressions: any[];
+}
+
+// Column configuration outside of component to avoid recreation on every render
+const columnConfig: ColumnConfig[] = [
+  { field: 'ProductID', header: 'Product ID', dataType: 'number' as GridColumnDataType },
+  { field: 'ProductName', header: 'Product Name', dataType: 'string' as GridColumnDataType },
+  { field: 'SupplierID', header: 'Supplier ID', dataType: 'number' as GridColumnDataType },
+  { field: 'CategoryID', header: 'Category ID', dataType: 'number' as GridColumnDataType },
+  { field: 'QuantityPerUnit', header: 'Quantity Per Unit', dataType: 'string' as GridColumnDataType },
+  { field: 'UnitPrice', header: 'Unit Price', dataType: 'number' as GridColumnDataType },
+  { field: 'UnitsInStock', header: 'Units In Stock', dataType: 'number' as GridColumnDataType },
+  { field: 'UnitsOnOrder', header: 'Units On Order', dataType: 'number' as GridColumnDataType },
+  { field: 'ReorderLevel', header: 'Reorder Level', dataType: 'number' as GridColumnDataType },
+  { field: 'Discontinued', header: 'Discontinued', dataType: 'boolean' as GridColumnDataType }
+];
+
 const RemoteFilteringGrid = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<ProductData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const debounceRef = useRef<NodeJS.Timeout | null>(null);
+  const [gridState, setGridState] = useState<GridState>({
+    filterExpressions: null,
+    sortExpressions: []
+  });
+  const debounceRef = useRef<number | null>(null);
 
-  const fetchData = async (filterExpressions: any = null, sortExpressions: any[] = []) => {
-    try {
-      setIsLoading(true);
-      const result = await RemoteService.getData(filterExpressions, sortExpressions);
+  const fetchData = useCallback((newGridState?: Partial<GridState>) => {
+    const currentState = newGridState ? { ...gridState, ...newGridState } : gridState;
+    
+    setIsLoading(true);
+    RemoteService.getData(
+      currentState.filterExpressions, 
+      currentState.sortExpressions
+    )
+    .then((result) => {
       setData(result);
-    } catch (error) {
+      
+      if (newGridState) {
+        setGridState(currentState);
+      }
+    })
+    .catch((error) => {
       console.error('Error fetching data:', error);
-    } finally {
+      setData([]); 
+    })
+    .finally(() => {
       setIsLoading(false);
-    }
-  };
+    });
+  }, [gridState]);
 
-  const handleSortingExpressionsChange = (event: IgrSortingExpressionEventArgs) => {
+  const debouncedFetchData = useCallback((newGridState: Partial<GridState>) => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = window.setTimeout(() => {
+      fetchData(newGridState);
+    }, 400);
+  }, [fetchData]);
+
+  const handleSortingExpressionsChange = useCallback((event: IgrSortingExpressionEventArgs) => {
     const sortExpressions = event.detail;
-    
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    debounceRef.current = setTimeout(() => {
-      fetchData(null, sortExpressions);
-    }, 300);
-  };
+    debouncedFetchData({ sortExpressions });
+  }, [debouncedFetchData]);
 
-  const handleFilteringExpressionsTreeChange = (event: IgrFilteringExpressionsTreeEventArgs) => {
+  const handleFilteringExpressionsTreeChange = useCallback((event: IgrFilteringExpressionsTreeEventArgs) => {
     const filterExpressions = event.detail;
-    
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    debounceRef.current = setTimeout(() => {
-      fetchData(filterExpressions, []);
-    }, 500);
-  };
+    debouncedFetchData({ filterExpressions });
+  }, [debouncedFetchData]);
 
   useEffect(() => {
     fetchData();
+  }, [fetchData]);
+
+  useEffect(() => {
+    return () => {
+      if (debounceRef.current) {
+        clearTimeout(debounceRef.current);
+      }
+    };
   }, []);
 
   return (
@@ -55,16 +116,16 @@ const RemoteFilteringGrid = () => {
         onFilteringExpressionsTreeChange={handleFilteringExpressionsTreeChange}
         allowFiltering={true}
       >
-        <IgrColumn field="ProductID" header="Product ID" sortable={true} filterable={true} dataType="number" />
-        <IgrColumn field="ProductName" header="Product Name" sortable={true} filterable={true} dataType="string" />
-        <IgrColumn field="SupplierID" header="Supplier ID" sortable={true} filterable={true} dataType="number" />
-        <IgrColumn field="CategoryID" header="Category ID" sortable={true} filterable={true} dataType="number" />
-        <IgrColumn field="QuantityPerUnit" header="Quantity Per Unit" sortable={true} filterable={true} dataType="string" />
-        <IgrColumn field="UnitPrice" header="Unit Price" sortable={true} filterable={true} dataType="number" />
-        <IgrColumn field="UnitsInStock" header="Units In Stock" sortable={true} filterable={true} dataType="number" />
-        <IgrColumn field="UnitsOnOrder" header="Units On Order" sortable={true} filterable={true} dataType="number" />
-        <IgrColumn field="ReorderLevel" header="Reorder Level" sortable={true} filterable={true} dataType="number" />
-        <IgrColumn field="Discontinued" header="Discontinued" sortable={true} filterable={true} dataType="boolean" />
+        {columnConfig.map((col) => (
+          <IgrColumn 
+            key={col.field}
+            field={col.field} 
+            header={col.header} 
+            sortable={true} 
+            filterable={true} 
+            dataType={col.dataType} 
+          />
+        ))}
       </IgrGrid>
     </div>
   );

@@ -1,6 +1,4 @@
 const DATA_URL = 'https://services.odata.org/V4/Northwind/Northwind.svc/Products';
-const EMPTY_STRING = '';
-const NULL_VALUE: null = null;
 
 export enum FILTER_OPERATION {
     CONTAINS = 'contains',
@@ -14,31 +12,76 @@ export enum FILTER_OPERATION {
     GREATER_THAN_EQUAL = 'ge'
 }
 
+export enum LOGICAL_OPERATOR {
+    AND = 0,
+    OR = 1
+}
+
+export enum SORT_DIRECTION {
+    ASC = 1,
+    DESC = 2
+}
+
+interface FilterCondition {
+    name: string;
+}
+
+interface FilterOperand {
+    fieldName: string;
+    searchVal: string | number;
+    condition: FilterCondition;
+    filteringOperands?: FilterOperand[];
+    operator?: LOGICAL_OPERATOR;
+}
+
+interface FilteringArgs {
+    filteringOperands: FilterOperand[];
+    operator: LOGICAL_OPERATOR;
+}
+
+interface SortingArgs {
+    fieldName: string;
+    dir: SORT_DIRECTION;
+}
+
 export class RemoteService {
     public static getData(
-        filteringArgs?: any,
-        sortingArgs?: any
+        filteringArgs?: FilteringArgs,
+        sortingArgs?: SortingArgs[]
     ): Promise<any[]> {
         const url = this.buildDataUrl(filteringArgs, sortingArgs);
         return fetch(url)
-            .then((res) => res.json())
-            .then((data) => data.value); // only return the actual items
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => data.value || []) 
+            .catch((error): any[] => {
+                console.error('Error fetching data:', error);
+                return []; 
+            });
     }
 
-    private static buildDataUrl(filteringArgs: any, sortingArgs: any): string {
-        let baseQuery = `${DATA_URL}?$count=true&$top=1000`;
+    private static buildDataUrl(filteringArgs?: FilteringArgs, sortingArgs?: SortingArgs[]): string {
+        const baseQuery = `${DATA_URL}?$count=true&$top=1000`;
         const parts: string[] = [];
 
-        const sortExpr = this.buildSortExpression(sortingArgs);
-        if (sortExpr) parts.push(sortExpr);
+        if (sortingArgs && sortingArgs.length > 0) {
+            const sortExpr = this.buildSortExpression(sortingArgs);
+            if (sortExpr) parts.push(sortExpr);
+        }
 
-        const filterExpr = this.buildFilterExpression(filteringArgs);
-        if (filterExpr) parts.push(filterExpr);
+        if (filteringArgs?.filteringOperands?.length) {
+            const filterExpr = this.buildFilterExpression(filteringArgs);
+            if (filterExpr) parts.push(filterExpr);
+        }
 
-        return `${baseQuery}&${parts.join('&')}`;
+        return parts.length > 0 ? `${baseQuery}&${parts.join('&')}` : baseQuery;
     }
 
-    private static buildFilterExpression(filteringArgs: any): string {
+    private static buildFilterExpression(filteringArgs: FilteringArgs): string {
         if (!filteringArgs?.filteringOperands?.length) return '';
 
         const expression = this.buildAdvancedFilterExpression(
@@ -49,95 +92,97 @@ export class RemoteService {
         return expression ? `$filter=${expression}` : '';
     }
 
-    private static buildAdvancedFilterExpression(operands: any[], operator: any): string {
-        let filterExpression = '';
+    private static buildAdvancedFilterExpression(operands: FilterOperand[], operator: LOGICAL_OPERATOR): string {
+        const filterParts: string[] = [];
 
-        operands.forEach((operand, index) => {
-            if (operand.filteringOperands) {
+        operands.forEach((operand) => {
+            if (operand.filteringOperands && operand.filteringOperands.length > 0) {
                 const subExpr = this.buildAdvancedFilterExpression(
                     operand.filteringOperands,
-                    operand.operator
+                    operand.operator || LOGICAL_OPERATOR.AND
                 );
                 if (subExpr) {
-                    if (index > 0) filterExpression += ` ${this.getFilteringLogic(operator)} `;
-                    filterExpression += subExpr;
+                    filterParts.push(`(${subExpr})`);
                 }
                 return;
             }
 
             const { fieldName, searchVal, condition } = operand;
-            if (searchVal === undefined || condition === undefined) return;
+            if (searchVal === undefined || condition === undefined || !fieldName) return;
 
-            const isNumber = typeof searchVal === 'number';
-            const filterValue = isNumber ? searchVal : `'${searchVal}'`;
-            let filterPart = '';
-
-            if (index > 0) filterExpression += ` ${this.getFilteringLogic(operator)} `;
-
-            switch (condition.name) {
-                case 'contains':
-                    filterPart = `contains(${fieldName}, ${filterValue})`;
-                    break;
-                case 'startsWith':
-                    filterPart = `startswith(${fieldName}, ${filterValue})`;
-                    break;
-                case 'endsWith':
-                    filterPart = `endswith(${fieldName}, ${filterValue})`;
-                    break;
-                case 'equals':
-                    filterPart = `${fieldName} eq ${filterValue}`;
-                    break;
-                case 'doesNotEqual':
-                    filterPart = `${fieldName} ne ${filterValue}`;
-                    break;
-                case 'greaterThan':
-                    filterPart = `${fieldName} gt ${filterValue}`;
-                    break;
-                case 'greaterThanOrEqualTo':
-                    filterPart = `${fieldName} ge ${filterValue}`;
-                    break;
-                case 'lessThan':
-                    filterPart = `${fieldName} lt ${filterValue}`;
-                    break;
-                case 'lessThanOrEqualTo':
-                    filterPart = `${fieldName} le ${filterValue}`;
-                    break;
-                case 'null':
-                    filterPart = `${fieldName} eq null`;
-                    break;
-                case 'notNull':
-                    filterPart = `${fieldName} ne null`;
-                    break;
-                case 'empty':
-                    filterPart = `length(${fieldName}) eq 0`;
-                    break;
-                case 'notEmpty':
-                    filterPart = `length(${fieldName}) gt 0`;
-                    break;
+            const filterPart = this.buildSingleFilterExpression(fieldName, searchVal, condition.name);
+            if (filterPart) {
+                filterParts.push(filterPart);
             }
-
-            filterExpression += filterPart;
         });
 
-        return filterExpression;
+        const logicalOp = this.getFilteringLogic(operator);
+        return filterParts.join(` ${logicalOp} `);
     }
 
-    private static buildSortExpression(sortingArgs: any[]): string {
+    private static buildSingleFilterExpression(fieldName: string, searchVal: string | number, conditionName: string): string {
+        // Input validation
+        if (!fieldName || searchVal === null || searchVal === undefined) {
+            return '';
+        }
+
+        const isNumber = typeof searchVal === 'number';
+        const filterValue = isNumber ? searchVal : `'${String(searchVal).replace(/'/g, "''")}'`;
+
+        switch (conditionName) {
+            case 'contains':
+                return `${FILTER_OPERATION.CONTAINS}(${fieldName}, ${filterValue})`;
+            case 'startsWith':
+                return `${FILTER_OPERATION.STARTS_WITH}(${fieldName}, ${filterValue})`;
+            case 'endsWith':
+                return `${FILTER_OPERATION.ENDS_WITH}(${fieldName}, ${filterValue})`;
+            case 'equals':
+                return `${fieldName} ${FILTER_OPERATION.EQUALS} ${filterValue}`;
+            case 'doesNotEqual':
+                return `${fieldName} ${FILTER_OPERATION.DOES_NOT_EQUAL} ${filterValue}`;
+            case 'greaterThan':
+                return `${fieldName} ${FILTER_OPERATION.GREATER_THAN} ${filterValue}`;
+            case 'greaterThanOrEqualTo':
+                return `${fieldName} ${FILTER_OPERATION.GREATER_THAN_EQUAL} ${filterValue}`;
+            case 'lessThan':
+                return `${fieldName} ${FILTER_OPERATION.LESS_THAN} ${filterValue}`;
+            case 'lessThanOrEqualTo':
+                return `${fieldName} ${FILTER_OPERATION.LESS_THAN_EQUAL} ${filterValue}`;
+            case 'null':
+                return `${fieldName} ${FILTER_OPERATION.EQUALS} null`;
+            case 'notNull':
+                return `${fieldName} ${FILTER_OPERATION.DOES_NOT_EQUAL} null`;
+            case 'empty':
+                return `length(${fieldName}) ${FILTER_OPERATION.EQUALS} 0`;
+            case 'notEmpty':
+                return `length(${fieldName}) ${FILTER_OPERATION.GREATER_THAN} 0`;
+            default:
+                console.warn(`Unknown filter condition: ${conditionName}`);
+                return '';
+        }
+    }
+
+    private static buildSortExpression(sortingArgs: SortingArgs[]): string {
         if (!sortingArgs || sortingArgs.length === 0) return '';
 
-        const sortStrings = sortingArgs.map(sort => {
-            const dir = sort.dir === 2 ? 'desc' : 'asc'; // 1 = asc, 2 = desc
-            return `${sort.fieldName} ${dir}`;
-        });
+        const sortStrings = sortingArgs
+            .filter(sort => sort.fieldName) // filter out invalid entries
+            .map(sort => {
+                const dir = sort.dir === SORT_DIRECTION.DESC ? 'desc' : 'asc';
+                return `${sort.fieldName} ${dir}`;
+            });
 
         return sortStrings.length > 0 ? `$orderby=${sortStrings.join(',')}` : '';
     }
 
-    private static getFilteringLogic(operator: any): string {
+    private static getFilteringLogic(operator: LOGICAL_OPERATOR): string {
         switch (operator) {
-            case 0: return 'and';
-            case 1: return 'or';
-            default: return 'and';
+            case LOGICAL_OPERATOR.AND:
+                return 'and';
+            case LOGICAL_OPERATOR.OR:
+                return 'or';
+            default:
+                return 'and';
         }
     }
 }
