@@ -158,7 +158,7 @@ export default class Sample extends React.Component<any, any> {
                     </IgrFinancialPriceSeries>
                     <IgrDataToolTipLayer
                         name="Tooltip"
-                        includedColumns={["High", "Low", "Open", "Close"]}
+                        includedColumns={["high", "low", "open", "close"]}
                         layoutMode="Vertical">
                     </IgrDataToolTipLayer>
                     <IgrDataAnnotationSliceLayer

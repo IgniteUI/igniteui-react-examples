@@ -13,56 +13,16 @@ export class SparklineUnknownData extends Array<SparklineUnknownDataItem> {
             super(...items);
         } else {
             const newItems = [
-                new SparklineUnknownDataItem(
-                {
-                    label: 4,
-                    value: 4
-                }),
-                new SparklineUnknownDataItem(
-                {
-                    label: 5,
-                    value: 5
-                }),
-                new SparklineUnknownDataItem(
-                {
-                    label: 2,
-                    value: null
-                }),
-                new SparklineUnknownDataItem(
-                {
-                    label: 7,
-                    value: 7
-                }),
-                new SparklineUnknownDataItem(
-                {
-                    label: -1,
-                    value: -1
-                }),
-                new SparklineUnknownDataItem(
-                {
-                    label: 3,
-                    value: 3
-                }),
-                new SparklineUnknownDataItem(
-                {
-                    label: -2,
-                    value: -2
-                }),
-                new SparklineUnknownDataItem(
-                {
-                    label: 5,
-                    value: null
-                }),
-                new SparklineUnknownDataItem(
-                {
-                    label: 2,
-                    value: 2
-                }),
-                new SparklineUnknownDataItem(
-                {
-                    label: 6,
-                    value: 6
-                }),
+                new SparklineUnknownDataItem({ label: 4, value: 4 }),
+                new SparklineUnknownDataItem({ label: 5, value: 5 }),
+                new SparklineUnknownDataItem({ label: 2, value: null }),
+                new SparklineUnknownDataItem({ label: 7, value: 7 }),
+                new SparklineUnknownDataItem({ label: -1, value: -1 }),
+                new SparklineUnknownDataItem({ label: 3, value: 3 }),
+                new SparklineUnknownDataItem({ label: -2, value: -2 }),
+                new SparklineUnknownDataItem({ label: 5, value: null }),
+                new SparklineUnknownDataItem({ label: 2, value: 2 }),
+                new SparklineUnknownDataItem({ label: 6, value: 6 }),
             ];
             super(...newItems.slice(0));
         }

@@ -1,0 +1,21 @@
+igc-date-range-picker::part(label) {
+    color: var(--ig-gray-600);
+}
+
+igc-date-range-picker::part(calendar-icon-start),
+igc-date-range-picker::part(calendar-icon-end) {
+    background-color: var(--ig-primary-500);
+    color: var(--ig-primary-500-contrast);
+}
+
+igc-date-range-picker::part(calendar-icon-open-start),
+igc-date-range-picker::part(calendar-icon-open-end) {
+    background-color: var(--ig-primary-800);
+    color: var(--ig-primary-800-contrast);
+}
+
+igc-date-range-picker::part(clear-icon-start),
+igc-date-range-picker::part(clear-icon-end) {
+    background-color: var(--ig-error-500);
+    color: var(--ig-error-500-contrast);
+}

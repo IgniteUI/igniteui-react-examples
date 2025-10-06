@@ -445,12 +445,13 @@ class Transformer {
 
     public static getRelative(sampleFullPath: string): string {
         // let path = filePath;
-
         if (sampleFullPath.indexOf(igConfig.RepositoryName) > -1) {
-            sampleFullPath = sampleFullPath.split(igConfig.RepositoryName)[1];
-            sampleFullPath = sampleFullPath.split(pathModule.sep).join("/");
+            sampleFullPath = sampleFullPath.substring(
+                sampleFullPath.lastIndexOf(igConfig.RepositoryName) +
+                igConfig.RepositoryName.length
+            );
+            sampleFullPath = sampleFullPath.split(pathModule.sep).join(process.env.PATH_SEP || '/');
             return ".." + sampleFullPath;
-            // return sampleFullPath;
         }
 
         console.log("failed on getRelative " + sampleFullPath);

@@ -1,0 +1,37 @@
+{
+  "name": "react-date-range-picker-overview",
+  "description": "This project provides example of Date Picker Overview using Infragistics React components",
+  "author": "Infragistics",
+  "homepage": ".",
+  "version": "1.4.0",
+  "private": true,
+  "scripts": {
+    "start": "set PORT=4200 && react-scripts --max_old_space_size=10240 start",
+    "build": "react-scripts --max_old_space_size=10240 build ",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "igniteui-react": "^19.2.0",
+    "igniteui-react-core": "19.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "tslib": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.0",
+    "@types/node": "^18.11.7",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "react-app-rewired": "^2.2.1",
+    "typescript": "^4.8.4",
+    "worker-loader": "^3.0.8"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

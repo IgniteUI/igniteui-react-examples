@@ -60,7 +60,7 @@ export default class Sample extends React.Component<any, any> {
                     xAxisMajorStroke="lightgray"
                     xAxisGap="0.5"
                     crosshairsDisplayMode="None"
-                    isCategoryHighlightingEnabled="true"
+                    isCategoryHighlightingEnabled="false"
                     highlightingMode="FadeOthersSpecific"
                     highlightingBehavior="NearestItemsAndSeries">
                 </IgrCategoryChart>

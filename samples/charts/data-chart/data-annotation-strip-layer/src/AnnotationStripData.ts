@@ -14,24 +14,9 @@ export class AnnotationStripData extends Array<AnnotationStripDataItem> {
             super(...items);
         } else {
             const newItems = [
-                new AnnotationStripDataItem(
-                {
-                    start: 40,
-                    end: 45,
-                    label: `Covid - Market Crash`
-                }),
-                new AnnotationStripDataItem(
-                {
-                    start: 100,
-                    end: 144,
-                    label: `Fed Rate Up  0.25 - 5.25%`
-                }),
-                new AnnotationStripDataItem(
-                {
-                    start: 190,
-                    end: 205,
-                    label: `Fed Rate Down 5.25% to 4.45%`
-                }),
+                new AnnotationStripDataItem({ start: 40, end: 45, label: `Covid - Market Crash` }),
+                new AnnotationStripDataItem({ start: 100, end: 144, label: `Fed Rate Up  0.25 - 5.25%` }),
+                new AnnotationStripDataItem({ start: 190, end: 205, label: `Fed Rate Down 5.25% to 4.45%` }),
             ];
             super(...newItems.slice(0));
         }

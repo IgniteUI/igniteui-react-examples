@@ -80,7 +80,7 @@ export default class Sample extends React.Component<any, any> {
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="XAxisLabelTextColor"
                         name="XAxisLabelTextColorEditor"
-                        label="Y Axis Label Color"
+                        label="X Axis Label Color"
                         valueType="EnumValue"
                         shouldOverrideDefaultEditor="true"
                         dropDownNames={["red", "green"]}

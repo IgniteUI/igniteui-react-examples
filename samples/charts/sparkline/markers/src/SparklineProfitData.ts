@@ -13,46 +13,14 @@ export class SparklineProfitData extends Array<SparklineProfitDataItem> {
             super(...items);
         } else {
             const newItems = [
-                new SparklineProfitDataItem(
-                {
-                    value: 30,
-                    label: `A`
-                }),
-                new SparklineProfitDataItem(
-                {
-                    value: 40,
-                    label: `B`
-                }),
-                new SparklineProfitDataItem(
-                {
-                    value: 50,
-                    label: `C`
-                }),
-                new SparklineProfitDataItem(
-                {
-                    value: 40,
-                    label: `D`
-                }),
-                new SparklineProfitDataItem(
-                {
-                    value: 30,
-                    label: `E`
-                }),
-                new SparklineProfitDataItem(
-                {
-                    value: 20,
-                    label: `F`
-                }),
-                new SparklineProfitDataItem(
-                {
-                    value: 30,
-                    label: `G`
-                }),
-                new SparklineProfitDataItem(
-                {
-                    value: 40,
-                    label: `H`
-                }),
+                new SparklineProfitDataItem({ value: 30, label: `A` }),
+                new SparklineProfitDataItem({ value: 40, label: `B` }),
+                new SparklineProfitDataItem({ value: 50, label: `C` }),
+                new SparklineProfitDataItem({ value: 40, label: `D` }),
+                new SparklineProfitDataItem({ value: 30, label: `E` }),
+                new SparklineProfitDataItem({ value: 20, label: `F` }),
+                new SparklineProfitDataItem({ value: 30, label: `G` }),
+                new SparklineProfitDataItem({ value: 40, label: `H` }),
             ];
             super(...newItems.slice(0));
         }
