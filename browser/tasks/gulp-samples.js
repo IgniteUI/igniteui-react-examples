@@ -858,11 +858,11 @@ function updateIG(cb) {
         { version: "19.2.2", name: "igniteui-react-dashboards" },
         { version: "^19.3.0-rc.2", name: "igniteui-react" },
         // these IG packages are sometimes updated:
-        { version: "^6.2.0", name: "igniteui-webcomponents" },
+        { version: "^6.3.0", name: "igniteui-webcomponents" },
         { version: "^1.17.0", name: "igniteui-dockmanager" },
         // main react packages
-        { version: "^18.2.0", name: "react" },
-        { version: "^18.2.0", name: "react-dom" },
+        { version: "^19.2.0", name: "react" },
+        { version: "^19.2.0", name: "react-dom" },
         { version: "^5.0.1", name: "react-scripts" },
         // { version: "^2.4.0", name: "tslib" },
         // { version: "^2.2.0", name: "lit-html" },
