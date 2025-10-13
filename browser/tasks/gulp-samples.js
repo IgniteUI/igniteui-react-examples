@@ -437,7 +437,7 @@ function updateSharedFiles(cb) {
     // always override these shared files
     gulp.src([
         './templates/sample/src/index.css',
-        './templates/sample/src/react-app-env.d.ts',
+        './templates/sample/vite.config.js',
         './templates/sample/sandbox.config.json',
         './templates/sample/tsconfig.json',
         // './templates/sample/.gitignore',
@@ -577,6 +577,7 @@ function logRootFiles(cb) {
         '!../samples/**/manifest.json',
         '!../samples/**/package.json',
         '!../samples/**/tsconfig.json',
+        '!../samples/**/vite.config.js',
     ])
         .pipe(es.map(function (file, cbFile) {
             let relative = Transformer.getRelative(file.dirname);
@@ -863,7 +864,6 @@ function updateIG(cb) {
         // main react packages
         { version: "^19.2.0", name: "react" },
         { version: "^19.2.0", name: "react-dom" },
-        { version: "^5.0.1", name: "react-scripts" },
         // { version: "^2.4.0", name: "tslib" },
         // { version: "^2.2.0", name: "lit-html" },
         { version: "^8.33.0", name: "eslint" },
@@ -871,11 +871,15 @@ function updateIG(cb) {
         { version: "^7.20.0", name: "eslint-plugin-react" },
 
         { version: "^29.2.0", name: "@types/jest" },
-        { version: "^18.11.7", name: "@types/node" },
+        { version: "^24.7.1", name: "@types/node" },
         { version: "^18.0.24", name: "@types/react" },
         { version: "^18.0.8", name: "@types/react-dom" },
-        { version: "^2.2.1", name: "react-app-rewired" },
         { version: "^4.8.4", name: "typescript" },
+        // vite and related packages
+        { version: "^7.1.9", name: "vite" },
+        { version: "^3.2.4", name: "vitest" },
+        { version: "^3.2.4", name: "@vitest/browser" },
+        { version: "^0.3.3", name: "vitest-canvas-mock" },
     ];
 
     // NOTE you can comment out strings in this array to run these function only on a subset of samples
