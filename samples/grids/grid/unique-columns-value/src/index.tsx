@@ -3,23 +3,31 @@ import ReactDOM from 'react-dom/client';
 import { RemoteService } from './RemoteService'
 import { IgrGrid, IgrColumn, IgrFilteringExpressionsTree } from 'igniteui-react-grids';
 import { IgrSortingExpressionEventArgs, IgrFilteringExpressionsTreeEventArgs } from 'igniteui-react-grids';
+import { IgrFilteringStrategy } from 'igniteui-react-grids';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const RemoteFilteringGrid = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const debounceRef = useRef<NodeJS.Timeout | null>(null);
+  const debounceRef = useRef<any>(null);
 
-  const fetchData = async (filterExpressions: any = null, sortExpressions: any[] = []) => {
-    try {
-      setIsLoading(true);
-      const result = await RemoteService.getData(filterExpressions, sortExpressions);
-      setData(result);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setIsLoading(false);
-    }
+  // Initialize the filtering strategy for RemoteService
+  useEffect(() => {
+    RemoteService._filteringStrategy = new IgrFilteringStrategy();
+  }, []);
+
+  const fetchData = (filterExpressions: any = null, sortExpressions: any[] = []) => {
+    setIsLoading(true);
+    
+    RemoteService.getData(filterExpressions, sortExpressions)
+      .then(result => {
+        setData(result);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setIsLoading(false);
+      });
   };
 
   const handleSortingExpressionsChange = (event: IgrSortingExpressionEventArgs) => {
@@ -50,7 +58,11 @@ const RemoteFilteringGrid = () => {
 
   return (
     <div className="container sample ig-typography">
-      <h3>Remote Filtering & Sorting Grid</h3>
+      <h3>Remote Filtering & Sorting Grid with Unique Column Values</h3>
+      <div style={{ marginBottom: '10px', fontSize: '14px', color: '#666' }}>
+        This sample demonstrates remote filtering and sorting. The uniqueColumnValuesStrategy 
+        is commented out as it's a future feature from the Infragistics package.
+      </div>
       <IgrGrid 
         autoGenerate={false} 
         data={data}
@@ -58,6 +70,7 @@ const RemoteFilteringGrid = () => {
         onSortingExpressionsChange={handleSortingExpressionsChange}
         onFilteringExpressionsTreeChange={handleFilteringExpressionsTreeChange}
         allowFiltering={true}
+        // TODO: Uncomment when uniqueColumnValuesStrategy becomes available
         // uniqueColumnValuesStrategy={columnValuesStrategy}
       >
         <IgrColumn field="ProductID" header="Product ID" sortable={true} filterable={true} dataType="number" />

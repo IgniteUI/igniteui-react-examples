@@ -6,13 +6,22 @@ import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const RemoteVirtualizationGrid = () => {
   const [data, setData] = useState<any[]>([]);
+  const [totalCount, setTotalCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchData = async (skip: number = 0, take: number = 50) => {
+  const fetchData = (skip: number = 0, take: number = 50) => {
     setIsLoading(true);
-    const result = await RemoteService.getData(skip, take);
-    setData(result);
-    setIsLoading(false);
+    RemoteService.getData(skip, take)
+      .then(result => {
+        setData(result);
+        const count = RemoteService.getTotalCount();
+        setTotalCount(count);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setIsLoading(false);
+      });
   };
 
   const handleDataPreLoad = (event: any) => {
@@ -26,19 +35,20 @@ const RemoteVirtualizationGrid = () => {
 
   return (
     <div className="container sample ig-typography">
-      <h3>Remote Virtualization Grid</h3>
+      <h3>Remote Virtualization Grid ({totalCount.toLocaleString()} records)</h3>
       <IgrGrid
         autoGenerate={false}
         data={data}
         isLoading={isLoading}
         height="600px"
         width="100%"
+        rowHeight="50"
         primaryKey="ProductID"
         onDataPreLoad={handleDataPreLoad}
       >
         <IgrColumn field="ProductID" header="Product ID" dataType="number" />
         <IgrColumn field="ProductName" header="Product Name" dataType="string" />
-        <IgrColumn field="UnitPrice" header="Unit Price" dataType="number" />
+        <IgrColumn field="UnitPrice" header="Unit Price" dataType="currency" />
         <IgrColumn field="UnitsInStock" header="Units In Stock" dataType="number" />
         <IgrColumn field="QuantityPerUnit" header="Quantity Per Unit" dataType="string" />
         <IgrColumn field="ReorderLevel" header="Reorder Level" dataType="number" />
