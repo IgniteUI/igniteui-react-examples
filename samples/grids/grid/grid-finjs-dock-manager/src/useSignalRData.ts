@@ -2,9 +2,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import * as signalR from '@microsoft/signalr';
 import { FinancialData, Stock } from './FinancialData.ts';
 
-// Configuration constants
-const DEFAULT_VOLUME = 1000;
-
 export interface StreamingDataConfig {
   interval: number;
   volume: number;
@@ -25,29 +22,23 @@ export function useSignalRData(hubUrl: string = 'https://www.infragistics.com/an
   
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
-      intervalRef.current = null;
     }
 
-    // Generate initial data
-    const mockData = FinancialData.generateData(config.volume || DEFAULT_VOLUME);
+    const mockData = FinancialData.generateData(config.volume || 1000);
     setData(mockData);
-    
   }, []);
 
-  const registerSignalEvents = useCallback(() => {
+  const setupEvents = useCallback(() => {
     if (!hubRef.current) return;
     
-    // Listen for data updates from the hub
     hubRef.current.on('dataReceived', (receivedData: Stock[]) => {
       setData(receivedData);
     });
     
-    // Listen for individual record updates  
     hubRef.current.on('updateData', (receivedData: Stock[]) => {
       setData(receivedData);
     });
 
-    // Listen for transfer data events (expected by the server)
     hubRef.current.on('transferdata', (receivedData: Stock[]) => {
       setData(receivedData);
     });
@@ -58,7 +49,6 @@ export function useSignalRData(hubUrl: string = 'https://www.infragistics.com/an
       try {
         await hubRef.current.invoke('updateparameters', frequency, volume, live, updateAll);
       } catch (err) {
-        console.error('Error updating parameters:', err);
         generateMockData({ interval: frequency, volume, live, updateAll });
       }
     }
@@ -68,15 +58,15 @@ export function useSignalRData(hubUrl: string = 'https://www.infragistics.com/an
     if (hubRef.current && hasRemoteConnection) {
       try {
         await hubRef.current.invoke('StopTimer');
-        setHasRemoteConnection(false);
       } catch (err) {
-        console.error('Error stopping timer:', err);
+        // StopTimer failed - connection likely broken
+      } finally {
+        setHasRemoteConnection(false);
       }
     }
   }, [hasRemoteConnection]);
 
   const startConnection = useCallback(async (config: StreamingDataConfig) => {
-    // Start loading state
     setIsConnecting(true);
     
     try {
@@ -86,35 +76,28 @@ export function useSignalRData(hubUrl: string = 'https://www.infragistics.com/an
 
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
-        intervalRef.current = null;
       }
 
-      const hubConnection = new signalR.HubConnectionBuilder()
-        .configureLogging(signalR.LogLevel.Information)
+      const connection = new signalR.HubConnectionBuilder()
         .withUrl(hubUrl)
         .withAutomaticReconnect()
         .build();
 
-      hubRef.current = hubConnection;
-
-      await hubConnection.start();
-      console.log('SignalR connection established');
+      hubRef.current = connection;
+      await connection.start();
       
       setHasRemoteConnection(true);
       setIsConnecting(false);
       
-      registerSignalEvents();
-      
+      setupEvents();
       await broadcastParams(config.interval, config.volume, config.live, config.updateAll);
 
     } catch (error) {
-      console.warn('SignalR connection failed, falling back to mock data:', error);
-      
       setHasRemoteConnection(false);
       setIsConnecting(false);
       generateMockData(config);
     }
-  }, [hubUrl, registerSignalEvents, broadcastParams, generateMockData]);
+  }, [hubUrl, setupEvents, broadcastParams, generateMockData]);
 
   const updateConfiguration = useCallback(async (config: StreamingDataConfig) => {
     setCurrentConfig(config);
@@ -122,7 +105,7 @@ export function useSignalRData(hubUrl: string = 'https://www.infragistics.com/an
     if (hasRemoteConnection) {
       await broadcastParams(config.interval, config.volume, config.live, config.updateAll);
     } else {
-      const mockData = FinancialData.generateData(config.volume || DEFAULT_VOLUME);
+      const mockData = FinancialData.generateData(config.volume || 1000);
       setData(mockData);
     }
   }, [hasRemoteConnection, broadcastParams]);
@@ -134,7 +117,7 @@ export function useSignalRData(hubUrl: string = 'https://www.infragistics.com/an
         await hubRef.current.stop();
         setHasRemoteConnection(false);
       } catch (error) {
-        console.error('Error stopping live data:', error);
+        setHasRemoteConnection(false);
       }
     }
   }, [hasRemoteConnection, stopTimer]);

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import ReactDOM from 'react-dom/client';
 import { IgcDockManagerComponent } from "igniteui-dockmanager";
 import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
@@ -12,7 +12,20 @@ import { useFloatingPanes } from './useFloatingPanes.ts';
 
 defineCustomElements();
 
-// TypeScript declaration for web component
+interface GridColumn {
+  field: string;
+  width: string;
+  dataType: 'currency' | 'date' | 'number' | 'string' | 'percent';
+}
+
+interface MarketDataGridProps {
+  data: any[];
+  isLoading: boolean;
+  additionalColumns?: GridColumn[];
+  height?: string;
+}
+
+// Declare WC components
 declare global {
     namespace JSX {
         interface IntrinsicElements {
@@ -21,21 +34,77 @@ declare global {
     }
 }
 
+const MarketDataGrid = ({ 
+  data, 
+  isLoading, 
+  additionalColumns = [],
+  height = '100%'
+}: MarketDataGridProps) => {
+  const renderColumn = (column: GridColumn, index: number) => (
+    <IgrColumn
+      key={column.field}
+      field={column.field}
+      header={column.field}
+      width={column.width}
+      dataType={column.dataType}
+      sortable={true}
+    />
+  );
+
+  return (
+    <IgrGrid
+      data={data}
+      primaryKey="id"
+      allowFiltering={true}
+      filterMode="excelStyleFilter"
+      columnSelection="multiple"
+      cellSelection="none"
+      isLoading={isLoading}
+      height={height}
+    >
+      <IgrColumn field="id" width="70px" hidden={true} sortable={true} />
+      <IgrColumn field="category" width="120px" sortable={true} />
+      <IgrColumn field="type" width="100px" sortable={true} filterable={false} />
+      <IgrColumn field="contract" width="100px" sortable={true} />
+      <IgrColumn field="price" width="130px" dataType="number" sortable={true} />
+      <IgrColumn field="change" width="120px" dataType="number" sortable={true} />
+      <IgrColumn field="changeP" width="110px" dataType="percent" sortable={true} />
+      {additionalColumns.map(renderColumn)}
+    </IgrGrid>
+  );
+};
+
 export default function GridFinJSDockManager() {
   const dockRef = useRef<IgcDockManagerComponent>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [frequency, setFrequency] = useState(600);
   const [dataVolume, setDataVolume] = useState(500);
   const [isLiveMode, setIsLiveMode] = useState(true);
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [slotCounter, setSlotCounter] = useState(1);
+  const [createdPanes, setCreatedPanes] = useState<string[]>([]);
 
-  // Use our custom services
+  useEffect(() => {
+    const existingDarkThemes = document.querySelectorAll('link[data-ig-theme="dark"]');
+    existingDarkThemes.forEach(link => link.remove());
+
+    if (isDarkTheme) {
+      const darkGridTheme = document.createElement('link');
+      darkGridTheme.rel = 'stylesheet';
+      darkGridTheme.href = '/themes/dark/grid-bootstrap.css';
+      darkGridTheme.setAttribute('data-ig-theme', 'dark');
+      darkGridTheme.onload = () => { /* Theme loaded successfully */ };
+      darkGridTheme.onerror = () => { /* Theme loading failed - fallback to default styling */ };
+      document.head.appendChild(darkGridTheme);
+    }
+
+    document.body.className = isDarkTheme ? 'dark-theme' : 'light-theme';
+  }, [isDarkTheme]);
+
   const { data, hasRemoteConnection, isConnecting, startConnection, updateConfiguration, stopLiveData } = useSignalRData();
   const { floatingPanes, createFloatingPane, closeFloatingPane, updatePaneData } = useFloatingPanes();
 
-  // Additional columns configuration matching Angular version
-  const additionalColumns = useMemo(() => [
+  const gridColumns = useMemo(() => [
     { field: 'buy', width: '110px', dataType: 'currency' as const },
     { field: 'sell', width: '110px', dataType: 'currency' as const },
     { field: 'openPrice', width: '120px', dataType: 'currency' as const },
@@ -50,7 +119,7 @@ export default function GridFinJSDockManager() {
     { field: 'lowY', width: '110px', dataType: 'currency' as const }
   ], []);
 
-  const createDockLayout = useMemo(() => ({
+  const baseDockLayout = useMemo(() => ({
     rootPane: {
       type: IgcDockManagerPaneType.splitPane,
       orientation: IgcSplitPaneOrientation.horizontal,
@@ -114,7 +183,9 @@ export default function GridFinJSDockManager() {
     floatingPanes: []
   }), []);
 
+  const filteredCategoryData = useMemo(() => data.filter(item => item.category === 'Metal'), [data]);
 
+  // Initialize data connection 
   useEffect(() => {
     const config: StreamingDataConfig = {
       interval: frequency,
@@ -128,10 +199,10 @@ export default function GridFinJSDockManager() {
     return () => {
       stopLiveData().catch(console.error);
     };
-  }, []);
+  }, []); 
 
-  // Handle parameter changes
-  const handleParamsChange = useCallback(() => {
+  // Update on change
+  useEffect(() => {
     const config: StreamingDataConfig = {
       interval: frequency,
       volume: dataVolume,
@@ -141,16 +212,10 @@ export default function GridFinJSDockManager() {
     updateConfiguration(config);
   }, [frequency, dataVolume, isLiveMode, updateConfiguration]);
 
-  // Update configuration when frequency or dataVolume changes
-  useEffect(() => {
-    handleParamsChange();
-  }, [frequency, dataVolume, handleParamsChange]);
-
-  // Handle live data toggle
-  const handleLiveDataToggle = useCallback((enabled: boolean) => {
+  // Live data toggle on/off
+  const handleLiveDataToggle = (enabled: boolean) => {
     setIsLiveMode(enabled);
     if (enabled) {
-      // When enabling, start a new connection
       const config: StreamingDataConfig = {
         interval: frequency,
         volume: dataVolume,
@@ -159,110 +224,85 @@ export default function GridFinJSDockManager() {
       };
       startConnection(config);
     } else {
-      // When disabling, stop the connection
       stopLiveData();
     }
-  }, [frequency, dataVolume, startConnection, stopLiveData]);
+  };
 
-  // Create floating pane
-  const handleCreateFloatingPane = useCallback(() => {
-    if (createDockLayout.floatingPanes.length >= 5) return;
-    
-    const id = `slot-${slotCounter}`;
-    setSlotCounter(prev => prev + 1);
-    
-    createFloatingPane('Technology', data);
-  }, [createDockLayout.floatingPanes.length, slotCounter, createFloatingPane, data]);
+  const onCreateFloatingPane = () => {
+    if (createdPanes.length >= 5) return;
 
-  // Update loading state when data arrives or when connecting
+    if (!data || data.length === 0) {
+      return;
+    }
+    
+    if (dockRef.current) {
+      const id = `slot-${slotCounter}`;
+      setSlotCounter(prev => prev + 1);
+      setCreatedPanes(prev => [...prev, id]);
+      
+      const splitPane = {
+        type: IgcDockManagerPaneType.splitPane as IgcDockManagerPaneType.splitPane,
+        orientation: IgcSplitPaneOrientation.horizontal,
+        floatingWidth: 550,
+        floatingHeight: 350,
+        panes: [
+          {
+            type: IgcDockManagerPaneType.contentPane as IgcDockManagerPaneType.contentPane,
+            header: `Floating Pane ${createdPanes.length + 1}`,
+            contentId: id
+          }
+        ]
+      };
+      
+      const currentLayout = dockRef.current.layout;
+      if (currentLayout) {
+        if (!currentLayout.floatingPanes) {
+          currentLayout.floatingPanes = [];
+        }
+        currentLayout.floatingPanes.push(splitPane);
+        dockRef.current.layout = { ...currentLayout };
+      }
+    }
+  };
+
+  // Update loading state
   useEffect(() => {
     if (data && data.length > 0 && !isConnecting) {
-      setIsLoading(false);
+      setIsLoading(false)
     } else if (isConnecting) {
       setIsLoading(true);
     }
   }, [data, isConnecting]);
 
-  // Update floating pane data when main data changes
+  // Update floating pane data
   useEffect(() => {
     updatePaneData(data);
   }, [data, updatePaneData]);
 
-  // Set dock layout when component mounts
-  useEffect(() => {
-    if (dockRef.current) {
-      dockRef.current.layout = createDockLayout as any;
-    }
-  }, [createDockLayout]);
 
-  // Render column helper
-  const renderColumn = useCallback((column: any, index: number) => (
-    <IgrColumn
-      key={column.field}
-      field={column.field}
-      header={column.field}
-      width={column.width}
-      dataType={column.dataType}
-      sortable={true}
-    />
-  ), []);
-
-  // Set dock layout when component mounts or floatingPanes change
+  // Initialize dock manager
   useEffect(() => {
-    if (dockRef.current) {
-      dockRef.current.layout = createDockLayout as any;
-    }
-  }, [createDockLayout]);
+    const timeout = setTimeout(() => {
+      if (dockRef.current) {
+        dockRef.current.layout = baseDockLayout as any;
 
-  // Initialize component
-  useEffect(() => {
-    setIsLoading(false);
-    // Initialize data connection
-    const config: StreamingDataConfig = {
-      interval: frequency,
-      volume: dataVolume,
-      live: isLiveMode,
-      updateAll: false
-    };
-    startConnection(config);
+        const handlePaneClose = (event: CustomEvent) => {
+          const paneId = event.detail?.pane?.contentId;
+          if (paneId && createdPanes.includes(paneId)) {
+            setCreatedPanes(prev => prev.filter(id => id !== paneId));
+          }
+        };
+        
+        dockRef.current.addEventListener('paneClose', handlePaneClose);
+      }
+    }, 200);
+
+    return () => clearTimeout(timeout);
   }, []);
-
-  // Update floating pane data when main data changes
-  useEffect(() => {
-    updatePaneData(data);
-  }, [data, updatePaneData]);
-
-  // Handle frequency change
-  const handleFrequencyChange = (newFrequency: number) => {
-    setFrequency(newFrequency);
-  };
-
-  // Handle data volume change
-  const handleDataVolumeChange = (newVolume: number) => {
-    setDataVolume(newVolume);
-  };
-
-  // Handle live mode toggle
-  const handleLiveModeToggle = (enabled: boolean) => {
-    setIsLiveMode(enabled);
-  };
-
-  // Create floating grid pane
-  const handleAddFloatingPane = () => {
-    if (floatingPanes.length >= 5) return; // Limit to 5 floating panes
-    
-    createFloatingPane('Technology', data);
-  };
-
-  // Clear all floating panes
-  const clearAllFloatingPanes = () => {
-    floatingPanes.forEach(pane => closeFloatingPane(pane.id));
-  };
 
   return (
     <div className={isDarkTheme ? 'dark-theme' : 'light-theme'} style={{ height: '100vh', width: '100%' }}>
       <igc-dockmanager ref={dockRef} style={{ height: '100%' }}>
-        {/* Trading Actions Panel */}
         <div slot="actionPane" style={{ padding: '20px', height: '100%' }}>
           <h3>Financial Trading Dashboard</h3>
           
@@ -327,16 +367,29 @@ export default function GridFinJSDockManager() {
           </div>
 
           <button 
-            onClick={handleCreateFloatingPane} 
-            disabled={floatingPanes.length >= 5}
+            onClick={onCreateFloatingPane} 
+            disabled={createdPanes.length >= 5}
             style={{ marginBottom: '10px', width: '100%' }}
           >
-            Add Tech Stocks Pane ({floatingPanes.length}/5)
+            Add Floating Pane ({createdPanes.length}/5)
           </button>
 
           <button 
-            onClick={clearAllFloatingPanes}
-            disabled={floatingPanes.length === 0}
+            onClick={() => {
+              setCreatedPanes([]);
+              setSlotCounter(1);
+        
+              floatingPanes.forEach(pane => closeFloatingPane(pane.id));
+              
+              if (dockRef.current) {
+                const freshLayout = {
+                  ...baseDockLayout,
+                  floatingPanes: []
+                };
+                dockRef.current.layout = freshLayout as any;
+              }
+            }}
+            disabled={createdPanes.length === 0}
             style={{ marginBottom: '15px', width: '100%' }}
           >
             Clear All Floating Panes
@@ -345,105 +398,50 @@ export default function GridFinJSDockManager() {
           <div style={{ fontSize: '12px', color: '#666' }}>
             <div>Connection: {isConnecting ? 'Connecting...' : hasRemoteConnection ? 'SignalR Connected' : 'Using Mock Data'}</div>
             <div>Records: {data.length}</div>
-            <div>Floating Panes: {floatingPanes.length}</div>
+            <div>Floating Panes: {createdPanes.length}</div>
             <div>Status: {isLoading ? 'Loading...' : 'Ready'}</div>
           </div>
         </div>
 
-        {/* Stock Market Data Grid */}
         <div slot="gridStockPrices" style={{ height: '100%' }}>
-          <IgrGrid
-            data={data}
-            primaryKey="id"
-            allowFiltering={true}
-            filterMode="excelStyleFilter"
-            columnSelection="multiple"
-            cellSelection="none"
-            isLoading={isLoading}
-          >
-            <IgrColumn field="id" width="70px" hidden={true} sortable={true} />
-            <IgrColumn field="category" width="120px" sortable={true} />
-            <IgrColumn field="type" width="100px" sortable={true} filterable={false} />
-            <IgrColumn field="contract" width="100px" sortable={true} />
-            <IgrColumn field="price" width="130px" dataType="number" sortable={true} />
-            <IgrColumn field="change" width="120px" dataType="number" sortable={true} />
-            <IgrColumn field="changeP" width="110px" dataType="percent" sortable={true} />
-            {additionalColumns.map(renderColumn)}
-          </IgrGrid>
+          <MarketDataGrid data={data} isLoading={isLoading} additionalColumns={gridColumns} />
         </div>
 
-        {/* Forex Market Grid */}
         <div slot="forexMarket" style={{ height: '100%' }}>
-          <IgrGrid
-            data={data}
-            primaryKey="id"
-            allowFiltering={true}
-            filterMode="excelStyleFilter"
-            columnSelection="multiple"
-            cellSelection="none"
-            isLoading={isLoading}
-          >
-            <IgrColumn field="id" width="70px" hidden={true} sortable={true} />
-            <IgrColumn field="category" width="120px" sortable={true} />
-            <IgrColumn field="type" width="100px" sortable={true} filterable={false} />
-            <IgrColumn field="contract" width="100px" sortable={true} />
-            <IgrColumn field="price" width="120px" dataType="number" sortable={true} />
-            <IgrColumn field="change" width="120px" dataType="number" sortable={true} />
-            <IgrColumn field="changeP" width="110px" dataType="percent" sortable={true} />
-            {additionalColumns.map(renderColumn)}
-          </IgrGrid>
+          <MarketDataGrid data={data} isLoading={isLoading} additionalColumns={gridColumns} />
         </div>
 
-        {/* Market Data 2 Grid */}
         <div slot="content4" style={{ height: '100%' }}>
-          <IgrGrid
-            data={data}
-            primaryKey="id"
-            allowFiltering={true}
-            filterMode="excelStyleFilter"
-            columnSelection="multiple"
-            cellSelection="none"
-            isLoading={isLoading}
-          >
-            <IgrColumn field="id" width="70px" hidden={true} sortable={true} />
-            <IgrColumn field="category" width="120px" sortable={true} />
-            <IgrColumn field="type" width="100px" sortable={true} filterable={false} />
-            <IgrColumn field="contract" width="100px" sortable={true} />
-            <IgrColumn field="price" width="120px" dataType="number" sortable={true} />
-            <IgrColumn field="change" width="120px" dataType="number" sortable={true} />
-            <IgrColumn field="changeP" width="110px" dataType="percent" sortable={true} />
-            {additionalColumns.map(renderColumn)}
-          </IgrGrid>
+          <MarketDataGrid data={data} isLoading={isLoading} additionalColumns={gridColumns} />
         </div>
 
-        {/* ETF Stock Prices Grid */}
         <div slot="etfStockPrices" style={{ height: '100%' }}>
-          <IgrGrid
-            data={data}
-            primaryKey="id"
-            allowFiltering={true}
-            filterMode="excelStyleFilter"
-            columnSelection="multiple"
-            cellSelection="none"
-            isLoading={isLoading}
-          >
-            <IgrColumn field="id" width="70px" hidden={true} sortable={true} />
-            <IgrColumn field="category" width="120px" sortable={true} />
-            <IgrColumn field="type" width="100px" sortable={true} filterable={false} />
-            <IgrColumn field="contract" width="100px" sortable={true} />
-            <IgrColumn field="price" width="120px" dataType="number" sortable={true} />
-            <IgrColumn field="change" width="120px" dataType="number" sortable={true} />
-            <IgrColumn field="changeP" width="110px" dataType="percent" sortable={true} />
-            {additionalColumns.map(renderColumn)}
-          </IgrGrid>
+          <MarketDataGrid data={data} isLoading={isLoading} additionalColumns={gridColumns} />
         </div>
 
-        {/* Dynamic floating pane content slots */}
         {floatingPanes.map((pane, index) => {
           return (
             <div key={pane.id} slot={pane.id} style={{ height: '100%' }}>
               <IgrGrid
                 data={pane.data}
+                primaryKey="id"
+                allowFiltering={true}
+                height="100%"
+              >
+                <IgrColumn field="contract" header="Symbol" width="80px" />
+                <IgrColumn field="price" header="Price" width="100px" dataType="number" />
+                <IgrColumn field="change" header="Change" width="100px" dataType="number" />
+                <IgrColumn field="changeP" header="%" width="80px" dataType="percent" />
+              </IgrGrid>
+            </div>
+          );
+        })}
+        
+        {createdPanes.map((slotId) => {
+          return (
+            <div key={slotId} slot={slotId} style={{ height: '100%' }}>
+              <IgrGrid
+                data={filteredCategoryData}
                 primaryKey="id"
                 allowFiltering={true}
                 height="100%"

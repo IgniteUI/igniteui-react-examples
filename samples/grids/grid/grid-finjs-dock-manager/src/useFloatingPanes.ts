@@ -1,22 +1,5 @@
-import { useCallback, useState, useMemo } from 'react';
-import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
+import { useCallback, useState } from 'react';
 import { Stock } from './FinancialData.ts';
-
-export interface FloatingPaneConfig {
-  x: number;
-  y: number;
-  width?: number;
-  height?: number;
-}
-
-export interface DockPane {
-  type: IgcDockManagerPaneType;
-  contentId: string;
-  header: string;
-  size?: number;
-  isSelected?: boolean;
-  isPinned?: boolean;
-}
 
 export interface FloatingPaneData {
   id: string;
@@ -25,6 +8,8 @@ export interface FloatingPaneData {
   category: string;
 }
 
+let paneCounter = 1;
+
 export function useFloatingPanes() {
   const [floatingPanes, setFloatingPanes] = useState<FloatingPaneData[]>([]);
 
@@ -32,7 +17,7 @@ export function useFloatingPanes() {
     const filteredData = allData.filter(item => item.category === category);
     
     const newPane: FloatingPaneData = {
-      id: `pane-${category.toLowerCase()}-${Date.now()}`,
+      id: `pane-${category.toLowerCase()}-${paneCounter++}`,
       title: `${category} Portfolio`,
       data: filteredData,
       category
@@ -54,15 +39,10 @@ export function useFloatingPanes() {
     );
   }, []);
 
-  const availableCategories = useMemo(() => {
-    return ['Technology', 'Energy', 'Finance', 'Healthcare', 'Utilities', 'Consumer', 'Industrial'];
-  }, []);
-
   return {
     floatingPanes,
     createFloatingPane,
     closeFloatingPane,
-    updatePaneData,
-    availableCategories
+    updatePaneData
   };
 }
