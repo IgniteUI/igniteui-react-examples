@@ -25,9 +25,6 @@ export default function App() {
     columns: ColumnPinningPosition.End,
   });
 
-  const start = ColumnPinningPosition.Start;
-  const end = ColumnPinningPosition.End;
-
   useEffect(() => {
     setData(HierarchicalCustomersData);
   }, []);
@@ -36,7 +33,7 @@ export default function App() {
     const grid = gridRef.current;
     if (!grid) return;
     grid.selectedColumns().forEach((col) => {
-      col.pinningPosition = start;
+      col.pinningPosition = ColumnPinningPosition.Start;
       col.pinned = true;
     });
   };
@@ -45,7 +42,7 @@ export default function App() {
     const grid = gridRef.current;
     if (!grid) return;
     grid.selectedColumns().forEach((col) => {
-      col.pinningPosition = end;
+      col.pinningPosition = ColumnPinningPosition.End;
       col.pinned = true;
     });
   };
@@ -90,13 +87,12 @@ export default function App() {
             field="Company"
             header="Company Name"
             pinned={true}
-            pinningPosition={start}
+            pinningPosition={ColumnPinningPosition.Start}
           ></IgrColumn>
           <IgrColumn
             field="ContactName"
             header="Contact Name"
             pinned={true}
-            pinningPosition={end}
           ></IgrColumn>
           <IgrColumn field="ContactTitle" header="Contact Title"></IgrColumn>
           <IgrColumn field="Address" header="Address"></IgrColumn>
@@ -115,6 +111,8 @@ export default function App() {
               header="Order Date"
               dataType="date"
               resizable={true}
+              pinned={true}
+              pinningPosition={ColumnPinningPosition.Start}
             ></IgrColumn>
             <IgrColumn
               field="RequiredDate"
@@ -141,7 +139,6 @@ export default function App() {
               dataType="string"
               resizable={true}
               pinned={true}
-              pinningPosition={end}
             ></IgrColumn>
             <IgrColumn
               field="Freight"

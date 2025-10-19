@@ -35,7 +35,7 @@ export default function App() {
         header: "Contact Name",
         width: 200,
         pinned: true,
-        pinningPosition: ColumnPinningPosition.End,
+        pinningPosition: ColumnPinningPosition.Start,
       },
       {
         field: "ContactTitle",
@@ -105,7 +105,6 @@ export default function App() {
               width={c.width}
               pinned={c.pinned}
               hidden={c.hidden}
-              headerClasses="customHeaderSyle"
               pinningPosition={c?.pinningPosition}
             />
           ))}

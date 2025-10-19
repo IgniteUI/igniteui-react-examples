@@ -22,9 +22,6 @@ export default function App() {
     columns: ColumnPinningPosition.End,
   });
 
-  const start = ColumnPinningPosition.Start;
-  const end = ColumnPinningPosition.End;
-
   useEffect(() => {
     const employeesData = new EmployeesFlatDetails();
 
@@ -35,7 +32,7 @@ export default function App() {
     const grid = gridRef.current;
     if (!grid) return;
     grid.selectedColumns().forEach((col) => {
-      col.pinningPosition = start;
+      col.pinningPosition = ColumnPinningPosition.Start;
       col.pinned = true;
     });
   };
@@ -44,7 +41,7 @@ export default function App() {
     const grid = gridRef.current;
     if (!grid) return;
     grid.selectedColumns().forEach((col) => {
-      col.pinningPosition = end;
+      col.pinningPosition = ColumnPinningPosition.End;
       col.pinned = true;
     });
   };
@@ -91,14 +88,13 @@ export default function App() {
             dataType="string"
             width="250px"
             pinned={true}
-            pinningPosition={start}
+            pinningPosition={ColumnPinningPosition.Start}
           />
           <IgrColumn
             field="Title"
             dataType="string"
             width="250px"
             pinned={true}
-            pinningPosition={end}
           />
           <IgrColumn field="ID" dataType="number" width="100px" />
           <IgrColumn
