@@ -55,8 +55,6 @@ export default function App() {
     }
   };
 
-  //const perProjectMergeStrategy = new PerProjectMergeStrategy();
-
   return (
     <>
       <div className="container sample ig-typography">
@@ -69,12 +67,11 @@ export default function App() {
             cellMergeMode={cellMergeMode}
             width="100%"
             height="570px"
-            //mergeStrategy={perProjectMergeStrategy}
           >
             <IgrGridToolbar>
               <IgrSelect
                 value={cellMergeMode}
-                onChange={(e) =>
+                onChange={(e: any) =>
                   setCellMergeMode(e.detail.value as GridCellMergeMode)
                 }
               >
@@ -165,13 +162,3 @@ export default function App() {
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
-
-export class PerProjectMergeStrategy {
-  public comparer(prevRecord: any, record: any, field: string): boolean {
-    const a = prevRecord[field];
-    const b = record[field];
-    const projA = prevRecord["ProjectName"];
-    const projB = record["ProjectName"];
-    return a === b && projA === projB;
-  }
-}

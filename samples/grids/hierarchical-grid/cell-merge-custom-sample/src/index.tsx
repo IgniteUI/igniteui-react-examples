@@ -2,36 +2,22 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { IgrSelect, IgrSelectItem } from "igniteui-react";
 import {
   GridCellMergeMode,
-  IgrGridToolbar,
   IgrHierarchicalGrid,
   IgrRowIsland,
   SortingDirection,
   IgrSortingExpression,
   IgrColumn,
+  IgrDefaultMergeStrategy,
+  IgrGridMergeStrategy,
 } from "igniteui-react-grids";
 
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import MultiColumnsExportData from "./MultiColumnsExportData.json";
 
 export default function App() {
-  const localData = MultiColumnsExportData;
-  const [cellMergeMode, setCellMergeMode] =
-    useState<GridCellMergeMode>("always");
-  const [cellMergeModeRowIsland, setCellMergeModeRowIsland] =
-    useState<GridCellMergeMode>("always");
-  const mergeTypes: { name: string; value: GridCellMergeMode }[] = [
-    {
-      name: "Merge always",
-      value: "always",
-    },
-    {
-      name: "Merge on sort",
-      value: "onSort",
-    },
-  ];
+  const [cellMergeMode] = useState<GridCellMergeMode>("always");
   const sortExpr: IgrSortingExpression[] = [
     {
       fieldName: "ContactTitle",
@@ -39,69 +25,54 @@ export default function App() {
     },
   ];
 
+  const perCountryMergeStrategy =
+    new PerCountryMergeStrategy() as IgrGridMergeStrategy;
+
   return (
     <>
       <div className="container sample ig-typography">
         <div className="container fill">
           <IgrHierarchicalGrid
-            primaryKey="ID"
-            autoGenerate={false}
-            data={localData}
-            moving={true}
+            data={MultiColumnsExportData}
             sortingExpressions={sortExpr}
+            moving={true}
             cellMergeMode={cellMergeMode}
-            allowFiltering={true}
-            width="100%"
+            mergeStrategy={perCountryMergeStrategy}
             height="740px"
+            width="100%"
+            allowFiltering={true}
           >
-            <IgrGridToolbar>
-              <IgrSelect
-                value={cellMergeMode}
-                onChange={(e: any) =>
-                  setCellMergeMode(e.detail.value as GridCellMergeMode)
-                }
-              >
-                <label>Select Merge Type Root</label>
-                {mergeTypes.map((type) => (
-                  <IgrSelectItem key={type.value} value={type.value}>
-                    {type.name}
-                  </IgrSelectItem>
-                ))}
-              </IgrSelect>
-
-              <IgrSelect
-                value={cellMergeModeRowIsland}
-                onChange={(e: any) =>
-                  setCellMergeModeRowIsland(e.detail.value as GridCellMergeMode)
-                }
-              >
-                <label>Select Merge Type Child</label>
-                {mergeTypes.map((type) => (
-                  <IgrSelectItem
-                    key={type.value}
-                    value={type.value}
-                    selected={type.value === cellMergeModeRowIsland}
-                  >
-                    {type.name}
-                  </IgrSelectItem>
-                ))}
-              </IgrSelect>
-            </IgrGridToolbar>
-
-            <IgrColumn field="CompanyName" sortable={true} resizable={true} />
-            <IgrColumn field="ContactName" sortable={true} resizable={true} />
+            <IgrColumn
+              field="CompanyName"
+              sortable={true}
+              resizable={true}
+              editable={true}
+            />
+            <IgrColumn
+              field="ContactName"
+              sortable={true}
+              resizable={true}
+              editable={true}
+            />
             <IgrColumn
               field="ContactTitle"
               sortable={true}
               resizable={true}
               merge={true}
+              editable={true}
             />
-            <IgrColumn field="Address" sortable={true} resizable={true} />
+            <IgrColumn
+              field="Address"
+              sortable={true}
+              resizable={true}
+              editable={true}
+            />
             <IgrColumn
               field="City"
               sortable={true}
               resizable={true}
               merge={true}
+              editable={true}
             />
             <IgrColumn field="PostalCode" sortable={true} resizable={true} />
             <IgrColumn
@@ -109,25 +80,38 @@ export default function App() {
               sortable={true}
               resizable={true}
               merge={true}
+              editable={true}
             />
             <IgrColumn field="Phone" sortable={true} resizable={true} />
             <IgrColumn field="Fax" sortable={true} resizable={true} />
 
             <IgrRowIsland
-              childDataKey="ChildCompanies"
-              height="100%"
+              key="ChildCompanies"
               moving={true}
               autoGenerate={false}
               sortingExpressions={sortExpr}
-              cellMergeMode={cellMergeModeRowIsland}
+              cellMergeMode={cellMergeMode}
+              mergeStrategy={perCountryMergeStrategy}
+              height={null}
             >
-              <IgrColumn field="CompanyName" sortable={true} resizable={true} />
-              <IgrColumn field="ContactName" sortable={true} resizable={true} />
+              <IgrColumn
+                field="CompanyName"
+                sortable={true}
+                resizable={true}
+                editable={true}
+              />
+              <IgrColumn
+                field="ContactName"
+                sortable={true}
+                resizable={true}
+                editable={true}
+              />
               <IgrColumn
                 field="ContactTitle"
                 sortable={true}
                 resizable={true}
                 merge={true}
+                editable={true}
               />
               <IgrColumn field="Address" sortable={true} resizable={true} />
               <IgrColumn
@@ -135,6 +119,7 @@ export default function App() {
                 sortable={true}
                 resizable={true}
                 merge={true}
+                editable={true}
               />
               <IgrColumn field="PostalCode" sortable={true} resizable={true} />
               <IgrColumn
@@ -156,3 +141,14 @@ export default function App() {
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
+
+class PerCountryMergeStrategy extends IgrDefaultMergeStrategy {
+  // Custom comparer logic: merge only within same country
+  public comparer(prevRecord: any, record: any, field: string): boolean {
+    const a = prevRecord[field];
+    const b = record[field];
+    const countryA = prevRecord["Country"];
+    const countryB = record["Country"];
+    return a === b && countryA === countryB;
+  }
+}

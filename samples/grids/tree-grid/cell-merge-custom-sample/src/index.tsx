@@ -12,29 +12,16 @@ import {
   IgrGridMergeStrategy,
   IgrDefaultTreeGridMergeStrategy,
   IgrByLevelTreeGridMergeStrategy,
+  IgrDefaultMergeStrategy,
 } from "igniteui-react-grids";
 import { IgrColumn } from "igniteui-react-grids";
 
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
-import { EmployeesFlatDetails } from "./EmployeesFlatDetails";
+import { generateEmployeeDetailedFlatData2 } from "./EmployeesFlatDetails2";
 
 export default function App() {
-  const [data, setData] = useState<EmployeesFlatDetails>([]);
-  const [cellMergeMode, setCellMergeMode] =
-    useState<GridCellMergeMode>("always");
-  const [mergeStrategyName, setMergeStrategyName] =
-    useState("Default Strategy");
-
-  useEffect(() => {
-    const employeesFlatDetails = new EmployeesFlatDetails();
-
-    setData(employeesFlatDetails);
-  }, []);
-
-  const mergeTypes = [
-    { name: "Always", value: "always" },
-    { name: "On Sort", value: "onSort" },
-  ];
+  const data = generateEmployeeDetailedFlatData2();
+  const [cellMergeMode] = useState<GridCellMergeMode>("always");
 
   const sortExpr: IgrSortingExpression[] = [
     {
@@ -43,21 +30,7 @@ export default function App() {
     },
   ];
 
-  const mergeStrategies = [
-    {
-      name: "Default Strategy",
-      value: new IgrDefaultTreeGridMergeStrategy(),
-    },
-    {
-      name: "By Level Strategy",
-      value: new IgrByLevelTreeGridMergeStrategy(),
-    },
-  ];
-
-  const mergeStrategy =
-    mergeStrategies.find((m) => m.name === mergeStrategyName)?.value ??
-    mergeStrategies[0].value;
-
+  const customMergeStrategy = new CustomTreeGridMergeStrategy();
   return (
     <>
       <div className="container sample ig-typography">
@@ -71,35 +44,9 @@ export default function App() {
             primaryKey="ID"
             foreignKey="ParentID"
             cellMergeMode={cellMergeMode}
-            mergeStrategy={mergeStrategy as IgrGridMergeStrategy}
+            mergeStrategy={customMergeStrategy as IgrGridMergeStrategy}
           >
-            <IgrGridToolbar>
-              <IgrSelect
-                onChange={(e: any) => setCellMergeMode(e.detail.value)}
-                value={cellMergeMode}
-              >
-                <label>Select Merge Mode</label>
-                {mergeTypes.map((type) => (
-                  <IgrSelectItem key={type.name} value={type.value}>
-                    {type.name}
-                  </IgrSelectItem>
-                ))}
-              </IgrSelect>
-
-              <IgrSelect
-                onChange={(e: any) => {
-                  setMergeStrategyName(e.detail.value);
-                }}
-                value={mergeStrategyName}
-              >
-                <label>Select Merge Strategy</label>
-                {mergeStrategies.map((type) => (
-                  <IgrSelectItem key={type.name} value={type.name}>
-                    {type.name}
-                  </IgrSelectItem>
-                ))}
-              </IgrSelect>
-            </IgrGridToolbar>
+            <IgrGridToolbar />
 
             <IgrColumn
               field="Name"
@@ -157,3 +104,19 @@ export default function App() {
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
+
+class CustomTreeGridMergeStrategy extends IgrDefaultTreeGridMergeStrategy {
+  // Merge only cells within same country and level
+  public comparer(prevRecord: any, record: any, field: string): boolean {
+    const a = prevRecord[field];
+    const b = record[field];
+
+    const levelA = prevRecord.level;
+    const levelB = record.level;
+
+    const countryA = prevRecord.data["Country"];
+    const countryB = record.data["Country"];
+
+    return a === b && levelA === levelB && countryA === countryB;
+  }
+}
