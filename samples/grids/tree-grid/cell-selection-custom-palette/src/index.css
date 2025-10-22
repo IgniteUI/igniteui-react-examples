@@ -1,0 +1,13 @@
+/* shared styles are loaded from: */
+/* https://static.infragistics.com/xplatform/css/samples */
+
+    #grid {
+        --ig-size: var(--ig-size-medium);
+    }
+
+    #grid {
+        --cell-selected-text-color: #FFFFFF;
+        --cell-active-border-color: #f2c43c;
+        --cell-selected-background: #0062a3;
+    }
+
