@@ -18,7 +18,7 @@
         "igniteui-react-spreadsheet": [ "node_modules/igniteui-react-spreadsheet", "node_modules/@infragistics/igniteui-react-spreadsheet" ],
         "igniteui-react-spreadsheet-chart-adapter": [ "node_modules/igniteui-react-spreadsheet-chart-adapter", "node_modules/@infragistics/igniteui-react-spreadsheet-chart-adapter" ],
         "igniteui-webcomponents": [ "node_modules/igniteui-webcomponents", "node_modules/@infragistics/igniteui-webcomponents" ],
-        "igniteui-dockmanager": [ "node_modules/igniteui-dockmanager", "node_modules/@infragisics/igniteui-dockmanager" ],
+        "igniteui-dockmanager": [ "node_modules/igniteui-dockmanager", "node_modules/@infragistics/igniteui-dockmanager" ],
         "igniteui-dockmanager/loader": [ "node_modules/igniteui-dockmanager/loader", "node_modules/@infragistics/igniteui-dockmanager/loader" ]
       }
     }
