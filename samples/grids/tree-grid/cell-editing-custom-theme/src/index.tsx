@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrTreeGrid, IgrPaginator, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-react-core';
-import NwindData from './NwindData.json';
+import { EmployeesNestedDataItem, EmployeesNestedData } from './EmployeesNestedData';
 
 import 'igniteui-react-grids/grids/themes/dark/bootstrap.css';
 
@@ -30,54 +30,49 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     className="custom-grid-palette-theme"
                     ref={this.gridRef}
-                    data={this.nwindData}
-                    primaryKey="ProductID"
-                    foreignKey="SupplierID"
+                    data={this.employeesNestedData}
+                    primaryKey="ID"
+                    childDataKey="Employees"
                     allowFiltering={true}>
                     <IgrPaginator
                         perPage={10}>
                     </IgrPaginator>
                     <IgrColumn
-                        field="ProductName"
-                        header="Product Name"
+                        field="Name"
+                        header="Name"
                         dataType="string"
                         sortable={true}
-                        hasSummary={true}
                         editable={true}
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        field="UnitsInStock"
-                        header="Units in Stock"
+                        field="Title"
+                        header="Title"
+                        dataType="string"
+                        sortable={true}
+                        editable={true}
+                        resizable={true}>
+                    </IgrColumn>
+                    <IgrColumn
+                        field="Age"
+                        header="Age"
                         dataType="number"
                         sortable={true}
-                        hasSummary={true}
                         editable={true}
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        field="OrderDate"
-                        header="Order Date"
-                        dataType="date"
+                        field="Salary"
+                        header="Salary"
+                        dataType="number"
                         sortable={true}
-                        hasSummary={true}
-                        editable={true}
-                        resizable={true}>
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Discontinued"
-                        header="Discontinued"
-                        dataType="boolean"
-                        sortable={true}
-                        hasSummary={true}
                         editable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        field="ReorderLevel"
-                        header="Reorder Level"
-                        dataType="number"
+                        field="HireDate"
+                        header="Hire Date"
+                        dataType="date"
                         sortable={true}
-                        hasSummary={true}
                         editable={true}
                         filterable={false}>
                     </IgrColumn>
@@ -87,9 +82,12 @@ export default class Sample extends React.Component<any, any> {
         );
     }
 
-    private _nwindData: any[] = NwindData;
-    public get nwindData(): any[] {
-        return this._nwindData;
+    private _employeesNestedData: EmployeesNestedData = null;
+    public get employeesNestedData(): EmployeesNestedData {
+        if (this._employeesNestedData == null) {
+            this._employeesNestedData = new EmployeesNestedData();
+        }
+        return this._employeesNestedData;
     }
 
     private _componentRenderer: ComponentRenderer = null;
