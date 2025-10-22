@@ -54,7 +54,7 @@ export default class Sample extends React.Component<any, any> {
                     chartType="StepLine"
                     dataSource={this.countryRenewableElectricity}
                     includedProperties={["year", "europe", "china", "america"]}
-                    isCategoryHighlightingEnabled="true"
+                    isCategoryHighlightingEnabled="false"
                     isSeriesHighlightingEnabled="true"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"

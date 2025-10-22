@@ -59,7 +59,7 @@ export default class Sample extends React.Component<any, any> {
                     yAxisLabelLeftMargin="0"
                     isHorizontalZoomEnabled="false"
                     isVerticalZoomEnabled="false"
-                    isCategoryHighlightingEnabled="true"
+                    isCategoryHighlightingEnabled="false"
                     crosshairsDisplayMode="None">
                 </IgrCategoryChart>
             </div>

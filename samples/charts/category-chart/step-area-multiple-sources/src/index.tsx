@@ -57,7 +57,7 @@ export default class Sample extends React.Component<any, any> {
                     titleLeftMargin="25"
                     titleTopMargin="10"
                     titleBottomMargin="10"
-                    isCategoryHighlightingEnabled="true"
+                    isCategoryHighlightingEnabled="false"
                     isSeriesHighlightingEnabled="true"
                     isTransitionInEnabled="true"
                     isHorizontalZoomEnabled="false"
