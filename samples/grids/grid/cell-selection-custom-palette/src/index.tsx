@@ -34,22 +34,47 @@ export default class Sample extends React.Component<any, any> {
                 <IgrGrid
                     ref={this.gridRef}
                     id="grid"
+                    className="custom-selection-palette"
                     data={this.customersData}
-                    cellSelection="multiple">
+                    cellSelection="multiple"
+                    rowSelection="multiple"
+                    columnSelection="multiple"
+                    primaryKey="ID"
+                    allowFiltering={true}>
                     <IgrColumn
-                        field="ID">
+                        field="ID"
+                        header="Customer ID"
+                        width="120px"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
-                        header="Company">
+                        header="Company Name"
+                        width="200px"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        field="Address"
-                        header="Address">
+                        field="ContactName"
+                        header="Contact"
+                        width="150px"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
-                        field="PostalCode"
-                        header="Postal Code">
+                        field="City"
+                        header="City"
+                        width="120px"
+                        sortable={true}>
+                    </IgrColumn>
+                    <IgrColumn
+                        field="Country"
+                        header="Country"
+                        width="120px"
+                        sortable={true}>
+                    </IgrColumn>
+                    <IgrColumn
+                        field="Phone"
+                        header="Phone"
+                        width="150px">
                     </IgrColumn>
                 </IgrGrid>
             </div>
