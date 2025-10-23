@@ -10,7 +10,7 @@
     "lintBrowser": "eslint ./src/**/*.{ts,tsx} ./src/*.{ts,tsx}",
     "lintSamples": "eslint ../samples/**/**/**/*.{ts,tsx} ./templates/**/src/*.{ts,tsx} ",
     "start": "gulp updateBrowser && node --max-old-space-size=4096 node_modules/vite/bin/vite --port 4200",
-    "build": "gulp updateBrowser && node --max-old-space-size=10240 node_modules/vite/bin/vite build",
+    "build": "gulp updateBrowser && node --max-old-space-size=10240 node_modules/vite/bin/vite build --mode production",
     "host": "node --max-old-space-size=4096 node_modules/vite/bin/vite --port 4200",
     "postbuild": "node tasks/copyWebConfig.js && gulp verifyBuild",
     "test": "gulp updateBrowser && vitest --env=jsdom"
