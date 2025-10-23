@@ -23,6 +23,7 @@ import { editorsRoutingData } from "../samples/editors/RoutingData";
 import { notificationsRoutingData } from "../samples/notifications/RoutingData";
 import { menusRoutingData } from "../samples/menus/RoutingData";
 import { schedulingRoutingData } from "../samples/scheduling/RoutingData";
+import { interactionsRoutingData } from "../samples/interactions/RoutingData";
 
 // import { SamplesBuster, SamplesBusterState } from '../SamplesBuster';
 import SamplesCache from './SamplesCache';
@@ -89,7 +90,8 @@ export class SamplesBrowser extends React.Component<any, any>
             editorsRoutingData,
             notificationsRoutingData,
             menusRoutingData,
-            schedulingRoutingData
+            schedulingRoutingData,
+            interactionsRoutingData
         ];
 
         for (const routingData of routingProviders) {
