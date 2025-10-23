@@ -3,11 +3,12 @@ import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { resolve } from 'path';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     tsconfigPaths()
   ],
+  base: mode === 'production' ? '/react-demos/' : '/',
   resolve: {
     alias: {
       'igniteui-react-grids/grids': resolve(__dirname, 'node_modules/igniteui-react-grids/grids'),
@@ -32,4 +33,4 @@ export default defineConfig({
   server: {
     open: false
   },
-});
+}));
