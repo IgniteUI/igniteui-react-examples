@@ -4,11 +4,13 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import path, { resolve } from 'path';
 
 const jszipShimPath = path.resolve(__dirname, 'src/jszip-shim.js');
-export default defineConfig({
+
+export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     tsconfigPaths()
   ],
+  base: mode === 'production' ? '/react-demos/' : '/',
   resolve: {
     alias: {
       'igniteui-react-grids/grids': resolve(__dirname, 'node_modules/igniteui-react-grids/grids'),
@@ -36,4 +38,4 @@ export default defineConfig({
   server: {
     open: false
   },
-});
+}));
