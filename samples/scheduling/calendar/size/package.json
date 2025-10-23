@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "igniteui-dockmanager": "^1.17.0",
-    "igniteui-react": "^19.3.0-rc.2",
+    "igniteui-react": "^19.3.0-rc.4",
     "igniteui-react-core": "19.2.2",
     "igniteui-webcomponents": "^6.3.0",
     "react": "^19.2.0",
