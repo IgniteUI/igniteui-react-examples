@@ -10,10 +10,12 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      'igniteui-react/extras': resolve(__dirname, 'node_modules/igniteui-react/extras'),
       'igniteui-react-grids/grids': resolve(__dirname, 'node_modules/igniteui-react-grids/grids'),
       'igniteui-react-grids/grids/themes/light/': resolve(__dirname, 'node_modules/igniteui-react-grids/grids/themes/light/'),
+      '@infragistics/igniteui-react/extras': resolve(__dirname, 'node_modules/@infragistics/igniteui-react/extras'),
       '@infragistics/igniteui-react-grids/grids': resolve(__dirname, 'node_modules/@infragistics/igniteui-react-grids/grids'),
-      '@infragistics/igniteui-react-grids/grids/themes/light/': resolve(__dirname, 'node_modules/@infragistics/igniteui-react-grids/grids/themes/light/')
+      '@infragistics/igniteui-react-grids/grids/themes/light/': resolve(__dirname, 'node_modules/@infragistics/igniteui-react-grids/grids/themes/light/'),
     }
   },
   optimizeDeps: {

@@ -7,7 +7,7 @@ import {
   IgrChat,
   IgrChatOptions
 } from "igniteui-react";
-import { createMarkdownRenderer } from "igniteui-webcomponents/extras";
+import { createChatMarkdownRenderer } from "igniteui-react/extras";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 
 export default function ChatFeatures() {
@@ -83,25 +83,21 @@ igc-avatar::part(base) {
     suggestionsPosition: "below-input",
     renderers: {
       messageHeader,
-      messageContent: ({ message }: ChatMessageRenderContext) => message?.text,
       suggestionPrefix
     },
     suggestions: [ 'Send me an e-mail when support is available.' ]
   });
 
-  const [markdownRenderer, setMarkdownRenderer] = useState<any>(null);
-
   useEffect(() => {
     let mounted = true;
-    createMarkdownRenderer().then(renderer => {
+    createChatMarkdownRenderer().then(renderer => {
       if (!mounted) return;
 
-      setMarkdownRenderer(renderer);
-      setOptions(prev => ({
+      setOptions((prev: any) => ({
         ...prev,
         renderers: {
           ...prev.renderers,
-          messageContent: ({ message }: ChatMessageRenderContext) => renderer && message.text ? renderer(message) : message.text
+          messageContent: async (ctx: any) => await renderer(ctx.message),
         }
       }));
     });
@@ -113,7 +109,7 @@ igc-avatar::part(base) {
 
     const newMessage = e.detail;
     setMessages(prev => [...prev, newMessage]);
-    setOptions(prev => ({ ...prev, isTyping: true, suggestions: [] }));
+    setOptions((prev: any) => ({ ...prev, isTyping: true, suggestions: [] }));
 
     const responseMessage = {
       id: Date.now().toString(),
@@ -124,7 +120,7 @@ igc-avatar::part(base) {
 
     setDraftMessage({ text: '', attachments: [] });
     setMessages(prev => [...prev, responseMessage]);
-    setOptions(prev => ({ ...prev, isTyping: false }));
+    setOptions((prev: any) => ({ ...prev, isTyping: false }));
   }
 
   return (
