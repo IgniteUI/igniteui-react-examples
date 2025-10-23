@@ -64,13 +64,19 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.singersData}
                     id="hGrid"
+                    className="custom-selection-palette"
                     ref={this.hGridRef}
-                    primaryKey="ID">
+                    primaryKey="ID"
+                    cellSelection="multiple"
+                    rowSelection="multiple"
+                    columnSelection="multiple"
+                    allowFiltering={true}>
                     <IgrColumn
                         field="Artist"
                         header="Artist"
                         dataType="string"
-                        resizable={true}>
+                        resizable={true}
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Photo"
@@ -85,19 +91,22 @@ export default class Sample extends React.Component<any, any> {
                         dataType="number"
                         minWidth="88px"
                         maxWidth="230px"
-                        resizable={true}>
+                        resizable={true}
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
                         dataType="string"
-                        resizable={true}>
+                        resizable={true}
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
                         dataType="string"
-                        resizable={true}>
+                        resizable={true}
+                        sortable={true}>
                     </IgrColumn>
                     <IgrRowIsland
                         childDataKey="Albums"

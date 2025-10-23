@@ -1,13 +1,47 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
 
-    #grid {
-        --ig-size: var(--ig-size-medium);
-    }
+:root {
+    /* Base Palette Colors */
+    --selection-primary: #0062a3;
+    --selection-primary-light: #338bc7;
+    --selection-primary-dark: #004d82;
+    --selection-secondary: #f2c43c;
+    --selection-accent: #e74c3c;
+    --selection-success: #27ae60;
+    --selection-text-light: #ffffff;
+    --selection-text-dark: #2c3e50;
+    --selection-border: #34495e;
+    --selection-hover: rgba(0, 98, 163, 0.1);
+    --selection-focus: rgba(242, 196, 60, 0.3);
+}
 
-    #grid {
-        --cell-selected-text-color: #FFFFFF;
-        --cell-active-border-color: #f2c43c;
-        --cell-selected-background: #0062a3;
-    }
+.custom-selection-palette {
+    /* Core cell selection properties */
+    --ig-grid-cell-selected-background: var(--selection-primary);
+    --ig-grid-cell-selected-text-color: var(--selection-text-light);
+    --ig-grid-cell-active-border-color: var(--selection-secondary);
+    
+    /* Enhanced selection states */
+    --ig-grid-cell-selected-range-background: var(--selection-primary-light);
+    --ig-grid-cell-selected-range-border-color: var(--selection-primary-dark);
+    --ig-grid-cell-hover-background: var(--selection-hover);
+    --ig-grid-cell-focus-background: var(--selection-focus);
+    
+    /* Header selection styling */
+    --ig-grid-header-selected-background: var(--selection-primary);
+    --ig-grid-header-selected-text-color: var(--selection-text-light);
+    
+    /* Row selection integration */
+    --ig-grid-row-selected-background: var(--selection-primary-light);
+    --ig-grid-row-selected-text-color: var(--selection-text-dark);
+    --ig-grid-row-selected-hover-background: var(--selection-primary);
+    
+    /* Selection indicators and borders */
+    --ig-grid-selection-fill-color: var(--selection-secondary);
+    --ig-grid-selection-border-color: var(--selection-border);
+    
+    /* Grid sizing */
+    --ig-size: var(--ig-size-medium);
+}
 

@@ -36,38 +36,55 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     ref={this.gridRef}
                     id="grid"
+                    className="custom-selection-palette"
                     data={this.ordersTreeData}
                     primaryKey="ID"
                     foreignKey="ParentID"
-                    cellSelection="multiple">
+                    cellSelection="multiple"
+                    rowSelection="multiple"
+                    columnSelection="multiple"
+                    allowFiltering={true}>
                     <IgrColumn
                         field="ID"
                         header="Order ID"
-                        dataType="number">
+                        dataType="number"
+                        width="120px"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         dataType="string"
-                        header="Order Product">
+                        header="Order Product"
+                        width="200px"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
-                        dataType="number">
+                        dataType="number"
+                        header="Units"
+                        width="120px"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
-                        dataType="currency">
+                        dataType="currency"
+                        width="150px"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         header="Price"
-                        dataType="currency">
+                        dataType="currency"
+                        width="150px"
+                        sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
-                        dataType="date">
+                        dataType="date"
+                        width="150px"
+                        sortable={true}>
                     </IgrColumn>
                 </IgrTreeGrid>
             </div>
