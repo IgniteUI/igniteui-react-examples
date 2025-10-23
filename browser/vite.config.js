@@ -1,13 +1,16 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import { resolve } from 'path';
+import path, { resolve } from 'path';
 
-export default defineConfig({
+const jszipShimPath = path.resolve(__dirname, 'src/jszip-shim.js');
+
+export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     tsconfigPaths()
   ],
+  base: mode === 'production' ? '/react-demos/' : '/',
   resolve: {
     alias: {
       'igniteui-react/extras': resolve(__dirname, 'node_modules/igniteui-react/extras'),
@@ -16,13 +19,16 @@ export default defineConfig({
       '@infragistics/igniteui-react/extras': resolve(__dirname, 'node_modules/@infragistics/igniteui-react/extras'),
       '@infragistics/igniteui-react-grids/grids': resolve(__dirname, 'node_modules/@infragistics/igniteui-react-grids/grids'),
       '@infragistics/igniteui-react-grids/grids/themes/light/': resolve(__dirname, 'node_modules/@infragistics/igniteui-react-grids/grids/themes/light/'),
+      find: /^jszip(\/dist\/jszip)?$/, 
+      replacement: jszipShimPath,
     }
   },
   optimizeDeps: {
     include: [
       'pako',
-      'jszip'
-    ]
+      'jszip', 
+      'jszip/dist/jszip'
+    ],
   },
   build: {
     outDir: 'build',
@@ -34,4 +40,4 @@ export default defineConfig({
   server: {
     open: false
   },
-});
+}));

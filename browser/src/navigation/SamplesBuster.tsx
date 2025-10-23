@@ -75,7 +75,7 @@ export class SamplesBuster extends React.Component<SamplesBusterProps, SamplesBu
         //     metaURL = pathname + '/meta.json';
         // }
         console.log('SB version location: ' + pathname);
-        console.log('SB version public: ' + process.env.PUBLIC_URL);
+        console.log('SB version public: ' + import.meta.env.BASE_URL);
         try {
           const response = await fetch(metaURL);
           const metaJson = await response.json();  // may error if there is no body

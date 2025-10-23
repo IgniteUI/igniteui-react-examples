@@ -24,7 +24,7 @@ import './index.css'; // styles shared between all samples
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
-   <BrowserRouter basename={'/react-demos'}>
+   <BrowserRouter basename={import.meta.env.BASE_URL}>
       <SamplesBrowser />
   </BrowserRouter>
 );
