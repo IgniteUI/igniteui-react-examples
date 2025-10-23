@@ -44,37 +44,31 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="ID"
                         header="Customer ID"
-                        width="120px"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Company"
                         header="Company Name"
-                        width="200px"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ContactName"
                         header="Contact"
-                        width="150px"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="City"
                         header="City"
-                        width="120px"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
                         header="Country"
-                        width="120px"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
-                        header="Phone"
-                        width="150px">
+                        header="Phone">
                     </IgrColumn>
                 </IgrGrid>
             </div>

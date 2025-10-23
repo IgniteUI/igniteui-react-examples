@@ -82,15 +82,12 @@ export default class Sample extends React.Component<any, any> {
                         field="Photo"
                         header="Photo"
                         dataType="image"
-                        minWidth="115px"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Debut"
                         header="Debut"
                         dataType="number"
-                        minWidth="88px"
-                        maxWidth="230px"
                         resizable={true}
                         sortable={true}>
                     </IgrColumn>

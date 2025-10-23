@@ -48,42 +48,36 @@ export default class Sample extends React.Component<any, any> {
                         field="ID"
                         header="Order ID"
                         dataType="number"
-                        width="120px"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Name"
                         dataType="string"
                         header="Order Product"
-                        width="200px"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Units"
                         dataType="number"
                         header="Units"
-                        width="120px"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="UnitPrice"
                         header="Unit Price"
                         dataType="currency"
-                        width="150px"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Price"
                         header="Price"
                         dataType="currency"
-                        width="150px"
                         sortable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="OrderDate"
                         header="Order Date"
                         dataType="date"
-                        width="150px"
                         sortable={true}>
                     </IgrColumn>
                 </IgrTreeGrid>
