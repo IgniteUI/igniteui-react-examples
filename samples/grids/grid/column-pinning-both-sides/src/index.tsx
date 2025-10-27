@@ -55,15 +55,16 @@ export default function App() {
 
   const pinLeft = () => {
     gridRef.current?.selectedColumns().forEach((col: IgrColumn) => {
+      col.pinned = false; 
       col.pinningPosition = ColumnPinningPosition.Start;
-      col.pinned = true;
+      col.pinned = true; 
     });
   };
   const pinRight = () => {
     gridRef.current?.selectedColumns().forEach((col: IgrColumn) => {
+      col.pinned = false; 
       col.pinningPosition = ColumnPinningPosition.End;
-      col.pinned = true;
-    });
+      col.pinned = true; 
   };
   const unpinColumn = () => {
     gridRef.current?.selectedColumns().forEach((col: IgrColumn) => {
