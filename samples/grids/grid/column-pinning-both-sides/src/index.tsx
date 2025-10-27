@@ -65,7 +65,7 @@ export default function App() {
       col.pinned = false; 
       col.pinningPosition = ColumnPinningPosition.End;
       col.pinned = true; 
-      });
+    });
   };
   const unpinColumn = () => {
     gridRef.current?.selectedColumns().forEach((col: IgrColumn) => {
