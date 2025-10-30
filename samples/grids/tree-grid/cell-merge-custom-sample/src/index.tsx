@@ -38,7 +38,7 @@ export default function App() {
           <IgrTreeGrid
             data={data}
             width="100%"
-            height="800px"
+            height="700px"
             sortingExpressions={sortExpr}
             autoGenerate={false}
             primaryKey="ID"
@@ -46,8 +46,6 @@ export default function App() {
             cellMergeMode={cellMergeMode}
             mergeStrategy={customMergeStrategy as IgrGridMergeStrategy}
           >
-            <IgrGridToolbar />
-
             <IgrColumn
               field="Name"
               dataType="string"
