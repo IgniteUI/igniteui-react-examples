@@ -2,17 +2,13 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { IgrSelect, IgrSelectItem } from "igniteui-react";
 import {
   GridCellMergeMode,
-  IgrGridToolbar,
   SortingDirection,
   IgrSortingExpression,
   IgrTreeGrid,
   IgrGridMergeStrategy,
   IgrDefaultTreeGridMergeStrategy,
-  IgrByLevelTreeGridMergeStrategy,
-  IgrDefaultMergeStrategy,
 } from "igniteui-react-grids";
 import { IgrColumn } from "igniteui-react-grids";
 
