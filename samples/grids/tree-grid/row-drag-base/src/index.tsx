@@ -51,7 +51,8 @@ export default function App() {
             data={employeesData}
             primaryKey="ID"
             foreignKey="ParentID"
-            width="40%"
+            height="480px"
+            width="70%"
             autoGenerate={false}
             moving={true}
             rowDraggable={true}

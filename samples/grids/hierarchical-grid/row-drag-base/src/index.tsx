@@ -51,7 +51,8 @@ export default function App() {
             autoGenerate={false}
             data={singersData}
             primaryKey="ID"
-            width="40%"
+            height="480px"
+            width="70%"
             rowDraggable={true}
             onRowDragEnd={onRowDragEnd}
           >

@@ -2,9 +2,12 @@
 /* https://static.infragistics.com/xplatform/css/samples */
 
 .wrapper {
-  justify-content: space-evenly;
-  margin: 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   align-items: center;
+  gap: 2rem;
+  margin: 1rem;
 }
 
 .drop-area {
