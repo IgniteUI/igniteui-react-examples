@@ -11,7 +11,6 @@ import {
     IgrSplitPaneOrientation,
     IgrTabGroupPane
 } from 'igniteui-react-dockmanager';
-import { defineCustomElements } from "igniteui-dockmanager/loader";
 import { IgrAvatar, IgrButton, IgrCard, IgrCardActions, IgrCardContent, IgrIcon, IgrList, IgrListItem, registerIconFromText } from "igniteui-react" ;
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -25,8 +24,6 @@ declare global {
     }
 }
 /* eslint-enable */
-
-defineCustomElements();
 
 const arrowDown = "<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 10l5 5 5-5H7z'/></svg>";
 const arrowUp = "<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 14l5-5 5 5H7z'/></svg>";

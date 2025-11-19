@@ -13,7 +13,6 @@ import { IgrCategoryChartModule, MarkerType, ToolTipType, YAxisLabelLocation } f
 import { IgrCategoryChart, CategoryTransitionInMode, CategoryChartType } from "igniteui-react-charts";
 import { IgrLegendModule } from "igniteui-react-charts";
 import { IgrDockManager, IgrContentPane, IgrDockManagerPaneType, IgrSplitPaneOrientation } from 'igniteui-react-dockmanager';
-import { defineCustomElements } from "igniteui-dockmanager/loader";
 
 /* eslint-disable */
 declare global {
@@ -25,8 +24,6 @@ declare global {
     }
 }
 /* eslint-enable */
-
-defineCustomElements();
 
 IgrCategoryChartModule.register();
 IgrGeographicMapModule.register();

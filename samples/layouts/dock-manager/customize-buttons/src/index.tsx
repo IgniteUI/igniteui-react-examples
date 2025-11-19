@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import './DockManagerStyles.css';
 import { IgrDockManager, IgrDockManagerPaneType, IgrSplitPaneOrientation } from 'igniteui-react-dockmanager';
-import { defineCustomElements } from "igniteui-dockmanager/loader";
 
 /* eslint-disable */
 declare global {
@@ -15,8 +14,6 @@ declare global {
     }
 }
 /* eslint-enable */
-
-defineCustomElements();
 
 export default class DockManagerOverview extends React.Component {
 
