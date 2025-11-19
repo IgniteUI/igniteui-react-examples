@@ -1,120 +1,126 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+
+import {
+    IgrGeographicMapModule,
+    IgrGeographicMap,
+    IgrBingMapsMapImagery,
+    BingMapsImageryStyle
+} from 'igniteui-react-maps';
+
+import {
+    IgrDialog,
+    IgrDialogModule,
+    IgrInput,
+    IgrInputModule,
+    IgrButton,
+    IgrButtonModule
+} from 'igniteui-react';
+
 import { MapUtils, MapRegion } from './MapUtils';
-import { IgrGeographicMapModule } from 'igniteui-react-maps';
-import { IgrGeographicMap } from 'igniteui-react-maps';
-import { IgrBingMapsMapImagery } from 'igniteui-react-maps';
-import { BingMapsImageryStyle } from 'igniteui-react-maps';
-import { IgrDataChartInteractivityModule, IgrSeriesViewer } from 'igniteui-react-charts';
-// for handling of maps events
-import { IgrRectChangedEventArgs } from 'igniteui-react-core';
 
 IgrGeographicMapModule.register();
-IgrDataChartInteractivityModule.register();
+IgrDialogModule.register();
+IgrInputModule.register();
+IgrButtonModule.register();
 
 export default class MapDisplayImageryBing extends React.Component<any, any> {
 
+    private map!: IgrGeographicMap;
+    private dialog!: IgrDialog;
+
+    constructor(props: any) {
+        super(props);
+
+        this.state = {
+            bingKey: "",
+            imageryApplied: false
+        };
+    }
+
+    componentDidMount() {
+        // Auto-open dialog, like Angular + Blazor
+        setTimeout(() => {
+            if (this.dialog) this.dialog.open();
+        }, 300);
+    }
+
+    private onDialogClosed = () => {
+        const key = this.state.bingKey.trim();
+
+        if (!key) {
+            // user closed dialog with empty key → do nothing
+            return;
+        }
+
+        this.applyImagery(key);
+    };
+
+    private applyImagery(key: string) {
+        if (!this.map) return;
+
+        const imagery = new IgrBingMapsMapImagery();
+        imagery.apiKey = key;
+        imagery.imageryStyle = BingMapsImageryStyle.AerialWithLabels;
+
+        // handle protocol mismatch
+        const uri = imagery.actualBingImageryRestUri;
+        const https = window.location.toString().startsWith("https:");
+        imagery.bingImageryRestUri = https ?
+            uri.replace("http:", "https:") :
+            uri.replace("https:", "http:");
+
+        // apply imagery
+        this.map.backgroundContent = imagery;
+
+        // zoom to region (same as Angular)
+        MapUtils.navigateTo(this.map, MapRegion.Caribbean);
+    }
+
     public render(): JSX.Element {
         return (
-            <div className="container horizontal" >
-                <div className="container" >
-                    <IgrGeographicMap
-                        ref={this.onBingMapsLabels}
-                        width="100%" height="100%" zoomable="true"/>
-                </div>
-                <div className="container" >
-                    <IgrGeographicMap
-                        ref={this.onBingMapsArial}
-                        width="100%" height="100%" zoomable="true"/>
-                </div>
-                <div className="container" >
-                    <IgrGeographicMap
-                        ref={this.onBingMapsRoad}
-                        // actualWindowRectChanged={this.onMapWindowRectChanged}
-                        width="100%" height="100%" zoomable="true"/>
-                </div>
-                <div className="overlay-bottom-right overlay-border">Imagery Tiles: @Bing Maps</div>
+            <div className="container">
+
+                {/* -------- ENTERPRISE KEY DIALOG ---------- */}
+                <IgrDialog
+                    ref={d => this.dialog = d!}
+                    title="Bing Maps"
+                    onClosed={this.onDialogClosed}
+                >
+                    <div style={{ padding: 16 }}>
+                        <p style={{ fontSize: "0.9rem", marginBottom: 8 }}>
+                            Bing Maps Basic has been retired.<br />
+                            Please enter your <b>Bing Maps Enterprise Key</b>.
+                        </p>
+
+                        <IgrInput
+                            placeholder="Enter key"
+                            value={this.state.bingKey}
+                            style={{ width: "100%", marginBottom: 12 }}
+                            onInput={(e: any) =>
+                                this.setState({ bingKey: e.target.value })
+                            }
+                        />
+
+                        <IgrButton variant="flat" onClick={() => this.dialog.close()}>
+                            OK
+                        </IgrButton>
+                    </div>
+                </IgrDialog>
+
+                {/* ------------- MAP ------------- */}
+                <IgrGeographicMap
+                    ref={m => this.map = m!}
+                    width="100%"
+                    height="100%"
+                    zoomable="true"
+                />
             </div>
         );
     }
-
-    public onBingMapsLabels(geoMap: IgrGeographicMap) {
-        if (!geoMap) { return; }
-
-        const tileSource = new IgrBingMapsMapImagery();
-        tileSource.apiKey = MapUtils.getBingKey();
-        tileSource.imageryStyle = BingMapsImageryStyle.AerialWithLabels;
-        // resolving BingMaps uri based on HTTP protocol of hosting website
-        let tileUri = tileSource.actualBingImageryRestUri;
-        let isHttpSecured = window.location.toString().startsWith("https:");
-        if (isHttpSecured) {
-            tileSource.bingImageryRestUri = tileUri.replace("http:", "https:");
-        } else {
-            tileSource.bingImageryRestUri = tileUri.replace("https:", "http:");
-        }
-
-        geoMap.backgroundContent = tileSource;
-
-        // optional - navigating to a map region
-        MapUtils.navigateTo(geoMap, MapRegion.Caribbean);
-    }
-
-    public onBingMapsArial(geoMap: IgrGeographicMap) {
-        if (!geoMap) { return; }
-
-        const tileSource = new IgrBingMapsMapImagery();
-        tileSource.apiKey = MapUtils.getBingKey();
-        tileSource.imageryStyle = BingMapsImageryStyle.Aerial;
-        // resolving BingMaps uri based on HTTP protocol of hosting website
-        let tileUri = tileSource.actualBingImageryRestUri;
-        let isHttpSecured = window.location.toString().startsWith("https:");
-        if (isHttpSecured) {
-            tileSource.bingImageryRestUri = tileUri.replace("http:", "https:");
-        } else {
-            tileSource.bingImageryRestUri = tileUri.replace("https:", "http:");
-        }
-
-        geoMap.backgroundContent = tileSource;
-
-        // optional - navigating to a map region
-        MapUtils.navigateTo(geoMap, MapRegion.Caribbean);
-    }
-
-    public onBingMapsRoad(geoMap: IgrGeographicMap) {
-        if (!geoMap) { return; }
-
-        const tileSource = new IgrBingMapsMapImagery();
-        tileSource.apiKey = MapUtils.getBingKey();
-        tileSource.imageryStyle = BingMapsImageryStyle.Road;
-        // resolving BingMaps uri based on HTTP protocol of hosting website
-        let tileUri = tileSource.actualBingImageryRestUri;
-        let isHttpSecured = window.location.toString().startsWith("https:");
-        if (isHttpSecured) {
-            tileSource.bingImageryRestUri = tileUri.replace("http:", "https:");
-        } else {
-            tileSource.bingImageryRestUri = tileUri.replace("https:", "http:");
-        }
-
-        geoMap.backgroundContent = tileSource;
-
-        // optional - navigating to a map region
-        MapUtils.navigateTo(geoMap, MapRegion.Caribbean);
-    }
-
-    public onMapWindowRectChanged(viewer: IgrSeriesViewer, e: IgrRectChangedEventArgs) {
-        // let geoMap = viewer as IgrGeographicMap;
-        // const rect = e.newRect;
-        // console.log("win \n left:" + rect.left +
-        // ", top:" + rect.top + ", width:"  + rect.width + ", height:"  + rect.height);
-
-        // const geo = geoMap.getGeographicFromZoom(rect);
-        // console.log("geo \n left:" + geo.left +
-        // ", top:" + geo.top + ", width:"  + geo.width + ", height:"  + geo.height);
-    }
-
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<MapDisplayImageryBing/>);
+// ---------- Render ---------- //
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+root.render(<DisplayBingImagery />);
