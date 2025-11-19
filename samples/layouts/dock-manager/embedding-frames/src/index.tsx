@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './DockManagerStyles.css';
-import { IgcDockManagerComponent, IgcContentPane } from "igniteui-dockmanager";
-import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
+import { IgrContentPane, IgrDockManager, IgrDockManagerPaneType, IgrSplitPaneOrientation } from 'igniteui-react-dockmanager';
 import { defineCustomElements } from "igniteui-dockmanager/loader";
 
 /* eslint-disable */
@@ -21,10 +20,10 @@ defineCustomElements();
 
 export default class DockManagerEmbeddingFrames extends React.Component {
 
-    public dockManager: IgcDockManagerComponent;
-    public geoMapPane: IgcContentPane;
-    public gaugePane: IgcContentPane;
-    public doughnutChartPane: IgcContentPane;
+    public dockManager: IgrDockManager;
+    public geoMapPane: IgrContentPane;
+    public gaugePane: IgrContentPane;
+    public doughnutChartPane: IgrContentPane;
 
     constructor(props: any) {
         super(props);
@@ -59,39 +58,39 @@ export default class DockManagerEmbeddingFrames extends React.Component {
         this.gaugePane = {
             // size: 150,
             header: 'ANGULAR RADIAL GAUGE',
-            type: IgcDockManagerPaneType.contentPane,
+            type: IgrDockManagerPaneType.contentPane,
             contentId: 'gaugeContainer'
         };
 
         this.doughnutChartPane = {
             // size: 150,
             header: 'WEB COMPONENT DOUGHNUT CHART',
-            type: IgcDockManagerPaneType.contentPane,
+            type: IgrDockManagerPaneType.contentPane,
             contentId: 'doughnutChartContainer'
         };
 
         this.geoMapPane = {
             // size: 200,
             header: 'REACT GEOGRAPHIC MAP',
-            type: IgcDockManagerPaneType.contentPane,
+            type: IgrDockManagerPaneType.contentPane,
             contentId: 'geoMapContainer'
         };
 
-        this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;
+        this.dockManager = document.getElementById("dockManager") as IgrDockManager;
         this.dockManager.layout = {
             rootPane: {
-                type: IgcDockManagerPaneType.splitPane,
-                orientation: IgcSplitPaneOrientation.vertical,
+                type: IgrDockManagerPaneType.splitPane,
+                orientation: IgrSplitPaneOrientation.vertical,
                 panes: [
                     {
-                        type: IgcDockManagerPaneType.splitPane,
-                        orientation: IgcSplitPaneOrientation.horizontal,
+                        type: IgrDockManagerPaneType.splitPane,
+                        orientation: IgrSplitPaneOrientation.horizontal,
                         // size: 250,
                         panes: [  this.gaugePane, this.doughnutChartPane]
                     },
                     {
-                        type: IgcDockManagerPaneType.splitPane,
-                        orientation: IgcSplitPaneOrientation.vertical,
+                        type: IgrDockManagerPaneType.splitPane,
+                        orientation: IgrSplitPaneOrientation.vertical,
                         // size: 200,
                         panes: [
                             // this.financialChartPane,

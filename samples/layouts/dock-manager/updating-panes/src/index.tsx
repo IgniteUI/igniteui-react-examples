@@ -12,8 +12,7 @@ import { IgrDataContext } from 'igniteui-react-core';
 import { IgrCategoryChartModule, MarkerType, ToolTipType, YAxisLabelLocation } from "igniteui-react-charts";
 import { IgrCategoryChart, CategoryTransitionInMode, CategoryChartType } from "igniteui-react-charts";
 import { IgrLegendModule } from "igniteui-react-charts";
-import { IgcDockManagerComponent, IgcContentPane } from "igniteui-dockmanager";
-import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
+import { IgrDockManager, IgrContentPane, IgrDockManagerPaneType, IgrSplitPaneOrientation } from 'igniteui-react-dockmanager';
 import { defineCustomElements } from "igniteui-dockmanager/loader";
 
 /* eslint-disable */
@@ -37,19 +36,19 @@ IgrLegendModule.register();
 export default class DockManagerUpdatingPanes extends React.Component<any, any> {
     private chart: IgrCategoryChart;
     private map: IgrGeographicMap;
-    private dockManager: IgcDockManagerComponent;
+    private dockManager: IgrDockManager;
     private employeesDatabase = DockManagerSharedData.getEmployees(60);
 
     private employeeListContainer: HTMLDivElement;
-    private employeeListPane: IgcContentPane;
+    private employeeListPane: IgrContentPane;
     private employeesList: HTMLDivElement[] = [];
 
     private productivityChart: IgrCategoryChart;
-    private productivityChartPane: IgcContentPane;
+    private productivityChartPane: IgrContentPane;
     private productivityChartContainer: HTMLDivElement;
 
     private geoLocationMap: IgrGeographicMap;
-    private geoLocationMapPane: IgcContentPane;
+    private geoLocationMapPane: IgrContentPane;
     private geoLocationMapContainer: HTMLDivElement;
     private geoLocationSeries: IgrGeographicSymbolSeries;
 
@@ -58,6 +57,7 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
 
         this.mapRef = this.mapRef.bind(this);
         this.chartRef = this.chartRef.bind(this);
+        this.dockManagerRef = this.dockManagerRef.bind(this);
 
         this.createEmployeeList = this.createEmployeeList.bind(this);
         this.createLocationMapTooltip = this.createLocationMapTooltip.bind(this);
@@ -70,7 +70,7 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <igc-dockmanager id="dockManager">
+                <IgrDockManager id="dockManager" ref={this.dockManagerRef}>
                     <div
                         className="dockManagerContent"
                         slot="employeeListContainer"
@@ -95,21 +95,28 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
                                 width="100%"
                                 height="100%"/>
                     </div>
-                </igc-dockmanager>
+                </IgrDockManager>
             </div>
         );
     }
 
     private chartRef(chart: IgrCategoryChart) {
         this.chart = chart;
-        if (this.chart && this.map) {
+        if (this.chart && this.map && this.dockManager) {
             this.onReady();
         }
     }
 
     private mapRef(map: IgrGeographicMap) {
         this.map = map;
-        if (this.chart && this.map) {
+        if (this.chart && this.map && this.dockManager) {
+            this.onReady();
+        }
+    }
+
+    private dockManagerRef(dockManager: IgrDockManager) {
+        this.dockManager = dockManager;
+        if (this.chart && this.map && this.dockManager) {
             this.onReady();
         }
     }
@@ -127,38 +134,37 @@ export default class DockManagerUpdatingPanes extends React.Component<any, any> 
         this.productivityChartPane = {
             size: 150,
             header: "EMPLOYEE PRODUCTIVITY",
-            type: IgcDockManagerPaneType.contentPane,
+            type: IgrDockManagerPaneType.contentPane,
             contentId: "productivityChartContainer"
         };
 
         this.geoLocationMapPane = {
             size: 150,
             header: "EMPLOYEE LOCATIONS",
-            type: IgcDockManagerPaneType.contentPane,
+            type: IgrDockManagerPaneType.contentPane,
             contentId: "geoLocationMapContainer"
         };
 
         this.employeeListPane = {
             header: "EMPLOYEE LIST",
-            type: IgcDockManagerPaneType.contentPane,
+            type: IgrDockManagerPaneType.contentPane,
             contentId: "employeeListContainer"
         };
 
-        this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;
         this.dockManager.layout = {
             rootPane: {
-                type: IgcDockManagerPaneType.splitPane,
-                orientation: IgcSplitPaneOrientation.horizontal,
+                type: IgrDockManagerPaneType.splitPane,
+                orientation: IgrSplitPaneOrientation.horizontal,
                 panes: [
                     {
-                        type: IgcDockManagerPaneType.splitPane,
-                        orientation: IgcSplitPaneOrientation.vertical,
+                        type: IgrDockManagerPaneType.splitPane,
+                        orientation: IgrSplitPaneOrientation.vertical,
                         size: 100,
                         panes: [this.employeeListPane]
                     },
                     {
-                        type: IgcDockManagerPaneType.splitPane,
-                        orientation: IgcSplitPaneOrientation.vertical,
+                        type: IgrDockManagerPaneType.splitPane,
+                        orientation: IgrSplitPaneOrientation.vertical,
                         size: 300,
                         panes: [this.productivityChartPane, this.geoLocationMapPane]
                     }
