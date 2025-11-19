@@ -11,50 +11,47 @@ import {
 
 import {
     IgrDialog,
-    IgrDialogModule,
     IgrInput,
-    IgrInputModule,
-    IgrButton,
-    IgrButtonModule
-} from 'igniteui-react';
+    IgrButton
+} from "igniteui-react";
 
-import { MapUtils, MapRegion } from './MapUtils';
+import "igniteui-webcomponents/themes/light/bootstrap.css";
+import { defineComponents } from "igniteui-webcomponents";
+defineComponents(); // required for igc-dialog to work
+
+import { MapUtils, MapRegion } from "./MapUtils";
 
 IgrGeographicMapModule.register();
-IgrDialogModule.register();
-IgrInputModule.register();
-IgrButtonModule.register();
 
 export default class MapDisplayImageryBing extends React.Component<any, any> {
 
     private map!: IgrGeographicMap;
-    private dialog!: IgrDialog;
+    private dialogRef!: IgrDialog;
 
     constructor(props: any) {
         super(props);
-
-        this.state = {
-            bingKey: "",
-            imageryApplied: false
-        };
+        this.state = { bingKey: "" };
     }
 
     componentDidMount() {
-        // Auto-open dialog, like Angular + Blazor
-        setTimeout(() => {
-            if (this.dialog) this.dialog.open();
-        }, 300);
+        // Optional auto-open — remove it if you want manual ONLY
+        setTimeout(() => this.dialogRef?.show(), 100);
     }
 
-    private onDialogClosed = () => {
+    private onDialogRef = (dlg: IgrDialog) => {
+        this.dialogRef = dlg;
+    };
+
+    private openDialog = () => {
+        this.dialogRef?.show();
+    };
+
+    private onApplyKey = () => {
         const key = this.state.bingKey.trim();
-
-        if (!key) {
-            // user closed dialog with empty key → do nothing
-            return;
+        if (key) {
+            this.applyImagery(key);
         }
-
-        this.applyImagery(key);
+        this.dialogRef.hide();
     };
 
     private applyImagery(key: string) {
@@ -64,63 +61,79 @@ export default class MapDisplayImageryBing extends React.Component<any, any> {
         imagery.apiKey = key;
         imagery.imageryStyle = BingMapsImageryStyle.AerialWithLabels;
 
-        // handle protocol mismatch
+        // Fix HTTPS mismatch
         const uri = imagery.actualBingImageryRestUri;
         const https = window.location.toString().startsWith("https:");
-        imagery.bingImageryRestUri = https ?
-            uri.replace("http:", "https:") :
-            uri.replace("https:", "http:");
+        imagery.bingImageryRestUri = https
+            ? uri.replace("http:", "https:")
+            : uri.replace("https:", "http:");
 
-        // apply imagery
         this.map.backgroundContent = imagery;
 
-        // zoom to region (same as Angular)
         MapUtils.navigateTo(this.map, MapRegion.Caribbean);
     }
 
-    public render(): JSX.Element {
+    render() {
         return (
-            <div className="container">
+            <div className="container" style={{ position: "relative", padding: "12px" }}>
 
-                {/* -------- ENTERPRISE KEY DIALOG ---------- */}
-                <IgrDialog
-                    ref={d => this.dialog = d!}
-                    title="Bing Maps"
-                    onClosed={this.onDialogClosed}
-                >
-                    <div style={{ padding: 16 }}>
-                        <p style={{ fontSize: "0.9rem", marginBottom: 8 }}>
-                            Bing Maps Basic has been retired.<br />
-                            Please enter your <b>Bing Maps Enterprise Key</b>.
-                        </p>
+                {/* Centered Button Like Angular */}
+                <div style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    marginBottom: "12px"
+                }}>
+                    <IgrButton
+                        variant="contained"
+                        onClick={this.openDialog}
+                        style={{
+                            width: "auto",
+                            minWidth: "220px",
+                            padding: "8px 16px",
+                            textAlign: "center"
+                        }}
+                    >
+                        Enter Bing Maps Enterprise Key
+                    </IgrButton>
+                </div>
 
-                        <IgrInput
-                            placeholder="Enter key"
-                            value={this.state.bingKey}
-                            style={{ width: "100%", marginBottom: 12 }}
-                            onInput={(e: any) =>
-                                this.setState({ bingKey: e.target.value })
-                            }
-                        />
+                {/* Dialog */}
+                <IgrDialog title="Bing Maps Enterprise Key" ref={this.onDialogRef}>
+                    <IgrInput
+                        placeholder="Enter Bing Maps Key"
+                        value={this.state.bingKey}
+                        style={{ width: "100%", marginBottom: "12px" }}
+                        onInput={(e: any) =>
+                            this.setState({ bingKey: e.detail ?? e.target.value })
+                        }
+                    />
 
-                        <IgrButton variant="flat" onClick={() => this.dialog.close()}>
-                            OK
+                    <div slot="footer"
+                        style={{ display: "flex", justifyContent: "flex-end", gap: "8px" }}>
+                        <IgrButton variant="flat" onClick={() => this.dialogRef.hide()}>
+                            Cancel
+                        </IgrButton>
+                        <IgrButton variant="flat" onClick={this.onApplyKey}>
+                            Apply
                         </IgrButton>
                     </div>
                 </IgrDialog>
 
-                {/* ------------- MAP ------------- */}
+                {/* Map */}
                 <IgrGeographicMap
-                    ref={m => this.map = m!}
+                    ref={m => (this.map = m!)}
                     width="100%"
                     height="100%"
-                    zoomable="true"
+                    zoomable={true}
                 />
             </div>
         );
     }
 }
 
-// ---------- Render ---------- //
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
-root.render(<DisplayBingImagery />);
+const root = ReactDOM.createRoot(
+    document.getElementById("root") as HTMLElement
+);
+root.render(<MapDisplayImageryBing />);
