@@ -18,7 +18,7 @@ import {
     IgrButton
 } from "igniteui-react";
 
-import { EsriStyle, EsriUtility } from "./EsriUtility";
+import { EsriStyle } from "./EsriUtility";
 import { MapUtils, MapRegion } from "./MapUtils";
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
@@ -48,14 +48,32 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         this.openAzureDialog = this.openAzureDialog.bind(this);
         this.applyAzureKey = this.applyAzureKey.bind(this);
 
-        // ---- ONLY the 4 primary maps + Terra overlay ----
+        // ---- OSM + all Azure styles + Esri ----
         this.ImageryOptions = [
             this.getOption("OpenStreetMap", "(Default)"),
 
-            // minimal Azure list
+            // Azure base styles
             this.getOption("AzureMaps", "Satellite"),
             this.getOption("AzureMaps", "Road"),
+            this.getOption("AzureMaps", "DarkGrey"),
             this.getOption("AzureMaps", "TerraOverlay"),
+
+            // Azure label / hybrid overlays
+            this.getOption("AzureMaps", "LabelsRoadOverlay"),
+            this.getOption("AzureMaps", "LabelsDarkGreyOverlay"),
+            this.getOption("AzureMaps", "HybridRoadOverlay"),
+            this.getOption("AzureMaps", "HybridDarkGreyOverlay"),
+
+            // Azure traffic overlays
+            this.getOption("AzureMaps", "TrafficAbsoluteOverlay"),
+            this.getOption("AzureMaps", "TrafficDelayOverlay"),
+            this.getOption("AzureMaps", "TrafficReducedOverlay"),
+            this.getOption("AzureMaps", "TrafficRelativeOverlay"),
+            this.getOption("AzureMaps", "TrafficRelativeDarkOverlay"),
+
+            // Azure weather overlays
+            this.getOption("AzureMaps", "WeatherRadarOverlay"),
+            this.getOption("AzureMaps", "WeatherInfraredOverlay"),
 
             // ESRI (all styles stay)
             ...Object.keys(EsriStyle).map(s => this.getOption("Esri", s))
@@ -67,65 +85,62 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         return <option id={name} key={name}>{name}</option>;
     }
 
-    public onMapRef(geoMap: IgrGeographicMap) {
-        if (!geoMap) return;
+    public onMapRef(geoMap: IgrGeographicMap | null) {
         this.geoMap = geoMap;
-        this.applyTileSource(this.state.tileSource);
+        if (!geoMap) {
+            return;
+        }
+
+        // Apply initial imagery when the map is ready
+        this.onMapTypeSelectionChange(this.state.tileSource);
     }
 
     public onTileSourceChanged(e: any) {
         const value = e.target.value.toString();
         this.setState({ tileSource: value });
-        this.applyTileSource(value);
+        this.onMapTypeSelectionChange(value);
     }
 
-    private applyTileSource(value: string) {
-        if (!this.geoMap) return;
-
-        let mode = value.split(" ").join("");
-
-        // -----------------------------
-        // OpenStreetMap
-        // -----------------------------
-        if (mode.startsWith("OpenStreetMap")) {
-            this.geoMap.series.clear();
-            this.geoMap.backgroundContent = new IgrOpenStreetMapImagery();
-            MapUtils.navigateTo(this.geoMap, MapRegion.UnitedStates);
+    /** Decides OSM / Azure / Esri based on the selected tileSource text */
+    private onMapTypeSelectionChange(tileSource: string) {
+        if (!this.geoMap) {
             return;
         }
 
-        // -----------------------------
-        // Azure Maps (Satellite, Road, TerraOverlay)
-        // -----------------------------
-        if (mode.startsWith("AzureMaps")) {
-            const styleName = mode.replace("AzureMaps", "");
+        const parts = tileSource.split(" ");
+        const source = parts[0];
+        const styleName = parts[1] ?? "";
 
+        // OpenStreetMap
+        if (source === "OpenStreetMap") {
+            this.geoMap.series.clear();
+            this.geoMap.backgroundContent = new IgrOpenStreetMapImagery();
+        }
+
+        // Azure Maps
+        else if (source === "AzureMaps") {
+            // If no key, UI shows placeholder instead of map; just clear the map
             if (!this.state.azureKey) {
                 this.geoMap.series.clear();
                 this.geoMap.backgroundContent = null;
                 return;
             }
 
-            const azureStyle = this.mapStyles[styleName]?.azureStyle ?? AzureMapsImageryStyle.Satellite;
+            const azureStyle =
+                this.mapStyles[styleName]?.azureStyle ?? AzureMapsImageryStyle.Satellite;
+
             this.updateAzureMap(azureStyle);
-            return;
         }
 
-        // -----------------------------
         // ESRI
-        // -----------------------------
-        if (mode.startsWith("Esri")) {
-            const name = mode.replace("Esri", "");
-            const style = (EsriStyle as any)[name] as EsriStyle;
-
-            const uri = EsriUtility.getUri(style);
-
+        else if (source === "Esri") {
             this.geoMap.series.clear();
-            const tileSource = new IgrArcGISOnlineMapImagery();
-            tileSource.mapServerUri = uri;
 
-            this.geoMap.backgroundContent = tileSource;
-            return;
+            const esri = new IgrArcGISOnlineMapImagery();
+            const uri = EsriStyle[styleName as keyof typeof EsriStyle];
+
+            esri.mapServerUri = uri;
+            this.geoMap.backgroundContent = esri;
         }
     }
 
@@ -140,30 +155,36 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
     private applyAzureKey() {
         const key = (this.state.azureKey || "").trim();
         this.dialogRef?.hide();
-        if (!key) return;
 
+        if (!key) {
+            return;
+        }
+
+        // Save the key and re-apply the current selection (if Azure)
         this.setState({ azureKey: key }, () => {
-            const mode = this.state.tileSource.split(" ").join("");
-            if (mode.startsWith("AzureMaps") && this.geoMap) {
-                const styleName = mode.replace("AzureMaps", "");
-                const azureStyle = this.mapStyles[styleName]?.azureStyle ?? AzureMapsImageryStyle.Satellite;
-                this.updateAzureMap(azureStyle);
+            if (this.state.tileSource.startsWith("AzureMaps")) {
+                this.onMapTypeSelectionChange(this.state.tileSource);
             }
         });
     }
 
     // -----------------------------
-    // Simplified Azure logic
+    // Simplified Azure logic (now works for all styles)
     // -----------------------------
     private updateAzureMap(style: AzureMapsImageryStyle) {
-        if (!this.geoMap || !this.state.azureKey) return;
+        if (!this.geoMap || !this.state.azureKey) {
+            return;
+        }
 
         this.geoMap.series.clear();
 
         const imagery = new IgrAzureMapsImagery();
         imagery.apiKey = this.state.azureKey;
 
-        const series = new IgrGeographicTileSeries({ tileImagery: imagery });
+        const series = new IgrGeographicTileSeries({
+            name: "tileSeries",
+            tileImagery: imagery
+        });
         series.tileImagery = imagery;
 
         // TerraOverlay = satellite background + Terra overlay
@@ -175,16 +196,13 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
             this.geoMap.backgroundContent = background;
             imagery.imageryStyle = style;
             this.geoMap.series.add(series);
-
-            MapUtils.navigateTo(this.geoMap, MapRegion.UnitedStates);
-            return;
         }
-
-        // Regular Azure map (Satellite or Road)
-        imagery.imageryStyle = style;
-
-        this.geoMap.backgroundContent = null;
-        this.geoMap.series.add(series);
+        else {
+            // All other Azure styles (base + overlays) just use the selected style
+            imagery.imageryStyle = style;
+            this.geoMap.backgroundContent = null;
+            this.geoMap.series.add(series);
+        }
 
         MapUtils.navigateTo(this.geoMap, MapRegion.UnitedStates);
     }
@@ -192,7 +210,9 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
     // -----------------------------
     // Azure placeholder mapping
     // -----------------------------
-    private mapStyles: any = {
+    private mapStyles: {
+        [style: string]: { placeholder: string; azureStyle: AzureMapsImageryStyle };
+    } = {
         Satellite: {
             placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_satellite.png",
             azureStyle: AzureMapsImageryStyle.Satellite
@@ -201,9 +221,60 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
             placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_road.png",
             azureStyle: AzureMapsImageryStyle.Road
         },
+        DarkGrey: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_darkgrey.png",
+            azureStyle: AzureMapsImageryStyle.DarkGrey
+        },
         TerraOverlay: {
             placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_terra_overlay.png",
             azureStyle: AzureMapsImageryStyle.TerraOverlay
+        },
+
+        LabelsRoadOverlay: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsroad.png",
+            azureStyle: AzureMapsImageryStyle.LabelsRoadOverlay
+        },
+        LabelsDarkGreyOverlay: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsdarkgrey.png",
+            azureStyle: AzureMapsImageryStyle.LabelsDarkGreyOverlay
+        },
+        HybridRoadOverlay: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_hybridroad.png",
+            azureStyle: AzureMapsImageryStyle.HybridRoadOverlay
+        },
+        HybridDarkGreyOverlay: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/AzureHybridDarkGrey.png",
+            azureStyle: AzureMapsImageryStyle.HybridDarkGreyOverlay
+        },
+
+        TrafficAbsoluteOverlay: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_absolute.png",
+            azureStyle: AzureMapsImageryStyle.TrafficAbsoluteOverlay
+        },
+        TrafficDelayOverlay: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_delay.png",
+            azureStyle: AzureMapsImageryStyle.TrafficDelayOverlay
+        },
+        TrafficReducedOverlay: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_light.png",
+            azureStyle: AzureMapsImageryStyle.TrafficReducedOverlay
+        },
+        TrafficRelativeOverlay: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_relative.png",
+            azureStyle: AzureMapsImageryStyle.TrafficRelativeOverlay
+        },
+        TrafficRelativeDarkOverlay: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_relative_dark.png",
+            azureStyle: AzureMapsImageryStyle.TrafficRelativeDarkOverlay
+        },
+
+        WeatherRadarOverlay: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_radar.png",
+            azureStyle: AzureMapsImageryStyle.WeatherRadarOverlay
+        },
+        WeatherInfraredOverlay: {
+            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_Infrared_road.png",
+            azureStyle: AzureMapsImageryStyle.WeatherInfraredOverlay
         }
     };
 
@@ -226,7 +297,7 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
                 <div className="options horizontal">
                     <label className="options-label">Imagery Tile Source</label>
                     <select
-                        value={this.state.tileSource}
+                        value={tileSource}
                         onChange={this.onTileSourceChanged}
                         style={{ width: "18rem" }}
                     >
@@ -273,7 +344,9 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
                         style={{ width: "100%", marginBottom: "12px" }}
                     />
 
-                    <div slot="footer" style={{ display: "flex", justifyContent: "flex-end", gap: "8px" }}>
+                    <div
+                        slot="footer"
+                        style={{ display: "flex", justifyContent: "flex-end", gap: "8px" }}>
                         <IgrButton variant="flat" onClick={() => this.dialogRef?.hide()}>
                             Cancel
                         </IgrButton>
@@ -287,6 +360,6 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
     }
 }
 
-// ----------- FIXED RENDER BLOCK -------------
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<MapDisplayImageryTiles/>);
+// ----------- RENDER BLOCK -------------
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+root.render(<MapDisplayImageryTiles />);
