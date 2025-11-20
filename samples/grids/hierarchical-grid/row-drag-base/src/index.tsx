@@ -8,42 +8,53 @@ import {
   IgrRowIsland,
   IgrRowDragEndEventArgs,
 } from "igniteui-react-grids";
+import { IgrIcon } from "igniteui-react";
 import { SingersData } from "./SingersData";
 
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 export default function App() {
   const singersData = new SingersData();
-  const rightHGridRef = useRef<IgrHierarchicalGrid>(null);
+  const treeGridRef = useRef<IgrHierarchicalGrid>(null);
 
-  const RowDragEnd = (evt: IgrRowDragEndEventArgs) => {
-    const leftGrid = evt.target as IgrHierarchicalGrid;
+  const onRowDragEnd = (evt: IgrRowDragEndEventArgs) => {
     const ghostElement = evt.detail.dragDirective.ghostElement;
     if (ghostElement != null) {
       const dragElementPos = ghostElement.getBoundingClientRect();
-      const gridPosition = document.getElementById("hierarchicalGrid2").getBoundingClientRect();
+      const dropAreaPosition = document
+        .getElementById("dropArea")
+        .getBoundingClientRect();
 
-      const withinXBounds = dragElementPos.x >= gridPosition.x && dragElementPos.x <= gridPosition.x + gridPosition.width;
-      const withinYBounds = dragElementPos.y >= gridPosition.y && dragElementPos.y <= gridPosition.y + gridPosition.height;
+      const withinXBounds =
+        dragElementPos.x >= dropAreaPosition.x &&
+        dragElementPos.x <= dropAreaPosition.x + dropAreaPosition.width;
+      const withinYBounds =
+        dragElementPos.y >= dropAreaPosition.y &&
+        dragElementPos.y <= dropAreaPosition.y + dropAreaPosition.height;
       if (withinXBounds && withinYBounds) {
-        leftGrid.deleteRow(evt.detail.dragData.key);
-        rightHGridRef.current.addRow(evt.detail.dragData.data);
+        treeGridRef.current.deleteRow(evt.detail.dragData.key);
       }
     }
-  }
+  };
 
   return (
     <div className="container sample ig-typography">
       <div className="container fill">
         <div className="container horizontal wrapper">
+          <div className="drop-area" id="dropArea">
+            <IgrIcon>delete</IgrIcon>
+            <div>Drag a row here to delete it</div>
+          </div>
+
           <IgrHierarchicalGrid
+            ref={treeGridRef}
             autoGenerate={false}
             data={singersData}
             primaryKey="ID"
-            id="hierarchicalGrid1"
-            width="40%"
+            height="480px"
+            width="70%"
             rowDraggable={true}
-            onRowDragEnd={RowDragEnd}
+            onRowDragEnd={onRowDragEnd}
           >
             <IgrColumn
               field="Artist"
@@ -51,8 +62,16 @@ export default function App() {
               dataType="string"
               width="150px"
             ></IgrColumn>
-            <IgrColumn field="Photo" header="Photo" dataType="image"></IgrColumn>
-            <IgrColumn field="Debut" header="Debut" dataType="number"></IgrColumn>
+            <IgrColumn
+              field="Photo"
+              header="Photo"
+              dataType="image"
+            ></IgrColumn>
+            <IgrColumn
+              field="Debut"
+              header="Debut"
+              dataType="number"
+            ></IgrColumn>
             <IgrColumn
               field="GrammyNominations"
               header="Grammy Nominations"
@@ -110,100 +129,11 @@ export default function App() {
               </IgrRowIsland>
             </IgrRowIsland>
             <IgrRowIsland childDataKey="Tours" autoGenerate={false}>
-              <IgrColumn field="Tour" header="Tour" dataType="string"></IgrColumn>
               <IgrColumn
-                field="StartedOn"
-                header="Started on"
+                field="Tour"
+                header="Tour"
                 dataType="string"
               ></IgrColumn>
-              <IgrColumn
-                field="Location"
-                header="Location"
-                dataType="string"
-              ></IgrColumn>
-              <IgrColumn
-                field="Headliner"
-                header="Headliner"
-                dataType="string"
-              ></IgrColumn>
-            </IgrRowIsland>
-          </IgrHierarchicalGrid>
-
-          <IgrHierarchicalGrid
-            autoGenerate={false}
-            data={[]}
-            primaryKey="ID"
-            ref={rightHGridRef}
-            id="hierarchicalGrid2"
-            width="40%"
-            emptyGridMessage="Drag and Drop a row from the left grid to this grid"
-          >
-            <IgrColumn
-              field="Artist"
-              header="Artist"
-              dataType="string"
-              width="150px"
-            ></IgrColumn>
-            <IgrColumn field="Photo" header="Photo" dataType="image"></IgrColumn>
-            <IgrColumn field="Debut" header="Debut" dataType="number"></IgrColumn>
-            <IgrColumn
-              field="GrammyNominations"
-              header="Grammy Nominations"
-              dataType="string"
-              width="200px"
-            ></IgrColumn>
-            <IgrColumn
-              field="GrammyAwards"
-              header="Grammy Awards"
-              dataType="string"
-              width="200px"
-            ></IgrColumn>
-            <IgrRowIsland childDataKey="Albums" autoGenerate={false}>
-              <IgrColumn
-                field="Album"
-                header="Album"
-                dataType="string"
-              ></IgrColumn>
-              <IgrColumn
-                field="LaunchDate"
-                header="Launch Date"
-                dataType="date"
-              ></IgrColumn>
-              <IgrColumn
-                field="BillboardReview"
-                header="Billboard Review"
-                dataType="string"
-              ></IgrColumn>
-              <IgrColumn
-                field="USBillboard200"
-                header="US Billboard 200"
-                dataType="string"
-              ></IgrColumn>
-              <IgrRowIsland childDataKey="Songs" autoGenerate={false}>
-                <IgrColumn
-                  field="Number"
-                  header="No."
-                  dataType="string"
-                ></IgrColumn>
-                <IgrColumn
-                  field="Title"
-                  header="Title"
-                  dataType="string"
-                ></IgrColumn>
-                <IgrColumn
-                  field="Released"
-                  header="Released"
-                  dataType="date"
-                ></IgrColumn>
-                <IgrColumn
-                  field="Genre"
-                  header="Genre"
-                  dataType="string"
-                ></IgrColumn>
-              </IgrRowIsland>
-            </IgrRowIsland>
-            <IgrRowIsland childDataKey="Tours" autoGenerate={false}>
-              <IgrColumn field="Tour" header="Tour" dataType="string"></IgrColumn>
               <IgrColumn
                 field="StartedOn"
                 header="Started on"
