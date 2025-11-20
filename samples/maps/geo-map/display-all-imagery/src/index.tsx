@@ -133,7 +133,7 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         }
 
         // ESRI
-        else if (source === "Esri") {
+        else (source === "Esri") {
             this.geoMap.series.clear();
 
             const esri = new IgrArcGISOnlineMapImagery();
@@ -187,6 +187,15 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         });
         series.tileImagery = imagery;
 
+        // traffic styles → zoom to NYC
+        const isTraffic =
+            style === AzureMapsImageryStyle.TrafficAbsoluteOverlay ||
+            style === AzureMapsImageryStyle.TrafficDelayOverlay ||
+            style === AzureMapsImageryStyle.TrafficReducedOverlay ||
+            style === AzureMapsImageryStyle.TrafficRelativeOverlay ||
+            style === AzureMapsImageryStyle.TrafficRelativeDarkOverlay;
+
+
         // TerraOverlay = satellite background + Terra overlay
         if (style === AzureMapsImageryStyle.TerraOverlay) {
             const background = new IgrAzureMapsImagery();
@@ -197,14 +206,14 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
             imagery.imageryStyle = style;
             this.geoMap.series.add(series);
         }
+        // All other Azure styles (base + overlays)
         else {
-            // All other Azure styles (base + overlays) just use the selected style
             imagery.imageryStyle = style;
             this.geoMap.backgroundContent = null;
             this.geoMap.series.add(series);
         }
 
-        MapUtils.navigateTo(this.geoMap, MapRegion.UnitedStates);
+        this.geoMap.zoomToGeographic({ left: -74.2591, top: 40.9176, width: -73.7004 - (-74.2591), height: 40.4774 - 40.9176 });
     }
 
     // -----------------------------
