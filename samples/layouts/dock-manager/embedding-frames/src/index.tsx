@@ -4,17 +4,6 @@ import './index.css';
 import './DockManagerStyles.css';
 import { IgrContentPane, IgrDockManager, IgrDockManagerPaneType, IgrSplitPaneOrientation } from 'igniteui-react-dockmanager';
 
-/* eslint-disable */
-declare global {
-    namespace JSX {
-        // tslint:disable-next-line:interface-name
-        interface IntrinsicElements {
-            "igc-dockmanager": any;
-        }
-    }
-}
-/* eslint-enable */
-
 export default class DockManagerEmbeddingFrames extends React.Component {
 
     public dockManager: IgrDockManager;
@@ -31,7 +20,7 @@ export default class DockManagerEmbeddingFrames extends React.Component {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <igc-dockmanager id="dockManager">
+                <IgrDockManager id="dockManager">
                     <div className="dockManagerFull" slot="doughnutChartContainer"  >
                         <iframe className="dockManagerFrame" seamless frameBorder="0"
                         src='https://infragistics.com/webcomponents-demos/charts/doughnut-chart-overview' ></iframe>
@@ -44,7 +33,7 @@ export default class DockManagerEmbeddingFrames extends React.Component {
                         <iframe className="dockManagerFrame" seamless frameBorder="0"
                         src='https://infragistics.com/react-demos/maps/geo-map-binding-data-csv'  ></iframe>
                     </div>
-                </igc-dockmanager>
+                </IgrDockManager>
             </div>
         );
     }

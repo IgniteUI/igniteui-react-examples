@@ -4,17 +4,6 @@ import './index.css';
 import './DockManagerStyles.css';
 import { IgrDockManager, IgrDockManagerPaneType, IgrSplitPaneOrientation } from 'igniteui-react-dockmanager';
 
-/* eslint-disable */
-declare global {
-    namespace JSX {
-        // tslint:disable-next-line:interface-name
-        interface IntrinsicElements {
-            "igc-dockmanager": any;
-        }
-    }
-}
-/* eslint-enable */
-
 export default class DockManagerOverview extends React.Component {
 
     public dockManager: IgrDockManager;

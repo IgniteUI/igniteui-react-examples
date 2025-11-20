@@ -14,17 +14,6 @@ import { IgrCategoryChart, CategoryTransitionInMode, CategoryChartType } from "i
 import { IgrLegendModule } from "igniteui-react-charts";
 import { IgrDockManager, IgrContentPane, IgrDockManagerPaneType, IgrSplitPaneOrientation } from 'igniteui-react-dockmanager';
 
-/* eslint-disable */
-declare global {
-    namespace JSX {
-        // tslint:disable-next-line:interface-name
-        interface IntrinsicElements {
-            "igc-dockmanager": any;
-        }
-    }
-}
-/* eslint-enable */
-
 IgrCategoryChartModule.register();
 IgrGeographicMapModule.register();
 IgrDataChartInteractivityModule.register();

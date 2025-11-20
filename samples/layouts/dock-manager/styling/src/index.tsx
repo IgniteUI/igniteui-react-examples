@@ -14,17 +14,6 @@ import {
 import { IgrAvatar, IgrButton, IgrCard, IgrCardActions, IgrCardContent, IgrIcon, IgrList, IgrListItem, registerIconFromText } from "igniteui-react" ;
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-/* eslint-disable */
-declare global {
-    namespace JSX {
-        // tslint:disable-next-line:interface-name
-        interface IntrinsicElements {
-            "igc-dockmanager": any;
-        }
-    }
-}
-/* eslint-enable */
-
 const arrowDown = "<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 10l5 5 5-5H7z'/></svg>";
 const arrowUp = "<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 14l5-5 5 5H7z'/></svg>";
 
@@ -43,7 +32,7 @@ export default class DockManagerStyling extends React.Component {
     public render(): JSX.Element {
         return (
             <div id="sampleContainer" className="container sample">
-                <IgrDockManager id="dockManager" height="100%" width="100%">
+                <IgrDockManager id="dockManager" style={{height: "100%", width: "100%"}}>
                     <div slot="accountHeader" className="header">
                         <span>ACCOUNTS</span>
                         {/* <menu-component></menu-component> */}
