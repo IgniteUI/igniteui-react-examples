@@ -133,7 +133,7 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         }
 
         // ESRI
-        else (source === "Esri") {
+        else {
             this.geoMap.series.clear();
 
             const esri = new IgrArcGISOnlineMapImagery();
