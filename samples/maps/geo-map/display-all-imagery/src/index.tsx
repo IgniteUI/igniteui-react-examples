@@ -369,6 +369,5 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
     }
 }
 
-// ----------- RENDER BLOCK -------------
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
-root.render(<MapDisplayImageryTiles />);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MapDisplayImageryTiles/>);
