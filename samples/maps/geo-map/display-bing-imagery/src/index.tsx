@@ -133,7 +133,5 @@ export default class MapDisplayImageryBing extends React.Component<any, any> {
     }
 }
 
-const root = ReactDOM.createRoot(
-    document.getElementById("root") as HTMLElement
-);
-root.render(<MapDisplayImageryBing />);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<MapDisplayImageryBing/>);
