@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { IgrSwitch } from 'igniteui-react';
 import { GridLiteDataService, ProductInfo } from './GridLiteDataService';
 
 // Import the web component
 import { IgcGridLite } from 'igniteui-grid-lite';
 import { 
   defineComponents,
-  IgcRatingComponent,
-  IgcSwitchComponent
+  IgcRatingComponent
 } from 'igniteui-webcomponents';
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
 // Register components
 IgcGridLite.register();
-defineComponents(IgcRatingComponent, IgcSwitchComponent);
+defineComponents(IgcRatingComponent);
 
 export default class Sample extends React.Component<any, any> {
   private dataService: GridLiteDataService;
@@ -91,14 +91,12 @@ export default class Sample extends React.Component<any, any> {
     return (
       <div className="container sample ig-typography">
         <div className="controls-wrapper">
-          <label>
-            <input type="checkbox" defaultChecked onChange={(e) => this.updateConfig('multiple', e.target.checked)} />
+          <IgrSwitch id="multisort" checked={true} onChange={(e: any) => this.updateConfig('multiple', e.target.checked)}>
             Multiple Sort
-          </label>
-          <label>
-            <input type="checkbox" defaultChecked onChange={(e) => this.updateConfig('triState', e.target.checked)} />
+          </IgrSwitch>
+          <IgrSwitch id="triState" checked={true} onChange={(e: any) => this.updateConfig('triState', e.target.checked)}>
             Tri-State
-          </label>
+          </IgrSwitch>
         </div>
         <div className="grid-lite-wrapper">
           <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>

@@ -84,7 +84,7 @@ export default class Sample extends React.Component<any, any> {
       <div className="container sample ig-typography">
         <div className="info-panel">
           <div id="queryString">
-            <code>{this.state.queryString}</code>
+            <p><code>{this.state.queryString}</code></p>
           </div>
         </div>
         <div className="grid-lite-wrapper">

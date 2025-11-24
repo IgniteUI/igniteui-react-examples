@@ -18,12 +18,14 @@ defineComponents(IgcRatingComponent);
 export default class Sample extends React.Component<any, any> {
   private dataService: GridLiteDataService;
   private gridRef: React.RefObject<any>;
+  private logRef: React.RefObject<HTMLDivElement>;
   private log: string[] = [];
 
   constructor(props: any) {
     super(props);
     this.dataService = new GridLiteDataService();
     this.gridRef = React.createRef();
+    this.logRef = React.createRef<HTMLDivElement>();
     this.state = { logContent: '' };
     this.handleSorting = this.handleSorting.bind(this);
     this.handleSorted = this.handleSorted.bind(this);
@@ -97,7 +99,11 @@ export default class Sample extends React.Component<any, any> {
     const logContent = this.log
       .map(entry => `<p><code>${entry}</code></p>`)
       .join('');
-    this.setState({ logContent });
+    this.setState({ logContent }, () => {
+      if (this.logRef.current) {
+        this.logRef.current.scrollTop = this.logRef.current.scrollHeight;
+      }
+    });
   }
 
   private handleSorting(event: any) {
@@ -128,7 +134,7 @@ export default class Sample extends React.Component<any, any> {
       <div className="container sample ig-typography">
         <div className="grid-lite-wrapper">
           <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
-          <div className="log" id="log" dangerouslySetInnerHTML={{ __html: this.state.logContent }}></div>
+          <div ref={this.logRef} className="log" id="log" dangerouslySetInnerHTML={{ __html: this.state.logContent }}></div>
         </div>
       </div>
     );

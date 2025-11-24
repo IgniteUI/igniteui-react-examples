@@ -115,11 +115,8 @@ export default class Sample extends React.Component<any, any> {
     return (
       <div className="container sample ig-typography">
         <div className="info-panel">
-          <div id="progress" ref={this.progressRef} className="progress-indicator">
-            <igc-circular-progress indeterminate></igc-circular-progress>
-          </div>
           <div id="queryString">
-            <code>{this.state.queryString}</code>
+            <p><code>{this.state.queryString}</code></p>
           </div>
         </div>
         <div className="grid-lite-wrapper">
