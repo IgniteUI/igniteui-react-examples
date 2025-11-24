@@ -1,0 +1,14 @@
+.grid-lite-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.config-panel {
+    margin: 1rem 0;
+    display: flex;
+    gap: 2rem;
+}
+
+igc-grid-lite {
+    height: 510px;
+}
