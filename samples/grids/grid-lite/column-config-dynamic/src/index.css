@@ -1,4 +1,4 @@
-#panel {
+.panel {
     margin: 1rem 0;
     display: flex;
     flex-flow: row nowrap;
