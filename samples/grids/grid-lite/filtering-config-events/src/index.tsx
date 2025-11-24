@@ -4,7 +4,9 @@ import { GridLiteDataService, User } from './GridLiteDataService';
 
 // Import the web component
 import { IgcGridLite } from 'igniteui-grid-lite';
+
 import "igniteui-webcomponents/themes/light/bootstrap.css";
+import "./index.css";
 
 // Register components
 IgcGridLite.register();
@@ -19,7 +21,7 @@ export default class Sample extends React.Component<any, any> {
     super(props);
     this.dataService = new GridLiteDataService();
     this.gridRef = React.createRef();
-    this.logRef = React.RefObject<HTMLDivElement>();
+    this.logRef = React.createRef<HTMLDivElement>();
     this.state = { logContent: '' };
   }
 
