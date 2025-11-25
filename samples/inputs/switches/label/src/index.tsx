@@ -9,6 +9,7 @@ export default function SwitchLabel() {
 
     return (
         <div className="sample">
+            <IgrSwitch labelPosition="before">Label</IgrSwitch>
             <div className="wrapper">
                 <IgrSwitch aria-labelledby="switchLabel" labelPosition="before"><span id="switch-label">Label</span></IgrSwitch>
             </div>
