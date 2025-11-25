@@ -3,6 +3,13 @@
     height: 100%;
 }
 
+.controls-wrapper {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
 .config-panel {
     margin: 1rem 0;
     display: flex;
