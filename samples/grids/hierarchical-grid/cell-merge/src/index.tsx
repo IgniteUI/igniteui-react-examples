@@ -52,7 +52,7 @@ export default function App() {
             cellMergeMode={cellMergeMode}
             allowFiltering={true}
             width="100%"
-            height="740px"
+            height="450px"
           >
             <IgrGridToolbar>
               <IgrSelect

@@ -53,14 +53,14 @@ export default class MapDisplayImageryAzure extends React.Component<any, any> {
         {/* Image or map */}
         <div style={{
           width: "100%",
-          maxWidth: "960px",
+          maxWidth: "100%",
           aspectRatio: "4 / 3",
           margin: "0 auto",
           position: "relative",
           overflow: "hidden"
         }}>
           {!this.state.mapVisible ? (
-            <img src={currentStyle.placeholder} alt={this.state.styleName} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <img src={currentStyle.placeholder} alt={this.state.styleName} style={{ maxWidth: "960px", height: "100%", objectFit: "contain", display: "block", margin: "0 auto" }} />
           ) : (
             <IgrGeographicMap ref={r => this.geoMap = r!} width="100%" height="100%" zoomable={true} />
           )}

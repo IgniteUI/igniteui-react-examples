@@ -1,0 +1,47 @@
+{
+  "name": "example-ignite-ui-react",
+  "description": "This project provides example of using Ignite UI for React components",
+  "author": "Infragistics",
+  "version": "1.4.0",
+  "license": "",
+  "homepage": ".",
+  "private": true,
+  "scripts": {
+    "start": "vite --port 4200",
+    "build": "tsc && node --max-old-space-size=4096 node_modules/vite/bin/vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "lint": "eslint ./src/**/*.{ts,tsx}"
+  },
+  "dependencies": {
+    "igniteui-react": "^19.4.0-rc.4",
+    "igniteui-webcomponents": "^6.3.0",
+    "igniteuio-grid-lite": "1.0.0-alpha.9",
+    "lit-html": "^3.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tslib": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.0",
+    "@types/node": "^24.7.1",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@vitejs/plugin-react": "^5.0.4",
+    "@vitest/browser": "^3.2.4",
+    "eslint": "^8.33.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-react": "^7.20.0",
+    "typescript": "^4.8.4",
+    "vite": "^7.1.9",
+    "vitest": "^3.2.4",
+    "vitest-canvas-mock": "^0.3.3",
+    "worker-loader": "^3.0.8"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

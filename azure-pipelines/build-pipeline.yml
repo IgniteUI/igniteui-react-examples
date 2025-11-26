@@ -99,7 +99,7 @@ stages:
           targetType: 'inline'
           script: |
             Get-ChildItem -Include "*.tsx","*.ts" -Recurse | `
-            ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace '([from|import])\s?[''"](igniteui-[react|dockmanager].*)[''"]', '$1 "@infragistics/$2"') }) | `
+            ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace '(from|import)\s?[''"](igniteui-(react|dockmanager).*)[''"]', '$1 "@infragistics/$2"') }) | `
             Set-Content $_.PSPath }
 
       - task: PowerShell@2

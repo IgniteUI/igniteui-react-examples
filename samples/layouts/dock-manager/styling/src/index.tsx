@@ -2,38 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './DockManagerStyles.css';
-import { IgcDockManagerComponent, IgcContentPane, IgcDockManagerLayout, IgcSplitPane, IgcTabGroupPane } from "igniteui-dockmanager";
-import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
-import { defineCustomElements } from "igniteui-dockmanager/loader";
+import {
+    IgrDockManager,
+    IgrContentPane,
+    IgrDockManagerLayout,
+    IgrDockManagerPaneType,
+    IgrSplitPane,
+    IgrSplitPaneOrientation,
+    IgrTabGroupPane
+} from 'igniteui-react-dockmanager';
 import { IgrAvatar, IgrButton, IgrCard, IgrCardActions, IgrCardContent, IgrIcon, IgrList, IgrListItem, registerIconFromText } from "igniteui-react" ;
-import { IgrAvatarModule, IgrButtonModule, IgrCardModule, IgrIconModule, IgrListModule } from "igniteui-react";
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-IgrAvatarModule.register();
-IgrButtonModule.register();
-IgrCardModule.register();
-IgrIconModule.register();
-IgrListModule.register();
-
-/* eslint-disable */
-declare global {
-    namespace JSX {
-        // tslint:disable-next-line:interface-name
-        interface IntrinsicElements {
-            "igc-dockmanager": any;
-        }
-    }
-}
-/* eslint-enable */
-
-defineCustomElements();
 
 const arrowDown = "<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 10l5 5 5-5H7z'/></svg>";
 const arrowUp = "<svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'><path d='M0 0h24v24H0V0z' fill='none'/><path d='M7 14l5-5 5 5H7z'/></svg>";
 
 export default class DockManagerStyling extends React.Component {
 
-    public dockManager: IgcDockManagerComponent;
+    public dockManager: IgrDockManager;
     public layouts: any[];
 
     constructor(props: any){        
@@ -46,7 +32,7 @@ export default class DockManagerStyling extends React.Component {
     public render(): JSX.Element {
         return (
             <div id="sampleContainer" className="container sample">
-                <igc-dockmanager id="dockManager" height="100%" width="100%">
+                <IgrDockManager id="dockManager" style={{height: "100%", width: "100%"}}>
                     <div slot="accountHeader" className="header">
                         <span>ACCOUNTS</span>
                         {/* <menu-component></menu-component> */}
@@ -518,14 +504,14 @@ export default class DockManagerStyling extends React.Component {
 
                         </IgrCard>
                     </div>
-                </igc-dockmanager>
+                </IgrDockManager>
             </div>
         );
     }
 
-    public getContentPane(header: string, contentId: string, headerId: string, floatingHeaderId: string): IgcContentPane {
-        const pane: IgcContentPane = {
-            type: IgcDockManagerPaneType.contentPane,
+    public getContentPane(header: string, contentId: string, headerId: string, floatingHeaderId: string): IgrContentPane {
+        const pane: IgrContentPane = {
+            type: IgrDockManagerPaneType.contentPane,
             header: header,
             contentId: contentId,
             headerId: headerId,
@@ -539,7 +525,7 @@ export default class DockManagerStyling extends React.Component {
         return pane;
     }
 
-    public getLayout1() : IgcDockManagerLayout{
+    public getLayout1() : IgrDockManagerLayout{
 
         const accountPane = this.getContentPane("ACCOUNTS", "content1", "accountHeader", "accountFloatingHeader");
         const topMoversPane = this.getContentPane("TODAY'S TOP MOVERS", "content2", "todayTopMovers", "todayTopMoversFloatingHeader");        
@@ -547,61 +533,61 @@ export default class DockManagerStyling extends React.Component {
         const popularStocksPane = this.getContentPane("POPULAR STOCKS", "content4", "popularStocksHeader", "popularStocksFloatingHeader");
         const cardsPane = this.getContentPane("PHYSICAL CARDS", "content5", "cardsHeader", "cardsFloatingHeader");        
 
-        const splitPane1: IgcSplitPane =
+        const splitPane1: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.horizontal,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.horizontal,
             panes: []
         };        
 
-        const splitPane2: IgcSplitPane =
+        const splitPane2: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.vertical,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.vertical,
             size: 300,
             panes: []
         };
 
-        const splitPane3: IgcSplitPane =
+        const splitPane3: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.horizontal,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.horizontal,
             size: 300,
             panes: []
         };
 
         //AccountPane, CardsPane
-        const splitPane4: IgcSplitPane =
+        const splitPane4: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.vertical,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.vertical,
             size: 300,
             panes: []                 
         };
 
         //TransactionsPane
-        const splitPane5: IgcSplitPane =
+        const splitPane5: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.vertical,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.vertical,
             size: 300,
             panes: []
         };
 
         //Top Movers
-        const splitPane6: IgcSplitPane =
+        const splitPane6: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.horizontal,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.horizontal,
             size: 130,
             panes: []
         };
 
         //Popular Stocks
-        const splitPane7: IgcSplitPane =
+        const splitPane7: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.vertical,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.vertical,
             size: 200,
             panes: []
         };
@@ -624,14 +610,14 @@ export default class DockManagerStyling extends React.Component {
         splitPane1.panes.push(splitPane2);
         splitPane1.panes.push(splitPane7);
 
-        const layout: IgcDockManagerLayout = {
+        const layout: IgrDockManagerLayout = {
             rootPane: splitPane1
         }
 
         return layout;
     }
 
-    public getLayout2() : IgcDockManagerLayout
+    public getLayout2() : IgrDockManagerLayout
     {
         const accountPane = this.getContentPane("ACCOUNTS", "content1", "accountHeader", "accountFloatingHeader");
         const topMoversPane = this.getContentPane("TODAY'S TOP MOVERS", "content2", "todayTopMovers", "todayTopMoversFloatingHeader");        
@@ -640,60 +626,60 @@ export default class DockManagerStyling extends React.Component {
         const cardsPane = this.getContentPane("PHYSICAL CARDS", "content5", "cardsHeader", "cardsFloatingHeader");        
 
 
-        const splitPane1: IgcSplitPane =
+        const splitPane1: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.horizontal,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.horizontal,
             panes: []
         };
 
-        const splitPane2: IgcSplitPane =
+        const splitPane2: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.vertical,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.vertical,
             size: 300,
             panes: []
         };
 
-        const splitPane3: IgcSplitPane =
+        const splitPane3: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.horizontal,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.horizontal,
             size: 300,
             panes: []
         };
 
         //Transactions Pane, TGP1
-        const splitPane4: IgcSplitPane =
+        const splitPane4: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.vertical,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.vertical,
             size: 300,
             panes: []
         };
 
         //Popular Stocks Pane
-        const splitPane5: IgcSplitPane =
+        const splitPane5: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.vertical,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.vertical,
             size: 300,
             panes: []
         };
 
         //Top Movers
-        const splitPane6: IgcSplitPane =
+        const splitPane6: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.horizontal,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.horizontal,
             size: 130,
             panes: []
         };
 
         //AccountPane, CardsPane
-        const tabGroupPane1: IgcTabGroupPane =
+        const tabGroupPane1: IgrTabGroupPane =
         {
-            type: IgcDockManagerPaneType.tabGroupPane,
+            type: IgrDockManagerPaneType.tabGroupPane,
             size: 100,
             panes: []
         };
@@ -716,14 +702,14 @@ export default class DockManagerStyling extends React.Component {
 
         splitPane1.panes.push(splitPane2);
 
-        const layout: IgcDockManagerLayout = {
+        const layout: IgrDockManagerLayout = {
             rootPane: splitPane1
         };        
 
         return layout;
     }
 
-    public getLayout3() : IgcDockManagerLayout
+    public getLayout3() : IgrDockManagerLayout
     {
         const accountPane = this.getContentPane("ACCOUNTS", "content1", "accountHeader", "accountFloatingHeader");
         const topMoversPane = this.getContentPane("TODAY'S TOP MOVERS", "content2", "todayTopMovers", "todayTopMoversFloatingHeader");
@@ -731,23 +717,23 @@ export default class DockManagerStyling extends React.Component {
         const popularStocksPane = this.getContentPane("POPULAR STOCKS", "content4", "popularStocksHeader", "popularStocksFloatingHeader");
         const cardsPane = this.getContentPane("PHYSICAL CARDS", "content5", "cardsHeader", "cardsFloatingHeader");
 
-        const splitPane1: IgcSplitPane =
+        const splitPane1: IgrSplitPane =
         {
-            type: IgcDockManagerPaneType.splitPane,
-            orientation: IgcSplitPaneOrientation.vertical,
+            type: IgrDockManagerPaneType.splitPane,
+            orientation: IgrSplitPaneOrientation.vertical,
             panes: []
         };
 
-        const tabGroupPane1: IgcTabGroupPane =
+        const tabGroupPane1: IgrTabGroupPane =
         {
-            type: IgcDockManagerPaneType.tabGroupPane,
+            type: IgrDockManagerPaneType.tabGroupPane,
             size: 200,
             panes: []
         };
 
-        const tabGroupPane2: IgcTabGroupPane =
+        const tabGroupPane2: IgrTabGroupPane =
         {
-            type: IgcDockManagerPaneType.tabGroupPane,
+            type: IgrDockManagerPaneType.tabGroupPane,
             size: 300,
             panes: []
         };
@@ -762,7 +748,7 @@ export default class DockManagerStyling extends React.Component {
         splitPane1.panes.push(tabGroupPane1);
         splitPane1.panes.push(tabGroupPane2);
 
-        const layout: IgcDockManagerLayout = {
+        const layout: IgrDockManagerLayout = {
             rootPane: splitPane1
         };        
 
@@ -785,11 +771,11 @@ export default class DockManagerStyling extends React.Component {
 
     public componentDidMount() {
 
-        const layout1: IgcDockManagerLayout = this.getLayout1();
-        const layout2: IgcDockManagerLayout = this.getLayout2();
-        const layout3: IgcDockManagerLayout = this.getLayout3();        
+        const layout1: IgrDockManagerLayout = this.getLayout1();
+        const layout2: IgrDockManagerLayout = this.getLayout2();
+        const layout3: IgrDockManagerLayout = this.getLayout3();
 
-        this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;                
+        this.dockManager = document.getElementById("dockManager") as IgrDockManager;
 
         window.onresize = this.onSampleResize;
 

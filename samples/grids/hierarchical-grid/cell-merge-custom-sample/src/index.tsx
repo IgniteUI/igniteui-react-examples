@@ -38,7 +38,7 @@ export default function App() {
             moving={true}
             cellMergeMode={cellMergeMode}
             mergeStrategy={perCountryMergeStrategy}
-            height="740px"
+            height="400px"
             width="100%"
             allowFiltering={true}
           >

@@ -180,8 +180,8 @@ module.exports = function override(config, env) {
                 chunks: 'all',
             },
             igniteuiDockmanager: {
-                test: /[\\/]node_modules[\\/](igniteui-dockmanager)[\\/]/,
-                name: 'igniteui-dockmanager',
+                test: /[\\/]node_modules[\\/](igniteui-react-dockmanager)[\\/]/,
+                name: 'igniteui-react-dockmanager',
                 chunks: 'all',
             }
         };
