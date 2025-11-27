@@ -32,6 +32,7 @@ export default function App() {
     const grid = gridRef.current;
     if (!grid) return;
     grid.selectedColumns().forEach((col) => {
+      col.pinned = false;
       col.pinningPosition = ColumnPinningPosition.Start;
       col.pinned = true;
     });
@@ -41,6 +42,7 @@ export default function App() {
     const grid = gridRef.current;
     if (!grid) return;
     grid.selectedColumns().forEach((col) => {
+      col.pinned = false;
       col.pinningPosition = ColumnPinningPosition.End;
       col.pinned = true;
     });
