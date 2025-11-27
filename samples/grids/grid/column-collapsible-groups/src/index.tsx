@@ -102,13 +102,11 @@ export default class Sample extends React.Component<any, any> {
                         expanded={false}>
                         <IgrColumn
                             field="ProductName"
-                            header="Name"
-                            visibleWhenCollapsed={true}>
+                            header="Name">
                         </IgrColumn>
                         <IgrColumn
                             field="UnitPrice"
-                            header="Unit Price"
-                            visibleWhenCollapsed={true}>
+                            header="Unit Price">
                         </IgrColumn>
                         <IgrColumn
                             field="ProductID"
@@ -120,7 +118,7 @@ export default class Sample extends React.Component<any, any> {
                             visibleWhenCollapsed={false}>
                         </IgrColumn>
                         <IgrColumn
-                            field="Quantity"
+                            field="Discontinued"
                             visibleWhenCollapsed={false}>
                         </IgrColumn>
                     </IgrColumnGroup>
