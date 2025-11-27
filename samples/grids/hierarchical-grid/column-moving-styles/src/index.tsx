@@ -186,7 +186,7 @@ export default class Sample extends React.Component<any, any> {
         return (
             <div>
                 <span style={{float: 'left'}}>{column.field}</span>
-                <span style={{float: 'right'}} onPointerDown={(e: any) => this.toggleColumnPin(column)}>📌</span>
+                <span style={{float: 'right'}} onClick={(e: any) => this.toggleColumnPin(column)}>📌</span>
             </div>
         );
     }
