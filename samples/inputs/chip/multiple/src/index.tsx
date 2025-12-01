@@ -32,11 +32,16 @@ export default class ChipMultiple extends React.Component<any, any> {
         );
     }
 
+    private handleChipRemove = (event: any) => {
+        const chip = event.target as IgrChip;
+        chip.remove();
+    }
+
     public render(): JSX.Element {
         return (
             <div className="container sample">
                 <div className="container" style={{flexDirection: "row", gap: "8px"}}>
-                    <IgrChip selectable={true} removable={true} >
+                    <IgrChip selectable={true} removable={true} onRemove={this.handleChipRemove}>
                         <span slot="select">
                             <IgrIcon name="custom-select" collection="material"></IgrIcon>
                         </span>
@@ -45,7 +50,7 @@ export default class ChipMultiple extends React.Component<any, any> {
                             <IgrIcon name="custom-remove" collection="material"></IgrIcon>
                         </span>
                     </IgrChip>
-                    <IgrChip removable={true}>
+                    <IgrChip removable={true} onRemove={this.handleChipRemove}>
                         <span slot="start">
                             <IgrIcon name="brush" collection="material"></IgrIcon>
                         </span>

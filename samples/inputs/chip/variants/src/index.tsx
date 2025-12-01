@@ -10,22 +10,27 @@ export default class ChipVariants extends React.Component<any, any> {
         super(props);           
     }
 
+    private handleChipRemove = (event: any) => {
+        const chip = event.target as IgrChip;
+        chip.remove();
+    }
+
     public render(): JSX.Element {
         return (
             <div className="container sample" style={{flexDirection: "row", gap: "8px", alignItems: "baseline"}}>
-                 <IgrChip variant="primary" selectable={true} removable={true}>
+                 <IgrChip variant="primary" selectable={true} removable={true} onRemove={this.handleChipRemove}>
                      <span>Primary</span>
                  </IgrChip>
-                 <IgrChip variant="info" selectable={true} removable={true}>
+                 <IgrChip variant="info" selectable={true} removable={true} onRemove={this.handleChipRemove}>
                      <span>Info</span>
                  </IgrChip>
-                 <IgrChip variant="success" selectable={true} removable={true}>
+                 <IgrChip variant="success" selectable={true} removable={true} onRemove={this.handleChipRemove}>
                      <span>Success</span>
                  </IgrChip>
-                 <IgrChip variant="warning" selectable={true} removable={true}>
+                 <IgrChip variant="warning" selectable={true} removable={true} onRemove={this.handleChipRemove}>
                      <span>Warning</span>
                  </IgrChip>
-                 <IgrChip variant="danger" selectable={true} removable={true}>
+                 <IgrChip variant="danger" selectable={true} removable={true} onRemove={this.handleChipRemove}>
                      <span>Danger</span>
                  </IgrChip>
             </div>

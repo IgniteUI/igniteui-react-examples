@@ -10,16 +10,21 @@ export default class ChipSize extends React.Component<any, any> {
         super(props);           
     }
 
+    private handleChipRemove = (event: any) => {
+        const chip = event.target as IgrChip;
+        chip.remove();
+    }
+
     public render(): JSX.Element {
         return (
             <div className="container sample" style={{flexDirection: "row", gap: "8px", alignItems: "baseline"}}>
-                 <IgrChip className="size-small" selectable={true} removable={true}>
+                 <IgrChip className="size-small" selectable={true} removable={true} onRemove={this.handleChipRemove}>
                      <span>Chip</span>
                  </IgrChip>
-                 <IgrChip className="size-medium" selectable={true} removable={true}>
+                 <IgrChip className="size-medium" selectable={true} removable={true} onRemove={this.handleChipRemove}>
                      <span>Chip</span>
                  </IgrChip>
-                 <IgrChip className="size-large" selectable={true} removable={true}>
+                 <IgrChip className="size-large" selectable={true} removable={true} onRemove={this.handleChipRemove}>
                      <span>Chip</span>
                  </IgrChip>
             </div>
