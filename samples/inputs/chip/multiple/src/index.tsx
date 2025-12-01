@@ -32,7 +32,7 @@ export default class ChipMultiple extends React.Component<any, any> {
         );
     }
 
-    private handleChipRemove = (event: any) => {
+    private handleChipRemove = (event: CustomEvent<boolean>) => {
         const chip = event.target as IgrChip;
         chip.remove();
     }

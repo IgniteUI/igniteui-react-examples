@@ -10,7 +10,7 @@ export default class ChipVariants extends React.Component<any, any> {
         super(props);           
     }
 
-    private handleChipRemove = (event: any) => {
+    private handleChipRemove = (event: CustomEvent<boolean>) => {
         const chip = event.target as IgrChip;
         chip.remove();
     }
