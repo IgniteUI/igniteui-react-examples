@@ -9,7 +9,7 @@ export const EMPLOYEES_DATA = [
         Phone: "0251-031259",
         OnPTO: false,
         ParentID: -1,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/5.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/15.png",
         Salary: 15,
         CompletedTasks: 0.15,
         Title: "Development Manager"
@@ -24,7 +24,7 @@ export const EMPLOYEES_DATA = [
         Phone: "(21) 555-0091",
         OnPTO: true,
         ParentID: -1,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/women/4.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/women/14.png",
         Salary: 39,
         CompletedTasks: 0.39,
         Title: "CEO"
@@ -39,7 +39,7 @@ export const EMPLOYEES_DATA = [
         Phone: "(071) 23 67 22 20",
         OnPTO: true,
         ParentID: -1,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/women/2.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/women/12.png",
         Salary: 52,
         CompletedTasks: 0.52,
         Title: "Accounting Manager"
@@ -54,7 +54,7 @@ export const EMPLOYEES_DATA = [
         Phone: "(21) 555-0091",
         OnPTO: false,
         ParentID: -1,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/4.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/14.png",
         Salary: 13,
         CompletedTasks: 0.13,
         Title: "Localization Manager"
@@ -69,7 +69,7 @@ export const EMPLOYEES_DATA = [
         Phone: "0452-076545",
         OnPTO: true,
         ParentID: 1,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/1.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/11.png",
         Salary: 22,
         CompletedTasks: 0.22,
         Title: "Senior Software Developer"
@@ -84,7 +84,7 @@ export const EMPLOYEES_DATA = [
         Phone: "(14) 555-8122",
         OnPTO: false,
         ParentID: 1,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/2.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/12.png",
         Salary: 30,
         CompletedTasks: 0.3,
         Title: "Senior Software Developer"
@@ -99,7 +99,7 @@ export const EMPLOYEES_DATA = [
         Phone: "7675-3425",
         OnPTO: false,
         ParentID: 1,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/women/3.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/women/13.png",
         Salary: 45,
         CompletedTasks: 0.45,
         Title: "Software Development Team Lead"
@@ -114,7 +114,7 @@ export const EMPLOYEES_DATA = [
         Phone: "(505) 555-5939",
         OnPTO: false,
         ParentID: 11,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/3.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/13.png",
         Salary: 35,
         CompletedTasks: 0.35,
         Title: "Senior Software Developer"
@@ -129,7 +129,7 @@ export const EMPLOYEES_DATA = [
         Phone: "0695-34 67 21",
         OnPTO: true,
         ParentID: 11,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/6.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/16.png",
         Salary: 29,
         CompletedTasks: 0.29,
         Title: "Senior Software Developer"
@@ -144,7 +144,7 @@ export const EMPLOYEES_DATA = [
         Phone: "981-443655",
         OnPTO: false,
         ParentID: 4,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/7.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/17.png",
         Salary: 63,
         CompletedTasks: 0.63,
         Title: "Director"
@@ -159,7 +159,7 @@ export const EMPLOYEES_DATA = [
         Phone: "(2) 283-2951",
         OnPTO: true,
         ParentID: 4,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/women/1.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/women/11.png",
         Salary: 67,
         CompletedTasks: 0.67,
         Title: "Vice President"
@@ -174,7 +174,7 @@ export const EMPLOYEES_DATA = [
         Phone: "981-443655",
         OnPTO: true,
         ParentID: 5,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/8.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/18.png",
         Salary: 70,
         CompletedTasks: 0.7,
         Title: "Director"
@@ -189,7 +189,7 @@ export const EMPLOYEES_DATA = [
         Phone: "(505) 555-5939",
         OnPTO: false,
         ParentID: 18,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/9.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/19.png",
         Salary: 52,
         CompletedTasks: 0.52,
         Title: "Senior Accountant"
@@ -204,7 +204,7 @@ export const EMPLOYEES_DATA = [
         Phone: "035-640230",
         OnPTO: false,
         ParentID: 10,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/10.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/10.png",
         Salary: 43,
         CompletedTasks: 0.43,
         Title: "Senior Localization Developer"
@@ -219,7 +219,7 @@ export const EMPLOYEES_DATA = [
         Phone: "0342-023176",
         OnPTO: true,
         ParentID: 10,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/women/5.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/women/15.png",
         Salary: 35,
         CompletedTasks: 0.35,
         Title: "Senior Localization"
@@ -234,7 +234,7 @@ export const EMPLOYEES_DATA = [
         Phone: "069-0245984",
         OnPTO: false,
         ParentID: 7,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/women/6.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/women/16.png",
         Salary: 15,
         CompletedTasks: 0.15,
         Title: "Localization Intern"
@@ -249,7 +249,7 @@ export const EMPLOYEES_DATA = [
         Phone: "(91) 745 6200",
         OnPTO: false,
         ParentID: 7,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/26.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/26.png",
         Salary: 15,
         CompletedTasks: 0.15,
         Title: "Localization Intern"
@@ -264,7 +264,7 @@ export const EMPLOYEES_DATA = [
         Phone: "069-0245984",
         OnPTO: true,
         ParentID: 7,
-        Avatar: "https://static.infragistics.com/xplatform/images/people/men/27.jpg",
+        Avatar: "https://dl.infragistics.com/x/img/people/men/27.png",
         Salary: 15,
         CompletedTasks: 0.15,
         Title: "Localization Intern"
