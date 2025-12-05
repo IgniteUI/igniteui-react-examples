@@ -271,7 +271,7 @@ export class DataGridSharedData {
     }
 
     private static getGenderPhoto(gender: string): string {
-        return 'https://static.infragistics.com/xplatform/images/genders/' + gender + '.png';
+        return 'https://dl.infragistics.com/x/img/genders/' + gender + '.png';
     }
 
     private static getCountryFlag(country: string): string {

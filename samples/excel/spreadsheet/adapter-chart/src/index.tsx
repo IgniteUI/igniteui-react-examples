@@ -41,7 +41,7 @@ export default class SpreadsheetAdapterForCharts extends React.Component {
 
             this.spreadsheet = spreadsheet;
             this.spreadsheet.chartAdapter = new SpreadsheetChartAdapter();
-            const url = "https://static.infragistics.com/xplatform/excel/ChartData.xlsx";
+            const url = "https://dl.infragistics.com/x/excel/ChartData.xlsx";
             ExcelUtility.loadFromUrl(url).then((w) => {
                 this.spreadsheet.workbook = w;
 

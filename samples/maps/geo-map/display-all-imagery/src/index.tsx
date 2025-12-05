@@ -223,66 +223,66 @@ export default class MapDisplayImageryTiles extends React.Component<any, any> {
         [style: string]: { placeholder: string; azureStyle: AzureMapsImageryStyle };
     } = {
         Satellite: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_satellite.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_satellite.png",
             azureStyle: AzureMapsImageryStyle.Satellite
         },
         Road: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_road.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_road.png",
             azureStyle: AzureMapsImageryStyle.Road
         },
         DarkGrey: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_darkgrey.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_darkgrey.png",
             azureStyle: AzureMapsImageryStyle.DarkGrey
         },
         TerraOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_terra_overlay.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_terra_overlay.png",
             azureStyle: AzureMapsImageryStyle.TerraOverlay
         },
 
         LabelsRoadOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsroad.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_labelsroad.png",
             azureStyle: AzureMapsImageryStyle.LabelsRoadOverlay
         },
         LabelsDarkGreyOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_labelsdarkgrey.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_labelsdarkgrey.png",
             azureStyle: AzureMapsImageryStyle.LabelsDarkGreyOverlay
         },
         HybridRoadOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_hybridroad.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_hybridroad.png",
             azureStyle: AzureMapsImageryStyle.HybridRoadOverlay
         },
         HybridDarkGreyOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/AzureHybridDarkGrey.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/AzureHybridDarkGrey.png",
             azureStyle: AzureMapsImageryStyle.HybridDarkGreyOverlay
         },
 
         TrafficAbsoluteOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_absolute.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_traffic_absolute.png",
             azureStyle: AzureMapsImageryStyle.TrafficAbsoluteOverlay
         },
         TrafficDelayOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_delay.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_traffic_delay.png",
             azureStyle: AzureMapsImageryStyle.TrafficDelayOverlay
         },
         TrafficReducedOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_light.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_traffic_light.png",
             azureStyle: AzureMapsImageryStyle.TrafficReducedOverlay
         },
         TrafficRelativeOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_relative.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_traffic_relative.png",
             azureStyle: AzureMapsImageryStyle.TrafficRelativeOverlay
         },
         TrafficRelativeDarkOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_traffic_relative_dark.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_traffic_relative_dark.png",
             azureStyle: AzureMapsImageryStyle.TrafficRelativeDarkOverlay
         },
 
         WeatherRadarOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_radar.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_weather_radar.png",
             azureStyle: AzureMapsImageryStyle.WeatherRadarOverlay
         },
         WeatherInfraredOverlay: {
-            placeholder: "https://static.infragistics.com/xplatform/images/browsers/azure-maps/azure_weather_Infrared_road.png",
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_weather_Infrared_road.png",
             azureStyle: AzureMapsImageryStyle.WeatherInfraredOverlay
         }
     };

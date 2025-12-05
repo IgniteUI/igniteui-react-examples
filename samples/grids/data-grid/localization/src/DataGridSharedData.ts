@@ -278,7 +278,7 @@ export class DataGridSharedData {
         // private static genders: string[] = ["男", "女"];
 
         const genderEn = (gender == "男" ? "male" : "female");
-        return 'https://static.infragistics.com/xplatform/images/genders/' + genderEn + '.png';
+        return 'https://dl.infragistics.com/x/img/genders/' + genderEn + '.png';
     }
 
     private static getCountryFlag(country: string): string {
