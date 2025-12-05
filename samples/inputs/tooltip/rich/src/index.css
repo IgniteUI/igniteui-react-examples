@@ -13,7 +13,7 @@ igc-icon:hover {
   justify-content: center;
   width: 250px;
   height: 272px;
-  background-image: url("https://www.infragistics.com/angular-demos-lob/assets/images/card/media/infragisticsMap.png");
+  background-image: url("https://dl.infragistics.com/x/img/card/media/infragisticsMap.png");
   border: 1px solid var(--ig-gray-300);
 }
 
