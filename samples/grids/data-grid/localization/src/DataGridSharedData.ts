@@ -313,7 +313,7 @@ export class DataGridSharedData {
             countryEn = "Germany";
         }
         else
-        { // if (country === "United Kingdom") {
+        { // if (country === "United-Kingdom") {
             countryEn = "UK";
         }
 

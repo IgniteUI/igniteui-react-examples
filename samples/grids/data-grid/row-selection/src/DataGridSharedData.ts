@@ -236,13 +236,13 @@ export class DataGridSharedData {
             return this.getRandomItem(this.citiesFR);
         } else if (country === "Poland") {
             return this.getRandomItem(this.citiesPL);
-        } else if (country === "USA") {
+        } else if (country === "United-States") {
             return this.getRandomItem(this.citiesUS);
         } else if (country === "Japan") {
             return this.getRandomItem(this.citiesJP);
         } else if (country === "Germany") {
             return this.getRandomItem(this.citiesGR);
-        } else { // if (country === "United Kingdom") {
+        } else { // if (country === "United-Kingdom") {
             return this.getRandomItem(this.citiesUK);
         }
     }
