@@ -98,11 +98,11 @@ export default class Sample extends React.Component<any, any> {
     public webGridBooleanCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
         if (props.dataContext.cell.value) {
             return (
-                <img src="https://dl.infragistics.com/x/img/gridactive.png" title="Continued" alt="Continued" />
+                <img src="https://dl.infragistics.com/x/img/grid/active.png" title="Continued" alt="Continued" />
             );
         } else {
             return (
-                <img src="https://dl.infragistics.com/x/img/gridexpired.png" title="Discontinued" alt="Discontinued" />
+                <img src="https://dl.infragistics.com/x/img/grid/expired.png" title="Discontinued" alt="Discontinued" />
             );
         }
     }

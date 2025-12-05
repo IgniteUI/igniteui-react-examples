@@ -104,7 +104,7 @@ export default class Sample extends React.Component<any, any> {
     public webGridHeaderRowSelectorTemplate = (e: {dataContext: IgrHeadSelectorTemplateContext }) => {
         return (
             <div style={{width: '70px', height: '60px', display: 'flex'}}>
-                <img src="https://dl.infragistics.com/x/img/browser/ig.png.png" className="header-image"/>
+                <img src="https://dl.infragistics.com/x/img/browser/ig.png" className="header-image"/>
             </div>
         );
     }

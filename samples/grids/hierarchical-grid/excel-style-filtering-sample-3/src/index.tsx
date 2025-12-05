@@ -195,7 +195,7 @@ export default class Sample extends React.Component<any, any> {
 
     public webGridFilterAltIconTemplate = (props: { dataContext: IgrGridHeaderTemplateContext }) => {
         return (
-            <img height="15px" width="15px" src="http://dl.infragistics.com/x/img/gridpropeller-logo.svg" title="Continued" alt="Continued" />
+            <img height="15px" width="15px" src="http://dl.infragistics.com/x/img/grid/propeller-logo.sv" title="Continued" alt="Continued" />
         );
     }
 

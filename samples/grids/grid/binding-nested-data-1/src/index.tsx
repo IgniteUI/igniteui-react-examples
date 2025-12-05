@@ -59,8 +59,7 @@ export default class Sample extends React.Component<any, any> {
                         field="Employees"
                         header="Employees"
                         bodyTemplate={this.webGridNestedDataCellTemplate}
-                        width="20%"
-                        minWidth="275px">
+                        width="20%">
                     </IgrColumn>
                     <IgrColumn
                         field="City"
