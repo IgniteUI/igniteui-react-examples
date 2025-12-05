@@ -168,6 +168,9 @@ export default class Sample extends React.Component<any, any> {
 
     public webHierarchicalGridReorderRowHandler(args: IgrRowDragEndEventArgs): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
+        if (!ghostElement) {
+            return;
+        }
         const dragElementPos = ghostElement.getBoundingClientRect();
         const grid = this.hierarchicalGrid;
         const rows = Array.prototype.slice.call(document.getElementsByTagName("igx-hierarchical-grid-row"));

@@ -1,2 +1,8 @@
 /* shared styles are loaded from: */
 /* https://static.infragistics.com/xplatform/css/samples */
+
+    .edited {
+            font-style: italic;
+            color: gray;
+    }
+
