@@ -52,7 +52,7 @@ export default class DockManagerStyling extends React.Component {
                                         <span className="usd-caption">United States Dollar</span>
                                     </div>
 
-                                    <IgrAvatar className="margin-avatar size-medium" src="https://static.infragistics.com/xplatform/images/flags/USA.png" shape="rounded">
+                                    <IgrAvatar className="margin-avatar size-medium" src="https://dl.infragistics.com/x/img/flags/USA.png" shape="rounded">
                                             <span>USA</span>
                                     </IgrAvatar>
                                 </div>
@@ -88,56 +88,56 @@ export default class DockManagerStyling extends React.Component {
                     <div className="dockManagerFull" style={{overflowY: "scroll"}} slot="content2">
                         <div className="top-movers-content size-large">
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/tesla.png" shape="circle">
+                                <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/TSLA.png" shape="circle">
                                     <span>TSLA</span>
                                 </IgrAvatar>
                                 <span>1017,08$</span>
                                 <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>12,54%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/amc.png" shape="circle">
+                                <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/AMC.png" shape="circle">
                                     <span>AMC</span>
                                 </IgrAvatar>
                                 <span>39,33$</span>
                                 <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>12,72%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/canoo.png" shape="circle">
+                                <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/GOEV.png" shape="circle">
                                     <span>GOEV</span>
                                 </IgrAvatar>
                                 <span>12,33$</span>
                                 <div className="stock-item-movement-up"><IgrIcon name="arrow-up" collection="material"></IgrIcon>45,92%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/lucid.png" shape="circle">
+                                <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/LCID.png" shape="circle">
                                     <span>LCID</span>
                                 </IgrAvatar>
                                 <span>58,14$</span>
                                 <div className="stock-item-movement-up"><IgrIcon name="arrow-up" collection="material"></IgrIcon>29,42%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/nio.png" shape="circle">
+                                <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/NIO.png" shape="circle">
                                     <span>NIO</span>
                                 </IgrAvatar>
                                 <span>21,67$</span>
                                 <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>7,25%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/stoneco.png" shape="circle">
+                                <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/STNE.png" shape="circle">
                                     <span>STNE</span>
                                 </IgrAvatar>
                                 <span>22,48$</span>
                                 <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>28,68%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/roku.png" shape="circle">
+                                <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/ROKU.png" shape="circle">
                                     <span>ROKU</span>
                                 </IgrAvatar>
                                 <span>249,35$</span>
                                 <div className="stock-item-movement-down"><IgrIcon name="arrow-down" collection="material"></IgrIcon>9,5%</div>
                             </div>
                             <div className="top-move-stock-item">
-                                <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/maxar.png" shape="circle">
+                                <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/MAXR.png" shape="circle">
                                     <span>MAXR</span>
                                 </IgrAvatar>
                                 <span>33,14$</span>
@@ -272,7 +272,7 @@ export default class DockManagerStyling extends React.Component {
                         <IgrList id="list" className="auto-y-overflow">
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/tesla.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/TSLA.png" shape="circle">
                                         <span>TSLA</span>
                                     </IgrAvatar>
                                 </div>
@@ -285,7 +285,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/apple.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/APPL.png" shape="circle">
                                         <span>APPL</span>
                                     </IgrAvatar>
                                 </div>
@@ -298,7 +298,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/nio.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/NIO.png" shape="circle">
                                         <span>NIO</span>
                                     </IgrAvatar>
                                 </div>
@@ -311,7 +311,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/amazon.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/AMZN.png" shape="circle">
                                         <span>AMZN</span>
                                     </IgrAvatar>
                                 </div>
@@ -324,7 +324,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/gme.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/GME.png" shape="circle">
                                         <span>GME</span>
                                     </IgrAvatar>
                                 </div>
@@ -337,7 +337,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/amc.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/AMC.png" shape="circle">
                                         <span>AMC</span>
                                     </IgrAvatar>
                                 </div>
@@ -350,7 +350,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/microsoft.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/MSFT.png" shape="circle">
                                         <span>MSFT</span>
                                     </IgrAvatar>
                                 </div>
@@ -363,7 +363,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/spce.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/SPCE.png" shape="circle">
                                         <span>SPCE</span>
                                     </IgrAvatar>
                                 </div>
@@ -376,7 +376,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/pfizer.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/PFE.png" shape="circle">
                                         <span>PFE</span>
                                     </IgrAvatar>
                                 </div>
@@ -389,7 +389,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/google.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/GOOGL.png" shape="circle">
                                         <span>GOOGL</span>
                                     </IgrAvatar>
                                 </div>
@@ -402,8 +402,8 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/meta.png" shape="circle">
-                                        <span>FB</span>
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/META.png" shape="circle">
+                                        <span>META</span>
                                     </IgrAvatar>
                                 </div>
                                 <h2 slot="title">Meta Platforms</h2>
@@ -415,7 +415,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/palantir.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/PLTR.png" shape="circle">
                                         <span>PLTR</span>
                                     </IgrAvatar>
                                 </div>
@@ -428,7 +428,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/aa.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/AAL.png" shape="circle">
                                         <span>AAL</span>
                                     </IgrAvatar>
                                 </div>
@@ -441,7 +441,7 @@ export default class DockManagerStyling extends React.Component {
                             </IgrListItem>
                             <IgrListItem>
                                 <div slot="start">
-                                    <IgrAvatar src="https://static.infragistics.com/xplatform/images/company/netflix.png" shape="circle">
+                                    <IgrAvatar src="https://dl.infragistics.com/x/img/logo/company/NFLX.png" shape="circle">
                                         <span>NFLX</span>
                                     </IgrAvatar>
                                 </div>

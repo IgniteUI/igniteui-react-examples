@@ -20,7 +20,7 @@ export default class ListStyling extends React.Component<any, any> {
                     </IgrListHeader>
                     <IgrListItem>
                         <div slot="start">
-                            <IgrAvatar src="https://static.infragistics.com/xplatform/images/avatars/8.jpg" shape="circle" />
+                            <IgrAvatar src="https://dl.infragistics.com/x/img/avatars/8.jpg" shape="circle" />
                         </div>                        
                         <h2 slot="title">Terrance Orta</h2>
                         <span slot="subtitle">770-504-2217</span>
@@ -37,7 +37,7 @@ export default class ListStyling extends React.Component<any, any> {
                     </IgrListItem>
                     <IgrListItem>
                         <div slot="start">
-                            <IgrAvatar src="https://static.infragistics.com/xplatform/images/avatars/17.jpg" shape="circle" />
+                            <IgrAvatar src="https://dl.infragistics.com/x/img/avatars/17.jpg" shape="circle" />
                         </div>
                         <h2 slot="title">Richard Mahoney</h2>
                         <span slot="subtitle">423-676-2869</span>
@@ -54,7 +54,7 @@ export default class ListStyling extends React.Component<any, any> {
                     </IgrListItem>
                     <IgrListItem>
                         <div slot="start">
-                            <IgrAvatar src="https://static.infragistics.com/xplatform/images/avatars/9.jpg" shape="circle" />
+                            <IgrAvatar src="https://dl.infragistics.com/x/img/avatars/9.jpg" shape="circle" />
                         </div>
                         <h2 slot="title">Donna Price</h2>
                         <span slot="subtitle">859-496-2817</span>

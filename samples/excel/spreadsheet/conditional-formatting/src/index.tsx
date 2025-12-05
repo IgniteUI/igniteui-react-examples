@@ -35,7 +35,7 @@ export default class SpreadsheetConditionalFormatting extends React.Component {
 
         this.spreadsheet = spreadsheet;
 
-        const url = "https://static.infragistics.com/xplatform/excel/ConditionalData.xlsx";
+        const url = "https://dl.infragistics.com/x/excel/ConditionalData.xlsx";
         ExcelUtility.loadFromUrl(url).then((w) => {
             this.spreadsheet.workbook = w;
         });

@@ -16,16 +16,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private grid: IgrTreeGrid
-    private gridRef(r: IgrTreeGrid) {
-        this.grid = r;
+    private treeGrid: IgrTreeGrid
+    private treeGridRef(r: IgrTreeGrid) {
+        this.treeGrid = r;
         this.setState({});
     }
 
     constructor(props: any) {
         super(props);
 
-        this.gridRef = this.gridRef.bind(this);
+        this.treeGridRef = this.treeGridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -35,8 +35,8 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
-                    ref={this.gridRef}
-                    id="grid"
+                    ref={this.treeGridRef}
+                    id="treeGrid"
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
                     foreignKey="ParentID"
@@ -137,7 +137,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public toggleColumnPin(field: string) {
-        var treeGrid = this.grid;
+        var treeGrid = this.treeGrid;
         var col = treeGrid.getColumnByName(field);
         col.pinned = !col.pinned;
         treeGrid.markForCheck();
