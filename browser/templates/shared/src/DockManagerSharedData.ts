@@ -174,7 +174,7 @@ export class DockManagerSharedData {
         { lat: 51.488, lon: -0.178, country: "UK", city: "London" },
         // { lat: 50.837, lon: 4.368, country: "Belgium", city: "Bruxelles" },
         { lat: 50.448, lon: 30.502, country: "Ukraine", city: "Kiev" },
-        { lat: 50.106, lon: 14.457, country: "Czech-Republic", city: "Prague" },
+        { lat: 50.106, lon: 14.457, country: "Czechia", city: "Prague" },
         { lat: 48.882, lon: 2.433, country: "France", city: "Paris" },
         // { lat: 48.202, lon: 16.321, country: "Austria", city: "Vienna" },
         // { lat: 47.929, lon: 106.912, country: "Mongolia", city: "Ulaanbaatar" },
@@ -192,10 +192,10 @@ export class DockManagerSharedData {
         // { lat: 40.208, lon: 44.533, country: "Armenia", city: "Yerevan" },
         { lat: 39.929, lon: 32.853, country: "Turkey", city: "Ankara" },
         { lat: 39.906, lon: 116.388, country: "China", city: "Beijing" },
-        { lat: 39.029, lon: 125.758, country: "Korea-North", city: "Pyongyang" },
+        { lat: 39.029, lon: 125.758, country: "North-Korea", city: "Pyongyang" },
         { lat: 38.891, lon: -76.954, country: "USA", city: "Washington" },
         { lat: 37.950, lon: 58.390, country: "Turkmenistan", city: "Ashkhabad" },
-        { lat: 37.542, lon: 126.935, country: "Korea-South", city: "Seoul" },
+        { lat: 37.542, lon: 126.935, country: "South-Korea", city: "Seoul" },
         { lat: 36.819, lon: 10.166, country: "Tunisia", city: "Tunis" },
         { lat: 35.774, lon: 51.448, country: "Iran", city: "Tehran" },
         { lat: 35.683, lon: 139.809, country: "Japan", city: "Tokyo" },
@@ -275,24 +275,6 @@ export class DockManagerSharedData {
         }
     }
 
-    // private static getRandomCity(country: string): string {
-    //     if (country === "Canada") {
-    //         return this.getRandomItem(this.citiesCA);
-    //     } else if (country === "France") {
-    //         return this.getRandomItem(this.citiesFR);
-    //     } else if (country === "Poland") {
-    //         return this.getRandomItem(this.citiesPL);
-    //     } else if (country === "USA") {
-    //         return this.getRandomItem(this.citiesUS);
-    //     } else if (country === "Japan") {
-    //         return this.getRandomItem(this.citiesJP);
-    //     } else if (country === "Germany") {
-    //         return this.getRandomItem(this.citiesGR);
-    //     } else { // if (country === "United Kingdom") {
-    //         return this.getRandomItem(this.citiesUK);
-    //     }
-    // }
-
     private static getRandomStreet(): string {
         const num = Math.round(this.getRandomNumber(100, 300)).toString();
         const road = this.getRandomItem(this.roadNames);
@@ -307,22 +289,6 @@ export class DockManagerSharedData {
         const day: number = this.getRandomNumber(10, 27);
         return new Date(year, month, day);
     }
-
-    // private static getPhotoMale(id: number): string {
-    //     return require('./assets/GUY' + this.pad(id, 2) + '.png');
-    // }
-
-    // private static getPhotoFemale(id: number): string {
-    //     return require('./assets/GIRL' + this.pad(id, 2) + '.png');
-    // }
-
-    // private static getGenderPhoto(gender: string): string {
-    //     return require('./genders/' + gender + '.png');
-    // }
-
-    // private static getCountryFlag(country: string): string {
-    //     return require('./flags/' + country + '.png');
-    // }
 
     private static pad(num: number, size: number): string{
         let s = num + "";
