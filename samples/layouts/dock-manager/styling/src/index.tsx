@@ -52,7 +52,7 @@ export default class DockManagerStyling extends React.Component {
                                         <span className="usd-caption">United States Dollar</span>
                                     </div>
 
-                                    <IgrAvatar className="margin-avatar size-medium" src="https://static.infragistics.com/xplatform/images/flags/USA.png" shape="rounded">
+                                    <IgrAvatar className="margin-avatar size-medium" src="https://dl.infragistics.com/x/img/flags/USA.png" shape="rounded">
                                             <span>USA</span>
                                     </IgrAvatar>
                                 </div>

@@ -6,8 +6,8 @@ export class DockManagerSharedData {
         }
 
         const contacts: any[] = [];
-        let maleCount: number = 0;
-        let femaleCount: number = 0;
+        let maleCount: number = 10;
+        let femaleCount: number = 10;
         const emails: string[] = [ "gmail.com", "yahoo.com", "facebook.com", "twitter.com"];
 
         for (let i = 0; i < count; i++) {
@@ -26,17 +26,17 @@ export class DockManagerSharedData {
 
             if (gender === "male") {
                 maleCount++;
-                if (maleCount > 26) {
-                    maleCount = 1;
+                if (maleCount > 39) {
+                    maleCount = 10;
                 }
-                photoPath = "https://static.infragistics.com/xplatform/images/people/GUY" + this.pad(maleCount, 2) + ".png";
+                photoPath = "https://dl.infragistics.com/x/img/people/men/" + this.pad(maleCount, 2) + ".png";
             }
             else {
                 femaleCount++;
-                if (femaleCount > 24) {
-                    femaleCount = 1;
+                if (femaleCount > 39) {
+                    femaleCount = 10;
                 }
-                photoPath = "https://static.infragistics.com/xplatform/images/people/GIRL" + this.pad(femaleCount, 2) + ".png";
+                photoPath = "https://dl.infragistics.com/x/img/people/women/" + this.pad(femaleCount, 2) + ".png";
             }
 
             let person: any = {};
@@ -48,7 +48,7 @@ export class DockManagerSharedData {
             person.Location = location.city + ", " + location.country;
             person.Latitude = location.lat;
             person.Longitude = location.lon;
-            person.CountryFlag = "https://static.infragistics.com/xplatform/images/flags/" + location.country + ".png";
+            person.CountryFlag = "https://dl.infragistics.com/x/img/flags/" + location.country + ".png";
             person.Email = email;
             person.FirstName = firstName;
             person.Gender = "https://dl.infragistics.com/x/img/genders/" + gender + ".png";
@@ -124,7 +124,7 @@ export class DockManagerSharedData {
             "Samsung HDD", "WD HDD", "Seagate HDD", "Intel HDD",
             "Samsung SSD", "WD SSD", "Seagate SSD", "Intel SSD",
             "Samsung Monitor", "Asus Monitor", "LG Monitor", "HP Monitor" ];
-        const countries: string[] = ["USA", "UK", "France", "Canada", "Poland", "Japan", "Germany"];
+        const countries: string[] = ["United-States", "United-Kingdom", "France", "Canada", "Poland", "Japan", "Germany"];
 
         const sales: any[] = [];
 
@@ -153,7 +153,7 @@ export class DockManagerSharedData {
     private static maleNames: string[] = ["Kyle", "Oscar", "Ralph", "Mike", "Bill", "Frank", "Howard", "Jack", "Larry", "Pete", "Steve", "Vince", "Mark", "Alex", "Max", "Brian", "Chris", "Andrew", "Martin", "Mike", "Steve", "Glenn", "Bruce"];
     private static femaleNames: string[] = ["Gina", "Irene", "Katie", "Brenda", "Casey", "Fiona", "Holly", "Kate", "Liz", "Pamela", "Nelly", "Marisa", "Monica", "Anna", "Jessica", "Sofia", "Isabella", "Margo", "Jane", "Audrey", "Sally", "Melanie", "Greta", "Aurora", "Sally"];
     private static lastNames: string[] = ["Adams", "Crowley", "Ellis", "Martinez", "Irvine", "Maxwell", "Clark", "Owens", "Rooney", "Lincoln", "Thomas", "Spacey", "Betts", "King", "Newton", "Fitzgerald", "Holmes", "Jefferson", "Landry", "Newberry", "Perez", "Spencer", "Starr", "Carter", "Edwards", "Stark", "Johnson", "Fitz", "Chief", "Blanc", "Perry", "Stone", "Williams", "Lane", "Jobs", "Adama", "Power", "Tesla"];
-    // private static countries: string[] = ["USA", "UK", "France", "Canada", "Poland"];
+    // private static countries: string[] = ["United-States", "United-Kingdom", "France", "Canada", "Poland"];
     // private static citiesUS: string[] = ["New York", "Los Angeles", "Miami", "San Francisco", "San Diego", "Las Vegas"];
     // private static citiesUK: string[] = ["London", "Liverpool", "Manchester"];
     // private static citiesFR: string[] = ["Paris", "Marseille", "Lyon"];

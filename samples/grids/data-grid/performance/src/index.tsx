@@ -589,31 +589,31 @@ export default class DataGridPerformance extends React.Component<any, any> {
         ];
 
         let genders = [
-            "GUY",
-            "GIRL",
-            "GIRL",
-            "GIRL",
-            "GUY",
-            "GUY",
-            "GUY",
-            "GUY",
-            "GUY",
-            "GUY",
-            "GUY",
-            "GUY",
-            "GIRL",
-            "GIRL",
-            "GIRL",
-            "GUY",
-            "GUY",
-            "GUY",
-            "GIRL",
-            "GIRL",
-            "GIRL",
-            "GUY",
-            "GUY",
-            "GUY",
-            "GUY"
+            "men",
+            "women",
+            "women",
+            "women",
+            "men",
+            "men",
+            "men",
+            "men",
+            "men",
+            "men",
+            "men",
+            "men",
+            "women",
+            "women",
+            "women",
+            "men",
+            "men",
+            "men",
+            "women",
+            "women",
+            "women",
+            "men",
+            "men",
+            "men",
+            "men"
         ];
 
         let territories = [
@@ -660,10 +660,9 @@ export default class DataGridPerformance extends React.Component<any, any> {
             if (randomIndex === 0)
                 randomIndex = 1;
 
-            let value = randomIndex.toString();
-            if (randomIndex < 10)
-                value = "0" + value;
-            item.ImageName = this.createUri(genders[firstIndex] + value + ".png");
+            let imageID = this.getRandomInt(10, 39);
+            var imageGender = genders[firstIndex];
+            item.ImageName = this.createUri(imageGender + "/" + imageID + ".png");
             item.Territory = territories[Math.round(Math.random() * (territories.length - 1))];
             item.AvgSale = Math.round(Math.random() * 800) + 200.0;
             item.Change = Math.random() * 40.0 - 20.0;
@@ -683,8 +682,12 @@ export default class DataGridPerformance extends React.Component<any, any> {
         return items;
     }
 
-    private createUri(val: string): string {
-        return "https://static.infragistics.com/xplatform/images/people/" + val;
+    private createUri(name: string): string {
+        return "https://dl.infragistics.com/x/img/people/" + name;
+    }
+
+    private getRandomInt(min: number, max: number) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
     // private title = 'app';

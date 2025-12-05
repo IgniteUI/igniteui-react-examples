@@ -8,7 +8,7 @@ export default function AvatarImage() {
 
     return (
         <div className="container sample">
-            <IgrAvatar src="https://static.infragistics.com/xplatform/images/people/men/1.jpg" alt="A photo of a man." />
+            <IgrAvatar src="https://dl.infragistics.com/x/img/people/men/11.png" alt="A photo of a man." />
         </div>
     );
 }
