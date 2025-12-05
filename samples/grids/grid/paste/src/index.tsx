@@ -9,6 +9,7 @@ import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter,
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
 import { IgrPropertyEditorPropertyDescriptionChangedEventArgs } from 'igniteui-react-layouts';
+import { IgrRowType } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -67,6 +68,7 @@ export default class Sample extends React.Component<any, any> {
                     autoGenerate={false}
                     data={this.invoicesData}
                     onRendered={this.webGridPasteFromExcel}
+                    rowClasses={this.webGridEditedRowClassesHandler}
                     ref={this.gridRef}
                     id="grid"
                     primaryKey="OrderID">
@@ -157,6 +159,7 @@ export default class Sample extends React.Component<any, any> {
 
     private txtArea: any;
     public pasteMode = "Paste starting from active cell";
+    public updatedRecsPK: any[] = [];
 
     public get textArea() {
         if(!this.txtArea) {
@@ -202,7 +205,6 @@ export default class Sample extends React.Component<any, any> {
             const grid = this.grid as any;
             const columns = grid.visibleColumns;
             const pk = grid.primaryKey;
-            const addedData: any[] = [];
             for (const curentDataRow of processedData) {
                 const rowData = {} as any;
                 for (const col of columns) {
@@ -211,22 +213,12 @@ export default class Sample extends React.Component<any, any> {
                 }
                 // generate PK
                 rowData[pk] = grid.data.length + 1;
+                this.updatedRecsPK.push(rowData[pk]);
                 grid.addRow(rowData);
-                addedData.push(rowData);
             }
             // scroll to last added row
             grid.navigateTo(grid.data.length - 1, 0, () => {
-                this.clearStyles();
-                for (const data of addedData) {
-                    const row = grid.getRowByKey(data[pk]);
-                    if (row) {
-                        const rowNative = this.getNative(row) as any;
-                        if (rowNative) {
-                            rowNative.style["font-style"] = "italic";
-                            rowNative.style.color = "gray";
-                        }
-                    }
-                }
+              grid.cdr.detectChanges();
             });
         }
         public updateRecords(processedData: any[]) {
@@ -238,7 +230,6 @@ export default class Sample extends React.Component<any, any> {
             const columns = grid.visibleColumns;
             const cellIndex = grid.visibleColumns.indexOf(cell.column);
             let index = 0;
-            const updatedRecsPK: any[] = [];
             for (const curentDataRow of processedData) {
                 const rowData = {} as any;
                 const dataRec = grid.data[rowIndex + index];
@@ -258,36 +249,10 @@ export default class Sample extends React.Component<any, any> {
                     grid.addRow(rowData);
                     continue;
                 }
+                this.updatedRecsPK.push(rowPkValue);
                 grid.updateRow(rowData, rowPkValue);
-                updatedRecsPK.push(rowPkValue);
                 index++;
             }
-
-            this.clearStyles();
-            for (const pkVal of updatedRecsPK) {
-                const row = grid.getRowByKey(pkVal);
-                if (row) {
-                    const rowNative = this.getNative(row) as any;
-                    if (rowNative) {
-                        rowNative.style["font-style"] = "italic";
-                        rowNative.style.color = "gray";
-                    }
-                }
-            }
-        }
-
-        protected clearStyles() {
-            const rows = [...(document.getElementsByTagName("igx-grid-row") as any)];
-            for (const rowNative of rows) {
-                rowNative.style["font-style"] = "";
-                rowNative.style.color = "";
-            }
-        }
-
-        protected getNative(row: any) {
-            const rows = [...(document.getElementsByTagName("igx-grid-row") as any)];
-            const dataInd = row.index.toString();
-            return rows.find(x => (x.attributes as any)["data-rowindex"] .value === dataInd);
         }
 
         public processData(data: any) {
@@ -307,6 +272,13 @@ export default class Sample extends React.Component<any, any> {
             }
             return pasteData;
         }
+
+    public webGridEditedRowClassesHandler = {
+      edited: (row: IgrRowType) => {
+        const grid = this.grid as any;
+        return this.updatedRecsPK.indexOf(row.data[grid.primaryKey]) !== -1;
+      }
+    };
 
 }
 
