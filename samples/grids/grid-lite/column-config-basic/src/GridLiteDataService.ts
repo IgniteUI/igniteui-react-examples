@@ -30,9 +30,10 @@ export type User = {
 export class GridLiteDataService {
   private counter = 0;
 
-  private firstNames = ['John', 'Jane', 'Bob', 'Alice', 'Charlie', 'Diana', 'Eve', 'Frank', 'Grace', 'Henry'];
-  private lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis'];
-  private productNames = ['Widget', 'Gadget', 'Gizmo', 'Device', 'Tool', 'Apparatus', 'Instrument', 'Machine', 'Equipment'];
+  private namesMen = ['John', 'Bob', 'Mark', 'Charlie', 'Martin', 'Bill', 'Frank', 'Larry', 'Henry', 'Steve', 'Mike', 'Andrew'];
+  private namesWomen = ['Jane', 'Alice', 'Diana', 'Eve', 'Grace' , 'Katie', 'Irene', 'Liz', 'Fiona', 'Pam', 'Val', 'Mindy'];
+  private lastNames = ['Smith', 'Johnson', 'Mendoza', 'Brown', 'Spencer', 'Stone', 'Stark', 'Rooney'];
+  private productNames = ['Widget', 'Gadget', 'Gizmo', 'Device', 'Tool', 'Instrument', 'Machine', 'Equipment'];
   private productModels = ['Pro', 'Plus', 'Max', 'Ultra', 'Mini', 'Lite'];
   private priorities: ('Low' | 'Standard' | 'High')[] = ['Low', 'Standard', 'High'];
 
@@ -78,10 +79,10 @@ export class GridLiteDataService {
   }
 
   createUserSimple(): UserSimple {
-    const firstName = this.randomElement(this.firstNames);
-    const lastName = this.randomElement(this.lastNames);
-    const email = firstName.toLowerCase() + '.' + lastName.toLowerCase() + '@example.com';
-    const username = firstName.toLowerCase() + '.' + lastName.toLowerCase() + this.randomInt(1, 99);
+    const firstName = this.randomElement(this.namesMen.concat(this.namesWomen)).toLowerCase();
+    const lastName = this.randomElement(this.lastNames).toLowerCase();
+    const email = firstName + '.' + lastName + '@example.com';
+    const username = firstName + '.' + lastName + this.randomInt(1, 99);
     return {
       id: this.generateId(),
       username: username,
@@ -91,7 +92,16 @@ export class GridLiteDataService {
   }
 
   createUser(): User {
-    const firstName = this.randomElement(this.firstNames);
+    let imagePath: string = "";
+    let firstName: string = "";
+    const gender = this.randomInt(0, 1);
+    if (gender === 0) {
+       imagePath = "https://dl.infragistics.com/x/img/people/men/" + this.randomInt(10, 40) + ".png";
+       firstName = this.randomElement(this.namesMen);
+    } else {
+       imagePath = "https://dl.infragistics.com/x/img/people/women/" + this.randomInt(10, 40) + ".png";
+       firstName = this.randomElement(this.namesWomen);
+    }
     const lastName = this.randomElement(this.lastNames);
     const email = firstName.toLowerCase() + '.' + lastName.toLowerCase() + '@example.com';
 
@@ -101,7 +111,7 @@ export class GridLiteDataService {
       lastName,
       age: this.randomInt(18, 90),
       email,
-      avatar: `https://i.pravatar.cc/150?img=${this.randomInt(1, 70)}`,
+      avatar: imagePath,
       active: this.randomBoolean(),
       priority: this.randomElement(this.priorities),
       satisfaction: this.randomInt(0, 5),
