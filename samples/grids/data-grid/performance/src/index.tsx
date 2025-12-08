@@ -241,14 +241,14 @@ export default class DataGridPerformance extends React.Component<any, any> {
     }
 
     public TestTemplateContent = (props: IIgrCellTemplateProps) => {
-        let tmpl = props.dataContext as IgrTemplateCellInfo;
-        let font = tmpl.font;
+        let template = props.dataContext as IgrTemplateCellInfo;
+        let font = template.font;
         return (
             <div style={{
-            textAlign: tmpl.resolvedTextAlign,
+            textAlign: template.resolvedTextAlign,
             font: font,
-            opacity: tmpl.resolvedContentOpacity }}>
-            <label>{tmpl.value}</label>
+            opacity: template.resolvedContentOpacity }}>
+            <label>{template.value}</label>
             </div>
         );
     }
