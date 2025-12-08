@@ -30,12 +30,10 @@ export type User = {
 export class GridLiteDataService {
   private counter = 0;
 
-  private firstNames = ['John', 'Jane', 'Bob', 'Alice', 'Charlie', 'Diana', 'Eve', 'Frank', 'Grace', 'Henry', 
-    'Ivy', 'Jack', 'Kate', 'Liam', 'Mia', 'Noah', 'Olivia', 'Peter', 'Quinn', 'Rachel'];
-  private lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 
-    'Rodriguez', 'Martinez', 'Wilson', 'Anderson', 'Taylor', 'Thomas', 'Moore', 'Jackson', 'White', 'Harris'];
-  private productNames = ['Widget', 'Gadget', 'Doohickey', 'Thingamajig', 'Gizmo', 'Contraption', 
-    'Device', 'Tool', 'Apparatus', 'Instrument', 'Machine', 'Equipment'];
+  private firstNames = ['John', 'Jane', 'Bob', 'Alice', 'Charlie', 'Diana', 'Eve', 'Frank', 'Grace', 'Henry'];
+  private lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis'];
+  private productNames = ['Widget', 'Gadget', 'Gizmo', 'Device', 'Tool', 'Apparatus', 'Instrument', 'Machine', 'Equipment'];
+  private productModels = ['Pro', 'Plus', 'Max', 'Ultra', 'Mini', 'Lite'];
   private priorities: ('Low' | 'Standard' | 'High')[] = ['Low', 'Standard', 'High'];
 
   private randomInt(min: number, max: number): number {
@@ -60,20 +58,21 @@ export class GridLiteDataService {
   }
 
   private generateId(): string {
-    return `${Date.now()}-${this.counter++}-${this.randomInt(1000, 9999)}`;
+    return `1000-${this.counter++}-${this.randomInt(1000, 9999)}`;
   }
 
   createProductInfo(): ProductInfo {
     const price = this.randomFloat(50, 500, 2);
     const sold = this.randomInt(10, 100);
     const total = parseFloat((price * sold).toFixed(2));
+    const product = this.randomElement(this.productNames) + ' ' + this.randomElement(this.productModels);
 
     return {
       price,
       sold,
       total,
       id: this.generateId(),
-      name: `${this.randomElement(this.productNames)} ${this.randomElement(['Pro', 'Plus', 'Max', 'Ultra', 'Mini', 'Lite'])}`,
+      name: product,
       rating: this.randomFloat(0, 5, 1)
     };
   }
@@ -81,10 +80,12 @@ export class GridLiteDataService {
   createUserSimple(): UserSimple {
     const firstName = this.randomElement(this.firstNames);
     const lastName = this.randomElement(this.lastNames);
+    const email = firstName.toLowerCase() + '.' + lastName.toLowerCase() + '@example.com';
+    const username = firstName.toLowerCase() + '.' + lastName.toLowerCase() + this.randomInt(1, 99);
     return {
       id: this.generateId(),
-      username: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${this.randomInt(1, 99)}`,
-      email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}@example.com`,
+      username: username,
+      email: email,
       subscribed: this.randomBoolean()
     };
   }
@@ -92,7 +93,7 @@ export class GridLiteDataService {
   createUser(): User {
     const firstName = this.randomElement(this.firstNames);
     const lastName = this.randomElement(this.lastNames);
-    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@example.com`;
+    const email = firstName.toLowerCase() + '.' + lastName.toLowerCase() + '@example.com';
 
     return {
       id: this.generateId(),
