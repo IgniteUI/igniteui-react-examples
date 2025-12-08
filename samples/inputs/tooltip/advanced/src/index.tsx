@@ -137,7 +137,7 @@ export default class TooltipAdvanced extends React.Component<any, any> {
               <div className="avatarWrapper" slot="start">
                 <IgrAvatar
                   id="avatar"
-                  src="https://dl.infragistics.com/x/img/avatar/10.jpg"
+                  src="https://dl.infragistics.com/x/img/avatars/10.jpg"
                   shape="circle"
                 ></IgrAvatar>
                 <IgrBadge>
@@ -158,7 +158,7 @@ export default class TooltipAdvanced extends React.Component<any, any> {
           <div className="avatarWrapper">
             <IgrAvatar
               id="avatar"
-              src="https://dl.infragistics.com/x/img/avatar/10.jpg"
+              src="https://dl.infragistics.com/x/img/avatars/10.jpg"
               shape="circle"
             ></IgrAvatar>
             <IgrBadge>
@@ -181,7 +181,7 @@ export default class TooltipAdvanced extends React.Component<any, any> {
               <div className="avatarWrapper" slot="start">
                 <IgrAvatar
                   id="avatar"
-                  src="https://dl.infragistics.com/x/img/avatar/5.jpg"
+                  src="https://dl.infragistics.com/x/img/avatars/5.jpg"
                   shape="circle"
                 ></IgrAvatar>
                 <IgrBadge>

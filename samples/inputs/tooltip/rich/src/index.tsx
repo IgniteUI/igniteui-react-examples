@@ -28,7 +28,7 @@ export default class TooltipRich extends React.Component<any, any> {
             <div className="locationTooltipContent">
               <IgrAvatar
                 className="logo"
-                src="https://dl.infragistics.com/x/img/browser/ig.png.png"
+                src="https://dl.infragistics.com/x/img/browsers/ig.png.png"
                 shape="square"
               ></IgrAvatar>
               <div>

@@ -25,7 +25,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
 
         this.data = this.generateSalesPeople(8000);
 
-        for (let i = 0; i < 43; i++) {
+        for (let i = 0; i < this.kpiColumnCount; i++) {
             this.kpiColumns.push("KPI_" + i);
         }
     }
@@ -37,9 +37,11 @@ export default class DataGridPerformance extends React.Component<any, any> {
     }
 
     public kpiColumns: string[] = [];
+    public kpiColumnCount: number = 43;
     public data: SalesPerson[];
     public colorIncreasing = "#4EB862";
     public colorDecreasing = "#FF134A";
+    public grid: IgrDataGrid;
 
     public onPriceStyleKey = (grid: any, args: IgrCellStyleRequestedEventArgs) => {
         let row: SalesPerson;
@@ -58,7 +60,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
     public onPriceCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
         let row = args.cellInfo.rowItem;
         let priceShiftUp = row.Change >= 0;
-        let templ = args.cellInfo as IgrTemplateCellInfo;
+        let template = args.cellInfo as IgrTemplateCellInfo;
 
         let content = args.content as HTMLDivElement;
         let sp: HTMLSpanElement | null = null;
@@ -81,7 +83,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
             icon.style.verticalAlign = "center";
         }
 
-        sp.textContent = "$" + (+templ.value).toFixed(2);
+        sp.textContent = "$" + (+template.value).toFixed(2);
 
         if ((sp as any).__isUp === undefined ||
             (sp as any).__isUp !== priceShiftUp) {
@@ -110,8 +112,8 @@ export default class DataGridPerformance extends React.Component<any, any> {
     public borderIncreasing = "4px solid #4EB862";
 
     public onPricePercentCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
-        let templ = args.cellInfo as IgrTemplateCellInfo;
-        let priceShiftUp = templ.value >= 0;
+        let template = args.cellInfo as IgrTemplateCellInfo;
+        let priceShiftUp = template.value >= 0;
 
         let content = args.content as HTMLDivElement;
         let sp: HTMLSpanElement | null = null;
@@ -126,7 +128,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
             content.appendChild(sp);
         }
 
-        sp.textContent = (+templ.value).toFixed(2) + "%";
+        sp.textContent = (+template.value).toFixed(2) + "%";
         if ((sp as any).__isUp === undefined ||
             (sp as any).__isUp !== priceShiftUp) {
             (sp as any).__isUp = priceShiftUp;
@@ -151,8 +153,8 @@ export default class DataGridPerformance extends React.Component<any, any> {
     }
 
     public onPriceAmountCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
-        let templ = args.cellInfo as IgrTemplateCellInfo;
-        let priceShiftUp = templ.value >= 0;
+        let template = args.cellInfo as IgrTemplateCellInfo;
+        let priceShiftUp = template.value >= 0;
 
         let content = args.content as HTMLDivElement;
         let sp: HTMLSpanElement | null = null;
@@ -167,7 +169,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
             content.appendChild(sp);
         }
 
-        sp.textContent = (+templ.value).toFixed(2);
+        sp.textContent = (+template.value).toFixed(2);
 
         if ((sp as any).__isUp === undefined ||
             (sp as any).__isUp !== priceShiftUp) {
@@ -189,7 +191,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
     }
 
     public onChartCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
-        let templ = args.cellInfo as IgrTemplateCellInfo;
+        let template = args.cellInfo as IgrTemplateCellInfo;
 
         let content = args.content as HTMLDivElement;
         let icon: HTMLSpanElement | null = null;
@@ -216,7 +218,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
     }
 
     public onGridCellUpdating = (grid: any, args: IgrTemplateCellUpdatingEventArgs) => {
-        let templ = args.cellInfo as IgrTemplateCellInfo;
+        let template = args.cellInfo as IgrTemplateCellInfo;
 
         let content = args.content as HTMLDivElement;
         let icon: HTMLSpanElement | null = null;
@@ -239,14 +241,14 @@ export default class DataGridPerformance extends React.Component<any, any> {
     }
 
     public TestTemplateContent = (props: IIgrCellTemplateProps) => {
-        let tmpl = props.dataContext as IgrTemplateCellInfo;
-        let font = tmpl.font;
+        let template = props.dataContext as IgrTemplateCellInfo;
+        let font = template.font;
         return (
             <div style={{
-            textAlign: tmpl.resolvedTextAlign,
+            textAlign: template.resolvedTextAlign,
             font: font,
-            opacity: tmpl.resolvedContentOpacity }}>
-            <label>{tmpl.value}</label>
+            opacity: template.resolvedContentOpacity }}>
+            <label>{template.value}</label>
             </div>
         );
     }
@@ -311,7 +313,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
         g.field = "Territory";
         this.grid.groupDescriptions.add(g);
 
-        for (let i = 0; i < 43; i++) {
+        for (let i = 0; i < this.kpiColumnCount; i++) {
             (() => {
                 let currVal = i;
                 this.grid.forColumnsWithPropertyPath("KPI_" + currVal, (col: IgrDataGridColumn) => {
@@ -344,58 +346,57 @@ export default class DataGridPerformance extends React.Component<any, any> {
 
     this.grid.forColumnsWithPropertyPath("AvgSale", (col: IgrDataGridColumn) => {
         col.dataBound = (sender: any, args: IgrDataBindingEventArgs) => {
-                    let item: any = args.cellInfo.rowItem;
-                    if (item !== null)
-                    {
-                        if (item.AvgSaleHeat > 0)
-                        {
-                            let p = +item.AvgSaleHeat;
-                            let toA = 1.0;
-                            let fromA = 1.0;
-                            let toR = 0.0;
-                            let fromR = 1.0;
-                            let toG = 1.0;
-                            let fromG = 1.0;
-                            let toB = 0.0;
-                            let fromB = 1.0;
+            let item: any = args.cellInfo.rowItem;
+            if (item !== null)
+            {
+                if (item.AvgSaleHeat > 0)
+                {
+                    let p = +item.AvgSaleHeat;
+                    let toA = 1.0;
+                    let fromA = 1.0;
+                    let toR = 0.0;
+                    let fromR = 1.0;
+                    let toG = 1.0;
+                    let fromG = 1.0;
+                    let toB = 0.0;
+                    let fromB = 1.0;
 
-                            let aByte = fromA + (toA - fromA) * p;
-                            let rByte = Math.round((fromR + (toR - fromR) * p) * 255.0);
-                            let gByte = Math.round((fromG + (toG - fromG) * p) * 255.0);
-                            let bByte = Math.round((fromB + (toB - fromB) * p) * 255.0);
+                    let aByte = fromA + (toA - fromA) * p;
+                    let rByte = Math.round((fromR + (toR - fromR) * p) * 255.0);
+                    let gByte = Math.round((fromG + (toG - fromG) * p) * 255.0);
+                    let bByte = Math.round((fromB + (toB - fromB) * p) * 255.0);
 
-                            let colorString = "rgba(" + rByte + "," + gByte + "," + bByte + "," + aByte + ")";
+                    let colorString = "rgba(" + rByte + "," + gByte + "," + bByte + "," + aByte + ")";
+                    args.cellInfo.background = colorString;
+                }
+                else if (item.AvgSaleHeat < 0) {
+                    let p = +item.AvgSaleHeat * -1.0;
+                    let toA = 1.0;
+                    let fromA = 1.0;
+                    let toR = 1.0;
+                    let fromR = 1.0;
+                    let toG = 0.0;
+                    let fromG = 1.0;
+                    let toB = 0.0;
+                    let fromB = 1.0;
 
-                            args.cellInfo.background = colorString;
+                    let aByte = fromA + (toA - fromA) * p;
+                    let rByte = Math.round((fromR + (toR - fromR) * p) * 255.0);
+                    let gByte = Math.round((fromG + (toG - fromG) * p) * 255.0);
+                    let bByte = Math.round((fromB + (toB - fromB) * p) * 255.0);
+
+                    let colorString = "rgba(" + rByte + "," + gByte + "," + bByte + "," + aByte + ")";
+
+                    args.cellInfo.background = colorString;
+                }
+                else
+                {
+                    let colorString = "white";
+                    args.cellInfo.background = colorString;
+                }
             }
-            else if (item.AvgSaleHeat < 0) {
-                let p = +item.AvgSaleHeat * -1.0;
-                            let toA = 1.0;
-                            let fromA = 1.0;
-                            let toR = 1.0;
-                            let fromR = 1.0;
-                            let toG = 0.0;
-                            let fromG = 1.0;
-                            let toB = 0.0;
-                            let fromB = 1.0;
-
-                            let aByte = fromA + (toA - fromA) * p;
-                            let rByte = Math.round((fromR + (toR - fromR) * p) * 255.0);
-                            let gByte = Math.round((fromG + (toG - fromG) * p) * 255.0);
-                            let bByte = Math.round((fromB + (toB - fromB) * p) * 255.0);
-
-                            let colorString = "rgba(" + rByte + "," + gByte + "," + bByte + "," + aByte + ")";
-
-                            args.cellInfo.background = colorString;
-            }
-                        else
-                        {
-                            let colorString = "white";
-                            args.cellInfo.background = colorString;
-                        }
-                    }
-                };
-        });
+        };
+    });
 
     window.setTimeout(this.tick, 16);
     }
@@ -423,7 +424,7 @@ export default class DataGridPerformance extends React.Component<any, any> {
         // }
 
         let toChange = 200;
-        let toChangeIndexes = {};
+        let toChangeIndexes: any = {};
         let stillAnimating = false;
         for (let i = 0; i < this.data.length; i++)
         {
@@ -520,131 +521,22 @@ export default class DataGridPerformance extends React.Component<any, any> {
         // actualDataSource.queueAutoRefresh();
 
         window.setTimeout(() => this.tick(), 16);
-
     }
 
     private generateSalesPeople(num: number) {
         let firstNames = [
-            "Kyle",
-            "Gina",
-            "Irene",
-            "Katie",
-            "Michael",
-            "Oscar",
-            "Ralph",
-            "Torrey",
-            "William",
-            "Bill",
-            "Daniel",
-            "Frank",
-            "Brenda",
-            "Danielle",
-            "Fiona",
-            "Howard",
-            "Jack",
-            "Larry",
-            "Holly",
-            "Jennifer",
-            "Liz",
-            "Pete",
-            "Steve",
-            "Vince",
-            "Zeke"
+            "Kyle", "Gina", "Irene", "Katie", "Michael", "Oscar", "Ralph", "Frank", "William", "Bill",
+            "Daniel", "Frank", "Brenda", "Henry", "Fiona", "Howard", "Jack", "Larry", "Holly",
+            "Bob", "Liz", "Pete", "Steve", "Mark", "Henry"
         ];
 
-        let lastNames = [
-            "Adams",
-        "Crowley",
-        "Ellis",
-        "Gable",
-        "Irvine",
-        "Keefe",
-        "Mendoza",
-        "Owens",
-        "Rooney",
-        "Waddell",
-        "Thomas",
-        "Betts",
-        "Doran",
-        "Fitzgerald",
-        "Holmes",
-        "Jefferson",
-        "Landry",
-        "Newberry",
-        "Perez",
-        "Spencer",
-        "Vargas",
-        "Grimes",
-        "Edwards",
-        "Stark",
-        "Cruise",
-        "Fitz",
-        "Chief",
-        "Blanc",
-        "Perry",
-        "Stone",
-        "Williams",
-        "Lane",
-        "Jobs"
-        ];
-
-        let genders = [
-            "men",
-            "women",
-            "women",
-            "women",
-            "men",
-            "men",
-            "men",
-            "men",
-            "men",
-            "men",
-            "men",
-            "men",
-            "women",
-            "women",
-            "women",
-            "men",
-            "men",
-            "men",
-            "women",
-            "women",
-            "women",
-            "men",
-            "men",
-            "men",
-            "men"
-        ];
+        let lastNames = ['Smith', 'Johnson', 'Mendoza', 'Brown', 'Spencer', 'Stone', 'Stark', 'Rooney'];;
 
         let territories = [
-            "Australia",
-            "Canada",
-            "Egypt",
-            "Greece",
-            "Italy",
-            "Kenya",
-            "Mexico",
-            "Oman",
-            "Qatar",
-            "Sweden",
-            "Uruguay",
-            "Yemen",
-            "Bulgaria",
-            "Denmark",
-            "France",
-            "Hungary",
-            "Japan",
-            "Latvia",
-            "Netherlands",
-            "Portugal",
-            "Russia",
-            "Turkey",
-            "Venezuela",
-            "Zimbabwe"
+            "Australia", "Canada", "Egypt", "Greece", "Italy", "Kenya", "Mexico", "Oman", "Qatar",
+            "Sweden", "Uruguay", "Yemen", "Bulgaria", "Denmark", "France", "Hungary", "Japan",
+            "Latvia", "Netherlands", "Portugal", "Russia", "Turkey", "Venezuela", "Zimbabwe"
         ];
-
-        // let min = 10;
-        // let max = 35;
 
         let items = [];
         for (let i = 0; i < num; i++)
@@ -660,9 +552,6 @@ export default class DataGridPerformance extends React.Component<any, any> {
             if (randomIndex === 0)
                 randomIndex = 1;
 
-            let imageID = this.getRandomInt(10, 39);
-            var imageGender = genders[firstIndex];
-            item.ImageName = this.createUri(imageGender + "/" + imageID + ".png");
             item.Territory = territories[Math.round(Math.random() * (territories.length - 1))];
             item.AvgSale = Math.round(Math.random() * 800) + 200.0;
             item.Change = Math.random() * 40.0 - 20.0;
@@ -672,8 +561,9 @@ export default class DataGridPerformance extends React.Component<any, any> {
             item.DateValue = new Date();
             item.DateValue.setDate(item.DateValue.getDate() + Math.round(Math.random() * 500))
 
-            for (let j = 0; j < 43; j++) {
-                item["KPI_" + j] = Math.round(Math.random() * 100.0);
+            for (let j = 0; j < this.kpiColumnCount; j++) {
+                let kpi: string = "KPI_" + j;
+                item[kpi] = Math.round(Math.random() * 100.0);
             }
 
             items.push(item);
@@ -682,35 +572,16 @@ export default class DataGridPerformance extends React.Component<any, any> {
         return items;
     }
 
-    private createUri(name: string): string {
-        return "https://dl.infragistics.com/x/img/people/" + name;
-    }
-
     private getRandomInt(min: number, max: number) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    // private title = 'app';
-    // @ViewChild(IgxDataChartComponent)
-    // chart: IgxDataChartComponent;
-    // private bigData: any[];
-    // private data: any[];
-
-    // private financialData: any[];
-    // private context = {
-    //     name: "name",
-    //     value: "value-0"
-    // };
-    // private finData: any[];
-    private grid: IgrDataGrid;
-
 }
-
 export class SalesPerson {
+    [key: string]: any;
     public FirstName: string;
     public LastName: string;
     public Name: string;
-    public ImageName: string;
     public Territory: string;
     public Index: number;
     public AvgSale: number;
