@@ -324,11 +324,7 @@ export default class MapShapeSelection extends React.Component<any, any> {
         sds.importCompleted = this.onDataLoaded;
         sds.shapefileSource = "https://static.infragistics.com/xplatform/shapes/usa_states_ak_below.shp";
         sds.databaseSource  = "https://static.infragistics.com/xplatform/shapes/usa_states_ak_below.dbf";
-        // sds.shapefileSource = "https://github.com/IgniteUI/igniteui-blazor-apps/tree/main/usa-elections/wwwroot/shapes/usa_states_hex_map.shp";
-        // sds.databaseSource  = "https://github.com/IgniteUI/igniteui-blazor-apps/tree/main/usa-elections/wwwroot/shapes/usa_states_hex_map.dbf";
-        // sds.shapefileSource = "https://github.com/IgniteUI/igniteui-blazor-apps/raw/refs/heads/main/usa-elections/wwwroot/shapes/usa_states_ak_below.shp";
-        // sds.databaseSource  = "https://github.com/IgniteUI/igniteui-blazor-apps/raw/refs/heads/main/usa-elections/wwwroot/shapes/usa_states_ak_below.dbf";
-        
+
         window.addEventListener('resize', this.onMapResize);
         sds.dataBind();
     }
