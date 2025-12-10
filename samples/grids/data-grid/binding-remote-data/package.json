@@ -12,11 +12,11 @@
     "test": "vitest"
   },
   "dependencies": {
-    "igniteui-react-core": "19.3.1-beta.0",
-    "igniteui-react-data-grids": "19.3.1-beta.0",
-    "igniteui-react-datasources": "19.3.1-beta.0",
-    "igniteui-react-inputs": "19.3.1-beta.0",
-    "igniteui-react-layouts": "19.3.1-beta.0",
+    "igniteui-react-core": "19.3.1",
+    "igniteui-react-data-grids": "19.3.1",
+    "igniteui-react-datasources": "19.3.1",
+    "igniteui-react-inputs": "19.3.1",
+    "igniteui-react-layouts": "19.3.1",
     "igniteui-webcomponents": "^6.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

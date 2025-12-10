@@ -14,7 +14,7 @@
   "dependencies": {
     "igniteui-dockmanager": "^1.17.0",
     "igniteui-react": "^19.4.0",
-    "igniteui-react-core": "19.3.1-beta.0",
+    "igniteui-react-core": "19.3.1",
     "igniteui-webcomponents": "^6.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
