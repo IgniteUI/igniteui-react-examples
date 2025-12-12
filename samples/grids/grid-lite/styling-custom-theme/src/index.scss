@@ -1,5 +1,5 @@
 @use 'igniteui-theming' as *;
-@use '../node_modules/igniteui-theming/sass/typography/presets/bootstrap' as bootstrap;
+@import 'igniteui-theming/sass/typography/presets';
 
 $custom-palette: palette(
     $primary: #ddd020,
@@ -15,5 +15,5 @@ $custom-palette: palette(
 
 .custom-styled {
     @include palette($custom-palette);
-    @include typography('"Merriweather Sans", sans-serif', bootstrap.$type-scale);
+    @include typography('"Merriweather Sans", sans-serif', $bootstrap-type-scale);
 }

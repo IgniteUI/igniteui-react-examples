@@ -30,6 +30,14 @@ export default defineConfig(({ mode }) => ({
       'jszip/dist/jszip'
     ],
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        includePaths: ['node_modules'],
+        loadPaths: [resolve(__dirname, 'node_modules')]
+      }
+    }
+  },
   build: {
     outDir: 'build',
     commonjsOptions: {
