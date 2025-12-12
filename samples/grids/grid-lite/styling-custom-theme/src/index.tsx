@@ -10,7 +10,7 @@ import {
 } from 'igniteui-webcomponents';
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import "./index.css";
+import "./index.scss";
 
 // Register components
 IgcGridLite.register();

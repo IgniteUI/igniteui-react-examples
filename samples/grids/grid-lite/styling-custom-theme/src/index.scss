@@ -1,0 +1,19 @@
+@use 'igniteui-theming' as *;
+@use '../node_modules/igniteui-theming/sass/typography/presets/bootstrap' as bootstrap;
+
+$custom-palette: palette(
+    $primary: #ddd020,
+    $secondary: #d5896f,
+    $surface: #031d44,
+    $gray: #04395e,
+);
+
+.grid-lite-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.custom-styled {
+    @include palette($custom-palette);
+    @include typography('"Merriweather Sans", sans-serif', bootstrap.$type-scale);
+}
