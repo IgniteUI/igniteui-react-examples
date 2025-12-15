@@ -14,9 +14,9 @@
     "lint": "eslint ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
+    "igniteui-grid-lite": "^0.0.1",
     "igniteui-react": "^19.4.0",
     "igniteui-webcomponents": "^6.3.0",
-    "igniteuio-grid-lite": "1.0.0-alpha.9",
     "lit-html": "^3.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

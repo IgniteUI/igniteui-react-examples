@@ -13,23 +13,23 @@ import "./index.css";
 export default function CarouselThumbnail() {
   const images = [
     {
-      src: "https://www.infragistics.com/angular-demos-lob/assets/images/carousel/WonderfulCoast.png",
+      src: "https://dl.infragistics.com/x/img/carousel/WonderfulCoast.png",
       alt: "Wonderful Coast",
     },
     {
-      src: "https://www.infragistics.com/angular-demos-lob/assets/images/carousel/CulturalDip.png",
+      src: "https://dl.infragistics.com/x/img/carousel/CulturalDip.png",
       alt: "Cultural Dip",
     },
     {
-      src: "https://www.infragistics.com/angular-demos-lob/assets/images/carousel/GoldenBeaches.png",
+      src: "https://dl.infragistics.com/x/img/carousel/GoldenBeaches.png",
       alt: "Golden Beaches",
     },
     {
-      src: "https://www.infragistics.com/angular-demos-lob/assets/images/carousel/IslandOfHistory.png",
+      src: "https://dl.infragistics.com/x/img/carousel/IslandOfHistory.png",
       alt: "Island Of History",
     },
     {
-      src: "https://www.infragistics.com/angular-demos-lob/assets/images/carousel/AmazingBridge.png",
+      src: "https://dl.infragistics.com/x/img/carousel/AmazingBridge.png",
       alt: "Amazing Bridge",
     },
   ];
