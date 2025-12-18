@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './SwitchLabelStyles.css';
 import { IgrSwitch } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -8,7 +9,10 @@ export default function SwitchLabel() {
 
     return (
         <div className="sample">
-            <IgrSwitch aria-labelledby="switchLabel" labelPosition="before"><span id="switch-label">Label</span></IgrSwitch>
+            <IgrSwitch labelPosition="before">Label</IgrSwitch>
+            <div className="wrapper">
+                <IgrSwitch aria-labelledby="switchLabel" labelPosition="before"><span id="switch-label">Label</span></IgrSwitch>
+            </div>
         </div>
     );
 }

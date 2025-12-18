@@ -1,0 +1,35 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+.aboveContentSplit {
+    display: flex;
+    flex-direction: row;
+}
+.aboveContentLeftContainer {
+    margin-left: 1.25rem;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.aboveContentRightContainer {
+    margin-right: 1.25rem;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.annotationPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 350px;
+    background-color: white;
+    border: 1px black solid;
+    display: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

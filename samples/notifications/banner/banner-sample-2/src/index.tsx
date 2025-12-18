@@ -48,12 +48,12 @@ export default function BannerSample2() {
 
                 <IgrCard className="gallery__item" elevated>
                     <div>
-                        <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/media/the_red_ice_forest.jpg" />
+                        <img src="https://dl.infragistics.com/x/img/card/media/the_red_ice_forest.jpg" />
                     </div>
                 </IgrCard>
                 <IgrCard className="gallery__item" elevated>
                     <div>
-                        <img src="https://www.infragistics.com/angular-demos-lob/assets/images/card/media/yosemite.jpg" />
+                        <img src="https://dl.infragistics.com/x/img/card/media/yosemite.jpg" />
                     </div>
                 </IgrCard>
             </div>

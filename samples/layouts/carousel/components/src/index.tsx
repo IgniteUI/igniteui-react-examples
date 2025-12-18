@@ -42,7 +42,7 @@ export default function CarouselComponents() {
       <IgrCarousel>
         <IgrCarouselSlide>
           <div>
-            <img src="https://www.infragistics.com/angular-demos-lob/assets/images/svg/carousel/SignUp.svg" />
+            <img src="https://dl.infragistics.com/x/img/carousel/SignUp.svg" />
             <form>
               <IgrInput type="text" placeholder="Username">
                 <IgrIcon slot="prefix" name="person"></IgrIcon>
@@ -58,7 +58,7 @@ export default function CarouselComponents() {
         </IgrCarouselSlide>
         <IgrCarouselSlide>
           <div>
-            <img src="https://www.infragistics.com/angular-demos-lob/assets/images/svg/carousel/Route.svg" />
+            <img src="https://dl.infragistics.com/x/img/carousel/Route.svg" />
             <form>
               <IgrInput type="text" placeholder="Search">
                 <IgrIcon slot="prefix" name="search"></IgrIcon>

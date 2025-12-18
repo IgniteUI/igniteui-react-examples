@@ -15,17 +15,17 @@ export default function CarouselOverview() {
       <IgrCarousel>
         <IgrCarouselSlide>
           <div className="image-container">
-            <img src="https://www.infragistics.com/angular-demos-lob/assets/images/carousel/ignite-ui-angular-indigo-design.png" />
+            <img src="https://dl.infragistics.com/x/img/carousel/ignite-ui-angular-indigo-design.png" />
           </div>
         </IgrCarouselSlide>
         <IgrCarouselSlide>
           <div className="image-container">
-            <img src="https://www.infragistics.com/angular-demos-lob/assets/images/carousel/slider-image-chart.png" />
+            <img src="https://dl.infragistics.com/x/img/carousel/slider-image-chart.png" />
           </div>
         </IgrCarouselSlide>
         <IgrCarouselSlide>
           <div className="image-container">
-            <img src="https://www.infragistics.com/angular-demos-lob/assets/images/carousel/ignite-ui-angular-charts.png" />
+            <img src="https://dl.infragistics.com/x/img/carousel/ignite-ui-angular-charts.png" />
           </div>
         </IgrCarouselSlide>
       </IgrCarousel>
