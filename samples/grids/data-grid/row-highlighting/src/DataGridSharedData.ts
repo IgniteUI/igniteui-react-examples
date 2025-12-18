@@ -8,8 +8,8 @@ export class DataGridSharedData {
         }
 
         const employees: any[] = [];
-        let maleCount: number = 0;
-        let femaleCount: number = 0;
+        let maleCount: number = 10;
+        let femaleCount: number = 10;
         for (let i = 0; i < count; i++) {
             const age: number = Math.round(this.getRandomNumber(20, 40));
             const gender: string = this.getRandomGender();
@@ -25,15 +25,15 @@ export class DataGridSharedData {
 
             if (gender === "male") {
                 maleCount++;
-                if (maleCount > 26) {
-                    maleCount = 1;
+                if (maleCount > 39) {
+                    maleCount = 10;
                 }
                 photoPath = this.getPhotoMale(maleCount);
             }
             else {
                 femaleCount++;
-                if (femaleCount > 24) {
-                    femaleCount = 1;
+                if (femaleCount > 39) {
+                    femaleCount = 10;
                 }
                 photoPath = this.getPhotoFemale(femaleCount);
             }
@@ -98,7 +98,7 @@ export class DataGridSharedData {
             "Samsung HDD", "WD HDD", "Seagate HDD", "Intel HDD",
             "Samsung SSD", "WD SSD", "Seagate SSD", "Intel SSD",
             "Samsung Monitor", "Asus Monitor", "LG Monitor", "HP Monitor" ];
-        const countries: string[] = ["USA", "UK", "France", "Canada", "Poland", "Japan", "Germany"];
+        const countries: string[] = ["United-States", "United-Kingdom", "France", "Canada", "Poland", "Japan", "Germany"];
         const status: string[] = ["Packing", "Shipped", "Delivered"];
         const sales: any[] = [];
 
@@ -135,7 +135,7 @@ export class DataGridSharedData {
         const houses: any[] = [];
         const property: string[] = [ "Townhouse", "Single", "Condo", "Villa"];
         const emails: string[] = [ "estates.com", "remax.com", "zillow.com", "realtor.com", "coldwell.com"];
-        const countries: string[] = ["USA", "UK", "France", "Canada", "Poland", "Japan", "Germany"];
+        const countries: string[] = ["United-States", "United-Kingdom", "France", "Canada", "Poland", "Japan", "Germany"];
 
         for (let i = 0; i < count; i++) {
             const year: number = this.getRandomNumber(1950, 2015);
@@ -180,7 +180,7 @@ export class DataGridSharedData {
     private static maleNames: string[] = ["Kyle", "Oscar", "Ralph", "Mike", "Bill", "Frank", "Howard", "Jack", "Larry", "Pete", "Steve", "Vince", "Mark", "Alex", "Max", "Brian", "Chris", "Andrew", "Martin", "Mike", "Steve", "Glenn", "Bruce"];
     private static femaleNames: string[] = ["Gina", "Irene", "Katie", "Brenda", "Casey", "Fiona", "Holly", "Kate", "Liz", "Pamela", "Nelly", "Marisa", "Monica", "Anna", "Jessica", "Sofia", "Isabella", "Margo", "Jane", "Audrey", "Sally", "Melanie", "Greta", "Aurora", "Sally"];
     private static lastNames: string[] = ["Adams", "Crowley", "Ellis", "Martinez", "Irvine", "Maxwell", "Clark", "Owens", "Rooney", "Lincoln", "Thomas", "Spacey", "MOrgan", "King", "Newton", "Fitzgerald", "Holmes", "Jefferson", "Landry", "Berry", "Perez", "Spencer", "Starr", "Carter", "Edwards", "Stark", "Johnson", "Fitz", "Chief", "Blanc", "Perry", "Stone", "Williams", "Lane", "Jobs", "Adams", "Power", "Tesla"];
-    private static countries: string[] = ["USA", "UK", "France", "Canada", "Poland"];
+    private static countries: string[] = ["United-States", "United-Kingdom", "France", "Canada", "Poland"];
     private static citiesUS: string[] = ["New York", "Los Angeles", "Miami", "San Francisco", "San Diego", "Las Vegas"];
     private static citiesUK: string[] = ["London", "Liverpool", "Manchester"];
     private static citiesFR: string[] = ["Paris", "Marseille", "Lyon"];
@@ -236,13 +236,13 @@ export class DataGridSharedData {
             return this.getRandomItem(this.citiesFR);
         } else if (country === "Poland") {
             return this.getRandomItem(this.citiesPL);
-        } else if (country === "USA") {
+        } else if (country === "United-States") {
             return this.getRandomItem(this.citiesUS);
         } else if (country === "Japan") {
             return this.getRandomItem(this.citiesJP);
         } else if (country === "Germany") {
             return this.getRandomItem(this.citiesGR);
-        } else { // if (country === "United Kingdom") {
+        } else { // if (country === "United-Kingdom") {
             return this.getRandomItem(this.citiesUK);
         }
     }
@@ -263,19 +263,19 @@ export class DataGridSharedData {
     }
 
     private static getPhotoMale(id: number): string {
-        return 'https://static.infragistics.com/xplatform/images/people//GUY' + this.pad(id, 2) + '.png';
+        return 'https://dl.infragistics.com/x/img/people/men/' + this.pad(id, 2) + '.png';
     }
 
     private static getPhotoFemale(id: number): string {
-        return 'https://static.infragistics.com/xplatform/images/people/GIRL' + this.pad(id, 2) + '.png';
+        return 'https://dl.infragistics.com/x/img/people/women/' + this.pad(id, 2) + '.png';
     }
 
     private static getGenderPhoto(gender: string): string {
-        return 'https://static.infragistics.com/xplatform/images/genders/' + gender + '.png';
+        return 'https://dl.infragistics.com/x/img/genders/' + gender + '.png';
     }
 
     private static getCountryFlag(country: string): string {
-        return 'https://static.infragistics.com/xplatform/images/flags/' + country + '.png';
+        return 'https://dl.infragistics.com/x/img/flags/' + country + '.png';
     }
 
     private static pad(num: number, size: number): string{

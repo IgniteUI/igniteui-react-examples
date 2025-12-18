@@ -113,6 +113,9 @@ export default class Sample extends React.Component<any, any> {
 
     public webTreeGridReorderRowHandler(args: IgrRowDragEndEventArgs): void {
         const ghostElement = args.detail.dragDirective.ghostElement;
+        if (!ghostElement) {
+            return;
+        }
         const dragElementPos = ghostElement.getBoundingClientRect();
         const grid = this.treeGrid;
         const rows = Array.prototype.slice.call(document.getElementsByTagName("igx-tree-grid-row"));

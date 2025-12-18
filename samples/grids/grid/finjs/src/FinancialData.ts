@@ -109,7 +109,7 @@ export const REGIONS: Region[] = [
             { Name: 'Belgium' },
             { Name: 'Greece' },
             { Name: 'Portugal' },
-            { Name: 'Czech Republic' },
+            { Name: 'Czechia' },
             { Name: 'Hungary' },
             { Name: 'Sweden' },
             { Name: 'Austria' },
