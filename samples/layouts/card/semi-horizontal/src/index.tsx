@@ -22,7 +22,7 @@ export default function CardSemiHorizontal() {
             <div>
               <IgrCardHeader>
                 <IgrAvatar
-                  src="https://static.infragistics.com/xplatform/images/music/singer_with_mic.jpg"
+                  src="https://dl.infragistics.com/x/img/music/singer_with_mic.jpg"
                   slot="thumbnail"
                 />
                 <h5 slot="title">HERE</h5>
@@ -44,7 +44,7 @@ export default function CardSemiHorizontal() {
             </div>
 
             <IgrCardMedia className="card-media">
-              <img src="https://static.infragistics.com/xplatform/images/music/singer_female.jpg"></img>
+              <img src="https://dl.infragistics.com/x/img/music/singer_female.jpg"></img>
             </IgrCardMedia>
           </div>
         </IgrCard>

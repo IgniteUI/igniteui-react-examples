@@ -39,7 +39,7 @@ export default function App() {
     if (ctx.cell.value) {
       return (
         <img
-          src="https://static.infragistics.com/xplatform/images/grid/active.png"
+          src="https://dl.infragistics.com/x/img/grid/active.png"
           title="Continued"
           alt="Continued"
         />
@@ -47,7 +47,7 @@ export default function App() {
     } else {
       return (
         <img
-          src="https://static.infragistics.com/xplatform/images/grid/expired.png"
+          src="https://dl.infragistics.com/x/img/grid/expired.png"
           title="Discontinued"
           alt="Discontinued"
         />

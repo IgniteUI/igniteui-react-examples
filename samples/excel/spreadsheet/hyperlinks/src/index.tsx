@@ -34,7 +34,7 @@ export default class SpreadsheetHyperlinks extends React.Component {
 
         this.spreadsheet = spreadsheet;
 
-        const url = "https://static.infragistics.com/xplatform/excel/Hyperlinks.xlsx";
+        const url = "https://dl.infragistics.com/x/excel/Hyperlinks.xlsx";
         ExcelUtility.loadFromUrl(url).then((w) => {
             this.spreadsheet.workbook = w;
         });
