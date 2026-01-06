@@ -56,7 +56,8 @@ export default class Sample extends React.Component<any, any> {
                         field="ID"
                         header="ID"
                         dataType="string"
-                        sortable={true}>
+                        hidden={true}
+                        disableHiding={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="ContactName"
@@ -98,19 +99,22 @@ export default class Sample extends React.Component<any, any> {
                         field="PostalCode"
                         header="Postal Code"
                         dataType="string"
-                        sortable={true}>
+                        sortable={true}
+                        disableHiding={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Country"
                         header="Country"
                         dataType="string"
-                        sortable={true}>
+                        sortable={true}
+                        disableHiding={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="Phone"
                         header="Phone"
                         dataType="string"
-                        sortable={true}>
+                        sortable={true}
+                        disableHiding={true}>
                     </IgrColumn>
                 </IgrGrid>
             </div>
