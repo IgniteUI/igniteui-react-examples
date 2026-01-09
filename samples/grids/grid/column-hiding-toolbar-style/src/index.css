@@ -2,25 +2,29 @@
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
     .grid igc-grid-toolbar-actions, igx-column-actions {
-        --ig-column-actions-background-color: #292826;
-        --ig-column-actions-title-color: #ffcd0f;
-        --ig-checkbox-tick-color: #292826;
-        --ig-checkbox-label-color: #ffcd0f;
-        --ig-checkbox-empty-color: #ffcd0f;
-        --ig-checkbox-fill-color: #ffcd0f;
-        --ig-input-group-idle-text-color: white;
-        --ig-input-group-filled-text-color: #ffcd0f;
-        --ig-input-group-focused-text-color: #ffcd0f;
-        --ig-input-group-focused-border-color: #ffcd0f;
-        --ig-input-group-focused-secondary-color: #ffcd0f;
-        --igx-button-foreground: #292826;
-        --igx-button-background: #ffcd0f;
-        --igx-button-hover-background: #404040;
-        --igx-button-hover-foreground: #ffcd0f;
-        --igx-button-focus-background: #ffcd0f;
-        --igx-button-focus-foreground: black;
-        --igx-button-focus-visible-background: #ffcd0f;
-        --igx-button-focus-visible-foreground: black;
-        --igx-button-disabled-foreground: #ffcd0f;
+    --ig-column-actions-background-color: #292826;
+    --ig-column-actions-title-color: #ffcd0f;
+    --ig-checkbox-tick-color: #292826;
+    --ig-checkbox-label-color: #ffcd0f;
+    --ig-checkbox-label-color-hover: #c5a11b;
+    --ig-checkbox-empty-color: #ffcd0f;
+    --ig-checkbox-focus-outline-color: #c5a11b;
+    --ig-checkbox-empty-fill-color: #292826;
+    --ig-checkbox-fill-color: #ffcd0f;
+    --ig-checkbox-fill-color-hover: #c5a11b;
+    --ig-input-group-idle-text-color: white;
+    --ig-input-group-filled-text-color: #ffcd0f;
+    --ig-input-group-focused-text-color: #ffcd0f;
+    --ig-input-group-focused-border-color: #ffcd0f;
+    --ig-input-group-focused-secondary-color: #ffcd0f;
+    --ig-flat-button-foreground: #292826;
+    --ig-flat-button-background: #ffcd0f;
+    --ig-flat-button-hover-background: #404040;
+    --ig-flat-button-hover-foreground: #ffcd0f;
+    --ig-flat-button-focus-background: #ffcd0f;
+    --ig-flat-button-focus-foreground: black;
+    --ig-flat-button-focus-visible-background: #ffcd0f;
+    --ig-flat-button-focus-visible-foreground: black;
+    --ig-flat-button-disabled-foreground: #ffcd0f;
     }
 

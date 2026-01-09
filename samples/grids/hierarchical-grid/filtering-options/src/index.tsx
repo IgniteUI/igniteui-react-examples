@@ -64,13 +64,13 @@ export default class Sample extends React.Component<any, any> {
                     <IgrColumn
                         field="GrammyNominations"
                         header="Grammy Nominations"
-                        dataType="string"
+                        dataType="number"
                         resizable={true}>
                     </IgrColumn>
                     <IgrColumn
                         field="GrammyAwards"
                         header="Grammy Awards"
-                        dataType="string"
+                        dataType="number"
                         resizable={true}>
                     </IgrColumn>
                     <IgrRowIsland
