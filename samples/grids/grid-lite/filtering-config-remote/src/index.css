@@ -1,0 +1,30 @@
+p {
+    border: 1px solid var(--border);
+    padding: 1rem;
+    min-height: 1rem;
+    font-size: 0.75rem;
+}
+
+code {
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 0.125rem 0.375rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.875em;
+    color: #222222;
+    display: inline-block;
+    width: 100%;
+    min-height: 2em;
+    box-sizing: border-box;
+}
+
+.grid-lite-wrapper {
+    width: 100%;
+    height: calc(100% - 1rem);
+}
+
+igc-grid-lite {
+    min-height: 65vh;
+    --ig-size: 2;
+}

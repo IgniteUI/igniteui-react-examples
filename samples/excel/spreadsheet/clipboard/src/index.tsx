@@ -43,7 +43,7 @@ export default class SpreadsheetClipboard extends React.Component<any, any> {
 
         this.spreadsheet = spreadsheet;
 
-        const url = "https://static.infragistics.com/xplatform/excel/SalesData.xlsx";
+        const url = "https://dl.infragistics.com/x/excel/SalesData.xlsx";
         ExcelUtility.loadFromUrl(url).then((w) => {
             this.spreadsheet.workbook = w;
         });

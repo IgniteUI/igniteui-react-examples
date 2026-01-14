@@ -25,7 +25,7 @@ export default class CalendarFormatting extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrRadioGroup alignment="horizontal" style={{marginBottom: '10px'}}>
+                <IgrRadioGroup alignment="horizontal" style={{marginBottom: '10px'}} value={this.state.calendarLocale}>
                     <IgrRadio name="lang" value="en" checked={true} onChange={this.onRadioChange}>
                         <span>EN</span>
                     </IgrRadio>
