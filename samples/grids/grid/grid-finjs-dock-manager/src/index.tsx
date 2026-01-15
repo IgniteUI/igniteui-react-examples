@@ -521,5 +521,5 @@ export default function GridFinJSDockManager() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<GridFinJSDockManager />);
