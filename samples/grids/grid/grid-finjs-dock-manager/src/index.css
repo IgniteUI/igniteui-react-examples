@@ -1,5 +1,14 @@
 /* Grid FinJS Dock Manager Styles */
 
+/* Dock pane content slots */
+igc-dockmanager > div[slot] {
+  height: 100%;
+}
+
+.chart-pane {
+  padding: 10px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -274,4 +283,8 @@ button:disabled {
 
 .dark-theme div[slot="actionPane"] div[style*="color: #666"] {
   color: #adb5bd !important;
+}
+
+.dark-theme .chart-pane {
+  background-color: #343a40;
 }

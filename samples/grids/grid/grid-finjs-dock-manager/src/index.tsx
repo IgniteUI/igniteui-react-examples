@@ -3,12 +3,23 @@ import ReactDOM from 'react-dom/client';
 import { IgcDockManagerComponent } from "igniteui-dockmanager";
 import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
 import { defineCustomElements } from "igniteui-dockmanager/loader";
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import {
+  IgrGrid,
+  IgrColumn,
+  IgrGridToolbar,
+  IgrGridToolbarActions,
+  IgrGridToolbarHiding,
+  IgrGridToolbarPinning,
+  IgrGridToolbarExporter,
+  IgrGridToolbarTitle
+} from 'igniteui-react-grids';
+import { IgrFinancialChart, IgrFinancialChartModule } from 'igniteui-react-charts';
 import './index.css';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
+IgrFinancialChartModule.register();
+
 import { useSignalRData, StreamingDataConfig } from './useSignalRData.ts';
-import { useFloatingPanes } from './useFloatingPanes.ts';
 
 defineCustomElements();
 
@@ -62,6 +73,16 @@ const MarketDataGrid = ({
       isLoading={isLoading}
       height={height}
     >
+      <IgrGridToolbar>
+        <IgrGridToolbarTitle>
+          <span>Market Data</span>
+        </IgrGridToolbarTitle>
+        <IgrGridToolbarActions>
+          <IgrGridToolbarHiding />
+          <IgrGridToolbarPinning />
+          <IgrGridToolbarExporter />
+        </IgrGridToolbarActions>
+      </IgrGridToolbar>
       <IgrColumn field="id" width="70px" hidden={true} sortable={true} />
       <IgrColumn field="category" width="120px" sortable={true} />
       <IgrColumn field="type" width="100px" sortable={true} filterable={false} />
@@ -102,7 +123,6 @@ export default function GridFinJSDockManager() {
   }, [isDarkTheme]);
 
   const { data, hasRemoteConnection, isConnecting, startConnection, updateConfiguration, stopLiveData } = useSignalRData();
-  const { floatingPanes, createFloatingPane, closeFloatingPane, updatePaneData } = useFloatingPanes();
 
   const gridColumns = useMemo(() => [
     { field: 'buy', width: '110px', dataType: 'currency' as const },
@@ -170,11 +190,25 @@ export default function GridFinJSDockManager() {
               }
             },
             {
-              type: IgcDockManagerPaneType.contentPane,
-              contentId: 'etfStockPrices',
-              header: 'Market Data 3',
+              type: IgcDockManagerPaneType.splitPane,
+              orientation: IgcSplitPaneOrientation.horizontal,
               size: 50,
-              allowClose: false
+              panes: [
+                {
+                  type: IgcDockManagerPaneType.contentPane,
+                  contentId: 'etfStockPrices',
+                  header: 'Market Data 3',
+                  size: 50,
+                  allowClose: false
+                },
+                {
+                  type: IgcDockManagerPaneType.contentPane,
+                  contentId: 'priceChart',
+                  header: 'Financial Chart',
+                  size: 50,
+                  allowClose: false
+                }
+              ]
             }
           ]
         }
@@ -185,29 +219,56 @@ export default function GridFinJSDockManager() {
 
   const filteredCategoryData = useMemo(() => data.filter(item => item.category === 'Metal'), [data]);
 
+  // Prepare data for financial chart - use first 50 items with OHLC-like fields
+  const chartData = useMemo(() => {
+    return data.slice(0, 50).map((item) => ({
+      date: item.lastUpdated || new Date(),
+      open: item.openPrice,
+      high: item.highD,
+      low: item.lowD,
+      close: item.price,
+      volume: item.volume,
+      label: item.contract
+    }));
+  }, [data]);
+
+  const startConnectionRef = useRef(startConnection);
+  const stopLiveDataRef = useRef(stopLiveData);
+  const isInitialMount = useRef(true);
+  
+  useEffect(() => {
+    startConnectionRef.current = startConnection;
+    stopLiveDataRef.current = stopLiveData;
+  }, [startConnection, stopLiveData]);
+
   // Initialize data connection 
   useEffect(() => {
     const config: StreamingDataConfig = {
-      interval: frequency,
-      volume: dataVolume,
-      live: isLiveMode,
-      updateAll: false
+      interval: 600,
+      volume: 500,
+      live: true,
+      updateAll: true
     };
     
-    startConnection(config);
+    startConnectionRef.current(config);
     
     return () => {
-      stopLiveData().catch(console.error);
+      stopLiveDataRef.current().catch(console.error);
     };
   }, []); 
 
-  // Update on change
+  // Update on change (skip initial mount to avoid double initialization)
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    
     const config: StreamingDataConfig = {
       interval: frequency,
       volume: dataVolume,
       live: isLiveMode,
-      updateAll: false
+      updateAll: true
     };
     updateConfiguration(config);
   }, [frequency, dataVolume, isLiveMode, updateConfiguration]);
@@ -220,7 +281,7 @@ export default function GridFinJSDockManager() {
         interval: frequency,
         volume: dataVolume,
         live: enabled,
-        updateAll: false
+        updateAll: true
       };
       startConnection(config);
     } else {
@@ -274,31 +335,36 @@ export default function GridFinJSDockManager() {
     }
   }, [data, isConnecting]);
 
-  // Update floating pane data
+  const createdPanesRef = useRef(createdPanes);
   useEffect(() => {
-    updatePaneData(data);
-  }, [data, updatePaneData]);
-
+    createdPanesRef.current = createdPanes;
+  }, [createdPanes]);
 
   // Initialize dock manager
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (dockRef.current) {
-        dockRef.current.layout = baseDockLayout as any;
+    const dockManager = dockRef.current;
+    
+    const handlePaneClose = (event: CustomEvent) => {
+      const paneId = event.detail?.pane?.contentId;
+      if (paneId && createdPanesRef.current.includes(paneId)) {
+        setCreatedPanes(prev => prev.filter(id => id !== paneId));
+      }
+    };
 
-        const handlePaneClose = (event: CustomEvent) => {
-          const paneId = event.detail?.pane?.contentId;
-          if (paneId && createdPanes.includes(paneId)) {
-            setCreatedPanes(prev => prev.filter(id => id !== paneId));
-          }
-        };
-        
-        dockRef.current.addEventListener('paneClose', handlePaneClose);
+    const timeout = setTimeout(() => {
+      if (dockManager) {
+        dockManager.layout = baseDockLayout as any;
+        dockManager.addEventListener('paneClose', handlePaneClose);
       }
     }, 200);
 
-    return () => clearTimeout(timeout);
-  }, []);
+    return () => {
+      clearTimeout(timeout);
+      if (dockManager) {
+        dockManager.removeEventListener('paneClose', handlePaneClose);
+      }
+    };
+  }, [baseDockLayout]);
 
   return (
     <div className={isDarkTheme ? 'dark-theme' : 'light-theme'} style={{ height: '100vh', width: '100%' }}>
@@ -378,8 +444,6 @@ export default function GridFinJSDockManager() {
             onClick={() => {
               setCreatedPanes([]);
               setSlotCounter(1);
-        
-              floatingPanes.forEach(pane => closeFloatingPane(pane.id));
               
               if (dockRef.current) {
                 const freshLayout = {
@@ -403,57 +467,55 @@ export default function GridFinJSDockManager() {
           </div>
         </div>
 
-        <div slot="gridStockPrices" style={{ height: '100%' }}>
+        <div slot="gridStockPrices">
           <MarketDataGrid data={data} isLoading={isLoading} additionalColumns={gridColumns} />
         </div>
 
-        <div slot="forexMarket" style={{ height: '100%' }}>
+        <div slot="forexMarket">
           <MarketDataGrid data={data} isLoading={isLoading} additionalColumns={gridColumns} />
         </div>
 
-        <div slot="content4" style={{ height: '100%' }}>
+        <div slot="content4">
           <MarketDataGrid data={data} isLoading={isLoading} additionalColumns={gridColumns} />
         </div>
 
-        <div slot="etfStockPrices" style={{ height: '100%' }}>
+        <div slot="etfStockPrices">
           <MarketDataGrid data={data} isLoading={isLoading} additionalColumns={gridColumns} />
         </div>
 
-        {floatingPanes.map((pane, index) => {
-          return (
-            <div key={pane.id} slot={pane.id} style={{ height: '100%' }}>
-              <IgrGrid
-                data={pane.data}
-                primaryKey="id"
-                allowFiltering={true}
-                height="100%"
-              >
-                <IgrColumn field="contract" header="Symbol" width="80px" />
-                <IgrColumn field="price" header="Price" width="100px" dataType="number" />
-                <IgrColumn field="change" header="Change" width="100px" dataType="number" />
-                <IgrColumn field="changeP" header="%" width="80px" dataType="percent" />
-              </IgrGrid>
-            </div>
-          );
-        })}
-        
-        {createdPanes.map((slotId) => {
-          return (
-            <div key={slotId} slot={slotId} style={{ height: '100%' }}>
-              <IgrGrid
-                data={filteredCategoryData}
-                primaryKey="id"
-                allowFiltering={true}
-                height="100%"
-              >
-                <IgrColumn field="contract" header="Symbol" width="80px" />
-                <IgrColumn field="price" header="Price" width="100px" dataType="number" />
-                <IgrColumn field="change" header="Change" width="100px" dataType="number" />
-                <IgrColumn field="changeP" header="%" width="80px" dataType="percent" />
-              </IgrGrid>
-            </div>
-          );
-        })}
+        <div slot="priceChart" className="chart-pane">
+          <IgrFinancialChart
+            dataSource={chartData}
+            width="100%"
+            height="100%"
+            chartType="line"
+            zoomSliderType="none"
+            chartTitle="Price Overview"
+            xAxisLabelTextColor={isDarkTheme ? '#f8f9fa' : '#212529'}
+            yAxisLabelTextColor={isDarkTheme ? '#f8f9fa' : '#212529'}
+            xAxisTitleTextColor={isDarkTheme ? '#f8f9fa' : '#212529'}
+            yAxisTitleTextColor={isDarkTheme ? '#f8f9fa' : '#212529'}
+            calloutsTextColor={isDarkTheme ? '#f8f9fa' : '#212529'}
+            crosshairsAnnotationXAxisBackground={isDarkTheme ? '#495057' : '#e9ecef'}
+            crosshairsAnnotationYAxisBackground={isDarkTheme ? '#495057' : '#e9ecef'}
+          />
+        </div>
+
+        {createdPanes.map((slotId) => (
+          <div key={slotId} slot={slotId}>
+            <IgrGrid
+              data={filteredCategoryData}
+              primaryKey="id"
+              allowFiltering={true}
+              height="100%"
+            >
+              <IgrColumn field="contract" header="Symbol" width="80px" />
+              <IgrColumn field="price" header="Price" width="100px" dataType="number" />
+              <IgrColumn field="change" header="Change" width="100px" dataType="number" />
+              <IgrColumn field="changeP" header="%" width="80px" dataType="percent" />
+            </IgrGrid>
+          </div>
+        ))}
       </igc-dockmanager>
     </div>
   );

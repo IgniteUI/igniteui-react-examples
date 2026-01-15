@@ -26,6 +26,13 @@ export function useSignalRData(hubUrl: string = 'https://www.infragistics.com/an
 
     const mockData = FinancialData.generateData(config.volume || 1000);
     setData(mockData);
+
+    // Set up periodic updates for mock data when live mode is enabled
+    if (config.live) {
+      intervalRef.current = window.setInterval(() => {
+        setData(prevData => FinancialData.updateAllPrices([...prevData]));
+      }, config.interval) as unknown as number;
+    }
   }, []);
 
   const setupEvents = useCallback(() => {
@@ -105,10 +112,10 @@ export function useSignalRData(hubUrl: string = 'https://www.infragistics.com/an
     if (hasRemoteConnection) {
       await broadcastParams(config.interval, config.volume, config.live, config.updateAll);
     } else {
-      const mockData = FinancialData.generateData(config.volume || 1000);
-      setData(mockData);
+      // When not connected to SignalR, regenerate mock data with updated config
+      generateMockData(config);
     }
-  }, [hasRemoteConnection, broadcastParams]);
+  }, [hasRemoteConnection, broadcastParams, generateMockData]);
 
   const stopLiveData = useCallback(async () => {
     if (hubRef.current && hasRemoteConnection) {
