@@ -1,9 +1,5 @@
 import { IgrColumn, IgrFilteringExpressionsTree, IgrFilteringStrategy } from "igniteui-react-grids";
 
-const DATA_URL = 'https://services.odata.org/V4/Northwind/Northwind.svc/Products';
-const EMPTY_STRING = '';
-const NULL_VALUE: null = null;
-
 export enum FILTER_OPERATION {
     CONTAINS = 'contains',
     STARTS_WITH = 'startswith',
@@ -53,42 +49,72 @@ interface ODataResponse {
     value: any[];
 }
 
-/**
- * RemoteService - Template for future uniqueColumnValuesStrategy functionality
- * 
- * This service contains placeholder implementations that will be replaced
- * when the official uniqueColumnValuesStrategy becomes available from
- * the Infragistics package.
- */
-export class RemoteService {
-    public static _filteringStrategy: IgrFilteringStrategy; 
+export interface RemoteServiceConfig {
+    baseUrl: string;
+    pageSize?: number;
+    filteringStrategy?: IgrFilteringStrategy;
+    /** Cache TTL for unique column values in milliseconds (default: 30000 = 30 seconds) */
+    uniqueValuesCacheTtl?: number;
+}
 
-    public static getData(
+interface CacheEntry<T> {
+    data: T;
+    timestamp: number;
+}
+
+export class RemoteService {
+    private config: RemoteServiceConfig;
+    private dataAbortController?: AbortController;
+    private columnDataAbortController?: AbortController;
+    private uniqueValuesCache: Map<string, CacheEntry<any[]>> = new Map();
+
+    constructor(config: RemoteServiceConfig) {
+        this.config = {
+            pageSize: 1000,
+            uniqueValuesCacheTtl: 30000,
+            ...config
+        };
+    }
+
+    public setFilteringStrategy(strategy: IgrFilteringStrategy): void {
+        this.config.filteringStrategy = strategy;
+    }
+
+    public async getData(
         filteringArgs?: FilteringArgs,
         sortingArgs?: SortingArgs[]
     ): Promise<any[]> {
-        const url = this.buildDataUrl(filteringArgs, sortingArgs);
-        return fetch(url)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((data: ODataResponse) => {
-                if (!Array.isArray(data.value)) {
-                    throw new Error('Invalid response: missing or invalid data array');
-                }
-                return data.value;
-            })
-            .catch((error): any[] => {
-                console.error('Error fetching data:', error);
-                return []; 
-            });
+        // Cancel any in-flight data request
+        this.dataAbortController?.abort();
+        this.dataAbortController = new AbortController();
+
+        try {
+            const url = this.buildDataUrl(filteringArgs, sortingArgs);
+            const response = await fetch(url, { signal: this.dataAbortController.signal });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data: ODataResponse = await response.json();
+
+            if (!Array.isArray(data.value)) {
+                throw new Error('Invalid response: missing or invalid data array');
+            }
+
+            return data.value;
+        } catch (error) {
+            // Don't log abort errors as they're intentional
+            if (error instanceof Error && error.name === 'AbortError') {
+                return [];
+            }
+            console.error('Error fetching data:', error);
+            return [];
+        }
     }
 
-    private static buildDataUrl(filteringArgs?: FilteringArgs, sortingArgs?: SortingArgs[]): string {
-        const baseQuery = `${DATA_URL}?$count=true&$top=1000`;
+    private buildDataUrl(filteringArgs?: FilteringArgs, sortingArgs?: SortingArgs[]): string {
+        const baseQuery = `${this.config.baseUrl}?$count=true&$top=${this.config.pageSize}`;
         const parts: string[] = [];
 
         if (sortingArgs && sortingArgs.length > 0) {
@@ -104,32 +130,84 @@ export class RemoteService {
         return parts.length > 0 ? `${baseQuery}&${parts.join('&')}` : baseQuery;
     }
 
+    public async getColumnData(
+        column: IgrColumn, 
+        columnExpTree: IgrFilteringExpressionsTree, 
+        done: (values: any[]) => void
+    ): Promise<void> {
+        try {
+            // Try to use OData $apply for true remote distinct values
+            const uniqueValues = await this.fetchUniqueColumnValues(column.field);
+            
+            if (uniqueValues.length > 0) {
+                done(uniqueValues);
+                return;
+            }
 
-    public static getColumnData(column: IgrColumn, columnExpTree: IgrFilteringExpressionsTree, done: (values: any[]) => void): void {
-        setTimeout(() => {
-            RemoteService.getData()
-                .then(data => {
-                    // TODO: Replace this with uniqueColumnValuesStrategy when available
+            // Fallback: fetch all data and filter client-side
+            const data = await this.getData();
 
-                    if (!this._filteringStrategy) {
-                        console.warn('Filtering strategy not initialized');
-                        done([]);
-                        return;
-                    }
-                    const filteredData = this._filteringStrategy.filter(data, columnExpTree, null, null);
-                    const columnValues = filteredData.map((record: any) => record[column.field]);
-                    
-                    const uniqueValues = Array.from(new Set(columnValues));
-                    done(uniqueValues);
-                })
-                .catch(error => {
-                    console.error('Error fetching column data:', error);
-                    done([]);
-                });
-        }, 1000);
+            if (!this.config.filteringStrategy) {
+                console.warn('Filtering strategy not initialized');
+                done([]);
+                return;
+            }
+
+            const filteredData = this.config.filteringStrategy.filter(data, columnExpTree, null, null);
+            const columnValues = filteredData.map((record: any) => record[column.field]);
+            const uniqueColumnValues = Array.from(new Set(columnValues));
+            
+            done(uniqueColumnValues);
+        } catch (error) {
+            console.error('Error fetching column data:', error);
+            done([]);
+        }
     }
 
-    private static buildFilterExpression(filteringArgs: FilteringArgs): string {
+    private async fetchUniqueColumnValues(fieldName: string): Promise<any[]> {
+        // Check cache first
+        const cachedValues = this.getCachedValues(fieldName);
+        if (cachedValues) {
+            return cachedValues;
+        }
+
+        // Cancel any in-flight column data request
+        this.columnDataAbortController?.abort();
+        this.columnDataAbortController = new AbortController();
+
+        try {
+            // Use OData $apply with groupby for distinct values
+            const url = `${this.config.baseUrl}?$apply=groupby((${fieldName}))`;
+            const response = await fetch(url, { signal: this.columnDataAbortController.signal });
+
+            if (!response.ok) {
+                // If $apply is not supported, return empty to trigger fallback
+                return [];
+            }
+
+            const data: ODataResponse = await response.json();
+
+            if (!Array.isArray(data.value)) {
+                return [];
+            }
+
+            const values = data.value.map(item => item[fieldName]);
+
+            // Cache the results
+            this.setCachedValues(fieldName, values);
+
+            return values;
+        } catch (error) {
+            // Don't log abort errors as they're intentional
+            if (error instanceof Error && error.name === 'AbortError') {
+                return [];
+            }
+            // $apply might not be supported, return empty to trigger fallback
+            return [];
+        }
+    }
+
+    private buildFilterExpression(filteringArgs: FilteringArgs): string {
         if (!filteringArgs?.filteringOperands?.length) return '';
 
         const expression = this.buildAdvancedFilterExpression(
@@ -140,7 +218,7 @@ export class RemoteService {
         return expression ? `$filter=${expression}` : '';
     }
 
-    private static buildAdvancedFilterExpression(operands: FilterOperand[], operator: LOGICAL_OPERATOR): string {
+    private buildAdvancedFilterExpression(operands: FilterOperand[], operator: LOGICAL_OPERATOR): string {
         const filterParts: string[] = [];
 
         operands.forEach((operand) => {
@@ -168,14 +246,17 @@ export class RemoteService {
         return filterParts.join(` ${logicalOp} `);
     }
 
-    private static buildSingleFilterExpression(fieldName: string, searchVal: string | number, conditionName: string): string {
+    private buildSingleFilterExpression(fieldName: string, searchVal: string | number, conditionName: string): string {
         // Input validation
         if (!fieldName || searchVal === null || searchVal === undefined) {
             return '';
         }
 
         const isNumber = typeof searchVal === 'number';
-        const filterValue = isNumber ? searchVal : `'${String(searchVal).replace(/'/g, "''")}'`;
+        // URL encode string values to handle special characters
+        const filterValue = isNumber 
+            ? searchVal 
+            : `'${encodeURIComponent(String(searchVal).replace(/'/g, "''"))}'`;
 
         switch (conditionName) {
             case 'contains':
@@ -204,13 +285,17 @@ export class RemoteService {
                 return `length(${fieldName}) ${FILTER_OPERATION.EQUALS} 0`;
             case 'notEmpty':
                 return `length(${fieldName}) ${FILTER_OPERATION.GREATER_THAN} 0`;
+            case 'true':
+                return `${fieldName} ${FILTER_OPERATION.EQUALS} true`;
+            case 'false':
+                return `${fieldName} ${FILTER_OPERATION.EQUALS} false`;
             default:
                 console.warn(`Unknown filter condition: ${conditionName}`);
                 return '';
         }
     }
 
-    private static buildSortExpression(sortingArgs: SortingArgs[]): string {
+    private buildSortExpression(sortingArgs: SortingArgs[]): string {
         if (!sortingArgs || sortingArgs.length === 0) return '';
 
         const sortStrings = sortingArgs
@@ -223,7 +308,7 @@ export class RemoteService {
         return sortStrings.length > 0 ? `$orderby=${sortStrings.join(',')}` : '';
     }
 
-    private static getFilteringLogic(operator: LOGICAL_OPERATOR): string {
+    private getFilteringLogic(operator: LOGICAL_OPERATOR): string {
         switch (operator) {
             case LOGICAL_OPERATOR.AND:
                 return 'and';
@@ -233,4 +318,47 @@ export class RemoteService {
                 return 'and';
         }
     }
+
+    /**
+     * Cancel any pending data requests
+     */
+    public cancelPendingRequests(): void {
+        this.dataAbortController?.abort();
+        this.columnDataAbortController?.abort();
+    }
+
+    /**
+     * Clear the unique values cache (useful when data changes)
+     */
+    public clearCache(): void {
+        this.uniqueValuesCache.clear();
+    }
+
+    private isCacheValid(fieldName: string): boolean {
+        const entry = this.uniqueValuesCache.get(fieldName);
+        if (!entry) return false;
+
+        const now = Date.now();
+        const ttl = this.config.uniqueValuesCacheTtl!;
+        return (now - entry.timestamp) < ttl;
+    }
+
+    private getCachedValues(fieldName: string): any[] | null {
+        if (this.isCacheValid(fieldName)) {
+            return this.uniqueValuesCache.get(fieldName)!.data;
+        }
+        return null;
+    }
+
+    private setCachedValues(fieldName: string, values: any[]): void {
+        this.uniqueValuesCache.set(fieldName, {
+            data: values,
+            timestamp: Date.now()
+        });
+    }
 }
+
+// Export a default instance for convenience
+export const remoteService = new RemoteService({
+    baseUrl: 'https://services.odata.org/V4/Northwind/Northwind.svc/Products'
+});

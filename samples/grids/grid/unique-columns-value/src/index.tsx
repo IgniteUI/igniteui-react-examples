@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RemoteService } from './RemoteService'
 import { IgrGrid, IgrColumn, IgrFilteringExpressionsTree } from 'igniteui-react-grids';
@@ -6,28 +6,37 @@ import { IgrSortingExpressionEventArgs, IgrFilteringExpressionsTreeEventArgs } f
 import { IgrFilteringStrategy } from 'igniteui-react-grids';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
+const DATA_URL = 'https://services.odata.org/V4/Northwind/Northwind.svc/Products';
+
 const RemoteFilteringGrid = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const debounceRef = useRef<any>(null);
 
-  // Initialize the filtering strategy for RemoteService
-  useEffect(() => {
-    RemoteService._filteringStrategy = new IgrFilteringStrategy();
-  }, []);
+  const remoteService = useMemo(() => new RemoteService({
+    baseUrl: DATA_URL,
+    pageSize: 1000
+  }), []);
 
-  const fetchData = (filterExpressions: any = null, sortExpressions: any[] = []) => {
+  useEffect(() => {
+    remoteService.setFilteringStrategy(new IgrFilteringStrategy());
+    
+    return () => {
+      remoteService.cancelPendingRequests();
+    };
+  }, [remoteService]);
+
+  const fetchData = async (filterExpressions: any = null, sortExpressions: any[] = []) => {
     setIsLoading(true);
     
-    RemoteService.getData(filterExpressions, sortExpressions)
-      .then(result => {
-        setData(result);
-        setIsLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-        setIsLoading(false);
-      });
+    try {
+      const result = await remoteService.getData(filterExpressions, sortExpressions);
+      setData(result);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSortingExpressionsChange = (event: IgrSortingExpressionEventArgs) => {
@@ -49,7 +58,7 @@ const RemoteFilteringGrid = () => {
   };
 
   const columnValuesStrategy = (column: IgrColumn, columnExpTree: IgrFilteringExpressionsTree, done: (values: any[]) => void) => {
-    RemoteService.getColumnData(column, columnExpTree, done);
+    remoteService.getColumnData(column, columnExpTree, done);
   };
 
   useEffect(() => {
