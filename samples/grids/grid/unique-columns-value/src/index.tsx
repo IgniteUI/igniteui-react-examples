@@ -11,6 +11,8 @@ const DATA_URL = 'https://services.odata.org/V4/Northwind/Northwind.svc/Products
 const RemoteFilteringGrid = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentFilterExpressions, setCurrentFilterExpressions] = useState<any>(null);
+  const [currentSortExpressions, setCurrentSortExpressions] = useState<any[]>([]);
   const debounceRef = useRef<any>(null);
 
   const remoteService = useMemo(() => new RemoteService({
@@ -41,19 +43,21 @@ const RemoteFilteringGrid = () => {
 
   const handleSortingExpressionsChange = (event: IgrSortingExpressionEventArgs) => {
     const sortExpressions = event.detail;
-    
+    setCurrentSortExpressions(sortExpressions);
+
     if (debounceRef.current) clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(() => {
-      fetchData(null, sortExpressions);
+      fetchData(currentFilterExpressions, sortExpressions);
     }, 300);
   };
 
   const handleFilteringExpressionsTreeChange = (event: IgrFilteringExpressionsTreeEventArgs) => {
     const filterExpressions = event.detail;
-    
+    setCurrentFilterExpressions(filterExpressions);
+
     if (debounceRef.current) clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(() => {
-      fetchData(filterExpressions, []);
+      fetchData(filterExpressions, currentSortExpressions);
     }, 500);
   };
 
