@@ -1,0 +1,27 @@
+.grid-lite-wrapper {
+    width: 100%;
+    height: calc(100% - 10rem);
+}
+
+igc-grid-lite {
+    min-height: 65vh;
+}
+
+.log {
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    min-height: 1rem;
+    font-size: 0.75rem;
+    max-height: 5rem;
+    overflow-y: auto;
+}
+
+.log p {
+    margin: 0.25rem 0;
+}
+
+.log code {
+    font-family: monospace;
+    font-size: 0.75rem;
+}

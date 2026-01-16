@@ -4,6 +4,7 @@
       "paths": {
         "igniteui-react-core": [ "node_modules/igniteui-react-core", "node_modules/@infragistics/igniteui-react-core" ],
         "igniteui-react-charts": [ "node_modules/igniteui-react-charts", "node_modules/@infragistics/igniteui-react-charts" ],
+        "igniteui-react-dockmanager": [ "node_modules/igniteui-react-dockmanager", "node_modules/@infragistics/igniteui-react-dockmanager" ],
         "igniteui-react-grids": [ "node_modules/igniteui-react-grids", "node_modules/@infragistics/igniteui-react-grids" ],
         "igniteui-react-grids/grids": [ "node_modules/igniteui-react-grids/grids", "node_modules/@infragistics/igniteui-react-grids/grids" ],
         "igniteui-react-data-grids": [ "node_modules/igniteui-react-data-grids", "node_modules/@infragistics/igniteui-react-data-grids" ],
@@ -17,9 +18,7 @@
         "igniteui-react-dashboards": [ "node_modules/igniteui-react-dashboards", "node_modules/@infragistics/igniteui-react-dashboards" ],
         "igniteui-react-spreadsheet": [ "node_modules/igniteui-react-spreadsheet", "node_modules/@infragistics/igniteui-react-spreadsheet" ],
         "igniteui-react-spreadsheet-chart-adapter": [ "node_modules/igniteui-react-spreadsheet-chart-adapter", "node_modules/@infragistics/igniteui-react-spreadsheet-chart-adapter" ],
-        "igniteui-webcomponents": [ "node_modules/igniteui-webcomponents", "node_modules/@infragistics/igniteui-webcomponents" ],
-        "igniteui-dockmanager": [ "node_modules/igniteui-dockmanager", "node_modules/@infragisics/igniteui-dockmanager" ],
-        "igniteui-dockmanager/loader": [ "node_modules/igniteui-dockmanager/loader", "node_modules/@infragistics/igniteui-dockmanager/loader" ]
+        "igniteui-webcomponents": [ "node_modules/igniteui-webcomponents", "node_modules/@infragistics/igniteui-webcomponents" ]
       }
     }
   }

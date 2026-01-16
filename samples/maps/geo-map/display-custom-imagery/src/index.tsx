@@ -16,7 +16,12 @@ export default class MapDisplayCustomImagery extends React.Component<any, any> {
         this.onMapRef = this.onMapRef.bind(this);
     }
 
-    public onMapRef(geoMap: IgrGeographicMap) {
+    public onMapRef(geoMap: IgrGeographicMap | null) {
+        
+        if (!geoMap) {
+            return;
+        }
+
         // website hosting imagery tiles
         const imageryProvider = "https://api.mapbox.com/styles/v1/mapbox/streets-v11";
         // most imagery tiles are provided using deep-zoom format, where 256 is tile size and Z iz zoom level, X is row tile and Y is column tile

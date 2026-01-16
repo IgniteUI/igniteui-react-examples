@@ -1,159 +1,373 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import { BingMapsImageryStyle } from 'igniteui-react-maps';
-import { IgrBingMapsMapImagery } from 'igniteui-react-maps';
-import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
-import { IgrGeographicMapModule } from 'igniteui-react-maps';
-import { IgrGeographicMap } from 'igniteui-react-maps';
-import { IgrOpenStreetMapImagery } from 'igniteui-react-maps';
-import { IgrArcGISOnlineMapImagery } from 'igniteui-react-maps';
-import { EsriUtility, EsriStyle } from './EsriUtility';
-import { MapUtils } from './MapUtils';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
+import {
+    IgrGeographicMapModule,
+    IgrGeographicMap,
+    IgrOpenStreetMapImagery,
+    IgrArcGISOnlineMapImagery,
+    IgrAzureMapsImagery,
+    AzureMapsImageryStyle,
+    IgrGeographicTileSeries
+} from "igniteui-react-maps";
+
+import {
+    IgrDialog,
+    IgrInput,
+    IgrButton
+} from "igniteui-react";
+
+import { EsriStyle } from "./EsriUtility";
+import { MapUtils, MapRegion } from "./MapUtils";
+
+import "igniteui-webcomponents/themes/light/bootstrap.css";
+import { defineComponents } from "igniteui-webcomponents";
+
+defineComponents();
 IgrGeographicMapModule.register();
-IgrDataChartInteractivityModule.register();
 
 export default class MapDisplayImageryTiles extends React.Component<any, any> {
 
-    public geoMap: IgrGeographicMap;
-    public tileSource: IgrBingMapsMapImagery;
-
-    public bingMapsRoad: IgrBingMapsMapImagery;
-    public bingMapsAerial: IgrBingMapsMapImagery;
-    public bingMapsLabels: IgrBingMapsMapImagery;
+    public geoMap: IgrGeographicMap | null = null;
+    private dialogRef: IgrDialog | null = null;
 
     public ImageryOptions: JSX.Element[];
 
     constructor(props: any) {
         super(props);
 
-        this.state = { tileSource: "Esri WorldTopographicMap"}
+        this.state = {
+            tileSource: "OpenStreetMap (Default)",
+            azureKey: ""
+        };
+
         this.onMapRef = this.onMapRef.bind(this);
+        this.onTileSourceChanged = this.onTileSourceChanged.bind(this);
+        this.onDialogRef = this.onDialogRef.bind(this);
+        this.openAzureDialog = this.openAzureDialog.bind(this);
+        this.applyAzureKey = this.applyAzureKey.bind(this);
 
-        this.ImageryOptions = [];
-        this.ImageryOptions.push(this.getOption("OpenStreetMap", "(Default)"));
-        this.ImageryOptions.push(this.getOption("BingMaps", "Road"));
-        this.ImageryOptions.push(this.getOption("BingMaps", "Aerial Without Labels"));
-        this.ImageryOptions.push(this.getOption("BingMaps", "Aerial With Labels"));
+        // ---- OSM + all Azure styles + Esri ----
+        this.ImageryOptions = [
+            this.getOption("OpenStreetMap", "(Default)"),
 
-        // adding options for selecting public ESRI maps:
-        // for (const style of Object.keys(this.EsriMapsImageryServers)) {
-        for (const style of Object.keys(EsriStyle)) {
-            this.ImageryOptions.push(this.getOption("Esri", style));
-        }
+            // Azure base styles
+            this.getOption("AzureMaps", "Satellite"),
+            this.getOption("AzureMaps", "Road"),
+            this.getOption("AzureMaps", "DarkGrey"),
+            this.getOption("AzureMaps", "TerraOverlay"),
 
-        const enums = Object.keys(EsriStyle);
-        // console.log("ArcGISOnlineMapServers " + enums.length);
+            // Azure label / hybrid overlays
+            this.getOption("AzureMaps", "LabelsRoadOverlay"),
+            this.getOption("AzureMaps", "LabelsDarkGreyOverlay"),
+            this.getOption("AzureMaps", "HybridRoadOverlay"),
+            this.getOption("AzureMaps", "HybridDarkGreyOverlay"),
+
+            // Azure traffic overlays
+            this.getOption("AzureMaps", "TrafficAbsoluteOverlay"),
+            this.getOption("AzureMaps", "TrafficDelayOverlay"),
+            this.getOption("AzureMaps", "TrafficReducedOverlay"),
+            this.getOption("AzureMaps", "TrafficRelativeOverlay"),
+            this.getOption("AzureMaps", "TrafficRelativeDarkOverlay"),
+
+            // Azure weather overlays
+            this.getOption("AzureMaps", "WeatherRadarOverlay"),
+            this.getOption("AzureMaps", "WeatherInfraredOverlay"),
+
+            // ESRI (all styles stay)
+            ...Object.keys(EsriStyle).map(s => this.getOption("Esri", s))
+        ];
     }
 
     public getOption(source: string, style: string): JSX.Element {
         const name = source + " " + style;
-        return <option id={name} key={name}>{name}</option>
+        return <option id={name} key={name}>{name}</option>;
     }
 
+    public onMapRef(geoMap: IgrGeographicMap | null) {
+        this.geoMap = geoMap;
+        if (!geoMap) {
+            return;
+        }
+
+        // Apply initial imagery when the map is ready
+        this.onMapTypeSelectionChange(this.state.tileSource);
+    }
+
+    public onTileSourceChanged(e: any) {
+        const value = e.target.value.toString();
+        this.setState({ tileSource: value });
+        this.onMapTypeSelectionChange(value);
+    }
+
+    /** Decides OSM / Azure / Esri based on the selected tileSource text */
+    private onMapTypeSelectionChange(tileSource: string) {
+        if (!this.geoMap) {
+            return;
+        }
+
+        const parts = tileSource.split(" ");
+        const source = parts[0];
+        const styleName = parts[1] ?? "";
+
+        // OpenStreetMap
+        if (source === "OpenStreetMap") {
+            this.geoMap.series.clear();
+            this.geoMap.backgroundContent = new IgrOpenStreetMapImagery();
+        }
+
+        // Azure Maps
+        else if (source === "AzureMaps") {
+            // If no key, UI shows placeholder instead of map; just clear the map
+            if (!this.state.azureKey) {
+                this.geoMap.series.clear();
+                this.geoMap.backgroundContent = null;
+                return;
+            }
+
+            const azureStyle =
+                this.mapStyles[styleName]?.azureStyle ?? AzureMapsImageryStyle.Satellite;
+
+            this.updateAzureMap(azureStyle);
+        }
+
+        // ESRI
+        else {
+            this.geoMap.series.clear();
+
+            const esri = new IgrArcGISOnlineMapImagery();
+            const uri = EsriStyle[styleName as keyof typeof EsriStyle];
+
+            esri.mapServerUri = uri;
+            this.geoMap.backgroundContent = esri;
+        }
+    }
+
+    private onDialogRef(dialog: IgrDialog) {
+        this.dialogRef = dialog;
+    }
+
+    private openAzureDialog() {
+        this.dialogRef?.show();
+    }
+
+    private applyAzureKey() {
+        const key = (this.state.azureKey || "").trim();
+        this.dialogRef?.hide();
+
+        if (!key) {
+            return;
+        }
+
+        // Save the key and re-apply the current selection (if Azure)
+        this.setState({ azureKey: key }, () => {
+            if (this.state.tileSource.startsWith("AzureMaps")) {
+                this.onMapTypeSelectionChange(this.state.tileSource);
+            }
+        });
+    }
+
+    // -----------------------------
+    // Simplified Azure logic (now works for all styles)
+    // -----------------------------
+    private updateAzureMap(style: AzureMapsImageryStyle) {
+        if (!this.geoMap || !this.state.azureKey) {
+            return;
+        }
+
+        this.geoMap.series.clear();
+
+        const imagery = new IgrAzureMapsImagery();
+        imagery.apiKey = this.state.azureKey;
+
+        const series = new IgrGeographicTileSeries({
+            name: "tileSeries",
+            tileImagery: imagery
+        });
+        series.tileImagery = imagery;
+
+        // traffic styles → zoom to NYC
+        const isTraffic =
+            style === AzureMapsImageryStyle.TrafficAbsoluteOverlay ||
+            style === AzureMapsImageryStyle.TrafficDelayOverlay ||
+            style === AzureMapsImageryStyle.TrafficReducedOverlay ||
+            style === AzureMapsImageryStyle.TrafficRelativeOverlay ||
+            style === AzureMapsImageryStyle.TrafficRelativeDarkOverlay;
+
+
+        // TerraOverlay = satellite background + Terra overlay
+        if (style === AzureMapsImageryStyle.TerraOverlay) {
+            const background = new IgrAzureMapsImagery();
+            background.apiKey = this.state.azureKey;
+            background.imageryStyle = AzureMapsImageryStyle.Satellite;
+
+            this.geoMap.backgroundContent = background;
+            imagery.imageryStyle = style;
+            this.geoMap.series.add(series);
+        }
+        // All other Azure styles (base + overlays)
+        else {
+            imagery.imageryStyle = style;
+            this.geoMap.backgroundContent = null;
+            this.geoMap.series.add(series);
+        }
+
+        this.geoMap.zoomToGeographic({ left: -74.2591, top: 40.9176, width: -73.7004 - (-74.2591), height: 40.4774 - 40.9176 });
+    }
+
+    // -----------------------------
+    // Azure placeholder mapping
+    // -----------------------------
+    private mapStyles: {
+        [style: string]: { placeholder: string; azureStyle: AzureMapsImageryStyle };
+    } = {
+        Satellite: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_satellite.png",
+            azureStyle: AzureMapsImageryStyle.Satellite
+        },
+        Road: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_road.png",
+            azureStyle: AzureMapsImageryStyle.Road
+        },
+        DarkGrey: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_darkgrey.png",
+            azureStyle: AzureMapsImageryStyle.DarkGrey
+        },
+        TerraOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_terra_overlay.png",
+            azureStyle: AzureMapsImageryStyle.TerraOverlay
+        },
+
+        LabelsRoadOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_labelsroad.png",
+            azureStyle: AzureMapsImageryStyle.LabelsRoadOverlay
+        },
+        LabelsDarkGreyOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_labelsdarkgrey.png",
+            azureStyle: AzureMapsImageryStyle.LabelsDarkGreyOverlay
+        },
+        HybridRoadOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_hybridroad.png",
+            azureStyle: AzureMapsImageryStyle.HybridRoadOverlay
+        },
+        HybridDarkGreyOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/AzureHybridDarkGrey.png",
+            azureStyle: AzureMapsImageryStyle.HybridDarkGreyOverlay
+        },
+
+        TrafficAbsoluteOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_traffic_absolute.png",
+            azureStyle: AzureMapsImageryStyle.TrafficAbsoluteOverlay
+        },
+        TrafficDelayOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_traffic_delay.png",
+            azureStyle: AzureMapsImageryStyle.TrafficDelayOverlay
+        },
+        TrafficReducedOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_traffic_light.png",
+            azureStyle: AzureMapsImageryStyle.TrafficReducedOverlay
+        },
+        TrafficRelativeOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_traffic_relative.png",
+            azureStyle: AzureMapsImageryStyle.TrafficRelativeOverlay
+        },
+        TrafficRelativeDarkOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_traffic_relative_dark.png",
+            azureStyle: AzureMapsImageryStyle.TrafficRelativeDarkOverlay
+        },
+
+        WeatherRadarOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_weather_radar.png",
+            azureStyle: AzureMapsImageryStyle.WeatherRadarOverlay
+        },
+        WeatherInfraredOverlay: {
+            placeholder: "https://dl.infragistics.com/x/img/maps/azure_weather_Infrared_road.png",
+            azureStyle: AzureMapsImageryStyle.WeatherInfraredOverlay
+        }
+    };
+
     public render(): JSX.Element {
+        const { tileSource, azureKey } = this.state;
+
+        const parts = tileSource.split(" ");
+        const isAzure = parts[0] === "AzureMaps";
+        const styleName = parts[1] ?? "Satellite";
+
+        const showPlaceholder = isAzure && !azureKey;
+        const placeholderUrl =
+            this.mapStyles[styleName]?.placeholder ??
+            this.mapStyles["Satellite"].placeholder;
+
         return (
-            <div className="container sample" >
+            <div className="container sample">
 
-                <div className="options horizontal" >
+                {/* TOP BAR */}
+                <div className="options horizontal">
                     <label className="options-label">Imagery Tile Source</label>
-                    <select value={this.state.tileSource}
-                            onChange={this.onTileSourceChanged}
-                            style={{width: "15rem"}}>
-                            {this.ImageryOptions}
+                    <select
+                        value={tileSource}
+                        onChange={this.onTileSourceChanged}
+                        style={{ width: "18rem" }}
+                    >
+                        {this.ImageryOptions}
                     </select>
+
+                    {isAzure &&
+                        <IgrButton
+                            variant="contained"
+                            onClick={this.openAzureDialog}
+                            style={{ minWidth: "200px" }}
+                        >
+                            Enter Azure Key
+                        </IgrButton>
+                    }
                 </div>
 
-                <div className="container" >
-                    <IgrGeographicMap
-                        ref={this.onMapRef}
-                        width="100%"
-                        height="100%"
-                        zoomable="true"/>
-
+                {/* MAP OR PLACEHOLDER */}
+                <div className="container">
+                    {showPlaceholder ? (
+                        <img
+                            src={placeholderUrl}
+                            alt="Azure Maps placeholder"
+                            style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                        />
+                    ) : (
+                        <IgrGeographicMap
+                            ref={this.onMapRef}
+                            width="100%"
+                            height="100%"
+                            zoomable={true}
+                        />
+                    )}
                 </div>
+
+                {/* DIALOG */}
+                <IgrDialog ref={this.onDialogRef} title="Azure Maps Key">
+                    <IgrInput
+                        placeholder="Enter Azure Maps Key"
+                        value={azureKey}
+                        onInput={(e: any) =>
+                            this.setState({ azureKey: e.detail ?? e.target.value })
+                        }
+                        style={{ width: "100%", marginBottom: "12px" }}
+                    />
+
+                    <div
+                        slot="footer"
+                        style={{ display: "flex", justifyContent: "flex-end", gap: "8px" }}>
+                        <IgrButton variant="flat" onClick={() => this.dialogRef?.hide()}>
+                            Cancel
+                        </IgrButton>
+                        <IgrButton variant="flat" onClick={this.applyAzureKey}>
+                            Apply
+                        </IgrButton>
+                    </div>
+                </IgrDialog>
             </div>
         );
     }
-
-    public onMapRef(geoMap: IgrGeographicMap) {
-        if (!geoMap) { return; }
-
-        this.geoMap = geoMap;
-        this.geoMap.zoomToGeographic({ left: -120, top: 30, width: 45, height: 20});
-
-        const tileSource = new IgrArcGISOnlineMapImagery();
-        tileSource.mapServerUri = EsriStyle.WorldTopographicMap;
-        this.geoMap.backgroundContent = tileSource;
-    }
-
-    public onTileSourceChanged = (e: any) =>{
-        if (this.geoMap === undefined) return;
-
-        let mode: string = e.target.value.toString();        
-        
-        let splitString = mode.split(" ");
-
-        mode = "";
-
-        for(let i=0; i<splitString.length; i++){
-            mode += splitString[i];
-        }
-
-        if (mode.indexOf("OpenStreetMap") === 0) {
-            this.geoMap.backgroundContent = new IgrOpenStreetMapImagery();
-
-        } else if (mode.indexOf("BingMaps") === 0) {
-            let tileSource: IgrBingMapsMapImagery = null;
-            
-            if (mode === "BingMapsRoad") {                
-                tileSource = this.getBingMapsImagery(BingMapsImageryStyle.Road);
-            } else if (mode === "BingMapsAerialWithoutLabels") {                
-                tileSource = this.getBingMapsImagery(BingMapsImageryStyle.Aerial);
-            } else if (mode === "BingMapsAerialWithLabels") {                
-                tileSource = this.getBingMapsImagery(BingMapsImageryStyle.AerialWithLabels);
-            }
-            this.geoMap.backgroundContent = tileSource;
-
-        } else if (mode.indexOf("Esri") === 0) {
-            let name = mode.replace("Esri","");
-            let style = EsriStyle[name] as EsriStyle;
-            let uri = EsriUtility.getUri(style);
-
-            // console.log("setting URI " + uri);
-            const tileSource = new IgrArcGISOnlineMapImagery();
-            tileSource.mapServerUri = uri;
-            // or
-            // tileSource.mapServerUri = EsriStyle.WorldOceansMap;
-            // tileSource.mapServerUri = "https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer";
-            this.geoMap.backgroundContent = tileSource;
-        }
-
-        this.setState({ tileSource:  e.target.value});
-
-    }
-
-    public getBingMapsImagery(mapStyle: BingMapsImageryStyle): IgrBingMapsMapImagery {
-        if (!this.geoMap) { return null; }
-
-        const tileSource = new IgrBingMapsMapImagery();
-        tileSource.apiKey = MapUtils.getBingKey();
-        tileSource.imageryStyle = mapStyle;
-        // resolving BingMaps uri based on HTTP protocol of hosting website
-        let tileUri = tileSource.actualBingImageryRestUri;
-        let isHttpSecured = window.location.toString().startsWith("https:");
-        if (isHttpSecured) {
-            tileSource.bingImageryRestUri = tileUri.replace("http:", "https:");
-        } else {
-            tileSource.bingImageryRestUri = tileUri.replace("https:", "http:");
-        }
-
-        return tileSource;
-    }
-
 }
 
-// rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<MapDisplayImageryTiles/>);

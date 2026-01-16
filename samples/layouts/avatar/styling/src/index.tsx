@@ -18,7 +18,7 @@ export default function AvatarStyling() {
         <div className="container sample">
 
             <IgrAvatar 
-                src="https://static.infragistics.com/xplatform/images/people/men/1.jpg" 
+                src="https://dl.infragistics.com/x/img/people/men/11.png" 
                 alt="A photo of a man." 
                 className='size-large'/>
             

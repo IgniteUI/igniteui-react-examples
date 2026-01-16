@@ -23,6 +23,7 @@ import { editorsRoutingData } from "../samples/editors/RoutingData";
 import { notificationsRoutingData } from "../samples/notifications/RoutingData";
 import { menusRoutingData } from "../samples/menus/RoutingData";
 import { schedulingRoutingData } from "../samples/scheduling/RoutingData";
+import { interactionsRoutingData } from "../samples/interactions/RoutingData";
 
 // import { SamplesBuster, SamplesBusterState } from '../SamplesBuster';
 import SamplesCache from './SamplesCache';
@@ -40,6 +41,7 @@ export class SamplesBrowser extends React.Component<any, any>
     public navLinks: any[] = [];
     public navRoutes: any[] = [];
     public navLookup: Map<string, SampleInfo> = new Map();
+    public navRoutingProviders: RoutingGroup[] = [];
     public igrVersion: string = "";
     public sbContent: any;
 
@@ -76,6 +78,7 @@ export class SamplesBrowser extends React.Component<any, any>
         }
 
         this.onSampleOpen = this.onSampleOpen.bind(this);
+        this.onComponentToggle = this.onComponentToggle.bind(this);
         // console.log(TestsRoutes.DataRoutes)
 
         const routingProviders: RoutingGroup[] = [
@@ -89,19 +92,21 @@ export class SamplesBrowser extends React.Component<any, any>
             editorsRoutingData,
             notificationsRoutingData,
             menusRoutingData,
-            schedulingRoutingData
+            schedulingRoutingData,
+            interactionsRoutingData
         ];
 
         for (const routingData of routingProviders) {
             this.populateLookup(routingData);
-            this.populateLinks(SamplesRouter.getLinks(routingData, this.onSampleOpen));
             this.populateRoutes(SamplesRouter.getRoutes(routingData));
+            this.navRoutingProviders.push(routingData);
         }
         this.state = {
             SidebarVisible: true,
             SelectedGroup: '',
             SelectedControl: '',
             SelectedSample: 'react samples browser',
+            ExpandedComponents: {},
         }
     }
 
@@ -143,6 +148,30 @@ export class SamplesBrowser extends React.Component<any, any>
             // });
         }
     };
+
+    public onComponentToggle = (componentName: string) => {
+        const expanded = { ...this.state.ExpandedComponents };
+        if (expanded[componentName]) {
+            delete expanded[componentName];
+        } else {
+            expanded[componentName] = true;
+        }
+        this.setState({ ExpandedComponents: expanded });
+    };
+
+    public renderNavLinks() {
+        const navLinks: any[] = [];
+        for (const routingData of this.navRoutingProviders) {
+            const links = SamplesRouter.getLinks(
+                routingData, 
+                this.onSampleOpen, 
+                this.onComponentToggle,
+                this.state.ExpandedComponents
+            );
+            navLinks.push(...links);
+        }
+        return navLinks;
+    }
 
     public render() {
 
@@ -199,7 +228,7 @@ export class SamplesBrowser extends React.Component<any, any>
                         <div className="sbRoot">
                             <div className="sbSidebar" style={sbSidebarStyle}>
                                 {/*  <Link to={`/samples`}>Samples home</Link> */}
-                                {this.navLinks}
+                                {this.renderNavLinks()}
                             </div>
 
                             <div className="sbContent" style={sbContentStyle} ref={this.sbContentRef}>
