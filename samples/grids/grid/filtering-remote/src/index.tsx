@@ -1,9 +1,11 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef, useCallback, useMemo } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RemoteService } from './RemoteService'
 import { IgrGrid, IgrColumn, GridColumnDataType } from 'igniteui-react-grids';
 import { IgrSortingExpressionEventArgs, IgrFilteringExpressionsTreeEventArgs } from 'igniteui-react-grids';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
+
+const DATA_URL = 'https://services.odata.org/V4/Northwind/Northwind.svc/Products';
 
 interface ProductData {
   ProductID: number;
@@ -52,29 +54,43 @@ const RemoteFilteringGrid = () => {
   });
   const debounceRef = useRef<number | null>(null);
 
-  const fetchData = useCallback((newGridState?: Partial<GridState>) => {
+  const remoteService = useMemo(() => new RemoteService({
+    baseUrl: DATA_URL,
+    pageSize: 1000
+  }), []);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      remoteService.cancelPendingRequests();
+      if (debounceRef.current) {
+        clearTimeout(debounceRef.current);
+      }
+    };
+  }, [remoteService]);
+
+  const fetchData = useCallback(async (newGridState?: Partial<GridState>) => {
     const currentState = newGridState ? { ...gridState, ...newGridState } : gridState;
-    
+
     setIsLoading(true);
-    RemoteService.getData(
-      currentState.filterExpressions, 
-      currentState.sortExpressions
-    )
-    .then((result) => {
+
+    try {
+      const result = await remoteService.getData(
+        currentState.filterExpressions,
+        currentState.sortExpressions
+      );
       setData(result);
-      
+
       if (newGridState) {
         setGridState(currentState);
       }
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error('Error fetching data:', error);
-      setData([]); 
-    })
-    .finally(() => {
+      setData([]);
+    } finally {
       setIsLoading(false);
-    });
-  }, [gridState]);
+    }
+  }, [gridState, remoteService]);
 
   const debouncedFetchData = useCallback((newGridState: Partial<GridState>) => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -95,21 +111,13 @@ const RemoteFilteringGrid = () => {
 
   useEffect(() => {
     fetchData();
-  }, [fetchData]);
-
-  useEffect(() => {
-    return () => {
-      if (debounceRef.current) {
-        clearTimeout(debounceRef.current);
-      }
-    };
   }, []);
 
   return (
     <div className="container sample ig-typography">
       <h3>Remote Filtering & Sorting Grid</h3>
-      <IgrGrid 
-        autoGenerate={false} 
+      <IgrGrid
+        autoGenerate={false}
         data={data}
         isLoading={isLoading}
         onSortingExpressionsChange={handleSortingExpressionsChange}
@@ -117,13 +125,13 @@ const RemoteFilteringGrid = () => {
         allowFiltering={true}
       >
         {columnConfig.map((col) => (
-          <IgrColumn 
+          <IgrColumn
             key={col.field}
-            field={col.field} 
-            header={col.header} 
-            sortable={true} 
-            filterable={true} 
-            dataType={col.dataType} 
+            field={col.field}
+            header={col.header}
+            sortable={true}
+            filterable={true}
+            dataType={col.dataType}
           />
         ))}
       </IgrGrid>

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { RemoteService } from './RemoteService'
 import { IgrGrid, IgrColumn, IgrFilteringExpressionsTree } from 'igniteui-react-grids';
 import { IgrSortingExpressionEventArgs, IgrFilteringExpressionsTreeEventArgs } from 'igniteui-react-grids';
-import { IgrFilteringStrategy } from 'igniteui-react-grids';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const DATA_URL = 'https://services.odata.org/V4/Northwind/Northwind.svc/Products';
@@ -20,9 +19,8 @@ const RemoteFilteringGrid = () => {
     pageSize: 1000
   }), []);
 
+  // Cleanup on unmount
   useEffect(() => {
-    remoteService.setFilteringStrategy(new IgrFilteringStrategy());
-    
     return () => {
       remoteService.cancelPendingRequests();
     };
@@ -71,11 +69,7 @@ const RemoteFilteringGrid = () => {
 
   return (
     <div className="container sample ig-typography">
-      <h3>Remote Filtering & Sorting Grid with Unique Column Values</h3>
-      <div style={{ marginBottom: '10px', fontSize: '14px', color: '#666' }}>
-        This sample demonstrates remote filtering and sorting. The uniqueColumnValuesStrategy 
-        is commented out as it's a future feature from the Infragistics package.
-      </div>
+      <span>Remote Filtering & Sorting Grid with Unique Column Values</span>
       <IgrGrid 
         autoGenerate={false} 
         data={data}

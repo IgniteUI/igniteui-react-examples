@@ -1,5 +1,3 @@
-const DATA_URL = 'https://services.odata.org/V4/Northwind/Northwind.svc/Products';
-
 export enum FILTER_OPERATION {
     CONTAINS = 'contains',
     STARTS_WITH = 'startswith',
@@ -44,28 +42,62 @@ interface SortingArgs {
     dir: SORT_DIRECTION;
 }
 
+interface ODataResponse {
+    '@odata.count'?: number;
+    value: any[];
+}
+
+export interface RemoteServiceConfig {
+    baseUrl: string;
+    pageSize?: number;
+}
+
 export class RemoteService {
-    public static getData(
+    private config: RemoteServiceConfig;
+    private abortController?: AbortController;
+
+    constructor(config: RemoteServiceConfig) {
+        this.config = {
+            pageSize: 1000,
+            ...config
+        };
+    }
+
+    public async getData(
         filteringArgs?: FilteringArgs,
         sortingArgs?: SortingArgs[]
     ): Promise<any[]> {
-        const url = this.buildDataUrl(filteringArgs, sortingArgs);
-        return fetch(url)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((data) => data.value || []) 
-            .catch((error): any[] => {
-                console.error('Error fetching data:', error);
-                return []; 
-            });
+        // Cancel any in-flight request
+        this.abortController?.abort();
+        this.abortController = new AbortController();
+
+        try {
+            const url = this.buildDataUrl(filteringArgs, sortingArgs);
+            const response = await fetch(url, { signal: this.abortController.signal });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data: ODataResponse = await response.json();
+
+            if (!Array.isArray(data.value)) {
+                throw new Error('Invalid response: missing or invalid data array');
+            }
+
+            return data.value;
+        } catch (error) {
+            // Don't log abort errors as they're intentional
+            if (error instanceof Error && error.name === 'AbortError') {
+                return [];
+            }
+            console.error('Error fetching data:', error);
+            return [];
+        }
     }
 
-    private static buildDataUrl(filteringArgs?: FilteringArgs, sortingArgs?: SortingArgs[]): string {
-        const baseQuery = `${DATA_URL}?$count=true&$top=1000`;
+    private buildDataUrl(filteringArgs?: FilteringArgs, sortingArgs?: SortingArgs[]): string {
+        const baseQuery = `${this.config.baseUrl}?$count=true&$top=${this.config.pageSize}`;
         const parts: string[] = [];
 
         if (sortingArgs && sortingArgs.length > 0) {
@@ -81,7 +113,7 @@ export class RemoteService {
         return parts.length > 0 ? `${baseQuery}&${parts.join('&')}` : baseQuery;
     }
 
-    private static buildFilterExpression(filteringArgs: FilteringArgs): string {
+    private buildFilterExpression(filteringArgs: FilteringArgs): string {
         if (!filteringArgs?.filteringOperands?.length) return '';
 
         const expression = this.buildAdvancedFilterExpression(
@@ -92,7 +124,7 @@ export class RemoteService {
         return expression ? `$filter=${expression}` : '';
     }
 
-    private static buildAdvancedFilterExpression(operands: FilterOperand[], operator: LOGICAL_OPERATOR): string {
+    private buildAdvancedFilterExpression(operands: FilterOperand[], operator: LOGICAL_OPERATOR): string {
         const filterParts: string[] = [];
 
         operands.forEach((operand) => {
@@ -120,14 +152,17 @@ export class RemoteService {
         return filterParts.join(` ${logicalOp} `);
     }
 
-    private static buildSingleFilterExpression(fieldName: string, searchVal: string | number, conditionName: string): string {
+    private buildSingleFilterExpression(fieldName: string, searchVal: string | number, conditionName: string): string {
         // Input validation
         if (!fieldName || searchVal === null || searchVal === undefined) {
             return '';
         }
 
         const isNumber = typeof searchVal === 'number';
-        const filterValue = isNumber ? searchVal : `'${String(searchVal).replace(/'/g, "''")}'`;
+        // URL encode string values to handle special characters
+        const filterValue = isNumber
+            ? searchVal
+            : `'${encodeURIComponent(String(searchVal).replace(/'/g, "''"))}'`;
 
         switch (conditionName) {
             case 'contains':
@@ -156,13 +191,17 @@ export class RemoteService {
                 return `length(${fieldName}) ${FILTER_OPERATION.EQUALS} 0`;
             case 'notEmpty':
                 return `length(${fieldName}) ${FILTER_OPERATION.GREATER_THAN} 0`;
+            case 'true':
+                return `${fieldName} ${FILTER_OPERATION.EQUALS} true`;
+            case 'false':
+                return `${fieldName} ${FILTER_OPERATION.EQUALS} false`;
             default:
                 console.warn(`Unknown filter condition: ${conditionName}`);
                 return '';
         }
     }
 
-    private static buildSortExpression(sortingArgs: SortingArgs[]): string {
+    private buildSortExpression(sortingArgs: SortingArgs[]): string {
         if (!sortingArgs || sortingArgs.length === 0) return '';
 
         const sortStrings = sortingArgs
@@ -175,7 +214,7 @@ export class RemoteService {
         return sortStrings.length > 0 ? `$orderby=${sortStrings.join(',')}` : '';
     }
 
-    private static getFilteringLogic(operator: LOGICAL_OPERATOR): string {
+    private getFilteringLogic(operator: LOGICAL_OPERATOR): string {
         switch (operator) {
             case LOGICAL_OPERATOR.AND:
                 return 'and';
@@ -184,5 +223,12 @@ export class RemoteService {
             default:
                 return 'and';
         }
+    }
+
+    /**
+     * Cancel any pending requests
+     */
+    public cancelPendingRequests(): void {
+        this.abortController?.abort();
     }
 }
