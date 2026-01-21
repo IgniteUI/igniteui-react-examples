@@ -39,7 +39,8 @@ export default class DataChartCrosshairLayerStyling extends React.Component<any,
                         width="100%"
                         height="100%"
                         subtitle="Renewable Energy Generated"
-                        dataSource={this.data}>
+                        dataSource={this.data}
+						computedPlotAreaMarginMode="Series">
                         <IgrCategoryXAxis name="xAxis" 
                             label="Year" 
                             dataSource={this.data}/>
