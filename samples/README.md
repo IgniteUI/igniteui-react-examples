@@ -1,6 +1,6 @@
 
 <div style="display: flex; flex-flow: row; font-family: 'Titillium Web'">
-    <img style="border-radius: 0.25rem" alt="ignite-ui" src="https://raw.githubusercontent.com/IgniteUI/igniteui-xplat-docs/vnext/doc/en/images/readme/ig-banner.png"/>
+    <img style="border-radius: 0.25rem" alt="ignite-ui" src="https://dl.infragistics.com/x/img/browsers/ig-banner.png"/>
 </div>
 
 # Individual Samples of React Components

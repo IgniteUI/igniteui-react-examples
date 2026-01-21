@@ -12,11 +12,11 @@
     "test": "vitest"
   },
   "dependencies": {
-    "igniteui-dockmanager": "^1.17.0",
-    "igniteui-react": "^19.3.0-rc.2",
-    "igniteui-react-core": "19.2.2",
-    "igniteui-webcomponents": "^6.3.0",
     "dompurify": "^3.3.0",
+    "igniteui-dockmanager": "^1.17.0",
+    "igniteui-react": "^19.4.0",
+    "igniteui-react-core": "19.3.1",
+    "igniteui-webcomponents": "^6.3.0",
     "marked": "^16.4.1",
     "marked-shiki": "^1.2.1",
     "react": "^19.2.0",

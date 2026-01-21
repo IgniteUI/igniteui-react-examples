@@ -79,7 +79,7 @@ export default function CarouselComponents() {
               </IgrCardContent>
               <IgrCardMedia>
                 <img
-                  src="https://www.infragistics.com/angular-demos-lob/assets/images/carousel/slide1-angular.png"
+                  src="https://dl.infragistics.com/x/img/carousel/slide1-angular.png"
                 />
               </IgrCardMedia>
               <IgrCardActions>
@@ -111,7 +111,7 @@ export default function CarouselComponents() {
               </IgrCardContent>
               <IgrCardMedia>
                 <img
-                  src="https://www.infragistics.com/angular-demos-lob/assets/images/carousel/slide2-ignite.png"
+                  src="https://dl.infragistics.com/x/img/carousel/slide2-ignite.png"
                 />
               </IgrCardMedia>
               <IgrCardActions>
@@ -143,7 +143,7 @@ export default function CarouselComponents() {
               </IgrCardContent>
               <IgrCardMedia>
                 <img
-                  src="https://www.infragistics.com/angular-demos-lob/assets/images/carousel/slide3-aspnet.png"
+                  src="https://dl.infragistics.com/x/img/carousel/slide3-aspnet.png"
                 />
               </IgrCardMedia>
               <IgrCardActions>

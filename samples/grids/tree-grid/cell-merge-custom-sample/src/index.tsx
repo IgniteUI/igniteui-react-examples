@@ -1,18 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { IgrSelect, IgrSelectItem } from "igniteui-react";
 import {
   GridCellMergeMode,
-  IgrGridToolbar,
   SortingDirection,
   IgrSortingExpression,
   IgrTreeGrid,
   IgrGridMergeStrategy,
   IgrDefaultTreeGridMergeStrategy,
-  IgrByLevelTreeGridMergeStrategy,
-  IgrDefaultMergeStrategy,
 } from "igniteui-react-grids";
 import { IgrColumn } from "igniteui-react-grids";
 
@@ -38,7 +34,7 @@ export default function App() {
           <IgrTreeGrid
             data={data}
             width="100%"
-            height="800px"
+            height="700px"
             sortingExpressions={sortExpr}
             autoGenerate={false}
             primaryKey="ID"
@@ -46,8 +42,6 @@ export default function App() {
             cellMergeMode={cellMergeMode}
             mergeStrategy={customMergeStrategy as IgrGridMergeStrategy}
           >
-            <IgrGridToolbar />
-
             <IgrColumn
               field="Name"
               dataType="string"

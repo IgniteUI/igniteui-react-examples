@@ -54,7 +54,7 @@ export default function ChatOverview() {
       ? <div style={{display: "flex", alignItems: "center", gap: "8px"}}>
           <IgrAvatar
             shape='circle'
-            src="https://www.infragistics.com/angular-demos/assets/images/men/1.jpg"
+            src="https://dl.infragistics.com/x/img/people/men/11.png"
             style={{position: "relative"}}
           >
           </IgrAvatar>

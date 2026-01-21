@@ -12,10 +12,10 @@
     "test": "vitest"
   },
   "dependencies": {
-    "igniteui-react-core": "19.2.2",
-    "igniteui-react-data-grids": "19.2.2",
-    "igniteui-react-inputs": "19.2.2",
-    "igniteui-react-layouts": "19.2.2",
+    "igniteui-react-core": "19.3.1",
+    "igniteui-react-data-grids": "19.3.1",
+    "igniteui-react-inputs": "19.3.1",
+    "igniteui-react-layouts": "19.3.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tslib": "^2.4.0"

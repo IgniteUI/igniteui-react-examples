@@ -7,7 +7,7 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 export default function TextAreaResize() {
 
     return (
-        <div className="sample">
+        <div className="sample container">
            <IgrTextarea label="Resize: none" resize="none">                                      
                 <p slot="helper-text">This textarea does not resize and uses a scroll bar to show overflow text.</p>
             </IgrTextarea>

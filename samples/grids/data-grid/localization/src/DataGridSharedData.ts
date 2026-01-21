@@ -8,8 +8,8 @@ export class DataGridSharedData {
         }
 
         const employees: any[] = [];
-        let maleCount: number = 0;
-        let femaleCount: number = 0;
+        let maleCount: number = 10;
+        let femaleCount: number = 10;
         for (let i = 0; i < count; i++) {
             const age: number = Math.round(this.getRandomNumber(20, 40));
             const gender: string = this.getRandomGender();
@@ -25,15 +25,15 @@ export class DataGridSharedData {
 
             if (gender === "男") {
                 maleCount++;
-                if (maleCount > 26) {
-                    maleCount = 1;
+                if (maleCount > 39) {
+                    maleCount = 10;
                 }
                 photoPath = this.getPhotoMale(maleCount);
             }
             else {
                 femaleCount++;
-                if (femaleCount > 24) {
-                    femaleCount = 1;
+                if (femaleCount > 39) {
+                    femaleCount = 10;
                 }
                 photoPath = this.getPhotoFemale(femaleCount);
             }
@@ -264,11 +264,11 @@ export class DataGridSharedData {
     }
 
     private static getPhotoMale(id: number): string {
-        return 'https://static.infragistics.com/xplatform/images/people//GUY' + this.pad(id, 2) + '.png';
+        return 'https://dl.infragistics.com/x/img/people/men/' + this.pad(id, 2) + '.png';
     }
 
     private static getPhotoFemale(id: number): string {
-        return 'https://static.infragistics.com/xplatform/images/people/GIRL' + this.pad(id, 2) + '.png';
+        return 'https://dl.infragistics.com/x/img/people/women/' + this.pad(id, 2) + '.png';
     }
 
     private static getGenderPhoto(gender: string): string {
@@ -278,13 +278,13 @@ export class DataGridSharedData {
         // private static genders: string[] = ["男", "女"];
 
         const genderEn = (gender == "男" ? "male" : "female");
-        return 'https://static.infragistics.com/xplatform/images/genders/' + genderEn + '.png';
+        return 'https://dl.infragistics.com/x/img/genders/' + genderEn + '.png';
     }
 
     private static getCountryFlag(country: string): string {
         // Note: Mapping between En and Ja.
         // This comment is for the sake of coding and debugging.
-        // const countries: string[] = ["USA", "UK", "France", "Canada", "Poland", "Japan", "Germany"];
+        // const countries: string[] = ["United-States", "United-Kingdom", "France", "Canada", "Poland", "Japan", "Germany"];
         // const countries: string[] = ["アメリカ合衆国", "イギリス", "フランス", "カナダ", "ポーランド", "日本", "ドイツ"];
 
         let countryEn = "";
@@ -313,11 +313,11 @@ export class DataGridSharedData {
             countryEn = "Germany";
         }
         else
-        { // if (country === "United Kingdom") {
+        { // if (country === "United-Kingdom") {
             countryEn = "UK";
         }
 
-        return 'https://static.infragistics.com/xplatform/images/flags/' + countryEn + '.png';
+        return 'https://dl.infragistics.com/x/img/flags/' + countryEn + '.png';
     }
 
     private static pad(num: number, size: number): string{

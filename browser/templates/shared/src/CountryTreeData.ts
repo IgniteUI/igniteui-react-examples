@@ -127,7 +127,7 @@ export class CountryTreeData {
         data.push({ Parent: "Europe", Name: "Channel Islands", Pop: 153876 });
         data.push({ Parent: "Europe", Name: "Croatia", Pop: 4403000 });
         data.push({ Parent: "Europe", Name: "Cyprus", Pop: 1116564 });
-        data.push({ Parent: "Europe", Name: "Czech Republic", Pop: 10496088 });
+        data.push({ Parent: "Europe", Name: "Czechia", Pop: 10496088 });
         data.push({ Parent: "Europe", Name: "Denmark", Pop: 5570572 });
         data.push({ Parent: "Europe", Name: "Estonia", Pop: 1339928 });
         data.push({ Parent: "Europe", Name: "Finland", Pop: 5388272 });

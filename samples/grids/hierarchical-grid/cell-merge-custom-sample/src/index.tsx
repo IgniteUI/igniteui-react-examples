@@ -33,12 +33,13 @@ export default function App() {
       <div className="container sample ig-typography">
         <div className="container fill">
           <IgrHierarchicalGrid
+            primaryKey="ID"
             data={MultiColumnsExportData}
             sortingExpressions={sortExpr}
             moving={true}
             cellMergeMode={cellMergeMode}
             mergeStrategy={perCountryMergeStrategy}
-            height="740px"
+            height="400px"
             width="100%"
             allowFiltering={true}
           >
@@ -86,7 +87,7 @@ export default function App() {
             <IgrColumn field="Fax" sortable={true} resizable={true} />
 
             <IgrRowIsland
-              key="ChildCompanies"
+              childDataKey="ChildCompanies"
               moving={true}
               autoGenerate={false}
               sortingExpressions={sortExpr}

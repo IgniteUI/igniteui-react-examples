@@ -18,7 +18,7 @@ export class SamplesRouter {
         // console.log("SB pathname '" + location.pathname + "'");
 
         if (location.pathname === "/" ||
-            location.pathname.indexOf("/samples") > 0) {
+            location.pathname.indexOf("/samples") >= 0) {
             return true;
         }
         return false;
@@ -44,7 +44,12 @@ export class SamplesRouter {
         return routes;
     }
 
-    public static getLinks(group: RoutingGroup, onSampleOpen: (sample: RoutingSample) => void): any[] {
+    public static getLinks(
+        group: RoutingGroup, 
+        onSampleOpen: (sample: RoutingSample) => void,
+        onComponentToggle: (componentName: string) => void,
+        expandedComponents: { [key: string]: boolean }
+    ): any[] {
         let lists: any[] = [];
         // if (routePrefix === undefined) { routePrefix = ""; }
 
@@ -70,14 +75,20 @@ export class SamplesRouter {
                 );
             }
             let navListID = 'sbNav-list-' + component.name
-            let navList = <div className='sbNavigation-list' key={navListID} id={navListID} style={{display: "none"}} >{links}</div>;
+            let isExpanded = expandedComponents[component.name] === true;
+            let navList = <div 
+                className='sbNavigation-list' 
+                key={navListID} 
+                id={navListID} 
+                style={{display: isExpanded ? "block" : "none"}} 
+            >{links}</div>;
 
             let navComponentID = 'sbNav-component-' + component.name
             let navComponent = <div
                 className='sbNavigation-control'
                 key={navComponentID}
                 id={navComponentID}
-                onClick={(e) => this.onClickToggle(component)}>&#10148;  {component.name}</div>;
+                onClick={(e) => onComponentToggle(component.name)}>&#10148;  {component.name}</div>;
 
             lists.push(navComponent);
             lists.push(navList);
@@ -96,19 +107,4 @@ export class SamplesRouter {
         });
         onSampleOpen(sample);
     }
-
-    public static onClickToggle(component: RoutingComponent): void {
-        let navList = document.getElementById("sbNav-list-" + component.name);
-        if (navList) {
-            let style = navList.style as CSSStyleDeclaration;
-            let isVisible = style.display === "none";
-            // let state = navList.getAttribute("state") as string;
-            // let isVisible = state === "expanded";
-            // navList.setAttribute("state", isVisible ? "expanded" : "collapsed");
-            navList.setAttribute("style", isVisible ? "display: block;" : "display: none;");
-        }
-    }
-
-
 }
-

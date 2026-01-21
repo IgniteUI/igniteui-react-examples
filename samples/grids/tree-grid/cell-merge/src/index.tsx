@@ -65,7 +65,7 @@ export default function App() {
           <IgrTreeGrid
             data={data}
             width="100%"
-            height="800px"
+            height="720px"
             sortingExpressions={sortExpr}
             autoGenerate={false}
             primaryKey="ID"
