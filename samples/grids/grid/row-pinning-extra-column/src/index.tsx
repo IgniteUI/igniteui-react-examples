@@ -41,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     cellSelection="none">
                     <IgrColumn
-                        width="70px"
+                        width="100px"
                         filterable={false}
                         pinned={true}
                         bodyTemplate={this.webGridRowPinCellTemplate}>
@@ -103,15 +103,23 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridRowPinCellTemplate = (e: {dataContext: IgrCellTemplateContext}) => {
+        const grid = this.grid;
         const index = e.dataContext.cell.row.index;
+        const row = grid.rowList.toArray().find(x => x.index === index);
+        if (row && row.pinned && row.disabled) {
+            return (<></>);
+        }
         return (
-            <span onPointerDown={(e: any) => this.toggleRowPin(index)} style={{ cursor: 'pointer'}}>📌</span>
+            <div className='customIcon'>
+            <span onPointerDown={(e: any) => this.toggleRowPin(index)} className='customIconSpan'>📌</span>
+            </div>
         );
     }
 
     public toggleRowPin(index: number) {
         let grid = this.grid;
         grid.getRowByIndex(index).pinned = !grid.getRowByIndex(index).pinned;
+        grid.markForCheck();
     }
 }
 
