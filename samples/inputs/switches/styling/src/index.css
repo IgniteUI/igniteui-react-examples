@@ -1,0 +1,15 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+igc-switch::part(thumb) {
+    background-color: var(--ig-success-500);
+    box-shadow: none;
+  }
+
+  igc-switch::part(thumb checked) {
+    background-color: var(--ig-gray-50);
+  }
+
+  igc-switch::part(control checked) {
+    background-color: var(--ig-success-500);
+  }
