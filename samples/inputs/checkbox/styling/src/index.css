@@ -1,0 +1,10 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+igc-checkbox::part(indicator) {
+    --tick-color: red; /* check icon color */
+}
+  
+igc-checkbox::part(control checked)::after {
+  --fill-color: palegreen; /* checkbox background color */
+}
