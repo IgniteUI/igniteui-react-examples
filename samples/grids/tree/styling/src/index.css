@@ -1,0 +1,4 @@
+igc-tree-item {
+    --background-active: var(--ig-secondary-500);
+    --foreground-active: var(--ig-secondary-500-contrast);
+}
