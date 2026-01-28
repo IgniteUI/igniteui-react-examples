@@ -1,0 +1,7 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+igc-badge::part(base) {
+    --background-color: var(--ig-error-A100);
+    --border-radius: 2px;
+}
