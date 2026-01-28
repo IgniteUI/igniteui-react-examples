@@ -42,7 +42,7 @@ const RemoteVirtualizationGrid = () => {
         isLoading={isLoading}
         height="600px"
         width="100%"
-        rowHeight="50"
+        rowHeight={50}
         primaryKey="ProductID"
         onDataPreLoad={handleDataPreLoad}
       >
