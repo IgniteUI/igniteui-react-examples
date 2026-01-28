@@ -2,9 +2,9 @@
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
 igc-checkbox::part(indicator) {
-    --tick-color: red; /* check icon color */
+  --tick-color: var(--ig-secondary-500-contrast); /* check icon color */
 }
   
 igc-checkbox::part(control checked)::after {
-  --fill-color: palegreen; /* checkbox background color */
+  --fill-color: var(--ig-secondary-500); /* checkbox background color */
 }
