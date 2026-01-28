@@ -55,19 +55,23 @@ export default function App() {
 
   const pinLeft = () => {
     gridRef.current?.selectedColumns().forEach((col: IgrColumn) => {
-      col.pinningPosition = ColumnPinningPosition.Start;
-      col.pinned = true;
+      if (col.pinned) {
+              col.unpin();
+      }
+      col.pin(undefined, ColumnPinningPosition.Start);
     });
   };
   const pinRight = () => {
     gridRef.current?.selectedColumns().forEach((col: IgrColumn) => {
-      col.pinningPosition = ColumnPinningPosition.End;
-      col.pinned = true;
+      if (col.pinned) {
+          col.unpin();
+      }
+      col.pin(undefined, ColumnPinningPosition.End);
     });
   };
   const unpinColumn = () => {
     gridRef.current?.selectedColumns().forEach((col: IgrColumn) => {
-      col.pinned = false;
+      col.unpin();
     });
   };
 
