@@ -23,7 +23,7 @@ export class RemoteService {
       }
 
       if (!this.isInitialized) {
-        return this.initializeCache().then(() => this.fetchDataFromCache(skip, take));
+        return this.fetchAndCacheData(skip, take);
       }
 
       return this.fetchDataFromCache(skip, take);
@@ -54,34 +54,6 @@ export class RemoteService {
     return this.fetchAndCacheData(skip, take);
   }
 
-  private static initializeCache(): Promise<void> {
-    const url = `${DATA_URL}?$count=true&$skip=0&$top=1`;
-    
-    return fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((json: ODataResponse) => {
-        if (typeof json['@odata.count'] !== 'number') {
-          throw new Error('Invalid response: missing or invalid count');
-        }
-
-        this.totalCount = json['@odata.count'];
-        this.cachedData = new Array(this.totalCount).fill({ emptyRec: true });
-        this.isInitialized = true;
-      })
-      .catch(error => {
-        console.error('Error initializing cache:', error);
-        this.totalCount = 0;
-        this.cachedData = [];
-        this.isInitialized = false;
-        throw error;
-      });
-  }
-
   private static fetchAndCacheData(skip: number, take: number): Promise<any[]> {
     const url = `${DATA_URL}?$count=true&$skip=${skip}&$top=${take}`;
     
@@ -95,6 +67,15 @@ export class RemoteService {
       .then((json: ODataResponse) => {
         if (!Array.isArray(json.value)) {
           throw new Error('Invalid response: missing or invalid data array');
+        }
+
+        if (!this.isInitialized) {
+          if (typeof json['@odata.count'] !== 'number') {
+            throw new Error('Invalid response: missing or invalid count');
+          }
+          this.totalCount = json['@odata.count'];
+          this.cachedData = new Array(this.totalCount).fill({ emptyRec: true });
+          this.isInitialized = true;
         }
 
         // Cache the fetched data
