@@ -51,8 +51,10 @@ export default class Sample extends React.Component<any, any> {
                     isWrappingEnabled="true">
                     <IgrPropertyEditorPropertyDescription
                         propertyPath="ColumnSelection"
-                        name="columnSelectionEditor"
-                        label="Column Selection">
+                        name="ColumnSelectionEditor"
+                        valueType="EnumValue"
+                        dropDownNames={["None", "Single", "Multiple", "MultipleCascade"]}
+                        dropDownValues={["None", "Single", "Multiple", "MultipleCascade"]}>
                     </IgrPropertyEditorPropertyDescription>
                 </IgrPropertyEditorPanel>
             </div>
