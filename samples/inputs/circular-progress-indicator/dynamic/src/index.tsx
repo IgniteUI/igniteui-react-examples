@@ -22,17 +22,23 @@ export default function DynamicCircularProgress() {
     }, []);
 
     const incrementProgress = () => {
-        setCurrentValue(currentValue + 10);
-        if (currentValue > 100) {
-            setCurrentValue(100);
-        }
+        setCurrentValue((oldValue) => {
+           const newValue = oldValue + 10;
+           if (newValue > 100) {
+             return 100;
+           }
+            return newValue;
+        });
     }
 
     const decrementProgress = () => {
-        setCurrentValue(currentValue - 10);
-        if (currentValue < 0) {
-            setCurrentValue(0);
-        }
+        setCurrentValue((oldValue) => {
+            const newValue = oldValue - 10;
+            if (newValue < 0) {
+              return 0;
+            }
+             return newValue;
+        });
     }
 
     return (
