@@ -7,14 +7,24 @@ import {
   IgcGridComponent,
   IgcFilteringExpressionsTree,
   IgcExpressionTree,
-  FilteringLogic,
-  defineComponents
+  FilteringLogic
 } from 'igniteui-webcomponents-grids/grids';
 
 import 'igniteui-webcomponents-grids/grids/themes/light/material.css';
 
 // Register components
-defineComponents(IgcQueryBuilderComponent, IgcGridComponent);
+IgcQueryBuilderComponent.register();
+IgcGridComponent.register();
+
+// Declare JSX types for custom elements
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'igc-query-builder': any;
+      'igc-grid': any;
+    }
+  }
+}
 
 const API_ENDPOINT = 'https://data-northwind.indigo.design';
 
@@ -83,7 +93,7 @@ const QueryBuilderOverview: React.FC = () => {
 
   // Set up query builder
   useEffect(() => {
-    if (!queryBuilderRef.current || !expressionTree) return;
+    if (!queryBuilderRef.current || !expressionTree) return undefined;
 
     const queryBuilder = queryBuilderRef.current;
     queryBuilder.entities = entities as any;
@@ -102,12 +112,33 @@ const QueryBuilderOverview: React.FC = () => {
 
   // Set up grid
   useEffect(() => {
-    if (!gridRef.current) return;
+    if (!gridRef.current) return undefined;
     
     const grid = gridRef.current;
     grid.height = '420px';
     grid.autoGenerate = true;
   }, []);
+
+  // Calculate which columns should be visible based on returnFields
+  const calculateColumnsInView = () => {
+    if (!gridRef.current || !expressionTree) return;
+
+    const grid = gridRef.current;
+    const returnFields = expressionTree.returnFields ?? [];
+
+    if (returnFields.length === 0 || returnFields[0] === '*') {
+      const selectedEntity = entities.find(e => e.name === expressionTree.entity);
+      const selectedEntityFields = (selectedEntity?.fields ?? []).map(f => f.field);
+      
+      grid.columns.forEach(column => {
+        column.hidden = !selectedEntityFields.includes(column.field);
+      });
+    } else {
+      grid.columns.forEach(column => {
+        column.hidden = !returnFields.includes(column.field);
+      });
+    }
+  };
 
   // Fetch data when expression tree changes
   useEffect(() => {
@@ -147,27 +178,6 @@ const QueryBuilderOverview: React.FC = () => {
 
     fetchData();
   }, [expressionTree]);
-
-  // Calculate which columns should be visible based on returnFields
-  const calculateColumnsInView = () => {
-    if (!gridRef.current || !expressionTree) return;
-
-    const grid = gridRef.current;
-    const returnFields = expressionTree.returnFields ?? [];
-
-    if (returnFields.length === 0 || returnFields[0] === '*') {
-      const selectedEntity = entities.find(e => e.name === expressionTree.entity);
-      const selectedEntityFields = (selectedEntity?.fields ?? []).map(f => f.field);
-      
-      grid.columns.forEach(column => {
-        column.hidden = !selectedEntityFields.includes(column.field);
-      });
-    } else {
-      grid.columns.forEach(column => {
-        column.hidden = !returnFields.includes(column.field);
-      });
-    }
-  };
 
   return (
     <div className="container sample ig-typography">

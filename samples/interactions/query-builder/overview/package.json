@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "igniteui-react": "19.5.0-beta.2",
-    "igniteui-react-core": "19.5.0-beta.2",
+    "igniteui-react-core": "19.3.1",
     "igniteui-webcomponents-grids": "6.3.0-alpha.2",
     "lit-html": "^3.2.0",
     "react": "^19.2.0",
@@ -32,7 +32,7 @@
     "eslint": "^8.33.0",
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-react": "^7.20.0",
-    "typescript": "^4.8.4",
+    "typescript": "^5.0.0",
     "vite": "^7.1.9",
     "vitest": "^3.2.4",
     "vitest-canvas-mock": "^0.3.3",

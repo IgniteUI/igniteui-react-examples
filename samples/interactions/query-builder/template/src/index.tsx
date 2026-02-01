@@ -8,8 +8,7 @@ import {
   IgcFilteringExpressionsTree,
   IgcExpressionTree,
   FilteringLogic,
-  IgcStringFilteringOperand,
-  defineComponents as defineGridComponents
+  IgcStringFilteringOperand
 } from 'igniteui-webcomponents-grids/grids';
 
 import {
@@ -30,7 +29,8 @@ import { html, render } from 'lit-html';
 import 'igniteui-webcomponents-grids/grids/themes/light/material.css';
 
 // Register components
-defineGridComponents(IgcQueryBuilderComponent, IgcQueryBuilderHeaderComponent);
+IgcQueryBuilderComponent.register();
+IgcQueryBuilderHeaderComponent.register();
 defineComponents(
   IgcDatePickerComponent,
   IgcDateTimeInputComponent,
@@ -41,6 +41,16 @@ defineComponents(
   IgcInputComponent,
   IgcIconComponent
 );
+
+// Declare JSX types for custom elements
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'igc-query-builder': any;
+      'igc-query-builder-header': any;
+    }
+  }
+}
 
 // Types
 interface Field {
@@ -354,7 +364,7 @@ const QueryBuilderTemplate: React.FC = () => {
 
   // Set up query builder
   useEffect(() => {
-    if (!queryBuilderRef.current || !expressionTree) return;
+    if (!queryBuilderRef.current || !expressionTree) return undefined;
 
     const queryBuilder = queryBuilderRef.current;
     queryBuilder.entities = entities as any;
