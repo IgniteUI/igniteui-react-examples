@@ -38,13 +38,9 @@ export default class Sample extends React.Component<any, any> {
                     id="treeGrid"
                     data={this.employeesNestedData}
                     childDataKey="Employees">
-                    <IgrGridToolbar
-                    >
-                        <IgrGridToolbarActions
-                        >
-                            <IgrGridToolbarExporter
-                                exportCSV={false}
-                                exportExcel={true}>
+                    <IgrGridToolbar>
+                        <IgrGridToolbarActions>
+                            <IgrGridToolbarExporter>
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>

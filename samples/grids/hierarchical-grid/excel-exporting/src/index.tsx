@@ -43,13 +43,9 @@ export default class Sample extends React.Component<any, any> {
                     primaryKey="ID"
                     allowFiltering={true}
                     filterMode="excelStyleFilter">
-                    <IgrGridToolbar
-                    >
-                        <IgrGridToolbarActions
-                        >
-                            <IgrGridToolbarExporter
-                                exportCSV={false}
-                                exportExcel={true}>
+                    <IgrGridToolbar>
+                        <IgrGridToolbarActions>
+                            <IgrGridToolbarExporter>
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
