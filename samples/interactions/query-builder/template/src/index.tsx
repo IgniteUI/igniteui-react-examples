@@ -3,54 +3,45 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { 
-  IgcQueryBuilderComponent,
-  IgcQueryBuilderHeaderComponent,
-  IgcFilteringExpressionsTree,
-  IgcExpressionTree,
+  IgrQueryBuilder,
+  IgrQueryBuilderModule,
+  IgrQueryBuilderHeader,
+  IgrFilteringExpressionsTree,
+  IgrExpressionTree,
   FilteringLogic,
-  IgcStringFilteringOperand
-} from 'igniteui-webcomponents-grids/grids';
+  IgrStringFilteringOperand
+} from 'igniteui-react-grids';
 
 import {
-  IgcDatePickerComponent,
-  IgcDateTimeInputComponent,
-  IgcSelectComponent,
-  IgcSelectItemComponent,
-  IgcRadioGroupComponent,
-  IgcRadioComponent,
-  IgcInputComponent,
-  IgcIconComponent,
-  defineComponents,
-  registerIconFromText
-} from 'igniteui-webcomponents';
+  IgrDatePicker,
+  IgrDatePickerModule,
+  IgrDateTimeInput,
+  IgrDateTimeInputModule,
+  IgrSelect,
+  IgrSelectModule,
+  IgrSelectItem,
+  IgrRadioGroup,
+  IgrRadioGroupModule,
+  IgrRadio,
+  IgrInput,
+  IgrInputModule,
+  IgrIcon,
+  IgrIconModule
+} from 'igniteui-react';
 
-import { html, render } from 'lit-html';
-
-import 'igniteui-webcomponents-grids/grids/themes/light/material.css';
+import 'igniteui-react-grids/grids/themes/light/material.css';
 
 // Register components
-IgcQueryBuilderComponent.register();
-IgcQueryBuilderHeaderComponent.register();
-defineComponents(
-  IgcDatePickerComponent,
-  IgcDateTimeInputComponent,
-  IgcSelectComponent,
-  IgcSelectItemComponent,
-  IgcRadioGroupComponent,
-  IgcRadioComponent,
-  IgcInputComponent,
-  IgcIconComponent
-);
-
-// Declare JSX types for custom elements
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'igc-query-builder': any;
-      'igc-query-builder-header': any;
-    }
-  }
-}
+const mods: any[] = [
+  IgrQueryBuilderModule,
+  IgrDatePickerModule,
+  IgrDateTimeInputModule,
+  IgrSelectModule,
+  IgrRadioGroupModule,
+  IgrInputModule,
+  IgrIconModule
+];
+mods.forEach((m) => m.register());
 
 // Types
 interface Field {
@@ -82,11 +73,11 @@ interface QueryBuilderSearchValueContext {
 }
 
 interface SampleState {
-  expressionTree: IgcExpressionTree | null;
+  expressionTree: IgrExpressionTree | null;
 }
 
 export default class Sample extends React.Component<any, SampleState> {
-  private queryBuilderRef: React.RefObject<IgcQueryBuilderComponent>;
+  private queryBuilderRef: React.RefObject<IgrQueryBuilder>;
   private expressionOutputRef: React.RefObject<HTMLPreElement>;
 
   private regionOptions: RegionOption[] = [
@@ -119,24 +110,20 @@ export default class Sample extends React.Component<any, SampleState> {
   }
 
   componentDidMount() {
-    // Register icon
-    const clockIcon = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z' /></svg>";
-    registerIconFromText('clock', clockIcon, 'material');
-
     // Initialize expression tree
-    const tree = new IgcFilteringExpressionsTree();
+    const tree = new IgrFilteringExpressionsTree();
     tree.operator = FilteringLogic.And;
     tree.entity = 'Orders';
     tree.returnFields = ['*'];
     tree.filteringOperands.push({
       fieldName: 'Region',
-      condition: IgcStringFilteringOperand.instance().condition('equals'),
+      condition: IgrStringFilteringOperand.instance().condition('equals'),
       conditionName: 'equals',
       searchVal: this.regionOptions[0]
     } as any);
     tree.filteringOperands.push({
       fieldName: 'OrderStatus',
-      condition: IgcStringFilteringOperand.instance().condition('equals'),
+      condition: IgrStringFilteringOperand.instance().condition('equals'),
       conditionName: 'equals',
       searchVal: this.statusOptions[0].value
     } as any);
@@ -148,7 +135,6 @@ export default class Sample extends React.Component<any, SampleState> {
       const queryBuilder = this.queryBuilderRef.current;
       queryBuilder.entities = this.entities as any;
       queryBuilder.expressionTree = tree;
-      queryBuilder.searchValueTemplate = this.buildSearchValueTemplate as any;
 
       queryBuilder.addEventListener('expressionTreeChange', this.handleExpressionTreeChange);
     }
@@ -175,7 +161,7 @@ export default class Sample extends React.Component<any, SampleState> {
     }
   }
 
-  private handleExpressionTreeChange = (event: CustomEvent<IgcExpressionTree>) => {
+  private handleExpressionTreeChange = (event: any) => {
     this.setState({ expressionTree: event.detail });
   };
 
@@ -279,54 +265,65 @@ export default class Sample extends React.Component<any, SampleState> {
 
   private buildRegionSelect = (ctx: QueryBuilderSearchValueContext) => {
     const currentValue = ctx?.implicit?.value?.value ?? '';
+    const key = `region-select-${currentValue}`;
 
-    return html`
-      <igc-select
-        placeholder="Region"
-        .value=${currentValue}
-        @igcChange=${(event: CustomEvent<{ value: string }>) => {
-          const value = event.detail?.value;
+    return (
+      <IgrSelect
+        className="qb-select"
+        key={key}
+        value={currentValue}
+        change={(sender: any) => {
+          const value = sender.value;
           const currentKey = ctx?.implicit?.value?.value ?? '';
 
           if (!value || value === currentKey) return;
 
-          ctx.implicit.value = this.regionOptions.find(option => option.value === value) ?? null;
+          setTimeout(() => {
+            ctx.implicit.value = this.regionOptions.find(option => option.value === value) ?? null;
+          });
         }}>
-        ${this.regionOptions.map(option => html`
-          <igc-select-item value=${option.value}>${option.text}</igc-select-item>
-        `)}
-      </igc-select>
-    `;
+        {this.regionOptions.map(option => (
+          <IgrSelectItem key={option.value} value={option.value}>
+            <span>{option.text}</span>
+          </IgrSelectItem>
+        ))}
+      </IgrSelect>
+    );
   };
 
   private buildStatusRadios = (ctx: QueryBuilderSearchValueContext) => {
     const implicitValue = ctx.implicit?.value;
     const currentValue = implicitValue === null ? '' : implicitValue.toString();
+    const key = `status-radio-${currentValue}`;
 
-    return html`
-      <igc-radio-group
-        style="gap: 5px;"
-        .alignment=${"horizontal"}
-        .value=${currentValue}
-        @igcChange=${(event: CustomEvent<{ value: string }>) => {
-          const value = event.detail?.value;
+    return (
+      <IgrRadioGroup
+        key={key}
+        style={{ gap: '5px' }}
+        alignment="horizontal"
+        value={currentValue}
+        change={(sender: any) => {
+          const value = sender.value;
           if (value === undefined) return;
 
           const numericValue = Number(value);
           if (ctx.implicit.value === numericValue) return;
 
-          ctx.implicit.value = numericValue;
+          setTimeout(() => {
+            ctx.implicit.value = numericValue;
+          });
         }}>
-        ${this.statusOptions.map(option => html`
-          <igc-radio
+        {this.statusOptions.map(option => (
+          <IgrRadio
+            key={option.value}
             name="status"
-            value=${option.value}
-            ?checked=${option.value.toString() === currentValue}>
-            ${option.text}
-          </igc-radio>
-        `)}
-      </igc-radio-group>
-    `;
+            value={option.value.toString()}
+            checked={option.value.toString() === currentValue}
+            labelText={option.text}>
+          </IgrRadio>
+        ))}
+      </IgrRadioGroup>
+    );
   };
 
   private buildDatePicker = (ctx: QueryBuilderSearchValueContext) => {
@@ -339,36 +336,45 @@ export default class Sample extends React.Component<any, SampleState> {
 
     const allowedConditions = ['equals', 'doesNotEqual', 'before', 'after'];
     const isEnabled = allowedConditions.indexOf(ctx.selectedCondition ?? '') !== -1;
+    const key = `date-picker-${currentValue}`;
 
-    return html`
-      <igc-date-picker
-        .value=${currentValue}
-        .disabled=${!isEnabled}
-        @click=${(event: Event) => (event.currentTarget as IgcDatePickerComponent).show()}
-        @igcChange=${(event: CustomEvent) => {
-          ctx.implicit.value = event.detail;
+    return (
+      <IgrDatePicker
+        key={key}
+        value={currentValue}
+        disabled={!isEnabled}
+        click={(sender: any) => sender.show()}
+        change={(sender: any) => {
+          setTimeout(() => {
+            ctx.implicit.value = sender.value;
+          });
         }}>
-      </igc-date-picker>
-    `;
+      </IgrDatePicker>
+    );
   };
 
   private buildTimeInput = (ctx: QueryBuilderSearchValueContext) => {
     const currentValue = this.normalizeTimeValue(ctx.implicit?.value);
     const allowedConditions = ['at', 'not_at', 'at_before', 'at_after', 'before', 'after'];
     const isDisabled = ctx.selectedField == null || allowedConditions.indexOf(ctx.selectedCondition ?? '') === -1;
+    const key = `time-input-${currentValue}`;
 
-    return html`
-      <igc-date-time-input
-        .inputFormat=${"hh:mm tt"}
-        .value=${currentValue}
-        .disabled=${isDisabled}
-        @igcChange=${(event: CustomEvent) => {
-          const picker = event.currentTarget as IgcDateTimeInputComponent;
-          ctx.implicit.value = picker.value;
+    return (
+      <IgrDateTimeInput
+        key={key}
+        inputFormat="hh:mm tt"
+        value={currentValue}
+        disabled={isDisabled}
+        change={(sender: any) => {
+          setTimeout(() => {
+            ctx.implicit.value = sender.value;
+          });
         }}>
-        <igc-icon slot="prefix" name="clock" collection="material"></igc-icon>
-      </igc-date-time-input>
-    `;
+        <div slot="prefix">
+          <IgrIcon name="clock" collection="material" />
+        </div>
+      </IgrDateTimeInput>
+    );
   };
 
   private buildDefaultInput = (ctx: QueryBuilderSearchValueContext, matchesEqualityCondition: boolean) => {
@@ -388,30 +394,37 @@ export default class Sample extends React.Component<any, SampleState> {
     const inputValue = currentValue == null ? '' : currentValue;
     const disabledConditions = ['empty', 'notEmpty', 'null', 'notNull', 'inQuery', 'notInQuery'];
     const isDisabled = isBoolean || selectedField == null || disabledConditions.indexOf(ctx.selectedCondition ?? '') !== -1;
+    const key = `default-input-${inputValue}`;
 
-    return html`
-      <igc-input 
-        .value=${inputValue}
-        ?disabled=${isDisabled}
-        placeholder=${placeholder}
-        type=${isNumber ? 'number' : 'text'}
-        @input=${(event: Event) => {
-          const target = event.target as HTMLInputElement;
-          ctx.implicit.value = isNumber
-            ? target.value === '' ? null : Number(target.value)
-            : target.value;
+    return (
+      <IgrInput 
+        key={key}
+        value={inputValue?.toString() || ''}
+        disabled={isDisabled}
+        placeholder={placeholder}
+        type={isNumber ? 'number' : 'text'}
+        input={(sender: any) => {
+          const value = sender.value;
+          setTimeout(() => {
+            ctx.implicit.value = isNumber
+              ? value === '' ? null : Number(value)
+              : value;
+          });
         }}>
-      </igc-input>
-    `;
+      </IgrInput>
+    );
   };
 
   public render(): JSX.Element {
     return (
       <div className="container sample ig-typography">
         <div className="wrapper">
-          <igc-query-builder ref={this.queryBuilderRef} id="queryBuilder">
-            <igc-query-builder-header title="Query Builder Template Sample"></igc-query-builder-header>
-          </igc-query-builder>
+          <IgrQueryBuilder 
+            ref={this.queryBuilderRef} 
+            id="queryBuilder"
+            searchValueTemplate={this.buildSearchValueTemplate}>
+            <IgrQueryBuilderHeader title="Query Builder Template Sample"></IgrQueryBuilderHeader>
+          </IgrQueryBuilder>
           
           <div className="output-area">
             <pre ref={this.expressionOutputRef} id="expressionOutput"></pre>

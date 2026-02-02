@@ -1,30 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-
 import { 
-  IgcQueryBuilderComponent,
-  IgcGridComponent,
-  IgcFilteringExpressionsTree,
-  IgcExpressionTree,
+  IgrQueryBuilder,
+  IgrGrid,
+  IgrFilteringExpressionsTree,
+  IgrExpressionTree,
   FilteringLogic
-} from 'igniteui-webcomponents-grids/grids';
+} from 'igniteui-react-grids';
 
-import 'igniteui-webcomponents-grids/grids/themes/light/material.css';
-
-// Register components
-IgcQueryBuilderComponent.register();
-IgcGridComponent.register();
-
-// Declare JSX types for custom elements
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'igc-query-builder': any;
-      'igc-grid': any;
-    }
-  }
-}
+import 'igniteui-react-grids/grids/themes/light/material.css';
 
 const API_ENDPOINT = 'https://data-northwind.indigo.design';
 
@@ -40,12 +25,12 @@ interface Entity {
 }
 
 interface SampleState {
-  expressionTree: IgcExpressionTree | null;
+  expressionTree: IgrExpressionTree | null;
 }
 
 export default class Sample extends React.Component<any, SampleState> {
-  private queryBuilderRef: React.RefObject<IgcQueryBuilderComponent>;
-  private gridRef: React.RefObject<IgcGridComponent>;
+  private queryBuilderRef: React.RefObject<IgrQueryBuilder>;
+  private gridRef: React.RefObject<IgrGrid>;
 
   constructor(props: any) {
     super(props);
@@ -60,7 +45,7 @@ export default class Sample extends React.Component<any, SampleState> {
 
   componentDidMount() {
     // Initialize expression tree
-    const tree = new IgcFilteringExpressionsTree();
+    const tree = new IgrFilteringExpressionsTree();
     tree.operator = FilteringLogic.And;
     tree.entity = 'Orders';
     tree.returnFields = [
@@ -115,7 +100,7 @@ export default class Sample extends React.Component<any, SampleState> {
     }
   }
 
-  private handleExpressionTreeChange = (event: CustomEvent<IgcExpressionTree>) => {
+  private handleExpressionTreeChange = (event: any) => {
     this.setState({ expressionTree: event.detail });
   };
 
@@ -209,10 +194,10 @@ export default class Sample extends React.Component<any, SampleState> {
     return (
       <div className="container sample ig-typography">
         <div className="wrapper">
-          <igc-query-builder ref={this.queryBuilderRef} id="queryBuilder"></igc-query-builder>
+          <IgrQueryBuilder ref={this.queryBuilderRef} id="queryBuilder"></IgrQueryBuilder>
           
           <div className="output-area">
-            <igc-grid ref={this.gridRef} id="grid"></igc-grid>
+            <IgrGrid ref={this.gridRef} id="grid"></IgrGrid>
           </div>
         </div>
       </div>
