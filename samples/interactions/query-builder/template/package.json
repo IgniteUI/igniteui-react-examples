@@ -1,6 +1,6 @@
 {
-  "name": "example-ignite-ui-react",
-  "description": "This project provides example of using Ignite UI for React components",
+  "name": "react-query-builder-template",
+  "description": "This project provides example of Query Builder Template using Ignite UI for React components",
   "author": "Infragistics",
   "version": "1.4.0",
   "license": "",

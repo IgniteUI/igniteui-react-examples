@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
@@ -39,39 +39,27 @@ interface Entity {
   fields: Field[];
 }
 
-const QueryBuilderOverview: React.FC = () => {
-  const queryBuilderRef = useRef<IgcQueryBuilderComponent>(null);
-  const gridRef = useRef<IgcGridComponent>(null);
-  const [expressionTree, setExpressionTree] = useState<IgcExpressionTree | null>(null);
+interface SampleState {
+  expressionTree: IgcExpressionTree | null;
+}
 
-  // Define field structures
-  const customersFields: Field[] = [
-    { field: 'customerId', dataType: 'string' },
-    { field: 'companyName', dataType: 'string' },
-    { field: 'contactName', dataType: 'string' },
-    { field: 'contactTitle', dataType: 'string' }
-  ];
+export default class Sample extends React.Component<any, SampleState> {
+  private queryBuilderRef: React.RefObject<IgcQueryBuilderComponent>;
+  private gridRef: React.RefObject<IgcGridComponent>;
 
-  const ordersFields: Field[] = [
-    { field: 'orderId', dataType: 'number' },
-    { field: 'customerId', dataType: 'string' },
-    { field: 'employeeId', dataType: 'number' },
-    { field: 'shipperId', dataType: 'number' },
-    { field: 'orderDate', dataType: 'date' },
-    { field: 'requiredDate', dataType: 'date' },
-    { field: 'shipVia', dataType: 'string' },
-    { field: 'freight', dataType: 'number' },
-    { field: 'shipName', dataType: 'string' },
-    { field: 'completed', dataType: 'boolean' }
-  ];
+  constructor(props: any) {
+    super(props);
 
-  const entities: Entity[] = [
-    { name: 'Customers', fields: customersFields },
-    { name: 'Orders', fields: ordersFields }
-  ];
+    this.queryBuilderRef = React.createRef();
+    this.gridRef = React.createRef();
 
-  // Initialize expression tree
-  useEffect(() => {
+    this.state = {
+      expressionTree: null
+    };
+  }
+
+  componentDidMount() {
+    // Initialize expression tree
     const tree = new IgcFilteringExpressionsTree();
     tree.operator = FilteringLogic.And;
     tree.entity = 'Orders';
@@ -88,46 +76,89 @@ const QueryBuilderOverview: React.FC = () => {
       'completed'
     ];
 
-    setExpressionTree(tree);
-  }, []);
+    this.setState({ expressionTree: tree });
 
-  // Set up query builder
-  useEffect(() => {
-    if (!queryBuilderRef.current || !expressionTree) return undefined;
+    // Set up query builder
+    if (this.queryBuilderRef.current && tree) {
+      const queryBuilder = this.queryBuilderRef.current;
+      queryBuilder.entities = this.entities as any;
+      queryBuilder.expressionTree = tree;
 
-    const queryBuilder = queryBuilderRef.current;
-    queryBuilder.entities = entities as any;
-    queryBuilder.expressionTree = expressionTree;
+      queryBuilder.addEventListener('expressionTreeChange', this.handleExpressionTreeChange);
+    }
 
-    const handleExpressionTreeChange = (event: CustomEvent<IgcExpressionTree>) => {
-      setExpressionTree(event.detail);
-    };
+    // Set up grid
+    if (this.gridRef.current) {
+      const grid = this.gridRef.current;
+      grid.height = '420px';
+      grid.autoGenerate = true;
+    }
+  }
 
-    queryBuilder.addEventListener('expressionTreeChange', handleExpressionTreeChange as EventListener);
+  componentDidUpdate(prevProps: any, prevState: any) {
+    // Fetch data when expression tree changes
+    if (prevState.expressionTree !== this.state.expressionTree && this.state.expressionTree) {
+      this.fetchData();
+    }
 
-    return () => {
-      queryBuilder.removeEventListener('expressionTreeChange', handleExpressionTreeChange as EventListener);
-    };
-  }, [expressionTree?.entity]); // Only re-run if entity changes
+    // Update query builder if expression tree changed
+    if (this.queryBuilderRef.current && this.state.expressionTree && 
+        prevState.expressionTree !== this.state.expressionTree) {
+      const queryBuilder = this.queryBuilderRef.current;
+      queryBuilder.expressionTree = this.state.expressionTree;
+    }
+  }
 
-  // Set up grid
-  useEffect(() => {
-    if (!gridRef.current) return undefined;
-    
-    const grid = gridRef.current;
-    grid.height = '420px';
-    grid.autoGenerate = true;
-  }, []);
+  componentWillUnmount() {
+    if (this.queryBuilderRef.current) {
+      this.queryBuilderRef.current.removeEventListener('expressionTreeChange', this.handleExpressionTreeChange);
+    }
+  }
 
-  // Calculate which columns should be visible based on returnFields
-  const calculateColumnsInView = () => {
-    if (!gridRef.current || !expressionTree) return;
+  private handleExpressionTreeChange = (event: CustomEvent<IgcExpressionTree>) => {
+    this.setState({ expressionTree: event.detail });
+  };
 
-    const grid = gridRef.current;
+  private get customersFields(): Field[] {
+    return [
+      { field: 'customerId', dataType: 'string' },
+      { field: 'companyName', dataType: 'string' },
+      { field: 'contactName', dataType: 'string' },
+      { field: 'contactTitle', dataType: 'string' }
+    ];
+  }
+
+  private get ordersFields(): Field[] {
+    return [
+      { field: 'orderId', dataType: 'number' },
+      { field: 'customerId', dataType: 'string' },
+      { field: 'employeeId', dataType: 'number' },
+      { field: 'shipperId', dataType: 'number' },
+      { field: 'orderDate', dataType: 'date' },
+      { field: 'requiredDate', dataType: 'date' },
+      { field: 'shipVia', dataType: 'string' },
+      { field: 'freight', dataType: 'number' },
+      { field: 'shipName', dataType: 'string' },
+      { field: 'completed', dataType: 'boolean' }
+    ];
+  }
+
+  private get entities(): Entity[] {
+    return [
+      { name: 'Customers', fields: this.customersFields },
+      { name: 'Orders', fields: this.ordersFields }
+    ];
+  }
+
+  private calculateColumnsInView = () => {
+    if (!this.gridRef.current || !this.state.expressionTree) return;
+
+    const grid = this.gridRef.current;
+    const expressionTree = this.state.expressionTree;
     const returnFields = expressionTree.returnFields ?? [];
 
     if (returnFields.length === 0 || returnFields[0] === '*') {
-      const selectedEntity = entities.find(e => e.name === expressionTree.entity);
+      const selectedEntity = this.entities.find(e => e.name === expressionTree.entity);
       const selectedEntityFields = (selectedEntity?.fields ?? []).map(f => f.field);
       
       grid.columns.forEach(column => {
@@ -140,58 +171,55 @@ const QueryBuilderOverview: React.FC = () => {
     }
   };
 
-  // Fetch data when expression tree changes
-  useEffect(() => {
-    if (!expressionTree || !gridRef.current) return;
+  private async fetchData() {
+    const grid = this.gridRef.current;
+    const expressionTree = this.state.expressionTree;
 
-    const fetchData = async () => {
-      const grid = gridRef.current;
-      if (!grid) return;
+    if (!grid || !expressionTree) return;
 
-      grid.isLoading = true;
+    grid.isLoading = true;
 
-      try {
-        const response = await fetch(`${API_ENDPOINT}/QueryBuilder/ExecuteQuery`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(expressionTree)
-        });
+    try {
+      const response = await fetch(`${API_ENDPOINT}/QueryBuilder/ExecuteQuery`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(expressionTree)
+      });
 
-        if (!response.ok) {
-          throw new Error(`ExecuteQuery failed: ${response.status} ${response.statusText}`);
-        }
-
-        const json = await response.json();
-        const data = (Object.values(json)[0] as any[]) ?? [];
-        grid.data = data;
-
-        // Calculate column visibility after data loads
-        await new Promise(resolve => requestAnimationFrame(() => resolve(null)));
-        calculateColumnsInView();
-      } catch (err) {
-        console.error(err);
-        grid.data = [];
-      } finally {
-        grid.isLoading = false;
+      if (!response.ok) {
+        throw new Error(`ExecuteQuery failed: ${response.status} ${response.statusText}`);
       }
-    };
 
-    fetchData();
-  }, [expressionTree]);
+      const json = await response.json();
+      const data = (Object.values(json)[0] as any[]) ?? [];
+      grid.data = data;
 
-  return (
-    <div className="container sample ig-typography">
-      <div className="wrapper">
-        <igc-query-builder ref={queryBuilderRef} id="queryBuilder"></igc-query-builder>
-        
-        <div className="output-area">
-          <igc-grid ref={gridRef} id="grid"></igc-grid>
+      // Calculate column visibility after data loads
+      await new Promise(resolve => requestAnimationFrame(() => resolve(null)));
+      this.calculateColumnsInView();
+    } catch (err) {
+      console.error(err);
+      grid.data = [];
+    } finally {
+      grid.isLoading = false;
+    }
+  }
+
+  public render(): JSX.Element {
+    return (
+      <div className="container sample ig-typography">
+        <div className="wrapper">
+          <igc-query-builder ref={this.queryBuilderRef} id="queryBuilder"></igc-query-builder>
+          
+          <div className="output-area">
+            <igc-grid ref={this.gridRef} id="grid"></igc-grid>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
-// Rendering component in the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root')!);
-root.render(<QueryBuilderOverview />);
+// rendering above component in the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Sample/>);
