@@ -7,36 +7,30 @@ import {
   IgrGridToolbarActions,
   IgrGridToolbarExporter,
   IgrGridToolbarTitle,
-  IgrHierarchicalGridModule,
+  IgrGridModule,
 } from "igniteui-react-grids";
 import {
-  IgrTreeGrid,
+  IgrGrid,
   IgrColumn,
 } from "igniteui-react-grids";
 import { IgrButton } from "igniteui-react";
 
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
-import { OrdersTreeData } from "./OrdersData";
+import { AthletesData } from "./AthletesData";
 
-IgrHierarchicalGridModule.register();
+IgrGridModule.register();
 
 export default function App() {
-  const ordersData = new OrdersTreeData();
-  const treeGridRef = useRef<IgrTreeGrid>(null);
+  const athletesData = new AthletesData();
+  const gridRef = useRef<IgrGrid>(null);
   const toolbarRef = useRef<IgrGridToolbar>(null);
 
   const localData: any[] = [];
-  for (let i = 0; i < 100; i++) {
-  for (let c = 0; c < ordersData.length; c++) {
-    const original = ordersData[c];
-    localData.push({
-      ...original,
-      ID: original.ID + (i * ordersData.length),
-      ParentID: original.ParentID === -1 ? -1 : original.ParentID + (i * ordersData.length)
-    });
+  for (let i = 0; i < 10000; i += 3) {
+    for (let c = 0; c < athletesData.length; c++) {
+      localData.push(athletesData[c]);
+    }
   }
-}
-
 
   function showProgress() {
     toolbarRef.current.showProgress = true;
@@ -49,17 +43,16 @@ export default function App() {
   return (
     <div className="container sample ig-typography">
       <div className="container fill">
-        <IgrTreeGrid
-          ref={treeGridRef}
+        <IgrGrid
+          ref={gridRef}
           data={localData}
           autoGenerate={false}
-          primaryKey="ID"
-          foreignKey="ParentID"
+          primaryKey="Id"
           height="350px"
         >
           <IgrGridToolbar ref={toolbarRef}  key="toolbar">
             <IgrGridToolbarTitle key="toolbarTitle">
-              <span key="toolbarTitleText">Tree Grid Toolbar</span>
+              <span key="toolbarTitleText">Grid Toolbar</span>
             </IgrGridToolbarTitle>
             <IgrButton key="btn" onClick={showProgress}>
               <span key="simulate">Simulate long running operation</span>
@@ -69,14 +62,14 @@ export default function App() {
             </IgrGridToolbarActions>
           </IgrGridToolbar>
 
-          <IgrColumn field="ID" header="Order ID"></IgrColumn>
-          <IgrColumn field="Name" header="Order Product"></IgrColumn>
-          <IgrColumn field="Category" header="Category"></IgrColumn>
-          <IgrColumn field="Units" header="Units" dataType="number"></IgrColumn>
-          <IgrColumn field="UnitPrice" header="Unit Price" dataType="currency"></IgrColumn>
-          <IgrColumn field="Price" header="Price" dataType="currency"></IgrColumn>
-          <IgrColumn field="OrderDate" header="Order Date" dataType="date"></IgrColumn>
-        </IgrTreeGrid>
+          <IgrColumn field="Id" header="ID" dataType="number"></IgrColumn>
+          <IgrColumn field="Name" header="Name"></IgrColumn>
+          <IgrColumn field="Position" header="Position"></IgrColumn>
+          <IgrColumn field="AthleteNumber" header="Athlete Number" dataType="number"></IgrColumn>
+          <IgrColumn field="BeatsPerMinute" header="Beats Per Minute" dataType="number"></IgrColumn>
+          <IgrColumn field="TopSpeed" header="Top Speed" dataType="number"></IgrColumn>
+          <IgrColumn field="CountryName" header="Country"></IgrColumn>
+        </IgrGrid>
       </div>
     </div>
   );
