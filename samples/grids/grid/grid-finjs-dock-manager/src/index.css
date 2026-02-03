@@ -1,0 +1,290 @@
+/* Grid FinJS Dock Manager Styles */
+
+/* Dock pane content slots */
+igc-dockmanager > div[slot] {
+  height: 100%;
+}
+
+.chart-pane {
+  padding: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  width: 100%;
+}
+
+/* Dock Manager styling */
+igc-dockmanager {
+  --dock-background: #f8f9fa;
+  --dock-text: #212529;
+  --dock-border: #dee2e6;
+}
+
+h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+select {
+  margin-left: 8px;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Dark Theme Styles */
+.dark-theme {
+  background-color: #212529;
+  color: #f8f9fa;
+}
+
+.dark-theme igc-dockmanager {
+  --dock-background: #343a40;
+  --dock-text: #f8f9fa;
+  --dock-border: #495057;
+}
+
+/* Dock Manager Shadow DOM Parts - Dark Theme */
+.dark-theme igc-dockmanager::part(content-pane) {
+  background-color: #343a40;
+  color: #f8f9fa;
+  border-color: #495057;
+}
+
+.dark-theme igc-dockmanager::part(pane-header) {
+  background-color: #495057;
+  color: #f8f9fa;
+  border-color: #6c757d;
+}
+
+.dark-theme igc-dockmanager::part(pane-header-content) {
+  background-color: #495057;
+  color: #f8f9fa;
+}
+
+.dark-theme igc-dockmanager::part(pane-header-actions) {
+  background-color: #495057;
+  color: #f8f9fa;
+}
+
+.dark-theme igc-dockmanager::part(tab-header) {
+  background-color: #495057;
+  color: #f8f9fa;
+  border-color: #6c757d;
+}
+
+.dark-theme igc-dockmanager::part(tab-header selected) {
+  background-color: #6c757d;
+  color: #f8f9fa;
+}
+
+.dark-theme igc-dockmanager::part(tab-strip-area) {
+  background-color: #495057;
+  border-color: #6c757d;
+}
+
+.dark-theme igc-dockmanager::part(tab-strip-actions) {
+  background-color: #495057;
+  color: #f8f9fa;
+}
+
+.dark-theme igc-dockmanager::part(split-pane) {
+  background-color: #343a40;
+  border-color: #495057;
+}
+
+.dark-theme igc-dockmanager::part(splitter) {
+  background-color: #495057;
+  border-color: #6c757d;
+}
+
+.dark-theme igc-dockmanager::part(splitter-handle) {
+  background-color: #6c757d;
+}
+
+.dark-theme igc-dockmanager::part(splitter-handle):hover {
+  background-color: #868e96;
+}
+
+.dark-theme igc-dockmanager::part(unpinned-pane-header) {
+  background-color: #495057;
+  color: #f8f9fa;
+  border-color: #6c757d;
+}
+
+.dark-theme igc-dockmanager::part(context-menu) {
+  background-color: #495057;
+  color: #f8f9fa;
+  border-color: #6c757d;
+}
+
+.dark-theme igc-dockmanager::part(context-menu-item) {
+  background-color: #495057;
+  color: #f8f9fa;
+}
+
+.dark-theme igc-dockmanager::part(context-menu-item):hover {
+  background-color: #6c757d;
+}
+
+.dark-theme igc-dockmanager::part(pane-navigator) {
+  background-color: #495057;
+  color: #f8f9fa;
+  border-color: #6c757d;
+}
+
+.dark-theme igc-dockmanager::part(pane-navigator-header) {
+  background-color: #6c757d;
+  color: #f8f9fa;
+}
+
+.dark-theme igc-dockmanager::part(pane-navigator-body) {
+  background-color: #495057;
+  color: #f8f9fa;
+}
+
+.dark-theme igc-dockmanager::part(pane-navigator-item) {
+  background-color: #495057;
+  color: #f8f9fa;
+}
+
+.dark-theme igc-dockmanager::part(pane-navigator-item):hover {
+  background-color: #6c757d;
+}
+
+.dark-theme h3 {
+  color: #f8f9fa;
+}
+
+.dark-theme label {
+  color: #f8f9fa;
+}
+
+.dark-theme input[type="range"] {
+  background: #495057;
+}
+
+.dark-theme input[type="range"]::-webkit-slider-thumb {
+  background: #0d6efd;
+}
+
+.dark-theme input[type="range"]::-moz-range-thumb {
+  background: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.dark-theme button {
+  background-color: #495057;
+  color: #f8f9fa;
+  border-color: #6c757d;
+}
+
+.dark-theme button:hover:not(:disabled) {
+  background-color: #6c757d;
+}
+
+.dark-theme button:disabled {
+  background-color: #343a40;
+  color: #6c757d;
+}
+
+/* Action Pane Dark Theme Styles */
+.dark-theme div[slot="actionPane"] {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+.dark-theme div[slot="actionPane"] h3 {
+  color: #f8f9fa;
+  border-bottom: 1px solid #495057;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.dark-theme div[slot="actionPane"] label {
+  color: #f8f9fa;
+}
+
+.dark-theme div[slot="actionPane"] input[type="checkbox"] {
+  accent-color: #0d6efd;
+}
+
+.dark-theme div[slot="actionPane"] input[type="range"] {
+  background: #495057;
+}
+
+.dark-theme div[slot="actionPane"] input[type="range"]::-webkit-slider-thumb {
+  background: #0d6efd;
+}
+
+.dark-theme div[slot="actionPane"] input[type="range"]::-moz-range-thumb {
+  background: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.dark-theme div[slot="actionPane"] button {
+  background-color: #495057;
+  color: #f8f9fa;
+  border: 1px solid #6c757d;
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+
+.dark-theme div[slot="actionPane"] button:hover:not(:disabled) {
+  background-color: #6c757d;
+  border-color: #868e96;
+}
+
+.dark-theme div[slot="actionPane"] button:disabled {
+  background-color: #343a40;
+  color: #6c757d;
+  border-color: #495057;
+  cursor: not-allowed;
+}
+
+.dark-theme div[slot="actionPane"] div[style*="color: #666"] {
+  color: #adb5bd !important;
+}
+
+.dark-theme .chart-pane {
+  background-color: #343a40;
+}
