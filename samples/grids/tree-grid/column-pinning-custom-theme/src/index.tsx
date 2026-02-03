@@ -8,7 +8,7 @@ import { EmployeesFlatData } from './EmployeesFlatData';
 import 'igniteui-react-grids/grids/themes/dark/bootstrap.css';
 
 function TreeGridColumnPinningCustomTheme() {
-    const employeeData = React.useMemo(() => new EmployeesFlatData(), []);
+    const [employeeData] = React.useState(() => new EmployeesFlatData());
     
     return (
         <div className="container sample ig-typography">
