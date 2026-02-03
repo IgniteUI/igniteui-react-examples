@@ -83,7 +83,7 @@ export default class DataGridAccessibility extends React.Component<any, any> {
 
     public getCountryFlag(country: string): string {
 
-        const flag = 'https://static.infragistics.com/xplatform/images/flags/' + country + '.png'
+        const flag = 'https://dl.infragistics.com/x/img/flags/' + country + '.png'
         return flag;
     }
 
@@ -98,7 +98,7 @@ export default class DataGridAccessibility extends React.Component<any, any> {
             "Samsung SSD", "WD SSD", "Seagate SSD", "Intel SSD", "Asus SSD",
             "Samsung Monitor", "Asus Monitor", "LG Monitor", "HP Monitor" ];
 
-        const countries: string[] = ["USA", "UK", "France", "Canada", "Poland",
+        const countries: string[] = ["United-States", "United-Kingdom", "France", "Canada", "Poland",
             "Denmark", "Croatia", "Australia", "Seychelles",
             "Sweden", "Germany", "Japan", "Ireland",
             "Barbados", "Jamaica", "Cuba", "Spain",];

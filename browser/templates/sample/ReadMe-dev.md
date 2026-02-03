@@ -15,7 +15,7 @@ You can preview example of this {PlatformName} application on CodeSandbox by cli
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <body>
         <a target="_blank" href="{SandboxUrlEdit}" rel="noopener noreferrer">
-            <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/code.png"/>
+            <img height="40px" style="border-radius: 0.25rem" alt="Edit on CodeSandbox" src="https://dl.infragistics.com/x/img/sandbox/code.png"/>
         </a>
     </body>
 </html>
@@ -75,11 +75,11 @@ href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/mast
         </a> -->
         <!-- <a target="_blank" style="margin-left: 0.5rem"
 href="{SandboxUrlView}">
-            <img height="40px" style="border-radius: 5px" alt="View on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/view.png"/>
+            <img height="40px" style="border-radius: 5px" alt="View on CodeSandbox" src="https://dl.infragistics.com/x/img/sandbox/view.png"/>
         </a> -->
         <!-- <a target="_blank"
 href="https://codesandbox.io/embed/github/IgniteUI/igniteui-react-examples/tree/master/samples/maps/geo-map/binding-csv-points?fontsize=14&hidenavigation=1&theme=dark&view=preview">
-            <img alt="View on CodeSandbox" src="https://static.infragistics.com/xplatform/images/sandbox/view.png"/>
+            <img alt="View on CodeSandbox" src="https://dl.infragistics.com/x/img/sandbox/view.png"/>
         </a>
 https://codesandbox.io/embed/react-treemap-overview-rtb45
 https://codesandbox.io/static/img/play-codesandbox.svg

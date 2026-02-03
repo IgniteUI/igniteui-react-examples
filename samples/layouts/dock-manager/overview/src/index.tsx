@@ -2,31 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './DockManagerStyles.css';
-import { IgcDockManagerComponent, IgcContentPane } from "igniteui-dockmanager";
-import { IgcDockManagerPaneType, IgcSplitPaneOrientation } from "igniteui-dockmanager";
-import { defineCustomElements } from "igniteui-dockmanager/loader";
-
-/* eslint-disable */
-declare global {
-    namespace JSX {
-        // tslint:disable-next-line:interface-name
-        interface IntrinsicElements {
-            "igc-dockmanager": any;
-        }
-    }
-}
-/* eslint-enable */
-
-defineCustomElements();
+import {  IgrDockManager, IgrDockManagerPaneType, IgrSplitPaneOrientation } from 'igniteui-react-dockmanager';
 
 export default class DockManagerOverview extends React.Component {
 
-    public dockManager: IgcDockManagerComponent;
+    public dockManager: IgrDockManager;
 
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <igc-dockmanager id="dockManager">
+                <IgrDockManager id="dockManager">
                     <div slot="content1" className="dockManagerContent">Content 1</div>
                     <div slot="content2" className="dockManagerContent">Content 2</div>
                     <div slot="content3" className="dockManagerContent">Content 3</div>
@@ -36,7 +21,7 @@ export default class DockManagerOverview extends React.Component {
                     <div slot="content7" className="dockManagerContent">Content 7</div>
                     <div slot="content8" className="dockManagerContent">Content 8</div>
                     <div slot="content9" className="dockManagerContent">Content 9</div>
-                </igc-dockmanager>
+                </IgrDockManager>
             </div>
         );
     }
@@ -45,15 +30,15 @@ export default class DockManagerOverview extends React.Component {
         const pane = {
             // size: 150,
             header: paneHeader,
-            type: IgcDockManagerPaneType.contentPane,
+            type: IgrDockManagerPaneType.contentPane,
             contentId: contentID
         };
         return pane;
     }
 
-    public createSplitPane(orientation: IgcSplitPaneOrientation, contentPanes: any[], size?: number): any {
+    public createSplitPane(orientation: IgrSplitPaneOrientation, contentPanes: any[], size?: number): any {
         const pane =  {
-            type: IgcDockManagerPaneType.splitPane,
+            type: IgrDockManagerPaneType.splitPane,
             orientation: orientation,
             panes: contentPanes,
             size: size
@@ -61,16 +46,16 @@ export default class DockManagerOverview extends React.Component {
         return pane;
     }
 
-    public createTabPane(orientation: IgcSplitPaneOrientation, contentPanes: any[], size?: number): any {
+    public createTabPane(orientation: IgrSplitPaneOrientation, contentPanes: any[], size?: number): any {
         const pane =  {
-            type: IgcDockManagerPaneType.documentHost,
+            type: IgrDockManagerPaneType.documentHost,
             size: size,
             rootPane: {
-                type: IgcDockManagerPaneType.splitPane,
+                type: IgrDockManagerPaneType.splitPane,
                 orientation: orientation,
                 panes: [
                     {
-                        type: IgcDockManagerPaneType.tabGroupPane,
+                        type: IgrDockManagerPaneType.tabGroupPane,
                         panes: contentPanes
                     }
                 ]
@@ -96,27 +81,27 @@ export default class DockManagerOverview extends React.Component {
         const pane8 = this.createContentPane('content8', 'Content Pane 2');
         const pane9 = this.createContentPane('content9', 'Floating Pane');
 
-        const tabPane1 = this.createTabPane(IgcSplitPaneOrientation.horizontal, [ pane3, pane4 ], 200);
+        const tabPane1 = this.createTabPane(IgrSplitPaneOrientation.horizontal, [ pane3, pane4 ], 200);
 
-        const splitPane1 = this.createSplitPane(IgcSplitPaneOrientation.vertical, [ pane1, pane2 ]);
-        const splitPane2 = this.createSplitPane(IgcSplitPaneOrientation.vertical, [ tabPane1, contentPane5 ], 200);
+        const splitPane1 = this.createSplitPane(IgrSplitPaneOrientation.vertical, [ pane1, pane2 ]);
+        const splitPane2 = this.createSplitPane(IgrSplitPaneOrientation.vertical, [ tabPane1, contentPane5 ], 200);
 
-        this.dockManager = document.getElementById("dockManager") as IgcDockManagerComponent;
+        this.dockManager = document.getElementById("dockManager") as IgrDockManager;
         this.dockManager.layout = {
             rootPane: {
-                type: IgcDockManagerPaneType.splitPane,
-                orientation: IgcSplitPaneOrientation.horizontal,
+                type: IgrDockManagerPaneType.splitPane,
+                orientation: IgrSplitPaneOrientation.horizontal,
                 panes: [
                     splitPane1, // or:
                     // {
-                    //     type: IgcDockManagerPaneType.splitPane,
-                    //     orientation: IgcSplitPaneOrientation.vertical,
+                    //     type: IgrDockManagerPaneType.splitPane,
+                    //     orientation: IgrSplitPaneOrientation.vertical,
                     //     panes: [ pane1, pane2 ]
                     // },
                     splitPane2, // or:
                     // {
-                    //     type: IgcDockManagerPaneType.splitPane,
-                    //     orientation: IgcSplitPaneOrientation.vertical,
+                    //     type: IgrDockManagerPaneType.splitPane,
+                    //     orientation: IgrSplitPaneOrientation.vertical,
                     //     size: 200,
                     //     panes: [
                     //         tabPane1,
@@ -124,11 +109,11 @@ export default class DockManagerOverview extends React.Component {
                     //     ]
                     // },
                     {
-                        type: IgcDockManagerPaneType.splitPane,
-                        orientation: IgcSplitPaneOrientation.vertical,
+                        type: IgrDockManagerPaneType.splitPane,
+                        orientation: IgrSplitPaneOrientation.vertical,
                         panes: [
                             {
-                                type: IgcDockManagerPaneType.tabGroupPane,
+                                type: IgrDockManagerPaneType.tabGroupPane,
                                 size: 200,
                                 panes: [ pane6, pane7 ]
                             },
@@ -139,8 +124,8 @@ export default class DockManagerOverview extends React.Component {
             },
             floatingPanes: [
                 {
-                    type: IgcDockManagerPaneType.splitPane,
-                    orientation: IgcSplitPaneOrientation.horizontal,
+                    type: IgrDockManagerPaneType.splitPane,
+                    orientation: IgrSplitPaneOrientation.horizontal,
                     floatingHeight: 150,
                     floatingWidth: 250,
                     floatingLocation: { x: 300, y: 200 },

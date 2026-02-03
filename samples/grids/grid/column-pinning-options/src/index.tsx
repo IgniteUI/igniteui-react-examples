@@ -116,9 +116,9 @@ export default class Sample extends React.Component<any, any> {
     public webGridPinHeaderTemplate = (props: {dataContext: IgrColumnTemplateContext}) => {
         const column = (props.dataContext as any).column;
         return (
-            <div>
-                <span style={{float: 'left'}}>{column.field}</span>
-                <span style={{float: 'right'}} onPointerDown={(e: any) => this.toggleColumnPin(column.field)}>📌</span>
+            <div style={{display: 'flex'}}>
+                <span>{column.field}</span>
+                <span style={{marginLeft: 'auto', cursor: 'pointer'}} onPointerDown={(e: any) => this.toggleColumnPin(column.field)}>📌</span>
             </div>
         );
     }

@@ -11,10 +11,15 @@ export default class ChipStyling extends React.Component<any, any> {
         super(props);           
     }
 
+    private handleChipRemove = (event: CustomEvent<boolean>) => {
+        const chip = event.target as IgrChip;
+        chip.remove();
+    }
+
     public render(): JSX.Element {
         return (
             <div className="container sample" style={{flexDirection: "row", gap: "8px"}}>
-                 <IgrChip selectable={true} removable={true}>
+                 <IgrChip selectable={true} removable={true} onRemove={this.handleChipRemove}>
                      <span>Chip</span>
                  </IgrChip>
             </div>

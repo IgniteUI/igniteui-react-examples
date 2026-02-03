@@ -16,16 +16,16 @@ const mods: any[] = [
 mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
-    private treeGrid: IgrTreeGrid
-    private treeGridRef(r: IgrTreeGrid) {
-        this.treeGrid = r;
+    private grid: IgrTreeGrid
+    private gridRef(r: IgrTreeGrid) {
+        this.grid = r;
         this.setState({});
     }
 
     constructor(props: any) {
         super(props);
 
-        this.treeGridRef = this.treeGridRef.bind(this);
+        this.gridRef = this.gridRef.bind(this);
     }
 
     public render(): JSX.Element {
@@ -35,8 +35,8 @@ export default class Sample extends React.Component<any, any> {
             <div className="container fill">
                 <IgrTreeGrid
                     autoGenerate={false}
-                    ref={this.treeGridRef}
-                    id="treeGrid"
+                    ref={this.gridRef}
+                    id="grid"
                     data={this.employeesFlatDetails}
                     primaryKey="ID"
                     foreignKey="ParentID"
@@ -129,15 +129,15 @@ export default class Sample extends React.Component<any, any> {
     public webTreeGridPinHeaderTemplate = (props: {dataContext: IgrColumnTemplateContext}) => {
         const column = (props.dataContext as any).column;
         return (
-            <div>
-                <span style={{float: 'left'}}>{column.field}</span>
-                <span style={{float: 'right'}} onPointerDown={(e: any) => this.toggleColumnPin(column.field)}>📌</span>
+            <div style={{display: 'flex'}}>
+                <span>{column.field}</span>
+                <span style={{marginLeft: 'auto', cursor: 'pointer'}} onPointerDown={(e: any) => this.toggleColumnPin(column.field)}>📌</span>
             </div>
         );
     }
 
     public toggleColumnPin(field: string) {
-        var treeGrid = this.treeGrid;
+        var treeGrid = this.grid;
         var col = treeGrid.getColumnByName(field);
         col.pinned = !col.pinned;
         treeGrid.markForCheck();
