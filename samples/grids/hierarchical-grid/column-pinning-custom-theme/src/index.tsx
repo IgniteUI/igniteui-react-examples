@@ -2,48 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinning, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import HierarchicalCustomersData from './HierarchicalCustomersData.json';
 
 import 'igniteui-react-grids/grids/themes/dark/bootstrap.css';
 
-const mods: any[] = [
-    IgrHierarchicalGridModule
-];
-mods.forEach((m) => m.register());
-
-export default class Sample extends React.Component<any, any> {
-    private grid: IgrHierarchicalGrid
-    private gridRef(r: IgrHierarchicalGrid) {
-        this.grid = r;
-        this.setState({});
-    }
-
-    constructor(props: any) {
-        super(props);
-
-        this.gridRef = this.gridRef.bind(this);
-    }
-
-    public render(): JSX.Element {
-        return (
+function HierarchicalGridColumnPinningCustomTheme() {
+    return (
         <div className="container sample ig-typography">
-
             <div className="container fill">
                 <IgrHierarchicalGrid
-                    ref={this.gridRef}
                     id="grid"
                     className="custom-grid-palette-theme"
-                    data={this.hierarchicalCustomersData}
+                    data={HierarchicalCustomersData}
                     columnSelection="single"
                     primaryKey="CustomerID">
-                    <IgrGridToolbar
-                    >
-                        <IgrGridToolbarActions
-                        >
-                            <IgrGridToolbarPinning
-                            >
+                    <IgrGridToolbar>
+                        <IgrGridToolbarActions>
+                            <IgrGridToolbarPinning>
                             </IgrGridToolbarPinning>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
@@ -170,16 +146,9 @@ export default class Sample extends React.Component<any, any> {
                 </IgrHierarchicalGrid>
             </div>
         </div>
-        );
-    }
-
-    private _hierarchicalCustomersData: any[] = HierarchicalCustomersData;
-    public get hierarchicalCustomersData(): any[] {
-        return this._hierarchicalCustomersData;
-    }
-
+    );
 }
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+root.render(<HierarchicalGridColumnPinningCustomTheme/>);

@@ -2,50 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarPinning, IgrColumn } from 'igniteui-react-grids';
 import CustomersDataLocal from './CustomersDataLocal.json';
 
 import 'igniteui-react-grids/grids/themes/dark/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
-
-export default class Sample extends React.Component<any, any> {
-    private grid: IgrGrid
-    private gridRef(r: IgrGrid) {
-        this.grid = r;
-        this.setState({});
-    }
-
-    constructor(props: any) {
-        super(props);
-
-        this.gridRef = this.gridRef.bind(this);
-    }
-
-    public render(): JSX.Element {
-        return (
+function GridColumnPinningCustomTheme() {
+    return (
         <div className="container sample ig-typography">
-
             <div className="container fill">
                 <IgrGrid
                     autoGenerate={false}
                     id="grid"
                     className="custom-grid-palette-theme"
-                    data={this.customersDataLocal}
-                    ref={this.gridRef}>
-                    <IgrGridToolbar
-                    >
-                        <IgrGridToolbarTitle
-                        >
+                    data={CustomersDataLocal}>
+                    <IgrGridToolbar>
+                        <IgrGridToolbarTitle>
                         </IgrGridToolbarTitle>
-                        <IgrGridToolbarActions
-                        >
-                            <IgrGridToolbarPinning
-                            >
+                        <IgrGridToolbarActions>
+                            <IgrGridToolbarPinning>
                             </IgrGridToolbarPinning>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
@@ -104,16 +79,9 @@ export default class Sample extends React.Component<any, any> {
                 </IgrGrid>
             </div>
         </div>
-        );
-    }
-
-    private _customersDataLocal: any[] = CustomersDataLocal;
-    public get customersDataLocal(): any[] {
-        return this._customersDataLocal;
-    }
-
+    );
 }
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+root.render(<GridColumnPinningCustomTheme/>);
