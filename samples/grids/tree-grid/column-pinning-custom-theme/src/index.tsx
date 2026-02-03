@@ -7,51 +7,24 @@ import { EmployeesFlatData } from './EmployeesFlatData';
 
 import 'igniteui-react-grids/grids/themes/dark/bootstrap.css';
 
-function TreeGridColumnPinningCustomTheme() {
+export default function TreeGridColumnPinningCustomTheme() {
     const [employeeData] = React.useState(() => new EmployeesFlatData());
-    
+
     return (
         <div className="container sample ig-typography">
             <div className="container fill">
-                <IgrTreeGrid
-                    autoGenerate={false}
-                    id="treeGrid"
-                    className="custom-grid-palette-theme"
-                    data={employeeData}
-                    primaryKey="ID"
-                    foreignKey="ParentID">
+                <IgrTreeGrid autoGenerate={false} id="treeGrid" className="custom-grid-palette-theme" data={employeeData} primaryKey="ID" foreignKey="ParentID">
                     <IgrGridToolbar>
                         <IgrGridToolbarActions>
-                            <IgrGridToolbarPinning>
-                            </IgrGridToolbarPinning>
+                            <IgrGridToolbarPinning />
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
-                    <IgrColumn
-                        field="Name"
-                        dataType="string"
-                        pinned={true}>
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Title"
-                        dataType="string">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Phone"
-                        dataType="string"
-                        pinned={true}>
-                    </IgrColumn>
-                    <IgrColumn
-                        field="Age"
-                        dataType="number">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="HireDate"
-                        dataType="date">
-                    </IgrColumn>
-                    <IgrColumn
-                        field="OnPTO"
-                        dataType="boolean">
-                    </IgrColumn>
+                    <IgrColumn field="Name" dataType="string" pinned={true} />
+                    <IgrColumn field="Title" dataType="string" />
+                    <IgrColumn field="Phone" dataType="string" pinned={true} />
+                    <IgrColumn field="Age" dataType="number" />
+                    <IgrColumn field="HireDate" dataType="date" />
+                    <IgrColumn field="OnPTO" dataType="boolean" />
                 </IgrTreeGrid>
             </div>
         </div>
