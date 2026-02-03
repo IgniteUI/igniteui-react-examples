@@ -8,8 +8,6 @@ import CustomersDataLocal from './CustomersDataLocal.json';
 import 'igniteui-react-grids/grids/themes/dark/bootstrap.css';
 
 function GridColumnPinningCustomTheme() {
-    const customersData = React.useMemo(() => CustomersDataLocal, []);
-    
     return (
         <div className="container sample ig-typography">
             <div className="container fill">
@@ -17,7 +15,7 @@ function GridColumnPinningCustomTheme() {
                     autoGenerate={false}
                     id="grid"
                     className="custom-grid-palette-theme"
-                    data={customersData}>
+                    data={CustomersDataLocal}>
                     <IgrGridToolbar>
                         <IgrGridToolbarTitle>
                         </IgrGridToolbarTitle>

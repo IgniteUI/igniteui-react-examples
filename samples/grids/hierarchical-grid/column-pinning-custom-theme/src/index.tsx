@@ -8,15 +8,13 @@ import HierarchicalCustomersData from './HierarchicalCustomersData.json';
 import 'igniteui-react-grids/grids/themes/dark/bootstrap.css';
 
 function HierarchicalGridColumnPinningCustomTheme() {
-    const hierarchicalData = React.useMemo(() => HierarchicalCustomersData, []);
-    
     return (
         <div className="container sample ig-typography">
             <div className="container fill">
                 <IgrHierarchicalGrid
                     id="grid"
                     className="custom-grid-palette-theme"
-                    data={hierarchicalData}
+                    data={HierarchicalCustomersData}
                     columnSelection="single"
                     primaryKey="CustomerID">
                     <IgrGridToolbar>
