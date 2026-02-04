@@ -1,0 +1,40 @@
+@use 'sass:list';
+@use 'igniteui-theming' as *;
+@use 'igniteui-theming/sass/color/presets' as *;
+@use 'igniteui-theming/sass/typography/presets' as *;
+
+.container {
+    padding: rem(20px);
+}
+
+.options {
+    background: var(--ig-gray-100);
+    gap: rem(10px);
+    padding: rem(20px);
+    margin-bottom: rem(20px);
+    border-radius: rem(6px);
+}
+
+.grid-lite-wrapper {
+    height: 100vh;
+}
+
+// Theme configurations
+$themes: (
+    'bootstrap-light': ($light-bootstrap-palette, $bootstrap-typeface, $bootstrap-type-scale),
+    'material-light': ($light-material-palette, $material-typeface, $material-type-scale),
+    'fluent-light': ($light-fluent-palette, $fluent-typeface, $fluent-type-scale),
+    'indigo-light': ($light-indigo-palette, $indigo-typeface, $indigo-type-scale),
+    'bootstrap-dark': ($dark-bootstrap-palette, $bootstrap-typeface, $bootstrap-type-scale),
+    'material-dark': ($dark-material-palette, $material-typeface, $material-type-scale),
+    'fluent-dark': ($dark-fluent-palette, $fluent-typeface, $fluent-type-scale),
+    'indigo-dark': ($dark-indigo-palette, $indigo-typeface, $indigo-type-scale)
+);
+
+// Generate theme classes
+@each $name, $config in $themes {
+    .grid-lite-wrapper[data-theme="#{$name}"] {
+        @include palette(list.nth($config, 1));
+        @include typography(list.nth($config, 2), list.nth($config, 3));
+    }
+}
