@@ -37,27 +37,42 @@ export default class Sample extends React.Component<any, any> {
     {
       field: 'id',
       hidden: true,
-      header: 'ID'
+      header: 'ID',
+      resizable: true,
+      sortable: false,
+      filterable: false
     },
     {
       field: 'name',
-      header: 'Product Name'
+      header: 'Product Name',
+      resizable: true,
+      sortable: false,
+      filterable: false
     },
     {
       field: 'price',
       header: 'Price',
       dataType: 'number',
-      cellTemplate: this.format
+      cellTemplate: this.format,
+      resizable: true,
+      sortable: false,
+      filterable: false
     },
     {
       field: 'sold',
       dataType: 'number',
-      header: 'Units sold'
+      header: 'Units sold',
+      resizable: true,
+      sortable: false,
+      filterable: false
     },
     {
       field: 'total',
       header: 'Total sold',
-      cellTemplate: this.format
+      cellTemplate: this.format,
+      resizable: true,
+      sortable: false,
+      filterable: false
     },
     {
       field: 'rating',
@@ -69,7 +84,10 @@ export default class Sample extends React.Component<any, any> {
         rating.setAttribute('step', '0.01');
         rating.setAttribute('value', params.value.toString());
         return rating;
-      }
+      },
+      resizable: true,
+      sortable: false,
+      filterable: false
     }
   ];
 
