@@ -24,32 +24,6 @@ export default class Sample extends React.Component<any, any> {
   componentDidMount() {
     if (this.gridRef.current) {
       const data: User[] = this.dataService.generateUsers(50);
-      
-      const columns = [
-        { 
-          key: 'firstName', 
-          headerText: 'First name', 
-          sort: true 
-        },
-        { 
-          key: 'lastName', 
-          headerText: 'Last name', 
-          sort: true 
-        },
-        { 
-          key: 'age', 
-          headerText: 'Age', 
-          sort: true, 
-          type: 'number' 
-        },
-        { 
-          key: 'email', 
-          headerText: 'Email',
-          sort: true
-        }
-      ];
-
-      this.gridRef.current.columns = columns;
       this.gridRef.current.data = data;
     }
   }
@@ -58,7 +32,12 @@ export default class Sample extends React.Component<any, any> {
     return (
       <div className="container sample ig-typography">
         <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
+          <igc-grid-lite ref={this.gridRef} id="grid-lite">
+            <igc-grid-lite-column field="firstName" header="First name" sortable></igc-grid-lite-column>
+            <igc-grid-lite-column field="lastName" header="Last name" sortable></igc-grid-lite-column>
+            <igc-grid-lite-column field="age" header="Age" sortable data-type="number"></igc-grid-lite-column>
+            <igc-grid-lite-column field="email" header="Email" sortable></igc-grid-lite-column>
+          </igc-grid-lite>
         </div>
       </div>
     );

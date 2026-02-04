@@ -32,15 +32,6 @@ export default class Sample extends React.Component<any, any> {
   componentDidMount() {
     if (this.gridRef.current) {
       const data: User[] = this.dataService.generateUsers(50);
-      
-      const columns = [
-        { key: 'firstName', headerText: 'First name', filter: true },
-        { key: 'lastName', headerText: 'Last name', filter: true },
-        { key: 'age', headerText: 'Age', filter: true, type: 'number' },
-        { key: 'email', headerText: 'Email', filter: true }
-      ];
-
-      this.gridRef.current.columns = columns;
       this.gridRef.current.data = data;
 
       // Listen to filter events
@@ -77,7 +68,12 @@ export default class Sample extends React.Component<any, any> {
     return (
       <div className="container sample ig-typography">
         <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
+          <igc-grid-lite ref={this.gridRef} id="grid-lite">
+            <igc-grid-lite-column field="firstName" header="First name" filterable></igc-grid-lite-column>
+            <igc-grid-lite-column field="lastName" header="Last name" filterable></igc-grid-lite-column>
+            <igc-grid-lite-column field="age" header="Age" filterable data-type="number"></igc-grid-lite-column>
+            <igc-grid-lite-column field="email" header="Email" filterable></igc-grid-lite-column>
+          </igc-grid-lite>
           <div ref={this.logRef} className="log" id="log" dangerouslySetInnerHTML={{ __html: this.state.logContent }}></div>
         </div>
       </div>

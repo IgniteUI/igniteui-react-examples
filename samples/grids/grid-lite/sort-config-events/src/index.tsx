@@ -39,46 +39,18 @@ export default class Sample extends React.Component<any, any> {
     if (this.gridRef.current) {
       const data: ProductInfo[] = this.dataService.generateProducts(100);
       
-      const columns = [
-        { 
-          key: 'name', 
-          headerText: 'Name', 
-          sort: true 
-        },
-        { 
-          key: 'price', 
-          type: 'number', 
-          headerText: 'Price', 
-          sort: true 
-        },
-        {
-          key: 'rating',
-          type: 'number',
-          headerText: 'Rating',
-          sort: true,
-          cellTemplate: (params: any) => {
-            const rating = document.createElement('igc-rating');
-            rating.setAttribute('readonly', '');
-            rating.setAttribute('step', '0.01');
-            rating.setAttribute('value', params.value.toString());
-            return rating;
-          }
-        },
-        { 
-          key: 'sold', 
-          type: 'number', 
-          headerText: 'Sold', 
-          sort: true 
-        },
-        { 
-          key: 'total', 
-          type: 'number', 
-          headerText: 'Total', 
-          sort: true 
-        }
-      ];
+      // Set cellTemplate for rating column
+      const ratingCol = this.gridRef.current.columns.find((c: any) => c.field === 'rating');
+      if (ratingCol) {
+        ratingCol.cellTemplate = (params: any) => {
+          const rating = document.createElement('igc-rating');
+          rating.setAttribute('readonly', '');
+          rating.setAttribute('step', '0.01');
+          rating.setAttribute('value', params.value.toString());
+          return rating;
+        };
+      }
 
-      this.gridRef.current.columns = columns;
       this.gridRef.current.data = data;
 
       // Listen to sorting events
@@ -133,7 +105,13 @@ export default class Sample extends React.Component<any, any> {
     return (
       <div className="container sample ig-typography">
         <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
+          <igc-grid-lite ref={this.gridRef} id="grid-lite">
+            <igc-grid-lite-column field="name" header="Name" sortable></igc-grid-lite-column>
+            <igc-grid-lite-column field="price" data-type="number" header="Price" sortable></igc-grid-lite-column>
+            <igc-grid-lite-column field="rating" data-type="number" header="Rating" sortable></igc-grid-lite-column>
+            <igc-grid-lite-column field="sold" data-type="number" header="Sold" sortable></igc-grid-lite-column>
+            <igc-grid-lite-column field="total" data-type="number" header="Total" sortable></igc-grid-lite-column>
+          </igc-grid-lite>
           <div ref={this.logRef} className="log" id="log" dangerouslySetInnerHTML={{ __html: this.state.logContent }}></div>
         </div>
       </div>

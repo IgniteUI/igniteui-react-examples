@@ -35,34 +35,34 @@ export default class Sample extends React.Component<any, any> {
   };
   protected columns = [
     {
-      key: 'id',
+      field: 'id',
       hidden: true,
-      headerText: 'ID'
+      header: 'ID'
     },
     {
-      key: 'name',
-      headerText: 'Product Name'
+      field: 'name',
+      header: 'Product Name'
     },
     {
-      key: 'price',
-      headerText: 'Price',
-      type: 'number',
+      field: 'price',
+      header: 'Price',
+      dataType: 'number',
       cellTemplate: this.format
     },
     {
-      key: 'sold',
-      type: 'number',
-      headerText: 'Units sold'
+      field: 'sold',
+      dataType: 'number',
+      header: 'Units sold'
     },
     {
-      key: 'total',
-      headerText: 'Total sold',
+      field: 'total',
+      header: 'Total sold',
       cellTemplate: this.format
     },
     {
-      key: 'rating',
-      type: 'number',
-      headerText: 'Customer rating',
+      field: 'rating',
+      dataType: 'number',
+      header: 'Customer rating',
       cellTemplate: (params: any) => {
         const rating = document.createElement('igc-rating');
         rating.setAttribute('readonly', '');
@@ -86,7 +86,23 @@ export default class Sample extends React.Component<any, any> {
     if (this.gridRef.current) {
       const data: ProductInfo[] = this.dataService.generateProducts(50);
 
-      this.gridRef.current.columns = this.columns;
+      // Set cellTemplates programmatically for columns that need them
+      const priceCol = this.gridRef.current.columns.find((c: any) => c.field === 'price');
+      if (priceCol && this.columns.find(col => col.field === 'price')?.cellTemplate) {
+        priceCol.cellTemplate = this.format;
+      }
+
+      const totalCol = this.gridRef.current.columns.find((c: any) => c.field === 'total');
+      if (totalCol && this.columns.find(col => col.field === 'total')?.cellTemplate) {
+        totalCol.cellTemplate = this.format;
+      }
+
+      const ratingCol = this.gridRef.current.columns.find((c: any) => c.field === 'rating');
+      const ratingColDef = this.columns.find(col => col.field === 'rating');
+      if (ratingCol && ratingColDef?.cellTemplate) {
+        ratingCol.cellTemplate = ratingColDef.cellTemplate;
+      }
+
       this.gridRef.current.data = data;
     }
   }
@@ -94,17 +110,17 @@ export default class Sample extends React.Component<any, any> {
   toggleFormatters(checked: boolean) {
     if (this.gridRef.current) {
       this.gridRef.current.updateColumns(
-        ['price', 'total'].map((key) => ({
-          key,
+        ['price', 'total'].map((field) => ({
+          field,
           cellTemplate: checked ? this.format : undefined,
         }))
       );
     }
   }
 
-  toggleColumnProperty(columnKey: string, property: string, value: boolean) {
+  toggleColumnProperty(columnField: string, property: string, value: boolean) {
     if (this.gridRef.current) {
-      this.gridRef.current.updateColumns({ key: columnKey, [property]: value });
+      this.gridRef.current.updateColumns({ field: columnField, [property]: value });
     }
   }
 
@@ -124,31 +140,31 @@ export default class Sample extends React.Component<any, any> {
               <IgrButton variant="outlined"><span>Column Properties</span></IgrButton>
             </div>
             {this.columns.map((column: any) => (
-              <IgrDropdownItem key={column.key}>
+              <IgrDropdownItem key={column.field}>
                 <div className="config">
-                  <span className="config-key">{column.headerText}</span>
+                  <span className="config-key">{column.header}</span>
                   <IgrCheckbox
                     labelPosition="before"
                     checked={!column.hidden}
-                    onChange={(e: any) => this.toggleColumnProperty(column.key, 'hidden', !e.target.checked)}>
+                    onChange={(e: any) => this.toggleColumnProperty(column.field, 'hidden', !e.target.checked)}>
                     Hidden
                   </IgrCheckbox>
                   <IgrCheckbox
                     labelPosition="before"
                     checked={column.resizable !== false}
-                    onChange={(e: any) => this.toggleColumnProperty(column.key, 'resizable', e.target.checked)}>
+                    onChange={(e: any) => this.toggleColumnProperty(column.field, 'resizable', e.target.checked)}>
                     Resizable
                   </IgrCheckbox>
                   <IgrCheckbox
                     labelPosition="before"
-                    checked={column.filter === true}
-                    onChange={(e: any) => this.toggleColumnProperty(column.key, 'filter', e.target.checked)}>
+                    checked={column.filterable === true}
+                    onChange={(e: any) => this.toggleColumnProperty(column.field, 'filterable', e.target.checked)}>
                     Filter
                   </IgrCheckbox>
                   <IgrCheckbox
                     labelPosition="before"
-                    checked={column.sort === true}
-                    onChange={(e: any) => this.toggleColumnProperty(column.key, 'sort', e.target.checked)}>
+                    checked={column.sortable === true}
+                    onChange={(e: any) => this.toggleColumnProperty(column.field, 'sortable', e.target.checked)}>
                     Sort
                   </IgrCheckbox>
                 </div>
@@ -167,7 +183,17 @@ export default class Sample extends React.Component<any, any> {
           </IgrSwitch>
         </section>
         <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
+          <igc-grid-lite ref={this.gridRef} id="grid-lite">
+            {this.columns.map((column: any) => (
+              <igc-grid-lite-column
+                key={column.field}
+                field={column.field}
+                header={column.header}
+                data-type={column.dataType}
+                hidden={column.hidden}
+              ></igc-grid-lite-column>
+            ))}
+          </igc-grid-lite>
         </div>
       </div >
     );

@@ -23,34 +23,6 @@ export default class Sample extends React.Component<any, any> {
   componentDidMount() {
     if (this.gridRef.current) {
       const data: User[] = this.dataService.generateUsers(50);
-      
-      const columns = [
-        { 
-          key: 'id', 
-          headerText: '🆔 ID',
-          width: '150px'
-        },
-        { 
-          key: 'firstName', 
-          headerText: '👤 First Name'
-        },
-        { 
-          key: 'lastName', 
-          headerText: '👤 Last Name'
-        },
-        { 
-          key: 'age', 
-          headerText: '🎂 Age',
-          type: 'number',
-          width: '100px'
-        },
-        { 
-          key: 'email', 
-          headerText: '📧 Email'
-        }
-      ];
-
-      this.gridRef.current.columns = columns;
       this.gridRef.current.data = data;
     }
   }
@@ -59,7 +31,13 @@ export default class Sample extends React.Component<any, any> {
     return (
       <div className="container sample ig-typography">
         <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
+          <igc-grid-lite ref={this.gridRef} id="grid-lite">
+            <igc-grid-lite-column field="id" header="🆔 ID" width="150px"></igc-grid-lite-column>
+            <igc-grid-lite-column field="firstName" header="👤 First Name"></igc-grid-lite-column>
+            <igc-grid-lite-column field="lastName" header="👤 Last Name"></igc-grid-lite-column>
+            <igc-grid-lite-column field="age" header="🎂 Age" data-type="number" width="100px"></igc-grid-lite-column>
+            <igc-grid-lite-column field="email" header="📧 Email"></igc-grid-lite-column>
+          </igc-grid-lite>
         </div>
       </div>
     );

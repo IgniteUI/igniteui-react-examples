@@ -35,50 +35,36 @@ export default class Sample extends React.Component<any, any> {
     if (this.gridRef.current) {
       const data: ProductInfo[] = this.dataService.generateProducts(50);
       
-      const columns = [
-        { 
-          key: 'name', 
-          headerText: 'Product Name' 
-        },
-        {
-          key: 'price',
-          headerText: 'Price',
-          type: 'number',
-          cellTemplate: (params: any) => {
-            const span = document.createElement('span');
-            span.textContent = this.formatter.format(params.value);
-            return span;
-          }
-        },
-        { 
-          key: 'sold', 
-          type: 'number', 
-          headerText: 'Units sold' 
-        },
-        { 
-          key: 'total', 
-          headerText: 'Total sold',
-          cellTemplate: (params: any) => {
-            const span = document.createElement('span');
-            span.textContent = this.formatter.format(params.value);
-            return span;
-          }
-        },
-        {
-          key: 'rating',
-          type: 'number',
-          headerText: 'Customer rating',
-          cellTemplate: (params: any) => {
-            const rating = document.createElement('igc-rating');
-            rating.setAttribute('readonly', '');
-            rating.setAttribute('step', '0.01');
-            rating.setAttribute('value', params.value.toString());
-            return rating;
-          }
-        }
-      ];
+      // Set cellTemplate for columns with custom rendering
+      const priceCol = this.gridRef.current.columns.find((c: any) => c.field === 'price');
+      if (priceCol) {
+        priceCol.cellTemplate = (params: any) => {
+          const span = document.createElement('span');
+          span.textContent = this.formatter.format(params.value);
+          return span;
+        };
+      }
 
-      this.gridRef.current.columns = columns;
+      const totalCol = this.gridRef.current.columns.find((c: any) => c.field === 'total');
+      if (totalCol) {
+        totalCol.cellTemplate = (params: any) => {
+          const span = document.createElement('span');
+          span.textContent = this.formatter.format(params.value);
+          return span;
+        };
+      }
+
+      const ratingCol = this.gridRef.current.columns.find((c: any) => c.field === 'rating');
+      if (ratingCol) {
+        ratingCol.cellTemplate = (params: any) => {
+          const rating = document.createElement('igc-rating');
+          rating.setAttribute('readonly', '');
+          rating.setAttribute('step', '0.01');
+          rating.setAttribute('value', params.value.toString());
+          return rating;
+        };
+      }
+
       this.gridRef.current.data = data;
     }
   }
@@ -87,7 +73,13 @@ export default class Sample extends React.Component<any, any> {
     return (
       <div className="container sample ig-typography">
         <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
+          <igc-grid-lite ref={this.gridRef} id="grid-lite">
+            <igc-grid-lite-column field="name" header="Product Name"></igc-grid-lite-column>
+            <igc-grid-lite-column field="price" header="Price" data-type="number"></igc-grid-lite-column>
+            <igc-grid-lite-column field="sold" data-type="number" header="Units sold"></igc-grid-lite-column>
+            <igc-grid-lite-column field="total" header="Total sold"></igc-grid-lite-column>
+            <igc-grid-lite-column field="rating" data-type="number" header="Customer rating"></igc-grid-lite-column>
+          </igc-grid-lite>
         </div>
       </div>
     );
