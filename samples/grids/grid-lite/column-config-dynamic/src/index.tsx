@@ -23,199 +23,194 @@ const formatter = new Intl.NumberFormat('en-EN', {
   currency: 'EUR',
 });
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
-  private dropdownRef: React.RefObject<any>;
-  protected hasFormatters = true;
-  protected format = (params: any) => {
-    const span = document.createElement('span');
-    span.textContent = formatter.format(params.value);
-    return span;
-  };
-  protected columns = [
-    {
-      field: 'id',
-      hidden: true,
-      header: 'ID',
-      resizable: true,
-      sortable: false,
-      filterable: false
-    },
-    {
-      field: 'name',
-      header: 'Product Name',
-      resizable: true,
-      sortable: false,
-      filterable: false
-    },
-    {
-      field: 'price',
-      header: 'Price',
-      dataType: 'number',
-      cellTemplate: this.format,
-      resizable: true,
-      sortable: false,
-      filterable: false
-    },
-    {
-      field: 'sold',
-      dataType: 'number',
-      header: 'Units sold',
-      resizable: true,
-      sortable: false,
-      filterable: false
-    },
-    {
-      field: 'total',
-      header: 'Total sold',
-      cellTemplate: this.format,
-      resizable: true,
-      sortable: false,
-      filterable: false
-    },
-    {
-      field: 'rating',
-      dataType: 'number',
-      header: 'Customer rating',
-      cellTemplate: (params: any) => {
-        const rating = document.createElement('igc-rating');
-        rating.setAttribute('readonly', '');
-        rating.setAttribute('step', '0.01');
-        rating.setAttribute('value', params.value.toString());
-        return rating;
-      },
-      resizable: true,
-      sortable: false,
-      filterable: false
-    }
-  ];
+// Define cellTemplate functions outside component
+const formatCellTemplate = (params: any) => {
+  const span = document.createElement('span');
+  span.textContent = formatter.format(params.value);
+  return span;
+};
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-    this.dropdownRef = React.createRef();
-    this.toggleFormatters = this.toggleFormatters.bind(this);
-    this.toggleColumnProperty = this.toggleColumnProperty.bind(this);
+const ratingCellTemplate = (params: any) => {
+  const rating = document.createElement('igc-rating');
+  rating.setAttribute('readonly', '');
+  rating.setAttribute('step', '0.01');
+  rating.setAttribute('value', params.value.toString());
+  return rating;
+};
+
+const initialColumns = [
+  {
+    field: 'id',
+    hidden: true,
+    header: 'ID',
+    resizable: true,
+    sortable: false,
+    filterable: false,
+    cellTemplate: undefined
+  },
+  {
+    field: 'name',
+    header: 'Product Name',
+    resizable: true,
+    sortable: false,
+    filterable: false,
+    cellTemplate: undefined
+  },
+  {
+    field: 'price',
+    header: 'Price',
+    dataType: 'number',
+    cellTemplate: formatCellTemplate,
+    resizable: true,
+    sortable: false,
+    filterable: false
+  },
+  {
+    field: 'sold',
+    dataType: 'number',
+    header: 'Units sold',
+    resizable: true,
+    sortable: false,
+    filterable: false,
+    cellTemplate: undefined
+  },
+  {
+    field: 'total',
+    header: 'Total sold',
+    cellTemplate: formatCellTemplate,
+    resizable: true,
+    sortable: false,
+    filterable: false
+  },
+  {
+    field: 'rating',
+    dataType: 'number',
+    header: 'Customer rating',
+    cellTemplate: ratingCellTemplate,
+    resizable: true,
+    sortable: false,
+    filterable: false
   }
+];
 
-  componentDidMount() {
-    if (this.gridRef.current) {
-      const data: ProductInfo[] = this.dataService.generateProducts(50);
+export default function Sample() {
+  const gridRef = React.useRef<any>(null);
+  const dropdownRef = React.useRef<any>(null);
+  const [columns, setColumns] = React.useState(initialColumns);
+  const [hasFormatters, setHasFormatters] = React.useState(true);
 
-      // Set cellTemplates programmatically for columns that need them
-      const priceCol = this.gridRef.current.columns.find((c: any) => c.field === 'price');
-      if (priceCol && this.columns.find(col => col.field === 'price')?.cellTemplate) {
-        priceCol.cellTemplate = this.format;
-      }
-
-      const totalCol = this.gridRef.current.columns.find((c: any) => c.field === 'total');
-      if (totalCol && this.columns.find(col => col.field === 'total')?.cellTemplate) {
-        totalCol.cellTemplate = this.format;
-      }
-
-      const ratingCol = this.gridRef.current.columns.find((c: any) => c.field === 'rating');
-      const ratingColDef = this.columns.find(col => col.field === 'rating');
-      if (ratingCol && ratingColDef?.cellTemplate) {
-        ratingCol.cellTemplate = ratingColDef.cellTemplate;
-      }
-
-      this.gridRef.current.data = data;
+  React.useEffect(() => {
+    if (gridRef.current) {
+      const dataService = new GridLiteDataService();
+      const data: ProductInfo[] = dataService.generateProducts(50);
+      gridRef.current.data = data;
     }
-  }
+  }, []);
 
-  toggleFormatters(checked: boolean) {
-    if (this.gridRef.current) {
-      this.gridRef.current.updateColumns(
+  const toggleFormatters = React.useCallback((checked: boolean) => {
+    if (gridRef.current) {
+      gridRef.current.updateColumns(
         ['price', 'total'].map((field) => ({
           field,
-          cellTemplate: checked ? this.format : undefined,
+          cellTemplate: checked ? formatCellTemplate : undefined,
         }))
       );
+      setColumns(prevColumns => 
+        prevColumns.map(col => 
+          col.field === 'price' || col.field === 'total'
+            ? { ...col, cellTemplate: checked ? formatCellTemplate : undefined }
+            : col
+        )
+      );
     }
-  }
+  }, []);
 
-  toggleColumnProperty(columnField: string, property: string, value: boolean) {
-    if (this.gridRef.current) {
-      this.gridRef.current.updateColumns({ field: columnField, [property]: value });
+  const toggleColumnProperty = React.useCallback((columnField: string, property: string, value: boolean) => {
+    if (gridRef.current) {
+      gridRef.current.updateColumns({ field: columnField, [property]: value });
+      setColumns(prevColumns =>
+        prevColumns.map(col =>
+          col.field === columnField
+            ? { ...col, [property]: value }
+            : col
+        )
+      );
     }
-  }
+  }, []);
 
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <section className="panel">
-          <IgrDropdown
-            ref={this.dropdownRef}
-            keepOpenOnSelect={true}
-            flip={true}
-            onChange={(e: any) => {
-              this.dropdownRef.current?.clearSelection();
-            }}
-            id="column-select">
-            <div slot="target">
-              <IgrButton variant="outlined"><span>Column Properties</span></IgrButton>
-            </div>
-            {this.columns.map((column: any) => (
-              <IgrDropdownItem key={column.field}>
-                <div className="config">
-                  <span className="config-key">{column.header}</span>
-                  <IgrCheckbox
-                    labelPosition="before"
-                    checked={!column.hidden}
-                    onChange={(e: any) => this.toggleColumnProperty(column.field, 'hidden', !e.target.checked)}>
-                    Hidden
-                  </IgrCheckbox>
-                  <IgrCheckbox
-                    labelPosition="before"
-                    checked={column.resizable !== false}
-                    onChange={(e: any) => this.toggleColumnProperty(column.field, 'resizable', e.target.checked)}>
-                    Resizable
-                  </IgrCheckbox>
-                  <IgrCheckbox
-                    labelPosition="before"
-                    checked={column.filterable === true}
-                    onChange={(e: any) => this.toggleColumnProperty(column.field, 'filterable', e.target.checked)}>
-                    Filter
-                  </IgrCheckbox>
-                  <IgrCheckbox
-                    labelPosition="before"
-                    checked={column.sortable === true}
-                    onChange={(e: any) => this.toggleColumnProperty(column.field, 'sortable', e.target.checked)}>
-                    Sort
-                  </IgrCheckbox>
-                </div>
-              </IgrDropdownItem>
-            ))}
-          </IgrDropdown>
-          <IgrSwitch
-            id="formatters"
-            labelPosition="before"
-            checked={this.hasFormatters}
-            onChange={(e: any) => {
-              this.hasFormatters = e.target.checked;
-              this.toggleFormatters(this.hasFormatters);
-            }}>
-            Value formatters:
-          </IgrSwitch>
-        </section>
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite">
-            {this.columns.map((column: any) => (
-              <igc-grid-lite-column
-                key={column.field}
-                field={column.field}
-                header={column.header}
-                data-type={column.dataType}
-                hidden={column.hidden}
-              ></igc-grid-lite-column>
-            ))}
-          </igc-grid-lite>
-        </div>
-      </div >
-    );
-  }
+  return (
+    <div className="container sample ig-typography">
+      <section className="panel">
+        <IgrDropdown
+          ref={dropdownRef}
+          keepOpenOnSelect={true}
+          flip={true}
+          onChange={(e: any) => {
+            dropdownRef.current?.clearSelection();
+          }}
+          id="column-select">
+          <div slot="target">
+            <IgrButton variant="outlined"><span>Column Properties</span></IgrButton>
+          </div>
+          {columns.map((column: any) => (
+            <IgrDropdownItem key={column.field}>
+              <div className="config">
+                <span className="config-key">{column.header}</span>
+                <IgrCheckbox
+                  labelPosition="before"
+                  checked={!column.hidden}
+                  onChange={(e: any) => toggleColumnProperty(column.field, 'hidden', !e.target.checked)}>
+                  Hidden
+                </IgrCheckbox>
+                <IgrCheckbox
+                  labelPosition="before"
+                  checked={column.resizable !== false}
+                  onChange={(e: any) => toggleColumnProperty(column.field, 'resizable', e.target.checked)}>
+                  Resizable
+                </IgrCheckbox>
+                <IgrCheckbox
+                  labelPosition="before"
+                  checked={column.filterable === true}
+                  onChange={(e: any) => toggleColumnProperty(column.field, 'filterable', e.target.checked)}>
+                  Filter
+                </IgrCheckbox>
+                <IgrCheckbox
+                  labelPosition="before"
+                  checked={column.sortable === true}
+                  onChange={(e: any) => toggleColumnProperty(column.field, 'sortable', e.target.checked)}>
+                  Sort
+                </IgrCheckbox>
+              </div>
+            </IgrDropdownItem>
+          ))}
+        </IgrDropdown>
+        <IgrSwitch
+          id="formatters"
+          labelPosition="before"
+          checked={hasFormatters}
+          onChange={(e: any) => {
+            setHasFormatters(e.target.checked);
+            toggleFormatters(e.target.checked);
+          }}>
+          Value formatters:
+        </IgrSwitch>
+      </section>
+      <div className="grid-lite-wrapper">
+        <igc-grid-lite ref={gridRef} id="grid-lite">
+          {columns.map((column: any) => (
+            <igc-grid-lite-column
+              key={column.field}
+              field={column.field}
+              header={column.header}
+              data-type={column.dataType}
+              hidden={column.hidden}
+              cellTemplate={column.cellTemplate}
+            ></igc-grid-lite-column>
+          ))}
+        </igc-grid-lite>
+      </div>
+    </div >
+  );
 }
 
 // rendering above component in the React DOM

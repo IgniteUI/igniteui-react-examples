@@ -10,38 +10,30 @@ import "./index.css";
 // Register components
 IgcGridLite.register();
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
+export default function Sample() {
+  const gridRef = React.useRef<any>(null);
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-  }
-
-  componentDidMount() {
-    if (this.gridRef.current) {
-      const data: User[] = this.dataService.generateUsers(50);
-      this.gridRef.current.data = data;
+  React.useEffect(() => {
+    if (gridRef.current) {
+      const dataService = new GridLiteDataService();
+      const data: User[] = dataService.generateUsers(50);
+      gridRef.current.data = data;
     }
-  }
+  }, []);
 
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite">
-            <igc-grid-lite-column field="id" header="🆔 ID" width="150px"></igc-grid-lite-column>
-            <igc-grid-lite-column field="firstName" header="👤 First Name"></igc-grid-lite-column>
-            <igc-grid-lite-column field="lastName" header="👤 Last Name"></igc-grid-lite-column>
-            <igc-grid-lite-column field="age" header="🎂 Age" data-type="number" width="100px"></igc-grid-lite-column>
-            <igc-grid-lite-column field="email" header="📧 Email"></igc-grid-lite-column>
-          </igc-grid-lite>
-        </div>
+  return (
+    <div className="container sample ig-typography">
+      <div className="grid-lite-wrapper">
+        <igc-grid-lite ref={gridRef} id="grid-lite">
+          <igc-grid-lite-column field="id" header="🆔 ID" width="150px"></igc-grid-lite-column>
+          <igc-grid-lite-column field="firstName" header="👤 First Name"></igc-grid-lite-column>
+          <igc-grid-lite-column field="lastName" header="👤 Last Name"></igc-grid-lite-column>
+          <igc-grid-lite-column field="age" header="🎂 Age" data-type="number" width="100px"></igc-grid-lite-column>
+          <igc-grid-lite-column field="email" header="📧 Email"></igc-grid-lite-column>
+        </igc-grid-lite>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 // rendering above component in the React DOM

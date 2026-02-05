@@ -11,74 +11,75 @@ import "./index.css";
 // Register components
 IgcGridLite.register();
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
-  private logRef: React.RefObject<HTMLDivElement>;
-  private log: string[] = [];
+const getTime = () => `[${new Date().toLocaleTimeString()}]`;
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-    this.logRef = React.createRef<HTMLDivElement>();
-    this.state = { logContent: '' };
-  }
+export default function Sample() {
+  const gridRef = React.useRef<any>(null);
+  const logRef = React.useRef<HTMLDivElement>(null);
+  const [log, setLog] = React.useState<string[]>([]);
 
-  get time() {
-    return `[${new Date().toLocaleTimeString()}]`;
-  }
+  const updateLog = React.useCallback((message: string) => {
+    setLog(prevLog => {
+      const newLog = [...prevLog];
+      if (newLog.length > 10) {
+        newLog.shift();
+      }
+      newLog.push(message);
+      return newLog;
+    });
+  }, []);
 
-  componentDidMount() {
-    if (this.gridRef.current) {
-      const data: User[] = this.dataService.generateUsers(50);
-      this.gridRef.current.data = data;
+  React.useEffect(() => {
+    if (logRef.current) {
+      logRef.current.scrollTop = logRef.current.scrollHeight;
+    }
+  }, [log]);
+
+  React.useEffect(() => {
+    if (gridRef.current) {
+      const dataService = new GridLiteDataService();
+      const data: User[] = dataService.generateUsers(50);
+      gridRef.current.data = data;
 
       // Listen to filter events
-      this.gridRef.current.addEventListener('filtering', (e: any) => {
+      const handleFiltering = (e: any) => {
         const { expressions, type } = e.detail;
-        this.updateLog(`${this.time} :: Event \`${e.type}\` :: Filter operation of type '${type}' for column '${expressions[0].key}'`);
-      });
-      this.gridRef.current.addEventListener('filtered', (e: any) => {
-        this.updateLog(`${this.time} :: Event \`${e.type}\` for column '${e.detail.key}'`);
-      });
+        updateLog(`${getTime()} :: Event \`${e.type}\` :: Filter operation of type '${type}' for column '${expressions[0].key}'`);
+      };
+
+      const handleFiltered = (e: any) => {
+        updateLog(`${getTime()} :: Event \`${e.type}\` for column '${e.detail.key}'`);
+      };
+
+      gridRef.current.addEventListener('filtering', handleFiltering);
+      gridRef.current.addEventListener('filtered', handleFiltered);
+
+      return () => {
+        if (gridRef.current) {
+          gridRef.current.removeEventListener('filtering', handleFiltering);
+          gridRef.current.removeEventListener('filtered', handleFiltered);
+        }
+      };
     }
-  }
+  }, [updateLog]);
 
-  private updateLog(message: string) {
-    if (this.log.length > 10) {
-      this.log.shift();
-    }
-    this.log.push(message);
-    this.renderLog();
-  }
+  const logContent = log
+    .map(entry => `<p><code>${entry}</code></p>`)
+    .join('');
 
-  private renderLog() {
-    const logContent = this.log
-      .map(entry => `<p><code>${entry}</code></p>`)
-      .join('');
-    this.setState({ logContent }, () => {
-      if (this.logRef.current) {
-        this.logRef.current.scrollTop = this.logRef.current.scrollHeight;
-      }
-    });
-  }
-
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite">
-            <igc-grid-lite-column field="firstName" header="First name" filterable></igc-grid-lite-column>
-            <igc-grid-lite-column field="lastName" header="Last name" filterable></igc-grid-lite-column>
-            <igc-grid-lite-column field="age" header="Age" filterable data-type="number"></igc-grid-lite-column>
-            <igc-grid-lite-column field="email" header="Email" filterable></igc-grid-lite-column>
-          </igc-grid-lite>
-          <div ref={this.logRef} className="log" id="log" dangerouslySetInnerHTML={{ __html: this.state.logContent }}></div>
-        </div>
+  return (
+    <div className="container sample ig-typography">
+      <div className="grid-lite-wrapper">
+        <igc-grid-lite ref={gridRef} id="grid-lite">
+          <igc-grid-lite-column field="firstName" header="First name" filterable></igc-grid-lite-column>
+          <igc-grid-lite-column field="lastName" header="Last name" filterable></igc-grid-lite-column>
+          <igc-grid-lite-column field="age" header="Age" filterable data-type="number"></igc-grid-lite-column>
+          <igc-grid-lite-column field="email" header="Email" filterable></igc-grid-lite-column>
+        </igc-grid-lite>
+        <div ref={logRef} className="log" id="log" dangerouslySetInnerHTML={{ __html: logContent }}></div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 // rendering above component in the React DOM
