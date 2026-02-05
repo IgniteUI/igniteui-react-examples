@@ -16,115 +16,80 @@ import "./index.css";
 IgcGridLite.register();
 defineComponents(IgcRatingComponent, IgcCircularProgressComponent);
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
-  private progressRef: React.RefObject<HTMLDivElement>;
+// Define cellTemplate function outside component
+const ratingCellTemplate = (params: any) => {
+  const rating = document.createElement('igc-rating');
+  rating.setAttribute('readonly', '');
+  rating.setAttribute('step', '0.01');
+  rating.setAttribute('value', params.value.toString());
+  return rating;
+};
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-    this.progressRef = React.createRef();
-    this.state = { queryString: '' };
-  }
-
-  componentDidMount() {
-    if (this.gridRef.current) {
-      const data: ProductInfo[] = this.dataService.generateProducts(100);
-      
-      const columns = [
-        { 
-          key: 'name', 
-          headerText: 'Name', 
-          sort: true 
-        },
-        { 
-          key: 'price', 
-          type: 'number', 
-          headerText: 'Price', 
-          sort: true 
-        },
-        {
-          key: 'rating',
-          type: 'number',
-          headerText: 'Rating',
-          sort: true,
-          cellTemplate: (params: any) => {
-            const rating = document.createElement('igc-rating');
-            rating.setAttribute('readonly', '');
-            rating.setAttribute('step', '0.01');
-            rating.setAttribute('value', params.value.toString());
-            return rating;
-          }
-        },
-        { 
-          key: 'sold', 
-          type: 'number', 
-          headerText: 'Sold', 
-          sort: true 
-        },
-        { 
-          key: 'total', 
-          type: 'number', 
-          headerText: 'Total', 
-          sort: true 
-        }
-      ];
-
-      const dataPipelineConfiguration = {
-        sort: async ({ data, grid }: any) => {
-          if (this.progressRef.current) {
-            this.progressRef.current.classList.add('in-operation');
-          }
-          const queryString = grid.sortExpressions.length
-            ? this.buildUri(grid.sortExpressions)
-            : '';
-          this.setState({ queryString });
-          
-          await new Promise(resolve => setTimeout(resolve, 250));
-          if (this.progressRef.current) {
-            this.progressRef.current.classList.remove('in-operation');
-          }
-          return data;
-        }
-      };
-
-      this.gridRef.current.columns = columns;
-      this.gridRef.current.data = data;
-      this.gridRef.current.dataPipelineConfiguration = dataPipelineConfiguration;
+const buildUri = (state: any[]): string => {
+  const uri: string[] = [];
+  for (const expr of state) {
+    if (expr.direction === 'none') {
+      continue;
     }
-  }
-
-  private buildUri(state: any[]): string {
-    const uri: string[] = [];
-    for (const expr of state) {
-      if (expr.direction === 'none') {
-        continue;
-      }
-      uri.push(
-        expr.direction === 'ascending'
-          ? `asc(${expr.key})`
-          : `desc(${expr.key})`
-      );
-    }
-    return `GET: /data?sort_by=${uri.join(',')}`;
-  }
-
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="info-panel">
-          <div id="queryString">
-            <p><code>{this.state.queryString}</code></p>
-          </div>
-        </div>
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
-        </div>
-      </div>
+    uri.push(
+      expr.direction === 'ascending'
+        ? `asc(${expr.key})`
+        : `desc(${expr.key})`
     );
   }
+  return `GET: /data?sort_by=${uri.join(',')}`;
+};
+
+export default function Sample() {
+  const gridRef = React.useRef<any>(null);
+  const progressRef = React.useRef<HTMLDivElement>(null);
+  const [queryString, setQueryString] = React.useState('');
+
+  const dataPipelineConfiguration = React.useMemo(() => ({
+    sort: async ({ data, grid }: any) => {
+      if (progressRef.current) {
+        progressRef.current.classList.add('in-operation');
+      }
+      const qs = grid.sortingExpressions.length
+        ? buildUri(grid.sortingExpressions)
+        : '';
+      setQueryString(qs);
+      
+      await new Promise(resolve => setTimeout(resolve, 250));
+      if (progressRef.current) {
+        progressRef.current.classList.remove('in-operation');
+      }
+      return data;
+    }
+  }), []);
+
+  React.useEffect(() => {
+    if (gridRef.current) {
+      const dataService = new GridLiteDataService();
+      const data: ProductInfo[] = dataService.generateProducts(100);
+      gridRef.current.data = data;
+      gridRef.current.dataPipelineConfiguration = dataPipelineConfiguration;
+    }
+  }, [dataPipelineConfiguration]);
+
+  return (
+    <div className="container sample ig-typography">
+      <div className="info-panel">
+        <div id="queryString">
+          <p><code>{queryString}</code></p>
+        </div>
+      </div>
+      <div className="grid-lite-wrapper">
+        <igc-grid-lite ref={gridRef} id="grid-lite">
+          <igc-grid-lite-column field="name" header="Name" sortable></igc-grid-lite-column>
+          <igc-grid-lite-column field="price" data-type="number" header="Price" sortable></igc-grid-lite-column>
+          <igc-grid-lite-column field="rating" data-type="number" header="Rating" sortable cellTemplate={ratingCellTemplate}></igc-grid-lite-column>
+          <igc-grid-lite-column field="sold" data-type="number" header="Sold" sortable></igc-grid-lite-column>
+          <igc-grid-lite-column field="total" data-type="number" header="Total" sortable></igc-grid-lite-column>
+        </igc-grid-lite>
+      </div>
+    </div>
+  );
 }
 
 // rendering above component in the React DOM

@@ -15,130 +15,99 @@ import "./index.css";
 IgcGridLite.register();
 defineComponents(IgcRatingComponent);
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
-  private logRef: React.RefObject<HTMLDivElement>;
-  private log: string[] = [];
+const getTimeStamp = (): string => `[${new Date().toLocaleTimeString()}]`;
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-    this.logRef = React.createRef<HTMLDivElement>();
-    this.state = { logContent: '' };
-    this.handleSorting = this.handleSorting.bind(this);
-    this.handleSorted = this.handleSorted.bind(this);
-  }
+// Define cellTemplate function outside component
+const ratingCellTemplate = (params: any) => {
+  const rating = document.createElement('igc-rating');
+  rating.setAttribute('readonly', '');
+  rating.setAttribute('step', '0.01');
+  rating.setAttribute('value', params.value.toString());
+  return rating;
+};
 
-  get timeStamp(): string {
-    return `[${new Date().toLocaleTimeString()}]`;
-  }
+export default function Sample() {
+  const gridRef = React.useRef<any>(null);
+  const logRef = React.useRef<HTMLDivElement>(null);
+  const [log, setLog] = React.useState<string[]>([]);
 
-  componentDidMount() {
-    if (this.gridRef.current) {
-      const data: ProductInfo[] = this.dataService.generateProducts(100);
-      
-      const columns = [
-        { 
-          key: 'name', 
-          headerText: 'Name', 
-          sort: true 
-        },
-        { 
-          key: 'price', 
-          type: 'number', 
-          headerText: 'Price', 
-          sort: true 
-        },
-        {
-          key: 'rating',
-          type: 'number',
-          headerText: 'Rating',
-          sort: true,
-          cellTemplate: (params: any) => {
-            const rating = document.createElement('igc-rating');
-            rating.setAttribute('readonly', '');
-            rating.setAttribute('step', '0.01');
-            rating.setAttribute('value', params.value.toString());
-            return rating;
-          }
-        },
-        { 
-          key: 'sold', 
-          type: 'number', 
-          headerText: 'Sold', 
-          sort: true 
-        },
-        { 
-          key: 'total', 
-          type: 'number', 
-          headerText: 'Total', 
-          sort: true 
-        }
-      ];
-
-      this.gridRef.current.columns = columns;
-      this.gridRef.current.data = data;
-
-      // Listen to sorting events
-      this.gridRef.current.addEventListener('sorting', this.handleSorting);
-      this.gridRef.current.addEventListener('sorted', this.handleSorted);
-    }
-  }
-
-  private updateLog(message: string) {
-    if (this.log.length > 10) {
-      this.log.shift();
-    }
-    this.log.push(message);
-    this.renderLog();
-  }
-
-  private renderLog() {
-    const logContent = this.log
-      .map(entry => `<p><code>${entry}</code></p>`)
-      .join('');
-    this.setState({ logContent }, () => {
-      if (this.logRef.current) {
-        this.logRef.current.scrollTop = this.logRef.current.scrollHeight;
+  const updateLog = React.useCallback((message: string) => {
+    setLog(prevLog => {
+      const newLog = [...prevLog];
+      if (newLog.length > 10) {
+        newLog.shift();
       }
+      newLog.push(message);
+      return newLog;
     });
-  }
+  }, []);
 
-  private handleSorting(event: any) {
+  React.useEffect(() => {
+    if (logRef.current) {
+      logRef.current.scrollTop = logRef.current.scrollHeight;
+    }
+  }, [log]);
+
+  const handleSorting = React.useCallback((event: any) => {
     const { detail, type } = event;
     const allowedColumns = ['price', 'total', 'sold'];
     
     if (!allowedColumns.includes(detail.key)) {
       event.preventDefault();
-      this.updateLog(
-        `${this.timeStamp} :: Event '${type}' :: Sort operation was prevented for column '${detail.key}'`
+      updateLog(
+        `${getTimeStamp()} :: Event '${type}' :: Sort operation was prevented for column '${detail.key}'`
       );
     } else {
-      this.updateLog(
-        `${this.timeStamp} :: Event '${type}' :: Column '${detail.key}' is being sorted with expression: ${JSON.stringify(detail)}`
+      updateLog(
+        `${getTimeStamp()} :: Event '${type}' :: Column '${detail.key}' is being sorted with expression: ${JSON.stringify(detail)}`
       );
     }
-  }
+  }, [updateLog]);
 
-  private handleSorted(event: any) {
+  const handleSorted = React.useCallback((event: any) => {
     const { detail, type } = event;
-    this.updateLog(
-      `${this.timeStamp} :: Event '${type}' :: Column '${detail.key}' was sorted with expression: ${JSON.stringify(detail)}`
+    updateLog(
+      `${getTimeStamp()} :: Event '${type}' :: Column '${detail.key}' was sorted with expression: ${JSON.stringify(detail)}`
     );
-  }
+  }, [updateLog]);
 
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
-          <div ref={this.logRef} className="log" id="log" dangerouslySetInnerHTML={{ __html: this.state.logContent }}></div>
-        </div>
+  React.useEffect(() => {
+    if (gridRef.current) {
+      const dataService = new GridLiteDataService();
+      const data: ProductInfo[] = dataService.generateProducts(100);
+      gridRef.current.data = data;
+
+      // Listen to sorting events
+      gridRef.current.addEventListener('sorting', handleSorting);
+      gridRef.current.addEventListener('sorted', handleSorted);
+
+      return () => {
+        if (gridRef.current) {
+          gridRef.current.removeEventListener('sorting', handleSorting);
+          gridRef.current.removeEventListener('sorted', handleSorted);
+        }
+      };
+    }
+  }, [handleSorting, handleSorted]);
+
+  const logContent = log
+    .map(entry => `<p><code>${entry}</code></p>`)
+    .join('');
+
+  return (
+    <div className="container sample ig-typography">
+      <div className="grid-lite-wrapper">
+        <igc-grid-lite ref={gridRef} id="grid-lite">
+          <igc-grid-lite-column field="name" header="Name" sortable></igc-grid-lite-column>
+          <igc-grid-lite-column field="price" data-type="number" header="Price" sortable></igc-grid-lite-column>
+          <igc-grid-lite-column field="rating" data-type="number" header="Rating" sortable cellTemplate={ratingCellTemplate}></igc-grid-lite-column>
+          <igc-grid-lite-column field="sold" data-type="number" header="Sold" sortable></igc-grid-lite-column>
+          <igc-grid-lite-column field="total" data-type="number" header="Total" sortable></igc-grid-lite-column>
+        </igc-grid-lite>
+        <div ref={logRef} className="log" id="log" dangerouslySetInnerHTML={{ __html: logContent }}></div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 // rendering above component in the React DOM

@@ -16,82 +16,50 @@ import "./index.css";
 IgcGridLite.register();
 defineComponents(IgcRatingComponent);
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private formatter: Intl.NumberFormat;
-  private gridRef: React.RefObject<any>;
+const formatter = new Intl.NumberFormat('en-EN', {
+  style: 'currency',
+  currency: 'EUR'
+});
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.formatter = new Intl.NumberFormat('en-EN', {
-      style: 'currency',
-      currency: 'EUR'
-    });
-    this.gridRef = React.createRef();
-  }
+// Define cellTemplate functions outside component
+const currencyCellTemplate = (params: any) => {
+  const span = document.createElement('span');
+  span.textContent = formatter.format(params.value);
+  return span;
+};
 
-  componentDidMount() {
-    if (this.gridRef.current) {
-      const data: ProductInfo[] = this.dataService.generateProducts(50);
-      
-      const columns = [
-        { 
-          key: 'name', 
-          headerText: 'Product Name' 
-        },
-        {
-          key: 'price',
-          headerText: 'Price',
-          type: 'number',
-          cellTemplate: (params: any) => {
-            const span = document.createElement('span');
-            span.textContent = this.formatter.format(params.value);
-            return span;
-          }
-        },
-        { 
-          key: 'sold', 
-          type: 'number', 
-          headerText: 'Units sold' 
-        },
-        { 
-          key: 'total', 
-          headerText: 'Total sold',
-          cellTemplate: (params: any) => {
-            const span = document.createElement('span');
-            span.textContent = this.formatter.format(params.value);
-            return span;
-          }
-        },
-        {
-          key: 'rating',
-          type: 'number',
-          headerText: 'Customer rating',
-          cellTemplate: (params: any) => {
-            const rating = document.createElement('igc-rating');
-            rating.setAttribute('readonly', '');
-            rating.setAttribute('step', '0.01');
-            rating.setAttribute('value', params.value.toString());
-            return rating;
-          }
-        }
-      ];
+const ratingCellTemplate = (params: any) => {
+  const rating = document.createElement('igc-rating');
+  rating.setAttribute('readonly', '');
+  rating.setAttribute('step', '0.01');
+  rating.setAttribute('value', params.value.toString());
+  return rating;
+};
 
-      this.gridRef.current.columns = columns;
-      this.gridRef.current.data = data;
+export default function Sample() {
+  const gridRef = React.useRef<any>(null);
+
+  React.useEffect(() => {
+    if (gridRef.current) {
+      const dataService = new GridLiteDataService();
+      const data: ProductInfo[] = dataService.generateProducts(50);
+      gridRef.current.data = data;
     }
-  }
+  }, []);
 
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
-        </div>
+  return (
+    <div className="container sample ig-typography">
+      <div className="grid-lite-wrapper">
+        <igc-grid-lite ref={gridRef} id="grid-lite">
+          <igc-grid-lite-column field="name" header="Product Name"></igc-grid-lite-column>
+          <igc-grid-lite-column field="price" header="Price" data-type="number" cellTemplate={currencyCellTemplate}></igc-grid-lite-column>
+          <igc-grid-lite-column field="sold" data-type="number" header="Units sold"></igc-grid-lite-column>
+          <igc-grid-lite-column field="total" header="Total sold" cellTemplate={currencyCellTemplate}></igc-grid-lite-column>
+          <igc-grid-lite-column field="rating" data-type="number" header="Customer rating" cellTemplate={ratingCellTemplate}></igc-grid-lite-column>
+        </igc-grid-lite>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 // rendering above component in the React DOM
