@@ -24,7 +24,7 @@ const formatter = new Intl.NumberFormat('en-EN', {
 });
 
 // Define cellTemplate functions outside component
-const formatCellTemplate = (params: any) => {
+const currencyCellTemplate = (params: any) => {
   const span = document.createElement('span');
   span.textContent = formatter.format(params.value);
   return span;
@@ -60,7 +60,7 @@ const initialColumns = [
     field: 'price',
     header: 'Price',
     dataType: 'number',
-    cellTemplate: formatCellTemplate,
+    cellTemplate: currencyCellTemplate,
     resizable: true,
     sortable: false,
     filterable: false
@@ -77,7 +77,7 @@ const initialColumns = [
   {
     field: 'total',
     header: 'Total sold',
-    cellTemplate: formatCellTemplate,
+    cellTemplate: currencyCellTemplate,
     resizable: true,
     sortable: false,
     filterable: false
@@ -112,13 +112,13 @@ export default function Sample() {
       gridRef.current.updateColumns(
         ['price', 'total'].map((field) => ({
           field,
-          cellTemplate: checked ? formatCellTemplate : undefined,
+          cellTemplate: checked ? currencyCellTemplate : undefined,
         }))
       );
       setColumns(prevColumns => 
         prevColumns.map(col => 
           col.field === 'price' || col.field === 'total'
-            ? { ...col, cellTemplate: checked ? formatCellTemplate : undefined }
+            ? { ...col, cellTemplate: checked ? currencyCellTemplate : undefined }
             : col
         )
       );

@@ -22,13 +22,7 @@ const formatter = new Intl.NumberFormat('en-EN', {
 });
 
 // Define cellTemplate functions outside component
-const priceCellTemplate = (params: any) => {
-  const span = document.createElement('span');
-  span.textContent = formatter.format(params.value);
-  return span;
-};
-
-const totalCellTemplate = (params: any) => {
+const currencyCellTemplate = (params: any) => {
   const span = document.createElement('span');
   span.textContent = formatter.format(params.value);
   return span;
@@ -58,9 +52,9 @@ export default function Sample() {
       <div className="grid-lite-wrapper">
         <igc-grid-lite ref={gridRef} id="grid-lite">
           <igc-grid-lite-column field="name" header="Product Name"></igc-grid-lite-column>
-          <igc-grid-lite-column field="price" header="Price" data-type="number" cellTemplate={priceCellTemplate}></igc-grid-lite-column>
+          <igc-grid-lite-column field="price" header="Price" data-type="number" cellTemplate={currencyCellTemplate}></igc-grid-lite-column>
           <igc-grid-lite-column field="sold" data-type="number" header="Units sold"></igc-grid-lite-column>
-          <igc-grid-lite-column field="total" header="Total sold" cellTemplate={totalCellTemplate}></igc-grid-lite-column>
+          <igc-grid-lite-column field="total" header="Total sold" cellTemplate={currencyCellTemplate}></igc-grid-lite-column>
           <igc-grid-lite-column field="rating" data-type="number" header="Customer rating" cellTemplate={ratingCellTemplate}></igc-grid-lite-column>
         </igc-grid-lite>
       </div>

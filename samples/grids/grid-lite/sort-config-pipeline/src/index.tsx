@@ -61,7 +61,7 @@ export default function Sample() {
       }
       return data;
     }
-  }), []);
+  }), [setQueryString]);
 
   React.useEffect(() => {
     if (gridRef.current) {
