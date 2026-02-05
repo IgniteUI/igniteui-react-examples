@@ -53,7 +53,7 @@ export default function Sample() {
       await new Promise((resolve) => setTimeout(resolve, 250));
       return data;
     },
-  }), [setQueryString]);
+  }), []);
 
   React.useEffect(() => {
     if (gridRef.current) {
