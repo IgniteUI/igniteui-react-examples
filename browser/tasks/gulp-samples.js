@@ -858,6 +858,7 @@ function updateIG(cb) {
         { version: "19.3.2", name: "igniteui-react-datasources" },
         { version: "19.3.2", name: "igniteui-react-dashboards" },
         { version: "^19.4.0", name: "igniteui-react" },
+        { version: "^1.0.2", name: "igniteui-i18n-resources" }, 
         // these IG packages are sometimes updated:
         { version: "^6.3.0", name: "igniteui-webcomponents" },
         { version: "^19.4.0", name: "igniteui-react-dockmanager" },
