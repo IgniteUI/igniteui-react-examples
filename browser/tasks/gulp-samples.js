@@ -849,7 +849,7 @@ function updateIG(cb) {
         { version: "19.3.2", name: "igniteui-react-excel" },
         { version: "19.3.2", name: "igniteui-react-gauges" },
         { version: "19.3.2", name: "igniteui-react-data-grids" },
-        { version: "^19.5.0-beta.0", name: "igniteui-react-grids" },
+        { version: "^19.5.0-beta.3", name: "igniteui-react-grids" },
         { version: "19.3.2", name: "igniteui-react-inputs" },
         { version: "19.3.2", name: "igniteui-react-layouts" },
         { version: "19.3.2", name: "igniteui-react-maps" },
@@ -858,6 +858,7 @@ function updateIG(cb) {
         { version: "19.3.2", name: "igniteui-react-datasources" },
         { version: "19.3.2", name: "igniteui-react-dashboards" },
         { version: "^19.4.0", name: "igniteui-react" },
+        { version: "^1.0.2", name: "igniteui-i18n-resources" }, 
         // these IG packages are sometimes updated:
         { version: "^6.3.0", name: "igniteui-webcomponents" },
         { version: "^19.4.0", name: "igniteui-react-dockmanager" },
