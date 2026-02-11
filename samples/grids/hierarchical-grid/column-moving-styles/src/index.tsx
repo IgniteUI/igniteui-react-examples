@@ -186,7 +186,7 @@ export default class Sample extends React.Component<any, any> {
         return (
             <div style={{display: 'flex'}}>
                 <span>{column.field}</span>
-                <span style={{marginLeft: 'auto'}} onClick={(e: any) => this.toggleColumnPin(column)}>📌</span>
+                <span style={{marginLeft: 'auto', cursor: 'pointer'}} onClick={(e: any) => this.toggleColumnPin(column)}>📌</span>
             </div>
         );
     }
