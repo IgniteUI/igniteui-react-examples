@@ -1,42 +1,41 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "igniteui-react-grids/grids/themes/light/bootstrap.css";
+import { AthletesData } from "./AthletesData";
 
+import { IgrButton } from "igniteui-react";
 import {
   IgrGridToolbar,
   IgrGridToolbarActions,
   IgrGridToolbarExporter,
   IgrGridToolbarTitle,
-  IgrGridModule,
-} from "igniteui-react-grids";
-import {
   IgrGrid,
   IgrColumn,
 } from "igniteui-react-grids";
-import { IgrButton } from "igniteui-react";
 
-import "igniteui-react-grids/grids/themes/light/bootstrap.css";
-import { AthletesData } from "./AthletesData";
 
-IgrGridModule.register();
-
-export default function App() {
+export default function GridDataExportingIndicatorSample() {
   const athletesData = new AthletesData();
-  const gridRef = useRef<IgrGrid>(null);
-  const toolbarRef = useRef<IgrGridToolbar>(null);
-
-  const localData: any[] = [];
-  for (let i = 0; i < 10000; i += 3) {
-    for (let c = 0; c < athletesData.length; c++) {
-      localData.push(athletesData[c]);
+  const [localData, setLocalData] = useState([]);
+  const [showProgress, setShowProgress] = useState(false);
+  
+  useEffect(() => {
+    const data: any[] = [];
+    for (let i = 0; i < 2000; i += 3) {
+      for (let c = 0; c < athletesData.length; c++) {
+        data.push(athletesData[c]);
+      }
     }
-  }
+    setLocalData(data);
+  }, []);
+  
 
-  function showProgress() {
-    toolbarRef.current.showProgress = true;
+  const setupProgressVisibility = () => {
+    setShowProgress(true);
 
     setTimeout(() => {
-      toolbarRef.current.showProgress = false;
+      setShowProgress(false);
     }, 5000);
   }
 
@@ -44,17 +43,16 @@ export default function App() {
     <div className="container sample ig-typography">
       <div className="container fill">
         <IgrGrid
-          ref={gridRef}
           data={localData}
           autoGenerate={false}
           primaryKey="Id"
           height="350px"
         >
-          <IgrGridToolbar ref={toolbarRef}  key="toolbar">
+          <IgrGridToolbar key="toolbar" showProgress={showProgress}>
             <IgrGridToolbarTitle key="toolbarTitle">
               <span key="toolbarTitleText">Grid Toolbar</span>
             </IgrGridToolbarTitle>
-            <IgrButton key="btn" onClick={showProgress}>
+            <IgrButton key="btn" onClick={setupProgressVisibility}>
               <span key="simulate">Simulate long running operation</span>
             </IgrButton>
             <IgrGridToolbarActions key="toolbarActions">
@@ -77,4 +75,4 @@ export default function App() {
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(<GridDataExportingIndicatorSample />);
