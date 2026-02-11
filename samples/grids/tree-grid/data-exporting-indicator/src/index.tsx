@@ -1,48 +1,45 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "igniteui-react-grids/grids/themes/light/bootstrap.css";
+import { OrdersTreeData } from "./OrdersData";
 
+import { IgrButton } from "igniteui-react";
 import {
   IgrGridToolbar,
   IgrGridToolbarActions,
   IgrGridToolbarExporter,
   IgrGridToolbarTitle,
-  IgrHierarchicalGridModule,
-} from "igniteui-react-grids";
-import {
   IgrTreeGrid,
-  IgrColumn,
+  IgrColumn
 } from "igniteui-react-grids";
-import { IgrButton } from "igniteui-react";
 
-import "igniteui-react-grids/grids/themes/light/bootstrap.css";
-import { OrdersTreeData } from "./OrdersData";
 
-IgrHierarchicalGridModule.register();
-
-export default function App() {
+export default function TreeGridDataExportingIndicatorSample() {
   const ordersData = new OrdersTreeData();
-  const treeGridRef = useRef<IgrTreeGrid>(null);
-  const toolbarRef = useRef<IgrGridToolbar>(null);
+  const [localData, setLocalData] = useState([]);
+  const [showProgress, setShowProgress] = useState(false);
 
-  const localData: any[] = [];
-  for (let i = 0; i < 100; i++) {
-  for (let c = 0; c < ordersData.length; c++) {
-    const original = ordersData[c];
-    localData.push({
-      ...original,
-      ID: original.ID + (i * ordersData.length),
-      ParentID: original.ParentID === -1 ? -1 : original.ParentID + (i * ordersData.length)
-    });
-  }
-}
+  useEffect(() => {
+    const data: any[] = [];
+    for (let i = 0; i < 1000; i++) {
+      for (let c = 0; c < ordersData.length; c++) {
+        const original = ordersData[c];
+        data.push({
+          ...original,
+          ID: original.ID + (i * ordersData.length),
+          ParentID: original.ParentID === -1 ? -1 : original.ParentID + (i * ordersData.length)
+        });
+      }
+    }
+    setLocalData(data);
+  }, []);
 
-
-  function showProgress() {
-    toolbarRef.current.showProgress = true;
-
+  const setupProgressVisibility = () => {
+    setShowProgress(true);
+  
     setTimeout(() => {
-      toolbarRef.current.showProgress = false;
+      setShowProgress(false);
     }, 5000);
   }
 
@@ -50,18 +47,17 @@ export default function App() {
     <div className="container sample ig-typography">
       <div className="container fill">
         <IgrTreeGrid
-          ref={treeGridRef}
           data={localData}
           autoGenerate={false}
           primaryKey="ID"
           foreignKey="ParentID"
           height="350px"
         >
-          <IgrGridToolbar ref={toolbarRef}  key="toolbar">
+          <IgrGridToolbar key="toolbar" showProgress={showProgress}>
             <IgrGridToolbarTitle key="toolbarTitle">
               <span key="toolbarTitleText">Tree Grid Toolbar</span>
             </IgrGridToolbarTitle>
-            <IgrButton key="btn" onClick={showProgress}>
+            <IgrButton key="btn" onClick={setupProgressVisibility}>
               <span key="simulate">Simulate long running operation</span>
             </IgrButton>
             <IgrGridToolbarActions key="toolbarActions">
@@ -84,4 +80,4 @@ export default function App() {
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(<TreeGridDataExportingIndicatorSample />);
