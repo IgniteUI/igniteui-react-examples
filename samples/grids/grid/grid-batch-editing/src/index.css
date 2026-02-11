@@ -1,0 +1,35 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.buttons-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.buttons-right {
+    display: flex;
+    gap: 8px;
+}
+
+.dialog-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.transaction--add {
+    color: #6b3;
+    font-weight: 600;
+}
+
+.transaction--update {
+    color: #4a71b9;
+    font-weight: 600;
+}
+
+.transaction--delete {
+    color: #ee4920;
+    font-weight: 600;
+}
