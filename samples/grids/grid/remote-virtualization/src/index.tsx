@@ -1,45 +1,91 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import ReactDOM from 'react-dom/client';
-import { RemoteService } from './RemoteService';
-import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
+import { RemoteService, DataResult } from './RemoteService';
+import { IgrGrid, IgrColumn, IgrForOfStateEventArgs } from 'igniteui-react-grids';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
+// Debounce utility function
+function debounce<T extends (...args: any[]) => void>(
+  func: T,
+  wait: number
+): (...args: Parameters<T>) => void {
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+  return (...args: Parameters<T>) => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+      func(...args);
+    }, wait);
+  };
+}
+
 const RemoteVirtualizationGrid = () => {
+  const gridRef = useRef<IgrGrid>(null);
   const [data, setData] = useState<any[]>([]);
   const [totalCount, setTotalCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchData = (skip: number = 0, take: number = 50) => {
-    setIsLoading(true);
-    RemoteService.getData(skip, take)
-      .then(result => {
-        setData(result);
-        const count = RemoteService.getTotalCount();
-        setTotalCount(count);
-        setIsLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-        setIsLoading(false);
-      });
-  };
+  // Callback for when fresh data arrives from the server
+  const handleFreshData = useCallback((result: DataResult) => {
+    setData(result.data);
+    setTotalCount(result.totalCount);
+    if (gridRef.current) {
+      gridRef.current.totalItemCount = result.totalCount;
+      gridRef.current.isLoading = false;
+    }
+  }, []);
 
-  const handleDataPreLoad = (event: any) => {
+  const fetchData = useCallback((startIndex: number = 0, chunkSize: number = 50) => {
+    // Get cached data immediately for fast UI feedback
+    const cachedResult = RemoteService.getData(startIndex, chunkSize, handleFreshData);
+
+    // Show cached data immediately (even if partial/stale)
+    if (cachedResult.data.length > 0) {
+      setData(cachedResult.data);
+      setTotalCount(cachedResult.totalCount);
+      if (gridRef.current) {
+        gridRef.current.totalItemCount = cachedResult.totalCount;
+      }
+    }
+
+    // Show loading indicator only if we don't have cached data
+    // or if the data is not fully cached (fresh data is being fetched)
+    if (gridRef.current && !cachedResult.fromCache) {
+      gridRef.current.isLoading = true;
+    } else if (gridRef.current && cachedResult.data.length === 0) {
+      gridRef.current.isLoading = true;
+    }
+  }, [handleFreshData]);
+
+  // Debounced version for scroll events - waits 150ms after scrolling stops
+  const debouncedFetchData = useCallback(
+    debounce((startIndex: number, chunkSize: number) => {
+      fetchData(startIndex, chunkSize);
+    }, 150),
+    [fetchData]
+  );
+
+  const handleDataPreLoad = useCallback((event: IgrForOfStateEventArgs) => {
     const { startIndex, chunkSize } = event.detail;
-    fetchData(startIndex, chunkSize);
-  };
+    debouncedFetchData(startIndex, chunkSize);
+  }, [debouncedFetchData]);
 
   useEffect(() => {
-    fetchData(); // initial load
-  }, []);
+    fetchData(); // initial load - no debounce
+
+    // Cleanup on unmount
+    return () => {
+      RemoteService.cancelPendingRequest();
+    };
+  }, [fetchData]);
 
   return (
     <div className="container sample ig-typography">
       <h3>Remote Virtualization Grid ({totalCount.toLocaleString()} records)</h3>
       <IgrGrid
-        autoGenerate={false}
+        ref={gridRef}
         data={data}
-        isLoading={isLoading}
+        autoGenerate={false}
         height="600px"
         width="100%"
         rowHeight={50}
