@@ -16,21 +16,14 @@ import "./index.css";
 IgcGridLite.register();
 defineComponents(IgcButtonComponent);
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
-  private showingProducts = true;
+export default function Sample() {
+  const gridRef = React.useRef<any>(null);
+  const [showingProducts, setShowingProducts] = React.useState(true);
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-    this.switchData = this.switchData.bind(this);
-  }
-
-  componentDidMount() {
-    if (this.gridRef.current) {
-      this.gridRef.current.data = this.dataService.generateProducts(50);
+  React.useEffect(() => {
+    if (gridRef.current) {
+      const dataService = new GridLiteDataService();
+      gridRef.current.data = dataService.generateProducts(50);
       
       window.addEventListener('error', (e) => {
         if (e.message === 'ResizeObserver loop completed with undelivered notifications.') {
@@ -38,34 +31,33 @@ export default class Sample extends React.Component<any, any> {
         }
       });
     }
-  }
+  }, []);
 
-  private switchData() {
-    if (this.gridRef.current) {
-      this.gridRef.current.columns = [];
+  const switchData = React.useCallback(() => {
+    if (gridRef.current) {
+      const dataService = new GridLiteDataService();
+      gridRef.current.columns = [];
       
-      if (this.showingProducts) {
-        this.gridRef.current.data = this.dataService.generateUsers(50);
-        this.showingProducts = false;
+      if (showingProducts) {
+        gridRef.current.data = dataService.generateUsers(50);
+        setShowingProducts(false);
       } else {
-        this.gridRef.current.data = this.dataService.generateProducts(50);
-        this.showingProducts = true;
+        gridRef.current.data = dataService.generateProducts(50);
+        setShowingProducts(true);
       }
     }
-  }
+  }, [showingProducts]);
 
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="controls-wrapper">
-          <button className="sample-button" onClick={this.switchData}>Switch Data</button>
-        </div>
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite auto-generate="true" ref={this.gridRef} id="grid-lite"></igc-grid-lite>
-        </div>
+  return (
+    <div className="container sample ig-typography">
+      <div className="controls-wrapper">
+        <button className="sample-button" onClick={switchData}>Switch Data</button>
       </div>
-    );
-  }
+      <div className="grid-lite-wrapper">
+        <igc-grid-lite auto-generate="true" ref={gridRef} id="grid-lite"></igc-grid-lite>
+      </div>
+    </div>
+  );
 }
 
 // rendering above component in the React DOM

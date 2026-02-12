@@ -16,94 +16,54 @@ import "./index.css";
 IgcGridLite.register();
 defineComponents(IgcRatingComponent);
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
-  private sortConfiguration: any = {
-    multiple: true,
-    triState: true
-  };
+// Define cellTemplate function outside component
+const ratingCellTemplate = (params: any) => {
+  const rating = document.createElement('igc-rating');
+  rating.setAttribute('readonly', '');
+  rating.setAttribute('step', '0.01');
+  rating.setAttribute('value', params.value.toString());
+  return rating;
+};
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-    this.updateConfig = this.updateConfig.bind(this);
-  }
+export default function Sample() {
+  const gridRef = React.useRef<any>(null);
+  const [sortingOptions, setSortingOptions] = React.useState<any>({
+    mode: 'multiple'
+  });
 
-  componentDidMount() {
-    if (this.gridRef.current) {
-      const data: ProductInfo[] = this.dataService.generateProducts(100);
-      
-      const columns = [
-        { 
-          key: 'name', 
-          headerText: 'Name', 
-          sort: true 
-        },
-        { 
-          key: 'price', 
-          type: 'number', 
-          headerText: 'Price', 
-          sort: true 
-        },
-        {
-          key: 'rating',
-          type: 'number',
-          headerText: 'Rating',
-          sort: true,
-          cellTemplate: (params: any) => {
-            const rating = document.createElement('igc-rating');
-            rating.setAttribute('readonly', '');
-            rating.setAttribute('step', '0.01');
-            rating.setAttribute('value', params.value.toString());
-            return rating;
-          }
-        },
-        { 
-          key: 'sold', 
-          type: 'number', 
-          headerText: 'Sold', 
-          sort: true 
-        },
-        { 
-          key: 'total', 
-          type: 'number', 
-          headerText: 'Total', 
-          sort: true 
-        }
-      ];
-
-      this.gridRef.current.columns = columns;
-      this.gridRef.current.data = data;
-      this.gridRef.current.sortConfiguration = this.sortConfiguration;
+  React.useEffect(() => {
+    if (gridRef.current) {
+      const dataService = new GridLiteDataService();
+      const data: ProductInfo[] = dataService.generateProducts(100);
+      gridRef.current.data = data;
+      gridRef.current.sortingOptions = sortingOptions;
     }
-  }
+  }, [sortingOptions]);
 
-  private updateConfig(prop: string, checked: boolean) {
-    this.sortConfiguration = { ...this.sortConfiguration, [prop]: checked };
-    if (this.gridRef.current) {
-      this.gridRef.current.sortConfiguration = this.sortConfiguration;
+  const updateConfig = React.useCallback((prop: string, checked: boolean) => {
+    if (prop === 'multiple') {
+      setSortingOptions({ mode: checked ? 'multiple' : 'single' });
     }
-  }
+  }, []);
 
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="controls-wrapper">
-          <IgrSwitch id="multisort" checked={true} onChange={(e: any) => this.updateConfig('multiple', e.target.checked)}>
-            Multiple Sort
-          </IgrSwitch>
-          <IgrSwitch id="triState" checked={true} onChange={(e: any) => this.updateConfig('triState', e.target.checked)}>
-            Tri-State
-          </IgrSwitch>
-        </div>
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
-        </div>
+  return (
+    <div className="container sample ig-typography">
+      <div className="controls-wrapper">
+        <IgrSwitch id="multisort" checked={true} onChange={(e: any) => updateConfig('multiple', e.target.checked)}>
+          Multiple Sort
+        </IgrSwitch>
       </div>
-    );
-  }
+      <div className="grid-lite-wrapper">
+        <igc-grid-lite ref={gridRef} id="grid-lite">
+          <igc-grid-lite-column field="name" header="Name" sortable></igc-grid-lite-column>
+          <igc-grid-lite-column field="price" data-type="number" header="Price" sortable></igc-grid-lite-column>
+          <igc-grid-lite-column field="rating" data-type="number" header="Rating" sortable cellTemplate={ratingCellTemplate}></igc-grid-lite-column>
+          <igc-grid-lite-column field="sold" data-type="number" header="Sold" sortable></igc-grid-lite-column>
+          <igc-grid-lite-column field="total" data-type="number" header="Total" sortable></igc-grid-lite-column>
+        </igc-grid-lite>
+      </div>
+    </div>
+  );
 }
 
 // rendering above component in the React DOM
