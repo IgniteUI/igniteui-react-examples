@@ -2,3 +2,20 @@ igc-circular-progress {
     --diameter: 100px;
     --stroke-thickness: 5px;
 }
+
+.sample-content {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.circular-progress-container {
+    margin-right: 50px;
+    margin-left: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 10px;
+}
