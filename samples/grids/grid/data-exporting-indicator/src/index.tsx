@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
-import { OrdersTreeData, OrdersTreeDataItem } from "./OrdersData";
+import { AthletesData, AthletesDataItem } from "./AthletesData";
 
 import { IgrButton } from "igniteui-react";
 import {
@@ -10,34 +10,31 @@ import {
   IgrGridToolbarActions,
   IgrGridToolbarExporter,
   IgrGridToolbarTitle,
-  IgrTreeGrid,
-  IgrColumn
+  IgrGrid,
+  IgrColumn,
 } from "igniteui-react-grids";
 
 
-export default function TreeGridDataExportingIndicatorSample() {
-  const ordersData = useMemo(() => new OrdersTreeData(), []);
+export default function GridDataExportingIndicatorSample() {
+  const athletesData = useMemo(() => new AthletesData(), []);
   const [localData, setLocalData] = useState([]);
   const [showProgress, setShowProgress] = useState(false);
-
+  
   useEffect(() => {
-    const data: OrdersTreeDataItem[] = [];
-    for (let i = 0; i < 2000; i++) {
-      for (let c = 0; c < ordersData.length; c++) {
-        const original = ordersData[c];
-        data.push({
-          ...original,
-          ID: original.ID + (i * ordersData.length),
-          ParentID: original.ParentID === -1 ? -1 : original.ParentID + (i * ordersData.length)
-        });
+    const data: AthletesDataItem[] = [];
+    let uniqueId = 0;
+    for (let i = 0; i < 2000; i ++) {
+      for (let c = 0; c < athletesData.length; c++) {
+        data.push({ ...athletesData[c], Id: uniqueId++ });
       }
     }
     setLocalData(data);
-  }, [ordersData]);
+  }, [athletesData]);
+  
 
   const setupProgressVisibility = () => {
     setShowProgress(true);
-  
+
     setTimeout(() => {
       setShowProgress(false);
     }, 5000);
@@ -46,15 +43,14 @@ export default function TreeGridDataExportingIndicatorSample() {
   return (
     <div className="container sample ig-typography">
       <div className="container fill">
-        <IgrTreeGrid
+        <IgrGrid
           data={localData}
           autoGenerate={false}
-          primaryKey="ID"
-          foreignKey="ParentID"
+          primaryKey="Id"
         >
           <IgrGridToolbar key="toolbar" showProgress={showProgress}>
             <IgrGridToolbarTitle key="toolbarTitle">
-              <span key="toolbarTitleText">Tree Grid Toolbar</span>
+              <span key="toolbarTitleText">Grid Toolbar</span>
             </IgrGridToolbarTitle>
             <IgrButton key="btn" onClick={setupProgressVisibility}>
               <span key="simulate">Simulate long running operation</span>
@@ -64,14 +60,14 @@ export default function TreeGridDataExportingIndicatorSample() {
             </IgrGridToolbarActions>
           </IgrGridToolbar>
 
-          <IgrColumn field="ID" header="Order ID" />
-          <IgrColumn field="Name" header="Order Product" />
-          <IgrColumn field="Category" header="Category" />
-          <IgrColumn field="Units" header="Units" dataType="number" />
-          <IgrColumn field="UnitPrice" header="Unit Price" dataType="currency" />
-          <IgrColumn field="Price" header="Price" dataType="currency" />
-          <IgrColumn field="OrderDate" header="Order Date" dataType="date" />
-        </IgrTreeGrid>
+          <IgrColumn field="Id" header="ID" dataType="number" />
+          <IgrColumn field="Name" header="Name" />
+          <IgrColumn field="Position" header="Position" />
+          <IgrColumn field="AthleteNumber" header="Athlete Number" dataType="number" />
+          <IgrColumn field="BeatsPerMinute" header="Beats Per Minute" dataType="number" />
+          <IgrColumn field="TopSpeed" header="Top Speed" dataType="number" />
+          <IgrColumn field="CountryName" header="Country" />
+        </IgrGrid>
       </div>
     </div>
   );
@@ -79,4 +75,4 @@ export default function TreeGridDataExportingIndicatorSample() {
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<TreeGridDataExportingIndicatorSample />);
+root.render(<GridDataExportingIndicatorSample />);
