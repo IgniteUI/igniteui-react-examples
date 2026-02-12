@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
-import { OrdersTreeData } from "./OrdersData";
+import { OrdersTreeData, OrdersTreeDataItem } from "./OrdersData";
 
 import { IgrButton } from "igniteui-react";
 import {
@@ -16,13 +16,13 @@ import {
 
 
 export default function TreeGridDataExportingIndicatorSample() {
-  const ordersData = new OrdersTreeData();
+  const ordersData = useMemo(() => new OrdersTreeData(), []);
   const [localData, setLocalData] = useState([]);
   const [showProgress, setShowProgress] = useState(false);
 
   useEffect(() => {
-    const data: any[] = [];
-    for (let i = 0; i < 1000; i++) {
+    const data: OrdersTreeDataItem[] = [];
+    for (let i = 0; i < 2000; i++) {
       for (let c = 0; c < ordersData.length; c++) {
         const original = ordersData[c];
         data.push({
@@ -33,7 +33,7 @@ export default function TreeGridDataExportingIndicatorSample() {
       }
     }
     setLocalData(data);
-  }, []);
+  }, [ordersData]);
 
   const setupProgressVisibility = () => {
     setShowProgress(true);
@@ -41,7 +41,7 @@ export default function TreeGridDataExportingIndicatorSample() {
     setTimeout(() => {
       setShowProgress(false);
     }, 5000);
-  }
+  };
 
   return (
     <div className="container sample ig-typography">
@@ -51,7 +51,6 @@ export default function TreeGridDataExportingIndicatorSample() {
           autoGenerate={false}
           primaryKey="ID"
           foreignKey="ParentID"
-          height="350px"
         >
           <IgrGridToolbar key="toolbar" showProgress={showProgress}>
             <IgrGridToolbarTitle key="toolbarTitle">
@@ -65,13 +64,13 @@ export default function TreeGridDataExportingIndicatorSample() {
             </IgrGridToolbarActions>
           </IgrGridToolbar>
 
-          <IgrColumn field="ID" header="Order ID"></IgrColumn>
-          <IgrColumn field="Name" header="Order Product"></IgrColumn>
-          <IgrColumn field="Category" header="Category"></IgrColumn>
-          <IgrColumn field="Units" header="Units" dataType="number"></IgrColumn>
-          <IgrColumn field="UnitPrice" header="Unit Price" dataType="currency"></IgrColumn>
-          <IgrColumn field="Price" header="Price" dataType="currency"></IgrColumn>
-          <IgrColumn field="OrderDate" header="Order Date" dataType="date"></IgrColumn>
+          <IgrColumn field="ID" header="Order ID" />
+          <IgrColumn field="Name" header="Order Product" />
+          <IgrColumn field="Category" header="Category" />
+          <IgrColumn field="Units" header="Units" dataType="number" />
+          <IgrColumn field="UnitPrice" header="Unit Price" dataType="currency" />
+          <IgrColumn field="Price" header="Price" dataType="currency" />
+          <IgrColumn field="OrderDate" header="Order Date" dataType="date" />
         </IgrTreeGrid>
       </div>
     </div>
