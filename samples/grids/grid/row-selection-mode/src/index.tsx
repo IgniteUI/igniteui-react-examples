@@ -92,11 +92,7 @@ export default class Sample extends React.Component<any, any> {
                     ref={this.propertyEditorPanel1Ref}>
                     <IgrPropertyEditorPropertyDescription
                         name="selectionType"
-                        propertyPath="RowSelection"
-                        valueType="EnumValue"
-                        label="Row Selection"
-                        dropDownNames={["None", "Single", "Multiple"]}
-                        dropDownValues={["None", "Single", "Multiple"]}>
+                        propertyPath="RowSelection">
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         name="hideRowSelectors"
