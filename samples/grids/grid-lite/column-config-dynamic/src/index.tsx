@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { GridLiteDataService, ProductInfo } from './GridLiteDataService';
 
@@ -94,48 +94,35 @@ const initialColumns = [
 ];
 
 export default function Sample() {
-  const gridRef = React.useRef<any>(null);
   const dropdownRef = React.useRef<any>(null);
-  const [columns, setColumns] = React.useState(initialColumns);
-  const [hasFormatters, setHasFormatters] = React.useState(true);
+  const [columns, setColumns] = useState(initialColumns);
+  const [data, setData] = useState([]);
+  const [hasFormatters, setHasFormatters] = useState(true);
 
-  React.useEffect(() => {
-    if (gridRef.current) {
-      const dataService = new GridLiteDataService();
-      const data: ProductInfo[] = dataService.generateProducts(50);
-      gridRef.current.data = data;
-    }
+  useEffect(() => {
+    const dataService = new GridLiteDataService();
+    const data: ProductInfo[] = dataService.generateProducts(50);
+    setData(data);
   }, []);
 
-  const toggleFormatters = React.useCallback((checked: boolean) => {
-    if (gridRef.current) {
-      gridRef.current.updateColumns(
-        ['price', 'total'].map((field) => ({
-          field,
-          cellTemplate: checked ? currencyCellTemplate : undefined,
-        }))
-      );
-      setColumns(prevColumns => 
-        prevColumns.map(col => 
-          col.field === 'price' || col.field === 'total'
-            ? { ...col, cellTemplate: checked ? currencyCellTemplate : undefined }
-            : col
-        )
-      );
-    }
+  const toggleFormatters = useCallback((checked: boolean) => {
+    setColumns(prevColumns => 
+      prevColumns.map(col => 
+        col.field === 'price' || col.field === 'total'
+          ? { ...col, cellTemplate: checked ? currencyCellTemplate : undefined }
+          : col
+      )
+    );
   }, []);
 
   const toggleColumnProperty = React.useCallback((columnField: string, property: string, value: boolean) => {
-    if (gridRef.current) {
-      gridRef.current.updateColumns({ field: columnField, [property]: value });
-      setColumns(prevColumns =>
-        prevColumns.map(col =>
-          col.field === columnField
-            ? { ...col, [property]: value }
-            : col
-        )
-      );
-    }
+    setColumns(prevColumns =>
+      prevColumns.map(col =>
+        col.field === columnField
+          ? { ...col, [property]: value }
+          : col
+      )
+    );
   }, []);
 
   return (
@@ -158,25 +145,25 @@ export default function Sample() {
                 <span className="config-key">{column.header}</span>
                 <IgrCheckbox
                   labelPosition="before"
-                  checked={!column.hidden}
-                  onChange={(e: any) => toggleColumnProperty(column.field, 'hidden', !e.target.checked)}>
+                  checked={column.hidden}
+                  onChange={(e: any) => toggleColumnProperty(column.field, 'hidden', e.target.checked)}>
                   Hidden
                 </IgrCheckbox>
                 <IgrCheckbox
                   labelPosition="before"
-                  checked={column.resizable !== false}
+                  checked={column.resizable}
                   onChange={(e: any) => toggleColumnProperty(column.field, 'resizable', e.target.checked)}>
                   Resizable
                 </IgrCheckbox>
                 <IgrCheckbox
                   labelPosition="before"
-                  checked={column.filterable === true}
+                  checked={column.filterable}
                   onChange={(e: any) => toggleColumnProperty(column.field, 'filterable', e.target.checked)}>
                   Filter
                 </IgrCheckbox>
                 <IgrCheckbox
                   labelPosition="before"
-                  checked={column.sortable === true}
+                  checked={column.sortable}
                   onChange={(e: any) => toggleColumnProperty(column.field, 'sortable', e.target.checked)}>
                   Sort
                 </IgrCheckbox>
@@ -196,7 +183,7 @@ export default function Sample() {
         </IgrSwitch>
       </section>
       <div className="grid-lite-wrapper">
-        <igc-grid-lite ref={gridRef} id="grid-lite">
+        <igc-grid-lite id="grid-lite" data={data}>
           {columns.map((column: any) => (
             <igc-grid-lite-column
               key={column.field}
@@ -204,6 +191,9 @@ export default function Sample() {
               header={column.header}
               data-type={column.dataType}
               hidden={column.hidden}
+              filterable={column.filterable}
+              sortable={column.sortable}
+              resizable={column.resizable}
               cellTemplate={column.cellTemplate}
             ></igc-grid-lite-column>
           ))}
