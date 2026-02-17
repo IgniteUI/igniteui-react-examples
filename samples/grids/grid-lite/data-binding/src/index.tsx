@@ -50,13 +50,11 @@ export default function Sample() {
           Switch Data
         </IgrButton>
       </div>
-      <div className="grid-lite-wrapper">
-        <igc-grid-lite
-          auto-generate="true"
-          id="grid-lite"
-          data={data}
-        ></igc-grid-lite>
-      </div>
+      <igc-grid-lite
+        auto-generate="true"
+        id="grid-lite"
+        data={data}
+      ></igc-grid-lite>
     </div>
   );
 }
