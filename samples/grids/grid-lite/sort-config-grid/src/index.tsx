@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { IgrSwitch } from 'igniteui-react';
 import { GridLiteDataService, ProductInfo } from './GridLiteDataService';
@@ -26,8 +26,9 @@ const ratingCellTemplate = (params: any) => {
 };
 
 export default function Sample() {
-  const gridRef = React.useRef<any>(null);
-  const [sortingOptions, setSortingOptions] = React.useState<any>({
+  const gridRef = useRef<any>(null);
+  const [switchChecked, setSwitchChecked] = useState(true);
+  const [sortingOptions, setSortingOptions] = useState<any>({
     mode: 'multiple'
   });
 
@@ -41,15 +42,21 @@ export default function Sample() {
   }, [sortingOptions]);
 
   const updateConfig = React.useCallback((prop: string, checked: boolean) => {
-    if (prop === 'multiple') {
-      setSortingOptions({ mode: checked ? 'multiple' : 'single' });
+    setSwitchChecked(checked);
+  
+    if (prop === 'multiple' && gridRef.current) {
+      const mode = checked ? 'multiple' : 'single';
+      setSortingOptions({ mode });
+  
+      gridRef.current.sortingConfiguration = { mode };
+      gridRef.current.clearSort();
     }
   }, []);
-
+  
   return (
     <div className="container sample ig-typography">
       <div className="controls-wrapper">
-        <IgrSwitch id="multisort" checked={true} onChange={(e: any) => updateConfig('multiple', e.target.checked)}>
+        <IgrSwitch id="multisort" checked={switchChecked} onChange={(e: any) => updateConfig('multiple', e.target.checked)}>
           Multiple Sort
         </IgrSwitch>
       </div>
