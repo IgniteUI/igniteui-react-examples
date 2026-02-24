@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import '../../../shared/people-images.css';
 
 import { IgrBadgeModule } from 'igniteui-react';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';

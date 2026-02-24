@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css'; // styles shared between all samples
+import './index.css';
 
 import { DataGridSharedData } from './DataGridSharedData';
 import { IgrDataGrid } from 'igniteui-react-data-grids';

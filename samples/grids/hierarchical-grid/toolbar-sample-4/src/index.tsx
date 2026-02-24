@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import '../../../shared/people-images.css';
 
 import {
   IgrGridToolbar,

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import '../../../shared/people-images.css';
 
 import { IgrButton, IgrDialog, IgrCheckbox } from 'igniteui-react';
 import { IgrSummaryOperand, IgrSummaryResult, IgrHierarchicalGrid, IgrRowIsland, IgrColumn } from 'igniteui-react-grids';
