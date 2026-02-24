@@ -40,7 +40,7 @@
     "igniteui-react-maps": "19.3.2",
     "igniteui-react-spreadsheet": "19.3.2",
     "igniteui-react-spreadsheet-chart-adapter": "19.3.2",
-    "igniteui-theming": "^24.0.2",
+    "igniteui-theming": "^25.0.1",
     "igniteui-webcomponents": "^7.0.0-rc.0",
     "lit-html": "^3.2.0",
     "marked": "^17.0.0",
