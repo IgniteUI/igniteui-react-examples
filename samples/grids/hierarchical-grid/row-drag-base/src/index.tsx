@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import '../../../shared/people-images.css';
 
 import {
   IgrHierarchicalGrid,
