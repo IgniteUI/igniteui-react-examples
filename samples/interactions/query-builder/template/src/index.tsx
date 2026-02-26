@@ -217,6 +217,12 @@ export default class Sample extends React.Component<any, SampleState> {
     ];
   }
 
+  private setImplicitValue(ctx: QueryBuilderSearchValueContext, value: any) {
+    queueMicrotask(() => {
+      ctx.implicit.value = value;
+    });
+  }
+
   private normalizeTimeValue = (value: unknown): Date | null => {
     if (!value) return null;
     if (value instanceof Date) return value;
@@ -278,9 +284,7 @@ export default class Sample extends React.Component<any, SampleState> {
 
           if (!value || value === currentKey) return;
 
-          setTimeout(() => {
-            ctx.implicit.value = this.regionOptions.find(option => option.value === value) ?? null;
-          });
+          this.setImplicitValue(ctx, this.regionOptions.find(option => option.value === value) ?? null);
         }}>
         {this.regionOptions.map(option => (
           <IgrSelectItem key={option.value} value={option.value}>
@@ -309,9 +313,7 @@ export default class Sample extends React.Component<any, SampleState> {
               if (!e.detail.checked) return;
               const numericValue = Number(e.detail.value);
               if (ctx.implicit.value === numericValue) return;
-              setTimeout(() => {
-                ctx.implicit.value = numericValue;
-              });
+              this.setImplicitValue(ctx, numericValue);
             }}>
               <span>{option.text}</span>
           </IgrRadio>
@@ -339,9 +341,7 @@ export default class Sample extends React.Component<any, SampleState> {
         disabled={!isEnabled}
         click={(sender: any) => sender.show()}
         change={(sender: any) => {
-          setTimeout(() => {
-            ctx.implicit.value = sender.value;
-          });
+          this.setImplicitValue(ctx, sender.value);
         }}>
       </IgrDatePicker>
     );
@@ -360,9 +360,7 @@ export default class Sample extends React.Component<any, SampleState> {
         value={currentValue}
         disabled={isDisabled}
         change={(sender: any) => {
-          setTimeout(() => {
-            ctx.implicit.value = sender.value;
-          });
+          this.setImplicitValue(ctx, sender.value);
         }}>
         <div slot="prefix">
           <IgrIcon name="clock" collection="material" />
@@ -399,11 +397,9 @@ export default class Sample extends React.Component<any, SampleState> {
         type={isNumber ? 'number' : 'text'}
         input={(sender: any) => {
           const value = sender.value;
-          setTimeout(() => {
-            ctx.implicit.value = isNumber
-              ? value === '' ? null : Number(value)
-              : value;
-          });
+          this.setImplicitValue(ctx, isNumber
+            ? value === '' ? null : Number(value)
+            : value);
         }}>
       </IgrInput>
     );
