@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useMemo, useCallback } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
@@ -18,27 +18,41 @@ import { IgrButton } from "igniteui-react";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { OrdersTreeData } from "./OrdersData";
 
-IgrHierarchicalGridModule.register();
+const ordersData = new OrdersTreeData();
 
-export default function App() {
-  const ordersData = new OrdersTreeData();
-  const treeGridRef = useRef<IgrTreeGrid>(null);
-  const toolbarRef = useRef<IgrGridToolbar>(null);
-
+function generateLocalData() {
   const localData: any[] = [];
-  for (let i = 0; i < 10000; i += 3) {
+  const batchCount = Math.ceil(10000 / ordersData.length);
+  for (let i = 0; i < batchCount; i++) {
+    const idOffset = i * 1000;
     for (let c = 0; c < ordersData.length; c++) {
-      localData.push(ordersData[c]);
+      const item = ordersData[c];
+      localData.push({
+        ...item,
+        ID: item.ID + idOffset,
+        ParentID: item.ParentID === -1 ? -1 : item.ParentID + idOffset
+      });
     }
   }
+  return localData;
+}
 
-  function showProgress() {
-    toolbarRef.current.showProgress = true;
+export default function App() {
+  const treeGridRef = useRef<IgrTreeGrid>(null);
+  const toolbarRef = useRef<IgrGridToolbar>(null);
+  const localData = useMemo(() => generateLocalData(), []);
 
-    setTimeout(() => {
-      toolbarRef.current.showProgress = false;
-    }, 5000);
-  }
+  const showProgress = useCallback(() => {
+    if (toolbarRef.current) {
+      toolbarRef.current.showProgress = true;
+
+      setTimeout(() => {
+        if (toolbarRef.current) {
+          toolbarRef.current.showProgress = false;
+        }
+      }, 5000);
+    }
+  }, []);
 
   return (
     <div className="container sample ig-typography">
