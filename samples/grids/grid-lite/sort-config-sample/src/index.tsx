@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { GridLiteDataService, User } from './GridLiteDataService';
 
@@ -9,7 +9,7 @@ import "./index.css";
 export default function GridLiteSortConfig() {
   const [data, setData] = useState<User[]>([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const dataService = new GridLiteDataService();
     setData(dataService.generateUsers(50));
   }, []);

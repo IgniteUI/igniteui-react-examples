@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { GridLiteDataService } from "./GridLiteDataService";
 
@@ -12,7 +12,7 @@ export default function GridLiteDataBinding() {
   const [showingProducts, setShowingProducts] = useState(true);
   const [data, setData] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const dataService = new GridLiteDataService();
     setData(dataService.generateProducts(50));
 
