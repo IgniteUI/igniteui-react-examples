@@ -293,33 +293,27 @@ export default class Sample extends React.Component<any, SampleState> {
 
   private buildStatusRadios = (ctx: QueryBuilderSearchValueContext) => {
     const implicitValue = ctx.implicit?.value;
-    const currentValue = implicitValue === null ? '' : implicitValue.toString();
-    const key = `status-radio-${currentValue}`;
+    const currentValue = implicitValue == null ? '' : implicitValue.toString();
 
     return (
       <IgrRadioGroup
-        key={key}
         style={{ gap: '5px' }}
-        alignment="horizontal"
-        value={currentValue}
-        change={(sender: any) => {
-          const value = sender.value;
-          if (value === undefined) return;
-
-          const numericValue = Number(value);
-          if (ctx.implicit.value === numericValue) return;
-
-          setTimeout(() => {
-            ctx.implicit.value = numericValue;
-          });
-        }}>
+        alignment="horizontal">
         {this.statusOptions.map(option => (
           <IgrRadio
             key={option.value}
             name="status"
             value={option.value.toString()}
             checked={option.value.toString() === currentValue}
-            labelText={option.text}>
+            onChange={(e: any) => {
+              if (!e.detail.checked) return;
+              const numericValue = Number(e.detail.value);
+              if (ctx.implicit.value === numericValue) return;
+              setTimeout(() => {
+                ctx.implicit.value = numericValue;
+              });
+            }}>
+              <span>{option.text}</span>
           </IgrRadio>
         ))}
       </IgrRadioGroup>
