@@ -24,6 +24,17 @@ code {
     height: calc(100% - 1rem);
 }
 
+.grid-section {
+    position: relative;
+}
+
+.pipeline-loader {
+    position: absolute;
+    z-index: 2;
+    top: 0.75rem;
+    right: 0.75rem;
+}
+
 igc-grid-lite {
     min-height: 65vh;
     --ig-size: 2;
