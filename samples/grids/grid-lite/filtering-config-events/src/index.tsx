@@ -1,24 +1,19 @@
-import React from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { GridLiteDataService, User } from './GridLiteDataService';
 
-// Import the web component
-import { IgcGridLite } from 'igniteui-grid-lite';
-
+import { IgrGridLite, IgrGridLiteColumn } from 'igniteui-react/grid-lite';
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
-// Register components
-IgcGridLite.register();
-
 const getTime = () => `[${new Date().toLocaleTimeString()}]`;
 
-export default function Sample() {
-  const gridRef = React.useRef<any>(null);
-  const logRef = React.useRef<HTMLDivElement>(null);
-  const [log, setLog] = React.useState<string[]>([]);
+export default function GridLiteFilteringConfigEvents() {
+  const logRef = useRef<HTMLDivElement>(null);
+  const [data, setData] = useState<User[]>([]);
+  const [log, setLog] = useState<string[]>([]);
 
-  const updateLog = React.useCallback((message: string) => {
+  const updateLog = useCallback((message: string) => {
     setLog(prevLog => {
       const newLog = [...prevLog];
       if (newLog.length > 10) {
@@ -29,54 +24,40 @@ export default function Sample() {
     });
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (logRef.current) {
       logRef.current.scrollTop = logRef.current.scrollHeight;
     }
   }, [log]);
 
-  React.useEffect(() => {
-    if (gridRef.current) {
-      const dataService = new GridLiteDataService();
-      const data: User[] = dataService.generateUsers(50);
-      gridRef.current.data = data;
-
-      // Listen to filter events
-      const handleFiltering = (e: any) => {
-        const { expressions, type } = e.detail;
-        updateLog(`${getTime()} :: Event \`${e.type}\` :: Filter operation of type '${type}' for column '${expressions[0].key}'`);
-      };
-
-      const handleFiltered = (e: any) => {
-        updateLog(`${getTime()} :: Event \`${e.type}\` for column '${e.detail.key}'`);
-      };
-
-      gridRef.current.addEventListener('filtering', handleFiltering);
-      gridRef.current.addEventListener('filtered', handleFiltered);
-
-      return () => {
-        if (gridRef.current) {
-          gridRef.current.removeEventListener('filtering', handleFiltering);
-          gridRef.current.removeEventListener('filtered', handleFiltered);
-        }
-      };
-    }
+  const handleFiltering = useCallback((event: CustomEvent<any>) => {
+    const { expressions, type } = event.detail;
+    updateLog(`${getTime()} :: Event \`filtering\` :: Filter operation of type '${type}' for column '${expressions[0].key}'`);
   }, [updateLog]);
 
-  const logContent = log
-    .map(entry => `<p><code>${entry}</code></p>`)
-    .join('');
+  const handleFiltered = useCallback((event: CustomEvent<any>) => {
+    updateLog(`${getTime()} :: Event \`filtered\` for column '${event.detail.key}'`);
+  }, [updateLog]);
+
+  useEffect(() => {
+    const dataService = new GridLiteDataService();
+    setData(dataService.generateUsers(50));
+  }, []);
 
   return (
     <div className="container sample ig-typography">
       <div className="grid-lite-wrapper">
-        <igc-grid-lite ref={gridRef} id="grid-lite">
-          <igc-grid-lite-column field="firstName" header="First name" filterable></igc-grid-lite-column>
-          <igc-grid-lite-column field="lastName" header="Last name" filterable></igc-grid-lite-column>
-          <igc-grid-lite-column field="age" header="Age" filterable data-type="number"></igc-grid-lite-column>
-          <igc-grid-lite-column field="email" header="Email" filterable></igc-grid-lite-column>
-        </igc-grid-lite>
-        <div ref={logRef} className="log" id="log" dangerouslySetInnerHTML={{ __html: logContent }}></div>
+        <IgrGridLite id="grid-lite" data={data} onFiltering={handleFiltering} onFiltered={handleFiltered}>
+          <IgrGridLiteColumn field="firstName" header="First name" filterable={true}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="lastName" header="Last name" filterable={true}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="age" header="Age" filterable={true} dataType="number"></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="email" header="Email" filterable={true}></IgrGridLiteColumn>
+        </IgrGridLite>
+        <div ref={logRef} className="log" id="log">
+          {log.map((entry, index) => (
+            <p key={index}><code>{entry}</code></p>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -84,4 +65,4 @@ export default function Sample() {
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+root.render(<GridLiteFilteringConfigEvents/>);

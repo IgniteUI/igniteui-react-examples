@@ -1,36 +1,28 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { GridLiteDataService, User } from './GridLiteDataService';
 
-// Import the web component
-import { IgcGridLite } from 'igniteui-grid-lite';
-
+import { IgrGridLite, IgrGridLiteColumn } from 'igniteui-react/grid-lite';
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
-// Register components
-IgcGridLite.register();
+export default function GridLiteSortConfig() {
+  const [data, setData] = useState<User[]>([]);
 
-export default function Sample() {
-  const gridRef = React.useRef<any>(null);
-
-  React.useEffect(() => {
-    if (gridRef.current) {
-      const dataService = new GridLiteDataService();
-      const data: User[] = dataService.generateUsers(50);
-      gridRef.current.data = data;
-    }
+  useEffect(() => {
+    const dataService = new GridLiteDataService();
+    setData(dataService.generateUsers(50));
   }, []);
 
   return (
     <div className="container sample ig-typography">
       <div className="grid-lite-wrapper">
-        <igc-grid-lite ref={gridRef} id="grid-lite">
-          <igc-grid-lite-column field="firstName" header="First name" sortable></igc-grid-lite-column>
-          <igc-grid-lite-column field="lastName" header="Last name" sortable></igc-grid-lite-column>
-          <igc-grid-lite-column field="age" header="Age" sortable data-type="number"></igc-grid-lite-column>
-          <igc-grid-lite-column field="email" header="Email" sortable></igc-grid-lite-column>
-        </igc-grid-lite>
+        <IgrGridLite id="grid-lite" data={data}>
+          <IgrGridLiteColumn field="firstName" header="First name" sortable={true}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="lastName" header="Last name" sortable={true}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="age" header="Age" sortable={true} dataType="number"></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="email" header="Email" sortable={true}></IgrGridLiteColumn>
+        </IgrGridLite>
       </div>
     </div>
   );
@@ -38,4 +30,4 @@ export default function Sample() {
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+root.render(<GridLiteSortConfig/>);
