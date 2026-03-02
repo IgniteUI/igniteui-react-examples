@@ -84,7 +84,7 @@ const GridLocalizationSample: React.FC = () => {
         locale={locale}
       >
         <IgrGridToolbar>
-        <IgrGridToolbarTitle>Grid with Localization</IgrGridToolbarTitle>
+        <IgrGridToolbarTitle className="grid-toolbar-title">Grid with Localization</IgrGridToolbarTitle>
             <IgrSelect
                 value={locale}
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setLocale(e.target.value)}
