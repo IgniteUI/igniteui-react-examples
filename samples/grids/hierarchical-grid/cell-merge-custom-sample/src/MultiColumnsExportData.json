@@ -362,6 +362,101 @@
     "PostalCode": "10100",
     "Country": "Italy",
     "Phone": "011-4988260",
-    "Fax": "011-4988261"
+    "Fax": "011-4988261",
+    "ChildCompanies": [
+      {
+        "ID": "ITSR1",
+        "CompanyName": "Italia Sourcing",
+        "ContactName": "Luca Rossi",
+        "ContactTitle": "Sales Representative",
+        "Address": "Via Roma 1",
+        "City": "Rome",
+        "Region": "Lazio",
+        "PostalCode": "00100",
+        "Country": "Italy",
+        "Phone": "06-555-0101",
+        "Fax": "06-555-0102"
+      },
+      {
+        "ID": "ITSR2",
+        "CompanyName": "Roma Exports",
+        "ContactName": "Chiara Conti",
+        "ContactTitle": "Sales Representative",
+        "Address": "Piazza Navona 5",
+        "City": "Rome",
+        "Region": "Lazio",
+        "PostalCode": "00186",
+        "Country": "Italy",
+        "Phone": "06-555-0201",
+        "Fax": "06-555-0202"
+      },
+      {
+        "ID": "ITOWN1",
+        "CompanyName": "Milano Retail",
+        "ContactName": "Marco Neri",
+        "ContactTitle": "Owner",
+        "Address": "Corso Buenos Aires 12",
+        "City": "Milan",
+        "Region": "Lombardia",
+        "PostalCode": "20100",
+        "Country": "Italy",
+        "Phone": "02-555-0101",
+        "Fax": "02-555-0102"
+      }
+    ]
+  },
+  {
+    "ID": "FRNS2",
+    "CompanyName": "Franchi Logistics",
+    "ContactName": "Giulia Bianchi",
+    "ContactTitle": "Sales Representative",
+    "Address": "Via Po 12",
+    "City": "Torino",
+    "Region": "Torino",
+    "PostalCode": "10121",
+    "Country": "Italy",
+    "Phone": "011-4988262",
+    "Fax": "011-4988263",
+    "ChildCompanies": [
+      {
+        "ID": "ITSR3",
+        "CompanyName": "Torino Foods",
+        "ContactName": "Alessia Greco",
+        "ContactTitle": "Sales Representative",
+        "Address": "Via Garibaldi 3",
+        "City": "Torino",
+        "Region": "Piemonte",
+        "PostalCode": "10121",
+        "Country": "Italy",
+        "Phone": "011-555-0001",
+        "Fax": "011-555-0002"
+      },
+      {
+        "ID": "ITSR4",
+        "CompanyName": "Torino Traders",
+        "ContactName": "Fabio De Luca",
+        "ContactTitle": "Sales Representative",
+        "Address": "Via Roma 25",
+        "City": "Torino",
+        "Region": "Piemonte",
+        "PostalCode": "10123",
+        "Country": "Italy",
+        "Phone": "011-555-0003",
+        "Fax": "011-555-0004"
+      },
+      {
+        "ID": "ITSA1",
+        "CompanyName": "Liguria Supplies",
+        "ContactName": "Gianni Marino",
+        "ContactTitle": "Sales Agent",
+        "Address": "Via XX Settembre 15",
+        "City": "Genova",
+        "Region": "Liguria",
+        "PostalCode": "16121",
+        "Country": "Italy",
+        "Phone": "010-555-0101",
+        "Fax": "010-555-0102"
+      }
+    ]
   }
 ]

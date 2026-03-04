@@ -1,83 +1,64 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { GridLiteDataService, User } from './GridLiteDataService';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { GridLiteDataService, User } from "./GridLiteDataService";
 
-// Import the web component
-import { IgcGridLite } from 'igniteui-grid-lite';
-import { 
-  defineComponents,
-  IgcCheckboxComponent
-} from 'igniteui-webcomponents';
+import { IgrCheckbox } from "igniteui-react";
+import {
+  IgrGridLite,
+  IgrGridLiteColumn,
+  type IgrCellContext,
+} from "igniteui-react/grid-lite";
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
-// Register components
-IgcGridLite.register();
-defineComponents(IgcCheckboxComponent);
+// Define cellTemplate function outside component
+const activeCellTemplate = (ctx: IgrCellContext) => (
+  <IgrCheckbox checked={ctx.value}></IgrCheckbox>
+);
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
+export default function Sample() {
+  const [data, setData] = React.useState<User[]>([]);
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-  }
+  React.useEffect(() => {
+    const dataService = new GridLiteDataService();
+    const items: User[] = dataService.generateUsers(50);
+    setData(items);
+  }, []);
 
-  componentDidMount() {
-    if (this.gridRef.current) {
-      const data: User[] = this.dataService.generateUsers(50);
-      
-      const columns = [
-        { 
-          key: 'firstName', 
-          headerText: 'First name', 
-          filter: true 
-        },
-        { 
-          key: 'lastName', 
-          headerText: 'Last name', 
-          filter: true 
-        },
-        { 
-          key: 'age', 
-          headerText: 'Age', 
-          filter: true, 
-          type: 'number' 
-        },
-        {
-          key: 'active',
-          headerText: 'Active',
-          type: 'boolean',
-          filter: true,
-          cellTemplate: (params: any) => {
-            const checkbox = document.createElement('igc-checkbox');
-            if (params.value) {
-              checkbox.setAttribute('checked', '');
-            }
-            return checkbox;
-          }
-        }
-      ];
-
-      this.gridRef.current.columns = columns;
-      this.gridRef.current.data = data;
-    }
-  }
-
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
-        </div>
+  return (
+    <div className="container sample ig-typography">
+      <div className="grid-lite-wrapper">
+        <IgrGridLite id="grid-lite" data={data}>
+          <IgrGridLiteColumn
+            field="firstName"
+            header="First name"
+            filterable
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="lastName"
+            header="Last name"
+            filterable
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="age"
+            header="Age"
+            filterable
+            dataType="number"
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="active"
+            header="Active"
+            dataType="boolean"
+            filterable
+            cellTemplate={activeCellTemplate}
+          ></IgrGridLiteColumn>
+        </IgrGridLite>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 // rendering above component in the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Sample />);

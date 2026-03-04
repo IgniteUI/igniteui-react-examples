@@ -1,73 +1,61 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { GridLiteDataService } from './GridLiteDataService';
+import { useCallback, useState, useEffect } from "react";
+import ReactDOM from "react-dom/client";
+import { GridLiteDataService } from "./GridLiteDataService";
 
-// Import the web component
-import { IgcGridLite } from 'igniteui-grid-lite';
-import { 
-  defineComponents,
-  IgcButtonComponent
-} from 'igniteui-webcomponents';
-
+import { IgrGridLite } from 'igniteui-react/grid-lite';
+import { IgrButton } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
-// Register components
-IgcGridLite.register();
-defineComponents(IgcButtonComponent);
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
-  private showingProducts = true;
+export default function GridLiteDataBinding() {
+  const [showingProducts, setShowingProducts] = useState(true);
+  const [data, setData] = useState([]);
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-    this.switchData = this.switchData.bind(this);
-  }
+  useEffect(() => {
+    const dataService = new GridLiteDataService();
+    setData(dataService.generateProducts(50));
 
-  componentDidMount() {
-    if (this.gridRef.current) {
-      this.gridRef.current.data = this.dataService.generateProducts(50);
-      
-      window.addEventListener('error', (e) => {
-        if (e.message === 'ResizeObserver loop completed with undelivered notifications.') {
-          e.stopImmediatePropagation();
-        }
-      });
-    }
-  }
-
-  private switchData() {
-    if (this.gridRef.current) {
-      this.gridRef.current.columns = [];
-      
-      if (this.showingProducts) {
-        this.gridRef.current.data = this.dataService.generateUsers(50);
-        this.showingProducts = false;
-      } else {
-        this.gridRef.current.data = this.dataService.generateProducts(50);
-        this.showingProducts = true;
+    window.addEventListener("error", (e) => {
+      if (
+        e.message ===
+        "ResizeObserver loop completed with undelivered notifications."
+      ) {
+        e.stopImmediatePropagation();
       }
-    }
-  }
+    });
+  }, []);
 
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="controls-wrapper">
-          <button className="sample-button" onClick={this.switchData}>Switch Data</button>
-        </div>
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite auto-generate="true" ref={this.gridRef} id="grid-lite"></igc-grid-lite>
-        </div>
+  const switchData = useCallback(() => {
+    const dataService = new GridLiteDataService();
+
+    if (showingProducts) {
+      const data = dataService.generateUsers(50);
+      setData(data);
+      setShowingProducts(false);
+    } else {
+      const data = dataService.generateProducts(50);
+      setData(data);
+      setShowingProducts(true);
+    }
+  }, [showingProducts]);
+
+  return (
+    <div className="container sample ig-typography">
+      <div className="controls-wrapper">
+        <IgrButton className="sample-button" onClick={switchData}>
+          Switch Data
+        </IgrButton>
       </div>
-    );
-  }
+      <IgrGridLite
+        autoGenerate={true}
+        id="grid-lite"
+        data={data}
+      ></IgrGridLite>
+    </div>
+  );
 }
 
 // rendering above component in the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<GridLiteDataBinding />);

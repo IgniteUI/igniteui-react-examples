@@ -55,19 +55,23 @@ export default function App() {
 
   const pinLeft = () => {
     gridRef.current?.selectedColumns().forEach((col: IgrColumn) => {
-      col.pinningPosition = ColumnPinningPosition.Start;
-      col.pinned = true;
+      if (col.pinned) {
+              col.unpin();
+      }
+      col.pin(undefined, ColumnPinningPosition.Start);
     });
   };
   const pinRight = () => {
     gridRef.current?.selectedColumns().forEach((col: IgrColumn) => {
-      col.pinningPosition = ColumnPinningPosition.End;
-      col.pinned = true;
+      if (col.pinned) {
+          col.unpin();
+      }
+      col.pin(undefined, ColumnPinningPosition.End);
     });
   };
   const unpinColumn = () => {
     gridRef.current?.selectedColumns().forEach((col: IgrColumn) => {
-      col.pinned = false;
+      col.unpin();
     });
   };
 
@@ -86,13 +90,13 @@ export default function App() {
           <IgrGridToolbar>
             <IgrGridToolbarActions>
               <IgrButton variant="contained" onClick={unpinColumn}>
-                Unpin Column
+                Unpin Selected Columns
               </IgrButton>
               <IgrButton variant="contained" onClick={pinLeft}>
-                Pin Left
+                Pin Selected Left
               </IgrButton>
               <IgrButton variant="contained" onClick={pinRight}>
-                Pin Right
+                Pin Selected Right
               </IgrButton>
             </IgrGridToolbarActions>
           </IgrGridToolbar>
@@ -115,5 +119,5 @@ export default function App() {
 }
 
 // rendering above component in the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);

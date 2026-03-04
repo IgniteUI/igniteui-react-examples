@@ -1,71 +1,69 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { GridLiteDataService, User } from './GridLiteDataService';
+﻿import React from "react";
+import ReactDOM from "react-dom/client";
+import { GridLiteDataService, ProductInfo } from "./GridLiteDataService";
+import { IgrRating } from "igniteui-react";
+import {
+  IgrGridLite,
+  IgrGridLiteColumn,
+  type IgrCellContext,
+  type IgrHeaderContext,
+} from "igniteui-react/grid-lite";
 
-// Import the web component
-import { IgcGridLite } from 'igniteui-grid-lite';
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
-// Register components
-IgcGridLite.register();
+const ratingHeaderTemplate = (_ctx: IgrHeaderContext) => (
+  <h3>{"\u2B50 Rating \u2B50"}</h3>
+);
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
+const ratingCellTemplate = (ctx: IgrCellContext) => (
+  <IgrRating readOnly step={0.01} max={5} value={ctx.value}></IgrRating>
+);
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-  }
+export default function Sample() {
+  const [data, setData] = React.useState<ProductInfo[]>([]);
 
-  componentDidMount() {
-    if (this.gridRef.current) {
-      const data: User[] = this.dataService.generateUsers(50);
-      
-      const columns = [
-        { 
-          key: 'id', 
-          headerText: '🆔 ID',
-          width: '150px'
-        },
-        { 
-          key: 'firstName', 
-          headerText: '👤 First Name'
-        },
-        { 
-          key: 'lastName', 
-          headerText: '👤 Last Name'
-        },
-        { 
-          key: 'age', 
-          headerText: '🎂 Age',
-          type: 'number',
-          width: '100px'
-        },
-        { 
-          key: 'email', 
-          headerText: '📧 Email'
-        }
-      ];
+  React.useEffect(() => {
+    const dataService = new GridLiteDataService();
+    const items: ProductInfo[] = dataService.generateProducts(50);
+    setData(items);
+  }, []);
 
-      this.gridRef.current.columns = columns;
-      this.gridRef.current.data = data;
-    }
-  }
-
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
-        </div>
+  return (
+    <div className="container sample ig-typography">
+      <div className="grid-lite-wrapper">
+        <IgrGridLite id="grid-lite" data={data}>
+          <IgrGridLiteColumn
+            field="name"
+            header="Product Name"
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="price"
+            header="Price (€)"
+            dataType="number"
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="sold"
+            header="Units Sold"
+            dataType="number"
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="total"
+            header="Total Revenue"
+            dataType="number"
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="rating"
+            dataType="number"
+            headerTemplate={ratingHeaderTemplate}
+            cellTemplate={ratingCellTemplate}
+          ></IgrGridLiteColumn>
+        </IgrGridLite>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 // rendering above component in the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Sample />);

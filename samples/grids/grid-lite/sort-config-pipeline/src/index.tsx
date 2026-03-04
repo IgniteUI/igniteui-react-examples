@@ -1,132 +1,89 @@
-import React from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import { GridLiteDataService, ProductInfo } from './GridLiteDataService';
 
-// Import the web component
-import { IgcGridLite } from 'igniteui-grid-lite';
-import { 
-  defineComponents,
-  IgcRatingComponent,
-  IgcCircularProgressComponent
-} from 'igniteui-webcomponents';
+import { IgrGridLite, IgrGridLiteColumn } from 'igniteui-react/grid-lite';
+import { IgrRating } from 'igniteui-react';
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
-// Register components
-IgcGridLite.register();
-defineComponents(IgcRatingComponent, IgcCircularProgressComponent);
+// Define cellTemplate function outside component
+const ratingCellTemplate = (ctx: any) => {
+  return (
+    <IgrRating readonly={true} step={0.01} value={ctx.value}></IgrRating>
+  );
+};
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
-  private progressRef: React.RefObject<HTMLDivElement>;
-
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-    this.progressRef = React.createRef();
-    this.state = { queryString: '' };
-  }
-
-  componentDidMount() {
-    if (this.gridRef.current) {
-      const data: ProductInfo[] = this.dataService.generateProducts(100);
-      
-      const columns = [
-        { 
-          key: 'name', 
-          headerText: 'Name', 
-          sort: true 
-        },
-        { 
-          key: 'price', 
-          type: 'number', 
-          headerText: 'Price', 
-          sort: true 
-        },
-        {
-          key: 'rating',
-          type: 'number',
-          headerText: 'Rating',
-          sort: true,
-          cellTemplate: (params: any) => {
-            const rating = document.createElement('igc-rating');
-            rating.setAttribute('readonly', '');
-            rating.setAttribute('step', '0.01');
-            rating.setAttribute('value', params.value.toString());
-            return rating;
-          }
-        },
-        { 
-          key: 'sold', 
-          type: 'number', 
-          headerText: 'Sold', 
-          sort: true 
-        },
-        { 
-          key: 'total', 
-          type: 'number', 
-          headerText: 'Total', 
-          sort: true 
-        }
-      ];
-
-      const dataPipelineConfiguration = {
-        sort: async ({ data, grid }: any) => {
-          if (this.progressRef.current) {
-            this.progressRef.current.classList.add('in-operation');
-          }
-          const queryString = grid.sortExpressions.length
-            ? this.buildUri(grid.sortExpressions)
-            : '';
-          this.setState({ queryString });
-          
-          await new Promise(resolve => setTimeout(resolve, 250));
-          if (this.progressRef.current) {
-            this.progressRef.current.classList.remove('in-operation');
-          }
-          return data;
-        }
-      };
-
-      this.gridRef.current.columns = columns;
-      this.gridRef.current.data = data;
-      this.gridRef.current.dataPipelineConfiguration = dataPipelineConfiguration;
+const buildUri = (state: any[]): string => {
+  const uri: string[] = [];
+  for (const expr of state) {
+    if (expr.direction === 'none') {
+      continue;
     }
-  }
-
-  private buildUri(state: any[]): string {
-    const uri: string[] = [];
-    for (const expr of state) {
-      if (expr.direction === 'none') {
-        continue;
-      }
-      uri.push(
-        expr.direction === 'ascending'
-          ? `asc(${expr.key})`
-          : `desc(${expr.key})`
-      );
-    }
-    return `GET: /data?sort_by=${uri.join(',')}`;
-  }
-
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="info-panel">
-          <div id="queryString">
-            <p><code>{this.state.queryString}</code></p>
-          </div>
-        </div>
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
-        </div>
-      </div>
+    uri.push(
+      expr.direction === 'ascending'
+        ? `asc(${expr.key})`
+        : `desc(${expr.key})`
     );
   }
+  return `GET: /data?sort_by=${uri.join(',')}`;
+};
+
+export default function GridLiteSortConfigPipeline() {
+  const gridRef = useRef<any>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const [data, setData] = useState<ProductInfo[]>([]);
+  const [queryString, setQueryString] = useState('');
+
+  const dataPipelineConfiguration = useMemo(() => ({
+    sort: async ({ data, grid }: any) => {
+      if (progressRef.current) {
+        progressRef.current.classList.add('in-operation');
+      }
+      const qs = grid.sortingExpressions.length
+        ? buildUri(grid.sortingExpressions)
+        : '';
+      setQueryString(qs);
+      
+      await new Promise(resolve => setTimeout(resolve, 250));
+      if (progressRef.current) {
+        progressRef.current.classList.remove('in-operation');
+      }
+      return data;
+    }
+  }), []);
+
+  useEffect(() => {
+    const dataService = new GridLiteDataService();
+    setData(dataService.generateProducts(100));
+  }, []);
+
+  useEffect(() => {
+    if (gridRef.current) {
+      gridRef.current.dataPipelineConfiguration = dataPipelineConfiguration;
+    }
+  }, [dataPipelineConfiguration]);
+
+  return (
+    <div className="container sample ig-typography">
+      <div className="info-panel">
+        <div id="queryString">
+          <p><code>{queryString}</code></p>
+        </div>
+      </div>
+      <div className="grid-lite-wrapper">
+        <IgrGridLite ref={gridRef} id="grid-lite" data={data}>
+          <IgrGridLiteColumn field="name" header="Name" sortable={true}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="price" dataType="number" header="Price" sortable={true}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="rating" dataType="number" header="Rating" sortable={true} cellTemplate={ratingCellTemplate}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="sold" dataType="number" header="Sold" sortable={true}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="total" dataType="number" header="Total" sortable={true}></IgrGridLiteColumn>
+        </IgrGridLite>
+      </div>
+    </div>
+  );
 }
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+root.render(<GridLiteSortConfigPipeline/>);

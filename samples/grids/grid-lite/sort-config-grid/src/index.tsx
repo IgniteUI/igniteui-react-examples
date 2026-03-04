@@ -1,111 +1,94 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { IgrSwitch } from 'igniteui-react';
-import { GridLiteDataService, ProductInfo } from './GridLiteDataService';
+import React, { useRef, useState } from "react";
+import ReactDOM from "react-dom/client";
+import { IgrRating, IgrSwitch } from "igniteui-react";
+import { GridLiteDataService, ProductInfo } from "./GridLiteDataService";
 
-// Import the web component
-import { IgcGridLite } from 'igniteui-grid-lite';
-import { 
-  defineComponents,
-  IgcRatingComponent
-} from 'igniteui-webcomponents';
+import {
+  IgrGridLite,
+  IgrGridLiteColumn,
+  type IgrCellContext,
+} from "igniteui-react/grid-lite";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
-// Register components
-IgcGridLite.register();
-defineComponents(IgcRatingComponent);
+// Define cellTemplate function outside component
+const ratingCellTemplate = (ctx: IgrCellContext) => (
+  <IgrRating readOnly step={0.01} max={5} value={ctx.value}></IgrRating>
+);
 
-export default class Sample extends React.Component<any, any> {
-  private dataService: GridLiteDataService;
-  private gridRef: React.RefObject<any>;
-  private sortConfiguration: any = {
-    multiple: true,
-    triState: true
-  };
+export default function Sample() {
+  const gridRef = useRef<any>(null);
+  const [data, setData] = useState<ProductInfo[]>([]);
+  const [sortingOptions, setSortingOptions] = useState<any>({
+    mode: "multiple",
+  });
 
-  constructor(props: any) {
-    super(props);
-    this.dataService = new GridLiteDataService();
-    this.gridRef = React.createRef();
-    this.updateConfig = this.updateConfig.bind(this);
-  }
+  React.useEffect(() => {
+    const dataService = new GridLiteDataService();
+    const items: ProductInfo[] = dataService.generateProducts(100);
+    setData(items);
+  }, []);
 
-  componentDidMount() {
-    if (this.gridRef.current) {
-      const data: ProductInfo[] = this.dataService.generateProducts(100);
-      
-      const columns = [
-        { 
-          key: 'name', 
-          headerText: 'Name', 
-          sort: true 
-        },
-        { 
-          key: 'price', 
-          type: 'number', 
-          headerText: 'Price', 
-          sort: true 
-        },
-        {
-          key: 'rating',
-          type: 'number',
-          headerText: 'Rating',
-          sort: true,
-          cellTemplate: (params: any) => {
-            const rating = document.createElement('igc-rating');
-            rating.setAttribute('readonly', '');
-            rating.setAttribute('step', '0.01');
-            rating.setAttribute('value', params.value.toString());
-            return rating;
-          }
-        },
-        { 
-          key: 'sold', 
-          type: 'number', 
-          headerText: 'Sold', 
-          sort: true 
-        },
-        { 
-          key: 'total', 
-          type: 'number', 
-          headerText: 'Total', 
-          sort: true 
-        }
-      ];
+  const updateConfig = React.useCallback((checked: boolean) => {
+    const mode = checked ? "multiple" : "single";
+    setSortingOptions((prev: any) => ({ ...prev, mode }));
+    gridRef.current?.clearSort();
+  }, []);
 
-      this.gridRef.current.columns = columns;
-      this.gridRef.current.data = data;
-      this.gridRef.current.sortConfiguration = this.sortConfiguration;
-    }
-  }
-
-  private updateConfig(prop: string, checked: boolean) {
-    this.sortConfiguration = { ...this.sortConfiguration, [prop]: checked };
-    if (this.gridRef.current) {
-      this.gridRef.current.sortConfiguration = this.sortConfiguration;
-    }
-  }
-
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="controls-wrapper">
-          <IgrSwitch id="multisort" checked={true} onChange={(e: any) => this.updateConfig('multiple', e.target.checked)}>
-            Multiple Sort
-          </IgrSwitch>
-          <IgrSwitch id="triState" checked={true} onChange={(e: any) => this.updateConfig('triState', e.target.checked)}>
-            Tri-State
-          </IgrSwitch>
-        </div>
-        <div className="grid-lite-wrapper">
-          <igc-grid-lite ref={this.gridRef} id="grid-lite"></igc-grid-lite>
-        </div>
+  return (
+    <div className="container sample ig-typography">
+      <section className="config-panel">
+        <IgrSwitch
+          id="multisort"
+          checked={sortingOptions.mode === "multiple"}
+          onChange={(e: any) => updateConfig(e.target.checked)}
+        >
+          Enable multi-sort
+        </IgrSwitch>
+      </section>
+      <div className="grid-lite-wrapper">
+        <IgrGridLite
+          ref={gridRef}
+          id="grid-lite"
+          data={data}
+          sortingOptions={sortingOptions}
+        >
+          <IgrGridLiteColumn
+            field="name"
+            header="Name"
+            sortable
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="price"
+            dataType="number"
+            header="Price"
+            sortable
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="rating"
+            dataType="number"
+            header="Rating"
+            sortable
+            cellTemplate={ratingCellTemplate}
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="sold"
+            dataType="number"
+            header="Sold"
+            sortable
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="total"
+            dataType="number"
+            header="Total"
+            sortable
+          ></IgrGridLiteColumn>
+        </IgrGridLite>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 // rendering above component in the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Sample />);

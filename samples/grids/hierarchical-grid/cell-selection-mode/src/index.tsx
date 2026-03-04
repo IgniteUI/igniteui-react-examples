@@ -57,7 +57,9 @@ export default class Sample extends React.Component<any, any> {
                         label="Hierarchical Grid Cell Selection"
                         propertyPath="CellSelection"
                         name="CellSelectionEditorHierarchicalGrid"
-                        valueType="EnumValue">
+                        valueType="EnumValue"
+                        dropDownNames={["None", "Single", "Multiple"]}
+                        dropDownValues={["None", "Single", "Multiple"]}>
                     </IgrPropertyEditorPropertyDescription>
                     <IgrPropertyEditorPropertyDescription
                         label="Row Island Cell Selection"

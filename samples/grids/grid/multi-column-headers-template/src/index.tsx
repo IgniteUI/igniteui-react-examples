@@ -153,7 +153,7 @@ export default class Sample extends React.Component<any, any> {
         const column = e.dataContext.column;
         return (
             <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                <span draggable="false"  onClick={(e: any) => this.toggleColumnGroup(column)}>
+                <span draggable="false" style={{ cursor: 'pointer' }} onClick={(e: any) => this.toggleColumnGroup(column)}>
                     {this.columnGroupStates.get(column) ? "🔽" : "🔼"}
                 </span>
                 <span>{column.header}</span>
