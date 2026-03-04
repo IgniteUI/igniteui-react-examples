@@ -1,0 +1,117 @@
+name: IgniteUI React Examples CD
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - vnext
+      - master
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Input a branch name (e.g., vnext)'
+        required: true
+      isVerbose:
+        description: 'Get verbose output from steps - where configurable'
+        type: boolean
+        default: false
+
+env:
+  BRANCH_REF: ${{ github.event.inputs.branch && format('refs/heads/{0}', github.event.inputs.branch) || github.ref }}
+
+jobs:
+  BuildSamples:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH_REF }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+          cache-dependency-path: browser/package-lock.json
+
+      - name: Register licensed npm registry in .npmrc
+        working-directory: browser
+        run: |
+          npm config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/
+          npm config -L project set //packages.infragistics.com/npm/js-licensed/:_authToken=${{ secrets.INFRAGISTICS_NPM_TOKEN }}
+
+      - name: Replace references to IG trial packages with licensed ones in package.json
+        working-directory: browser
+        shell: pwsh
+        run: |
+          $packageJson = Get-Content -Raw ./package.json | ConvertFrom-Json
+          $properties = $packageJson.dependencies.PSObject.Properties `
+              | where-object { $_.Name.StartsWith("igniteui-react") -or $_.Name.StartsWith("igniteui-dockmanager") }
+
+          foreach( $property in $properties )
+          {
+              $oldName = $property.Name;
+              $newName = "@infragistics/" + $oldName
+
+              # remember the current value of the old property
+              $value = $property.Value;
+
+              # remove reference to the trial package reference
+              $packageJson.dependencies.psobject.Properties.Remove($oldName);
+
+              # add reference to the licensed package reference
+              $packageJson.dependencies | Add-Member -NotePropertyName $newName -NotePropertyValue $value;
+          }
+
+          ConvertTo-Json -InputObject $packageJson | Set-Content -Path ./package.json
+
+      - name: npm install
+        working-directory: browser
+        run: npm install
+
+      - name: Replace references to IG trial packages with licensed ones in TSX files
+        shell: pwsh
+        run: |
+          Get-ChildItem -Include "*.tsx","*.ts" -Recurse | `
+          ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace '(from|import)\s?[''"]( igniteui-(react|dockmanager).*)[''"]', '$1 "@infragistics/$2"') }) | `
+          Set-Content $_.PSPath }
+
+      - name: npm run build
+        working-directory: browser
+        run: npm run build
+
+      - name: Package samples browser
+        run: zip -r ${{ github.workspace }}/react-samples.zip browser/build/.
+
+      - name: Publish pipeline artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-samples-artifact
+          path: react-samples.zip
+
+      - name: Trigger Deploy Workflow in IgniteUI Actions
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ secrets.CLASSIC_PAT_GITHUB }}
+          script: |
+            await github.rest.repos.createDispatchEvent({
+              owner: 'IgniteUI',
+              repo: 'igniteui-actions',
+              event_type: 'igniteui-samples-cd',
+              client_payload: {
+                calling_branch: "${{ env.BRANCH_REF }}",
+                repository: "${{ github.repository }}",
+                run_id: "${{ github.run_id }}",
+                artifact_name: "react-samples-artifact",
+                base_href: "react-demos",
+                submodule_dir: "react-demos",
+                ref: "${{ github.ref }}",
+                sha: "${{ github.sha }}",
+                branch: '${{ github.ref_name }}',
+              }
+            });
+
