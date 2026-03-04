@@ -38,11 +38,18 @@ jobs:
           cache: 'npm'
           cache-dependency-path: browser/package-lock.json
 
-      - name: Register licensed npm registry in .npmrc
-        working-directory: browser
+      - name: Create .npmrc file
         run: |
-          npm config -L project set @infragistics:registry=https://packages.infragistics.com/npm/js-licensed/
-          npm config -L project set //packages.infragistics.com/npm/js-licensed/:_authToken=${{ secrets.INFRAGISTICS_NPM_TOKEN }}
+          if [ -f ".npmrc" ]; then
+            rm .npmrc
+          fi
+          touch .npmrc
+
+      - name: Configure npm registry
+        run: |
+          echo "@infragistics:registry=https://packages.infragistics.com/npm/js-licensed/" >> .npmrc
+          echo "//packages.infragistics.com/npm/js-licensed/:username=${{ secrets.INFRAGISTICS_NPM_USER }}" >> .npmrc
+          echo "//packages.infragistics.com/npm/js-licensed/:_auth=${{ secrets.INFRAGISTICS_NPM_TOKEN }}" >> .npmrc
 
       - name: Replace references to IG trial packages with licensed ones in package.json
         working-directory: browser
