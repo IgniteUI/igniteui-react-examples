@@ -86,7 +86,7 @@ jobs:
         shell: pwsh
         run: |
           Get-ChildItem -Include "*.tsx","*.ts" -Recurse | `
-          ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace '(from|import)\s?[''"](igniteui-(react|dockmanager).*)[''")', '$1 "@infragistics/$2"') }) | `
+          ForEach {  (Get-Content $_.PSPath | ForEach { ($_ -replace '(from|import)\s?[''"](igniteui-(react|dockmanager).*)[''"]', '$1 "@infragistics/$2"') }) | `
           Set-Content $_.PSPath }
 
       - name: npm run build
