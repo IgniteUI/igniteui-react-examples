@@ -23,6 +23,8 @@ export type User = {
   avatar: string;
   active: boolean;
   priority: 'Low' | 'Standard' | 'High';
+  employmentType: 'Full-Time' | 'Part-Time' | 'Contract';
+  department: 'Engineering' | 'Marketing' | 'Sales' | 'Finance';
   satisfaction: number;
   registeredAt: Date;
 };
@@ -36,6 +38,8 @@ export class GridLiteDataService {
   private productNames = ['Widget', 'Gadget', 'Gizmo', 'Device', 'Tool', 'Instrument', 'Machine', 'Equipment'];
   private productModels = ['Pro', 'Plus', 'Max', 'Ultra', 'Mini', 'Lite'];
   private priorities: ('Low' | 'Standard' | 'High')[] = ['Low', 'Standard', 'High'];
+  private employmentTypes: ('Full-Time' | 'Part-Time' | 'Contract')[] = ['Full-Time', 'Part-Time', 'Contract'];
+  private departments: ('Engineering' | 'Marketing' | 'Sales' | 'Finance')[] = ['Engineering', 'Marketing', 'Sales', 'Finance'];
 
   private randomInt(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -114,6 +118,8 @@ export class GridLiteDataService {
       avatar: imagePath,
       active: this.randomBoolean(),
       priority: this.randomElement(this.priorities),
+      employmentType: this.randomElement(this.employmentTypes),
+      department: this.randomElement(this.departments),
       satisfaction: this.randomInt(0, 5),
       registeredAt: new Date(Date.now() - this.randomInt(0, 365 * 24 * 60 * 60 * 1000))
     };

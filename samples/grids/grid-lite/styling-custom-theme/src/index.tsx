@@ -1,55 +1,93 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { GridLiteDataService, ProductInfo } from './GridLiteDataService';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { GridLiteDataService, ProductInfo } from "./GridLiteDataService";
 
-// Import the web component
-import { IgcGridLite } from 'igniteui-grid-lite';
-import { 
-  defineComponents,
-  IgcRatingComponent
-} from 'igniteui-webcomponents';
+import { IgrSwitch, IgrRating } from "igniteui-react";
+import {
+  IgrGridLite,
+  IgrGridLiteColumn,
+  type IgrCellContext,
+} from "igniteui-react/grid-lite";
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.scss";
 
-// Register components
-IgcGridLite.register();
-defineComponents(IgcRatingComponent);
-
-// Define cellTemplate function outside component
-const ratingCellTemplate = (params: any) => {
-  const rating = document.createElement('igc-rating');
-  rating.setAttribute('readonly', '');
-  rating.setAttribute('value', params.value.toString());
-  return rating;
-};
+const satisfactionCellTemplate = (ctx: IgrCellContext) => (
+  <IgrRating readOnly max={5} step={0.01} value={ctx.value}></IgrRating>
+);
 
 export default function Sample() {
-  const gridRef = React.useRef<any>(null);
+  const [data, setData] = React.useState<ProductInfo[]>([]);
+  const [theme, setTheme] = React.useState<"dark" | "light">("dark");
 
   React.useEffect(() => {
-    if (gridRef.current) {
-      const dataService = new GridLiteDataService();
-      const data: ProductInfo[] = dataService.generateProducts(50);
-      gridRef.current.data = data;
-    }
+    const dataService = new GridLiteDataService();
+    const items: ProductInfo[] = dataService.generateProducts(50);
+    setData(items);
+  }, []);
+
+  const switchTheme = React.useCallback(() => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   }, []);
 
   return (
     <div className="container sample ig-typography">
       <div className="grid-lite-wrapper">
-        <igc-grid-lite ref={gridRef} id="grid-lite" className="custom-styled">
-          <igc-grid-lite-column field="name" header="Product" sortable filterable></igc-grid-lite-column>
-          <igc-grid-lite-column field="price" header="Price" sortable filterable data-type="number"></igc-grid-lite-column>
-          <igc-grid-lite-column field="sold" header="Sold" sortable filterable data-type="number"></igc-grid-lite-column>
-          <igc-grid-lite-column field="total" header="Total" sortable filterable data-type="number"></igc-grid-lite-column>
-          <igc-grid-lite-column field="rating" header="Rating" data-type="number" sortable filterable cellTemplate={ratingCellTemplate}></igc-grid-lite-column>
-        </igc-grid-lite>
+        <section className="theme-switcher">
+          <IgrSwitch
+            labelPosition="before"
+            checked={theme === "light"}
+            onChange={switchTheme}
+          >
+            {`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+          </IgrSwitch>
+        </section>
+        <IgrGridLite
+          id="grid-lite"
+          data={data}
+          className={theme === "light" ? "custom-light" : "custom-dark"}
+        >
+          <IgrGridLiteColumn
+            field="name"
+            header="Product"
+            sortable
+            filterable
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="price"
+            header="Price"
+            sortable
+            filterable
+            dataType="number"
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="sold"
+            header="Sold"
+            sortable
+            filterable
+            dataType="number"
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="total"
+            header="Total"
+            sortable
+            filterable
+            dataType="number"
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="rating"
+            header="Rating"
+            dataType="number"
+            cellTemplate={satisfactionCellTemplate}
+            sortable
+            filterable
+          ></IgrGridLiteColumn>
+        </IgrGridLite>
       </div>
     </div>
   );
 }
 
 // rendering above component in the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Sample />);
