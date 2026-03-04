@@ -81,13 +81,6 @@ export default function Sample() {
           </p>
         </div>
         <section className="grid-section">
-          {inOperation && (
-            <IgrCircularProgress
-              className="pipeline-loader"
-              indeterminate={true}
-              hideLabel={true}
-            ></IgrCircularProgress>
-          )}
           <IgrGridLite
             id="grid-lite"
             data={data}

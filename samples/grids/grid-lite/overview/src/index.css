@@ -9,51 +9,51 @@ igc-grid-lite {
 }
 
 /* Badge spacing tokens are scale multipliers; 2.6667 = 0.5rem target inline padding / 0.1875rem base spacing unit. */
-igc-badge.badge-padded {
+.badge-padded {
   --ig-spacing-inline: 2.6667;
 }
 
-igc-badge.badge-padded::part(base) {
+.badge-padded::part(base) {
   padding-block: 0.125rem;
   color: var(--ig-gray-900) !important;
 }
 
 /* Use lighter variant shades across both department (filled) and employment (outlined) badges. */
-igc-badge.badge-padded[variant="success"] {
+.badge-padded[variant="success"] {
   --ig-badge-border-color: var(--ig-success-300);
 }
 
-igc-badge.badge-padded[variant="warning"] {
+.badge-padded[variant="warning"] {
   --ig-badge-border-color: var(--ig-warn-300);
 }
 
-igc-badge.badge-padded[variant="primary"] {
+.badge-padded[variant="primary"] {
   --ig-badge-border-color: var(--ig-primary-300);
 }
 
-igc-badge.badge-padded[variant="danger"] {
+.badge-padded[variant="danger"] {
   --ig-badge-border-color: var(--ig-error-300);
 }
 
 /* Force lighter fills for department (filled) badges. */
-igc-badge.badge-padded.badge-department[variant="success"]::part(base) {
+.badge-padded.badge-department[variant="success"]::part(base) {
   background: var(--ig-success-300) !important;
 }
 
-igc-badge.badge-padded.badge-department[variant="warning"]::part(base) {
+.badge-padded.badge-department[variant="warning"]::part(base) {
   background: var(--ig-warn-300) !important;
 }
 
-igc-badge.badge-padded.badge-department[variant="primary"]::part(base) {
+.badge-padded.badge-department[variant="primary"]::part(base) {
   background: var(--ig-primary-300) !important;
 }
 
-igc-badge.badge-padded.badge-department[variant="danger"]::part(base) {
+.badge-padded.badge-department[variant="danger"]::part(base) {
   background: var(--ig-error-300) !important;
 }
 
 /* Employment badges are outline-only. */
-igc-badge.badge-employment::part(base) {
+.badge-employment::part(base) {
   background: transparent !important;
   box-shadow: inset 0 0 0 0.125rem var(--ig-badge-border-color) !important;
 }
