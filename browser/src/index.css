@@ -1,0 +1,7 @@
+img[src*="dl.infragistics.com/x/img/people"] {
+    width: 62px;
+    height: 62px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+}
