@@ -1,7 +1,14 @@
 @use 'igniteui-theming' as *;
 @import 'igniteui-theming/sass/typography/presets';
 
-$custom-palette: palette(
+$custom-light-palette: palette(
+    $primary: #ddd020,
+    $secondary: #d5896f,
+    $surface: #f8f7ff,
+    $gray: #04395e,
+);
+
+$custom-dark-palette: palette(
     $primary: #ddd020,
     $secondary: #d5896f,
     $surface: #031d44,
@@ -13,7 +20,16 @@ $custom-palette: palette(
     height: 100%;
 }
 
-.custom-styled {
-    @include palette($custom-palette);
+.theme-switcher {
+    margin-bottom: 1rem;
+}
+
+.custom-light {
+    @include palette($custom-light-palette);
+    @include typography('"Merriweather Sans", sans-serif', $bootstrap-type-scale);
+}
+
+.custom-dark {
+    @include palette($custom-dark-palette);
     @include typography('"Merriweather Sans", sans-serif', $bootstrap-type-scale);
 }

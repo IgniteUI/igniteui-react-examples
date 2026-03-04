@@ -1,67 +1,78 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { GridLiteDataService, ProductInfo } from './GridLiteDataService';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { GridLiteDataService, ProductInfo } from "./GridLiteDataService";
 
-// Import the web component
-import { IgcGridLite } from 'igniteui-grid-lite';
-import { 
-  defineComponents,
-  IgcRatingComponent
-} from 'igniteui-webcomponents';
+import { IgrRating } from "igniteui-react";
+import {
+  IgrGridLite,
+  IgrGridLiteColumn,
+  type IgrCellContext,
+} from "igniteui-react/grid-lite";
 
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
-// Register components
-IgcGridLite.register();
-defineComponents(IgcRatingComponent);
-
-const formatter = new Intl.NumberFormat('en-EN', {
-  style: 'currency',
-  currency: 'EUR'
+const formatter = new Intl.NumberFormat("en-150", {
+  style: "currency",
+  currency: "EUR",
 });
 
-// Define cellTemplate functions outside component
-const currencyCellTemplate = (params: any) => {
-  const span = document.createElement('span');
-  span.textContent = formatter.format(params.value);
-  return span;
-};
+const formatCurrency = (value: number) => formatter.format(value);
 
-const ratingCellTemplate = (params: any) => {
-  const rating = document.createElement('igc-rating');
-  rating.setAttribute('readonly', '');
-  rating.setAttribute('step', '0.01');
-  rating.setAttribute('value', params.value.toString());
-  return rating;
-};
+// Define cellTemplate functions outside component
+const currencyCellTemplate = (ctx: IgrCellContext) => (
+  <span>{formatCurrency(ctx.value)}</span>
+);
+
+const ratingCellTemplate = (ctx: IgrCellContext) => (
+  <IgrRating readOnly max={5} value={ctx.value}></IgrRating>
+);
 
 export default function Sample() {
-  const gridRef = React.useRef<any>(null);
+  const [data, setData] = React.useState<ProductInfo[]>([]);
 
   React.useEffect(() => {
-    if (gridRef.current) {
-      const dataService = new GridLiteDataService();
-      const data: ProductInfo[] = dataService.generateProducts(50);
-      gridRef.current.data = data;
-    }
+    const dataService = new GridLiteDataService();
+    const items: ProductInfo[] = dataService.generateProducts(50);
+    setData(items);
   }, []);
 
   return (
     <div className="container sample ig-typography">
       <div className="grid-lite-wrapper">
-        <igc-grid-lite ref={gridRef} id="grid-lite">
-          <igc-grid-lite-column field="name" header="Product Name"></igc-grid-lite-column>
-          <igc-grid-lite-column field="price" header="Price" data-type="number" cellTemplate={currencyCellTemplate}></igc-grid-lite-column>
-          <igc-grid-lite-column field="sold" data-type="number" header="Units sold"></igc-grid-lite-column>
-          <igc-grid-lite-column field="total" header="Total sold" cellTemplate={currencyCellTemplate}></igc-grid-lite-column>
-          <igc-grid-lite-column field="rating" data-type="number" header="Customer rating" cellTemplate={ratingCellTemplate}></igc-grid-lite-column>
-        </igc-grid-lite>
+        <IgrGridLite data={data} id="grid-lite">
+          <IgrGridLiteColumn
+            field="name"
+            header="Product Name"
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="price"
+            header="Price"
+            dataType="number"
+            cellTemplate={currencyCellTemplate}
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="sold"
+            dataType="number"
+            header="Units Sold"
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="total"
+            header="Total sold"
+            cellTemplate={currencyCellTemplate}
+          ></IgrGridLiteColumn>
+          <IgrGridLiteColumn
+            field="rating"
+            dataType="number"
+            header="Customer Rating"
+            cellTemplate={ratingCellTemplate}
+          ></IgrGridLiteColumn>
+        </IgrGridLite>
       </div>
     </div>
   );
 }
 
 // rendering above component in the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Sample />);
