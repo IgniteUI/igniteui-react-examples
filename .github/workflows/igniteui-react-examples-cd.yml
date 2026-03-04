@@ -94,13 +94,13 @@ jobs:
         run: npm run build
 
       - name: Package samples browser
-        run: zip -r ${{ github.workspace }}/react-samples.zip browser/build/.
+        run: zip -r ${{ github.workspace }}/react-demos.zip browser/build/.
 
       - name: Publish pipeline artifact
         uses: actions/upload-artifact@v4
         with:
-          name: react-samples-artifact
-          path: react-samples.zip
+          name: react-demos-artifact
+          path: react-demos.zip
 
       - name: Trigger Deploy Workflow in IgniteUI Actions
         uses: actions/github-script@v8
@@ -115,7 +115,7 @@ jobs:
                 calling_branch: "${{ env.BRANCH_REF }}",
                 repository: "${{ github.repository }}",
                 run_id: "${{ github.run_id }}",
-                artifact_name: "react-samples-artifact",
+                artifact_name: "react-demos-artifact",
                 base_href: "react-demos",
                 submodule_dir: "react-demos",
                 ref: "${{ github.ref }}",
