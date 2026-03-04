@@ -39,6 +39,7 @@ jobs:
           cache-dependency-path: browser/package-lock.json
 
       - name: Create .npmrc file
+        working-directory: browser
         run: |
           if [ -f ".npmrc" ]; then
             rm .npmrc
