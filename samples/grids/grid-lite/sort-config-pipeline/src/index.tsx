@@ -1,28 +1,17 @@
-import React from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import { GridLiteDataService, ProductInfo } from './GridLiteDataService';
 
-// Import the web component
-import { IgcGridLite } from 'igniteui-grid-lite';
-import { 
-  defineComponents,
-  IgcRatingComponent,
-  IgcCircularProgressComponent
-} from 'igniteui-webcomponents';
+import { IgrGridLite, IgrGridLiteColumn } from 'igniteui-react/grid-lite';
+import { IgrRating } from 'igniteui-react';
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
-// Register components
-IgcGridLite.register();
-defineComponents(IgcRatingComponent, IgcCircularProgressComponent);
-
 // Define cellTemplate function outside component
-const ratingCellTemplate = (params: any) => {
-  const rating = document.createElement('igc-rating');
-  rating.setAttribute('readonly', '');
-  rating.setAttribute('step', '0.01');
-  rating.setAttribute('value', params.value.toString());
-  return rating;
+const ratingCellTemplate = (ctx: any) => {
+  return (
+    <IgrRating readonly={true} step={0.01} value={ctx.value}></IgrRating>
+  );
 };
 
 const buildUri = (state: any[]): string => {
@@ -40,12 +29,13 @@ const buildUri = (state: any[]): string => {
   return `GET: /data?sort_by=${uri.join(',')}`;
 };
 
-export default function Sample() {
-  const gridRef = React.useRef<any>(null);
-  const progressRef = React.useRef<HTMLDivElement>(null);
-  const [queryString, setQueryString] = React.useState('');
+export default function GridLiteSortConfigPipeline() {
+  const gridRef = useRef<any>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const [data, setData] = useState<ProductInfo[]>([]);
+  const [queryString, setQueryString] = useState('');
 
-  const dataPipelineConfiguration = React.useMemo(() => ({
+  const dataPipelineConfiguration = useMemo(() => ({
     sort: async ({ data, grid }: any) => {
       if (progressRef.current) {
         progressRef.current.classList.add('in-operation');
@@ -63,11 +53,13 @@ export default function Sample() {
     }
   }), []);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    const dataService = new GridLiteDataService();
+    setData(dataService.generateProducts(100));
+  }, []);
+
+  useEffect(() => {
     if (gridRef.current) {
-      const dataService = new GridLiteDataService();
-      const data: ProductInfo[] = dataService.generateProducts(100);
-      gridRef.current.data = data;
       gridRef.current.dataPipelineConfiguration = dataPipelineConfiguration;
     }
   }, [dataPipelineConfiguration]);
@@ -80,13 +72,13 @@ export default function Sample() {
         </div>
       </div>
       <div className="grid-lite-wrapper">
-        <igc-grid-lite ref={gridRef} id="grid-lite">
-          <igc-grid-lite-column field="name" header="Name" sortable></igc-grid-lite-column>
-          <igc-grid-lite-column field="price" data-type="number" header="Price" sortable></igc-grid-lite-column>
-          <igc-grid-lite-column field="rating" data-type="number" header="Rating" sortable cellTemplate={ratingCellTemplate}></igc-grid-lite-column>
-          <igc-grid-lite-column field="sold" data-type="number" header="Sold" sortable></igc-grid-lite-column>
-          <igc-grid-lite-column field="total" data-type="number" header="Total" sortable></igc-grid-lite-column>
-        </igc-grid-lite>
+        <IgrGridLite ref={gridRef} id="grid-lite" data={data}>
+          <IgrGridLiteColumn field="name" header="Name" sortable={true}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="price" dataType="number" header="Price" sortable={true}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="rating" dataType="number" header="Rating" sortable={true} cellTemplate={ratingCellTemplate}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="sold" dataType="number" header="Sold" sortable={true}></IgrGridLiteColumn>
+          <IgrGridLiteColumn field="total" dataType="number" header="Total" sortable={true}></IgrGridLiteColumn>
+        </IgrGridLite>
       </div>
     </div>
   );
@@ -94,4 +86,4 @@ export default function Sample() {
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Sample/>);
+root.render(<GridLiteSortConfigPipeline/>);

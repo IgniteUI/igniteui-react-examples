@@ -33,6 +33,8 @@ export default defineConfig(({ mode }) => ({
   css: {
     preprocessorOptions: {
       scss: {
+        api: 'legacy',
+        includePaths: ['node_modules'],
         loadPaths: [resolve(__dirname, 'node_modules')]
       }
     }

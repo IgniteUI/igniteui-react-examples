@@ -1,9 +1,4 @@
-trigger:
-  branches:
-    include:
-    - vnext
-    - master
-
+trigger: none
 pr: none
 
 parameters:

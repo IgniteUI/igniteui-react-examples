@@ -1,21 +1,18 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { GridLiteDataService } from "./GridLiteDataService";
 
-// Import the web component
-import { IgcGridLite } from "igniteui-grid-lite";
+import { IgrGridLite } from 'igniteui-react/grid-lite';
 import { IgrButton } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
-// Register components
-IgcGridLite.register();
 
-export default function Sample() {
+export default function GridLiteDataBinding() {
   const [showingProducts, setShowingProducts] = useState(true);
   const [data, setData] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const dataService = new GridLiteDataService();
     setData(dataService.generateProducts(50));
 
@@ -50,15 +47,15 @@ export default function Sample() {
           Switch Data
         </IgrButton>
       </div>
-      <igc-grid-lite
-        auto-generate="true"
+      <IgrGridLite
+        autoGenerate={true}
         id="grid-lite"
         data={data}
-      ></igc-grid-lite>
+      ></IgrGridLite>
     </div>
   );
 }
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Sample />);
+root.render(<GridLiteDataBinding />);
