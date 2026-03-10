@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { IgrButton, IgrDialog, IgrCheckbox } from "igniteui-react";
+import { IgrButton, IgrCheckbox } from "igniteui-react";
 import {
   IgrGrid,
   IgrColumn,
   IgrSummaryOperand,
   IgrSummaryResult,
+  IgrNumberSummaryOperand,
+  IgrDateSummaryOperand,
 } from "igniteui-react-grids";
 import NwindData from "./NwindData.json";
 
@@ -122,385 +124,174 @@ class DiscontinuedSummary extends IgrSummaryOperand {
   }
 }
 
-interface SummaryColumn {
+interface SummaryCheckbox {
+  summaryKey: string;
+  summaryLabel: string;
+  checked: boolean;
+}
+
+interface ColumnConfig {
+  label: string;
   field: string;
-  header: string;
-  hasSummary: boolean;
-  dataType?: string;
-  summaries?: any;
-  disabledSummaries: string[];
+  dataType?: "string" | "number" | "boolean" | "date";
+  summaryClass?: any;
+  summaries: SummaryCheckbox[];
 }
 
 export default function DisabledSummariesSample() {
-  // State
   const [nwindData, setNwindData] = useState<any[]>([]);
-  const [currentColumn, setCurrentColumn] = useState<SummaryColumn | null>(
-    null
-  );
-  const [currentColumnSource, setCurrentColumnSource] = useState<
-    "dialog" | "toggle" | null
-  >(null);
-  const [pendingUpdateType, setPendingUpdateType] = useState<
-    null | "disableAll" | "enableAll"
-  >(null);
-  const [disableAllBtnDisabled, setDisableAllBtnDisabled] = useState(false);
-  const [enableAllBtnDisabled, setEnableAllBtnDisabled] = useState(false);
-  const [checkboxStates, setCheckboxStates] = useState([]);
-  const [columns, setColumns] = useState([
-    {
-      field: "ProductID",
-      header: "ProductID",
-      hasSummary: true,
-      disabledSummaries: [],
-    },
-    {
-      field: "ProductName",
-      header: "Product Name",
-      hasSummary: true,
-      disabledSummaries: [],
-    },
-    {
-      field: "UnitPrice",
-      header: "Unit Price",
-      hasSummary: true,
-      dataType: "number",
-      disabledSummaries: [],
-    },
-    {
-      field: "UnitsInStock",
-      header: "Units In Stock",
-      hasSummary: true,
-      dataType: "number",
-      summaries: UnitsInStockSummary,
-      disabledSummaries: [],
-    },
-    {
-      field: "Discontinued",
-      header: "Discontinued",
-      hasSummary: true,
-      summaries: DiscontinuedSummary,
-      disabledSummaries: [],
-    },
-    {
-      field: "OrderDate",
-      header: "Order Date",
-      hasSummary: true,
-      dataType: "date",
-      disabledSummaries: [],
-    },
+  const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(null);
+  const [columns, setColumns] = useState<ColumnConfig[]>([
+    { label: "Product ID", field: "ProductID", summaries: [] },
+    { label: "Product Name", field: "ProductName", summaries: [] },
+    { label: "Unit Price", field: "UnitPrice", dataType: "number", summaries: [] },
+    { label: "Units In Stock", field: "UnitsInStock", dataType: "number", summaryClass: UnitsInStockSummary, summaries: [] },
+    { label: "Discontinued", field: "Discontinued", summaryClass: DiscontinuedSummary, summaries: [] },
+    { label: "Order Date", field: "OrderDate", dataType: "date", summaries: [] },
   ]);
-
-  // Refs
-  let grid: IgrGrid;
-  const gridRef = (ref: IgrGrid) => {
-    grid = ref;
-  };
-  let dialog: IgrDialog;
-  const dialogRef = (ref: IgrDialog) => {
-    dialog = ref;
-    if (dialog) {
-      dialog.closeOnOutsideClick = true;
-      dialog.keepOpenOnEscape = false;
-    }
-  };
 
   useEffect(() => {
     setNwindData(NwindData);
   }, []);
 
   useEffect(() => {
-    if (!currentColumn) return;
-
-    const shouldShowDialog = currentColumnSource === "dialog";
-    const shouldMarkForCheck =
-      currentColumnSource === "toggle" ||
-      pendingUpdateType === "disableAll" ||
-      pendingUpdateType === "enableAll";
-
-    if (shouldShowDialog) {
-      updateCheckboxes();
-      dialog?.show();
-      setCurrentColumnSource(null);
+    if (nwindData.length > 0 && columns[0].summaries.length === 0) {
+      initializeSummaries();
     }
+  }, [nwindData]);
 
-    if (shouldMarkForCheck && grid) {
-      updateCheckboxes();
-      grid.markForCheck();
-      setPendingUpdateType(null);
-      setCurrentColumnSource(null);
-    }
-  }, [currentColumn, currentColumnSource, pendingUpdateType, grid]);
-
-  const openDialog = (column: any) => {
-    const columnState = columns.find((c) => c.field === column.field);
-    setCurrentColumn(columnState!);
-    setCurrentColumnSource("dialog");
-    setCheckboxStates([]);
+  const defaultSummaryOperands: Record<string, new () => IgrSummaryOperand> = {
+    number: IgrNumberSummaryOperand,
+    date: IgrDateSummaryOperand,
   };
 
-  const getSummaryResults = (
-    operand: any,
-    data: any[],
-    field: string
-  ): IgrSummaryResult[] => {
-    if (typeof operand === "function") {
-      operand = new operand();
-    }
-    if (operand instanceof IgrSummaryOperand) {
-      return operand.operate([], data, field, null);
-    } else if (!operand) {
-      return new IgrSummaryOperand().operate([], data, field, null);
-    }
-    return [];
-  };
-
-  const getDefaultSummaries = (
-    data: any[],
-    field: string
-  ): IgrSummaryResult[] => {
-    const columnInstance = grid.columns.find((c) => c.field === field);
-    if (
-      columnInstance &&
-      columnInstance.summaries &&
-      typeof columnInstance.summaries.operate === "function"
-    ) {
-      return columnInstance.summaries.operate([], data, field, null);
-    }
-    return [];
-  };
-
-  const updateCheckboxes = () => {
-    if (!currentColumn || !grid) return;
-
-    const gridData: any[] = grid.data;
-    let allSummaries: IgrSummaryResult[] = [];
-    if (currentColumn.summaries) {
-      allSummaries = getSummaryResults(
-        currentColumn.summaries,
-        gridData,
-        currentColumn.field
-      );
-    } else {
-      allSummaries = getDefaultSummaries(gridData, currentColumn.field);
-    }
-
-    let allDisabled: boolean = true;
-    let allEnabled: boolean = true;
-
-    const newCheckboxStates: any[] = allSummaries.map((summary) => {
-      const isDisabled = currentColumn.disabledSummaries.includes(summary.key);
-      if (isDisabled) {
-        allEnabled = false;
-      } else {
-        allDisabled = false;
-      }
-      return {
-        label: summary.label,
-        key: summary.key,
-        checked: isDisabled,
-      };
-    });
-
-    setCheckboxStates(newCheckboxStates);
-    setDisableAllBtnDisabled(allDisabled);
-    setEnableAllBtnDisabled(allEnabled);
-  };
-
-  const toggleSummary = (summaryKey: string) => {
-    if (!currentColumn || !grid) return;
-
-    const updatedDisabledSummaries = currentColumn.disabledSummaries.includes(
-      summaryKey
-    )
-      ? currentColumn.disabledSummaries.filter((key: any) => key !== summaryKey)
-      : [...currentColumn.disabledSummaries, summaryKey];
-
-    const updatedColumns = columns.map((col: any) =>
-      col.field === currentColumn.field
-        ? { ...col, disabledSummaries: updatedDisabledSummaries }
-        : col
-    );
-
-    setCurrentColumn((prev) => ({
-      ...prev,
-      disabledSummaries: updatedDisabledSummaries,
+  const getSummaries = (column: ColumnConfig): SummaryCheckbox[] => {
+    const OperandClass = column.summaryClass ?? defaultSummaryOperands[column.dataType!] ?? IgrSummaryOperand;
+    const summaryResults = new OperandClass().operate([], nwindData, column.field, null);
+    return summaryResults.map((summary: IgrSummaryResult) => ({
+      summaryKey: summary.key,
+      summaryLabel: summary.label,
+      checked: true,
     }));
-    setColumns(updatedColumns);
-    setCurrentColumnSource("toggle");
   };
 
-  const disableAllSummaries = () => {
-    if (!currentColumn || !grid) return;
+  const initializeSummaries = () => {
+    if (nwindData.length === 0) return;
 
-    const gridData: any[] = grid.data;
-    let allSummaries: IgrSummaryResult[] = currentColumn.summaries
-      ? getSummaryResults(
-          currentColumn.summaries,
-          gridData,
-          currentColumn.field
-        )
-      : getDefaultSummaries(gridData, currentColumn.field);
-
-    const allSummaryKeys: string[] = allSummaries.map((s) => s.key);
-
-    const updatedColumns = columns.map((col: any) =>
-      col.field === currentColumn.field
-        ? { ...col, disabledSummaries: allSummaryKeys }
-        : col
-    );
-
-    setCurrentColumn((prev) => ({
-      ...prev,
-      disabledSummaries: allSummaryKeys,
+    const updatedColumns = columns.map((column) => ({
+      ...column,
+      summaries: getSummaries(column),
     }));
-    setColumns(updatedColumns);
-    setDisableAllBtnDisabled(true);
-    setEnableAllBtnDisabled(false);
 
-    setPendingUpdateType("disableAll");
+    setColumns(updatedColumns);
   };
 
-  const enableAllSummaries = () => {
-    if (!currentColumn || !grid) return;
+  const getCheckedSummariesCount = (summaries: SummaryCheckbox[]): number => {
+    return summaries.filter((item) => item.checked).length;
+  };
 
-    const updatedColumns = columns.map((col: any) =>
-      col.field === currentColumn.field
-        ? { ...col, disabledSummaries: [] }
-        : col
-    );
+  const getDisabledSummaries = (summaries: SummaryCheckbox[]): string[] => {
+    return summaries.filter((item) => !item.checked).map((item) => item.summaryKey);
+  };
 
-    setCurrentColumn((prev) => ({ ...prev, disabledSummaries: [] }));
+  const toggleDropdown = (index: number) => {
+    setOpenDropdownIndex(openDropdownIndex === index ? null : index);
+  };
+
+  const toggleCheckbox = (columnIndex: number, summaryIndex: number) => {
+    const updatedColumns = [...columns];
+    const column = updatedColumns[columnIndex];
+    column.summaries[summaryIndex].checked = !column.summaries[summaryIndex].checked;
     setColumns(updatedColumns);
-    setDisableAllBtnDisabled(false);
-    setEnableAllBtnDisabled(true);
+  };
 
-    setPendingUpdateType("enableAll");
+  const uncheckAllColumns = (columnIndex: number) => {
+    const updatedColumns = [...columns];
+    const column = updatedColumns[columnIndex];
+    column.summaries.forEach((item) => (item.checked = false));
+    setColumns(updatedColumns);
+  };
+
+  const checkAllColumns = (columnIndex: number) => {
+    const updatedColumns = [...columns];
+    const column = updatedColumns[columnIndex];
+    column.summaries.forEach((item) => (item.checked = true));
+    setColumns(updatedColumns);
   };
 
   return (
     <div className="grid-wrapper container sample ig-typography">
       <div className="summaries">
-        <p className="summaries-title">Disable Summaries for Column:</p>
-        {columns.map((col: any) => (
-          <IgrButton
-            key={col.field}
-            className="summary-button"
-            variant="contained"
-            onClick={() => openDialog({ field: col.field, header: col.header })}
-          >
-            <span>{col.header}</span>
-          </IgrButton>
+        <h5 className="summaries-title">Toggle Summaries for Column:</h5>
+        {columns.map((column, columnIndex) => (
+          <div key={column.field} className="summary-column-button">
+            <IgrButton
+              variant="outlined"
+              onClick={() => toggleDropdown(columnIndex)}
+            >
+              <span>
+                {column.label} ({getCheckedSummariesCount(column.summaries)})
+              </span>
+            </IgrButton>
+            {openDropdownIndex === columnIndex && (
+              <div className="summaries-dropdown">
+                <p className="summaries-dropdown-title">Disabled Summaries</p>
+                <div className="summaries-dropdown-items">
+                  {column.summaries.map((summary, summaryIndex) => (
+                    <IgrCheckbox
+                      key={summary.summaryKey}
+                      className="summaries-dropdown-item"
+                      checked={summary.checked}
+                      onChange={() => toggleCheckbox(columnIndex, summaryIndex)}
+                    >
+                      <span>{summary.summaryLabel}</span>
+                    </IgrCheckbox>
+                  ))}
+                </div>
+                <div className="summaries-dropdown-buttons">
+                  <IgrButton
+                    variant="flat"
+                    disabled={getCheckedSummariesCount(column.summaries) === 0}
+                    onClick={() => uncheckAllColumns(columnIndex)}
+                  >
+                    <span>Disable All</span>
+                  </IgrButton>
+                  <IgrButton
+                    variant="flat"
+                    disabled={
+                      getCheckedSummariesCount(column.summaries) ===
+                      column.summaries.length
+                    }
+                    onClick={() => checkAllColumns(columnIndex)}
+                  >
+                    <span>Enable All</span>
+                  </IgrButton>
+                </div>
+              </div>
+            )}
+          </div>
         ))}
       </div>
-      <IgrDialog
-        ref={dialogRef}
-        title={
-          currentColumn ? `Disable Summaries for ${currentColumn.header}` : ""
-        }
-      >
-        <div className="summaries-dialog-items">
-          {currentColumn &&
-            checkboxStates.map((checkbox: any) => (
-              <IgrCheckbox
-                key={checkbox.key}
-                className="summaries-dialog-item"
-                checked={checkbox.checked}
-                onChange={() => toggleSummary(checkbox.key)}
-              >
-                <span>{checkbox.label}</span>
-              </IgrCheckbox>
-            ))}
-        </div>
-        <IgrButton
-          key="disableAll"
-          slot="footer"
-          variant="flat"
-          onClick={disableAllSummaries}
-          disabled={disableAllBtnDisabled}
-        >
-          <span>Disable All</span>
-        </IgrButton>
-        <IgrButton
-          key="enableAll"
-          slot="footer"
-          variant="flat"
-          onClick={enableAllSummaries}
-          disabled={enableAllBtnDisabled}
-        >
-          <span>Enable All</span>
-        </IgrButton>
-      </IgrDialog>
 
-      <div className="container fill">
-        <IgrGrid
-          autoGenerate={false}
-          ref={gridRef}
-          data={nwindData}
-          primaryKey="ProductID"
-          height="700px"
-          width="100%"
-        >
+      <IgrGrid
+        autoGenerate={false}
+        data={nwindData}
+        primaryKey="ProductID"
+        height="700px"
+        width="100%"
+      >
+        {columns.map((column) => (
           <IgrColumn
-            field="ProductID"
-            header="ProductID"
+            key={column.field}
+            field={column.field}
+            header={column.label}
+            dataType={column.dataType}
             hasSummary={true}
-            disabledSummaries={
-              columns.find((col: any) => col.field === "ProductID")
-                ?.disabledSummaries
-            }
-          ></IgrColumn>
-          <IgrColumn
-            field="ProductName"
-            header="Product Name"
-            hasSummary={true}
-            disabledSummaries={
-              columns.find((col: any) => col.field === "ProductName")
-                ?.disabledSummaries
-            }
-          ></IgrColumn>
-          <IgrColumn
-            field="UnitPrice"
-            header="Unit Price"
-            dataType="number"
-            hasSummary={true}
-            disabledSummaries={
-              columns.find((col: any) => col.field === "UnitPrice")
-                ?.disabledSummaries
-            }
-          ></IgrColumn>
-          <IgrColumn
-            field="UnitsInStock"
-            header="Units In Stock"
-            dataType="number"
-            hasSummary={true}
-            summaries={UnitsInStockSummary}
-            disabledSummaries={
-              columns.find((col: any) => col.field === "UnitsInStock")
-                ?.disabledSummaries
-            }
-          ></IgrColumn>
-          <IgrColumn
-            field="Discontinued"
-            header="Discontinued"
-            hasSummary={true}
-            summaries={DiscontinuedSummary}
-            disabledSummaries={
-              columns.find((col: any) => col.field === "Discontinued")
-                ?.disabledSummaries
-            }
-          ></IgrColumn>
-          <IgrColumn
-            field="OrderDate"
-            header="Order Date"
-            dataType="date"
-            hasSummary={true}
-            disabledSummaries={
-              columns.find((col: any) => col.field === "OrderDate")
-                ?.disabledSummaries
-            }
-          ></IgrColumn>
-        </IgrGrid>
-      </div>
+            summaries={column.summaryClass}
+            disabledSummaries={getDisabledSummaries(column.summaries)}
+          />
+        ))}
+      </IgrGrid>
     </div>
   );
 }
