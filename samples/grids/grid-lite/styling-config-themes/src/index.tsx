@@ -30,14 +30,12 @@ defineComponents(IgcRatingComponent, IgcSelectComponent);
 export default class Sample extends React.Component<any, any> {
   private dataService: GridLiteDataService;
   private gridRef: React.RefObject<any>;
-  private wrapperRef: React.RefObject<HTMLDivElement>;
   private selectRef: React.RefObject<any>;
 
   constructor(props: any) {
     super(props);
     this.dataService = new GridLiteDataService();
     this.gridRef = React.createRef();
-    this.wrapperRef = React.createRef();
     this.selectRef = React.createRef();
     this.state = {
       currentTheme: 'bootstrap-light'
@@ -61,9 +59,7 @@ export default class Sample extends React.Component<any, any> {
 
   private changeTheme = (theme: string) => {
     this.setState({ currentTheme: theme });
-    if (this.wrapperRef.current) {
-      this.wrapperRef.current.setAttribute('data-theme', theme);
-    }
+    document.body.setAttribute('data-theme', theme);
   }
 
   public render(): JSX.Element {
@@ -83,7 +79,7 @@ export default class Sample extends React.Component<any, any> {
           </igc-select>
         </div>
 
-        <div className="grid-lite-wrapper" ref={this.wrapperRef}>
+        <div className="grid-lite-wrapper">
           <igc-grid-lite ref={this.gridRef} id="grid-lite">
             <igc-grid-lite-column field="name" header="Product" sortable filterable></igc-grid-lite-column>
             <igc-grid-lite-column field="price" header="Price" sortable filterable data-type="number"></igc-grid-lite-column>

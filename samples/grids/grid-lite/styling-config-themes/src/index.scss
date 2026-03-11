@@ -33,7 +33,7 @@ $themes: (
 
 // Generate theme classes
 @each $name, $config in $themes {
-    .grid-lite-wrapper[data-theme="#{$name}"] {
+    body[data-theme="#{$name}"] .grid-lite-wrapper {
         @include palette(list.nth($config, 1));
         @include typography(list.nth($config, 2), list.nth($config, 3));
     }
