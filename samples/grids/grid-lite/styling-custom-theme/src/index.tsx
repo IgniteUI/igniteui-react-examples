@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { GridLiteDataService, ProductInfo } from "./GridLiteDataService";
-
 import { IgrSwitch, IgrRating } from "igniteui-react";
 import {
   IgrGridLite,
