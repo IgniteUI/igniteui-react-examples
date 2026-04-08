@@ -1,6 +1,6 @@
 # Functional Component Refactoring – Summary
 
-This document describes the refactoring of **7 class-based React samples** to **functional components** following modern React best practices (React 16.8+).
+This document describes the refactoring of **12 class-based React samples** to **functional components** following modern React best practices (React 16.8+).
 
 Each original `index.tsx` is left unchanged. A new `*Functional.tsx` file has been created alongside it as the functional counterpart.
 
@@ -141,6 +141,95 @@ Each original `index.tsx` is left unchanged. A new `*Functional.tsx` file has be
 | `registerIconFromText` calls in `constructor` | Moved to module scope | Icon registration is a pure side effect; moving it outside the component means it runs exactly once per module load, not once per instance |
 | `actionsSlot.parentElement?.querySelectorAll(...)` in original | Simplified to `tile.querySelectorAll('.additional-action')` | The `actionsSlot` traversal was unnecessarily indirect; querying from the tile element is more direct and correct |
 | `this.` prefix on all methods and properties | No `this` required | Functions and variables are in lexical scope; arrow functions in `useCallback` close over them naturally |
+
+---
+
+## Sample 8 – Data Pie Chart: Legend (Cross-Ref Wiring + Lazy Getters + ComponentRenderer)
+
+**Files**
+- Original: `samples/charts/data-pie-chart/legend/src/index.tsx`
+- Functional: `samples/charts/data-pie-chart/legend/src/DataPieChartLegendFunctional.tsx`
+
+**Feature coverage:** `cross-component ref wiring`, `lazy data getter`, `ComponentRenderer`, `props as component instances`
+
+| Class pattern | Functional equivalent | Why |
+|---|---|---|
+| `private legend: IgrItemLegend` + callback ref `legendRef(r)` calling `setState({})` | `const [legend, setLegend] = useState<IgrItemLegend \| null>(null)` | Storing the component instance in state causes a re-render when it is first set, allowing it to be passed as a prop to the chart |
+| `private chart: IgrDataPieChart` + callback ref `chartRef(r)` calling `setState({})` | `const [chart, setChart] = useState<IgrDataPieChart \| null>(null)` (unused beyond triggering re-render) | Same pattern—state update triggers the render that delivers the `legend` prop to the chart |
+| Lazy getter `get energyGlobalDemand()` with backing field `_energyGlobalDemand` | `useMemo(() => new EnergyGlobalDemand(), [])` | Created once, stable across renders |
+| Lazy getter `get renderer()` with backing field `_componentRenderer` that registers modules | `useMemo(() => { const r = new ComponentRenderer(); ...; return r; }, [])` | ComponentRenderer and its context registrations are created once |
+| `legend={this.legend}` in JSX (initially `undefined` until ref fires) | `legend={legend ?? undefined}` | `null ?? undefined` falls back to `undefined`, keeping the prop absent until the legend is ready |
+
+---
+
+## Sample 9 – Doughnut Chart: Legend (Cross-Ref Wiring on Ring Series)
+
+**Files**
+- Original: `samples/charts/doughnut-chart/legend/src/index.tsx`
+- Functional: `samples/charts/doughnut-chart/legend/src/DoughnutChartLegendFunctional.tsx`
+
+**Feature coverage:** `cross-component ref wiring`, `ring series legend prop`, `lazy data getter`
+
+| Class pattern | Functional equivalent | Why |
+|---|---|---|
+| `private legend: IgrItemLegend` + callback ref calling `setState({})` | `useState<IgrItemLegend \| null>(null)` | Same cross-wiring pattern as the DataPieChart legend sample |
+| `private chart: IgrDoughnutChart` + callback ref | `useRef` not needed—the chart does not need to be accessed imperatively | The only wiring needed is passing `legend` as a prop on `IgrRingSeries`; no ref required on the chart itself |
+| `<IgrRingSeries legend={this.legend}>` | `<IgrRingSeries legend={legend ?? undefined}>` | Prop supplied once the legend state is set |
+| Lazy getter `get energyGlobalDemand()` | `useMemo(() => new EnergyGlobalDemand(), [])` | Stable data source reference |
+
+---
+
+## Sample 10 – Financial Chart: Overview (Async Data + Imperative Legend Wiring)
+
+**Files**
+- Original: `samples/charts/financial-chart/overview/src/index.tsx`
+- Functional: `samples/charts/financial-chart/overview/src/FinancialChartOverviewFunctional.tsx`
+
+**Feature coverage:** `async data fetching`, `cross-ref imperative wiring`, `useEffect`, `state initialization`
+
+| Class pattern | Functional equivalent | Why |
+|---|---|---|
+| `this.initData()` called in constructor, which calls `this.setState({ data: stocks })` on resolution | `useEffect(() => { StocksHistory.getMultipleStocks().then(stocks => setData(stocks)); }, [])` | `useEffect` with empty deps runs once after mount—equivalent to constructor-time async initiation |
+| `public data: any[]` as class field initialized to `[]` | `const [data, setData] = useState<any[]>([])` | Async result stored in state; initial render uses empty array |
+| Callback refs that cross-wire each other: `this.chart.legend = this.legend` / `this.legend` = ... | `useRef` for both + `useEffect(() => { if (chart && legend) chart.legend = legend; })` running after every render | The effectless dependency array means the wiring is applied whenever either ref changes, guaranteeing the assignment happens once both are available |
+
+---
+
+## Sample 11 – Category Chart: High Frequency (setInterval + componentWillUnmount + notifyInsertItem)
+
+**Files**
+- Original: `samples/charts/category-chart/high-frequency/src/index.tsx`
+- Functional: `samples/charts/category-chart/high-frequency/src/CategoryChartHighFrequencyFunctional.tsx`
+
+**Feature coverage:** `setInterval`, `componentWillUnmount`, `imperative chart notification API`, `mixed ref/state pattern`
+
+| Class pattern | Functional equivalent | Why |
+|---|---|---|
+| `public interval: number = -1` class field | `const intervalRef = useRef<number>(-1)` | Interval ID must survive re-renders but must never cause them; `useRef` is the correct container |
+| `public chart: IgrCategoryChart` class field | `const chartRef = useRef<IgrCategoryChart>(null)` | Same—chart ref needs to be stable and readable inside the interval callback |
+| `public data: any[]` mutable array class field | `const dataRef = useRef<any[]>(...)` | The data array is mutated in-place for the chart's `notifyInsertItem`/`notifyRemoveItem` API; storing it in a ref avoids triggering re-renders on every tick |
+| `public dataPoints: number` / `public dataIndex: number` class fields | `useRef` for each | Values mutated in event handlers without needing re-renders |
+| `componentWillUnmount` clearing the interval | Cleanup function returned from `useEffect`: `return () => { clearInterval(intervalRef.current) }` | Collocates setup and teardown; cleanup runs when component unmounts |
+| `onChartRef` callback ref calling `this.onChartInit()` | `onChartRef` callback calling `setupInterval()` | `useCallback`-wrapped ref callback starts the interval once the chart is available |
+| `this.state.dataFeedAction === "Stop"` read inside `tick()` | Accessing `setState` updater's `prev` arg inside tick | The tick is inside a `setInterval` closure; reading the latest state safely requires using the functional update form of `setState` |
+
+---
+
+## Sample 12 – Category Chart: Line Chart with Animations (State + Event Handlers + Replay)
+
+**Files**
+- Original: `samples/charts/category-chart/line-chart-with-animations/src/index.tsx`
+- Functional: `samples/charts/category-chart/line-chart-with-animations/src/CategoryChartLineChartWithAnimationsFunctional.tsx`
+
+**Feature coverage:** `state`, `event handlers`, `chart ref for imperative API`, `module-level constants`
+
+| Class pattern | Functional equivalent | Why |
+|---|---|---|
+| `public data: any[]` field assigned in `initData()` then used as prop | Module-level `CHART_DATA` constant | Data is static; no side effects needed; module constant is cleaner and avoids recreation |
+| `this.initData()` called inside `onTransitionInModeChanged` (to reset chart) | Removed—`CHART_DATA` is already stable | The original called `initData()` on mode change to "re-trigger" the chart; with a stable reference the chart already re-renders on `transitionInMode` state change |
+| `this.state.transitionLabel`, `transitionInDuration`, `transitionInMode` | Three `useState` calls | Fine-grained state; each setter is independent |
+| `public chart: IgrCategoryChart` field + `this.onChartRef` callback | `const chartRef = useRef` + `const onChartRef = useCallback` | `useRef` for the chart instance; `useCallback` for a stable ref callback |
+| `this.chart.replayTransitionIn()` inside `onReloadChartClick` | `chartRef.current?.replayTransitionIn()` | Optional chaining guards against the chart not yet being set |
 
 ---
 
