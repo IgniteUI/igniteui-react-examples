@@ -27,14 +27,15 @@ export default function CategoryChartHighFrequency() {
         refreshInfo: '5ms',
     });
 
+    const mountedRef = useRef(true);
+
     const setupInterval = useCallback(() => {
         if (intervalRef.current >= 0) {
             window.clearInterval(intervalRef.current);
             intervalRef.current = -1;
         }
         intervalRef.current = window.setInterval(() => {
-            // Only tick when feed is "Stop" (i.e. actively streaming)
-            if (setState === null) return; // guard against unmounted ref
+            if (!mountedRef.current) return;
             setState(prev => {
                 if (prev.dataFeedAction !== 'Stop') return prev;
 
@@ -61,6 +62,7 @@ export default function CategoryChartHighFrequency() {
             setupInterval();
         }
         return () => {
+            mountedRef.current = false;
             if (intervalRef.current >= 0) {
                 window.clearInterval(intervalRef.current);
                 intervalRef.current = -1;
