@@ -4,6 +4,8 @@ This document describes the refactoring of **12 class-based React samples** to *
 
 Each original `index.tsx` is left unchanged. A new `*Functional.tsx` file has been created alongside it as the functional counterpart.
 
+> **Generating new samples?** See [`FUNCTIONAL_COMPONENT_GENERATION_GUIDE.md`](./FUNCTIONAL_COMPONENT_GENERATION_GUIDE.md) for the complete construct-by-construct generation reference with class templates, functional templates, and rules for every pattern used across these samples.
+
 ---
 
 ## Why Functional Components?
