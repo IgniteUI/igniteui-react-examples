@@ -670,26 +670,20 @@ public componentWillUnmount() {
 const infoFormRef    = useRef<HTMLFormElement>(null);
 const addressFormRef = useRef<HTMLFormElement>(null);
 
-useEffect(() => {
-    const handleInput = () => checkActiveStepValidity(linear);
+const handleInput = useCallback(
+    () => checkActiveStepValidity(linear),
+    [linear, checkActiveStepValidity]
+);
 
-    const infoForm    = infoFormRef.current;
-    const addressForm = addressFormRef.current;
-
-    infoForm?.addEventListener('igcInput', handleInput);
-    addressForm?.addEventListener('igcInput', handleInput);
-
-    return () => {
-        infoForm?.removeEventListener('igcInput', handleInput);
-        addressForm?.removeEventListener('igcInput', handleInput);
-    };
-}, [linear, checkActiveStepValidity]); // re-attach if `linear` changes
+// In JSX – attach via React's onInput prop so no manual listener management is needed:
+<form ref={infoFormRef} onInput={handleInput}>...</form>
+<form ref={addressFormRef} onInput={handleInput}>...</form>
 ```
 
 **Rules**
-- Capture DOM element refs into local variables (`const infoForm = infoFormRef.current`) before attaching listeners, and use the same variables in cleanup. This prevents a situation where `infoFormRef.current` has become `null` by the time the cleanup runs.
-- Include state values that the listener handler uses in the dependency array. This causes the effect to re-run and re-attach the listener with an updated closure when those values change.
-- The `handleInput` function must be defined **inside** the effect so it captures the latest deps.
+- Prefer React's synthetic `onInput` / `onChange` props on native `<form>` (or other container) elements instead of manually calling `addEventListener` inside a `useEffect`. Ignite UI web components fire standard DOM `input` / `change` events that bubble up through the shadow DOM, so they are caught by the parent `<form>`'s React event handler automatically.
+- Define the handler as a `useCallback` at component scope with the relevant state values in its dependency array so it always closes over the latest values.
+- Only fall back to `useEffect` + `addEventListener` when the target element is not rendered by React (e.g. a third-party widget mounted outside the React tree) or when you need to attach to a non-standard event name that has no React equivalent.
 
 ---
 
