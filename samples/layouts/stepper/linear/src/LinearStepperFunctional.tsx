@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import {
@@ -48,21 +48,7 @@ export default function LinearStepper() {
         }
     }, [checkFormValidity]);
 
-    // Attach native 'igcInput' event listeners after mount (web-component events)
-    useEffect(() => {
-        const handleInput = () => checkActiveStepValidity(linear);
-
-        const infoForm = infoFormRef.current;
-        const addressForm = addressFormRef.current;
-
-        infoForm?.addEventListener('igcInput', handleInput);
-        addressForm?.addEventListener('igcInput', handleInput);
-
-        return () => {
-            infoForm?.removeEventListener('igcInput', handleInput);
-            addressForm?.removeEventListener('igcInput', handleInput);
-        };
-    }, [linear, checkActiveStepValidity]);
+    const handleInput = useCallback(() => checkActiveStepValidity(linear), [linear, checkActiveStepValidity]);
 
     const onSwitchChange = useCallback((e: IgrCheckboxChangeEventArgs) => {
         const isLinear = e.detail.checked;
@@ -81,7 +67,7 @@ export default function LinearStepper() {
             <IgrStepper ref={stepperRef} linear={linear}>
                 <IgrStep invalid={linear && firstStepInvalid}>
                     <span slot="title">Personal Info</span>
-                    <form ref={infoFormRef}>
+                    <form ref={infoFormRef} onInput={handleInput}>
                         <IgrInput required label="Full Name" type="text" name="fullName" />
                         <IgrInput required label="Email" type="email" name="email" />
                         <IgrButton
@@ -94,7 +80,7 @@ export default function LinearStepper() {
                 </IgrStep>
                 <IgrStep invalid={linear && secondStepInvalid}>
                     <span slot="title">Delivery address</span>
-                    <form ref={addressFormRef}>
+                    <form ref={addressFormRef} onInput={handleInput}>
                         <IgrInput required label="City" type="text" name="city" />
                         <IgrInput required label="Street" type="text" name="street" />
                         <IgrButton onClick={() => stepperRef.current?.prev()}>
