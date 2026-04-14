@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useMemo } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrCategoryChart } from 'igniteui-react-charts';
@@ -26,11 +26,6 @@ export default function CategoryChartLineChartWithAnimations() {
     const [transitionLabel, setTransitionLabel] = useState('1000ms');
     const [transitionInDuration, setTransitionInDuration] = useState(1000);
     const [transitionInMode, setTransitionInMode] = useState('Auto');
-
-    const onChartRef = useCallback((chart: IgrCategoryChart) => {
-        if (!chart) return;
-        chartRef.current = chart;
-    }, []);
 
     const onTransitionInModeChanged = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
         setTransitionInMode(e.target.value);
@@ -86,7 +81,7 @@ export default function CategoryChartLineChartWithAnimations() {
             </div>
 
             <IgrCategoryChart
-                ref={onChartRef}
+                ref={chartRef}
                 width="100%"
                 height="calc(100% - 30px)"
                 dataSource={CHART_DATA}

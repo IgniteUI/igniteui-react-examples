@@ -218,13 +218,8 @@ this.chart.replayTransitionIn();
 ```tsx
 const chartRef = useRef<IgrCategoryChart>(null);
 
-const onChartRef = useCallback((chart: IgrCategoryChart) => {
-    if (!chart) return;
-    chartRef.current = chart;
-}, []);
-
 // in JSX:
-<IgrCategoryChart ref={onChartRef} ... />
+<IgrCategoryChart ref={chartRef} ... />
 
 // later usage:
 chartRef.current?.replayTransitionIn();
@@ -232,10 +227,10 @@ chartRef.current?.replayTransitionIn();
 
 **Rules**
 - Use `useRef` (not `useState`) because reading the ref never needs to trigger a re-render.
-- Wrap the callback ref in `useCallback` to keep the reference stable across renders.
-- Always guard with `if (!chart) return` inside the callback to handle unmounting.
+- Pass the ref object directly as the `ref` prop — React sets `.current` to the component instance on mount and back to `null` on unmount automatically.
 - Access the element as `chartRef.current` (may be `null` — use optional chaining `?.`).
 - **Do not** call `this.setState({})` after assigning the ref — the `useRef` equivalent never triggers re-renders.
+- **Do not** wrap in a `useCallback` callback ref just to assign `chartRef.current` — that is redundant. Only use a callback ref (see Section 13) when the mounting event itself must trigger additional side effects such as starting an interval.
 
 ---
 
@@ -1045,4 +1040,5 @@ root.render(<Sample/>);
 | `registerIconFromText(...)` in constructor | Module scope before component |
 | `this.chart.someMethod()` | `chartRef.current?.someMethod()` |
 | `legend={this.legend}` (may be `undefined`) | `legend={legend ?? undefined}` |
-| `ref={this.onChartRef}` (bound callback) | `ref={onChartRef}` (useCallback) or `ref={chartRef}` (useRef object) |
+| `ref={this.onChartRef}` (bound callback, only assigns field) | `ref={chartRef}` (useRef object — React handles assignment automatically) |
+| `ref={this.onChartRef}` (bound callback that also triggers side effects) | callback ref via `useCallback` (see Section 13) |
