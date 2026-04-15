@@ -13,7 +13,7 @@ const mods: any[] = [
 mods.forEach(m => m.register());
 
 export default function Sample() {
-    // useState for legend and chart instances so that when either becomes available
+    // useState for legend instance so that when it becomes available
     // the component re-renders and can wire the legend prop onto the ring series.
     const [legend, setLegend] = useState<IgrItemLegend | null>(null);
 
