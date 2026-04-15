@@ -1,11 +1,10 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrDataPieChartModule, IgrItemLegendModule } from 'igniteui-react-charts';
 import { IgrItemLegend, IgrDataPieChart } from 'igniteui-react-charts';
-import { ComponentRenderer, PropertyEditorPanelDescriptionModule, DataPieChartDescriptionModule, ItemLegendDescriptionModule } from 'igniteui-react-core';
 import { EnergyGlobalDemand } from './EnergyGlobalDemand';
 
 const mods: any[] = [
@@ -23,15 +22,6 @@ export default function Sample() {
 
     // useMemo creates these once – equivalent to the lazy backing-field getters in the class
     const energyGlobalDemand = useMemo(() => new EnergyGlobalDemand(), []);
-
-    const renderer = useMemo(() => {
-        const r = new ComponentRenderer();
-        const ctx = r.context;
-        PropertyEditorPanelDescriptionModule.register(ctx);
-        DataPieChartDescriptionModule.register(ctx);
-        ItemLegendDescriptionModule.register(ctx);
-        return r;
-    }, []);
 
     return (
         <div className="container sample">
