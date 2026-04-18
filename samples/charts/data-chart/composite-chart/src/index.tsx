@@ -106,7 +106,7 @@ export default class DataChartCompositeChart extends React.Component<any, any> {
   }
 
   public formatNumber(num: number): string {
-    var ret = num;
+    let ret = num;
     if (num >= 1000000) return (num / 1000000.0).toFixed(1) + "M";
     if (num >= 1000) return (num / 1000.0).toFixed(1) + "K";
 

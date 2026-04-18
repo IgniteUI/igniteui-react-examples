@@ -93,7 +93,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             DataPieChartDescriptionModule.register(context);
             ItemLegendDescriptionModule.register(context);
@@ -102,7 +102,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public editorButtonReplayTransitionInDomain(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
-        var chart = this.chart;
+        let chart = this.chart;
         chart.replayTransitionIn();
     }
 

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrLinearProgressModule } from 'igniteui-react';
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrPaginator, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { AthletesDataItem, AthletesData } from './AthletesData';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
@@ -12,8 +11,7 @@ import { IgrLinearProgress } from 'igniteui-react';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrLinearProgressModule,
-    IgrGridModule
+    IgrLinearProgressModule
 ];
 mods.forEach((m) => m.register());
 
@@ -27,7 +25,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.1-5";
 
             this._columnPipeArgs1 = columnPipeArgs1;

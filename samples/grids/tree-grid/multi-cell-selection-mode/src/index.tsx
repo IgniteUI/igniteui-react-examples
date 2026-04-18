@@ -5,20 +5,12 @@ import "./index.css";
 import {
   IgrColumn,
   IgrGrid,
-  IgrGridModule,
   IgrGridSelectionRangeEventArgs,
   IgrTreeGrid,
-  IgrTreeGridModule,
 } from "igniteui-react-grids";
 import { EmployeesFlatData } from "./EmployeesFlatData";
 
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
-
-const mods: any[] = [
-    IgrGridModule,
-    IgrTreeGridModule
-];
-mods.forEach((m) => m.register());
 
 export default function App() {
   const employeesFlatData = new EmployeesFlatData();

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
@@ -16,8 +15,7 @@ import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
-    IgrGridModule
+    IgrPropertyEditorPanelModule
 ];
 mods.forEach((m) => m.register());
 
@@ -154,7 +152,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             WebGridDescriptionModule.register(context);
         }
@@ -163,7 +161,7 @@ export default class Sample extends React.Component<any, any> {
 
     public webGridAddRow(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
-        var grid = this.grid;
+        let grid = this.grid;
         const randomInteger = (start: number, end: number) => Math.floor(Math.random() * (end - start + 1)) + start;
         const randomFloat = (start: number, end: number) => Math.random() * (end - start) + start;
 
@@ -171,9 +169,9 @@ export default class Sample extends React.Component<any, any> {
         if (!(grid as any).__productId) {
             (grid as any).__productId = 0;
         }
-        var year = randomInteger(2000, 2050);
-        var month = randomInteger(0, 11);
-        var day = randomInteger(1, 25);
+        let year = randomInteger(2000, 2050);
+        let month = randomInteger(0, 11);
+        let day = randomInteger(1, 25);
         grid.addRow({
             CategoryID: randomInteger(1, 10),
             Discontinued: randomInteger(1, 10) % 2 === 0,
@@ -194,7 +192,7 @@ export default class Sample extends React.Component<any, any> {
     public webGridUndo(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
 
-        var grid = this.grid;
+        let grid = this.grid;
         //grid.endEdit(true);
         //grid.transactions.undo();
 
@@ -203,7 +201,7 @@ export default class Sample extends React.Component<any, any> {
     public webGridRedo(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
 
-        var grid = this.grid;
+        let grid = this.grid;
 
         //grid.endEdit(true);
         //grid.transactions.redo();
@@ -213,7 +211,7 @@ export default class Sample extends React.Component<any, any> {
     public webGridCommit(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
         //TODO
 
-        var grid = this.grid;
+        let grid = this.grid;
 
         // grid.transactions.commit(grid.data);
         //dialog.close();
@@ -222,7 +220,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridDeleteCellTemplate = (e: {dataContext: IgrCellTemplateContext}) => {
-        var grid = this.grid;
+        let grid = this.grid;
         const id = e.dataContext.cell.id.rowID;
         return<><div onClick={(e: any) => grid.deleteRow(id)}><IgrButton><span key="btnText">Delete</span></IgrButton></div></>;
     }

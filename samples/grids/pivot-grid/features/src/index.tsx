@@ -2,16 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrPivotGridModule } from 'igniteui-react-grids';
 import { IgrPivotGrid, IgrPivotConfiguration, IgrPivotDateDimension, IgrPivotDimension, IgrPivotDateDimensionOptions, SortingDirection, IgrPivotValue, IgrPivotAggregator } from 'igniteui-react-grids';
 import { PivotDataFlatItem, PivotDataFlat } from './PivotDataFlat';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrPivotGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrPivotGrid
@@ -23,17 +18,17 @@ export default class Sample extends React.Component<any, any> {
     public get pivotConfiguration1(): IgrPivotConfiguration {
         if (this._pivotConfiguration1 == null)
         {
-            var pivotConfiguration1: IgrPivotConfiguration = {} as IgrPivotConfiguration;
+            let pivotConfiguration1: IgrPivotConfiguration = {} as IgrPivotConfiguration;
 
-            var igrPivotDateDimension1 = new IgrPivotDateDimension();
+            let igrPivotDateDimension1 = new IgrPivotDateDimension();
             igrPivotDateDimension1.memberName = "Date";
             igrPivotDateDimension1.enabled = true;
-            var igrPivotDimension1: IgrPivotDimension = {} as IgrPivotDimension;
+            let igrPivotDimension1: IgrPivotDimension = {} as IgrPivotDimension;
             igrPivotDimension1.memberName = "Date";
             igrPivotDimension1.enabled = true;
 
             igrPivotDateDimension1.baseDimension = igrPivotDimension1;
-            var igrPivotDateDimensionOptions1: IgrPivotDateDimensionOptions = {} as IgrPivotDateDimensionOptions;
+            let igrPivotDateDimensionOptions1: IgrPivotDateDimensionOptions = {} as IgrPivotDateDimensionOptions;
             igrPivotDateDimensionOptions1.years = true;
             igrPivotDateDimensionOptions1.months = false;
             igrPivotDateDimensionOptions1.quarters = true;
@@ -42,42 +37,42 @@ export default class Sample extends React.Component<any, any> {
             igrPivotDateDimension1.options = igrPivotDateDimensionOptions1;
 
             pivotConfiguration1.columns = [igrPivotDateDimension1];
-            var igrPivotDimension2: IgrPivotDimension = {} as IgrPivotDimension;
+            let igrPivotDimension2: IgrPivotDimension = {} as IgrPivotDimension;
             igrPivotDimension2.memberName = "ProductName";
             igrPivotDimension2.sortDirection = SortingDirection.Asc;
             igrPivotDimension2.enabled = true;
 
-            var igrPivotDimension3: IgrPivotDimension = {} as IgrPivotDimension;
+            let igrPivotDimension3: IgrPivotDimension = {} as IgrPivotDimension;
             igrPivotDimension3.memberName = "SellerCity";
             igrPivotDimension3.enabled = true;
 
             pivotConfiguration1.rows = [igrPivotDimension2,igrPivotDimension3];
-            var igrPivotDimension4: IgrPivotDimension = {} as IgrPivotDimension;
+            let igrPivotDimension4: IgrPivotDimension = {} as IgrPivotDimension;
             igrPivotDimension4.memberName = "SellerName";
             igrPivotDimension4.enabled = true;
 
             pivotConfiguration1.filters = [igrPivotDimension4];
-            var igrPivotValue1: IgrPivotValue = {} as IgrPivotValue;
+            let igrPivotValue1: IgrPivotValue = {} as IgrPivotValue;
             igrPivotValue1.member = "AmountofSale";
             igrPivotValue1.displayName = "Amount of Sale";
             igrPivotValue1.enabled = true;
-            var igrPivotAggregator1: IgrPivotAggregator = {} as IgrPivotAggregator;
+            let igrPivotAggregator1: IgrPivotAggregator = {} as IgrPivotAggregator;
             igrPivotAggregator1.key = "SUM";
             igrPivotAggregator1.label = "Sum of Sale";
             igrPivotAggregator1.aggregator = this.pivotDataFlatAggregateSumSale;
 
             igrPivotValue1.aggregate = igrPivotAggregator1;
-            var igrPivotAggregator2: IgrPivotAggregator = {} as IgrPivotAggregator;
+            let igrPivotAggregator2: IgrPivotAggregator = {} as IgrPivotAggregator;
             igrPivotAggregator2.key = "SUM";
             igrPivotAggregator2.label = "Sum of Sale";
             igrPivotAggregator2.aggregator = this.pivotDataFlatAggregateSumSale;
 
-            var igrPivotAggregator3: IgrPivotAggregator = {} as IgrPivotAggregator;
+            let igrPivotAggregator3: IgrPivotAggregator = {} as IgrPivotAggregator;
             igrPivotAggregator3.key = "MIN";
             igrPivotAggregator3.label = "Minimum of Sale";
             igrPivotAggregator3.aggregator = this.pivotDataFlatAggregateMinSale;
 
-            var igrPivotAggregator4: IgrPivotAggregator = {} as IgrPivotAggregator;
+            let igrPivotAggregator4: IgrPivotAggregator = {} as IgrPivotAggregator;
             igrPivotAggregator4.key = "MAX";
             igrPivotAggregator4.label = "Maximum of Sale";
             igrPivotAggregator4.aggregator = this.pivotDataFlatAggregateMaxSale;

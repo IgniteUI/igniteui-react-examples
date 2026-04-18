@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrComboModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { WorldCitiesAbove500KItem, WorldCitiesAbove500K } from './WorldCitiesAbove500K';
@@ -12,7 +11,6 @@ import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrGridModule,
     IgrComboModule
 ];
 mods.forEach((m) => m.register());
@@ -143,7 +141,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridCountryDropDownTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        var cell = props.dataContext.cell as any;
+        let cell = props.dataContext.cell as any;
         if (cell === undefined) {
             return <></>;
         }
@@ -158,7 +156,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridRegionDropDownTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        var cell = props.dataContext.cell as any;
+        let cell = props.dataContext.cell as any;
         if (cell === undefined) {
             return <></>;
         }
@@ -176,7 +174,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridCityDropDownTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        var cell = props.dataContext.cell as any;
+        let cell = props.dataContext.cell as any;
         if (cell === undefined) {
             return <></>;
         }

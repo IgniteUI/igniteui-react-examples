@@ -2,18 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule, IgrActionStripModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebActionStripDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
-
-const mods: any[] = [
-    IgrGridModule,
-    IgrActionStripModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrGrid
@@ -25,7 +18,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig1(): IgrPinningConfig {
         if (this._pinningConfig1 == null)
         {
-            var pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig1.rows = RowPinningPosition.Top;
 
             this._pinningConfig1 = pinningConfig1;
@@ -108,7 +101,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             WebGridDescriptionModule.register(context);
             WebActionStripDescriptionModule.register(context);
         }
@@ -116,7 +109,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridPinRowOnRendered(args: any): void {
-        var grid = this.grid as any;
+        let grid = this.grid as any;
         grid.pinRow("ALFKI");
         grid.pinRow("AROUT");
     }

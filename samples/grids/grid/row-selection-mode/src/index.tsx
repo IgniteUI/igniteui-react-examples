@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrBadgeModule } from 'igniteui-react';
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
@@ -17,7 +16,6 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const mods: any[] = [
     IgrBadgeModule,
-    IgrGridModule,
     IgrPropertyEditorPanelModule
 ];
 mods.forEach((m) => m.register());
@@ -39,7 +37,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.currencyCode = "USD";
             columnPipeArgs1.digitsInfo = "1.2-2";
 
@@ -51,7 +49,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs2(): IgrColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
         {
-            var columnPipeArgs2: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs2: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs2.currencyCode = "USD";
             columnPipeArgs2.digitsInfo = "1.2-2";
 
@@ -63,7 +61,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs3(): IgrColumnPipeArgs {
         if (this._columnPipeArgs3 == null)
         {
-            var columnPipeArgs3: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs3: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs3.currencyCode = "USD";
             columnPipeArgs3.digitsInfo = "1.2-2";
 
@@ -169,7 +167,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             WebGridDescriptionModule.register(context);
             PropertyEditorPanelDescriptionModule.register(context);
         }
@@ -177,7 +175,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridCurrencyCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        var cell = props.dataContext.cell as any;
+        let cell = props.dataContext.cell as any;
         const isCellCurrencyUp = typeof cell.value === 'number' && cell.value > 0;
         const isCellCurrencyDown = typeof cell.value === 'number' && cell.value <= 0;
 

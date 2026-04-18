@@ -30,7 +30,7 @@ export default class DockManagerEmbeddingFrames extends React.Component {
                         src='https://infragistics.com/webcomponents-demos/gauges/radial-gauge-needle' ></iframe>
                     </div>
                     <div className="dockManagerFull" slot="geoMapContainer"  >
-                        <iframe className="dockManagerFrame" seamless frameBorder="0"
+                        <iframe className="dockManagerFrame" seamless frameborder="0"
                         src='https://infragistics.com/react-demos/maps/geo-map-binding-data-csv'  ></iframe>
                     </div>
                 </IgrDockManager>

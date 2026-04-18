@@ -2,17 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrColumnComponentEventArgs, IgrTreeGridModule } from 'igniteui-react-grids';
+import { IgrColumnComponentEventArgs } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { EmployeesFlatDetails } from './EmployeesFlatDetails';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import { IgrInput, IgrSwitch, IgrButton } from 'igniteui-react';
 
-const mods: any[] = [
-    IgrTreeGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private defaultSeparator = " ";

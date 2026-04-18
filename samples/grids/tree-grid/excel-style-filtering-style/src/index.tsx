@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { FoodsDataItem, FoodsData } from './FoodsData';
@@ -10,10 +9,6 @@ import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrTreeGrid
@@ -89,7 +84,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;

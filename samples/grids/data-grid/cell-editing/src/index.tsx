@@ -151,7 +151,7 @@ export default class DataGridCellEditing extends React.Component<any, any> {
 
     //#region Grid Handlers
     onDeleteRowClick = (e: MouseEvent) => {
-        const button = e.srcElement as HTMLButtonElement;
+        const button = e.target as HTMLButtonElement;
         const viewIndex = parseInt(button.id);
         const rowItem = this.grid.actualDataSource.getItemAtIndex(viewIndex);
 

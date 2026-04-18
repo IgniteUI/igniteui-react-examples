@@ -2,7 +2,7 @@ import React, { KeyboardEvent, useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { IgrGridModule, IgrGroupByRowTemplateContext, SortingDirection } from "igniteui-react-grids";
+import { IgrGroupByRowTemplateContext, SortingDirection } from "igniteui-react-grids";
 import { IgrGrid, IgrColumn } from "igniteui-react-grids";
 import { InvoicesWorldData } from "./InvoicesWorldData";
 
@@ -15,7 +15,7 @@ import {
   IgrDropdownModule
 } from "igniteui-react";
 
-const mods: any[] = [IgrGridModule, IgrDropdownModule];
+const mods: any[] = [IgrDropdownModule];
 mods.forEach((m) => m.register());
 
 const data = new InvoicesWorldData();

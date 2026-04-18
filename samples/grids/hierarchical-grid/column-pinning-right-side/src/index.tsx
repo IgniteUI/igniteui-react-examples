@@ -2,16 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrPinningConfig, ColumnPinningPosition, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarPinning, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import HierarchicalCustomersData from './HierarchicalCustomersData.json';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrHierarchicalGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrHierarchicalGrid
@@ -23,7 +18,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig1(): IgrPinningConfig {
         if (this._pinningConfig1 == null)
         {
-            var pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig1.columns = ColumnPinningPosition.End;
 
             this._pinningConfig1 = pinningConfig1;

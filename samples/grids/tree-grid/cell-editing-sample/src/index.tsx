@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrSelectModule } from 'igniteui-react';
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule, WebSelectDescriptionModule } from 'igniteui-react-core';
@@ -13,7 +12,6 @@ import { IgrSelect, IgrSelectItem } from 'igniteui-react';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrTreeGridModule,
     IgrSelectModule
 ];
 mods.forEach((m) => m.register());
@@ -94,7 +92,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             WebTreeGridDescriptionModule.register(context);
             WebSelectDescriptionModule.register(context);
         }
@@ -106,7 +104,7 @@ export default class Sample extends React.Component<any, any> {
         let uniqueValues: any = [];
         const cell = e.dataContext.cell;
         const colIndex = cell.id.columnID;
-        var treeGrid1 = this.treeGrid1;
+        let treeGrid1 = this.treeGrid1;
         const field: string = treeGrid1.getColumnByVisibleIndex(colIndex).field;
         let roleplayTreeGridData = treeGrid1.data;
         const key = field + "_" + cell.id.rowID;

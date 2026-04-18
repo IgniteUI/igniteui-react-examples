@@ -30,7 +30,7 @@ export default class Sample extends React.Component<any, any> {
     public get sizeScale1(): IgrSizeScale {
         if (this._sizeScale1 == null)
         {
-            var sizeScale1 = new IgrSizeScale({});
+            let sizeScale1 = new IgrSizeScale({});
             sizeScale1.isLogarithmic = false;
             sizeScale1.minimumValue = 10;
             sizeScale1.maximumValue = 80;
@@ -43,7 +43,7 @@ export default class Sample extends React.Component<any, any> {
     public get valueBrushScale1(): IgrValueBrushScale {
         if (this._valueBrushScale1 == null)
         {
-            var valueBrushScale1 = new IgrValueBrushScale({});
+            let valueBrushScale1 = new IgrValueBrushScale({});
             valueBrushScale1.isLogarithmic = false;
             valueBrushScale1.minimumValue = 500;
             valueBrushScale1.maximumValue = 260000;
@@ -147,7 +147,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             NumberAbbreviatorDescriptionModule.register(context);
             DataChartCoreDescriptionModule.register(context);
             DataChartScatterDescriptionModule.register(context);

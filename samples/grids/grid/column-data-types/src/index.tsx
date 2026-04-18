@@ -2,16 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { InvoicesDataExtendedDates } from './InvoicesDataExtendedDates';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrGrid
@@ -23,7 +18,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.currencyCode = "";
             columnPipeArgs1.digitsInfo = "1.4-4";
 
@@ -35,7 +30,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs2(): IgrColumnPipeArgs {
         if (this._columnPipeArgs2 == null)
         {
-            var columnPipeArgs2: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs2: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs2.format = "long";
             columnPipeArgs2.timezone = "UTC+0";
 
@@ -47,7 +42,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs3(): IgrColumnPipeArgs {
         if (this._columnPipeArgs3 == null)
         {
-            var columnPipeArgs3: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs3: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs3.format = "mediumDate";
 
             this._columnPipeArgs3 = columnPipeArgs3;
@@ -58,7 +53,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs4(): IgrColumnPipeArgs {
         if (this._columnPipeArgs4 == null)
         {
-            var columnPipeArgs4: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs4: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs4.format = "shortTime";
             columnPipeArgs4.timezone = "UTC+0";
 
@@ -70,7 +65,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs5(): IgrColumnPipeArgs {
         if (this._columnPipeArgs5 == null)
         {
-            var columnPipeArgs5: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs5: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs5.currencyCode = "";
             columnPipeArgs5.digitsInfo = "1.4-4";
 
@@ -82,7 +77,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs6(): IgrColumnPipeArgs {
         if (this._columnPipeArgs6 == null)
         {
-            var columnPipeArgs6: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs6: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs6.currencyCode = "";
             columnPipeArgs6.digitsInfo = "1.4-4";
 

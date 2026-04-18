@@ -2,17 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrGridMasterDetailContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrGrid

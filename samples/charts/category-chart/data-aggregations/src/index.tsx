@@ -104,7 +104,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             LegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
@@ -114,9 +114,9 @@ export default class Sample extends React.Component<any, any> {
 
     public propertyEditorInitAggregationsOnViewInit(): void {
 
-        var editor = this.editor;
-        var initialSummariesDropdown = new IgrPropertyEditorPropertyDescription({});
-        var sortGroupsDropdown = new IgrPropertyEditorPropertyDescription({});
+        let editor = this.editor;
+        let initialSummariesDropdown = new IgrPropertyEditorPropertyDescription({});
+        let sortGroupsDropdown = new IgrPropertyEditorPropertyDescription({});
 
         initialSummariesDropdown.label = "Initial Summaries";
         initialSummariesDropdown.valueType = PropertyEditorValueType.EnumValue;
@@ -141,19 +141,19 @@ export default class Sample extends React.Component<any, any> {
 
     public editorChangeUpdateInitialSummaries(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
 
-        var chart = this.chart;
-        var intialSummaryVal = args.newValue.toString();
+        let chart = this.chart;
+        let intialSummaryVal = args.newValue.toString();
         chart.initialSummaries = intialSummaryVal;
     }
 
     public editorChangeUpdateGroupSorts(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        var chart = this.chart;
-        var groupSortsVal = args.newValue.toString();
+        let chart = this.chart;
+        let groupSortsVal = args.newValue.toString();
         chart.groupSorts = groupSortsVal;
     }
 
     public editorChangeUpdateInitialGroups(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        var chart = this.chart;
+        let chart = this.chart;
         chart.initialGroups = args.newValue.toString();
     }
 

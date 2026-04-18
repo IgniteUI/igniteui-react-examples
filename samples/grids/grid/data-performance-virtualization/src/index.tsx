@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrBadgeModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { FinancialDataAllItem, FinancialDataAll } from './FinancialDataAll';
@@ -12,7 +11,6 @@ import { IgrCellTemplateContext } from 'igniteui-react-grids';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrGridModule,
     IgrBadgeModule
 ];
 mods.forEach((m) => m.register());
@@ -145,7 +143,7 @@ export default class Sample extends React.Component<any, any> {
 
 
     public webGridCurrencyCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        var cell = props.dataContext.cell as any;
+        let cell = props.dataContext.cell as any;
         const isCellCurrencyUp = typeof cell.value === 'number' && cell.value > 0;
         const isCellCurrencyDown = typeof cell.value === 'number' && cell.value <= 0;
 

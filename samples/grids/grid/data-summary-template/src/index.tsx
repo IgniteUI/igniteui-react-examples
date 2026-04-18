@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
@@ -15,8 +14,7 @@ import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
-    IgrGridModule
+    IgrPropertyEditorPanelModule
 ];
 mods.forEach((m) => m.register());
 
@@ -147,7 +145,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             WebGridDescriptionModule.register(context);
         }
@@ -157,16 +155,16 @@ export default class Sample extends React.Component<any, any> {
     public webGridHasSummariesChange(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
         let newValue = sender.primitiveValue as boolean;
         const grid = this.grid;
-        var column1 = grid.getColumnByName("UnitsInStock");
-        var column2 = grid.getColumnByName("OrderDate");
+        let column1 = grid.getColumnByName("UnitsInStock");
+        let column2 = grid.getColumnByName("OrderDate");
 
         column1.hasSummary = newValue;
         column2.hasSummary = newValue;
     }
 
     public webGridSetGridSize(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        var newVal = (args.newValue as string).toLowerCase();
-        var grid = document.getElementById("grid");
+        let newVal = (args.newValue as string).toLowerCase();
+        let grid = document.getElementById("grid");
         grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 

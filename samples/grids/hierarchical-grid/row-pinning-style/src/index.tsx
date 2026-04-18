@@ -2,17 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrPinningConfig, RowPinningPosition, ColumnPinningPosition, IgrColumn, IgrActionStrip, IgrGridPinningActions, IgrRowIsland } from 'igniteui-react-grids';
 import SingersData from './SingersData.json';
 import { IgrGrid } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrHierarchicalGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrHierarchicalGrid
@@ -24,7 +19,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig1(): IgrPinningConfig {
         if (this._pinningConfig1 == null)
         {
-            var pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig1.rows = RowPinningPosition.Top;
             pinningConfig1.columns = ColumnPinningPosition.End;
 
@@ -37,7 +32,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig2(): IgrPinningConfig {
         if (this._pinningConfig2 == null)
         {
-            var pinningConfig2: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig2: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig2.rows = RowPinningPosition.Top;
             pinningConfig2.columns = ColumnPinningPosition.End;
 
@@ -146,7 +141,7 @@ export default class Sample extends React.Component<any, any> {
 
 
     public webHierarchicalGridPinRowOnRendered(): void {
-        var hierarchicalGrid = this.grid;
+        let hierarchicalGrid = this.grid;
         hierarchicalGrid.pinRow(hierarchicalGrid.data[0].Photo);
         hierarchicalGrid.pinRow(hierarchicalGrid.data[1].Photo);
     }

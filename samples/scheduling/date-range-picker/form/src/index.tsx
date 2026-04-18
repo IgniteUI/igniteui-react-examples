@@ -8,7 +8,7 @@ export default function DrpForm() {
   const dialog = useRef<IgrDialog>(null);
   const [range, setRange] = useState({ start: null, end: null });
 
-  const showDialog = (event: React.FormEvent<HTMLFormElement>) => {
+  const showDialog = (event: React.SubmitEvent<HTMLFormElement>) => {
     if (dialog.current) {
       event.preventDefault();
       dialog.current.show();

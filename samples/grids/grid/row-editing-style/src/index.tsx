@@ -2,16 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import NwindData from './NwindData.json';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrGrid
@@ -23,7 +18,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.format = "mediumDate";
 
             this._columnPipeArgs1 = columnPipeArgs1;

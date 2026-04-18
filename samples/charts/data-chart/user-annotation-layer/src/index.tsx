@@ -55,12 +55,12 @@ export default class Sample extends React.Component<any, any> {
     private mainColorPickerRef(r: IgrColorEditor) {
         this.mainColorPicker = r;
         this.setState({});
-    }   
+    }
 
     private currentAnnotationInfo: IgrUserAnnotationInformation;
 
     constructor(props: any) {
-        super(props);        
+        super(props);
         this.chartRef = this.chartRef.bind(this);
         this.onDoneButtonClick = this.onDoneButtonClick.bind(this);
         this.onCancelButtonClick = this.onCancelButtonClick.bind(this);
@@ -160,24 +160,24 @@ export default class Sample extends React.Component<any, any> {
 
     public onUserAnnotationInformationRequested(s: IgrSeriesViewer<IIgrSeriesViewerProps>, e: IgrUserAnnotationInformationEventArgs){
         this.currentAnnotationInfo = e.annotationInfo;
-        this.toggleDialogState(true);    
+        this.toggleDialogState(true);
     }
 
     public onUserAnnotationToolTipContentUpdating(s: IgrSeriesViewer<IIgrSeriesViewerProps>, e: IgrUserAnnotationToolTipContentUpdatingEventArgs){
-        var tooltipText = e.annotationInfo.annotationData;
+        let tooltipText = e.annotationInfo.annotationData;
 
         if (e.content.children.length == 0) {
-            var element = document.createElement("div");
+            let element = document.createElement("div");
             element.textContent = tooltipText;
             e.content.appendChild(element);
         }
         else {
-            var element: HTMLDivElement = e.content.children[0];
+            let element: HTMLDivElement = e.content.children[0];
             element.textContent = tooltipText;
         }
     }
 
-    public onDoneButtonClick(){    
+    public onDoneButtonClick(){
         this.currentAnnotationInfo.label = this.labelInput.value;
         this.currentAnnotationInfo.annotationData = this.detailTextArea.value;
         this.currentAnnotationInfo.mainColor = this.mainColorPicker.value;
@@ -194,7 +194,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public toggleDialogState(open: boolean): void {
-        var popup = document.getElementsByClassName('annotationPopup')[0] as HTMLDivElement;
+        let popup = document.getElementsByClassName('annotationPopup')[0] as HTMLDivElement;
 
         if (open) {
             popup.style.display = "block";

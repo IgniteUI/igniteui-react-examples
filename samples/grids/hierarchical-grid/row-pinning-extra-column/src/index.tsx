@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrHierarchicalGrid, IgrPinningConfig, RowPinningPosition, ColumnPinningPosition, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebHierarchicalGridDescriptionModule } from 'igniteui-react-core';
@@ -15,8 +14,7 @@ import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
-    IgrHierarchicalGridModule
+    IgrPropertyEditorPanelModule
 ];
 mods.forEach((m) => m.register());
 
@@ -36,7 +34,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig1(): IgrPinningConfig {
         if (this._pinningConfig1 == null)
         {
-            var pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig1.rows = RowPinningPosition.Top;
             pinningConfig1.columns = ColumnPinningPosition.End;
 
@@ -48,7 +46,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig2(): IgrPinningConfig {
         if (this._pinningConfig2 == null)
         {
-            var pinningConfig2: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig2: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig2.rows = RowPinningPosition.Top;
             pinningConfig2.columns = ColumnPinningPosition.End;
 
@@ -60,7 +58,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig3(): IgrPinningConfig {
         if (this._pinningConfig3 == null)
         {
-            var pinningConfig3: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig3: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig3.rows = RowPinningPosition.Top;
             pinningConfig3.columns = ColumnPinningPosition.End;
 
@@ -72,7 +70,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig4(): IgrPinningConfig {
         if (this._pinningConfig4 == null)
         {
-            var pinningConfig4: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig4: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig4.rows = RowPinningPosition.Top;
             pinningConfig4.columns = ColumnPinningPosition.End;
 
@@ -265,7 +263,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             WebHierarchicalGridDescriptionModule.register(context);
         }

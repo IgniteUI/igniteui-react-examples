@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import NwindData from './NwindData.json';
 import { IgrRowSelectionEventArgs, IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
@@ -10,10 +9,6 @@ import { IgrComponentBoolValueChangedEventArgs } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrGrid
@@ -104,7 +99,7 @@ export default class Sample extends React.Component<any, any> {
     public webGridRowEditEnter(args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
-        message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.detail.rowID;
+        message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.detail.rowKey;
         container.appendChild(message);
     }
 

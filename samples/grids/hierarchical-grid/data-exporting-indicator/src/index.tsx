@@ -7,7 +7,6 @@ import {
   IgrGridToolbarActions,
   IgrGridToolbarExporter,
   IgrGridToolbarTitle,
-  IgrHierarchicalGridModule,
 } from "igniteui-react-grids";
 import {
   IgrHierarchicalGrid,
@@ -18,8 +17,6 @@ import { IgrButton } from "igniteui-react";
 import { SingersData } from "./SingersData";
 
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
-
-IgrHierarchicalGridModule.register();
 
 export default function App() {
   const singersData = new SingersData();

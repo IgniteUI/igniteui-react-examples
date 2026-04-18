@@ -65,7 +65,7 @@ export default class MapBindingDataGeoJsonShapes extends React.Component<any, an
         }
 
         let countryName: string = jsonData.features[0].properties.cca2.toUpperCase();
-        let countryDataItem = { label: name, points: shapePoints};
+        let countryDataItem = { label: countryName, points: shapePoints};
 
         // creating geographic series for each country data converted from GeoJSOn data
         // optionally multiple data items for countries could be stored in an array

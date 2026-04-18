@@ -128,7 +128,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             LegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
@@ -138,13 +138,13 @@ export default class Sample extends React.Component<any, any> {
 
     public editorChangeUpdateYAxisMinimumValue(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
 
-    	var yAxisMinimumVal = args.newValue;
+    	let yAxisMinimumVal = args.newValue;
         this.chart.yAxisMinimumValue = parseInt(yAxisMinimumVal);
     }
 
     public editorChangeUpdateYAxisMaximumValue(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
 
-        var yAxisMaximumVal = args.newValue;
+        let yAxisMaximumVal = args.newValue;
         this.chart.yAxisMaximumValue = parseInt(yAxisMaximumVal);
     }
 

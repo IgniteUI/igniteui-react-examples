@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
@@ -10,10 +9,6 @@ import { IgrColumnTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrTreeGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private treeGrid: IgrTreeGrid
@@ -91,7 +86,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             WebTreeGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
@@ -108,8 +103,8 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public toggleColumnPin(field: string) {
-        var treeGrid = this.treeGrid;
-        var col = treeGrid.getColumnByName(field);
+        let treeGrid = this.treeGrid;
+        let col = treeGrid.getColumnByName(field);
         col.pinned = !col.pinned;
         treeGrid.markForCheck();
     }

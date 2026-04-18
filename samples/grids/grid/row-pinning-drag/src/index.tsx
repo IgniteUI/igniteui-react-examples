@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import CustomersDataLocal from './CustomersDataLocal.json';
@@ -11,8 +10,7 @@ import CustomersDataLocal from './CustomersDataLocal.json';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
-    IgrGridModule
+    IgrPropertyEditorPanelModule
 ];
 mods.forEach((m) => m.register());
 
@@ -26,7 +24,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig1(): IgrPinningConfig {
         if (this._pinningConfig1 == null)
         {
-            var pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig1.rows = RowPinningPosition.Top;
 
             this._pinningConfig1 = pinningConfig1;
@@ -95,7 +93,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             WebGridDescriptionModule.register(context);
         }

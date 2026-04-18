@@ -2,16 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrSortingExpression, SortingDirection, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import SingersData from './SingersData.json';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrHierarchicalGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private hierarchicalGrid: IgrHierarchicalGrid
@@ -24,25 +19,25 @@ export default class Sample extends React.Component<any, any> {
         if (this._sortingExpression1 == null)
         {
             let sortingExpression1: IgrSortingExpression[] = [];
-            var sortingExpression2: IgrSortingExpression = {} as IgrSortingExpression;
+            let sortingExpression2: IgrSortingExpression = {} as IgrSortingExpression;
             sortingExpression2.dir = SortingDirection.Asc;
             sortingExpression2.fieldName = "Artist";
             sortingExpression2.ignoreCase = true;
 
             sortingExpression1.push(sortingExpression2)
-            var sortingExpression3: IgrSortingExpression = {} as IgrSortingExpression;
+            let sortingExpression3: IgrSortingExpression = {} as IgrSortingExpression;
             sortingExpression3.dir = SortingDirection.Desc;
             sortingExpression3.fieldName = "Debut";
             sortingExpression3.ignoreCase = true;
 
             sortingExpression1.push(sortingExpression3)
-            var sortingExpression4: IgrSortingExpression = {} as IgrSortingExpression;
+            let sortingExpression4: IgrSortingExpression = {} as IgrSortingExpression;
             sortingExpression4.dir = SortingDirection.Asc;
             sortingExpression4.fieldName = "GrammyNominations";
             sortingExpression4.ignoreCase = true;
 
             sortingExpression1.push(sortingExpression4)
-            var sortingExpression5: IgrSortingExpression = {} as IgrSortingExpression;
+            let sortingExpression5: IgrSortingExpression = {} as IgrSortingExpression;
             sortingExpression5.dir = SortingDirection.Asc;
             sortingExpression5.fieldName = "GrammyAwards";
             sortingExpression5.ignoreCase = true;

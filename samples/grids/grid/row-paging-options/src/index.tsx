@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrPaginator, IgrPaginatorResourceStrings, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
@@ -14,8 +13,7 @@ import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
-    IgrGridModule
+    IgrPropertyEditorPanelModule
 ];
 mods.forEach((m) => m.register());
 
@@ -30,7 +28,7 @@ export default class Sample extends React.Component<any, any> {
     public get paginatorResourceStrings1(): IgrPaginatorResourceStrings {
         if (this._paginatorResourceStrings1 == null)
         {
-            var paginatorResourceStrings1: IgrPaginatorResourceStrings = {} as IgrPaginatorResourceStrings;
+            let paginatorResourceStrings1: IgrPaginatorResourceStrings = {} as IgrPaginatorResourceStrings;
             paginatorResourceStrings1.igx_paginator_label = "Records per page";
 
             this._paginatorResourceStrings1 = paginatorResourceStrings1;
@@ -41,7 +39,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.1-5";
 
             this._columnPipeArgs1 = columnPipeArgs1;
@@ -133,7 +131,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             WebGridDescriptionModule.register(context);
         }
@@ -141,8 +139,8 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridSetGridSize(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        var newVal = (args.newValue as string).toLowerCase();
-        var grid = document.getElementById("grid");
+        let newVal = (args.newValue as string).toLowerCase();
+        let grid = document.getElementById("grid");
         grid.style.setProperty('--ig-size', `var(--ig-size-${newVal})`);
     }
 

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
@@ -14,8 +13,7 @@ import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
-    IgrTreeGridModule
+    IgrPropertyEditorPanelModule
 ];
 mods.forEach((m) => m.register());
 
@@ -131,7 +129,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             WebTreeGridDescriptionModule.register(context);
         }
@@ -139,12 +137,12 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webTreeGridChangeSummaryCalculationMode(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-      var treeGrid = this.treeGrid;
+      let treeGrid = this.treeGrid;
       treeGrid.summaryCalculationMode = args.newValue;
     }
 
     public webTreeGridChangeSummaryPosition(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-      var treeGrid = this.treeGrid;
+      let treeGrid = this.treeGrid;
       treeGrid.summaryPosition = args.newValue;
     }
 

@@ -86,7 +86,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             LegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
             DataChartAnnotationDescriptionModule.register(context);
@@ -100,23 +100,23 @@ export default class Sample extends React.Component<any, any> {
 
     public selectionMatcherOnViewInit(): void {
 
-    	var chart = this.chart;
+    	let chart = this.chart;
 
     	this._timer = setInterval(() => {
-    	var data = this.energyRenewableConsumption;
+    	let data = this.energyRenewableConsumption;
 
-        var matcher = new IgrSeriesMatcher();
+        let matcher = new IgrSeriesMatcher();
 
-        var selection = new IgrChartSelection();
+        let selection = new IgrChartSelection();
     		selection.item = data[1];
     		matcher.memberPath = "hydro";
     		matcher.memberPathType = "ValueMemberPath";
     		selection.matcher = matcher;
     		chart.selectedSeriesItems.add(selection);
 
-    	var matcher2 = new IgrSeriesMatcher();
+    	let matcher2 = new IgrSeriesMatcher();
 
-    var selection2 = new IgrChartSelection();
+    let selection2 = new IgrChartSelection();
     		selection2.item = data[2];
     		matcher2.memberPath = "wind";
     		matcher2.memberPathType = "ValueMemberPath";

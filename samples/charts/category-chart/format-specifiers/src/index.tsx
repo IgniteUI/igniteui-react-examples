@@ -29,7 +29,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._numberFormatSpecifier1 == null)
         {
             let numberFormatSpecifier1: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier2 = new IgrNumberFormatSpecifier();
+            let numberFormatSpecifier2 = new IgrNumberFormatSpecifier();
             numberFormatSpecifier2.style = "currency";
             numberFormatSpecifier2.currency = "USD";
             numberFormatSpecifier2.currencyDisplay = "symbol";
@@ -51,7 +51,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._numberFormatSpecifier3 == null)
         {
             let numberFormatSpecifier3: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier4 = new IgrNumberFormatSpecifier();
+            let numberFormatSpecifier4 = new IgrNumberFormatSpecifier();
             numberFormatSpecifier4.style = "currency";
             numberFormatSpecifier4.currency = "USD";
             numberFormatSpecifier4.currencyDisplay = "symbol";
@@ -68,7 +68,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._numberFormatSpecifier5 == null)
         {
             let numberFormatSpecifier5: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier6 = new IgrNumberFormatSpecifier();
+            let numberFormatSpecifier6 = new IgrNumberFormatSpecifier();
             numberFormatSpecifier6.style = "currency";
             numberFormatSpecifier6.currency = "USD";
             numberFormatSpecifier6.currencyDisplay = "symbol";
@@ -135,7 +135,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             DataLegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);

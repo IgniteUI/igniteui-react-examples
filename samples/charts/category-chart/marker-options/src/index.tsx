@@ -104,7 +104,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
             DataChartInteractivityDescriptionModule.register(context);
@@ -113,10 +113,10 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public editorChangeUpdateMarkerType(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        var item = sender as IgrPropertyEditorPropertyDescription;
-        var chart = this.chart;
+        let item = sender as IgrPropertyEditorPropertyDescription;
+        let chart = this.chart;
 
-        var markerVal = item.primitiveValue;
+        let markerVal = item.primitiveValue;
         chart.markerTypes = markerVal;
     }
 
