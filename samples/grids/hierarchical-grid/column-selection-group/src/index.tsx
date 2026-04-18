@@ -2,17 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrHierarchicalGridModule, IgrColumnGroupModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrColumnGroup, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import HierarchicalCustomers from './HierarchicalCustomers.json';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
-
-const mods: any[] = [
-    IgrHierarchicalGridModule,
-    IgrColumnGroupModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private hierarchicalGrid: IgrHierarchicalGrid

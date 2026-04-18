@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { 
+import {
   IgrQueryBuilder,
-  IgrQueryBuilderModule,
   IgrQueryBuilderHeader,
   IgrFilteringExpressionsTree,
   IgrExpressionTree,
@@ -33,7 +32,6 @@ import 'igniteui-react-grids/grids/themes/light/material.css';
 
 // Register components
 const mods: any[] = [
-  IgrQueryBuilderModule,
   IgrDatePickerModule,
   IgrDateTimeInputModule,
   IgrSelectModule,
@@ -142,14 +140,14 @@ export default class Sample extends React.Component<any, SampleState> {
 
   componentDidUpdate(prevProps: any, prevState: any) {
     // Update query builder if expression tree changed
-    if (this.queryBuilderRef.current && this.state.expressionTree && 
+    if (this.queryBuilderRef.current && this.state.expressionTree &&
         prevState.expressionTree !== this.state.expressionTree) {
       const queryBuilder = this.queryBuilderRef.current;
       queryBuilder.expressionTree = this.state.expressionTree;
     }
 
     // Render expression tree output
-    if (this.expressionOutputRef.current && this.state.expressionTree && 
+    if (this.expressionOutputRef.current && this.state.expressionTree &&
         prevState.expressionTree !== this.state.expressionTree) {
       this.expressionOutputRef.current.textContent = JSON.stringify(this.state.expressionTree, null, 2);
     }
@@ -226,18 +224,18 @@ export default class Sample extends React.Component<any, SampleState> {
   private normalizeTimeValue = (value: unknown): Date | null => {
     if (!value) return null;
     if (value instanceof Date) return value;
-    
+
     if (typeof value === 'string') {
       const isoCandidate = value.includes('T') ? value : `1970-01-01T${value}`;
       const parsed = new Date(isoCandidate);
       return isNaN(parsed.getTime()) ? null : parsed;
     }
-    
+
     if (typeof value === 'number') {
       const parsed = new Date(value);
       return isNaN(parsed.getTime()) ? null : parsed;
     }
-    
+
     return null;
   };
 
@@ -389,7 +387,7 @@ export default class Sample extends React.Component<any, SampleState> {
     const key = `default-input-${inputValue}`;
 
     return (
-      <IgrInput 
+      <IgrInput
         key={key}
         value={inputValue?.toString() || ''}
         disabled={isDisabled}
@@ -409,13 +407,13 @@ export default class Sample extends React.Component<any, SampleState> {
     return (
       <div className="container sample ig-typography">
         <div className="wrapper">
-          <IgrQueryBuilder 
-            ref={this.queryBuilderRef} 
+          <IgrQueryBuilder
+            ref={this.queryBuilderRef}
             id="queryBuilder"
             searchValueTemplate={this.buildSearchValueTemplate}>
             <IgrQueryBuilderHeader title="Query Builder Template Sample"></IgrQueryBuilderHeader>
           </IgrQueryBuilder>
-          
+
           <div className="output-area">
             <pre ref={this.expressionOutputRef} id="expressionOutput"></pre>
           </div>

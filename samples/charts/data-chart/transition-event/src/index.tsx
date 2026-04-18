@@ -129,7 +129,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             DataChartCoreDescriptionModule.register(context);
             DataChartCategoryDescriptionModule.register(context);
@@ -138,8 +138,8 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public editorButtonReplayTransitionIn(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
-        var series = this.chart.actualSeries;
-        for (var i = 0; i < series.length; i++) {
+        let series = this.chart.actualSeries;
+        for (let i = 0; i < series.length; i++) {
             series[i].replayTransitionIn();
         }
     }

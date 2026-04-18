@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrInputModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
@@ -12,7 +11,6 @@ import { IgrInput } from 'igniteui-react';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrGridModule,
     IgrInputModule
 ];
 mods.forEach((m) => m.register());
@@ -95,7 +93,7 @@ export default class Sample extends React.Component<any, any> {
 
 
     public webGridCompositeContactCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        var cell = props.dataContext.cell as any;
+        let cell = props.dataContext.cell as any;
         if (cell === undefined || cell.row === undefined || cell.row.data === undefined) {
             return <></>;
         }
@@ -116,8 +114,8 @@ export default class Sample extends React.Component<any, any> {
 
     public webGridCompositeContactEditCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
 
-        var cell = props.dataContext.cell as any;
-        var grid = this.grid;
+        let cell = props.dataContext.cell as any;
+        let grid = this.grid;
         if (cell === undefined || cell.row === undefined || cell.row.data === undefined) {
             return <></>
         }
@@ -146,7 +144,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridCompositeAddressCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
-        var cell = props.dataContext.cell as any;
+        let cell = props.dataContext.cell as any;
         if (cell === undefined || cell.row === undefined || cell.row.data === undefined) {
             return <></>;
         }
@@ -172,8 +170,8 @@ export default class Sample extends React.Component<any, any> {
 
     public webGridCompositeAddressEditCellTemplate = (props: {dataContext: IgrCellTemplateContext}) => {
 
-        var cell = props.dataContext.cell as any;
-        var grid = this.grid;
+        let cell = props.dataContext.cell as any;
+        let grid = this.grid;
         if (cell === undefined || cell.row === undefined || cell.row.data === undefined) {
             return <></>;
         }

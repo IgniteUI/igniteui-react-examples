@@ -2,16 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrPivotGridModule } from 'igniteui-react-grids';
 import { IgrPivotGrid, IgrPivotConfiguration, IgrPivotDimension, IgrPivotValue, IgrPivotAggregator } from 'igniteui-react-grids';
 import { PivotSalesDataItem, PivotSalesData } from './PivotSalesData';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrPivotGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrPivotGrid
@@ -23,22 +18,22 @@ export default class Sample extends React.Component<any, any> {
     public get pivotConfiguration1(): IgrPivotConfiguration {
         if (this._pivotConfiguration1 == null)
         {
-            var pivotConfiguration1: IgrPivotConfiguration = {} as IgrPivotConfiguration;
+            let pivotConfiguration1: IgrPivotConfiguration = {} as IgrPivotConfiguration;
 
-            var igrPivotDimension1: IgrPivotDimension = {} as IgrPivotDimension;
+            let igrPivotDimension1: IgrPivotDimension = {} as IgrPivotDimension;
             igrPivotDimension1.memberName = "Country";
             igrPivotDimension1.enabled = true;
 
             pivotConfiguration1.columns = [igrPivotDimension1];
-            var igrPivotDimension2: IgrPivotDimension = {} as IgrPivotDimension;
+            let igrPivotDimension2: IgrPivotDimension = {} as IgrPivotDimension;
             igrPivotDimension2.memberName = "Product";
             igrPivotDimension2.enabled = true;
 
             pivotConfiguration1.rows = [igrPivotDimension2];
-            var igrPivotValue1: IgrPivotValue = {} as IgrPivotValue;
+            let igrPivotValue1: IgrPivotValue = {} as IgrPivotValue;
             igrPivotValue1.member = "Sales";
             igrPivotValue1.enabled = true;
-            var igrPivotAggregator1: IgrPivotAggregator = {} as IgrPivotAggregator;
+            let igrPivotAggregator1: IgrPivotAggregator = {} as IgrPivotAggregator;
             igrPivotAggregator1.key = "MAX";
             igrPivotAggregator1.label = "SalesValue";
             igrPivotAggregator1.aggregator = this.pivotSalesDataAggregateUnitsSold;

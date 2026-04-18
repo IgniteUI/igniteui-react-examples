@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrInputModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { EmployeesNestedDataItem, EmployeesNestedDataItem_EmployeesItem, EmployeesNestedData } from './EmployeesNestedData';
@@ -12,7 +11,6 @@ import { IgrExpansionPanel, IgrInput } from 'igniteui-react';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrGridModule,
     IgrInputModule
 ];
 mods.forEach((m) => m.register());
@@ -102,7 +100,7 @@ export default class Sample extends React.Component<any, any> {
         if (props.dataContext.cell.value != null) {
             if (props.dataContext.cell.value.length === 0) return <></>;
             const value = props.dataContext.cell.value[0];
-            var grid = this.grid;
+            let grid = this.grid;
             return (
         <>
             <IgrExpansionPanel>

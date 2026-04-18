@@ -14,7 +14,7 @@ export default function TextAreaFormIntegration() {
     toastRef = toast;
   };
 
-  const onSubmitButtonClicked = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmitButtonClicked = (e: React.SubmitEvent<HTMLFormElement>) => {
     if (toastRef) {
       e.preventDefault();
       toastRef.show();

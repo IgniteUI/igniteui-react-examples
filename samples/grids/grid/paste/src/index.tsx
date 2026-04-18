@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarExporter, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
@@ -15,8 +14,7 @@ import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
-    IgrGridModule
+    IgrPropertyEditorPanelModule
 ];
 mods.forEach((m) => m.register());
 
@@ -130,7 +128,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             WebGridDescriptionModule.register(context);
         }
@@ -138,8 +136,8 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridPasteModeChange(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        var item = sender as IgrPropertyEditorPropertyDescription;
-        var newVal = item.primitiveValue;
+        let item = sender as IgrPropertyEditorPropertyDescription;
+        let newVal = item.primitiveValue;
         (this as any)["pasteMode"] = newVal === "NewRecords" ? "Paste data as new records" : "Paste starting from active cell";
     }
 
@@ -184,10 +182,9 @@ export default class Sample extends React.Component<any, any> {
         let data;
         const clData: any = "clipboardData";
 
-        // get clipboard data - from window.cliboardData for IE or from the original event's arguments.
-        if (window[clData]  as any) {
-            (window.event as any).returnValue = false;
-            data = (window[clData]  as any).getData("text");
+        if (window[clData] as any) {
+            eventArgs.returnValue = false;
+            data = (window[clData] as any).getData("text");
         } else {
             data = eventArgs[clData].getData("text/plain");
         }

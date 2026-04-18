@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule } from 'igniteui-react-core';
 import { InvoicesDataItem, InvoicesData } from './InvoicesData';
@@ -10,10 +9,6 @@ import { IgrCellTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrGrid
@@ -26,13 +21,13 @@ export default class Sample extends React.Component<any, any> {
         if (this._groupingExpression1 == null)
         {
             let groupingExpression1: IgrGroupingExpression[] = [];
-            var groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
+            let groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
             groupingExpression2.dir = SortingDirection.Asc;
             groupingExpression2.fieldName = "ShipCountry";
             groupingExpression2.ignoreCase = false;
 
             groupingExpression1.push(groupingExpression2)
-            var groupingExpression3: IgrGroupingExpression = {} as IgrGroupingExpression;
+            let groupingExpression3: IgrGroupingExpression = {} as IgrGroupingExpression;
             groupingExpression3.dir = SortingDirection.Asc;
             groupingExpression3.fieldName = "ShipCity";
             groupingExpression3.ignoreCase = false;
@@ -46,7 +41,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.digitsInfo = "1.2-2";
 
             this._columnPipeArgs1 = columnPipeArgs1;
@@ -159,7 +154,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             WebGridDescriptionModule.register(context);
         }
         return this._componentRenderer;

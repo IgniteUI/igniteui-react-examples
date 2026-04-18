@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrGrid, IgrSortingExpression, SortingDirection, IgrColumn, IgrColumnPipeArgs } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
@@ -14,8 +13,7 @@ import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
-    IgrGridModule
+    IgrPropertyEditorPanelModule
 ];
 mods.forEach((m) => m.register());
 
@@ -38,7 +36,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._sortingExpression1 == null)
         {
             let sortingExpression1: IgrSortingExpression[] = [];
-            var sortingExpression2: IgrSortingExpression = {} as IgrSortingExpression;
+            let sortingExpression2: IgrSortingExpression = {} as IgrSortingExpression;
             sortingExpression2.fieldName = "Category";
             sortingExpression2.dir = SortingDirection.Asc;
             sortingExpression2.ignoreCase = true;
@@ -52,7 +50,7 @@ export default class Sample extends React.Component<any, any> {
     public get columnPipeArgs1(): IgrColumnPipeArgs {
         if (this._columnPipeArgs1 == null)
         {
-            var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
+            let columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs1.currencyCode = "USD";
             columnPipeArgs1.digitsInfo = "1.2-2";
 
@@ -166,7 +164,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             WebGridDescriptionModule.register(context);
         }
@@ -174,12 +172,12 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridClearSort(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
-        var grid = this.grid;
+        let grid = this.grid;
         grid.clearSort("");
     }
 
     public webGridClearGrouping(sender: any, args: IgrPropertyEditorPropertyDescriptionButtonClickEventArgs): void {
-        var grid = this.grid;
+        let grid = this.grid;
         grid.clearGrouping("");
     }
 

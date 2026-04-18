@@ -2,19 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrTreeGridModule, IgrActionStripModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrPinningConfig, RowPinningPosition, IgrColumn, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
 import { ComponentRenderer, WebTreeGridDescriptionModule, WebActionStripDescriptionModule } from 'igniteui-react-core';
 import { EmployeesNestedTreeDataItem, EmployeesNestedTreeData } from './EmployeesNestedTreeData';
-import { IgrGrid } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
-
-const mods: any[] = [
-    IgrTreeGridModule,
-    IgrActionStripModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private treeGrid: IgrTreeGrid
@@ -26,7 +18,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig1(): IgrPinningConfig {
         if (this._pinningConfig1 == null)
         {
-            var pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig1.rows = RowPinningPosition.Top;
 
             this._pinningConfig1 = pinningConfig1;
@@ -98,7 +90,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             WebTreeGridDescriptionModule.register(context);
             WebActionStripDescriptionModule.register(context);
         }
@@ -106,7 +98,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webTreeGridPinRowOnRendered(args:any): void {
-        var treeGrid = this.treeGrid;
+        let treeGrid = this.treeGrid;
         treeGrid.pinRow(1);
         treeGrid.pinRow(11);
     }

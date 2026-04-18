@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrGroupingExpression, SortingDirection, IgrColumn } from 'igniteui-react-grids';
 import { InvoicesWorldDataItem, InvoicesWorldData } from './InvoicesWorldData';
 import { IgrGroupByRowTemplateContext, IgrCellTemplateContext } from 'igniteui-react-grids';
@@ -10,10 +9,6 @@ import { IgrBadge } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrGrid
@@ -26,13 +21,13 @@ export default class Sample extends React.Component<any, any> {
         if (this._groupingExpression1 == null)
         {
             let groupingExpression1: IgrGroupingExpression[] = [];
-            var groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
+            let groupingExpression2: IgrGroupingExpression = {} as IgrGroupingExpression;
             groupingExpression2.fieldName = "ShipCountry";
             groupingExpression2.ignoreCase = false;
             groupingExpression2.dir = SortingDirection.Asc;
 
             groupingExpression1.push(groupingExpression2)
-            var groupingExpression3: IgrGroupingExpression = {} as IgrGroupingExpression;
+            let groupingExpression3: IgrGroupingExpression = {} as IgrGroupingExpression;
             groupingExpression3.fieldName = "ShipCity";
             groupingExpression3.ignoreCase = false;
             groupingExpression3.dir = SortingDirection.Asc;

@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+ 
 export const generateEmployeeDetailedFlatData2 = () => ([
     {
         Address: 'Obere Str. 57',

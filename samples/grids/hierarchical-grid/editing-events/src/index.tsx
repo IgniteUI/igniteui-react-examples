@@ -2,19 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrHierarchicalGridModule, IgrPaginatorModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrPaginator, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import { ComponentRenderer, WebHierarchicalGridDescriptionModule, WebPaginatorDescriptionModule } from 'igniteui-react-core';
 import NwindData from './NwindData.json';
 import { IgrGrid, IgrGridEditEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
-
-const mods: any[] = [
-    IgrHierarchicalGridModule,
-    IgrPaginatorModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrHierarchicalGrid
@@ -132,7 +125,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             WebHierarchicalGridDescriptionModule.register(context);
             WebPaginatorDescriptionModule.register(context);
         }
@@ -140,7 +133,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridEditingEventsCellEdit(args: IgrGridEditEventArgs): void {
-        var d = args.detail;
+        let d = args.detail;
 
         if (d.column != null && d.column.field == "UnitsOnOrder") {
             if (d.newValue > d.rowData.UnitsInStock) {

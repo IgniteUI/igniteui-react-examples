@@ -28,7 +28,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._numberFormatSpecifier1 == null)
         {
             let numberFormatSpecifier1: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier2 = new IgrNumberFormatSpecifier();
+            let numberFormatSpecifier2 = new IgrNumberFormatSpecifier();
             numberFormatSpecifier2.currency = "EUR";
             numberFormatSpecifier2.style = "currency";
             numberFormatSpecifier2.locale = "en-GB";
@@ -50,7 +50,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._numberFormatSpecifier3 == null)
         {
             let numberFormatSpecifier3: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier4 = new IgrNumberFormatSpecifier();
+            let numberFormatSpecifier4 = new IgrNumberFormatSpecifier();
             numberFormatSpecifier4.currency = "EUR";
             numberFormatSpecifier4.style = "currency";
             numberFormatSpecifier4.locale = "en-GB";
@@ -67,7 +67,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._numberFormatSpecifier5 == null)
         {
             let numberFormatSpecifier5: IgrNumberFormatSpecifier[] = [];
-            var numberFormatSpecifier6 = new IgrNumberFormatSpecifier();
+            let numberFormatSpecifier6 = new IgrNumberFormatSpecifier();
             numberFormatSpecifier6.currency = "EUR";
             numberFormatSpecifier6.style = "currency";
             numberFormatSpecifier6.locale = "en-GB";
@@ -83,7 +83,7 @@ export default class Sample extends React.Component<any, any> {
         if (this._dateTimeFormatSpecifier1 == null)
         {
             let dateTimeFormatSpecifier1: IgrDateTimeFormatSpecifier[] = [];
-            var dateTimeFormatSpecifier2 = new IgrDateTimeFormatSpecifier();
+            let dateTimeFormatSpecifier2 = new IgrDateTimeFormatSpecifier();
             dateTimeFormatSpecifier2.locale = "en-GB";
             dateTimeFormatSpecifier2.dateStyle = "long";
 

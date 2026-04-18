@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrCheckboxModule } from 'igniteui-react';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridDescriptionModule, WebCheckboxDescriptionModule } from 'igniteui-react-core';
@@ -13,7 +12,6 @@ import { IgrCheckbox } from 'igniteui-react';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrGridModule,
     IgrCheckboxModule
 ];
 mods.forEach((m) => m.register());
@@ -77,7 +75,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             WebGridDescriptionModule.register(context);
             WebCheckboxDescriptionModule.register(context);
         }

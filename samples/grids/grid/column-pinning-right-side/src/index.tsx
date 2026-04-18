@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrAvatarModule } from 'igniteui-react';
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrPinningConfig, ColumnPinningPosition, IgrGridToolbar, IgrGridToolbarTitle, IgrGridToolbarActions, IgrGridToolbarPinning, IgrColumn } from 'igniteui-react-grids';
 import { AthletesDataExtendedItem, AthletesDataExtended } from './AthletesDataExtended';
 import { IgrCellTemplateContext } from 'igniteui-react-grids';
@@ -12,8 +11,7 @@ import { IgrAvatar } from 'igniteui-react';
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrAvatarModule,
-    IgrGridModule
+    IgrAvatarModule
 ];
 mods.forEach((m) => m.register());
 
@@ -27,7 +25,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig1(): IgrPinningConfig {
         if (this._pinningConfig1 == null)
         {
-            var pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig1.columns = ColumnPinningPosition.End;
 
             this._pinningConfig1 = pinningConfig1;

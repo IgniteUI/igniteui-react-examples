@@ -112,7 +112,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             LegendDescriptionModule.register(context);
             CategoryChartDescriptionModule.register(context);
@@ -122,8 +122,8 @@ export default class Sample extends React.Component<any, any> {
 
     public editorChangeDataFilter(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
 
-        var chart = this.chart;
-        var filter = args.newValue.toString();
+        let chart = this.chart;
+        let filter = args.newValue.toString();
         chart.initialFilter = "(contains(Year," + "'" + filter + "'" + "))";
     }
 

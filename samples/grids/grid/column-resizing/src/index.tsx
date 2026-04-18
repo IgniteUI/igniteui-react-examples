@@ -2,17 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrGridBaseDirective, IgrColumnResizeEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrGrid
@@ -106,9 +101,9 @@ export default class Sample extends React.Component<any, any> {
 
 
     public webGridColumnResized(args: IgrColumnResizeEventArgs): void {
-        var col = args.detail.column;
-        var pWidth = args.detail.prevWidth;
-        var nWidth = args.detail.newWidth;
+        let col = args.detail.column;
+        let pWidth = args.detail.prevWidth;
+        let nWidth = args.detail.newWidth;
     }
 
 }

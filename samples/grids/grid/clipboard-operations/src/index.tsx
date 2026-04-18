@@ -3,16 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrButton, IgrInput, IgrSwitch, IgrCheckboxChangeEventArgs, IgrComponentDataValueChangedEventArgs, IgrComponentValueChangedEventArgs } from 'igniteui-react';
-import { IgrGridModule, IgrColumnComponentEventArgs } from 'igniteui-react-grids';
+import { IgrColumnComponentEventArgs } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { NwindData } from './NwindData';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
 
 export default function App() {
     let defaultSeparator = " ";

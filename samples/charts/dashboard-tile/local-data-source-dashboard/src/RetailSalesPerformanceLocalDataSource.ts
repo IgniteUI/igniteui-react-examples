@@ -7,7 +7,7 @@ export class RetailSalesPerformanceLocalDataSource extends LocalDataSource {
   public constructor() {
     super();
 
-    var data = [
+    let data = [
       {
         "Category": "Home Appliances",
         "Subcategory": "Cleaning",

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrGridModule, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarAdvancedFiltering, IgrGridToolbarExporter, IgrGridToolbarHiding, IgrGridToolbarPinning } from 'igniteui-react-grids';
+import { IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarAdvancedFiltering, IgrGridToolbarExporter, IgrGridToolbarHiding, IgrGridToolbarPinning } from 'igniteui-react-grids';
 import { IgrGrid, IgrPinningConfig, RowPinningPosition, IgrActionStrip, IgrGridPinningActions, IgrGridEditingActions, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebGridDescriptionModule } from 'igniteui-react-core';
 import { NwindDataItem, NwindDataItem_LocationsItem, NwindData } from './NwindData';
@@ -12,10 +12,6 @@ import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import { IgrButtonGroup, IgrComponentValueChangedEventArgs, IgrIcon, IgrIconMeta, IgrToggleButton, setIconRef, registerIconFromText } from 'igniteui-react';
 import { arrowDown, arrowUp, caretDown, chevronRight, ellipsisRight, eye, eyeSlash, fileExport, filter, magnifyGlass, thumbtack, thumbtackSlash, xMark } from './icons';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrGrid

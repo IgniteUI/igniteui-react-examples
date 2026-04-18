@@ -2,17 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrColumn } from 'igniteui-react-grids';
 import { EmployeesFlatDataItem, EmployeesFlatData } from './EmployeesFlatData';
-import { IgrGridEditEventArgs, IgrGrid, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
+import { IgrGridEditEventArgs, IgrGridEditDoneEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrTreeGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrTreeGrid
@@ -109,7 +104,7 @@ export default class Sample extends React.Component<any, any> {
     public webGridRowEditEnter(args: IgrGridEditEventArgs): void {
         let container = document.getElementById("container");
         const message = document.createElement("p");
-        message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.detail.rowID;
+        message.textContent = `=> 'rowEditEnter' with 'RowID':` + args.detail.rowKey;
         container.appendChild(message);
     }
 

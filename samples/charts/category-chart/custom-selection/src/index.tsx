@@ -84,9 +84,9 @@ export default class Sample extends React.Component<any, any> {
 
     public categoryChartCustomSelectionPointerDown(sender: any, args: IgrDomainChartSeriesPointerEventArgs): void {
 
-        var chart = this.chart;
-        var selectableData = chart.dataSource as SelectableData;
-    let oldItem = args.item as SelectableDataItem;
+        let chart = this.chart;
+        let selectableData = chart.dataSource as SelectableData;
+        let oldItem = args.item as SelectableDataItem;
 
         if (oldItem === null) return;
 
@@ -96,8 +96,8 @@ export default class Sample extends React.Component<any, any> {
             selectedValue: oldItem.selectedValue
         });
 
-        var selectedIndex = -1;
-        for (var i = 0; i < selectableData.length; i++) {
+        let selectedIndex = -1;
+        for (let i = 0; i < selectableData.length; i++) {
             if (oldItem.category === selectableData[i].category) {
                 selectedIndex = i;
                 break;

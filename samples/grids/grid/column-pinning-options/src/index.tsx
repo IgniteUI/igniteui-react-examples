@@ -2,17 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridModule } from 'igniteui-react-grids';
 import { IgrGrid, IgrColumn } from 'igniteui-react-grids';
 import { CustomersDataItem, CustomersData } from './CustomersData';
 import { IgrColumnTemplateContext } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private grid: IgrGrid
@@ -124,8 +119,8 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public toggleColumnPin(field: string) {
-        var grid = this.grid;
-        var col = grid.getColumnByName(field);
+        let grid = this.grid;
+        let col = grid.getColumnByName(field);
         col.pinned = !col.pinned;
         grid.markForCheck();
     }

@@ -111,18 +111,18 @@ export default class Sample extends React.Component<any, any> {
 
 
     public colorEditorToggleSeriesBrush(sender: any, args: IgrToolCommandEventArgs): void {
-        var target = this.chart;
+        let target = this.chart;
 
-    	switch (args.command.commandId)
-    	{
-            case "ToggleSeriesBrush":
-                var color = args.command.argumentsList[0].value
-                var series = target.contentSeries[0] as IgrSeries;
-                series.brush = color as any;
-            break;
+       	switch (args.command.commandId)
+       	{
+                case "ToggleSeriesBrush":{
+                    const color = args.command.argumentsList[0].value;
+                    const series = target.contentSeries[0] as IgrSeries;
+                    series.brush = color as any;
+                    break;
+                }
         }
     }
-
 }
 
 // rendering above component in the React DOM

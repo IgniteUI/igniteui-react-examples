@@ -120,7 +120,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public getActualData() : any[] {
-        var data: any[] = [];
+        let data: any[] = [];
         data.push( { x: 0, y: 50 } );
         data.push( { x: 1, y: 20 } );
         data.push( { x: 2, y: 40 } );
@@ -146,9 +146,9 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public getThresholdData(thresholdValue : number) : any[] {
-        var data: any[] = [];
+        let data: any[] = [];
         for (let i = 0; i < this.actualDataSource.length; i++) {
-            var curr = this.actualDataSource[i];
+            let curr = this.actualDataSource[i];
 
             if (curr.y >= thresholdValue) {
                 data.push( curr );
@@ -157,12 +157,12 @@ export default class Sample extends React.Component<any, any> {
             }
             // calculating threshold line segments that are above the threshold value
             if (i < this.actualDataSource.length - 1) {
-                var next = this.actualDataSource[i+1];
+                let next = this.actualDataSource[i+1];
                 if ((curr.y <  thresholdValue && next.y > thresholdValue) ||
                     (curr.y >= thresholdValue && next.y < thresholdValue)) {
-                    var m = (curr.y - next.y) / (curr.x - next.x);
-                    var b = curr.y - (curr.x * m);
-                    var x = (thresholdValue - b) / m;
+                    let m = (curr.y - next.y) / (curr.x - next.x);
+                    let b = curr.y - (curr.x * m);
+                    let x = (thresholdValue - b) / m;
                     data.push( { x: x, y: thresholdValue } );
                 }
             }
@@ -171,7 +171,7 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public onThresholdValueChange(e: any) {
-        var value = e.target.value
+        let value = e.target.value
         this.setState({
             thresholdValue: value,
             thresholdData: this.getThresholdData(value)

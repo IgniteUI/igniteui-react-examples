@@ -2,18 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrGridToolbarModule, IgrTreeGridModule } from 'igniteui-react-grids';
 import { IgrTreeGrid, IgrGridToolbar, IgrGridToolbarActions, IgrGridToolbarHiding, IgrColumn } from 'igniteui-react-grids';
 import { ComponentRenderer, WebGridToolbarDescriptionModule, WebTreeGridDescriptionModule } from 'igniteui-react-core';
 import { EmployeesFlatDetailsItem, EmployeesFlatDetails } from './EmployeesFlatDetails';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrGridToolbarModule,
-    IgrTreeGridModule
-];
-mods.forEach((m) => m.register());
+
 
 export default class Sample extends React.Component<any, any> {
     private treeGrid: IgrTreeGrid
@@ -125,7 +120,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             WebGridToolbarDescriptionModule.register(context);
             WebTreeGridDescriptionModule.register(context);
         }

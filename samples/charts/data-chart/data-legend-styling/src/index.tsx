@@ -105,7 +105,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             LegendDescriptionModule.register(context);
             NumberAbbreviatorDescriptionModule.register(context);
             DataChartCoreDescriptionModule.register(context);

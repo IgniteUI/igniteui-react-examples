@@ -7,7 +7,6 @@ import {
   IgrGridToolbarActions,
   IgrGridToolbarHiding,
   IgrGridToolbarTitle,
-  IgrHierarchicalGridModule,
 } from "igniteui-react-grids";
 import {
   IgrHierarchicalGrid,
@@ -19,7 +18,6 @@ import { SingersData } from "./SingersData";
 
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
-IgrHierarchicalGridModule.register();
 IgrIconModule.register();
 
 const icon = `<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>`;

@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { IgrTreeGridModule } from "igniteui-react-grids";
 import {
   IgrTreeGrid,
   IgrColumn,
@@ -12,7 +11,6 @@ import {
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 import { EMPLOYEES_DATA } from "./EmployeesData";
 
-IgrTreeGridModule.register();
 
 export default function Sample() {
   const columnPipeArgs1: IgrColumnPipeArgs = {

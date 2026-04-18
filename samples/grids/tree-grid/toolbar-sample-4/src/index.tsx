@@ -11,7 +11,6 @@ import {
   IgrGridToolbarPinning,
   IgrGridToolbarTitle,
   IgrTreeGrid,
-  IgrTreeGridModule,
 } from "igniteui-react-grids";
 import { IgrColumn } from "igniteui-react-grids";
 import { IgrAvatar, IgrAvatarModule, IgrButton, IgrIcon, IgrIconModule, registerIconFromText } from "igniteui-react";
@@ -20,7 +19,6 @@ import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 import { EmployeesFlatAvatars } from "./EmployeesFlatAvatars";
 
-IgrTreeGridModule.register();
 IgrAvatarModule.register();
 IgrIconModule.register();
 

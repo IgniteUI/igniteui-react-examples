@@ -2,17 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrHierarchicalGridModule, IgrActionStripModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrActionStrip, IgrGridEditingActions, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import SingersData from './SingersData.json';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
-
-const mods: any[] = [
-    IgrHierarchicalGridModule,
-    IgrActionStripModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private hGrid: IgrHierarchicalGrid

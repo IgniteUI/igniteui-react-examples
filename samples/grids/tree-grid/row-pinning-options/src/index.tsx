@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { IgrPropertyEditorPanelModule } from 'igniteui-react-layouts';
-import { IgrTreeGridModule, IgrActionStripModule } from 'igniteui-react-grids';
 import { IgrPropertyEditorPanel, IgrPropertyEditorPropertyDescription } from 'igniteui-react-layouts';
 import { IgrTreeGrid, IgrPinningConfig, RowPinningPosition, IgrColumn, IgrActionStrip, IgrGridPinningActions } from 'igniteui-react-grids';
 import { ComponentRenderer, PropertyEditorPanelDescriptionModule, WebTreeGridDescriptionModule, WebActionStripDescriptionModule } from 'igniteui-react-core';
@@ -15,9 +14,7 @@ import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const mods: any[] = [
-    IgrPropertyEditorPanelModule,
-    IgrTreeGridModule,
-    IgrActionStripModule
+    IgrPropertyEditorPanelModule
 ];
 mods.forEach((m) => m.register());
 
@@ -37,7 +34,7 @@ export default class Sample extends React.Component<any, any> {
     public get pinningConfig1(): IgrPinningConfig {
         if (this._pinningConfig1 == null)
         {
-            var pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
+            let pinningConfig1: IgrPinningConfig = {} as IgrPinningConfig;
             pinningConfig1.rows = RowPinningPosition.Top;
 
             this._pinningConfig1 = pinningConfig1;
@@ -129,7 +126,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             PropertyEditorPanelDescriptionModule.register(context);
             WebTreeGridDescriptionModule.register(context);
             WebActionStripDescriptionModule.register(context);
@@ -138,14 +135,14 @@ export default class Sample extends React.Component<any, any> {
     }
 
     public webGridSetRowPinning(sender: any, args: IgrPropertyEditorPropertyDescriptionChangedEventArgs): void {
-        var item = sender as IgrPropertyEditorPropertyDescription;
-        var newVal = item.primitiveValue;
-        var grid = this.treeGrid;
+        let item = sender as IgrPropertyEditorPropertyDescription;
+        let newVal = item.primitiveValue;
+        let grid = this.treeGrid;
         grid.pinning.rows = newVal === "Top" ? RowPinningPosition.Top : RowPinningPosition.Bottom;
     }
 
     public webTreeGridPinRowOnRendered(args:any): void {
-        var treeGrid = this.treeGrid;
+        let treeGrid = this.treeGrid;
         treeGrid.pinRow(1);
         treeGrid.pinRow(11);
     }

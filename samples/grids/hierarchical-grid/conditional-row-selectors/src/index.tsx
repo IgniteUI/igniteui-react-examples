@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrPaginator, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import { ComponentRenderer, WebHierarchicalGridDescriptionModule } from 'igniteui-react-core';
 import SingersData from './SingersData.json';
@@ -10,10 +9,6 @@ import { IgrRowSelectionEventArgs } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrHierarchicalGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private hierarchicalGrid: IgrHierarchicalGrid
@@ -134,7 +129,7 @@ export default class Sample extends React.Component<any, any> {
     public get renderer(): ComponentRenderer {
         if (this._componentRenderer == null) {
             this._componentRenderer = new ComponentRenderer();
-            var context = this._componentRenderer.context;
+            let context = this._componentRenderer.context;
             WebHierarchicalGridDescriptionModule.register(context);
         }
         return this._componentRenderer;
@@ -146,7 +141,7 @@ export default class Sample extends React.Component<any, any> {
             // ignore de-select
             return;
         }
-        var grid = this.hierarchicalGrid;
+        let grid = this.hierarchicalGrid;
         const originalAddedLength = event.added.length;
 
         // only allow selection of items that has grammy award

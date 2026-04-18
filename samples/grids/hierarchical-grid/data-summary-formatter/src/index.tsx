@@ -2,17 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { IgrHierarchicalGridModule } from 'igniteui-react-grids';
 import { IgrHierarchicalGrid, IgrColumn, IgrRowIsland } from 'igniteui-react-grids';
 import SingersData from './SingersData.json';
 import { IgrSummaryResult, IgrSummaryOperand } from 'igniteui-react-grids';
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 
-const mods: any[] = [
-    IgrHierarchicalGridModule
-];
-mods.forEach((m) => m.register());
 
 export default class Sample extends React.Component<any, any> {
     private hierarchicalGrid: IgrHierarchicalGrid
@@ -160,7 +155,7 @@ export default class Sample extends React.Component<any, any> {
 
 
     public webHierarchicalGridRenderedExpand(args:any): void {
-        var hierarchicalGrid = this.hierarchicalGrid;
+        let hierarchicalGrid = this.hierarchicalGrid;
         hierarchicalGrid.expandAll();
         setTimeout(() => {
             hierarchicalGrid.getColumnByName("Debut").formatter = (value: number) => Math.floor(value / 10) * 10 + 's';
