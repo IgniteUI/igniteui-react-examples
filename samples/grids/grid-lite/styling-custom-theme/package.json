@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "igniteui-grid-lite": "~0.6.0",
-    "igniteui-react": "^19.5.0",
+    "igniteui-react": "^19.6.1",
     "igniteui-theming": "^25.0.1",
     "igniteui-webcomponents": "^7.0.0",
     "lit-html": "^3.2.0",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@types/jest": "^29.2.0",
     "@types/node": "^24.7.1",
-    "@types/react": "^18.3.28",
+    "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^5.0.4",
     "@vitest/browser": "^3.2.4",
