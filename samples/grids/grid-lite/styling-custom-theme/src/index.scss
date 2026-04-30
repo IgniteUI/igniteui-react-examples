@@ -1,5 +1,5 @@
 @use 'igniteui-theming' as *;
-@import 'igniteui-theming/sass/typography/presets';
+@use 'igniteui-theming/sass/typography/presets' as *;
 
 $custom-light-palette: palette(
     $primary: #ddd020,
