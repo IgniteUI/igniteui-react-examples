@@ -34,7 +34,7 @@ Follow these instructions to run this example:
 git clone https://github.com/IgniteUI/igniteui-react-examples.git
 git checkout master
 cd ./igniteui-react-examples
-cd ./samples/grids/grid/action-strip
+cd ./samples/grids/grid/localization
 ```
 
 open above folder in VS Code or type:
