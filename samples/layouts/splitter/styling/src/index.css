@@ -1,0 +1,16 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+igc-splitter {
+    --bar-color: #011627;
+    --handle-color: #ecaa53;
+    --expander-color: #ecaa53;
+    --bar-color-active: #011627;
+    --handle-color-active: #ecaa53;
+    --expander-color-active: #ecaa53;
+    --focus-color: #ecaa53;
+}
+
+p {
+    padding: 0 16px;
+}
