@@ -47,7 +47,7 @@ export default function StepHeight() {
               team.
             </li>
             <li>
-              If you won't be at the address during the delivery time, please
+              If you will not be at the address during the delivery time, please
               provide an alternative address.
             </li>
           </ul>
