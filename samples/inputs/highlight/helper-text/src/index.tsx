@@ -7,10 +7,6 @@ export default class HighlightHelperText extends React.Component<any, any> {
   private highlightRef = React.createRef<IgrHighlight>();
   private statusRef = React.createRef<HTMLParagraphElement>();
 
-  constructor(props: any) {
-    super(props);
-  }
-
   private updateStatus() {
     const highlight = this.highlightRef.current;
     const status = this.statusRef.current;

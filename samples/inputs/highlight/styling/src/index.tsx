@@ -7,10 +7,6 @@ import './index.css';
 export default class HighlightStyling extends React.Component<any, any> {
   private highlightRef = React.createRef<IgrHighlight>();
 
-  constructor(props: any) {
-    super(props); 
-  }
-
   private onInput = ({ detail }: CustomEvent<string>) => {
     if (!this.highlightRef) return;
     this.highlightRef.current.searchText = detail;
