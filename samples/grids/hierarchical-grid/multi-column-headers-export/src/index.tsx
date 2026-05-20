@@ -54,7 +54,6 @@ export default class Sample extends React.Component<any, any> {
                             <IgrGridToolbarExporter
                                 exportCSV={false}
                                 exportExcel={true}
-                                exportPDF={true}
                                 onExportStarted={this.webHierarchicalGridExportMultiColumnHeaders}>
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>

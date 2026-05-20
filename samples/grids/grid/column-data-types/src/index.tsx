@@ -24,7 +24,6 @@ export default class Sample extends React.Component<any, any> {
         if (this._columnPipeArgs1 == null)
         {
             var columnPipeArgs1: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
-            columnPipeArgs1.currencyCode = "";
             columnPipeArgs1.digitsInfo = "1.4-4";
 
             this._columnPipeArgs1 = columnPipeArgs1;
@@ -37,7 +36,6 @@ export default class Sample extends React.Component<any, any> {
         {
             var columnPipeArgs2: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs2.format = "long";
-            columnPipeArgs2.timezone = "UTC+0";
 
             this._columnPipeArgs2 = columnPipeArgs2;
         }
@@ -60,7 +58,6 @@ export default class Sample extends React.Component<any, any> {
         {
             var columnPipeArgs4: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
             columnPipeArgs4.format = "shortTime";
-            columnPipeArgs4.timezone = "UTC+0";
 
             this._columnPipeArgs4 = columnPipeArgs4;
         }
@@ -71,7 +68,6 @@ export default class Sample extends React.Component<any, any> {
         if (this._columnPipeArgs5 == null)
         {
             var columnPipeArgs5: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
-            columnPipeArgs5.currencyCode = "";
             columnPipeArgs5.digitsInfo = "1.4-4";
 
             this._columnPipeArgs5 = columnPipeArgs5;
@@ -83,7 +79,6 @@ export default class Sample extends React.Component<any, any> {
         if (this._columnPipeArgs6 == null)
         {
             var columnPipeArgs6: IgrColumnPipeArgs = {} as IgrColumnPipeArgs;
-            columnPipeArgs6.currencyCode = "";
             columnPipeArgs6.digitsInfo = "1.4-4";
 
             this._columnPipeArgs6 = columnPipeArgs6;

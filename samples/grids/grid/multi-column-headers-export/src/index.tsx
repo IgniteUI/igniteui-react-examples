@@ -47,16 +47,19 @@ export default class Sample extends React.Component<any, any> {
                     data={this.customersData}
                     moving={true}
                     allowFiltering={true}>
-                    <IgrGridToolbar>
-                        <IgrGridToolbarActions>
-                            <IgrGridToolbarHiding>
+                    <IgrGridToolbar
+                    >
+                        <IgrGridToolbarActions
+                        >
+                            <IgrGridToolbarHiding
+                            >
                             </IgrGridToolbarHiding>
-                            <IgrGridToolbarPinning>
+                            <IgrGridToolbarPinning
+                            >
                             </IgrGridToolbarPinning>
                             <IgrGridToolbarExporter
                                 exportCSV={false}
                                 exportExcel={true}
-                                exportPDF={true}
                                 onExportStarted={this.webGridExportEventMultiColumnHeaders}>
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>

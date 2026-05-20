@@ -60,9 +60,13 @@ export default class Sample extends React.Component<any, any> {
                     id="grid"
                     groupingExpressions={this.groupingExpression1}
                     hideGroupedColumns={true}>
-                    <IgrGridToolbar>
-                        <IgrGridToolbarActions>
-                            <IgrGridToolbarExporter>
+                    <IgrGridToolbar
+                    >
+                        <IgrGridToolbarActions
+                        >
+                            <IgrGridToolbarExporter
+                                exportCSV={false}
+                                exportExcel={true}>
                             </IgrGridToolbarExporter>
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
