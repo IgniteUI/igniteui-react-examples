@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./layout.css";
 import "./ChatStyling.css";
 import {
   ChatMessageRenderContext,
@@ -8,7 +8,7 @@ import {
   IgrChat,
   IgrChatOptions
 } from "igniteui-react";
-import "igniteui-webcomponents/themes/light/bootstrap.css";
+import "igniteui-webcomponents/themes/light/material.css";
 
 export default function ChatStyling() {
   const [draftMessage, setDraftMessage] = useState(null);
