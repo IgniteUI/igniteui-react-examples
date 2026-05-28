@@ -17,7 +17,7 @@
     "igniteui-react-datasources": "19.6.0-beta.2",
     "igniteui-react-inputs": "19.6.0-beta.2",
     "igniteui-react-layouts": "19.6.0-beta.2",
-    "igniteui-webcomponents": "^7.0.0",
+    "igniteui-webcomponents": "^7.2.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tslib": "^2.4.0"
