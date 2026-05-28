@@ -1,6 +1,6 @@
 {
-  "name": "react-input-helper-text",
-  "description": "This project provides example of Badge Outlined using Infragistics React components",
+  "name": "react-highlight-helper-text",
+  "description": "This project provides example of Highlight Helper Text using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
@@ -14,7 +14,7 @@
   "dependencies": {
     "igniteui-dockmanager": "^1.17.0",
     "igniteui-react": "^19.6.2",
-    "igniteui-react-core": "19.6.0-beta.2",
+    "igniteui-react-core": "19.6.0-beta.0",
     "igniteui-webcomponents": "^7.1.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
