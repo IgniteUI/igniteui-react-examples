@@ -640,19 +640,23 @@ function updateCodeViewer(cb) {
 
         var dataFiles = [];
         var contentItems = [];
-        var tsxItem = new CodeViewer(sample.SampleFilePath, sample.SampleFileSourceCode, "tsx", "tsx", true);
+        // Strip "../samples/{group}/{component}/{name}/" prefix so StackBlitz sdk.openProject() gets
+        // project-relative paths like "src/index.tsx" instead of "../samples/.../src/index.tsx".
+        var tsxPath = sample.SampleFilePath.replace(sample.SampleFolderPath + '/', '');
+        var tsxItem = new CodeViewer(tsxPath, sample.SampleFileSourceCode, "tsx", "tsx", true);
 
         contentItems.push(tsxItem);
 
         for (const file of sample.SampleFilePaths) {
+            var filePath = file.replace(sample.SampleFolderPath + '/', '');
             if (file.indexOf(".css") > 0) {
                 var cssContent = fs.readFileSync(file, "utf8");
-                var cssItem = new CodeViewer(file, cssContent, "css", "css", true);
+                var cssItem = new CodeViewer(filePath, cssContent, "css", "css", true);
                 contentItems.push(cssItem);
             }
             else if (file.indexOf(".ts") > 0 && file.indexOf("index.tsx") === -1) {
                 var tsContent = fs.readFileSync(file, "utf8");
-                var tsItem = new CodeViewer(file, tsContent, "ts", "DATA", true);
+                var tsItem = new CodeViewer(filePath, tsContent, "ts", "DATA", true);
                 dataFiles.push(tsItem);
             }
         }
@@ -671,6 +675,22 @@ function updateCodeViewer(cb) {
             }
             var dataItem = new CodeViewer(dataFolder + "/DataSources.ts", dataContent, "ts", "DATA", true);
             contentItems.push(dataItem);
+        }
+
+        // Add boilerplate files so StackBlitz sdk.openProject() has a complete runnable project.
+        var boilerplateFiles = [
+            { file: "index.html",     ext: "html", header: "html" },
+            { file: "tsconfig.json",  ext: "json", header: "json" },
+            { file: "vite.config.js", ext: "js",   header: "js"   },
+            { file: "package.json",   ext: "json", header: "json" },
+        ];
+        for (const bConfig of boilerplateFiles) {
+            var bPath = sample.SampleFolderPath + "/" + bConfig.file;
+            if (fs.existsSync(bPath)) {
+                var bContent = fs.readFileSync(bPath, "utf8");
+                var bItem = new CodeViewer(bConfig.file, bContent, bConfig.ext, bConfig.header, false);
+                contentItems.push(bItem);
+            }
         }
 
         content += JSON.stringify(contentItems, null, ' ');
