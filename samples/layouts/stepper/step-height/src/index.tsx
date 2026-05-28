@@ -16,19 +16,12 @@ export default function StepHeight() {
 
   return (
     <div className="container sample">
-      <div className="header">
-        <div className="switch-wrapper">
-          <div>
-            <span>1fr</span>
-            <IgrSwitch onChange={onSwitchChange}>
-              <span>0fr</span>
-            </IgrSwitch>
-          </div>
-          <h5>
-            --body-grid-rows: <span>{rows}</span>
-          </h5>
-        </div>
-      </div>
+      <header>
+          <label>1fr</label>
+          <IgrSwitch onChange={onSwitchChange}></IgrSwitch>
+          <label>0fr</label>
+          <output>--body-grid-rows: <span>{rows}</span></output>
+      </header>
       <IgrStepper ref={stepperRef} contentTop={true}>
         <IgrStep>
           <span slot="title">Personal Info</span>
