@@ -659,22 +659,19 @@ function updateCodeViewer(cb) {
                 var tsItem = new CodeViewer(filePath, tsContent, "ts", "DATA", true);
                 dataFiles.push(tsItem);
             }
+            else if (file.endsWith(".json")) {
+                // e.g. NwindData.json — imported directly by index.tsx, must be in StackBlitz.
+                var jsonContent = fs.readFileSync(file, "utf8");
+                var jsonItem = new CodeViewer(filePath, jsonContent, "json", "json", false);
+                contentItems.push(jsonItem);
+            }
         }
 
-        if (dataFiles.length === 1) {
-            contentItems.push(dataFiles[0]);
-        } else if (dataFiles.length > 1) {
-            // combining multiple data files into one data source
-            var dataPath = dataFiles[0].path;
-            var dataFolder = dataPath.substring(0, dataPath.lastIndexOf("/"));
-            var dataContent = "// NOTE this file contains multiple data sources:\r\n";
-            for (let i = 0; i < dataFiles.length; i++) {
-                const data = dataFiles[i];
-                dataContent += "\r\n\r\n" + "// Data Source #" + (i + 1) + "\r\n";
-                dataContent += data.content + "\r\n";
-            }
-            var dataItem = new CodeViewer(dataFolder + "/DataSources.ts", dataContent, "ts", "DATA", true);
-            contentItems.push(dataItem);
+        // Add every data file individually so StackBlitz sdk.openProject() receives each file
+        // under its original name. Combining them into DataSources.ts would break import
+        // statements in index.tsx that reference the original file names.
+        for (const df of dataFiles) {
+            contentItems.push(df);
         }
 
         // Add boilerplate files so StackBlitz sdk.openProject() has a complete runnable project.
