@@ -857,10 +857,10 @@ function updateIG(cb) {
         { version: "19.6.0-beta.2", name: "igniteui-react-spreadsheet" },
         { version: "19.6.0-beta.2", name: "igniteui-react-datasources" },
         { version: "19.6.0-beta.2", name: "igniteui-react-dashboards" },
-        { version: "^1.0.4", name: "igniteui-i18n-resources" },
+        { version: "^1.0.5", name: "igniteui-i18n-resources" },
         { version: "^19.6.2", name: "igniteui-react" },
         // these IG packages are sometimes updated:
-        { version: "^7.0.0", name: "igniteui-webcomponents" },
+        { version: "^7.2.1", name: "igniteui-webcomponents" },
         { version: "^19.4.0", name: "igniteui-react-dockmanager" },
         { version: "~0.7.0", name: "igniteui-grid-lite" },
         // main react packages
