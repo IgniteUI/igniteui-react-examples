@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import './ButtonSizingStyle.css';
 import { IgrButton, IgrRadio, IgrRadioGroup } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -16,7 +15,7 @@ export default class ButtonSize extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrRadioGroup alignment="horizontal" style={{display: 'flex', margin: '0 auto', width: '15%'}}>
+                <IgrRadioGroup alignment="horizontal" style={{display: 'flex', justifyContent: 'center'}}>
                     <IgrRadio name="size" value="small" labelPosition="after" onChange={this.onRadioChange}>
                         <span>Small</span>
                     </IgrRadio>

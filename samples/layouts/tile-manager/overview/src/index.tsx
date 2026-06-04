@@ -23,7 +23,7 @@ export default class Overview extends React.Component<any, any> {
       <div className="container sample center">
         <IgrTileManager id="tile-manager1" columnCount={3} gap="20px" resizeMode="always" dragMode="tile-header">
           <IgrTile rowSpan={3}>
-            <h3 slot="title">Order info</h3>
+            <span slot="title">Order info</span>
             <IgrList className="list">
               <IgrListItem>
                 <IgrAvatar slot="start" shape="circle" className="avatar">
@@ -83,7 +83,7 @@ export default class Overview extends React.Component<any, any> {
           </IgrTile>
           <IgrTile col-span="2" row-span="2">
 
-            <h3 slot="title">Order Line Items</h3>
+            <span slot="title">Order Line Items</span>
             <div className="group">
               <IgrCard className="card">
                 <div className="group_1">
@@ -93,7 +93,7 @@ export default class Overview extends React.Component<any, any> {
                         <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
                       </IgrAvatar>
                     </div>
-                    <h3 slot="title">Carnavon Tigers</h3>
+                    <span slot="title">Carnavon Tigers</span>
                   </IgrCardHeader>
                   <IgrCardContent className="column">
                     <div className="body-content">
@@ -113,7 +113,7 @@ export default class Overview extends React.Component<any, any> {
                         <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
                       </IgrAvatar>
                     </div>
-                    <h3 slot="title">Guarana Fantastica</h3>
+                    <span slot="title">Guarana Fantastica</span>
                   </IgrCardHeader>
                   <IgrCardContent className="column">
                     <div className="body-content">
@@ -133,7 +133,7 @@ export default class Overview extends React.Component<any, any> {
                         <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
                       </IgrAvatar>
                     </div>
-                    <h3 slot="title">Vegie-spread</h3>
+                    <span slot="title">Vegie-spread</span>
                   </IgrCardHeader>
                   <IgrCardContent className="column">
                     <div className="body-content">
@@ -153,7 +153,7 @@ export default class Overview extends React.Component<any, any> {
                         <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
                       </IgrAvatar>
                     </div>
-                    <h3 slot="title">Rhonbrau Klosterbier</h3>
+                    <span slot="title">Rhonbrau Klosterbier</span>
                   </IgrCardHeader>
                   <IgrCardContent className="column">
                     <div className="body-content">
@@ -168,13 +168,13 @@ export default class Overview extends React.Component<any, any> {
             </div>
           </IgrTile>
           <IgrTile >
-            <h3 slot="title">Order Value</h3>
+            <span slot="title">Order Value</span>
             <div className="string">
               <h1>$8.66K</h1>
             </div>
           </IgrTile>
           <IgrTile >
-            <h3 slot="title">Item quantity</h3>
+            <span slot="title">Item quantity</span>
             <div className="string">
               <h1>4</h1>
             </div>
