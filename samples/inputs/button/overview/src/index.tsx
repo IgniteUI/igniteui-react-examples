@@ -14,9 +14,9 @@ export default class ButtonOverview extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <div className="button-container">
-                    <IgrButton variant="flat"><span>Flat</span></IgrButton>
-                    <IgrButton variant="contained"><span>Contained</span></IgrButton>
-                    <IgrButton variant="outlined"><span>Outlined</span></IgrButton>
+                    <IgrButton variant="flat">Flat</IgrButton>
+                    <IgrButton variant="contained">Contained</IgrButton>
+                    <IgrButton variant="outlined">Outlined</IgrButton>
                 </div>
             </div>
         );

@@ -13,7 +13,7 @@ export default class ButtonOutlined extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrButton variant="outlined"><span>Outlined</span></IgrButton>
+                <IgrButton variant="outlined">Outlined</IgrButton>
             </div>
         );
     }
