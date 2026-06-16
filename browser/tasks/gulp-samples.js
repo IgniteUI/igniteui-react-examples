@@ -640,37 +640,54 @@ function updateCodeViewer(cb) {
 
         var dataFiles = [];
         var contentItems = [];
-        var tsxItem = new CodeViewer(sample.SampleFilePath, sample.SampleFileSourceCode, "tsx", "tsx", true);
+        // Strip "../samples/{group}/{component}/{name}/" prefix so StackBlitz sdk.openProject() gets
+        // project-relative paths like "src/index.tsx" instead of "../samples/.../src/index.tsx".
+        var tsxPath = sample.SampleFilePath.replace(sample.SampleFolderPath + '/', '');
+        var tsxItem = new CodeViewer(tsxPath, sample.SampleFileSourceCode, "tsx", "tsx", true);
 
         contentItems.push(tsxItem);
 
         for (const file of sample.SampleFilePaths) {
+            var filePath = file.replace(sample.SampleFolderPath + '/', '');
             if (file.indexOf(".css") > 0) {
                 var cssContent = fs.readFileSync(file, "utf8");
-                var cssItem = new CodeViewer(file, cssContent, "css", "css", true);
+                var cssItem = new CodeViewer(filePath, cssContent, "css", "css", true);
                 contentItems.push(cssItem);
             }
             else if (file.indexOf(".ts") > 0 && file.indexOf("index.tsx") === -1) {
                 var tsContent = fs.readFileSync(file, "utf8");
-                var tsItem = new CodeViewer(file, tsContent, "ts", "DATA", true);
+                var tsItem = new CodeViewer(filePath, tsContent, "ts", "DATA", true);
                 dataFiles.push(tsItem);
+            }
+            else if (file.endsWith(".json")) {
+                // e.g. NwindData.json — imported directly by index.tsx, must be in StackBlitz.
+                var jsonContent = fs.readFileSync(file, "utf8");
+                var jsonItem = new CodeViewer(filePath, jsonContent, "json", "json", false);
+                contentItems.push(jsonItem);
             }
         }
 
-        if (dataFiles.length === 1) {
-            contentItems.push(dataFiles[0]);
-        } else if (dataFiles.length > 1) {
-            // combining multiple data files into one data source
-            var dataPath = dataFiles[0].path;
-            var dataFolder = dataPath.substring(0, dataPath.lastIndexOf("/"));
-            var dataContent = "// NOTE this file contains multiple data sources:\r\n";
-            for (let i = 0; i < dataFiles.length; i++) {
-                const data = dataFiles[i];
-                dataContent += "\r\n\r\n" + "// Data Source #" + (i + 1) + "\r\n";
-                dataContent += data.content + "\r\n";
+        // Add every data file individually so StackBlitz sdk.openProject() receives each file
+        // under its original name. Combining them into DataSources.ts would break import
+        // statements in index.tsx that reference the original file names.
+        for (const df of dataFiles) {
+            contentItems.push(df);
+        }
+
+        // Add boilerplate files so StackBlitz sdk.openProject() has a complete runnable project.
+        var boilerplateFiles = [
+            { file: "index.html",     ext: "html", header: "html" },
+            { file: "tsconfig.json",  ext: "json", header: "json" },
+            { file: "vite.config.js", ext: "js",   header: "js"   },
+            { file: "package.json",   ext: "json", header: "json" },
+        ];
+        for (const bConfig of boilerplateFiles) {
+            var bPath = sample.SampleFolderPath + "/" + bConfig.file;
+            if (fs.existsSync(bPath)) {
+                var bContent = fs.readFileSync(bPath, "utf8");
+                var bItem = new CodeViewer(bConfig.file, bContent, bConfig.ext, bConfig.header, false);
+                contentItems.push(bItem);
             }
-            var dataItem = new CodeViewer(dataFolder + "/DataSources.ts", dataContent, "ts", "DATA", true);
-            contentItems.push(dataItem);
         }
 
         content += JSON.stringify(contentItems, null, ' ');
@@ -844,25 +861,25 @@ function updateIG(cb) {
     // { name:               "igniteui-react-charts", version: "16.16.2" }, // npm
     let packageUpgrades = [
         // these IG packages are often updated:
-        { version: "19.3.2", name: "igniteui-react-core" },
-        { version: "19.3.2", name: "igniteui-react-charts" },
-        { version: "19.3.2", name: "igniteui-react-excel" },
-        { version: "19.3.2", name: "igniteui-react-gauges" },
-        { version: "19.3.2", name: "igniteui-react-data-grids" },
-        { version: "^19.6.2", name: "igniteui-react-grids" },
-        { version: "19.3.2", name: "igniteui-react-inputs" },
-        { version: "19.3.2", name: "igniteui-react-layouts" },
-        { version: "19.3.2", name: "igniteui-react-maps" },
-        { version: "19.3.2", name: "igniteui-react-spreadsheet-chart-adapter" },
-        { version: "19.3.2", name: "igniteui-react-spreadsheet" },
-        { version: "19.3.2", name: "igniteui-react-datasources" },
-        { version: "19.3.2", name: "igniteui-react-dashboards" },
-        { version: "^1.0.4", name: "igniteui-i18n-resources" },
-        { version: "^19.6.2", name: "igniteui-react" },
+        { version: "19.6.0", name: "igniteui-react-core" },
+        { version: "19.6.0", name: "igniteui-react-charts" },
+        { version: "19.6.0", name: "igniteui-react-excel" },
+        { version: "19.6.0", name: "igniteui-react-gauges" },
+        { version: "19.6.0", name: "igniteui-react-data-grids" },
+        { version: "19.7.0", name: "igniteui-react-grids" },
+        { version: "19.6.0", name: "igniteui-react-inputs" },
+        { version: "19.6.0", name: "igniteui-react-layouts" },
+        { version: "19.6.0", name: "igniteui-react-maps" },
+        { version: "19.6.0", name: "igniteui-react-spreadsheet-chart-adapter" },
+        { version: "19.6.0", name: "igniteui-react-spreadsheet" },
+        { version: "19.6.0", name: "igniteui-react-datasources" },
+        { version: "19.6.0", name: "igniteui-react-dashboards" },
+        { version: "^1.0.5", name: "igniteui-i18n-resources" },
+        { version: "19.7.0", name: "igniteui-react" },
         // these IG packages are sometimes updated:
-        { version: "^7.0.0", name: "igniteui-webcomponents" },
-        { version: "^19.4.0", name: "igniteui-react-dockmanager" },
-        { version: "~0.7.0", name: "igniteui-grid-lite" },
+        { version: "^7.2.1", name: "igniteui-webcomponents" },
+        { version: "19.7.0", name: "igniteui-react-dockmanager" },
+        { version: "~0.8.0", name: "igniteui-grid-lite" },
         // main react packages
         { version: "^19.2.0", name: "react" },
         { version: "^19.2.0", name: "react-dom" },
