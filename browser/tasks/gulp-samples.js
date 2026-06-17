@@ -277,6 +277,9 @@ function copySamples(cb) {
                 code = code.replace(" var ", " let ");
                 code = code.replace(", MarkerType_$type", "");
                 // auto fix TS lint issue in import statements:
+                // strip @infragistics/ scope from all imports (both 'from' and side-effect 'import')
+                // CI rewrites trial package names to licensed ones in source files before building.
+                code = code.replace(/@infragistics\/(igniteui)/g, '$1');
                 code = code.replace('from "igniteui-react";', "from 'igniteui-react';");
                 code = code.replace('from "igniteui-react-core";', "from 'igniteui-react-core';");
                 code = code.replace('from "igniteui-react-dashboards";', "from 'igniteui-react-dashboards';");
@@ -643,7 +646,8 @@ function updateCodeViewer(cb) {
         // Strip "../samples/{group}/{component}/{name}/" prefix so StackBlitz sdk.openProject() gets
         // project-relative paths like "src/index.tsx" instead of "../samples/.../src/index.tsx".
         var tsxPath = sample.SampleFilePath.replace(sample.SampleFolderPath + '/', '');
-        var tsxItem = new CodeViewer(tsxPath, sample.SampleFileSourceCode, "tsx", "tsx", true);
+        var tsxSourceCode = sample.SampleFileSourceCode.replace(/@infragistics\/(igniteui)/g, '$1');
+        var tsxItem = new CodeViewer(tsxPath, tsxSourceCode, "tsx", "tsx", true);
 
         contentItems.push(tsxItem);
 
