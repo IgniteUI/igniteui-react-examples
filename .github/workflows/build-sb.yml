@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
             cache-dependency-path: browser/package-lock.json
-            node-version: 24
+            node-version: '24.x'
             cache: 'npm'
 
       - name: Install dependencies
@@ -32,3 +32,5 @@ jobs:
 
       - name: Build the samples browser to ensure it compiles
         run: cd browser && npm run build
+        env:
+          CI: false
