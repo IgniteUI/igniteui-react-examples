@@ -26,15 +26,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ env.BRANCH_REF }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '22.x'
+          node-version: '24.x'
           cache: 'npm'
           cache-dependency-path: browser/package-lock.json
 
@@ -99,7 +99,7 @@ jobs:
           zip -r ${{ github.workspace }}/react-demos.zip ./
 
       - name: Publish pipeline artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: react-demos-artifact
           path: react-demos.zip
