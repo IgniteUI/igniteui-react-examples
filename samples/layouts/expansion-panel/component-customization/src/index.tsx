@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import './ExpansionPanelCustomization.css';
 import { IgrExpansionPanel, IgrButton } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -19,8 +18,8 @@ export default class ExpansionPanelComponentCustomization extends React.Componen
         return (
             <div className="container sample">
                 <IgrExpansionPanel onClosed={this.onExpansionPanelClosed} onOpened={this.onExpansionPanelOpened} indicatorPosition="end">
-                    <h1 slot="title">Golden Retriever</h1>
-                    <h3 slot="subtitle">Medium-large gun dog</h3>
+                    <span slot="title">Golden Retriever</span>
+                    <span slot="subtitle">Medium-large gun dog</span>
                     <div slot="indicator">{this.state.expansionText}</div>
                     <img height="100" src="https://i.ibb.co/6ZdY7cn/Untitled-design-3.png" alt=""></img>
                     <span>The Golden Retriever is a medium-large gun dog that retrieves shot waterfowl, such as ducks

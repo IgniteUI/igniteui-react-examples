@@ -34,8 +34,8 @@ export default function CardOverview() {
             <img src="https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=50"></img>
           </IgrCardMedia>
           <IgrCardHeader>
-            <h3 slot="title">New York City</h3>
-            <h5 slot="subtitle">City in New York</h5>
+            <span slot="title">New York City</span>
+            <span slot="subtitle">City in New York</span>
           </IgrCardHeader>
           <IgrCardContent>
             <p>

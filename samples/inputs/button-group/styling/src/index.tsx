@@ -14,19 +14,19 @@ export default function ButtonGroupStyling() {
         <div className="container sample">
             <IgrButtonGroup alignment="vertical">
                 <IgrToggleButton value="sofia">
-                    <span>Sofia</span>
+                    Sofia
                     <IgrRipple/>
                 </IgrToggleButton>
                 <IgrToggleButton value="london">
-                    <span>London</span>
+                    London
                     <IgrRipple/>
                 </IgrToggleButton>
                 <IgrToggleButton value="new york">
-                    <span>New York</span>
+                    New York
                     <IgrRipple/>
                 </IgrToggleButton>
                 <IgrToggleButton value="tokyo" disabled={true}>
-                    <span>Tokio</span>
+                    Tokyo
                     <IgrRipple/>
                 </IgrToggleButton>
             </IgrButtonGroup>

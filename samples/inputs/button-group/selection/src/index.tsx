@@ -50,13 +50,13 @@ export default function ButtonGroupSelectionSample() {
                 <label>Selection Mode</label>
                 <IgrRadioGroup alignment="horizontal">
                     <IgrRadio name="mode" value="single" checked onChange={onRadioChange}>
-                        <span>Single</span>
+                        Single
                     </IgrRadio>
                     <IgrRadio name="mode" value="single-required" onChange={onRadioChange}>
-                        <span>Single-Required</span>
+                        Single-Required
                     </IgrRadio>
                     <IgrRadio name="mode" value="multiple" onChange={onRadioChange}>
-                        <span>Multiple</span>
+                        Multiple
                     </IgrRadio>
                 </IgrRadioGroup>
             </div>

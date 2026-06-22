@@ -15,19 +15,19 @@ export default function ButtonGroupAlignment() {
         <div className="container sample">
             <IgrButtonGroup alignment="vertical">
                 <IgrToggleButton value="sofia">
-                    <span>Sofia</span>
+                    Sofia
                     <IgrRipple/>
                 </IgrToggleButton>
                 <IgrToggleButton value="london">
-                    <span>London</span>
+                    London
                     <IgrRipple/>
                 </IgrToggleButton>
                 <IgrToggleButton value="new york" selected={true}>
-                    <span>New York</span>
+                    New York
                     <IgrRipple/>
                 </IgrToggleButton>
                 <IgrToggleButton value="tokyo" >
-                    <span >Tokio</span>
+                    Tokyo
                     <IgrRipple />
                 </IgrToggleButton>
             </IgrButtonGroup>

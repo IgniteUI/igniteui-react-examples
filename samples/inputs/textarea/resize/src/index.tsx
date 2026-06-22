@@ -9,13 +9,13 @@ export default function TextAreaResize() {
     return (
         <div className="sample container">
            <IgrTextarea label="Resize: none" resize="none">                                      
-                <p slot="helper-text">This textarea does not resize and uses a scroll bar to show overflow text.</p>
+                <span slot="helper-text">This textarea does not resize and uses a scroll bar to show overflow text.</span>
             </IgrTextarea>
             <IgrTextarea label="Resize: vertical (default)">                                    
-                <p slot="helper-text">This textarea lets the user resize vertically.</p>
+                <span slot="helper-text">This textarea lets the user resize vertically.</span>
             </IgrTextarea>
             <IgrTextarea label="Resize: auto" resize="auto">                                       
-                <p slot="helper-text">This textarea shows all the user input at once. Overflow text wraps onto a new line and expands the text area.</p>
+                <span slot="helper-text">This textarea shows all the user input at once. Overflow text wraps onto a new line and expands the text area.</span>
             </IgrTextarea>
         </div>
     );
