@@ -1,2 +1,27 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.wrapper {
+  position: relative;
+  margin: 12px 0 0 12px;
+  display: flex;
+  padding: 8px;
+  background: var(--ig-surface-600);
+  border: 1px solid var(--ig-gray-600);
+  width: fit-content;
+  align-items: center;
+  border-radius: 4px;
+}
+
+igc-badge {
+  --size: 14px;
+
+  position: relative;
+  right: 8px;
+  top: -2px;
+}
+
+span {
+  display: block;
+  font-weight: 600;
+}
