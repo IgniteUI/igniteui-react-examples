@@ -11,13 +11,13 @@ export default class BadgeOutlined extends React.Component<any, any> {
 
   public render(): JSX.Element {
     return (
-      <div className="wrapper">
-        <div>
+      <section className="wrapper">
+        <header>
           <IgrAvatar initials="TO" shape="circle" />
           <IgrBadge outlined={true} variant="danger" />
-        </div>
+        </header>
         <span>Terrance Orta</span>
-      </div>
+      </section>
     );
   }
 }
