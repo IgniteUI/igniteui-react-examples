@@ -1,8 +1,4 @@
 igc-button::part(base) {
-    color: #011627;
-}
-
-igc-button::part(base)::before {
-    background-color: #e99221;
-    padding: 18px;
+  background-color: var(--ig-warn-700);
+  color: var(--ig-warn-700-contrast);
 }

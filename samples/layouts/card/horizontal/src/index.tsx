@@ -15,8 +15,8 @@ export default function CardHorizontal() {
                         <div>
                             <IgrCardHeader>
                                 <img src="https://dl.infragistics.com/x/img/music/rozes.jpg" slot="thumbnail"></img>
-                                <h5 slot="title">Rozes</h5>
-                                <h5 slot="subtitle">Under the Grave (2016)</h5>
+                                <span slot="title">Rozes</span>
+                                <span slot="subtitle">Under the Grave (2016)</span>
                             </IgrCardHeader>
                             <IgrCardContent>
                                 <p>As I have always said: I write what’s real and what’s true,

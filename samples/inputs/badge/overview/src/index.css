@@ -1,0 +1,13 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+igc-badge {
+  --size: 18px;
+
+  position: relative;
+  right: 10px;
+}
+
+igc-avatar {
+  margin-top: 6px;
+}

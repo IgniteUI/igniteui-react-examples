@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import './ExpansionPanelUsage.css';
 import { IgrExpansionPanel } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
@@ -15,8 +14,8 @@ export default class ExpansionPanelUsage extends React.Component<any, any> {
         return (
             <div className="container sample">
                 <IgrExpansionPanel>
-                    <h1 slot="title">Golden Retriever</h1>
-                    <h3 slot="subtitle">Medium-large gun dog</h3>
+                    <span slot="title">Golden Retriever</span>
+                    <span slot="subtitle">Medium-large gun dog</span>
                     <span>The Golden Retriever is a medium-large gun dog that retrieves shot waterfowl, such as ducks
                         and upland game birds, during hunting and shooting parties.[3] The name retriever refers to the breeds ability
                         to retrieve shot game undamaged due to their soft mouth. Golden retrievers have an instinctive love of water, and

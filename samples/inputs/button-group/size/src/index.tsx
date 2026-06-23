@@ -21,13 +21,13 @@ export default function ButtonGroupSize() {
         <div className="container sample">
             <IgrButtonGroup onSelect={onSelect} style={style}>
                 <IgrToggleButton value="small">
-                    <span>Small</span>
+                    Small
                 </IgrToggleButton>
                 <IgrToggleButton value="medium">
-                    <span>Medium</span>
+                    Medium
                 </IgrToggleButton>
                 <IgrToggleButton value="large">
-                    <span>Large</span>
+                    Large
                 </IgrToggleButton>
             </IgrButtonGroup>
       </div>

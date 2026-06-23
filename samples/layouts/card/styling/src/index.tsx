@@ -36,8 +36,8 @@ export default function CardStyling() {
             <img src="https://images.unsplash.com/photo-1541516160071-4bb0c5af65ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"></img>
           </IgrCardMedia>
           <IgrCardHeader className="header">
-            <h3 slot="title">Jane Doe</h3>
-            <h5 slot="subtitle">Professional Photographer</h5>
+            <span slot="title">Jane Doe</span>
+            <span slot="subtitle">Professional Photographer</span>
           </IgrCardHeader>
           <IgrCardContent>
             <p>

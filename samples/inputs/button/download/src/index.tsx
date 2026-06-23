@@ -13,7 +13,7 @@ export default class ButtonDownload extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                 <IgrButton href="" variant="contained" download="url" target="_blank" ><span>Download</span></IgrButton>
+                 <IgrButton href="" variant="contained" download="url" target="_blank">Download</IgrButton>
             </div>
         );
     }

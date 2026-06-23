@@ -13,7 +13,7 @@ export default class ButtonFlat extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrButton variant="flat"><span>Flat</span></IgrButton>
+                <IgrButton variant="flat">Flat</IgrButton>
             </div>
         );
     }
