@@ -1,0 +1,14 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+igc-pivot-grid {
+  --header-background: #3b3a3a;
+  --header-text-color: #ffcd0f;
+  --content-background: #494949;
+  --content-text-color: #ffcd0f;
+  --row-odd-background: #494949;
+  --row-even-background: #494949;
+  --row-hover-background: #3b3a3a;
+  --row-hover-text-color: #ffcd0f;
+}
+
