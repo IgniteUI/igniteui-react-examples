@@ -1,0 +1,35 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.container {
+  background-color: #fff;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container--dark {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+}
+
+.theme-select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  min-width: 200px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.theme-select--dark {
+  background: #2a2a3e;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+.label--dark {
+  color: #e0e0e0;
+}
