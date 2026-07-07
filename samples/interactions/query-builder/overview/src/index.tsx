@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { 
@@ -24,27 +24,93 @@ interface Entity {
   fields: Field[];
 }
 
-interface SampleState {
-  expressionTree: IgrExpressionTree | null;
-}
+const customersFields: Field[] = [
+  { field: 'customerId', dataType: 'string' },
+  { field: 'companyName', dataType: 'string' },
+  { field: 'contactName', dataType: 'string' },
+  { field: 'contactTitle', dataType: 'string' }
+];
 
-export default class Sample extends React.Component<any, SampleState> {
-  private queryBuilderRef: React.RefObject<IgrQueryBuilder>;
-  private gridRef: React.RefObject<IgrGrid>;
+const ordersFields: Field[] = [
+  { field: 'orderId', dataType: 'number' },
+  { field: 'customerId', dataType: 'string' },
+  { field: 'employeeId', dataType: 'number' },
+  { field: 'shipperId', dataType: 'number' },
+  { field: 'orderDate', dataType: 'date' },
+  { field: 'requiredDate', dataType: 'date' },
+  { field: 'shipVia', dataType: 'string' },
+  { field: 'freight', dataType: 'number' },
+  { field: 'shipName', dataType: 'string' },
+  { field: 'completed', dataType: 'boolean' }
+];
 
-  constructor(props: any) {
-    super(props);
+const entities: Entity[] = [
+  { name: 'Customers', fields: customersFields },
+  { name: 'Orders', fields: ordersFields }
+];
 
-    this.queryBuilderRef = React.createRef();
-    this.gridRef = React.createRef();
+function Sample() {
+  const queryBuilderRef = useRef<IgrQueryBuilder>(null);
+  const gridRef = useRef<IgrGrid>(null);
+  const [expressionTree, setExpressionTree] = useState<IgrExpressionTree | null>(null);
 
-    this.state = {
-      expressionTree: null
-    };
-  }
+  const calculateColumnsInView = (tree: IgrExpressionTree) => {
+    if (!gridRef.current) return;
 
-  componentDidMount() {
-    // Initialize expression tree
+    const grid = gridRef.current;
+    const returnFields = tree.returnFields ?? [];
+
+    if (returnFields.length === 0 || returnFields[0] === '*') {
+      const selectedEntity = entities.find(e => e.name === tree.entity);
+      const selectedEntityFields = (selectedEntity?.fields ?? []).map(f => f.field);
+
+      grid.columns.forEach((column: any) => {
+        column.hidden = !selectedEntityFields.includes(column.field);
+      });
+    } else {
+      grid.columns.forEach((column: any) => {
+        column.hidden = !returnFields.includes(column.field);
+      });
+    }
+  };
+
+  const fetchData = async (tree: IgrExpressionTree) => {
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    grid.isLoading = true;
+
+    try {
+      const response = await fetch(`${API_ENDPOINT}/QueryBuilder/ExecuteQuery`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(tree)
+      });
+
+      if (!response.ok) {
+        throw new Error(`ExecuteQuery failed: ${response.status} ${response.statusText}`);
+      }
+
+      const json = await response.json();
+      const data = (Object.values(json)[0] as any[]) ?? [];
+      grid.data = data;
+
+      await new Promise(resolve => requestAnimationFrame(() => resolve(null)));
+      calculateColumnsInView(tree);
+    } catch (err) {
+      console.error(err);
+      grid.data = [];
+    } finally {
+      grid.isLoading = false;
+    }
+  };
+
+  const handleExpressionTreeChange = (event: any) => {
+    setExpressionTree(event.detail);
+    fetchData(event.detail);
+  };
+
+  useEffect(() => {
     const tree = new IgrFilteringExpressionsTree();
     tree.operator = FilteringLogic.And;
     tree.entity = 'Orders';
@@ -61,149 +127,42 @@ export default class Sample extends React.Component<any, SampleState> {
       'completed'
     ];
 
-    this.setState({ expressionTree: tree });
+    if (gridRef.current) {
+      gridRef.current.height = '420px';
+      gridRef.current.autoGenerate = true;
+    }
 
-    // Set up query builder
-    if (this.queryBuilderRef.current && tree) {
-      const queryBuilder = this.queryBuilderRef.current;
-      queryBuilder.entities = this.entities as any;
+    if (queryBuilderRef.current) {
+      const queryBuilder = queryBuilderRef.current;
+      queryBuilder.entities = entities as any;
       queryBuilder.expressionTree = tree;
-
-      queryBuilder.addEventListener('expressionTreeChange', this.handleExpressionTreeChange);
+      queryBuilder.addEventListener('expressionTreeChange', handleExpressionTreeChange);
     }
 
-    // Set up grid
-    if (this.gridRef.current) {
-      const grid = this.gridRef.current;
-      grid.height = '420px';
-      grid.autoGenerate = true;
-    }
-  }
+    setExpressionTree(tree);
+    fetchData(tree);
 
-  componentDidUpdate(prevProps: any, prevState: any) {
-    // Fetch data when expression tree changes
-    if (prevState.expressionTree !== this.state.expressionTree && this.state.expressionTree) {
-      this.fetchData();
-    }
-
-    // Update query builder if expression tree changed
-    if (this.queryBuilderRef.current && this.state.expressionTree && 
-        prevState.expressionTree !== this.state.expressionTree) {
-      const queryBuilder = this.queryBuilderRef.current;
-      queryBuilder.expressionTree = this.state.expressionTree;
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.queryBuilderRef.current) {
-      this.queryBuilderRef.current.removeEventListener('expressionTreeChange', this.handleExpressionTreeChange);
-    }
-  }
-
-  private handleExpressionTreeChange = (event: any) => {
-    this.setState({ expressionTree: event.detail });
-  };
-
-  private get customersFields(): Field[] {
-    return [
-      { field: 'customerId', dataType: 'string' },
-      { field: 'companyName', dataType: 'string' },
-      { field: 'contactName', dataType: 'string' },
-      { field: 'contactTitle', dataType: 'string' }
-    ];
-  }
-
-  private get ordersFields(): Field[] {
-    return [
-      { field: 'orderId', dataType: 'number' },
-      { field: 'customerId', dataType: 'string' },
-      { field: 'employeeId', dataType: 'number' },
-      { field: 'shipperId', dataType: 'number' },
-      { field: 'orderDate', dataType: 'date' },
-      { field: 'requiredDate', dataType: 'date' },
-      { field: 'shipVia', dataType: 'string' },
-      { field: 'freight', dataType: 'number' },
-      { field: 'shipName', dataType: 'string' },
-      { field: 'completed', dataType: 'boolean' }
-    ];
-  }
-
-  private get entities(): Entity[] {
-    return [
-      { name: 'Customers', fields: this.customersFields },
-      { name: 'Orders', fields: this.ordersFields }
-    ];
-  }
-
-  private calculateColumnsInView = () => {
-    if (!this.gridRef.current || !this.state.expressionTree) return;
-
-    const grid = this.gridRef.current;
-    const expressionTree = this.state.expressionTree;
-    const returnFields = expressionTree.returnFields ?? [];
-
-    if (returnFields.length === 0 || returnFields[0] === '*') {
-      const selectedEntity = this.entities.find(e => e.name === expressionTree.entity);
-      const selectedEntityFields = (selectedEntity?.fields ?? []).map(f => f.field);
-      
-      grid.columns.forEach(column => {
-        column.hidden = !selectedEntityFields.includes(column.field);
-      });
-    } else {
-      grid.columns.forEach(column => {
-        column.hidden = !returnFields.includes(column.field);
-      });
-    }
-  };
-
-  private async fetchData() {
-    const grid = this.gridRef.current;
-    const expressionTree = this.state.expressionTree;
-
-    if (!grid || !expressionTree) return;
-
-    grid.isLoading = true;
-
-    try {
-      const response = await fetch(`${API_ENDPOINT}/QueryBuilder/ExecuteQuery`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(expressionTree)
-      });
-
-      if (!response.ok) {
-        throw new Error(`ExecuteQuery failed: ${response.status} ${response.statusText}`);
+    return () => {
+      if (queryBuilderRef.current) {
+        queryBuilderRef.current.removeEventListener('expressionTreeChange', handleExpressionTreeChange);
       }
+    };
+  }, []);
 
-      const json = await response.json();
-      const data = (Object.values(json)[0] as any[]) ?? [];
-      grid.data = data;
+  return (
+    <div className="container sample ig-typography">
+      <div className="wrapper">
+        <IgrQueryBuilder ref={queryBuilderRef} id="queryBuilder"></IgrQueryBuilder>
 
-      // Calculate column visibility after data loads
-      await new Promise(resolve => requestAnimationFrame(() => resolve(null)));
-      this.calculateColumnsInView();
-    } catch (err) {
-      console.error(err);
-      grid.data = [];
-    } finally {
-      grid.isLoading = false;
-    }
-  }
-
-  public render(): JSX.Element {
-    return (
-      <div className="container sample ig-typography">
-        <div className="wrapper">
-          <IgrQueryBuilder ref={this.queryBuilderRef} id="queryBuilder"></IgrQueryBuilder>
-          
-          <div className="output-area">
-            <IgrGrid ref={this.gridRef} id="grid"></IgrGrid>
-          </div>
+        <div className="output-area">
+          <IgrGrid ref={gridRef} id="grid"></IgrGrid>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+export default Sample;
 
 // rendering above component in the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
