@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { 
@@ -52,7 +52,6 @@ const entities: Entity[] = [
 function Sample() {
   const queryBuilderRef = useRef<IgrQueryBuilder>(null);
   const gridRef = useRef<IgrGrid>(null);
-  const [expressionTree, setExpressionTree] = useState<IgrExpressionTree | null>(null);
 
   const calculateColumnsInView = (tree: IgrExpressionTree) => {
     if (!gridRef.current) return;
@@ -106,7 +105,6 @@ function Sample() {
   };
 
   const handleExpressionTreeChange = (event: any) => {
-    setExpressionTree(event.detail);
     fetchData(event.detail);
   };
 
@@ -139,7 +137,6 @@ function Sample() {
       queryBuilder.addEventListener('expressionTreeChange', handleExpressionTreeChange);
     }
 
-    setExpressionTree(tree);
     fetchData(tree);
 
     return () => {

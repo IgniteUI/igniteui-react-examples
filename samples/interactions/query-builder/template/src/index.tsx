@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
@@ -329,10 +329,8 @@ const buildSearchValueTemplate = (ctx: QueryBuilderSearchValueContext) => {
 function Sample() {
   const queryBuilderRef = useRef<IgrQueryBuilder>(null);
   const expressionOutputRef = useRef<HTMLPreElement>(null);
-  const [expressionTree, setExpressionTree] = useState<IgrExpressionTree | null>(null);
 
   const handleExpressionTreeChange = (event: any) => {
-    setExpressionTree(event.detail);
     if (expressionOutputRef.current) {
       expressionOutputRef.current.textContent = JSON.stringify(event.detail, null, 2);
     }
@@ -362,8 +360,6 @@ function Sample() {
       queryBuilder.expressionTree = tree;
       queryBuilder.addEventListener('expressionTreeChange', handleExpressionTreeChange);
     }
-
-    setExpressionTree(tree);
 
     if (expressionOutputRef.current) {
       expressionOutputRef.current.textContent = JSON.stringify(tree, null, 2);
