@@ -4,44 +4,24 @@ import './index.css';
 
 import { 
   IgrQueryBuilder,
-  IgrQueryBuilderModule,
   IgrQueryBuilderHeader,
   IgrFilteringExpressionsTree,
-  IgrExpressionTree,
   FilteringLogic,
   IgrStringFilteringOperand
 } from 'igniteui-react-grids';
 
 import {
   IgrDatePicker,
-  IgrDatePickerModule,
   IgrDateTimeInput,
-  IgrDateTimeInputModule,
   IgrSelect,
-  IgrSelectModule,
   IgrSelectItem,
   IgrRadioGroup,
-  IgrRadioGroupModule,
   IgrRadio,
   IgrInput,
-  IgrInputModule,
-  IgrIcon,
-  IgrIconModule
+  IgrIcon
 } from 'igniteui-react';
 
 import 'igniteui-react-grids/grids/themes/light/material.css';
-
-// Register components
-const mods: any[] = [
-  IgrQueryBuilderModule,
-  IgrDatePickerModule,
-  IgrDateTimeInputModule,
-  IgrSelectModule,
-  IgrRadioGroupModule,
-  IgrInputModule,
-  IgrIconModule
-];
-mods.forEach((m) => m.register());
 
 // Types
 interface Field {
@@ -171,7 +151,7 @@ const buildRegionSelect = (ctx: QueryBuilderSearchValueContext) => {
       className="qb-select"
       key={key}
       value={currentValue}
-      change={(sender: any) => {
+      onChange={(sender: any) => {
         const value = sender.value;
         const currentKey = ctx?.implicit?.value?.value ?? '';
 
@@ -232,8 +212,7 @@ const buildDatePicker = (ctx: QueryBuilderSearchValueContext) => {
       key={key}
       value={currentValue}
       disabled={!isEnabled}
-      click={(sender: any) => sender.show()}
-      change={(sender: any) => {
+      onChange={(sender: any) => {
         setImplicitValue(ctx, sender.value);
       }}>
     </IgrDatePicker>
@@ -252,7 +231,7 @@ const buildTimeInput = (ctx: QueryBuilderSearchValueContext) => {
       inputFormat="hh:mm tt"
       value={currentValue}
       disabled={isDisabled}
-      change={(sender: any) => {
+      onChange={(sender: any) => {
         setImplicitValue(ctx, sender.value);
       }}>
       <div slot="prefix">
@@ -288,7 +267,7 @@ const buildDefaultInput = (ctx: QueryBuilderSearchValueContext, matchesEqualityC
       disabled={isDisabled}
       placeholder={placeholder}
       type={isNumber ? 'number' : 'text'}
-      input={(sender: any) => {
+      onInput={(sender: any) => {
         const value = sender.value;
         setImplicitValue(ctx, isNumber
           ? value === '' ? null : Number(value)
