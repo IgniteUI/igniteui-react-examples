@@ -152,7 +152,7 @@ const buildRegionSelect = (ctx: QueryBuilderSearchValueContext) => {
       key={key}
       value={currentValue}
       onChange={(sender: any) => {
-        const value = sender.value;
+        const value = sender.detail;
         const currentKey = ctx?.implicit?.value?.value ?? '';
 
         if (!value || value === currentKey) return;
@@ -213,7 +213,7 @@ const buildDatePicker = (ctx: QueryBuilderSearchValueContext) => {
       value={currentValue}
       disabled={!isEnabled}
       onChange={(sender: any) => {
-        setImplicitValue(ctx, sender.value);
+        setImplicitValue(ctx, sender.detail);
       }}>
     </IgrDatePicker>
   );
@@ -232,7 +232,7 @@ const buildTimeInput = (ctx: QueryBuilderSearchValueContext) => {
       value={currentValue}
       disabled={isDisabled}
       onChange={(sender: any) => {
-        setImplicitValue(ctx, sender.value);
+        setImplicitValue(ctx, sender.detail);
       }}>
       <div slot="prefix">
         <IgrIcon name="clock" collection="material" />
