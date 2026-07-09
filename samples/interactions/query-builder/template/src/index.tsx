@@ -268,7 +268,7 @@ const buildDefaultInput = (ctx: QueryBuilderSearchValueContext, matchesEqualityC
       placeholder={placeholder}
       type={isNumber ? 'number' : 'text'}
       onInput={(sender: any) => {
-        const value = sender.value;
+        const value = sender.detail;
         setImplicitValue(ctx, isNumber
           ? value === '' ? null : Number(value)
           : value);
