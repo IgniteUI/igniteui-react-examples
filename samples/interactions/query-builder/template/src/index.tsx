@@ -152,7 +152,7 @@ const buildRegionSelect = (ctx: QueryBuilderSearchValueContext) => {
       key={key}
       value={currentValue}
       onChange={(sender: any) => {
-        const value = sender.detail;
+        const value = sender.detail.value;
         const currentKey = ctx?.implicit?.value?.value ?? '';
 
         if (!value || value === currentKey) return;
