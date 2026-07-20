@@ -1,0 +1,26 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+igc-accordion {
+    width: 100%;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+    padding: 16px;
+}
+
+.button-group igc-button {
+    min-width: 96px;
+}
+
+.sample-wrapper {
+    overflow-y: auto;
+    max-height: 380px;
+    margin: 8px;
+}
+
+igc-expansion-panel {
+    border: 1px solid rgba(174, 174, 174, 0.25);
+}
