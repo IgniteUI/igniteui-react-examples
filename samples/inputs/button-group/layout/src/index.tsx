@@ -1,31 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { IgrButton, IgrButtonGroup, IgrRipple } from 'igniteui-react';
+import { IgrButtonGroup, IgrRipple, IgrToggleButton } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
 import './index.css';
 
 export default function ButtonGroupLayout() {
   return (
-    <article className="sample-column">
+    <div className="container sample">
       <IgrButtonGroup>
-        <IgrButton>
+        <IgrToggleButton>
           Left
           <IgrRipple />
-        </IgrButton>
-        <IgrButton>
+        </IgrToggleButton>
+        <IgrToggleButton>
           Center
           <IgrRipple />
-        </IgrButton>
-        <IgrButton>
+        </IgrToggleButton>
+        <IgrToggleButton>
           Right
           <IgrRipple />
-        </IgrButton>
-        <IgrButton selected={true}>
+        </IgrToggleButton>
+        <IgrToggleButton selected={true}>
           Justify
           <IgrRipple />
-        </IgrButton>
+        </IgrToggleButton>
       </IgrButtonGroup>
-    </article>
+    </div>
   );
 }
 

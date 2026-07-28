@@ -3,9 +3,5 @@
 
 igc-button-group {
   display: inline-block;
-  max-width: 400px;
-}
-
-igc-ripple {
-  --color: grey;
+  width: 300px;
 }
