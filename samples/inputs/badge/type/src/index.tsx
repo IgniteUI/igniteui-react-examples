@@ -4,8 +4,7 @@ import './index.css';
 import { IgrBadge } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default class BadgeType extends React.Component<any, any> {
-  public render(): JSX.Element {
+export default function BadgeType(): JSX.Element {
     return (
       <div className="badge-type">
         <div className="badge-type-item">
@@ -26,7 +25,6 @@ export default class BadgeType extends React.Component<any, any> {
         </div>
       </div>
     );
-  }
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

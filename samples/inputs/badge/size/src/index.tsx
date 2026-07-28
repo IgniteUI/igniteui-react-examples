@@ -4,8 +4,7 @@ import './index.css';
 import { IgrBadge } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default class BadgeSize extends React.Component<any, any> {
-  public render(): JSX.Element {
+export default function BadgeSize(): JSX.Element {
     return (
       <div className="badge-size">
         <div className="badge-size-item">
@@ -22,7 +21,6 @@ export default class BadgeSize extends React.Component<any, any> {
         </div>
       </div>
     );
-  }
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
