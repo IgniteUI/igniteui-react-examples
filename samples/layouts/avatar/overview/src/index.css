@@ -1,0 +1,49 @@
+.avatar-overview-sample {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+}
+
+.size-large {
+  --ig-size: var(--ig-size-large);
+}
+
+.avatar-with-badge {
+  position: relative;
+  display: inline-flex;
+}
+
+.avatar-status {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+}
+
+.avatar-stack {
+  display: inline-flex;
+  align-items: center;
+}
+
+.avatar-stack .size-large {
+  margin-left: -24px;
+}
+
+.avatar-stack .size-large:first-child {
+  margin-left: 0;
+}
+
+.avatar-stack .size-large::part(base) {
+  border: 4px solid #fff;
+  box-sizing: border-box;
+}
+
+.avatar-stack .size-large:last-child {
+  --ig-avatar-background: #e8eef6;
+  --ig-avatar-color: #6f8097;
+}
+
+.avatar-stack .size-large:last-child::part(initials) {
+  font-size: 32px;
+  font-weight: 500;
+}
