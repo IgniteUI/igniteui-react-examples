@@ -1,51 +1,39 @@
-.sizes .size-small {
-    --ig-size: var(--ig-size-small);
-}
-
-.sizes .size-medium {
-    --ig-size: var(--ig-size-medium);
-}
-
-.sizes .size-large,
-.size-large {
-    --ig-size: var(--ig-size-large);
-}
-
 .sample {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 10px;
-    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.sizes {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+.chat-list {
+  width: 344px;
+  max-width: 100%;
 }
 
-igc-avatar {
-    --ig-avatar-background: var(--ig-success-100);
+.size-small {
+  --ig-size: var(--ig-size-small);
 }
 
-igc-avatar::part(base) {
-    border: 2px solid var(--ig-error-500);
+.size-medium {
+  --ig-size: var(--ig-size-medium);
 }
 
-igc-avatar::part(initials) {
-    color: var(--ig-success-500-contrast);
-    background: var(--ig-error-500);
-    padding: 5px 10px;
-    margin: 10px;
-    border-radius: 50px;
-    /* border: 1px solid greenyellow; */
+.size-large {
+  --ig-size: var(--ig-size-large);
 }
 
-igc-avatar::part(image) {
-    border-radius: 20px;
-    padding: 5px;
-    border: 2px solid var(--ig-primary-500);
+.avatar-with-badge {
+  position: relative;
+  display: inline-flex;
 }
 
+.avatar-status {
+  --ig-badge-icon-color: #ffffff;
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+}
 
+.avatar-muted-badge {
+  --ig-badge-background-color: var(--ig-gray-300);
+  --ig-badge-icon-color: var(--ig-gray-700);
+}

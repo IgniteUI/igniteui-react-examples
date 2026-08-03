@@ -1,16 +1,59 @@
-.size-small {
-    --ig-size: var(--ig-size-small);
-}
-
-.size-medium {
-    --ig-size: var(--ig-size-medium);
+.avatar-overview-sample {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
 }
 
 .size-large {
-    --ig-size: var(--ig-size-large);
+  --ig-size: var(--ig-size-large);
+}
+.size-medium {
+  --ig-size: var(--ig-size-medium);
+}
+.size-small {
+  --ig-size: var(--ig-size-small);
 }
 
-.sample {
-    flex-direction: row;
-    gap: 10px;
+.avatar-variant {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar-with-badge {
+  width: 88px;
+  height: 88px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-label {
+  color: var(--ig-gray-600);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.avatar-status {
+  --size: 18px;
+  position: absolute;
+  right: var(--badge-offset);
+  bottom: var(--badge-offset);
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.avatar-with-badge:has(.size-large) {
+  --badge-offset: 7px;
+}
+
+.avatar-with-badge:has(.size-medium) {
+  --badge-offset: 15px;
+}
+
+.avatar-with-badge:has(.size-small) {
+  --badge-offset: 24px;
 }
