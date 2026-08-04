@@ -35,7 +35,7 @@ export default function AvatarTailwindStyling() {
         <IgrCardMedia className="h-[189px] overflow-hidden">
           <img
             className="h-full w-full object-cover"
-            src="https://dl.infragistics.com/x/img/card/media/cafe.jpg"
+            src="https://dl.infragistics.com/x/img/avatars/image-bg4.png"
             alt="Cafe interior"
           />
         </IgrCardMedia>
@@ -44,7 +44,7 @@ export default function AvatarTailwindStyling() {
             className="[--ig-size:var(--ig-size-medium)]"
             slot="thumbnail"
             shape="circle"
-            src="https://dl.infragistics.com/x/img/people/men/11.png"
+            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-09.png"
             alt="A profile photo of Kate Thompson."
           />
           <span slot="title">Kate Thompson</span>
@@ -105,7 +105,7 @@ export default function AvatarTailwindStyling() {
             className="[--ig-size:var(--ig-size-medium)]"
             slot="thumbnail"
             shape="circle"
-            src="https://dl.infragistics.com/x/img/people/men/11.png"
+            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-09.png"
             alt="A profile photo of Kate Thompson."
           />
           <span slot="title">Kate Thompson</span>

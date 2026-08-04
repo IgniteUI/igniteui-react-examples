@@ -58,7 +58,7 @@ const sections: AvatarListSection[] = [
         subtitle: "Hi Samira, thanks for the ...",
         end: "9:44 AM",
         avatar: {
-          src: "https://dl.infragistics.com/x/img/people/men/11.png",
+          src: "https://dl.infragistics.com/x/img/avatars/avatar-profile-07.png",
           alt: "A profile photo of Nick Evans.",
         },
         badge: {
@@ -71,7 +71,7 @@ const sections: AvatarListSection[] = [
         subtitle: "I'll send the text and im ...",
         end: "8:30 AM",
         avatar: {
-          src: "https://dl.infragistics.com/x/img/people/men/11.png",
+          initials: "JF",
           alt: "A profile photo of Nick Evans.",
         },
         badge: {
@@ -85,7 +85,7 @@ const sections: AvatarListSection[] = [
         subtitle: "That's great!",
         end: "Yesterday",
         avatar: {
-          src: "https://dl.infragistics.com/x/img/people/men/11.png",
+          src: "https://dl.infragistics.com/x/img/avatars/avatar-profile-08.png",
           alt: "A profile photo of Nick Evans.",
         },
         badge: {

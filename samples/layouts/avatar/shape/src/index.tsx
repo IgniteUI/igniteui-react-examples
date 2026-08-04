@@ -28,7 +28,7 @@ export default function AvatarShape() {
           <IgrAvatar
             className="size-small"
             shape="circle"
-            src="https://dl.infragistics.com/x/img/people/men/11.png"
+            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png"
             alt="A profile photo of a man."
           />
           <IgrBadge
@@ -63,7 +63,7 @@ export default function AvatarShape() {
           <IgrAvatar
             className="size-small"
             shape="rounded"
-            initials="AZ"
+            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-07.png"
             alt="A profile photo of a man."
           />
           <IgrBadge

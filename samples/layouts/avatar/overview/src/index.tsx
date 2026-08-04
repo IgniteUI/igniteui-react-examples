@@ -10,14 +10,14 @@ export default function AvatarOverview() {
       <IgrAvatar
         className="size-large"
         shape="circle"
-        src="https://dl.infragistics.com/x/img/people/men/11.png"
+        src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
         alt="A profile photo of a man."
       />
       <span className="avatar-with-badge">
         <IgrAvatar
           className="size-large"
           shape="circle"
-          src="https://dl.infragistics.com/x/img/people/men/11.png"
+          src="https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png"
           alt="A profile photo of a man."
         />
         <IgrBadge
@@ -31,19 +31,19 @@ export default function AvatarOverview() {
         <IgrAvatar
           className="size-large"
           shape="circle"
-          src="https://dl.infragistics.com/x/img/people/men/11.png"
+          src="https://dl.infragistics.com/x/img/avatars/avatar-profile-07.png"
           alt="A profile photo of a man."
         />
         <IgrAvatar
           className="size-large"
           shape="circle"
-          src="https://dl.infragistics.com/x/img/people/men/11.png"
+          src="https://dl.infragistics.com/x/img/avatars/avatar-profile-03.png"
           alt="A profile photo of a man."
         />
         <IgrAvatar
           className="size-large"
           shape="circle"
-          src="https://dl.infragistics.com/x/img/people/men/11.png"
+          src="https://dl.infragistics.com/x/img/avatars/avatar-profile-08.png"
           alt="A profile photo of a man."
         />
         <IgrAvatar
