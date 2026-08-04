@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   gap: 90px;
+  min-height: 100vh;
 }
 
 .size-large {
