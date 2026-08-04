@@ -36,6 +36,7 @@ type AvatarListItem = {
     icon?: string;
     initials?: string;
     alt: string;
+    className?: string;
   };
   badge?: {
     icon: string;
@@ -73,6 +74,7 @@ const sections: AvatarListSection[] = [
         avatar: {
           initials: "JF",
           alt: "A profile photo of Nick Evans.",
+          className: "avatar-muted",
         },
         badge: {
           icon: "x",
@@ -123,7 +125,7 @@ const sections: AvatarListSection[] = [
 function renderAvatar(item: AvatarListItem) {
   return (
     <IgrAvatar
-      className="size-small"
+      className={`size-small${item.avatar.className ? ` ${item.avatar.className}` : ""}`}
       shape="circle"
       src={item.avatar.src}
       initials={item.avatar.initials}

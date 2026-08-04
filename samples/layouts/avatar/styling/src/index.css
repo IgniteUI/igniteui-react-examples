@@ -37,3 +37,7 @@
   --ig-badge-background-color: var(--ig-gray-300);
   --ig-badge-icon-color: var(--ig-gray-700);
 }
+
+.avatar-muted {
+  --ig-avatar-background: #D2DBE8;
+}
