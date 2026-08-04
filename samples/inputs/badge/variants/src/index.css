@@ -1,2 +1,13 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.wrapper {
+	position: relative;
+	margin: 15px 0 0 15px;
+}
+
+igc-badge {
+	position: absolute;
+	bottom: 0;
+	left: 28px;
+}

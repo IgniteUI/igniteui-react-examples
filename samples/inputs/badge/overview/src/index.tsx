@@ -7,7 +7,7 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 export default function BadgeOverview(): JSX.Element {
   return (
     <div className="sample">
-      <IgrAvatar initials="JD" />
+      <IgrAvatar initials="JD" size="small" />
       <IgrBadge outlined={true} />
     </div>
   );

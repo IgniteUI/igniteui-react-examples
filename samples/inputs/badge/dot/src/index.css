@@ -1,2 +1,21 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.wrapper {
+	display: flex;
+	position: relative;
+	width: fit-content;
+	margin: 15px 0 0 15px;
+}
+
+igc-avatar igc-icon {
+	margin: 4px;
+}
+
+igc-badge {
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translate(35%, -35%);
+	z-index: 1;
+}
