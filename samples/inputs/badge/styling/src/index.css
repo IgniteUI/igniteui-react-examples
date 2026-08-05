@@ -24,6 +24,7 @@ igc-badge {
 .badge-lime {
     --ig-badge-background-color: var(--ig-success-700);
     --ig-badge-border-radius: 50%;
+    --ig-badge-dot-size: 0.5rem;
 }
 
 .badge-teal igc-icon,
