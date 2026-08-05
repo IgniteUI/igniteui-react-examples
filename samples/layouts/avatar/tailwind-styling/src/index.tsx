@@ -10,11 +10,12 @@ import {
   IgrCardHeader,
   IgrCardMedia,
   IgrDivider,
+  IgrIcon,
   IgrIconButton,
   registerIconFromText,
 } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/material.css";
-import { berealIcon, instagramIcon, threadsIcon } from "./icons";
+import { berealIcon, instagramIcon, plusIcon, threadsIcon } from "./icons";
 
 const profileStats = [
   { value: "23.9K", label: "Likes" },
@@ -27,6 +28,7 @@ export default function AvatarTailwindStyling() {
     registerIconFromText("instagram", instagramIcon, "material");
     registerIconFromText("bereal", berealIcon, "material");
     registerIconFromText("threads", threadsIcon, "material");
+    registerIconFromText("plus", plusIcon, "material");
   }, []);
 
   return (
@@ -73,8 +75,11 @@ export default function AvatarTailwindStyling() {
           </div>
         </IgrCardContent>
         <IgrCardActions>
-          <IgrButton className="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
-            <span>FOLLOW +</span>
+          <IgrButton className="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
+            <span className="inline-flex items-center gap-1">
+              FOLLOW
+              <IgrIcon className="h-4 w-4" name="plus" collection="material" />
+            </span>
           </IgrButton>
           <div slot="end" className="inline-flex items-center gap-1">
             <IgrIconButton
@@ -101,16 +106,20 @@ export default function AvatarTailwindStyling() {
 
       <IgrCard className="box-border h-[290px] w-[344px] [--ig-card-border-radius:30px]">
         <IgrCardHeader>
-          <IgrAvatar
-            className="[--ig-size:var(--ig-size-medium)]"
+          <span
             slot="thumbnail"
-            shape="circle"
-            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-09.png"
-            alt="A profile photo of Kate Thompson."
-          />
+            className="inline-flex rounded-full bg-[linear-gradient(135deg,#7dd3fc,#bff47a,#f5c2ff,#93c5fd)] p-[3px]"
+          >
+            <IgrAvatar
+              className="[--ig-size:var(--ig-size-medium)]"
+              shape="circle"
+              src="https://dl.infragistics.com/x/img/avatars/avatar-profile-09.png"
+              alt="A profile photo of Kate Thompson."
+            />
+          </span>
           <span slot="title">Kate Thompson</span>
         </IgrCardHeader>
-        <IgrCardContent>
+        <IgrCardContent className="overflow-hidden">
           <p className="m-0">
             3D Artist. Turning polygons into worlds and immersive digital
             realities
@@ -134,8 +143,11 @@ export default function AvatarTailwindStyling() {
           </div>
         </IgrCardContent>
         <IgrCardActions>
-          <IgrButton className="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
-            <span>FOLLOW +</span>
+          <IgrButton className="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
+            <span className="inline-flex items-center gap-1">
+              FOLLOW
+              <IgrIcon className="h-4 w-4" name="plus" collection="material" />
+            </span>
           </IgrButton>
           <div slot="end" className="inline-flex items-center gap-1">
             <IgrIconButton
