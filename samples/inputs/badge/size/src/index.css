@@ -15,6 +15,7 @@ main {
   justify-content: center;
   gap: 40px;
   padding: 32px;
+  min-height: 7rem;
 }
 
 .badge-size-row {
