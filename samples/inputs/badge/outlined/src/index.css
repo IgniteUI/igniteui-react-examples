@@ -48,7 +48,6 @@ igc-avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 60px;
   min-height: 7rem;
 }

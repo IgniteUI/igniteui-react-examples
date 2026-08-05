@@ -14,7 +14,6 @@ igc-avatar {
 
 igc-badge {
   --ig-size: var(--ig-size-small);
-
   position: absolute;
   inset-block-end: -6px;
   inset-inline-end: -4px;

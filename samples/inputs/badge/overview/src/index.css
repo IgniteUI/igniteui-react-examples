@@ -19,7 +19,6 @@ igc-icon {
 
 igc-badge {
   --ig-size: var(--ig-size-small);
-
   position: absolute;
   inset-block-start: -0.15rem;
   inset-inline-end: -0.15rem;

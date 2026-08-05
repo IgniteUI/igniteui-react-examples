@@ -5,7 +5,7 @@
 html,
 body,
 main {
-  background: transparent;
+    background: transparent;
 }
 
 igc-badge {
@@ -79,7 +79,6 @@ igc-badge {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 60px;
     min-height: 7rem;
 }
