@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import SamplesBrowser from "./navigation/SamplesBrowser";
 import RegisterServiceWorker from './serviceWorker';
 import { createRoot } from 'react-dom/client';
+import { initSampleThemeListener } from './sample-theme';
 
 import './index.css'; // styles shared between all samples
 
@@ -20,6 +21,9 @@ import './index.css'; // styles shared between all samples
      })
    // );
 //  });
+
+// Lets the docs ThemingWidget re-theme this browser while embedded.
+initSampleThemeListener();
 
 const container = document.getElementById('root');
 const root = createRoot(container);
