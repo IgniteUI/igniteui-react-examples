@@ -1,2 +1,53 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+#root,
+html,
+body,
+main {
+  background: transparent;
+}
+
+.badge-shape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  min-height: 7rem;
+}
+
+.badge-shape-row {
+  display: grid;
+  grid-template-columns: 80px 40px 40px 40px;
+  align-items: center;
+  justify-items: center;
+  gap: 8px;
+}
+
+.row-label {
+  justify-self: end;
+  color: var(--ig-gray-700);
+  font-size: 14px;
+}
+
+.badge-small {
+  --ig-size: var(--ig-size-small);
+}
+
+.badge-info-blue {
+  --ig-badge-background-color: #0057A9;
+}
+
+.badge-info-blue::part(base) {
+  background-color: #0057A9;
+}
+
+igc-badge::part(base),
+igc-badge igc-icon {
+  color: var(--ig-gray-50);
+}
+
+igc-badge igc-icon {
+  fill: var(--ig-gray-50);
+}

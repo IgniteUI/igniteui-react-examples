@@ -1,13 +1,84 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-.wrapper {
-	position: relative;
-	margin: 15px 0 0 15px;
+#root,
+html,
+body,
+main {
+  background: transparent;
 }
 
 igc-badge {
+	--ig-size: var(--ig-size-small);
 	position: absolute;
-	bottom: 0;
-	left: 28px;
+	inset-block-end: -4px;
+	inset-inline-end: -4px;
+}
+
+igc-avatar {
+	--ig-size: var(--ig-size-small);
+	--ig-avatar-background: var(--ig-gray-700);
+	--ig-avatar-color: var(--ig-gray-50);
+}
+
+.variant-item:first-child igc-avatar igc-icon,
+.variant-item:nth-child(4) igc-avatar igc-icon {
+	color: var(--ig-gray-50);
+}
+
+.badge-variants {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 40px;
+	min-height: 7rem;
+}
+
+.variant-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	min-width: 56px;
+}
+
+.variant-item span {
+	color: var(--ig-gray-700);
+	font-size: 13px;
+}
+
+.avatar-wrapper {
+	position: relative;
+	display: flex;
+}
+
+.badge-info-blue {
+	--ig-badge-background-color: #0057A9;
+}
+
+.badge-info-blue::part(base) {
+	background-color: #0057A9;
+}
+
+.badge-primary-blue {
+	--ig-badge-background-color: #0070BA;
+}
+
+.badge-primary-blue::part(base) {
+	background-color: #0070BA;
+}
+
+.badge-warning-black::part(base) {
+	background-color: #FAA419;
+	color: #000;
+}
+
+igc-badge::part(base),
+igc-badge igc-icon {
+	color: var(--ig-gray-50);
+}
+
+igc-badge igc-icon {
+	fill: var(--ig-gray-50);
 }

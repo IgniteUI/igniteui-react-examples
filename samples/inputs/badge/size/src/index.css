@@ -1,20 +1,52 @@
-.badge-size {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  padding: 16px;
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+#root,
+html,
+body,
+main {
+  background: transparent;
 }
 
-.badge-size-item {
+.badge-size {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 40px;
+  padding: 32px 16px;
+  min-height: 7rem;
 }
 
-.badge-size-item span {
+.badge-size-row {
+  display: grid;
+  grid-template-columns: 80px 32px 40px 40px;
+  align-items: center;
+  justify-items: center;
+  gap: 8px;
+}
+
+.row-label {
+  justify-self: end;
   color: var(--ig-gray-700);
   font-size: 14px;
+}
+
+.badge-info-blue {
+  --ig-badge-background-color: #0057A9;
+}
+
+.badge-info-blue::part(base) {
+  background-color: #0057A9;
+}
+
+igc-badge::part(base),
+igc-badge igc-icon {
+  color: var(--ig-gray-50);
+}
+
+igc-badge igc-icon {
+  fill: var(--ig-gray-50);
 }
 
 .badge-large { --ig-size: var(--ig-size-large); }
