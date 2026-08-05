@@ -1,13 +1,6 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-#root,
-html,
-body,
-main {
-  background: transparent;
-}
-
 .badge-shape {
   display: flex;
   flex-direction: column;
