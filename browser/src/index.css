@@ -1,3 +1,10 @@
+#root,
+html,
+body,
+main {
+    background: transparent;
+}
+
 .igx-grid__td img[src*="dl.infragistics.com/x/img/people"] {
     width: 62px;
     height: 62px;

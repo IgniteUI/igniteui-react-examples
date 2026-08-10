@@ -1,7 +1,83 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-igc-badge::part(base) {
-    --background-color: var(--ig-error-A100);
-    --border-radius: 2px;
+igc-badge {
+    --ig-size: var(--ig-size-small);
+}
+
+.badge-teal {
+    --ig-badge-background-color: var(--ig-success-700);
+    --ig-badge-border-radius: 50%;
+}
+
+.badge-amber {
+    --ig-badge-background-color: #C97C00;
+    --ig-badge-border-radius: 50%;
+}
+
+.badge-magenta {
+    --ig-badge-background-color: #9C27B0;
+    --ig-badge-text-color: var(--ig-gray-50);
+    --ig-badge-border-radius: 50%;
+}
+
+.badge-lime {
+    --ig-badge-background-color: var(--ig-success-700);
+    --ig-badge-border-radius: 50%;
+    --ig-badge-dot-size: 0.5rem;
+}
+
+.badge-teal igc-icon,
+.badge-amber igc-icon,
+.styling-item.pink igc-avatar igc-icon {
+    color: var(--ig-gray-50);
+}
+
+.badge-teal igc-icon {
+    position: relative;
+}
+
+.badge-teal igc-icon::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--ig-success-700);
+    transform: translate(-50%, -50%);
+}
+
+.styling-item igc-avatar {
+    --size: 40px;
+}
+
+.styling-item.green igc-avatar {
+    --icon-color: #248436;
+    --ig-avatar-background: #A9CEB0;
+    --ig-avatar-color: #248436;
+}
+
+.styling-item.pink igc-avatar {
+    --ig-avatar-background: #DA64FF;
+    --ig-avatar-color: var(--ig-gray-50);
+}
+
+.styling-item igc-badge {
+    position: absolute;
+    inset-block-end: -2px;
+    inset-inline-end: -2px;
+}
+
+.badge-styling {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    min-height: 7rem;
+}
+
+.styling-item {
+    position: relative;
+    display: flex;
 }

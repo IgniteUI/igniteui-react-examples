@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import path, { resolve } from 'path';
 
@@ -8,6 +9,7 @@ const jszipShimPath = path.resolve(__dirname, 'src/jszip-shim.js');
 export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
+    tailwindcss(),
     tsconfigPaths()
   ],
   base: mode === 'production' ? '/react-demos/' : '/',
