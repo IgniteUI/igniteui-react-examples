@@ -1,26 +1,17 @@
-/* shared styles are loaded from: */
-/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
-
-igc-accordion {
-    width: 100%;
+.accordion-sample {
+    width: min(720px, 100%);
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
 }
 
-.button-group {
+.accordion-toolbar {
     display: flex;
+    justify-content: flex-end;
     gap: 8px;
-    padding: 16px;
+    margin-bottom: 12px;
 }
 
-.button-group igc-button {
+.action-button {
     min-width: 96px;
-}
-
-.sample-wrapper {
-    overflow-y: auto;
-    max-height: 380px;
-    margin: 8px;
-}
-
-igc-expansion-panel {
-    border: 1px solid rgba(174, 174, 174, 0.25);
 }
