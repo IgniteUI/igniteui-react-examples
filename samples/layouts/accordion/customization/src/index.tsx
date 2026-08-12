@@ -38,6 +38,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
   ];
 
   private dateTimeInput: IgrDateTimeInput;
+  private transportationPanel: IgrExpansionPanel;
 
   constructor(props: any) {
     super(props);
@@ -54,9 +55,16 @@ export default class AccordionCustomization extends React.Component<any, any> {
     this.timeChange = this.timeChange.bind(this);
     this.clearTime = this.clearTime.bind(this);
     this.dateTimeInputRef = this.dateTimeInputRef.bind(this);
+    this.transportationPanelRef = this.transportationPanelRef.bind(this);
 
     registerIconFromText("clear", clearIcon, "material");
     registerIconFromText("clock", clockIcon, "material");
+  }
+
+  public componentDidMount() {
+    if (this.transportationPanel) {
+      this.transportationPanel.open = true;
+    }
   }
 
   public render(): JSX.Element {
@@ -68,7 +76,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
     return (
       <div className="accordion-sample">
         <IgrAccordion>
-          <IgrExpansionPanel open>
+          <IgrExpansionPanel ref={this.transportationPanelRef}>
             <span slot="title">
               Transportation{selectedCategories && `: ${selectedCategories}`}
             </span>
@@ -233,6 +241,13 @@ export default class AccordionCustomization extends React.Component<any, any> {
       return;
     }
     this.dateTimeInput = input;
+  }
+
+  public transportationPanelRef(panel: IgrExpansionPanel) {
+    if (!panel) {
+      return;
+    }
+    this.transportationPanel = panel;
   }
 }
 
