@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import "./AccordionCustomization.css";
 import {
   IgrAccordion,
   IgrCheckbox,
@@ -21,6 +20,8 @@ import {
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 
 type Category = { checked: boolean; type: string };
+
+const ratingOptions = [2, 3, 4, 5];
 
 const clearIcon =
   "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' width='24' height='24' viewBox='0 0 24 24'><path d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /></svg>";
@@ -44,7 +45,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
       categories: this.categories,
       cost: { lower: 200, upper: 800 },
       rating: "",
-      time: "Time",
+      time: "Any time",
     };
 
     this.categoriesChange = this.categoriesChange.bind(this);
@@ -59,104 +60,120 @@ export default class AccordionCustomization extends React.Component<any, any> {
   }
 
   public render(): JSX.Element {
+    const selectedCategories = this.state.categories
+      .filter((c: Category) => c.checked)
+      .map((c: Category) => c.type)
+      .join(", ");
+
     return (
-      <div id="root">
-        <div className="sample-wrapper">
-          <IgrAccordion>
-            <IgrExpansionPanel>
-              <span slot="title">
-                Categories
-                {this.state.categories.some((c: Category) => c.checked) && ": "}
-                {this.state.categories
-                  .filter((c: Category) => c.checked)
-                  .map((c: Category) => c.type)
-                  .join(", ")}
-              </span>
-              <span>
-                <div className="categories-container">
-                  {this.state.categories.map((c: Category) => {
-                    return (
-                      <IgrCheckbox
-                        key={"checkbox-" + c.type}
-                        onChange={(e: IgrCheckboxChangeEventArgs) =>
-                          this.categoriesChange(e, c.type)
-                        }
-                      >
-                        <span>{c.type}</span>
-                      </IgrCheckbox>
-                    );
-                  })}
-                </div>
-              </span>
-            </IgrExpansionPanel>
-            <IgrExpansionPanel>
-              <span slot="title">
-                Cost: $<span id="lowerCost">{this.state.cost.lower}</span> to $
-                <span id="upperCost">{this.state.cost.upper}</span>
-              </span>
-              <span>
-                <IgrRangeSlider
-                  min={0}
-                  max={1000}
-                  lower={this.state.cost.lower}
-                  upper={this.state.cost.upper}
-                  onChange={this.costRangeChange}
-                ></IgrRangeSlider>
-              </span>
-            </IgrExpansionPanel>
-            <IgrExpansionPanel>
-              <span slot="title">
-                Rating{this.state.rating && ": "}
-                {this.state.rating}
-              </span>
-              <span>
-                <IgrRadioGroup alignment="horizontal">
-                  {[1, 2, 3, 4].map((rating) => {
-                    return (
-                      <IgrRadio
-                        key={`${rating}star`}
-                        name="rating"
-                        value={rating.toString()}
-                        onChange={this.ratingChange}
-                      >
-                        <IgrRating
-                          label={`${rating} star${
-                            rating > 1 ? "s" : ""
-                          } or more`}
-                          max={5}
-                          value={rating + 0.5}
-                          className="size-small"
-                          readOnly={true}
-                        ></IgrRating>
-                      </IgrRadio>
-                    );
-                  })}
-                </IgrRadioGroup>
-              </span>
-            </IgrExpansionPanel>
-            <IgrExpansionPanel>
-              <span slot="title">
-                {this.state.time}
-              </span>
-              <span>
-                <IgrDateTimeInput
-                  className="size-small"
-                  inputFormat="hh:mm tt"
-                  label="Arrive before"
-                  ref={this.dateTimeInputRef}
-                  onChange={this.timeChange}
-                >
-                  <span slot="prefix">
-                    <IgrIcon name="clock" collection="material" />
-                  </span>
-                  <span slot="suffix" onClick={this.clearTime}>
-                    <IgrIcon name="clear" collection="material" />
-                  </span>
-                </IgrDateTimeInput>
-              </span>
-            </IgrExpansionPanel>
-          </IgrAccordion>
-        </div>
+      <div className="accordion-sample">
+        <IgrAccordion>
+          <IgrExpansionPanel open>
+            <span slot="title">
+              Transportation{selectedCategories && `: ${selectedCategories}`}
+            </span>
+            <span slot="subtitle">Choose how you want to travel</span>
+            <span>
+              <p className="panel-description">
+                Select one or more transportation options for your trip.
+              </p>
+              <div className="categories-container">
+                {this.state.categories.map((c: Category) => {
+                  return (
+                    <IgrCheckbox
+                      className="category-option"
+                      key={"checkbox-" + c.type}
+                      onChange={(e: IgrCheckboxChangeEventArgs) =>
+                        this.categoriesChange(e, c.type)
+                      }
+                    >
+                      <span>{c.type}</span>
+                    </IgrCheckbox>
+                  );
+                })}
+              </div>
+            </span>
+          </IgrExpansionPanel>
+          <IgrExpansionPanel>
+            <span slot="title">
+              Budget: ${this.state.cost.lower} - ${this.state.cost.upper}
+            </span>
+            <span slot="subtitle">Set the price range</span>
+            <span>
+              <p className="panel-description">
+                Adjust the minimum and maximum cost for available options.
+              </p>
+              <div className="range-summary">
+                <span>${this.state.cost.lower}</span>
+                <span>${this.state.cost.upper}</span>
+              </div>
+              <IgrRangeSlider
+                className="cost-slider"
+                min={0}
+                max={1000}
+                lower={this.state.cost.lower}
+                upper={this.state.cost.upper}
+                onChange={this.costRangeChange}
+              ></IgrRangeSlider>
+            </span>
+          </IgrExpansionPanel>
+          <IgrExpansionPanel>
+            <span slot="title">
+              Minimum Rating{this.state.rating && ": "}
+              {this.state.rating}
+            </span>
+            <span slot="subtitle">Filter by review score</span>
+            <span>
+              <p className="panel-description">
+                Choose the lowest rating you want to include in the results.
+              </p>
+              <IgrRadioGroup className="rating-options">
+                {ratingOptions.map((rating) => {
+                  return (
+                    <IgrRadio
+                      className="rating-option"
+                      key={`${rating}star`}
+                      name="rating"
+                      value={rating.toString()}
+                      onChange={this.ratingChange}
+                    >
+                      <IgrRating
+                        label={`${rating} star${rating > 1 ? "s" : ""} or more`}
+                        max={5}
+                        value={rating}
+                        className="rating-control size-small"
+                        readOnly={true}
+                      ></IgrRating>
+                    </IgrRadio>
+                  );
+                })}
+              </IgrRadioGroup>
+            </span>
+          </IgrExpansionPanel>
+          <IgrExpansionPanel>
+            <span slot="title">Arrival Time{this.state.time !== "Any time" && `: ${this.state.time}`}</span>
+            <span slot="subtitle">Set the latest arrival time</span>
+            <span>
+              <p className="panel-description">
+                Pick the latest acceptable arrival time for your trip.
+              </p>
+              <IgrDateTimeInput
+                className="time-input size-small"
+                inputFormat="hh:mm tt"
+                label="Arrive before"
+                ref={this.dateTimeInputRef}
+                onChange={this.timeChange}
+              >
+                <span slot="prefix">
+                  <IgrIcon name="clock" collection="material" />
+                </span>
+                <span slot="suffix" onClick={this.clearTime}>
+                  <IgrIcon name="clear" collection="material" />
+                </span>
+              </IgrDateTimeInput>
+            </span>
+          </IgrExpansionPanel>
+        </IgrAccordion>
       </div>
     );
   }
@@ -194,11 +211,11 @@ export default class AccordionCustomization extends React.Component<any, any> {
     const s = e.target as IgrDateTimeInput;
     const result =
       s.value !== null
-        ? `Arrive before ${e.detail.toLocaleTimeString([], {
+        ? e.detail.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
-          })}`
-        : "Time";
+          })
+        : "Any time";
     this.setState({
       time: result,
     });
@@ -207,7 +224,7 @@ export default class AccordionCustomization extends React.Component<any, any> {
   public clearTime() {
     this.dateTimeInput.clear();
     this.setState({
-      time: "Time",
+      time: "Any time",
     });
   }
 
@@ -219,6 +236,5 @@ export default class AccordionCustomization extends React.Component<any, any> {
   }
 }
 
-// rendering above component to the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<AccordionCustomization />);
