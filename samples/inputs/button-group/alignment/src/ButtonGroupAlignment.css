@@ -1,7 +1,35 @@
-igc-button-group {
-    width: 200px;
-}
-
 igc-ripple {
     --color: gray;
+}
+
+.button-group-alignment {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+    padding: 24px;
+}
+
+.button-group-alignment-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.button-group-alignment-item igc-button-group {
+    width: 240px;
+}
+
+.button-group-alignment-item:first-child igc-button-group {
+    width: 320px;
+}
+
+.button-group-alignment-item span {
+    width: 100%;
+    text-align: center;
+    color: var(--ig-gray-700);
+    font-size: 12px;
+    line-height: 16px;
 }

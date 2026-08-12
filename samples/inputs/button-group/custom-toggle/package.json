@@ -1,6 +1,6 @@
 {
-  "name": "react-button-group-toggle",
-  "description": "This project provides example of Button Group Toggle using Infragistics React components",
+  "name": "react-button-group-custom-toggle",
+  "description": "This project provides example of Button Group Custom Toggle using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

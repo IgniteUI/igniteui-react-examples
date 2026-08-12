@@ -1,40 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-    IgrButtonGroup,
-    IgrRipple,
-    IgrToggleButton,
-  } from 'igniteui-react';
+import { IgrButtonGroup, IgrRipple, IgrToggleButton } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
 import './ButtonGroupAlignment.css';
 import './index.css';
 
+const cities = ['Sofia', 'London', 'New York'];
 
-export default function ButtonGroupAlignment() {
+const alignments: Array<'horizontal' | 'vertical'> = ['horizontal', 'vertical'];
+
+export default function ButtonGroupAlignment(): JSX.Element {
     return (
-        <div className="container sample">
-            <IgrButtonGroup alignment="vertical">
-                <IgrToggleButton value="sofia">
-                    Sofia
-                    <IgrRipple/>
-                </IgrToggleButton>
-                <IgrToggleButton value="london">
-                    London
-                    <IgrRipple/>
-                </IgrToggleButton>
-                <IgrToggleButton value="new york" selected={true}>
-                    New York
-                    <IgrRipple/>
-                </IgrToggleButton>
-                <IgrToggleButton value="tokyo" >
-                    Tokyo
-                    <IgrRipple />
-                </IgrToggleButton>
-            </IgrButtonGroup>
-      </div>
+        <div className="button-group-alignment">
+            {alignments.map((alignment) => (
+                <div className="button-group-alignment-item" key={alignment}>
+                    <span>{alignment.charAt(0).toUpperCase() + alignment.slice(1)}</span>
+                    <IgrButtonGroup alignment={alignment}>
+                        {cities.map((city) => (
+                            <IgrToggleButton
+                                key={city}
+                                value={city.toLowerCase()}
+                                selected={city === 'New York'}
+                            >
+                                {city}
+                                <IgrRipple />
+                            </IgrToggleButton>
+                        ))}
+                    </IgrButtonGroup>
+                </div>
+            ))}
+        </div>
     );
 }
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<ButtonGroupAlignment/>);
+root.render(<ButtonGroupAlignment />);

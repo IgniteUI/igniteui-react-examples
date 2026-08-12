@@ -18,7 +18,7 @@ const icons = [
 
 icons.forEach(([name, text]) => registerIconFromText(name, text, 'material'));
 
-export default function ButtonGroupToggle() {
+export default function ButtonGroupCustomToggle() {
   return (
     <div className="container sample">
       <IgrButtonGroup selectionMode="multi">
@@ -32,4 +32,4 @@ export default function ButtonGroupToggle() {
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<ButtonGroupToggle />);
+root.render(<ButtonGroupCustomToggle />);

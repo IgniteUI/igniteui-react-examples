@@ -5,3 +5,9 @@ igc-button-group {
   display: inline-block;
   width: 300px;
 }
+
+.container.sample {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
