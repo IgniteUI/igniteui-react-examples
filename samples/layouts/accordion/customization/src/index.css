@@ -1,5 +1,7 @@
 .accordion-sample {
     width: min(760px, 100%);
+    max-height: 100%;
+    overflow-y: auto;
     margin: 0 auto;
     padding: 24px;
     box-sizing: border-box;

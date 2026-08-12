@@ -20,7 +20,7 @@ const panelClassName = [
 
 export default function AccordionTailwindStyling() {
     return (
-        <div className="box-border mx-auto w-[min(720px,100%)] p-6">
+        <div className="accordion-tailwind-sample box-border mx-auto w-[min(720px,100%)] p-6">
             <IgrAccordion>
                 <IgrExpansionPanel className={panelClassName} open>
                     <span slot="title">Getting Started</span>
