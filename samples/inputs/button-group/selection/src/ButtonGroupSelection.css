@@ -1,13 +1,27 @@
-.radio-group-container {
-    width: 400px;
-    margin-bottom: 1rem;
+.selection-samples {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    padding-left: 32px;
 }
 
-igc-radio-group {
-    padding: 0.5rem;
+.selection-sample {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
-igc-button-group {
+.selection-sample > span {
+    width: 120px;
+    text-align: right;
+    color: var(--ig-gray-700);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.selection-sample igc-button-group {
     width: 200px;
 }
 

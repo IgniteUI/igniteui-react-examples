@@ -20,7 +20,6 @@ export default function ButtonGroupAlignment(): JSX.Element {
                             <IgrToggleButton
                                 key={city}
                                 value={city.toLowerCase()}
-                                selected={city === 'New York'}
                             >
                                 {city}
                                 <IgrRipple />

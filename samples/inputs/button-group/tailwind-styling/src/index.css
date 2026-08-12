@@ -16,6 +16,11 @@ igc-ripple {
     min-height: 7rem;
 }
 
+.button-group-style {
+    width: 420px;
+    max-width: 100%;
+}
+
 .button-group-style igc-toggle-button::part(toggle) {
     color: var(--color-violet-700);
     background: var(--color-white);

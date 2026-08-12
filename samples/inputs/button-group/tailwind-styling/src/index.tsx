@@ -9,7 +9,7 @@ const views = ['Day', 'Week', 'Month'];
 export default function ButtonGroupTailwindStyling(): JSX.Element {
     return (
         <div className="button-group-center box-border h-full min-h-28 w-full bg-violet-50 p-6">
-            <IgrButtonGroup className="button-group-style w-[360px] overflow-hidden rounded-full border-2 border-violet-500 shadow-lg shadow-violet-200">
+            <IgrButtonGroup className="button-group-style w-[420px] overflow-hidden rounded-full border-2 border-violet-500 shadow-lg shadow-violet-200">
                 {views.map((view) => (
                     <IgrToggleButton
                         key={view}
