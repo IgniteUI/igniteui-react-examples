@@ -1,0 +1,57 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+igc-avatar {
+  --size: 40px;
+}
+
+igc-badge {
+  --ig-size: var(--ig-size-small);
+  position: absolute;
+  inset-block-end: -6px;
+  inset-inline-end: -4px;
+}
+
+.badge-type igc-badge::part(base),
+.badge-type igc-badge igc-icon {
+  color: var(--ig-gray-50);
+}
+
+.badge-type igc-badge igc-icon {
+  fill: var(--ig-gray-50);
+}
+
+.badge-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  min-height: 7rem;
+}
+
+.badge-type-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-width: 56px;
+  min-height: 72px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  display: flex;
+}
+
+.dot-badge {
+  inset-block-end: 0;
+  inset-inline-end: 0;
+  --ig-badge-dot-size: 0.5rem;
+}
+
+.badge-type-item span {
+  color: var(--ig-gray-700);
+  font-size: 12px;
+  line-height: 16px;
+}
