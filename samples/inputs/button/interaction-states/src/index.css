@@ -1,0 +1,43 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.button-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.button-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ig-gray-700);
+}
+
+igc-button.state-hover::part(base) {
+  background: var(--hover-background);
+  border-color: var(--hover-border-color);
+  color: var(--hover-foreground);
+}
+
+igc-button.state-focused::part(base),
+igc-button.state-focused-hover::part(base) {
+  background: var(--focus-background);
+  border-color: var(--focus-border-color);
+  color: var(--focus-foreground);
+}
+
+igc-button.state-focused-hover::part(base) {
+  background: var(--focus-hover-background);
+  border-color: var(--focus-hover-border-color);
+  color: var(--focus-hover-foreground);
+}
