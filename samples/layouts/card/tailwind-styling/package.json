@@ -32,8 +32,8 @@
     "vitest": "^3.2.4",
     "vitest-canvas-mock": "^0.3.3",
     "worker-loader": "^3.0.8",
-    "@tailwindcss/vite": "^4.1.14",
-    "tailwindcss": "^4.1.14"
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3"
   },
   "browserslist": [
     ">0.2%",
