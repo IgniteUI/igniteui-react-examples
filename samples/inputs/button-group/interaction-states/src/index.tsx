@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { IgrButtonGroup, IgrRipple, IgrToggleButton } from 'igniteui-react';
+import { IgrButtonGroup, IgrIcon, IgrRipple, IgrToggleButton } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
-import './ButtonGroupInteractionStates.css';
+import './ButtonGroupStates.css';
 import './index.css';
 
 const rows: Array<{ label: string; selected: boolean }> = [
@@ -10,31 +10,34 @@ const rows: Array<{ label: string; selected: boolean }> = [
     { label: 'Selected / On', selected: true }
 ];
 
-export default function ButtonGroupInteractionStates(): JSX.Element {
+const states = ['idle', 'hover', 'focused'];
+
+function StateButton({ selected, state }: { selected: boolean; state: string }): JSX.Element {
     return (
-        <div className="button-group-interaction-states">
-            <div className="button-group-interaction-states-row">
+        <IgrToggleButton className={`state-${state}`} selected={selected} value="button">
+            <IgrIcon name="notifications" collection="material" />
+            Button
+            <IgrIcon name="notifications" collection="material" />
+            <IgrRipple />
+        </IgrToggleButton>
+    );
+}
+
+export default function ButtonGroupStates(): JSX.Element {
+    return (
+        <div className="button-group-states">
+            <div className="button-group-states-row">
                 <span className="row-label" />
-                <span className="column-label">Enabled</span>
-                <span className="column-label">Disabled</span>
+                {states.map((state) => (
+                    <span className="column-label" key={state}>
+                        {state.charAt(0).toUpperCase() + state.slice(1)}
+                    </span>
+                ))}
             </div>
             {rows.map((row) => (
-                <div className="button-group-interaction-states-row" key={row.label}>
+                <div className="button-group-states-row" key={row.label}>
                     <span className="row-label">{row.label}</span>
-                    <IgrButtonGroup selection="multiple">
-                        <IgrToggleButton
-                            value="device"
-                            selected={row.label === 'Selected / On'}
-                        >
-                            Device
-                            <IgrRipple />
-                        </IgrToggleButton>
-                    </IgrButtonGroup>
-                    <IgrButtonGroup selection="multiple" disabled={true}>
-                        <IgrToggleButton value="cloud" selected={row.selected}>
-                            Cloud
-                        </IgrToggleButton>
-                    </IgrButtonGroup>
+                    {states.map((state) => <IgrButtonGroup key={state}><StateButton selected={row.selected} state={state} /></IgrButtonGroup>)}
                 </div>
             ))}
         </div>
@@ -43,4 +46,4 @@ export default function ButtonGroupInteractionStates(): JSX.Element {
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<ButtonGroupInteractionStates />);
+root.render(<ButtonGroupStates />);
