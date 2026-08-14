@@ -1,3 +1,6 @@
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "./samples/**/*.{ts,tsx,js,jsx}";
+
 #root,
 html,
 body,
