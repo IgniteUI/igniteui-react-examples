@@ -1,0 +1,74 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+igc-badge {
+    --ig-size: var(--ig-size-small);
+}
+
+igc-avatar {
+    --size: 40px;
+    --ig-avatar-background: var(--ig-gray-700);
+    --ig-avatar-color: var(--ig-gray-50);
+}
+
+igc-avatar igc-icon {
+    color: var(--ig-gray-50);
+}
+
+.badge-close {
+    --ig-badge-background-color: var(--ig-error-500);
+}
+
+.badge-close::part(base) {
+    background-color: var(--ig-error-500);
+}
+
+.badge-volume {
+    --ig-badge-background-color: #8B5BB1;
+}
+
+.badge-volume::part(base) {
+    background-color: #8B5BB1;
+}
+
+.badge-remove {
+    --ig-badge-background-color: var(--ig-gray-900);
+}
+
+.badge-remove::part(base) {
+    background-color: var(--ig-gray-900);
+}
+
+.badge-check {
+    --ig-badge-background-color: var(--ig-success-600);
+}
+
+.badge-check::part(base) {
+    background-color: var(--ig-success-600);
+}
+
+.badge-style {
+    position: absolute;
+    inset-block-end: -4px;
+    inset-inline-end: -4px;
+}
+
+.badge-style::part(base) {
+    border-radius: 50%;
+}
+
+.badge-style igc-icon {
+    color: var(--ig-gray-50);
+}
+
+.badge-parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    min-height: 7rem;
+}

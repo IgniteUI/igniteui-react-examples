@@ -1,18 +1,19 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-.badge-shape {
+.badge-size {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 40px;
+  padding: 32px;
   min-height: 7rem;
 }
 
-.badge-shape-row {
+.badge-size-row {
   display: grid;
-  grid-template-columns: 80px 40px 40px 40px;
+  grid-template-columns: 80px 32px 40px 40px;
   align-items: center;
   justify-items: center;
   gap: 8px;
@@ -22,10 +23,6 @@
   justify-self: end;
   color: var(--ig-gray-700);
   font-size: 14px;
-}
-
-.badge-small {
-  --ig-size: var(--ig-size-small);
 }
 
 .badge-info-blue {
@@ -44,3 +41,7 @@ igc-badge igc-icon {
 igc-badge igc-icon {
   fill: var(--ig-gray-50);
 }
+
+.badge-large { --ig-size: var(--ig-size-large); }
+.badge-medium { --ig-size: var(--ig-size-medium); }
+.badge-small { --ig-size: var(--ig-size-small); }

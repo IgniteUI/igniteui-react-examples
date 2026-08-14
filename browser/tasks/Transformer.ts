@@ -454,6 +454,15 @@ class Transformer {
             return ".." + sampleFullPath;
         }
 
+        // the repository was cloned into a folder that is not named after it,
+        // so fall back to the repository root, which is the parent of ./browser
+        let repositoryRoot = pathModule.dirname(process.cwd());
+        if (sampleFullPath.indexOf(repositoryRoot) === 0) {
+            let relativePath = sampleFullPath.substring(repositoryRoot.length);
+            relativePath = relativePath.split(pathModule.sep).join(process.env.PATH_SEP || '/');
+            return ".." + relativePath;
+        }
+
         console.log("failed on getRelative " + sampleFullPath);
         return sampleFullPath;
     }
