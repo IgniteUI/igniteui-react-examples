@@ -1,12 +1,21 @@
-.button-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 20px;
-}
-
 .container {
     justify-content: center;
+    align-items: center;
+}
+
+.size-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1rem;
+}
+
+.size-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+    justify-items: center;
+    gap: 1.5rem;
 }
 
 .size-small {

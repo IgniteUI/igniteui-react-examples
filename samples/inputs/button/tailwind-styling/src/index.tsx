@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import './ButtonStyle.css';
 import { IgrButton, IgrIcon, IgrIconButton, registerIconFromText } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
@@ -13,35 +12,33 @@ const icons = [
     { name: 'close', text: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>' }
 ];
 
-export default function ButtonStyling() {
+export default function ButtonTailwindStyling(): JSX.Element {
     useEffect(() => {
         icons.forEach((icon) => registerIconFromText(icon.name, icon.text, 'material'));
     }, []);
 
     return (
-        <div className="container sample">
-            <div className="button-grid">
-                <div className="button-row">
-                    <IgrButton variant="contained" className="confirm-button">Confirm</IgrButton>
-                    <IgrButton variant="outlined" className="send-button">
-                        <IgrIcon slot="prefix" name="send" collection="material" />
-                        Send
-                    </IgrButton>
-                    <IgrButton variant="flat" className="cancel-button">Cancel</IgrButton>
-                    <IgrButton variant="fab" className="add-button">
-                        Add
-                        <IgrIcon slot="suffix" name="add" collection="material" />
-                    </IgrButton>
-                </div>
+        <div className="button-grid flex flex-col items-center justify-center h-full gap-6 p-4">
+            <div className="button-row grid grid-cols-4 items-center justify-items-center gap-6">
+                <IgrButton variant="contained" className="confirm-button">Confirm</IgrButton>
+                <IgrButton variant="outlined" className="send-button">
+                    <IgrIcon slot="prefix" name="send" collection="material" />
+                    Send
+                </IgrButton>
+                <IgrButton variant="flat" className="cancel-button">Cancel</IgrButton>
+                <IgrButton variant="fab" className="add-button">
+                    Add
+                    <IgrIcon slot="suffix" name="add" collection="material" />
+                </IgrButton>
+            </div>
 
-                <div className="button-row">
-                    <IgrIconButton variant="flat" className="edit-icon-button" name="edit" collection="material" />
-                    <IgrIconButton variant="outlined" className="print-icon-button" name="print" collection="material" />
-                    <IgrIconButton variant="flat" className="close-icon-button" name="close" collection="material" />
-                    <IgrButton variant="fab" className="fab-icon-button" aria-label="Add">
-                        <IgrIcon name="add" collection="material" />
-                    </IgrButton>
-                </div>
+            <div className="button-row grid grid-cols-4 items-center justify-items-center gap-6">
+                <IgrIconButton variant="flat" className="edit-icon-button" name="edit" collection="material" />
+                <IgrIconButton variant="outlined" className="print-icon-button" name="print" collection="material" />
+                <IgrIconButton variant="flat" className="close-icon-button" name="close" collection="material" />
+                <IgrButton variant="fab" className="fab-icon-button" aria-label="Add">
+                    <IgrIcon name="add" collection="material" />
+                </IgrButton>
             </div>
         </div>
     );
@@ -49,4 +46,4 @@ export default function ButtonStyling() {
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<ButtonStyling/>);
+root.render(<ButtonTailwindStyling/>);

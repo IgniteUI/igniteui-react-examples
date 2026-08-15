@@ -25,19 +25,16 @@
 
 igc-button.state-hover::part(base) {
   background: var(--hover-background);
-  border-color: var(--hover-border-color);
   color: var(--hover-foreground);
 }
 
 igc-button.state-focused::part(base),
 igc-button.state-focused-hover::part(base) {
   background: var(--focus-background);
-  border-color: var(--focus-border-color);
   color: var(--focus-foreground);
 }
 
 igc-button.state-focused-hover::part(base) {
   background: var(--focus-hover-background);
-  border-color: var(--focus-hover-border-color);
   color: var(--focus-hover-foreground);
 }

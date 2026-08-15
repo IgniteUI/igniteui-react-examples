@@ -1,7 +1,22 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-igc-button {
-  width: 40%;
-  margin: auto;
+.container {
+  justify-content: center;
+  align-items: center;
+}
+
+.button-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 1.5rem;
 }

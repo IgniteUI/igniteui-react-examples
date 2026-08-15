@@ -1,47 +1,60 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './ButtonSizingStyle.css';
-import { IgrButton, IgrRadio, IgrRadioGroup } from 'igniteui-react';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import { IgrButton, IgrIcon, IgrIconButton, registerIconFromText } from 'igniteui-react';
+import 'igniteui-webcomponents/themes/light/material.css';
 
-export default class ButtonSize extends React.Component<any, any> {
+const notificationsIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>';
+const addIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>';
 
-    constructor(props: any) {
-        super(props);        
-        this.onRadioChange = this.onRadioChange.bind(this);
-        this.state = { size: "medium"};     
-    }
+const sizes = ['large', 'medium', 'small'];
+const variants: any[] = ['contained', 'outlined', 'flat'];
 
-    public render(): JSX.Element {
-        return (
-            <div className="container sample">
-                <IgrRadioGroup alignment="horizontal" style={{display: 'flex', justifyContent: 'center'}}>
-                    <IgrRadio name="size" value="small" labelPosition="after" onChange={this.onRadioChange}>
-                        Small
-                    </IgrRadio>
-                    <IgrRadio name="size" value="medium" labelPosition="after" onChange={this.onRadioChange} checked={this.state.size === "medium"}>
-                        Medium
-                    </IgrRadio>
-                    <IgrRadio name="size" value="large" labelPosition="after" onChange={this.onRadioChange}>
-                        Large
-                    </IgrRadio>
-                </IgrRadioGroup>
+export default function ButtonSize() {
+    useEffect(() => {
+        registerIconFromText('notifications', notificationsIcon, 'material');
+        registerIconFromText('add', addIcon, 'material');
+    }, []);
 
-                <div className="button-container">
-                    <IgrButton className={'size-' + this.state.size} variant="flat">Flat</IgrButton>
-                    <IgrButton className={'size-' + this.state.size} variant="contained">Contained</IgrButton>
-                    <IgrButton className={'size-' + this.state.size} variant="outlined">Outlined</IgrButton>
-                    <IgrButton className={'size-' + this.state.size} variant="fab">Like</IgrButton>
-                </div>
+    return (
+        <div className="container sample">
+            <div className="size-grid">
+                {sizes.map((size) => (
+                    <div className="size-row" key={size}>
+                        {variants.map((variant) => (
+                            <IgrButton key={variant} className={'size-' + size} variant={variant}>
+                                <IgrIcon slot="prefix" name="notifications" collection="material" />
+                                {variant}
+                                <IgrIcon slot="suffix" name="notifications" collection="material" />
+                            </IgrButton>
+                        ))}
+                        <IgrButton className={'size-' + size} variant="fab">
+                            <IgrIcon slot="prefix" name="add" collection="material" />
+                            Floating Action
+                            <IgrIcon slot="suffix" name="add" collection="material" />
+                        </IgrButton>
+                    </div>
+                ))}
+
+                {sizes.map((size) => (
+                    <div className="size-row" key={'icon-' + size}>
+                        {variants.map((variant) => (
+                            <IgrIconButton
+                                key={variant}
+                                className={'size-' + size}
+                                variant={variant}
+                                name="add"
+                                collection="material"
+                            />
+                        ))}
+                        <IgrButton className={'size-' + size} variant="fab" aria-label="Add">
+                            <IgrIcon name="add" collection="material" />
+                        </IgrButton>
+                    </div>
+                ))}
             </div>
-        );
-    }
-
-    public onRadioChange(e: any) {
-        if (e.detail.checked == true) {
-            this.setState({ size: e.detail.value });
-        }
-    }
+        </div>
+    );
 }
 
 

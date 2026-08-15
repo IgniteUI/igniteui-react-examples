@@ -1,0 +1,89 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* web component internals cannot be styled with Tailwind utilities,
+   because they live in the shadow DOM, so exposed CSS parts are used */
+
+.button-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.button-row {
+    display: grid;
+    grid-template-columns: repeat(4, 7rem);
+    align-items: center;
+    justify-items: center;
+    gap: 1.5rem;
+}
+
+.confirm-button::part(base) {
+    background-color: var(--color-indigo-700);
+    color: var(--color-white);
+}
+
+.send-button::part(base) {
+    border-color: var(--color-pink-600);
+    color: var(--color-pink-600);
+}
+
+.send-button igc-icon {
+    color: var(--color-pink-600);
+}
+
+.cancel-button::part(base) {
+    color: var(--color-amber-700);
+}
+
+.add-button::part(base) {
+    background-color: var(--color-teal-500);
+    color: var(--color-black);
+    border-radius: 9999px;
+}
+
+.edit-icon-button::part(base) {
+    background-color: var(--color-amber-50);
+    border-radius: var(--radius-full);
+}
+
+.edit-icon-button::part(icon) {
+    color: var(--color-amber-700);
+}
+
+.print-icon-button::part(base) {
+    border-color: var(--color-cyan-500);
+    border-radius: var(--radius-full);
+}
+
+.print-icon-button::part(icon) {
+    color: var(--color-cyan-700);
+}
+
+.close-icon-button::part(base) {
+    background-color: transparent;
+    border-radius: var(--radius-full);
+}
+
+.close-icon-button::part(icon) {
+    color: var(--color-fuchsia-600);
+}
+
+.fab-icon-button::part(base) {
+    background-color: var(--color-orange-500);
+    color: var(--color-black);
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    min-height: 3rem;
+    padding: 0;
+    border-radius: 50%;
+}
