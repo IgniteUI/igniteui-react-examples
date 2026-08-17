@@ -5,9 +5,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: nowrap;
-    gap: 1rem;
-    min-height: 100%;
+    gap: 1.5rem;
+    min-height: 95%;
 }
 
 .button-item {
