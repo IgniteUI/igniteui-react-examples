@@ -15,7 +15,7 @@ const mailIcon =
 const checkIcon =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 16.17-4.17-4.17-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17Z"/></svg>';
 
-export default function AvatarShape() {
+export default function AvatarVariants() {
   useEffect(() => {
     registerIconFromText("mail", mailIcon, "material");
     registerIconFromText("check", checkIcon, "material");
@@ -28,7 +28,7 @@ export default function AvatarShape() {
           <IgrAvatar
             className="size-small"
             shape="circle"
-            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png"
+            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
             alt="A profile photo of a man."
           />
           <IgrBadge
@@ -38,32 +38,32 @@ export default function AvatarShape() {
             variant="success"
           />
         </span>
-        <span className="avatar-label">Circle</span>
+        <span className="avatar-label">Image</span>
       </div>
 
       <div className="avatar-variant">
         <span className="avatar-with-badge">
-          <IgrAvatar className="size-small" shape="square">
+          <IgrAvatar className="size-small" shape="circle">
             <IgrIcon name="mail" collection="material" />
           </IgrAvatar>
           <IgrBadge
             className="avatar-status avatar-count-badge size-small"
             outlined={true}
-            shape="square"
+            shape="rounded"
             variant="info"
           >
             2
           </IgrBadge>
         </span>
-        <span className="avatar-label">Square</span>
+        <span className="avatar-label">Icon</span>
       </div>
 
       <div className="avatar-variant">
         <span className="avatar-with-badge">
           <IgrAvatar
             className="size-small"
-            shape="rounded"
-            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-07.png"
+            shape="circle"
+            initials="AZ"
             alt="A profile photo of a man."
           />
           <IgrBadge
@@ -75,7 +75,7 @@ export default function AvatarShape() {
             <IgrIcon name="check" collection="material" />
           </IgrBadge>
         </span>
-        <span className="avatar-label">Rounded</span>
+        <span className="avatar-label">Initials</span>
       </div>
     </div>
   );
@@ -83,4 +83,4 @@ export default function AvatarShape() {
 
 // rendering above component to the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AvatarShape />);
+root.render(<AvatarVariants />);
