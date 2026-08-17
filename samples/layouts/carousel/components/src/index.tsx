@@ -9,7 +9,6 @@ import {
   registerIconFromText,
 } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import "./CarouselComponents.css";
 import "./index.css";
 
 const icons = [
@@ -40,34 +39,86 @@ export default function CarouselComponents() {
   return (
     <div className="carousel-container">
       <IgrCarousel>
-        <IgrCarouselSlide>
-          <div>
-            <img src="https://dl.infragistics.com/x/img/carousel/SignUp.svg" />
-            <form>
-              <IgrInput type="text" placeholder="Username">
-                <IgrIcon slot="prefix" name="person"></IgrIcon>
-              </IgrInput>
-              <IgrInput type="password" placeholder="Password">
-                <IgrIcon slot="prefix" name="password"></IgrIcon>
-              </IgrInput>
-              <IgrButton type="reset">
-                <span>Sign In</span>
-              </IgrButton>
-            </form>
-          </div>
-        </IgrCarouselSlide>
-        <IgrCarouselSlide>
-          <div>
-            <img src="https://dl.infragistics.com/x/img/carousel/Route.svg" />
-            <form>
-              <IgrInput type="text" placeholder="Search">
+        <IgrCarouselSlide className="slide-frame slide-coast">
+          <article className="slide-shell">
+            <form className="feature-card">
+              <div className="feature-copy">
+                <span className="slide-label">Featured route</span>
+                <h3>Coastal weekend</h3>
+                <p>Browse curated travel ideas and search directly from the active slide.</p>
+              </div>
+              <IgrInput type="text" placeholder="City or landmark">
                 <IgrIcon slot="prefix" name="search"></IgrIcon>
               </IgrInput>
+              <div className="chip-row" aria-label="Route highlights">
+                <span>3 stops</span>
+                <span>Sea view</span>
+                <span>Weekend</span>
+              </div>
               <IgrButton type="reset">
-                <span>Search</span>
+                <span>Explore</span>
               </IgrButton>
             </form>
-          </div>
+            <div className="feature-visual" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </article>
+        </IgrCarouselSlide>
+        <IgrCarouselSlide className="slide-frame slide-city">
+          <article className="slide-shell">
+            <form className="feature-card">
+              <div className="feature-copy">
+                <span className="slide-label">City guide</span>
+                <h3>Museum night pass</h3>
+                <p>Use slide content for focused cards that combine text, inputs, and actions.</p>
+              </div>
+              <IgrInput type="text" placeholder="Email for updates">
+                <IgrIcon slot="prefix" name="person"></IgrIcon>
+              </IgrInput>
+              <div className="chip-row" aria-label="Event details">
+                <span>Galleries</span>
+                <span>After hours</span>
+                <span>Limited</span>
+              </div>
+              <IgrButton type="reset">
+                <span>Notify Me</span>
+              </IgrButton>
+            </form>
+            <div className="feature-visual" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </article>
+        </IgrCarouselSlide>
+        <IgrCarouselSlide className="slide-frame slide-resort">
+          <article className="slide-shell">
+            <form className="feature-card">
+              <div className="feature-copy">
+                <span className="slide-label">Seasonal offer</span>
+                <h3>Resort day access</h3>
+                <p>Place interactive controls inside slides when each item can stand on its own.</p>
+              </div>
+              <IgrInput type="text" placeholder="Promo code">
+                <IgrIcon slot="prefix" name="password"></IgrIcon>
+              </IgrInput>
+              <div className="chip-row" aria-label="Offer highlights">
+                <span>Pool</span>
+                <span>Lunch</span>
+                <span>Spa credit</span>
+              </div>
+              <IgrButton type="reset">
+                <span>Apply Code</span>
+              </IgrButton>
+            </form>
+            <div className="feature-visual" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </article>
         </IgrCarouselSlide>
       </IgrCarousel>
     </div>
