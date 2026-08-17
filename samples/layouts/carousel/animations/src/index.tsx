@@ -1,13 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import {
   HorizontalTransitionAnimation,
-  IgrButton,
-  IgrCard,
-  IgrCardActions,
-  IgrCardContent,
-  IgrCardHeader,
-  IgrCardMedia,
   IgrCarousel,
   IgrCarouselSlide,
   IgrCheckboxChangeEventArgs,
@@ -16,10 +10,39 @@ import {
   IgrSwitch,
 } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import "./CarouselAnimations.css";
 import "./index.css";
 
-export default function CarouselComponents() {
+const animationTypes: Array<{ value: HorizontalTransitionAnimation; label: string }> = [
+  { value: "slide", label: "Slide" },
+  { value: "fade", label: "Fade" },
+  { value: "none", label: "None" },
+];
+
+const slides = [
+  {
+    title: "Slide transition",
+    subtitle: "Moves content horizontally or vertically to preserve directional context.",
+    label: "01",
+    detail: "Best for sequential browsing",
+    metric: "320ms",
+  },
+  {
+    title: "Fade transition",
+    subtitle: "Cross-fades between slides when the relationship between items is looser.",
+    label: "02",
+    detail: "Best for featured content",
+    metric: "240ms",
+  },
+  {
+    title: "No transition",
+    subtitle: "Updates the active slide immediately for reduced motion or dense workflows.",
+    label: "03",
+    detail: "Best for direct state changes",
+    metric: "0ms",
+  },
+];
+
+export default function CarouselAnimations() {
 
   const [animationType, setAnimationType] = useState<HorizontalTransitionAnimation>('slide');
   const [isCarouselVertical, setIsCarouselVertical] = useState<boolean>(false);
@@ -37,17 +60,17 @@ export default function CarouselComponents() {
     <div className="carousel-wrapper">
       <div className="action-wrapper">
         <div className="action">
-          <span>Animation type</span>
+          <span className="action-label">Animation</span>
           <IgrSelect onChange={onSelectChange}>
-            <IgrSelectItem value="slide" selected={true}>
-              <span>Slide</span>
-            </IgrSelectItem>
-            <IgrSelectItem value="fade">
-              <span>Fade</span>
-            </IgrSelectItem>
-            <IgrSelectItem value="none">
-              <span>None</span>
-            </IgrSelectItem>
+            {animationTypes.map((animation) => (
+              <IgrSelectItem
+                key={animation.value}
+                value={animation.value}
+                selected={animationType === animation.value}
+              >
+                <span>{animation.label}</span>
+              </IgrSelectItem>
+            ))}
           </IgrSelect>
         </div>
         <div className="action">
@@ -55,7 +78,7 @@ export default function CarouselComponents() {
             onChange={onSwitchChange}
             labelPosition="before"
           >
-            <span>Vertical alignment</span>
+            <span>Vertical</span>
           </IgrSwitch>
         </div>
       </div>
@@ -63,102 +86,26 @@ export default function CarouselComponents() {
         hideIndicators={true} 
         animationType={animationType} 
         vertical={isCarouselVertical}>
-        <IgrCarouselSlide>
-          <div className="slide-wrapper">
-            <IgrCard>
-              <IgrCardHeader>
-                <span slot="title">
-                  Ignite UI for Angular
-                </span>
-              </IgrCardHeader>
-              <IgrCardContent>
-                <p>
-                  30+ Material-based Angular components to code speedy web apps
-                  faster.
-                </p>
-              </IgrCardContent>
-              <IgrCardMedia>
-                <img
-                  src="https://dl.infragistics.com/x/img/carousel/slide1-angular.png"
-                />
-              </IgrCardMedia>
-              <IgrCardActions>
-                <IgrButton
-                  slot="start"
-                  href="https://www.infragistics.com/products/ignite-ui-angular"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <span>Visit Page</span>
-                </IgrButton>
-              </IgrCardActions>
-            </IgrCard>
-          </div>
-        </IgrCarouselSlide>
-        <IgrCarouselSlide>
-          <div className="slide-wrapper">
-            <IgrCard>
-              <IgrCardHeader>
-                <span slot="title">
-                  Ignite UI for Javascript
-                </span>
-              </IgrCardHeader>
-              <IgrCardContent>
-                <p>
-                  A complete JavaScript UI library empowering you to build
-                  data-rich responsive web apps.
-                </p>
-              </IgrCardContent>
-              <IgrCardMedia>
-                <img
-                  src="https://dl.infragistics.com/x/img/carousel/slide2-ignite.png"
-                />
-              </IgrCardMedia>
-              <IgrCardActions>
-                <IgrButton
-                  slot="start"
-                  href="https://www.infragistics.com/products/ignite-ui"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <span>Visit Page</span>
-                </IgrButton>
-              </IgrCardActions>
-            </IgrCard>
-          </div>
-        </IgrCarouselSlide>
-        <IgrCarouselSlide>
-          <div className="slide-wrapper">
-            <IgrCard>
-              <IgrCardHeader>
-                <span slot="title">
-                  Ultimate UI for ASP.NET
-                </span>
-              </IgrCardHeader>
-              <IgrCardContent>
-                <p>
-                  Build full-featured business apps with the most versatile set
-                  of ASP.NET AJAX UI controls.
-                </p>
-              </IgrCardContent>
-              <IgrCardMedia>
-                <img
-                  src="https://dl.infragistics.com/x/img/carousel/slide3-aspnet.png"
-                />
-              </IgrCardMedia>
-              <IgrCardActions>
-                <IgrButton
-                  slot="start"
-                  href="https://www.infragistics.com/products/aspnet"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <span>Visit Page</span>
-                </IgrButton>
-              </IgrCardActions>
-            </IgrCard>
-          </div>
-        </IgrCarouselSlide>
+        {slides.map((slide) => (
+          <IgrCarouselSlide key={slide.title}>
+            <article className="slide-wrapper">
+              <div className="slide-content">
+                <span className="slide-label">{slide.label}</span>
+                <h3>{slide.title}</h3>
+                <p>{slide.subtitle}</p>
+                <div className="slide-details">
+                  <span>{slide.detail}</span>
+                  <strong>{slide.metric}</strong>
+                </div>
+              </div>
+              <div className="slide-preview" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </article>
+          </IgrCarouselSlide>
+        ))}
       </IgrCarousel>
     </div>
   );
@@ -166,4 +113,4 @@ export default function CarouselComponents() {
 
 // rendering above component to the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<CarouselComponents />);
+root.render(<CarouselAnimations />);
