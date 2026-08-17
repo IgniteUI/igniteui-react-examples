@@ -3,6 +3,7 @@
 .styled-carousel {
     width: min(860px, 100%);
     height: 430px;
+    margin: 16px auto 0;
     border: 1px solid var(--ig-gray-300);
     border-radius: 8px;
     overflow: hidden;
