@@ -22,7 +22,11 @@ igc-ripple {
 .button-group-size-item span {
     width: 52px;
     text-align: right;
-    color: var(--ig-gray-700);
-    font-size: 12px;
-    line-height: 16px;
+    color: #556c86;
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: 0.3px;
 }
