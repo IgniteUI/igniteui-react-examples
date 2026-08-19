@@ -6,7 +6,6 @@ import {
   IgrCarouselSlide,
 } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import "./CarouselThumbnail.css";
 import "./index.css";
 
 
