@@ -32,7 +32,7 @@ export default function AvatarTailwindStyling() {
   }, []);
 
   return (
-    <div className="sample flex flex-row flex-nowrap items-center justify-center gap-10">
+    <div className='sample flex flex-row flex-nowrap items-center justify-center gap-10 font-["Aktiv_Grotesk",Arial,sans-serif]'>
       <IgrCard className="box-border h-[479px] w-[344px] [--ig-card-border-radius:30px]">
         <IgrCardMedia className="h-[189px] overflow-hidden">
           <img

@@ -5,8 +5,32 @@
 }
 
 .chat-list {
+  --ig-font-family: "Aktiv Grotesk", Arial, sans-serif;
+  --ig-h2-font-family: "Aktiv Grotesk", Arial, sans-serif;
+  --ig-subtitle-1-font-family: "Aktiv Grotesk", Arial, sans-serif;
+  --ig-subtitle-1-font-weight: 600;
+  --ig-subtitle-2-font-family: "Aktiv Grotesk", Arial, sans-serif;
+  --ig-body-1-font-family: "Aktiv Grotesk", Arial, sans-serif;
+  --ig-body-2-font-family: "Aktiv Grotesk", Arial, sans-serif;
+  --ig-caption-font-family: "Aktiv Grotesk", Arial, sans-serif;
+  --ig-button-font-family: "Aktiv Grotesk", Arial, sans-serif;
+  --ig-list-header-text-color: var(--ig-gray-900);
   width: 344px;
   max-width: 100%;
+  font-family: "Aktiv Grotesk", Arial, sans-serif;
+}
+
+.chat-list * {
+  font-family: "Aktiv Grotesk", Arial, sans-serif;
+}
+
+.chat-list [slot="end"] {
+  color: var(--ig-gray-600);
+}
+
+.chat-list-item--split {
+  --border-color: var(--ig-gray-200);
+  --border-width: 1px;
 }
 
 .size-small {
@@ -33,6 +57,10 @@
   bottom: -4px;
 }
 
+.avatar-icon {
+  color: #424242;
+}
+
 .avatar-muted-badge {
   --ig-badge-background-color: var(--ig-gray-300);
   --ig-badge-icon-color: var(--ig-gray-700);
@@ -40,4 +68,8 @@
 
 .avatar-muted {
   --ig-avatar-background: #D2DBE8;
+}
+
+.avatar-meeting {
+  --ig-avatar-background: var(--ig-gray-300);
 }
