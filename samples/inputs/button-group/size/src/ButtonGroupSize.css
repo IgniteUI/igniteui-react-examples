@@ -9,6 +9,7 @@ igc-ripple {
     justify-content: center;
     gap: 32px;
     padding: 13px;
+    padding-left: 3rem;
 }
 
 .button-group-size-item {
