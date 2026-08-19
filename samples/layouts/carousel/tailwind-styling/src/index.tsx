@@ -47,7 +47,7 @@ export default function CarouselTailwindStyling() {
 
   return (
     <div className="container sample center">
-      <IgrCarousel className="styled-carousel mt-4 h-[430px] w-full max-w-[860px] overflow-hidden rounded-lg border border-[var(--ig-gray-300)] bg-[var(--ig-surface-500)]">
+      <IgrCarousel className="styled-carousel mx-auto mt-4 h-[430px] w-full max-w-[860px] overflow-hidden rounded-lg border border-[var(--ig-gray-300)] bg-[var(--ig-surface-500)]">
         <span slot="previous-button" className="carousel-navigation-button inline-grid h-5 w-5 place-items-center leading-none">
           <IgrIcon name="chevron-left"></IgrIcon>
         </span>
