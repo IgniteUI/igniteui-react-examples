@@ -27,6 +27,7 @@ igc-ripple {
     font-style: normal;
     line-height: 20px;
     letter-spacing: 0.3px;
+    text-align: center;
 }
 
 .button-group-interaction-states-row igc-button-group:not([disabled]) igc-toggle-button[selected]::part(toggle) {
