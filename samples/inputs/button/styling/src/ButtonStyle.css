@@ -22,45 +22,6 @@ igc-button.add-button::part(base) {
   border-radius: 999px;
 }
 
-igc-button.add-button igc-icon,
-igc-button.fab-icon-button igc-icon {
+igc-button.add-button igc-icon {
   color: #000000;
-}
-
-igc-icon-button.edit-icon-button::part(base) {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-  border-radius: 50%;
-}
-
-igc-icon-button.edit-icon-button::part(icon) {
-  color: #2e7d32;
-}
-
-igc-icon-button.print-icon-button::part(base) {
-  border-color: #9e9e9e;
-  color: #616161;
-  border-radius: 50%;
-}
-
-igc-icon-button.print-icon-button::part(icon) {
-  color: #616161;
-}
-
-igc-icon-button.close-icon-button::part(base) {
-  color: #e53935;
-  background-color: transparent;
-  border-radius: 50%;
-}
-
-igc-icon-button.close-icon-button::part(icon) {
-  color: #e53935;
-}
-
-igc-button.fab-icon-button::part(base) {
-  background-color: #039be5;
-  color: #000000;
-  border-radius: 50%;
-  aspect-ratio: 1;
-  padding: 0;
 }
