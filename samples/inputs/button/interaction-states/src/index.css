@@ -17,10 +17,13 @@
 }
 
 .button-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--ig-gray-700);
+  color: #556c86;
+  font-family: "Aktiv Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+  letter-spacing: 0.3px;
 }
 
 igc-button.state-hover::part(base) {
