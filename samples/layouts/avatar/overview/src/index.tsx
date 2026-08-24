@@ -8,49 +8,37 @@ export default function AvatarOverview() {
   return (
     <div className="sample avatar-overview-sample">
       <IgrAvatar
-        className="size-large"
         shape="circle"
         src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
         alt="A profile photo of a man."
       />
-      <span className="avatar-with-badge">
-        <IgrAvatar
-          className="size-large"
-          shape="circle"
-          src="https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png"
-          alt="A profile photo of a man."
-        />
-        <IgrBadge
-          className="avatar-status size-large"
-          dot={true}
-          outlined={true}
-          variant="success"
-        />
-      </span>
+      <IgrAvatar
+        className="profile-status"
+        shape="circle"
+        src="https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png"
+        alt="A profile photo of a woman."
+      />
+      <IgrBadge className="status-badge" dot={true} outlined={true} variant="success" />
       <span className="avatar-stack" aria-label="Project members">
         <IgrAvatar
-          className="size-large"
           shape="circle"
           src="https://dl.infragistics.com/x/img/avatars/avatar-profile-07.png"
-          alt="A profile photo of a man."
+          alt="A profile photo of an animated kid."
         />
         <IgrAvatar
-          className="size-large"
           shape="circle"
           src="https://dl.infragistics.com/x/img/avatars/avatar-profile-03.png"
           alt="A profile photo of a man."
         />
         <IgrAvatar
-          className="size-large"
           shape="circle"
           src="https://dl.infragistics.com/x/img/avatars/avatar-profile-08.png"
-          alt="A profile photo of a man."
+          alt="A profile photo of an abstract flat cat."
         />
         <IgrAvatar
-          className="size-large"
           shape="circle"
           initials="+3"
-          alt="A profile photo of a man."
+          alt="Three additional project members."
         />
       </span>
     </div>

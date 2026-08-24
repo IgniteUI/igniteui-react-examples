@@ -119,14 +119,14 @@ const sections: AvatarListSection[] = [
 function renderAvatar(item: AvatarListItem) {
   return (
     <IgrAvatar
-      className={`size-small${item.avatar.className ? ` ${item.avatar.className}` : ""}`}
+      className={`profile-avatar${item.avatar.className ? ` ${item.avatar.className}` : ""}`}
       shape="circle"
       src={item.avatar.src}
       initials={item.avatar.initials}
       alt={item.avatar.alt}
     >
       {item.avatar.icon && (
-        <IgrIcon className="avatar-icon size-small" name={item.avatar.icon} collection="material" />
+        <IgrIcon className="avatar-icon" name={item.avatar.icon} collection="material" />
       )}
     </IgrAvatar>
   );
@@ -156,7 +156,7 @@ export default function AvatarStyling() {
                   {renderAvatar(item)}
                   {item.badge && (
                     <IgrBadge
-                      className={`avatar-status avatar-check-badge size-small${
+                      className={`avatar-status avatar-check-badge${
                         item.badge.className ? ` ${item.badge.className}` : ""
                       }`}
                       outlined={true}

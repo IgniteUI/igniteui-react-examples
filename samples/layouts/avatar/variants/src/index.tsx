@@ -22,61 +22,28 @@ export default function AvatarVariants() {
   }, []);
 
   return (
-    <div className="avatar-overview-sample">
-      <div className="avatar-variant">
-        <span className="avatar-with-badge">
-          <IgrAvatar
-            className="size-small"
-            shape="circle"
-            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
-            alt="A profile photo of a man."
-          />
-          <IgrBadge
-            className="avatar-status avatar-dot-badge size-small"
-            dot={true}
-            outlined={true}
-            variant="success"
-          />
-        </span>
-        <span className="avatar-label">Image</span>
-      </div>
+    <div className="avatar-variants-sample">
+      <IgrAvatar
+        shape="circle"
+        src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
+        alt="A profile photo of a man."
+      />
+      <IgrBadge dot={true} outlined={true} variant="success" />
+      <span>Image</span>
 
-      <div className="avatar-variant">
-        <span className="avatar-with-badge">
-          <IgrAvatar className="size-small" shape="circle">
-            <IgrIcon name="mail" collection="material" />
-          </IgrAvatar>
-          <IgrBadge
-            className="avatar-status avatar-count-badge size-small"
-            outlined={true}
-            shape="rounded"
-            variant="info"
-          >
-            2
-          </IgrBadge>
-        </span>
-        <span className="avatar-label">Icon</span>
-      </div>
+      <IgrAvatar shape="circle">
+        <IgrIcon name="mail" collection="material" />
+      </IgrAvatar>
+      <IgrBadge outlined={true} shape="rounded" variant="info">
+        2
+      </IgrBadge>
+      <span>Icon</span>
 
-      <div className="avatar-variant">
-        <span className="avatar-with-badge">
-          <IgrAvatar
-            className="size-small"
-            shape="circle"
-            initials="AZ"
-            alt="A profile photo of a man."
-          />
-          <IgrBadge
-            className="avatar-status avatar-check-badge size-small"
-            outlined={true}
-            shape="rounded"
-            variant="success"
-          >
-            <IgrIcon name="check" collection="material" />
-          </IgrBadge>
-        </span>
-        <span className="avatar-label">Initials</span>
-      </div>
+      <IgrAvatar shape="circle" initials="AZ" alt="Avatar with AZ initials." />
+      <IgrBadge outlined={true} shape="rounded" variant="success">
+        <IgrIcon name="check" collection="material" />
+      </IgrBadge>
+      <span>Initials</span>
     </div>
   );
 }

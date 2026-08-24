@@ -32,11 +32,11 @@ export default function AvatarTailwindStyling() {
   }, []);
 
   return (
-    <div className='sample flex flex-row flex-nowrap items-center justify-center gap-10 font-["Aktiv_Grotesk",Arial,sans-serif]'>
-      <IgrCard className="box-border h-[479px] w-[344px] [--ig-card-border-radius:30px]">
-        <IgrCardMedia className="h-[189px] overflow-hidden">
+    <div className='sample font-["Aktiv_Grotesk",Arial,sans-serif]'>
+      <IgrCard className="[--ig-card-border-radius:30px] [--ig-card-outline-color:transparent]">
+        <IgrCardMedia className="h-[189px]">
           <img
-            className="h-full w-full object-cover"
+            className="object-cover"
             src="https://dl.infragistics.com/x/img/avatars/image-bg4.png"
             alt="Cafe interior"
           />
@@ -51,21 +51,17 @@ export default function AvatarTailwindStyling() {
           />
           <span slot="title">Kate Thompson</span>
         </IgrCardHeader>
+        <p className="card-sample-custom-subtitle">
+          3D Artist. Turning polygons into worlds and immersive digital
+          realities
+        </p>
         <IgrCardContent>
-          <p className="m-0">
-            3D Artist. Turning polygons into worlds and immersive digital
-            realities
-          </p>
-          <div className="mt-4 grid w-full grid-cols-[1fr_auto_1fr_auto_1fr] items-center">
+          <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr]">
             {profileStats.map((stat, index) => (
               <React.Fragment key={stat.label}>
                 <div className="flex min-w-0 flex-col items-center gap-1 px-3">
-                  <span className="text-base font-bold leading-tight text-[var(--ig-gray-900)]">
-                    {stat.value}
-                  </span>
-                  <span className="text-sm leading-tight text-[var(--ig-gray-600)]">
-                    {stat.label}
-                  </span>
+                  <span className="stats-title">{stat.value}</span>
+                  <span className="stats-subtitle">{stat.label}</span>
                 </div>
                 {index < profileStats.length - 1 && (
                   <IgrDivider className="h-12" vertical />
@@ -77,11 +73,11 @@ export default function AvatarTailwindStyling() {
         <IgrCardActions>
           <IgrButton className="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
             <span className="inline-flex items-center gap-1">
-              FOLLOW
-              <IgrIcon className="h-4 w-4" name="plus" collection="material" />
+              <span>FOLLOW</span>
+              <IgrIcon name="plus" collection="material" />
             </span>
           </IgrButton>
-          <div slot="end" className="inline-flex items-center gap-1">
+          <div slot="end" className="inline-flex gap-1">
             <IgrIconButton
               variant="flat"
               name="instagram"
@@ -104,11 +100,11 @@ export default function AvatarTailwindStyling() {
         </IgrCardActions>
       </IgrCard>
 
-      <IgrCard className="box-border h-[290px] w-[344px] [--ig-card-border-radius:30px]">
+      <IgrCard className="[--ig-card-border-radius:30px] [--ig-card-outline-color:transparent]">
         <IgrCardHeader>
           <span
             slot="thumbnail"
-            className="inline-flex rounded-full bg-[linear-gradient(135deg,#7dd3fc,#bff47a,#f5c2ff,#93c5fd)] p-[3px]"
+            className="inline-flex rounded-full p-[5px] bg-[linear-gradient(40deg,#D2F586,#A0C9FF)]"
           >
             <IgrAvatar
               className="[--ig-size:var(--ig-size-medium)]"
@@ -119,21 +115,17 @@ export default function AvatarTailwindStyling() {
           </span>
           <span slot="title">Kate Thompson</span>
         </IgrCardHeader>
-        <IgrCardContent className="overflow-hidden">
-          <p className="m-0">
-            3D Artist. Turning polygons into worlds and immersive digital
-            realities
-          </p>
-          <div className="mt-4 grid w-full grid-cols-[1fr_auto_1fr_auto_1fr] items-center">
+        <p className="card-sample-custom-subtitle">
+          3D Artist. Turning polygons into worlds and immersive digital
+          realities
+        </p>
+        <IgrCardContent>
+          <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr]">
             {profileStats.map((stat, index) => (
               <React.Fragment key={stat.label}>
                 <div className="flex min-w-0 flex-col items-center gap-1 px-3">
-                  <span className="text-base font-bold leading-tight text-[var(--ig-gray-900)]">
-                    {stat.value}
-                  </span>
-                  <span className="text-sm leading-tight text-[var(--ig-gray-600)]">
-                    {stat.label}
-                  </span>
+                  <span className="stats-title">{stat.value}</span>
+                  <span className="stats-subtitle">{stat.label}</span>
                 </div>
                 {index < profileStats.length - 1 && (
                   <IgrDivider className="h-12" vertical />
@@ -145,8 +137,8 @@ export default function AvatarTailwindStyling() {
         <IgrCardActions>
           <IgrButton className="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
             <span className="inline-flex items-center gap-1">
-              FOLLOW
-              <IgrIcon className="h-4 w-4" name="plus" collection="material" />
+              <span>FOLLOW</span>
+              <IgrIcon name="plus" collection="material" />
             </span>
           </IgrButton>
           <div slot="end" className="inline-flex items-center gap-1">
