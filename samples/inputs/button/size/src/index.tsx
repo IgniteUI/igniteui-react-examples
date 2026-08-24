@@ -19,8 +19,16 @@ export default function ButtonSize() {
     return (
         <div className="container sample">
             <div className="size-grid">
+                <div className="size-header">
+                    <span></span>
+                    <span>Contained</span>
+                    <span>Outlined</span>
+                    <span>Flat</span>
+                    <span>Fab</span>
+                </div>
                 {sizes.map((size) => (
                     <div className="size-row" key={size}>
+                        <span className={'size-label size-' + size}>{size[0].toUpperCase() + size.slice(1)}</span>
                         {variants.map((variant) => (
                             <IgrButton key={variant} className={'size-' + size} variant={variant}>
                                 <IgrIcon slot="prefix" name="notifications" collection="material" />

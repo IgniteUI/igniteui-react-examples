@@ -31,22 +31,47 @@
     color: var(--color-white);
 }
 
+.confirm-button:hover::part(base) {
+    background-color: var(--color-indigo-900);
+    color: var(--color-white);
+}
+
 .send-button::part(base) {
     border-color: var(--color-pink-600);
     color: var(--color-pink-600);
+}
+
+.send-button:hover::part(base) {
+    background-color: var(--color-pink-600);
+    border-color: var(--color-pink-700);
+    color: var(--color-white);
 }
 
 .send-button igc-icon {
     color: var(--color-pink-600);
 }
 
+.send-button:hover igc-icon {
+    color: var(--color-white);
+}
+
 .cancel-button::part(base) {
     color: var(--color-amber-700);
+}
+
+.cancel-button:hover::part(base) {
+    background-color: var(--color-amber-100);
+    color: var(--color-amber-900);
 }
 
 .add-button::part(base) {
     background-color: var(--color-teal-500);
     color: var(--color-black);
     border-radius: 9999px;
+}
+
+.add-button:hover::part(base) {
+    background-color: var(--color-teal-800);
+    color: var(--color-white);
 }
 

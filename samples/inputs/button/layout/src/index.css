@@ -5,22 +5,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    min-height: 95%;
-}
-
-.variant-selector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.variant-selector select {
-    min-width: 140px;
-    padding: 0.5rem;
-    font-family: "Aktiv Grotesk", sans-serif;
-    font-size: 13px;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem;
 }
 
 .button-item {
@@ -30,23 +18,6 @@
     gap: 0.75rem;
 }
 
-.button-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    flex: 1 1 0;
-    min-width: 0;
-}
-
-.button-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-}
-
-.button-sublabel,
 .button-label {
     color: #556c86;
     font-family: "Aktiv Grotesk", sans-serif;
@@ -59,6 +30,7 @@
 
 igc-button::part(base) {
     font-family: 'Titillium Web', sans-serif;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }

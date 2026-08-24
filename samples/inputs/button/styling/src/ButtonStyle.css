@@ -3,23 +3,48 @@ igc-button.confirm-button::part(base) {
   color: #ffffff;
 }
 
+igc-button.confirm-button:hover::part(base) {
+  background-color: #0b4f8a;
+  color: #ffffff;
+}
+
 igc-button.send-button::part(base) {
   border-color: #8a2be2;
   color: #8a2be2;
+}
+
+igc-button.send-button:hover::part(base) {
+  background-color: #8a2be2;
+  border-color: #6a1bb1;
+  color: #ffffff;
 }
 
 igc-button.send-button igc-icon {
   color: #8a2be2;
 }
 
+igc-button.send-button:hover igc-icon {
+  color: #ffffff;
+}
+
 igc-button.cancel-button::part(base) {
   color: #1275c4;
+}
+
+igc-button.cancel-button:hover::part(base) {
+  background-color: #dbeeff;
+  color: #063b68;
 }
 
 igc-button.add-button::part(base) {
   background-color: #4caf50;
   color: #000000;
   border-radius: 999px;
+}
+
+igc-button.add-button:hover::part(base) {
+  background-color: #257a2b;
+  color: #ffffff;
 }
 
 igc-button.add-button igc-icon {
