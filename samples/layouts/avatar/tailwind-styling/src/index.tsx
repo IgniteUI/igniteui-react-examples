@@ -14,7 +14,7 @@ import {
   IgrIconButton,
   registerIconFromText,
 } from "igniteui-react";
-import "igniteui-webcomponents/themes/light/material.css";
+import "igniteui-webcomponents/themes/light/bootstrap.css";
 import { berealIcon, instagramIcon, plusIcon, threadsIcon } from "./icons";
 
 const profileStats = [

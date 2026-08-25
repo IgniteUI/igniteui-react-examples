@@ -10,7 +10,7 @@ import {
   IgrIcon,
   registerIconFromText,
 } from "igniteui-react";
-import "igniteui-webcomponents/themes/light/material.css";
+import "igniteui-webcomponents/themes/light/bootstrap.css";
 import {
   calendarTodayIcon,
   checkIcon,
