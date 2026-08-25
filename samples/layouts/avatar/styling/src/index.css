@@ -46,6 +46,8 @@
 
 :where(igc-badge) {
   --ig-size: var(--ig-size-small);
+  --ig-badge-icon-color: #ffffff;
+  --ig-badge-text-color: #ffffff;
 }
 
 .avatar-status {

@@ -71,7 +71,7 @@ export default function AvatarTailwindStyling() {
           </div>
         </IgrCardContent>
         <IgrCardActions>
-          <IgrButton className="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
+          <IgrButton className="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-foreground:#000000] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-contained-button-icon-color:#000000] [--ig-size:var(--ig-size-small)]">
             <span className="inline-flex items-center gap-1">
               <span>FOLLOW</span>
               <IgrIcon name="plus" collection="material" />
@@ -135,7 +135,7 @@ export default function AvatarTailwindStyling() {
           </div>
         </IgrCardContent>
         <IgrCardActions>
-          <IgrButton className="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-size:var(--ig-size-small)]">
+          <IgrButton className="[--ig-contained-button-active-background:var(--ig-gray-400)] [--ig-contained-button-background:var(--ig-gray-200)] [--ig-contained-button-border-radius:16px] [--ig-contained-button-focus-background:var(--ig-gray-300)] [--ig-contained-button-foreground:#000000] [--ig-contained-button-hover-background:var(--ig-gray-300)] [--ig-contained-button-icon-color:#000000] [--ig-size:var(--ig-size-small)]">
             <span className="inline-flex items-center gap-1">
               <span>FOLLOW</span>
               <IgrIcon name="plus" collection="material" />
