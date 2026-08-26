@@ -79,6 +79,8 @@ igc-icon {
     }
 }
 
+/* WARNING START: Demo overrides only. Do not copy to production. */
+/* Forced state classes are used here solely to present all component states visually. */
 igc-button-group {
     pointer-events: none;
 }
@@ -112,3 +114,4 @@ igc-toggle-button.state-focused[selected]::part(toggle) {
     border-color: var(--item-selected-active-border-color);
     color: var(--item-focused-hover-text-color);
 }
+/*  WARNING END
