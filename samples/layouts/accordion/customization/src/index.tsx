@@ -75,113 +75,120 @@ export default class AccordionCustomization extends React.Component<any, any> {
 
     return (
       <div className="accordion-sample">
-        <IgrAccordion>
-          <IgrExpansionPanel ref={this.transportationPanelRef}>
-            <span slot="title">
-              Transportation{selectedCategories && `: ${selectedCategories}`}
-            </span>
-            <span slot="subtitle">Choose how you want to travel</span>
-            <span>
-              <p className="panel-description">
-                Select one or more transportation options for your trip.
-              </p>
-              <div className="categories-container">
-                {this.state.categories.map((c: Category) => {
-                  return (
-                    <IgrCheckbox
-                      className="category-option"
-                      key={"checkbox-" + c.type}
-                      onChange={(e: IgrCheckboxChangeEventArgs) =>
-                        this.categoriesChange(e, c.type)
-                      }
-                    >
-                      <span>{c.type}</span>
-                    </IgrCheckbox>
-                  );
-                })}
-              </div>
-            </span>
-          </IgrExpansionPanel>
-          <IgrExpansionPanel>
-            <span slot="title">
-              Budget: ${this.state.cost.lower} - ${this.state.cost.upper}
-            </span>
-            <span slot="subtitle">Set the price range</span>
-            <span>
-              <p className="panel-description">
-                Adjust the minimum and maximum cost for available options.
-              </p>
-              <div className="range-summary">
-                <span>${this.state.cost.lower}</span>
-                <span>${this.state.cost.upper}</span>
-              </div>
-              <IgrRangeSlider
-                className="cost-slider"
-                min={0}
-                max={1000}
-                lower={this.state.cost.lower}
-                upper={this.state.cost.upper}
-                onChange={this.costRangeChange}
-              ></IgrRangeSlider>
-            </span>
-          </IgrExpansionPanel>
-          <IgrExpansionPanel>
-            <span slot="title">
-              Minimum Rating{this.state.rating && ": "}
-              {this.state.rating}
-            </span>
-            <span slot="subtitle">Filter by review score</span>
-            <span>
-              <p className="panel-description">
-                Choose the lowest rating you want to include in the results.
-              </p>
-              <IgrRadioGroup className="rating-options">
-                {ratingOptions.map((rating) => {
-                  return (
-                    <IgrRadio
-                      className="rating-option"
-                      key={`${rating}star`}
-                      name="rating"
-                      value={rating.toString()}
-                      onChange={this.ratingChange}
-                    >
-                      <IgrRating
-                        label={`${rating} star${rating > 1 ? "s" : ""} or more`}
-                        max={5}
-                        value={rating}
-                        className="rating-control size-small"
-                        readOnly={true}
-                      ></IgrRating>
-                    </IgrRadio>
-                  );
-                })}
-              </IgrRadioGroup>
-            </span>
-          </IgrExpansionPanel>
-          <IgrExpansionPanel>
-            <span slot="title">Arrival Time{this.state.time !== "Any time" && `: ${this.state.time}`}</span>
-            <span slot="subtitle">Set the latest arrival time</span>
-            <span>
-              <p className="panel-description">
-                Pick the latest acceptable arrival time for your trip.
-              </p>
-              <IgrDateTimeInput
-                className="time-input size-small"
-                inputFormat="hh:mm tt"
-                label="Arrive before"
-                ref={this.dateTimeInputRef}
-                onChange={this.timeChange}
-              >
-                <span slot="prefix">
-                  <IgrIcon name="clock" collection="material" />
-                </span>
-                <span slot="suffix" onClick={this.clearTime}>
-                  <IgrIcon name="clear" collection="material" />
-                </span>
-              </IgrDateTimeInput>
-            </span>
-          </IgrExpansionPanel>
-        </IgrAccordion>
+        <div className="accordion-content">
+          <IgrAccordion>
+            <IgrExpansionPanel ref={this.transportationPanelRef}>
+              <span slot="title">
+                Transportation{selectedCategories && `: ${selectedCategories}`}
+              </span>
+              <span slot="subtitle">Choose how you want to travel</span>
+              <span>
+                <p className="panel-description">
+                  Select one or more transportation options for your trip.
+                </p>
+                <div className="categories-container">
+                  {this.state.categories.map((c: Category) => {
+                    return (
+                      <IgrCheckbox
+                        className="category-option"
+                        key={"checkbox-" + c.type}
+                        onChange={(e: IgrCheckboxChangeEventArgs) =>
+                          this.categoriesChange(e, c.type)
+                        }
+                      >
+                        <span>{c.type}</span>
+                      </IgrCheckbox>
+                    );
+                  })}
+                </div>
+              </span>
+            </IgrExpansionPanel>
+            <IgrExpansionPanel>
+              <span slot="title">
+                Budget: ${this.state.cost.lower} - ${this.state.cost.upper}
+              </span>
+              <span slot="subtitle">Set the price range</span>
+              <span>
+                <p className="panel-description">
+                  Adjust the minimum and maximum cost for available options.
+                </p>
+                <div className="range-summary">
+                  <span>${this.state.cost.lower}</span>
+                  <span>${this.state.cost.upper}</span>
+                </div>
+                <IgrRangeSlider
+                  className="cost-slider"
+                  min={0}
+                  max={1000}
+                  lower={this.state.cost.lower}
+                  upper={this.state.cost.upper}
+                  onChange={this.costRangeChange}
+                ></IgrRangeSlider>
+              </span>
+            </IgrExpansionPanel>
+            <IgrExpansionPanel>
+              <span slot="title">
+                Minimum Rating{this.state.rating && ": "}
+                {this.state.rating}
+              </span>
+              <span slot="subtitle">Filter by review score</span>
+              <span>
+                <p className="panel-description">
+                  Choose the lowest rating you want to include in the results.
+                </p>
+                <IgrRadioGroup className="rating-options">
+                  {ratingOptions.map((rating) => {
+                    return (
+                      <IgrRadio
+                        className="rating-option"
+                        key={`${rating}star`}
+                        name="rating"
+                        value={rating.toString()}
+                        onChange={this.ratingChange}
+                      >
+                        <IgrRating
+                          label={`${rating} star${
+                            rating > 1 ? "s" : ""
+                          } or more`}
+                          max={5}
+                          value={rating}
+                          className="rating-control size-small"
+                          readOnly={true}
+                        ></IgrRating>
+                      </IgrRadio>
+                    );
+                  })}
+                </IgrRadioGroup>
+              </span>
+            </IgrExpansionPanel>
+            <IgrExpansionPanel>
+              <span slot="title">
+                Arrival Time
+                {this.state.time !== "Any time" && `: ${this.state.time}`}
+              </span>
+              <span slot="subtitle">Set the latest arrival time</span>
+              <span>
+                <p className="panel-description">
+                  Pick the latest acceptable arrival time for your trip.
+                </p>
+                <IgrDateTimeInput
+                  className="time-input size-small"
+                  inputFormat="hh:mm tt"
+                  label="Arrive before"
+                  ref={this.dateTimeInputRef}
+                  onChange={this.timeChange}
+                >
+                  <span slot="prefix">
+                    <IgrIcon name="clock" collection="material" />
+                  </span>
+                  <span slot="suffix" onClick={this.clearTime}>
+                    <IgrIcon name="clear" collection="material" />
+                  </span>
+                </IgrDateTimeInput>
+              </span>
+            </IgrExpansionPanel>
+          </IgrAccordion>
+        </div>
       </div>
     );
   }
