@@ -8,7 +8,6 @@ import {
     registerIconFromText,
   } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
-import './ButtonGroupSelection.css';
 import './index.css';
 
 const icons = [
@@ -34,10 +33,10 @@ export default function ButtonGroupSelectionSample() {
     }, [])
 
     return (
-        <div className="container sample selection-samples">
+        <div className="selection-samples">
             {(['single', 'single-required', 'multiple'] as const).map((selection) => (
-                <div className="selection-sample" key={selection}>
-                    <span>{selection === 'single-required' ? 'Single-Required' : selection.charAt(0).toUpperCase() + selection.slice(1)}</span>
+                <React.Fragment key={selection}>
+                    <span className="sample-label">{selection === 'single-required' ? 'Single-Required' : selection.charAt(0).toUpperCase() + selection.slice(1)}</span>
                     <IgrButtonGroup selection={selection}>
                         <IgrToggleButton value="bold" selected={selection === 'single-required' || selection === 'multiple'}>
                             <IgrIcon name="bold" collection="material" />
@@ -52,7 +51,7 @@ export default function ButtonGroupSelectionSample() {
                             <IgrRipple />
                         </IgrToggleButton>
                     </IgrButtonGroup>
-                </div>
+                </React.Fragment>
             ))}
       </div>
     );

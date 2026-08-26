@@ -6,7 +6,6 @@ import {
     IgrToggleButton,
   } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
-import './ButtonGroupOverview.css';
 import './index.css';
 
 
@@ -36,7 +35,7 @@ export default function ButtonGroupOverview() {
     const album = albums[source];
 
     return (
-        <div className="container sample">
+        <div className="sample-layout">
             <IgrButtonGroup
                 selection="single-required"
                 onSelect={(e: CustomEvent<string | undefined>) => {
@@ -56,7 +55,7 @@ export default function ButtonGroupOverview() {
             </IgrButtonGroup>
 
             <div className="album">
-                <span className="album-title">{album.title}</span>
+                <p className="album-title">{album.title}</p>
                 <div className="album-photos">
                     {album.photos.map((photo) => (
                         <img key={photo} src={photo} alt={album.title} />

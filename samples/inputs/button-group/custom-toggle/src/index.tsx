@@ -20,14 +20,12 @@ icons.forEach(([name, text]) => registerIconFromText(name, text, 'material'));
 
 export default function ButtonGroupCustomToggle() {
   return (
-    <div className="container sample">
-      <IgrButtonGroup selectionMode="multi">
-        <IgrToggleButton selected={true}><IgrIcon name="border_top" collection="material" /></IgrToggleButton>
-        <IgrToggleButton><IgrIcon name="border_right" collection="material" /></IgrToggleButton>
-        <IgrToggleButton><IgrIcon name="border_bottom" collection="material" /></IgrToggleButton>
-        <IgrToggleButton><IgrIcon name="border_left" collection="material" /></IgrToggleButton>
-      </IgrButtonGroup>
-    </div>
+    <IgrButtonGroup selectionMode="multi">
+      <IgrToggleButton selected={true}><IgrIcon name="border_top" collection="material" /></IgrToggleButton>
+      <IgrToggleButton><IgrIcon name="border_right" collection="material" /></IgrToggleButton>
+      <IgrToggleButton><IgrIcon name="border_bottom" collection="material" /></IgrToggleButton>
+      <IgrToggleButton><IgrIcon name="border_left" collection="material" /></IgrToggleButton>
+    </IgrButtonGroup>
   );
 }
 

@@ -1,5 +1,21 @@
-/* shared styles are loaded from: */
-/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+.sbSwitch {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.sample-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3.75rem;
+}
+
+igc-button-group {
+    max-width: 400px;
+    min-width: 280px;
+}
 
 igc-button-group {
   display: inline-block;

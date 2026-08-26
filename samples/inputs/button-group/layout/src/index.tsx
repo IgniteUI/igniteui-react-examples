@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { IgrButtonGroup, IgrIcon, IgrRipple, IgrToggleButton, registerIconFromText } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
-import './ButtonGroupLayout.css';
 import './index.css';
 
 const alignLeftIcon =
@@ -26,7 +25,7 @@ export default function ButtonGroupLayout(): JSX.Element {
     }, []);
 
     return (
-        <div className="button-group-layout">
+        <div className="sample-layout">
             <IgrButtonGroup>
                 {layouts.map((layout) => (
                     <IgrToggleButton key={layout.value} value={layout.value}>

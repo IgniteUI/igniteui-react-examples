@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { IgrButtonGroup, IgrRipple, IgrToggleButton } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
-import './ButtonGroupInteractionStates.css';
 import './index.css';
 
 const rows: Array<{ label: string; selected: boolean }> = [
@@ -12,32 +11,38 @@ const rows: Array<{ label: string; selected: boolean }> = [
 
 export default function ButtonGroupInteractionStates(): JSX.Element {
     return (
-        <div className="button-group-interaction-states">
-            <div className="button-group-interaction-states-row">
+        <article className="states-matrix">
+            <header className="states-row">
                 <span className="row-label" />
                 <span className="column-label">Enabled</span>
                 <span className="column-label">Disabled</span>
-            </div>
+            </header>
             {rows.map((row) => (
-                <div className="button-group-interaction-states-row" key={row.label}>
+                <section className="states-row" key={row.label}>
                     <span className="row-label">{row.label}</span>
-                    <IgrButtonGroup selection="multiple">
-                        <IgrToggleButton
-                            value="device"
-                            selected={row.label === 'Selected / On'}
-                        >
-                            Device
-                            <IgrRipple />
-                        </IgrToggleButton>
-                    </IgrButtonGroup>
-                    <IgrButtonGroup selection="multiple" disabled={true}>
-                        <IgrToggleButton value="cloud" selected={row.selected}>
-                            Cloud
-                        </IgrToggleButton>
-                    </IgrButtonGroup>
-                </div>
+                    <div className="state-cell">
+                        <span className="cell-label">Enabled</span>
+                        <IgrButtonGroup selection="multiple">
+                            <IgrToggleButton
+                                value="device"
+                                selected={row.selected}
+                            >
+                                Device
+                                <IgrRipple />
+                            </IgrToggleButton>
+                        </IgrButtonGroup>
+                    </div>
+                    <div className="state-cell">
+                        <span className="cell-label">Disabled</span>
+                        <IgrButtonGroup selection="multiple">
+                            <IgrToggleButton value="cloud" disabled={true} selected={row.selected}>
+                                Cloud
+                            </IgrToggleButton>
+                        </IgrButtonGroup>
+                    </div>
+                </section>
             ))}
-        </div>
+        </article>
     );
 }
 

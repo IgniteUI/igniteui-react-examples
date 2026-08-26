@@ -1,2 +1,32 @@
-/* shared styles are loaded from: */
-/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+.sbSwitch {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.sample-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sample-inner-layout {
+    display: grid;
+    gap: 0.5rem;
+    align-items: start;
+}
+
+igc-button-group {
+    width: 17.5rem;
+}
+
+.sample-layout span {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.429;
+    letter-spacing: 0.0178571em;
+    color: var(--ig-gray-700);
+    text-align: center;
+}
