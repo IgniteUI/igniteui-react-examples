@@ -114,4 +114,4 @@ igc-toggle-button.state-focused[selected]::part(toggle) {
     border-color: var(--item-selected-active-border-color);
     color: var(--item-focused-hover-text-color);
 }
-/*  WARNING END
+/* WARNING END */
