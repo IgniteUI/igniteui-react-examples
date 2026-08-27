@@ -643,7 +643,8 @@ function updateCodeViewer(cb) {
         // Strip "../samples/{group}/{component}/{name}/" prefix so StackBlitz sdk.openProject() gets
         // project-relative paths like "src/index.tsx" instead of "../samples/.../src/index.tsx".
         var tsxPath = sample.SampleFilePath.replace(sample.SampleFolderPath + '/', '');
-        var tsxItem = new CodeViewer(tsxPath, sample.SampleFileSourceCode, "tsx", "tsx", true);
+        var tsxSourceCode = sample.SampleFileSourceCode.replace(/@infragistics\/(igniteui)/g, '$1');
+        var tsxItem = new CodeViewer(tsxPath, tsxSourceCode, "tsx", "tsx", true);
 
         contentItems.push(tsxItem);
 

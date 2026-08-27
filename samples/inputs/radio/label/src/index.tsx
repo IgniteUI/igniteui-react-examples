@@ -16,7 +16,7 @@ export default class RadioLabel extends React.Component<any, any> {
             <div className="container sample">
                 <div className="container" style={{width: "430px", height:"60px", border: "1px solid gainsboro"}}>
                     <IgrRadioGroup alignment="vertical">
-                        <IgrRadio name="fruit" value="apple" labelPosition="before"><span>Apple</span></IgrRadio>
+                        <IgrRadio name="fruit" value="apple" labelPosition="before">Apple</IgrRadio>
                         <div className="wrapper">
                         <span id="radio-label">Orange</span>
                         <IgrRadio

@@ -1,12 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
-    ButtonGroupSelection,
     IgrButtonGroup,
     IgrIcon,
-    IgrRadio,
-    IgrRadioChangeEventArgs,
-    IgrRadioGroup,
     IgrRipple,
     IgrToggleButton,
     registerIconFromText,
@@ -37,43 +33,27 @@ export default function ButtonGroupSelectionSample() {
         });
     }, [])
 
-    const buttonGroupRef = useRef<IgrButtonGroup>(null);
-
-    function onRadioChange(e: IgrRadioChangeEventArgs) {
-        const value = e.detail.value as ButtonGroupSelection;
-        buttonGroupRef.current.selection = value;
-    }
-
     return (
-        <div className="container sample">
-            <div className="radio-group-container">
-                <label>Selection Mode</label>
-                <IgrRadioGroup alignment="horizontal">
-                    <IgrRadio name="mode" value="single" checked onChange={onRadioChange}>
-                        <span>Single</span>
-                    </IgrRadio>
-                    <IgrRadio name="mode" value="single-required" onChange={onRadioChange}>
-                        <span>Single-Required</span>
-                    </IgrRadio>
-                    <IgrRadio name="mode" value="multiple" onChange={onRadioChange}>
-                        <span>Multiple</span>
-                    </IgrRadio>
-                </IgrRadioGroup>
-            </div>
-            <IgrButtonGroup ref={buttonGroupRef}>
-                <IgrToggleButton value="bold">
-                    <IgrIcon name="bold" collection="material" />
-                    <IgrRipple />
-                </IgrToggleButton>
-                <IgrToggleButton value="italic">
-                    <IgrIcon name="italic" collection="material" />
-                    <IgrRipple />
-                </IgrToggleButton>
-                <IgrToggleButton value="underlined">
-                    <IgrIcon name="underlined" collection="material"/>
-                    <IgrRipple/>
-                </IgrToggleButton>
-            </IgrButtonGroup>
+        <div className="container sample selection-samples">
+            {(['single', 'single-required', 'multiple'] as const).map((selection) => (
+                <div className="selection-sample" key={selection}>
+                    <span>{selection === 'single-required' ? 'Single-Required' : selection.charAt(0).toUpperCase() + selection.slice(1)}</span>
+                    <IgrButtonGroup selection={selection}>
+                        <IgrToggleButton value="bold" selected={selection === 'single-required' || selection === 'multiple'}>
+                            <IgrIcon name="bold" collection="material" />
+                            <IgrRipple />
+                        </IgrToggleButton>
+                        <IgrToggleButton value="italic" selected={selection === 'multiple'}>
+                            <IgrIcon name="italic" collection="material" />
+                            <IgrRipple />
+                        </IgrToggleButton>
+                        <IgrToggleButton value="underlined">
+                            <IgrIcon name="underlined" collection="material" />
+                            <IgrRipple />
+                        </IgrToggleButton>
+                    </IgrButtonGroup>
+                </div>
+            ))}
       </div>
     );
 }

@@ -15,10 +15,8 @@ export default function TextAreaStyling() {
     return (
         <div className="sample">
             <IgrTextarea label="Steps to reproduce">
-                <span slot="prefix">
-                <IgrIcon name='feedback' collection="material"></IgrIcon>
-                </span>                    
-                <p slot="helper-text">Provide a detailed description of the steps that led to the issue you experienced</p>
+                <IgrIcon slot="prefix" name='feedback' collection="material"></IgrIcon>                 
+                <span slot="helper-text">Provide a detailed description of the steps that led to the issue you experienced</span>
             </IgrTextarea>
         </div>
     );

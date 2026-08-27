@@ -15,24 +15,24 @@ export default class RatingSingleSelection extends React.Component<any, any> {
             <div className="container sample">                
                     <IgrRating label="Rate Experience" single={true}>
                         <IgrRatingSymbol>                           
-                            <div>😣</div>
-                            <div slot="empty">😣</div>
+                            <span>😣</span>
+                            <span slot="empty">😣</span>
                         </IgrRatingSymbol>
                         <IgrRatingSymbol>                           
-                            <div>😔</div>
-                            <div slot="empty">😔</div>
+                            <span>😔</span>
+                            <span slot="empty">😔</span>
                         </IgrRatingSymbol>
                         <IgrRatingSymbol>                           
-                            <div>😐</div>
-                            <div slot="empty">😐</div>
+                            <span>😐</span>
+                            <span slot="empty">😐</span>
                         </IgrRatingSymbol>
                         <IgrRatingSymbol>                           
-                            <div>🙂</div>
-                            <div slot="empty">🙂</div>
+                            <span>🙂</span>
+                            <span slot="empty">🙂</span>
                         </IgrRatingSymbol>
                         <IgrRatingSymbol>                           
-                            <div>😆</div>
-                            <div slot="empty">😆</div>
+                            <span>😆</span>
+                            <span slot="empty">😆</span>
                         </IgrRatingSymbol>                         
                     </IgrRating>                                                      
             </div>

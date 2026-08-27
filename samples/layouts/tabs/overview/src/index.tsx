@@ -22,15 +22,15 @@ export default class Overview extends React.Component<any, any> {
       <div className="container sample">
         <IgrTabs>
           <IgrTab>
-            <span slot="label"><IgrIcon name='home' collection="material"></IgrIcon></span>
+            <IgrIcon slot="label" name='home' collection="material"></IgrIcon>
             <span>Home tab panel</span>
           </IgrTab>
           <IgrTab>
-             <span slot="label"><IgrIcon name='search' collection="material"></IgrIcon></span>
+             <IgrIcon slot="label" name='search' collection="material"></IgrIcon>
              <span>Search tab panel</span>
           </IgrTab>
           <IgrTab>
-             <span slot="label"><IgrIcon name='favorite' collection="material"></IgrIcon></span>
+             <IgrIcon slot="label" name='favorite' collection="material"></IgrIcon>
              <span>Favorite tab panel</span>
           </IgrTab>
         </IgrTabs>

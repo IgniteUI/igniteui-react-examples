@@ -13,7 +13,7 @@ export default class ButtonContained extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <div className="container sample">
-                <IgrButton variant="contained"><span>Contained</span></IgrButton>
+                <IgrButton variant="contained">Contained</IgrButton>
             </div>
         );
     }

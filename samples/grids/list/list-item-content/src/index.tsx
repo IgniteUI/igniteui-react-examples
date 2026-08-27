@@ -18,15 +18,15 @@ export default class ListItemContent extends React.Component<any, any> {
                         <span>Contacts</span>
                     </IgrListHeader>
                     <IgrListItem>
-                        <h2 slot="title">Terrance Orta</h2>
+                        <span slot="title">Terrance Orta</span>
                         <span slot="subtitle">770-504-2217</span>
                     </IgrListItem>
                     <IgrListItem>
-                        <h2 slot="title">Richard Mahoney</h2>
+                        <span slot="title">Richard Mahoney</span>
                         <span slot="subtitle">423-676-2869</span>
                     </IgrListItem>
                     <IgrListItem>
-                        <h2 slot="title">Donna Price</h2>
+                        <span slot="title">Donna Price</span>
                         <span slot="subtitle">859-496-2817</span>
                     </IgrListItem>
                 </IgrList>

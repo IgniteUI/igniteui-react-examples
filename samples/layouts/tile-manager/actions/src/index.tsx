@@ -98,15 +98,15 @@ export default class Actions extends React.Component<any, any> {
       <div className="container sample center">
         <IgrTileManager id="tile-manager1" columnCount={2} gap="20px">
           <IgrTile>
-            <h3 slot="title">Default Actions</h3>
+            <span slot="title">Default Actions</span>
             <p>This tile has default actions and title.</p>
           </IgrTile>
           <IgrTile disableFullscreen>
-            <h3 slot="title">No Fullscreen Action</h3>
+            <span slot="title">No Fullscreen Action</span>
             <p>Fullscreen is disabled via property.</p>
           </IgrTile>
           <IgrTile disableFullscreen disableMaximize>
-            <h3 slot="title">Custom Actions</h3>
+            <span slot="title">Custom Actions</span>
             <IgrIconButton id="customOne" onClick={this.onCustomOneClick} slot="actions" variant="flat" collection="material" name="north_east"
             aria-label="north_east"></IgrIconButton>
             <p>Replace the default actions with custom ones, and include extra actions when the tile is maximized.</p>
@@ -117,7 +117,7 @@ export default class Actions extends React.Component<any, any> {
             <p>Display only custom actions in the header.</p>
           </IgrTile>
           <IgrTile disableFullscreen disableMaximize>
-            <h3 slot="title">Only title</h3>
+            <span slot="title">Only title</span>
             <p>Display only title in the header.</p>
           </IgrTile>
           <IgrTile disableFullscreen disableMaximize>

@@ -64,14 +64,14 @@ export default class AccordionCustomization extends React.Component<any, any> {
         <div className="sample-wrapper">
           <IgrAccordion>
             <IgrExpansionPanel>
-              <h1 slot="title">
+              <span slot="title">
                 Categories
                 {this.state.categories.some((c: Category) => c.checked) && ": "}
                 {this.state.categories
                   .filter((c: Category) => c.checked)
                   .map((c: Category) => c.type)
                   .join(", ")}
-              </h1>
+              </span>
               <span>
                 <div className="categories-container">
                   {this.state.categories.map((c: Category) => {
@@ -90,10 +90,10 @@ export default class AccordionCustomization extends React.Component<any, any> {
               </span>
             </IgrExpansionPanel>
             <IgrExpansionPanel>
-              <h1 slot="title">
+              <span slot="title">
                 Cost: $<span id="lowerCost">{this.state.cost.lower}</span> to $
                 <span id="upperCost">{this.state.cost.upper}</span>
-              </h1>
+              </span>
               <span>
                 <IgrRangeSlider
                   min={0}
@@ -105,10 +105,10 @@ export default class AccordionCustomization extends React.Component<any, any> {
               </span>
             </IgrExpansionPanel>
             <IgrExpansionPanel>
-              <h1 slot="title">
+              <span slot="title">
                 Rating{this.state.rating && ": "}
                 {this.state.rating}
-              </h1>
+              </span>
               <span>
                 <IgrRadioGroup alignment="horizontal">
                   {[1, 2, 3, 4].map((rating) => {
@@ -135,9 +135,9 @@ export default class AccordionCustomization extends React.Component<any, any> {
               </span>
             </IgrExpansionPanel>
             <IgrExpansionPanel>
-              <h1 slot="title">
+              <span slot="title">
                 {this.state.time}
-              </h1>
+              </span>
               <span>
                 <IgrDateTimeInput
                   className="size-small"

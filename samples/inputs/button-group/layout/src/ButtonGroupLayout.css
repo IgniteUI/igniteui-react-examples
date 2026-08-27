@@ -1,0 +1,19 @@
+igc-ripple {
+    --color: gray;
+}
+
+.button-group-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    min-height: 7rem;
+}
+
+.button-group-layout igc-toggle-button {
+    min-width: 100px;
+}
+
+.button-group-layout igc-icon {
+    --size: 20px;
+}

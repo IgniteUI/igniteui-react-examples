@@ -1,16 +1,62 @@
-.size-small {
-    --ig-size: var(--ig-size-small);
+.avatar-size-sample {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto auto;
+  place-content: center;
+  place-items: center;
+  column-gap: 3rem;
+  row-gap: 0.5rem;
+  height: 100vh;
+  padding: 2rem;
 }
 
-.size-medium {
-    --ig-size: var(--ig-size-medium);
+:where(igc-avatar) {
+  grid-row: 1;
 }
 
-.size-large {
-    --ig-size: var(--ig-size-large);
+:where(span) {
+  grid-row: 2;
+  text-align: center;
+  color: var(--ig-gray-600);
+  font-family: "Aktiv Grotesk", Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin: 0;
 }
 
-.sample {
-    flex-direction: row;
-    gap: 10px;
+:where(igc-badge) {
+  position: absolute;
+  inset-block-start: anchor(85.5%);
+  inset-inline-start: anchor(85.5%);
+  translate: -50% -50%;
+}
+
+.avatar-size-sample igc-avatar:nth-of-type(1) {
+  --ig-size: var(--ig-size-large);
+  anchor-name: --large;
+}
+
+.avatar-size-sample igc-avatar:nth-of-type(2) {
+  --ig-size: var(--ig-size-medium);
+  anchor-name: --medium;
+}
+
+.avatar-size-sample igc-avatar:nth-of-type(3) {
+  --ig-size: var(--ig-size-small);
+  anchor-name: --small;
+}
+
+.avatar-size-sample igc-badge:nth-of-type(1) {
+  --ig-size: var(--ig-size-large);
+  position-anchor: --large;
+}
+
+.avatar-size-sample igc-badge:nth-of-type(2) {
+  --ig-size: var(--ig-size-medium);
+  position-anchor: --medium;
+}
+
+.avatar-size-sample igc-badge:nth-of-type(3) {
+  --ig-size: var(--ig-size-small);
+  position-anchor: --small;
 }

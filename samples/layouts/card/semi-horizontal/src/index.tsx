@@ -25,8 +25,8 @@ export default function CardSemiHorizontal() {
                   src="https://dl.infragistics.com/x/img/music/singer_with_mic.jpg"
                   slot="thumbnail"
                 />
-                <h5 slot="title">HERE</h5>
-                <h5 slot="subtitle">by Mellow D</h5>
+                <span slot="title">HERE</span>
+                <span slot="subtitle">by Mellow D</span>
               </IgrCardHeader>
 
               <IgrCardContent>

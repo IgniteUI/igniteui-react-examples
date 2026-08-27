@@ -1,39 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-    IgrButtonGroup,
-    IgrComponentValueChangedEventArgs,
-    IgrToggleButton,
-  } from 'igniteui-react';
+import { IgrButtonGroup, IgrRipple, IgrToggleButton } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
+import './ButtonGroupSize.css';
 import './index.css';
 
-export default function ButtonGroupSize() {
-    const [style, setStyle] = useState({ '--ig-size': 'var(--ig-size-large)' } as React.CSSProperties)
+const cities = ['Sofia', 'London', 'New York'];
 
-    function onSelect(args: IgrComponentValueChangedEventArgs) {
-        setStyle({
-            '--ig-size': `var(--ig-size-${args.detail})`
-        } as React.CSSProperties)
-    }
+const sizes = ['small', 'medium', 'large'];
 
+export default function ButtonGroupSize(): JSX.Element {
     return (
-        <div className="container sample">
-            <IgrButtonGroup onSelect={onSelect} style={style}>
-                <IgrToggleButton value="small">
-                    <span>Small</span>
-                </IgrToggleButton>
-                <IgrToggleButton value="medium">
-                    <span>Medium</span>
-                </IgrToggleButton>
-                <IgrToggleButton value="large">
-                    <span>Large</span>
-                </IgrToggleButton>
-            </IgrButtonGroup>
-      </div>
+        <div className="button-group-size">
+            {sizes.map((size) => (
+                <div className="button-group-size-item" key={size}>
+                    <span>{size.charAt(0).toUpperCase() + size.slice(1)}</span>
+                    <IgrButtonGroup
+                        style={{ '--ig-size': `var(--ig-size-${size})` } as React.CSSProperties}
+                    >
+                        {cities.map((city) => (
+                            <IgrToggleButton
+                                key={city}
+                                value={city.toLowerCase()}
+                            >
+                                {city}
+                                <IgrRipple />
+                            </IgrToggleButton>
+                        ))}
+                    </IgrButtonGroup>
+                </div>
+            ))}
+        </div>
     );
 }
 
 // rendering above class to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<ButtonGroupSize/>);
+root.render(<ButtonGroupSize />);

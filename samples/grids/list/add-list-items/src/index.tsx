@@ -18,13 +18,13 @@ export default class ListAddListItems extends React.Component<any, any> {
                         <span>Header</span>
                     </IgrListHeader>
                     <IgrListItem>
-                        <h2 slot="title">Item 1</h2>
+                        <span slot="title">Item 1</span>
                     </IgrListItem>
                     <IgrListItem>
-                        <h2 slot="title">Item 2</h2>
+                        <span slot="title">Item 2</span>
                     </IgrListItem>
                     <IgrListItem>
-                        <h2 slot="title">Item 3</h2>
+                        <span slot="title">Item 3</span>
                     </IgrListItem>
                 </IgrList>
             </div>

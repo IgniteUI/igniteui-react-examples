@@ -15,10 +15,8 @@ export default function TextAreaSlots() {
     return (
         <div className="sample">
             <IgrTextarea label="Your feedback">
-                <span slot="prefix">
-                <IgrIcon name='feedback' collection="material"></IgrIcon>
-                </span>                    
-                <p slot="helper-text">Give us a short description of what you liked/disliked</p>
+                <IgrIcon slot="prefix" name='feedback' collection="material"></IgrIcon>                 
+                <span slot="helper-text">Give us a short description of what you liked/disliked</span>
             </IgrTextarea>
         </div>
     );

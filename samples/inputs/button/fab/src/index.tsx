@@ -15,7 +15,7 @@ export default class ButtonFab extends React.Component<any, any> {
             <div className="container sample">
                 <IgrButton variant="fab">
                     <span slot="prefix">+</span>
-                    <span>Add</span>
+                    Add
                 </IgrButton>                    
             </div>
         );

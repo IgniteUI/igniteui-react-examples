@@ -1,2 +1,12 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.container {
+  background: var(--ig-surface-600);
+}
+
+igc-button {
+  width: 40%;
+  margin: auto;
+  background: var(--ig-surface-50);
+}
