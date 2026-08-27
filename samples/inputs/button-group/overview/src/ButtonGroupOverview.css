@@ -1,7 +1,40 @@
+ .container.sample {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
 igc-button-group {
-    max-width: 400px;
+    display: block;
+    width: 280px;
+    max-width: 100%;
 }
 
 igc-ripple {
     --color: gray;
+}
+
+.album {
+    margin-top: 8px;
+    width: 280px;
+    max-width: 100%;
+}
+
+.album-title {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #1f89d4;
+}
+
+.album-photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+}
+
+.album-photos img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
 }

@@ -1,0 +1,13 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+igc-button-group {
+  display: inline-block;
+  width: 300px;
+}
+
+.container.sample {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
