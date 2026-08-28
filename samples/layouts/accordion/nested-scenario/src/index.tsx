@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import {
@@ -10,10 +10,19 @@ import {
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 
 export default function AccordionNestedScenario() {
-  const [singleExpand, setSingleExpand] = useState<boolean>(false);
+  const outerAccordionRef = useRef<IgrAccordion>(null);
+  const innerAccordionRef = useRef<IgrAccordion>(null);
 
   const switchChange = (e: IgrCheckboxChangeEventArgs) => {
-    setSingleExpand(e.detail.checked);
+    const { checked } = e.detail;
+
+    if (outerAccordionRef.current) {
+      outerAccordionRef.current.singleExpand = checked;
+    }
+
+    if (innerAccordionRef.current) {
+      innerAccordionRef.current.singleExpand = checked;
+    }
   };
 
   return (
@@ -25,14 +34,14 @@ export default function AccordionNestedScenario() {
           </IgrSwitch>
         </div>
 
-        <IgrAccordion singleExpand={singleExpand}>
+        <IgrAccordion ref={outerAccordionRef}>
           <IgrExpansionPanel open>
             <span slot="title">Workspace Settings</span>
             <span slot="subtitle">
               Nested account, access, and billing options
             </span>
 
-            <IgrAccordion singleExpand={singleExpand}>
+            <IgrAccordion ref={innerAccordionRef}>
               <IgrExpansionPanel open>
                 <span slot="title">Profile</span>
                 <span slot="subtitle">Name, photo, and contact details</span>

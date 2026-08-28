@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import {
@@ -10,10 +10,12 @@ import {
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 export default function AccordionOverview() {
-    const [singleExpand, setSingleExpand] = useState<boolean>(false);
+    const accordionRef = useRef<IgrAccordion>(null);
 
     const switchChange = (e: IgrCheckboxChangeEventArgs) => {
-        setSingleExpand(e.detail.checked);
+        if (accordionRef.current) {
+            accordionRef.current.singleExpand = e.detail.checked;
+        }
     };
 
     return (
@@ -25,7 +27,7 @@ export default function AccordionOverview() {
                     </IgrSwitch>
                 </div>
 
-                <IgrAccordion singleExpand={singleExpand}>
+                <IgrAccordion ref={accordionRef}>
                     <IgrExpansionPanel open>
                         <span slot="title">Account</span>
                         <span slot="subtitle">Profile and security settings</span>
