@@ -1,75 +1,97 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import './AccordionNestedScenario.css';
+import React, { useRef } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 import {
-    IgrAccordion, IgrExpansionPanel, IgrSwitch,
-    IgrCheckboxChangeEventArgs
-} from 'igniteui-react';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+  IgrAccordion,
+  IgrCheckboxChangeEventArgs,
+  IgrExpansionPanel,
+  IgrSwitch,
+} from "igniteui-react";
+import "igniteui-webcomponents/themes/light/bootstrap.css";
 
 export default function AccordionNestedScenario() {
+  const outerAccordionRef = useRef<IgrAccordion>(null);
+  const innerAccordionRef = useRef<IgrAccordion>(null);
 
-    const [singleExpand, setSingleExpand] = useState<boolean>(false);
-    
-    const switchChange = (e: IgrCheckboxChangeEventArgs) => {
-        setSingleExpand(e.detail.checked);
+  const switchChange = (e: IgrCheckboxChangeEventArgs) => {
+    const { checked } = e.detail;
+
+    if (outerAccordionRef.current) {
+      outerAccordionRef.current.singleExpand = checked;
     }
 
-    return (
-        <div id="root">
-            <IgrSwitch onChange={switchChange}><span>Single Expand</span></IgrSwitch>
-            <div className="sample-wrapper">
-                <IgrAccordion singleExpand={singleExpand}>
-                    <IgrExpansionPanel Open>
-                        <span slot="title">Common questions about renewal.</span>
-                        <span>
-                            <IgrAccordion>
-                                <IgrExpansionPanel>
-                                    <span slot="title">What happens if I don&apos;t renew my subscription?</span>
-                                    <span>Any unlicensed or trial versions of Ignite UI for Angular, React and Web Components will now include this watermark.</span>
-                                </IgrExpansionPanel>
-                                <IgrExpansionPanel>
-                                    <span slot="title">If I don&apos;t renew my subscription will I still have access to previous versions of Infragistics products?</span>
-                                    <span>Any version of Infragistics software which you have downloaded can continue to be used perpetually. Access to download any new or
-                                        previous versions through our customer portal and package feeds will require maintaining an active subscription by continuing
-                                        to renew it.</span>
-                                </IgrExpansionPanel>
-                                <IgrExpansionPanel>
-                                    <span slot="title">Will I be automatically charged for my renewal/ Can I be automatically charged for renewal?</span>
-                                    <span>Any new subscriptions purchased online, via our eCommerce system, will renew automatically. Subscription renewal can be canceled,
-                                        at any time, before the next automatic renewal date. Subscriptions purchased directly from Infragistics or Infragistics&apos; partners are
-                                        subject to the renewal terms that were agreed upon as part of that purchase.</span>
-                                </IgrExpansionPanel>
-                            </IgrAccordion>
-                        </span>
-                    </IgrExpansionPanel>
-                    <IgrExpansionPanel>
-                        <span slot="title">What has changed about subscription and pricing model?</span>
-                        <span>We have moved to a subscription-based pricing model for all our developer tools. This makes it easier
-                            for you to manage your license subscriptions and allows us to provide a better level of service for you. We
-                            updated our pricing and packages to provide you with flexible options and the best value. This includes Ignite UI
-                            (formerly Ignite UI for JavaScript) which includes all of our JavaScript framework components for web development,
-                            including: Angular, ASP.NET (Core and MVC), Blazor, JQuery, React and Web Components, as well as Infragistics Professional,
-                            Infragistics Ultimate, our Ultimate UI products. We also offer multi-year subscriptions options with a built-in discount,
-                            so you can see the value up front. With these updates we are confident that we are providing the best platforms and the best
-                            price.</span>
-                    </IgrExpansionPanel>
-                    <IgrExpansionPanel>
-                        <span slot="title">Who will the updated changes impact?</span>
-                        <span>The license updates will impact all new and current customers using Ignite UI, Infragistics Professional and
-                            Infragistics Ultimate. Specifically, we have also made updates to our product and packaging for Ignite UI for JavaScript,
-                            Ignite UI for Angular, Ignite UI for React and Ignite UI for Web components. For more information, please refer to this
-                            blog: Announcement: Changes to Ignite UI Product & Packaging The pricing has been updated for all products and packages.
-                            So, all new or additional licenses will be sold based on our new pricing and packages. All existing license agreements will
-                            be honored and renewed based upon the current agreement.</span>
-                    </IgrExpansionPanel>
-                </IgrAccordion>
-            </div>
+    if (innerAccordionRef.current) {
+      innerAccordionRef.current.singleExpand = checked;
+    }
+  };
+
+  return (
+    <div className="accordion-sample">
+      <div className="accordion-content">
+        <div className="accordion-toolbar">
+          <IgrSwitch onChange={switchChange}>
+            <span>Single Expand</span>
+          </IgrSwitch>
         </div>
-    );
+
+        <IgrAccordion ref={outerAccordionRef}>
+          <IgrExpansionPanel open>
+            <span slot="title">Workspace Settings</span>
+            <span slot="subtitle">
+              Nested account, access, and billing options
+            </span>
+
+            <IgrAccordion ref={innerAccordionRef}>
+              <IgrExpansionPanel open>
+                <span slot="title">Profile</span>
+                <span slot="subtitle">Name, photo, and contact details</span>
+                <p>
+                  Update the public information shown to other workspace
+                  members.
+                </p>
+              </IgrExpansionPanel>
+
+              <IgrExpansionPanel>
+                <span slot="title">Security</span>
+                <span slot="subtitle">Password and sign-in preferences</span>
+                <p>
+                  Review active sessions, change your password, and configure
+                  sign-in requirements.
+                </p>
+              </IgrExpansionPanel>
+
+              <IgrExpansionPanel>
+                <span slot="title">Notifications</span>
+                <span slot="subtitle">Email and product updates</span>
+                <p>
+                  Choose the messages you receive for comments, assignments, and
+                  releases.
+                </p>
+              </IgrExpansionPanel>
+            </IgrAccordion>
+          </IgrExpansionPanel>
+
+          <IgrExpansionPanel>
+            <span slot="title">Team Access</span>
+            <span slot="subtitle">Members, roles, and permissions</span>
+            <p>
+              Invite teammates, assign roles, and review workspace permissions.
+            </p>
+          </IgrExpansionPanel>
+
+          <IgrExpansionPanel>
+            <span slot="title">Billing</span>
+            <span slot="subtitle">Plan, invoices, and payment method</span>
+            <p>
+              Manage subscription details, billing contacts, and invoice
+              delivery.
+            </p>
+          </IgrExpansionPanel>
+        </IgrAccordion>
+      </div>
+    </div>
+  );
 }
 
-// rendering above component to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<AccordionNestedScenario />);
