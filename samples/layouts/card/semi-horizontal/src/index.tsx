@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import "./CardSemiHorizontal.css";
 import {
   IgrCard,
   IgrCardHeader,

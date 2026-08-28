@@ -23,16 +23,16 @@ export default function CardStyling() {
 
   return (
     <div className="container sample center">
-      <div className="card-wrapper">
-        <IgrCard>
+      <div className="w-[min(320px,100%)] min-w-[220px]">
+        <IgrCard className="bg-[#011627]">
           <IgrCardMedia>
             <img src="https://images.unsplash.com/photo-1541516160071-4bb0c5af65ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"></img>
           </IgrCardMedia>
-          <IgrCardHeader className="header">
+          <IgrCardHeader className="[&>*[slot='title']]:text-[#FEFEFE] [&>*[slot='subtitle']]:text-[#ECAA53] [&>*[slot='subtitle']]:opacity-90">
             <span slot="title">Jane Doe</span>
             <span slot="subtitle">Professional Photographer</span>
           </IgrCardHeader>
-          <IgrCardContent>
+          <IgrCardContent className="text-[#FEFEFE]">
             <p>
               Hi! I am Jane, photographer and filmmaker. Photography is a way of
               feeling, of touching, of loving. What you have caught on film is
@@ -41,7 +41,7 @@ export default function CardStyling() {
             </p>
           </IgrCardContent>
           <IgrCardActions>
-            <div slot="end">
+            <div slot="end" className="flex gap-2.5">
               <IgrIconButton name="twitter" collection="material">
                 <IgrRipple />
               </IgrIconButton>
@@ -59,6 +59,5 @@ export default function CardStyling() {
   );
 }
 
-// rendering above component to the React DOM
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<CardStyling />);

@@ -1,0 +1,41 @@
+.actions-sample {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    padding: 24px;
+}
+
+.actions-card {
+    width: min(360px, 100%);
+}
+
+.actions-card.rail-card {
+    width: min(360px, 100%);
+}
+
+.icon-actions {
+    display: flex;
+    gap: 8px;
+}
+
+igc-card-content p {
+    margin: 0;
+}
+
+.rail-layout {
+    align-items: stretch;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr auto;
+}
+
+.action-rail {
+    align-items: center;
+    border-left: 1px solid var(--ig-gray-300);
+    gap: 12px;
+    justify-content: center;
+    padding-inline-start: 12px;
+}
