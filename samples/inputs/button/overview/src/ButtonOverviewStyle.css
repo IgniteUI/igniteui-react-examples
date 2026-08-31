@@ -19,7 +19,7 @@
 
 .fields igc-input::part(container),
 .fields igc-input::part(input) {
-    background-color: #ffffff;
+    background-color: var(--ig-gray-0);
     border-bottom: none;
 }
 
