@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrBadge, IgrIcon, registerIconFromText } from 'igniteui-react';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import 'igniteui-webcomponents/themes/light/material.css';
 
 const checkIcon =
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
@@ -26,11 +26,11 @@ export default function BadgeShape(): JSX.Element {
             </div>
             <div className="badge-shape-row">
                 <span className="row-label">Square</span>
-                <IgrBadge variant="info" shape="square" className="badge-info-blue">
+                <IgrBadge variant="info" shape="square">
                     <IgrIcon name="check" collection="material" />
                 </IgrBadge>
-                <IgrBadge variant="info" shape="square" className="badge-info-blue">2</IgrBadge>
-                <IgrBadge variant="info" shape="square" className="badge-small badge-info-blue">
+                <IgrBadge variant="info" shape="square">2</IgrBadge>
+                <IgrBadge variant="info" shape="square" className="badge-small">
                     <IgrIcon name="check" collection="material" />
                 </IgrBadge>
             </div>

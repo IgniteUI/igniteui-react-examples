@@ -55,8 +55,8 @@ igc-avatar {
 .icon-circle {
 	justify-content: center;
 	border-radius: 50%;
-	background: var(--ig-gray-200);
-	color: var(--ig-gray-800);
+	background: var(--ig-gray-300);
+	color: var(--ig-gray-900);
 }
 
 .notifications-card,
@@ -86,16 +86,6 @@ igc-avatar {
 	width: 12px;
 }
 
-.row-indicator igc-badge,
-.nav-icon igc-badge {
-	--ig-badge-background-color: #0057A9;
-}
-
-.row-indicator igc-badge::part(base),
-.nav-icon igc-badge::part(base) {
-	background-color: #0057A9;
-}
-
 .row-title {
 	flex: 1;
 }
@@ -106,7 +96,7 @@ igc-avatar {
 }
 
 .row-time.unread {
-	color: #0057A9;
+	color: var(--ig-gray-900);
 	font-weight: 600;
 }
 
@@ -135,7 +125,7 @@ igc-avatar {
 }
 
 .nav-item.active {
-	color: #0075D2;
+	color: var(--ig-primary-800);
 }
 
 .nav-icon {

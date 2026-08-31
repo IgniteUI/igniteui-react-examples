@@ -53,9 +53,9 @@ igc-badge {
 }
 
 .styling-item.green igc-avatar {
-    --icon-color: #248436;
-    --ig-avatar-background: #A9CEB0;
-    --ig-avatar-color: #248436;
+    --icon-color: var(--ig-success-900);
+    --ig-avatar-background: var(--ig-success-200);
+    --ig-avatar-color: var(--ig-success-900);
 }
 
 .styling-item.pink igc-avatar {

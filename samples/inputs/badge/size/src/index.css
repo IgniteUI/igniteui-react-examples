@@ -21,30 +21,13 @@
 
 .row-label {
   justify-self: end;
-  color: #556c86;
+  color: var(--ig-gray-600);
   font-family: "Aktiv Grotesk", sans-serif;
   font-size: 13px;
   font-weight: 400;
   font-style: normal;
   line-height: 20px;
   letter-spacing: 0.3px;
-}
-
-.badge-info-blue {
-  --ig-badge-background-color: #0057A9;
-}
-
-.badge-info-blue::part(base) {
-  background-color: #0057A9;
-}
-
-igc-badge::part(base),
-igc-badge igc-icon {
-  color: var(--ig-gray-50);
-}
-
-igc-badge igc-icon {
-  fill: var(--ig-gray-50);
 }
 
 .badge-large { --ig-size: var(--ig-size-large); }
