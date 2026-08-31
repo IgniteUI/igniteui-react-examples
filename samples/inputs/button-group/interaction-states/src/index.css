@@ -1,2 +1,117 @@
-/* shared styles are loaded from: */
-/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+.sbSwitch {
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: center;
+    height: 100vh;
+}
+
+.states-matrix {
+    display: grid;
+    grid-template-columns: auto repeat(3, minmax(7.75rem, 1fr));
+    gap: 1rem;
+    inline-size: 100%;
+    max-inline-size: 42.5rem;
+    margin-inline: auto;
+}
+
+.states-row {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    align-items: center;
+}
+
+.row-label,
+.column-label,
+.cell-label {
+    color: var(--ig-gray-600);
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+}
+
+.column-label,
+.cell-label {
+    text-align: center;
+}
+
+.cell-label {
+    display: none;
+}
+
+.state-cell {
+    display: grid;
+    gap: 0.25rem;
+}
+
+igc-icon {
+    --ig-icon-size: 1rem;
+}
+
+@container (width < 34rem) {
+    .states-matrix {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .states-row {
+        grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+    }
+
+    header.states-row {
+        display: none;
+    }
+
+    .row-label {
+        grid-column: 1 / -1;
+    }
+
+    .cell-label {
+        display: block;
+        text-align: start;
+        margin-block-start: 1rem;
+    }
+
+    .state-cell {
+        margin-inline-end: 0.5rem;
+    }
+}
+
+/* WARNING START: Demo overrides only. Do not copy to production. */
+/* Forced state classes are used here solely to present all component states visually. */
+igc-button-group {
+    pointer-events: none;
+}
+
+igc-toggle-button[selected]::part(toggle) {
+    background: var(--item-active-background);
+    border-color: var(--item-active-border-color);
+    color: var(--item-hover-text-color);
+}
+
+igc-toggle-button.state-hover:not([selected])::part(toggle) {
+    background: var(--item-hover-background);
+    border-color: var(--item-hover-border-color);
+    color: var(--item-hover-text-color);
+}
+
+igc-toggle-button.state-focused:not([selected])::part(toggle) {
+    background: var(--item-focused-hover-background);
+    border-color: var(--item-focused-hover-border-color);
+    color: var(--item-focused-hover-text-color);
+}
+
+igc-toggle-button.state-hover[selected]::part(toggle) {
+    background: var(--item-selected-active-background);
+    border-color: var(--item-selected-active-border-color);
+    color: var(--item-selected-hover-text-color);
+}
+
+igc-toggle-button.state-focused[selected]::part(toggle) {
+    background: var(--item-selected-active-background);
+    border-color: var(--item-selected-active-border-color);
+    color: var(--item-focused-hover-text-color);
+}
+/* WARNING END */

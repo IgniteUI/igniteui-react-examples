@@ -10,13 +10,13 @@ igc-badge {
 
 igc-avatar {
 	--ig-size: var(--ig-size-small);
-	--ig-avatar-background: var(--ig-gray-700);
-	--ig-avatar-color: var(--ig-gray-50);
+	--ig-avatar-background: var(--ig-gray-400);
+	--ig-avatar-color: var(--ig-gray-800);
 }
 
 .variant-item:first-child igc-avatar igc-icon,
 .variant-item:nth-child(4) igc-avatar igc-icon {
-	color: var(--ig-gray-50);
+	color: var(--ig-gray-800);
 }
 
 .badge-variants {
@@ -36,7 +36,7 @@ igc-avatar {
 }
 
 .variant-item span {
-	color: #556c86;
+	color: var(--ig-gray-600);
 	font-family: "Aktiv Grotesk", sans-serif;
 	font-size: 13px;
 	font-weight: 400;
@@ -48,34 +48,4 @@ igc-avatar {
 .avatar-wrapper {
 	position: relative;
 	display: flex;
-}
-
-.badge-info-blue {
-	--ig-badge-background-color: #0057A9;
-}
-
-.badge-info-blue::part(base) {
-	background-color: #0057A9;
-}
-
-.badge-primary-blue {
-	--ig-badge-background-color: #0070BA;
-}
-
-.badge-primary-blue::part(base) {
-	background-color: #0070BA;
-}
-
-.badge-warning-black::part(base) {
-	background-color: #FAA419;
-	color: #000;
-}
-
-igc-badge::part(base),
-igc-badge igc-icon {
-	color: var(--ig-gray-50);
-}
-
-igc-badge igc-icon {
-	fill: var(--ig-gray-50);
 }

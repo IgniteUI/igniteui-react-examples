@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { IgrButtonGroup, IgrRipple, IgrToggleButton } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
-import './ButtonGroupSize.css';
 import './index.css';
 
 const cities = ['Sofia', 'London', 'New York'];
@@ -11,13 +10,11 @@ const sizes = ['small', 'medium', 'large'];
 
 export default function ButtonGroupSize(): JSX.Element {
     return (
-        <div className="button-group-size">
+        <article className="button-group-size">
             {sizes.map((size) => (
-                <div className="button-group-size-item" key={size}>
-                    <span>{size.charAt(0).toUpperCase() + size.slice(1)}</span>
-                    <IgrButtonGroup
-                        style={{ '--ig-size': `var(--ig-size-${size})` } as React.CSSProperties}
-                    >
+                <React.Fragment key={size}>
+                    <span className="sample-label">{size.charAt(0).toUpperCase() + size.slice(1)}</span>
+                    <IgrButtonGroup>
                         {cities.map((city) => (
                             <IgrToggleButton
                                 key={city}
@@ -28,9 +25,9 @@ export default function ButtonGroupSize(): JSX.Element {
                             </IgrToggleButton>
                         ))}
                     </IgrButtonGroup>
-                </div>
+                </React.Fragment>
             ))}
-        </div>
+        </article>
     );
 }
 

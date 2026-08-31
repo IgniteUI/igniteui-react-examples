@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrAvatar, IgrBadge, IgrIcon, registerIconFromText } from 'igniteui-react';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import 'igniteui-webcomponents/themes/light/material.css';
 
 const checkIcon =
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
@@ -28,14 +28,14 @@ export default function BadgeVariants(): JSX.Element {
                     <IgrAvatar shape="circle">
                         <IgrIcon name="notifications" collection="material" />
                     </IgrAvatar>
-                    <IgrBadge outlined={true} variant="primary" className="badge-primary-blue">2</IgrBadge>
+                    <IgrBadge outlined={true} variant="primary">2</IgrBadge>
                 </div>
                 <span>Primary</span>
             </div>
             <div className="variant-item">
                 <div className="avatar-wrapper">
                     <IgrAvatar initials="AZ" shape="circle" />
-                    <IgrBadge outlined={true} variant="info" className="badge-info-blue">
+                    <IgrBadge outlined={true} variant="info">
                         <IgrIcon name="check" collection="material" />
                     </IgrBadge>
                 </div>
@@ -58,7 +58,7 @@ export default function BadgeVariants(): JSX.Element {
                     <IgrAvatar shape="circle">
                         <IgrIcon name="mail" collection="material" />
                     </IgrAvatar>
-                    <IgrBadge outlined={true} variant="warning" className="badge-warning-black">2</IgrBadge>
+                    <IgrBadge outlined={true} variant="warning">2</IgrBadge>
                 </div>
                 <span>Warn</span>
             </div>

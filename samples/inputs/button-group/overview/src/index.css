@@ -1,2 +1,36 @@
-/* shared styles are loaded from: */
-/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+.sbSwitch {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.sample-layout {
+    display: grid;
+    width: 17.5rem;
+    gap: 0.5rem;
+}
+
+igc-button-group {
+    max-width: 17.5rem;
+}
+
+.album-title {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.429;
+    letter-spacing: 0.0178571em;
+    margin-block: 0 0.5rem;
+    color: var(--ig-primary-500);
+}
+
+.album-photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+}
+
+.album-photos img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
