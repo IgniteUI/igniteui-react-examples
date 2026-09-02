@@ -1,30 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrSwitch, IgrRadio, IgrRadioGroup } from 'igniteui-react';
+import { IgrSwitch, IgrRadio, IgrRadioGroup, IgrExpansionPanel } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
 
 export default function SwitchStyling() {
+    const [open, setOpen] = useState(true);
 
     return (
         <div className="container sample">
-            <div className="security">
-                <div className="security__header">
-                    <IgrSwitch labelPosition="before" checked={true}>
-                        <span className="option">
-                            <span className="option__label">Two-factor authentication</span>
-                            <span className="option__hint">Extra sign-in verification</span>
-                        </span>
-                    </IgrSwitch>
+            {/* a click on the switch bubbles up to the panel header, so only the open state has to be mirrored back */}
+            <IgrExpansionPanel
+                className="security"
+                indicatorPosition="end"
+                open={open}
+                onOpened={() => setOpen(true)}
+                onClosed={() => setOpen(false)}>
+                <div slot="title" className="option">
+                    <span className="option__label">Two-factor authentication</span>
+                    <span className="option__hint">Extra sign-in verification</span>
                 </div>
-                <div className="security__body">
-                    <IgrRadioGroup alignment="vertical">
-                        <IgrRadio name="method" value="app" checked={true}>Authenticator app</IgrRadio>
-                        <IgrRadio name="method" value="key">Security key</IgrRadio>
-                        <IgrRadio name="method" value="codes">Backup codes</IgrRadio>
-                    </IgrRadioGroup>
-                </div>
-            </div>
+                <IgrSwitch slot="indicator" checked={open}></IgrSwitch>
+                <IgrRadioGroup alignment="vertical">
+                    <IgrRadio name="method" value="app" checked={true}>Authenticator app</IgrRadio>
+                    <IgrRadio name="method" value="key">Security key</IgrRadio>
+                    <IgrRadio name="method" value="codes">Backup codes</IgrRadio>
+                </IgrRadioGroup>
+            </IgrExpansionPanel>
         </div>
     );
 }

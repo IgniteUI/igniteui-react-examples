@@ -16,19 +16,19 @@ export default function SwitchTailwindStyling(): JSX.Element {
 
     return (
         <div className="container sample">
-            <div className={`w-full max-w-[384px] overflow-hidden rounded-lg shadow-[var(--ig-elevation-2)] ${isDarkMode ? 'bg-[#1A314A]' : 'bg-white'}`}>
-                <div className={`flex items-center justify-between gap-4 border-b px-6 py-4 ${isDarkMode ? 'border-gray-700 bg-gray-900' : 'border-gray-200 bg-gray-50'}`}>
-                    <span className={`font-sans text-[14px] font-medium leading-6 tracking-[0.1px] ${isDarkMode ? 'text-[#E6F2FF]' : 'text-gray-900'}`}>Dashboard</span>
+            <div className={`${isDarkMode ? 'dark ' : ''}w-full max-w-[384px] overflow-hidden rounded-lg shadow-[var(--ig-elevation-2)] bg-white dark:bg-[#1A314A]`}>
+                <div className="flex items-center justify-between gap-4 border-b border-gray-700 bg-gray-900 px-6 py-4">
+                    <span className="font-sans text-[14px] font-medium leading-6 tracking-[0.1px] text-[#E6F2FF]">Dashboard</span>
                     <IgrSwitch labelPosition="before" checked={isDarkMode} onChange={() => setIsDarkMode((current) => !current)} className="[--track-on-color:var(--color-blue-500)] [--track-off-color:var(--color-slate-600)] [--thumb-on-color:var(--color-white)] [--thumb-off-color:var(--color-slate-300)] [--track-on-hover-color:var(--color-blue-600)]">
-                        <span className={`flex items-center gap-2 font-sans text-[14px] font-medium leading-6 tracking-[0.1px] ${isDarkMode ? 'text-[#E6F2FF]' : 'text-gray-700'}`}>
+                        <span className="flex items-center gap-2 font-sans text-[14px] font-medium leading-6 tracking-[0.1px] text-[#E6F2FF]">
                             <IgrIcon name="dark_mode" collection="material" className="[--size:20px] text-[var(--ig-warn-300)]" />
                             Dark mode
                         </span>
                     </IgrSwitch>
                 </div>
-                <div className={`px-6 py-4 ${isDarkMode ? 'bg-[#1A314A]' : 'bg-white'}`}>
-                    <h6 className={`m-0 font-sans text-[16px] font-semibold leading-6 ${isDarkMode ? 'text-gray-50' : 'text-gray-900'}`}>Revenue overview</h6>
-                    <p className={`m-0 mt-2 font-sans text-[14px] font-medium leading-5 tracking-[0.25px] ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                <div className="px-6 py-4 bg-white dark:bg-[#1A314A]">
+                    <h6 className="m-0 font-sans text-[16px] font-semibold leading-6 text-gray-800 dark:text-gray-50">Revenue overview</h6>
+                    <p className="m-0 mt-2 font-sans text-[14px] font-medium leading-5 tracking-[0.25px] text-gray-700 dark:text-gray-400">
                         $84,290 this month, up 12% from July.<br />
                         Your top-performing channel is Direct, driving 41% of total revenue.
                     </p>

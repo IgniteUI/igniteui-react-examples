@@ -8,8 +8,8 @@
 }
 
 .variants {
-    --variant-gap: 50px;
-    --label-gap: 20px;
+    --variant-gap: 60px;
+    --label-gap: 30px;
 
     display: flex;
     align-items: center;

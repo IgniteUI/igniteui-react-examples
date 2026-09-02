@@ -6,6 +6,8 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 @source "./index.tsx";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 .container.sample {
     display: flex;
     place-content: center;

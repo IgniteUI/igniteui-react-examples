@@ -27,10 +27,6 @@
         padding-block: 12px;
         padding-inline: 16px;
 
-        &:first-of-type {
-            background: var(--ig-gray-100);
-        }
-
         & igc-switch {
             display: block;
             inline-size: 100%;
