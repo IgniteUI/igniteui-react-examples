@@ -1,7 +1,7 @@
 <!-- NOTE: do not change this file because it's auto re-generated from template: -->
 <!-- https://github.com/IgniteUI/igniteui-react-examples/tree/vnext/templates/sample/ReadMe.md -->
 
-This folder contains implementation of React application with example of Checking feature using [Switches](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) component.
+This folder contains implementation of React application with example of Enabled feature using [Switches](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) component.
 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -12,10 +12,10 @@ This folder contains implementation of React application with example of Checkin
         <a target="_blank" href="./src/index.tsx" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="View Code" src="https://dl.infragistics.com/x/img/browsers/button-code.png"/>
         </a>
-        <a target="_blank" href="https://www.infragistics.com/react-demos/samples/inputs/switches/checking" rel="noopener noreferrer">
+        <a target="_blank" href="https://www.infragistics.com/react-demos/samples/inputs/switches/enabled" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://dl.infragistics.com/x/img/browsers/button-run.png"/>
         </a>
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/inputs/switches/checking?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/index.tsx" rel="noopener noreferrer">
+        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/inputs/switches/enabled?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/index.tsx" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://dl.infragistics.com/x/img/browsers/button-sandbox.png"/>
         </a>
     </body>
@@ -34,7 +34,7 @@ Follow these instructions to run this example:
 git clone https://github.com/IgniteUI/igniteui-react-examples.git
 git checkout master
 cd ./igniteui-react-examples
-cd ./samples/inputs/switches/checking
+cd ./samples/inputs/switches/enabled
 ```
 
 open above folder in VS Code or type:

@@ -4,7 +4,7 @@
     place-items: center;
 }
 
-.states {
+.variants {
     --variant-gap: 50px;
     --label-gap: 20px;
 
@@ -12,13 +12,13 @@
     align-items: center;
     gap: var(--variant-gap);
 
-    & .states__variant {
+    & .variants__item {
         display: flex;
         align-items: center;
         gap: var(--label-gap);
     }
 
-    & .states__label {
+    & .variants__label {
         font: 500 14px / 24px "Aktiv Grotesk", sans-serif;
         letter-spacing: 0.1px;
         color: var(--ig-gray-600);

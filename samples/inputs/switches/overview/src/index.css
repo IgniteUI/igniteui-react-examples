@@ -1,2 +1,63 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.container.sample {
+    display: flex;
+    place-content: center;
+    place-items: center;
+}
+
+.notifications {
+    inline-size: 100%;
+    max-inline-size: 384px;
+    background: var(--ig-surface-500);
+    border-radius: 4px;
+    overflow: hidden;
+
+    & .notifications__title {
+        margin: 0;
+        padding: 16px;
+        font: 400 10px / 16px "Titillium Web", sans-serif;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--ig-secondary-500);
+    }
+
+    & .notifications__row {
+        padding-block: 12px;
+        padding-inline: 16px;
+
+        &:first-of-type {
+            background: var(--ig-gray-100);
+        }
+
+        & igc-switch {
+            display: block;
+            inline-size: 100%;
+
+            &::part(base) {
+                inline-size: 100%;
+                justify-content: space-between;
+                gap: 16px;
+            }
+        }
+    }
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: start;
+    white-space: normal;
+
+    & .option__label {
+        font-size: 16px;
+        color: var(--ig-gray-900);
+    }
+
+    & .option__hint {
+        font-size: 13px;
+        color: var(--ig-gray-700);
+    }
+}
