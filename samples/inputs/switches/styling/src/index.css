@@ -36,15 +36,16 @@
 
     & igc-switch {
         display: block;
-        inline-size: 44px;
+        inline-size: 43px;
         block-size: 24px;
+        transform: translateX(2px);
         --track-on-color: var(--ig-primary-200);
         --track-on-hover-color: var(--ig-primary-200);
         --thumb-on-color: var(--ig-primary-400);
         --thumb-on-hover-color: var(--ig-primary-400);
 
         &::part(base) {
-            inline-size: 44px;
+            inline-size: 43px;
             block-size: 24px;
             overflow: visible;
         }
