@@ -19,6 +19,7 @@
 
     &::part(header) {
         padding: 16px;
+        padding-inline-end: 6px;
         gap: 16px;
     }
 
@@ -36,17 +37,18 @@
 
     & igc-switch {
         display: block;
-        inline-size: 43px;
-        block-size: 24px;
-        transform: translateX(2px);
+        inline-size: 60px;
+        block-size: 40px;
         --track-on-color: var(--ig-primary-200);
         --track-on-hover-color: var(--ig-primary-200);
         --thumb-on-color: var(--ig-primary-400);
         --thumb-on-hover-color: var(--ig-primary-400);
 
         &::part(base) {
-            inline-size: 43px;
-            block-size: 24px;
+            inline-size: 60px;
+            block-size: 40px;
+            justify-content: center;
+            align-items: center;
             overflow: visible;
         }
 
