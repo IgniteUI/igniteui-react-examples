@@ -4,20 +4,20 @@ import './index.css';
 import { IgrSwitch } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/material.css';
 
-export default function SwitchDisabled() {
+export default function SwitchLayout() {
 
     return (
         <div className="container sample">
-            <div className="states">
-                <div className="states__variant">
-                    <span className="states__label">Disabled Checked</span>
-                    <IgrSwitch labelPosition="before" disabled={true} checked={true}>
+            <div className="variants">
+                <div className="variants__item">
+                    <span className="variants__label">Label Before</span>
+                    <IgrSwitch labelPosition="before" checked={true}>
                         <span>Power</span>
                     </IgrSwitch>
                 </div>
-                <div className="states__variant">
-                    <span className="states__label">Disabled Unchecked</span>
-                    <IgrSwitch labelPosition="before" disabled={true}>
+                <div className="variants__item">
+                    <span className="variants__label">Label After</span>
+                    <IgrSwitch labelPosition="after" checked={true}>
                         <span>Power</span>
                     </IgrSwitch>
                 </div>
@@ -28,4 +28,4 @@ export default function SwitchDisabled() {
 
 // rendering above component to the React DOM
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<SwitchDisabled/>);
+root.render(<SwitchLayout/>);
