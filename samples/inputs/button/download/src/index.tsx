@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrButton } from 'igniteui-react';
-import 'igniteui-webcomponents/themes/light/material.css';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 export default class ButtonDownload extends React.Component<any, any> {
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { IgrAvatar, IgrButton, IgrInput } from 'igniteui-react';
-import 'igniteui-webcomponents/themes/light/material.css';
-import './ButtonOverviewStyle.css';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './index.css';
 
 export default function ButtonOverview() {
