@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { IgrButtonGroup, IgrRipple, IgrToggleButton } from 'igniteui-react';
-import 'igniteui-webcomponents/themes/light/material.css';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import './index.css';
 
 const rows: Array<{ label: string; selected: boolean }> = [
