@@ -64,10 +64,10 @@ igc-carousel[vertical]::part(next) {
 }
 
 .slide-wrapper {
+    position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px;
-    align-items: center;
-    gap: 48px;
+    box-sizing: border-box;
+    place-items: center;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -80,6 +80,7 @@ igc-carousel[vertical]::part(next) {
 }
 
 .slide-content {
+    width: min(460px, calc(100% - 128px));
     max-width: 460px;
     color: var(--ig-gray-900);
 }
@@ -125,12 +126,16 @@ igc-carousel[vertical]::part(next) {
 }
 
 .slide-preview {
+    position: absolute;
+    right: 84px;
+    top: 50%;
     display: grid;
-    width: 100%;
+    width: 120px;
     height: 220px;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     gap: 14px;
+    transform: translateY(-50%);
 }
 
 .slide-preview span {
@@ -169,7 +174,10 @@ igc-carousel[vertical]::part(next) {
     }
 
     .slide-preview {
+        position: static;
+        width: 100%;
         height: 120px;
+        transform: none;
     }
 
     .slide-content h3 {

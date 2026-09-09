@@ -4,6 +4,7 @@ import {
   IgrButton,
   IgrCarousel,
   IgrCarouselSlide,
+  IgrCheckbox,
   IgrIcon,
   IgrInput,
   registerIconFromText,
@@ -12,11 +13,6 @@ import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.css";
 
 const icons = [
-  {
-    name: "person",
-    iconText:
-      '<svg width="24" height="24" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z"/></svg>',
-  },
   {
     name: "password",
     iconText:
@@ -59,7 +55,7 @@ export default function CarouselComponents() {
                 <span>Explore</span>
               </IgrButton>
             </form>
-            <div className="feature-visual" aria-hidden="true">
+            <div className="feature-visual route-visual" aria-hidden="true">
               <span></span>
               <span></span>
               <span></span>
@@ -68,52 +64,65 @@ export default function CarouselComponents() {
         </IgrCarouselSlide>
         <IgrCarouselSlide className="slide-frame slide-city">
           <article className="slide-shell">
-            <form className="feature-card">
+            <section className="feature-card event-card">
               <div className="feature-copy">
                 <span className="slide-label">City guide</span>
                 <h3>Museum night pass</h3>
-                <p>Use slide content for focused cards that combine text, inputs, and actions.</p>
+                <p>Reserve a late gallery visit and keep the event details visible in the active slide.</p>
               </div>
-              <IgrInput type="text" placeholder="Email for updates">
-                <IgrIcon slot="prefix" name="person"></IgrIcon>
-              </IgrInput>
-              <div className="chip-row" aria-label="Event details">
-                <span>Galleries</span>
-                <span>After hours</span>
-                <span>Limited</span>
+              <div className="event-summary" aria-label="Museum night pass details">
+                <div className="event-date" aria-hidden="true">
+                  <span>FRI</span>
+                  <strong>18</strong>
+                  <span>OCT</span>
+                </div>
+                <div className="event-details">
+                  <strong>6:30 PM - 10:00 PM</strong>
+                  <span>North wing galleries</span>
+                </div>
               </div>
-              <IgrButton type="reset">
+              <IgrCheckbox>Send event reminder</IgrCheckbox>
+              <IgrButton>
                 <span>Notify Me</span>
               </IgrButton>
-            </form>
-            <div className="feature-visual" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
+            </section>
+            <div className="event-visual" aria-hidden="true">
+              <span className="ticket ticket--back"></span>
+              <span className="ticket ticket--front">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
             </div>
           </article>
         </IgrCarouselSlide>
         <IgrCarouselSlide className="slide-frame slide-resort">
           <article className="slide-shell">
-            <form className="feature-card">
+            <form className="feature-card offer-card">
               <div className="feature-copy">
                 <span className="slide-label">Seasonal offer</span>
                 <h3>Resort day access</h3>
-                <p>Place interactive controls inside slides when each item can stand on its own.</p>
+                <p>Build a compact offer configuration that lets users review inclusions before applying a code.</p>
+              </div>
+              <div className="offer-summary" aria-label="Day pass summary">
+                <div>
+                  <span>Day pass</span>
+                  <strong>$89</strong>
+                </div>
+                <span>Pool access and spa credit included</span>
+              </div>
+              <div className="addon-row">
+                <span>Lunch add-on</span>
+                <strong>+$18</strong>
               </div>
               <IgrInput type="text" placeholder="Promo code">
                 <IgrIcon slot="prefix" name="password"></IgrIcon>
               </IgrInput>
-              <div className="chip-row" aria-label="Offer highlights">
-                <span>Pool</span>
-                <span>Lunch</span>
-                <span>Spa credit</span>
-              </div>
               <IgrButton type="reset">
                 <span>Apply Code</span>
               </IgrButton>
             </form>
-            <div className="feature-visual" aria-hidden="true">
+            <div className="amenity-visual" aria-hidden="true">
               <span></span>
               <span></span>
               <span></span>
