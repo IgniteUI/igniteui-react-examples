@@ -17,7 +17,7 @@ export default function BadgeSize(): JSX.Element {
             <div className="badge-size-row badge-small">
                 <span className="row-label">Small</span>
                 <IgrBadge dot={true} variant="danger" />
-                <IgrBadge variant="info" className="badge-info-blue">2</IgrBadge>
+                <IgrBadge variant="info">2</IgrBadge>
                 <IgrBadge variant="success">
                     <IgrIcon name="check" collection="material" />
                 </IgrBadge>
@@ -25,7 +25,7 @@ export default function BadgeSize(): JSX.Element {
             <div className="badge-size-row badge-medium">
                 <span className="row-label">Medium</span>
                 <IgrBadge dot={true} variant="danger" />
-                <IgrBadge variant="info" className="badge-info-blue">2</IgrBadge>
+                <IgrBadge variant="info">2</IgrBadge>
                 <IgrBadge variant="success">
                     <IgrIcon name="check" collection="material" />
                 </IgrBadge>
@@ -33,7 +33,7 @@ export default function BadgeSize(): JSX.Element {
             <div className="badge-size-row badge-large">
                 <span className="row-label">Large</span>
                 <IgrBadge dot={true} variant="danger" />
-                <IgrBadge variant="info" className="badge-info-blue">2</IgrBadge>
+                <IgrBadge variant="info">2</IgrBadge>
                 <IgrBadge variant="success">
                     <IgrIcon name="check" collection="material" />
                 </IgrBadge>

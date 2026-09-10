@@ -1,2 +1,46 @@
-/* shared styles are loaded from: */
-/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+.sbSwitch {
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: center;
+    height: 100vh;
+}
+
+.selection-samples {
+    display: grid;
+    grid-template-columns: auto minmax(11.25rem, 1fr);
+    align-items: center;
+    gap: 1.5rem 2rem;
+    inline-size: 100%;
+    max-inline-size: 23.75rem;
+    margin-inline: auto;
+}
+
+.sample-label {
+    color: var(--ig-gray-600);
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    text-align: end;
+}
+
+igc-button-group {
+    inline-size: 100%;
+}
+
+@container (width < 22rem) {
+    .selection-samples {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.25rem;
+    }
+
+    .sample-label {
+        text-align: start;
+    }
+
+    .sample-label:not(:first-of-type) {
+        margin-block-start: 1rem;
+    }
+}

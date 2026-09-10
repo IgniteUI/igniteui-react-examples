@@ -1,2 +1,34 @@
-/* shared styles are loaded from: */
-/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+.sbSwitch {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.sample-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sample-inner-layout {
+    display: grid;
+    gap: 0.5rem;
+    align-items: start;
+}
+
+igc-button-group {
+    width: 17.5rem;
+}
+
+.sample-layout span {
+    color: var(--ig-gray-600);
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 0.5rem;
+    text-align: center;
+}

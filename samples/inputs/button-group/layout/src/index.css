@@ -1,11 +1,28 @@
-/* shared styles are loaded from: */
-/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
-
-igc-button-group {
-  display: inline-block;
-  max-width: 400px;
+.sbSwitch {
+	display: grid;
+	place-items: center;
+	height: 100vh;
 }
 
-igc-ripple {
-  --color: grey;
+.sample-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    min-height: 5.5rem;
+}
+
+igc-button-group {
+    display: inline-block;
+    max-width: 400px;
+}
+
+.sample-layout igc-toggle-button {
+    min-width: 100px;
+}
+
+.sample-layout igc-icon {
+    --ig-size: 20px;
+    --igc-icon-size: 20px;
 }

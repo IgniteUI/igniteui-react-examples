@@ -1,2 +1,24 @@
-/* shared styles are loaded from: */
-/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+igc-button-group {
+    display: inline-block;
+    width: 100%;
+    max-width: 25rem;
+}
+
+.sbSwitch {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+
+    --ig-button-group-border-radius: 4px;
+    --ig-button-group-item-text-color: #4a5a66;
+    --ig-button-group-item-background: #cfe8fb;
+    --ig-button-group-item-border-color: #4da3e8;
+    --ig-button-group-item-hover-text-color: #4a5a66;
+    --ig-button-group-item-hover-background: #b3daf8;
+    --ig-button-group-item-hover-border-color: #4da3e8;
+    --ig-button-group-item-selected-text-color: #2f4d6a;
+    --ig-button-group-item-selected-background: #6db3ea;
+    --ig-button-group-item-selected-border-color: #4da3e8;
+    --ig-button-group-item-selected-hover-text-color: #2f4d6a;
+    --ig-button-group-item-selected-hover-background: #6db3ea;
+}
