@@ -1,60 +1,62 @@
-.avatar-overview-sample {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 90px;
-  min-height: 100vh;
+.avatar-size-sample {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto auto;
+  place-content: center;
+  place-items: center;
+  column-gap: 3rem;
+  row-gap: 0.5rem;
+  height: 100vh;
+  padding: 2rem;
 }
 
-.size-large {
-  --ig-size: var(--ig-size-large);
-}
-.size-medium {
-  --ig-size: var(--ig-size-medium);
-}
-.size-small {
-  --ig-size: var(--ig-size-small);
+:where(igc-avatar) {
+  grid-row: 1;
 }
 
-.avatar-variant {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.avatar-with-badge {
-  width: 88px;
-  height: 88px;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatar-label {
+:where(span) {
+  grid-row: 2;
+  text-align: center;
   color: var(--ig-gray-600);
+  font-family: "Aktiv Grotesk", Arial, sans-serif;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  margin: 0;
 }
 
-.avatar-status {
-  --size: 18px;
+:where(igc-badge) {
   position: absolute;
-  right: var(--badge-offset);
-  bottom: var(--badge-offset);
-  font-size: 0.75rem;
-  line-height: 1;
+  inset-block-start: anchor(85.5%);
+  inset-inline-start: anchor(85.5%);
+  translate: -50% -50%;
 }
 
-.avatar-with-badge:has(.size-large) {
-  --badge-offset: 7px;
+.avatar-size-sample igc-avatar:nth-of-type(1) {
+  --ig-size: var(--ig-size-large);
+  anchor-name: --large;
 }
 
-.avatar-with-badge:has(.size-medium) {
-  --badge-offset: 15px;
+.avatar-size-sample igc-avatar:nth-of-type(2) {
+  --ig-size: var(--ig-size-medium);
+  anchor-name: --medium;
 }
 
-.avatar-with-badge:has(.size-small) {
-  --badge-offset: 24px;
+.avatar-size-sample igc-avatar:nth-of-type(3) {
+  --ig-size: var(--ig-size-small);
+  anchor-name: --small;
+}
+
+.avatar-size-sample igc-badge:nth-of-type(1) {
+  --ig-size: var(--ig-size-large);
+  position-anchor: --large;
+}
+
+.avatar-size-sample igc-badge:nth-of-type(2) {
+  --ig-size: var(--ig-size-medium);
+  position-anchor: --medium;
+}
+
+.avatar-size-sample igc-badge:nth-of-type(3) {
+  --ig-size: var(--ig-size-small);
+  position-anchor: --small;
 }

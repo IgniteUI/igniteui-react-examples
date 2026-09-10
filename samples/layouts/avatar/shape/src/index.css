@@ -1,52 +1,61 @@
-.avatar-overview-sample {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 90px;
-  min-height: 100vh;
+.avatar-shape-sample {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto auto;
+  place-content: center;
+  place-items: center;
+  column-gap: 2.5rem;
+  row-gap: 0.5rem;
+  height: 100vh;
+  padding: 2rem;
 }
 
-.size-small {
+:where(igc-avatar) {
   --ig-size: var(--ig-size-small);
+  grid-row: 1;
 }
 
-.avatar-variant {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.avatar-label {
+:where(span) {
+  grid-row: 2;
+  text-align: center;
   color: var(--ig-gray-600);
+  font-family: "Aktiv Grotesk", Arial, sans-serif;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  margin: 0;
 }
 
-.avatar-with-badge {
-  position: relative;
-  display: inline-flex;
-}
-
-.avatar-status {
-  --size: 18px;
-  position: absolute;
-  right: -4px;
-  bottom: -4px;
-  font-size: 0.75rem;
-  line-height: 1;
-}
-
-.avatar-dot-badge {
-  --size: 12px;
-  right: 3px;
-  bottom: 3px;
-}
-
-.avatar-count-badge {
-  --ig-badge-text-color: #ffffff;
-}
-
-.avatar-check-badge {
+:where(igc-badge) {
+  --ig-size: var(--ig-size-small);
   --ig-badge-icon-color: #ffffff;
+  --ig-badge-text-color: #ffffff;
+
+  position: absolute;
+  inset-block-start: anchor(85.5%);
+  inset-inline-start: anchor(85.5%);
+  translate: -50% -50%;
+}
+
+.avatar-shape-sample igc-avatar:nth-of-type(1) {
+  anchor-name: --circle;
+}
+
+.avatar-shape-sample igc-avatar:nth-of-type(2) {
+  anchor-name: --square;
+}
+
+.avatar-shape-sample igc-avatar:nth-of-type(3) {
+  anchor-name: --rounded;
+}
+
+.avatar-shape-sample igc-badge:nth-of-type(1) {
+  position-anchor: --circle;
+}
+
+.avatar-shape-sample igc-badge:nth-of-type(2) {
+  position-anchor: --square;
+}
+
+.avatar-shape-sample igc-badge:nth-of-type(3) {
+  position-anchor: --rounded;
 }

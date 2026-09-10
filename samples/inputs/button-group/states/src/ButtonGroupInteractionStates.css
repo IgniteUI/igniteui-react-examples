@@ -1,0 +1,37 @@
+igc-ripple {
+    --color: gray;
+}
+
+.button-group-interaction-states {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.button-group-interaction-states-row {
+    display: grid;
+    grid-template-columns: 120px 160px 160px;
+    align-items: center;
+    gap: 16px;
+}
+
+.button-group-interaction-states .row-label,
+.button-group-interaction-states .column-label {
+    color: #556c86;
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+
+.button-group-interaction-states-row igc-button-group:not([disabled]) igc-toggle-button[selected]::part(toggle) {
+    background: var(--item-active-background);
+    border-color: var(--item-active-border-color);
+    color: var(--item-selected-text-color);
+}
