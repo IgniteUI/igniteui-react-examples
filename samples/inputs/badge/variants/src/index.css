@@ -8,6 +8,15 @@ igc-badge {
 	inset-inline-end: -4px;
 }
 
+.variant-item:not(:nth-child(4)) igc-badge::part(base),
+.variant-item:not(:nth-child(4)) igc-badge igc-icon {
+	color: var(--ig-gray-50);
+}
+
+.variant-item:not(:nth-child(4)) igc-badge igc-icon {
+	fill: var(--ig-gray-50);
+}
+
 igc-avatar {
 	--ig-size: var(--ig-size-small);
 	--ig-avatar-background: var(--ig-gray-400);

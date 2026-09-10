@@ -21,12 +21,6 @@ igc-avatar {
   inset-inline-end: -6px;
 }
 
-.step-marker igc-badge {
-  position: absolute;
-  inset-block-start: -1px;
-  inset-inline-end: -2px;
-}
-
 .outlined-example igc-badge {
   position: absolute;
   inset-block-start: -6px;
@@ -42,7 +36,8 @@ igc-avatar {
   align-items: center;
   justify-content: center;
   gap: 60px;
-  min-height: 7rem;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .outlined-example {
@@ -75,53 +70,41 @@ igc-badge igc-icon {
 }
 
 .steps {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
+  width: 316px;
 }
 
-.step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+.steps,
+.steps igc-step {
+  --indicator-size: 24px;
+  --ig-stepper-step-separator-style: dashed;
+  --ig-stepper-step-separator-color: var(--ig-gray-400);
+  --border-radius-indicator: 50%;
+  --indicator-background: var(--ig-gray-200);
+  --indicator-color: var(--ig-gray-800);
+  --indicator-outline: var(--ig-gray-200);
+  --separator-size: 1px;
+  --separator-type: solid;
+  --step-separator-style: dashed;
+  --complete-indicator-background: var(--ig-gray-900);
+  --complete-indicator-color: var(--ig-gray-50);
+  --complete-step-separator-style: solid;
+  --complete-step-separator-color: var(--ig-gray-900);
 }
 
-.step-marker {
+.stepper-wrapper {
   position: relative;
-  display: flex;
+  align-self: center;
+  top: 18px;
 }
 
-.step-circle {
-  width: 26px;
-  height: 26px;
-  background: var(--ig-gray-900);
-  color: var(--ig-gray-50);
-  font-size: 12px;
+.flagged-badge {
+  position: absolute;
+  inset-block-start: 8px;
+  inset-inline-start: calc(50% - 1px);
+  transform: scale(1.2);
+  transform-origin: center;
 }
 
-.step-circle.pending {
-  background: var(--ig-gray-200);
-  color: var(--ig-gray-800);
-}
-
-.step-connector {
-  width: 56px;
-  margin-block-start: 13px;
-  border-block-start: 1px solid var(--ig-gray-900);
-}
-
-.step-connector.pending {
-  border-block-start-style: dashed;
-  border-block-start-color: var(--ig-gray-400);
-}
-
-.step-label {
-  color: var(--ig-gray-600);
-  font-family: "Aktiv Grotesk", sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 20px;
-  letter-spacing: 0.3px;
+.steps::part(content) {
+  display: none;
 }

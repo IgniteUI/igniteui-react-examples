@@ -1,6 +1,15 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
+igc-badge::part(base),
+igc-badge igc-icon {
+  color: var(--ig-gray-50);
+}
+
+igc-badge igc-icon {
+  fill: var(--ig-gray-50);
+}
+
 .badge-shape {
   display: flex;
   flex-direction: column;

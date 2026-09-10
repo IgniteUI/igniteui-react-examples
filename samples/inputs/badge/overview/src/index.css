@@ -17,6 +17,15 @@ igc-badge {
   inset-inline-end: -0.15rem;
 }
 
+igc-badge::part(base),
+igc-badge igc-icon {
+  color: var(--ig-gray-50);
+}
+
+igc-badge igc-icon {
+  fill: var(--ig-gray-50);
+}
+
 .avatar-example igc-badge {
   inset-block-start: auto;
   inset-block-end: -0.15rem;
