@@ -1,0 +1,31 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "./index.tsx";
+
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+.styled-carousel::part(indicators) {
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 6px 16px rgba(11, 31, 53, 0.16);
+}
+
+.styled-carousel::part(previous),
+.styled-carousel::part(next) {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--ig-gray-800);
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 6px 16px rgba(11, 31, 53, 0.22);
+}
+
+.carousel-navigation-button igc-icon {
+    width: 20px;
+    height: 20px;
+    color: inherit;
+}
