@@ -1,0 +1,33 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.form {
+	display: flex;
+	justify-content: center;    
+	gap: 1.25rem;
+	padding: 1.5rem;
+}
+
+.form igc-avatar {
+	--ig-size: var(--ig-size-large);
+}
+
+.fields {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	max-width: 260px;
+	width: 100%;
+}
+
+.fields igc-input::part(container),
+.fields igc-input::part(input) {
+	background-color: var(--ig-gray-50);
+}
+
+.actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 1rem;
+	margin-top: 0.5rem;
+}
