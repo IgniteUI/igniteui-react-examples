@@ -39,10 +39,6 @@
         display: block;
         inline-size: 60px;
         block-size: 40px;
-        --track-on-color: var(--ig-primary-200);
-        --track-on-hover-color: var(--ig-primary-200);
-        --thumb-on-color: var(--ig-primary-400);
-        --thumb-on-hover-color: var(--ig-primary-400);
 
         &::part(base) {
             inline-size: 60px;
@@ -60,8 +56,8 @@
     & igc-radio-group {
         display: flex;
         flex-direction: column;
-        gap: 8px;
-        margin-inline-start: -14px;
+        gap: 24px;
+        margin-inline-start: 0;
     }
 
     & igc-radio {
@@ -69,7 +65,12 @@
         letter-spacing: 0.15px;
         color: var(--ig-primary-900);
 
+        &::part(label) {
+            padding-inline-start: 4px;
+        }
+
         &::part(control) {
+            transform: translateX(-4px);
             --fill-color: var(--ig-primary-500);
             --fill-color-border: var(--ig-primary-500);
             --fill-color-hover: var(--ig-primary-500);
