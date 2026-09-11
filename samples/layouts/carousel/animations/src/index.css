@@ -2,7 +2,7 @@
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 .carousel-wrapper {
     display: flex;
-    width: min(860px, 100%);
+    width: min(860px, calc(100% - 32px));
     flex-direction: column;
     gap: 16px;
     margin: 16px auto 0;

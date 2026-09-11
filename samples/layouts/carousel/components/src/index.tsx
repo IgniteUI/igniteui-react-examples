@@ -87,11 +87,13 @@ export default function CarouselComponents() {
               </IgrButton>
             </section>
             <div className="event-visual" aria-hidden="true">
-              <span className="ticket ticket--back"></span>
-              <span className="ticket ticket--front">
-                <span></span>
-                <span></span>
-                <span></span>
+              <span className="ticket-stack">
+                <span className="ticket ticket--back"></span>
+                <span className="ticket ticket--front">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
               </span>
             </div>
           </article>
