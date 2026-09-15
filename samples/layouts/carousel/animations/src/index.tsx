@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
 import {
   HorizontalTransitionAnimation,
@@ -43,9 +43,16 @@ const slides = [
 ];
 
 export default function CarouselAnimations() {
-
   const [animationType, setAnimationType] = useState<HorizontalTransitionAnimation>('slide');
   const [isCarouselVertical, setIsCarouselVertical] = useState<boolean>(false);
+  const [isOrientationChanging, setIsOrientationChanging] = useState(false);
+  const orientationTimer = useRef<number | undefined>(undefined);
+
+  useEffect(() => () => {
+    if (orientationTimer.current !== undefined) {
+      window.clearTimeout(orientationTimer.current);
+    }
+  }, []);
 
   const onSelectChange = (e: CustomEvent<IgrSelectItem>) => {
     const value = e.detail.value as HorizontalTransitionAnimation;
@@ -53,7 +60,18 @@ export default function CarouselAnimations() {
   }
 
   const onSwitchChange = (e: IgrCheckboxChangeEventArgs) => {
-    setIsCarouselVertical(e.detail.checked);
+    const isVertical = e.detail.checked;
+
+    if (orientationTimer.current !== undefined) {
+      window.clearTimeout(orientationTimer.current);
+    }
+
+    setIsOrientationChanging(true);
+
+    orientationTimer.current = window.setTimeout(() => {
+      setIsCarouselVertical(isVertical);
+      window.requestAnimationFrame(() => setIsOrientationChanging(false));
+    }, 120);
   }
 
   return (
@@ -82,10 +100,12 @@ export default function CarouselAnimations() {
           </IgrSwitch>
         </div>
       </div>
-      <IgrCarousel 
-        hideIndicators={true} 
-        animationType={animationType} 
-        vertical={isCarouselVertical}>
+      <IgrCarousel
+        className={isOrientationChanging ? "is-orientation-changing" : undefined}
+        hideIndicators={true}
+        animationType={animationType}
+        vertical={isCarouselVertical}
+      >
         {slides.map((slide) => (
           <IgrCarouselSlide key={slide.title}>
             <article className="slide-wrapper">

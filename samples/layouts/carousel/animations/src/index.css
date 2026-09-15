@@ -46,6 +46,13 @@ igc-carousel::part(previous),
 igc-carousel::part(next) {
     width: 40px;
     height: 40px;
+    transition: opacity 120ms ease-in-out;
+}
+
+igc-carousel.is-orientation-changing::part(previous),
+igc-carousel.is-orientation-changing::part(next) {
+    opacity: 0;
+    pointer-events: none;
 }
 
 igc-carousel::part(previous) {
@@ -74,12 +81,14 @@ igc-carousel[vertical]::part(next) {
     padding: 56px 84px;
     overflow: hidden;
     background:
-        linear-gradient(135deg, rgba(25, 118, 210, 0.08), transparent 46%),
-        linear-gradient(315deg, rgba(0, 150, 136, 0.10), transparent 42%),
-        var(--ig-gray-100);
+          linear-gradient(135deg, rgba(25, 118, 210, 0.08), transparent 46%),
+          linear-gradient(315deg, rgba(0, 150, 136, 0.10), transparent 42%),
+          var(--ig-gray-100);
 }
 
 .slide-content {
+    position: relative;
+    z-index: 1;
     width: min(460px, calc(100% - 128px));
     max-width: 460px;
     color: var(--ig-gray-900);
@@ -127,6 +136,7 @@ igc-carousel[vertical]::part(next) {
 
 .slide-preview {
     position: absolute;
+    z-index: 0;
     right: 84px;
     top: 50%;
     display: grid;
@@ -162,25 +172,25 @@ igc-carousel[vertical]::part(next) {
 
 @media (max-width: 640px) {
     .action-wrapper {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 12px;
     }
 
     .slide-wrapper {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        padding: 32px 64px;
+          grid-template-columns: 1fr;
+          gap: 28px;
+          padding: 32px 64px;
     }
 
     .slide-preview {
-        position: static;
-        width: 100%;
-        height: 120px;
-        transform: none;
+          position: static;
+          width: 100%;
+          height: 120px;
+          transform: none;
     }
 
     .slide-content h3 {
-        font-size: 28px;
+          font-size: 28px;
     }
 }
