@@ -8,22 +8,19 @@
 }
 
 .states {
-    --variant-gap: 60px;
-    --label-gap: 30px;
-
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
     align-items: center;
-    gap: var(--variant-gap);
+    gap: 32px;
 
-    & .states__variant {
-        display: flex;
-        align-items: center;
-        gap: var(--label-gap);
-    }
-
-    & .states__label {
+    & .states__row {
+        text-align: end;
         font: 500 14px / 24px "Aktiv Grotesk", sans-serif;
         letter-spacing: 0.1px;
         color: var(--ig-gray-600);
+    }
+
+    & .states__disabled {
+        margin-inline-start: 16px;
     }
 }
