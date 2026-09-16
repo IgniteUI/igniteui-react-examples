@@ -1,0 +1,37 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+igc-ripple {
+    --color: gray;
+}
+
+.button-group-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 7rem;
+}
+
+.button-group-style {
+    width: 420px;
+    max-width: 100%;
+}
+
+.button-group-style igc-toggle-button::part(toggle) {
+    color: var(--color-violet-700);
+    background: var(--color-white);
+    border-color: var(--color-violet-300);
+}
+
+.button-group-style igc-toggle-button::part(toggle):hover {
+    background: var(--color-fuchsia-100);
+}
+
+.button-group-style igc-toggle-button[selected]::part(toggle) {
+    color: var(--color-white);
+    background: var(--color-violet-600);
+}

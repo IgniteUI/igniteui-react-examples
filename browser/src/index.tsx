@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import SamplesBrowser from "./navigation/SamplesBrowser";
 import RegisterServiceWorker from './serviceWorker';
 import { createRoot } from 'react-dom/client';
+import { initSampleThemeListener } from './sample-theme';
 import { initSampleSizeReporter } from './sample-size-reporter';
 
 import './index.css'; // styles shared between all samples
@@ -22,6 +23,8 @@ import './index.css'; // styles shared between all samples
    // );
 //  });
 
+// Lets the docs ThemingWidget re-theme this browser while embedded.
+initSampleThemeListener();
 // Lets docs samples embedded with <Sample fitContent> size their iframe to
 // their content. Dormant unless the docs host asks for it.
 initSampleSizeReporter();

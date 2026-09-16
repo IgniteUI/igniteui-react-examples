@@ -8,7 +8,20 @@ export default function SwitchDisabled() {
 
     return (
         <div className="container sample">
-             <IgrSwitch disabled={true} />
+            <div className="states">
+                <div className="states__variant">
+                    <span className="states__label">Disabled Checked</span>
+                    <IgrSwitch labelPosition="before" disabled={true} checked={true}>
+                        <span>Power</span>
+                    </IgrSwitch>
+                </div>
+                <div className="states__variant">
+                    <span className="states__label">Disabled Unchecked</span>
+                    <IgrSwitch labelPosition="before" disabled={true}>
+                        <span>Power</span>
+                    </IgrSwitch>
+                </div>
+            </div>
         </div>
     );
 }

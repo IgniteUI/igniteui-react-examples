@@ -1,4 +1,0 @@
-igc-button::part(base) {
-  background-color: var(--ig-warn-700);
-  color: var(--ig-warn-700-contrast);
-}

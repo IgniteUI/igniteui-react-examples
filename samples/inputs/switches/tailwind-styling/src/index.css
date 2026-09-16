@@ -1,0 +1,15 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "./index.tsx";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.container.sample {
+    display: flex;
+    place-content: center;
+    place-items: center;
+}

@@ -1,36 +1,184 @@
-import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import { IgrAvatar, IgrIcon, registerIconFromText } from 'igniteui-react';
-import 'igniteui-webcomponents/themes/light/bootstrap.css';
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import {
+  IgrList,
+  IgrListHeader,
+  IgrListItem,
+  IgrAvatar,
+  IgrBadge,
+  IgrIcon,
+  registerIconFromText,
+} from "igniteui-react";
+import "igniteui-webcomponents/themes/light/bootstrap.css";
+import {
+  calendarTodayIcon,
+  checkIcon,
+  horizontalRuleIcon,
+  peopleIcon,
+  xIcon,
+} from "./icons";
 
+type AvatarListItem = {
+  title: string;
+  subtitle: string;
+  end: string;
+  avatar: {
+    src?: string;
+    icon?: string;
+    initials?: string;
+    alt: string;
+    className?: string;
+  };
+  badge?: {
+    icon: string;
+    variant: "success" | "info" | "warning" | "danger" | "primary";
+    className?: string;
+  };
+};
 
-const homeIcon =
-        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>';
+type AvatarListSection = {
+  header: string;
+  items: AvatarListItem[];
+};
+
+const sections: AvatarListSection[] = [
+  {
+    header: "Chats",
+    items: [
+      {
+        title: "Nick Evans",
+        subtitle: "Hi Samira, thanks for the ...",
+        end: "9:44 AM",
+        avatar: {
+          src: "https://dl.infragistics.com/x/img/avatars/avatar-profile-07.png",
+          alt: "A profile photo of Nick Evans.",
+        },
+        badge: {
+          icon: "check",
+          variant: "success",
+        },
+      },
+      {
+        title: "James Ford",
+        subtitle: "I'll send the text and im ...",
+        end: "8:30 AM",
+        avatar: {
+          initials: "JF",
+          alt: "A profile photo of Nick Evans.",
+          className: "avatar-muted",
+        },
+        badge: {
+          icon: "x",
+          variant: "primary",
+          className: "avatar-muted-badge",
+        },
+      },
+      {
+        title: "Kate Porter",
+        subtitle: "That's great!",
+        end: "Yesterday",
+        avatar: {
+          src: "https://dl.infragistics.com/x/img/avatars/avatar-profile-08.png",
+          alt: "A profile photo of Nick Evans.",
+        },
+        badge: {
+          icon: "horizontalRule",
+          variant: "danger",
+        },
+      },
+    ],
+  },
+  {
+    header: "Meetings",
+    items: [
+      {
+        title: "Weekly Meeting",
+        subtitle: "https://www.infra.com",
+        end: "Monday",
+        avatar: {
+          icon: "calendar",
+          alt: "Calendar Icon.",
+          className: "avatar-meeting",
+        },
+      },
+      {
+        title: "Design Discussion",
+        subtitle: "https://www.infra.com",
+        end: "11:30 AM",
+        avatar: {
+          icon: "people",
+          alt: "Group Icon.",
+          className: "avatar-meeting",
+        },
+      },
+    ],
+  },
+];
+
+function renderAvatar(item: AvatarListItem) {
+  return (
+    <IgrAvatar
+      className={`profile-avatar${item.avatar.className ? ` ${item.avatar.className}` : ""}`}
+      shape="circle"
+      src={item.avatar.src}
+      initials={item.avatar.initials}
+      alt={item.avatar.alt}
+    >
+      {item.avatar.icon && (
+        <IgrIcon className="avatar-icon" name={item.avatar.icon} collection="material" />
+      )}
+    </IgrAvatar>
+  );
+}
 
 export default function AvatarStyling() {
+  useEffect(() => {
+    registerIconFromText("calendar", calendarTodayIcon, "material");
+    registerIconFromText("check", checkIcon, "material");
+    registerIconFromText("x", xIcon, "material");
+    registerIconFromText("horizontalRule", horizontalRuleIcon, "material");
+    registerIconFromText("people", peopleIcon, "material");
+  }, []);
 
-    useEffect(() => {
-        registerIconFromText("home", homeIcon, "material");
-    }, []);
-    
-    return (
-        <div className="container sample">
-
-            <IgrAvatar 
-                src="https://dl.infragistics.com/x/img/people/men/11.png" 
-                alt="A photo of a man." 
-                className='size-large'/>
-            
-            <div className='sizes'>
-                <IgrAvatar initials='L' className='size-large'/>
-                <IgrAvatar initials='M' className='size-medium'/>
-                <IgrAvatar initials='S' className='size-small'/>
-            </div>
-        </div>
-    );
+  return (
+    <div className="container sample">
+      <IgrList className="chat-list">
+        {sections.map((section) => (
+          <React.Fragment key={section.header}>
+            <IgrListHeader>{section.header}</IgrListHeader>
+            {section.items.map((item) => (
+              <IgrListItem
+                className={section.header === "Chats" ? "chat-list-item--split" : undefined}
+                key={`${section.header}-${item.title}-${item.end}`}
+              >
+                <div className="avatar-with-badge" slot="start">
+                  {renderAvatar(item)}
+                  {item.badge && (
+                    <IgrBadge
+                      className={`avatar-status avatar-check-badge${
+                        item.badge.className ? ` ${item.badge.className}` : ""
+                      }`}
+                      outlined={true}
+                      shape="rounded"
+                      variant={item.badge.variant}
+                    >
+                      <IgrIcon name={item.badge.icon} collection="material" />
+                    </IgrBadge>
+                  )}
+                </div>
+                <h2 slot="title">{item.title}</h2>
+                <span slot="subtitle">{item.subtitle}</span>
+                <div slot="end">{item.end}</div>
+              </IgrListItem>
+            ))}
+          </React.Fragment>
+        ))}
+      </IgrList>
+    </div>
+  );
 }
 
 // rendering above component to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<AvatarStyling/>);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<AvatarStyling />);
