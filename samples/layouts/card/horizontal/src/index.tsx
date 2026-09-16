@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import './CardHorizontal.css';
 import { IgrCard, IgrCardHeader, IgrCardContent, IgrCardActions } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 export default function CardHorizontal() {
 
     return (
-        <div className="container sample">
+        <div className="container sample center">
             <div className="card-wrapper">
                 <IgrCard>
                     <div className="card-horizontal">
