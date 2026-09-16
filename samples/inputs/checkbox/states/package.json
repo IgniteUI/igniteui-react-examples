@@ -1,6 +1,6 @@
 {
-  "name": "react-checkbox-indeterminate",
-  "description": "This project provides example of Checkbox Indeterminate using Infragistics React components",
+  "name": "react-checkbox-states",
+  "description": "This project provides an example of Checkbox states using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

@@ -1,0 +1,88 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+.sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.filter-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 11rem;
+    font-family: "Aktiv Grotesk", sans-serif;
+    padding: 1rem;
+    border: 1px solid var(--ig-primary-500);
+    border-radius: 0.5rem;
+    background: var(--color-white);
+}
+
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--ig-primary-800);
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.section-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 0.75rem;
+}
+
+.section-chevron {
+    color: var(--ig-gray-800);
+    transition: transform 150ms ease-in-out;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.filter-option::part(label) {
+    color: var(--ig-gray-800);
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.1px;
+}
+
+.filter-option::part(indicator) {
+    --tick-color: var(--color-white);
+}
+
+.filter-option::part(control) {
+    --empty-color: var(--color-slate-400);
+    --border-radius: 0.125rem;
+}
+
+.filter-option::part(control checked)::after {
+    --fill-color: var(--color-blue-600);
+}
+
+.filter-option:hover::part(control) {
+    --empty-color: var(--color-blue-600);
+}
