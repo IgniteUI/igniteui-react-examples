@@ -14,51 +14,87 @@
 }
 
 .filter-panel {
+    /* brand blue, overrides the theme-derived shade */
+    --ig-primary-800: #004699;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    width: 11rem;
+    box-sizing: border-box;
+    width: 218px;
     font-family: "Aktiv Grotesk", sans-serif;
-    padding: 1rem;
+    padding: 8px;
     border: 1px solid var(--ig-primary-500);
-    border-radius: 0.5rem;
+    border-radius: 16px;
     background: var(--color-white);
 }
 
 .filter-section {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
 }
 
-.section-header {
+igc-accordion {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0;
+    flex-direction: column;
+    padding: 8px 0;
+}
+
+igc-expansion-panel {
     border: 0;
+    border-radius: 0;
+    background: transparent;
+    border-bottom: 1px solid var(--ig-gray-200);
+}
+
+igc-expansion-panel:last-of-type {
+    border-bottom: 0;
+}
+
+igc-expansion-panel:last-of-type .section-options {
+    padding-bottom: 0;
+}
+
+igc-expansion-panel::part(header) {
+    padding: 0.25rem 1rem 0.5rem;
+    border: 0;
+    border-radius: 0;
     background: transparent;
     color: var(--ig-primary-800);
     font-family: "Aktiv Grotesk", sans-serif;
     font-size: 0.875rem;
     font-weight: 700;
-    cursor: pointer;
+}
+
+igc-expansion-panel::part(content) {
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+igc-expansion-panel::part(title) {
+    color: var(--ig-primary-800);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+}
+
+.panel-title {
+    color: var(--ig-primary-800);
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+}
+
+igc-expansion-panel::part(indicator) {
+    color: var(--ig-gray-800);
 }
 
 .section-options {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding-left: 0.75rem;
-}
-
-.section-chevron {
-    color: var(--ig-gray-800);
-    transition: transform 150ms ease-in-out;
-}
-
-.rotate-180 {
-    transform: rotate(180deg);
+    gap: 1rem;
+    margin: -0.5rem 0 -1rem;
+    padding: 0 0 1rem;
 }
 
 .filter-option::part(label) {

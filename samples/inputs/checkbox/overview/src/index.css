@@ -22,26 +22,55 @@
     box-shadow: 0 0.0625rem 0.25rem rgb(0 0 0 / 16%);
 }
 
-.list-group {
-    display: flex;
-    flex-direction: column;
+.list {
+    background: transparent;
+    border: none;
     gap: 0.25rem;
 }
 
-.group-title {
-    margin: 0 0 0.25rem;
-    color: var(--ig-primary-500);
-    font-size: 0.625rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+/* igc-list-header/item expose no "base" part, so the hosts are styled directly */
+.group-header {
+    padding: 0;
 }
 
-.list-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.shopping-item + .group-header {
+    margin-top: 0.75rem;
+}
+
+.group-title {
+    color: var(--ig-primary-500);
+}
+
+.shopping-item {
+    padding: 0;
     gap: 0.5rem;
+    background: transparent;
+    border-bottom: none;
+    --border-color: transparent;
+    --border-width: 0;
+}
+
+.shopping-item:hover,
+.shopping-item:focus-within {
+    background: transparent;
+}
+
+.shopping-item::part(content) {
+    display: none;
+}
+
+.shopping-item::part(end) {
+    margin-inline-start: auto;
+}
+
+.shopping-item-checked,
+.shopping-item-checked:hover,
+.shopping-item-checked:focus-within {
+    background: var(--ig-primary-50);
+}
+
+.shopping-item igc-checkbox::part(control checked)::after {
+    --fill-color: var(--ig-primary-500);
 }
 
 .item-menu::part(base) {

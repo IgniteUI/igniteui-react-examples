@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCheckbox, IgrIcon, registerIconFromText } from 'igniteui-react';
+import { IgrAccordion, IgrCheckbox, IgrExpansionPanel } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
-
-const icons = [
-    { name: 'expand_more', text: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>' },
-];
 
 interface FilterSection {
     title: string;
@@ -26,28 +22,23 @@ const initialSections: FilterSection[] = [
         title: 'Color',
         options: [
             { label: 'Black', checked: false },
-            { label: 'White', checked: false },
-            { label: 'Blue', checked: false },
+            { label: 'White', checked: true },
+            { label: 'Gray', checked: false },
         ],
     },
     {
         title: 'Size',
         options: [
             { label: 'Small', checked: false },
-            { label: 'Medium', checked: false },
+            { label: 'Medium', checked: true },
             { label: 'Large', checked: false },
+            { label: 'Extra large', checked: false },
         ],
     },
 ];
 
 export default function CheckboxTailwindStyling(): JSX.Element {
     const [sections, setSections] = useState<FilterSection[]>(initialSections);
-    const [expanded, setExpanded] = useState<string[]>(['Brand', 'Color', 'Size']);
-
-    useEffect(() => {
-        icons.forEach((icon) => registerIconFromText(icon.name, icon.text, 'material'));
-    }, []);
-
     const toggleOption = (sectionIndex: number, optionIndex: number, checked: boolean) => {
         setSections((current) =>
             current.map((section, si) =>
@@ -65,29 +56,12 @@ export default function CheckboxTailwindStyling(): JSX.Element {
 
     return (
         <div className="sample flex h-full items-center justify-center p-4">
-                <div className="filter-panel flex w-44 flex-col gap-3 rounded-lg border border-[var(--ig-primary-500)] bg-white p-4">
-                {sections.map((section, sectionIndex) => (
-                    <div className="filter-section flex flex-col gap-3" key={section.title}>
-                        <button
-                            type="button"
-                            className="section-header flex cursor-pointer items-center justify-between border-0 bg-transparent p-0 text-sm font-bold text-[var(--ig-primary-800)]"
-                            onClick={() =>
-                                setExpanded((current) =>
-                                    current.includes(section.title)
-                                        ? current.filter((title) => title !== section.title)
-                                        : [...current, section.title]
-                                )
-                            }
-                        >
-                            {section.title}
-                            <IgrIcon
-                                name="expand_more"
-                                collection="material"
-                                className={`section-chevron ${expanded.includes(section.title) ? 'rotate-180' : ''}`}
-                            />
-                        </button>
-                        {expanded.includes(section.title) && (
-                            <div className="section-options flex flex-col gap-2 pl-3">
+            <div className="filter-panel flex flex-col rounded-2xl border border-[var(--ig-primary-500)] bg-white p-2">
+                <IgrAccordion>
+                    {sections.map((section, sectionIndex) => (
+                        <IgrExpansionPanel key={section.title} className="filter-section" indicatorPosition="end" open>
+                            <span className="panel-title" slot="title">{section.title}</span>
+                            <div className="section-options flex flex-col">
                                 {section.options.map((option, optionIndex) => (
                                     <IgrCheckbox
                                         className="filter-option"
@@ -99,9 +73,9 @@ export default function CheckboxTailwindStyling(): JSX.Element {
                                     </IgrCheckbox>
                                 ))}
                             </div>
-                        )}
-                    </div>
-                ))}
+                        </IgrExpansionPanel>
+                    ))}
+                </IgrAccordion>
             </div>
         </div>
     );

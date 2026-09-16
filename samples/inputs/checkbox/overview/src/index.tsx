@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrButton, IgrCheckbox, IgrIcon, IgrIconButton, registerIconFromText } from 'igniteui-react';
+import { IgrButton, IgrCheckbox, IgrIcon, IgrIconButton, IgrList, IgrListHeader, IgrListItem, registerIconFromText } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const icons = [
@@ -61,24 +61,30 @@ export default function CheckboxOverview(): JSX.Element {
     return (
         <div className="sample">
             <div className="shopping-list">
-                {groups.map((group, groupIndex) => (
-                    <div className="list-group" key={group.title}>
-                        <p className="group-title">{group.title}</p>
-                        {group.items.map((item, itemIndex) => (
-                            <div className="list-item" key={item.label}>
+                <IgrList className="list">
+                    {groups.map((group, groupIndex) => [
+                        <IgrListHeader className="group-header" key={group.title}>
+                            <span className="group-title">{group.title}</span>
+                        </IgrListHeader>,
+                        ...group.items.map((item, itemIndex) => (
+                            <IgrListItem
+                                className={item.checked ? 'shopping-item shopping-item-checked' : 'shopping-item'}
+                                key={item.label}
+                            >
                                 <IgrCheckbox
+                                    slot="start"
                                     checked={item.checked}
                                     onChange={(e) => toggleItem(groupIndex, itemIndex, e.detail.checked)}
                                 >
                                     <span>{item.label}</span>
                                 </IgrCheckbox>
-                                <IgrIconButton variant="flat" className="item-menu">
+                                <IgrIconButton slot="end" variant="flat" className="item-menu">
                                     <IgrIcon name="more_vert" collection="material" />
                                 </IgrIconButton>
-                            </div>
-                        ))}
-                    </div>
-                ))}
+                            </IgrListItem>
+                        )),
+                    ])}
+                </IgrList>
                 <IgrButton variant="fab" className="add-item">
                     <IgrIcon name="add" collection="material" />
                 </IgrButton>
