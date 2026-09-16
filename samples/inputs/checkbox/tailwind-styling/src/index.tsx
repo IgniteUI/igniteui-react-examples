@@ -42,7 +42,7 @@ const initialSections: FilterSection[] = [
 
 export default function CheckboxTailwindStyling(): JSX.Element {
     const [sections, setSections] = useState<FilterSection[]>(initialSections);
-    const [expanded, setExpanded] = useState<string[]>(['Brand']);
+    const [expanded, setExpanded] = useState<string[]>(['Brand', 'Color', 'Size']);
 
     useEffect(() => {
         icons.forEach((icon) => registerIconFromText(icon.name, icon.text, 'material'));
