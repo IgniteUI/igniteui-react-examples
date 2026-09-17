@@ -64,6 +64,10 @@
     display: none;
 }
 
+.shopping-item::part(start) {
+    margin-inline-start: 0.5rem;
+}
+
 .shopping-item::part(end) {
     margin-inline-start: auto;
 }
