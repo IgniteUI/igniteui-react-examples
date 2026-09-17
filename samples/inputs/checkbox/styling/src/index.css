@@ -14,7 +14,6 @@
     flex-direction: column;
     gap: 0.25rem;
     width: 24.3125rem;
-    height: 22.5rem;
     padding: 1rem;
     border-radius: 0.5rem;
     background: var(--ig-surface-500);
@@ -33,8 +32,7 @@
     text-transform: uppercase;
 }
 
-.select-all::part(base),
-.member::part(base) {
+.select-all::part(base) {
     width: 100%;
     justify-content: space-between;
     padding: 0.5rem;
@@ -46,39 +44,45 @@
     font-size: 1rem;
 }
 
-.member::part(label) {
-    width: 100%;
-    color: var(--ig-gray-900);
+.members {
+    background: transparent;
+    border: none;
+    gap: 0.25rem;
+    overflow: hidden;
 }
 
-.member-selected::part(base) {
+.member {
+    gap: 0.75rem;
+    border-radius: 0.25rem;
+    background: transparent;
+    border-bottom: none;
+    --border-color: transparent;
+    --border-width: 0;
+}
+
+.member:hover,
+.member:focus-within {
+    background: transparent;
+}
+
+.member-selected,
+.member-selected:hover,
+.member-selected:focus-within {
     background: var(--ig-primary-50);
 }
 
 .select-all::part(indicator),
-.member::part(indicator) {
+.member-check::part(indicator) {
     --tick-color: var(--ig-primary-500-contrast);
 }
 
 .select-all::part(control checked)::after,
-.member::part(control checked)::after {
+.member-check::part(control checked)::after {
     --fill-color: var(--ig-primary-500);
 }
 
-.member-info {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.member-info igc-avatar {
+.member igc-avatar {
     --ig-size: var(--ig-size-small);
-}
-
-.member-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.25;
 }
 
 .member-name {

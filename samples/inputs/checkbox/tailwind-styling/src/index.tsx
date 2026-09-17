@@ -6,12 +6,14 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 interface FilterSection {
     title: string;
+    open: boolean;
     options: { label: string; checked: boolean }[];
 }
 
 const initialSections: FilterSection[] = [
     {
         title: 'Brand',
+        open: true,
         options: [
             { label: 'Nike', checked: true },
             { label: 'Roxy', checked: false },
@@ -20,6 +22,7 @@ const initialSections: FilterSection[] = [
     },
     {
         title: 'Color',
+        open: true,
         options: [
             { label: 'Black', checked: false },
             { label: 'White', checked: true },
@@ -28,6 +31,7 @@ const initialSections: FilterSection[] = [
     },
     {
         title: 'Size',
+        open: true,
         options: [
             { label: 'Small', checked: false },
             { label: 'Medium', checked: true },
@@ -54,12 +58,25 @@ export default function CheckboxTailwindStyling(): JSX.Element {
         );
     };
 
+    const toggleSection = (sectionIndex: number, open: boolean) => {
+        setSections((current) =>
+            current.map((section, si) => (si === sectionIndex ? { ...section, open } : section))
+        );
+    };
+
     return (
         <div className="sample flex h-full items-center justify-center p-4">
             <div className="filter-panel flex flex-col rounded-2xl border border-[var(--ig-primary-500)] bg-white p-2">
                 <IgrAccordion>
                     {sections.map((section, sectionIndex) => (
-                        <IgrExpansionPanel key={section.title} className="filter-section" indicatorPosition="end" open>
+                        <IgrExpansionPanel
+                            key={section.title}
+                            className="filter-section"
+                            indicatorPosition="end"
+                            open={section.open}
+                            onOpened={() => toggleSection(sectionIndex, true)}
+                            onClosed={() => toggleSection(sectionIndex, false)}
+                        >
                             <span className="panel-title" slot="title">{section.title}</span>
                             <div className="section-options flex flex-col">
                                 {section.options.map((option, optionIndex) => (

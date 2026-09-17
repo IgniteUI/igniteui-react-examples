@@ -5,10 +5,16 @@ import { IgrCheckbox } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 export default class CheckboxStates extends React.Component<any, any> {
+
+    // the checkboxes are display-only, so user interaction is blocked
+    public preventToggle(e: React.SyntheticEvent): void {
+        e.preventDefault();
+    }
+
     public render(): JSX.Element {
         return (
             <div className="sample">
-                <div className="states">
+                <div className="states" onClickCapture={this.preventToggle} onKeyDownCapture={this.preventToggle}>
                     <div className="state">
                         <span className="state-label">Indeterminate</span>
                         <IgrCheckbox indeterminate={true} aria-label="Indeterminate" />

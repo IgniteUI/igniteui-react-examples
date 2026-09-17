@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrAvatar, IgrButton, IgrCheckbox } from 'igniteui-react';
+import { IgrAvatar, IgrButton, IgrCheckbox, IgrList, IgrListItem } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 interface TeamMember {
@@ -22,6 +22,7 @@ export default function CheckboxStyling(): JSX.Element {
     const [members, setMembers] = useState<TeamMember[]>(initialMembers);
 
     const allSelected = members.every((member) => member.selected);
+    const someSelected = members.some((member) => member.selected);
 
     const toggleAll = (checked: boolean) => {
         setMembers((current) => current.map((member) => ({ ...member, selected: checked })));
@@ -40,28 +41,31 @@ export default function CheckboxStyling(): JSX.Element {
                     className="select-all"
                     labelPosition="before"
                     checked={allSelected}
+                    indeterminate={someSelected && !allSelected}
                     onChange={(e) => toggleAll(e.detail.checked)}
                 >
                     <span>Select all</span>
                 </IgrCheckbox>
 
-                {members.map((member, index) => (
-                    <IgrCheckbox
-                        className={member.selected ? 'member member-selected' : 'member'}
-                        key={member.email}
-                        labelPosition="before"
-                        checked={member.selected}
-                        onChange={(e) => toggleMember(index, e.detail.checked)}
-                    >
-                        <span className="member-info">
-                            <IgrAvatar src={member.avatar} shape="circle" alt={member.name} />
-                            <span className="member-text">
-                                <span className="member-name">{member.name}</span>
-                                <span className="member-email">{member.email}</span>
-                            </span>
-                        </span>
-                    </IgrCheckbox>
-                ))}
+                <IgrList className="members">
+                    {members.map((member, index) => (
+                        <IgrListItem
+                            className={member.selected ? 'member member-selected' : 'member'}
+                            key={member.email}
+                        >
+                            <IgrAvatar slot="start" src={member.avatar} shape="circle" alt={member.name} />
+                            <span slot="title" className="member-name">{member.name}</span>
+                            <span slot="subtitle" className="member-email">{member.email}</span>
+                            <IgrCheckbox
+                                slot="end"
+                                className="member-check"
+                                aria-label={member.name}
+                                checked={member.selected}
+                                onChange={(e) => toggleMember(index, e.detail.checked)}
+                            />
+                        </IgrListItem>
+                    ))}
+                </IgrList>
 
                 <IgrButton variant="contained" className="continue-button">Continue</IgrButton>
             </div>
