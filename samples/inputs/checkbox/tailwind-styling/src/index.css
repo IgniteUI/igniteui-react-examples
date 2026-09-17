@@ -14,7 +14,6 @@
 }
 
 .filter-panel {
-    /* brand blue, overrides the theme-derived shade */
     --ig-primary-800: #004699;
     display: flex;
     flex-direction: column;
@@ -24,7 +23,7 @@
     padding: 8px;
     border: 1px solid var(--ig-primary-500);
     border-radius: 16px;
-    background: var(--color-white);
+    background: var(--ig-surface-100);
 }
 
 .filter-section {
