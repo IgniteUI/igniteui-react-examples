@@ -28,9 +28,14 @@
     gap: 0.25rem;
 }
 
-/* igc-list-header/item expose no "base" part, so the hosts are styled directly */
 .group-header {
     padding: 0;
+    font-family: var(--ig-body-1-font-family);
+    font-size: var(--ig-body-1-font-size);
+    font-weight: var(--ig-body-1-font-weight);
+    line-height: var(--ig-body-1-line-height);
+    letter-spacing: var(--ig-body-1-letter-spacing);
+    text-transform: none;
 }
 
 .shopping-item + .group-header {
