@@ -97,6 +97,14 @@ igc-expansion-panel::part(indicator) {
     padding: 0 0 1rem;
 }
 
+.filter-option {
+    --size: 20px;
+}
+
+.filter-option::part(control) {
+    --size: 20px;
+}
+
 .filter-option::part(label) {
     color: var(--ig-gray-800);
     font-family: "Aktiv Grotesk", sans-serif;
@@ -107,18 +115,19 @@ igc-expansion-panel::part(indicator) {
 }
 
 .filter-option::part(indicator) {
-    --tick-color: var(--color-white);
+    --tick-color: var(--ig-gray-50);
+    --indicator-size: 1rem;
 }
 
 .filter-option::part(control) {
-    --empty-color: var(--color-slate-400);
+    --empty-color: var(--ig-gray-400);
     --border-radius: 0.125rem;
 }
 
 .filter-option::part(control checked)::after {
-    --fill-color: var(--color-blue-600);
+    --fill-color: var(--ig-primary-500);
 }
 
 .filter-option:hover::part(control) {
-    --empty-color: var(--color-blue-600);
+    --empty-color: var(--ig-primary-500);
 }
