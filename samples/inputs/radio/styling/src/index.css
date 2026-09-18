@@ -9,3 +9,11 @@
 igc-radio::part(control) {
     --size: 18px;
 }
+
+igc-radio::part(checked)::after {
+  background-color: var(--ig-success-500);
+}
+
+igc-radio::part(label) {
+  color: var(--ig-secondary-800);
+}
