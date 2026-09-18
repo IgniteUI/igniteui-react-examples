@@ -12,6 +12,8 @@
  * Dormant unless a trusted docs host asks for a theme.
  */
 
+import { configureTheme } from 'igniteui-react';
+
 type ThemeName = 'material' | 'fluent' | 'bootstrap' | 'indigo';
 type ThemeMode = 'light' | 'dark' | 'system';
 type ResolvedMode = 'light' | 'dark';
@@ -139,6 +141,10 @@ function applyTheme(theme: ThemeName, mode: ThemeMode): void {
             root.setAttribute('data-igd-theme', theme);
             root.setAttribute('data-igd-mode', resolved);
             root.style.colorScheme = resolved;
+
+            // Tell the Shadow DOM / Lit components to re-adopt their
+            // per-theme stylesheet now that the global CSS is in place.
+            configureTheme(theme, resolved);
         })
         .catch((err) => {
             console.warn('[sample-theme] Could not load theme "' + theme + '":', err);

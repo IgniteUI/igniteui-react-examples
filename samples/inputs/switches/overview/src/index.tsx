@@ -8,7 +8,33 @@ export default function SwitchOverview() {
 
     return (
         <div className="container sample">
-            <IgrSwitch></IgrSwitch>
+            <div className="notifications">
+                <h6 className="notifications__title">Notifications</h6>
+                <div className="notifications__row">
+                    <IgrSwitch labelPosition="before" checked={true}>
+                        <span className="option">
+                            <span className="option__label">Push notifications</span>
+                            <span className="option__hint">Deliver alerts to this device</span>
+                        </span>
+                    </IgrSwitch>
+                </div>
+                <div className="notifications__row">
+                    <IgrSwitch labelPosition="before">
+                        <span className="option">
+                            <span className="option__label">Weekly digest</span>
+                            <span className="option__hint">Summary email every Monday</span>
+                        </span>
+                    </IgrSwitch>
+                </div>
+                <div className="notifications__row">
+                    <IgrSwitch labelPosition="before" disabled={true}>
+                        <span className="option">
+                            <span className="option__label">SMS alerts</span>
+                            <span className="option__hint">Unavailable on your plan</span>
+                        </span>
+                    </IgrSwitch>
+                </div>
+            </div>
         </div>
     );
 }
