@@ -11,12 +11,12 @@ igc-badge {
 
 igc-avatar {
     --size: 40px;
-    --ig-avatar-background: var(--ig-gray-700);
-    --ig-avatar-color: var(--ig-gray-50);
+    --ig-avatar-background: var(--ig-gray-400);
+    --ig-avatar-color: var(--ig-gray-800);
 }
 
 igc-avatar igc-icon {
-    color: var(--ig-gray-50);
+    color: var(--ig-gray-800);
 }
 
 .badge-close {
