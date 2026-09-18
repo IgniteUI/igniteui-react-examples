@@ -1,0 +1,132 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+.sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.filter-panel {
+    --ig-primary-800: #004699;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 218px;
+    font-family: "Aktiv Grotesk", sans-serif;
+    padding: 8px;
+    border: 1px solid var(--ig-primary-500);
+    border-radius: 16px;
+    background: var(--ig-surface-100);
+}
+
+.filter-section {
+    display: flex;
+    flex-direction: column;
+}
+
+igc-accordion {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+}
+
+igc-expansion-panel {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    border-bottom: 1px solid var(--ig-gray-200);
+}
+
+igc-expansion-panel:last-of-type {
+    border-bottom: 0;
+}
+
+igc-expansion-panel:last-of-type .section-options {
+    padding-bottom: 0;
+}
+
+igc-expansion-panel::part(header) {
+    padding: 0.25rem 1rem 0.5rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--ig-primary-800);
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+igc-expansion-panel::part(content) {
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+igc-expansion-panel::part(title) {
+    color: var(--ig-primary-800);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+}
+
+.panel-title {
+    color: var(--ig-primary-800);
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+}
+
+igc-expansion-panel::part(indicator) {
+    color: var(--ig-gray-800);
+}
+
+.section-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: -0.5rem 0 -1rem;
+    padding: 0 0 1rem;
+}
+
+.filter-option {
+    --size: 20px;
+}
+
+.filter-option::part(control) {
+    --size: 20px;
+}
+
+.filter-option::part(label) {
+    color: var(--ig-gray-800);
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.1px;
+}
+
+.filter-option::part(indicator) {
+    --tick-color: var(--ig-gray-50);
+    --indicator-size: 1rem;
+}
+
+.filter-option::part(control) {
+    --empty-color: var(--ig-gray-400);
+    --border-radius: 0.125rem;
+}
+
+.filter-option::part(control checked)::after {
+    --fill-color: var(--ig-primary-500);
+}
+
+.filter-option:hover::part(control) {
+    --empty-color: var(--ig-primary-500);
+}

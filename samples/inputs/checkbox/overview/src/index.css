@@ -1,2 +1,106 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.shopping-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 22.5rem;
+    height: 24.3125rem;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background: var(--ig-surface-100);
+    box-shadow: 0 0.0625rem 0.25rem rgb(0 0 0 / 16%);
+}
+
+.list {
+    background: transparent;
+    border: none;
+    gap: 0.25rem;
+}
+
+.group-header {
+    padding: 0;
+    font-family: var(--ig-body-1-font-family);
+    font-size: var(--ig-body-1-font-size);
+    font-weight: var(--ig-body-1-font-weight);
+    line-height: var(--ig-body-1-line-height);
+    letter-spacing: var(--ig-body-1-letter-spacing);
+    text-transform: none;
+}
+
+.shopping-item + .group-header {
+    margin-top: 0.75rem;
+}
+
+.group-title {
+    color: var(--ig-primary-500);
+}
+
+.shopping-item {
+    padding: 0;
+    gap: 0.5rem;
+    background: transparent;
+    border-bottom: none;
+    --border-color: transparent;
+    --border-width: 0;
+}
+
+.shopping-item:hover,
+.shopping-item:focus-within {
+    background: transparent;
+}
+
+.shopping-item::part(content) {
+    display: none;
+}
+
+.shopping-item::part(start) {
+    margin-inline-start: 0.5rem;
+}
+
+.shopping-item::part(end) {
+    margin-inline-start: auto;
+}
+
+.shopping-item-checked,
+.shopping-item-checked:hover,
+.shopping-item-checked:focus-within {
+    background: var(--ig-primary-50);
+}
+
+.shopping-item igc-checkbox::part(control checked)::after {
+    --fill-color: var(--ig-primary-500);
+}
+
+.item-menu::part(base) {
+    color: var(--ig-gray-500);
+}
+
+.add-item {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.add-item::part(base) {
+    border-radius: 50%;
+    background-color: var(--ig-primary-500);
+    color: var(--ig-gray-50);
+    transition: background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.add-item:hover::part(base) {
+    background-color: var(--ig-primary-600);
+    color: var(--ig-gray-50);
+    box-shadow: 0 0.125rem 0.375rem rgb(0 0 0 / 24%);
+}
