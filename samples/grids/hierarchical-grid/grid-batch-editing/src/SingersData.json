@@ -1,0 +1,2480 @@
+[
+	{
+		"ID": 0,
+		"Artist": "Naomí Yepes",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/naomi.png",
+		"Debut": 2011,
+		"GrammyNominations": 6,
+		"GrammyAwards": 0,
+		"HasGrammyAward": false,
+		"Tours": [
+			{
+				"Tour": "Faithful Tour",
+				"StartedOn": "Sep 12",
+				"Location": "Worldwide",
+				"Headliner": "NO",
+				"TouredBy": "Naomí Yepes"
+			},
+			{
+				"Tour": "City Jam Sessions",
+				"StartedOn": "Aug 13",
+				"Location": "North America",
+				"Headliner": "YES",
+				"TouredBy": "Naomí Yepes"
+			},
+			{
+				"Tour": "Christmas NYC 2013",
+				"StartedOn": "Dec 13",
+				"Location": "United States",
+				"Headliner": "NO",
+				"TouredBy": "Naomí Yepes"
+			},
+			{
+				"Tour": "Christmas NYC 2014",
+				"StartedOn": "Dec 14",
+				"Location": "North America",
+				"Headliner": "NO",
+				"TouredBy": "Naomí Yepes"
+			},
+			{
+				"Tour": "Watermelon Tour",
+				"StartedOn": "Feb 15",
+				"Location": "Worldwide",
+				"Headliner": "YES",
+				"TouredBy": "Naomí Yepes"
+			},
+			{
+				"Tour": "Christmas NYC 2016",
+				"StartedOn": "Dec 16",
+				"Location": "United States",
+				"Headliner": "NO",
+				"TouredBy": "Naomí Yepes"
+			},
+			{
+				"Tour": "The Dragon Tour",
+				"StartedOn": "Feb 17",
+				"Location": "Worldwide",
+				"Headliner": "NO",
+				"TouredBy": "Naomí Yepes"
+			},
+			{
+				"Tour": "Organic Sessions",
+				"StartedOn": "Aug 18",
+				"Location": "United States, England",
+				"Headliner": "YES",
+				"TouredBy": "Naomí Yepes"
+			},
+			{
+				"Tour": "Hope World Tour",
+				"StartedOn": "Mar 19",
+				"Location": "Worldwide",
+				"Headliner": "NO",
+				"TouredBy": "Naomí Yepes"
+			}
+		],
+		"Albums": [
+			{
+				"Album": "Initiation",
+				"LaunchDate": "2013-09-03",
+				"BillboardReview": 86,
+				"USBillboard200": 1,
+				"Artist": "Naomí Yepes",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Lonely Falling",
+						"Released": "2019-05-01",
+						"Genre": "*",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 2,
+						"Title": "Bright Breaking",
+						"Released": "2019-07-25",
+						"Genre": "Electro house Electropop",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 3,
+						"Title": "River of Whisper",
+						"Released": "2020-01-29",
+						"Genre": "Electro house Electropop",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 4,
+						"Title": "Sky of Storm",
+						"Released": "2019-05-07",
+						"Genre": "Electro house Electropop",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 5,
+						"Title": "Electric River",
+						"Released": "2020-01-20",
+						"Genre": "R&B",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 6,
+						"Title": "Storm of Storm",
+						"Released": "2019-09-01",
+						"Genre": "Crunk reggaeton",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 7,
+						"Title": "Fire of Dream",
+						"Released": "2019-09-12",
+						"Genre": "Electro house Electropop",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 8,
+						"Title": "Burning in the Light",
+						"Released": "2019-04-15",
+						"Genre": "*",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 9,
+						"Title": "Burning in the Storm",
+						"Released": "2019-09-10",
+						"Genre": "Electro house Electropop",
+						"Album": "Initiation"
+					},
+					{
+						"Number": 10,
+						"Title": "Shadow of Whisper",
+						"Released": "2019-01-06",
+						"Genre": "Crunk reggaeton",
+						"Album": "Initiation"
+					}
+				]
+			},
+			{
+				"Album": "Dream Driven",
+				"LaunchDate": "2014-08-25",
+				"BillboardReview": 81,
+				"USBillboard200": 1,
+				"Artist": "Naomí Yepes",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Intro",
+						"Released": "2019-09-10",
+						"Genre": "*",
+						"Album": "Dream Driven"
+					},
+					{
+						"Number": 2,
+						"Title": "Ferocious",
+						"Released": "2014-04-28",
+						"Genre": "Dance-pop R&B",
+						"Album": "Dream Driven"
+					},
+					{
+						"Number": 3,
+						"Title": "Going crazy",
+						"Released": "2015-02-10",
+						"Genre": "Dance-pop EDM",
+						"Album": "Dream Driven"
+					},
+					{
+						"Number": 4,
+						"Title": "Future past",
+						"Released": "2011-09-20",
+						"Genre": "*",
+						"Album": "Dream Driven"
+					},
+					{
+						"Number": 5,
+						"Title": "Roaming like them",
+						"Released": "2014-07-02",
+						"Genre": "Electro house Electropop",
+						"Album": "Dream Driven"
+					},
+					{
+						"Number": 6,
+						"Title": "Last Wishes",
+						"Released": "2014-08-12",
+						"Genre": "R&B",
+						"Album": "Dream Driven"
+					},
+					{
+						"Number": 7,
+						"Title": "Stay where you are",
+						"Released": "2013-09-14",
+						"Genre": "*",
+						"Album": "Dream Driven"
+					},
+					{
+						"Number": 8,
+						"Title": "Imaginarium",
+						"Released": "2021-09-20",
+						"Genre": "*",
+						"Album": "Dream Driven"
+					},
+					{
+						"Number": 9,
+						"Title": "Tell me",
+						"Released": "2014-09-30",
+						"Genre": "Synth-pop R&B",
+						"Album": "Dream Driven"
+					},
+					{
+						"Number": 10,
+						"Title": "Shredded into pieces",
+						"Released": "2015-09-11",
+						"Genre": "*",
+						"Album": "Dream Driven"
+					},
+					{
+						"Number": 11,
+						"Title": "Capture this moment",
+						"Released": "2016-09-13",
+						"Genre": "*",
+						"Album": "Dream Driven"
+					},
+					{
+						"Number": 12,
+						"Title": "Dream Driven",
+						"Released": "2014-09-14",
+						"Genre": "*",
+						"Album": "Dream Driven"
+					}
+				]
+			},
+			{
+				"Album": "The dragon journey",
+				"LaunchDate": "2016-05-20",
+				"BillboardReview": 60,
+				"USBillboard200": 2,
+				"Artist": "Naomí Yepes",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Calling in the Storm",
+						"Released": "2019-03-12",
+						"Genre": "Electro house Electropop",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 2,
+						"Title": "Hiding in the Dream",
+						"Released": "2019-03-23",
+						"Genre": "R&B",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 3,
+						"Title": "Electric Heart",
+						"Released": "2019-03-17",
+						"Genre": "ethno-tunes",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 4,
+						"Title": "Shadow of Echo",
+						"Released": "2019-02-20",
+						"Genre": "ethno-tunes",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 5,
+						"Title": "Flying in the Storm",
+						"Released": "2019-04-08",
+						"Genre": "R&B",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 6,
+						"Title": "Dark Waiting",
+						"Released": "2019-10-20",
+						"Genre": "Synth-pop R&B",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 7,
+						"Title": "Fire of River",
+						"Released": "2019-02-20",
+						"Genre": "Synth-pop R&B",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 8,
+						"Title": "Wild Crying",
+						"Released": "2019-06-14",
+						"Genre": "R&B",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 9,
+						"Title": "Bright Dancing",
+						"Released": "2019-03-14",
+						"Genre": "Electro house Electropop",
+						"Album": "The dragon journey"
+					},
+					{
+						"Number": 10,
+						"Title": "Golden Waiting",
+						"Released": "2019-09-12",
+						"Genre": "Synth-pop R&B",
+						"Album": "The dragon journey"
+					}
+				]
+			},
+			{
+				"Album": "Organic me",
+				"LaunchDate": "2018-08-17",
+				"BillboardReview": 82,
+				"USBillboard200": 1,
+				"Artist": "Naomí Yepes",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "I Love",
+						"Released": "2019-05-11",
+						"Genre": "Crunk reggaeton",
+						"Album": "Organic me"
+					},
+					{
+						"Number": 2,
+						"Title": "Early Morning Compass",
+						"Released": "2020-01-15",
+						"Genre": "mystical parody-bap ",
+						"Album": "Organic me"
+					},
+					{
+						"Number": 3,
+						"Title": "Key Fields Forever",
+						"Released": "2020-01-02",
+						"Genre": "Dance-pop EDM",
+						"Album": "Organic me"
+					},
+					{
+						"Number": 4,
+						"Title": "Stand by Your Goblins",
+						"Released": "2019-11-20",
+						"Genre": "*",
+						"Album": "Organic me"
+					},
+					{
+						"Number": 5,
+						"Title": "Mad to Walk",
+						"Released": "2019-05-12",
+						"Genre": "Electro house Electropop",
+						"Album": "Organic me"
+					},
+					{
+						"Number": 6,
+						"Title": "Alice's Waiting",
+						"Released": "2020-01-28",
+						"Genre": "R&B",
+						"Album": "Organic me"
+					},
+					{
+						"Number": 7,
+						"Title": "We Shall Kiss",
+						"Released": "2019-10-30",
+						"Genre": "*",
+						"Album": "Organic me"
+					},
+					{
+						"Number": 8,
+						"Title": "Behind Single Ants",
+						"Released": "2019-10-02",
+						"Genre": "*",
+						"Album": "Organic me"
+					},
+					{
+						"Number": 9,
+						"Title": "Soap Autopsy",
+						"Released": "2019-08-08",
+						"Genre": "Synth-pop R&B",
+						"Album": "Organic me"
+					},
+					{
+						"Number": 10,
+						"Title": "Have You Met Rich?",
+						"Released": "2019-07-01",
+						"Genre": "ethno-tunes",
+						"Album": "Organic me"
+					},
+					{
+						"Number": 11,
+						"Title": "Livin' on a Banana",
+						"Released": "2019-11-22",
+						"Genre": "Crunk reggaeton",
+						"Album": "Organic me"
+					}
+				]
+			},
+			{
+				"Album": "Curiosity",
+				"LaunchDate": "2019-12-07",
+				"BillboardReview": 75,
+				"USBillboard200": 12,
+				"Artist": "Naomí Yepes",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Storm of Dream",
+						"Released": "2019-01-05",
+						"Genre": "*",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 2,
+						"Title": "Echo of Dream",
+						"Released": "2019-01-28",
+						"Genre": "Synth-pop R&B",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 3,
+						"Title": "Light of Shadow",
+						"Released": "2019-02-07",
+						"Genre": "Synth-pop R&B",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 4,
+						"Title": "Storm of Heart",
+						"Released": "2020-01-05",
+						"Genre": "Electro house Electropop",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 5,
+						"Title": "Shadow of River",
+						"Released": "2019-02-27",
+						"Genre": "*",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 6,
+						"Title": "Wicked Dancing",
+						"Released": "2020-01-17",
+						"Genre": "ethno-tunes",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 7,
+						"Title": "River of Light",
+						"Released": "2019-02-22",
+						"Genre": "R&B",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 8,
+						"Title": "Lonely Breaking",
+						"Released": "2019-09-09",
+						"Genre": "ethno-tunes",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 9,
+						"Title": "Furious Flying",
+						"Released": "2019-06-08",
+						"Genre": "R&B",
+						"Album": "Curiosity"
+					},
+					{
+						"Number": 10,
+						"Title": "Hiding in the Storm",
+						"Released": "2019-05-27",
+						"Genre": "Electro house Electropop",
+						"Album": "Curiosity"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 1,
+		"Artist": "Babila Ebwélé",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/babila.png",
+		"Debut": 2009,
+		"GrammyNominations": 0,
+		"GrammyAwards": 11,
+		"HasGrammyAward": true,
+		"Tours": [
+			{
+				"Tour": "The last straw",
+				"StartedOn": "May 09",
+				"Location": "Europe, Asia",
+				"Headliner": "NO",
+				"TouredBy": "Babila Ebwélé"
+			},
+			{
+				"Tour": "No foundations",
+				"StartedOn": "Jun 04",
+				"Location": "United States, Europe",
+				"Headliner": "YES",
+				"TouredBy": "Babila Ebwélé"
+			},
+			{
+				"Tour": "Crazy eyes",
+				"StartedOn": "Jun 08",
+				"Location": "North America",
+				"Headliner": "NO",
+				"TouredBy": "Babila Ebwélé"
+			},
+			{
+				"Tour": "Zero gravity",
+				"StartedOn": "Apr 19",
+				"Location": "United States",
+				"Headliner": "NO",
+				"TouredBy": "Babila Ebwélé"
+			},
+			{
+				"Tour": "Battle with myself",
+				"StartedOn": "Mar 08",
+				"Location": "North America",
+				"Headliner": "YES",
+				"TouredBy": "Babila Ebwélé"
+			}
+		],
+		"Albums": [
+			{
+				"Album": "Pushing up daisies",
+				"LaunchDate": "2000-05-31",
+				"BillboardReview": 86,
+				"USBillboard200": 42,
+				"Artist": "Babila Ebwélé",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Wood Shavings Forever",
+						"Released": "2019-06-09",
+						"Genre": "*",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 2,
+						"Title": "Early Morning Drive",
+						"Released": "2019-05-20",
+						"Genre": "*",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 3,
+						"Title": "Don't Natter",
+						"Released": "2019-06-10",
+						"Genre": "adult calypso-industrial",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 4,
+						"Title": "Stairway to Balloons",
+						"Released": "2019-06-18",
+						"Genre": "calypso and mariachi",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 5,
+						"Title": "The Number of your Apple",
+						"Released": "2019-10-29",
+						"Genre": "*",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 6,
+						"Title": "Your Delightful Heart",
+						"Released": "2019-02-24",
+						"Genre": "*",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 7,
+						"Title": "Nice Weather For Balloons",
+						"Released": "2019-08-01",
+						"Genre": "rap-hop",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 8,
+						"Title": "The Girl From Cornwall",
+						"Released": "2019-05-04",
+						"Genre": "enigmatic rock-and-roll",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 9,
+						"Title": "Here Without Jack",
+						"Released": "2019-10-24",
+						"Genre": "*",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 10,
+						"Title": "Born Rancid",
+						"Released": "2019-03-19",
+						"Genre": "*",
+						"Album": "Pushing up daisies"
+					}
+				]
+			},
+			{
+				"Album": "Death's dead",
+				"LaunchDate": "2016-06-08",
+				"BillboardReview": 85,
+				"USBillboard200": 95,
+				"Artist": "Babila Ebwélé",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Men Sound Better With You",
+						"Released": "2019-10-20",
+						"Genre": "rap-hop",
+						"Album": "Death's dead"
+					},
+					{
+						"Number": 2,
+						"Title": "Ghost in My Rod",
+						"Released": "2019-10-05",
+						"Genre": "enigmatic rock-and-roll",
+						"Album": "Death's dead"
+					},
+					{
+						"Number": 3,
+						"Title": "Bed of Men",
+						"Released": "2019-11-14",
+						"Genre": "whimsical comedy-grass ",
+						"Album": "Death's dead"
+					},
+					{
+						"Number": 4,
+						"Title": "Don't Push",
+						"Released": "2020-01-02",
+						"Genre": "unblack electronic-trip-hop",
+						"Album": "Death's dead"
+					},
+					{
+						"Number": 5,
+						"Title": "Nice Weather For Men",
+						"Released": "2019-12-18",
+						"Genre": "*",
+						"Album": "Death's dead"
+					},
+					{
+						"Number": 6,
+						"Title": "Rancid Rhapsody",
+						"Released": "2019-03-10",
+						"Genre": "*",
+						"Album": "Death's dead"
+					},
+					{
+						"Number": 7,
+						"Title": "Push, Push, Push!",
+						"Released": "2019-02-21",
+						"Genre": "*",
+						"Album": "Death's dead"
+					},
+					{
+						"Number": 8,
+						"Title": "My Name is Sarah",
+						"Released": "2019-11-15",
+						"Genre": "*",
+						"Album": "Death's dead"
+					},
+					{
+						"Number": 9,
+						"Title": "The Girl From My Hotel",
+						"Released": "2019-11-06",
+						"Genre": "*",
+						"Album": "Death's dead"
+					},
+					{
+						"Number": 10,
+						"Title": "Free Box",
+						"Released": "2019-04-18",
+						"Genre": "splitter-funk",
+						"Album": "Death's dead"
+					},
+					{
+						"Number": 11,
+						"Title": "Hotel Cardiff",
+						"Released": "2019-12-30",
+						"Genre": "guilty pleasure ebm",
+						"Album": "Death's dead"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 2,
+		"Artist": "Ahmad Nazeri",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/ahmad.png",
+		"Debut": 2004,
+		"GrammyNominations": 3,
+		"GrammyAwards": 1,
+		"HasGrammyAward": true,
+		"Tours": [],
+		"Albums": [
+			{
+				"Album": "Emergency",
+				"LaunchDate": "2004-03-06",
+				"BillboardReview": 98,
+				"USBillboard200": 69,
+				"Artist": "Ahmad Nazeri",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Gentle Falling",
+						"Released": "2019-04-26",
+						"Genre": "Crunk reggaeton",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 2,
+						"Title": "Calling in the Fire",
+						"Released": "2019-09-03",
+						"Genre": "ethno-tunes",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 3,
+						"Title": "Fire of Shadow",
+						"Released": "2019-01-05",
+						"Genre": "ethno-tunes",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 4,
+						"Title": "Dancing in the Dream",
+						"Released": "2019-04-15",
+						"Genre": "R&B",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 5,
+						"Title": "Calling in the Shadow",
+						"Released": "2019-10-09",
+						"Genre": "R&B",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 6,
+						"Title": "Falling in the Sky",
+						"Released": "2019-03-08",
+						"Genre": "ethno-tunes",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 7,
+						"Title": "Calling in the Storm",
+						"Released": "2019-12-05",
+						"Genre": "ethno-tunes",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 8,
+						"Title": "Falling in the River",
+						"Released": "2019-08-19",
+						"Genre": "Electro house Electropop",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 9,
+						"Title": "Electric Fire",
+						"Released": "2019-11-30",
+						"Genre": "Crunk reggaeton",
+						"Album": "Emergency"
+					},
+					{
+						"Number": 10,
+						"Title": "Lonely River",
+						"Released": "2019-11-11",
+						"Genre": "Electro house Electropop",
+						"Album": "Emergency"
+					}
+				]
+			},
+			{
+				"Album": "Bursting bubbles",
+				"LaunchDate": "2006-04-17",
+				"BillboardReview": 69,
+				"USBillboard200": 39,
+				"Artist": "Ahmad Nazeri",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Lonely Dream",
+						"Released": "2019-12-11",
+						"Genre": "ethno-tunes",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 2,
+						"Title": "Fire of River",
+						"Released": "2019-08-01",
+						"Genre": "Synth-pop R&B",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 3,
+						"Title": "Wicked Falling",
+						"Released": "2019-01-25",
+						"Genre": "*",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 4,
+						"Title": "Crying in the Shadow",
+						"Released": "2019-01-04",
+						"Genre": "Synth-pop R&B",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 5,
+						"Title": "Wild Burning",
+						"Released": "2019-05-10",
+						"Genre": "ethno-tunes",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 6,
+						"Title": "Waiting in the Heart",
+						"Released": "2019-08-07",
+						"Genre": "ethno-tunes",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 7,
+						"Title": "Fire of Fire",
+						"Released": "2019-05-16",
+						"Genre": "Electro house Electropop",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 8,
+						"Title": "Bright Heart",
+						"Released": "2019-03-14",
+						"Genre": "Synth-pop R&B",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 9,
+						"Title": "Lonely Fire",
+						"Released": "2019-10-15",
+						"Genre": "R&B",
+						"Album": "Bursting bubbles"
+					},
+					{
+						"Number": 10,
+						"Title": "Sky of Dream",
+						"Released": "2019-06-20",
+						"Genre": "ethno-tunes",
+						"Album": "Bursting bubbles"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 3,
+		"Artist": "Kimmy McIlmorie",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/kimmy.png",
+		"Debut": 2007,
+		"GrammyNominations": 21,
+		"GrammyAwards": 3,
+		"HasGrammyAward": true,
+		"Tours": [],
+		"Albums": [
+			{
+				"Album": "Here we go again",
+				"LaunchDate": "2017-11-18",
+				"BillboardReview": 68,
+				"USBillboard200": 1,
+				"Artist": "Kimmy McIlmorie",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Storm of Sky",
+						"Released": "2019-03-04",
+						"Genre": "ethno-tunes",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 2,
+						"Title": "Dream of Shadow",
+						"Released": "2019-01-03",
+						"Genre": "ethno-tunes",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 3,
+						"Title": "Dream of Shadow",
+						"Released": "2019-12-19",
+						"Genre": "Electro house Electropop",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 4,
+						"Title": "Golden Fire",
+						"Released": "2019-01-20",
+						"Genre": "R&B",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 5,
+						"Title": "Running in the Light",
+						"Released": "2020-01-03",
+						"Genre": "Synth-pop R&B",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 6,
+						"Title": "Flying in the Heart",
+						"Released": "2019-01-17",
+						"Genre": "*",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 7,
+						"Title": "Fire of Storm",
+						"Released": "2019-01-26",
+						"Genre": "ethno-tunes",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 8,
+						"Title": "Calling in the Sky",
+						"Released": "2019-10-28",
+						"Genre": "Synth-pop R&B",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 9,
+						"Title": "Flying in the Shadow",
+						"Released": "2019-03-30",
+						"Genre": "ethno-tunes",
+						"Album": "Here we go again"
+					},
+					{
+						"Number": 10,
+						"Title": "Golden Dancing",
+						"Released": "2019-10-12",
+						"Genre": "ethno-tunes",
+						"Album": "Here we go again"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 4,
+		"Artist": "Mar Rueda",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/mar.png",
+		"Debut": 1996,
+		"GrammyNominations": 14,
+		"GrammyAwards": 2,
+		"HasGrammyAward": true,
+		"Tours": [],
+		"Albums": []
+	},
+	{
+		"ID": 5,
+		"Artist": "Izabella Tabakova",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/izabella.png",
+		"Debut": 2017,
+		"GrammyNominations": 7,
+		"GrammyAwards": 11,
+		"HasGrammyAward": true,
+		"Tours": [
+			{
+				"Tour": "Final breath",
+				"StartedOn": "Jun 13",
+				"Location": "Europe",
+				"Headliner": "YES",
+				"TouredBy": "Izabella Tabakova"
+			},
+			{
+				"Tour": "Once bitten",
+				"StartedOn": "Dec 18",
+				"Location": "Australia, United States",
+				"Headliner": "NO",
+				"TouredBy": "Izabella Tabakova"
+			},
+			{
+				"Tour": "Code word",
+				"StartedOn": "Sep 19",
+				"Location": "United States, Europe",
+				"Headliner": "NO",
+				"TouredBy": "Izabella Tabakova"
+			},
+			{
+				"Tour": "Final draft",
+				"StartedOn": "Sep 17",
+				"Location": "United States, Europe",
+				"Headliner": "YES",
+				"TouredBy": "Izabella Tabakova"
+			}
+		],
+		"Albums": [
+			{
+				"Album": "Once bitten",
+				"LaunchDate": "2007-07-16",
+				"BillboardReview": 79,
+				"USBillboard200": 53,
+				"Artist": "Izabella Tabakova",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Whole Lotta Super Cats",
+						"Released": "2019-05-21",
+						"Genre": "*",
+						"Album": "Once bitten"
+					},
+					{
+						"Number": 2,
+						"Title": "Enter Becky",
+						"Released": "2020-01-16",
+						"Genre": "*",
+						"Album": "Once bitten"
+					},
+					{
+						"Number": 3,
+						"Title": "Your Cheatin' Flamingo",
+						"Released": "2020-01-14",
+						"Genre": "*",
+						"Album": "Once bitten"
+					},
+					{
+						"Number": 4,
+						"Title": "Mad to Kiss",
+						"Released": "2019-11-06",
+						"Genre": "Synth-pop R&B",
+						"Album": "Once bitten"
+					},
+					{
+						"Number": 5,
+						"Title": "Hotel Prague",
+						"Released": "2019-10-20",
+						"Genre": "ethno-tunes",
+						"Album": "Once bitten"
+					},
+					{
+						"Number": 6,
+						"Title": "Jail on My Mind",
+						"Released": "2019-05-31",
+						"Genre": "Crunk reggaeton",
+						"Album": "Once bitten"
+					},
+					{
+						"Number": 7,
+						"Title": "Amazing Blues",
+						"Released": "2019-05-29",
+						"Genre": "mystical parody-bap ",
+						"Album": "Once bitten"
+					},
+					{
+						"Number": 8,
+						"Title": "Goody Two Iron Filings",
+						"Released": "2019-07-04",
+						"Genre": "Electro house Electropop",
+						"Album": "Once bitten"
+					},
+					{
+						"Number": 9,
+						"Title": "I Love in Your Arms",
+						"Released": "2019-06-07",
+						"Genre": "R&B",
+						"Album": "Once bitten"
+					},
+					{
+						"Number": 10,
+						"Title": "Truly Madly Amazing",
+						"Released": "2019-09-12",
+						"Genre": "ethno-tunes",
+						"Album": "Once bitten"
+					}
+				]
+			},
+			{
+				"Album": "Your graciousness",
+				"LaunchDate": "2004-11-17",
+				"BillboardReview": 69,
+				"USBillboard200": 30,
+				"Artist": "Izabella Tabakova",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "We Shall Tickle",
+						"Released": "2019-08-31",
+						"Genre": "old emo-garage ",
+						"Album": "Your graciousness"
+					},
+					{
+						"Number": 2,
+						"Title": "Snail Boogie",
+						"Released": "2019-06-14",
+						"Genre": "*",
+						"Album": "Your graciousness"
+					},
+					{
+						"Number": 3,
+						"Title": "Amazing Liz",
+						"Released": "2019-10-15",
+						"Genre": "*",
+						"Album": "Your graciousness"
+					},
+					{
+						"Number": 4,
+						"Title": "When Sexy Aardvarks Cry",
+						"Released": "2019-10-01",
+						"Genre": "whimsical comedy-grass ",
+						"Album": "Your graciousness"
+					},
+					{
+						"Number": 5,
+						"Title": "Stand By Dave",
+						"Released": "2019-08-18",
+						"Genre": "unblack electronic-trip-hop",
+						"Album": "Your graciousness"
+					},
+					{
+						"Number": 6,
+						"Title": "The Golf Course is Your Land",
+						"Released": "2019-04-02",
+						"Genre": "*",
+						"Album": "Your graciousness"
+					},
+					{
+						"Number": 7,
+						"Title": "Where Have All the Men Gone?",
+						"Released": "2019-04-29",
+						"Genre": "*",
+						"Album": "Your graciousness"
+					},
+					{
+						"Number": 8,
+						"Title": "Rhythm of the Leg",
+						"Released": "2019-08-05",
+						"Genre": "ethno-tunes",
+						"Album": "Your graciousness"
+					},
+					{
+						"Number": 9,
+						"Title": "Baby, I Need Your Hats",
+						"Released": "2019-12-05",
+						"Genre": "neuro-tunes",
+						"Album": "Your graciousness"
+					},
+					{
+						"Number": 10,
+						"Title": "Stand by Your Cat",
+						"Released": "2019-07-25",
+						"Genre": "*",
+						"Album": "Your graciousness"
+					}
+				]
+			},
+			{
+				"Album": "Dark matters",
+				"LaunchDate": "2002-11-03",
+				"BillboardReview": 79,
+				"USBillboard200": 85,
+				"Artist": "Izabella Tabakova",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Hiding in the Light",
+						"Released": "2019-01-24",
+						"Genre": "Synth-pop R&B",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 2,
+						"Title": "Furious River",
+						"Released": "2020-01-13",
+						"Genre": "Electro house Electropop",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 3,
+						"Title": "Wild Crying",
+						"Released": "2019-02-27",
+						"Genre": "Electro house Electropop",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 4,
+						"Title": "Light of Dream",
+						"Released": "2019-06-01",
+						"Genre": "Crunk reggaeton",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 5,
+						"Title": "Light of Dream",
+						"Released": "2019-08-24",
+						"Genre": "*",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 6,
+						"Title": "Storm of Light",
+						"Released": "2019-02-26",
+						"Genre": "*",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 7,
+						"Title": "Dark Storm",
+						"Released": "2020-01-18",
+						"Genre": "R&B",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 8,
+						"Title": "Dark Calling",
+						"Released": "2019-03-20",
+						"Genre": "Crunk reggaeton",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 9,
+						"Title": "Sky of Whisper",
+						"Released": "2019-01-30",
+						"Genre": "ethno-tunes",
+						"Album": "Dark matters"
+					},
+					{
+						"Number": 10,
+						"Title": "Dancing in the Light",
+						"Released": "2019-11-28",
+						"Genre": "Synth-pop R&B",
+						"Album": "Dark matters"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 6,
+		"Artist": "Nguyễn Diệp Chi",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/nguyen.png",
+		"Debut": 1992,
+		"GrammyNominations": 4,
+		"GrammyAwards": 2,
+		"HasGrammyAward": true,
+		"Tours": [],
+		"Albums": [
+			{
+				"Album": "Library of liberty",
+				"LaunchDate": "2003-12-22",
+				"BillboardReview": 93,
+				"USBillboard200": 5,
+				"Artist": "Nguyễn Diệp Chi",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Echo of River",
+						"Released": "2019-03-05",
+						"Genre": "Synth-pop R&B",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 2,
+						"Title": "Heart of River",
+						"Released": "2020-01-12",
+						"Genre": "Electro house Electropop",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 3,
+						"Title": "Dark Light",
+						"Released": "2019-08-09",
+						"Genre": "Electro house Electropop",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 4,
+						"Title": "Dark Fire",
+						"Released": "2019-06-22",
+						"Genre": "R&B",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 5,
+						"Title": "Flying in the Fire",
+						"Released": "2019-07-22",
+						"Genre": "*",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 6,
+						"Title": "Shadow of Heart",
+						"Released": "2020-01-02",
+						"Genre": "*",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 7,
+						"Title": "Fire of Fire",
+						"Released": "2019-01-27",
+						"Genre": "*",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 8,
+						"Title": "Falling in the River",
+						"Released": "2019-08-05",
+						"Genre": "Crunk reggaeton",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 9,
+						"Title": "Fire of Light",
+						"Released": "2019-12-31",
+						"Genre": "ethno-tunes",
+						"Album": "Library of liberty"
+					},
+					{
+						"Number": 10,
+						"Title": "Bright Flying",
+						"Released": "2019-01-24",
+						"Genre": "*",
+						"Album": "Library of liberty"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 7,
+		"Artist": "Eva Lee",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/eva.png",
+		"Debut": 2008,
+		"GrammyNominations": 2,
+		"GrammyAwards": 0,
+		"HasGrammyAward": false,
+		"Tours": [],
+		"Albums": [
+			{
+				"Album": "Just a tease",
+				"LaunchDate": "2001-05-03",
+				"BillboardReview": 91,
+				"USBillboard200": 29,
+				"Artist": "Eva Lee",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Dancing in the Shadow",
+						"Released": "2019-08-02",
+						"Genre": "ethno-tunes",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 2,
+						"Title": "Silent Whisper",
+						"Released": "2019-07-09",
+						"Genre": "*",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 3,
+						"Title": "Crying in the Whisper",
+						"Released": "2019-05-30",
+						"Genre": "Crunk reggaeton",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 4,
+						"Title": "River of Light",
+						"Released": "2019-01-10",
+						"Genre": "Electro house Electropop",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 5,
+						"Title": "Golden River",
+						"Released": "2019-11-15",
+						"Genre": "*",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 6,
+						"Title": "Burning in the Shadow",
+						"Released": "2019-04-18",
+						"Genre": "Crunk reggaeton",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 7,
+						"Title": "Shadow of Sky",
+						"Released": "2019-09-06",
+						"Genre": "Crunk reggaeton",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 8,
+						"Title": "Gentle Waiting",
+						"Released": "2019-12-05",
+						"Genre": "R&B",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 9,
+						"Title": "Bright River",
+						"Released": "2020-01-27",
+						"Genre": "R&B",
+						"Album": "Just a tease"
+					},
+					{
+						"Number": 10,
+						"Title": "Heart of Storm",
+						"Released": "2019-01-07",
+						"Genre": "Synth-pop R&B",
+						"Album": "Just a tease"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 8,
+		"Artist": "Siri Jakobsson",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/siri.png",
+		"Debut": 1990,
+		"GrammyNominations": 2,
+		"GrammyAwards": 8,
+		"HasGrammyAward": true,
+		"Tours": [
+			{
+				"Tour": "Basket case",
+				"StartedOn": "Jan 07",
+				"Location": "Europe, Asia",
+				"Headliner": "NO",
+				"TouredBy": "Siri Jakobsson"
+			},
+			{
+				"Tour": "The bigger fish",
+				"StartedOn": "Dec 07",
+				"Location": "United States, Europe",
+				"Headliner": "YES",
+				"TouredBy": "Siri Jakobsson"
+			},
+			{
+				"Tour": "Missed the boat",
+				"StartedOn": "Jun 09",
+				"Location": "Europe, Asia",
+				"Headliner": "NO",
+				"TouredBy": "Siri Jakobsson"
+			},
+			{
+				"Tour": "Equivalent exchange",
+				"StartedOn": "Feb 06",
+				"Location": "United States, Europe",
+				"Headliner": "YES",
+				"TouredBy": "Siri Jakobsson"
+			},
+			{
+				"Tour": "Damage control",
+				"StartedOn": "Oct 11",
+				"Location": "Australia, United States",
+				"Headliner": "NO",
+				"TouredBy": "Siri Jakobsson"
+			}
+		],
+		"Albums": [
+			{
+				"Album": "Under the bus",
+				"LaunchDate": "2000-05-14",
+				"BillboardReview": 67,
+				"USBillboard200": 67,
+				"Artist": "Siri Jakobsson",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Jack Broke My Heart At Tesco's",
+						"Released": "2020-01-19",
+						"Genre": "*",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 2,
+						"Title": "Cat Deep, Hats High",
+						"Released": "2019-12-05",
+						"Genre": "*",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 3,
+						"Title": "In Snail We Trust",
+						"Released": "2019-05-31",
+						"Genre": "hardcore opera",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 4,
+						"Title": "Liz's Waiting",
+						"Released": "2019-07-22",
+						"Genre": "emotional C-jam ",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 5,
+						"Title": "Lifeless Blues",
+						"Released": "2019-06-14",
+						"Genre": "*",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 6,
+						"Title": "I Spin",
+						"Released": "2019-03-26",
+						"Genre": "*",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 7,
+						"Title": "Ring of Rock",
+						"Released": "2019-12-12",
+						"Genre": "*",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 8,
+						"Title": "Livin' on a Rock",
+						"Released": "2019-04-17",
+						"Genre": "*",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 9,
+						"Title": "Your Lifeless Heart",
+						"Released": "2019-09-15",
+						"Genre": "adult calypso-industrial",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 10,
+						"Title": "The High Street on My Mind",
+						"Released": "2019-11-11",
+						"Genre": "calypso and mariachi",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 11,
+						"Title": "Behind Ugly Curtains",
+						"Released": "2019-05-08",
+						"Genre": "*",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 12,
+						"Title": "Where Have All the Curtains Gone?",
+						"Released": "2019-06-28",
+						"Genre": "*",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 13,
+						"Title": "Ghost in My Apple",
+						"Released": "2019-12-14",
+						"Genre": "*",
+						"Album": "Under the bus"
+					},
+					{
+						"Number": 14,
+						"Title": "I Chatter",
+						"Released": "2019-11-30",
+						"Genre": "*",
+						"Album": "Under the bus"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 9,
+		"Artist": "Pablo Cambeiro",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/pablo.png",
+		"Debut": 2011,
+		"GrammyNominations": 5,
+		"GrammyAwards": 0,
+		"HasGrammyAward": false,
+		"Tours": [
+			{
+				"Tour": "Beads",
+				"StartedOn": "May 11",
+				"Location": "Worldwide",
+				"Headliner": "NO",
+				"TouredBy": "Pablo Cambeiro"
+			},
+			{
+				"Tour": "Concept art",
+				"StartedOn": "Dec 18",
+				"Location": "United States",
+				"Headliner": "YES",
+				"TouredBy": "Pablo Cambeiro"
+			},
+			{
+				"Tour": "Glass shoe",
+				"StartedOn": "Jan 20",
+				"Location": "Worldwide",
+				"Headliner": "YES",
+				"TouredBy": "Pablo Cambeiro"
+			},
+			{
+				"Tour": "Pushing buttons",
+				"StartedOn": "Feb 15",
+				"Location": "Europe, Asia",
+				"Headliner": "NO",
+				"TouredBy": "Pablo Cambeiro"
+			},
+			{
+				"Tour": "Dark matters",
+				"StartedOn": "Jan 04",
+				"Location": "Australia, United States",
+				"Headliner": "YES",
+				"TouredBy": "Pablo Cambeiro"
+			},
+			{
+				"Tour": "Greener grass",
+				"StartedOn": "Sep 09",
+				"Location": "United States, Europe",
+				"Headliner": "NO",
+				"TouredBy": "Pablo Cambeiro"
+			},
+			{
+				"Tour": "Apparatus",
+				"StartedOn": "Nov 16",
+				"Location": "Europe",
+				"Headliner": "NO",
+				"TouredBy": "Pablo Cambeiro"
+			}
+		],
+		"Albums": [
+			{
+				"Album": "Fluke",
+				"LaunchDate": "2017-08-04",
+				"BillboardReview": 93,
+				"USBillboard200": 98,
+				"Artist": "Pablo Cambeiro",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Dancing in the Echo",
+						"Released": "2019-10-03",
+						"Genre": "Crunk reggaeton",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 2,
+						"Title": "Dream of Dream",
+						"Released": "2019-03-03",
+						"Genre": "*",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 3,
+						"Title": "Calling in the Echo",
+						"Released": "2019-09-16",
+						"Genre": "*",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 4,
+						"Title": "Light of Light",
+						"Released": "2019-05-25",
+						"Genre": "Electro house Electropop",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 5,
+						"Title": "Bright Light",
+						"Released": "2019-03-21",
+						"Genre": "R&B",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 6,
+						"Title": "Storm of Echo",
+						"Released": "2019-07-17",
+						"Genre": "Synth-pop R&B",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 7,
+						"Title": "Lonely Calling",
+						"Released": "2019-04-10",
+						"Genre": "ethno-tunes",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 8,
+						"Title": "Gentle Falling",
+						"Released": "2019-11-28",
+						"Genre": "Synth-pop R&B",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 9,
+						"Title": "Wild Flying",
+						"Released": "2019-11-26",
+						"Genre": "Crunk reggaeton",
+						"Album": "Fluke"
+					},
+					{
+						"Number": 10,
+						"Title": "Sky of Dream",
+						"Released": "2019-05-29",
+						"Genre": "R&B",
+						"Album": "Fluke"
+					}
+				]
+			},
+			{
+				"Album": "Crowd control",
+				"LaunchDate": "2003-08-26",
+				"BillboardReview": 68,
+				"USBillboard200": 84,
+				"Artist": "Pablo Cambeiro",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "My Bed on My Mind",
+						"Released": "2019-03-25",
+						"Genre": "ethno-tunes",
+						"Album": "Crowd control"
+					},
+					{
+						"Number": 2,
+						"Title": "Bright Blues",
+						"Released": "2019-09-28",
+						"Genre": "neuro-tunes",
+						"Album": "Crowd control"
+					},
+					{
+						"Number": 3,
+						"Title": "Sail, Sail, Sail!",
+						"Released": "2019-03-05",
+						"Genre": "*",
+						"Album": "Crowd control"
+					},
+					{
+						"Number": 4,
+						"Title": "Hotel My Bed",
+						"Released": "2019-03-22",
+						"Genre": "*",
+						"Album": "Crowd control"
+					},
+					{
+						"Number": 5,
+						"Title": "Gonna Make You Mash",
+						"Released": "2019-05-18",
+						"Genre": "*",
+						"Album": "Crowd control"
+					},
+					{
+						"Number": 6,
+						"Title": "Straight Outta America",
+						"Released": "2020-01-16",
+						"Genre": "hardcore opera",
+						"Album": "Crowd control"
+					},
+					{
+						"Number": 7,
+						"Title": "I Drive",
+						"Released": "2019-02-23",
+						"Genre": "emotional C-jam ",
+						"Album": "Crowd control"
+					},
+					{
+						"Number": 8,
+						"Title": "Like a Teddy",
+						"Released": "2019-08-31",
+						"Genre": "*",
+						"Album": "Crowd control"
+					},
+					{
+						"Number": 9,
+						"Title": "Teddy Boogie",
+						"Released": "2019-11-30",
+						"Genre": "*",
+						"Album": "Crowd control"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 10,
+		"Artist": "Athar Malakooti",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/athar.png",
+		"Debut": 2017,
+		"GrammyNominations": 0,
+		"GrammyAwards": 0,
+		"HasGrammyAward": false,
+		"Tours": [],
+		"Albums": [
+			{
+				"Album": "Pushing up daisies",
+				"LaunchDate": "2016-02-24",
+				"BillboardReview": 74,
+				"USBillboard200": 77,
+				"Artist": "Athar Malakooti",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Hiding in the Whisper",
+						"Released": "2019-04-03",
+						"Genre": "R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 2,
+						"Title": "Wicked Light",
+						"Released": "2019-08-21",
+						"Genre": "R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 3,
+						"Title": "Flying in the River",
+						"Released": "2020-02-03",
+						"Genre": "Synth-pop R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 4,
+						"Title": "Wicked Hiding",
+						"Released": "2019-09-15",
+						"Genre": "Synth-pop R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 5,
+						"Title": "Lonely Light",
+						"Released": "2019-05-13",
+						"Genre": "Electro house Electropop",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 6,
+						"Title": "Bright Dancing",
+						"Released": "2019-04-10",
+						"Genre": "Synth-pop R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 7,
+						"Title": "Gentle Dream",
+						"Released": "2019-05-21",
+						"Genre": "*",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 8,
+						"Title": "Sky of Echo",
+						"Released": "2019-06-09",
+						"Genre": "Synth-pop R&B",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 9,
+						"Title": "Breaking in the Sky",
+						"Released": "2019-12-27",
+						"Genre": "Crunk reggaeton",
+						"Album": "Pushing up daisies"
+					},
+					{
+						"Number": 10,
+						"Title": "Whisper of Shadow",
+						"Released": "2019-01-04",
+						"Genre": "ethno-tunes",
+						"Album": "Pushing up daisies"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 11,
+		"Artist": "Marti Valencia",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/marti.png",
+		"Debut": 2004,
+		"GrammyNominations": 1,
+		"GrammyAwards": 1,
+		"HasGrammyAward": true,
+		"Tours": [
+			{
+				"Tour": "Cat eat cat world",
+				"StartedOn": "Sep 00",
+				"Location": "Worldwide",
+				"Headliner": "YES",
+				"TouredBy": "Marti Valencia"
+			},
+			{
+				"Tour": "Final straw",
+				"StartedOn": "Sep 06",
+				"Location": "United States, Europe",
+				"Headliner": "NO",
+				"TouredBy": "Marti Valencia"
+			}
+		],
+		"Albums": [
+			{
+				"Album": "Nemesis",
+				"LaunchDate": "2004-06-30",
+				"BillboardReview": 94,
+				"USBillboard200": 9,
+				"Artist": "Marti Valencia",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Hiding in the Sky",
+						"Released": "2019-11-26",
+						"Genre": "Synth-pop R&B",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 2,
+						"Title": "Waiting in the Echo",
+						"Released": "2019-07-10",
+						"Genre": "ethno-tunes",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 3,
+						"Title": "Wicked Shadow",
+						"Released": "2019-07-29",
+						"Genre": "Synth-pop R&B",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 4,
+						"Title": "Crying in the Whisper",
+						"Released": "2019-04-09",
+						"Genre": "*",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 5,
+						"Title": "Echo of Storm",
+						"Released": "2019-11-19",
+						"Genre": "Crunk reggaeton",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 6,
+						"Title": "Shadow of Sky",
+						"Released": "2019-07-24",
+						"Genre": "Crunk reggaeton",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 7,
+						"Title": "Golden Hiding",
+						"Released": "2019-12-12",
+						"Genre": "Electro house Electropop",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 8,
+						"Title": "Wild Dancing",
+						"Released": "2019-08-17",
+						"Genre": "Synth-pop R&B",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 9,
+						"Title": "Bright Burning",
+						"Released": "2019-08-30",
+						"Genre": "Electro house Electropop",
+						"Album": "Nemesis"
+					},
+					{
+						"Number": 10,
+						"Title": "Flying in the River",
+						"Released": "2019-09-02",
+						"Genre": "*",
+						"Album": "Nemesis"
+					}
+				]
+			},
+			{
+				"Album": "First chance",
+				"LaunchDate": "2019-01-07",
+				"BillboardReview": 96,
+				"USBillboard200": 19,
+				"Artist": "Marti Valencia",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "My Name is Jason",
+						"Released": "2019-07-12",
+						"Genre": "*",
+						"Album": "First chance"
+					},
+					{
+						"Number": 2,
+						"Title": "Amazing Andy",
+						"Released": "2019-03-05",
+						"Genre": "*",
+						"Album": "First chance"
+					},
+					{
+						"Number": 3,
+						"Title": "The Number of your Knight",
+						"Released": "2019-12-04",
+						"Genre": "*",
+						"Album": "First chance"
+					},
+					{
+						"Number": 4,
+						"Title": "I Sail",
+						"Released": "2019-03-03",
+						"Genre": "*",
+						"Album": "First chance"
+					},
+					{
+						"Number": 5,
+						"Title": "Goody Two Hands",
+						"Released": "2019-10-11",
+						"Genre": "Electro house Electropop",
+						"Album": "First chance"
+					},
+					{
+						"Number": 6,
+						"Title": "Careful With That Knife",
+						"Released": "2019-12-18",
+						"Genre": "R&B",
+						"Album": "First chance"
+					},
+					{
+						"Number": 7,
+						"Title": "Four Single Ants",
+						"Released": "2020-01-18",
+						"Genre": "*",
+						"Album": "First chance"
+					},
+					{
+						"Number": 8,
+						"Title": "Kiss Forever",
+						"Released": "2019-08-10",
+						"Genre": "*",
+						"Album": "First chance"
+					},
+					{
+						"Number": 9,
+						"Title": "Rich's Waiting",
+						"Released": "2019-03-15",
+						"Genre": "Synth-pop R&B",
+						"Album": "First chance"
+					},
+					{
+						"Number": 10,
+						"Title": "Japan is Your Land",
+						"Released": "2019-03-07",
+						"Genre": "ethno-tunes",
+						"Album": "First chance"
+					},
+					{
+						"Number": 11,
+						"Title": "Pencils in My Banana",
+						"Released": "2019-06-21",
+						"Genre": "Crunk reggaeton",
+						"Album": "First chance"
+					},
+					{
+						"Number": 12,
+						"Title": "I Sail in Your Arms",
+						"Released": "2019-04-30",
+						"Genre": "Synth-pop R&B",
+						"Album": "First chance"
+					}
+				]
+			},
+			{
+				"Album": "God's advocate",
+				"LaunchDate": "2007-04-29",
+				"BillboardReview": 66,
+				"USBillboard200": 37,
+				"Artist": "Marti Valencia",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Wild River",
+						"Released": "2019-01-11",
+						"Genre": "*",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 2,
+						"Title": "Wicked Whisper",
+						"Released": "2019-02-16",
+						"Genre": "Electro house Electropop",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 3,
+						"Title": "Storm of Heart",
+						"Released": "2019-08-11",
+						"Genre": "*",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 4,
+						"Title": "Golden Dancing",
+						"Released": "2019-03-02",
+						"Genre": "Crunk reggaeton",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 5,
+						"Title": "Calling in the Sky",
+						"Released": "2019-09-10",
+						"Genre": "Electro house Electropop",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 6,
+						"Title": "Calling in the Heart",
+						"Released": "2019-01-12",
+						"Genre": "ethno-tunes",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 7,
+						"Title": "Running in the Storm",
+						"Released": "2019-11-10",
+						"Genre": "Synth-pop R&B",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 8,
+						"Title": "Wild Sky",
+						"Released": "2019-04-10",
+						"Genre": "R&B",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 9,
+						"Title": "Crying in the Shadow",
+						"Released": "2019-03-02",
+						"Genre": "R&B",
+						"Album": "God's advocate"
+					},
+					{
+						"Number": 10,
+						"Title": "Whisper of River",
+						"Released": "2019-05-12",
+						"Genre": "*",
+						"Album": "God's advocate"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 12,
+		"Artist": "Alicia Stanger",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/alicia.png",
+		"Debut": 2010,
+		"GrammyNominations": 1,
+		"GrammyAwards": 0,
+		"HasGrammyAward": false,
+		"Tours": [],
+		"Albums": [
+			{
+				"Album": "Forever alone",
+				"LaunchDate": "2005-11-03",
+				"BillboardReview": 82,
+				"USBillboard200": 7,
+				"Artist": "Alicia Stanger",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Shadow of Light",
+						"Released": "2019-03-24",
+						"Genre": "ethno-tunes",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 2,
+						"Title": "Running in the Echo",
+						"Released": "2019-05-03",
+						"Genre": "Crunk reggaeton",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 3,
+						"Title": "Gentle Dream",
+						"Released": "2019-08-24",
+						"Genre": "Crunk reggaeton",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 4,
+						"Title": "Furious River",
+						"Released": "2019-04-24",
+						"Genre": "ethno-tunes",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 5,
+						"Title": "Wild Whisper",
+						"Released": "2019-03-09",
+						"Genre": "ethno-tunes",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 6,
+						"Title": "Whisper of Sky",
+						"Released": "2019-07-24",
+						"Genre": "Crunk reggaeton",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 7,
+						"Title": "Lonely Storm",
+						"Released": "2019-05-01",
+						"Genre": "Crunk reggaeton",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 8,
+						"Title": "Dancing in the River",
+						"Released": "2019-12-17",
+						"Genre": "*",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 9,
+						"Title": "Electric Fire",
+						"Released": "2019-10-17",
+						"Genre": "Electro house Electropop",
+						"Album": "Forever alone"
+					},
+					{
+						"Number": 10,
+						"Title": "Electric Sky",
+						"Released": "2019-09-25",
+						"Genre": "ethno-tunes",
+						"Album": "Forever alone"
+					}
+				]
+			}
+		]
+	},
+	{
+		"ID": 13,
+		"Artist": "Peter Taylor",
+		"Photo": "https://dl.infragistics.com/x/img/people/names/peter.png",
+		"Debut": 2005,
+		"GrammyNominations": 0,
+		"GrammyAwards": 2,
+		"HasGrammyAward": true,
+		"Tours": [
+			{
+				"Tour": "Love",
+				"StartedOn": "Jun 04",
+				"Location": "Europe, Asia",
+				"Headliner": "YES",
+				"TouredBy": "Peter Taylor"
+			},
+			{
+				"Tour": "Fault of treasures",
+				"StartedOn": "Oct 13",
+				"Location": "North America",
+				"Headliner": "NO",
+				"TouredBy": "Peter Taylor"
+			},
+			{
+				"Tour": "For eternity",
+				"StartedOn": "Mar 05",
+				"Location": "United States",
+				"Headliner": "YES",
+				"TouredBy": "Peter Taylor"
+			},
+			{
+				"Tour": "Time flies",
+				"StartedOn": "Jun 03",
+				"Location": "North America",
+				"Headliner": "NO",
+				"TouredBy": "Peter Taylor"
+			},
+			{
+				"Tour": "Highest difficulty",
+				"StartedOn": "Nov 01",
+				"Location": "Worldwide",
+				"Headliner": "YES",
+				"TouredBy": "Peter Taylor"
+			},
+			{
+				"Tour": "Sleeping dogs",
+				"StartedOn": "May 04",
+				"Location": "United States, Europe",
+				"Headliner": "NO",
+				"TouredBy": "Peter Taylor"
+			}
+		],
+		"Albums": [
+			{
+				"Album": "Decisions decisions",
+				"LaunchDate": "2008-04-10",
+				"BillboardReview": 85,
+				"USBillboard200": 35,
+				"Artist": "Peter Taylor",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Calling in the Dream",
+						"Released": "2019-08-01",
+						"Genre": "R&B",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 2,
+						"Title": "Electric Burning",
+						"Released": "2019-09-10",
+						"Genre": "Electro house Electropop",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 3,
+						"Title": "Dark Flying",
+						"Released": "2019-04-28",
+						"Genre": "*",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 4,
+						"Title": "Gentle Sky",
+						"Released": "2019-11-20",
+						"Genre": "ethno-tunes",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 5,
+						"Title": "Gentle Calling",
+						"Released": "2019-01-13",
+						"Genre": "Crunk reggaeton",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 6,
+						"Title": "Golden Falling",
+						"Released": "2019-02-14",
+						"Genre": "Crunk reggaeton",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 7,
+						"Title": "Silent River",
+						"Released": "2019-02-13",
+						"Genre": "R&B",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 8,
+						"Title": "Furious Calling",
+						"Released": "2019-06-11",
+						"Genre": "Synth-pop R&B",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 9,
+						"Title": "Running in the Echo",
+						"Released": "2019-11-06",
+						"Genre": "Electro house Electropop",
+						"Album": "Decisions decisions"
+					},
+					{
+						"Number": 10,
+						"Title": "Furious River",
+						"Released": "2019-03-12",
+						"Genre": "*",
+						"Album": "Decisions decisions"
+					}
+				]
+			},
+			{
+				"Album": "Climate changed",
+				"LaunchDate": "2015-06-20",
+				"BillboardReview": 66,
+				"USBillboard200": 89,
+				"Artist": "Peter Taylor",
+				"Songs": [
+					{
+						"Number": 1,
+						"Title": "Dark Crying",
+						"Released": "2019-04-27",
+						"Genre": "Electro house Electropop",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 2,
+						"Title": "Dark Waiting",
+						"Released": "2019-11-14",
+						"Genre": "Synth-pop R&B",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 3,
+						"Title": "Furious Waiting",
+						"Released": "2019-05-23",
+						"Genre": "*",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 4,
+						"Title": "Running in the Echo",
+						"Released": "2019-11-29",
+						"Genre": "Crunk reggaeton",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 5,
+						"Title": "Dream of Sky",
+						"Released": "2019-10-31",
+						"Genre": "Crunk reggaeton",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 6,
+						"Title": "Hiding in the Heart",
+						"Released": "2019-08-09",
+						"Genre": "R&B",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 7,
+						"Title": "Sky of Storm",
+						"Released": "2019-06-01",
+						"Genre": "R&B",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 8,
+						"Title": "Light of Storm",
+						"Released": "2020-01-17",
+						"Genre": "ethno-tunes",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 9,
+						"Title": "Light of Sky",
+						"Released": "2019-05-26",
+						"Genre": "*",
+						"Album": "Climate changed"
+					},
+					{
+						"Number": 10,
+						"Title": "Golden River",
+						"Released": "2019-06-19",
+						"Genre": "*",
+						"Album": "Climate changed"
+					}
+				]
+			}
+		]
+	}
+]
