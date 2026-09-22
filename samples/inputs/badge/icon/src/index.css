@@ -3,16 +3,8 @@
 
 igc-avatar {
     --size: 40px;
-    --ig-avatar-background: var(--ig-gray-700);
-    --ig-avatar-color: var(--ig-gray-50);
-}
-
-igc-badge[variant="info"] {
-    --ig-badge-background-color: #0057A9;
-}
-
-igc-badge[variant="info"]::part(base) {
-    background-color: #0057A9;
+    --ig-avatar-background: var(--ig-gray-400);
+    --ig-avatar-color: var(--ig-gray-800);
 }
 
 igc-badge igc-icon {
@@ -46,14 +38,6 @@ igc-badge igc-icon {
     height: 40px;
 }
 
-.badge-settings {
-    --ig-badge-background-color: #0070BA;
-}
-
-.badge-settings::part(base) {
-    background-color: #0070BA;
-}
-
 .badge-icon {
     display: flex;
     align-items: center;
@@ -71,13 +55,14 @@ igc-badge igc-icon {
 }
 
 .badge-icon-item span {
-    color: #556c86;
+    color: var(--ig-gray-600);
     font-family: "Aktiv Grotesk", sans-serif;
     font-size: 13px;
     font-weight: 400;
     font-style: normal;
     line-height: 20px;
     letter-spacing: 0.3px;
+    white-space: nowrap;
     transform: translateY(4px);
 }
 
