@@ -11,6 +11,12 @@
     box-sizing: border-box;
 }
 
+.accordion-sample igc-accordion {
+    display: block;
+    border: 1px solid var(--ig-gray-300);
+    border-radius: 4px;
+}
+
 .accordion-sample igc-expansion-panel {
     background-color: var(--ig-gray-50);
     color: var(--ig-gray-900);

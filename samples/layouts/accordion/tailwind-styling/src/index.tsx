@@ -22,7 +22,7 @@ export default function AccordionTailwindStyling() {
   return (
     <div className="accordion-tailwind-sample">
       <div className="accordion-tailwind-content box-border mx-auto w-[min(720px,100%)] p-6">
-        <IgrAccordion>
+        <IgrAccordion className="block rounded border border-[var(--ig-gray-300)]">
           <IgrExpansionPanel className={panelClassName} open>
             <span slot="title">Getting Started</span>
             <span slot="subtitle">Setup and onboarding</span>
