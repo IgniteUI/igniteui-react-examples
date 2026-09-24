@@ -20,7 +20,7 @@
         font: 400 10px / 16px "Titillium Web", sans-serif;
         letter-spacing: 1.5px;
         text-transform: uppercase;
-        color: var(--ig-primary-500);
+        color: var(--ig-secondary-500);
     }
 
     & .notifications__row {
@@ -48,7 +48,6 @@
     white-space: normal;
 
     & .option__label {
-        font-size: 16px;
         color: var(--ig-gray-900);
     }
 
