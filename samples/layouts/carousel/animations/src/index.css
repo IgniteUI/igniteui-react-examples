@@ -81,8 +81,8 @@ igc-carousel[vertical]::part(next) {
     padding: 56px 84px;
     overflow: hidden;
     background:
-          linear-gradient(135deg, rgba(25, 118, 210, 0.08), transparent 46%),
-          linear-gradient(315deg, rgba(0, 150, 136, 0.10), transparent 42%),
+          linear-gradient(135deg, color-mix(in srgb, var(--ig-primary-500) 8%, transparent), transparent 46%),
+          linear-gradient(315deg, color-mix(in srgb, var(--ig-secondary-500) 10%, transparent), transparent 42%),
           var(--ig-gray-100);
 }
 
@@ -97,7 +97,7 @@ igc-carousel[vertical]::part(next) {
 .slide-label {
     display: block;
     margin-bottom: 12px;
-    color: var(--ig-primary-600);
+    color: var(--ig-primary-500);
     font-size: 12px;
     font-weight: 700;
 }
@@ -123,7 +123,7 @@ igc-carousel[vertical]::part(next) {
     padding: 10px 14px;
     border: 1px solid var(--ig-gray-300);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.72);
+    background: color-mix(in srgb, var(--ig-surface-500) 72%, transparent);
 }
 
 .slide-details span {
@@ -151,8 +151,8 @@ igc-carousel[vertical]::part(next) {
 .slide-preview span {
     display: block;
     border-radius: 8px;
-    background: var(--ig-primary-100);
-    box-shadow: 0 10px 24px rgba(11, 31, 53, 0.12);
+    background: color-mix(in srgb, var(--ig-primary-500) 20%, transparent);
+    box-shadow: 0 10px 24px rgb(0 0 0 / 0.12);
 }
 
 .slide-preview span:nth-child(1) {
