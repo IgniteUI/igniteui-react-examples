@@ -48,11 +48,14 @@
     white-space: normal;
 
     & .option__label {
+        font: 400 16px / 24px "Titillium Web", sans-serif;
+        letter-spacing: 0.15px;
         color: var(--ig-gray-900);
     }
 
     & .option__hint {
-        font-size: 13px;
+        font: 400 14px / 20px "Titillium Web", sans-serif;
+        letter-spacing: 0.25px;
         color: var(--ig-gray-700);
     }
 }
