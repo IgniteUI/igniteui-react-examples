@@ -1,0 +1,28 @@
+.card-wrapper {
+    max-width: 400px;
+    min-width: 250px;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.card-horizontal {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 0%;
+}
+
+.card-horizontal img {
+    width: 64px;
+    height: 64px;
+}
+
+.card-horizontal igc-card-actions {
+    justify-content: center;
+}
+
+.divider {
+    border-right: 1px solid darkgray;
+}
