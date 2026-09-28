@@ -1,6 +1,6 @@
 {
-  "name": "react-badge-tailwind-styling",
-  "description": "This project provides example of Badge Tailwind Styling using Infragistics React components",
+  "name": "react-accordion-programmatic-expansion",
+  "description": "This project provides example of Accordion Programmatic Expansion using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
@@ -21,14 +21,12 @@
     "tslib": "^2.4.0"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.3",
     "@types/jest": "^29.2.0",
     "@types/node": "^24.7.1",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^5.0.4",
     "@vitest/browser": "^3.2.4",
-    "tailwindcss": "^4.3.3",
     "typescript": "^4.8.4",
     "vite": "^7.1.9",
     "vitest": "^3.2.4",
