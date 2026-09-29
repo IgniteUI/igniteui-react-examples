@@ -20,8 +20,7 @@
 	width: 100%;
 }
 
-.fields igc-input::part(container),
-.fields igc-input::part(input) {
+.fields igc-input::part(container) {
 	background-color: var(--ig-gray-50);
 }
 
