@@ -1,0 +1,9 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "./index.tsx";
+
+.accordion-tailwind-sample {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
