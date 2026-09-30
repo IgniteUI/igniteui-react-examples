@@ -1,8 +1,44 @@
-.card-wrapper {
-    max-width: 320px;
-    min-width: 220px;
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.container.sample {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.5rem;
+    padding: 3.5rem 1.5rem;
 }
 
-.center {
+.card-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.card-container {
+    --ig-size: var(--ig-size-small);
+
+    inline-size: 100%;
+    max-inline-size: 360px;
+    min-inline-size: 220px;
+}
+
+.card-container igc-card-media img {
+    inline-size: 100%;
+    aspect-ratio: 15 / 8;
+    object-fit: cover;
+}
+
+.card-container igc-card-content p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.card-actions-start,
+.card-actions-end {
+    display: flex;
     align-items: center;
+    gap: 0.5rem;
 }
