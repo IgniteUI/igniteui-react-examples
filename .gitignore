@@ -1,12 +1,24 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# dependencies
+/node_modules
+
+# Astro build output and generated assets:
+/.astro
+/dist
+/public/ig-themes
+/public/code-viewer
+
+# Playwright
+/test-results
+/playwright-report
+
 # samples auto-generated files:
 /samples/**/build/
 /samples/**/dist/
 /samples/**/node_modules/
 /samples/**/package-lock.json
 /tmp/
-/tests/
 
 # browser auto-generated files:
 /browser/node_modules/
