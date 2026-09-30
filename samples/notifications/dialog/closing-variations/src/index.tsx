@@ -1,69 +1,48 @@
-import React from 'react';
+import { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrButton, IgrDialog, IgrSwitch } from 'igniteui-react';
+import { IgrButton, IgrDialog, IgrSwitch, type IgrCheckboxChangeEventArgs } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default class DialogClosingVariations extends React.Component<any, any> {
+export default function DialogClosingVariations() {
+    const dialog = useRef<IgrDialog>(null);
 
-    public dialogRef: IgrDialog;
-
-    constructor(props: any) {
-        super(props);
-        this.onDialogRef = this.onDialogRef.bind(this);
-        this.onDialogShow = this.onDialogShow.bind(this);
-        this.onDialogHide = this.onDialogHide.bind(this);
-        this.onSwitchChangeEscape = this.onSwitchChangeEscape.bind(this);
-        this.onSwitchChangeClick = this.onSwitchChangeClick.bind(this);
+    function onDialogShow() {
+        dialog.current?.show();
     }
 
-    public render(): JSX.Element {
-        return (
-            <div className="container sample">
-                <IgrSwitch labelPosition="before" onChange={this.onSwitchChangeEscape}><span>keepOpenOnEscape</span></IgrSwitch>
-                <IgrSwitch labelPosition="before" onChange={this.onSwitchChangeClick}><span>closeOnOutsideClick</span></IgrSwitch>
-
-                <IgrButton variant="contained" onClick={this.onDialogShow}>
-                    <span>Show Dialog</span>
-                </IgrButton>
-
-                <IgrDialog title="Confirmation" ref={this.onDialogRef}>
-                    <p>Are you sure you want to delete the Annual_Report_2016.pdf and Annual_Report_2017.pdf files?</p>
-                    <div slot="footer">
-                        <IgrButton onClick={this.onDialogHide} variant="flat"><span>Cancel</span></IgrButton>
-                        <IgrButton onClick={this.onDialogHide} variant="flat"><span>OK</span></IgrButton>
-                    </div>
-                </IgrDialog>
-            </div>
-        );
+    function onDialogHide() {
+        dialog.current?.hide();
     }
 
-    public onDialogRef(dialog: IgrDialog){
-        if (!dialog) { return; }
-        this.dialogRef = dialog;
+    function onSwitchChangeEscape(e: IgrCheckboxChangeEventArgs) {
+        dialog.current!.keepOpenOnEscape = e.detail.checked;
     }
 
-    public onDialogShow() {
-        if(this.dialogRef){
-            this.dialogRef.show();
-        }
+    function onSwitchChangeClick(e: IgrCheckboxChangeEventArgs) {
+        dialog.current!.closeOnOutsideClick = e.detail.checked;
     }
 
-    public onDialogHide() {
-        if(this.dialogRef){
-            this.dialogRef.hide();
-        }
-    }
+    return (
+        <div className="container sample">
+            <IgrSwitch labelPosition="before" onChange={onSwitchChangeEscape}><span>keepOpenOnEscape</span></IgrSwitch>
+            <IgrSwitch labelPosition="before" onChange={onSwitchChangeClick}><span>closeOnOutsideClick</span></IgrSwitch>
 
-    public onSwitchChangeEscape(e: any) {
-        this.dialogRef.keepOpenOnEscape = e.detail.checked;
-    }
+            <IgrButton variant="contained" onClick={onDialogShow}>
+                <span>Show Dialog</span>
+            </IgrButton>
 
-    public onSwitchChangeClick(e: any) {
-        this.dialogRef.closeOnOutsideClick = e.detail.checked;
-    }
+            <IgrDialog title="Confirmation" ref={dialog}>
+                <p>Are you sure you want to delete the Annual_Report_2016.pdf and Annual_Report_2017.pdf files?</p>
+                <div slot="footer">
+                    <IgrButton onClick={onDialogHide} variant="flat"><span>Cancel</span></IgrButton>
+                    <IgrButton onClick={onDialogHide} variant="flat"><span>OK</span></IgrButton>
+                </div>
+            </IgrDialog>
+        </div>
+    );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<DialogClosingVariations/>);

@@ -1,29 +1,25 @@
-import React from "react";
+import type { MouseEvent } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "./layout.css";
 import { IgrTileManager, IgrTile, IgrIconButton, registerIconFromText } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 
-export default class Actions extends React.Component<any, any> {
+const northEast =
+  '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m216-160-56-56 464-464H360v-80h400v400h-80v-264L216-160Z"/></svg>';
+registerIconFromText('north_east', northEast, 'material');
+const southWest =
+  '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M200-200v-400h80v264l464-464 56 56-464 464h264v80H200Z"/></svg>';
+registerIconFromText('south_west', southWest, 'material');
+const more =
+  '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>';
+registerIconFromText('more', more, 'material');
+const chart =
+  '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M640-160v-280h160v280H640Zm-240 0v-640h160v640H400Zm-240 0v-440h160v440H160Z"/></svg>';
+registerIconFromText('chart', chart, 'material');
 
-  constructor(props: any) {
-    super(props);
-    const northEast =
-      '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m216-160-56-56 464-464H360v-80h400v400h-80v-264L216-160Z"/></svg>';
-    registerIconFromText('north_east', northEast, 'material');
-    const southWest =
-      '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M200-200v-400h80v264l464-464 56 56-464 464h264v80H200Z"/></svg>';
-    registerIconFromText('south_west', southWest, 'material');
-    const more =
-      '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>';
-    registerIconFromText('more', more, 'material');
-    const chart =
-      '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M640-160v-280h160v280H640Zm-240 0v-640h160v640H400Zm-240 0v-440h160v440H160Z"/></svg>';
-    registerIconFromText('chart', chart, 'material');
-  }
-
-  private onCustomOneClick = (event: React.MouseEvent) => {
+export default function Actions() {
+  function onCustomOneClick(event: MouseEvent<IgrIconButton>) {
 
     const tile = (event.currentTarget as HTMLElement).closest('igc-tile');
 
@@ -68,9 +64,9 @@ export default class Actions extends React.Component<any, any> {
         }
       }
     }
-  };
+  }
 
-  private onCustomTwoClick = (event: React.MouseEvent) => {
+  function onCustomTwoClick(event: MouseEvent<IgrIconButton>) {
       const tile = (event.currentTarget as HTMLElement).closest('igc-tile');
 
       if (tile) {
@@ -91,45 +87,42 @@ export default class Actions extends React.Component<any, any> {
           }
         }
       }
-  };
-
-  public render(): JSX.Element {
-    return (
-      <div className="container sample center">
-        <IgrTileManager id="tile-manager1" columnCount={2} gap="20px">
-          <IgrTile>
-            <span slot="title">Default Actions</span>
-            <p>This tile has default actions and title.</p>
-          </IgrTile>
-          <IgrTile disableFullscreen>
-            <span slot="title">No Fullscreen Action</span>
-            <p>Fullscreen is disabled via property.</p>
-          </IgrTile>
-          <IgrTile disableFullscreen disableMaximize>
-            <span slot="title">Custom Actions</span>
-            <IgrIconButton id="customOne" onClick={this.onCustomOneClick} slot="actions" variant="flat" collection="material" name="north_east"
-            aria-label="north_east"></IgrIconButton>
-            <p>Replace the default actions with custom ones, and include extra actions when the tile is maximized.</p>
-          </IgrTile>
-          <IgrTile disableFullscreen disableMaximize>
-            <IgrIconButton id="customTwo" onClick={this.onCustomTwoClick} slot="actions" variant="flat" collection="material"
-            name="north_east" aria-label="north_east"></IgrIconButton>
-            <p>Display only custom actions in the header.</p>
-          </IgrTile>
-          <IgrTile disableFullscreen disableMaximize>
-            <span slot="title">Only title</span>
-            <p>Display only title in the header.</p>
-          </IgrTile>
-          <IgrTile disableFullscreen disableMaximize>
-            <p>Content only.</p>
-          </IgrTile>
-        </IgrTileManager>
-      </div>
-    );
   }
 
+  return (
+    <div className="container sample center">
+      <IgrTileManager id="tile-manager1" columnCount={2} gap="20px">
+        <IgrTile>
+          <span slot="title">Default Actions</span>
+          <p>This tile has default actions and title.</p>
+        </IgrTile>
+        <IgrTile disableFullscreen>
+          <span slot="title">No Fullscreen Action</span>
+          <p>Fullscreen is disabled via property.</p>
+        </IgrTile>
+        <IgrTile disableFullscreen disableMaximize>
+          <span slot="title">Custom Actions</span>
+          <IgrIconButton id="customOne" onClick={onCustomOneClick} slot="actions" variant="flat" collection="material" name="north_east"
+          aria-label="north_east"></IgrIconButton>
+          <p>Replace the default actions with custom ones, and include extra actions when the tile is maximized.</p>
+        </IgrTile>
+        <IgrTile disableFullscreen disableMaximize>
+          <IgrIconButton id="customTwo" onClick={onCustomTwoClick} slot="actions" variant="flat" collection="material"
+          name="north_east" aria-label="north_east"></IgrIconButton>
+          <p>Display only custom actions in the header.</p>
+        </IgrTile>
+        <IgrTile disableFullscreen disableMaximize>
+          <span slot="title">Only title</span>
+          <p>Display only title in the header.</p>
+        </IgrTile>
+        <IgrTile disableFullscreen disableMaximize>
+          <p>Content only.</p>
+        </IgrTile>
+      </IgrTileManager>
+    </div>
+  );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<Actions/>);

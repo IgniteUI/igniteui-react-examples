@@ -5,7 +5,7 @@
 
 # Examples of Ignite UI for React Components
 
-This repository contains over 500 examples on how to use [Ignite UI for React](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) components:
+This repository contains over 900 examples on how to use [Ignite UI for React](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) components:
 
 - Charts:
 [Area](https://www.infragistics.com/products/ignite-ui-react/react/components/charts/types/area-chart),
@@ -43,149 +43,124 @@ This repository contains over 500 examples on how to use [Ignite UI for React](h
 
 ## Branches
 
-> **_NOTE:_** You should use [master](https://github.com/IgniteUI/igniteui-react-examples/tree/master) branch of this repository if you want to run samples on your computer. Use the [vnext](https://github.com/IgniteUI/igniteui-react-examples/tree/vnext) branch only when you want to contribute new samples to this repository.
+> **_NOTE:_** Use the [master](https://github.com/IgniteUI/igniteui-react-examples/tree/master) branch to run samples locally. Use the [vnext](https://github.com/IgniteUI/igniteui-react-examples/tree/vnext) branch only when contributing new samples.
 
 ## Preview
 
-You can preview and browse all samples in this repository by opening our [React Samples Browser](https://www.infragistics.com/react-demos/samples/). Alternatively, you you can view these samples with detailed information in our [React Help Documentation](https://infragistics.com/reactsite/components/general-getting-started.html).
+Browse all samples in the [React Samples Browser](https://www.infragistics.com/react-demos/samples/), or with documentation in the [React Help](https://infragistics.com/reactsite/components/general-getting-started.html).
 
-In addition, you can run each sample project individually from the [./samples](./samples) folder or you can run from the [./browser](./browser) folder to browse all samples in one website (see instructions below). You can run each sample on Code Sandbox website by clicking on the **Edit Sandbox** button in a readme file of sample project, e.g.
-
-[./samples/charts/category-chart/overview/README.md](./samples/charts/category-chart/overview/README.md)
-
+Each sample folder is also a standalone project with its own README, e.g. [./samples/charts/category-chart/overview/README.md](./samples/charts/category-chart/overview/README.md).
 
 ## Setup
 
-To set up this project locally, clone this repository:
-```
+Clone the repository and install dependencies from the root:
+
+```bash
 git clone https://github.com/IgniteUI/igniteui-react-examples.git
+cd igniteui-react-examples
+git checkout master
+npm install
 ```
 
-## Running Individual Sample
+## Running All Samples (Dev Server)
 
-- check out the **master** branch
-
-- in VS Code, open a folder with existing sample, e.g.
-```CMD
-./samples/charts/category-chart/axis-options/
+```bash
+npm run dev
 ```
 
-- type `npm install --legacy-peer-deps` command in terminal window
+Open [http://localhost:4200](http://localhost:4200). The index lists every component; the sidebar lists every sample. Samples compile on demand, so there is no copy or full build step, and edits to `samples/` reload in place.
 
-- type `npm run start` command in terminal window
+## Running an Individual Sample
 
-- Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser.
+Every sample under `samples/{group}/{component}/{name}/` runs on its own:
 
-At this point, you should see a website hosted example of [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) component
-
-
-## Running All Samples
-
-- check out the **master** branch
-
-- open VS Code as Administrator
-
-- open the browser folder in this repository, e.g. `C:\GitHub\igniteui-react-examples\browser`
-
-- select **View** - **Terminal** menu item
-
-- type `npm install --legacy-peer-deps` command in terminal window
-
-This will install required packages and [Ignite UI for React](https://infragistics.com/reactsite/components/general-getting-started.html) packages
-
-- type `npm run start` command in terminal window to start this application locally
-
-Note this application copies all individually sample projects from [./samples](./samples) to [./browser/src](./browser/src) folder when it is about to start running. Therefore, any changes to [./browser/src](./browser/src) will be overridden on consecutive run of the application.
-
-Wait until the build is completed and then open [http://localhost:4200](http://localhost:4200) in your browser. You should see a website with navigation menu for browning all samples in this repository.
-
-![SB Preview](./browser/public/images/preview.PNG)
-
-
-## Adding New Sample
-
-- create a new branch from the `vnext` branch
-
-- open a folder with existing sample, e.g.
-```
-./samples/charts/category-chart/axis-options/
-```
-- copy the sample and rename the new folder, e.g.
-```
-./samples/charts/category-chart/axis-types/
-```
-- open the newly created folder in VS Code
-
-- rename the .tsx file in src folder, using this naming convention:
-
-`ControlNameSampleName.tsx`
-
-```
-./samples/charts/category-chart/axis-types/src/CategoryChartAxisTypes.tsx
+```bash
+cd samples/charts/category-chart/overview
+npm install
+npm start
 ```
 
-- open the .tsx file
+Then open [http://localhost:4200](http://localhost:4200).
 
-- rename class to the name of .tsx file
+## Building for Production
 
-- type `npm install --legacy-peer-deps` command in terminal window
+```bash
+npm run build
+npm run preview
+```
 
-- type `npm run start` command in terminal window
+`npm run build` first copies the Ignite UI theme sheets to `public/ig-themes/` and generates `public/code-viewer/**/*.json` (the source tabs of the docs code viewer), then builds every sample page into `dist/`. `npm run preview` serves `dist/` on [http://localhost:4200](http://localhost:4200).
 
-- implement the new sample in the .tsx file
+The deployed site lives under a sub-path. Set `BASE_PATH` for both commands to reproduce it:
 
-- close the new sample project in VS Code
+```bash
+BASE_PATH=/react-demos npm run build
+BASE_PATH=/react-demos npm run preview
+```
 
-- delete `node_modules` folder in the new sample project
+## Testing
 
-- follow instructions in the next section
+Smoke tests run in Playwright against the production build:
 
-## Verify New Sample
+```bash
+npx playwright install --only-shell chromium   # once
+npm run build
+npm run test:smoke
+```
 
-- open the root folder of this repository in VS Code
+Use the same `BASE_PATH` for the build and the tests. CI builds and tests with `BASE_PATH=/react-demos`.
 
-- type `gulp updateSamples` command in terminal window
+## Adding a New Sample
 
-NOTE this will re-generate the Readme.md file in the new sample
+1. Create a branch from `vnext`.
 
-- type `npm run start` command in terminal window
+2. Scaffold the sample:
+   ```bash
+   npm run add:sample inputs/button/new-thing
+   ```
+   The folder must be exactly `samples/{group}/{component}/{name}/`, with:
+   - `src/index.tsx`: `export default` the sample component, and end with the standalone mount (`root.render(<Sample />)`). The samples browser strips that mount and renders the default export itself; the build fails if either is missing.
+   - `index.html`: the standalone entry, `<div id="root">` only.
+   - `package.json`: dependencies for running standalone. Its presence is what adds the sample to the browser.
 
-- open [http://localhost:4200](http://localhost:4200) in your browser
+   Import theme and sample CSS from `src/index.tsx` (e.g. `import './index.css';`) so the page puts it in `<head>` at first paint.
 
-- verify that the new sample is listed in the navigation menu
+3. Start the dev server and verify:
+   ```bash
+   npm run dev
+   ```
+   - the sample appears in the sidebar
+   - it loads without errors in the browser console
 
-- verify that the new sample loads by clicking navigation link
+4. Commit, push, and open a pull request targeting `vnext`. Include a screenshot of the running sample.
 
-- verify that there are no errors in DEV console
+## Updating Ignite UI Package Versions
 
-- take a screenshot of the new sample with navigation menu
+Do **not** edit version strings in `package.json` files by hand; CI fails when a sample's versions drift from the list.
 
-- commit your changes
+1. Update the versions in [./scripts/lib/versions.js](./scripts/lib/versions.js): `SHARED` applies to the root and every sample, `TOOLING` to samples only.
+2. Run from the repo root:
+   ```bash
+   npm run update:ig
+   npm install
+   ```
+3. Create and merge a pull request with the updated `package.json` files.
+4. Create a second pull request with the same versions in `/editor-templates/react/main-template/package.json` of the [igniteui-xplat-examples](https://github.com/IgniteUI/igniteui-xplat-examples) repository.
 
-- create a pull request and target the `vnext` branch
+## Scripts Reference
 
-- paste the screenshot in you pull request
-
-- submit your pull request
-
-
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start the Astro dev server on port 4200 |
+| `npm run build` | Copy themes, generate code-viewer JSON, build the static site to `dist/` |
+| `npm run preview` | Serve `dist/` on port 4200 |
+| `npm run test:smoke` | Run the Playwright smoke tests against the production build |
+| `npm run check` | Type-check `src/` and `tests/` with `astro check` |
+| `npm run add:sample` | Scaffold `samples/{group}/{component}/{name}/` |
+| `npm run update:ig` | Apply `scripts/lib/versions.js` to every `package.json` |
+| `npm run generate:code-viewer` | Regenerate `public/code-viewer/**/*.json` |
+| `npm run copy:themes` | Copy Ignite UI theme sheets to `public/ig-themes/` |
 
 ## Learn More
 
 To learn more about **Ignite UI for React** components, check out the [React documentation](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html).
-
-
-## Updating Packages in Samples
-
-NOTE Do NOT find replace version of packages in package.json files. 
-
-- open this repo in VS Code
-- open [./browser/tasks/gulp-samples.js](./browser/tasks/gulp-samples.js) file
-- navigate to the `updateIG` function
-- update version of packages in `packageUpgrades` array
-- open terminal window
-- run `cd browser` command
-- run the `gulp updateIG` command
-- run `npm install --legacy-peer-deps` command
-- create AND merge a pull request with changes in all package.json files in this repository
-- create 2nd pull request with similar changes in `/editor-templates/react/main-template/package.json` of the [igniteui-xplat-examples](https://github.com/IgniteUI/igniteui-xplat-examples) repository.

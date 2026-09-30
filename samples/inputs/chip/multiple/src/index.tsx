@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrChip, IgrIcon, registerIconFromText } from 'igniteui-react';
@@ -10,60 +9,54 @@ const brushIconText = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 2
 const brickIconText = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-labelledby="bpbrick-wall-desc bpbrick-wall-title"><title id="bpbrick-wall-title">Brick Wall Icon</title><desc id="bpbrick-wall-desc">A picture depicting a wall made of bricks.</desc><path d="M6 5H2V1h4zm10-4H8v4h8zM2 11h8V7H2zm10 0h8V7h-8zM22 1h-4v4h4zM6 13H2v4h4zm10 0H8v4h8zM2 23h8v-4H2zm10 0h8v-4h-8zm10-10h-4v4h4z"/></svg>';
 const dogIconText = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M18,4C16.29,4 15.25,4.33 14.65,4.61C13.88,4.23 13,4 12,4C11,4 10.12,4.23 9.35,4.61C8.75,4.33 7.71,4 6,4C3,4 1,12 1,14C1,14.83 2.32,15.59 4.14,15.9C4.78,18.14 7.8,19.85 11.5,20V15.72C10.91,15.35 10,14.68 10,14C10,13 12,13 12,13C12,13 14,13 14,14C14,14.68 13.09,15.35 12.5,15.72V20C16.2,19.85 19.22,18.14 19.86,15.9C21.68,15.59 23,14.83 23,14C23,12 21,4 18,4M4.15,13.87C3.65,13.75 3.26,13.61 3,13.5C3.25,10.73 5.2,6.4 6.05,6C6.59,6 7,6.06 7.37,6.11C5.27,8.42 4.44,12.04 4.15,13.87M9,12A1,1 0 0,1 8,11C8,10.46 8.45,10 9,10A1,1 0 0,1 10,11C10,11.56 9.55,12 9,12M15,12A1,1 0 0,1 14,11C14,10.46 14.45,10 15,10A1,1 0 0,1 16,11C16,11.56 15.55,12 15,12M19.85,13.87C19.56,12.04 18.73,8.42 16.63,6.11C17,6.06 17.41,6 17.95,6C18.8,6.4 20.75,10.73 21,13.5C20.75,13.61 20.36,13.75 19.85,13.87Z" /> </svg>';
 
-export default class ChipMultiple extends React.Component<any, any> {
+registerIconFromText(
+    "custom-select", customSelectIconText, "material"
+);
+registerIconFromText(
+    "custom-remove", customRemoveIconText, "material"
+);
+registerIconFromText(
+    "brush", brushIconText, "material"
+);
+registerIconFromText(
+    "brick-wall", brickIconText, "material"
+);
+registerIconFromText(
+    "dog-icon", dogIconText, "material"
+);
 
-    constructor(props: any) {
-        super(props);
+export default function ChipMultiple() {
 
-        registerIconFromText(
-            "custom-select", customSelectIconText, "material"
-        );
-        registerIconFromText(
-            "custom-remove", customRemoveIconText, "material"
-        );
-        registerIconFromText(
-            "brush", brushIconText, "material"
-        );
-        registerIconFromText(
-            "brick-wall", brickIconText, "material"
-        );
-        registerIconFromText(
-            "dog-icon", dogIconText, "material"
-        );
-    }
-
-    private handleChipRemove = (event: CustomEvent<boolean>) => {
+    function handleChipRemove(event: CustomEvent<void>) {
         const chip = event.target as IgrChip;
         chip.remove();
     }
 
-    public render(): JSX.Element {
-        return (
-            <div className="container sample">
-                <div className="container" style={{flexDirection: "row", gap: "8px"}}>
-                    <IgrChip selectable={true} removable={true} onRemove={this.handleChipRemove}>
-                        <IgrIcon slot="select" name="custom-select" collection="material"></IgrIcon>
-                        <span>Custom Icons</span>
-                        <IgrIcon slot="remove" name="custom-remove" collection="material"></IgrIcon>
-                    </IgrChip>
-                    <IgrChip removable={true} onRemove={this.handleChipRemove}>
-                        <IgrIcon slot="start" name="brush" collection="material"></IgrIcon>
-                        <span>Start Slot</span>
-                    </IgrChip>
-                    <IgrChip selectable={true}>
-                        <span>End Slot</span>
-                        <IgrIcon slot="end" name="brick-wall" collection="material"></IgrIcon>
-                    </IgrChip>
-                    <IgrChip disabled={true}>
-                        <span>Disabled Chip</span>
-                        <IgrIcon slot="end" name="dog-icon" collection="material"></IgrIcon>
-                    </IgrChip>
-                </div>
+    return (
+        <div className="container sample">
+            <div className="container" style={{flexDirection: "row", gap: "8px"}}>
+                <IgrChip selectable={true} removable={true} onRemove={handleChipRemove}>
+                    <IgrIcon slot="select" name="custom-select" collection="material"></IgrIcon>
+                    <span>Custom Icons</span>
+                    <IgrIcon slot="remove" name="custom-remove" collection="material"></IgrIcon>
+                </IgrChip>
+                <IgrChip removable={true} onRemove={handleChipRemove}>
+                    <IgrIcon slot="start" name="brush" collection="material"></IgrIcon>
+                    <span>Start Slot</span>
+                </IgrChip>
+                <IgrChip selectable={true}>
+                    <span>End Slot</span>
+                    <IgrIcon slot="end" name="brick-wall" collection="material"></IgrIcon>
+                </IgrChip>
+                <IgrChip disabled={true}>
+                    <span>Disabled Chip</span>
+                    <IgrIcon slot="end" name="dog-icon" collection="material"></IgrIcon>
+                </IgrChip>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<ChipMultiple/>);

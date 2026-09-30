@@ -1,0 +1,61 @@
+/**
+ * Sample discovery shared by the repo scripts.
+ *
+ * A sample is a directory exactly three levels below samples/ that holds a
+ * package.json:
+ *
+ *   samples/<group>/<component>/<name>/package.json
+ *   e.g. samples/grids/grid/overview → slug "grids/grid/overview"
+ */
+import { existsSync } from 'node:fs';
+import fsp from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import unpublished from './unpublished.json' with { type: 'json' };
+
+export const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+export const SAMPLES_ROOT = path.join(REPO_ROOT, 'samples');
+
+const SLUG_DEPTH = 3;
+const SKIP_DIRS = new Set(['node_modules']);
+
+/** Slugs left out of the browser and code viewer; see unpublished.json. */
+export const UNPUBLISHED = new Set(unpublished.samples);
+
+/** Sorted child directory names, without node_modules. */
+async function subdirs(dir) {
+  const entries = await fsp.readdir(dir, { withFileTypes: true });
+
+  return entries
+    .filter(e => e.isDirectory() && !SKIP_DIRS.has(e.name))
+    .map(e => e.name)
+    .sort();
+}
+
+/**
+ * Samples sorted by slug.
+ *   'all'       → every sample folder (version updates)
+ *   'published' → without UNPUBLISHED (browser pages, code viewer)
+ * @param {'all' | 'published'} scope
+ * @returns {Promise<{ slug: string, dir: string }[]>}
+ */
+export async function findSamples(scope) {
+  // Walk level by level instead of a recursive readdir, so installed
+  // node_modules inside a sample (hundreds of MB) are never traversed.
+  let slugs = [''];
+  for (let depth = 0; depth < SLUG_DEPTH; depth++) {
+    const levels = await Promise.all(
+      slugs.map(async slug => {
+        const names = await subdirs(path.join(SAMPLES_ROOT, slug));
+        return names.map(name => (slug ? `${slug}/${name}` : name));
+      }),
+    );
+    slugs = levels.flat();
+  }
+
+  return slugs
+    .filter(slug => scope === 'all' || !UNPUBLISHED.has(slug))
+    .map(slug => ({ slug, dir: path.join(SAMPLES_ROOT, slug) }))
+    .filter(s => existsSync(path.join(s.dir, 'package.json')));
+}

@@ -1,47 +1,33 @@
-import React from 'react';
+import { useRef, type MouseEvent } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrDropdown, IgrButton, IgrDropdownItem } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default class DropDownTarget extends React.Component<any, any> {
+export default function DropDownTarget() {
+    const dropdownRef = useRef<IgrDropdown>(null);
 
-    public dropdownRef: IgrDropdown;
-
-    constructor(props: any) {
-        super(props);
-        this.onDropDownRef = this.onDropDownRef.bind(this);
+    function onClick(event: MouseEvent<IgrButton>) {
+        if (!dropdownRef.current) { return; }
+        dropdownRef.current.toggle(event.currentTarget);
     }
 
-    public render(): JSX.Element {
-        return (
-            <div className="container sample center">
-                <div className="options horizontal">
-                    <IgrButton onClick={(e)=>this.onClick(e)}><span>First Target</span></IgrButton>
-                    <IgrButton onClick={(e)=>this.onClick(e)} style={{marginLeft: "20px"}}><span>Second Target</span></IgrButton>
+    return (
+        <div className="container sample center">
+            <div className="options horizontal">
+                <IgrButton onClick={(e)=>onClick(e)}><span>First Target</span></IgrButton>
+                <IgrButton onClick={(e)=>onClick(e)} style={{marginLeft: "20px"}}><span>Second Target</span></IgrButton>
 
-                    <IgrDropdown ref={this.onDropDownRef} sameWidth={true}>
-                        <IgrDropdownItem><span>Option 1</span></IgrDropdownItem>
-                        <IgrDropdownItem><span>Option 2</span></IgrDropdownItem>
-                        <IgrDropdownItem><span>Option 3</span></IgrDropdownItem>
-                    </IgrDropdown>
-                </div>
+                <IgrDropdown ref={dropdownRef} sameWidth={true}>
+                    <IgrDropdownItem><span>Option 1</span></IgrDropdownItem>
+                    <IgrDropdownItem><span>Option 2</span></IgrDropdownItem>
+                    <IgrDropdownItem><span>Option 3</span></IgrDropdownItem>
+                </IgrDropdown>
             </div>
-        );
-    }
-
-    public onDropDownRef(dropdown: IgrDropdown){
-        if (!dropdown) { return; }
-        this.dropdownRef = dropdown;
-    }
-
-    public onClick(event: any) {
-        if(this.dropdownRef){
-            this.dropdownRef.toggle(event.currentTarget);
-        }
-    }
+        </div>
+    );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<DropDownTarget/>);
