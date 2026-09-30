@@ -10,7 +10,7 @@ import {
   IgrGridToolbarTitle,
   registerI18n,
   setCurrentI18n,
-} from "igniteui-react-grids/grids";
+} from "igniteui-react-grids";
 import { IgrSelect, IgrSelectItem } from "igniteui-react";
 
 import {

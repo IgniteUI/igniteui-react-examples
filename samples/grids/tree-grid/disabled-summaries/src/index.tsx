@@ -7,7 +7,6 @@ import { IgrSummaryOperand, IgrSummaryResult, IgrTreeGrid, IgrColumn } from 'ign
 
 import 'igniteui-react-grids/grids/themes/light/bootstrap.css';
 import { OrdersTreeData } from './OrdersTreeData';
-import { get } from 'http';
 
 
 export class UnitsSummary extends IgrSummaryOperand {
