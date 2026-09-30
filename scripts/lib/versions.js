@@ -28,7 +28,7 @@ export const SHARED = [
 
   // Ignite UI, updated occasionally
   { name: 'igniteui-webcomponents', version: '~7.4.1' },
-  { name: 'igniteui-react-dockmanager', version: '19.7.0' },
+  { name: 'igniteui-react-dockmanager', version: '19.9.0' },
   { name: 'igniteui-dockmanager', version: '^1.17.0' },
   { name: 'igniteui-grid-lite', version: '~0.11.0' },
   { name: 'igniteui-i18n-resources', version: '^1.0.5' },
