@@ -1,0 +1,97 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - vnext
+      - master
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to build and deploy (e.g. vnext)'
+        required: true
+
+permissions:
+  contents: read
+
+env:
+  BRANCH_REF: ${{ github.event.inputs.branch && format('refs/heads/{0}', github.event.inputs.branch) || github.ref }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ env.BRANCH_REF }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24.x
+          cache: npm
+
+      - name: Configure licensed @infragistics registry
+        run: |
+          rm -f .npmrc
+          echo "@infragistics:registry=https://packages.infragistics.com/npm/js-licensed/" >> .npmrc
+          echo "//packages.infragistics.com/npm/js-licensed/:username=${{ secrets.INFRAGISTICS_NPM_USER }}" >> .npmrc
+          echo "//packages.infragistics.com/npm/js-licensed/:_auth=${{ secrets.INFRAGISTICS_NPM_TOKEN }}" >> .npmrc
+
+      - name: npm ci
+        run: npm ci
+
+      # Swap the trial packages for their licensed builds, same versions:
+      #   igniteui-react-grids@19.9.0 → @infragistics/igniteui-react-grids@19.9.0
+      # Sources keep their trial import names; the resolve-igniteui-scoped
+      # plugin in astro.config.mjs maps them to whichever build is installed.
+      - name: Replace trial IG packages with licensed builds
+        run: |
+          mapfile -t trial < <(jq -r '.dependencies | to_entries[]
+            | select(.key | test("^igniteui-(react|dockmanager)"))
+            | "\(.key)@\(.value)"' package.json)
+          echo "licensed: ${trial[*]}"
+          npm uninstall "${trial[@]%@*}"
+          npm install "${trial[@]/#/@infragistics/}"
+
+      - name: Build
+        run: npm run build
+        env:
+          BASE_PATH: /react-demos
+          # No source maps in the deployed site.
+          NODE_ENV: production
+
+      - name: Package samples browser
+        run: |
+          cd dist
+          zip -qr "${{ github.workspace }}/react-demos.zip" ./
+
+      - name: Publish pipeline artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: react-demos-artifact
+          path: react-demos.zip
+
+      - name: Trigger Deploy Workflow in IgniteUI Actions
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ secrets.CLASSIC_PAT_GITHUB }}
+          script: |
+            await github.rest.repos.createDispatchEvent({
+              owner: 'IgniteUI',
+              repo: 'igniteui-actions',
+              event_type: 'igniteui-samples-cd',
+              client_payload: {
+                calling_branch: "${{ env.BRANCH_REF }}",
+                repository: "${{ github.repository }}",
+                run_id: "${{ github.run_id }}",
+                artifact_name: "react-demos-artifact",
+                base_href: "react-demos",
+                submodule_dir: "react-demos",
+                ref: "${{ github.ref }}",
+                sha: "${{ github.sha }}",
+                branch: '${{ github.ref_name }}',
+              }
+            });

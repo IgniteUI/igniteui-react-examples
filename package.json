@@ -21,7 +21,8 @@
     "build:preview": "npm run build && npm run preview",
     "check": "astro check",
     "generate:code-viewer": "node scripts/generate-code-viewer.js",
-    "update:ig": "node scripts/update-ig.js"
+    "update:ig": "node scripts/update-ig.js",
+    "test:smoke": "playwright test"
   },
   "dependencies": {
     "file-saver": "^1.3.8",
@@ -57,6 +58,7 @@
     "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/file-saver": "^2.0.7",
+    "@types/node": "^24.19.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "astro": "~7.3.5",

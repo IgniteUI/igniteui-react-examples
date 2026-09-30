@@ -78,6 +78,8 @@
   },
   "include": [
     "src/**/*",
+    "tests/**/*",
+    "playwright.config.ts",
     ".astro/**/*"
   ],
   "exclude": [
