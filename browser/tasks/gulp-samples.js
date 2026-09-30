@@ -315,7 +315,7 @@ function updateReadme(cb) {
     var template = fs.readFileSync("./templates/sample/ReadMe.md", "utf8");
     for (const sample of samplesList) {
 
-        let readmePath = sampleOutputFolder + sample.SampleFolderPath + "/ReadMe.md";
+        let readmePath = sampleOutputFolder + sample.SampleFolderPath + "/README.md";
         makeDirectoryFor(readmePath);
 
         let readmeNewFile = Transformer.updateReadme(sample, template);
