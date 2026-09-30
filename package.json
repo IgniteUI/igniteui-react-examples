@@ -13,6 +13,13 @@
   "scripts": {
     "add:sample": "node scripts/add-sample.js",
     "copy:themes": "node scripts/copy-ig-themes.js",
+    "predev": "npm run copy:themes",
+    "dev": "astro dev --port 4200",
+    "prebuild": "npm run copy:themes && npm run generate:code-viewer",
+    "build": "cross-env NODE_OPTIONS=--max_old_space_size=8192 astro build",
+    "preview": "astro preview --port 4200",
+    "build:preview": "npm run build && npm run preview",
+    "check": "astro check",
     "generate:code-viewer": "node scripts/generate-code-viewer.js",
     "update:ig": "node scripts/update-ig.js"
   },

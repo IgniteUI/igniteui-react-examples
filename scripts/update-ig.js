@@ -77,7 +77,7 @@ async function run() {
   const rootTargets = toTargets(SHARED);
   const sampleTargets = toTargets([...SHARED, ...TOOLING]);
 
-  const samples = await findSamples();
+  const samples = await findSamples('all');
   const jobs = [
     updateFile(path.join(REPO_ROOT, 'package.json'), rootTargets),
     ...samples.map(s => updateFile(path.join(s.dir, 'package.json'), sampleTargets)),

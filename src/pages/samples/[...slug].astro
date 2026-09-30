@@ -1,0 +1,43 @@
+---
+/**
+ * pages/samples/[...slug].astro — redirects /samples/<slug> to /<slug>.
+ *
+ * The previous samples browser served every sample under /samples/ and showed
+ * the sidebar there; READMEs and the docs still link to that shape. A plain
+ * config redirect would land on a sidebar-less deep link, so this page arms
+ * the sidebar flag first, then replaces itself with the canonical URL.
+ * The meta refresh covers clients without script.
+ */
+import { SAMPLES } from '../../utils/sample-index';
+
+export function getStaticPaths() {
+  return SAMPLES.map(info => ({ params: { slug: info.slug } }));
+}
+
+const { slug } = Astro.params as { slug: string };
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const target = `${base}/${slug}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting to {target}</title>
+    <link rel="canonical" href={target} />
+    <!-- Flag name must match NAV_FLAG in src/scripts/nav.ts. -->
+    <script is:inline define:vars={{ target }}>
+      try {
+        sessionStorage.setItem('igx-react-nav', '1');
+      } catch {
+        /* sandboxed iframe: no sessionStorage, no sidebar */
+      }
+      location.replace(target + location.search + location.hash);
+    </script>
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+  </head>
+  <body>
+    <a href={target}>{target}</a>
+  </body>
+</html>

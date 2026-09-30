@@ -83,7 +83,6 @@
   "exclude": [
     "node_modules",
     "dist",
-    "samples",
-    "browser"
+    "samples"
   ]
 }

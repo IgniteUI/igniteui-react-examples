@@ -104,7 +104,7 @@ async function write(sample) {
 async function run() {
   await fsp.rm(OUTPUT_ROOT, { recursive: true, force: true });
 
-  const samples = await findSamples();
+  const samples = await findSamples('published');
   const results = await Promise.allSettled(samples.map(write));
 
   // Report failures by slug; a missing src/index.tsx is the usual cause.

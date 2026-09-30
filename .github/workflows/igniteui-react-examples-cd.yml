@@ -36,10 +36,9 @@ jobs:
         with:
           node-version: '24.x'
           cache: 'npm'
-          cache-dependency-path: browser/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Create .npmrc file
-        working-directory: browser
         run: |
           if [ -f ".npmrc" ]; then
             rm .npmrc
@@ -47,14 +46,12 @@ jobs:
           touch .npmrc
 
       - name: Configure npm registry
-        working-directory: browser
         run: |
           echo "@infragistics:registry=https://packages.infragistics.com/npm/js-licensed/" >> .npmrc
           echo "//packages.infragistics.com/npm/js-licensed/:username=${{ secrets.INFRAGISTICS_NPM_USER }}" >> .npmrc
           echo "//packages.infragistics.com/npm/js-licensed/:_auth=${{ secrets.INFRAGISTICS_NPM_TOKEN }}" >> .npmrc
 
       - name: Replace references to IG trial packages with licensed ones in package.json
-        working-directory: browser
         shell: pwsh
         run: |
           $packageJson = Get-Content -Raw ./package.json | ConvertFrom-Json
@@ -79,7 +76,6 @@ jobs:
           ConvertTo-Json -InputObject $packageJson | Set-Content -Path ./package.json
 
       - name: npm install
-        working-directory: browser
         run: npm install
 
       - name: Replace references to IG trial packages with licensed ones in TSX files
@@ -90,12 +86,13 @@ jobs:
           Set-Content $_.PSPath }
 
       - name: npm run build
-        working-directory: browser
         run: npm run build
+        env:
+          BASE_PATH: /react-demos
 
       - name: Package samples browser
         run: |
-          cd browser/build
+          cd dist
           zip -r ${{ github.workspace }}/react-demos.zip ./
 
       - name: Publish pipeline artifact

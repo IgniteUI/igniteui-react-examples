@@ -20,15 +20,6 @@
 /samples/**/package-lock.json
 /tmp/
 
-# browser auto-generated files:
-/browser/node_modules/
-/browser/src/samples/
-/browser/build/
-/browser/dist/
-/browser/**/code-viewer/**
-#/browser/package-lock.json
-/browser/src/navigation/BrowserInfo.json
-
 # IDE and editors
 /.idea
 .project

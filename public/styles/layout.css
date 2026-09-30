@@ -1,0 +1,162 @@
+html, body { width: 100%; height: 100%; margin: 0; }
+
+#root,
+html,
+body,
+main {
+  background: transparent;
+}
+
+/*Shell layout*/
+#shell { display: flex; width: 100%; height: 100%; overflow: hidden; }
+
+/* Collapsed by default; html.with-nav is stamped by an inline script in
+   SampleLayout.astro before first paint, so the column is reserved
+   immediately and the async nav render causes no layout shift. */
+#nav-bar {
+  flex-shrink: 0; width: 0; height: 100%;
+  overflow-y: auto; overflow-x: hidden;
+  background: #2c2c2c; color: #dbdbdb;
+  font-size: medium; font-family: 'Kanit', sans-serif;
+  -webkit-user-select: none; user-select: none;
+}
+html.with-nav #nav-bar { width: 270px; }
+
+#router-target { flex: 1 1 auto; height: 100%; overflow: auto; position: relative; }
+
+/*Nav links*/
+#nav-bar a {
+  text-decoration: none; display: block;
+  padding: 0.25rem 0 0.25rem 0.75rem;
+  color: #3e9feb; white-space: nowrap;
+}
+#nav-bar a:hover { background: rgba(204,204,204,0.12); }
+#nav-bar a > span { padding-left: 0.5rem; }
+#nav-bar a.active { background: rgba(62,159,235,0.2); font-weight: bold; }
+
+/*Search input*/
+.nav-search {
+  padding: 6px 8px;
+  background: #2c2c2c;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.nav-search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background: #1e1e1e;
+  color: #dbdbdb;
+  font-size: 0.82rem;
+  font-family: 'Kanit', sans-serif;
+  outline: none;
+}
+.nav-search input::placeholder { color: #888; }
+.nav-search input:focus { border-color: #3e9feb; }
+
+/* hidden by search filter */
+.nav-item-hidden { display: none !important; }
+.nav-section-hidden { display: none !important; }
+
+/*Group labels*/
+.nav-group {
+  display: block; padding: 10px 0 5px 10px;
+  font-size: 0.75rem; text-transform: uppercase;
+  letter-spacing: 0.06em; cursor: default; color: #aaaaaa;
+  white-space: nowrap;
+}
+
+.nav-component {
+  display: block; width: 100%; cursor: pointer;
+  padding: 0.25rem 0.4rem 0.25rem 0.4rem;
+  color: #dbdbdb; white-space: nowrap;
+  background: none; border: none;
+  font: inherit; font-size: medium;
+  text-align: left;
+}
+.nav-component:hover { background: rgba(204,204,204,0.12); }
+.nav-component::before {
+  content: '\25B6'; /* ▶ right */
+  display: inline-block;
+  font-size: 0.6rem;
+  margin-right: 4px;
+  transition: transform 0.15s ease;
+  vertical-align: middle;
+}
+.nav-component[aria-expanded="true"]::before {
+  transform: rotate(90deg); /* points down */
+}
+
+/*Collapsible lists*/
+.nav-list {
+  margin: 0; padding: 0; list-style: none;
+  font-size: medium; font-family: 'Kanit', sans-serif;
+  background: rgb(39,39,39);
+}
+.nav-list[data-state="collapsed"] { display: none; }
+.nav-list[data-state="expanded"]  { display: block; }
+
+/*Logo link — reset nav-link styles*/
+.nav-logo {
+  display: block;
+  padding: 8px 0;
+  text-decoration: none !important;
+  color: #dbdbdb !important;
+  background: transparent !important;
+  line-height: 1;
+}
+.nav-logo:hover { background: rgba(204,204,204,0.08) !important; }
+.nav-logo-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.nav-logo img { display: block; width: 24px; height: 24px; flex-shrink: 0; }
+.nav-logo > .nav-logo-inner > span {
+  padding-left: 0 !important;
+  font-size: 0.85rem; color: #dbdbdb;
+  white-space: nowrap; overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+}
+
+/*Scrollbar*/
+#nav-bar::-webkit-scrollbar { width: 6px; }
+#nav-bar::-webkit-scrollbar-track { background: #2c2c2c; }
+#nav-bar::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
+
+/*
+ * Hide not-yet-upgraded custom elements until the sample module has run.
+ *
+ * A sample's stylesheets are now in <head>, so it is styled at first paint —
+ * but its custom elements are only defined by the lazily-loaded sample chunk.
+ * Until then <igc-button-group> and friends are unknown *inline* elements, so
+ * the browser lays their slotted text out as a run of raw inline words before
+ * snapping into place.
+ *
+ * The guard is bounded by TIME, not by element: [...slug].astro sets
+ * data-sample-ready on <html> once the sample module has finished (success or
+ * failure), and the whole rule switches off. It must not be left to
+ * :not(:defined) alone — that also matches hyphenated tags a library renders
+ * internally and never registers, and igc-grid does exactly that, so an
+ * element-bounded guard hides the grid's own content forever.
+ */
+html:not([data-sample-ready]) #router-target :not(:defined) {
+  visibility: hidden;
+}
+
+/*
+ * Grid cells that show a person photo (e.g. grids/grid/overview) get a fixed,
+ * cropped square. Carried over from the previous samples browser.
+ */
+.igx-grid__td img[src*="dl.infragistics.com/x/img/people"] {
+  width: 62px;
+  height: 62px;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+}

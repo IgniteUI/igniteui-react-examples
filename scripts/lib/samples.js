@@ -12,11 +12,16 @@ import fsp from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import unpublished from './unpublished.json' with { type: 'json' };
+
 export const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const SAMPLES_ROOT = path.join(REPO_ROOT, 'samples');
 
 const SLUG_DEPTH = 3;
 const SKIP_DIRS = new Set(['node_modules']);
+
+/** Slugs left out of the browser and code viewer; see unpublished.json. */
+export const UNPUBLISHED = new Set(unpublished.samples);
 
 /** Sorted child directory names, without node_modules. */
 async function subdirs(dir) {
@@ -29,10 +34,13 @@ async function subdirs(dir) {
 }
 
 /**
- * Every sample, sorted by slug.
+ * Samples sorted by slug.
+ *   'all'       → every sample folder (version updates)
+ *   'published' → without UNPUBLISHED (browser pages, code viewer)
+ * @param {'all' | 'published'} scope
  * @returns {Promise<{ slug: string, dir: string }[]>}
  */
-export async function findSamples() {
+export async function findSamples(scope) {
   // Walk level by level instead of a recursive readdir, so installed
   // node_modules inside a sample (hundreds of MB) are never traversed.
   let slugs = [''];
@@ -47,6 +55,7 @@ export async function findSamples() {
   }
 
   return slugs
+    .filter(slug => scope === 'all' || !UNPUBLISHED.has(slug))
     .map(slug => ({ slug, dir: path.join(SAMPLES_ROOT, slug) }))
     .filter(s => existsSync(path.join(s.dir, 'package.json')));
 }
