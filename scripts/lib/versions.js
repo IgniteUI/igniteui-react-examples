@@ -33,6 +33,14 @@ export const SHARED = [
   { name: "igniteui-grid-lite", version: "~0.11.0" },
   { name: "igniteui-i18n-resources", version: "^1.0.5" },
 
+  // Optional peers of igniteui-webcomponents, imported by the chat
+  // markdown renderer. npm does not install optional peers; undeclared,
+  // the chat samples fail to build.
+  { name: "dompurify", version: "^3.4.16" },
+  { name: "marked", version: "^18.0.14" },
+  { name: "marked-shiki", version: "^1.2.1" },
+  { name: "shiki", version: "^4.4.3" },
+
   // React
   { name: "react", version: "^19.3.0" },
   { name: "react-dom", version: "^19.3.0" },

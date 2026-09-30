@@ -12,16 +12,16 @@
     "test": "vitest"
   },
   "dependencies": {
-    "dompurify": "^3.3.0",
+    "dompurify": "^3.4.16",
     "igniteui-dockmanager": "^2.2.1",
     "igniteui-react": "19.9.0",
     "igniteui-react-core": "19.6.0",
     "igniteui-webcomponents": "~7.4.1",
-    "marked": "^16.4.1",
+    "marked": "^18.0.14",
     "marked-shiki": "^1.2.1",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "shiki": "^3.13.0",
+    "shiki": "^4.4.3",
     "tslib": "^2.4.0"
   },
   "devDependencies": {

@@ -25,6 +25,7 @@
     "test:smoke": "playwright test"
   },
   "dependencies": {
+    "dompurify": "^3.4.16",
     "file-saver": "^2.0.5",
     "igniteui-dockmanager": "^2.2.1",
     "igniteui-grid-lite": "~0.11.0",
@@ -47,9 +48,12 @@
     "igniteui-theming": "^29.0.0",
     "igniteui-webcomponents": "~7.4.1",
     "lit-html": "^3.3.0",
+    "marked": "^18.0.14",
+    "marked-shiki": "^1.2.1",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-icons": "^5.7.0",
+    "shiki": "^4.4.3",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
