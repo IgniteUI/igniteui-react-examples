@@ -1,0 +1,7 @@
+.sample {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  font-family: "Aktiv Grotesk", sans-serif;
+}

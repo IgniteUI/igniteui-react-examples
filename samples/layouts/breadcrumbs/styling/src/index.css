@@ -1,0 +1,19 @@
+igc-breadcrumbs {
+  --ig-breadcrumb-text-color: var(--ig-gray-900);
+  --ig-breadcrumb-icon-color: #8b5bb1;
+  --ig-breadcrumb-hover-text-color: var(--ig-gray-900);
+  --ig-breadcrumb-hover-icon-color: #8b5bb1;
+  --ig-breadcrumb-focus-text-color: var(--ig-gray-900);
+  --ig-breadcrumb-focus-icon-color: #8b5bb1;
+  --ig-breadcrumb-current-text-color: #8b5bb1;
+  --ig-breadcrumb-separator-color: #8b5bb1;
+  --ig-breadcrumb-focus-pressed-text-color: var(--ig-gray-900);
+  --ig-breadcrumb-focus-pressed-icon-color: #8b5bb1;
+}
+
+.sample {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
