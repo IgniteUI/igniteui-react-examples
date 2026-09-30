@@ -1,43 +1,23 @@
 {
   "compilerOptions": {
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "baseUrl": ".",
-    "outDir": "build/dist",
-    "module": "esnext",
-    "target": "es5",
+    "target": "es2020",
     "lib": [
-      "es6",
-      "dom"
+      "es2020",
+      "dom",
+      "dom.iterable"
     ],
-    "sourceMap": true,
-    "allowJs": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "rootDir": "src",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": false,    
-    "importHelpers": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "strict": false,
+    "types": [
+      "vite/client"
+    ],
+    "strict": true,
+    "resolveJsonModule": true,
     "isolatedModules": true,
+    "skipLibCheck": true,
     "noEmit": true
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts",
-    "**/odatajs-4.0.0.js",
-    "config-overrides.js"
-  ],
   "include": [
     "src"
   ]

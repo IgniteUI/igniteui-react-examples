@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { IgrButton, IgrTooltip } from "igniteui-react";
@@ -18,47 +17,41 @@ type PopoverPlacement =
   | "left-start"
   | "left-end";
 
-export default class TooltipPlacement extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-  }
+const Positions = ["top", "bottom", "left", "right"].flatMap((each) => [
+  each,
+  `${each}-start`,
+  `${each}-end`,
+]) as Array<PopoverPlacement>;
 
-  Positions = ["top", "bottom", "left", "right"].flatMap((each) => [
-    each,
-    `${each}-start`,
-    `${each}-end`,
-  ]) as Array<PopoverPlacement>;
+export default function TooltipPlacement() {
+  return (
+    <div className="container sample">
+      <IgrButton
+        variant="outlined"
+        id="tooltip-position"
+      >Click to trigger all supported placements
+      </IgrButton>
 
-  public render(): JSX.Element {
-    return (
-      <div className="container sample">
-        <IgrButton
-          variant="outlined"
-          id="tooltip-position"
-        >Click to trigger all supported placements
-        </IgrButton>
-
-        {this.Positions.map((pos) => (
-          <IgrTooltip
-            anchor="tooltip-position"
-            showTriggers="click"
-            showDelay={0}
-            hideDelay={0}
-            sticky={true}
-            withArrow={true}
-            placement={pos}
-            key={pos}
-          >
-            <div>
-              <strong>{pos}</strong>
-            </div>
-          </IgrTooltip>
-        ))}
-      </div>
-    );
-  }
+      {Positions.map((pos) => (
+        <IgrTooltip
+          anchor="tooltip-position"
+          showTriggers="click"
+          showDelay={0}
+          hideDelay={0}
+          sticky={true}
+          withArrow={true}
+          placement={pos}
+          key={pos}
+        >
+          <div>
+            <strong>{pos}</strong>
+          </div>
+        </IgrTooltip>
+      ))}
+    </div>
+  );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<TooltipPlacement />);
