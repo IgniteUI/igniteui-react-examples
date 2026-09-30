@@ -366,6 +366,12 @@ export default defineConfig({
       inlineSampleCss(),
       sampleChunking(),
     ],
+    // Web workers are bundled separately, with only these plugins; without
+    // the resolver, a worker importing IG code breaks licensed builds
+    // (e.g. maps/geo-map/display-heat-imagery).
+    worker: {
+      plugins: () => [resolveIgniteUiScoped()],
+    },
     // samples/ and node_modules/ are already at the repo root (__dirname),
     // so no extra fs.allow entries are needed.
     server: {
