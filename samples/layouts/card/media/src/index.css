@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap");
+
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.container.sample {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 2rem 0.5rem;
+}
+
+.media-card {
+    --ig-card-border-radius: 0.25rem;
+
+    inline-size: 15rem;
+}
+
+.media-card__media {
+    block-size: 6.5rem;
+}
+
+.media-card__media img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+}
+
+.media-card igc-card-header {
+    padding: 1rem 1rem 0;
+}
+
+.media-card [slot="title"] {
+    margin-block-end: 0;
+    color: var(--ig-gray-900);
+    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    letter-spacing: 0.15px;
+}
+
+.media-card [slot="subtitle"] {
+    color: var(--ig-gray-900);
+    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    letter-spacing: 0.1px;
+}
+
+.media-card igc-card-actions {
+    padding: 1.5rem 1rem 0.75rem;
+    flex-wrap: nowrap;
+}
+
+.media-card__icons {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--ig-gray-900);
+}
+
+.media-card__icons igc-icon {
+    --ig-icon-size: 1rem;
+}
+
+.media-card__action {
+    --ig-size: var(--ig-size-small);
+}
+
+.media-card__action::part(base) {
+    padding: 0;
+    background: transparent;
+    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+}

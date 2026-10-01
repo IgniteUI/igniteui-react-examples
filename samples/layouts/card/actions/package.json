@@ -1,6 +1,6 @@
 {
-  "name": "react-card-semi-horizontal",
-  "description": "This project provides example of Icon Sizing using Infragistics React components",
+  "name": "react-card-actions",
+  "description": "This project provides example of Card Actions using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

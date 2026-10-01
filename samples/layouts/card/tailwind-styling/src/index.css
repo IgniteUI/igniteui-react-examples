@@ -1,0 +1,56 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "./index.tsx";
+
+.sample {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 21.5rem);
+  gap: 2.5rem;
+  place-content: center;
+  height: 100vh;
+}
+
+igc-card:nth-of-type(2) {
+  align-self: center;
+}
+
+igc-card-header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+igc-card-header::part(header) {
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: hidden;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+igc-card-header [slot="thumbnail"] {
+  margin-inline-end: 1rem;
+}
+
+.card-sample-custom-subtitle {
+  display: block;
+  color: var(--ig-gray-700);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin: 0 1rem 0.5rem;
+}
+
+.stats-title {
+  color: var(--ig-gray-900);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.stats-subtitle {
+  color: var(--ig-gray-500);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
