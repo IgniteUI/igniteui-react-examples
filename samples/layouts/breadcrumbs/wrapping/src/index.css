@@ -1,0 +1,9 @@
+.sample {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+igc-breadcrumbs {
+  max-width: 16rem;
+}
