@@ -11,7 +11,7 @@ type DotShape = "square" | "circle" | "rounded";
 
 export default function QrCodeOverview() {
   const [shape, setShape] = useState<DotShape>("square");
-  const [size, setSize] = useState(120);
+  const [size, setSize] = useState(300);
   const [logoEnabled, setLogoEnabled] = useState(true);
 
   return (
