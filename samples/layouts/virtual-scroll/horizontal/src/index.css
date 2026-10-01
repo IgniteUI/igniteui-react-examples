@@ -1,0 +1,23 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.cards {
+    block-size: 200px;
+}
+
+/* Items are measured by their border box, so the spacing between cards is
+   padding on the item wrapper rather than a margin. */
+.cards__item {
+    box-sizing: border-box;
+    inline-size: 220px;
+    block-size: 100%;
+    padding: 8px;
+
+    & igc-card {
+        block-size: 100%;
+    }
+}
+
+.cards__item--wide {
+    inline-size: 320px;
+}

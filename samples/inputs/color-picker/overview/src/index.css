@@ -1,0 +1,79 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    align-items: center;
+}
+
+igc-card {
+    width: 22rem;
+}
+
+.sample igc-card h2 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    color: var(--ig-gray-900);
+}
+
+igc-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+igc-select {
+    width: 100%;
+}
+
+.color-row {
+    position: relative;
+}
+
+igc-color-picker {
+    width: 100%;
+}
+
+igc-color-picker::part(color-picker) {
+    width: 100%;
+    grid-template-columns: auto;
+}
+
+igc-color-picker::part(picker) {
+    --picker-elevation: var(--ig-elevation-12);
+}
+
+igc-icon-button {
+    position: absolute;
+    right: 0.5rem;
+    align-self: center;
+    z-index: 1;
+}
+
+igc-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stepper {
+    display: flex;
+    gap: 0.375rem;
+}
+
+.stepper .dot {
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 50%;
+    background: var(--ig-gray-300);
+}
+
+.stepper .dot.active {
+    background: var(--ig-secondary-500);
+}
+
+@media (width < 420px) {
+    .container {
+        width: fit-content;
+    }
+}
