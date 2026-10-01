@@ -35,11 +35,15 @@ igc-badge igc-icon {
 
 .event-example igc-chip {
   --ig-size: var(--ig-size-large);
-  --ig-chip-background: var(--ig-gray-300);
 }
 
 .event-example igc-chip::part(base) {
   border-radius: 999px;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.25px;
 }
 
 .event-example igc-badge {
