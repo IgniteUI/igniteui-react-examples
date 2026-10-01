@@ -1,10 +1,6 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-igc-avatar {
-  --size: 40px;
-}
-
 igc-icon {
   color: var(--ig-gray-700);
   font-size: 1.5rem;
@@ -19,11 +15,11 @@ igc-badge {
 
 igc-badge::part(base),
 igc-badge igc-icon {
-  color: var(--ig-gray-50);
+  color: #fff;
 }
 
 igc-badge igc-icon {
-  fill: var(--ig-gray-50);
+  fill: #fff;
 }
 
 .avatar-example igc-badge {
@@ -33,8 +29,8 @@ igc-badge igc-icon {
 }
 
 .avatar-example igc-icon {
-  color: var(--ig-gray-50);
-  fill: var(--ig-gray-50);
+  color: #fff;
+  fill: #fff;
 }
 
 .event-example igc-chip {
@@ -43,6 +39,11 @@ igc-badge igc-icon {
 
 .event-example igc-chip::part(base) {
   border-radius: 999px;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.25px;
 }
 
 .event-example igc-badge {
@@ -56,7 +57,7 @@ igc-badge igc-icon {
 }
 
 .icon-example igc-badge::part(base) {
-  color: var(--ig-gray-50);
+  color: #fff;
 }
 
 .notification-example igc-badge {
@@ -90,4 +91,11 @@ igc-badge igc-icon {
 .notification-example {
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.avatar-example {
+  min-width: auto;
+  min-height: auto;
+  width: fit-content;
+  height: fit-content;
 }

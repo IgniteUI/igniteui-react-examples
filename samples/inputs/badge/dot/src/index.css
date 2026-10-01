@@ -6,10 +6,6 @@ igc-badge {
 	--ig-badge-dot-size: 0.5rem;
 }
 
-igc-avatar {
-	--size: 40px;
-}
-
 .icon-example igc-badge,
 .avatar-example igc-badge,
 .nav-icon igc-badge {
@@ -44,12 +40,18 @@ igc-avatar {
 }
 
 .icon-example,
-.avatar-example,
 .icon-circle {
 	display: flex;
 	align-items: center;
 	width: 36px;
 	height: 36px;
+}
+
+.avatar-example {
+	display: inline-flex;
+	align-items: center;
+	width: fit-content;
+	height: fit-content;
 }
 
 .icon-circle {
@@ -125,7 +127,7 @@ igc-avatar {
 }
 
 .nav-item.active {
-	color: var(--ig-primary-800);
+	color: var(--ig-primary-500);
 }
 
 .nav-icon {
