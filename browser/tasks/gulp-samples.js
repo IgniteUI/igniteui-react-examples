@@ -867,7 +867,7 @@ function updateIG(cb) {
         { version: "19.6.0", name: "igniteui-react-excel" },
         { version: "19.6.0", name: "igniteui-react-gauges" },
         { version: "19.6.0", name: "igniteui-react-data-grids" },
-        { version: "19.10.0-beta.0", name: "igniteui-react-grids" },
+        { version: "19.10.0-beta.1", name: "igniteui-react-grids" },
         { version: "19.6.0", name: "igniteui-react-inputs" },
         { version: "19.6.0", name: "igniteui-react-layouts" },
         { version: "19.6.0", name: "igniteui-react-maps" },
