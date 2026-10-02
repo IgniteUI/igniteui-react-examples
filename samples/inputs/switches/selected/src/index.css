@@ -1,0 +1,26 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.container.sample {
+    display: flex;
+    place-content: center;
+    place-items: center;
+}
+
+.states {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+    gap: 32px;
+
+    & .states__row {
+        text-align: end;
+        font: 500 14px / 24px "Aktiv Grotesk", sans-serif;
+        letter-spacing: 0.1px;
+        color: var(--ig-gray-600);
+    }
+
+    & .states__disabled {
+        margin-inline-start: 16px;
+    }
+}

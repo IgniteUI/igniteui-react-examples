@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrBadge, IgrAvatar, IgrIcon, registerIconFromText } from 'igniteui-react';
+import { IgrBadge, IgrAvatar, IgrIcon, IgrStepper, IgrStep, registerIconFromText } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const favoriteBorderIcon =
@@ -9,16 +9,13 @@ const favoriteBorderIcon =
 const closeIcon =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
 
-const steps = [
-  { index: 1, label: 'Orders', current: false, pending: false },
-  { index: 2, label: 'Payment', current: true, pending: false },
-  { index: 3, label: 'Shipping', current: false, pending: true }
-];
-
 export default function BadgeOutlined(): JSX.Element {
+  const stepperRef = useRef<IgrStepper>(null);
+
   useEffect(() => {
     registerIconFromText('favorite_border', favoriteBorderIcon, 'material');
     registerIconFromText('close', closeIcon, 'material');
+    stepperRef.current?.navigateTo(1);
   }, []);
 
   return (
@@ -27,7 +24,7 @@ export default function BadgeOutlined(): JSX.Element {
         <div className="icon-circle">
           <IgrIcon name="favorite_border" collection="material" />
         </div>
-        <IgrBadge variant="info" outlined={true} className="badge-info-blue">23</IgrBadge>
+        <IgrBadge variant="info" outlined={true}>23</IgrBadge>
       </div>
       <div className="outlined-example">
         <IgrAvatar initials="AZ" shape="rounded" />
@@ -35,25 +32,19 @@ export default function BadgeOutlined(): JSX.Element {
           <IgrIcon name="close" collection="material" />
         </IgrBadge>
       </div>
-      <div className="steps">
-        {steps.map((step, i) => (
-          <React.Fragment key={step.label}>
-            {i > 0 && (
-              <span className={step.pending ? 'step-connector pending' : 'step-connector'} />
-            )}
-            <div className="step">
-              <div className="step-marker">
-                <span className={step.pending ? 'step-circle pending' : 'step-circle'}>
-                  {step.index}
-                </span>
-                {step.current && (
-                  <IgrBadge dot={true} variant="info" outlined={true} className="payment-dot-blue" />
-                )}
-              </div>
-              <span className="step-label">{step.label}</span>
-            </div>
-          </React.Fragment>
-        ))}
+      <div className="stepper-wrapper">
+        <IgrStepper ref={stepperRef} className="steps" orientation="horizontal">
+        <IgrStep complete={true}>
+          <span slot="title">Orders</span>
+        </IgrStep>
+        <IgrStep>
+          <span slot="title">Payment</span>
+        </IgrStep>
+        <IgrStep>
+          <span slot="title">Shipping</span>
+        </IgrStep>
+        </IgrStepper>
+        <IgrBadge className="flagged-badge" dot={true} variant="info" outlined={true} />
       </div>
     </div>
   );

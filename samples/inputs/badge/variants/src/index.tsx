@@ -28,14 +28,14 @@ export default function BadgeVariants(): JSX.Element {
                     <IgrAvatar shape="circle">
                         <IgrIcon name="notifications" collection="material" />
                     </IgrAvatar>
-                    <IgrBadge outlined={true} variant="primary" className="badge-primary-blue">2</IgrBadge>
+                    <IgrBadge outlined={true} variant="primary">2</IgrBadge>
                 </div>
                 <span>Primary</span>
             </div>
             <div className="variant-item">
                 <div className="avatar-wrapper">
                     <IgrAvatar initials="AZ" shape="circle" />
-                    <IgrBadge outlined={true} variant="info" className="badge-info-blue">
+                    <IgrBadge outlined={true} variant="info">
                         <IgrIcon name="check" collection="material" />
                     </IgrBadge>
                 </div>
@@ -58,7 +58,7 @@ export default function BadgeVariants(): JSX.Element {
                     <IgrAvatar shape="circle">
                         <IgrIcon name="mail" collection="material" />
                     </IgrAvatar>
-                    <IgrBadge outlined={true} variant="warning" className="badge-warning-black">2</IgrBadge>
+                    <IgrBadge outlined={true} variant="warning">2</IgrBadge>
                 </div>
                 <span>Warn</span>
             </div>

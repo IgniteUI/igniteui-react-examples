@@ -1,0 +1,29 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.container.sample {
+    display: flex;
+    place-content: center;
+    place-items: center;
+}
+
+.variants {
+    --variant-gap: 60px;
+    --label-gap: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: var(--variant-gap);
+
+    & .variants__item {
+        display: flex;
+        align-items: center;
+        gap: var(--label-gap);
+    }
+
+    & .variants__label {
+        font: 500 14px / 24px "Aktiv Grotesk", sans-serif;
+        letter-spacing: 0.1px;
+        color: var(--ig-gray-600);
+    }
+}
