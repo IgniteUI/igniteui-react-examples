@@ -65,7 +65,7 @@ export default function CardStyling() {
         <IgrChip className="support-tag">Support</IgrChip>
         <IgrCardMedia className="support-media">
           <img
-            src="https://dl.infragistics.com/x/img/avatars/image-bg4.png"
+            src="https://dl.infragistics.com/x/img/card/card-3.png"
             alt="Support agent reviewing system dashboards on a laptop"
           />
         </IgrCardMedia>

@@ -53,7 +53,7 @@ export default function CardMedia() {
       <IgrCard className="media-card">
         <IgrCardMedia className="media-card__media">
           <img
-            src="https://dl.infragistics.com/x/img/card/media/the_red_ice_forest.jpg"
+            src="https://dl.infragistics.com/x/img/card/card-2.png"
             alt="A meeting room with a long table and chairs"
           />
         </IgrCardMedia>
@@ -76,7 +76,7 @@ export default function CardMedia() {
       <IgrCard className="media-card">
         <IgrCardMedia className="media-card__media">
           <img
-            src="https://dl.infragistics.com/x/img/card/media/yosemite.jpg"
+            src="https://dl.infragistics.com/x/img/card/card-map-1.png"
             alt="A street map with the event space marked"
           />
         </IgrCardMedia>
@@ -99,7 +99,7 @@ export default function CardMedia() {
       <IgrCard className="media-card">
         <IgrCardMedia className="media-card__media">
           <img
-            src="https://dl.infragistics.com/x/img/card/media/the_red_ice_forest.jpg"
+            src="https://dl.infragistics.com/x/img/card/card-map-2.png"
             alt="A map of Europe showing the sales region"
           />
         </IgrCardMedia>
