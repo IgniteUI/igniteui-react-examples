@@ -35,6 +35,7 @@ igc-badge igc-icon {
 
 .event-example igc-chip {
   --ig-size: var(--ig-size-large);
+  --ig-chip-background: var(--ig-gray-300);
 }
 
 .event-example igc-chip::part(base) {
