@@ -1,0 +1,43 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.smallPicker {
+    --ig-size: var(--ig-size-small);
+}
+
+.mediumPicker {
+    --ig-size: var(--ig-size-medium);
+}
+
+.largePicker {
+    --ig-size: var(--ig-size-large);
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    font-family: "Aktiv Grotesk", sans-serif;
+}
+
+span {
+    display: block;
+    text-align: center;
+    margin-block-end: 1rem;
+    color: var(--ig-gray-600);
+    font-size: 0.875rem;
+}
+
+igc-color-picker::part(picker) {
+    margin-top: 0.5rem;
+}
+
+@media (width < 450px) {
+    .container {
+        flex-direction: column;
+        justify-content: normal;
+        gap: 1rem;
+        align-items: center;
+    }
+}

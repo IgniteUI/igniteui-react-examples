@@ -1,24 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCheckbox } from 'igniteui-react';
+import { IgrAvatar, IgrButton, IgrCheckbox, IgrList, IgrListItem } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default class CheckboxStyling extends React.Component<any, any> {
+interface TeamMember {
+    name: string;
+    email: string;
+    avatar: string;
+    selected: boolean;
+}
 
-    constructor(props: any) {
-        super(props);           
-    }
+const initialMembers: TeamMember[] = [
+    { name: 'Emily Potter', email: 'emily@team.com', avatar: 'https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png', selected: false },
+    { name: 'Alex Lima', email: 'alex@team.com', avatar: 'https://dl.infragistics.com/x/img/avatars/avatar-profile-05.png', selected: true },
+    { name: 'Mateo García', email: 'mateo@team.com', avatar: 'https://dl.infragistics.com/x/img/avatars/avatar-profile-07.png', selected: false },
+    { name: 'Kate Roberts', email: 'kate@team.com', avatar: 'https://dl.infragistics.com/x/img/avatars/avatar-profile-08.png', selected: false },
+];
 
-    public render(): JSX.Element {
-        return (
-            <div className="sample">
-                <IgrCheckbox>
-                    <span>Checkbox</span>
+export default function CheckboxStyling(): JSX.Element {
+    const [members, setMembers] = useState<TeamMember[]>(initialMembers);
+
+    const allSelected = members.every((member) => member.selected);
+    const someSelected = members.some((member) => member.selected);
+
+    const toggleAll = (checked: boolean) => {
+        setMembers((current) => current.map((member) => ({ ...member, selected: checked })));
+    };
+
+    const toggleMember = (index: number, checked: boolean) => {
+        setMembers((current) => current.map((member, i) => (i === index ? { ...member, selected: checked } : member)));
+    };
+
+    return (
+        <div className="sample">
+            <div className="team-card">
+                <p className="team-title">Team members</p>
+
+                <IgrCheckbox
+                    className="select-all"
+                    labelPosition="before"
+                    checked={allSelected}
+                    indeterminate={someSelected && !allSelected}
+                    onChange={(e) => toggleAll(e.detail.checked)}
+                >
+                    <span>Select all</span>
                 </IgrCheckbox>
+
+                <IgrList className="members">
+                    {members.map((member, index) => (
+                        <IgrListItem
+                            className={member.selected ? 'member member-selected' : 'member'}
+                            key={member.email}
+                        >
+                            <IgrAvatar slot="start" src={member.avatar} shape="circle" alt={member.name} />
+                            <span slot="title" className="member-name">{member.name}</span>
+                            <span slot="subtitle" className="member-email">{member.email}</span>
+                            <IgrCheckbox
+                                slot="end"
+                                className="member-check"
+                                aria-label={member.name}
+                                checked={member.selected}
+                                onChange={(e) => toggleMember(index, e.detail.checked)}
+                            />
+                        </IgrListItem>
+                    ))}
+                </IgrList>
+
+                <IgrButton variant="contained" className="continue-button">Continue</IgrButton>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 // rendering above class to the React DOM

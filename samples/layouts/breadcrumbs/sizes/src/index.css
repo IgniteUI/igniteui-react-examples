@@ -1,0 +1,43 @@
+.small {
+  --ig-size: var(--ig-size-small);
+}
+
+.medium {
+  --ig-size: var(--ig-size-medium);
+}
+
+.large {
+  --ig-size: var(--ig-size-large);
+
+  margin-block-start: -0.25rem;
+}
+
+.sample {
+  display: flex;
+  justify-content: center;
+  font-family: "Aktiv Grotesk", sans-serif;
+}
+
+span {
+  color: #7d8a96;
+  width: 3.75rem;
+  margin-inline-end: 2rem;
+  font-size: 0.875rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (width < 290px) {
+  span {
+    width: auto;
+    margin-inline-end: 1rem;
+  }
+
+  .sample {
+    overflow: auto;
+  }
+}
