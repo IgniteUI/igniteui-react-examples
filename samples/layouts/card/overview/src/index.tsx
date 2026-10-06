@@ -1,74 +1,101 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import "./CardOverview.css";
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
 import {
-  IgrCard,
-  IgrCardMedia,
-  IgrCardHeader,
-  IgrCardContent,
-  IgrCardActions,
-  IgrIconButton,
-  IgrButton,
-  IgrRipple,
-  registerIconFromText,
-} from "igniteui-react";
-import "igniteui-webcomponents/themes/light/bootstrap.css";
+    IgrAvatar,
+    IgrButton,
+    IgrCard,
+    IgrCardActions,
+    IgrCardContent,
+    IgrCardHeader,
+    IgrCardMedia,
+    IgrCheckboxChangeEventArgs,
+    IgrIconButton,
+    IgrSwitch,
+    registerIconFromText
+} from 'igniteui-react';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-const twitterIcon =
-  '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-1.13 6v.39a8.61 8.61 0 01-13.25 7.25 5.69 5.69 0 00.72 0 6 6 0 003.76-1.3 3 3 0 01-2.83-2.1 2.75 2.75 0 00.57.05 3 3 0 00.8-.1 3 3 0 01-2.43-3 3.13 3.13 0 001.37.38 3 3 0 01-.93-4 8.57 8.57 0 006.24 3.17 3.1 3.1 0 01-.08-.74 3 3 0 015.24-2A6.38 6.38 0 0019 6.22a3.07 3.07 0 01-1.36 1.68 6.22 6.22 0 001.74-.48A6.09 6.09 0 0117.87 9z"></path></svg>';
-const facebookIcon =
-  '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 22zm0-20a10 10 0 00-1.727 19.841v-7.6h-2.61v-3.018h2.61V8.995A3.641 3.641 0 0114.16 5a21.367 21.367 0 012.332.119v2.7h-1.6c-1.255 0-1.5.6-1.5 1.471v1.929h2.993L16 14.245h-2.6v7.647A9.994 9.994 0 0012 2z"></path></svg>';
+const addIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>';
 
 export default function CardOverview() {
-  useEffect(() => {
-    registerIconFromText("twitter", twitterIcon, "material");
-    registerIconFromText("facebook", facebookIcon, "material");
-  }, []);
+    const [media, setMedia] = useState(true);
+    const [header, setHeader] = useState(true);
+    const [content, setContent] = useState(true);
+    const [actions, setActions] = useState(true);
 
-  return (
-    <div className="container sample center">
-      <div className="card-wrapper">
-        <IgrCard>
-          <IgrCardMedia>
-            <img src="https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=50"></img>
-          </IgrCardMedia>
-          <IgrCardHeader>
-            <span slot="title">New York City</span>
-            <span slot="subtitle">City in New York</span>
-          </IgrCardHeader>
-          <IgrCardContent>
-            <p>
-              New York City comprises 5 boroughs sitting where the Hudson River
-              meets the Atlantic Ocean. At its core is Manhattan, a densely
-              populated borough that’s among the world’s major commercial,
-              financial and cultural centers.
-            </p>
-          </IgrCardContent>
-          <IgrCardActions>
-            <IgrButton>
-              <span>Read more</span>
-              <IgrRipple />
-            </IgrButton>
-            <div slot="end">
-              <IgrIconButton
-                style={{ marginRight: "10px" }}
-                name="twitter"
-                collection="material"
-              >
-                <IgrRipple />
-              </IgrIconButton>
-              <IgrIconButton name="facebook" collection="material">
-                <IgrRipple />
-              </IgrIconButton>
+    useEffect(() => {
+        registerIconFromText('add', addIcon, 'material');
+    }, []);
+
+    return (
+        <div className="container sample">
+            <div className="card-options">
+                <IgrSwitch labelPosition="before" checked={media}
+                    onChange={(e: IgrCheckboxChangeEventArgs) => setMedia(e.detail.checked)}>
+                    <span>Media</span>
+                </IgrSwitch>
+                <IgrSwitch labelPosition="before" checked={header}
+                    onChange={(e: IgrCheckboxChangeEventArgs) => setHeader(e.detail.checked)}>
+                    <span>Header</span>
+                </IgrSwitch>
+                <IgrSwitch labelPosition="before" checked={content}
+                    onChange={(e: IgrCheckboxChangeEventArgs) => setContent(e.detail.checked)}>
+                    <span>Content</span>
+                </IgrSwitch>
+                <IgrSwitch labelPosition="before" checked={actions}
+                    onChange={(e: IgrCheckboxChangeEventArgs) => setActions(e.detail.checked)}>
+                    <span>Actions</span>
+                </IgrSwitch>
             </div>
-          </IgrCardActions>
-        </IgrCard>
-      </div>
-    </div>
-  );
+
+            <div className="card-container">
+                <IgrCard>
+                    {media && (
+                        <IgrCardMedia>
+                            <img
+                                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=50"
+                                alt="Mountain range above the clouds at sunset" />
+                        </IgrCardMedia>
+                    )}
+                    {header && (
+                        <IgrCardHeader>
+                            <IgrAvatar
+                                slot="thumbnail"
+                                shape="circle"
+                                src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
+                                alt="profile picture" />
+                            <span slot="title">Title</span>
+                            <span slot="subtitle">Subtitle</span>
+                        </IgrCardHeader>
+                    )}
+                    {content && (
+                        <IgrCardContent>
+                            <p>
+                                A paragraph is a self-contained unit of a discourse in writing
+                                dealing with a particular point or idea.
+                            </p>
+                        </IgrCardContent>
+                    )}
+                    {actions && (
+                        <IgrCardActions>
+                            <div className="card-actions-start" slot="start">
+                                <IgrButton variant="flat">Button</IgrButton>
+                                <IgrButton variant="flat">Button</IgrButton>
+                            </div>
+                            <div className="card-actions-end" slot="end">
+                                <IgrIconButton variant="flat" name="add" collection="material" />
+                                <IgrIconButton variant="flat" name="add" collection="material" />
+                                <IgrIconButton variant="flat" name="add" collection="material" />
+                            </div>
+                        </IgrCardActions>
+                    )}
+                </IgrCard>
+            </div>
+        </div>
+    );
 }
 
 // rendering above component to the React DOM
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<CardOverview />);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<CardOverview/>);

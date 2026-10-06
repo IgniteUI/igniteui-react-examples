@@ -1,0 +1,109 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap");
+
+.container.sample {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem;
+    padding: 2.5rem 1.5rem;
+}
+
+.card-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.card-item__label {
+    color: var(--ig-gray-600);
+    font-family: "Aktiv Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+}
+
+.post-card {
+    --ig-card-border-radius: 0.5rem;
+
+    inline-size: 310px;
+}
+
+.post-card igc-card-header {
+    padding: 1rem 1rem 0;
+}
+
+.post-card [slot="title"] {
+    color: var(--ig-gray-900);
+    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    letter-spacing: 0.15px;
+}
+
+.post-card [slot="subtitle"] {
+    color: var(--ig-gray-600);
+    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    letter-spacing: 0.1px;
+}
+
+.post-card igc-card-content {
+    padding: 1.5rem 1rem 0;
+    overflow: visible;
+}
+
+.post-card igc-card-content p {
+    margin: 0;
+    color: var(--ig-gray-700);
+    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.25px;
+}
+
+.post-card igc-card-actions {
+    padding: 0.75rem 1rem 0.5rem;
+}
+
+.post-card igc-icon-button {
+    --ig-size: var(--ig-size-small);
+    --ig-flat-icon-button-foreground: var(--ig-gray-900);
+}
+
+.post-card igc-card-actions igc-icon-button:not(:first-of-type) {
+    margin-inline-start: 0.5rem;
+}
+
+.post-card--vertical {
+    flex-direction: row;
+    inline-size: 390px;
+}
+
+.post-card--vertical igc-card-content {
+    padding-block-end: 1rem;
+}
+
+.post-card__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-inline-size: 0;
+}
+
+.post-card--vertical igc-card-actions {
+    justify-content: flex-start;
+    margin-block-start: 0;
+    padding: 1rem 1rem 1rem 0;
+}
