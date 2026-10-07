@@ -1,0 +1,124 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.icon-styling {
+    --ig-font-family: "Aktiv Grotesk", Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.8125rem;
+}
+
+.button-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.button-row igc-button::part(base) {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    text-transform: none;
+}
+
+.download-button::part(base) {
+    border-color: #a9b8cc;
+    background: #e5ebf3;
+    color: #344b65;
+    box-shadow: none;
+}
+
+.download-button igc-icon {
+    color: #344b65;
+}
+
+.continue-button {
+    --ig-outlined-button-hover-background: rgb(0 93 204 / 8%);
+    --ig-outlined-button-focus-hover-background: rgb(0 93 204 / 8%);
+    --ig-outlined-button-active-background: rgb(0 93 204 / 16%);
+    --ig-outlined-button-focus-background: rgb(0 93 204 / 16%);
+    --ig-outlined-button-focus-visible-background: rgb(0 93 204 / 16%);
+}
+
+.continue-button::part(base) {
+    border-color: #005dcc;
+    color: #005dcc;
+}
+
+.continue-button igc-icon {
+    color: #005dcc;
+}
+
+.delete-button {
+    --ig-outlined-button-hover-background: rgb(223 27 116 / 8%);
+    --ig-outlined-button-focus-hover-background: rgb(223 27 116 / 8%);
+    --ig-outlined-button-active-background: rgb(223 27 116 / 16%);
+    --ig-outlined-button-focus-background: rgb(223 27 116 / 16%);
+    --ig-outlined-button-focus-visible-background: rgb(223 27 116 / 16%);
+}
+
+.delete-button::part(base) {
+    border-color: #df1b74;
+    color: #df1b74;
+}
+
+.delete-button igc-icon {
+    color: #df1b74;
+}
+
+.add-button {
+    --ig-size: var(--ig-size-small);
+    --ig-fab-button-size: 2.25rem;
+}
+
+.add-button::part(base) {
+    border-color: #0176ff;
+    border-radius: 50%;
+    background: #cce4ff;
+    box-shadow: none;
+}
+
+.add-button igc-icon {
+    color: #005dcc;
+}
+
+.icon-toolbar {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.5rem;
+    border: 1px solid #e5ebf3;
+    border-radius: 999px;
+    background: #fff;
+}
+
+.icon-toolbar igc-button {
+    --ig-flat-button-hover-background: #f8f8f8;
+    --ig-flat-button-active-background: #e0e0e0;
+}
+
+.icon-toolbar igc-button::part(base) {
+    width: 1.5rem;
+    min-width: 0;
+    height: 1.5rem;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.icon-toolbar igc-icon {
+    color: #344b65;
+}
+
+.icon-toolbar igc-tooltip {
+    --ig-tooltip-background: rgb(52 75 101 / 90%);
+    --ig-tooltip-text-color: #fff;
+}
