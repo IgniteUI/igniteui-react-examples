@@ -81,13 +81,13 @@ export default function ChipTailwindStyling(): JSX.Element {
                 ref={cardRef}
                 role="group"
                 aria-labelledby="activity-title"
-                className="flex w-full max-w-[517px] flex-col gap-4 rounded-2xl bg-activity-surface p-4 font-[aktiv-grotesk,sans-serif] [--ig-font-family:aktiv-grotesk,sans-serif] [--ig-size:var(--ig-size-large)]"
+                className="box-border flex w-full max-w-[517px] flex-col gap-4 rounded-2xl bg-activity-surface p-4 font-[aktiv-grotesk,sans-serif] [--ig-font-family:aktiv-grotesk,sans-serif] [--ig-size:var(--ig-size-large)]"
             >
                 {/* Not a heading: the theme's heading styles sit outside any CSS layer and would override these utilities. */}
                 <span id="activity-title" className="flex h-8 items-center text-xl font-medium leading-6 text-activity-ink">
                     Preferred Activity
                 </span>
-                <div role="group" aria-label="Selected activities" className="flex min-h-[72px] flex-wrap items-center gap-4 rounded-2xl bg-white px-6 py-5">
+                <div role="group" aria-label="Selected activities" className="box-border flex min-h-[72px] flex-wrap items-center gap-4 rounded-2xl bg-white px-6 py-5">
                     {selected.map((activity) => (
                         <IgrChip key={activity.label} data-activity={activity.label} className={selectedChip} removable onRemove={() => removeActivity(activity)}>
                             <IgrIcon slot="prefix" name={activity.icon} collection="material" />
