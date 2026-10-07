@@ -45,7 +45,7 @@ export default function IconTailwindStyling(): JSX.Element {
                 >
                     <IgrButton
                         slot="suffix"
-                        className="w-[39px] px-0 [&::part(base)]:h-full [&::part(base)]:w-full [&::part(base)]:min-w-0 [&::part(base)]:rounded-none [&::part(base)]:p-0"
+                        className="w-[39px] border-e-[color:var(--ig-input-group-border-color,var(--ig-gray-400))] px-0 [&::part(base)]:h-full [&::part(base)]:w-full [&::part(base)]:min-w-0 [&::part(base)]:rounded-none [&::part(base)]:p-0"
                         variant="flat"
                         aria-label={passwordVisible ? 'Hide password' : 'Show password'}
                         onClick={() => setPasswordVisible(!passwordVisible)}
