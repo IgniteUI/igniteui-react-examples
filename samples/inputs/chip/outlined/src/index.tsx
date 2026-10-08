@@ -4,41 +4,26 @@ import './index.css';
 import { IgrChip } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default class ChipOutlined extends React.Component<any, any> {
+const variants = [
+    { label: 'Default', variant: undefined },
+    { label: 'Primary', variant: 'primary' },
+    { label: 'Info', variant: 'info' },
+    { label: 'Success', variant: 'success' },
+    { label: 'Warning', variant: 'warning' },
+    { label: 'Danger', variant: 'danger' },
+] as const;
 
-    constructor(props: any) {
-        super(props);           
-    }
-
-    private handleChipRemove = (event: CustomEvent<boolean>) => {
-        const chip = event.target as IgrChip;
-        chip.remove();
-    }
-
-    public render(): JSX.Element {
-        return (
-            <div className="container sample" style={{flexDirection: "row", gap: "8px", alignItems: "baseline"}}>
-                 <IgrChip outlined={true} selectable={true} removable={true} onRemove={this.handleChipRemove}>
-                     <span>Default</span>
-                 </IgrChip>
-                 <IgrChip outlined={true} variant="primary" selectable={true} removable={true} onRemove={this.handleChipRemove}>
-                     <span>Primary</span>
-                 </IgrChip>
-                 <IgrChip outlined={true} variant="info" selectable={true} removable={true} onRemove={this.handleChipRemove}>
-                     <span>Info</span>
-                 </IgrChip>
-                 <IgrChip outlined={true} variant="success" selectable={true} removable={true} onRemove={this.handleChipRemove}>
-                     <span>Success</span>
-                 </IgrChip>
-                 <IgrChip outlined={true} variant="warning" selectable={true} removable={true} onRemove={this.handleChipRemove}>
-                     <span>Warning</span>
-                 </IgrChip>
-                 <IgrChip outlined={true} variant="danger" selectable={true} removable={true} onRemove={this.handleChipRemove}>
-                     <span>Danger</span>
-                 </IgrChip>
-            </div>
-        );
-    }
+export default function ChipOutlined(): JSX.Element {
+    return (
+        <div className="sample chip-outlined">
+            {variants.map((item) => (
+                <div className="chip-outlined-item" key={item.label}>
+                    <span>{item.label}</span>
+                    <IgrChip outlined variant={item.variant} selectable removable>Chip</IgrChip>
+                </div>
+            ))}
+        </div>
+    );
 }
 
 // rendering above class to the React DOM

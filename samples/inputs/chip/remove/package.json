@@ -1,6 +1,6 @@
 {
-  "name": "react-chip-styling",
-  "description": "This project provides example of Chip Styling using Infragistics React components",
+  "name": "react-chip-remove",
+  "description": "This project provides example of Chip Remove using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
@@ -33,10 +33,5 @@
     "vitest-canvas-mock": "^0.3.3",
     "worker-loader": "^3.0.8"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
 }

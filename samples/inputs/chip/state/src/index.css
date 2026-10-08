@@ -4,7 +4,7 @@
 /* Aktiv Grotesk, from the same Adobe Fonts kit the docs use. */
 @import url("https://use.typekit.net/bng2zgw.css");
 
-.chip-outlined {
+.chip-state {
     --ig-size: var(--ig-size-medium);
 
     display: flex;
@@ -14,7 +14,7 @@
     gap: 1.5rem 2.5rem;
 }
 
-.chip-outlined-item {
+.chip-state-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,15 +22,28 @@
 }
 
 /* The chip host is a block box, so its line box would add height around the chip. */
-.chip-outlined-item igc-chip {
+.chip-state-item igc-chip {
     display: flex;
 }
 
-.chip-outlined-item span {
+.chip-state-item span {
     color: var(--ig-gray-600);
     font-family: aktiv-grotesk, sans-serif;
     font-size: 0.8125rem;
     font-weight: 400;
     line-height: 1.25rem;
     letter-spacing: 0.3px;
+}
+
+/* Hover and focus only happen on interaction, so these chips show the colors the theme uses for them. */
+igc-chip.state-hover::part(base) {
+    background: var(--hover-background);
+    color: var(--hover-text-color);
+}
+
+/* The focus ring color is transparent in themes that show focus through the background alone. */
+igc-chip.state-focused::part(base) {
+    background: var(--focus-background);
+    color: var(--focus-text-color);
+    outline: 0.25rem solid var(--focus-shadow-color);
 }

@@ -4,29 +4,28 @@
 /* Aktiv Grotesk, from the same Adobe Fonts kit the docs use. */
 @import url("https://use.typekit.net/bng2zgw.css");
 
-.chip-outlined {
+.chip-types {
     --ig-size: var(--ig-size-medium);
 
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem 2.5rem;
+    gap: 1.5rem 3.75rem;
 }
 
-.chip-outlined-item {
+.chip-types-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.875rem;
 }
 
 /* The chip host is a block box, so its line box would add height around the chip. */
-.chip-outlined-item igc-chip {
+.chip-types-item igc-chip {
     display: flex;
 }
 
-.chip-outlined-item span {
+.chip-types-item span {
     color: var(--ig-gray-600);
     font-family: aktiv-grotesk, sans-serif;
     font-size: 0.8125rem;
