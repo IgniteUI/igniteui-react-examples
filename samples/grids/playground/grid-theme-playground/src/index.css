@@ -1,0 +1,283 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.playground__stage {
+    --ig-grid-grid-elevation: var(--ig-elevation-2);
+    --ig-grid-drag-elevation: var(--ig-elevation-5);
+    --ig-grid-grouparea-color: color-mix(in srgb, var(--ig-grid-header-text-color) 60%, var(--ig-grid-header-background));
+    --ig-grid-grouparea-background: var(--ig-grid-header-background);
+    --ig-grid-drop-area-text-color: color-mix(in srgb, var(--ig-grid-header-text-color) 80%, var(--ig-grid-header-background));
+    --ig-grid-drop-area-icon-color: var(--ig-grid-drop-area-text-color);
+    --ig-grid-drop-area-background: lch(from var(--ig-grid-header-background) calc(l + (50 - l) * 0.1 + sign(50 - l) * 5) c h);
+    --ig-grid-drop-area-on-drop-background: lch(from var(--ig-grid-header-background) calc(l + (50 - l) * 0.1 + sign(50 - l) * 5) c h);
+    --ig-grid-header-background: color-mix(in srgb, var(--ig-grid-foreground) 6%, var(--ig-grid-background));
+    --ig-grid-sortable-header-icon-hover-color: var(--ig-grid-accent-color);
+    --ig-grid-sorted-header-icon-color: hsl(from var(--ig-grid-accent-color) h s l/0.7);
+    --ig-grid-header-border-width: 0.0625rem;
+    --ig-grid-header-border-style: solid;
+    --ig-grid-header-border-color: color-mix(in srgb, var(--ig-grid-header-text-color) 20%, var(--ig-grid-header-background));
+    --ig-grid-action-border-color: color-mix(in srgb, var(--ig-grid-foreground) 20%, var(--ig-grid-background));
+    --ig-grid-ghost-header-background: var(--ig-grid-header-background);
+    --ig-grid-ghost-header-text-color: var(--ig-grid-header-text-color);
+    --ig-grid-ghost-header-icon-color: var(--ig-grid-header-text-color);
+    --ig-grid-excel-filtering-header-foreground: var(--ig-grid-foreground);
+    --ig-grid-excel-filtering-subheader-foreground: var(--ig-grid-foreground);
+    --ig-grid-excel-filtering-actions-foreground: var(--ig-grid-foreground);
+    --ig-grid-excel-filtering-actions-icon-color: var(--ig-grid-foreground);
+    --ig-grid-excel-filtering-actions-hover-foreground: var(--ig-grid-foreground);
+    --ig-grid-excel-filtering-actions-hover-icon-color: var(--ig-grid-foreground);
+    --ig-grid-excel-filtering-actions-selected-icon-color: var(--ig-grid-accent-color);
+    --ig-grid-excel-filtering-actions-hover-background: color-mix(in srgb, var(--ig-grid-accent-color) 8%, var(--ig-grid-background));
+    --ig-grid-excel-filtering-actions-disabled-foreground: color-mix(in srgb, var(--ig-grid-foreground) 50%, var(--ig-grid-background));
+    --ig-grid-excel-filtering-border-color: color-mix(in srgb, var(--ig-grid-foreground) 16%, var(--ig-grid-background));
+    --ig-grid-grid-border-color: transparent;
+    --ig-grid-content-background: var(--ig-grid-background);
+    --ig-grid-content-text-color: var(--ig-grid-foreground);
+    --ig-grid-row-odd-background: var(--ig-grid-background);
+    --ig-grid-row-even-background: var(--ig-grid-background);
+    --ig-grid-body-column-border-color-odd: var(--ig-grid-background);
+    --ig-grid-body-column-border-color-even: var(--ig-grid-background);
+    --ig-grid-row-odd-text-color: var(--ig-grid-foreground);
+    --ig-grid-row-even-text-color: inherit;
+    --ig-grid-tree-selected-filtered-row-text-color: var(--ig-secondary-300);
+    --ig-grid-row-selected-text-color: var(--ig-grid-foreground);
+    --ig-grid-row-hover-background: color-mix(in srgb, var(--ig-grid-accent-color) 8%, var(--ig-grid-row-odd-background));
+    --ig-grid-body-column-hover-border-color: color-mix(in srgb, var(--ig-grid-accent-color) 8%, var(--ig-grid-row-odd-background));
+    --ig-grid-row-hover-text-color: var(--ig-grid-foreground);
+    --ig-grid-row-border-width: 0.0625rem;
+    --ig-grid-row-border-style: solid;
+    --ig-grid-row-border-color: hsl(from color-mix(in srgb, var(--ig-grid-foreground) 16%, var(--ig-grid-background)) h s l/0.38);
+    --ig-grid-row-drag-color: var(--ig-grid-foreground);
+    --ig-grid-pinned-border-width: 0.125rem;
+    --ig-grid-pinned-border-style: solid;
+    --ig-grid-pinned-border-color: color-mix(in srgb, var(--ig-grid-foreground) 20%, var(--ig-grid-background));
+    --ig-grid-cell-active-border-width: 0.0625rem;
+    --ig-grid-cell-active-border-color: var(--ig-grid-accent-color);
+    --ig-grid-cell-selected-background: color-mix(in srgb, var(--ig-grid-accent-color) 24%, var(--ig-grid-background));
+    --ig-grid-tree-selected-filtered-cell-text-color: var(--ig-secondary-500);
+    --ig-grid-cell-selected-text-color: var(--ig-grid-foreground);
+    --ig-grid-cell-editing-background: var(--ig-grid-background);
+    --ig-grid-cell-editing-foreground: var(--ig-grid-foreground);
+    --ig-grid-cell-editing-focus-foreground: var(--ig-grid-foreground);
+    --ig-grid-edit-mode-color: var(--ig-grid-accent-color);
+    --ig-grid-edited-row-indicator: color-mix(in srgb, var(--ig-grid-foreground) 16%, var(--ig-grid-background));
+    --ig-grid-cell-new-color: var(--ig-grid-foreground);
+    --ig-grid-cell-edited-value-color: color-mix(in srgb, var(--ig-grid-foreground) 80%, var(--ig-grid-background));
+    --ig-grid-cell-disabled-color: color-mix(in srgb, var(--ig-grid-foreground) 50%, var(--ig-grid-background));
+    --ig-grid-resize-line-color: var(--ig-grid-accent-color);
+    --ig-grid-drop-indicator-color: var(--ig-grid-accent-color);
+    --ig-grid-group-label-column-name-text: var(--ig-grid-accent-color);
+    --ig-grid-group-label-icon: var(--ig-grid-accent-color);
+    --ig-grid-group-label-text: color-mix(in srgb, var(--ig-grid-foreground) 80%, var(--ig-grid-background));
+    --ig-grid-expand-all-icon-color: color-mix(in srgb, var(--ig-grid-foreground) 70%, var(--ig-grid-background));
+    --ig-grid-expand-all-icon-hover-color: color-mix(in srgb, var(--ig-grid-foreground) 80%, var(--ig-grid-background));
+    --ig-grid-expand-icon-color: color-mix(in srgb, var(--ig-grid-foreground) 60%, var(--ig-grid-background));
+    --ig-grid-expand-icon-hover-color: color-mix(in srgb, var(--ig-grid-foreground) 70%, var(--ig-grid-background));
+    --ig-grid-active-expand-icon-color: var(--ig-gray-500);
+    --ig-grid-active-expand-icon-hover-color: var(--ig-primary-500);
+    --ig-grid-group-count-background: color-mix(in srgb, var(--ig-grid-foreground) 12%, var(--ig-grid-background));
+    --ig-grid-group-count-text-color: var(--ig-grid-foreground);
+    --ig-grid-group-row-background: color-mix(in srgb, var(--ig-grid-foreground) 6%, var(--ig-grid-background));
+    --ig-grid-group-row-selected-background: color-mix(in srgb, var(--ig-grid-foreground) 6%, var(--ig-grid-background));
+    --ig-grid-filtering-header-background: var(--ig-grid-background);
+    --ig-grid-filtering-header-text-color: var(--ig-grid-foreground);
+    --ig-grid-filtering-row-background: var(--ig-grid-background);
+    --ig-grid-filtering-row-text-color: var(--ig-grid-foreground);
+    --ig-grid-filtering-dialog-background: var(--ig-grid-background);
+    --ig-grid-tree-filtered-text-color: var(--ig-gray-500);
+    --ig-grid-row-highlight: var(--ig-grid-accent-color);
+    --ig-grid-row-ghost-background: var(--ig-grid-background);
+    --ig-grid-row-ghost-border-color: hsl(from color-mix(in srgb, var(--ig-grid-foreground) 16%, var(--ig-grid-background)) h s l/0.38);
+    --ig-grid-drop-area-border-radius: clamp(0rem, calc(var(--ig-radius-factor, 1) * 1rem), 1rem);
+    --ig-grid-summaries-border-color: var(--ig-gray-400);
+    --ig-grid-summaries-patch-background: color-mix(in srgb, var(--ig-grid-foreground) 12%, var(--ig-grid-background));
+    --ig-grid-active-state-border-style: solid;
+    --ig-grid-header-text-color: var(--ig-grid-foreground);
+    --ig-grid-header-selected-background: color-mix(in srgb, var(--ig-grid-accent-color) 12%, var(--ig-grid-header-background));
+    --ig-grid-header-selected-text-color: var(--ig-grid-header-text-color);
+    --ig-grid-row-selected-background: color-mix(in srgb, var(--ig-grid-accent-color) 12%, var(--ig-grid-background));
+    --ig-grid-row-selected-hover-background: color-mix(in srgb, var(--ig-grid-accent-color) 16%, var(--ig-grid-background));
+    --ig-grid-row-selected-hover-text-color: var(--ig-grid-foreground);
+    --ig-grid-body-column-selected-border-color: color-mix(in srgb, var(--ig-grid-accent-color) 16%, var(--ig-grid-background));
+    --ig-grid-body-column-hover-selected-border-color: color-mix(in srgb, var(--ig-grid-accent-color) 12%, var(--ig-grid-background));
+    --ig-grid-cell-selected-within-background: color-mix(in srgb, var(--ig-grid-accent-color) 24%, var(--ig-grid-background));
+    --ig-grid-cell-selected-within-text-color: var(--ig-grid-foreground);
+    --ig-grid-background: #08002e;
+    --ig-grid-foreground: hsla(from color(from var(--ig-grid-background) var(--y-contrast)) h 0 l/1);
+    --ig-grid-accent-color: #ff7d52;
+}
+
+.playground {
+    display: flex;
+    align-items: stretch;
+    gap: 1.25rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    block-size: 100%;
+    min-block-size: 32.5rem;
+    overflow: hidden;
+}
+
+.playground__rail {
+    --ig-size: var(--ig-size-medium);
+
+    flex: 0 0 17.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-block-size: 0;
+    padding-inline-end: 0.25rem;
+}
+
+.playground__rail igc-accordion {
+    overflow-y: auto;
+}
+
+.playground__rail igc-expansion-panel [slot="title"] {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ig-gray-700);
+}
+
+.playground .playground__hint {
+    margin: 0 0 0.625rem;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: var(--ig-gray-600);
+}
+
+.playground__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.playground__color-control {
+    anchor-scope: --grid-color-input;
+}
+
+.playground__color-control igc-color-picker {
+    anchor-name: --grid-color-input;
+    inline-size: 100%;
+}
+
+.playground__color-control igc-icon-button {
+    position: absolute;
+    position-anchor: --grid-color-input;
+    inset-inline-end: calc(anchor(self-end) + 0.5rem);
+    align-self: anchor-center;
+    z-index: 1;
+}
+
+.playground__control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.playground__label {
+    font-size: 0.75rem;
+    color: var(--ig-gray-700);
+}
+
+.playground__actions {
+    position: sticky;
+    inset-block-end: 0;
+    z-index: 1;
+    display: flex;
+    gap: 0.5rem;
+    padding-block: 0.5rem;
+    background: var(--ig-surface-500);
+    border-block-start: 0.0625rem solid var(--ig-gray-200);
+}
+
+.playground__actions igc-button {
+    flex: 1;
+}
+
+.playground__dialog-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.playground__dialog-body {
+    --ig-size: var(--ig-size-medium);
+
+    inline-size: min(42.5rem, 80vw);
+    border: 0.0625rem solid var(--ig-gray-300);
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.playground__code-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--ig-gray-100);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.playground__copy {
+    margin-inline-start: auto;
+}
+
+.playground__code pre.shiki {
+    margin: 0;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    max-block-size: 55vh;
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+
+.playground__preview {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    min-block-size: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.playground__stage {
+    flex: 1 1 auto;
+    min-block-size: 0;
+    overflow: hidden;
+}
+
+.playground__cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 100%;
+}
+
+.playground__cell igc-avatar {
+    --ig-size: var(--ig-size-small);
+}
+
+igc-toggle-button[selected]::part(toggle) {
+    z-index: 1;
+}
+
+@media (max-width: 860px) {
+    .playground {
+        flex-direction: column;
+        block-size: auto;
+        overflow: visible;
+    }
+
+    .playground__rail {
+        flex: 0 0 auto;
+        overflow: visible;
+    }
+
+    .playground__stage {
+        min-block-size: 28.75rem;
+    }
+}
