@@ -7,7 +7,7 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 export default function RatingOverview(): JSX.Element {
     return (
         <div className="sample">
-            <IgrCard className="rating-card" elevated={true}>
+            <IgrCard className="rating-card">
                 <IgrCardHeader>
                     <span slot="title">Rate this product</span>
                     <span slot="subtitle">Your opinion matters to us!</span>

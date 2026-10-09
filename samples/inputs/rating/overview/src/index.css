@@ -10,7 +10,8 @@
 }
 
 .rating-card {
-    width: 14rem;
+    width: 15rem;
+    box-shadow: var(--ig-elevation-2);
 }
 
 .rating-card igc-card-content {

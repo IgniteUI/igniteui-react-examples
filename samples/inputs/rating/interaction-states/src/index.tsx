@@ -10,11 +10,11 @@ export default function RatingInteractionStates(): JSX.Element {
             <div className="states">
                 <div className="state">
                     <span className="state-label">Enabled</span>
-                    <IgrRating label="Rate your experience" />
+                    <IgrRating label="Rate your experience" value={1} />
                 </div>
                 <div className="state">
                     <span className="state-label">Disabled</span>
-                    <IgrRating label="Rate your experience" disabled={true} />
+                    <IgrRating label="Rate your experience" value={1} disabled={true} />
                 </div>
             </div>
         </div>
