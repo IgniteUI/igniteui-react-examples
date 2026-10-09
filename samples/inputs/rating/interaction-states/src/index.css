@@ -9,30 +9,25 @@
     padding: 1rem;
 }
 
-.examples {
+.states {
     display: flex;
     align-items: center;
     gap: 3.75rem;
 }
 
-.example {
+.state {
     display: flex;
     align-items: center;
     gap: 1.875rem;
 }
 
-.example-label {
-    font: 500 14px / 24px "Aktiv Grotesk", sans-serif;
+.state-label {
+    font: 400 14px / 24px "Aktiv Grotesk", sans-serif;
     letter-spacing: 0.1px;
-    color: #556c86;
+    color: var(--ig-gray-600);
 }
 
-.heart-rating {
-    --ig-rating-symbol-full-color: #d9357f;
-    --ig-rating-symbol-empty-color: #d9357f;
-}
-
-.star-rating {
-    --ig-rating-symbol-full-color: #faa419;
-    --ig-rating-symbol-empty-color: #8a8a8a;
+igc-rating {
+    --ig-rating-label-color: var(--ig-gray-700);
+    --ig-rating-disabled-label-color: var(--ig-gray-500);
 }
