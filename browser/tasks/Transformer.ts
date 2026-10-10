@@ -164,6 +164,8 @@ class Transformer {
 
     public static process(samples: SampleInfo[]): void {
 
+        let functionalExtras: SampleInfo[] = [];
+
         for (const info of samples) {
             // console.log("Transformer processing: " + info.SampleFolderPath);
 
@@ -192,13 +194,18 @@ class Transformer {
 
             // console.log("Transformer fileNames ...");
             let fileNames = [];
+            let functionalFileNames = [];
             let fileFound = [];
             for (const filePath of info.SampleFilePaths) {
                 // console.log(filePath);
                 fileFound.push(filePath);
                 if (Strings.includes(filePath, igConfig.SampleFileExtension) &&
                     Strings.excludes(filePath, igConfig.SampleFileExclusions, true)) {
-                        fileNames.push(filePath);
+                        if (filePath.endsWith('Functional.tsx')) {
+                            functionalFileNames.push(filePath);
+                        } else {
+                            fileNames.push(filePath);
+                        }
                 }
             }
 
@@ -212,72 +219,100 @@ class Transformer {
             } else if (fileNames.length > 1) {
                 console.log("WARNING Transformer cannot decide which " + igConfig.SampleFileExtension + " file to use for sample name: ");
                 console.log(" - " + fileNames.join("\n - "));
-            } else { // only one .tsx file per sample
+            } else { // only one .tsx file per sample (excluding Functional variants)
                 // console.log("Transformer fileNames[0]= " +  fileNames[0]);
-                info.SampleFilePath = fileNames[0];
-                info.SampleFileName = this.getFileName(info.SampleFilePath);
-                info.SampleFileSourcePath = "./src/" + info.SampleFileName;
-                info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
+                this.processSampleFile(info, fileNames[0]);
 
-                // let classExp = new RegExp(/(export.default.class.)(.*)(.\{)/g);
-                // let className = info.SampleFileSourceCode.match(classExp);
-                // let className = info.SampleFileSourceCode.match(classExp)[0];
-                // console.log("Transformer className1= " +  className);
-                // className = className.replace(/(export.default.class.)(.*)(.extends.*)/g, '$2');
-                // className = className.trim();
-                // console.log("Transformer className= " +  className);
-                // using folder names to make sure each sample has unique class name
-                let className = info.ComponentFolder + "-" + info.SampleFolderName;
-                className = Strings.replace(className, "/", " ");
-                className = Strings.replace(className, "-", " ");
-                className = Strings.toTitleCase(className);
-                className = Strings.replace(className, " ", "");
-                info.SampleFileSourceClass = className;
+                // create additional SampleInfo entries for each Functional variant
+                for (const funcPath of functionalFileNames) {
+                    let funcInfo = new SampleInfo();
+                    funcInfo.ComponentGroup = info.ComponentGroup;
+                    funcInfo.ComponentFolder = info.ComponentFolder;
+                    funcInfo.ComponentName = info.ComponentName;
+                    funcInfo.SampleFolderPath = info.SampleFolderPath;
+                    funcInfo.SampleFolderName = info.SampleFolderName;
+                    funcInfo.SampleFilePaths = info.SampleFilePaths;
+                    funcInfo.SampleFileNames = info.SampleFileNames;
 
-                // console.log("Transformer SampleFileSourceClass=" + info.SampleFileSourceClass);
+                    let funcFileName = this.getFileName(funcPath);
+                    let funcImportName = funcFileName.replace('.tsx', '');
 
-                let sampleBlocks = this.getSampleBlocks(info.SampleFileSourceCode);
-                info.SampleImportLines = sampleBlocks.ImportLines;
-                info.SampleImportFiles = sampleBlocks.ImportFiles;
-                info.SampleImportPackages = sampleBlocks.ImportPackages;
+                    funcInfo.SampleFilePath = funcPath;
+                    funcInfo.SampleFileName = funcFileName;
+                    funcInfo.SampleFileSourcePath = "./src/" + funcFileName;
+                    funcInfo.SampleFileSourceCode = transFS.readFileSync(funcPath, "utf8");
+                    funcInfo.SampleFileSourceClass = funcImportName;
 
-                // info.SampleImportName = info.SampleFileName.replace('.tsx','').replace('.ts','');
-                // info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
-                // info.SampleImportName = info.SampleFileSourceClass.replace('.ts', '');
-                // using folder names to make sure each sample has unique class name
-                info.SampleImportName = info.ComponentFolder + "-" + info.SampleFolderName;
-                info.SampleImportName = Strings.replace(info.SampleImportName, "/", " ");
-                info.SampleImportName = Strings.replace(info.SampleImportName, "-", " ");
-                info.SampleImportName = Strings.toTitleCase(info.SampleImportName);
-                info.SampleImportName = Strings.replace(info.SampleImportName, " ", "");
+                    funcInfo.SampleImportName = funcImportName;
+                    funcInfo.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + funcImportName;
 
-                // info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/' + info.SampleImportName;
-                info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/index';
+                    funcInfo.SampleRouteNew = info.SampleRouteNew + '-functional';
+                    funcInfo.SampleRouteOld = info.SampleRouteOld + '-functional';
 
-                // console.log("Transformer SampleDisplayName ...");
-                info.SampleDisplayName = Strings.splitCamel(info.SampleFileSourceClass);
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, info.ComponentName, "");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SampleFileExtension, "");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Type ", "");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Binding ", "Binding ");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Display ", "Display ");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Data Chart Type ", "");
-                info.SampleDisplayName = Strings.replace(info.SampleDisplayName, info.ComponentName + " ", "");
-                info.SampleDisplayName = info.SampleDisplayName.trim();
+                    funcInfo.SampleDisplayName = info.SampleDisplayName + ' (Functional)';
 
-                // console.log("Transformer Sandbox ...");
-                info.SandboxUrlView = this.getSandboxUrl(info, igConfig.SandboxUrlView);
-                info.SandboxUrlEdit = this.getSandboxUrl(info, igConfig.SandboxUrlEdit);
-                info.SandboxUrlShort = this.getSandboxUrl(info, igConfig.SandboxUrlShort);
+                    funcInfo.SandboxUrlView = info.SandboxUrlView;
+                    funcInfo.SandboxUrlEdit = info.SandboxUrlEdit;
+                    funcInfo.SandboxUrlShort = info.SandboxUrlShort;
+                    funcInfo.DocsUrl = info.DocsUrl;
 
-                // console.log("Transformer getDocsUrl ...");
-                info.DocsUrl = this.getDocsUrl(info);
-                // console.log("SAMPLE " + info.SampleFilePath + " => " + info.SampleDisplayName);
+                    functionalExtras.push(funcInfo);
+                }
             }
 
             // console.log(info.SampleFolderPath + " => " + info.SampleRouteNew + " => " + info.SampleDisplayName);
 
         }
+
+        // append functional variants so they appear in routing right after their class counterparts
+        for (const funcInfo of functionalExtras) {
+            samples.push(funcInfo);
+        }
+    }
+
+    private static processSampleFile(info: SampleInfo, filePath: string): void {
+        info.SampleFilePath = filePath;
+        info.SampleFileName = this.getFileName(info.SampleFilePath);
+        info.SampleFileSourcePath = "./src/" + info.SampleFileName;
+        info.SampleFileSourceCode = transFS.readFileSync(info.SampleFilePath, "utf8");
+
+        // using folder names to make sure each sample has unique class name
+        let className = info.ComponentFolder + "-" + info.SampleFolderName;
+        className = Strings.replace(className, "/", " ");
+        className = Strings.replace(className, "-", " ");
+        className = Strings.toTitleCase(className);
+        className = Strings.replace(className, " ", "");
+        info.SampleFileSourceClass = className;
+
+        let sampleBlocks = this.getSampleBlocks(info.SampleFileSourceCode);
+        info.SampleImportLines = sampleBlocks.ImportLines;
+        info.SampleImportFiles = sampleBlocks.ImportFiles;
+        info.SampleImportPackages = sampleBlocks.ImportPackages;
+
+        // using folder names to make sure each sample has unique class name
+        info.SampleImportName = info.ComponentFolder + "-" + info.SampleFolderName;
+        info.SampleImportName = Strings.replace(info.SampleImportName, "/", " ");
+        info.SampleImportName = Strings.replace(info.SampleImportName, "-", " ");
+        info.SampleImportName = Strings.toTitleCase(info.SampleImportName);
+        info.SampleImportName = Strings.replace(info.SampleImportName, " ", "");
+
+        info.SampleImportPath = './' + info.ComponentFolder + '/' + info.SampleFolderName + '/index';
+
+        info.SampleDisplayName = Strings.splitCamel(info.SampleFileSourceClass);
+        info.SampleDisplayName = Strings.replace(info.SampleDisplayName, info.ComponentName, "");
+        info.SampleDisplayName = Strings.replace(info.SampleDisplayName, igConfig.SampleFileExtension, "");
+        info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Type ", "");
+        info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Binding ", "Binding ");
+        info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Map Display ", "Display ");
+        info.SampleDisplayName = Strings.replace(info.SampleDisplayName, "Data Chart Type ", "");
+        info.SampleDisplayName = Strings.replace(info.SampleDisplayName, info.ComponentName + " ", "");
+        info.SampleDisplayName = info.SampleDisplayName.trim();
+
+        info.SandboxUrlView = this.getSandboxUrl(info, igConfig.SandboxUrlView);
+        info.SandboxUrlEdit = this.getSandboxUrl(info, igConfig.SandboxUrlEdit);
+        info.SandboxUrlShort = this.getSandboxUrl(info, igConfig.SandboxUrlShort);
+
+        info.DocsUrl = this.getDocsUrl(info);
     }
 
     public static getSandboxUrl(sampleInfo: SampleInfo, sandboxUrlFormat: string): string {
