@@ -1,0 +1,44 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.sizes {
+    display: flex;
+    align-items: center;
+    gap: 3.75rem;
+}
+
+.size {
+    display: flex;
+    align-items: center;
+    gap: 1.875rem;
+}
+
+.size-label {
+    font: 500 14px / 24px "Aktiv Grotesk", sans-serif;
+    letter-spacing: 0.1px;
+    color: var(--ig-gray-600);
+}
+
+igc-rating {
+    --ig-rating-label-color: var(--ig-gray-700);
+}
+
+.size-small {
+    --ig-size: var(--ig-size-small);
+}
+
+.size-medium {
+    --ig-size: var(--ig-size-medium);
+}
+
+.size-large {
+    --ig-size: var(--ig-size-large);
+}

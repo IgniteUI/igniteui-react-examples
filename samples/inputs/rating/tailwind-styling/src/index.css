@@ -1,0 +1,20 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import url("https://use.typekit.net/bng2zgw.css");
+@source "./index.tsx";
+
+@theme {
+    --color-product-ink: #00142b;
+    --color-product-muted: #556c86;
+    --color-product-border: #d2dbe8;
+    --color-product-primary: #0176ff;
+    --color-product-primary-hover: #005dcc;
+    --color-product-primary-active: #004699;
+    --color-rating-full: #faa419;
+    --color-rating-empty: #8a8a8a;
+    --color-rating-label: #616161;
+}
