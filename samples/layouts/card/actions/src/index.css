@@ -1,8 +1,6 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap");
-
 .container.sample {
     display: flex;
     flex-direction: row;
@@ -42,7 +40,6 @@
 
 .post-card [slot="title"] {
     color: var(--ig-gray-900);
-    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
     font-size: 1.25rem;
     font-weight: 600;
     line-height: 1.5rem;
@@ -51,7 +48,6 @@
 
 .post-card [slot="subtitle"] {
     color: var(--ig-gray-600);
-    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1.5rem;
@@ -66,7 +62,6 @@
 .post-card igc-card-content p {
     margin: 0;
     color: var(--ig-gray-700);
-    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.25rem;

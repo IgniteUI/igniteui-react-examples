@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap");
-
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
@@ -17,7 +15,8 @@
 .media-card {
     --ig-card-border-radius: 0.25rem;
 
-    inline-size: 15rem;
+    flex: 1 1 15rem;
+    max-inline-size: 16rem;
 }
 
 .media-card__media {
@@ -37,7 +36,6 @@
 .media-card [slot="title"] {
     margin-block-end: 0;
     color: var(--ig-gray-900);
-    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
     font-size: 1.125rem;
     font-weight: 600;
     line-height: 1.5rem;
@@ -46,7 +44,6 @@
 
 .media-card [slot="subtitle"] {
     color: var(--ig-gray-900);
-    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1.5rem;
@@ -76,7 +73,6 @@
 .media-card__action::part(base) {
     padding: 0;
     background: transparent;
-    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
     font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 0.25px;
