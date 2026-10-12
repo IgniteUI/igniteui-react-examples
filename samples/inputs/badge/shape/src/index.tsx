@@ -16,20 +16,20 @@ export default function BadgeShape(): JSX.Element {
         <div className="badge-shape">
             <div className="badge-shape-row">
                 <span className="row-label">Rounded</span>
-                <IgrBadge variant="success" shape="rounded">
+                <IgrBadge variant="success" shape="rounded" className="badge-large">
                     <IgrIcon name="check" collection="material" />
                 </IgrBadge>
-                <IgrBadge variant="success" shape="rounded">2</IgrBadge>
+                <IgrBadge variant="success" shape="rounded" className="badge-medium">2</IgrBadge>
                 <IgrBadge variant="success" shape="rounded" className="badge-small">
                     <IgrIcon name="check" collection="material" />
                 </IgrBadge>
             </div>
             <div className="badge-shape-row">
                 <span className="row-label">Square</span>
-                <IgrBadge variant="info" shape="square">
+                <IgrBadge variant="info" shape="square" className="badge-large">
                     <IgrIcon name="check" collection="material" />
                 </IgrBadge>
-                <IgrBadge variant="info" shape="square">2</IgrBadge>
+                <IgrBadge variant="info" shape="square" className="badge-medium">2</IgrBadge>
                 <IgrBadge variant="info" shape="square" className="badge-small">
                     <IgrIcon name="check" collection="material" />
                 </IgrBadge>
