@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrChip, IgrIcon, registerIconFromText } from 'igniteui-react';
@@ -10,12 +10,21 @@ const icons = [
 ];
 
 export default function ChipLayout(): JSX.Element {
+    const sampleRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         icons.forEach((icon) => registerIconFromText(icon.name, icon.text, 'material'));
     }, []);
 
+    // The chips only show their look, so inert keeps them out of the tab order and ignores pointer input.
+    useEffect(() => {
+        if (sampleRef.current) {
+            sampleRef.current.inert = true;
+        }
+    }, []);
+
     return (
-        <div className="sample chip-layout">
+        <div className="sample chip-layout" ref={sampleRef}>
             <div className="chip-layout-item">
                 <span>Text</span>
                 <IgrChip>Chip</IgrChip>

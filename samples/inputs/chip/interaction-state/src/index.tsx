@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrChip } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 export default function ChipInteractionState(): JSX.Element {
+    const sampleRef = useRef<HTMLDivElement>(null);
+
+    // The chips only show their look, so inert keeps them out of the tab order and ignores pointer input.
+    useEffect(() => {
+        if (sampleRef.current) {
+            sampleRef.current.inert = true;
+        }
+    }, []);
+
     return (
-        <div className="sample chip-states">
+        <div className="sample chip-states" ref={sampleRef}>
             <div className="chip-states-item">
                 <span>Enabled</span>
                 <IgrChip removable>Chip</IgrChip>

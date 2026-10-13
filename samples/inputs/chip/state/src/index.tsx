@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrChip, IgrIcon, registerIconFromText } from 'igniteui-react';
@@ -14,12 +14,22 @@ const states = [
 ];
 
 export default function ChipState(): JSX.Element {
+    const sampleRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         registerIconFromText('arrow_upward', arrowUpwardIcon, 'material');
     }, []);
 
+    // The chips only show their look, so inert keeps them out of the tab order and ignores pointer input.
+    // It also keeps a real hover or focus from changing the hover and focused chips.
+    useEffect(() => {
+        if (sampleRef.current) {
+            sampleRef.current.inert = true;
+        }
+    }, []);
+
     return (
-        <div className="sample chip-state">
+        <div className="sample chip-state" ref={sampleRef}>
             {states.map((state) => (
                 <div className="chip-state-item" key={state.label}>
                     <span>{state.label}</span>

@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrChip } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 export default function ChipTypes(): JSX.Element {
+    const sampleRef = useRef<HTMLDivElement>(null);
+
+    // The chips only show their look, so inert keeps them out of the tab order and ignores pointer input.
+    useEffect(() => {
+        if (sampleRef.current) {
+            sampleRef.current.inert = true;
+        }
+    }, []);
+
     return (
-        <div className="sample chip-types">
+        <div className="sample chip-types" ref={sampleRef}>
             <div className="chip-types-item">
                 <span>Default</span>
                 <IgrChip removable>Chip</IgrChip>
