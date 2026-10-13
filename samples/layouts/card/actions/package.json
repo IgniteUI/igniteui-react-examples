@@ -1,6 +1,6 @@
 {
-  "name": "react-card-semi-horizontal",
-  "description": "This project provides example of Icon Sizing using Infragistics React components",
+  "name": "react-card-actions",
+  "description": "This project provides example of Card Actions using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "igniteui-dockmanager": "^1.17.0",
-    "igniteui-react": "19.9.0",
+    "igniteui-react": "19.7.0",
     "igniteui-react-core": "19.6.0",
-    "igniteui-webcomponents": "^7.4.1",
+    "igniteui-webcomponents": "^7.2.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tslib": "^2.4.0"
