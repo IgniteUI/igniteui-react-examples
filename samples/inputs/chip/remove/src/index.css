@@ -1,0 +1,15 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.chip-remove {
+    --ig-size: var(--ig-size-medium);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The chip host is a block box, so its line box would add height around the chip. */
+.chip-remove igc-chip {
+    display: flex;
+}
