@@ -13,6 +13,7 @@
  */
 
 import { configureTheme } from 'igniteui-react';
+import { applyThemeIcons } from './sample-icons';
 
 type ThemeName = 'material' | 'fluent' | 'bootstrap' | 'indigo';
 type ThemeMode = 'light' | 'dark' | 'system';
@@ -145,6 +146,7 @@ function applyTheme(theme: ThemeName, mode: ThemeMode): void {
             // Tell the Shadow DOM / Lit components to re-adopt their
             // per-theme stylesheet now that the global CSS is in place.
             configureTheme(theme, resolved);
+            applyThemeIcons(theme);
         })
         .catch((err) => {
             console.warn('[sample-theme] Could not load theme "' + theme + '":', err);
