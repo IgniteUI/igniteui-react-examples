@@ -1,0 +1,28 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.modes {
+    display: grid;
+    grid-template-columns: 6.1875rem 33.125rem;
+    align-items: center;
+    row-gap: 3.75rem;
+}
+
+.modes igc-tabs[alignment="justify"]::part(inner) {
+    flex-grow: 1;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.mode-label {
+    font: 400 13px / 20px "Aktiv Grotesk", sans-serif;
+    letter-spacing: 0.3px;
+    color: var(--ig-gray-600);
+}
