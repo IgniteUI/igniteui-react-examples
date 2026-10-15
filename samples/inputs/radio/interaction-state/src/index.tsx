@@ -58,7 +58,7 @@ export default function RadioInteractionState(): JSX.Element {
                                 {states.map((state) => (
                                     <IgrRadio
                                         key={state.caption}
-                                        className={state.className}
+                                        className={row.checked ? state.className : `${state.className} off`}
                                         checked={row.checked}
                                         invalid={group.invalid}
                                     >
