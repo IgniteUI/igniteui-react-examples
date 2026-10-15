@@ -15,7 +15,7 @@
 .sample {
   display: flex;
   justify-content: center;
-  font-family: "Aktiv Grotesk", sans-serif;
+  font-family: var(--ig-font-family);
 }
 
 span {
@@ -23,6 +23,7 @@ span {
   width: 3.75rem;
   margin-inline-end: 2rem;
   font-size: 0.875rem;
+  font-family: "Aktiv Grotesk", sans-serif;
 }
 
 nav {
