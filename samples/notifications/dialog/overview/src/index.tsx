@@ -1,54 +1,31 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrButton, IgrDialog } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default class DialogOverview extends React.Component<any, any> {
+export default function DialogOverview(): JSX.Element {
+    const dialogRef = useRef<IgrDialog>(null);
 
-    public dialogRef: IgrDialog;
+    const showDialog = () => dialogRef.current?.show();
+    const hideDialog = () => dialogRef.current?.hide();
 
-    constructor(props: any) {
-        super(props);
-        this.onDialogRef = this.onDialogRef.bind(this);
-        this.onDialogShow = this.onDialogShow.bind(this);
-        this.onDialogHide = this.onDialogHide.bind(this);
-    }
-
-    public render(): JSX.Element {
-        return (
-            <div className="container sample">
-                <IgrButton variant="contained" onClick={this.onDialogShow}>
-                    <span>Show Dialog</span>
+    return (
+        <div className="sample">
+            <IgrButton variant="outlined" className="open-button" onClick={showDialog}>
+                <span>Open dialog</span>
+            </IgrButton>
+            <IgrDialog ref={dialogRef} title="Confirmation" open>
+                <span slot="message">Your email will be permanently deleted</span>
+                <IgrButton slot="footer" variant="flat" onClick={hideDialog}>
+                    <span>Cancel</span>
                 </IgrButton>
-
-                <IgrDialog title="Confirmation" ref={this.onDialogRef}>
-                    <p>Are you sure you want to delete the Annual_Report_2016.pdf and Annual_Report_2017.pdf files?</p>
-                    <div slot="footer">
-                        <IgrButton onClick={this.onDialogHide} variant="flat"><span>Cancel</span></IgrButton>
-                        <IgrButton onClick={this.onDialogHide} variant="flat"><span>OK</span></IgrButton>
-                    </div>
-                </IgrDialog>
-            </div>
-        );
-    }
-
-    public onDialogRef(dialog: IgrDialog){
-        if (!dialog) { return; }
-        this.dialogRef = dialog;
-    }
-
-    public onDialogShow() {
-        if(this.dialogRef){
-            this.dialogRef.show();
-        }
-    }
-
-    public onDialogHide() {
-        if(this.dialogRef){
-            this.dialogRef.hide();
-        }
-    }
+                <IgrButton slot="footer" variant="flat" onClick={hideDialog}>
+                    <span>OK</span>
+                </IgrButton>
+            </IgrDialog>
+        </div>
+    );
 }
 
 // rendering above class to the React DOM

@@ -1,0 +1,20 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@import url("https://use.typekit.net/bng2zgw.css");
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "./index.tsx";
+
+@theme {
+    --color-export-surface: #002b5c;
+    --color-export-ink: #fcfcfc;
+    --color-export-muted: #a9b8cc;
+    --color-export-accent: #f95924;
+    --color-export-accent-hover: #e04f20;
+    --color-invite-surface: #e6f2ff;
+    --color-invite-border: #99c9ff;
+    --color-invite-ink: #004699;
+    --color-invite-link: #0176ff;
+}

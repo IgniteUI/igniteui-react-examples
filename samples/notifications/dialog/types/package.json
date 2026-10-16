@@ -1,6 +1,6 @@
 {
-  "name": "react-dialog-closing-variations",
-  "description": "This project provides example of Dialog Closing Variations using Infragistics React components",
+  "name": "react-dialog-types",
+  "description": "This project provides an example of Dialog types using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
