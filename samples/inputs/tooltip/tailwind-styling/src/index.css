@@ -1,0 +1,19 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@import url("https://use.typekit.net/bng2zgw.css");
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "./index.tsx";
+
+@theme {
+    --color-btc-ink: #00142b;
+    --color-btc-text: #212121;
+    --color-btc-muted: #616161;
+    --color-btc-border: #e0e0e0;
+    --color-btc-icon: #f95924;
+    --color-btc-exchange: #e04f1f;
+    --color-btc-accent: #0176ff;
+    --color-chart-border: #d2dbe8;
+}
