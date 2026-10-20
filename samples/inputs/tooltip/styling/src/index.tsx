@@ -24,7 +24,7 @@ export default function TooltipStyling(): JSX.Element {
                 <IgrListItem>
                     <div slot="start" className="avatar">
                         <IgrAvatar
-                            src="https://dl.infragistics.com/x/img/avatars/avatar-profile-03.png"
+                            src="https://dl.infragistics.com/x/img/tooltip/tooltip-person.jpg"
                             shape="circle"
                             alt="Aron Watson"
                         />
