@@ -44,6 +44,11 @@ jobs:
       - name: Type check
         run: npm run check
 
+      # Samples are outside `astro check`. Their own tsconfigs cannot see the
+      # IG packages' types, so this checks them all with one shared config.
+      - name: Type check samples
+        run: npm run check:samples
+
       - name: Build
         run: npm run build
 

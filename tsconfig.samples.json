@@ -1,0 +1,23 @@
+{
+  // Type-checks every sample in one program; run through `npm run check:samples`.
+  // The add:sample tsconfig settings (see scripts/lib/templates.js), but not
+  // strict: the generated samples are not written for strict mode.
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": ["es2020", "dom", "dom.iterable"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "types": ["vite/client"],
+    // TypeScript 6 is strict by default.
+    "strict": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": [
+    "samples/*/*/*/src/**/*",
+    "scripts/lib/sample-globals.d.ts"
+  ]
+}

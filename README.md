@@ -132,7 +132,12 @@ Use the same `BASE_PATH` for the build and the tests. CI builds and tests with `
    - the sample appears in the sidebar
    - it loads without errors in the browser console
 
-4. Commit, push, and open a pull request targeting `vnext`. Include a screenshot of the running sample.
+4. Type-check it along with every other sample (CI runs the same check):
+   ```bash
+   npm run check:samples
+   ```
+
+5. Commit, push, and open a pull request targeting `vnext`. Include a screenshot of the running sample.
 
 ## Updating Ignite UI Package Versions
 
@@ -156,6 +161,7 @@ Do **not** edit version strings in `package.json` files by hand; CI fails when a
 | `npm run preview` | Serve `dist/` on port 4200 |
 | `npm run test:smoke` | Run the Playwright smoke tests against the production build |
 | `npm run check` | Type-check `src/` and `tests/` with `astro check` |
+| `npm run check:samples` | Type-check every sample; failures allowed only for samples in `scripts/lib/known-type-errors.json` |
 | `npm run add:sample` | Scaffold `samples/{group}/{component}/{name}/` |
 | `npm run update:ig` | Apply `scripts/lib/versions.js` to every `package.json` |
 | `npm run generate:code-viewer` | Regenerate `public/code-viewer/**/*.json` |

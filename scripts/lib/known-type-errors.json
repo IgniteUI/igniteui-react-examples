@@ -1,0 +1,30 @@
+{
+  "//": "Published samples that fail `npm run check:samples`, and why. The check fails on any other sample with a type error, and on a sample listed here that no longer has one: fix a sample, then remove it here. `npx tsc -p tsconfig.samples.json` prints every error.",
+  "samples": {
+    "editors/x-date-picker/date-limits": "root.render() without `const root = ReactDOM.createRoot(...)`",
+    "editors/x-date-picker/editing": "root.render() without `const root = ReactDOM.createRoot(...)`",
+    "editors/x-date-picker/format": "root.render() without `const root = ReactDOM.createRoot(...)`",
+    "grids/data-grid/column-resizing": "renders <DataGridColumnResizing/>; the component is GridColumnResizing",
+    "grids/data-grid/row-selection": "root.render() without `const root = ReactDOM.createRoot(...)`",
+    "grids/grid/disabled-summaries": "igniteui-react-grids publishes no types for the grids/combined side-effect import",
+    "grids/grid/editing-excel-style": "useRef() needs an initial value in React 19",
+    "grids/grid/localization": "IgrSelect onChange handler typed as a DOM <select> change event",
+    "grids/grid/remote-paging-grid": "igniteui-react-grids publishes no types for the grids/combined side-effect import",
+    "grids/grid/row-pinning-extra-column": "rowList is an array; it has no toArray()",
+    "grids/grid-lite/sort-config-events": "IgrRating has readOnly, not readonly",
+    "grids/grid-lite/sort-config-pipeline": "IgrRating has readOnly, not readonly",
+    "grids/grid-lite/styling-config-themes": "igc-select and igc-grid-lite tags used in JSX without type declarations",
+    "inputs/badge/dot": "IgrAvatar has no size prop",
+    "inputs/badge/icon": "IgrAvatar has no size prop",
+    "inputs/badge/overview": "IgrAvatar has no size prop",
+    "inputs/badge/tailwind-styling": "IgrAvatar has no size prop",
+    "inputs/badge/type": "IgrAvatar has no size prop",
+    "inputs/button-group/custom-toggle": "selectionMode=\"multi\"; the values are single, single-required and multiple",
+    "inputs/color-picker/styling": "IgrColorPicker has no placeholder prop",
+    "inputs/color-picker/tailwind-styling": "IgrColorPicker has no size prop",
+    "interactions/chat/features": "createChatMarkdownRenderer() requires an options argument",
+    "maps/geo-map/display-azure-imagery": "ref callback returns a value, which React 19 reads as a cleanup function",
+    "maps/geo-map/display-bing-imagery": "ref callback returns a value, which React 19 reads as a cleanup function",
+    "scheduling/date-range-picker/slots": "useRef() needs an initial value in React 19"
+  }
+}
