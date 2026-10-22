@@ -161,7 +161,7 @@ Do **not** edit version strings in `package.json` files by hand; CI fails when a
 | `npm run preview` | Serve `dist/` on port 4200 |
 | `npm run test:smoke` | Run the Playwright smoke tests against the production build |
 | `npm run check` | Type-check `src/` and `tests/` with `astro check` |
-| `npm run check:samples` | Type-check every published sample |
+| `npm run check:samples` | Type-check every published sample, except the generated ones listed in `scripts/lib/skip-type-check.json` |
 | `npm run add:sample` | Scaffold `samples/{group}/{component}/{name}/` |
 | `npm run update:ig` | Apply `scripts/lib/versions.js` to every `package.json` |
 | `npm run generate:code-viewer` | Regenerate `public/code-viewer/**/*.json` |

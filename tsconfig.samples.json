@@ -11,6 +11,9 @@
     "types": ["vite/client"],
     // TypeScript 6 is strict by default.
     "strict": false,
+    // Off in TypeScript 5.9, which the samples build with. On, it rejects
+    // untyped side-effect entries such as igniteui-react-grids/grids/combined.
+    "noUncheckedSideEffectImports": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "skipLibCheck": true,

@@ -11,15 +11,18 @@
  * checks all of them with bundler resolution instead; one program over every
  * sample takes well under a minute, where ~1000 `tsc -p` runs take an hour.
  *
- * Any type error fails the check. Samples in lib/unpublished.json are
- * skipped, as they are everywhere else.
+ * Any type error fails the check. Skipped: samples in lib/unpublished.json,
+ * as everywhere else, and in lib/skip-type-check.json, generated samples
+ * whose fix has to land in igniteui-xplat-examples.
  */
 import path from 'node:path';
 import ts from 'typescript';
 
 import { REPO_ROOT, UNPUBLISHED } from './lib/samples.js';
+import skipTypeCheck from './lib/skip-type-check.json' with { type: 'json' };
 
 const CONFIG = path.join(REPO_ROOT, 'tsconfig.samples.json');
+const SKIPPED = new Set([...UNPUBLISHED, ...Object.keys(skipTypeCheck.samples)]);
 
 // samples/<group>/<component>/<name>/… → <group>/<component>/<name>
 const SLUG_RE = /^samples\/([^/]+\/[^/]+\/[^/]+)\//;
@@ -55,7 +58,7 @@ function run() {
     process.exit(1);
   }
 
-  const fileNames = parsed.fileNames.filter(f => !UNPUBLISHED.has(slugOf(f)));
+  const fileNames = parsed.fileNames.filter(f => !SKIPPED.has(slugOf(f)));
   const checked = new Set(fileNames.map(slugOf).filter(Boolean));
   const program = ts.createProgram(fileNames, parsed.options);
 
