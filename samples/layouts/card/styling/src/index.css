@@ -1,0 +1,174 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@import url("https://use.typekit.net/bng2zgw.css");
+
+.container.sample {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3.75rem;
+    padding: 2.5rem 1.5rem;
+}
+
+.balance-card {
+    --ig-card-border-radius: 1rem;
+    --ig-card-outline-color: #99c9ff;
+
+    position: relative;
+    inline-size: 312px;
+    padding: 0.5rem;
+    background: #e6f2ff;
+}
+
+.balance-card igc-card-header {
+    padding: 1rem 1rem 0;
+}
+
+.balance-card [slot="title"] {
+    color: #004699;
+    font-family: "aktiv-grotesk", "Aktiv Grotesk", Arial, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.1px;
+}
+
+.trend-chip {
+    position: absolute;
+    block-size: 24px;
+    inset-block-start: 1.5rem;
+    inset-inline-end: 1.5rem;
+    z-index: 1;
+}
+
+.trend-chip::part(base) {
+    box-sizing: border-box;
+    block-size: 24px;
+    padding: 2px 6px;
+    border: none;
+    border-radius: 16px;
+    background: #cce4ff;
+    color: #004699;
+    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.25px;
+}
+
+.trend-chip::part(prefix) {
+    color: #004699;
+}
+
+.trend-chip igc-icon {
+    --ig-icon-size: 1.25rem;
+}
+
+.balance-card igc-card-content {
+    padding: 0 1rem;
+    overflow: visible;
+}
+
+.balance-amount {
+    display: block;
+    color: #0176ff;
+    font-family: "aktiv-grotesk", "Aktiv Grotesk", Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.5rem;
+    letter-spacing: 0;
+}
+
+.balance-card igc-card-actions {
+    padding: 1rem;
+}
+
+.balance-actions {
+    display: inline-flex;
+    gap: 0.5rem;
+}
+
+.balance-actions igc-icon-button {
+    --ig-flat-icon-button-foreground: #004699;
+}
+
+.balance-actions igc-icon-button::part(base) {
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.support-card {
+    --ig-card-border-radius: 1rem;
+    --ig-card-outline-color: #e5ebf3;
+
+    position: relative;
+    inline-size: 246px;
+    padding: 0.5rem;
+    background: #ffffff;
+}
+
+.support-media {
+    block-size: 124px;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.support-media img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: contain;
+}
+
+.support-tag {
+    position: absolute;
+    inset-block-start: 0.75rem;
+    inset-inline-start: 1rem;
+    z-index: 1;
+}
+
+.support-tag::part(base) {
+    box-sizing: border-box;
+    block-size: 24px;
+    padding: 2px 10px;
+    border: none;
+    border-radius: 16px;
+    background: #e6f2ff;
+    color: #004699;
+    font-family: "Titillium Web", Verdana, Tahoma, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.25px;
+}
+
+.support-card igc-card-header {
+    padding: 1rem 1rem 0;
+}
+
+.support-card [slot="title"] {
+    color: #004699;
+    margin-block-end: 0;
+    font-family: "aktiv-grotesk", "Aktiv Grotesk", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+}
+
+.support-card igc-card-actions {
+    padding: 1rem 1rem 0.5rem;
+}
+
+.support-link {
+    color: #7d91ab;
+    font-family: "aktiv-grotesk", "Aktiv Grotesk", Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1rem;
+    letter-spacing: 0.15px;
+}
