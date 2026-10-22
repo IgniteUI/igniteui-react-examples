@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrChip } from 'igniteui-react';
@@ -13,7 +12,7 @@ const variants = [
     { label: 'Danger', variant: 'danger' },
 ] as const;
 
-export default function ChipOutlined(): JSX.Element {
+export default function ChipOutlined() {
     return (
         <div className="sample chip-outlined">
             {variants.map((item) => (
@@ -26,6 +25,6 @@ export default function ChipOutlined(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<ChipOutlined/>);

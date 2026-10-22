@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrChip, IgrIcon, registerIconFromText } from 'igniteui-react';
@@ -13,7 +13,7 @@ const states = [
     { label: 'Selected', className: '', selected: true },
 ];
 
-export default function ChipState(): JSX.Element {
+export default function ChipState() {
     const sampleRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -43,6 +43,6 @@ export default function ChipState(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<ChipState/>);

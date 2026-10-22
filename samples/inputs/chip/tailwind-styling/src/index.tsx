@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrChip, IgrIcon, registerIconFromText } from 'igniteui-react';
@@ -34,7 +34,7 @@ const availableChip =
     '[--ig-chip-hover-outlined-background:var(--color-activity-tint-strong)] [--ig-chip-hover-outlined-text-color:var(--color-activity-primary)] [--ig-chip-hover-border-color:var(--color-activity-primary)] ' +
     '[--ig-chip-focus-outlined-background:var(--color-activity-tint-strong)] [--ig-chip-focus-outlined-text-color:var(--color-activity-primary)] [--ig-chip-focus-border-color:var(--color-activity-primary)]';
 
-export default function ChipTailwindStyling(): JSX.Element {
+export default function ChipTailwindStyling() {
     const [selected, setSelected] = useState<Activity[]>(activities.slice(0, 2));
     const available = activities.filter((activity) => !selected.includes(activity));
     const cardRef = useRef<HTMLDivElement>(null);
@@ -118,6 +118,6 @@ export default function ChipTailwindStyling(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<ChipTailwindStyling/>);

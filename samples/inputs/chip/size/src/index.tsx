@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrChip, IgrIcon, registerIconFromText } from 'igniteui-react';
@@ -15,7 +15,7 @@ const sizes = [
     { label: 'Large', className: 'size-large' },
 ];
 
-export default function ChipSize(): JSX.Element {
+export default function ChipSize() {
     useEffect(() => {
         icons.forEach((icon) => registerIconFromText(icon.name, icon.text, 'material'));
     }, []);
@@ -36,6 +36,6 @@ export default function ChipSize(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<ChipSize/>);

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrButton, IgrChip, IgrInput } from 'igniteui-react';
@@ -6,7 +6,7 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const skills = ['Figma', 'React', 'CSS', 'Prototyping', 'Motion Design'];
 
-export default function ChipOverview(): JSX.Element {
+export default function ChipOverview() {
     const [name, setName] = useState('Jordan Lee');
     const [selectedSkills, setSelectedSkills] = useState<string[]>(['Prototyping', 'Motion Design']);
     const skillsRef = useRef<HTMLDivElement>(null);
@@ -94,6 +94,6 @@ export default function ChipOverview(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<ChipOverview/>);

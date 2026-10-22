@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrButton, IgrChip } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default function ChipRemove(): JSX.Element {
+export default function ChipRemove() {
     const [isVisible, setIsVisible] = useState(true);
     const hasToggled = useRef(false);
     const chipRef = useRef<IgrChip>(null);
@@ -46,6 +46,6 @@ export default function ChipRemove(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<ChipRemove/>);

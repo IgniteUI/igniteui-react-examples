@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrChip } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default function ChipTypes(): JSX.Element {
+export default function ChipTypes() {
     const sampleRef = useRef<HTMLDivElement>(null);
 
     // The chips only show their look, so inert keeps them out of the tab order and ignores pointer input.
@@ -28,6 +28,6 @@ export default function ChipTypes(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<ChipTypes/>);
