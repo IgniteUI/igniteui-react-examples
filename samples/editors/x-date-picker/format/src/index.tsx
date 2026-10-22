@@ -47,4 +47,6 @@ export default class DatePickerFormat extends React.Component<any, any> {
     }
 }
 
+// rendering above class to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<DatePickerFormat/>);
