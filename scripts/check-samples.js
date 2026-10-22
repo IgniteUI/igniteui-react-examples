@@ -11,19 +11,15 @@
  * checks all of them with bundler resolution instead; one program over every
  * sample takes well under a minute, where ~1000 `tsc -p` runs take an hour.
  *
- * Samples listed in lib/known-type-errors.json may fail. Any other sample
- * with an error fails the check, and so does a listed sample that no longer
- * has one, so the list only shrinks.
+ * Any type error fails the check. Samples in lib/unpublished.json are
+ * skipped, as they are everywhere else.
  */
 import path from 'node:path';
 import ts from 'typescript';
 
 import { REPO_ROOT, UNPUBLISHED } from './lib/samples.js';
-import knownErrors from './lib/known-type-errors.json' with { type: 'json' };
 
 const CONFIG = path.join(REPO_ROOT, 'tsconfig.samples.json');
-const KNOWN_FILE = 'scripts/lib/known-type-errors.json';
-const KNOWN = new Set(Object.keys(knownErrors.samples));
 
 // samples/<group>/<component>/<name>/… → <group>/<component>/<name>
 const SLUG_RE = /^samples\/([^/]+\/[^/]+\/[^/]+)\//;
@@ -63,42 +59,20 @@ function run() {
   const checked = new Set(fileNames.map(slugOf).filter(Boolean));
   const program = ts.createProgram(fileNames, parsed.options);
 
-  // Errors by sample; anything else (config, globals) is never allowed.
-  const bySlug = new Map();
-  const other = [];
-  for (const d of ts.getPreEmitDiagnostics(program)) {
-    const slug = d.file && slugOf(d.file.fileName);
-    if (!slug) {
-      other.push(d);
-      continue;
-    }
-    if (!bySlug.has(slug)) {
-      bySlug.set(slug, []);
-    }
-    bySlug.get(slug).push(d);
+  const diagnostics = ts.getPreEmitDiagnostics(program);
+  const failing = [...new Set(diagnostics.map(d => d.file && slugOf(d.file.fileName)).filter(Boolean))].sort();
+
+  if (diagnostics.length) {
+    report(diagnostics);
   }
 
-  const failing = [...bySlug.keys()].filter(slug => !KNOWN.has(slug)).sort();
-  const stale = [...KNOWN].filter(slug => !bySlug.has(slug)).sort();
-
-  if (other.length) {
-    report(other);
-  }
-  for (const slug of failing) {
-    report(bySlug.get(slug));
-  }
-
-  console.log(`Type-checked ${checked.size} sample(s); ${bySlug.size - failing.length} known to fail (${KNOWN_FILE}).`);
+  console.log(`Type-checked ${checked.size} sample(s).`);
 
   if (failing.length) {
     console.error(`\n${failing.length} sample(s) have type errors:`);
     failing.forEach(slug => console.error(`  ${slug}`));
   }
-  if (stale.length) {
-    console.error(`\n${stale.length} sample(s) in ${KNOWN_FILE} no longer fail; remove them from the list:`);
-    stale.forEach(slug => console.error(`  ${slug}`));
-  }
-  if (other.length || failing.length || stale.length) {
+  if (diagnostics.length) {
     process.exit(1);
   }
 }
