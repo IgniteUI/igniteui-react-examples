@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [vnext]
+  pull_request:
+    branches: [vnext, master]
+
+# Cancel superseded runs on the same PR/branch.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  # Build and test the deployed shape: https://www.infragistics.com/react-demos
+  BASE_PATH: /react-demos
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Use Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24.x
+          cache: npm
+
+      - name: npm ci
+        run: npm ci
+
+      # Sample package.json files must match scripts/lib/versions.js;
+      # a hand-edited version would silently drift from every other sample.
+      - name: Package versions in sync
+        run: |
+          npm run update:ig
+          git diff --exit-code -- package.json 'samples/**/package.json'
+
+      - name: Type check
+        run: npm run check
+
+      - name: Build
+        run: npm run build
+
+      # Browser binaries are cached per Playwright version; OS deps (apt) are
+      # not cacheable and are installed on every run.
+      - name: Get Playwright version
+        id: playwright
+        run: echo "version=$(npx playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Playwright browser
+        id: playwright-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
+
+      # Headless tests only need the headless shell, not full Chromium.
+      - name: Install Playwright browser
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps --only-shell chromium
+
+      - name: Install Playwright OS deps
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Smoke tests
+        run: npm run test:smoke

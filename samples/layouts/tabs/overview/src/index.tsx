@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { IgrTabs, IgrTab, IgrIcon, registerIconFromText } from "igniteui-react";
@@ -11,35 +10,27 @@ registerIconFromText("home", home, "material");
 registerIconFromText("search", search, "material");
 registerIconFromText("favorite", favorite, "material");
 
-export default class Overview extends React.Component<any, any> {
-
-  constructor(props: any) {
-    super(props);
-  }
-
-  public render(): JSX.Element {
-    return (
-      <div className="container sample">
-        <IgrTabs>
-          <IgrTab>
-            <IgrIcon slot="label" name='home' collection="material"></IgrIcon>
-            <span>Home tab panel</span>
-          </IgrTab>
-          <IgrTab>
-             <IgrIcon slot="label" name='search' collection="material"></IgrIcon>
-             <span>Search tab panel</span>
-          </IgrTab>
-          <IgrTab>
-             <IgrIcon slot="label" name='favorite' collection="material"></IgrIcon>
-             <span>Favorite tab panel</span>
-          </IgrTab>
-        </IgrTabs>
-      </div>
-    );
-  }
-
+export default function Overview() {
+  return (
+    <div className="container sample">
+      <IgrTabs>
+        <IgrTab>
+          <IgrIcon slot="label" name='home' collection="material"></IgrIcon>
+          <span>Home tab panel</span>
+        </IgrTab>
+        <IgrTab>
+           <IgrIcon slot="label" name='search' collection="material"></IgrIcon>
+           <span>Search tab panel</span>
+        </IgrTab>
+        <IgrTab>
+           <IgrIcon slot="label" name='favorite' collection="material"></IgrIcon>
+           <span>Favorite tab panel</span>
+        </IgrTab>
+      </IgrTabs>
+    </div>
+  );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<Overview/>);

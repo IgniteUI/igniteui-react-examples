@@ -1,6 +1,3 @@
-<!-- NOTE: do not change this file because it's auto re-generated from template: -->
-<!-- https://github.com/IgniteUI/igniteui-react-examples/tree/vnext/templates/sample/ReadMe.md -->
-
 This folder contains implementation of React application with example of Value Format feature using [Slider](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) component.
 
 
@@ -14,9 +11,6 @@ This folder contains implementation of React application with example of Value F
         </a>
         <a target="_blank" href="https://www.infragistics.com/react-demos/samples/inputs/slider/value-format" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://dl.infragistics.com/x/img/browsers/button-run.png"/>
-        </a>
-        <a target="_blank" href="https://codesandbox.io/s/github/IgniteUI/igniteui-react-examples/tree/master/samples/inputs/slider/value-format?fontsize=14&hidenavigation=1&theme=dark&view=preview&file=/src/index.tsx" rel="noopener noreferrer">
-            <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://dl.infragistics.com/x/img/browsers/button-sandbox.png"/>
         </a>
     </body>
 </html>
@@ -32,8 +26,8 @@ Follow these instructions to run this example:
 
 ```
 git clone https://github.com/IgniteUI/igniteui-react-examples.git
-git checkout master
 cd ./igniteui-react-examples
+git checkout master
 cd ./samples/inputs/slider/value-format
 ```
 
@@ -44,8 +38,8 @@ code .
 
 In terminal window, run:
 ```
-npm install --legacy-peer-deps
-npm run-script start
+npm install
+npm start
 ```
 
 Then open http://localhost:4200/ in your browser
