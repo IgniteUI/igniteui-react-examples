@@ -1,0 +1,21 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+igc-color-picker::part(picker) {
+    margin-top: 0.5rem;
+}
+
+@media (width < 450px) {
+    .container {
+        flex-direction: column;
+        justify-content: normal;
+        gap: 35%;
+        align-items: center;
+    }
+}

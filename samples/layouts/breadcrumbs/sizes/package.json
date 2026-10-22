@@ -1,0 +1,42 @@
+{
+  "name": "react-breadcrumbs-sizes",
+  "description": "This project provides example of Breadcrumbs Sizes using Infragistics React components",
+  "author": "Infragistics",
+  "homepage": ".",
+  "version": "1.4.0",
+  "private": true,
+  "scripts": {
+    "start": "vite --port 4200",
+    "build": "tsc && node --max-old-space-size=4096 node_modules/vite/bin/vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "igniteui-dockmanager": "^2.2.1",
+    "igniteui-react": "19.9.0",
+    "igniteui-react-core": "19.6.0",
+    "igniteui-webcomponents": "~7.4.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tslib": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.7.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitest/browser": "^5.0.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2",
+    "vitest-canvas-mock": "^1.2.0",
+    "worker-loader": "^3.0.8"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

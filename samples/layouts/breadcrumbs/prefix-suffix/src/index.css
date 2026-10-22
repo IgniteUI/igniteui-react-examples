@@ -1,0 +1,11 @@
+.sample {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  font-family: "Aktiv Grotesk", sans-serif;
+}
+
+igc-badge::part(base) {
+  color: var(--ig-gray-50);
+}

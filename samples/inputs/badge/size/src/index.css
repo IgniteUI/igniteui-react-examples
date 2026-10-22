@@ -3,11 +3,11 @@
 
 igc-badge::part(base),
 igc-badge igc-icon {
-  color: var(--ig-gray-50);
+  color: #fff;
 }
 
 igc-badge igc-icon {
-  fill: var(--ig-gray-50);
+  fill: #fff;
 }
 
 .badge-size {

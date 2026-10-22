@@ -19,7 +19,7 @@ export const SHARED = [
   { name: "igniteui-react-datasources", version: "19.6.0" },
   { name: "igniteui-react-excel", version: "19.6.0" },
   { name: "igniteui-react-gauges", version: "19.6.0" },
-  { name: "igniteui-react-grids", version: "19.9.0" },
+  { name: "igniteui-react-grids", version: "19.10.0" },
   { name: "igniteui-react-inputs", version: "19.6.0" },
   { name: "igniteui-react-layouts", version: "19.6.0" },
   { name: "igniteui-react-maps", version: "19.6.0" },

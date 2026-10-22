@@ -1,0 +1,7 @@
+.sample {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--ig-font-family);
+  overflow: auto;
+}

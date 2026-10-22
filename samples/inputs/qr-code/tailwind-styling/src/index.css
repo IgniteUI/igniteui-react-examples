@@ -1,0 +1,20 @@
+@import "tailwindcss/theme.css";
+@import "tailwindcss/utilities.css";
+
+.container {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: #111;
+  width: fit-content;
+  height: fit-content;
+  flex-direction: row;
+  margin-inline: auto;
+}
+
+@media (width < 800px) {
+  .container {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+}

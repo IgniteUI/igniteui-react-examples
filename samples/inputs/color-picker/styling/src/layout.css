@@ -1,0 +1,114 @@
+.editor-toolbar {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #00142b;
+    font-family: "Aktiv Grotesk", sans-serif;
+}
+
+.toolbar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.toolbar-group .toolbar-actions {
+    flex: 1;
+}
+
+.toolbar-group-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1rem;
+    letter-spacing: 0.009375rem;
+    color: #d2dbe8;
+}
+
+.toolbar-actions {
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    background: #556c86;
+}
+
+igc-icon-button::part(base) {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    border-radius: 1.125rem;
+    background: transparent;
+    color: #fcfcfc;
+}
+
+igc-icon-button::part(icon) {
+    --size: 0.875rem;
+}
+
+igc-icon-button:hover::part(base) {
+    background: rgb(255 255 255 / 15%);
+}
+
+igc-icon-button {
+    --foreground: #fff;
+    padding: 0.5rem;
+}
+
+igc-color-picker {
+    --ig-size: var(--ig-size-small);
+    --ig-input-group-border-color: transparent;
+    --ig-input-group-hover-border-color: rgb(255 255 255 / 15%);
+    --ig-input-group-focused-border-color: transparent;
+    --ig-input-group-border-border-radius: 0.5rem;
+    --ig-input-group-filled-text-color: #fff;
+    --ig-input-group-filled-text-hover-color: #fff;
+    --ig-input-group-focused-text-color: #fff;
+    --ig-input-group-placeholder-color: #fff;
+    --ig-input-group-hover-placeholder-color: #fff;
+    --ig-input-group-focus-placeholder-color: #fff;
+
+    width: 8.75rem;
+}
+
+igc-color-picker::part(picker) {
+    --ig-input-group-filled-text-color: var(--ig-gray-900);
+    --ig-input-group-filled-text-hover-color: var(--ig-gray-900);
+    --ig-input-group-focused-text-color: var(--ig-gray-900);
+    --ig-input-group-placeholder-color: var(--ig-gray-900);
+    --ig-input-group-hover-placeholder-color: var(--ig-gray-900);
+    --ig-input-group-focus-placeholder-color: var(--ig-gray-900);
+    --ig-input-group-border-color: var(--ig-gray-500);
+    --ig-input-group-hover-border-color: var(--ig-gray-500);
+    --ig-input-group-focused-border-color: var(--ig-gray-500);
+    --ig-input-group-border-border-radius: 0.25rem;
+
+    margin-top: 1.25rem;
+}
+
+igc-color-picker::part(anchor) {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.1875rem;
+}
+
+.toolbar-group:nth-child(2) {
+    igc-icon-button:nth-of-type(2) {
+        padding-inline: unset;
+    }
+
+    igc-icon-button:nth-of-type(3) {
+        padding-inline-end: unset;
+    }
+}
+
+.toolbar-group:nth-child(3) igc-icon-button:nth-of-type(2) {
+    padding-inline: unset;
+}
+
+@media (width < 640px) {
+    .container {
+        width: fit-content;
+    }
+}

@@ -1,0 +1,39 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import url("https://use.typekit.net/bng2zgw.css");
+@source "./index.tsx";
+
+@theme {
+    /* The design's own palette. It lives here instead of coming from the theme
+       palette, so the sample keeps its colors in every theme. */
+    --color-filter-primary: #0176ff;
+    --color-filter-title: #004699;
+    --color-filter-divider: #e5ebf3;
+    --color-filter-ink: #1a314a;
+    --color-filter-empty: #a9b8cc;
+}
+
+/* The design's 44px header: an 8px inset around the title's 28px box. */
+igc-expansion-panel::part(header) {
+    padding: 0.5rem 1rem;
+}
+
+/* A 40px row in every theme. The padding sits on the base rather than on the
+   control, so the padding a theme adds around the box for its ripple can no
+   longer stretch the row. */
+.filter-option::part(base) {
+    gap: 0.75rem;
+    padding: 0.5rem 0.625rem;
+}
+
+.filter-option::part(control) {
+    padding: 0;
+}
+
+.filter-option::part(indicator) {
+    --indicator-size: 1rem;
+}
