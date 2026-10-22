@@ -86,7 +86,7 @@ export default function ColorPickerStyling() {
         <div className="toolbar-group">
           <span className="toolbar-group-label">Colors</span>
           <div className="toolbar-actions">
-            <IgrColorPicker mode="input" placeholder="Color" />
+            <IgrColorPicker mode="input" />
           </div>
         </div>
       </div>

@@ -44,17 +44,28 @@ jobs:
       - name: Type check
         run: npm run check
 
+      # Samples are outside `astro check`. Their own tsconfigs cannot see the
+      # IG packages' types, so this checks them all with one shared config.
+      - name: Type check samples
+        run: npm run check:samples
+
+      # A failed check above must not hide a broken build or smoke test, so
+      # the build runs regardless, and the smoke tests whenever it succeeds.
       - name: Build
+        id: build
+        if: ${{ !cancelled() }}
         run: npm run build
 
       # Browser binaries are cached per Playwright version; OS deps (apt) are
       # not cacheable and are installed on every run.
       - name: Get Playwright version
         id: playwright
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: echo "version=$(npx playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
 
       - name: Cache Playwright browser
         id: playwright-cache
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
@@ -62,12 +73,13 @@ jobs:
 
       # Headless tests only need the headless shell, not full Chromium.
       - name: Install Playwright browser
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.playwright-cache.outputs.cache-hit != 'true' }}
         run: npx playwright install --with-deps --only-shell chromium
 
       - name: Install Playwright OS deps
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.playwright-cache.outputs.cache-hit == 'true' }}
         run: npx playwright install-deps chromium
 
       - name: Smoke tests
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: npm run test:smoke

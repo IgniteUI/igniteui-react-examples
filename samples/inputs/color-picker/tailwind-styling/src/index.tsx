@@ -84,7 +84,6 @@ export default function ColorPickerTailwindStyling() {
               className={pickerClassName}
               id="textPicker"
               value={text}
-              size="small"
               label="Text"
               onInput={(e: CustomEvent<string>) => setText(e.detail)}
             >
@@ -98,7 +97,6 @@ export default function ColorPickerTailwindStyling() {
               className={pickerClassName}
               id="accentPicker"
               value={accent}
-              size="small"
               label="Accent"
               onInput={(e: CustomEvent<string>) => setAccent(e.detail)}
             >
@@ -112,7 +110,6 @@ export default function ColorPickerTailwindStyling() {
               className={pickerClassName}
               id="borderPicker"
               value={border}
-              size="small"
               label="Border"
               onInput={(e: CustomEvent<string>) => setBorder(e.detail)}
             >
@@ -126,7 +123,6 @@ export default function ColorPickerTailwindStyling() {
               className={pickerClassName}
               disabled={true}
               value="#7d91ab"
-              size="small"
               label="Shadow (Pro)"
             >
               <span slot="helper-text" className="swatch-hint">
