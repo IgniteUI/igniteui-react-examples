@@ -17,7 +17,7 @@ Branch from and target `vnext`, which deploys to staging. `master` deploys to pr
 | `src/pages/index.astro`, `src/pages/nav.json.ts`, `src/scripts/nav.ts` | Index and sidebar, built from folder names (there is no registry) |
 | `src/pages/samples/[...slug].astro` | Redirects old `/samples/<slug>` URLs |
 | `astro.config.mjs` | Vite plugins the sample contract below depends on (their comments explain why), and legacy redirects |
-| `scripts/`, `scripts/lib/` | Repo scripts and their data: `versions.js`, `templates.js`, `unpublished.json` |
+| `scripts/`, `scripts/lib/` | Repo scripts and their data: `versions.js`, `templates.js`, `unpublished.json`, `skip-type-check.json` |
 | `public/web.config` | IIS config, shipped at the root of the deployed site |
 | `tests/smoke/` | Playwright smoke tests against the production build |
 
@@ -69,7 +69,7 @@ BASE_PATH=/react-demos npm run test:smoke
 ```
 
 - For a change confined to samples, the quick loop is `npm run check:samples`, then `npm run dev` and opening `http://localhost:4200/<group>/<component>/<name>` with no console errors. Run the full build and smoke tests before opening the PR, and always when you touch `src/`, `astro.config.mjs`, `public/` or `scripts/`.
-- `check:samples` fails on any type error in a published sample; only samples in `scripts/lib/unpublished.json` are skipped. Fix the error; don't unpublish a sample to silence it.
+- `check:samples` fails on any type error in a published sample. Fix the error; don't unpublish a sample to silence it. The one exception is a generated sample: fix it in igniteui-xplat-examples, and list it with its error in `scripts/lib/skip-type-check.json` until the export brings the fix, then remove it.
 - The smoke tests need a build made with the same `BASE_PATH`, and Chromium: `npx playwright install --only-shell chromium`.
 - In Git Bash on Windows, `BASE_PATH=/react-demos` is rewritten into a Windows path and the build fails. Prefix the command with `MSYS_NO_PATHCONV=1`, or set the variable in PowerShell.
 
