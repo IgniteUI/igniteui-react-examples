@@ -7,7 +7,7 @@ import NwindData from "./NwindData.json";
 import "igniteui-react-grids/grids/themes/light/bootstrap.css";
 
 function Sample() {
-  const gridRef = useRef<IgrGrid>();
+  const gridRef = useRef<IgrGrid>(null);
   useEffect(() => {
     gridRef.current.addEventListener("keydown", handleKeyDown);
     return () => {

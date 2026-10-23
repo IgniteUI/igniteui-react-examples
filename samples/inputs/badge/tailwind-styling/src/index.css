@@ -9,12 +9,6 @@ igc-badge {
     --ig-size: var(--ig-size-small);
 }
 
-igc-avatar {
-    --size: 40px;
-    --ig-avatar-background: var(--ig-gray-400);
-    --ig-avatar-color: var(--ig-gray-800);
-}
-
 igc-avatar igc-icon {
     color: var(--ig-gray-800);
 }

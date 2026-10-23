@@ -1,0 +1,9 @@
+{
+  "//": "Samples kept in the repo but left out of the samples browser and the docs code viewer. The itemized charts reference a CompanyMarketCapItemized data source they do not include; the old gulp build skipped the same four.",
+  "samples": [
+    "charts/data-chart/itemized-bar-chart",
+    "charts/data-chart/itemized-column-chart",
+    "charts/data-chart/itemized-stacked-bar-chart",
+    "charts/data-chart/itemized-stacked-column-chart"
+  ]
+}

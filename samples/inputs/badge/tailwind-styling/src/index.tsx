@@ -27,13 +27,13 @@ export default function BadgeTailwindStyling(): JSX.Element {
     return (
         <div className="badge-parent flex items-center justify-center !gap-12">
             <div className="relative flex">
-                <IgrAvatar initials="AZ" shape="rounded" size="small" />
+                <IgrAvatar initials="AZ" shape="rounded" />
                 <IgrBadge outlined={true} className="badge-style badge-close">
                     <IgrIcon name="close" collection="material" />
                 </IgrBadge>
             </div>
             <div className="relative flex">
-                <IgrAvatar shape="rounded" size="small">
+                <IgrAvatar shape="rounded">
                     <IgrIcon name="person" collection="material" />
                 </IgrAvatar>
                 <IgrBadge outlined={true} className="badge-style badge-volume">
@@ -41,13 +41,13 @@ export default function BadgeTailwindStyling(): JSX.Element {
                 </IgrBadge>
             </div>
             <div className="relative flex">
-                <IgrAvatar initials="AZ" shape="circle" size="small" />
+                <IgrAvatar initials="AZ" shape="circle" />
                 <IgrBadge outlined={true} className="badge-style badge-remove">
                     <IgrIcon name="remove" collection="material" />
                 </IgrBadge>
             </div>
             <div className="relative flex">
-                <IgrAvatar shape="square" size="small">
+                <IgrAvatar shape="square">
                     <IgrIcon name="person" collection="material" />
                 </IgrAvatar>
                 <IgrBadge outlined={true} className="badge-style badge-check">

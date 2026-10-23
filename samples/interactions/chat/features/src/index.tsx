@@ -90,7 +90,7 @@ igc-avatar::part(base) {
 
   useEffect(() => {
     let mounted = true;
-    createChatMarkdownRenderer().then(renderer => {
+    createChatMarkdownRenderer({}).then(renderer => {
       if (!mounted) return;
 
       setOptions((prev: any) => ({

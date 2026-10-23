@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { IgrTabs, IgrTab, IgrButton, IgrIcon, IgrIconButton, registerIconFromText } from "igniteui-react";
@@ -13,53 +13,47 @@ registerIconFromText("search", search, "material");
 registerIconFromText("favorite", favorite, "material");
 registerIconFromText("close", close, "material");
 
-export default class PrefixSuffix extends React.Component<any, { tabs: string[] }> {
+const initialTabs = ['Home','Search', 'Favorite'];
 
-    constructor(props: any) {
-        super(props);
-        this.state = {
-          tabs: ['Home','Search', 'Favorite']
-        };
-    }
+export default function PrefixSuffix() {
+  const [tabs, setTabs] = useState<string[]>(initialTabs);
 
-  public render(): JSX.Element {
-    return (
-      <div className="container sample">
-        <IgrTabs>
-          {this.state.tabs.map((tab, index) => (
-            <IgrTab key={`${tab.toLowerCase()}-tab`}>
-                <IgrIcon slot="prefix" name={tab.toLowerCase()} collection="material"></IgrIcon>
-
-                <span slot="label">{tab}</span>
-
-                <IgrIconButton
-                  slot="suffix"
-                  name="close"
-                  collection="material"
-                  variant="flat"
-                  onClick={() => this.onCloseClicked(index)}
-                ></IgrIconButton>
-
-                <span key={`${tab.toLowerCase()}-panel-span`}>{tab} tab panel</span>
-            </IgrTab>
-          ))}
-        </IgrTabs>
-        <IgrButton onClick={this.onResetClick}>Reset</IgrButton>
-      </div>
-    );
-  }
-
-  public onCloseClicked = (index: number) => {
-    const updatedTabs = [...this.state.tabs];
+  function onCloseClicked(index: number) {
+    const updatedTabs = [...tabs];
     updatedTabs.splice(index, 1);
-    this.setState({ tabs: updatedTabs }); 
+    setTabs(updatedTabs);
   }
 
-  public onResetClick = () => {
-    this.setState({ tabs: ['Home','Search', 'Favorite'] }); 
+  function onResetClick() {
+    setTabs(initialTabs);
   }
+
+  return (
+    <div className="container sample">
+      <IgrTabs>
+        {tabs.map((tab, index) => (
+          <IgrTab key={`${tab.toLowerCase()}-tab`}>
+              <IgrIcon slot="prefix" name={tab.toLowerCase()} collection="material"></IgrIcon>
+
+              <span slot="label">{tab}</span>
+
+              <IgrIconButton
+                slot="suffix"
+                name="close"
+                collection="material"
+                variant="flat"
+                onClick={() => onCloseClicked(index)}
+              ></IgrIconButton>
+
+              <span key={`${tab.toLowerCase()}-panel-span`}>{tab} tab panel</span>
+          </IgrTab>
+        ))}
+      </IgrTabs>
+      <IgrButton onClick={onResetClick}>Reset</IgrButton>
+    </div>
+  );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<PrefixSuffix/>);

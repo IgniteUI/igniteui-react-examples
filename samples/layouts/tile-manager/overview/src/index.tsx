@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "./layout.css";
@@ -12,180 +11,172 @@ registerIconFromText("home", home, "material");
 registerIconFromText("search", search, "material");
 registerIconFromText("favorite", favorite, "material");
 
-export default class Overview extends React.Component<any, any> {
-
-  constructor(props: any) {
-    super(props);
-  }
-
-  public render(): JSX.Element {
-    return (
-      <div className="container sample center">
-        <IgrTileManager id="tile-manager1" columnCount={3} gap="20px" resizeMode="always" dragMode="tile-header">
-          <IgrTile rowSpan={3}>
-            <span slot="title">Order info</span>
-            <IgrList className="list">
-              <IgrListItem>
-                <IgrAvatar slot="start" shape="circle" className="avatar">
-                  <IgrIcon name="list" collection="material" className="material-icons"></IgrIcon>
-                </IgrAvatar>
-                <div slot="title" className="content">
-                  <p>OrderID</p>
-                  <p>10293</p>
-                </div>
-              </IgrListItem>
-              <IgrListItem>
-                <IgrAvatar slot="start" shape="circle" className="avatar">
-                  <IgrIcon name="list" collection="material" className="material-icons"></IgrIcon>
-                </IgrAvatar>
-                <div slot="title" className="content">
-                  <p>Customer Name</p>
-                  <p>Tortuga Restaurante</p>
-                </div>
-              </IgrListItem>
-              <IgrListItem>
-                <IgrAvatar slot="start" shape="circle" className="avatar">
-                  <IgrIcon name="calendar" collection="material" className="material-icons"></IgrIcon>
-                </IgrAvatar>
-                <div slot="title" className="content">
-                  <p>Order Date</p>
-                  <p>August 29, 1996</p>
-                </div>
-              </IgrListItem>
-              <IgrListItem>
-                <IgrAvatar slot="start" shape="circle" className="avatar">
+export default function Overview() {
+  return (
+    <div className="container sample center">
+      <IgrTileManager id="tile-manager1" columnCount={3} gap="20px" resizeMode="always" dragMode="tile-header">
+        <IgrTile rowSpan={3}>
+          <span slot="title">Order info</span>
+          <IgrList className="list">
+            <IgrListItem>
+              <IgrAvatar slot="start" shape="circle" className="avatar">
+                <IgrIcon name="list" collection="material" className="material-icons"></IgrIcon>
+              </IgrAvatar>
+              <div slot="title" className="content">
+                <p>OrderID</p>
+                <p>10293</p>
+              </div>
+            </IgrListItem>
+            <IgrListItem>
+              <IgrAvatar slot="start" shape="circle" className="avatar">
+                <IgrIcon name="list" collection="material" className="material-icons"></IgrIcon>
+              </IgrAvatar>
+              <div slot="title" className="content">
+                <p>Customer Name</p>
+                <p>Tortuga Restaurante</p>
+              </div>
+            </IgrListItem>
+            <IgrListItem>
+              <IgrAvatar slot="start" shape="circle" className="avatar">
                 <IgrIcon name="calendar" collection="material" className="material-icons"></IgrIcon>
-                </IgrAvatar>
-                <div slot="title" className="content">
-                  <p>Shipped Date</p>
-                  <p>September 11, 1996</p>
-                </div>
-              </IgrListItem>
-              <IgrListItem>
-                <IgrAvatar slot="start" shape="circle" className="avatar">
-                  <IgrIcon name="list" collection="material" className="material-icons"></IgrIcon>
-                </IgrAvatar>
-                <div slot="title" className="content">
-                  <p>Product Name</p>
-                  <p>Carnavon Tigers</p>
-                </div>
-              </IgrListItem>
-              <IgrListItem>
-                <IgrAvatar slot="start" shape="circle" className="avatar">
-                  <IgrIcon name="list" collection="material" className="material-icons"></IgrIcon>
-                </IgrAvatar>
-                <div slot="title" className="content">
-                  <p>Ship Country</p>
-                  <p>Mexico</p>
-                </div>
-              </IgrListItem>
-            </IgrList>
-          </IgrTile>
-          <IgrTile col-span="2" row-span="2">
+              </IgrAvatar>
+              <div slot="title" className="content">
+                <p>Order Date</p>
+                <p>August 29, 1996</p>
+              </div>
+            </IgrListItem>
+            <IgrListItem>
+              <IgrAvatar slot="start" shape="circle" className="avatar">
+              <IgrIcon name="calendar" collection="material" className="material-icons"></IgrIcon>
+              </IgrAvatar>
+              <div slot="title" className="content">
+                <p>Shipped Date</p>
+                <p>September 11, 1996</p>
+              </div>
+            </IgrListItem>
+            <IgrListItem>
+              <IgrAvatar slot="start" shape="circle" className="avatar">
+                <IgrIcon name="list" collection="material" className="material-icons"></IgrIcon>
+              </IgrAvatar>
+              <div slot="title" className="content">
+                <p>Product Name</p>
+                <p>Carnavon Tigers</p>
+              </div>
+            </IgrListItem>
+            <IgrListItem>
+              <IgrAvatar slot="start" shape="circle" className="avatar">
+                <IgrIcon name="list" collection="material" className="material-icons"></IgrIcon>
+              </IgrAvatar>
+              <div slot="title" className="content">
+                <p>Ship Country</p>
+                <p>Mexico</p>
+              </div>
+            </IgrListItem>
+          </IgrList>
+        </IgrTile>
+        <IgrTile col-span="2" row-span="2">
 
-            <span slot="title">Order Line Items</span>
-            <div className="group">
-              <IgrCard className="card">
-                <div className="group_1">
-                  <IgrCardHeader>
-                    <div slot="thumbnail">
-                      <IgrAvatar shape="circle">
-                        <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
-                      </IgrAvatar>
-                    </div>
-                    <span slot="title">Carnavon Tigers</span>
-                  </IgrCardHeader>
-                  <IgrCardContent className="column">
-                    <div className="body-content">
-                      <span>Quantity</span> <span>12</span>
-                    </div>
-                    <div className="body-content">
-                      <span>Unit Price</span> <span>$50</span>
-                    </div>
-                  </IgrCardContent>
-                </div>
-              </IgrCard>
-              <IgrCard className="card">
-                <div className="group_1">
-                  <IgrCardHeader>
-                    <div slot="thumbnail">
-                      <IgrAvatar shape="circle">
-                        <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
-                      </IgrAvatar>
-                    </div>
-                    <span slot="title">Guarana Fantastica</span>
-                  </IgrCardHeader>
-                  <IgrCardContent className="column">
-                    <div className="body-content">
-                      <span>Quantity</span> <span>10</span>
-                    </div>
-                    <div className="body-content">
-                      <span>Unit Price</span> <span>$4</span>
-                    </div>
-                  </IgrCardContent>
-                </div>
-              </IgrCard>
-              <IgrCard className="card">
-                <div className="group_1">
-                  <IgrCardHeader>
-                    <div slot="thumbnail">
-                      <IgrAvatar shape="circle">
-                        <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
-                      </IgrAvatar>
-                    </div>
-                    <span slot="title">Vegie-spread</span>
-                  </IgrCardHeader>
-                  <IgrCardContent className="column">
-                    <div className="body-content">
-                      <span>Quantity</span> <span>5</span>
-                    </div>
-                    <div className="body-content">
-                      <span>Unit Price</span> <span>$35</span>
-                    </div>
-                  </IgrCardContent>
-                </div>
-              </IgrCard>
-              <IgrCard className="card">
-                <div className="group_1">
-                  <IgrCardHeader>
-                    <div slot="thumbnail">
-                      <IgrAvatar shape="circle">
-                        <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
-                      </IgrAvatar>
-                    </div>
-                    <span slot="title">Rhonbrau Klosterbier</span>
-                  </IgrCardHeader>
-                  <IgrCardContent className="column">
-                    <div className="body-content">
-                      <span>Quantity</span> <span>7</span>
-                    </div>
-                    <div className="body-content">
-                      <span>Unit Price</span> <span>$6</span>
-                    </div>
-                  </IgrCardContent>
-                </div>
-              </IgrCard>
-            </div>
-          </IgrTile>
-          <IgrTile >
-            <span slot="title">Order Value</span>
-            <div className="string">
-              <h1>$8.66K</h1>
-            </div>
-          </IgrTile>
-          <IgrTile >
-            <span slot="title">Item quantity</span>
-            <div className="string">
-              <h1>4</h1>
-            </div>
-          </IgrTile>
-        </IgrTileManager>
-      </div>
-    );
-  }
-
+          <span slot="title">Order Line Items</span>
+          <div className="group">
+            <IgrCard className="card">
+              <div className="group_1">
+                <IgrCardHeader>
+                  <div slot="thumbnail">
+                    <IgrAvatar shape="circle">
+                      <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
+                    </IgrAvatar>
+                  </div>
+                  <span slot="title">Carnavon Tigers</span>
+                </IgrCardHeader>
+                <IgrCardContent className="column">
+                  <div className="body-content">
+                    <span>Quantity</span> <span>12</span>
+                  </div>
+                  <div className="body-content">
+                    <span>Unit Price</span> <span>$50</span>
+                  </div>
+                </IgrCardContent>
+              </div>
+            </IgrCard>
+            <IgrCard className="card">
+              <div className="group_1">
+                <IgrCardHeader>
+                  <div slot="thumbnail">
+                    <IgrAvatar shape="circle">
+                      <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
+                    </IgrAvatar>
+                  </div>
+                  <span slot="title">Guarana Fantastica</span>
+                </IgrCardHeader>
+                <IgrCardContent className="column">
+                  <div className="body-content">
+                    <span>Quantity</span> <span>10</span>
+                  </div>
+                  <div className="body-content">
+                    <span>Unit Price</span> <span>$4</span>
+                  </div>
+                </IgrCardContent>
+              </div>
+            </IgrCard>
+            <IgrCard className="card">
+              <div className="group_1">
+                <IgrCardHeader>
+                  <div slot="thumbnail">
+                    <IgrAvatar shape="circle">
+                      <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
+                    </IgrAvatar>
+                  </div>
+                  <span slot="title">Vegie-spread</span>
+                </IgrCardHeader>
+                <IgrCardContent className="column">
+                  <div className="body-content">
+                    <span>Quantity</span> <span>5</span>
+                  </div>
+                  <div className="body-content">
+                    <span>Unit Price</span> <span>$35</span>
+                  </div>
+                </IgrCardContent>
+              </div>
+            </IgrCard>
+            <IgrCard className="card">
+              <div className="group_1">
+                <IgrCardHeader>
+                  <div slot="thumbnail">
+                    <IgrAvatar shape="circle">
+                      <IgrIcon name="product" collection="material" className="material-icons"></IgrIcon>
+                    </IgrAvatar>
+                  </div>
+                  <span slot="title">Rhonbrau Klosterbier</span>
+                </IgrCardHeader>
+                <IgrCardContent className="column">
+                  <div className="body-content">
+                    <span>Quantity</span> <span>7</span>
+                  </div>
+                  <div className="body-content">
+                    <span>Unit Price</span> <span>$6</span>
+                  </div>
+                </IgrCardContent>
+              </div>
+            </IgrCard>
+          </div>
+        </IgrTile>
+        <IgrTile >
+          <span slot="title">Order Value</span>
+          <div className="string">
+            <h1>$8.66K</h1>
+          </div>
+        </IgrTile>
+        <IgrTile >
+          <span slot="title">Item quantity</span>
+          <div className="string">
+            <h1>4</h1>
+          </div>
+        </IgrTile>
+      </IgrTileManager>
+    </div>
+  );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<Overview/>);

@@ -10,7 +10,7 @@ import "./index.css";
 // Define cellTemplate function outside component
 const ratingCellTemplate = (ctx: any) => {
   return (
-    <IgrRating readonly={true} step={0.01} value={ctx.value}></IgrRating>
+    <IgrRating readOnly={true} step={0.01} value={ctx.value}></IgrRating>
   );
 };
 
