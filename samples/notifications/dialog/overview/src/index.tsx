@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrButton, IgrDialog } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default function DialogOverview(): JSX.Element {
+export default function DialogOverview() {
     const dialogRef = useRef<IgrDialog>(null);
 
     const showDialog = () => dialogRef.current?.show();
@@ -28,6 +28,6 @@ export default function DialogOverview(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<DialogOverview/>);

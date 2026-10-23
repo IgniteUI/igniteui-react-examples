@@ -7,8 +7,6 @@ import { IgrGeographicTileSeries } from 'igniteui-react-maps';
 import { IgrDataChartInteractivityModule } from 'igniteui-react-charts';
 import { IgrHeatTileGenerator } from 'igniteui-react-core';
 import { IgrTileGeneratorMapImagery } from 'igniteui-react-maps';
-// background worker
-import Worker from "./heatworker.worker"
 
 IgrDataChartInteractivityModule.register();
 IgrGeographicMapModule.register();
@@ -86,7 +84,8 @@ export default class MapDisplayImageryHeatTiles extends React.Component {
         gen.useGlobalMinMaxAdjustedForZoom = true;
         gen.useLogarithmicScale = true;
         gen.useWebWorkers = true;
-        gen.webWorkerInstance = new Worker();
+        // background worker; Vite bundles it from this URL
+        gen.webWorkerInstance = new Worker(new URL("./heatworker.worker.ts", import.meta.url), { type: "module" });
         gen.scaleColors = [
             "rgba(0, 0, 255, .251)", "rgba(0, 255, 255, .3765)",
             "rgba(50,205,50, .2675)", "rgba(255, 255, 0, .7059)",

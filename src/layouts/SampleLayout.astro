@@ -1,0 +1,114 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+/** A stylesheet the sample needs, already resolved by the page. */
+type SampleStyle =
+  | { kind: 'link'; href: string; pkg: 'webcomponents' | 'grids'; variant: string; theme: string }
+  | { kind: 'inline'; css: string };
+
+interface Props {
+  slug?: string;
+  title?: string;
+  styles?: SampleStyle[];
+}
+
+const { slug = '', title = 'Ignite UI for React', styles = [] } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-sample-slug={slug}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+
+    <link rel="shortcut icon" href="https://dl.infragistics.com/x/img/browsers/react.png" />
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <!-- Infragistics shared sample stylesheets (shared across all React samples) -->
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/shared.v8.css" />
+    <link rel="stylesheet" href="https://dl.infragistics.com/x/css/samples/custom-legend.css" />
+    <link rel="stylesheet" href={`${base}/styles/layout.css`} />
+
+    <!--
+      The sample's own stylesheets, emitted in the exact order its entry module
+      imports them (that order is the cascade order).
+
+      These used to be injected at runtime by the sample's JS chunk, which meant
+      the page painted unstyled until megabytes of JS had downloaded — and let
+      the library's one-shot theme detection latch onto whatever sheet happened
+      to land first. Emitting them here makes the sample styled at first paint.
+
+      Theme sheets carry data-ig-theme so they can be re-pointed in place (see
+      the docs theming widget bridge); swapping one is only half a theme change,
+      though — the library also needs configureTheme() to re-adopt its shadow
+      styles, since getTheme() is memoised on first component connect.
+    -->
+    {styles.map(style => style.kind === 'link'
+      ? <link
+          rel="stylesheet"
+          href={style.href}
+          data-ig-theme={style.pkg}
+          data-ig-theme-variant={style.variant}
+          data-ig-theme-name={style.theme}
+        />
+      : <style set:html={style.css}></style>
+    )}
+
+    <!-- Decide sidebar visibility before first paint: html.with-nav reserves
+         the 270px column so the async nav render causes no layout shift.
+
+         The index also arms the flag here, synchronously: its component cards
+         are clickable at first paint, so a click must not race a deferred
+         module. Flag name must match NAV_FLAG in src/scripts/nav.ts. -->
+    <script is:inline>
+      try {
+        const fromNav = sessionStorage.getItem('igx-react-nav') === '1';
+        const isIndex = !document.documentElement.dataset.sampleSlug;
+        if (window.self === window.top && (isIndex || fromNav)) {
+          document.documentElement.classList.add('with-nav');
+        }
+
+        // Sample pages reached through the sidebar keep it; a direct deep
+        // link (or docs iframe) shows none.
+        if (isIndex) {
+          sessionStorage.setItem('igx-react-nav', '1');
+        } else {
+          sessionStorage.removeItem('igx-react-nav');
+        }
+      } catch {
+        /* sandboxed iframe: no sessionStorage — sidebar stays collapsed */
+      }
+    </script>
+  </head>
+
+  <!-- ig-typography / ig-scrollbar: theme classes the previous browser set, which samples rely on. -->
+  <body class="ig-scrollbar ig-typography">
+    <div id="shell">
+      <!-- Empty shell — src/scripts/nav.ts fetches nav.json and renders the
+           sidebar into it when html.with-nav is set. -->
+      <nav id="nav-bar"></nav>
+
+      <!-- Sample content area. The <slot /> receives the sample's mount point. -->
+      <main id="router-target">
+        <slot />
+      </main>
+    </div>
+
+    <script>
+      import '../scripts/nav';
+      import { initSampleThemeListener } from '../utils/sample-theme';
+      import { initSampleSizeReporter } from '../utils/sample-size-reporter';
+
+      // Lets the docs ThemingWidget re-theme this page while embedded.
+      initSampleThemeListener();
+      // Lets docs samples embedded with <Sample fitContent> size their iframe
+      // to their content. Dormant unless the docs host asks for it.
+      initSampleSizeReporter();
+    </script>
+  </body>
+</html>

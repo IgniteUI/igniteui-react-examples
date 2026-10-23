@@ -12,7 +12,7 @@ import { html } from 'lit-html';
 import "igniteui-webcomponents/themes/light/bootstrap.css";
 import "./index.scss";
 
-declare global {
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       'igc-select': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
