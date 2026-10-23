@@ -1,6 +1,6 @@
 {
-  "name": "react-dialog-form",
-  "description": "This project provides example of Dialog Form using Infragistics React components",
+  "name": "react-dialog-tailwind-styling",
+  "description": "This project provides an example of Dialog tailwind styling using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
@@ -21,12 +21,14 @@
     "tslib": "^2.4.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.7.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
     "@vitest/browser": "^5.0.2",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "vite": "^8.3.1",
     "vitest": "^5.0.2",
