@@ -1,28 +1,38 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-igc-rating {
-    --symbol-size: 44px;
-    --symbol-full-color: hsla(var(--ig-warn-A400), var(--ig-warn-a));
-    --symbol-empty-color: hsla(var(--ig-warn-A400), var(--ig-warn-a));
+.sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
 }
 
-igc-rating[disabled] {
-    --symbol-full-color: hsla(var(--ig-gray-400), var(--ig-gray-a));
-    --symbol-empty-color: hsla(var(--ig-gray-400), var(--ig-gray-a));
+.examples {
+    display: flex;
+    align-items: center;
+    gap: 3.75rem;
 }
 
-igc-rating::part(label) {
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: var(--ig-overline-text-transform);
-    color: hsla(var(--ig-gray-600), var(--ig-gray-a));
+.example {
+    display: flex;
+    align-items: center;
+    gap: 1.875rem;
 }
 
-igc-rating::part(symbols) {
-    gap: 8px; 
+.example-label {
+    font: 500 14px / 24px "Aktiv Grotesk", sans-serif;
+    letter-spacing: 0.1px;
+    color: #556c86;
 }
 
-.size-large {
-    --ig-size: var(--ig-size-large);
+.heart-rating {
+    --ig-rating-symbol-full-color: #d9357f;
+    --ig-rating-symbol-empty-color: #d9357f;
+}
+
+.star-rating {
+    --ig-rating-symbol-full-color: #faa419;
+    --ig-rating-symbol-empty-color: #8a8a8a;
 }
