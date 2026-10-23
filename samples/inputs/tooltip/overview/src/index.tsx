@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrRadio, IgrRadioGroup, IgrSwitch, IgrTooltip } from 'igniteui-react';
@@ -13,7 +13,7 @@ const placements: { label: string; value: TooltipPlacement }[] = [
     { label: 'Bottom', value: 'bottom' },
 ];
 
-export default function TooltipOverview(): JSX.Element {
+export default function TooltipOverview() {
     const [placement, setPlacement] = useState<TooltipPlacement>('bottom');
     const [closeButton, setCloseButton] = useState(true);
     const [arrow, setArrow] = useState(true);
@@ -65,6 +65,6 @@ export default function TooltipOverview(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TooltipOverview/>);

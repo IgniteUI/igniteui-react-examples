@@ -18,5 +18,5 @@ export default function ColorPickerInput() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<ColorPickerInput />);

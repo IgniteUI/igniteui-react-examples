@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import {
@@ -17,7 +16,7 @@ const blockIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><
 
 registerIconFromText('block', blockIcon, 'material');
 
-export default function TooltipStyling(): JSX.Element {
+export default function TooltipStyling() {
     return (
         <div className="sample">
             <IgrList id="status" className="trigger">
@@ -53,6 +52,6 @@ export default function TooltipStyling(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TooltipStyling/>);

@@ -59,7 +59,6 @@ export default function BadgeDot(): JSX.Element {
         <IgrAvatar
           src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
           shape="circle"
-          size="small"
         />
         <IgrBadge dot={true} outlined={true} variant="danger" />
       </div>

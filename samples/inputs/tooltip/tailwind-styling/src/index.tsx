@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrIcon, IgrList, IgrListItem, IgrTooltip, registerIconFromText } from 'igniteui-react';
@@ -35,7 +35,7 @@ const balanceHistory = [
     { period: '2025', exchange: 43, assets: 18 },
 ];
 
-export default function TooltipTailwindStyling(): JSX.Element {
+export default function TooltipTailwindStyling() {
     const chartRef = useRef<IgrCategoryChart>(null);
     const portfolioTooltipRef = useRef<IgrTooltip>(null);
 
@@ -145,6 +145,6 @@ export default function TooltipTailwindStyling(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TooltipTailwindStyling/>);

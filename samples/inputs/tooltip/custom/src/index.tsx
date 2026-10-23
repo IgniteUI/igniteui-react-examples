@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import {
@@ -23,7 +23,7 @@ registerIconFromText('block', blockIcon, 'material');
 const incomeTaxes = new IncomeTaxes();
 const avatarUrl = 'https://dl.infragistics.com/x/img/avatars/avatar-profile-06.png';
 
-export default function TooltipCustom(): JSX.Element {
+export default function TooltipCustom() {
     const chartRef = useRef<IgrCategoryChart>(null);
 
     return (
@@ -107,6 +107,6 @@ export default function TooltipCustom(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TooltipCustom/>);

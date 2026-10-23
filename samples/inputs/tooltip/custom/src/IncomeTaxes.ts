@@ -2,8 +2,8 @@ export class IncomeTaxesItem {
   public constructor(init: Partial<IncomeTaxesItem>) {
     Object.assign(this, init);
   }
-  public year: string;
-  public revenue: number;
+  public year!: string;
+  public revenue!: number;
 }
 export class IncomeTaxes extends Array<IncomeTaxesItem> {
   public constructor(items: Array<IncomeTaxesItem> | number = -1) {

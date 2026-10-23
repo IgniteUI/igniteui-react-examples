@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrTooltip } from 'igniteui-react';
@@ -10,7 +10,7 @@ const blockEscape = (event: KeyboardEvent) => {
     }
 };
 
-export default function TooltipPosition(): JSX.Element {
+export default function TooltipPosition() {
     useEffect(() => {
         window.addEventListener('keydown', blockEscape, true);
         return () => window.removeEventListener('keydown', blockEscape, true);
@@ -40,6 +40,6 @@ export default function TooltipPosition(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TooltipPosition/>);
