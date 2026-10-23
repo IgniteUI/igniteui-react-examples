@@ -1,0 +1,127 @@
+---
+/**
+ * pages/[...slug].astro — one page per sample, generated at build time.
+ *
+ * URL pattern: /grids/grid/overview, /charts/category-chart/overview, …
+ * (matches what the docs site embeds)
+ *
+ * Why NOT /samples/{slug}:
+ *   The repo has a `samples/` directory where every sample has a package.json
+ *   and an index.html. In dev, Vite would serve a request for /samples/{slug}
+ *   from that folder instead of this route. /samples/{slug} is kept only as a
+ *   redirect (pages/samples/[...slug].astro).
+ */
+import SampleLayout from '../layouts/SampleLayout.astro';
+import { SAMPLES } from '../utils/sample-index';
+import { slugToInfo, resolveSampleStyles } from '../utils/samples';
+
+// Raw entry-module source for every sample. Used only to learn which
+// stylesheets each sample imports, and in what order.
+const tsxSources = import.meta.glob('../../samples/**/src/index.tsx', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+
+// Every sample-local stylesheet, compiled to plain CSS text (SCSS included).
+// These are inlined into <head> so the sample is styled at first paint instead
+// of after its (multi-megabyte) JS chunk finally evaluates.
+const sampleCss = import.meta.glob('../../samples/**/src/*.{css,scss}', {
+  query: '?inline',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+
+const PKG_PREFIX = '../../samples/';
+
+export function getStaticPaths() {
+  return SAMPLES.map(info => ({ params: { slug: info.slug } }));
+}
+
+// Per-page code
+const { slug } = Astro.params as { slug: string };
+const info = slugToInfo(slug)!;
+
+// Resolve this sample's stylesheets so SampleLayout can put them in <head>.
+// Theme sheets become <link>s to public/ig-themes/; sample-local files are
+// inlined. Anything that fails to resolve is dropped here and left to the
+// sample module's own import, so a miss degrades to the old behaviour rather
+// than losing the styles.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const styles = resolveSampleStyles(tsxSources[`${PKG_PREFIX}${slug}/src/index.tsx`] ?? '', slug, base)
+  .map(style =>
+    style.kind === 'link'
+      ? style
+      : sampleCss[style.key] !== undefined
+        ? { kind: 'inline' as const, css: sampleCss[style.key] }
+        : null,
+  )
+  .filter(v => v !== null);
+
+const pageTitle = `${info.displayName} | ${info.componentName} | Ignite UI for React`;
+---
+
+<SampleLayout slug={info.slug} title={pageTitle} styles={styles}>
+  <div id="root"></div>
+</SampleLayout>
+
+<!--
+  Client-side sample loader.
+  import.meta.glob registers all sample modules as lazy Vite chunks at build
+  time. At runtime only the chunk matching the current slug is fetched, and its
+  default export is mounted into #root. The module's own createRoot()/render()
+  is stripped by the stripSampleMount Vite plugin.
+-->
+<script>
+  // React Fast Refresh runtime for dev. Astro installs it only on pages with
+  // React islands; samples mount from this plain script instead. Empty in builds.
+  import '@vitejs/plugin-react/preamble';
+  import { createElement, type ComponentType } from 'react';
+  import { createRoot } from 'react-dom/client';
+
+  // Vite resolves this glob at build time → one lazy chunk per sample
+  const sampleModules = import.meta.glob<{ default?: ComponentType }>('../../samples/**/src/index.tsx');
+
+  // Lifts the layout.css guard that hides not-yet-upgraded custom elements.
+  // Must run on EVERY exit path, including failures — a sample that throws
+  // should still show whatever it managed to render, not stay blank.
+  function markReady() {
+    document.documentElement.dataset.sampleReady = '';
+  }
+
+  async function loadSample() {
+    const slug = document.documentElement.dataset.sampleSlug;
+    const container = document.getElementById('root');
+    if (!slug || !container) {
+      return;
+    }
+
+    const moduleKey = `../../samples/${slug}/src/index.tsx`;
+    const load = sampleModules[moduleKey];
+    if (!load) {
+      console.warn(`[astro] no sample module found for slug "${slug}". Key: ${moduleKey}`);
+      return;
+    }
+
+    const { default: Sample } = await load();
+    if (!Sample) {
+      console.warn(`[astro] no default export in sample module: ${moduleKey}`);
+      return;
+    }
+
+    createRoot(container).render(createElement(Sample));
+  }
+
+  function start() {
+    loadSample()
+      .catch((err: unknown) => console.error('[astro] failed to load sample module', err))
+      .finally(markReady);
+  }
+
+  // Ensure the DOM is fully parsed before running the sample module.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start);
+  } else {
+    start();
+  }
+</script>

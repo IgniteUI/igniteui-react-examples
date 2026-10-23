@@ -23,5 +23,5 @@ export default function ColorPickerAlpha() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<ColorPickerAlpha />);

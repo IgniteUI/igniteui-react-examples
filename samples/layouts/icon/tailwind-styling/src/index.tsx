@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrButton, IgrIcon, IgrInput, registerIconFromText } from 'igniteui-react';
@@ -18,7 +18,7 @@ const fieldClasses = 'w-[260px] [--ig-input-group-input-prefix-background:transp
 const focusClasses = 'focus-within:[--ig-input-group-border-color:var(--ig-primary-500)]';
 const invalidClasses = '[--ig-input-group-border-color:var(--color-form-error)] [--ig-input-group-error-secondary-color:var(--color-form-error)] [&::part(input)]:border-e-0';
 
-export default function IconTailwindStyling(): JSX.Element {
+export default function IconTailwindStyling() {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [email, setEmail] = useState('ana@');
     const emailInvalid = !emailPattern.test(email);
@@ -70,6 +70,6 @@ export default function IconTailwindStyling(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<IconTailwindStyling/>);

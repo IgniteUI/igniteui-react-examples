@@ -41,7 +41,7 @@ const initialSections: FilterSection[] = [
     },
 ];
 
-export default function CheckboxTailwindStyling(): JSX.Element {
+export default function CheckboxTailwindStyling() {
     const [sections, setSections] = useState<FilterSection[]>(initialSections);
     const toggleOption = (sectionIndex: number, optionIndex: number, checked: boolean) => {
         setSections((current) =>
@@ -98,6 +98,6 @@ export default function CheckboxTailwindStyling(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<CheckboxTailwindStyling/>);

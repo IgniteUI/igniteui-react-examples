@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrIcon, IgrNavDrawer, IgrNavDrawerItem, registerIconFromText } from 'igniteui-react';
@@ -20,7 +20,7 @@ const menuItems = [
     { label: 'Support', icon: 'feedback' },
 ];
 
-export default function IconOverview(): JSX.Element {
+export default function IconOverview() {
     const [activeItem, setActiveItem] = useState<string>('Home');
 
     useEffect(() => {
@@ -45,6 +45,6 @@ export default function IconOverview(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<IconOverview/>);

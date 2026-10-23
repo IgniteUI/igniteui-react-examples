@@ -1,0 +1,10 @@
+{
+  "//": "Samples `npm run check:samples` skips, with the error each has. All are exported from igniteui-xplat-examples, so a fix made only here is lost at the next export: fix the source there, then remove the sample from this list.",
+  "samples": {
+    "grids/data-grid/column-resizing": "renders <DataGridColumnResizing/>; the component is GridColumnResizing",
+    "grids/data-grid/row-selection": "root.render() without `const root = ReactDOM.createRoot(...)`",
+    "grids/grid/row-pinning-extra-column": "rowList is an array; it has no toArray()",
+    "maps/geo-map/display-azure-imagery": "ref callback returns a value, which React 19 reads as a cleanup function",
+    "maps/geo-map/display-bing-imagery": "ref callback returns a value, which React 19 reads as a cleanup function"
+  }
+}

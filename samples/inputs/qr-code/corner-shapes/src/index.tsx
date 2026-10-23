@@ -29,5 +29,5 @@ export default function QrCodeCornerShapes() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<QrCodeCornerShapes />);

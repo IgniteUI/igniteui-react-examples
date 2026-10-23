@@ -13,3 +13,10 @@ updates:
         applies-to: version-updates # security updates bypass grouping — each gets its own fast-track PR
         patterns:
           - "*" # batch all version updates into a single PR
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    # Disables version updates; only Dependabot security updates are raised for npm dependencies.
+    open-pull-requests-limit: 0

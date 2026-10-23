@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrButton, IgrIcon, IgrTooltip, registerIconFromText } from 'igniteui-react';
@@ -21,7 +21,7 @@ const actions = [
     { id: 'delete-action', icon: 'delete', label: 'Delete' },
 ];
 
-export default function IconStyling(): JSX.Element {
+export default function IconStyling() {
     useEffect(() => {
         icons.forEach((icon) => registerIconFromText(icon.name, icon.text, 'material'));
     }, []);
@@ -48,14 +48,14 @@ export default function IconStyling(): JSX.Element {
                 </div>
                 <div className="icon-toolbar">
                     {actions.map((action) => (
-                        <React.Fragment key={action.id}>
+                        <Fragment key={action.id}>
                             <IgrButton id={action.id} variant="flat" aria-label={action.label}>
                                 <IgrIcon name={action.icon} collection="material" />
                             </IgrButton>
                             <IgrTooltip anchor={action.id} placement="bottom" withArrow={true} offset={25}>
                                 {action.label}
                             </IgrTooltip>
-                        </React.Fragment>
+                        </Fragment>
                     ))}
                 </div>
             </div>
@@ -63,6 +63,6 @@ export default function IconStyling(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<IconStyling/>);
