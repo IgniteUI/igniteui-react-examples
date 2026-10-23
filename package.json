@@ -20,6 +20,7 @@
     "preview": "astro preview --port 4200",
     "build:preview": "npm run build && npm run preview",
     "check": "astro check",
+    "check:samples": "node scripts/check-samples.js",
     "generate:code-viewer": "node scripts/generate-code-viewer.js",
     "update:ig": "node scripts/update-ig.js",
     "test:smoke": "playwright test"

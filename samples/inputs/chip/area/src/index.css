@@ -1,0 +1,22 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.chips-area-sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chips-area {
+    --ig-size: var(--ig-size-large);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.25rem;
+}
+
+/* The chip host is a block box, so its line box would add height around the chip. */
+.chips-area igc-chip {
+    display: flex;
+}
