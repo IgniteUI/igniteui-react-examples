@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrIcon, IgrTab, IgrTabs, registerIconFromText } from 'igniteui-react';
@@ -14,7 +14,7 @@ const steps = [
     { label: 'Payment', icon: 'credit_card' },
 ];
 
-export default function TabsType(): JSX.Element {
+export default function TabsType() {
     useEffect(() => {
         registerIconFromText('shopping_basket', shoppingBasketIcon, 'material');
         registerIconFromText('delivery', deliveryIcon, 'material');
@@ -44,6 +44,6 @@ export default function TabsType(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TabsType/>);

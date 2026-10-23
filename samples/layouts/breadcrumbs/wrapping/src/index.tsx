@@ -28,5 +28,5 @@ export default function BreadcrumbsWrapping() {
 }
 
 // rendering above component to the React DOM
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<BreadcrumbsWrapping />);

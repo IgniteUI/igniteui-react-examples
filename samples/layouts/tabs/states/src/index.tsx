@@ -1,11 +1,11 @@
-import React from 'react';
+import type { KeyboardEvent } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrTab, IgrTabs } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default function TabsStates(): JSX.Element {
-    const blockKeyboard = (e: React.KeyboardEvent) => e.stopPropagation();
+export default function TabsStates() {
+    const blockKeyboard = (e: KeyboardEvent) => e.stopPropagation();
 
     return (
         <div className="sample">
@@ -30,6 +30,6 @@ export default function TabsStates(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TabsStates/>);

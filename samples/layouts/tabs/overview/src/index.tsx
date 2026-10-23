@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrAvatar, IgrList, IgrListItem, IgrTab, IgrTabs } from 'igniteui-react';
@@ -13,7 +12,7 @@ const people = [
 
 const teams = ['Everyone', 'Finance', 'Engineering'];
 
-export default function TabsOverview(): JSX.Element {
+export default function TabsOverview() {
     return (
         <div className="sample">
             <div className="team-tabs">
@@ -39,6 +38,6 @@ export default function TabsOverview(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TabsOverview/>);

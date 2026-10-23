@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrAvatar, IgrChip, IgrList, IgrListItem, IgrTab, IgrTabs } from 'igniteui-react';
@@ -28,7 +27,7 @@ const sections = [
     },
 ];
 
-export default function TabsStyling(): JSX.Element {
+export default function TabsStyling() {
     return (
         <div className="sample">
             <div className="profile-card">
@@ -59,6 +58,6 @@ export default function TabsStyling(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TabsStyling/>);

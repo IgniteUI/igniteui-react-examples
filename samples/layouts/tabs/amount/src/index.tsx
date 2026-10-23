@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrTab, IgrTabs } from 'igniteui-react';
@@ -6,7 +5,7 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 const categories = ['Podcasts', 'Playlists', 'Genres', 'Albums', 'Artists', 'Audiobooks', 'Radio'];
 
-export default function TabsAmount(): JSX.Element {
+export default function TabsAmount() {
     return (
         <div className="sample">
             <div className="amounts">
@@ -33,6 +32,6 @@ export default function TabsAmount(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TabsAmount/>);

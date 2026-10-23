@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrTab, IgrTabs } from 'igniteui-react';
@@ -7,7 +6,7 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 const categories = ['Podcasts', 'Playlists', 'Genres'];
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-export default function TabsResponsiveness(): JSX.Element {
+export default function TabsResponsiveness() {
     return (
         <div className="sample">
             <div className="modes">
@@ -28,6 +27,6 @@ export default function TabsResponsiveness(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TabsResponsiveness/>);

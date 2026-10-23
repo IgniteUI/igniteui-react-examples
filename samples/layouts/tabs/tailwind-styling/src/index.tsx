@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrIcon, IgrTab, IgrTabs, registerIconFromText } from 'igniteui-react';
@@ -18,7 +18,7 @@ const destinations = [
     { label: 'Profile', icon: 'person' },
 ];
 
-export default function TabsTailwindStyling(): JSX.Element {
+export default function TabsTailwindStyling() {
     useEffect(() => {
         registerIconFromText('home', homeIcon, 'material');
         registerIconFromText('place', placeIcon, 'material');
@@ -48,6 +48,6 @@ export default function TabsTailwindStyling(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<TabsTailwindStyling/>);

@@ -48,10 +48,6 @@ igc-badge {
     transform: translate(-50%, -50%);
 }
 
-.styling-item igc-avatar {
-    --size: 40px;
-}
-
 .styling-item.green igc-avatar {
     --icon-color: var(--ig-success-900);
     --ig-avatar-background: var(--ig-success-200);
