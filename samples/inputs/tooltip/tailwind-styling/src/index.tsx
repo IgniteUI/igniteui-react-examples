@@ -48,7 +48,7 @@ export default function TooltipTailwindStyling() {
 
     return (
         <div className="sample">
-            <div className="flex flex-wrap items-start justify-center gap-25 pt-14">
+            <div className="flex flex-wrap items-start justify-center gap-x-[clamp(1.5rem,calc(100%_-_42.6875rem),6.25rem)] gap-y-25 pt-14">
                 <IgrList id="btc" className="mt-10.5 w-65 overflow-hidden rounded-full border border-btc-border">
                     <IgrListItem className="px-4 py-2 [&::part(start)]:hidden">
                         <span slot="title" className="flex items-center gap-1 font-[aktiv-grotesk,sans-serif] text-sm/[1.125rem] font-semibold text-btc-ink">
