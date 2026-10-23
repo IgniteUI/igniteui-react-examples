@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrButton, IgrCheckbox, IgrIcon, IgrIconButton, IgrList, IgrListHeader, IgrListItem, registerIconFromText } from 'igniteui-react';
@@ -38,7 +38,7 @@ const initialGroups: ShoppingGroup[] = [
     },
 ];
 
-export default function CheckboxOverview(): JSX.Element {
+export default function CheckboxOverview() {
     const [groups, setGroups] = useState<ShoppingGroup[]>(initialGroups);
 
     useEffect(() => {
@@ -93,6 +93,6 @@ export default function CheckboxOverview(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<CheckboxOverview/>);

@@ -1,0 +1,22 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+/* Keep this order. An @import after the Tailwind imports is dropped, and in
+   the samples browser one before the @layer statement drops the Tailwind
+   imports, so Aktiv Grotesk goes between them. */
+@layer theme, base, components, utilities;
+@import url("https://use.typekit.net/bng2zgw.css");
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@source "./index.tsx";
+
+@theme {
+    /* The design's own palette. It lives here instead of coming from the theme
+       palette, so the sample keeps its colors in every theme. */
+    --color-activity-primary: #006ae6;
+    --color-activity-primary-strong: #0055b8;
+    --color-activity-tint: #e6f2ff;
+    --color-activity-tint-strong: #cce4ff;
+    --color-activity-surface: #e5ebf3;
+    --color-activity-ink: #00142b;
+}

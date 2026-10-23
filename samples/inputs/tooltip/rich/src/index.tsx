@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { IgrAvatar, IgrTooltip, IgrIcon, registerIconFromText } from "igniteui-react";
@@ -9,40 +8,34 @@ const location =
 
 registerIconFromText("location_on", location, "material");
 
-export default class TooltipRich extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-  }
-
-  public render(): JSX.Element {
-    return (
-      <div className="container sample center">
-        <div className="map">
-          <IgrIcon
-            id="location_icon"
-            slot="actions"
-            collection="material"
-            name="location_on"
-          ></IgrIcon>
-          <IgrTooltip anchor="location_icon" className="locationTooltip">
-            <div className="locationTooltipContent">
-              <IgrAvatar
-                className="logo"
-                src="https://dl.infragistics.com/x/img/browsers/ig.png.png"
-                shape="square"
-              ></IgrAvatar>
-              <div>
-                <div>Infragistics Inc. HQ</div>
-                <div>2 Commerce Dr, Cranbury, NJ 08512, USA</div>
-              </div>
+export default function TooltipRich() {
+  return (
+    <div className="container sample center">
+      <div className="map">
+        <IgrIcon
+          id="location_icon"
+          slot="actions"
+          collection="material"
+          name="location_on"
+        ></IgrIcon>
+        <IgrTooltip anchor="location_icon" className="locationTooltip">
+          <div className="locationTooltipContent">
+            <IgrAvatar
+              className="logo"
+              src="https://dl.infragistics.com/x/img/browsers/ig.png.png"
+              shape="square"
+            ></IgrAvatar>
+            <div>
+              <div>Infragistics Inc. HQ</div>
+              <div>2 Commerce Dr, Cranbury, NJ 08512, USA</div>
             </div>
-          </IgrTooltip>
-        </div>
+          </div>
+        </IgrTooltip>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<TooltipRich />);

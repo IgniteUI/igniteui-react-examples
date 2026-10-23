@@ -19,7 +19,6 @@ export default function BadgeType(): JSX.Element {
                     <IgrAvatar
                         src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
                         shape="circle"
-                        size="small"
                     />
                     <IgrBadge dot={true} outlined={true} variant="success" className="dot-badge" />
                 </div>
@@ -30,7 +29,6 @@ export default function BadgeType(): JSX.Element {
                     <IgrAvatar
                         src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
                         shape="circle"
-                        size="small"
                     />
                     <IgrBadge outlined={true} variant="success">
                         <IgrIcon name="check" collection="material" />
@@ -43,7 +41,6 @@ export default function BadgeType(): JSX.Element {
                     <IgrAvatar
                         src="https://dl.infragistics.com/x/img/avatars/avatar-profile-04.png"
                         shape="circle"
-                        size="small"
                     />
                     <IgrBadge outlined={true} variant="success">
                         2
