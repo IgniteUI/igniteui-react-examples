@@ -1,49 +1,42 @@
-import React from 'react';
+import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCalendar, IgrRadioGroup, IgrRadio } from 'igniteui-react';
+import { IgrCalendar, IgrRadioGroup, IgrRadio, type IgrRadioChangeEventArgs } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default class CalendarSize extends React.Component<any, any> {
+export default function CalendarSize() {
+    const [calendarSize, setCalendarSize] = useState<string | undefined>("large");
 
-    constructor(props: any) {
-        super(props);                
-        this.onRadioChange = this.onRadioChange.bind(this);
-        this.state = { calendarSize: "large"};        
-    }
-
-    public render(): JSX.Element {
-        return (
-            <div className="container sample">
-                <IgrRadioGroup alignment="horizontal" style={{ marginBottom: '10px' }}>
-                    <IgrRadio name="size" value="small" 
-                        checked={this.state.calendarSize === "small"} 
-                        onChange={this.onRadioChange}>
-                        <span>Small</span>
-                    </IgrRadio>
-                    <IgrRadio name="size" value="medium" 
-                        checked={this.state.calendarSize === "medium"} 
-                        onChange={this.onRadioChange}>
-                        <span>Medium</span>
-                    </IgrRadio>
-                    <IgrRadio name="size" value="large" 
-                        checked={this.state.calendarSize === "large"} 
-                        onChange={this.onRadioChange}>
-                        <span>Large</span>
-                    </IgrRadio>
-                </IgrRadioGroup>
-                <IgrCalendar className={'size-' + this.state.calendarSize} style={{width: '400px'}}/>                
-            </div>
-        );
-    }
-
-    public onRadioChange(e: any) {
+    function onRadioChange(e: IgrRadioChangeEventArgs) {
         if (e.detail.checked) {
-            this.setState({ calendarSize: e.detail.value });
+            setCalendarSize(e.detail.value);
         }
     }
+
+    return (
+        <div className="container sample">
+            <IgrRadioGroup alignment="horizontal" style={{ marginBottom: '10px' }}>
+                <IgrRadio name="size" value="small"
+                    checked={calendarSize === "small"}
+                    onChange={onRadioChange}>
+                    <span>Small</span>
+                </IgrRadio>
+                <IgrRadio name="size" value="medium"
+                    checked={calendarSize === "medium"}
+                    onChange={onRadioChange}>
+                    <span>Medium</span>
+                </IgrRadio>
+                <IgrRadio name="size" value="large"
+                    checked={calendarSize === "large"}
+                    onChange={onRadioChange}>
+                    <span>Large</span>
+                </IgrRadio>
+            </IgrRadioGroup>
+            <IgrCalendar className={'size-' + calendarSize} style={{width: '400px'}}/>
+        </div>
+    );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<CalendarSize />);
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
+root.render(<CalendarSize/>);

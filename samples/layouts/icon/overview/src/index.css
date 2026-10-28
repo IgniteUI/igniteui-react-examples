@@ -1,0 +1,18 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.menu {
+    height: auto;
+}
+
+.menu igc-nav-drawer-item {
+    isolation: isolate;
+}

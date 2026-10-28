@@ -78,5 +78,5 @@ export default function CarouselStyling() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<CarouselStyling />);

@@ -49,7 +49,7 @@ export default function BadgeIcon(): JSX.Element {
             ))}
             <div className="badge-icon-item">
                 <div className="icon-wrapper avatar-wrapper">
-                    <IgrAvatar initials="AZ" shape="circle" size="small" />
+                    <IgrAvatar initials="AZ" shape="circle" />
                     <IgrBadge variant="danger" outlined={true}>
                         <IgrIcon name="close" collection="material" />
                     </IgrBadge>

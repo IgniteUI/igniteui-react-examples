@@ -15,7 +15,6 @@
 
   a {
     color: var(--focus-text-color);
-    text-decoration: underline var(--focus-underline-color);
   }
 }
 
@@ -36,7 +35,6 @@
 
   a {
     color: var(--focus-hover-text-color);
-    text-decoration: underline var(--focus-hover-underline-color);
   }
 }
 
@@ -47,7 +45,6 @@
 
   a {
     color: var(--focus-pressed-text-color);
-    text-decoration: underline var(--focus-pressed-underline-color);
   }
 }
 
@@ -59,6 +56,44 @@
   a {
     color: var(--disabled-text-color);
   }
+}
+
+[data-igd-theme="material"] {
+    .state-focused-pressed a,
+    .state-focused-hover a,
+    .state-focused a {
+        text-decoration: underline var(--focus-pressed-underline-color);
+    }
+} 
+
+[data-igd-theme="fluent"] {
+    .state-focused-pressed::part(label),
+    .state-focused-hover::part(label),
+    .state-focused::part(label) { 
+        outline: .0625rem solid var(--focus-border-color);
+    }
+}
+
+[data-igd-theme="bootstrap"] {
+    .state-focused-pressed::part(label),
+    .state-focused-hover::part(label),
+    .state-focused::part(label) {
+        outline: .25rem solid var(--focus-border-color);
+        border-radius: 0.25rem;
+    }
+}
+
+[data-igd-theme="indigo"] {
+    .state-focused-pressed::part(label),
+    .state-focused-hover::part(label),
+    .state-focused::part(label) {
+        outline: .1875rem solid var(--focus-border-color);
+        border-radius: 2rem;
+    }
+
+    .state-disabled igc-icon {
+        opacity: 0.2;
+    }
 }
 
 :host {
@@ -74,13 +109,14 @@
   justify-content: center;
   max-height: 15rem;
   overflow: auto;
-  font-family: "Aktiv Grotesk", sans-serif;
+  font-family: var(--ig-font-family);
 }
 
 span {
   color: #7d8a96;
   font-size: 0.875rem;
   margin-block-end: 1rem;
+  font-family: "Aktiv Grotesk", sans-serif;
 }
 
 nav {
