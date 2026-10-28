@@ -92,6 +92,10 @@
     box-shadow: inset 0 -2px 0 #0176ff;
 }
 
+.profile-tabs igc-tab::part(tab-header):focus-within::after {
+    box-shadow: none;
+}
+
 .profile-details {
     --ig-list-border-color: #e5ebf3;
     --ig-list-border-width: 1px;

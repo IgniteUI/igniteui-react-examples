@@ -20,6 +20,10 @@
     grid-template-columns: repeat(3, 1fr);
 }
 
+.team-tabs igc-tab::part(content) {
+    white-space: nowrap;
+}
+
 .team-tabs igc-list {
     --ig-size: var(--ig-size-large);
 }
