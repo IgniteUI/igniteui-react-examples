@@ -14,7 +14,7 @@
 
 igc-dialog {
     --ig-dialog-backdrop: transparent;
-    --ig-dialog-message-color: var(--ig-gray-700);
+    --ig-dialog-message-color: var(--ig-gray-600);
 }
 
 igc-dialog::part(base) {
