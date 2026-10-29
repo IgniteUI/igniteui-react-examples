@@ -1,10 +1,9 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrRadio, IgrRadioGroup } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default function RadioOrientation(): JSX.Element {
+export default function RadioOrientation() {
     return (
         <div className="sample radio-orientation">
             <div className="radio-orientation-item billing-cycle">
@@ -27,6 +26,6 @@ export default function RadioOrientation(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<RadioOrientation/>);

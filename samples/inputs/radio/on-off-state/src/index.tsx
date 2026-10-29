@@ -1,10 +1,9 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrRadio, IgrRadioGroup } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default function RadioOnOffState(): JSX.Element {
+export default function RadioOnOffState() {
     return (
         <div className="sample radio-on-off">
             <div className="age-question">
@@ -19,6 +18,6 @@ export default function RadioOnOffState(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<RadioOnOffState/>);

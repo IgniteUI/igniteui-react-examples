@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrButton, IgrRadio, IgrRadioGroup } from 'igniteui-react';
@@ -27,7 +27,7 @@ const exportButton =
     button + ' [&::part(base)]:rounded-lg [&::part(base)]:border-export-primary [&::part(base)]:bg-export-primary ' +
     '[&::part(base)]:text-white [&::part(base):hover]:border-export-primary-strong [&::part(base):hover]:bg-export-primary-strong';
 
-export default function RadioTailwindStyling(): JSX.Element {
+export default function RadioTailwindStyling() {
     const [format, setFormat] = useState('csv');
 
     return (
@@ -63,6 +63,6 @@ export default function RadioTailwindStyling(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<RadioTailwindStyling/>);

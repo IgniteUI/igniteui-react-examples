@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrRadio, IgrRadioGroup } from 'igniteui-react';
@@ -11,7 +10,7 @@ const methods = [
     { value: 'same-day', name: 'Same-day', detail: '(not available)', disabled: true },
 ];
 
-export default function RadioStyling(): JSX.Element {
+export default function RadioStyling() {
     return (
         <div className="sample radio-styling">
             <div className="shipping-card">
@@ -36,6 +35,6 @@ export default function RadioStyling(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<RadioStyling/>);

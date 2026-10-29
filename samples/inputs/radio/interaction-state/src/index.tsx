@@ -29,11 +29,14 @@ const groups = [
     },
 ];
 
-export default function RadioInteractionState(): JSX.Element {
+export default function RadioInteractionState() {
     const gridRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const grid = gridRef.current;
+        if (!grid) {
+            return;
+        }
         // The radios only show their states, so they take no pointer or keyboard input.
         grid.setAttribute('inert', '');
         // A keyup is what turns on a radio's keyboard focus ring, so dispatching one
@@ -74,6 +77,6 @@ export default function RadioInteractionState(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<RadioInteractionState/>);

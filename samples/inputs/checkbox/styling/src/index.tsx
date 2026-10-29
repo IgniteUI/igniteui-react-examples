@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrAvatar, IgrButton, IgrCheckbox, IgrList, IgrListItem } from 'igniteui-react';
@@ -18,7 +18,7 @@ const initialMembers: TeamMember[] = [
     { name: 'Kate Roberts', email: 'kate@team.com', avatar: 'https://dl.infragistics.com/x/img/avatars/avatar-profile-08.png', selected: false },
 ];
 
-export default function CheckboxStyling(): JSX.Element {
+export default function CheckboxStyling() {
     const [members, setMembers] = useState<TeamMember[]>(initialMembers);
 
     const allSelected = members.every((member) => member.selected);
@@ -73,6 +73,6 @@ export default function CheckboxStyling(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<CheckboxStyling/>);

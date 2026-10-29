@@ -1,10 +1,9 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrButton, IgrRadio, IgrRadioGroup } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-export default function RadioOverview(): JSX.Element {
+export default function RadioOverview() {
     return (
         <div className="sample radio-overview">
             <form className="feedback-form" onSubmit={(e) => e.preventDefault()}>
@@ -20,6 +19,6 @@ export default function RadioOverview(): JSX.Element {
     );
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<RadioOverview/>);

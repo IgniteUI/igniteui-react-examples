@@ -86,7 +86,7 @@ export default function ColorPickerStyling() {
         <div className="toolbar-group">
           <span className="toolbar-group-label">Colors</span>
           <div className="toolbar-actions">
-            <IgrColorPicker mode="input" placeholder="Color" />
+            <IgrColorPicker mode="input" />
           </div>
         </div>
       </div>
@@ -94,5 +94,5 @@ export default function ColorPickerStyling() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(<ColorPickerStyling />);
