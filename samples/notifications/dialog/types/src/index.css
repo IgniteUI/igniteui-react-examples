@@ -18,7 +18,7 @@
 }
 
 .dialog-types igc-dialog {
-    --ig-dialog-message-color: var(--ig-gray-600);
+    --ig-dialog-message-color: var(--ig-gray-700);
 }
 
 .dialog-types igc-dialog::part(base) {
