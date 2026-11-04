@@ -1,4 +1,4 @@
-This folder contains implementation of React application with example of Prefix Suffix feature using [Tabs](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) component.
+This folder contains implementation of React application with example of States feature using [Tabs](https://www.infragistics.com/products/ignite-ui-react/react/components/general-getting-started.html) component.
 
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +9,7 @@ This folder contains implementation of React application with example of Prefix 
         <a target="_blank" href="./src/index.tsx" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="View Code" src="https://dl.infragistics.com/x/img/browsers/button-code.png"/>
         </a>
-        <a target="_blank" href="https://www.infragistics.com/react-demos/samples/layouts/tabs/prefix-suffix" rel="noopener noreferrer">
+        <a target="_blank" href="https://www.infragistics.com/react-demos/samples/layouts/tabs/states" rel="noopener noreferrer">
             <img height="40px" style="border-radius: 0rem; max-width: 100%;" alt="Run Sample" src="https://dl.infragistics.com/x/img/browsers/button-run.png"/>
         </a>
     </body>
@@ -28,7 +28,7 @@ Follow these instructions to run this example:
 git clone https://github.com/IgniteUI/igniteui-react-examples.git
 cd ./igniteui-react-examples
 git checkout master
-cd ./samples/layouts/tabs/prefix-suffix
+cd ./samples/layouts/tabs/states
 ```
 
 open above folder in VS Code or type:
