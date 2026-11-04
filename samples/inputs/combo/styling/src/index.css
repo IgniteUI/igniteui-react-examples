@@ -1,34 +1,44 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-igc-combo::part(label),
-igc-combo::part(empty),
-igc-combo::part(group-header) {
-  color: #2b3a55;
+.sample {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem 1rem;
 }
 
-igc-combo::part(native-input),
-igc-combo::part(list-wrapper) {
-  background-color: #f2e5e5;
-}
+.styled-combo {
+    --ig-font-family: "Titillium Web", sans-serif;
+    --ig-input-group-border-color: #1377d5;
+    --ig-input-group-hover-border-color: #1377d5;
+    --ig-input-group-focused-border-color: #1377d5;
+    --ig-input-group-filled-text-color: #212121;
+    --ig-input-group-focused-bottom-line-color: #007ccf;
+    --ig-combo-toggle-button-background: #e0e0e0;
+    --ig-combo-toggle-button-background-focus: #e0e0e0;
+    --ig-combo-toggle-button-background-focus--border: #e0e0e0;
+    --ig-combo-toggle-button-foreground: #212121;
+    --ig-combo-toggle-button-foreground-focus: #212121;
+    --ig-combo-toggle-button-foreground-filled: #212121;
+    --ig-drop-down-background-color: #e6f2ff;
+    --ig-drop-down-header-text-color: #005dcc;
+    --ig-drop-down-item-text-color: #212121;
+    --ig-drop-down-hover-item-background: #cce4ff;
+    --ig-drop-down-focused-item-background: #cce4ff;
+    --ig-drop-down-selected-item-background: #4ca7e3;
+    --ig-drop-down-selected-item-text-color: #000;
+    --ig-drop-down-selected-hover-item-background: #4ca7e3;
+    --ig-drop-down-selected-hover-item-text-color: #000;
+    --ig-drop-down-selected-focus-item-background: #4ca7e3;
+    --ig-drop-down-selected-focus-item-text-color: #000;
+    --ig-checkbox-empty-color: #005dcc;
+    --ig-checkbox-fill-color: #005dcc;
+    --ig-checkbox-tick-color: #fff;
 
-igc-combo::part(item selected) {
-  background: #e8c4c4;
-}
+    /* the list shows a group header and three options */
+    --item-count: 4;
 
-igc-combo::part(item selected active),
-igc-combo::part(item selected):hover {
-  background: #ce7777;
-}
-
-igc-combo::part(prefix),
-igc-combo::part(suffix),
-igc-combo::part(case-icon) {
-  color: #f2e5e5;
-  background-color: #2b3a55;
-}
-
-igc-combo::part(checkbox checked)::after {
-  background: #2b3a55;
-  box-shadow: none;
+    width: 17.4375rem;
 }
