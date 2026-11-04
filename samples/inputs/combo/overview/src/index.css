@@ -1,2 +1,14 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem 1rem;
+}
+
+.locations {
+    width: 22.5rem;
+}
