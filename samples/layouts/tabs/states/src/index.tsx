@@ -1,15 +1,22 @@
-import type { KeyboardEvent } from 'react';
+import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { IgrTab, IgrTabs } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 export default function TabsStates() {
-    const blockKeyboard = (e: KeyboardEvent) => e.stopPropagation();
+    const statesRef = useRef<HTMLDivElement>(null);
+
+    // The tabs only show their look, so inert keeps them out of the tab order and ignores pointer input.
+    useEffect(() => {
+        if (statesRef.current) {
+            statesRef.current.inert = true;
+        }
+    }, []);
 
     return (
         <div className="sample">
-            <div className="states" onKeyDownCapture={blockKeyboard}>
+            <div className="states" ref={statesRef}>
                 <span />
                 <span className="state-label state-column">Active</span>
                 <span className="state-label state-column">Inactive</span>
