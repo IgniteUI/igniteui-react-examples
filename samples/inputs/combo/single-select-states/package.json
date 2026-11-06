@@ -1,6 +1,6 @@
 {
-  "name": "react-combo-single-selection",
-  "description": "This project provides example of Combo Single Selection using Infragistics React components",
+  "name": "react-combo-single-select-states",
+  "description": "This project provides an example of Combo single select states using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",

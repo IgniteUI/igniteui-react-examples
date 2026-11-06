@@ -1,0 +1,79 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem 1rem;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: max-content repeat(3, minmax(0, 11.25rem));
+    width: 100%;
+    justify-content: center;
+    align-items: start;
+    column-gap: 1.875rem;
+    row-gap: 1rem;
+}
+
+/* the second row is further from the first one than the column labels are */
+.items > :nth-child(n + 9) {
+    margin-top: 1.5rem;
+}
+
+/* only the dropdown of the combo is shown, so the input field is hidden */
+.dropdown {
+    width: 100%;
+    min-width: 0;
+}
+
+.dropdown::part(input) {
+    display: none;
+}
+
+/* each list shows a single group header or a single option */
+.dropdown {
+    --item-count: 1;
+}
+
+.header-only::part(item) {
+    display: none;
+}
+
+/* because the list floats, the element takes the height of its one item in each size */
+.small {
+    --ig-size: var(--ig-size-small);
+
+    height: 1.75rem;
+}
+
+.medium {
+    --ig-size: var(--ig-size-medium);
+
+    height: 2rem;
+}
+
+.large {
+    --ig-size: var(--ig-size-large);
+
+    height: 2.5rem;
+}
+
+.state-label {
+    font: 400 13px / 20px "Aktiv Grotesk", sans-serif;
+    letter-spacing: 0.3px;
+    color: var(--ig-gray-600);
+}
+
+/* the row labels are centered on the small items */
+.state-label:not(.state-column) {
+    justify-self: end;
+    line-height: 1.75rem;
+}
+
+.state-column {
+    justify-self: center;
+}
