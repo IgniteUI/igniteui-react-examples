@@ -43,6 +43,11 @@
     display: none;
 }
 
+/* the list still counts the hidden option in its height, so it does not scroll */
+.header-only::part(list) {
+    overflow: hidden;
+}
+
 /* because the list floats, the element takes the height of its one item in each size */
 .small {
     --ig-size: var(--ig-size-small);
