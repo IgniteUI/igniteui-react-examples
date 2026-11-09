@@ -3,40 +3,44 @@ import ReactDOM from "react-dom/client";
 import { IgrCombo, IgrSwitch } from "igniteui-react";
 import "./index.css";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import { Cities } from "./ComboData";
+import { usStates } from "./ComboData";
 
 export default function ComboFeatures() {
   const [disableFiltering, setDisableFiltering] = useState(false);
   const [caseSensitiveIcon, setCaseSensitiveIcon] = useState(false);
-  const [groupingEnabled, setGroupingEnabled] = useState(false);
-  const [comboDisabled, setComboDisabled] = useState(false);
+  const [grouping, setGrouping] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   return (
-    <div className="sample">
-      <IgrCombo
-        valueKey="id"
-        displayKey="name"
-        label="Cities"
-        placeholder="Pick a city"
-        placeholderSearch="Search for a city"
-        data={Cities}
-        disableFiltering={disableFiltering}
-        caseSensitiveIcon={caseSensitiveIcon}
-        groupKey={groupingEnabled ? "country" : undefined}
-        disabled={comboDisabled}>
-      </IgrCombo>
-      <div className="options">
-        <IgrSwitch checked={disableFiltering} onChange={e => setDisableFiltering(e.detail.checked)}>
-          <span>Disable Filtering</span>
+    <div className="sample combo-features">
+      <div className="combo-column">
+        <IgrCombo
+          outlined
+          label="Location"
+          placeholderSearch="Search…"
+          data={usStates}
+          valueKey="id"
+          displayKey="name"
+          disableFiltering={disableFiltering}
+          caseSensitiveIcon={caseSensitiveIcon}
+          groupKey={grouping ? "region" : undefined}
+          disabled={disabled}
+        />
+      </div>
+
+      <div className="controls">
+        <IgrSwitch checked={disableFiltering} onChange={(e) => setDisableFiltering(e.detail.checked)}>
+          Disable Filtering
         </IgrSwitch>
-        <IgrSwitch checked={caseSensitiveIcon} onChange={e => setCaseSensitiveIcon(e.detail.checked)}>
-          <span>Show Case-sensitive Icon</span>
+        {/* Without filtering the combo hides its search input, and the case-sensitive icon with it. */}
+        <IgrSwitch checked={caseSensitiveIcon} disabled={disableFiltering} onChange={(e) => setCaseSensitiveIcon(e.detail.checked)}>
+          Show Case-sensitive Icon
         </IgrSwitch>
-        <IgrSwitch checked={groupingEnabled} onChange={e => setGroupingEnabled(e.detail.checked)}>
-          <span>Enable Grouping</span>
+        <IgrSwitch checked={grouping} onChange={(e) => setGrouping(e.detail.checked)}>
+          Enable Grouping
         </IgrSwitch>
-        <IgrSwitch checked={comboDisabled} onChange={e => setComboDisabled(e.detail.checked)}>
-          <span>Disable Combo</span>
+        <IgrSwitch checked={disabled} onChange={(e) => setDisabled(e.detail.checked)}>
+          Disable Combo
         </IgrSwitch>
       </div>
     </div>
