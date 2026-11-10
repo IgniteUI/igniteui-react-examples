@@ -9,8 +9,8 @@ import {
     IgrSwitch,
     registerIconFromText,
     ComboTemplateProps,
-    IgcComboChangeEventArgs,
-    IgcCheckboxChangeEventArgs,
+    IgrComboChangeEventArgs,
+    IgrCheckboxChangeEventArgs,
 } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 import { Destination, destinations, citiesIn } from './data';
@@ -96,7 +96,7 @@ export default function ComboTemplates() {
     // `onChange` is raised before the selection changes, with the new value in its detail; the search
     // input of the combo emits its own change event that bubbles out of the combo, so only the events of
     // the combo itself change the selection
-    const onChange = (e: CustomEvent<IgcComboChangeEventArgs<Destination>>) => {
+    const onChange = (e: IgrComboChangeEventArgs) => {
         if (e.composedPath()[0] !== e.currentTarget) {
             return;
         }
@@ -115,7 +115,7 @@ export default function ComboTemplates() {
         setSelected([]);
     };
 
-    const toggleTemplate = (name: TemplateName, e: CustomEvent<IgcCheckboxChangeEventArgs>) => {
+    const toggleTemplate = (name: TemplateName, e: IgrCheckboxChangeEventArgs) => {
         setTemplates({ ...templates, [name]: e.detail.checked });
     };
 
