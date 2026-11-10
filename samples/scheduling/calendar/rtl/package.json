@@ -1,0 +1,25 @@
+{
+  "name": "react-calendar-rtl",
+  "description": "This project provides example of Calendar RTL using Infragistics React components",
+  "author": "Infragistics",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "vite --port 4200",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "igniteui-react": "19.9.0",
+    "igniteui-webcomponents": "~7.4.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.1"
+  }
+}

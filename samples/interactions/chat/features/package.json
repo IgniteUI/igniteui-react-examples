@@ -12,7 +12,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "dompurify": "^3.4.16",
+    "dompurify": "^3.4.17",
     "igniteui-dockmanager": "^2.2.1",
     "igniteui-react": "19.9.0",
     "igniteui-react-core": "19.6.0",
