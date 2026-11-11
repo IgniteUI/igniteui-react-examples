@@ -1,7 +1,7 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCombo } from 'igniteui-react';
+import { IgrCombo, IgrComboChangeEventArgs } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 interface Country {
@@ -27,12 +27,38 @@ const types = [
     { label: 'Box Type', outlined: false },
 ];
 
+// the dropdown is opened once, when the combo is created; as a prop, `open` is applied again on each render,
+// which opens a dropdown that the user has closed
+const openDropdown = (combo: IgrCombo | null) => {
+    if (combo) {
+        combo.open = true;
+    }
+};
+
 export default function ComboSize() {
+    // the `id` values of the selected countries, kept for each combo
+    const [selected, setSelected] = useState<Record<string, string[]>>({});
+
     // a click outside a combo moves the focus out of it, and then its dropdown stays open, so each combo opens and closes on its own
     const keepOpenOnOutsideClick = (e: CustomEvent<void>) => {
         if (!(e.target as HTMLElement).matches(':focus-within')) {
             e.preventDefault();
         }
+    };
+
+    // `onChange` is raised before the selection changes, so the value is read once the combo has updated;
+    // the search input of the combo emits its own change event that bubbles out of the combo, so only the
+    // events of the combo itself change the selection
+    const onChange = async (key: string, e: IgrComboChangeEventArgs) => {
+        const combo = e.currentTarget as IgrCombo;
+
+        if (e.composedPath()[0] !== combo) {
+            return;
+        }
+
+        await combo.updateComplete;
+        const value = combo.value as string[];
+        setSelected((current) => ({ ...current, [key]: value }));
     };
 
     return (
@@ -45,21 +71,36 @@ export default function ComboSize() {
                 {types.map((type) => (
                     <Fragment key={type.label}>
                         <span className="state-label type-label">{type.label}</span>
-                        {sizes.map((size) => (
-                            <IgrCombo
-                                key={size.label}
-                                className={size.className}
-                                outlined={type.outlined}
-                                placeholder="Country"
-                                placeholderSearch="Search"
-                                valueKey="id"
-                                displayKey="name"
-                                groupKey="region"
-                                open={true}
-                                onClosing={keepOpenOnOutsideClick}
-                                data={countries}
-                            />
-                        ))}
+                        {sizes.map((size) => {
+                            const key = `${type.label} ${size.label}`;
+
+                            return (
+                                <div key={size.label} className={size.className}>
+                                    <IgrCombo
+                                        outlined={type.outlined}
+                                        placeholder="Country"
+                                        placeholderSearch="Search"
+                                        valueKey="id"
+                                        displayKey="name"
+                                        groupKey="region"
+                                        ref={openDropdown}
+                                        onClosing={keepOpenOnOutsideClick}
+                                        onChange={(e) => onChange(key, e)}
+                                        data={countries}
+                                    />
+                                    <div className="selection">
+                                        <span className="selection-title">Selection</span>
+                                        {selected[key]?.length ? (
+                                            selected[key].map((id) => (
+                                                <span key={id}>{countries.find((country) => country.id === id)!.name}</span>
+                                            ))
+                                        ) : (
+                                            <span className="selection-empty">No items selected</span>
+                                        )}
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </Fragment>
                 ))}
             </div>
