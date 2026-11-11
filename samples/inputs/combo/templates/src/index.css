@@ -1,6 +1,71 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-.combo-padding {
-  padding: 12px 16px;
+/* the combo keeps its width and stays in the center of a sample that has room for it: the columns
+   on its two sides share the free space equally, and the switches take the one after the combo */
+.sample {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 27rem) minmax(max-content, 1fr);
+    align-items: center;
+    height: 100%;
+    padding: 2rem 1rem;
+}
+
+/* the open dropdown covers the Selection list and ends below it, so the area has the height of
+   the combo with its dropdown, and the two stay in the middle of the sample */
+.destinations-area {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    gap: 1.5rem;
+    height: 17.5rem;
+}
+
+/* the suffix slot renders after the clear icon; the design shows the badge before it */
+.destinations::part(clear-icon),
+.destinations::part(toggle-icon) {
+    order: 1;
+}
+
+.destinations igc-badge {
+    padding-inline-end: 0.1rem;
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0 1.25rem;
+}
+
+.templates {
+    display: flex;
+    flex-direction: column;
+    grid-column: 3;
+    gap: 1.625rem;
+    justify-self: end;
+    margin-inline-start: 1.5rem;
+}
+
+.list-header,
+.list-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem 0.25rem 1rem;
+}
+
+.empty-list {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: start;
+}
+
+.empty-list igc-icon {
+    --size: 1.25rem;
+
+    flex: none;
 }
