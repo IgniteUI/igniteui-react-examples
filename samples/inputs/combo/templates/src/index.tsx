@@ -77,7 +77,11 @@ export default function ComboTemplates() {
     const comboRef = useRef<IgrCombo>(null);
 
     // the `id` values of the selected destinations
-    const [selected, setSelected] = useState<string[]>(['SOF', 'LON']);
+    const [selected, setSelected] = useState<string[]>([]);
+
+    // the dropdown is open when the sample loads; after that the state follows the combo, so the
+    // combo keeps it when the key remounts it
+    const [open, setOpen] = useState(true);
 
     // which templates the switches have turned on
     const [templates, setTemplates] = useState<Record<TemplateName, boolean>>({
@@ -119,8 +123,10 @@ export default function ComboTemplates() {
         setTemplates({ ...templates, [name]: e.detail.checked });
     };
 
+    // the `ig-typography` class turns on the type style classes of the theme, so the texts of the
+    // sample take their fonts from the theme of the combo
     return (
-        <div className="sample">
+        <div className="sample ig-typography">
             <div className="destinations-area">
                 {/* the React wrapper binds the template functions when the combo mounts,
                     so the key remounts the combo when the item or the group header template changes */}
@@ -135,16 +141,19 @@ export default function ComboTemplates() {
                     groupSorting="none"
                     placeholder="Pick one or more cities"
                     placeholderSearch="Search cities..."
+                    open={open}
                     label={templates.input ? 'Destinations' : undefined}
                     data={destinations}
                     value={selected}
                     itemTemplate={templates.item ? renderItem : renderDefaultItem}
                     groupHeaderTemplate={templates.groupHeader ? renderGroupHeader : renderDefaultGroupHeader}
                     onChange={onChange}
+                    onOpening={() => setOpen(true)}
+                    onClosing={() => setOpen(false)}
                 >
                     {templates.header && (
                         <header slot="header" className="list-header">
-                            <span>Destinations by region</span>
+                            <span className="ig-typography__subtitle-2">Destinations by region</span>
                             <IgrButton variant="flat" onClick={selectAll}>
                                 Select all
                             </IgrButton>
@@ -152,7 +161,7 @@ export default function ComboTemplates() {
                     )}
                     {templates.footer && (
                         <footer slot="footer" className="list-footer">
-                            <span>{selected.length} selected</span>
+                            <span className="ig-typography__body-2">{selected.length} selected</span>
                             <IgrButton variant="flat" onClick={clearSelection}>
                                 Clear
                             </IgrButton>
@@ -177,13 +186,9 @@ export default function ComboTemplates() {
                     )}
                 </IgrCombo>
 
-                <div className="selection">
-                    <span className="selection-title">Selection</span>
-                    {selectedNames.length ? (
-                        selectedNames.map((name) => <span key={name}>{name}</span>)
-                    ) : (
-                        <span className="selection-empty">No items selected</span>
-                    )}
+                <div className="selection ig-typography__body-2">
+                    <span className="ig-typography__subtitle-2">Selection</span>
+                    <span>{selectedNames.length ? selectedNames.join(', ') : 'No items selected'}</span>
                 </div>
             </div>
 
