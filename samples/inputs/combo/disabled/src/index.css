@@ -7,6 +7,7 @@
     justify-content: center;
     height: 100%;
     padding: 1rem;
+    container-name: sample;
 }
 
 .states {
@@ -25,6 +26,14 @@
 
 .group-start {
     margin-top: 1.5rem;
+}
+
+/* the box type looks like the border type outside the Material theme, so the other themes show
+   the border type alone */
+@container sample not style(--ig-theme: material) {
+    .box-type {
+        display: none;
+    }
 }
 
 .state-label {

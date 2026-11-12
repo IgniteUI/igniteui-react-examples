@@ -10,7 +10,7 @@ interface Option {
     group: string;
 }
 
-const options: Option[] = [1, 2, 3].map((id) => ({ id, name: `Item ${id}`, group: 'Header' }));
+const options: Option[] = [1, 2, 3].map((id) => ({ id, name: 'Item', group: 'Header' }));
 
 const sizes = [
     { label: 'Small', className: 'small' },

@@ -23,8 +23,8 @@ const sizes = [
 ];
 
 const types = [
-    { label: 'Border Type', outlined: true },
-    { label: 'Box Type', outlined: false },
+    { label: 'Border Type', outlined: true, className: 'border-type' },
+    { label: 'Box Type', outlined: false, className: 'box-type' },
 ];
 
 // the dropdown is opened once, when the combo is created; as a prop, `open` is applied again on each render,
@@ -64,18 +64,18 @@ export default function ComboSize() {
     return (
         <div className="sample">
             <div className="sizes">
-                <span />
+                <span className="type-label" />
                 {sizes.map((size) => (
                     <span key={size.label} className="state-label state-column">{size.label}</span>
                 ))}
                 {types.map((type) => (
                     <Fragment key={type.label}>
-                        <span className="state-label type-label">{type.label}</span>
+                        <span className={`state-label type-label ${type.className}`}>{type.label}</span>
                         {sizes.map((size) => {
                             const key = `${type.label} ${size.label}`;
 
                             return (
-                                <div key={size.label} className={size.className}>
+                                <div key={size.label} className={`${size.className} ${type.className}`}>
                                     <IgrCombo
                                         outlined={type.outlined}
                                         placeholder="Country"

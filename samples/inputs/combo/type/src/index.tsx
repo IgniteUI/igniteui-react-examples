@@ -12,11 +12,11 @@ interface Option {
     group: string;
 }
 
-const options: Option[] = [1, 2, 3, 4, 5].map((id) => ({ id, name: `Item ${id}`, group: 'Header' }));
+const options: Option[] = [1, 2, 3, 4, 5].map((id) => ({ id, name: 'Item', group: 'Header' }));
 
 const types = [
-    { label: 'Border Type', outlined: true },
-    { label: 'Box Type', outlined: false },
+    { label: 'Border Type', outlined: true, className: 'border-type' },
+    { label: 'Box Type', outlined: false, className: 'box-type' },
 ];
 
 // the dropdown is opened once, when the combo is created; as a prop, `open` is applied again on each render,
@@ -61,7 +61,7 @@ export default function ComboType() {
         <div className="sample">
             <div className="types">
                 {types.map((type) => (
-                    <div key={type.label} className="type">
+                    <div key={type.label} className={`type ${type.className}`}>
                         <span className="type-label">{type.label}</span>
                         <IgrCombo
                             outlined={type.outlined}
