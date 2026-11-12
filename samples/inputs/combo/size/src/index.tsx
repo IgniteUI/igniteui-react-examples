@@ -95,7 +95,7 @@ export default function ComboSize() {
                                                 <span key={id}>{countries.find((country) => country.id === id)!.name}</span>
                                             ))
                                         ) : (
-                                            <span className="selection-empty">No items selected</span>
+                                            <span>No items selected</span>
                                         )}
                                     </div>
                                 </div>

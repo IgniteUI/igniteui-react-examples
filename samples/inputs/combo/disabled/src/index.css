@@ -22,6 +22,9 @@
 
 .states igc-combo {
     width: 100%;
+
+    /* the list shows a group header and three options */
+    --item-count: 4;
 }
 
 .group-start {
@@ -44,9 +47,4 @@
 
 .state-column {
     justify-self: center;
-}
-
-/* the list shows a group header and three options */
-.states igc-combo {
-    --item-count: 4;
 }

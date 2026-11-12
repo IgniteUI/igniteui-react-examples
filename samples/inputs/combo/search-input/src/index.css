@@ -27,7 +27,6 @@
 /* only the search input of the combo dropdown is shown */
 .search {
     width: 100%;
-    pointer-events: none;
 }
 
 .search::part(input),

@@ -85,7 +85,7 @@ export default function ComboType() {
                                     <span key={id}>{options.find((option) => option.id === id)!.name}</span>
                                 ))
                             ) : (
-                                <span className="selection-empty">No items selected</span>
+                                <span>No items selected</span>
                             )}
                         </div>
                     </div>

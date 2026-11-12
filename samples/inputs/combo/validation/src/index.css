@@ -37,10 +37,6 @@
     }
 }
 
-.state-combo {
-    pointer-events: none;
-}
-
 .state-combo.success::part(input) {
     --border-color: var(--ig-success-500);
     --idle-bottom-line-color: var(--ig-success-500);

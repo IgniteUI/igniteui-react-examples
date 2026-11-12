@@ -72,7 +72,7 @@ export default function ComboOverview() {
                     {selected.length ? (
                         selected.map((id) => <span key={id}>{cities.find((city) => city.id === id)!.name}</span>)
                     ) : (
-                        <span className="selection-empty">No items selected</span>
+                        <span>No items selected</span>
                     )}
                 </div>
             </div>

@@ -39,7 +39,7 @@ const types = [
 export default function ComboValidation() {
     return (
         <div className="sample">
-            {/* the combos are display-only, so inert blocks keyboard interaction */}
+            {/* the combos are display-only, so inert blocks pointer and keyboard interaction */}
             <div className="states" inert>
                 <span className="type-label" />
                 {states.map((state) => (
@@ -55,10 +55,8 @@ export default function ComboValidation() {
                                 outlined={type.outlined}
                                 invalid={state.invalid ?? false}
                                 placeholder="Country"
-                                placeholderSearch="Search"
                                 valueKey="id"
                                 displayKey="name"
-                                groupKey="region"
                                 data={countries}
                                 value={['BY', 'BE']}
                             >

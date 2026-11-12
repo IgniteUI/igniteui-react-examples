@@ -39,7 +39,7 @@ export default function ComboStates() {
 
     return (
         <div className="sample">
-            {/* the combos are display-only, so inert blocks keyboard interaction */}
+            {/* the combos are display-only, so inert blocks pointer and keyboard interaction */}
             <div className="states" inert>
                 {states.map((state) => (
                     <div key={state.label} className="state">
