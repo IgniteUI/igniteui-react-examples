@@ -7,6 +7,7 @@
     justify-content: center;
     height: 100%;
     padding: 1rem;
+    container-name: sample;
 }
 
 .states {
@@ -23,8 +24,17 @@
     padding-top: 0.75rem;
 }
 
-.state-combo {
-    pointer-events: none;
+/* the box type looks like the border type outside the Material theme, so the other themes show
+   the border type alone, without the type labels */
+@container sample not style(--ig-theme: material) {
+    .states {
+        grid-template-columns: repeat(3, minmax(0, 17.4375rem));
+    }
+
+    .type-label,
+    .box-type {
+        display: none;
+    }
 }
 
 .state-combo.success::part(input) {
@@ -35,10 +45,6 @@
 .state-combo.warn::part(input) {
     --border-color: var(--ig-warn-500);
     --idle-bottom-line-color: var(--ig-warn-500);
-}
-
-.state-combo.warn::part(helper-text) {
-    color: var(--ig-warn-500);
 }
 
 .state-label {

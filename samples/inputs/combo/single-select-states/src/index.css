@@ -28,7 +28,9 @@
 
 .state-combo {
     width: 100%;
-    pointer-events: none;
+
+    /* the list shows a group header and three options */
+    --item-count: 4;
 }
 
 .state-combo.hover::part(input) {
@@ -57,9 +59,4 @@
     font: 400 13px / 20px "Aktiv Grotesk", sans-serif;
     letter-spacing: 0.3px;
     color: var(--ig-gray-600);
-}
-
-/* the list shows a group header and three options */
-.state-combo {
-    --item-count: 4;
 }

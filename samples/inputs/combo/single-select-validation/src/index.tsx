@@ -32,33 +32,32 @@ const states: ValidationState[] = [
 ];
 
 const types = [
-    { label: 'Border Type', outlined: true },
-    { label: 'Box Type', outlined: false },
+    { label: 'Border Type', outlined: true, className: 'border-type' },
+    { label: 'Box Type', outlined: false, className: 'box-type' },
 ];
 
 export default function ComboSingleSelectValidation() {
     return (
         <div className="sample">
-            {/* the combos are display-only, so inert blocks keyboard interaction */}
+            {/* the combos are display-only, so inert blocks pointer and keyboard interaction */}
             <div className="states" inert>
-                <span />
+                <span className="type-label" />
                 {states.map((state) => (
                     <span key={state.label} className="state-label state-column">{state.label}</span>
                 ))}
                 {types.map((type) => (
                     <Fragment key={type.label}>
-                        <span className="state-label type-label">{type.label}</span>
+                        <span className={`state-label type-label ${type.className}`}>{type.label}</span>
                         {states.map((state) => (
                             <IgrCombo
                                 key={state.label}
-                                className={`state-combo ${state.className}`}
+                                className={`state-combo ${state.className} ${type.className}`}
                                 singleSelect
                                 outlined={type.outlined}
                                 invalid={state.invalid ?? false}
                                 placeholder="Country"
                                 valueKey="id"
                                 displayKey="name"
-                                groupKey="region"
                                 data={countries}
                                 value={['BY']}
                             >

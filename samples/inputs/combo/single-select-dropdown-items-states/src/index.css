@@ -24,22 +24,30 @@
     margin-top: 2rem;
 }
 
-/* only the dropdown of the combo is shown, so the input field is hidden */
+/* each list shows a single option, and because the list floats, the element takes the height of
+   one medium item */
 .dropdown {
     width: 100%;
     min-width: 0;
-    pointer-events: none;
+    height: 2rem;
+
+    --item-count: 1;
 }
 
+/* only the dropdown of the combo is shown, so the input field is hidden */
 .dropdown::part(input) {
     display: none;
 }
 
-/* each list shows a single option, and because the list floats, the element takes the height of
-   one medium item */
-.dropdown {
-    --item-count: 1;
-    height: 2rem;
+/* each cell shows an item on its own, so the dropdown around it is as tall as its one row and has
+   no shadow, border, or padding */
+.dropdown::part(list-wrapper) {
+    height: calc(var(--size) * var(--item-count));
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
 }
 
 /* the states use the colors of the drop-down theme */

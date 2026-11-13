@@ -24,19 +24,28 @@
     margin-top: 1.5rem;
 }
 
-/* only the dropdown of the combo is shown, so the input field is hidden */
 .dropdown {
     width: 100%;
     min-width: 0;
+
+    /* each list shows a single group header or a single option */
+    --item-count: 1;
 }
 
+/* only the dropdown of the combo is shown, so the input field is hidden */
 .dropdown::part(input) {
     display: none;
 }
 
-/* each list shows a single group header or a single option */
-.dropdown {
-    --item-count: 1;
+/* each cell shows a header or an item on its own, so the dropdown around it is as tall as its one row and has
+   no shadow, border, or padding */
+.dropdown::part(list-wrapper) {
+    height: calc(var(--size) * var(--item-count));
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
 }
 
 .header-only::part(item) {

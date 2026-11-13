@@ -42,7 +42,7 @@ export default function ComboSingleSelectDropdownItemsStates() {
 
     return (
         <div className="sample">
-            {/* the items are display-only, so inert blocks keyboard interaction */}
+            {/* the items are display-only, so inert blocks pointer and keyboard interaction */}
             <div className="items" inert>
                 <span />
                 {states.map((state) => (

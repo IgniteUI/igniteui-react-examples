@@ -23,8 +23,8 @@ const sizes = [
 ];
 
 const types = [
-    { label: 'Border Type', outlined: true },
-    { label: 'Box Type', outlined: false },
+    { label: 'Border Type', outlined: true, className: 'border-type' },
+    { label: 'Box Type', outlined: false, className: 'box-type' },
 ];
 
 export default function ComboSingleSelectSize() {
@@ -38,17 +38,17 @@ export default function ComboSingleSelectSize() {
     return (
         <div className="sample">
             <div className="sizes">
-                <span />
+                <span className="type-label" />
                 {sizes.map((size) => (
                     <span key={size.label} className="state-label state-column">{size.label}</span>
                 ))}
                 {types.map((type) => (
                     <Fragment key={type.label}>
-                        <span className="state-label type-label">{type.label}</span>
+                        <span className={`state-label type-label ${type.className}`}>{type.label}</span>
                         {sizes.map((size) => (
                             <IgrCombo
                                 key={size.label}
-                                className={size.className}
+                                className={`${size.className} ${type.className}`}
                                 singleSelect
                                 outlined={type.outlined}
                                 placeholder="Country"

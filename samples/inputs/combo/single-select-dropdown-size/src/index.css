@@ -22,18 +22,16 @@
     gap: 1rem;
 }
 
-/* only the dropdown of the combo is shown, so the input field is hidden */
 .dropdown {
     width: 100%;
+
+    /* the list shows a group header and three options */
+    --item-count: 4;
 }
 
+/* only the dropdown of the combo is shown, so the input field is hidden */
 .dropdown::part(input) {
     display: none;
-}
-
-/* the list shows a group header and three options */
-.dropdown {
-    --item-count: 4;
 }
 
 .small {
