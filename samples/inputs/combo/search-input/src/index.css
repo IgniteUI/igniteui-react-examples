@@ -1,0 +1,65 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    padding: 2.375rem 1rem 2rem;
+}
+
+.states {
+    display: grid;
+    grid-template-columns: repeat(3, 11.25rem);
+    grid-template-rows: repeat(2, 5.5rem);
+    column-gap: 1.875rem;
+    row-gap: 1rem;
+}
+
+.state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* only the search input of the combo dropdown is shown */
+.search {
+    width: 100%;
+}
+
+.search::part(input),
+.search::part(empty) {
+    display: none;
+}
+
+.search.hover::part(search-input) {
+    --idle-bottom-line-color: var(--hover-bottom-line-color);
+}
+
+.search.disabled::part(search-input) {
+    --idle-bottom-line-color: var(--disabled-bottom-line-color);
+}
+
+.search.disabled::part(search-input)::placeholder {
+    color: var(--disabled-text-color);
+}
+
+.search.filled::part(search-input)::placeholder {
+    color: var(--filled-text-color);
+}
+
+.search.focused::part(search-input) {
+    --idle-bottom-line-color: var(--focused-bottom-line-color);
+    --hover-bottom-line-color: var(--focused-bottom-line-color);
+
+    /* the focused line is two pixels thick */
+    box-shadow: inset 0 -2px 0 var(--focused-bottom-line-color);
+}
+
+.state-label {
+    font: 400 13px / 20px "Aktiv Grotesk", sans-serif;
+    letter-spacing: 0.3px;
+    color: var(--ig-gray-600);
+}

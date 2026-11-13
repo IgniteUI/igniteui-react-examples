@@ -1,38 +1,76 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom/client";
-import { IgrCombo, IgrIcon, registerIconFromText } from "igniteui-react";
-import "./index.css";
-import "igniteui-webcomponents/themes/light/bootstrap.css";
-import { Cities } from "./ComboData";
+import { useState } from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import { IgrCombo, IgrComboChangeEventArgs } from 'igniteui-react';
+import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
-const placeSvg =
-  '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 12c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6-1.8C18 6.57 15.35 4 12 4s-6 2.57-6 6.2c0 2.34 1.95 5.44 6 9.14 4.05-3.7 6-6.8 6-9.14zM12 2c4.2 0 8 3.22 8 8.2 0 3.32-2.67 7.25-8 11.8-5.33-4.55-8-8.48-8-11.8C4 5.22 7.8 2 12 2z"/></svg>';
-
-export default function ComboStyling() {
-
-  useEffect(() => {
-    registerIconFromText("place", placeSvg, "material");
-  }, []);
-
-  return (
-    <div className="sample">
-      <IgrCombo
-        valueKey="id"
-        displayKey="name"
-        groupKey="country"
-        label="Destinations"
-        caseSensitiveIcon
-        data={Cities}
-      >
-        <span slot="helper-text">Choose the desired place</span>
-        <span slot="prefix">
-          <IgrIcon name="place" collection="material"></IgrIcon>
-        </span>
-      </IgrCombo>
-    </div>
-  );
+interface Country {
+    id: string;
+    name: string;
+    region: string;
 }
 
-// rendering above class to the React DOM
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<ComboStyling />);
+const countries: Country[] = [
+    { id: 'BY', name: 'Belarus', region: 'Europe' },
+    { id: 'BE', name: 'Belgium', region: 'Europe' },
+    { id: 'BG', name: 'Bulgaria', region: 'Europe' },
+];
+
+// the dropdown is opened once, when the combo is created; as a prop, `open` is applied again on each render,
+// which opens a dropdown that the user has closed
+const openDropdown = (combo: IgrCombo | null) => {
+    if (combo) {
+        combo.open = true;
+    }
+};
+
+export default function ComboStyling() {
+    // the `id` values of the selected countries
+    const [selected, setSelected] = useState(['BY']);
+
+    // `onChange` is raised before the selection changes, so the value is read once the combo has updated;
+    // the search input of the combo emits its own change event that bubbles out of the combo, so only the
+    // events of the combo itself change the selection
+    const onChange = async (e: IgrComboChangeEventArgs) => {
+        const combo = e.currentTarget as IgrCombo;
+
+        if (e.composedPath()[0] !== combo) {
+            return;
+        }
+
+        await combo.updateComplete;
+        setSelected(combo.value as string[]);
+    };
+
+    return (
+        <div className="sample">
+            <div>
+                <IgrCombo
+                    className="styled-combo"
+                    outlined={true}
+                    placeholder="Country"
+                    placeholderSearch="Search"
+                    valueKey="id"
+                    displayKey="name"
+                    groupKey="region"
+                    ref={openDropdown}
+                    data={countries}
+                    value={selected}
+                    onChange={onChange}
+                />
+                <div className="selection">
+                    <span className="selection-title">Selection</span>
+                    {selected.length ? (
+                        selected.map((id) => <span key={id}>{countries.find((country) => country.id === id)!.name}</span>)
+                    ) : (
+                        <span>No items selected</span>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// rendering above component to the React DOM
+const root = ReactDOM.createRoot(document.getElementById('root')!);
+root.render(<ComboStyling/>);
