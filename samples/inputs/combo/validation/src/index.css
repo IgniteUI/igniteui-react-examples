@@ -42,9 +42,10 @@
     --idle-bottom-line-color: var(--ig-success-500);
 }
 
-.state-combo.warn::part(input) {
-    --border-color: var(--ig-warn-500);
-    --idle-bottom-line-color: var(--ig-warn-500);
+/* the warn combos are invalid combos that take the warning color in place of the error color, so
+   each theme draws the warn state the way it draws its invalid state */
+.state-combo.warn {
+    --ig-input-group-error-secondary-color: var(--ig-warn-500);
 }
 
 .state-label {
