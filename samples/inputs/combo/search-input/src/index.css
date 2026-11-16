@@ -34,10 +34,6 @@
     display: none;
 }
 
-.search.hover::part(search-input) {
-    --idle-bottom-line-color: var(--hover-bottom-line-color);
-}
-
 .search.disabled::part(search-input) {
     --idle-bottom-line-color: var(--disabled-bottom-line-color);
 }
@@ -48,14 +44,6 @@
 
 .search.filled::part(search-input)::placeholder {
     color: var(--filled-text-color);
-}
-
-.search.focused::part(search-input) {
-    --idle-bottom-line-color: var(--focused-bottom-line-color);
-    --hover-bottom-line-color: var(--focused-bottom-line-color);
-
-    /* the focused line is two pixels thick */
-    box-shadow: inset 0 -2px 0 var(--focused-bottom-line-color);
 }
 
 .state-label {

@@ -23,10 +23,10 @@ const countries: Country[] = [
     { id: 'BG', name: 'Bulgaria', region: 'Europe' },
 ];
 
-// the combo has a built-in invalid state and no success or warn state: the `success` class draws
-// the success state, and the warn combo is an invalid combo that the `warn` class gives the warning color
+// the combo has a built-in invalid state and no success or warn state: the success and the warn combos
+// are invalid combos that the `success` and `warn` classes give the success and the warning color
 const states: ValidationState[] = [
-    { label: 'Success', className: 'success' },
+    { label: 'Success', className: 'success', invalid: true },
     { label: 'Warn', className: 'warn', invalid: true, helperText: 'Additional fees might be included' },
     { label: 'Error', className: 'error', invalid: true, helperText: 'Please select a different region' },
 ];
