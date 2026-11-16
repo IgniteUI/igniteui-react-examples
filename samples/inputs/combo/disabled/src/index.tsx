@@ -40,7 +40,8 @@ export default function ComboDisabled() {
 
     return (
         <div className="sample">
-            <div className="states">
+            {/* the combos are display-only, so inert blocks pointer and keyboard interaction */}
+            <div className="states" inert>
                 <span />
                 <span className="state-label state-column">Enabled</span>
                 <span className="state-label state-column">Disabled</span>
