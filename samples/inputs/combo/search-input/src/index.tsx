@@ -45,7 +45,7 @@ async function showState(combo: IgrCombo, state: string) {
                 if (rule instanceof CSSStyleRule && rule.selectorText.includes(state)
                     && !rule.selectorText.includes(`:not(${state}`)
                     && (root === input.shadowRoot || rule.selectorText.includes('list-wrapper'))) {
-                    stateSheet.insertRule(rule.cssText.replaceAll(state, `:not(${state})`), stateSheet.cssRules.length);
+                    stateSheet.insertRule(rule.cssText.split(state).join(`:not(${state})`), stateSheet.cssRules.length);
                 }
             }
         }

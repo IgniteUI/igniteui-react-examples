@@ -54,7 +54,7 @@ async function showState(combo: IgrCombo, state: string) {
                 // the rules for the state of the search input in the list are left out
                 if (rule instanceof CSSStyleRule && rule.selectorText.includes(state)
                     && !rule.selectorText.includes(`:not(${state}`) && !rule.selectorText.includes('list-wrapper')) {
-                    stateSheet.insertRule(rule.cssText.replaceAll(state, `:not(${state})`), stateSheet.cssRules.length);
+                    stateSheet.insertRule(rule.cssText.split(state).join(`:not(${state})`), stateSheet.cssRules.length);
                 }
             }
         }
