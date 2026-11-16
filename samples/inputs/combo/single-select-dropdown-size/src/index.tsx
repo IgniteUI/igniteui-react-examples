@@ -18,12 +18,13 @@ const sizes = [
 ];
 
 export default function ComboSingleSelectDropdownSize() {
-    // the input fields are hidden, so the dropdowns stay open and each one works on its own
+    // the display-only dropdowns stay open when the user clicks outside them
     const keepOpen = (e: CustomEvent<void>) => e.preventDefault();
 
     return (
         <div className="sample">
-            <div className="sizes">
+            {/* the dropdowns are display-only, so inert blocks pointer and keyboard interaction */}
+            <div className="sizes" inert>
                 {sizes.map((size) => (
                     <div key={size.label} className="size">
                         <span className="state-label">{size.label}</span>

@@ -28,16 +28,13 @@ const types = [
 ];
 
 export default function ComboSingleSelectSize() {
-    // a click outside a combo moves the focus out of it, and then its dropdown stays open, so each combo opens and closes on its own
-    const keepOpenOnOutsideClick = (e: CustomEvent<void>) => {
-        if (!(e.target as HTMLElement).matches(':focus-within')) {
-            e.preventDefault();
-        }
-    };
+    // the display-only dropdowns stay open when the user clicks outside them
+    const keepOpen = (e: CustomEvent<void>) => e.preventDefault();
 
     return (
         <div className="sample">
-            <div className="sizes">
+            {/* the combos are display-only, so inert blocks pointer and keyboard interaction */}
+            <div className="sizes" inert>
                 <span className="type-label" />
                 {sizes.map((size) => (
                     <span key={size.label} className="state-label state-column">{size.label}</span>
@@ -56,7 +53,7 @@ export default function ComboSingleSelectSize() {
                                 displayKey="name"
                                 groupKey="region"
                                 open={true}
-                                onClosing={keepOpenOnOutsideClick}
+                                onClosing={keepOpen}
                                 data={countries}
                             />
                         ))}
