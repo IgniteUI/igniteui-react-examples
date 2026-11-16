@@ -34,16 +34,19 @@
     display: none;
 }
 
-.search.disabled::part(search-input) {
-    --idle-bottom-line-color: var(--disabled-bottom-line-color);
+/* each cell shows a search input on its own, so the dropdown around it has no background, shadow,
+   border, or padding */
+.search::part(list-wrapper) {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    background: none;
 }
 
-.search.disabled::part(search-input)::placeholder {
-    color: var(--disabled-text-color);
-}
-
-.search.filled::part(search-input)::placeholder {
-    color: var(--filled-text-color);
+.search::part(filter-input) {
+    padding: 0;
 }
 
 .state-label {

@@ -6,21 +6,20 @@ import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 interface SearchState {
     label: string;
-    className?: string;
     // the state that the display-only search input shows: `:hover` or `:focus-within`
     shows?: string;
+    disabled?: boolean;
+    // the search text of a filled search input
     text?: string;
 }
 
-// the search input has no disabled or filled state of its own to set, so the `disabled` and
-// `filled` classes draw them
 const states: SearchState[] = [
     { label: 'Idle' },
     { label: 'Idle & Hover', shows: ':hover' },
-    { label: 'Disabled', className: 'disabled' },
-    { label: 'Filled', className: 'filled', text: 'Input text' },
-    { label: 'Filled & Hover', className: 'filled', shows: ':hover', text: 'Input text' },
-    { label: 'Focused', className: 'filled', shows: ':focus-within', text: 'Input text' },
+    { label: 'Disabled', disabled: true },
+    { label: 'Filled', text: 'Input text' },
+    { label: 'Filled & Hover', shows: ':hover', text: 'Input text' },
+    { label: 'Focused', shows: ':focus-within', text: 'Input text' },
 ];
 
 const stateSheets = new WeakSet<CSSStyleSheet>();
@@ -56,20 +55,26 @@ function showStateRules(element: IgrCombo | IgrInput, state: string, takesPart: 
 // display-only search input is never hovered or focused. This copies those rules of the search input, and of the combo list around it,
 // with the condition turned around, so the theme draws the state while the search input is not in it. The
 // sample adds no styles of its own.
-async function showState(combo: IgrCombo, state: string) {
+async function showState(combo: IgrCombo, state: SearchState) {
     await combo.updateComplete;
     const input = combo.renderRoot.querySelector<IgrInput>('[part~="search-input"]')!;
     await input.updateComplete;
 
-    // of the rules of the combo, only those for its list take part
-    showStateRules(combo, state, (selector) => selector.includes('list-wrapper'));
-    showStateRules(input, state, () => true);
+    // the search input is an input inside the combo, so its text and its disabled state are set on it
+    input.value = state.text ?? '';
+    input.disabled = state.disabled ?? false;
+
+    if (state.shows) {
+        // of the rules of the combo, only those for its list take part
+        showStateRules(combo, state.shows, (selector) => selector.includes('list-wrapper'));
+        showStateRules(input, state.shows, () => true);
+    }
 }
 
 export default function ComboSearchInput() {
     // the display-only dropdowns stay open when the user clicks outside them
     const keepOpen = (e: CustomEvent<void>) => e.preventDefault();
-    const combos = useRef(new Map<IgrCombo, string>());
+    const combos = useRef(new Map<IgrCombo, SearchState>());
 
     useEffect(() => {
         combos.current.forEach((state, combo) => showState(combo, state));
@@ -83,9 +88,9 @@ export default function ComboSearchInput() {
                     <div key={state.label} className="state">
                         <span className="state-label">{state.label}</span>
                         <IgrCombo
-                            ref={(combo) => { if (combo && state.shows) combos.current.set(combo, state.shows); }}
-                            className={`search ${state.className ?? ''}`}
-                            placeholderSearch={state.text ?? 'Search'}
+                            ref={(combo) => { if (combo) combos.current.set(combo, state); }}
+                            className="search"
+                            placeholderSearch="Search"
                             open={true}
                             onClosing={keepOpen}
                             data={[]}
