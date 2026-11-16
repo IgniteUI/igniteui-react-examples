@@ -1,13 +1,22 @@
+/* Aktiv Grotesk, from the same Adobe Fonts kit the docs use. */
+@import url("https://use.typekit.net/bng2zgw.css");
+
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-/* The combo sits in the middle, and the switches in the space on its right. */
+/*
+ * The combo sits in the middle, and the switches in the space on its right. When the frame is
+ * narrow, the combo moves left to make room for them. A frame too short for the sample scrolls
+ * it from its top.
+ */
 .combo-features {
   display: grid;
   grid-template-columns: 1fr minmax(0, 22.5rem) 1fr;
-  align-content: center;
+  align-content: safe center;
   align-items: center;
-  column-gap: 6rem;
+  column-gap: 3rem;
+  height: auto;
+  min-height: 100%;
   padding: 1rem;
 }
 
@@ -29,11 +38,11 @@
   gap: 0.375rem;
   margin-top: 1.25rem;
   padding: 0.75rem 1rem;
+  font-family: aktiv-grotesk, sans-serif;
 }
 
 .selection-title {
   color: var(--ig-gray-900);
-  font-family: var(--ig-subtitle-2-font-family, var(--ig-font-family));
   font-size: var(--ig-subtitle-2-font-size);
   font-weight: var(--ig-subtitle-2-font-weight);
   line-height: var(--ig-subtitle-2-line-height);
@@ -42,7 +51,6 @@
 
 .selection-list,
 .selection-empty {
-  font-family: var(--ig-body-2-font-family, var(--ig-font-family));
   font-size: var(--ig-body-2-font-size);
   font-weight: var(--ig-body-2-font-weight);
   line-height: var(--ig-body-2-line-height);
@@ -66,22 +74,38 @@
   color: var(--ig-gray-500);
 }
 
+/* Each label stays on one line. */
 .controls {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1.625rem;
+  width: max-content;
 }
 
-@media (max-width: 50rem) {
+/* The switch labels use the typeface of the selection. */
+.controls igc-switch::part(label) {
+  font-family: aktiv-grotesk, sans-serif;
+}
+
+/* Too narrow for a side column: the switches move under the combo, packed to fit the frame. */
+@media (max-width: 44.5rem) {
   .combo-features {
     grid-template-columns: minmax(0, 22.5rem);
     justify-content: center;
-    row-gap: 2rem;
+    row-gap: 1.5rem;
   }
 
   .combo-column {
     grid-column: 1;
     min-height: 0;
+  }
+
+  .selection-list {
+    max-height: 4rem;
+  }
+
+  .controls {
+    gap: 0.75rem;
   }
 }
