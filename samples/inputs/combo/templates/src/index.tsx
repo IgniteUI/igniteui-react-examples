@@ -186,9 +186,17 @@ export default function ComboTemplates() {
                     )}
                 </IgrCombo>
 
-                <div className="selection ig-typography__body-2">
-                    <span className="ig-typography__subtitle-2">Selection</span>
-                    <span>{selectedNames.length ? selectedNames.join(', ') : 'No items selected'}</span>
+                <div className="selection-panel">
+                    <span className="selection-title" id="selection-title">Selection</span>
+                    {selectedNames.length ? (
+                        <ul className="selection-list" aria-labelledby="selection-title">
+                            {selectedNames.map((name) => (
+                                <li key={name}>{name}</li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <span className="selection-empty">No items selected</span>
+                    )}
                 </div>
             </div>
 
