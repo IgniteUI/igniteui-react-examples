@@ -1,0 +1,56 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    padding: 2.375rem 1rem 2rem;
+}
+
+.states {
+    display: grid;
+    grid-template-columns: repeat(3, 11.25rem);
+    grid-template-rows: repeat(2, 5.5rem);
+    column-gap: 1.875rem;
+    row-gap: 1rem;
+}
+
+.state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* only the search input of the combo dropdown is shown */
+.search {
+    width: 100%;
+}
+
+.search::part(input),
+.search::part(empty) {
+    display: none;
+}
+
+/* each cell shows a search input on its own, so the dropdown around it has no background, shadow,
+   border, or padding */
+.search::part(list-wrapper) {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    background: none;
+}
+
+.search::part(filter-input) {
+    padding: 0;
+}
+
+.state-label {
+    font: 400 13px / 20px "Aktiv Grotesk", sans-serif;
+    letter-spacing: 0.3px;
+    color: var(--ig-gray-600);
+}
