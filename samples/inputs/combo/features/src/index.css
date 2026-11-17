@@ -4,50 +4,20 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-/* The sample fills the frame above the hint at its bottom. A frame too short for it scrolls. */
-.features-sample {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  min-height: 100%;
-  padding: 0;
-}
-
 /*
  * The combo sits in the middle, and the switches in the space on its right. When the frame is
- * narrow, the combo moves left to make room for them.
+ * narrow, the combo moves left to make room for them. A frame too short for the sample scrolls
+ * it from its top.
  */
 .combo-features {
   display: grid;
-  flex: 1 0 auto;
   grid-template-columns: 1fr minmax(0, 22.5rem) 1fr;
   align-content: safe center;
   align-items: center;
   column-gap: 3rem;
+  height: auto;
+  min-height: 100%;
   padding: 1rem;
-}
-
-/* How to use the sample, across the bottom of the frame. Scoped to the sample, so the type styles
-   of a page paragraph do not apply to it. */
-.features-sample .sample-hint {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 0;
-  padding: 1rem;
-  color: var(--ig-primary-800);
-  background: var(--ig-primary-50);
-  font-family: aktiv-grotesk, sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-/* The icon takes the color of the text. */
-.features-sample .sample-hint igc-icon {
-  --ig-icon-size: 1rem;
-
-  flex-shrink: 0;
-  color: inherit;
 }
 
 /*
