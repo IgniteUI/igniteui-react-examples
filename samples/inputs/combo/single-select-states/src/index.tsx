@@ -33,19 +33,24 @@ const states: ComboState[] = [
     { label: 'Focused (Dropdown On)', shows: ':focus-within', value: ['BY'], open: true },
 ];
 
-const stateSheets = new WeakSet<CSSStyleSheet>();
+// each state sheet, with the theme sheets that it was copied from
+const stateSheets = new WeakMap<CSSStyleSheet, CSSStyleSheet[]>();
 
 // Adds to the element a copy of the rules that its theme has for the state.
 function showStateRules(element: IgrCombo | IgrInput, state: string, takesPart: (selector: string) => boolean) {
     const show = () => {
         const root = element.shadowRoot!;
-        if (root.adoptedStyleSheets.some((sheet) => stateSheets.has(sheet))) {
+        const themeSheets = root.adoptedStyleSheets.filter((sheet) => !stateSheets.has(sheet));
+        const copied = root.adoptedStyleSheets.find((sheet) => stateSheets.has(sheet));
+        const copiedFrom = copied && stateSheets.get(copied);
+        if (copiedFrom && copiedFrom.length === themeSheets.length
+            && copiedFrom.every((sheet, index) => sheet === themeSheets[index])) {
             return;
         }
 
         const stateSheet = new CSSStyleSheet();
-        stateSheets.add(stateSheet);
-        for (const sheet of root.adoptedStyleSheets) {
+        stateSheets.set(stateSheet, themeSheets);
+        for (const sheet of themeSheets) {
             for (const rule of sheet.cssRules) {
                 if (rule instanceof CSSStyleRule && rule.selectorText.includes(state)
                     && !rule.selectorText.includes(`:not(${state}`) && takesPart(rule.selectorText)) {
@@ -53,12 +58,23 @@ function showStateRules(element: IgrCombo | IgrInput, state: string, takesPart: 
                 }
             }
         }
-        root.adoptedStyleSheets = [...root.adoptedStyleSheets, stateSheet];
+        root.adoptedStyleSheets = [...themeSheets, stateSheet];
     };
 
-    // a theme change gives the element the style sheets of the new theme and updates it, so the rules
-    // are copied again after each update that left the element without them
-    element.addController({ hostUpdated: show });
+    // a theme change sets the style sheets of the new theme on the shadow root of the element, and may keep
+    // the sheet copied from the previous theme, so the rules are copied again each time the style sheets
+    // of the shadow root are set
+    const adopted = Object.getOwnPropertyDescriptor(ShadowRoot.prototype, 'adoptedStyleSheets')!;
+    Object.defineProperty(element.shadowRoot!, 'adoptedStyleSheets', {
+        configurable: true,
+        get() {
+            return adopted.get!.call(this);
+        },
+        set(sheets: CSSStyleSheet[]) {
+            adopted.set!.call(this, sheets);
+            queueMicrotask(show);
+        },
+    });
     show();
 }
 
