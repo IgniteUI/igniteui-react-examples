@@ -36,7 +36,7 @@ export const SHARED = [
   // Optional peers of igniteui-webcomponents, imported by the chat
   // markdown renderer. npm does not install optional peers; undeclared,
   // the chat samples fail to build.
-  { name: "dompurify", version: "^3.4.16" },
+  { name: "dompurify", version: "^3.4.17" },
   { name: "marked", version: "^18.0.14" },
   { name: "marked-shiki", version: "^1.2.1" },
   { name: "shiki", version: "^4.4.3" },

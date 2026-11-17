@@ -26,7 +26,7 @@
     "test:smoke": "playwright test"
   },
   "dependencies": {
-    "dompurify": "^3.4.16",
+    "dompurify": "^3.4.17",
     "file-saver": "^2.0.5",
     "igniteui-dockmanager": "^2.2.1",
     "igniteui-grid-lite": "~0.11.0",
