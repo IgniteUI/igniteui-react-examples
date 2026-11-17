@@ -1,37 +1,127 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
 
-igc-tab::part(tab-header),
-igc-tabs::part(inner)::after {
-    --item-background: var(--ig-surface-600);
-    --border-color: var(--ig-success-300);
+@import url("https://use.typekit.net/bng2zgw.css");
+
+.sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
 }
 
-igc-tab::part(tab-body),
-igc-tab[selected] igc-icon {
-    --item-active-icon-color: var(--ig-success-300);
+.profile-card {
+    --ig-font-family: aktiv-grotesk, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 19.125rem;
+    height: 15.25rem;
+    padding: 0.5rem;
+    border: 1px solid #e5ebf3;
+    border-radius: 1rem;
+    background: #fff;
 }
 
-igc-tab:not([selected]) igc-icon {
-    --item-icon-color: var(--ig-gray-500);
+.profile-card igc-list {
+    --ig-size: var(--ig-size-large);
+    --ig-list-background: #fff;
+    --ig-list-item-background: #fff;
+
+    border: none;
 }
 
-igc-tabs::part(start-scroll-button),
-igc-tabs::part(end-scroll-button) {
-    --background: var(--ig-surface-600);
-    --hover-background: var(--ig-surface-700);
-    --active-background: var(--ig-surface-700);
-    --disabled-background: var(--ig-gray-100);
-    --button-color: var(--ig-gray-700);
-    --button-hover-color: var(--ig-gray-800);
-    --button-disabled-color: var(--ig-gray-300);
-    --border-color: var(--ig-surface-600);
+.profile-name {
+    font: 600 16px / 24px aktiv-grotesk, sans-serif;
+    letter-spacing: 0.15px;
+    color: #212121;
 }
 
-igc-tab::part(tab-header) {
-    --item-hover-color: var(--ig-success-500);
+.profile-role {
+    font: 600 12px / 16px aktiv-grotesk, sans-serif;
+    letter-spacing: 0.15px;
+    color: #556c86;
 }
 
-igc-tab::part(tab-header)::before {
-    --border-color--hover: var(--ig-gray-500);
+.profile-status {
+    --ig-size: var(--ig-size-small);
+    --ig-chip-background: #cde6d1;
+    --ig-chip-hover-background: #cde6d1;
+    --ig-chip-text-color: #000;
+    --ig-chip-hover-text-color: #000;
+    --ig-chip-border-radius: 1rem;
+}
+
+.profile-status::part(base) {
+    font: 400 12px / 16px aktiv-grotesk, sans-serif;
+    letter-spacing: 0.4px;
+}
+
+.profile-tabs {
+    --ig-tabs-item-background: #fff;
+    --ig-tabs-item-hover-background: #fff;
+    --ig-tabs-item-active-background: #fff;
+    --ig-tabs-item-active-hover-background: #fff;
+    --ig-tabs-item-text-color: #556c86;
+    --ig-tabs-item-hover-color: #344b65;
+    --ig-tabs-item-active-color: #0176ff;
+    --ig-tabs-item-active-hover-color: #0176ff;
+    --ig-tabs-item-disabled-color: #a9b8cc;
+    --ig-tabs-indicator-color: #0176ff;
+    --ig-tabs-border-color: transparent;
+    --ig-tabs-border-color--hover: transparent;
+
+    flex: 1 1 0;
+    min-height: 0;
+}
+
+.profile-tabs::part(inner) {
+    flex-grow: 1;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.profile-tabs igc-tab::part(content) {
+    font: 500 14px / 20px aktiv-grotesk, sans-serif;
+    letter-spacing: 0.25px;
+    text-transform: none;
+}
+
+.profile-tabs igc-tab[selected]::part(tab-header)::before {
+    box-shadow: inset 0 -2px 0 #0176ff;
+}
+
+.profile-tabs igc-tab::part(tab-header):focus-within::after {
+    box-shadow: none;
+}
+
+.profile-details {
+    --ig-list-border-color: #e5ebf3;
+    --ig-list-border-width: 1px;
+}
+
+.profile-details igc-list-item {
+    box-sizing: border-box;
+    height: 2.25rem;
+}
+
+.profile-details igc-list-item::part(start) {
+    display: none;
+}
+
+.profile-details igc-list-item:first-of-type {
+    box-shadow: inset 0 1px 0 #e5ebf3;
+}
+
+.detail-label {
+    font: 400 13px / 20px aktiv-grotesk, sans-serif;
+    letter-spacing: 0.3px;
+    color: #344b65;
+}
+
+.detail-value {
+    font: 600 12px / 16px "Titillium Web", sans-serif;
+    letter-spacing: 0.15px;
+    color: #344b65;
 }
