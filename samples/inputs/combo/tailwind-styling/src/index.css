@@ -1,0 +1,23 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import url("https://use.typekit.net/bng2zgw.css");
+@source "./index.tsx";
+
+@theme {
+    --color-combo-border: #a9b8cc;
+    --color-combo-toggle: #e5ebf3;
+    --color-combo-surface: #f3f6fa;
+    --color-combo-selected: #d2dbe8;
+    --color-combo-accent: #7d91ab;
+    --color-combo-header: #005dcc;
+    --color-combo-ink: #212121;
+}
+
+/* outside the Tailwind layers, so it overrides the padding of the shared .sample rule */
+.sample {
+    padding: 2rem 1rem;
+}
