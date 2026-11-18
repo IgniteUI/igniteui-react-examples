@@ -4,7 +4,7 @@ igc-button-group {
     max-width: 25rem;
 }
 
-.sbSwitch {
+.states-container {
     display: grid;
     place-items: center;
     height: 100vh;

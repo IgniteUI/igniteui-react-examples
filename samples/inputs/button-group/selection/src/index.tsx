@@ -33,27 +33,29 @@ export default function ButtonGroupSelectionSample() {
     }, [])
 
     return (
-        <div className="selection-samples">
-            {(['single', 'single-required', 'multiple'] as const).map((selection) => (
-                <React.Fragment key={selection}>
-                    <span className="sample-label">{selection === 'single-required' ? 'Single-Required' : selection.charAt(0).toUpperCase() + selection.slice(1)}</span>
-                    <IgrButtonGroup selection={selection}>
-                        <IgrToggleButton value="bold" selected={selection === 'single-required' || selection === 'multiple'}>
-                            <IgrIcon name="bold" collection="material" />
-                            <IgrRipple />
-                        </IgrToggleButton>
-                        <IgrToggleButton value="italic" selected={selection === 'multiple'}>
-                            <IgrIcon name="italic" collection="material" />
-                            <IgrRipple />
-                        </IgrToggleButton>
-                        <IgrToggleButton value="underlined">
-                            <IgrIcon name="underlined" collection="material" />
-                            <IgrRipple />
-                        </IgrToggleButton>
-                    </IgrButtonGroup>
-                </React.Fragment>
-            ))}
-      </div>
+        <div className="states-container">
+            <div className="selection-samples">
+                {(['single', 'single-required', 'multiple'] as const).map((selection) => (
+                    <React.Fragment key={selection}>
+                        <span className="sample-label">{selection === 'single-required' ? 'Single-Required' : selection.charAt(0).toUpperCase() + selection.slice(1)}</span>
+                        <IgrButtonGroup selection={selection}>
+                            <IgrToggleButton value="bold" selected={selection === 'single-required' || selection === 'multiple'}>
+                                <IgrIcon name="bold" collection="material" />
+                                <IgrRipple />
+                            </IgrToggleButton>
+                            <IgrToggleButton value="italic" selected={selection === 'multiple'}>
+                                <IgrIcon name="italic" collection="material" />
+                                <IgrRipple />
+                            </IgrToggleButton>
+                            <IgrToggleButton value="underlined">
+                                <IgrIcon name="underlined" collection="material" />
+                                <IgrRipple />
+                            </IgrToggleButton>
+                        </IgrButtonGroup>
+                    </React.Fragment>
+                ))}
+          </div>
+        </div>
     );
 }
 

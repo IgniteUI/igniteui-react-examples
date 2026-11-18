@@ -8,18 +8,20 @@ const layouts = ['Left', 'Center', 'Right'];
 
 export default function ButtonGroupStyling(): JSX.Element {
     return (
-        <IgrButtonGroup>
-            {layouts.map((layout) => (
-                <IgrToggleButton
-                    key={layout}
-                    value={layout.toLowerCase()}
-                    selected={layout === 'Left'}
-                >
-                    {layout}
-                    <IgrRipple />
-                </IgrToggleButton>
-            ))}
-        </IgrButtonGroup>
+        <div className="states-container">
+            <IgrButtonGroup>
+                {layouts.map((layout) => (
+                    <IgrToggleButton
+                        key={layout}
+                        value={layout.toLowerCase()}
+                        selected={layout === 'Left'}
+                    >
+                        {layout}
+                        <IgrRipple />
+                    </IgrToggleButton>
+                ))}
+            </IgrButtonGroup>
+        </div>
     );
 }
 
