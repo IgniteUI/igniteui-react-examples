@@ -12,8 +12,8 @@
     "test": "vitest"
   },
   "dependencies": {
-    "igniteui-dockmanager": "^2.2.1",
-    "igniteui-react": "19.9.0",
+    "igniteui-dockmanager": "^2.3.0",
+    "igniteui-react": "19.11.0",
     "igniteui-react-core": "19.6.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
