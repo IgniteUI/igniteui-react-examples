@@ -1,6 +1,6 @@
 {
-  "name": "react-radio-group",
-  "description": "This project provides example of Radio Group using Infragistics React components",
+  "name": "react-tabs-overview",
+  "description": "This project provides an example of Tabs overview using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
@@ -12,10 +12,10 @@
     "test": "vitest"
   },
   "dependencies": {
-    "igniteui-dockmanager": "^2.2.1",
-    "igniteui-react": "19.9.0",
+    "igniteui-dockmanager": "^2.3.0",
+    "igniteui-react": "19.11.0",
     "igniteui-react-core": "19.6.0",
-    "igniteui-webcomponents": "~7.4.1",
+    "igniteui-webcomponents": "~7.5.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "tslib": "^2.4.0"

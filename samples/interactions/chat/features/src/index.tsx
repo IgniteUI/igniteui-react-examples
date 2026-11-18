@@ -4,11 +4,14 @@ import "./index.css";
 import "./ChatFeatures.css";
 import {
   ChatMessageRenderContext,
-  IgrChat,
-  IgrChatOptions
+  IgrChat
 } from "igniteui-react";
 import { createChatMarkdownRenderer } from "igniteui-react/extras";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
+
+// IgrChatOptions types the renderers for the web component; the options prop
+// takes renderers that return JSX, so take its type from the prop.
+type ChatOptions = NonNullable<React.ComponentProps<typeof IgrChat>["options"]>;
 
 export default function ChatFeatures() {
   const [draftMessage, setDraftMessage] = useState(null);
@@ -75,7 +78,7 @@ igc-avatar::part(base) {
     return <span style={{ fontWeight: "bold" }}>💡</span>;
   };
 
-  const [options, setOptions] = useState<IgrChatOptions>({
+  const [options, setOptions] = useState<ChatOptions>({
     disableAutoScroll: false,
     disableInputAttachments: false,
     inputPlaceholder: 'Type your message here...',
