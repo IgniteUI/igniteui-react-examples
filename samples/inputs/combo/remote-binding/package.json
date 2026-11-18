@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "igniteui-react": "19.9.0",
-    "igniteui-webcomponents": "~7.4.1",
+    "igniteui-react": "19.11.0",
+    "igniteui-webcomponents": "~7.5.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
