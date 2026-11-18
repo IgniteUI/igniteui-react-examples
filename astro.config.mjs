@@ -410,6 +410,7 @@ export default defineConfig({
         'igniteui-grid-lite',
         ...IGNITEUI_PACKAGES.map(ig),
         `${ig('igniteui-react')}/extras`,
+        `${ig('igniteui-react')}/extras/combo-data-source`,
         `${ig('igniteui-react')}/grid-lite`,
         `${ig('igniteui-react-grids')}/grids/combined`,
         'react-icons/io',
