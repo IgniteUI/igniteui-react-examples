@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCombo, IgrInput } from 'igniteui-react';
+import { IgrCombo, IgrComboClosingEventArgs, IgrInput } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 interface Country {
@@ -94,7 +94,7 @@ async function showState(combo: IgrCombo, state: string) {
 
 export default function ComboStates() {
     // the display-only dropdowns stay open when the user clicks outside them
-    const keepOpen = (e: CustomEvent<void>) => e.preventDefault();
+    const keepOpen = (e: IgrComboClosingEventArgs) => e.preventDefault();
     const combos = useRef(new Map<IgrCombo, string>());
 
     useEffect(() => {

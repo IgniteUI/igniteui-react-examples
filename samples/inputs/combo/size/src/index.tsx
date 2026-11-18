@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCombo } from 'igniteui-react';
+import { IgrCombo, IgrComboClosingEventArgs } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 interface Country {
@@ -29,7 +29,7 @@ const types = [
 
 export default function ComboSize() {
     // the display-only dropdowns stay open when the user clicks outside them
-    const keepOpen = (e: CustomEvent<void>) => e.preventDefault();
+    const keepOpen = (e: IgrComboClosingEventArgs) => e.preventDefault();
 
     return (
         <div className="sample">
