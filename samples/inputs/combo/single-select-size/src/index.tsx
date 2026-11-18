@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCombo } from 'igniteui-react';
+import { IgrCombo, IgrComboClosingEventArgs } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 interface Country {
@@ -23,32 +23,29 @@ const sizes = [
 ];
 
 const types = [
-    { label: 'Border Type', outlined: true },
-    { label: 'Box Type', outlined: false },
+    { label: 'Border Type', outlined: true, className: 'border-type' },
+    { label: 'Box Type', outlined: false, className: 'box-type' },
 ];
 
 export default function ComboSingleSelectSize() {
-    // a click outside a combo moves the focus out of it, and then its dropdown stays open, so each combo opens and closes on its own
-    const keepOpenOnOutsideClick = (e: CustomEvent<void>) => {
-        if (!(e.target as HTMLElement).matches(':focus-within')) {
-            e.preventDefault();
-        }
-    };
+    // the display-only dropdowns stay open when the user clicks outside them
+    const keepOpen = (e: IgrComboClosingEventArgs) => e.preventDefault();
 
     return (
         <div className="sample">
-            <div className="sizes">
-                <span />
+            {/* the combos are display-only, so inert blocks pointer and keyboard interaction */}
+            <div className="sizes" inert>
+                <span className="type-label" />
                 {sizes.map((size) => (
                     <span key={size.label} className="state-label state-column">{size.label}</span>
                 ))}
                 {types.map((type) => (
                     <Fragment key={type.label}>
-                        <span className="state-label type-label">{type.label}</span>
+                        <span className={`state-label type-label ${type.className}`}>{type.label}</span>
                         {sizes.map((size) => (
                             <IgrCombo
                                 key={size.label}
-                                className={size.className}
+                                className={`${size.className} ${type.className}`}
                                 singleSelect
                                 outlined={type.outlined}
                                 placeholder="Country"
@@ -56,7 +53,7 @@ export default function ComboSingleSelectSize() {
                                 displayKey="name"
                                 groupKey="region"
                                 open={true}
-                                onClosing={keepOpenOnOutsideClick}
+                                onClosing={keepOpen}
                                 data={countries}
                             />
                         ))}

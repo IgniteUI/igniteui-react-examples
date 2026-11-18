@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCombo } from 'igniteui-react';
+import { IgrCombo, IgrComboClosingEventArgs } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 interface Option {
@@ -30,12 +30,13 @@ const rows: ItemRow[] = [
 ];
 
 export default function ComboSingleSelectDropdownItems() {
-    // the input fields are hidden, so the dropdowns stay open and each one works on its own
-    const keepOpen = (e: CustomEvent<void>) => e.preventDefault();
+    // the input fields are hidden, so the dropdowns stay open
+    const keepOpen = (e: IgrComboClosingEventArgs) => e.preventDefault();
 
     return (
         <div className="sample">
-            <div className="items">
+            {/* the items are display-only, so inert blocks pointer and keyboard interaction */}
+            <div className="items" inert>
                 <span />
                 {sizes.map((size) => (
                     <span key={size.label} className="state-label state-column">{size.label}</span>

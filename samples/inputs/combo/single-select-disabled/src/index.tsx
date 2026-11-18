@@ -17,10 +17,10 @@ const countries: Country[] = [
 ];
 
 const rows = [
-    { label: 'Idle', outlined: true, value: [] as string[] },
-    { label: 'Filled', outlined: true, value: ['BY'] },
-    { label: 'Idle', outlined: false, value: [] as string[] },
-    { label: 'Filled', outlined: false, value: ['BY'] },
+    { label: 'Idle', outlined: true, className: 'border-type', value: [] as string[] },
+    { label: 'Filled', outlined: true, className: 'border-type', value: ['BY'] },
+    { label: 'Idle', outlined: false, className: 'box-type group-start', value: [] as string[] },
+    { label: 'Filled', outlined: false, className: 'box-type', value: ['BY'] },
 ];
 
 export default function ComboSingleSelectDisabled() {
@@ -40,15 +40,16 @@ export default function ComboSingleSelectDisabled() {
 
     return (
         <div className="sample">
-            <div className="states">
+            {/* the combos are display-only, so inert blocks pointer and keyboard interaction */}
+            <div className="states" inert>
                 <span />
                 <span className="state-label state-column">Enabled</span>
                 <span className="state-label state-column">Disabled</span>
                 {rows.map((row, index) => (
                     <Fragment key={index}>
-                        <span className={`state-label ${index === 2 ? 'group-start' : ''}`}>{row.label}</span>
-                        <div className={index === 2 ? 'group-start' : ''}>{combo(row.outlined, row.value, false)}</div>
-                        <div className={index === 2 ? 'group-start' : ''}>{combo(row.outlined, row.value, true)}</div>
+                        <span className={`state-label ${row.className}`}>{row.label}</span>
+                        <div className={row.className}>{combo(row.outlined, row.value, false)}</div>
+                        <div className={row.className}>{combo(row.outlined, row.value, true)}</div>
                     </Fragment>
                 ))}
             </div>
