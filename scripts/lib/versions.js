@@ -11,7 +11,7 @@
 
 export const SHARED = [
   // Ignite UI, updated often
-  { name: "igniteui-react", version: "19.9.0" },
+  { name: "igniteui-react", version: "19.11.0" },
   { name: "igniteui-react-core", version: "19.6.0" },
   { name: "igniteui-react-charts", version: "19.6.0" },
   { name: "igniteui-react-dashboards", version: "19.6.0" },
@@ -19,7 +19,7 @@ export const SHARED = [
   { name: "igniteui-react-datasources", version: "19.6.0" },
   { name: "igniteui-react-excel", version: "19.6.0" },
   { name: "igniteui-react-gauges", version: "19.6.0" },
-  { name: "igniteui-react-grids", version: "19.10.0" },
+  { name: "igniteui-react-grids", version: "19.11.0" },
   { name: "igniteui-react-inputs", version: "19.6.0" },
   { name: "igniteui-react-layouts", version: "19.6.0" },
   { name: "igniteui-react-maps", version: "19.6.0" },
@@ -27,19 +27,19 @@ export const SHARED = [
   { name: "igniteui-react-spreadsheet-chart-adapter", version: "19.6.0" },
 
   // Ignite UI, updated occasionally
-  { name: "igniteui-webcomponents", version: "~7.4.1" },
-  { name: "igniteui-react-dockmanager", version: "19.9.0" },
-  { name: "igniteui-dockmanager", version: "^2.2.1" },
-  { name: "igniteui-grid-lite", version: "~0.11.0" },
-  { name: "igniteui-i18n-resources", version: "^1.0.5" },
+  { name: "igniteui-webcomponents", version: "~7.5.0" },
+  { name: "igniteui-react-dockmanager", version: "19.11.0" },
+  { name: "igniteui-dockmanager", version: "^2.3.0" },
+  { name: "igniteui-grid-lite", version: "~0.12.0" },
+  { name: "igniteui-i18n-resources", version: "^2.0.0" },
 
   // Optional peers of igniteui-webcomponents, imported by the chat
   // markdown renderer. npm does not install optional peers; undeclared,
   // the chat samples fail to build.
-  { name: "dompurify", version: "^3.4.16" },
+  { name: "dompurify", version: "^3.4.17" },
   { name: "marked", version: "^18.0.14" },
   { name: "marked-shiki", version: "^1.2.1" },
-  { name: "shiki", version: "^4.4.3" },
+  { name: "shiki", version: "^4.5.0" },
 
   // React
   { name: "react", version: "^19.3.0" },
