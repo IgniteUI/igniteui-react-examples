@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCombo, IgrIcon, registerIconFromText } from 'igniteui-react';
+import { IgrCombo, IgrComboClosingEventArgs, IgrIcon, registerIconFromText } from 'igniteui-react';
 // the border and the box types differ only in the Material theme, so the sample uses that theme
 import 'igniteui-webcomponents/themes/light/material.css';
 
@@ -26,7 +26,7 @@ export default function ComboType() {
     }, []);
 
     // the display-only dropdowns stay open when the user clicks outside them
-    const keepOpen = (e: CustomEvent<void>) => e.preventDefault();
+    const keepOpen = (e: IgrComboClosingEventArgs) => e.preventDefault();
 
     return (
         <div className="sample">
