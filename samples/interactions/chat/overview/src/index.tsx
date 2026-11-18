@@ -5,10 +5,13 @@ import "./ChatOverview.css";
 import {
   ChatMessageRenderContext,
   IgrAvatar,
-  IgrChat,
-  IgrChatOptions
+  IgrChat
 } from "igniteui-react";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
+
+// IgrChatOptions types the renderers for the web component; the options prop
+// takes renderers that return JSX, so take its type from the prop.
+type ChatOptions = NonNullable<React.ComponentProps<typeof IgrChat>["options"]>;
 
 export default function ChatOverview() {
   const [draftMessage, setDraftMessage] = useState(null);
@@ -66,7 +69,7 @@ export default function ChatOverview() {
       : null;
   };
 
-  const [options, setOptions] = useState<IgrChatOptions>({
+  const [options, setOptions] = useState<ChatOptions>({
     disableAutoScroll: false,
     disableInputAttachments: false,
     suggestions: [`It's there. Thanks.`, `It's not there.`],
