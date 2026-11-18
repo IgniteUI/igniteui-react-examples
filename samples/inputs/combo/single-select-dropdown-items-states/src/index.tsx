@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { IgrCombo } from 'igniteui-react';
+import { IgrCombo, IgrComboClosingEventArgs } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 interface Option {
@@ -116,7 +116,7 @@ async function showState(combo: IgrCombo, state: string) {
 
 export default function ComboSingleSelectDropdownItemsStates() {
     // the input fields are hidden, so the dropdowns stay open
-    const keepOpen = (e: CustomEvent<void>) => e.preventDefault();
+    const keepOpen = (e: IgrComboClosingEventArgs) => e.preventDefault();
     const combos = useRef(new Map<IgrCombo, string>());
 
     useEffect(() => {
