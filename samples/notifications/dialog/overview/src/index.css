@@ -1,2 +1,31 @@
 /* shared styles are loaded from: */
 /* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.9375rem 1rem 1rem;
+}
+
+.open-button {
+    width: 11.25rem;
+}
+
+igc-dialog {
+    --ig-dialog-backdrop: transparent;
+    --ig-dialog-message-color: var(--ig-gray-700);
+}
+
+igc-dialog::part(base) {
+    width: 17.5rem;
+    margin-top: 6.9375rem;
+}
+
+igc-dialog igc-button {
+    --ig-size: var(--ig-size-medium);
+}
+
+igc-dialog igc-button::part(base) {
+    min-width: auto;
+}
