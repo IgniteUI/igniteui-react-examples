@@ -25,23 +25,25 @@ export default function ButtonGroupLayout(): JSX.Element {
     }, []);
 
     return (
-        <div className="sample-layout">
-            <IgrButtonGroup>
-                {layouts.map((layout) => (
-                    <IgrToggleButton key={layout.value} value={layout.value}>
-                        {layout.label}
-                        <IgrRipple />
-                    </IgrToggleButton>
-                ))}
-            </IgrButtonGroup>
-            <IgrButtonGroup>
-                {layouts.map((layout) => (
-                    <IgrToggleButton key={layout.value} value={layout.value}>
-                        <IgrIcon name={layout.icon} collection="material" />
-                        <IgrRipple />
-                    </IgrToggleButton>
-                ))}
-            </IgrButtonGroup>
+        <div className="states-container">
+            <div className="sample-layout">
+                <IgrButtonGroup>
+                    {layouts.map((layout) => (
+                        <IgrToggleButton key={layout.value} value={layout.value}>
+                            {layout.label}
+                            <IgrRipple />
+                        </IgrToggleButton>
+                    ))}
+                </IgrButtonGroup>
+                <IgrButtonGroup>
+                    {layouts.map((layout) => (
+                        <IgrToggleButton key={layout.value} value={layout.value}>
+                            <IgrIcon name={layout.icon} collection="material" />
+                            <IgrRipple />
+                        </IgrToggleButton>
+                    ))}
+                </IgrButtonGroup>
+            </div>
         </div>
     );
 }
