@@ -1,0 +1,96 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.inventory-grid {
+    --ig-size: var(--ig-size-medium);
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.product-photo {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+/* The subtitle 2 type style of the theme, in the font family of the grid. */
+.product-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--ig-gray-900);
+    font-size: var(--ig-subtitle-2-font-size);
+    font-weight: var(--ig-subtitle-2-font-weight);
+    line-height: var(--ig-subtitle-2-line-height);
+    letter-spacing: var(--ig-subtitle-2-letter-spacing);
+}
+
+/*
+ * The storage chips and the status dots take one palette colour per value: a dark shade on a light
+ * surface and a light shade on a dark one, so that they stand out from the row in every theme.
+ */
+.storage-chip[variant='info'] {
+    --accent: light-dark(var(--ig-info-800), var(--ig-info-200));
+}
+
+.storage-chip[variant='warning'] {
+    --accent: light-dark(var(--ig-warn-800), var(--ig-warn-300));
+}
+
+.storage-chip[variant='success'] {
+    --accent: light-dark(var(--ig-success-800), var(--ig-success-100));
+}
+
+.storage-chip::part(base) {
+    border-color: var(--accent);
+}
+
+.storage-chip igc-icon {
+    color: var(--accent);
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-dot {
+    --ig-badge-elevation: var(--ig-elevation-0);
+}
+
+.status-dot[variant='success'] {
+    --accent: light-dark(var(--ig-success-900), var(--ig-success-100));
+}
+
+.status-dot[variant='warning'] {
+    --accent: light-dark(var(--ig-warn-500), var(--ig-warn-300));
+}
+
+.status-dot[variant='danger'] {
+    --accent: light-dark(var(--ig-error-700), var(--ig-error-100));
+}
+
+.status-dot::part(base) {
+    background: var(--accent);
+}
+
+/* Centred, the two buttons may use the cell padding on both sides: some themes have larger buttons. */
+.row-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    width: 100%;
+}
+
+/* Flat icon buttons are primary-coloured in some themes, which fades on hovered and selected rows. */
+.row-actions igc-icon-button::part(icon) {
+    color: var(--ig-gray-900);
+}
