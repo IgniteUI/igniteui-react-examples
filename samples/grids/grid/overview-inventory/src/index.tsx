@@ -4,7 +4,9 @@ import {
     ColumnPinningPosition,
     IgrCellTemplateContext,
     IgrColumn,
+    IgrColumnExportingEventArgsDetail,
     IgrColumnPipeArgs,
+    IgrExporterEventArgs,
     IgrGrid,
     IgrGridToolbar,
     IgrGridToolbarActions,
@@ -85,6 +87,18 @@ const statusTemplate = ({ cell }: IgrCellTemplateContext) => {
     );
 };
 
+/** The Actions column holds only buttons, so it is left out of the exported file. */
+const excludeActions = ({ detail }: IgrExporterEventArgs) => {
+    const exporter = detail.exporter as any;
+    const columns = exporter.columnExporting.subscribe((column: IgrColumnExportingEventArgsDetail) => {
+        column.cancel = column.header === 'Actions';
+    });
+    const ended = exporter.exportEnded.subscribe(() => {
+        columns.unsubscribe();
+        ended.unsubscribe();
+    });
+};
+
 export default function GridOverviewInventory() {
     const gridRef = useRef<IgrGrid>(null);
 
@@ -162,7 +176,7 @@ export default function GridOverviewInventory() {
                         <IgrGridToolbarActions>
                             <IgrGridToolbarHiding />
                             <IgrGridToolbarPinning />
-                            <IgrGridToolbarExporter />
+                            <IgrGridToolbarExporter onExportStarted={excludeActions} />
                             <IgrGridToolbarAdvancedFiltering />
                         </IgrGridToolbarActions>
                     </IgrGridToolbar>
