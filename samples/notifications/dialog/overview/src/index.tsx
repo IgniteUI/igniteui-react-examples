@@ -5,28 +5,24 @@ import { IgrButton, IgrDialog } from 'igniteui-react';
 import 'igniteui-webcomponents/themes/light/bootstrap.css';
 
 export default function DialogOverview() {
-    const dialog = useRef<IgrDialog>(null);
+    const dialogRef = useRef<IgrDialog>(null);
 
-    function onDialogShow() {
-        dialog.current?.show();
-    }
-
-    function onDialogHide() {
-        dialog.current?.hide();
-    }
+    const showDialog = () => dialogRef.current?.show();
+    const hideDialog = () => dialogRef.current?.hide();
 
     return (
-        <div className="container sample">
-            <IgrButton variant="contained" onClick={onDialogShow}>
-                <span>Show Dialog</span>
+        <div className="sample">
+            <IgrButton variant="outlined" className="open-button" onClick={showDialog}>
+                <span>Open dialog</span>
             </IgrButton>
-
-            <IgrDialog title="Confirmation" ref={dialog}>
-                <p>Are you sure you want to delete the Annual_Report_2016.pdf and Annual_Report_2017.pdf files?</p>
-                <div slot="footer">
-                    <IgrButton onClick={onDialogHide} variant="flat"><span>Cancel</span></IgrButton>
-                    <IgrButton onClick={onDialogHide} variant="flat"><span>OK</span></IgrButton>
-                </div>
+            <IgrDialog ref={dialogRef} title="Confirmation" open>
+                <span slot="message">Your email will be permanently deleted</span>
+                <IgrButton slot="footer" variant="flat" onClick={hideDialog}>
+                    <span>Cancel</span>
+                </IgrButton>
+                <IgrButton slot="footer" variant="flat" onClick={hideDialog}>
+                    <span>OK</span>
+                </IgrButton>
             </IgrDialog>
         </div>
     );

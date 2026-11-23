@@ -1,0 +1,48 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+.dialog-types {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3.75rem;
+    width: 100%;
+}
+
+.dialog-types igc-dialog {
+    --ig-dialog-message-color: var(--ig-gray-700);
+}
+
+.dialog-types igc-dialog::part(base) {
+    position: static;
+    display: block;
+    flex: 0 1 17.5rem;
+    min-width: 0;
+    margin: 0;
+}
+
+.dialog-types igc-button {
+    --ig-size: var(--ig-size-medium);
+}
+
+.dialog-types igc-button::part(base) {
+    min-width: auto;
+}
+
+.sign-in-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.sign-in-form igc-input {
+    --ig-size: var(--ig-size-small);
+}
