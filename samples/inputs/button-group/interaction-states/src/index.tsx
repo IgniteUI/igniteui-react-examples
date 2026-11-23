@@ -36,29 +36,31 @@ function StateButton({ selected, state }: { selected: boolean; state: string }):
 
 export default function ButtonGroupStates(): JSX.Element {
     return (
-        <article className="states-matrix">
-            <header className="states-row">
-                <span className="row-label" />
-                {states.map((state) => (
-                    <span className="column-label" key={state}>
-                        {state.charAt(0).toUpperCase() + state.slice(1)}
-                    </span>
-                ))}
-            </header>
-            {rows.map((row) => (
-                <section className="states-row" key={row.label}>
-                    <span className="row-label">{row.label}</span>
+        <div className="states-container">
+            <article className="states-matrix">
+                <header className="states-row">
+                    <span className="row-label" />
                     {states.map((state) => (
-                        <div className="state-cell" key={state}>
-                            <span className="cell-label">{state.charAt(0).toUpperCase() + state.slice(1)}</span>
-                            <IgrButtonGroup>
-                                <StateButton selected={row.selected} state={state} />
-                            </IgrButtonGroup>
-                        </div>
+                        <span className="column-label" key={state}>
+                            {state.charAt(0).toUpperCase() + state.slice(1)}
+                        </span>
                     ))}
-                </section>
-            ))}
-        </article>
+                </header>
+                {rows.map((row) => (
+                    <section className="states-row" key={row.label}>
+                        <span className="row-label">{row.label}</span>
+                        {states.map((state) => (
+                            <div className="state-cell" key={state}>
+                                <span className="cell-label">{state.charAt(0).toUpperCase() + state.slice(1)}</span>
+                                <IgrButtonGroup>
+                                    <StateButton selected={row.selected} state={state} />
+                                </IgrButtonGroup>
+                            </div>
+                        ))}
+                    </section>
+                ))}
+            </article>
+        </div>
     );
 }
 
