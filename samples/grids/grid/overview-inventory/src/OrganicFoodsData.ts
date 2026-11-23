@@ -70,7 +70,7 @@ export const organicFoods: OrganicFood[] = [
         Status: 'In stock',
         UnitPrice: 1.9,
         RetailPrice: 3.11,
-        ExpiryDate: new Date('2026-12-08T00:00:00'),
+        ExpiryDate: new Date('2027-12-08T00:00:00'),
         Image: photos['creamed-coconut-organic.jpg'],
     },
     {
@@ -150,7 +150,7 @@ export const organicFoods: OrganicFood[] = [
         Status: 'In stock',
         UnitPrice: 3.2,
         RetailPrice: 5.39,
-        ExpiryDate: new Date('2026-11-30T00:00:00'),
+        ExpiryDate: new Date('2027-11-30T00:00:00'),
         Image: photos['green-rooibos-tea-chocolate-dream.jpg'],
     },
     {
@@ -214,7 +214,7 @@ export const organicFoods: OrganicFood[] = [
         Status: 'In stock',
         UnitPrice: 0.75,
         RetailPrice: 1.25,
-        ExpiryDate: new Date('2026-12-15T00:00:00'),
+        ExpiryDate: new Date('2027-12-15T00:00:00'),
         Image: photos['buckwheat-organic.jpg'],
     },
     {

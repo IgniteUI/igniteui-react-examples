@@ -108,6 +108,9 @@ export default function GridOverviewInventory() {
         const [column] = grid.visibleColumns
             .filter((c) => c.editable)
             .sort((a, b) => a.visibleIndex - b.visibleIndex);
+        if (!column) {
+            return;
+        }
         // Activate the cell first, so that Tab, Enter and Escape work in the row as usual.
         grid.navigateTo(row.index, column.visibleIndex, ({ target }: { target: { activate(): void } }) => {
             target.activate();
