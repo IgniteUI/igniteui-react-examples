@@ -1,0 +1,29 @@
+/* shared styles are loaded from: */
+/* https://dl.infragistics.com/x/css/samples/shared.v8.css */
+
+.sample {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.positions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+}
+
+.target {
+    box-sizing: border-box;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px dashed #e8178a;
+    border-radius: 0.125rem;
+    background: rgb(232 23 138 / 20%);
+    pointer-events: none;
+}
+
+igc-tooltip {
+    pointer-events: none;
+}

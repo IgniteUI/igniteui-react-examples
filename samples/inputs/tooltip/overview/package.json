@@ -1,6 +1,6 @@
 {
-  "name": "react-button-overview",
-  "description": "This project provides example of Button Overview using Infragistics React components",
+  "name": "react-tooltip-overview",
+  "description": "This project provides an example of Tooltip overview using Infragistics React components",
   "author": "Infragistics",
   "homepage": ".",
   "version": "1.4.0",
