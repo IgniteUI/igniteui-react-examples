@@ -36,6 +36,10 @@ curl -s -o /dev/null -w "%{http_code}\n" \
 - **Generated**: change the source in igniteui-xplat-examples (the sample's JSON, or `code-gen-library` for data sources and handlers). Patch the sample here as well only when the fix can't wait for the next export, and say so in the PR. Don't restyle generated code (class components, `IgrXxxModule.register()`, `render(): JSX.Element`); it is the generator's output.
 - **Hand-maintained**: function components with hooks, the strict `tsconfig.json` from `npm run add:sample`, and no `register()` calls for `igniteui-react` components, which no longer need them.
 
+## Sample styles
+
+When you write or review a sample's `src/index.css`, follow the [`igniteui-sample-styling`](.claude/skills/igniteui-sample-styling/SKILL.md) skill: a sample's CSS holds layout only, and its colors come from the theme the docs theme picker sets. The skill uses the Ignite UI theming MCP server, configured in `.vscode/mcp.json` for VS Code and in `.mcp.json` for Claude Code.
+
 ## The sample contract
 
 - `src/index.tsx` must `export default` the sample component and end with the standalone mount, rendering one self-closing element:
