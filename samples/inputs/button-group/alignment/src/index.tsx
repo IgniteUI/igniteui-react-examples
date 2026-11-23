@@ -10,23 +10,25 @@ const alignments: Array<'horizontal' | 'vertical'> = ['horizontal', 'vertical'];
 
 export default function ButtonGroupAlignment(): JSX.Element {
     return (
-        <div className="sample-layout">
-            {alignments.map((alignment) => (
-                <div className="sample-inner-layout" key={alignment}>
-                    <span>{alignment.charAt(0).toUpperCase() + alignment.slice(1)}</span>
-                    <IgrButtonGroup alignment={alignment}>
-                        {cities.map((city) => (
-                            <IgrToggleButton
-                                key={city}
-                                value={city.toLowerCase()}
-                            >
-                                {city}
-                                <IgrRipple />
-                            </IgrToggleButton>
-                        ))}
-                    </IgrButtonGroup>
-                </div>
-            ))}
+        <div className="states-container">
+            <div className="sample-layout">
+                {alignments.map((alignment) => (
+                    <div className="sample-inner-layout" key={alignment}>
+                        <span>{alignment.charAt(0).toUpperCase() + alignment.slice(1)}</span>
+                        <IgrButtonGroup alignment={alignment}>
+                            {cities.map((city) => (
+                                <IgrToggleButton
+                                    key={city}
+                                    value={city.toLowerCase()}
+                                >
+                                    {city}
+                                    <IgrRipple />
+                                </IgrToggleButton>
+                            ))}
+                        </IgrButtonGroup>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

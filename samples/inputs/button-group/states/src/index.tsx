@@ -11,38 +11,40 @@ const rows: Array<{ label: string; selected: boolean }> = [
 
 export default function ButtonGroupInteractionStates(): JSX.Element {
     return (
-        <article className="states-matrix">
-            <header className="states-row">
-                <span className="row-label" />
-                <span className="column-label">Enabled</span>
-                <span className="column-label">Disabled</span>
-            </header>
-            {rows.map((row) => (
-                <section className="states-row" key={row.label}>
-                    <span className="row-label">{row.label}</span>
-                    <div className="state-cell">
-                        <span className="cell-label">Enabled</span>
-                        <IgrButtonGroup selection="multiple">
-                            <IgrToggleButton
-                                value="device"
-                                selected={row.selected}
-                            >
-                                Device
-                                <IgrRipple />
-                            </IgrToggleButton>
-                        </IgrButtonGroup>
-                    </div>
-                    <div className="state-cell">
-                        <span className="cell-label">Disabled</span>
-                        <IgrButtonGroup selection="multiple">
-                            <IgrToggleButton value="cloud" disabled={true} selected={row.selected}>
-                                Cloud
-                            </IgrToggleButton>
-                        </IgrButtonGroup>
-                    </div>
-                </section>
-            ))}
-        </article>
+        <div className="states-container">
+            <article className="states-matrix">
+                <header className="states-row">
+                    <span className="row-label" />
+                    <span className="column-label">Enabled</span>
+                    <span className="column-label">Disabled</span>
+                </header>
+                {rows.map((row) => (
+                    <section className="states-row" key={row.label}>
+                        <span className="row-label">{row.label}</span>
+                        <div className="state-cell">
+                            <span className="cell-label">Enabled</span>
+                            <IgrButtonGroup selection="multiple">
+                                <IgrToggleButton
+                                    value="device"
+                                    selected={row.selected}
+                                >
+                                    Device
+                                    <IgrRipple />
+                                </IgrToggleButton>
+                            </IgrButtonGroup>
+                        </div>
+                        <div className="state-cell">
+                            <span className="cell-label">Disabled</span>
+                            <IgrButtonGroup selection="multiple">
+                                <IgrToggleButton value="cloud" disabled={true} selected={row.selected}>
+                                    Cloud
+                                </IgrToggleButton>
+                            </IgrButtonGroup>
+                        </div>
+                    </section>
+                ))}
+            </article>
+        </div>
     );
 }
 

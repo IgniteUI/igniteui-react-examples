@@ -10,24 +10,26 @@ const sizes = ['small', 'medium', 'large'];
 
 export default function ButtonGroupSize(): JSX.Element {
     return (
-        <article className="button-group-size">
-            {sizes.map((size) => (
-                <React.Fragment key={size}>
-                    <span className="sample-label">{size.charAt(0).toUpperCase() + size.slice(1)}</span>
-                    <IgrButtonGroup>
-                        {cities.map((city) => (
-                            <IgrToggleButton
-                                key={city}
-                                value={city.toLowerCase()}
-                            >
-                                {city}
-                                <IgrRipple />
-                            </IgrToggleButton>
-                        ))}
-                    </IgrButtonGroup>
-                </React.Fragment>
-            ))}
-        </article>
+        <div className="states-container">
+            <article className="button-group-size">
+                {sizes.map((size) => (
+                    <React.Fragment key={size}>
+                        <span className="sample-label">{size.charAt(0).toUpperCase() + size.slice(1)}</span>
+                        <IgrButtonGroup>
+                            {cities.map((city) => (
+                                <IgrToggleButton
+                                    key={city}
+                                    value={city.toLowerCase()}
+                                >
+                                    {city}
+                                    <IgrRipple />
+                                </IgrToggleButton>
+                            ))}
+                        </IgrButtonGroup>
+                    </React.Fragment>
+                ))}
+            </article>
+        </div>
     );
 }
 
