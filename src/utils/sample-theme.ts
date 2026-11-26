@@ -9,7 +9,9 @@
  * the frame, and re-posts the current selection on every iframe `load`. Here we
  * validate the sender and re-point the Ignite UI theme stylesheets to match.
  *
- * Dormant unless a trusted docs host asks for a theme.
+ * Dormant unless a trusted docs host asks for a theme, or the URL carries one:
+ * "Open in full screen" opens the sample in its own tab, where no message
+ * arrives, so the docs pass the selection as `?igd-theme=<theme>&igd-mode=<mode>`.
  *
  * A theme change has TWO halves
  * ─────────────────────────────
@@ -168,16 +170,32 @@ function watchSystemMode(): void {
   });
 }
 
+/** Applies the selection that "Open in full screen" passes in the URL, if any. */
+function applyThemeFromUrl(): void {
+  const params = new URLSearchParams(window.location.search);
+  const next = parseMessage({
+    type: MESSAGE_TYPE,
+    theme: params.get('igd-theme') ?? undefined,
+    mode: params.get('igd-mode') ?? undefined,
+  });
+  if (!next) return;
+
+  selected = next;
+  void applyTheme(next.theme, next.mode);
+}
+
 /**
- * Starts listening for theme messages from the embedding docs page.
+ * Applies the theme in the URL, if any, and starts listening for theme messages
+ * from the embedding docs page.
  *
  * Must run while the document is still loading: the host re-posts on the iframe
  * `load` event, which fires after module scripts execute, so no handshake is
  * needed.
  */
 export function initSampleThemeListener(): void {
-  if (listening || window.parent === window) return;
+  if (listening) return;
   listening = true;
-  window.addEventListener('message', onMessage);
+  applyThemeFromUrl();
+  if (window.parent !== window) window.addEventListener('message', onMessage);
   watchSystemMode();
 }
